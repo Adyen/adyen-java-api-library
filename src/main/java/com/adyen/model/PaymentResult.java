@@ -15,6 +15,7 @@ package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -84,7 +85,7 @@ public class PaymentResult {
   private ResultCodeEnum resultCode = null;
 
   @SerializedName("additionalData")
-  private String additionalData = null;
+  private Map<String, String> additionalData = null;
 
   @SerializedName("refusalReason")
   private String refusalReason = null;
@@ -228,7 +229,7 @@ public class PaymentResult {
     this.resultCode = resultCode;
   }
 
-  public PaymentResult additionalData(String additionalData) {
+  public PaymentResult additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
   }
@@ -237,11 +238,11 @@ public class PaymentResult {
    * a map of name/value pairs for passing in additional/industry-specific data
    * @return additionalData
   **/
-  public String getAdditionalData() {
+  public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-  public void setAdditionalData(String additionalData) {
+  public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
@@ -278,7 +279,6 @@ public class PaymentResult {
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
   }
-
 
   @Override
   public boolean equals(Object o) {

@@ -1,0 +1,87 @@
+{
+  "additionalData": {
+    "fraudResultType": "GREEN",
+    "aliasType": "Default",
+    "alias": "E840075550837688"
+  },
+  "fraudResult": {
+    "accountScore": 0,
+    "results": [
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 2,
+          "name": "CardChunkUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 3,
+          "name": "PaymentDetailUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 4,
+          "name": "HolderNameUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 1,
+          "name": "PaymentDetailRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 13,
+          "name": "IssuerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 15,
+          "name": "IssuingCountryReferral"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 27,
+          "name": "PmOwnerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 41,
+          "name": "PaymentDetailNonFraudRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 10,
+          "name": "HolderNameContainsNumber"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 11,
+          "name": "HolderNameIsOneWord"
+        }
+      }
+    ]
+  },
+  "pspReference": "7924836133944997",
+  "resultCode": "RedirectShopper",
+  "issuerUrl": "https://test.adyen.com/hpp/3d/validate.shtml",
+  "md": "qeQbxBB3pYYM+ggR0rXKb9Bdng0p0WRtFU206k+2+tpjnN/q2Jvlvr5GowN8bLHYuXa67otJ5LP10s0000ULw6tVLYFsQDR6JGL5+f7S3HajWtVe/q6LfZRce7x04Fo813aDftvSFW+hFmjTZWHu4guKZrC7GBUYnEmjcHrhMXQbLgC23asFr/Cg7FPMz7DAJBh2Frc/WluZ5/5DD6PN5XXGQvLOWxmVszT8rd0x05AiZTGq2evPWQTeB1qOkNxmA0KGEznTaXakHYpFAIN69GQOSnrx9Ys4f4/H9gechsdGGi/5jA3e0jeQvVJ5J74vAdD+0MRv1VyeX6g0CIupbgfm4L90zoWMBgG2SeeKRgc=",
+  "paRequest": "eNpVUttygjAQ/RXrB5CEi1xmzQwVZ+qDjGP1ucOEjFJK0BCK8PVNUGqbp3N2s5uzZwOHs+Q8eeeslZzCljdNduKzIl/OIz+03cBZEMcJXTcM/TmFXbznVwrfX000LSixsGUDmqgul+ycCUUhY9fXTUqJ7bjeAtCDQsXlJqEH3qhdVcXs2haSS0D3MIis4vQYf8Srl2irZQhVTx33RQlozAOrW6FkTz07ADQRaOUXPSt1iRDqus7K8p4Li9UVAmRSgJ7adq1BjW51K3KaDmWfJqch/VwP26HEaVJ6aRebswRkbkCeKU5tTHxMsDcjOHLDyHMBjXHIKqOBro/7GfEsjPW09whczEPxnRDPZP5GQFsuuWA9DX0zycSA3y610MNTbe0vBvSUvXozBjOlPXPtu8V+EGKNfGP1mDBdCm0MCXAwtjEEkClFjy2ix7Y1+vcLfgBLma8C"
+}

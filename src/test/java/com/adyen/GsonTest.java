@@ -18,48 +18,6 @@ public class GsonTest extends BaseTest {
 
     @Test
     public void TestGson() {
-
-
-
-//        Gson gson = new Gson();
-//        Gson gson = new GsonBuilder()
-//                .enableComplexMapKeySerialization()
-//                .create();
-//
-//
-//        RequestTest test = new RequestTest();
-//
-//
-//        HashMap<String,String> items = new HashMap<String, String>();
-//        items.put("currency","EUR");
-//        items.put("value","100000");
-//
-//
-//        HashMap<String, HashMap<String,String>> allItems = new HashMap<String, HashMap<String, String>>();
-//        allItems.put("amount", items);
-//
-//
-//        test.setItems(allItems);
-//
-//        test.setSimpleItems(items);
-//
-//
-//        String json1 = gson.toJson(test, RequestTest.class);
-//
-//        String json2 = gson.toJson(test.getSimpleItems());
-//
-////        String json = gson.toJson(items, RequestTest.class);
-//
-//
-//        System.out.println("HEIR");
-//        System.out.println(json1);
-//
-//        System.out.println("HEIR");
-//
-//        System.out.println(json2);
-
-
-
         Request request = new Request();
 
         HashMap<String,String> topLevelItems = new HashMap<String, String>();

@@ -1,10 +1,18 @@
 package com.adyen.service;
 
+import com.adyen.Config;
 import com.adyen.Request;
 import com.adyen.Service;
 import com.adyen.Util.Util;
 import com.adyen.httpclient.ClientInterface;
+import com.adyen.httpclient.HTTPClientException;
+import com.adyen.model.ApiError;
+import com.adyen.model.PaymentResult;
+import com.adyen.service.exception.ApiException;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Resource {
@@ -29,8 +37,33 @@ public class Resource {
     	Map<String, Object> result = clientInterface.requestJson(this.service, this.endpoint, params);
     	return result;
     }
-    
 
+    /**
+     * Request using json String
+     *
+     * @param json
+     * @return
+     * @throws ApiException
+     * @throws IOException
+     */
+    public String request(String json) throws ApiException, IOException {
+        ClientInterface clientInterface = (ClientInterface) this.service.getClient().getHttpClient();
+        Config config = this.service.getClient().getConfig();
+        String result = null;
+        try {
+            result = clientInterface.request(this.endpoint, json, config);
+        } catch (HTTPClientException e) {
+            String responseBody = e.getResponseBody();
+
+            Gson gson = new Gson();
+            ApiError apiError = gson.fromJson(responseBody, new TypeToken<ApiError>() {}.getType());
+            ApiException apiException = new ApiException(e.getMessage());
+            apiException.setError(apiError);
+
+            throw apiException;
+        }
+        return result;
+    }
 
     // Validate needs to be done by gson the json to an object. Object only contains valdiate fields to validate and use the json to put to the server to adyen
     protected void validate(Map<String, Object> params) throws Exception

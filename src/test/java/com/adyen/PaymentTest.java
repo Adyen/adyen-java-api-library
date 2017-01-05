@@ -1,115 +1,206 @@
 package com.adyen;
 
+import com.adyen.model.PaymentRequest;
+import com.adyen.model.PaymentResult;
 import com.adyen.service.Payment;
-import com.google.gson.JsonObject;
+import com.adyen.service.exception.ApiException;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
 
-public class PaymentTest extends BaseTest{
-	
-	
-	public Map<String, Object> doPaymentCall() {
-		
-		Client client = this.createClientFromConfigurations();
+import static org.junit.Assert.*;
+
+/**
+ * Tests for /authorise and /authorise3d
+ */
+public class PaymentTest extends BaseTest {
 
 
-		// define parameters
-		Map<String, Object> params = new HashMap<String, Object>();
+    public Map<String, Object> doPaymentCall() {
 
-		String merchantAccount = configurations.get("merchantAccount");
-		String reference = "TEST-PAYMENT-2";
+        Client client = this.createClientFromConfigurations();
 
 
-		Map<String, String> amount = new HashMap<String, String>();
-		amount.put("currency", "EUR");
-		amount.put("value", "100000"); // minor units!
-		params.put("amount", amount);
+        // define parameters
+        Map<String, Object> params = new HashMap<String, Object>();
+
+        String merchantAccount = configurations.get("merchantAccount");
+        String reference = "TEST-PAYMENT-2";
 
 
+        Map<String, String> amount = new HashMap<String, String>();
+        amount.put("currency", "EUR");
+        amount.put("value", "100000"); // minor units!
+        params.put("amount", amount);
 
-		// reflection with dot in gson ? problem is then cse encryption
 
-		Map<String, String> card = new HashMap<String, String>();
-		card.put("expiryMonth", "08");
-		card.put("expiryYear", "2018");
-		card.put("holderName", "John Doe");
-		card.put("number", "5136333333333335");
-		card.put("cvc", "737");
+        // reflection with dot in gson ? problem is then cse encryption
 
-		params.put("card", card);
+        Map<String, String> card = new HashMap<String, String>();
+        card.put("expiryMonth", "08");
+        card.put("expiryYear", "2018");
+        card.put("holderName", "John Doe");
+        card.put("number", "5136333333333335");
+        card.put("cvc", "737");
 
-		params.put("merchantAccount", merchantAccount);
-		params.put("reference", reference);
+        params.put("card", card);
 
-		Payment paymentRequest = new Payment(client);
+        params.put("merchantAccount", merchantAccount);
+        params.put("reference", reference);
 
-		try {
-			Map<String, Object> result = paymentRequest.authorise(params);
-			return result;
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+        Payment paymentRequest = new Payment(client);
 
-		return null;
-	}
-	
-	
-	@Test
-	public void TestSuccessFulPaymentAuthorisation()
-	{
-		Map<String, Object> result = this.doPaymentCall();
-		System.out.println(result);
-		
+        try {
+            Map<String, Object> result = paymentRequest.authorise(params);
+            return result;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return null;
+    }
+
+
+    @Test
+    public void TestSuccessFulPaymentAuthorisation() {
+        Map<String, Object> result = this.doPaymentCall();
+        System.out.println(result);
+
 //		Object pspReference = result.get("pspReference");
         String resultCode = result.get("resultCode").toString();
 
         assertEquals("Authorised", resultCode);
-	}
+    }
 
-	@Test
-	public void TestSuccessFulPaymentAuthorisationJson()
-	{
+    @Test
+    public void TestSuccessFulPaymentAuthorisationJson() {
 
-		Client client = this.createClientFromConfigurations();
-		Payment paymentRequest = new Payment(client);
+        Client client = this.createClientFromConfigurations();
+        Payment paymentRequest = new Payment(client);
 
-		String json = "{ " +
-			"\"reference\": \"1000000\", " +
-			"\"merchantAccount\": \"MagentoMerchantRik\", " +
-			"\"amount\": { " +
-				"\"currency\": \"EUR\"," +
-				" \"value\": \"10000\" " +
-			"}, " +
-			"\"card\": { " +
-			"\"expiryMonth\": \"08\"," +
-			"\"expiryYear\": \"2018\"," +
-			"\"holderName\": \"John Doe\"," +
-			"\"number\": \"5136333333333335\"," +
-			"\"cvc\": \"737\"" +
-			"} " +
-		"}";
+        String json = "{ " +
+                "\"reference\": \"1000000\", " +
+                "\"merchantAccount\": \"MagentoMerchantRik\", " +
+                "\"amount\": { " +
+                "\"currency\": \"EUR\"," +
+                " \"value\": \"10000\" " +
+                "}, " +
+                "\"card\": { " +
+                "\"expiryMonth\": \"08\"," +
+                "\"expiryYear\": \"2018\"," +
+                "\"holderName\": \"John Doe\"," +
+                "\"number\": \"5136333333333335\"," +
+                "\"cvc\": \"737\"" +
+                "} " +
+                "}";
 
 
-		Map<String, Object> result = null;
-		try {
-			result = paymentRequest.authorise(json);
+        Map<String, Object> result = null;
+        try {
+            result = paymentRequest.authorise(json);
 
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-		System.out.println(result);
+        System.out.println(result);
 
 
 //		Object pspReference = result.get("pspReference");
-		String resultCode = result.get("resultCode").toString();
+        String resultCode = result.get("resultCode").toString();
 
-		assertEquals("Authorised", resultCode);
-	}
+        assertEquals("Authorised", resultCode);
+    }
 
+    /**
+     * Test success flow for
+     * POST /authorise
+     */
+    @Test
+    public void TestAuthoriseSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createFullCardPaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+
+        assertEquals(PaymentResult.ResultCodeEnum.AUTHORISED, paymentResult.getResultCode());
+
+    }
+
+    /**
+     * Test error flow 010 for
+     * POST /authorise
+     */
+    @Test
+    public void TestAuthoriseError010Mocked() throws Exception {
+        Client client = createMockClientForErrors(403, "mocks/authorise-error-010.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createFullCardPaymentRequest();
+
+        try {
+            PaymentResult paymentResult = payment.authorise(paymentRequest);
+        } catch (ApiException e) {
+            String errorCode = e.getError().getErrorCode();
+            assertEquals("010", errorCode);
+
+            int status = e.getError().getStatus();
+            assertEquals(403, status);
+        }
+    }
+
+    /**
+     * Test error flow with wrong CVC for
+     * POST /authorise
+     */
+    @Test
+    public void TestAuthoriseErrorCVCDeclinedMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-error-cvc-declined.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createFullCardPaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+
+        assertEquals(PaymentResult.ResultCodeEnum.REFUSED, paymentResult.getResultCode());
+    }
+
+    /**
+     * Test success flow with 3D secured CC for
+     * POST /authorise
+     */
+    @Test
+    public void TestAuthoriseSuccess3DMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success-3d.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createFullCardPaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise3D(paymentRequest);
+
+        assertEquals(PaymentResult.ResultCodeEnum.REDIRECTSHOPPER, paymentResult.getResultCode());
+        assertNotNull(paymentResult.getMd());
+        assertNotNull(paymentResult.getIssuerUrl());
+        assertNotNull(paymentResult.getPaRequest());
+    }
+
+    /**
+     * Test success flow for
+     * POST /authorise3d
+     */
+    @Test
+    public void TestAuthorise3DSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise3d-success.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createFullCardPaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise3D(paymentRequest);
+
+        assertEquals(PaymentResult.ResultCodeEnum.AUTHORISED, paymentResult.getResultCode());
+        assertNotNull(paymentResult.getPspReference());
+    }
 }
