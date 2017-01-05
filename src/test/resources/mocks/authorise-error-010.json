@@ -1,0 +1,7 @@
+{
+  "status": 403,
+  "errorCode": "010",
+  "message": "Not allowed",
+  "errorType": "security",
+  "pspReference": "8514836072314693"
+}

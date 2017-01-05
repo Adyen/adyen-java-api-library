@@ -1,0 +1,85 @@
+{
+  "additionalData": {
+    "fraudResultType": "GREEN",
+    "aliasType": "Default",
+    "alias": "H167852639363479"
+  },
+  "fraudResult": {
+    "accountScore": 50,
+    "results": [
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 2,
+          "name": "CardChunkUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 3,
+          "name": "PaymentDetailUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 4,
+          "name": "HolderNameUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 1,
+          "name": "PaymentDetailRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 13,
+          "name": "IssuerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 15,
+          "name": "IssuingCountryReferral"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 27,
+          "name": "PmOwnerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 50,
+          "checkId": 41,
+          "name": "PaymentDetailNonFraudRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 10,
+          "name": "HolderNameContainsNumber"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 11,
+          "name": "HolderNameIsOneWord"
+        }
+      }
+    ]
+  },
+  "pspReference": "7924836078655376",
+  "refusalReason": "CVC Declined",
+  "resultCode": "Refused"
+}

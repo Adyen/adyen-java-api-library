@@ -3,6 +3,8 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Request;
 import com.adyen.Service;
+import com.adyen.model.PaymentRequest;
+import com.adyen.model.PaymentResult;
 import com.adyen.service.resource.payment.Authorise;
 import com.adyen.service.resource.payment.Authorise3D;
 import com.google.gson.Gson;
@@ -38,5 +40,41 @@ public class Payment extends Service {
 	
 	public Map<String, Object> authorise3D(Map<String, Object> params) throws Exception {
 		return authorise3D.request(params);
+	}
+
+	/**
+	 * POST /authorise API call
+	 *
+	 * @param paymentRequest
+	 * @return
+	 * @throws Exception
+	 */
+	public PaymentResult authorise(PaymentRequest paymentRequest) throws Exception {
+		Gson gson = new Gson();
+		String jsonRequest = gson.toJson(paymentRequest);
+
+		String jsonResult = authorise.request(jsonRequest);
+
+		PaymentResult paymentResult = gson.fromJson(jsonResult, new TypeToken<PaymentResult>() {}.getType());
+
+		return paymentResult;
+	}
+
+	/**
+	 * POST /authorise3d API call
+	 *
+	 * @param paymentRequest
+	 * @return
+	 * @throws Exception
+	 */
+	public PaymentResult authorise3D(PaymentRequest paymentRequest) throws Exception {
+		Gson gson = new Gson();
+		String jsonRequest = gson.toJson(paymentRequest);
+
+		String jsonResult = authorise3D.request(jsonRequest);
+
+		PaymentResult paymentResult = gson.fromJson(jsonResult, new TypeToken<PaymentResult>() {}.getType());
+
+		return paymentResult;
 	}
 }

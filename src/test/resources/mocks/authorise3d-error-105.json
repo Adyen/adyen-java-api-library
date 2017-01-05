@@ -1,0 +1,6 @@
+{
+  "status": 422,
+  "errorCode": "105",
+  "message": "Invalid paRes from issuer",
+  "errorType": "validation"
+}

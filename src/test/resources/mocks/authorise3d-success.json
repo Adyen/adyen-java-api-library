@@ -1,0 +1,30 @@
+{
+  "additionalData": {
+    "fraudResultType": "GREEN",
+    "fraudManualReview": "false",
+    "aliasType": "Default",
+    "alias": "E840075550837688"
+  },
+  "fraudResult": {
+    "accountScore": 12,
+    "results": [
+      {
+        "FraudCheckResult": {
+          "accountScore": 12,
+          "checkId": -1,
+          "name": "Pre-Auth-Risk-Total"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 25,
+          "name": "CVCAuthResultCheck"
+        }
+      }
+    ]
+  },
+  "pspReference": "8524836146572696",
+  "resultCode": "Authorised",
+  "authCode": "90473"
+}
