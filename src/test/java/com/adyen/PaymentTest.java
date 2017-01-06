@@ -1,6 +1,7 @@
 package com.adyen;
 
 import com.adyen.constants.ApiConstants.AdditionalData;
+import com.adyen.constants.ApiConstants.RefusalReason;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentResult;
@@ -235,6 +236,7 @@ public class PaymentTest extends BaseTest {
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
         assertTrue(paymentResult.isRefused());
+        assertEquals(RefusalReason.REFUSED, paymentResult.getRefusalReason());
         assertEquals("DECLINED Expiry Incorrect", paymentResult.getAdditionalData().get(AdditionalData.REFUSAL_REASON_RAW));
     }
 }
