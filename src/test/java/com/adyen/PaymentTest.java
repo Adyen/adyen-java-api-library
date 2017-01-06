@@ -1,6 +1,8 @@
 package com.adyen;
 
+import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.model.PaymentRequest;
+import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentResult;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
@@ -126,8 +128,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertEquals(PaymentResult.ResultCodeEnum.AUTHORISED, paymentResult.getResultCode());
-
+        assertTrue(paymentResult.isAuthorised());
     }
 
     /**
@@ -165,7 +166,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertEquals(PaymentResult.ResultCodeEnum.REFUSED, paymentResult.getResultCode());
+        assertTrue(paymentResult.isRefused());
     }
 
     /**
@@ -179,9 +180,9 @@ public class PaymentTest extends BaseTest {
 
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
-        PaymentResult paymentResult = payment.authorise3D(paymentRequest);
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertEquals(PaymentResult.ResultCodeEnum.REDIRECTSHOPPER, paymentResult.getResultCode());
+        assertTrue(paymentResult.isRedirectShopper());
         assertNotNull(paymentResult.getMd());
         assertNotNull(paymentResult.getIssuerUrl());
         assertNotNull(paymentResult.getPaRequest());
@@ -196,11 +197,44 @@ public class PaymentTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/authorise3d-success.json");
         Payment payment = new Payment(client);
 
-        PaymentRequest paymentRequest = createFullCardPaymentRequest();
+        PaymentRequest3d paymentRequest3d = create3DPaymentRequest();
 
-        PaymentResult paymentResult = payment.authorise3D(paymentRequest);
+        PaymentResult paymentResult = payment.authorise3D(paymentRequest3d);
 
-        assertEquals(PaymentResult.ResultCodeEnum.AUTHORISED, paymentResult.getResultCode());
+        assertTrue(paymentResult.isAuthorised());
         assertNotNull(paymentResult.getPspReference());
+    }
+
+    /**
+     * Test success flow (CSE) for
+     * POST /authorise
+     */
+    @Test
+    public void TestAuthoriseCSESuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createCSEPaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+
+        assertTrue(paymentResult.isAuthorised());
+    }
+
+    /**
+     * Test flow (CSE) expired card for
+     * POST /authorise
+     */
+    @Test
+    public void TestAuthoriseCSEErrorExpiredMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-error-expired.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createCSEPaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+
+        assertTrue(paymentResult.isRefused());
+        assertEquals("DECLINED Expiry Incorrect", paymentResult.getAdditionalData().get(AdditionalData.REFUSAL_REASON_RAW));
     }
 }

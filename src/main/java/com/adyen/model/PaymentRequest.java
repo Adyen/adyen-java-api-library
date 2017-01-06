@@ -13,850 +13,161 @@
 
 package com.adyen.model;
 
+import com.adyen.constants.ApiConstants;
 import com.google.gson.annotations.SerializedName;
-import org.joda.time.LocalDate;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
  * PaymentRequest
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-14T08:41:23.938Z")
-public class PaymentRequest {
-  @SerializedName("card")
-  private Card card = null;
+public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
+    private static final String ADDITIONAL_DATA = "/authorise-3d-adyen-response";
 
-  @SerializedName("mpiData")
-  private ThreeDSecureData mpiData = null;
+    @SerializedName("card")
+    private Card card = null;
 
-  @SerializedName("bankAccount")
-  private BankAccount bankAccount = null;
+    @SerializedName("mpiData")
+    private ThreeDSecureData mpiData = null;
 
-  @SerializedName("amount")
-  private Amount amount = null;
+    @SerializedName("bankAccount")
+    private BankAccount bankAccount = null;
 
-  @SerializedName("reference")
-  private String reference = null;
+    public PaymentRequest setAmountData(String amount, String currency) {
+        Long amountValue = new BigDecimal(100)
+                .multiply(new BigDecimal(amount))
+                .longValue();
 
-  @SerializedName("billingAddress")
-  private Address billingAddress = null;
+        Amount amountData = new Amount();
+        amountData.setCurrency(currency);
+        amountData.setValue(amountValue);
 
-  @SerializedName("shopperIP")
-  private String shopperIP = null;
+        this.setAmount(amountData);
+        return this;
+    }
 
-  @SerializedName("merchantAccount")
-  private String merchantAccount = null;
+    public PaymentRequest setCSEToken(String cseToken) {
+        getOrCreateAdditionalData().put(ApiConstants.AdditionalData.Card.Encrypted.JSON, cseToken);
+        return this;
+    }
 
-  @SerializedName("browserInfo")
-  private BrowserInfo browserInfo = null;
+    public PaymentRequest setCardData(String cardNumber,
+                                      String cardHolder,
+                                      String expiryMonth,
+                                      String expiryYear,
+                                      String cvc) {
+        Card card = new Card();
+        card.setExpiryMonth(expiryMonth);
+        card.setExpiryYear(expiryYear);
+        card.setHolderName(cardHolder);
+        card.setNumber(cardNumber);
+        card.setCvc(cvc);
 
-  /**
-   * how the shopper interacts with the system
-   */
-  public enum ShopperInteractionEnum {
-    @SerializedName("Ecommerce")
-    ECOMMERCE("Ecommerce"),
-    
-    @SerializedName("ContAuth")
-    CONTAUTH("ContAuth"),
-    
-    @SerializedName("Moto")
-    MOTO("Moto");
+        this.setCard(card);
+        return this;
+    }
 
-    private String value;
+    public PaymentRequest card(Card card) {
+        this.card = card;
+        return this;
+    }
 
-    ShopperInteractionEnum(String value) {
-      this.value = value;
+    /**
+     * a representation of a (credit or debit) card
+     *
+     * @return card
+     **/
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
+    public PaymentRequest mpiData(ThreeDSecureData mpiData) {
+        this.mpiData = mpiData;
+        return this;
+    }
+
+    /**
+     * authentication data produced by an MPI (MasterCard SecureCode or Verified By Visa)
+     *
+     * @return mpiData
+     **/
+
+    public ThreeDSecureData getMpiData() {
+        return mpiData;
+    }
+
+    public void setMpiData(ThreeDSecureData mpiData) {
+        this.mpiData = mpiData;
+    }
+
+    public PaymentRequest bankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
+        return this;
+    }
+
+    /**
+     * a representation of a bank account
+     *
+     * @return bankAccount
+     **/
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PaymentRequest paymentRequest = (PaymentRequest) o;
+        return super.equals(paymentRequest) &&
+                Objects.equals(this.card, paymentRequest.card) &&
+                Objects.equals(this.mpiData, paymentRequest.mpiData) &&
+                Objects.equals(this.bankAccount, paymentRequest.bankAccount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(card, mpiData, bankAccount, super.hashCode());
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PaymentRequest {\n");
+
+        sb.append(super.toString());
+        sb.append("    card: ").append(toIndentedString(card)).append("\n");
+        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
+        sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
-  }
 
-  @SerializedName("shopperInteraction")
-  private ShopperInteractionEnum shopperInteraction = null;
-
-  @SerializedName("shopperEmail")
-  private String shopperEmail = null;
-
-  @SerializedName("shopperReference")
-  private String shopperReference = null;
-
-  @SerializedName("recurring")
-  private Recurring recurring = null;
-
-  @SerializedName("shopperStatement")
-  private String shopperStatement = null;
-
-  @SerializedName("fraudOffset")
-  private Integer fraudOffset = null;
-
-  @SerializedName("sessionId")
-  private String sessionId = null;
-
-  @SerializedName("additionalAmount")
-  private Amount additionalAmount = null;
-
-  @SerializedName("selectedRecurringDetailReference")
-  private String selectedRecurringDetailReference = null;
-
-  @SerializedName("orderReference")
-  private String orderReference = null;
-
-  @SerializedName("merchantOrderReference")
-  private String merchantOrderReference = null;
-
-  @SerializedName("dccQuote")
-  private ForexQuote dccQuote = null;
-
-  @SerializedName("additionalData")
-  private String additionalData = null;
-
-  @SerializedName("shopperName")
-  private Name shopperName = null;
-
-  @SerializedName("shopperLocale")
-  private String shopperLocale = null;
-
-  @SerializedName("selectedBrand")
-  private String selectedBrand = null;
-
-  @SerializedName("deliveryAddress")
-  private Address deliveryAddress = null;
-
-  @SerializedName("deliveryDate")
-  private LocalDate deliveryDate = null;
-
-  @SerializedName("deviceFingerprint")
-  private String deviceFingerprint = null;
-
-  @SerializedName("installments")
-  private Installments installments = null;
-
-  @SerializedName("socialSecurityNumber")
-  private String socialSecurityNumber = null;
-
-  @SerializedName("captureDelayHours")
-  private Integer captureDelayHours = null;
-
-  @SerializedName("dateOfBirth")
-  private LocalDate dateOfBirth = null;
-
-  @SerializedName("telephoneNumber")
-  private String telephoneNumber = null;
-
-  @SerializedName("mcc")
-  private String mcc = null;
-
-  @SerializedName("metadata")
-  private String metadata = null;
-
-  public PaymentRequest card(Card card) {
-    this.card = card;
-    return this;
-  }
-
-   /**
-   * a representation of a (credit or debit) card
-   * @return card
-  **/
-
-  public Card getCard() {
-    return card;
-  }
-
-  public void setCard(Card card) {
-    this.card = card;
-  }
-
-  public PaymentRequest mpiData(ThreeDSecureData mpiData) {
-    this.mpiData = mpiData;
-    return this;
-  }
-
-   /**
-   * authentication data produced by an MPI (MasterCard SecureCode or Verified By Visa)
-   * @return mpiData
-  **/
-
-  public ThreeDSecureData getMpiData() {
-    return mpiData;
-  }
-
-  public void setMpiData(ThreeDSecureData mpiData) {
-    this.mpiData = mpiData;
-  }
-
-  public PaymentRequest bankAccount(BankAccount bankAccount) {
-    this.bankAccount = bankAccount;
-    return this;
-  }
-
-   /**
-   * a representation of a bank account
-   * @return bankAccount
-  **/
-  public BankAccount getBankAccount() {
-    return bankAccount;
-  }
-
-  public void setBankAccount(BankAccount bankAccount) {
-    this.bankAccount = bankAccount;
-  }
-
-  public PaymentRequest amount(Amount amount) {
-    this.amount = amount;
-    return this;
-  }
-
-   /**
-   * the amount to charge
-   * @return amount
-  **/
-  public Amount getAmount() {
-    return amount;
-  }
-
-  public void setAmount(Amount amount) {
-    this.amount = amount;
-  }
-
-  public PaymentRequest reference(String reference) {
-    this.reference = reference;
-    return this;
-  }
-
-   /**
-   * the reference assigned to the payment
-   * @return reference
-  **/
-  public String getReference() {
-    return reference;
-  }
-
-  public void setReference(String reference) {
-    this.reference = reference;
-  }
-
-  public PaymentRequest billingAddress(Address billingAddress) {
-    this.billingAddress = billingAddress;
-    return this;
-  }
-
-   /**
-   * the address where to send the invoice
-   * @return billingAddress
-  **/
-  public Address getBillingAddress() {
-    return billingAddress;
-  }
-
-  public void setBillingAddress(Address billingAddress) {
-    this.billingAddress = billingAddress;
-  }
-
-  public PaymentRequest shopperIP(String shopperIP) {
-    this.shopperIP = shopperIP;
-    return this;
-  }
-
-   /**
-   * the IP address of the shopper
-   * @return shopperIP
-  **/
-  public String getShopperIP() {
-    return shopperIP;
-  }
-
-  public void setShopperIP(String shopperIP) {
-    this.shopperIP = shopperIP;
-  }
-
-  public PaymentRequest merchantAccount(String merchantAccount) {
-    this.merchantAccount = merchantAccount;
-    return this;
-  }
-
-   /**
-   * the merchant account which will be used to process the payment
-   * @return merchantAccount
-  **/
-  public String getMerchantAccount() {
-    return merchantAccount;
-  }
-
-  public void setMerchantAccount(String merchantAccount) {
-    this.merchantAccount = merchantAccount;
-  }
-
-  public PaymentRequest browserInfo(BrowserInfo browserInfo) {
-    this.browserInfo = browserInfo;
-    return this;
-  }
-
-   /**
-   * the browser info data
-   * @return browserInfo
-  **/
-  public BrowserInfo getBrowserInfo() {
-    return browserInfo;
-  }
-
-  public void setBrowserInfo(BrowserInfo browserInfo) {
-    this.browserInfo = browserInfo;
-  }
-
-  public PaymentRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
-    this.shopperInteraction = shopperInteraction;
-    return this;
-  }
-
-   /**
-   * how the shopper interacts with the system
-   * @return shopperInteraction
-  **/
-  public ShopperInteractionEnum getShopperInteraction() {
-    return shopperInteraction;
-  }
-
-  public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
-    this.shopperInteraction = shopperInteraction;
-  }
-
-  public PaymentRequest shopperEmail(String shopperEmail) {
-    this.shopperEmail = shopperEmail;
-    return this;
-  }
-
-   /**
-   * the email address of the shopper / customer
-   * @return shopperEmail
-  **/
-  public String getShopperEmail() {
-    return shopperEmail;
-  }
-
-  public void setShopperEmail(String shopperEmail) {
-    this.shopperEmail = shopperEmail;
-  }
-
-  public PaymentRequest shopperReference(String shopperReference) {
-    this.shopperReference = shopperReference;
-    return this;
-  }
-
-   /**
-   * a reference used to uniquely identify the shopper (e.g. user ID or account ID)
-   * @return shopperReference
-  **/
-  public String getShopperReference() {
-    return shopperReference;
-  }
-
-  public void setShopperReference(String shopperReference) {
-    this.shopperReference = shopperReference;
-  }
-
-  public PaymentRequest recurring(Recurring recurring) {
-    this.recurring = recurring;
-    return this;
-  }
-
-   /**
-   * the recurring properties of the payment
-   * @return recurring
-  **/
-  public Recurring getRecurring() {
-    return recurring;
-  }
-
-  public void setRecurring(Recurring recurring) {
-    this.recurring = recurring;
-  }
-
-  public PaymentRequest shopperStatement(String shopperStatement) {
-    this.shopperStatement = shopperStatement;
-    return this;
-  }
-
-   /**
-   * the text to appear on the shopper's statement
-   * @return shopperStatement
-  **/
-  public String getShopperStatement() {
-    return shopperStatement;
-  }
-
-  public void setShopperStatement(String shopperStatement) {
-    this.shopperStatement = shopperStatement;
-  }
-
-  public PaymentRequest fraudOffset(Integer fraudOffset) {
-    this.fraudOffset = fraudOffset;
-    return this;
-  }
-
-   /**
-   * the offset that is added to the normal fraud score (positive or negative)
-   * @return fraudOffset
-  **/
-  public Integer getFraudOffset() {
-    return fraudOffset;
-  }
-
-  public void setFraudOffset(Integer fraudOffset) {
-    this.fraudOffset = fraudOffset;
-  }
-
-  public PaymentRequest sessionId(String sessionId) {
-    this.sessionId = sessionId;
-    return this;
-  }
-
-   /**
-   * Get sessionId
-   * @return sessionId
-  **/
-  public String getSessionId() {
-    return sessionId;
-  }
-
-  public void setSessionId(String sessionId) {
-    this.sessionId = sessionId;
-  }
-
-  public PaymentRequest additionalAmount(Amount additionalAmount) {
-    this.additionalAmount = additionalAmount;
-    return this;
-  }
-
-   /**
-   * the portion of the \"amount\" which is additional/surcharged. Required to be in the same currency as the amount.
-   * @return additionalAmount
-  **/
-  public Amount getAdditionalAmount() {
-    return additionalAmount;
-  }
-
-  public void setAdditionalAmount(Amount additionalAmount) {
-    this.additionalAmount = additionalAmount;
-  }
-
-  public PaymentRequest selectedRecurringDetailReference(String selectedRecurringDetailReference) {
-    this.selectedRecurringDetailReference = selectedRecurringDetailReference;
-    return this;
-  }
-
-   /**
-   * the recurringDetailReference you want to use for this payment
-   * @return selectedRecurringDetailReference
-  **/
-  public String getSelectedRecurringDetailReference() {
-    return selectedRecurringDetailReference;
-  }
-
-  public void setSelectedRecurringDetailReference(String selectedRecurringDetailReference) {
-    this.selectedRecurringDetailReference = selectedRecurringDetailReference;
-  }
-
-  public PaymentRequest orderReference(String orderReference) {
-    this.orderReference = orderReference;
-    return this;
-  }
-
-   /**
-   * the order reference to link multiple partial payments
-   * @return orderReference
-  **/
-  public String getOrderReference() {
-    return orderReference;
-  }
-
-  public void setOrderReference(String orderReference) {
-    this.orderReference = orderReference;
-  }
-
-  public PaymentRequest merchantOrderReference(String merchantOrderReference) {
-    this.merchantOrderReference = merchantOrderReference;
-    return this;
-  }
-
-   /**
-   * the reference to link multiple transactions to each other
-   * @return merchantOrderReference
-  **/
-  public String getMerchantOrderReference() {
-    return merchantOrderReference;
-  }
-
-  public void setMerchantOrderReference(String merchantOrderReference) {
-    this.merchantOrderReference = merchantOrderReference;
-  }
-
-  public PaymentRequest dccQuote(ForexQuote dccQuote) {
-    this.dccQuote = dccQuote;
-    return this;
-  }
-
-   /**
-   * the forex quote as returned in the response of the forex service
-   * @return dccQuote
-  **/
-  public ForexQuote getDccQuote() {
-    return dccQuote;
-  }
-
-  public void setDccQuote(ForexQuote dccQuote) {
-    this.dccQuote = dccQuote;
-  }
-
-  public PaymentRequest additionalData(String additionalData) {
-    this.additionalData = additionalData;
-    return this;
-  }
-
-   /**
-   * a map of name/value pairs for passing in additional/industry-specific data
-   * @return additionalData
-  **/
-  public String getAdditionalData() {
-    return additionalData;
-  }
-
-  public void setAdditionalData(String additionalData) {
-    this.additionalData = additionalData;
-  }
-
-  public PaymentRequest shopperName(Name shopperName) {
-    this.shopperName = shopperName;
-    return this;
-  }
-
-   /**
-   * the name of the shopper
-   * @return shopperName
-  **/
-  public Name getShopperName() {
-    return shopperName;
-  }
-
-  public void setShopperName(Name shopperName) {
-    this.shopperName = shopperName;
-  }
-
-  public PaymentRequest shopperLocale(String shopperLocale) {
-    this.shopperLocale = shopperLocale;
-    return this;
-  }
-
-   /**
-   * the combination of language code and country code to specify the language to be used in the payment
-   * @return shopperLocale
-  **/
-  public String getShopperLocale() {
-    return shopperLocale;
-  }
-
-  public void setShopperLocale(String shopperLocale) {
-    this.shopperLocale = shopperLocale;
-  }
-
-  public PaymentRequest selectedBrand(String selectedBrand) {
-    this.selectedBrand = selectedBrand;
-    return this;
-  }
-
-   /**
-   * the selected brand how to process the payment for dual branded cards
-   * @return selectedBrand
-  **/
-  public String getSelectedBrand() {
-    return selectedBrand;
-  }
-
-  public void setSelectedBrand(String selectedBrand) {
-    this.selectedBrand = selectedBrand;
-  }
-
-  public PaymentRequest deliveryAddress(Address deliveryAddress) {
-    this.deliveryAddress = deliveryAddress;
-    return this;
-  }
-
-   /**
-   * the address where to deliver
-   * @return deliveryAddress
-  **/
-  public Address getDeliveryAddress() {
-    return deliveryAddress;
-  }
-
-  public void setDeliveryAddress(Address deliveryAddress) {
-    this.deliveryAddress = deliveryAddress;
-  }
-
-  public PaymentRequest deliveryDate(LocalDate deliveryDate) {
-    this.deliveryDate = deliveryDate;
-    return this;
-  }
-
-   /**
-   * the expected date of delivery or fulfillment
-   * @return deliveryDate
-  **/
-  public LocalDate getDeliveryDate() {
-    return deliveryDate;
-  }
-
-  public void setDeliveryDate(LocalDate deliveryDate) {
-    this.deliveryDate = deliveryDate;
-  }
-
-  public PaymentRequest deviceFingerprint(String deviceFingerprint) {
-    this.deviceFingerprint = deviceFingerprint;
-    return this;
-  }
-
-   /**
-   * Get deviceFingerprint
-   * @return deviceFingerprint
-  **/
-  public String getDeviceFingerprint() {
-    return deviceFingerprint;
-  }
-
-  public void setDeviceFingerprint(String deviceFingerprint) {
-    this.deviceFingerprint = deviceFingerprint;
-  }
-
-  public PaymentRequest installments(Installments installments) {
-    this.installments = installments;
-    return this;
-  }
-
-   /**
-   * the installment properties of the payment
-   * @return installments
-  **/
-  public Installments getInstallments() {
-    return installments;
-  }
-
-  public void setInstallments(Installments installments) {
-    this.installments = installments;
-  }
-
-  public PaymentRequest socialSecurityNumber(String socialSecurityNumber) {
-    this.socialSecurityNumber = socialSecurityNumber;
-    return this;
-  }
-
-   /**
-   * the shopper's social security number
-   * @return socialSecurityNumber
-  **/
-  public String getSocialSecurityNumber() {
-    return socialSecurityNumber;
-  }
-
-  public void setSocialSecurityNumber(String socialSecurityNumber) {
-    this.socialSecurityNumber = socialSecurityNumber;
-  }
-
-  public PaymentRequest captureDelayHours(Integer captureDelayHours) {
-    this.captureDelayHours = captureDelayHours;
-    return this;
-  }
-
-   /**
-   * the number of hours delay between the authorisation and scheduled auto-capture
-   * @return captureDelayHours
-  **/
-  public Integer getCaptureDelayHours() {
-    return captureDelayHours;
-  }
-
-  public void setCaptureDelayHours(Integer captureDelayHours) {
-    this.captureDelayHours = captureDelayHours;
-  }
-
-  public PaymentRequest dateOfBirth(LocalDate dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
-    return this;
-  }
-
-   /**
-   * the shopper's date of birth
-   * @return dateOfBirth
-  **/
-  public LocalDate getDateOfBirth() {
-    return dateOfBirth;
-  }
-
-  public void setDateOfBirth(LocalDate dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
-  }
-
-  public PaymentRequest telephoneNumber(String telephoneNumber) {
-    this.telephoneNumber = telephoneNumber;
-    return this;
-  }
-
-   /**
-   * the shopper's telephone number
-   * @return telephoneNumber
-  **/
-  public String getTelephoneNumber() {
-    return telephoneNumber;
-  }
-
-  public void setTelephoneNumber(String telephoneNumber) {
-    this.telephoneNumber = telephoneNumber;
-  }
-
-  public PaymentRequest mcc(String mcc) {
-    this.mcc = mcc;
-    return this;
-  }
-
-   /**
-   * the mcc value that is required to process this payment
-   * @return mcc
-  **/
-  public String getMcc() {
-    return mcc;
-  }
-
-  public void setMcc(String mcc) {
-    this.mcc = mcc;
-  }
-
-  public PaymentRequest metadata(String metadata) {
-    this.metadata = metadata;
-    return this;
-  }
-
-   /**
-   * a map of key/value pairs of metadata sent by merchant
-   * @return metadata
-  **/
-  public String getMetadata() {
-    return metadata;
-  }
-
-  public void setMetadata(String metadata) {
-    this.metadata = metadata;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    PaymentRequest paymentRequest = (PaymentRequest) o;
-    return Objects.equals(this.card, paymentRequest.card) &&
-        Objects.equals(this.mpiData, paymentRequest.mpiData) &&
-        Objects.equals(this.bankAccount, paymentRequest.bankAccount) &&
-        Objects.equals(this.amount, paymentRequest.amount) &&
-        Objects.equals(this.reference, paymentRequest.reference) &&
-        Objects.equals(this.billingAddress, paymentRequest.billingAddress) &&
-        Objects.equals(this.shopperIP, paymentRequest.shopperIP) &&
-        Objects.equals(this.merchantAccount, paymentRequest.merchantAccount) &&
-        Objects.equals(this.browserInfo, paymentRequest.browserInfo) &&
-        Objects.equals(this.shopperInteraction, paymentRequest.shopperInteraction) &&
-        Objects.equals(this.shopperEmail, paymentRequest.shopperEmail) &&
-        Objects.equals(this.shopperReference, paymentRequest.shopperReference) &&
-        Objects.equals(this.recurring, paymentRequest.recurring) &&
-        Objects.equals(this.shopperStatement, paymentRequest.shopperStatement) &&
-        Objects.equals(this.fraudOffset, paymentRequest.fraudOffset) &&
-        Objects.equals(this.sessionId, paymentRequest.sessionId) &&
-        Objects.equals(this.additionalAmount, paymentRequest.additionalAmount) &&
-        Objects.equals(this.selectedRecurringDetailReference, paymentRequest.selectedRecurringDetailReference) &&
-        Objects.equals(this.orderReference, paymentRequest.orderReference) &&
-        Objects.equals(this.merchantOrderReference, paymentRequest.merchantOrderReference) &&
-        Objects.equals(this.dccQuote, paymentRequest.dccQuote) &&
-        Objects.equals(this.additionalData, paymentRequest.additionalData) &&
-        Objects.equals(this.shopperName, paymentRequest.shopperName) &&
-        Objects.equals(this.shopperLocale, paymentRequest.shopperLocale) &&
-        Objects.equals(this.selectedBrand, paymentRequest.selectedBrand) &&
-        Objects.equals(this.deliveryAddress, paymentRequest.deliveryAddress) &&
-        Objects.equals(this.deliveryDate, paymentRequest.deliveryDate) &&
-        Objects.equals(this.deviceFingerprint, paymentRequest.deviceFingerprint) &&
-        Objects.equals(this.installments, paymentRequest.installments) &&
-        Objects.equals(this.socialSecurityNumber, paymentRequest.socialSecurityNumber) &&
-        Objects.equals(this.captureDelayHours, paymentRequest.captureDelayHours) &&
-        Objects.equals(this.dateOfBirth, paymentRequest.dateOfBirth) &&
-        Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber) &&
-        Objects.equals(this.mcc, paymentRequest.mcc) &&
-        Objects.equals(this.metadata, paymentRequest.metadata);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(card, mpiData, bankAccount, amount, reference, billingAddress, shopperIP, merchantAccount, browserInfo, shopperInteraction, shopperEmail, shopperReference, recurring, shopperStatement, fraudOffset, sessionId, additionalAmount, selectedRecurringDetailReference, orderReference, merchantOrderReference, dccQuote, additionalData, shopperName, shopperLocale, selectedBrand, deliveryAddress, deliveryDate, deviceFingerprint, installments, socialSecurityNumber, captureDelayHours, dateOfBirth, telephoneNumber, mcc, metadata);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentRequest {\n");
-
-    sb.append("    card: ").append(toIndentedString(card)).append("\n");
-    sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
-    sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
-    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
-    sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
-    sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-    sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
-    sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
-    sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
-    sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
-    sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append("\n");
-    sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
-    sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
-    sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
-    sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");
-    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-    sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-    sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
-    sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append("\n");
-    sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-    sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
-    sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
-    sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
-    sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
-    sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
-    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-    sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-    sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-  
 }
 
