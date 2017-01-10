@@ -17,112 +17,118 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class HttpURLConnectionClient implements ClientInterface { 
-		
-	private static final String CHARSET = "UTF-8";
+public class HttpURLConnectionClient implements ClientInterface {
 
-	/**
-	 * Does a POST request.
-	 * config is used to obtain basic auth username, password and User-Agent
-	 *
-	 * @param requestUrl
-	 * @param requestBody
-	 * @param config
-	 * @return
-	 * @throws IOException
-	 */
-	public String request(String requestUrl, String requestBody, Config config) throws IOException, HTTPClientException {
-		String response = "";
+    private static final String CHARSET = "UTF-8";
 
-		URL targetUrl = new URL(requestUrl);
+    /**
+     * Does a POST request.
+     * config is used to obtain basic auth username, password and User-Agent
+     *
+     * @param requestUrl
+     * @param requestBody
+     * @param config
+     * @return
+     * @throws IOException
+     */
+    public String request(String requestUrl, String requestBody, Config config) throws IOException, HTTPClientException {
+        String response = "";
 
-		// set configurations
-		HttpURLConnection httpConnection = (HttpURLConnection) targetUrl.openConnection();
-		httpConnection.setUseCaches(false);
-		httpConnection.setDoOutput(true);
-		httpConnection.setRequestMethod("POST");
+        URL targetUrl = new URL(requestUrl);
 
-		// set headers
-		httpConnection.setRequestProperty("Content-Type", "application/json");
-		httpConnection.setRequestProperty("Accept-Charset", CHARSET);
-		httpConnection.setRequestProperty("User-Agent",
-				String.format("%s %s%s", config.getApplicationName(), Client.USER_AGENT_SUFFIX, Client.LIB_VERSION));
+        // set configurations
+        HttpURLConnection httpConnection = (HttpURLConnection) targetUrl.openConnection();
+        httpConnection.setUseCaches(false);
+        httpConnection.setDoOutput(true);
+        httpConnection.setRequestMethod("POST");
 
-		// set basic authentication
-		String authString = config.getUsername() + ":" + config.getPassword();
-		byte[] authEncBytes = Base64.encodeBase64(authString.getBytes());
-		String authStringEnc = new String(authEncBytes);
+        // set headers
+        httpConnection.setRequestProperty("Content-Type", "application/json");
+        httpConnection.setRequestProperty("Accept-Charset", CHARSET);
+        httpConnection.setRequestProperty("User-Agent",
+                String.format("%s %s%s", config.getApplicationName(), Client.USER_AGENT_SUFFIX, Client.LIB_VERSION));
 
-		httpConnection.setRequestProperty("Authorization", "Basic " + authStringEnc);
+        // set basic authentication
+        String authString = config.getUsername() + ":" + config.getPassword();
+        byte[] authEncBytes = Base64.encodeBase64(authString.getBytes());
+        String authStringEnc = new String(authEncBytes);
 
-		OutputStream outputStream = httpConnection.getOutputStream();
-		outputStream.write(requestBody.getBytes());
-		outputStream.flush();
+        httpConnection.setRequestProperty("Authorization", "Basic " + authStringEnc);
 
-		response = getResponseBody(httpConnection.getInputStream());
-		System.out.println(response);
+        OutputStream outputStream = httpConnection.getOutputStream();
+        outputStream.write(requestBody.getBytes());
+        outputStream.flush();
 
-		int responseCode = httpConnection.getResponseCode();
-		if (responseCode != 200) {
-			HTTPClientException httpClientException = new HTTPClientException(
-					responseCode,
-					"HTTP Exception",
-					httpConnection.getHeaderFields(),
-					response
-			);
+        int responseCode = httpConnection.getResponseCode();
+        if (responseCode != HttpURLConnection.HTTP_OK) {
+            //Read the response from the error stream
+            response = getResponseBody(httpConnection.getErrorStream());
 
-			throw httpClientException;
-		}
+            HTTPClientException httpClientException = new HTTPClientException(
+                    responseCode,
+                    "HTTP Exception",
+                    httpConnection.getHeaderFields(),
+                    response
+            );
 
-		// close the connection
-		httpConnection.disconnect();
+            throw httpClientException;
+        }
 
-		return response;
-	}
+        //InputStream is only available on successful requests >= 200 <400
+        response = getResponseBody(httpConnection.getInputStream());
+        //TODO: replace with logger
+        System.out.println(response);
 
-	/**
-	 * Does a request using Map<String, Object> as input/output
-	 *
-	 * @param service
-	 * @param requestUrl
-	 * @param params
-	 * @return
-	 */
-	@SuppressWarnings("serial")
-	public Map<String, Object> requestJson(Service service,
-										   String requestUrl,
-										   Map<String, Object> params) {
-		
-		Map<String, Object> json = new HashMap<String, Object>();
-		
-		Client client = service.getClient();
-		Config config = client.getConfig();
+        // close the connection
+        httpConnection.disconnect();
 
-		try {
-			// convert parameters to JSON
-			Gson gson = new GsonBuilder()
-					.enableComplexMapKeySerialization()
-					.create();
-			String input = gson.toJson(params);
+        return response;
+    }
 
-			String result = request(requestUrl, input, config);
-			
-			// convert back to HashMap
-			json = new Gson().fromJson(result, new TypeToken<HashMap<String, Object>>() {}.getType());
-		  } catch (IOException | HTTPClientException e) {
-			e.printStackTrace();
-		 }
-		return json;
-	}
-	
-	private static String getResponseBody(InputStream responseStream)
-			throws IOException {
-		//\A is the beginning of the stream boundary
-		Scanner scanner = new Scanner(responseStream, CHARSET);
-		scanner.useDelimiter("\\A");
-		String rBody = scanner.useDelimiter("\\A").next();
-		scanner.close();
-		responseStream.close();
-		return rBody;
-	}
+    /**
+     * Does a request using Map<String, Object> as input/output
+     *
+     * @param service
+     * @param requestUrl
+     * @param params
+     * @return
+     */
+    @SuppressWarnings("serial")
+    public Map<String, Object> requestJson(Service service,
+                                           String requestUrl,
+                                           Map<String, Object> params) {
+
+        Map<String, Object> json = new HashMap<String, Object>();
+
+        Client client = service.getClient();
+        Config config = client.getConfig();
+
+        try {
+            // convert parameters to JSON
+            Gson gson = new GsonBuilder()
+                    .enableComplexMapKeySerialization()
+                    .create();
+            String input = gson.toJson(params);
+
+            String result = request(requestUrl, input, config);
+
+            // convert back to HashMap
+            json = new Gson().fromJson(result, new TypeToken<HashMap<String, Object>>() {
+            }.getType());
+        } catch (IOException | HTTPClientException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
+
+    private static String getResponseBody(InputStream responseStream)
+            throws IOException {
+        //\A is the beginning of the stream boundary
+        Scanner scanner = new Scanner(responseStream, CHARSET);
+        scanner.useDelimiter("\\A");
+        String rBody = scanner.useDelimiter("\\A").next();
+        scanner.close();
+        responseStream.close();
+        return rBody;
+    }
 }

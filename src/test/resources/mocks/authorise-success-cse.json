@@ -1,0 +1,99 @@
+{
+  "additionalData": {
+    "cvcResult": "1 Matches",
+    "fraudResultType": "GREEN",
+    "authCode": "78224",
+    "avsResult": "4 AVS not supported for this card type",
+    "fraudManualReview": "false",
+    "avsResultRaw": "4",
+    "cvcResultRaw": "1",
+    "refusalReasonRaw": "AUTHORISED",
+    "acquirerCode": "TestPmmAcquirer",
+    "acquirerReference": "7F57UVGV1H6"
+  },
+  "fraudResult": {
+    "accountScore": 51,
+    "results": [
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 2,
+          "name": "CardChunkUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 3,
+          "name": "PaymentDetailUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 4,
+          "name": "HolderNameUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 1,
+          "name": "PaymentDetailRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 13,
+          "name": "IssuerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 15,
+          "name": "IssuingCountryReferral"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 27,
+          "name": "PmOwnerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 50,
+          "checkId": 41,
+          "name": "PaymentDetailNonFraudRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 10,
+          "name": "HolderNameContainsNumber"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 1,
+          "checkId": 11,
+          "name": "HolderNameIsOneWord"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 25,
+          "name": "CVCAuthResultCheck"
+        }
+      }
+    ]
+  },
+  "pspReference": "8624836275772397",
+  "resultCode": "Authorised",
+  "authCode": "78224"
+}
