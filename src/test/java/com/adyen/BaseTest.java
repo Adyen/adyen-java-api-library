@@ -3,9 +3,7 @@ package com.adyen;
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
-import com.adyen.model.AbstractPaymentRequest;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentRequest3d;
+import com.adyen.model.*;
 import org.apache.commons.io.IOUtils;
 import org.junit.BeforeClass;
 
@@ -203,5 +201,26 @@ public class BaseTest {
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);
         return client;
+    }
+
+    protected <T extends AbstractModificationRequest> T createBaseModificationRequest(T modificationRequest) {
+        modificationRequest
+                .merchantAccount("AMerchant")
+                .originalReference("originalReference")
+                .reference("merchantReference");
+
+        return modificationRequest;
+    }
+
+    protected CaptureRequest createCaptureRequest() {
+        CaptureRequest captureRequest = createBaseModificationRequest(new CaptureRequest());
+
+        captureRequest
+                .setModificationAmountData(
+                        "15.00",
+                        "EUR"
+                );
+
+        return captureRequest;
     }
 }
