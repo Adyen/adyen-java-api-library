@@ -4,6 +4,8 @@ import com.adyen.enums.Environment;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
 import com.adyen.model.*;
+import com.adyen.model.modification.AbstractModificationRequest;
+import com.adyen.model.modification.CaptureRequest;
 import org.apache.commons.io.IOUtils;
 import org.junit.BeforeClass;
 

@@ -1,8 +1,6 @@
-package com.adyen.model;
+package com.adyen.model.modification;
 
-import java.util.Objects;
-
-public class CancelRequest extends AbstractModificationRequest<CancelRequest>  {
+public class CancelRequest extends AbstractModificationRequest<CancelRequest> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

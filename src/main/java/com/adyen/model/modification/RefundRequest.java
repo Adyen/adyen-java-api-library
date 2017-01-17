@@ -1,10 +1,11 @@
-package com.adyen.model;
+package com.adyen.model.modification;
 
+import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-public class RefundRequest extends AbstractModificationRequest<RefundRequest>  {
+public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
     @SerializedName("modificationAmount")
     private Amount modificationAmount = null;
 

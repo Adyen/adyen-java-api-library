@@ -1,7 +1,7 @@
 package com.adyen;
 
-import com.adyen.model.CaptureRequest;
-import com.adyen.model.ModificationResult;
+import com.adyen.model.modification.CaptureRequest;
+import com.adyen.model.modification.ModificationResult;
 import com.adyen.service.Modification;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
