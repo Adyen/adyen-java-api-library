@@ -1,0 +1,30 @@
+{
+  "live": "false",
+  "notificationItems": [{
+    "NotificationRequestItem": {
+      "additionalData": {
+        "expiryDate": "12\/2012",
+        " NAME1 ": "VALUE1",
+        "authCode": "1234",
+        "cardSummary": "7777",
+        "totalFraudScore": "10",
+        "hmacSignature": "OzDjCMZIsdtDqrZ+cl\/FWC+WdESrorctXTzAzW33dXI=",
+        "NAME2": "  VALUE2  ",
+        "fraudCheck-6-ShopperIpUsage": "10"
+      },
+      "amount": {
+        "currency": "EUR",
+        "value": 10100
+      },
+      "eventCode": "AUTHORISATION",
+      "eventDate": "2017-01-19T16:42:03+01:00",
+      "merchantAccountCode": "MagentoMerchantTest2",
+      "merchantReference": "8313842560770001",
+      "operations": ["CANCEL", "CAPTURE", "REFUND"],
+      "paymentMethod": "visa",
+      "pspReference": "123456789",
+      "reason": "1234:7777:12\/2012",
+      "success": "true"
+    }
+  }]
+}

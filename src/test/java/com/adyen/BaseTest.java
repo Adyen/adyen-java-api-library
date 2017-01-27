@@ -96,7 +96,7 @@ public class BaseTest {
      * @param fileName
      * @return
      */
-    private String getFileContents(String fileName) {
+    public String getFileContents(String fileName) {
         String result = "";
 
         ClassLoader classLoader = getClass().getClassLoader();

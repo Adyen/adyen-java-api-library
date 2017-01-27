@@ -43,18 +43,22 @@ public class Util {
         Long amountValue;
 
         //Adding decimal point depending on the currency
-        switch (currency) {
-            case "EUR":
-            default:
-                amountValue = new BigDecimal(100)
-                        .multiply(new BigDecimal(amount))
-                        .longValue();
-                break;
-        }
+        amountValue = new BigDecimal(10)
+                .pow(getDecimalPlaces(currency))
+                .multiply(new BigDecimal(amount))
+                .longValue();
 
         amountData.setValue(amountValue);
 
         return amountData;
+    }
+
+    public static int getDecimalPlaces(String currency) {
+        switch (currency) {
+            case "EUR":
+            default:
+                return 2;
+        }
     }
 
 }

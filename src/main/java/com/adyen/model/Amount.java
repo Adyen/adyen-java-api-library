@@ -13,8 +13,10 @@
 
 package com.adyen.model;
 
+import com.adyen.Util.Util;
 import com.google.gson.annotations.SerializedName;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -22,87 +24,98 @@ import java.util.Objects;
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-14T08:41:23.938Z")
 public class Amount {
-  @SerializedName("value")
-  private Long value = null;
+    @SerializedName("value")
+    private Long value = null;
 
-  @SerializedName("currency")
-  private String currency = null;
+    @SerializedName("currency")
+    private String currency = null;
 
-  public Amount value(Long value) {
-    this.value = value;
-    return this;
-  }
+    public BigDecimal getDecimalValue() {
+        BigDecimal divisor = new BigDecimal(10)
+                .pow(Util.getDecimalPlaces(getCurrency()));
 
-   /**
-   * the amount's value in minor units
-   * @return value
-  **/
-  public Long getValue() {
-    return value;
-  }
-
-  public void setValue(Long value) {
-    this.value = value;
-  }
-
-  public Amount currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * the amount's three letter currency code (ISO 4217)
-   * @return currency
-  **/
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        BigDecimal amountValue = new BigDecimal(getValue())
+                .divide(divisor);
+        return amountValue;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public Amount value(Long value) {
+        this.value = value;
+        return this;
     }
-    Amount amount = (Amount) o;
-    return Objects.equals(this.value, amount.value) &&
-        Objects.equals(this.currency, amount.currency);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(value, currency);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Amount {\n");
-
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * the amount's value in minor units
+     *
+     * @return value
+     **/
+    public Long getValue() {
+        return value;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
-  
+
+    public void setValue(Long value) {
+        this.value = value;
+    }
+
+    public Amount currency(String currency) {
+        this.currency = currency;
+        return this;
+    }
+
+    /**
+     * the amount's three letter currency code (ISO 4217)
+     *
+     * @return currency
+     **/
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Amount amount = (Amount) o;
+        return Objects.equals(this.value, amount.value) &&
+                Objects.equals(this.currency, amount.currency);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, currency);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Amount {\n");
+
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }
 
