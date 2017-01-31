@@ -1,0 +1,23 @@
+{
+  "live": "false",
+  "notificationItems": [{
+    "NotificationRequestItem": {
+      "additionalData": {
+        "hmacSignature": "KujHNqpyCAMdGefj7lfQ8AeD0Jke9Zs2bVAqScQDWi4="
+      },
+      "amount": {
+        "currency": "USD",
+        "value": 23623
+      },
+      "eventCode": "CAPTURE",
+      "eventDate": "2017-01-25T18:08:19+01:00",
+      "merchantAccountCode": "MagentoMerchantTest2",
+      "merchantReference": "00000001",
+      "originalReference": "7914853620991813",
+      "paymentMethod": "visa",
+      "pspReference": "8514853640987132",
+      "reason": "Insufficient balance on payment",
+      "success": "false"
+    }
+  }]
+}

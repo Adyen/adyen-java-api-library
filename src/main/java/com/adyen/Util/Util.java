@@ -1,5 +1,8 @@
 package com.adyen.Util;
 
+import com.adyen.model.Amount;
+
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 
@@ -25,6 +28,37 @@ public class Util {
 
         // return result
         return sb.toString();
+    }
+
+    /**
+     * Returns an Amount struct to use on requests
+     *
+     * @param amount
+     * @param currency
+     * @return
+     */
+    public static Amount createAmount(String amount, String currency) {
+        Amount amountData = new Amount();
+        amountData.setCurrency(currency);
+        Long amountValue;
+
+        //Adding decimal point depending on the currency
+        amountValue = new BigDecimal(10)
+                .pow(getDecimalPlaces(currency))
+                .multiply(new BigDecimal(amount))
+                .longValue();
+
+        amountData.setValue(amountValue);
+
+        return amountData;
+    }
+
+    public static int getDecimalPlaces(String currency) {
+        switch (currency) {
+            case "EUR":
+            default:
+                return 2;
+        }
     }
 
 }
