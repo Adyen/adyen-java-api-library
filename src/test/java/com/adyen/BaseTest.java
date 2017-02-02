@@ -70,11 +70,20 @@ public class BaseTest {
             when(httpURLConnectionClient.
                     request(any(String.class), any(String.class), any(Config.class))).
                     thenReturn(response);
+
+            when(httpURLConnectionClient.
+                    post(any(String.class), any(Map.class), any(Config.class))).
+                    thenReturn(response);
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);
+
+        Config config = new Config();
+        config.setHmacKey("DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00");
+        client.setConfig(config);
+
         return client;
     }
 

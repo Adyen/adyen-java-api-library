@@ -11,4 +11,6 @@ public interface ClientInterface {
 	Map<String, Object> requestJson(Service service, String requestUrl, Map<String, Object> params);
 
 	String request(String endpoint, String json, Config config) throws IOException, HTTPClientException;
+
+	String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException;
 }
