@@ -1,5 +1,6 @@
 package com.adyen;
 
+import com.adyen.model.modification.CancelRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.ModificationResult;
 import com.adyen.service.Modification;
@@ -41,6 +42,7 @@ public class ModificationTest extends BaseTest {
 
     /**
      * Test happy flow with capture-received response
+     *
      * @throws Exception
      */
     @Test
@@ -56,6 +58,7 @@ public class ModificationTest extends BaseTest {
 
     /**
      * Test error response
+     *
      * @throws Exception
      */
     @Test
@@ -76,4 +79,19 @@ public class ModificationTest extends BaseTest {
         }
     }
 
+    /**
+     * Test happy flow with cancelOrRefund-received response
+     *
+     * @throws Exception
+     */
+    @Test
+    public void TestCancelOrRefundReceived() throws Exception {
+        Client client = createMockClientFromFile("mocks/cancelOrRefund-received.json");
+        Modification modification = new Modification(client);
+
+        CancelRequest cancelRequest = createBaseModificationRequest(new CancelRequest());
+
+        ModificationResult modificationResult = modification.cancelOrRefund(cancelRequest);
+        assertEquals(ModificationResult.ResponseEnum.CANCELORREFUND_RECEIVED_, modificationResult.getResponse());
+    }
 }
