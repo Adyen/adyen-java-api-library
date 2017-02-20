@@ -31,7 +31,8 @@ public class CaptureRequest extends AbstractModificationRequest<CaptureRequest> 
         this.modificationAmount = modificationAmount;
     }
 
-    public CaptureRequest setModificationAmountData(String amount, String currency) {
+    //Shortcut for filling amount value + currency
+    public CaptureRequest fillAmount(String amount, String currency) {
         Amount amountData = Util.createAmount(amount, currency);
 
         this.setModificationAmount(amountData);

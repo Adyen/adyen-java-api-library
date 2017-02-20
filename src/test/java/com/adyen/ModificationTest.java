@@ -3,6 +3,7 @@ package com.adyen;
 import com.adyen.model.modification.CancelRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.ModificationResult;
+import com.adyen.model.modification.RefundRequest;
 import com.adyen.service.Modification;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ModificationTest extends BaseTest {
 
@@ -63,13 +65,14 @@ public class ModificationTest extends BaseTest {
      */
     @Test
     public void TestCaptureError167() throws Exception {
-        Client client = createMockClientFromFile("mocks/capture-error-167.json");
+        Client client = createMockClientForErrors(422, "mocks/capture-error-167.json");
         Modification modification = new Modification(client);
 
         CaptureRequest captureRequest = createCaptureRequest();
 
         try {
             ModificationResult modificationResult = modification.capture(captureRequest);
+            assertTrue("Exception expected", false);
         } catch (ApiException e) {
             String errorCode = e.getError().getErrorCode();
             assertEquals("167", errorCode);
@@ -93,5 +96,21 @@ public class ModificationTest extends BaseTest {
 
         ModificationResult modificationResult = modification.cancelOrRefund(cancelRequest);
         assertEquals(ModificationResult.ResponseEnum.CANCELORREFUND_RECEIVED_, modificationResult.getResponse());
+    }
+
+    /**
+     * Test happy flow with refund-received response
+     *
+     * @throws Exception
+     */
+    @Test
+    public void TestRefundReceived() throws Exception {
+        Client client = createMockClientFromFile("mocks/refund-received.json");
+        Modification modification = new Modification(client);
+
+        RefundRequest refundRequest = createBaseModificationRequest(new RefundRequest());
+
+        ModificationResult modificationResult = modification.refund(refundRequest);
+        assertEquals(ModificationResult.ResponseEnum.REFUND_RECEIVED_, modificationResult.getResponse());
     }
 }

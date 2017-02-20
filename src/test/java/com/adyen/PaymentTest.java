@@ -145,6 +145,7 @@ public class PaymentTest extends BaseTest {
 
         try {
             PaymentResult paymentResult = payment.authorise(paymentRequest);
+            assertTrue("Exception expected", false);
         } catch (ApiException e) {
             String errorCode = e.getError().getErrorCode();
             assertEquals("010", errorCode);

@@ -229,7 +229,7 @@ public class BaseTest {
         CaptureRequest captureRequest = createBaseModificationRequest(new CaptureRequest());
 
         captureRequest
-                .setModificationAmountData(
+                .fillAmount(
                         "15.00",
                         "EUR"
                 );

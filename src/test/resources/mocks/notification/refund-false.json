@@ -3,16 +3,16 @@
   "notificationItems": [{
     "NotificationRequestItem": {
       "additionalData": {
-        "hmacSignature": "KujHNqpyCAMdGefj7lfQ8AeD0Jke9Zs2bVAqScQDWi4="
+        "hmacSignature": "HZXziBYopfDIzDhk49iC\/\/yCfxmy\/z0xWuvvTxFNUSA="
       },
       "amount": {
-        "currency": "USD",
-        "value": 23623
+        "currency": "EUR",
+        "value": 1500
       },
-      "eventCode": "CAPTURE",
-      "eventDate": "2017-01-25T18:08:19+01:00",
+      "eventCode": "REFUND",
+      "eventDate": "2017-02-17T11:04:07+01:00",
       "merchantAccountCode": "MagentoMerchantTest2",
-      "merchantReference": "00000001",
+      "merchantReference": "payment-2017-1-17-11-refund",
       "originalReference": "ORIGINAL_PSP",
       "paymentMethod": "visa",
       "pspReference": "PSP_REFERENCE",
