@@ -38,8 +38,8 @@ public class ModificationResult {
     @SerializedName("[refund-received]")
     REFUND_RECEIVED_("[refund-received]"),
     
-    @SerializedName("[captureOrRefund-received]")
-    CAPTUREORREFUND_RECEIVED_("[captureOrRefund-received]");
+    @SerializedName("[cancelOrRefund-received]")
+    CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]");
 
     private String value;
 
