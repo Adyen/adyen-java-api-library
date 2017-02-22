@@ -3,7 +3,9 @@ package com.adyen;
 import com.adyen.enums.Environment;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
-import com.adyen.model.*;
+import com.adyen.model.AbstractPaymentRequest;
+import com.adyen.model.PaymentRequest;
+import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import org.apache.commons.io.IOUtils;
@@ -227,7 +229,7 @@ public class BaseTest {
         CaptureRequest captureRequest = createBaseModificationRequest(new CaptureRequest());
 
         captureRequest
-                .setModificationAmountData(
+                .fillAmount(
                         "15.00",
                         "EUR"
                 );

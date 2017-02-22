@@ -1,5 +1,6 @@
 package com.adyen.model.modification;
 
+import com.adyen.Util.Util;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
@@ -14,16 +15,19 @@ public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
         return this;
     }
 
-    /**
-     * the amount to capture/refund. Required for \"capture\"/\"refund\", not allowed for \"cancel\"
-     * @return modificationAmount
-     **/
     public Amount getModificationAmount() {
         return modificationAmount;
     }
 
     public void setModificationAmount(Amount modificationAmount) {
         this.modificationAmount = modificationAmount;
+    }
+
+    public RefundRequest fillAmount(String amount, String currency) {
+        Amount amountData = Util.createAmount(amount, currency);
+
+        this.setModificationAmount(amountData);
+        return this;
     }
 
     @Override
