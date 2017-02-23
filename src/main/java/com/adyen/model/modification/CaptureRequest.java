@@ -18,11 +18,6 @@ public class CaptureRequest extends AbstractModificationRequest<CaptureRequest> 
         return this;
     }
 
-    /**
-     * the amount to capture/refund. Required for \"capture\"/\"refund\", not allowed for \"cancel\"
-     *
-     * @return modificationAmount
-     **/
     public Amount getModificationAmount() {
         return modificationAmount;
     }

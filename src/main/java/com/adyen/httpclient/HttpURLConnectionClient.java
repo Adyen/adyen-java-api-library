@@ -93,6 +93,7 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     /**
      * Does a POST request with HTTP key-value pairs
+     *
      * @param requestUrl
      * @param params
      * @param config
@@ -111,6 +112,7 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     /**
      * Get HTTP querystring from Map<String,String>
+     *
      * @param params
      * @return
      * @throws UnsupportedEncodingException
@@ -217,8 +219,6 @@ public class HttpURLConnectionClient implements ClientInterface {
 
         //InputStream is only available on successful requests >= 200 <400
         response = getResponseBody(httpConnection.getInputStream());
-        //TODO: replace with logger
-        System.out.println(response);
 
         // close the connection
         httpConnection.disconnect();

@@ -4,6 +4,7 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.modification.*;
 import com.adyen.service.exception.ApiException;
+import com.adyen.service.resource.modification.Cancel;
 import com.adyen.service.resource.modification.CancelOrRefund;
 import com.adyen.service.resource.modification.Capture;
 import com.adyen.service.resource.modification.Refund;
@@ -14,6 +15,7 @@ import java.io.IOException;
 
 public class Modification extends Service {
     private CancelOrRefund cancelOrRefund;
+    private Cancel cancel;
     private Capture capture;
     private Refund refund;
 
@@ -22,6 +24,7 @@ public class Modification extends Service {
 
         capture = new Capture(this);
         cancelOrRefund = new CancelOrRefund(this);
+        cancel = new Cancel(this);
         refund = new Refund(this);
     }
 
@@ -69,6 +72,22 @@ public class Modification extends Service {
         String jsonRequest = serializeRequest(refundRequest);
 
         String jsonResult = refund.request(jsonRequest);
+
+        return deserializeResponse(jsonResult);
+    }
+
+    /**
+     * Issues /cancel request
+     *
+     * @param cancelRequest
+     * @return
+     * @throws IOException
+     * @throws ApiException
+     */
+    public ModificationResult cancel(CancelRequest cancelRequest) throws IOException, ApiException {
+        String jsonRequest = serializeRequest(cancelRequest);
+
+        String jsonResult = cancel.request(jsonRequest);
 
         return deserializeResponse(jsonResult);
     }
