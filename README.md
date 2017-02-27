@@ -3,7 +3,7 @@ The Adyen API Library for Java enables you to work with Adyen APIs and Hosted Pa
   
 ## Requirements
 
-* Java 7 or higher
+* Java 8 or higher
   
 ## Installation
   
