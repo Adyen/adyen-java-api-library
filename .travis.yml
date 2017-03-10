@@ -4,3 +4,6 @@ jdk:
   - oraclejdk8
 
 sudo: false
+
+after_success:
+  - coveralls
