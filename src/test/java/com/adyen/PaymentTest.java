@@ -2,6 +2,9 @@ package com.adyen;
 
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
+import com.adyen.httpclient.HTTPClientException;
+import com.adyen.httpclient.HttpURLConnectionClient;
+import com.adyen.model.FraudCheckResult;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentResult;
@@ -9,7 +12,14 @@ import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.List;
+
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Tests for /authorise and /authorise3d
@@ -29,6 +39,23 @@ public class PaymentTest extends BaseTest {
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
         assertTrue(paymentResult.isAuthorised());
+
+        SimpleDateFormat format = new SimpleDateFormat("M/yyyy");
+        assertEquals("8/2018", format.format(paymentResult.getExpiryDate()));
+
+        assertEquals("411111", paymentResult.getCardBin());
+        assertEquals("1111", paymentResult.getCardSummary());
+        assertEquals("Holder", paymentResult.getCardHolderName());
+        assertTrue(paymentResult.get3DOffered());
+        assertFalse(paymentResult.get3DAuthenticated());
+        assertEquals("69746", paymentResult.getAuthCode());
+
+        assertEquals(11, paymentResult.getFraudResult().getFraudCheckResults().size());
+
+        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getFraudCheckResults().get(0);
+        assertEquals("CardChunkUsage", fraudCheckResult.getName());
+        assertEquals(8, fraudCheckResult.getAccountScore().intValue());
+        assertEquals(2, fraudCheckResult.getCheckId().intValue());
     }
 
     /**
@@ -138,5 +165,37 @@ public class PaymentTest extends BaseTest {
         assertTrue(paymentResult.isRefused());
         assertEquals(RefusalReason.REFUSED, paymentResult.getRefusalReason());
         assertEquals("DECLINED Expiry Incorrect", paymentResult.getAdditionalData().get(AdditionalData.REFUSAL_REASON_RAW));
+    }
+
+    /**
+     * Test error 401 (Not authorized)
+     */
+    @Test
+    public void TestError401Mocked() throws Exception {
+        HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
+        HTTPClientException httpClientException = new HTTPClientException(
+                401,
+                "An error occured",
+                new HashMap<String, List<String>>(),
+                null);
+
+        when(httpURLConnectionClient.
+                request(any(String.class), any(String.class), any(Config.class))).
+                thenThrow(httpClientException);
+
+        Client client = new Client();
+        client.setHttpClient(httpURLConnectionClient);
+
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createFullCardPaymentRequest();
+
+        try {
+            PaymentResult paymentResult = payment.authorise(paymentRequest);
+            assertTrue("Exception expected", false);
+        } catch (ApiException e) {
+            assertEquals(401, e.getStatusCode());
+            assertNull(e.getError());
+        }
     }
 }

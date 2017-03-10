@@ -57,7 +57,7 @@ public class Resource {
 
             Gson gson = new Gson();
             ApiError apiError = gson.fromJson(responseBody, new TypeToken<ApiError>() {}.getType());
-            ApiException apiException = new ApiException(e.getMessage());
+            ApiException apiException = new ApiException(e.getMessage(), e.getCode());
             apiException.setError(apiError);
 
             throw apiException;

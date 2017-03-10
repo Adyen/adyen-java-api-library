@@ -196,7 +196,7 @@ public class HttpURLConnectionClient implements ClientInterface {
      * @throws HTTPClientException
      */
     private String doPostRequest(String requestBody) throws IOException, HTTPClientException {
-        String response;
+        String response = null;
 
         OutputStream outputStream = httpConnection.getOutputStream();
         outputStream.write(requestBody.getBytes());
@@ -205,7 +205,9 @@ public class HttpURLConnectionClient implements ClientInterface {
         int responseCode = httpConnection.getResponseCode();
         if (responseCode != HttpURLConnection.HTTP_OK) {
             //Read the response from the error stream
-            response = getResponseBody(httpConnection.getErrorStream());
+            if(httpConnection.getErrorStream() != null) {
+                response = getResponseBody(httpConnection.getErrorStream());
+            }
 
             HTTPClientException httpClientException = new HTTPClientException(
                     responseCode,
