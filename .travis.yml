@@ -6,4 +6,4 @@ jdk:
 sudo: false
 
 after_success:
-  - coveralls
+  - mvn clean test jacoco:report coveralls:report
