@@ -15,8 +15,13 @@ package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
+
+import static com.adyen.constants.ApiConstants.AdditionalData.*;
 
 /**
  * PaymentResult
@@ -360,6 +365,59 @@ public class PaymentResult {
 
     public boolean isRefused() {
         return this.resultCode.equals(ResultCodeEnum.REFUSED);
+    }
+
+    public String getAdditionalDataByKey(String key) {
+        if(additionalData == null) {
+            return null;
+        }
+
+        return additionalData.get(key);
+    }
+
+    public Date getExpiryDate() {
+        String expiryDate = getAdditionalDataByKey(EXPIRY_DATE);
+        if(expiryDate == null) {
+            return null;
+        }
+
+        Date date;
+        SimpleDateFormat monthYear = new SimpleDateFormat("M/yyyy");
+        try {
+            date = monthYear.parse(expiryDate);
+        } catch (ParseException e) {
+            return null;
+        }
+
+        return date;
+    }
+
+    public String getCardBin() {
+        return getAdditionalDataByKey(CARD_BIN);
+    }
+
+    public String getCardHolderName() {
+        return getAdditionalDataByKey(CARD_HOLDER_NAME);
+    }
+
+    public String getCardSummary() {
+        return getAdditionalDataByKey(CARD_SUMMARY);
+    }
+
+    public String getPaymentMethod() {
+        return getAdditionalDataByKey(PAYMENT_METHOD);
+    }
+
+    public String getAvsResult() {
+        return getAdditionalDataByKey(AVS_RESULT);
+    }
+
+    public boolean get3DOffered() {
+        return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_OFFERERED));
+    }
+
+    public boolean get3DAuthenticated() {
+        return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
     }
 }
 
