@@ -13,7 +13,7 @@ import java.util.Map;
 public class NotificationRequestItem {
     public static final String EVENT_CODE_AUTHORISATION = "AUTHORISATION";
 
-    //Modification events
+    //Event codes
     public static final String EVENT_CODE_CANCELLATION = "CANCELLATION";
     public static final String EVENT_CODE_REFUND = "REFUND";
     public static final String EVENT_CODE_CANCEL_OR_REFUND = "CANCEL_OR_REFUND";
@@ -22,6 +22,10 @@ public class NotificationRequestItem {
     public static final String EVENT_CODE_REFUND_FAILED = "REFUND_FAILED";
     public static final String EVENT_CODE_REFUNDED_REVERSED = "REFUNDED_REVERSED";
     public static final String EVENT_CODE_PAIDOUT_REVERSED = "PAIDOUT_REVERSED";
+
+    //Additional Data
+    public static final String ADDITIONAL_DATA_TOTAL_FRAUD_SCORE = "totalFraudScore";
+    public static final String ADDITIONAL_DATA_FRAUD_CHECK_PATTERN = "fraudCheck-(\\d+)-([A-Za-z0-9]+)";
 
     @SerializedName("amount")
     private Amount amount = null;

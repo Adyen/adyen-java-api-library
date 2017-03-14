@@ -1,9 +1,23 @@
 {
   "additionalData": {
+    "liabilityShift": "true",
     "fraudResultType": "GREEN",
+    "authCode": "43733",
+    "avsResult": "4 AVS not supported for this card type",
+    "cardHolderName": "Holder",
+    "cardSummary": "1111",
     "fraudManualReview": "false",
-    "aliasType": "Default",
-    "alias": "C141398145150368"
+    "threeDOffered": "true",
+    "refusalReasonRaw": "AUTHORISED",
+    "expiryDate": "8/2018",
+    "cvcResult": "1 Matches",
+    "cardBin": "411111",
+    "avsResultRaw": "4",
+    "threeDAuthenticated": "false",
+    "paymentMethod": "visa",
+    "cvcResultRaw": "1",
+    "acquirerCode": "TestPmmAcquirer",
+    "acquirerReference": "7F59FSE1M6K"
   },
   "fraudResult": {
     "accountScore": 25,

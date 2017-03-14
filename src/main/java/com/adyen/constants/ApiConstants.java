@@ -13,6 +13,14 @@ public interface ApiConstants {
     }
     interface AdditionalData {
         String REFUSAL_REASON_RAW = "refusalReasonRaw";
+        String PAYMENT_METHOD = "paymentMethod";
+        String EXPIRY_DATE = "expiryDate";
+        String CARD_BIN = "cardBin";
+        String CARD_HOLDER_NAME = "cardHolderName";
+        String CARD_SUMMARY = "cardSummary";
+        String THREE_D_OFFERERED = "threeDOffered";
+        String THREE_D_AUTHENTICATED = "threeDAuthenticated";
+        String AVS_RESULT = "avsResult";
 
         interface Card {
             interface Encrypted {
