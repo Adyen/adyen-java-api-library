@@ -19,6 +19,10 @@
       ]
     },
     {
+      "brandCode":"visa",
+      "name":"VISA"
+    },
+    {
       "brandCode":"sepadirectdebit",
       "name":"SEPA Direct Debit"
     },
@@ -37,10 +41,6 @@
     {
       "brandCode":"boku",
       "name":"Boku"
-    },
-    {
-      "brandCode":"paysafecard",
-      "name":"Paysafecard"
     },
     {
       "brandCode":"paypal",
