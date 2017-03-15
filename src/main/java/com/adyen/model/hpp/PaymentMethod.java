@@ -3,6 +3,7 @@ package com.adyen.model.hpp;
 import com.adyen.Util.Util;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class PaymentMethod {
@@ -14,6 +15,34 @@ public class PaymentMethod {
 
     @SerializedName("issuers")
     private List<Issuer> issuers;
+
+    public static List<String> cards = Arrays.asList(
+            "mc",
+            "visadankort",
+            "visa",
+            "amex",
+            "vias",
+            "diners",
+            "maestrouk",
+            "solo",
+            "laser",
+            "discover",
+            "jcb",
+            "bcmc",
+            "bijcard",
+            "dankort",
+            "hipercard",
+            "maestro",
+            "elo",
+            "uatp",
+            "cup",
+            "cartebancaire",
+            "visaalphabankbonus",
+            "mcalphabankbonus",
+            "karenmillen",
+            "oasis",
+            "warehouse"
+    );
 
     public String getBrandCode() {
         return brandCode;
@@ -37,6 +66,10 @@ public class PaymentMethod {
 
     public void setIssuers(List<Issuer> issuers) {
         this.issuers = issuers;
+    }
+
+    public boolean isCard() {
+        return cards.contains(getBrandCode());
     }
 
     @Override

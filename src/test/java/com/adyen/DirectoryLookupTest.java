@@ -15,6 +15,8 @@ import java.util.SortedMap;
 import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
 import static com.adyen.constants.HPPConstants.Fields.MERCHANT_SIG;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests notification messages
@@ -56,12 +58,17 @@ public class DirectoryLookupTest extends BaseTest {
         PaymentMethod ideal = paymentMethods.get(0);
         assertEquals("ideal", ideal.getBrandCode());
         assertEquals("iDEAL", ideal.getName());
+        assertFalse(ideal.isCard());
 
         assertEquals(3, ideal.getIssuers().size());
         Issuer issuer1 = ideal.getIssuers().get(0);
 
         assertEquals("1121", issuer1.getIssuerId());
         assertEquals("Test Issuer", issuer1.getName());
+
+        PaymentMethod visa = paymentMethods.get(1);
+        assertEquals("visa", visa.getBrandCode());
+        assertTrue(visa.isCard());
     }
 
 }
