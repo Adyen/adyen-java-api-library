@@ -28,6 +28,9 @@ public class Recurring {
   public enum ContractEnum {
     @SerializedName("ONECLICK")
     ONECLICK("ONECLICK"),
+
+    @SerializedName("ONECLICK,RECURRING")
+    ONECLICK_RECURRING("ONECLICK,RECURRING"),
     
     @SerializedName("RECURRING")
     RECURRING("RECURRING"),
