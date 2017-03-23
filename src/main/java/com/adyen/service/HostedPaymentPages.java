@@ -3,7 +3,7 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.Service;
-import com.adyen.Util.Util;
+import com.adyen.Util.HMACValidator;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.hpp.DirectoryLookupRequest;
@@ -47,9 +47,11 @@ public class HostedPaymentPages extends Service {
         postParameters.put(SESSION_VALIDITY, request.getSessionValidity());
         postParameters.put(COUNTRY_CODE, request.getCountryCode());
 
-        String dataToSign = Util.getDataToSign(postParameters);
+        HMACValidator hmacValidator = new HMACValidator();
 
-        String merchantSig = Util.calculateHMAC(dataToSign, config.getHmacKey());
+        String dataToSign = hmacValidator.getDataToSign(postParameters);
+
+        String merchantSig = hmacValidator.calculateHMAC(dataToSign, config.getHmacKey());
         postParameters.put(MERCHANT_SIG, merchantSig);
 
         return postParameters;
