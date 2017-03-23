@@ -1,8 +1,8 @@
 package com.adyen;
 
+import com.adyen.Util.HMACValidator;
 import com.adyen.Util.Util;
 import com.adyen.model.Amount;
-import com.adyen.model.hpp.DirectoryLookupRequest;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -42,7 +42,8 @@ public class UtilTest {
         postParameters.put(MERCHANT_ACCOUNT, "ACC");
         postParameters.put(CURRENCY_CODE, "EUR");
 
-        String dataToSign = Util.getDataToSign(postParameters);
+        HMACValidator hmacValidator = new HMACValidator();
+        String dataToSign = hmacValidator.getDataToSign(postParameters);
         assertEquals("currencyCode:merchantAccount:EUR:ACC", dataToSign);
 
         //Test escaping and sorting
@@ -50,7 +51,7 @@ public class UtilTest {
         postParameters.put(CURRENCY_CODE, "EUR");
         postParameters.put(MERCHANT_ACCOUNT, "ACC:\\'");
 
-        dataToSign = Util.getDataToSign(postParameters);
+        dataToSign = hmacValidator.getDataToSign(postParameters);
         assertEquals("currencyCode:merchantAccount:EUR:ACC\\:\\\\'", dataToSign);
     }
 
@@ -58,7 +59,8 @@ public class UtilTest {
     public void testHmac() throws SignatureException {
         String data = "countryCode:currencyCode:merchantAccount:merchantReference:paymentAmount:sessionValidity:skinCode:NL:EUR:MagentoMerchantTest2:TEST-PAYMENT-2017-02-01-14\\:02\\:05:199:2017-02-02T14\\:02\\:05+01\\:00:PKz2KML1";
         String key = "DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00";
-        String ecnrypted = Util.calculateHMAC(data, key);
+        HMACValidator hmacValidator = new HMACValidator();
+        String ecnrypted = hmacValidator.calculateHMAC(data, key);
         assertEquals("34oR8T1whkQWTv9P+SzKyp8zhusf9n0dpqrm9nsqSJs=", ecnrypted);
     }
 }
