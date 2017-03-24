@@ -14,7 +14,7 @@
 package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
-import org.joda.time.LocalDate;
+import java.util.Date;
 
 import java.util.Objects;
 
@@ -36,7 +36,7 @@ public class ForexQuote {
   private Amount buy = null;
 
   @SerializedName("validTill")
-  private LocalDate validTill = null;
+  private Date validTill = null;
 
   @SerializedName("basePoints")
   private Integer basePoints = null;
@@ -127,7 +127,7 @@ public class ForexQuote {
     this.buy = buy;
   }
 
-  public ForexQuote validTill(LocalDate validTill) {
+  public ForexQuote validTill(Date validTill) {
     this.validTill = validTill;
     return this;
   }
@@ -136,11 +136,11 @@ public class ForexQuote {
    * Get validTill
    * @return validTill
   **/
-  public LocalDate getValidTill() {
+  public Date getValidTill() {
     return validTill;
   }
 
-  public void setValidTill(LocalDate validTill) {
+  public void setValidTill(Date validTill) {
     this.validTill = validTill;
   }
 

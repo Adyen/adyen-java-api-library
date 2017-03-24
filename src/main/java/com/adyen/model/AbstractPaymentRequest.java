@@ -13,12 +13,15 @@
 
 package com.adyen.model;
 
+import com.adyen.serializer.DateSerializer;
+import com.adyen.serializer.DateTimeGMTSerializer;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import org.joda.time.LocalDate;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Date;
 
 /**
  * AbstractPaymentRequest
@@ -121,7 +124,8 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     private Address deliveryAddress = null;
 
     @SerializedName("deliveryDate")
-    private LocalDate deliveryDate = null;
+    @JsonAdapter(DateTimeGMTSerializer.class)
+    private Date deliveryDate = null;
 
     @SerializedName("deviceFingerprint")
     private String deviceFingerprint = null;
@@ -136,7 +140,8 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     private Integer captureDelayHours = null;
 
     @SerializedName("dateOfBirth")
-    private LocalDate dateOfBirth = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date dateOfBirth = null;
 
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
@@ -587,7 +592,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.deliveryAddress = deliveryAddress;
     }
 
-    public <T extends AbstractPaymentRequest> T deliveryDate(LocalDate deliveryDate) {
+    public <T extends AbstractPaymentRequest> T deliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
         return (T) this;
     }
@@ -597,11 +602,11 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      *
      * @return deliveryDate
      **/
-    public LocalDate getDeliveryDate() {
+    public Date getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(LocalDate deliveryDate) {
+    public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 
@@ -677,7 +682,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.captureDelayHours = captureDelayHours;
     }
 
-    public <T extends AbstractPaymentRequest> T dateOfBirth(LocalDate dateOfBirth) {
+    public <T extends AbstractPaymentRequest> T dateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
         return (T) this;
     }
@@ -687,11 +692,11 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      *
      * @return dateOfBirth
      **/
-    public LocalDate getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
