@@ -14,11 +14,11 @@
 package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
-import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Date;
 
 /**
  * RecurringDetailsResult
@@ -26,7 +26,7 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-14T08:41:23.938Z")
 public class RecurringDetailsResult {
   @SerializedName("creationDate")
-  private LocalDate creationDate = null;
+  private Date creationDate = null;
 
   @SerializedName("shopperReference")
   private String shopperReference = null;
@@ -37,7 +37,7 @@ public class RecurringDetailsResult {
   @SerializedName("lastKnownShopperEmail")
   private String lastKnownShopperEmail = null;
 
-  public RecurringDetailsResult creationDate(LocalDate creationDate) {
+  public RecurringDetailsResult creationDate(Date creationDate) {
     this.creationDate = creationDate;
     return this;
   }
@@ -46,11 +46,11 @@ public class RecurringDetailsResult {
    * the creation date when the shopper record was created
    * @return creationDate
   **/
-  public LocalDate getCreationDate() {
+  public Date getCreationDate() {
     return creationDate;
   }
 
-  public void setCreationDate(LocalDate creationDate) {
+  public void setCreationDate(Date creationDate) {
     this.creationDate = creationDate;
   }
 

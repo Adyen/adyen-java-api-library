@@ -14,11 +14,11 @@
 package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
-import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Date;
 
 /**
  * RecurringDetail
@@ -29,7 +29,7 @@ public class RecurringDetail {
   private String name = null;
 
   @SerializedName("creationDate")
-  private LocalDate creationDate = null;
+  private Date creationDate = null;
 
   @SerializedName("card")
   private Card card = null;
@@ -99,7 +99,7 @@ public class RecurringDetail {
     this.name = name;
   }
 
-  public RecurringDetail creationDate(LocalDate creationDate) {
+  public RecurringDetail creationDate(Date creationDate) {
     this.creationDate = creationDate;
     return this;
   }
@@ -108,11 +108,11 @@ public class RecurringDetail {
    * Get creationDate
    * @return creationDate
   **/
-  public LocalDate getCreationDate() {
+  public Date getCreationDate() {
     return creationDate;
   }
 
-  public void setCreationDate(LocalDate creationDate) {
+  public void setCreationDate(Date creationDate) {
     this.creationDate = creationDate;
   }
 
