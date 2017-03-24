@@ -13,10 +13,10 @@
 
 package com.adyen.model;
 
+import com.adyen.Util.Util;
 import com.adyen.constants.ApiConstants;
 import com.google.gson.annotations.SerializedName;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -36,14 +36,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     private BankAccount bankAccount = null;
 
     public PaymentRequest setAmountData(String amount, String currency) {
-        Long amountValue = new BigDecimal(100)
-                .multiply(new BigDecimal(amount))
-                .longValue();
-
-        Amount amountData = new Amount();
-        amountData.setCurrency(currency);
-        amountData.setValue(amountValue);
-
+        Amount amountData = Util.createAmount(amount, currency);
         this.setAmount(amountData);
         return this;
     }

@@ -30,8 +30,14 @@ public class UtilTest {
     @Test
     public void testCreateAmount() {
         Amount amount = Util.createAmount("12.34", "EUR");
+        Amount amountJPY = Util.createAmount("1234", "JPY");
+        Amount amountMRO = Util.createAmount("123.4", "MRO");
+        Amount amountBHD = Util.createAmount("1.234", "BHD");
 
         assertEquals(0, new Long("1234").compareTo(amount.getValue()));
+        assertEquals(0, new Long("1234").compareTo(amountJPY.getValue()));
+        assertEquals(0, new Long("1234").compareTo(amountMRO.getValue()));
+        assertEquals(0, new Long("1234").compareTo(amountBHD.getValue()));
     }
 
     @Test
