@@ -1,6 +1,5 @@
 package com.adyen;
 
-import com.adyen.BaseTest;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.google.gson.Gson;
@@ -86,6 +85,74 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 "    \"userAgent\": \"User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36\",\n" +
                 "    \"acceptHeader\": \"*/*\"\n" +
                 "  }\n" +
+                "}";
+
+        assertEquals(expected, paymentRequestJson);
+    }
+
+    @Test
+    public void TestOpenInvoiceRequest() {
+
+        PaymentRequest paymentRequestOpenInvoice = createOpenInvoicePaymentRequest();
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        String paymentRequestJson = gson.toJson(paymentRequestOpenInvoice);
+        String expected = "{\n" +
+                "  \"amount\": {\n" +
+                "    \"value\": 20000,\n" +
+                "    \"currency\": \"EUR\"\n" +
+                "  },\n" +
+                "  \"reference\": \"123456\",\n" +
+                "  \"billingAddress\": {\n" +
+                "    \"city\": \"Gravenhage\",\n" +
+                "    \"country\": \"NL\",\n" +
+                "    \"houseNumberOrName\": \"1\",\n" +
+                "    \"postalCode\": \"2521VA\",\n" +
+                "    \"stateOrProvince\": \"Zuid-Holland\",\n" +
+                "    \"street\": \"Neherkade\"\n" +
+                "  },\n" +
+                "  \"shopperIP\": \"1.2.3.4\",\n" +
+                "  \"merchantAccount\": \"AMerchant\",\n" +
+                "  \"browserInfo\": {\n" +
+                "    \"userAgent\": \"User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36\",\n" +
+                "    \"acceptHeader\": \"*/*\"\n" +
+                "  },\n" +
+                "  \"shopperEmail\": \"youremail@email.com\",\n" +
+                "  \"shopperReference\": \"4\",\n" +
+                "  \"additionalData\": {\n" +
+                "    \"openinvoicedata.numberOfLines\": \"2\",\n" +
+                "    \"openinvoicedata.line2.itemAmount\": \"9000\",\n" +
+                "    \"openinvoicedata.line1.numberOfItems\": \"1\",\n" +
+                "    \"openinvoicedata.line2.currencyCode\": \"EUR\",\n" +
+                "    \"openinvoicedata.line2.itemVatPercentage\": \"1000\",\n" +
+                "    \"openinvoicedata.line2.numberOfItems\": \"1\",\n" +
+                "    \"openinvoicedata.line1.itemVatAmount\": \"1000\",\n" +
+                "    \"openinvoicedata.line1.description\": \"Test product\",\n" +
+                "    \"openinvoicedata.line2.itemVatAmount\": \"1000\",\n" +
+                "    \"openinvoicedata.line1.itemVatPercentage\": \"1000\",\n" +
+                "    \"openinvoicedata.line2.description\": \"Test product 2\",\n" +
+                "    \"openinvoicedata.line1.itemAmount\": \"9000\",\n" +
+                "    \"openinvoicedata.line2.vatCategory\": \"None\",\n" +
+                "    \"openinvoicedata.line1.vatCategory\": \"None\",\n" +
+                "    \"openinvoicedata.line1.currencyCode\": \"EUR\"\n" +
+                "  },\n" +
+                "  \"shopperName\": {\n" +
+                "    \"gender\": \"MALE\",\n" +
+                "    \"lastName\": \"Approved\",\n" +
+                "    \"firstName\": \"Testperson-nl\"\n" +
+                "  },\n" +
+                "  \"selectedBrand\": \"klarna\",\n" +
+                "  \"deliveryAddress\": {\n" +
+                "    \"city\": \"Gravenhage\",\n" +
+                "    \"country\": \"NL\",\n" +
+                "    \"houseNumberOrName\": \"1\",\n" +
+                "    \"postalCode\": \"2521VA\",\n" +
+                "    \"stateOrProvince\": \"Zuid-Holland\",\n" +
+                "    \"street\": \"Neherkade\"\n" +
+                "  },\n" +
+                "  \"dateOfBirth\": \"1970-07-10\",\n" +
+                "  \"telephoneNumber\": \"0612345678\"\n" +
                 "}";
 
         assertEquals(expected, paymentRequestJson);

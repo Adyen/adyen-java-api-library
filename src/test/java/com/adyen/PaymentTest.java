@@ -198,4 +198,22 @@ public class PaymentTest extends BaseTest {
             assertNull(e.getError());
         }
     }
+
+    /**
+     * Test OpenInvoice API flow for klarna
+     *
+     * @throws Exception
+     */
+    @Test
+    public void TestOpenInvoice() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/authorise-success-klarna.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = this.createOpenInvoicePaymentRequest();
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+        assertEquals("2374421290", paymentResult.getAdditionalData().get("additionalData.acquirerReference"));
+        assertEquals("klarna", paymentResult.getAdditionalData().get("paymentMethodVariant"));
+        assertTrue(paymentResult.isAuthorised());
+    }
 }

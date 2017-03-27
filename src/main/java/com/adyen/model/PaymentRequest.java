@@ -15,8 +15,10 @@ package com.adyen.model;
 
 import com.adyen.Util.Util;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.additionalData.InvoiceLine;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -34,6 +36,8 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
     @SerializedName("bankAccount")
     private BankAccount bankAccount = null;
+
+    private List<InvoiceLine> invoiceLines = null;
 
     public PaymentRequest setAmountData(String amount, String currency) {
         Amount amountData = Util.createAmount(amount, currency);
@@ -59,6 +63,57 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         card.setCvc(cvc);
 
         this.setCard(card);
+        return this;
+    }
+
+    /**
+     * Set invoiceLines in addtionalData
+     *
+     * @param invoiceLines
+     * @return
+     */
+    public PaymentRequest setInvoiceLines(List<InvoiceLine> invoiceLines) {
+
+        Integer count = 1;
+        for (InvoiceLine invoiceLine : invoiceLines) {
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("openinvoicedata.line");
+            sb.append(Integer.toString(count));
+            String lineNumber = sb.toString();
+
+            this.getOrCreateAdditionalData().put(
+                    new StringBuilder().append(lineNumber).append(".currencyCode").toString(),
+                    invoiceLine.getCurrencyCode());
+
+            this.getOrCreateAdditionalData().put(
+                    new StringBuilder().append(lineNumber).append(".description").toString(),
+                    invoiceLine.getDescription());
+
+            this.getOrCreateAdditionalData().put(
+                    new StringBuilder().append(lineNumber).append(".itemAmount").toString(),
+                    invoiceLine.getItemAmount().toString());
+
+            this.getOrCreateAdditionalData().put(
+                    new StringBuilder().append(lineNumber).append(".itemVatAmount").toString(),
+                    invoiceLine.getItemVATAmount().toString());
+
+            this.getOrCreateAdditionalData().put(
+                    new StringBuilder().append(lineNumber).append(".itemVatPercentage").toString(),
+                    invoiceLine.getItemVatPercentage().toString());
+
+            this.getOrCreateAdditionalData().put(
+                    new StringBuilder().append(lineNumber).append(".numberOfItems").toString(),
+                    Integer.toString(invoiceLine.getNumberOfItems()));
+
+            this.getOrCreateAdditionalData().put(
+                    new StringBuilder().append(lineNumber).append(".vatCategory").toString(),
+                    invoiceLine.getVatCategory().toString());
+
+            count++;
+        }
+
+        this.getOrCreateAdditionalData().put("openinvoicedata.numberOfLines", Integer.toString(invoiceLines.size()));
         return this;
     }
 

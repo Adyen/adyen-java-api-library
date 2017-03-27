@@ -1,0 +1,8 @@
+{
+  "additionalData": {
+    "additionalData.acquirerReference": "2374421290",
+    "paymentMethodVariant": "klarna"
+  },
+  "pspReference": "8814906011087689",
+  "resultCode": "Authorised"
+}
