@@ -11,7 +11,6 @@ public class PaymentRequestTest extends BaseTest {
 
     @Test
     public void TestOpenInvoiceRequest() {
-
         PaymentRequest paymentRequestOpenInvoice = createOpenInvoicePaymentRequest();
         assertEquals("2", paymentRequestOpenInvoice.getAdditionalData().get("openinvoicedata.numberOfLines"));
 
@@ -30,6 +29,5 @@ public class PaymentRequestTest extends BaseTest {
         assertEquals("1000", paymentRequestOpenInvoice.getAdditionalData().get("openinvoicedata.line2.itemVatPercentage"));
         assertEquals("1", paymentRequestOpenInvoice.getAdditionalData().get("openinvoicedata.line2.numberOfItems"));
         assertEquals(VatCategory.NONE.toString(), paymentRequestOpenInvoice.getAdditionalData().get("openinvoicedata.line2.vatCategory"));
-
     }
 }
