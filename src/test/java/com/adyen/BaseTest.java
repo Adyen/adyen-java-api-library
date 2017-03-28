@@ -1,18 +1,17 @@
 package com.adyen;
 
+import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
-import com.adyen.model.AbstractPaymentRequest;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentRequest3d;
+import com.adyen.model.*;
+import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static org.mockito.Mockito.*;
 
@@ -115,6 +114,88 @@ public class BaseTest {
                         "2018",
                         "737"
                 );
+
+        return paymentRequest;
+    }
+
+    /**
+     *  Returns a sample PaymentRequest opbject with full OpenInvoice request
+     *
+     * @return
+     */
+    protected PaymentRequest createOpenInvoicePaymentRequest() {
+
+        Date dateOfBirth = null;
+        try {
+            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+            dateOfBirth = fmt.parse("1970-07-10");
+        } catch (Exception e) {
+        }
+
+        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest())
+                .reference("123456")
+                .setAmountData(
+                        "200",
+                        "EUR"
+                );
+
+        // Set Shopper Data
+        paymentRequest.setShopperEmail("youremail@email.com");
+        paymentRequest.setDateOfBirth(dateOfBirth);
+        paymentRequest.setTelephoneNumber("0612345678");
+        paymentRequest.setShopperReference("4");
+
+        // Set Shopper Info
+        Name shopperName = new Name();
+        shopperName.setFirstName("Testperson-nl");
+        shopperName.setLastName("Approved");
+        shopperName.gender(Name.GenderEnum.MALE);
+        paymentRequest.setShopperName(shopperName);
+
+        // Set Billing and Delivery address
+        Address address = new Address();
+        address.setCity("Gravenhage");
+        address.setCountry("NL");
+        address.setHouseNumberOrName("1");
+        address.setPostalCode("2521VA");
+        address.setStateOrProvince("Zuid-Holland");
+        address.setStreet("Neherkade");
+        paymentRequest.setDeliveryAddress(address);
+        paymentRequest.setBillingAddress(address);
+
+        // Use OpenInvoice Provider (klarna, ratepay)
+        paymentRequest.selectedBrand("klarna");
+
+        Long itemAmount = new Long("9000");
+        Long itemVatAmount = new Long("1000");
+        Long itemVatPercentage = new Long("1000");
+
+        List<InvoiceLine> invoiceLines = new ArrayList<InvoiceLine>();
+
+        // invoiceLine1
+        InvoiceLine invoiceLine = new InvoiceLine();
+        invoiceLine.setCurrencyCode("EUR");
+        invoiceLine.setDescription("Test product");
+        invoiceLine.setItemAmount(itemAmount);
+        invoiceLine.setItemVATAmount(itemVatAmount);
+        invoiceLine.setItemVatPercentage(itemVatPercentage);
+        invoiceLine.setVatCategory(VatCategory.NONE);
+        invoiceLine.setNumberOfItems(1);
+
+        // invoiceLine2
+        InvoiceLine invoiceLine2 = new InvoiceLine();
+        invoiceLine2.setCurrencyCode("EUR");
+        invoiceLine2.setDescription("Test product 2");
+        invoiceLine2.setItemAmount(itemAmount);
+        invoiceLine2.setItemVATAmount(itemVatAmount);
+        invoiceLine2.setItemVatPercentage(itemVatPercentage);
+        invoiceLine2.setVatCategory(VatCategory.NONE);
+        invoiceLine2.setNumberOfItems(1);
+
+        invoiceLines.add(invoiceLine);
+        invoiceLines.add(invoiceLine2);
+
+        paymentRequest.setInvoiceLines(invoiceLines);
 
         return paymentRequest;
     }

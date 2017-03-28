@@ -1,6 +1,5 @@
 package com.adyen;
 
-import com.adyen.BaseTest;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.google.gson.Gson;
