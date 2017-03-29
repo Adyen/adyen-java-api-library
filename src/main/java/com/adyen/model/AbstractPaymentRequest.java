@@ -15,6 +15,7 @@ package com.adyen.model;
 
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
+import com.adyen.model.recurring.Recurring;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 

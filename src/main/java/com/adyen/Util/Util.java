@@ -31,6 +31,7 @@ public class Util {
         return sb.toString();
     }
 
+
     /**
      * Returns an Amount struct to use on requests
      *
@@ -39,6 +40,17 @@ public class Util {
      * @return
      */
     public static Amount createAmount(String amount, String currency) {
+        return createAmount(new BigDecimal(amount), currency);
+    }
+
+    /**
+     * Returns an Amount struct to use on requests
+     *
+     * @param amount
+     * @param currency
+     * @return
+     */
+    public static Amount createAmount(BigDecimal amount, String currency) {
         Amount amountData = new Amount();
         amountData.setCurrency(currency);
         Long amountValue;
@@ -46,7 +58,7 @@ public class Util {
         //Adding decimal point depending on the currency
         amountValue = new BigDecimal(10)
                 .pow(getDecimalPlaces(currency))
-                .multiply(new BigDecimal(amount))
+                .multiply(amount)
                 .longValue();
 
         amountData.setValue(amountValue);

@@ -11,7 +11,7 @@
  */
 
 
-package com.adyen.model;
+package com.adyen.model.recurring;
 
 import com.google.gson.annotations.SerializedName;
 
