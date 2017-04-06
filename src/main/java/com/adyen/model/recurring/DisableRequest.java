@@ -11,27 +11,30 @@
  */
 
 
-package com.adyen.model;
+package com.adyen.model.recurring;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * RecurringDetailsRequest
+ * DisableRequest
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-14T08:41:23.938Z")
-public class RecurringDetailsRequest {
+public class DisableRequest {
   @SerializedName("merchantAccount")
   private String merchantAccount = null;
 
   @SerializedName("shopperReference")
   private String shopperReference = null;
 
-  @SerializedName("recurring")
-  private Recurring recurring = null;
+  @SerializedName("recurringDetailReference")
+  private String recurringDetailReference = null;
 
-  public RecurringDetailsRequest merchantAccount(String merchantAccount) {
+  @SerializedName("contract")
+  private String contract = null;
+
+  public DisableRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -48,7 +51,7 @@ public class RecurringDetailsRequest {
     this.merchantAccount = merchantAccount;
   }
 
-  public RecurringDetailsRequest shopperReference(String shopperReference) {
+  public DisableRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
@@ -65,21 +68,38 @@ public class RecurringDetailsRequest {
     this.shopperReference = shopperReference;
   }
 
-  public RecurringDetailsRequest recurring(Recurring recurring) {
-    this.recurring = recurring;
+  public DisableRequest recurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
     return this;
   }
 
    /**
-   * the type of recurring contract to be used.
-   * @return recurring
+   * the recurring detail you wish to disable
+   * @return recurringDetailReference
   **/
-  public Recurring getRecurring() {
-    return recurring;
+  public String getRecurringDetailReference() {
+    return recurringDetailReference;
   }
 
-  public void setRecurring(Recurring recurring) {
-    this.recurring = recurring;
+  public void setRecurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+  }
+
+  public DisableRequest contract(String contract) {
+    this.contract = contract;
+    return this;
+  }
+
+   /**
+   * specify the contract if you only want to disable a specific use
+   * @return contract
+  **/
+  public String getContract() {
+    return contract;
+  }
+
+  public void setContract(String contract) {
+    this.contract = contract;
   }
 
 
@@ -91,26 +111,28 @@ public class RecurringDetailsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RecurringDetailsRequest recurringDetailsRequest = (RecurringDetailsRequest) o;
-    return Objects.equals(this.merchantAccount, recurringDetailsRequest.merchantAccount) &&
-        Objects.equals(this.shopperReference, recurringDetailsRequest.shopperReference) &&
-        Objects.equals(this.recurring, recurringDetailsRequest.recurring);
+    DisableRequest disableRequest = (DisableRequest) o;
+    return Objects.equals(this.merchantAccount, disableRequest.merchantAccount) &&
+        Objects.equals(this.shopperReference, disableRequest.shopperReference) &&
+        Objects.equals(this.recurringDetailReference, disableRequest.recurringDetailReference) &&
+        Objects.equals(this.contract, disableRequest.contract);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantAccount, shopperReference, recurring);
+    return Objects.hash(merchantAccount, shopperReference, recurringDetailReference, contract);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RecurringDetailsRequest {\n");
+    sb.append("class DisableRequest {\n");
 
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-    sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
+    sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+    sb.append("    contract: ").append(toIndentedString(contract)).append("\n");
     sb.append("}");
     return sb.toString();
   }

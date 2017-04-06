@@ -1,0 +1,32 @@
+{
+  "creationDate": "2017-03-01T11:53:11+01:00",
+  "details": [
+    {
+      "RecurringDetail": {
+        "acquirer": "TestPmmAcquirer",
+        "acquirerAccount": "TestPmmAcquirerAccount",
+        "additionalData": {
+          "cardBin": "411111"
+        },
+        "alias": "cardAlias",
+        "aliasType": "Default",
+        "card": {
+          "expiryMonth": "8",
+          "expiryYear": "2018",
+          "holderName": "Holder",
+          "number": "1111"
+        },
+        "contractTypes": [
+          "ONECLICK"
+        ],
+        "creationDate": "2017-03-07T09:43:33+01:00",
+        "firstPspReference": "8524888762135795",
+        "paymentMethodVariant": "visa",
+        "recurringDetailReference": "recurringReference",
+        "variant": "visa"
+      }
+    }
+  ],
+  "shopperReference": "test-123",
+  "invalidOneclickContracts": "false"
+}

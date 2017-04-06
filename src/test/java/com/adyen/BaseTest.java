@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.*;
 
 public class BaseTest {
@@ -247,7 +248,7 @@ public class BaseTest {
                     request(any(String.class), any(String.class), any(Config.class))).
                     thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
-            e.printStackTrace();
+            fail("Unexpected exception: " + e.getMessage());
         }
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);
