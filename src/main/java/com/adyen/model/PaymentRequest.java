@@ -110,6 +110,13 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
                     new StringBuilder().append(lineNumber).append(".vatCategory").toString(),
                     invoiceLine.getVatCategory().toString());
 
+            // Addional field only for RatePay
+            if (invoiceLine.getItemId() != null && !invoiceLine.getItemId().isEmpty()) {
+                this.getOrCreateAdditionalData().put(
+                        new StringBuilder().append(lineNumber).append(".itemId").toString(),
+                        invoiceLine.getItemId());
+            }
+
             count++;
         }
 
