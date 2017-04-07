@@ -182,6 +182,7 @@ public class BaseTest {
         invoiceLine.setItemVatPercentage(itemVatPercentage);
         invoiceLine.setVatCategory(VatCategory.NONE);
         invoiceLine.setNumberOfItems(1);
+        invoiceLine.setItemId("1234");
 
         // invoiceLine2
         InvoiceLine invoiceLine2 = new InvoiceLine();
@@ -192,6 +193,7 @@ public class BaseTest {
         invoiceLine2.setItemVatPercentage(itemVatPercentage);
         invoiceLine2.setVatCategory(VatCategory.NONE);
         invoiceLine2.setNumberOfItems(1);
+        invoiceLine2.setItemId("4567");
 
         invoiceLines.add(invoiceLine);
         invoiceLines.add(invoiceLine2);

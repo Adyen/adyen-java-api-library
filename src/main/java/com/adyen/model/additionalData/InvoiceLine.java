@@ -11,6 +11,7 @@ public class InvoiceLine {
     private Long itemVatPercentage = null;
     private Integer numberOfItems = null;
     private VatCategory vatCategory = null;
+    private String itemId = null;
 
     public String getCurrencyCode() {
         return currencyCode;
@@ -66,5 +67,13 @@ public class InvoiceLine {
 
     public void setVatCategory(VatCategory vatCategory) {
         this.vatCategory = vatCategory;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 }
