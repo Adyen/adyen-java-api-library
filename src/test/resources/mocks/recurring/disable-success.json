@@ -1,0 +1,30 @@
+{
+  "details": [
+    {
+      "RecurringDetail": {
+        "acquirer": "TestPmmAcquirer",
+        "acquirerAccount": "TestPmmAcquirerAccount",
+        "additionalData": {
+          "cardBin": "411111"
+        },
+        "alias": "ALIAS",
+        "aliasType": "Default",
+        "card": {
+          "expiryMonth": "8",
+          "expiryYear": "2018",
+          "holderName": "Holder",
+          "number": "1111"
+        },
+        "contractTypes": [
+          "ONECLICK"
+        ],
+        "creationDate": "2017-03-07T09:43:33+01:00",
+        "firstPspReference": "PSP_REF",
+        "paymentMethodVariant": "visa",
+        "recurringDetailReference": "RECURRING_REFERENCE",
+        "variant": "visa"
+      }
+    }
+  ],
+  "response": "[detail-successfully-disabled]"
+}
