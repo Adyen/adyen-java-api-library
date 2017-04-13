@@ -34,13 +34,11 @@ public class Recurring extends Service {
      * @throws ApiException
      */
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest request) throws IOException, ApiException {
-        Gson gson = new Gson();
-
-        String jsonRequest = gson.toJson(request);
+        String jsonRequest = GSON.toJson(request);
 
         String jsonResult = listRecurringDetails.request(jsonRequest);
 
-        RecurringDetailsResult result = gson.fromJson(jsonResult, new TypeToken<RecurringDetailsResult>() {
+        RecurringDetailsResult result = GSON.fromJson(jsonResult, new TypeToken<RecurringDetailsResult>() {
         }.getType());
         return result;
     }
@@ -53,13 +51,11 @@ public class Recurring extends Service {
      * @throws ApiException
      */
     public DisableResult disable(DisableRequest request) throws IOException, ApiException {
-        Gson gson = new Gson();
-
-        String jsonRequest = gson.toJson(request);
+        String jsonRequest = GSON.toJson(request);
 
         String jsonResult = disable.request(jsonRequest);
 
-        DisableResult result = gson.fromJson(jsonResult, new TypeToken<DisableResult>() {
+        DisableResult result = GSON.fromJson(jsonResult, new TypeToken<DisableResult>() {
         }.getType());
         return result;
     }

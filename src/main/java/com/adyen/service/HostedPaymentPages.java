@@ -61,10 +61,9 @@ public class HostedPaymentPages extends Service {
             throws SignatureException, IOException, HTTPClientException {
         final SortedMap<String, String> postParameters = getPostParametersFromDLRequest(request);
 
-        Gson gson = new Gson();
         String jsonResult = directoryLookup(postParameters);
 
-        DirectoryLookupResult directoryLookupResult = gson.fromJson(jsonResult, new TypeToken<DirectoryLookupResult>() {
+        DirectoryLookupResult directoryLookupResult = GSON.fromJson(jsonResult, new TypeToken<DirectoryLookupResult>() {
         }.getType());
 
         return directoryLookupResult.getPaymentMethods();

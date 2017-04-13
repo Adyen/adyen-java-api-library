@@ -23,6 +23,9 @@ public class HttpURLConnectionClient implements ClientInterface {
     private HttpURLConnection httpConnection;
     private static final String CHARSET = "UTF-8";
 
+    private static final Gson GSON = new Gson();
+    private static final Gson COMPLEX_MAP_KEY_GSON = new GsonBuilder().enableComplexMapKeySerialization().create();
+    
     /**
      * Does a POST request.
      * config is used to obtain basic auth username, password and User-Agent
@@ -64,15 +67,13 @@ public class HttpURLConnectionClient implements ClientInterface {
 
         try {
             // convert parameters to JSON
-            Gson gson = new GsonBuilder()
-                    .enableComplexMapKeySerialization()
-                    .create();
-            String input = gson.toJson(params);
+
+            String input = COMPLEX_MAP_KEY_GSON.toJson(params);
 
             String result = request(requestUrl, input, config);
 
             // convert back to HashMap
-            json = new Gson().fromJson(result, new TypeToken<HashMap<String, Object>>() {
+            json = GSON.fromJson(result, new TypeToken<HashMap<String, Object>>() {
             }.getType());
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();

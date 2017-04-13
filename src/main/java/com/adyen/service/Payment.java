@@ -32,7 +32,7 @@ public class Payment extends Service {
     public Map<String, Object> authorise(String json) throws Exception {
 
         // convert to Map<String, Object>
-        Map<String, Object> params = new Gson().fromJson(json, new TypeToken<HashMap<String, Object>>() {
+        Map<String, Object> params = GSON.fromJson(json, new TypeToken<HashMap<String, Object>>() {
         }.getType());
 
         return authorise.request(params);
@@ -51,12 +51,11 @@ public class Payment extends Service {
      * @throws Exception
      */
     public PaymentResult authorise(PaymentRequest paymentRequest) throws Exception {
-        Gson gson = new Gson();
-        String jsonRequest = gson.toJson(paymentRequest);
+        String jsonRequest = GSON.toJson(paymentRequest);
 
         String jsonResult = authorise.request(jsonRequest);
 
-        PaymentResult paymentResult = gson.fromJson(jsonResult, new TypeToken<PaymentResult>() {
+        PaymentResult paymentResult = GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
 
         return paymentResult;
@@ -70,12 +69,11 @@ public class Payment extends Service {
      * @throws Exception
      */
     public PaymentResult authorise3D(PaymentRequest3d paymentRequest3d) throws Exception {
-        Gson gson = new Gson();
-        String jsonRequest = gson.toJson(paymentRequest3d);
+        String jsonRequest = GSON.toJson(paymentRequest3d);
 
         String jsonResult = authorise3D.request(jsonRequest);
 
-        PaymentResult paymentResult = gson.fromJson(jsonResult, new TypeToken<PaymentResult>() {
+        PaymentResult paymentResult = GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
 
         return paymentResult;

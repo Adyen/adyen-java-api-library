@@ -8,10 +8,10 @@ import com.google.gson.reflect.TypeToken;
  * Notification converter
  */
 public class NotificationHandler {
+	private static final Gson GSON = new Gson();
+	
     public NotificationRequest handleNotificationJson(String json) {
-        Gson gson = new Gson();
-
-        NotificationRequest notificationRequest = gson.fromJson(json, new TypeToken<NotificationRequest>() {
+        NotificationRequest notificationRequest = GSON.fromJson(json, new TypeToken<NotificationRequest>() {
         }.getType());
 
         return notificationRequest;

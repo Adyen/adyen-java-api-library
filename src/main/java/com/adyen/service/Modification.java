@@ -93,15 +93,13 @@ public class Modification extends Service {
     }
 
     private String serializeRequest(AbstractModificationRequest modificationRequest) {
-        Gson gson = new Gson();
-        String jsonRequest = gson.toJson(modificationRequest);
+        String jsonRequest = GSON.toJson(modificationRequest);
 
         return jsonRequest;
     }
 
     private ModificationResult deserializeResponse(String jsonResult) {
-        Gson gson = new Gson();
-        ModificationResult modificationResult = gson.fromJson(jsonResult, new TypeToken<ModificationResult>() {
+        ModificationResult modificationResult = GSON.fromJson(jsonResult, new TypeToken<ModificationResult>() {
         }.getType());
 
         return modificationResult;

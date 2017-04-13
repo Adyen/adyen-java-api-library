@@ -16,7 +16,9 @@ import java.util.Map;
  */
 public class GsonTest extends BaseTest {
 
-    @Test
+    private static final Gson GSON = new Gson();
+
+	@Test
     public void TestGson() {
         Request request = new Request();
 
@@ -37,18 +39,18 @@ public class GsonTest extends BaseTest {
         request.setNestedItems(nestedItems);
 
 
-        String result = new Gson().toJson(request.items);
-        String result2 = new Gson().toJson(request.nestedItems);
+        String result = GSON.toJson(request.items);
+        String result2 = GSON.toJson(request.nestedItems);
 
 
-        Map firstObject = new Gson().fromJson(result, HashMap.class);
-        Map secondObject = new Gson().fromJson(result2, HashMap.class);
+        Map firstObject = GSON.fromJson(result, HashMap.class);
+        Map secondObject = GSON.fromJson(result2, HashMap.class);
 
         HashMap resultMap = new HashMap();
         resultMap.putAll(firstObject);
         resultMap.putAll(secondObject);
 
-        String resultJson = new Gson().toJson(resultMap);
+        String resultJson = GSON.toJson(resultMap);
         System.out.println(resultJson);
 
 
