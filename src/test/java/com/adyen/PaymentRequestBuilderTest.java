@@ -9,13 +9,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class PaymentRequestBuilderTest extends BaseTest {
+	
+	private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
+	
     @Test
     public void TestCCPaymentRequest() {
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        String paymentRequestJson = gson.toJson(paymentRequest);
+        String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest);
 
         String expected = "{\n" +
                 "  \"card\": {\n" +
@@ -45,9 +46,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
     public void TestCSEPaymentRequest() {
         PaymentRequest paymentRequest = createCSEPaymentRequest();
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        String paymentRequestJson = gson.toJson(paymentRequest);
+        String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest);
 
         String expected = "{\n" +
                 "  \"amount\": {\n" +
@@ -73,9 +72,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
     public void Test3DSecureRequest() {
         PaymentRequest3d paymentRequest3d = create3DPaymentRequest();
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        String paymentRequestJson = gson.toJson(paymentRequest3d);
+        String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest3d);
         String expected = "{\n" +
                 "  \"md\": \"mdString\",\n" +
                 "  \"paResponse\": \"paResString\",\n" +

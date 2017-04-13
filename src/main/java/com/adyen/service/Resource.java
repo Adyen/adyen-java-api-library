@@ -19,6 +19,7 @@ public class Resource {
     protected String endpoint;
     protected List<String> requiredFields;
 
+    protected static final Gson GSON = new Gson();
 
     public Resource(Service service, String endpoint, List<String> requiredFields) {
         this.service = service;
@@ -52,8 +53,7 @@ public class Resource {
         } catch (HTTPClientException e) {
             String responseBody = e.getResponseBody();
 
-            Gson gson = new Gson();
-            ApiError apiError = gson.fromJson(responseBody, new TypeToken<ApiError>() {
+            ApiError apiError = GSON.fromJson(responseBody, new TypeToken<ApiError>() {
             }.getType());
             ApiException apiException = new ApiException(e.getMessage(), e.getCode());
             apiException.setError(apiError);
