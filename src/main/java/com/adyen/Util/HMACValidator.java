@@ -1,7 +1,5 @@
 package com.adyen.Util;
 
-import com.google.common.io.BaseEncoding;
-
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
@@ -10,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
+
 public class HMACValidator {
     public final static String HMAC_SHA256_ALGORITHM = "HmacSHA256";
     public final static Charset C_UTF8 = Charset.forName("UTF8");
@@ -17,7 +18,7 @@ public class HMACValidator {
     // To calculate the HMAC SHA-256
     public String calculateHMAC(String data, String key) throws java.security.SignatureException {
         try {
-            byte[] rawKey = BaseEncoding.base16().decode(key);
+            byte[] rawKey = Hex.decodeHex(key.toCharArray());
             // Create an hmac_sha256 key from the raw key bytes
             SecretKeySpec signingKey = new SecretKeySpec(rawKey, HMAC_SHA256_ALGORITHM);
 
@@ -31,7 +32,7 @@ public class HMACValidator {
             byte[] rawHmac = mac.doFinal(data.getBytes(C_UTF8));
 
             // Base64-encode the hmac
-            return BaseEncoding.base64().encode(rawHmac);
+            return new String(Base64.encodeBase64(rawHmac));
 
         } catch (Exception e) {
             throw new SignatureException("Failed to generate HMAC : " + e.getMessage());

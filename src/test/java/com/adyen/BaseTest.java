@@ -7,9 +7,11 @@ import com.adyen.model.*;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
-import org.apache.commons.io.IOUtils;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -69,7 +71,15 @@ public class BaseTest {
 
         ClassLoader classLoader = getClass().getClassLoader();
         try {
-            result = IOUtils.toString(classLoader.getResourceAsStream(fileName));
+            byte[] buffer = new byte[1024];
+            int length;
+            InputStream fileStream = classLoader.getResourceAsStream(fileName);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            while ((length = fileStream.read(buffer)) != -1)
+            {
+                outputStream.write(buffer, 0, length);
+            }
+            result = outputStream.toString(StandardCharsets.UTF_8.name());
         } catch (IOException e) {
             e.printStackTrace();
         }
