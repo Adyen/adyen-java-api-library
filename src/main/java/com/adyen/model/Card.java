@@ -13,18 +13,14 @@
 
 package com.adyen.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Card
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-14T08:41:23.938Z")
 public class Card {
-  @SerializedName("billingAddress")
-  private Address billingAddress = null;
-
   @SerializedName("expiryMonth")
   private String expiryMonth = null;
 
@@ -48,23 +44,6 @@ public class Card {
 
   @SerializedName("startYear")
   private String startYear = null;
-
-  public Card billingAddress(Address billingAddress) {
-    this.billingAddress = billingAddress;
-    return this;
-  }
-
-   /**
-   * Get billingAddress
-   * @return billingAddress
-  **/
-  public Address getBillingAddress() {
-    return billingAddress;
-  }
-
-  public void setBillingAddress(Address billingAddress) {
-    this.billingAddress = billingAddress;
-  }
 
   public Card expiryMonth(String expiryMonth) {
     this.expiryMonth = expiryMonth;
@@ -212,8 +191,7 @@ public class Card {
       return false;
     }
     Card card = (Card) o;
-    return Objects.equals(this.billingAddress, card.billingAddress) &&
-        Objects.equals(this.expiryMonth, card.expiryMonth) &&
+    return Objects.equals(this.expiryMonth, card.expiryMonth) &&
         Objects.equals(this.expiryYear, card.expiryYear) &&
         Objects.equals(this.cvc, card.cvc) &&
         Objects.equals(this.holderName, card.holderName) &&
@@ -225,7 +203,7 @@ public class Card {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, expiryMonth, expiryYear, cvc, holderName, issueNumber, number, startMonth, startYear);
+    return Objects.hash(expiryMonth, expiryYear, cvc, holderName, issueNumber, number, startMonth, startYear);
   }
 
 
@@ -234,7 +212,6 @@ public class Card {
     StringBuilder sb = new StringBuilder();
     sb.append("class Card {\n");
 
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
     sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
