@@ -13,7 +13,7 @@ public class Client {
     public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
     public static final String HPP_TEST = "https://test.adyen.com/hpp";
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
-    public static final String API_VERSION = "v18";
+    public static final String API_VERSION = "v25";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
     public static final String LIB_VERSION = "0.1.0";
 
