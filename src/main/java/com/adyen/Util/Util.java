@@ -1,13 +1,13 @@
 package com.adyen.Util;
 
-import com.adyen.model.Amount;
-
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import com.adyen.model.Amount;
 
 public class Util {
     public static <T> String implode(String glue, List<T> list) {
@@ -55,10 +55,10 @@ public class Util {
         amountData.setCurrency(currency);
         Long amountValue;
 
-        //Adding decimal point depending on the currency
+        Integer scale = getDecimalPlaces(currency);
         amountValue = new BigDecimal(10)
-                .pow(getDecimalPlaces(currency))
-                .multiply(amount)
+                .pow(scale)
+                .multiply(amount.setScale(scale, RoundingMode.HALF_UP))
                 .longValue();
 
         amountData.setValue(amountValue);
