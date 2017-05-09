@@ -1,6 +1,7 @@
 package com.adyen.model.additionalData;
 
 import com.adyen.enums.VatCategory;
+import static com.adyen.Util.Util.toIndentedString;
 
 public class InvoiceLine {
 
@@ -75,5 +76,21 @@ public class InvoiceLine {
 
     public void setItemId(String itemId) {
         this.itemId = itemId;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class InvoiceLine {\n");
+        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    itemAmount: ").append(toIndentedString(itemAmount)).append("\n");
+        sb.append("    itemVATAmount: ").append(toIndentedString(itemVATAmount)).append("\n");
+        sb.append("    itemVatPercentage: ").append(toIndentedString(itemVatPercentage)).append("\n");
+        sb.append("    numberOfItems: ").append(toIndentedString(numberOfItems)).append("\n");
+        sb.append("    vatCategory: ").append(toIndentedString(vatCategory)).append("\n");
+        sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 }
