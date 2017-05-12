@@ -1,17 +1,35 @@
+/**
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen;
-
-import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.hpp.DirectoryLookupRequest;
-import com.adyen.model.hpp.Issuer;
-import com.adyen.model.hpp.PaymentMethod;
-import com.adyen.service.HostedPaymentPages;
-import org.junit.Test;
 
 import java.io.IOException;
 import java.security.SignatureException;
 import java.util.List;
 import java.util.SortedMap;
-
+import org.junit.Test;
+import com.adyen.httpclient.HTTPClientException;
+import com.adyen.model.hpp.DirectoryLookupRequest;
+import com.adyen.model.hpp.Issuer;
+import com.adyen.model.hpp.PaymentMethod;
+import com.adyen.service.HostedPaymentPages;
 import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
 import static com.adyen.constants.HPPConstants.Fields.MERCHANT_SIG;
 import static org.junit.Assert.assertEquals;

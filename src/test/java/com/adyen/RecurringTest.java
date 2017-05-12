@@ -1,12 +1,34 @@
+/**
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen;
 
-import com.adyen.model.recurring.*;
+import java.io.IOException;
+import org.junit.Test;
+import com.adyen.model.recurring.DisableRequest;
+import com.adyen.model.recurring.DisableResult;
+import com.adyen.model.recurring.RecurringDetail;
+import com.adyen.model.recurring.RecurringDetailsRequest;
+import com.adyen.model.recurring.RecurringDetailsResult;
 import com.adyen.service.Recurring;
 import com.adyen.service.exception.ApiException;
-import org.junit.Test;
-
-import java.io.IOException;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
