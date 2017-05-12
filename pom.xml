@@ -5,8 +5,8 @@
     <artifactId>adyen-java-api-library</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
-    <name>Adyen Java API Client Library</name>
-    <description>Adyen API Library for Java</description>
+    <name>Adyen Java API Library</name>
+    <description>Adyen API Client Library for Java</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

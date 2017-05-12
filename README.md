@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=master)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=master)
 
 
-# Adyen APIs Library for Java
+# Adyen Java API Library
 The Adyen API Library for Java enables you to work with Adyen APIs and Hosted Payment Page.
 
 ## Requirements
