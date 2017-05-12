@@ -285,8 +285,8 @@ public class BaseTest {
                 response);
         try {
             when(httpURLConnectionClient.
-                                                request(any(String.class), any(String.class), any(Config.class))).
-                                                                                                                         thenThrow(httpClientException);
+                    request(any(String.class), any(String.class), any(Config.class))).
+                    thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }
