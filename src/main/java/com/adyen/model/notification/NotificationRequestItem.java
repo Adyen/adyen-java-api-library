@@ -1,11 +1,30 @@
+/**
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen.model.notification;
-
-import com.adyen.model.Amount;
-import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import com.adyen.model.Amount;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * NotificationRequestItem model class

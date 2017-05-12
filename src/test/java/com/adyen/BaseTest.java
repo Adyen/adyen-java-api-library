@@ -1,22 +1,50 @@
+/**
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen;
-
-import com.adyen.enums.VatCategory;
-import com.adyen.httpclient.HTTPClientException;
-import com.adyen.httpclient.HttpURLConnectionClient;
-import com.adyen.model.*;
-import com.adyen.model.additionalData.InvoiceLine;
-import com.adyen.model.modification.AbstractModificationRequest;
-import com.adyen.model.modification.CaptureRequest;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
-import java.util.*;
-
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import com.adyen.enums.VatCategory;
+import com.adyen.httpclient.HTTPClientException;
+import com.adyen.httpclient.HttpURLConnectionClient;
+import com.adyen.model.AbstractPaymentRequest;
+import com.adyen.model.Address;
+import com.adyen.model.Name;
+import com.adyen.model.PaymentRequest;
+import com.adyen.model.PaymentRequest3d;
+import com.adyen.model.additionalData.InvoiceLine;
+import com.adyen.model.modification.AbstractModificationRequest;
+import com.adyen.model.modification.CaptureRequest;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class BaseTest {
     /**
