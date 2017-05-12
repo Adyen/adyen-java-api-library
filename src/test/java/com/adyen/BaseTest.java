@@ -57,12 +57,12 @@ public class BaseTest {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         try {
             when(httpURLConnectionClient.
-                                                request(any(String.class), any(String.class), any(Config.class))).
-                                                                                                                         thenReturn(response);
+                    request(any(String.class), any(String.class), any(Config.class))).
+                    thenReturn(response);
 
             when(httpURLConnectionClient.
-                                                post(any(String.class), any(Map.class), any(Config.class))).
-                                                                                                                   thenReturn(response);
+                    post(any(String.class), any(Map.class), any(Config.class))).
+                    thenReturn(response);
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }
