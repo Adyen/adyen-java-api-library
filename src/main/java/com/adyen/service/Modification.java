@@ -1,17 +1,39 @@
+/**
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen.service;
 
+import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.modification.*;
+import com.adyen.model.modification.AbstractModificationRequest;
+import com.adyen.model.modification.CancelRequest;
+import com.adyen.model.modification.CaptureRequest;
+import com.adyen.model.modification.ModificationResult;
+import com.adyen.model.modification.RefundRequest;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.modification.Cancel;
 import com.adyen.service.resource.modification.CancelOrRefund;
 import com.adyen.service.resource.modification.Capture;
 import com.adyen.service.resource.modification.Refund;
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
 
 public class Modification extends Service {
     private CancelOrRefund cancelOrRefund;

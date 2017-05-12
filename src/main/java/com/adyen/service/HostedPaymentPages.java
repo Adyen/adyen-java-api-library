@@ -1,5 +1,31 @@
+/**
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen.service;
 
+import java.io.IOException;
+import java.security.SignatureException;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.Service;
@@ -9,17 +35,15 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.hpp.DirectoryLookupRequest;
 import com.adyen.model.hpp.DirectoryLookupResult;
 import com.adyen.model.hpp.PaymentMethod;
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-import java.security.SignatureException;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
-
-import static com.adyen.constants.HPPConstants.Fields.*;
+import static com.adyen.constants.HPPConstants.Fields.COUNTRY_CODE;
+import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
+import static com.adyen.constants.HPPConstants.Fields.MERCHANT_ACCOUNT;
+import static com.adyen.constants.HPPConstants.Fields.MERCHANT_REFERENCE;
+import static com.adyen.constants.HPPConstants.Fields.MERCHANT_SIG;
+import static com.adyen.constants.HPPConstants.Fields.PAYMENT_AMOUNT;
+import static com.adyen.constants.HPPConstants.Fields.SESSION_VALIDITY;
+import static com.adyen.constants.HPPConstants.Fields.SKIN_CODE;
 
 public class HostedPaymentPages extends Service {
     public HostedPaymentPages(Client client) {

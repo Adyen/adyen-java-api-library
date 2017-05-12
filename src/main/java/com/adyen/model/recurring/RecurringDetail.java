@@ -1,17 +1,40 @@
+/**
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen.model.recurring;
-
-import com.adyen.model.*;
-import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import com.adyen.model.Address;
+import com.adyen.model.BankAccount;
+import com.adyen.model.Card;
+import com.adyen.model.ELV;
+import com.adyen.model.Name;
+import com.adyen.model.TokenDetails;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * RecurringDetail
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2016-12-14T08:41:23.938Z")
 public class RecurringDetail {
     @SerializedName("name")
     private String name = null;
