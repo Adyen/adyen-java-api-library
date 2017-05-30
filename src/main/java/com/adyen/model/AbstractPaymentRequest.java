@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -160,13 +160,8 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
 
     /**
      * Set browser data
-     *
-     * @param userAgent
-     * @param acceptHeader
-     * @param <T>
-     * @return
      */
-    public <T extends AbstractPaymentRequest> T setBrowserInfoData(String userAgent, String acceptHeader) {
+    public T setBrowserInfoData(String userAgent, String acceptHeader) {
         BrowserInfo browserInfo = new BrowserInfo();
         browserInfo.setAcceptHeader(acceptHeader);
         browserInfo.setUserAgent(userAgent);
@@ -220,7 +215,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.reference = reference;
     }
 
-    public <T extends AbstractPaymentRequest> T billingAddress(Address billingAddress) {
+    public T billingAddress(Address billingAddress) {
         this.billingAddress = billingAddress;
         return (T) this;
     }
@@ -238,7 +233,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.billingAddress = billingAddress;
     }
 
-    public <T extends AbstractPaymentRequest> T shopperIP(String shopperIP) {
+    public T shopperIP(String shopperIP) {
         this.shopperIP = shopperIP;
         return (T) this;
     }
@@ -256,7 +251,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.shopperIP = shopperIP;
     }
 
-    public <T extends AbstractPaymentRequest> T merchantAccount(String merchantAccount) {
+    public T merchantAccount(String merchantAccount) {
         this.merchantAccount = merchantAccount;
         return (T) this;
     }
@@ -274,7 +269,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.merchantAccount = merchantAccount;
     }
 
-    public <T extends AbstractPaymentRequest> T browserInfo(BrowserInfo browserInfo) {
+    public T browserInfo(BrowserInfo browserInfo) {
         this.browserInfo = browserInfo;
         return (T) this;
     }
@@ -292,7 +287,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.browserInfo = browserInfo;
     }
 
-    public <T extends AbstractPaymentRequest> T shopperInteraction(ShopperInteractionEnum shopperInteraction) {
+    public T shopperInteraction(ShopperInteractionEnum shopperInteraction) {
         this.shopperInteraction = shopperInteraction;
         return (T) this;
     }
@@ -310,7 +305,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.shopperInteraction = shopperInteraction;
     }
 
-    public <T extends AbstractPaymentRequest> T shopperEmail(String shopperEmail) {
+    public T shopperEmail(String shopperEmail) {
         this.shopperEmail = shopperEmail;
         return (T) this;
     }
@@ -328,7 +323,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.shopperEmail = shopperEmail;
     }
 
-    public <T extends AbstractPaymentRequest> T shopperReference(String shopperReference) {
+    public T shopperReference(String shopperReference) {
         this.shopperReference = shopperReference;
         return (T) this;
     }
@@ -346,7 +341,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.shopperReference = shopperReference;
     }
 
-    public <T extends AbstractPaymentRequest> T recurring(Recurring recurring) {
+    public T recurring(Recurring recurring) {
         this.recurring = recurring;
         return (T) this;
     }
@@ -364,7 +359,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.recurring = recurring;
     }
 
-    public <T extends AbstractPaymentRequest> T shopperStatement(String shopperStatement) {
+    public T shopperStatement(String shopperStatement) {
         this.shopperStatement = shopperStatement;
         return (T) this;
     }
@@ -382,7 +377,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.shopperStatement = shopperStatement;
     }
 
-    public <T extends AbstractPaymentRequest> T fraudOffset(Integer fraudOffset) {
+    public T fraudOffset(Integer fraudOffset) {
         this.fraudOffset = fraudOffset;
         return (T) this;
     }
@@ -400,7 +395,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.fraudOffset = fraudOffset;
     }
 
-    public <T extends AbstractPaymentRequest> T sessionId(String sessionId) {
+    public T sessionId(String sessionId) {
         this.sessionId = sessionId;
         return (T) this;
     }
@@ -418,7 +413,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.sessionId = sessionId;
     }
 
-    public <T extends AbstractPaymentRequest> T additionalAmount(Amount additionalAmount) {
+    public T additionalAmount(Amount additionalAmount) {
         this.additionalAmount = additionalAmount;
         return (T) this;
     }
@@ -436,7 +431,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.additionalAmount = additionalAmount;
     }
 
-    public <T extends AbstractPaymentRequest> T selectedRecurringDetailReference(String selectedRecurringDetailReference) {
+    public T selectedRecurringDetailReference(String selectedRecurringDetailReference) {
         this.selectedRecurringDetailReference = selectedRecurringDetailReference;
         return (T) this;
     }
@@ -454,7 +449,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.selectedRecurringDetailReference = selectedRecurringDetailReference;
     }
 
-    public <T extends AbstractPaymentRequest> T orderReference(String orderReference) {
+    public T orderReference(String orderReference) {
         this.orderReference = orderReference;
         return (T) this;
     }
@@ -472,7 +467,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.orderReference = orderReference;
     }
 
-    public <T extends AbstractPaymentRequest> T merchantOrderReference(String merchantOrderReference) {
+    public T merchantOrderReference(String merchantOrderReference) {
         this.merchantOrderReference = merchantOrderReference;
         return (T) this;
     }
@@ -490,7 +485,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.merchantOrderReference = merchantOrderReference;
     }
 
-    public <T extends AbstractPaymentRequest> T dccQuote(ForexQuote dccQuote) {
+    public T dccQuote(ForexQuote dccQuote) {
         this.dccQuote = dccQuote;
         return (T) this;
     }
@@ -508,7 +503,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.dccQuote = dccQuote;
     }
 
-    public <T extends AbstractPaymentRequest> T additionalData(Map<String, String> additionalData) {
+    public T additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
         return (T) this;
     }
@@ -526,7 +521,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.additionalData = additionalData;
     }
 
-    public <T extends AbstractPaymentRequest> T shopperName(Name shopperName) {
+    public T shopperName(Name shopperName) {
         this.shopperName = shopperName;
         return (T) this;
     }
@@ -544,7 +539,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.shopperName = shopperName;
     }
 
-    public <T extends AbstractPaymentRequest> T shopperLocale(String shopperLocale) {
+    public T shopperLocale(String shopperLocale) {
         this.shopperLocale = shopperLocale;
         return (T) this;
     }
@@ -562,7 +557,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.shopperLocale = shopperLocale;
     }
 
-    public <T extends AbstractPaymentRequest> T selectedBrand(String selectedBrand) {
+    public T selectedBrand(String selectedBrand) {
         this.selectedBrand = selectedBrand;
         return (T) this;
     }
@@ -580,7 +575,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.selectedBrand = selectedBrand;
     }
 
-    public <T extends AbstractPaymentRequest> T deliveryAddress(Address deliveryAddress) {
+    public T deliveryAddress(Address deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
         return (T) this;
     }
@@ -598,7 +593,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.deliveryAddress = deliveryAddress;
     }
 
-    public <T extends AbstractPaymentRequest> T deliveryDate(Date deliveryDate) {
+    public T deliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
         return (T) this;
     }
@@ -616,7 +611,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.deliveryDate = deliveryDate;
     }
 
-    public <T extends AbstractPaymentRequest> T deviceFingerprint(String deviceFingerprint) {
+    public T deviceFingerprint(String deviceFingerprint) {
         this.deviceFingerprint = deviceFingerprint;
         return (T) this;
     }
@@ -634,7 +629,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.deviceFingerprint = deviceFingerprint;
     }
 
-    public <T extends AbstractPaymentRequest> T installments(Installments installments) {
+    public T installments(Installments installments) {
         this.installments = installments;
         return (T) this;
     }
@@ -652,7 +647,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.installments = installments;
     }
 
-    public <T extends AbstractPaymentRequest> T socialSecurityNumber(String socialSecurityNumber) {
+    public T socialSecurityNumber(String socialSecurityNumber) {
         this.socialSecurityNumber = socialSecurityNumber;
         return (T) this;
     }
@@ -670,7 +665,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.socialSecurityNumber = socialSecurityNumber;
     }
 
-    public <T extends AbstractPaymentRequest> T captureDelayHours(Integer captureDelayHours) {
+    public T captureDelayHours(Integer captureDelayHours) {
         this.captureDelayHours = captureDelayHours;
         return (T) this;
     }
@@ -688,7 +683,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.captureDelayHours = captureDelayHours;
     }
 
-    public <T extends AbstractPaymentRequest> T dateOfBirth(Date dateOfBirth) {
+    public T dateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
         return (T) this;
     }
@@ -706,7 +701,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.dateOfBirth = dateOfBirth;
     }
 
-    public <T extends AbstractPaymentRequest> T telephoneNumber(String telephoneNumber) {
+    public T telephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
         return (T) this;
     }
@@ -724,7 +719,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.telephoneNumber = telephoneNumber;
     }
 
-    public <T extends AbstractPaymentRequest> T mcc(String mcc) {
+    public T mcc(String mcc) {
         this.mcc = mcc;
         return (T) this;
     }
@@ -742,7 +737,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.mcc = mcc;
     }
 
-    public <T extends AbstractPaymentRequest> T metadata(String metadata) {
+    public T metadata(String metadata) {
         this.metadata = metadata;
         return (T) this;
     }
@@ -770,43 +765,74 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
             return false;
         }
         AbstractPaymentRequest paymentRequest = (AbstractPaymentRequest) o;
-        return Objects.equals(this.amount, paymentRequest.amount) &&
-                Objects.equals(this.reference, paymentRequest.reference) &&
-                Objects.equals(this.billingAddress, paymentRequest.billingAddress) &&
-                Objects.equals(this.shopperIP, paymentRequest.shopperIP) &&
-                Objects.equals(this.merchantAccount, paymentRequest.merchantAccount) &&
-                Objects.equals(this.browserInfo, paymentRequest.browserInfo) &&
-                Objects.equals(this.shopperInteraction, paymentRequest.shopperInteraction) &&
-                Objects.equals(this.shopperEmail, paymentRequest.shopperEmail) &&
-                Objects.equals(this.shopperReference, paymentRequest.shopperReference) &&
-                Objects.equals(this.recurring, paymentRequest.recurring) &&
-                Objects.equals(this.shopperStatement, paymentRequest.shopperStatement) &&
-                Objects.equals(this.fraudOffset, paymentRequest.fraudOffset) &&
-                Objects.equals(this.sessionId, paymentRequest.sessionId) &&
-                Objects.equals(this.additionalAmount, paymentRequest.additionalAmount) &&
-                Objects.equals(this.selectedRecurringDetailReference, paymentRequest.selectedRecurringDetailReference) &&
-                Objects.equals(this.orderReference, paymentRequest.orderReference) &&
-                Objects.equals(this.merchantOrderReference, paymentRequest.merchantOrderReference) &&
-                Objects.equals(this.dccQuote, paymentRequest.dccQuote) &&
-                Objects.equals(this.additionalData, paymentRequest.additionalData) &&
-                Objects.equals(this.shopperName, paymentRequest.shopperName) &&
-                Objects.equals(this.shopperLocale, paymentRequest.shopperLocale) &&
-                Objects.equals(this.selectedBrand, paymentRequest.selectedBrand) &&
-                Objects.equals(this.deliveryAddress, paymentRequest.deliveryAddress) &&
-                Objects.equals(this.deliveryDate, paymentRequest.deliveryDate) &&
-                Objects.equals(this.deviceFingerprint, paymentRequest.deviceFingerprint) &&
-                Objects.equals(this.installments, paymentRequest.installments) &&
-                Objects.equals(this.socialSecurityNumber, paymentRequest.socialSecurityNumber) &&
-                Objects.equals(this.captureDelayHours, paymentRequest.captureDelayHours) &&
-                Objects.equals(this.dateOfBirth, paymentRequest.dateOfBirth) &&
-                Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber) &&
-                Objects.equals(this.mcc, paymentRequest.mcc) &&
-                Objects.equals(this.metadata, paymentRequest.metadata);
+        return Objects.equals(this.amount, paymentRequest.amount)
+                && Objects.equals(this.reference, paymentRequest.reference)
+                && Objects.equals(this.billingAddress, paymentRequest.billingAddress)
+                && Objects.equals(this.shopperIP, paymentRequest.shopperIP)
+                && Objects.equals(this.merchantAccount, paymentRequest.merchantAccount)
+                && Objects.equals(this.browserInfo, paymentRequest.browserInfo)
+                && Objects.equals(this.shopperInteraction, paymentRequest.shopperInteraction)
+                && Objects.equals(this.shopperEmail, paymentRequest.shopperEmail)
+                && Objects.equals(this.shopperReference, paymentRequest.shopperReference)
+                && Objects.equals(this.recurring, paymentRequest.recurring)
+                && Objects.equals(this.shopperStatement, paymentRequest.shopperStatement)
+                && Objects.equals(this.fraudOffset, paymentRequest.fraudOffset)
+                && Objects.equals(this.sessionId, paymentRequest.sessionId)
+                && Objects.equals(this.additionalAmount, paymentRequest.additionalAmount)
+                && Objects.equals(this.selectedRecurringDetailReference, paymentRequest.selectedRecurringDetailReference)
+                && Objects.equals(this.orderReference, paymentRequest.orderReference)
+                && Objects.equals(this.merchantOrderReference, paymentRequest.merchantOrderReference)
+                && Objects.equals(this.dccQuote, paymentRequest.dccQuote)
+                && Objects.equals(this.additionalData, paymentRequest.additionalData)
+                && Objects.equals(this.shopperName, paymentRequest.shopperName)
+                && Objects.equals(this.shopperLocale, paymentRequest.shopperLocale)
+                && Objects.equals(this.selectedBrand, paymentRequest.selectedBrand)
+                && Objects.equals(this.deliveryAddress, paymentRequest.deliveryAddress)
+                && Objects.equals(this.deliveryDate, paymentRequest.deliveryDate)
+                && Objects.equals(this.deviceFingerprint, paymentRequest.deviceFingerprint)
+                && Objects.equals(this.installments, paymentRequest.installments)
+                && Objects.equals(this.socialSecurityNumber, paymentRequest.socialSecurityNumber)
+                && Objects.equals(this.captureDelayHours, paymentRequest.captureDelayHours)
+                && Objects.equals(this.dateOfBirth, paymentRequest.dateOfBirth)
+                && Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber)
+                && Objects.equals(this.mcc, paymentRequest.mcc)
+                && Objects.equals(this.metadata, paymentRequest.metadata);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, reference, billingAddress, shopperIP, merchantAccount, browserInfo, shopperInteraction, shopperEmail, shopperReference, recurring, shopperStatement, fraudOffset, sessionId, additionalAmount, selectedRecurringDetailReference, orderReference, merchantOrderReference, dccQuote, additionalData, shopperName, shopperLocale, selectedBrand, deliveryAddress, deliveryDate, deviceFingerprint, installments, socialSecurityNumber, captureDelayHours, dateOfBirth, telephoneNumber, mcc, metadata);
+        return Objects.hash(amount,
+                            reference,
+                            billingAddress,
+                            shopperIP,
+                            merchantAccount,
+                            browserInfo,
+                            shopperInteraction,
+                            shopperEmail,
+                            shopperReference,
+                            recurring,
+                            shopperStatement,
+                            fraudOffset,
+                            sessionId,
+                            additionalAmount,
+                            selectedRecurringDetailReference,
+                            orderReference,
+                            merchantOrderReference,
+                            dccQuote,
+                            additionalData,
+                            shopperName,
+                            shopperLocale,
+                            selectedBrand,
+                            deliveryAddress,
+                            deliveryDate,
+                            deviceFingerprint,
+                            installments,
+                            socialSecurityNumber,
+                            captureDelayHours,
+                            dateOfBirth,
+                            telephoneNumber,
+                            mcc,
+                            metadata);
     }
 
 

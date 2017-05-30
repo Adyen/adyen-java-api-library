@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -31,6 +31,7 @@ public interface ApiConstants {
         String PAYMENT_DETAIL_NOT_FOUND = "803 PaymentDetail not found";
         String REFUSED = "Refused";
     }
+
     interface AdditionalData {
         String REFUSAL_REASON_RAW = "refusalReasonRaw";
         String PAYMENT_METHOD = "paymentMethod";
@@ -42,10 +43,20 @@ public interface ApiConstants {
         String THREE_D_AUTHENTICATED = "threeDAuthenticated";
         String AVS_RESULT = "avsResult";
 
+        String BOLETO_BARCODE_REFERENCE = "boletobancario.barCodeReference";
+        String BOLETO_DATA = "boletobancario.data";
+        String BOLETO_DUE_DATE = "boletobancario.dueDate";
+        String BOLETO_URL = "boletobancario.url";
+        String BOLETO_EXPIRATION_DATE = "boletobancario.expirationDate";
+
         interface Card {
             interface Encrypted {
                 String JSON = "card.encrypted.json";
             }
         }
+    }
+
+    interface SelectedBrand {
+        String BOLETO_SANTANDER = "boletobancario_santander";
     }
 }

@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -29,7 +29,18 @@ import java.util.Iterator;
 import java.util.List;
 import com.adyen.model.Amount;
 
-public class Util {
+public final class Util {
+    private Util() {
+    }
+
+    /**
+     * Joins a list of items to a single string using "glue" as separator
+     *
+     * @param glue separator
+     * @param list list of elements to be joined
+     * @param <T> type of elements
+     * @return final string after concatenation
+     */
     public static <T> String implode(String glue, List<T> list) {
         // list is empty, return empty string
         if (list == null || list.isEmpty()) {
@@ -76,10 +87,7 @@ public class Util {
         Long amountValue;
 
         Integer scale = getDecimalPlaces(currency);
-        amountValue = new BigDecimal(10)
-                .pow(scale)
-                .multiply(amount.setScale(scale, RoundingMode.HALF_UP))
-                .longValue();
+        amountValue = new BigDecimal(10).pow(scale).multiply(amount.setScale(scale, RoundingMode.HALF_UP)).longValue();
 
         amountData.setValue(amountValue);
 
