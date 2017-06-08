@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -35,17 +35,14 @@ import static com.adyen.constants.HPPConstants.Fields.MERCHANT_SIG;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Tests notification messages
  */
 public class DirectoryLookupTest extends BaseTest {
     private DirectoryLookupRequest createDirectoryLookupRequest() {
-        DirectoryLookupRequest directoryLookupRequest = new DirectoryLookupRequest()
-                .setCountryCode("NL")
-                .setMerchantReference("test:\\'test")
-                .setPaymentAmount("1000")
-                .setCurrencyCode("EUR");
+        DirectoryLookupRequest directoryLookupRequest = new DirectoryLookupRequest().setCountryCode("NL").setMerchantReference("test:\\'test").setPaymentAmount("1000").setCurrencyCode("EUR");
         return directoryLookupRequest;
     }
 
@@ -56,8 +53,7 @@ public class DirectoryLookupTest extends BaseTest {
         HostedPaymentPages hostedPaymentPages = new HostedPaymentPages(client);
         DirectoryLookupRequest directoryLookupRequest = createDirectoryLookupRequest();
 
-        SortedMap<String, String> postParameters = hostedPaymentPages
-                .getPostParametersFromDLRequest(directoryLookupRequest);
+        SortedMap<String, String> postParameters = hostedPaymentPages.getPostParametersFromDLRequest(directoryLookupRequest);
         assertEquals("EUR", postParameters.get(CURRENCY_CODE));
         assertEquals(44, postParameters.get(MERCHANT_SIG).length());
     }
@@ -89,4 +85,17 @@ public class DirectoryLookupTest extends BaseTest {
         assertTrue(visa.isCard());
     }
 
+    @Test
+    public void testGetPaymentMethodsError() throws HTTPClientException, SignatureException, IOException {
+        Client client = createMockClientFromFile("mocks/hpp/directoryLookup-error.htm");
+
+        HostedPaymentPages hostedPaymentPages = new HostedPaymentPages(client);
+        DirectoryLookupRequest directoryLookupRequest = createDirectoryLookupRequest();
+
+        try {
+            List<PaymentMethod> paymentMethods = hostedPaymentPages.getPaymentMethods(directoryLookupRequest);
+            fail("Expected Exception");
+        } catch (HTTPClientException e) {
+        }
+    }
 }
