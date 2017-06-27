@@ -21,6 +21,7 @@
 package com.adyen;
 
 import org.junit.Test;
+import com.adyen.model.modification.CancelOrRefundRequest;
 import com.adyen.model.modification.CancelRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.ModificationResult;
@@ -81,9 +82,9 @@ public class ModificationTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/cancelOrRefund-received.json");
         Modification modification = new Modification(client);
 
-        CancelRequest cancelRequest = createBaseModificationRequest(new CancelRequest());
+        CancelOrRefundRequest cancelOrRefundRequest = createBaseModificationRequest(new CancelOrRefundRequest());
 
-        ModificationResult modificationResult = modification.cancelOrRefund(cancelRequest);
+        ModificationResult modificationResult = modification.cancelOrRefund(cancelOrRefundRequest);
         assertEquals(ModificationResult.ResponseEnum.CANCELORREFUND_RECEIVED_, modificationResult.getResponse());
     }
 
