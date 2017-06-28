@@ -4,9 +4,24 @@
     <groupId>com.adyen</groupId>
     <artifactId>adyen-java-api-library</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <name>Adyen Java API Library</name>
     <description>Adyen API Client Library for Java</description>
+    <url>https://github.com/adyen/adyen-java-api-library</url>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://choosealicense.com/licenses/mit/</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Adyen</name>
+            <email>plugin@adyen.com</email>
+            <organization>Adyen</organization>
+            <organizationUrl>https://www.adyen.com</organizationUrl>
+        </developer>
+    </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
