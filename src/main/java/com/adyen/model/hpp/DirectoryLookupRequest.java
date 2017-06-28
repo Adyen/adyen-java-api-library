@@ -28,6 +28,10 @@ public class DirectoryLookupRequest {
     private String sessionValidity;
     private String merchantReference;
     private String countryCode;
+    private String skinCode;
+    private String merchantAccount;
+    private String hmacKey;
+
 
     public DirectoryLookupRequest() {
         sessionValidity = Util.calculateSessionValidity();
@@ -75,6 +79,33 @@ public class DirectoryLookupRequest {
 
     public DirectoryLookupRequest setCountryCode(String countryCode) {
         this.countryCode = countryCode;
+        return this;
+    }
+
+    public String getSkinCode() {
+        return skinCode;
+    }
+
+    public DirectoryLookupRequest setSkinCode(String skinCode) {
+        this.skinCode = skinCode;
+        return this;
+    }
+
+    public String getMerchantAccount() {
+        return merchantAccount;
+    }
+
+    public DirectoryLookupRequest setMerchantAccount(String merchantAccount) {
+        this.merchantAccount = merchantAccount;
+        return this;
+    }
+
+    public String getHmacKey() {
+        return hmacKey;
+    }
+
+    public DirectoryLookupRequest setHmacKey(String hmacKey) {
+        this.hmacKey = hmacKey;
         return this;
     }
 }
