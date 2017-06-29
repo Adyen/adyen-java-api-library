@@ -65,9 +65,21 @@ public class HostedPaymentPages extends Service {
         // Set HTTP Post variables
         final SortedMap<String, String> postParameters = new TreeMap<>();
         postParameters.put(CURRENCY_CODE, request.getCurrencyCode());
-        postParameters.put(MERCHANT_ACCOUNT, config.getMerchantAccount());
+
+        if (request.getMerchantAccount() != null) {
+            postParameters.put(MERCHANT_ACCOUNT, request.getMerchantAccount());
+        } else {
+            postParameters.put(MERCHANT_ACCOUNT, config.getMerchantAccount());
+        }
+
         postParameters.put(PAYMENT_AMOUNT, request.getPaymentAmount());
-        postParameters.put(SKIN_CODE, config.getSkinCode());
+
+        if (request.getSkinCode() != null) {
+            postParameters.put(SKIN_CODE, request.getSkinCode());
+        } else {
+            postParameters.put(SKIN_CODE, config.getSkinCode());
+        }
+
         postParameters.put(MERCHANT_REFERENCE, request.getMerchantReference());
         postParameters.put(SESSION_VALIDITY, request.getSessionValidity());
         postParameters.put(COUNTRY_CODE, request.getCountryCode());
@@ -76,7 +88,14 @@ public class HostedPaymentPages extends Service {
 
         String dataToSign = hmacValidator.getDataToSign(postParameters);
 
-        String merchantSig = hmacValidator.calculateHMAC(dataToSign, config.getHmacKey());
+        String hmacKey;
+        if (request.getHmacKey() != null) {
+            hmacKey = request.getHmacKey();
+        } else {
+            hmacKey = config.getHmacKey();
+        }
+
+        String merchantSig = hmacValidator.calculateHMAC(dataToSign, hmacKey);
         postParameters.put(MERCHANT_SIG, merchantSig);
 
         return postParameters;
