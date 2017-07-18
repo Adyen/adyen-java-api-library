@@ -5,7 +5,7 @@
 
 # Adyen Java API Library
 
-The Adyen API Library for Java enables you to work with Adyen APIs and Hosted Payment Page.
+The Adyen API Library for Java enables you to work with Adyen APIs and Hosted Payment Pages.
 
 ## Requirements
 
@@ -13,7 +13,7 @@ The Adyen API Library for Java enables you to work with Adyen APIs and Hosted Pa
 
 ## Installation
   
-You can use Maven or simply download the release
+You can use Maven or simply download the release.
   
 ### Maven
 
@@ -29,12 +29,12 @@ Add this dependency to your project's POM:
 
 ## Usage
 
-The code examples how to use this library can be found in the library section of the java-sample-code repository: https://github.com/adyen/adyen-java-sample-code
+The code examples on using this library are located in the library section of the java-sample-code repository: https://github.com/adyen/adyen-java-sample-code
   
 ## Support
 
-If you have any problems, questions or suggestions you can create an issue here or send your inquiry to support@adyen.com.
+If you have any problems, questions or suggestions, create an issue here or send your inquiry to support@adyen.com.
   
 ## Licence
 
-MIT license see LICENSE
+MIT license. For more information, see the LICENSE file.
