@@ -20,8 +20,6 @@
  */
 package com.adyen.service;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.PaymentRequest;
@@ -41,24 +39,6 @@ public class Payment extends Service {
 
         authorise = new Authorise(this);
         authorise3D = new Authorise3D(this);
-    }
-
-    public Map<String, Object> authorise(Map<String, Object> params) throws Exception {
-        return authorise.request(params);
-    }
-
-    public Map<String, Object> authorise(String json) throws Exception {
-
-        // convert to Map<String, Object>
-        Map<String, Object> params = GSON.fromJson(json, new TypeToken<HashMap<String, Object>>() {
-        }.getType());
-
-        return authorise.request(params);
-    }
-
-
-    public Map<String, Object> authorise3D(Map<String, Object> params) throws Exception {
-        return authorise3D.request(params);
     }
 
     /**
