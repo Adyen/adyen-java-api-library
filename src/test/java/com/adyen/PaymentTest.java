@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -28,12 +28,16 @@ import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
+import com.adyen.model.Address;
 import com.adyen.model.FraudCheckResult;
+import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentResult;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
+import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
+import static com.adyen.model.PaymentResult.ResultCodeEnum.RECEIVED;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -195,15 +199,9 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestError401Mocked() throws Exception {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
-        HTTPClientException httpClientException = new HTTPClientException(
-                401,
-                "An error occured",
-                new HashMap<String, List<String>>(),
-                null);
+        HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<String, List<String>>(), null);
 
-        when(httpURLConnectionClient.
-                request(any(String.class), any(String.class), any(Config.class))).
-                thenThrow(httpClientException);
+        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class))).thenThrow(httpClientException);
 
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);
@@ -237,5 +235,45 @@ public class PaymentTest extends BaseTest {
         assertEquals("2374421290", paymentResult.getAdditionalData().get("additionalData.acquirerReference"));
         assertEquals("klarna", paymentResult.getAdditionalData().get("paymentMethodVariant"));
         assertTrue(paymentResult.isAuthorised());
+    }
+
+    @Test
+    public void TestBoletoSuccess() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/authorise-success-boleto.json");
+        Payment payment = new Payment(client);
+
+        Address billingAddress = new Address();
+        billingAddress.setCity("São Paulo");
+        billingAddress.setCountry("BR");
+        billingAddress.setHouseNumberOrName("999");
+        billingAddress.setPostalCode("04787910");
+        billingAddress.setStateOrProvince("SP");
+        billingAddress.setStreet("Roque Petroni Jr");
+
+        Name shopperName = new Name();
+        shopperName.setFirstName("Jose");
+        shopperName.setLastName("Silva");
+
+        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456")
+                                                                                      .setAmountData("200", "BRL")
+                                                                                      .billingAddress(billingAddress)
+                                                                                      .selectedBrand(BOLETO_SANTANDER)
+                                                                                      .shopperName(shopperName);
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+        assertEquals(BOLETO_SANTANDER, paymentResult.getPaymentMethod());
+        assertEquals("34191.75801 12021.372227 21111.100000 8 71670000001000", paymentResult.getBoletoBarCodeReference());
+        assertEquals(
+                "BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z/z9EdC5yFH3+1o/DQH3v3dtTxqXD2DrEdVH0Ro3r/+G9bdUzrCUjfMFh7YB32VL2oPqye9Ly/MWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR/CBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3+qihZa7vvzV/XylTXdgirxboVKpk07Wfvpad8Owg/K/ofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ+9vZs+aor/E//s+EjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1/AvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL+DKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT/eVf+wncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs=",
+                paymentResult.getBoletoData());
+
+        assertEquals("2017-05-22", new SimpleDateFormat("yyyy-MM-dd").format(paymentResult.getBoletoDueDate()));
+        assertEquals(
+                "https://test.adyen.com/hpp/generationBoleto.shtml?data=BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z%2Fz9EdC5yFH3%2B1o%2FDQH3v3dtTxqXD2DrEdVH0Ro3r%2F%2BG9bdUzrCUjfMFh7YB32VL2oPqye9Ly%2FMWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR%2FCBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3%2BqihZa7vvzV%2FXylTXdgirxboVKpk07Wfvpad8Owg%2FK%2FofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ%2B9vZs%2Baor%2FE%2F%2Fs%2BEjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1%2FAvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL%2BDKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT%2FeVf%2BwncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs%3D",
+                paymentResult.getBoletoUrl());
+        assertEquals("2017-06-06", new SimpleDateFormat("yyyy-MM-dd").format(paymentResult.getBoletoExpirationDate()));
+        assertEquals(RECEIVED, paymentResult.getResultCode());
+        assertEquals("8814950120218231", paymentResult.getPspReference());
     }
 }

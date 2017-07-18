@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -25,8 +25,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
+import com.adyen.Util.DateUtil;
 import com.google.gson.annotations.SerializedName;
 import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
+import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_BARCODE_REFERENCE;
+import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_DATA;
+import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_DUE_DATE;
+import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_EXPIRATION_DATE;
+import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_URL;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_BIN;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_HOLDER_NAME;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_SUMMARY;
@@ -316,17 +322,17 @@ public class PaymentResult {
             return false;
         }
         PaymentResult paymentResult = (PaymentResult) o;
-        return Objects.equals(this.authCode, paymentResult.authCode) &&
-                Objects.equals(this.paRequest, paymentResult.paRequest) &&
-                Objects.equals(this.issuerUrl, paymentResult.issuerUrl) &&
-                Objects.equals(this.md, paymentResult.md) &&
-                Objects.equals(this.dccAmount, paymentResult.dccAmount) &&
-                Objects.equals(this.dccSignature, paymentResult.dccSignature) &&
-                Objects.equals(this.pspReference, paymentResult.pspReference) &&
-                Objects.equals(this.resultCode, paymentResult.resultCode) &&
-                Objects.equals(this.additionalData, paymentResult.additionalData) &&
-                Objects.equals(this.refusalReason, paymentResult.refusalReason) &&
-                Objects.equals(this.fraudResult, paymentResult.fraudResult);
+        return Objects.equals(this.authCode, paymentResult.authCode)
+                && Objects.equals(this.paRequest, paymentResult.paRequest)
+                && Objects.equals(this.issuerUrl, paymentResult.issuerUrl)
+                && Objects.equals(this.md, paymentResult.md)
+                && Objects.equals(this.dccAmount, paymentResult.dccAmount)
+                && Objects.equals(this.dccSignature, paymentResult.dccSignature)
+                && Objects.equals(this.pspReference, paymentResult.pspReference)
+                && Objects.equals(this.resultCode, paymentResult.resultCode)
+                && Objects.equals(this.additionalData, paymentResult.additionalData)
+                && Objects.equals(this.refusalReason, paymentResult.refusalReason)
+                && Objects.equals(this.fraudResult, paymentResult.fraudResult);
     }
 
     @Override
@@ -378,8 +384,12 @@ public class PaymentResult {
         return this.resultCode.equals(ResultCodeEnum.REFUSED);
     }
 
+    public boolean isReceived() {
+        return this.resultCode.equals(ResultCodeEnum.RECEIVED);
+    }
+
     public String getAdditionalDataByKey(String key) {
-        if(additionalData == null) {
+        if (additionalData == null) {
             return null;
         }
 
@@ -388,7 +398,7 @@ public class PaymentResult {
 
     public Date getExpiryDate() {
         String expiryDate = getAdditionalDataByKey(EXPIRY_DATE);
-        if(expiryDate == null) {
+        if (expiryDate == null) {
             return null;
         }
 
@@ -429,6 +439,29 @@ public class PaymentResult {
 
     public boolean get3DAuthenticated() {
         return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
+    }
+
+    public String getBoletoBarCodeReference() {
+        return getAdditionalDataByKey(BOLETO_BARCODE_REFERENCE);
+    }
+
+    public String getBoletoData() {
+
+        return getAdditionalDataByKey(BOLETO_DATA);
+    }
+
+    public Date getBoletoDueDate() {
+        String date = getAdditionalDataByKey(BOLETO_DUE_DATE);
+        return DateUtil.parseYmdDate(date);
+    }
+
+    public Date getBoletoExpirationDate() {
+        String date = getAdditionalDataByKey(BOLETO_EXPIRATION_DATE);
+        return DateUtil.parseYmdDate(date);
+    }
+
+    public String getBoletoUrl() {
+        return getAdditionalDataByKey(BOLETO_URL);
     }
 }
 

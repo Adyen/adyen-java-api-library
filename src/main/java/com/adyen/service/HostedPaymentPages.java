@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -35,6 +35,7 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.hpp.DirectoryLookupRequest;
 import com.adyen.model.hpp.DirectoryLookupResult;
 import com.adyen.model.hpp.PaymentMethod;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import static com.adyen.constants.HPPConstants.Fields.COUNTRY_CODE;
 import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
@@ -100,15 +101,19 @@ public class HostedPaymentPages extends Service {
         return postParameters;
     }
 
-    public List<PaymentMethod> getPaymentMethods(DirectoryLookupRequest request)
-            throws SignatureException, IOException, HTTPClientException {
+    public List<PaymentMethod> getPaymentMethods(DirectoryLookupRequest request) throws SignatureException, IOException, HTTPClientException {
         final SortedMap<String, String> postParameters = getPostParametersFromDLRequest(request);
 
         String jsonResult = directoryLookup(postParameters);
 
-        DirectoryLookupResult directoryLookupResult = GSON.fromJson(jsonResult, new TypeToken<DirectoryLookupResult>() {
-        }.getType());
+        try {
+            DirectoryLookupResult directoryLookupResult = GSON.fromJson(jsonResult, new TypeToken<DirectoryLookupResult>() {
+            }.getType());
 
-        return directoryLookupResult.getPaymentMethods();
+            return directoryLookupResult.getPaymentMethods();
+        } catch (JsonSyntaxException e) {
+            HTTPClientException httpClientException = new HTTPClientException(200, "Invalid response or invalid skin code/HMAC key", null, jsonResult);
+            throw httpClientException;
+        }
     }
 }

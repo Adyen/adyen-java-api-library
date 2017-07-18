@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      data-page-model="multi-page"        	data-shopperlocale="en_GB"	    >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Invalid Request</title>
+</head>
+<body>
+
+<div id="container">
+    <form id="pageform" action="select.shtml" method="post"  autocomplete="off" onsubmit="return formValidate(this  ,'default' );">
+        <div id="content" >
+            <div id="logoheader"></div>
+            <div id="pmcontent">			<div class="paddiv1"></div>
+                <h2 id="stageheader">Invalid Request</h2>
+                <p>Unfortunately we were unable to process this request</p>
+
+                <p style="color: red; font-style: italic; font-size: 0.9em; padding: 1em; border: 1px solid red; background-color: #fff3f3;">Error: Merchant signature was not valid!&lt;br /&gt;You can test the HMAC Calculation by submitting a payment request to https://ca-test.adyen.com/ca/ca/skin/checkhmac.shtml<br /><br />
+                    (Note: these error messages are not visible on the live platform)
+                <p>
+
+                <div class="paddiv2"></div>
+            </div>        </div>
+        <div id="foot">
+            <div id="footc">
+                <div id="nextstep">
+                    <div id="nextstepc">&nbsp;</div>
+                </div>
+                <div id="footerb2div">
+                </div>
+                <div id="footerb1div">
+                    <input 		  						  onclick="this.blur();history.go(-1); return false;" id="mainBack" value="previous" type="button" class="hideforprint footerB backB"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="shopperBehaviorLog" id="hpp-sbLog" value="" />
+
+    </form>
+</div>
+</body>
+</html>
