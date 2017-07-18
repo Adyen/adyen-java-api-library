@@ -3,6 +3,8 @@ language: java
 jdk:
   - oraclejdk7
 
+install: mvn install -Dgpg.skip=true
+
 sudo: false
 
 after_success:

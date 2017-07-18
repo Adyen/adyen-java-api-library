@@ -27,23 +27,15 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import org.apache.commons.codec.binary.Base64;
 import com.adyen.Client;
 import com.adyen.Config;
-import com.adyen.Service;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private HttpURLConnection httpConnection;
     private static final String CHARSET = "UTF-8";
-
-    private static final Gson GSON = new Gson();
-    private static final Gson COMPLEX_MAP_KEY_GSON = new GsonBuilder().enableComplexMapKeySerialization().create();
     
     /**
      * Does a POST request.
@@ -63,41 +55,6 @@ public class HttpURLConnectionClient implements ClientInterface {
                 .doPostRequest(requestBody);
 
         return response;
-    }
-
-    /**
-     * Does a request using Map<String, Object> as input/output
-     *
-     * @param service
-     * @param requestUrl
-     * @param params
-     * @return
-     */
-    @SuppressWarnings("serial")
-    @Override
-    public Map<String, Object> requestJson(Service service,
-                                           String requestUrl,
-                                           Map<String, Object> params) {
-
-        Map<String, Object> json = new HashMap<String, Object>();
-
-        Client client = service.getClient();
-        Config config = client.getConfig();
-
-        try {
-            // convert parameters to JSON
-
-            String input = COMPLEX_MAP_KEY_GSON.toJson(params);
-
-            String result = request(requestUrl, input, config);
-
-            // convert back to HashMap
-            json = GSON.fromJson(result, new TypeToken<HashMap<String, Object>>() {
-            }.getType());
-        } catch (IOException | HTTPClientException e) {
-            e.printStackTrace();
-        }
-        return json;
     }
 
     private static String getResponseBody(InputStream responseStream)
