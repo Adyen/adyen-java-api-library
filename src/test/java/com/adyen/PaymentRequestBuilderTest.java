@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import java.util.HashMap;
 import org.junit.Test;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
@@ -34,6 +35,10 @@ public class PaymentRequestBuilderTest extends BaseTest {
     @Test
     public void TestCCPaymentRequest() {
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
+
+        // Test metadata
+        paymentRequest.setMetadata(new HashMap<String, String>());
+        paymentRequest.getMetadata().put("key", "value");
 
         String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest);
 
@@ -55,6 +60,9 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 "  \"browserInfo\": {\n" +
                 "    \"userAgent\": \"User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36\",\n" +
                 "    \"acceptHeader\": \"*/*\"\n" +
+                "  },\n" +
+                "  \"metadata\": {\n" +
+                "    \"key\": \"value\"\n" +
                 "  }\n" +
                 "}";
 
