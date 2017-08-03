@@ -156,7 +156,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     private String mcc = null;
 
     @SerializedName("metadata")
-    private String metadata = null;
+    private Map<String, String> metadata = null;
 
     /**
      * Set browser data
@@ -736,8 +736,8 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     public void setMcc(String mcc) {
         this.mcc = mcc;
     }
-
-    public T metadata(String metadata) {
+    
+    public T metadata(Map<String, String> metadata) {
         this.metadata = metadata;
         return (T) this;
     }
@@ -747,11 +747,11 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      *
      * @return metadata
      **/
-    public String getMetadata() {
+    public Map<String, String>  getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(String metadata) {
+    public void setMetadata(Map<String, String>  metadata) {
         this.metadata = metadata;
     }
 
