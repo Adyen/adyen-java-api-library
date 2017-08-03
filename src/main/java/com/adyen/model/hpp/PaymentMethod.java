@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -23,6 +23,7 @@ package com.adyen.model.hpp;
 import java.util.Arrays;
 import java.util.List;
 import com.adyen.Util.Util;
+import com.adyen.constants.BrandCodes;
 import com.google.gson.annotations.SerializedName;
 
 public class PaymentMethod {
@@ -35,33 +36,31 @@ public class PaymentMethod {
     @SerializedName("issuers")
     private List<Issuer> issuers;
 
-    public static List<String> cards = Arrays.asList(
-            "mc",
-            "visadankort",
-            "visa",
-            "amex",
-            "vias",
-            "diners",
-            "maestrouk",
-            "solo",
-            "laser",
-            "discover",
-            "jcb",
-            "bcmc",
-            "bijcard",
-            "dankort",
-            "hipercard",
-            "maestro",
-            "elo",
-            "uatp",
-            "cup",
-            "cartebancaire",
-            "visaalphabankbonus",
-            "mcalphabankbonus",
-            "karenmillen",
-            "oasis",
-            "warehouse"
-    );
+    public static List<String> cards = Arrays.asList(BrandCodes.MASTERCARD,
+                                                     BrandCodes.VISA_DANKORT,
+                                                     BrandCodes.VISA,
+                                                     BrandCodes.AMEX,
+                                                     BrandCodes.VIAS,
+                                                     BrandCodes.DINERS,
+                                                     BrandCodes.MAESTRO_UK,
+                                                     BrandCodes.SOLO,
+                                                     BrandCodes.LASER,
+                                                     BrandCodes.DISCOVER,
+                                                     BrandCodes.JCB,
+                                                     BrandCodes.BCMC,
+                                                     BrandCodes.BIJCARD,
+                                                     BrandCodes.DANKORT,
+                                                     BrandCodes.HIPERCARD,
+                                                     BrandCodes.MAESTRO,
+                                                     BrandCodes.ELO,
+                                                     BrandCodes.UATP,
+                                                     BrandCodes.CHINA_UNION_PAY,
+                                                     BrandCodes.CARTEBANCAIRE,
+                                                     BrandCodes.VISA_ALPHABANK_BONUS,
+                                                     BrandCodes.MC_ALPHABANK_BONUS,
+                                                     BrandCodes.KARENMILLEN,
+                                                     BrandCodes.OASIS,
+                                                     BrandCodes.WAREHOUSE);
 
     public String getBrandCode() {
         return brandCode;
@@ -95,7 +94,6 @@ public class PaymentMethod {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentMethod {\n");
-
         sb.append("    brandCode: ").append(Util.toIndentedString(brandCode)).append("\n");
         sb.append("    name: ").append(Util.toIndentedString(name)).append("\n");
         sb.append("    issuers: ").append(Util.toIndentedString(issuers)).append("\n");
