@@ -50,4 +50,14 @@ public class PaymentRequestTest extends BaseTest {
         assertEquals(VatCategory.NONE.toString(), paymentRequestOpenInvoice.getAdditionalData().get("openinvoicedata.line2.vatCategory"));
         assertEquals("4567", paymentRequestOpenInvoice.getAdditionalData().get("openinvoicedata.line2.itemId"));
     }
+
+    @Test
+    public void TestPaypalEcsRequest() {
+        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456").setAmountData("23.45", "EUR").setPaymentToken("apaymenttoken");
+
+        assertEquals("123456", paymentRequest.getReference());
+        assertEquals(new Long("2345"), paymentRequest.getAmount().getValue());
+        assertEquals("EUR", paymentRequest.getAmount().getCurrency());
+        assertEquals("apaymenttoken", paymentRequest.getAdditionalData().get("payment.token"));
+    }
 }

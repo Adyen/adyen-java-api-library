@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -55,11 +55,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         return this;
     }
 
-    public PaymentRequest setCardData(String cardNumber,
-                                      String cardHolder,
-                                      String expiryMonth,
-                                      String expiryYear,
-                                      String cvc) {
+    public PaymentRequest setCardData(String cardNumber, String cardHolder, String expiryMonth, String expiryYear, String cvc) {
         Card card = new Card();
         card.setExpiryMonth(expiryMonth);
         card.setExpiryYear(expiryYear);
@@ -71,11 +67,13 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         return this;
     }
 
+    public PaymentRequest setPaymentToken(String paymentToken) {
+        getOrCreateAdditionalData().put(ApiConstants.AdditionalData.PAYMENT_TOKEN, paymentToken);
+        return this;
+    }
+
     /**
      * Set invoiceLines in addtionalData
-     *
-     * @param invoiceLines
-     * @return
      */
     public PaymentRequest setInvoiceLines(List<InvoiceLine> invoiceLines) {
 
@@ -87,39 +85,23 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
             sb.append(Integer.toString(count));
             String lineNumber = sb.toString();
 
-            this.getOrCreateAdditionalData().put(
-                    new StringBuilder().append(lineNumber).append(".currencyCode").toString(),
-                    invoiceLine.getCurrencyCode());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".currencyCode").toString(), invoiceLine.getCurrencyCode());
 
-            this.getOrCreateAdditionalData().put(
-                    new StringBuilder().append(lineNumber).append(".description").toString(),
-                    invoiceLine.getDescription());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".description").toString(), invoiceLine.getDescription());
 
-            this.getOrCreateAdditionalData().put(
-                    new StringBuilder().append(lineNumber).append(".itemAmount").toString(),
-                    invoiceLine.getItemAmount().toString());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemAmount").toString(), invoiceLine.getItemAmount().toString());
 
-            this.getOrCreateAdditionalData().put(
-                    new StringBuilder().append(lineNumber).append(".itemVatAmount").toString(),
-                    invoiceLine.getItemVATAmount().toString());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemVatAmount").toString(), invoiceLine.getItemVATAmount().toString());
 
-            this.getOrCreateAdditionalData().put(
-                    new StringBuilder().append(lineNumber).append(".itemVatPercentage").toString(),
-                    invoiceLine.getItemVatPercentage().toString());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemVatPercentage").toString(), invoiceLine.getItemVatPercentage().toString());
 
-            this.getOrCreateAdditionalData().put(
-                    new StringBuilder().append(lineNumber).append(".numberOfItems").toString(),
-                    Integer.toString(invoiceLine.getNumberOfItems()));
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".numberOfItems").toString(), Integer.toString(invoiceLine.getNumberOfItems()));
 
-            this.getOrCreateAdditionalData().put(
-                    new StringBuilder().append(lineNumber).append(".vatCategory").toString(),
-                    invoiceLine.getVatCategory().toString());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".vatCategory").toString(), invoiceLine.getVatCategory().toString());
 
             // Addional field only for RatePay
-            if (invoiceLine.getItemId() != null && !invoiceLine.getItemId().isEmpty()) {
-                this.getOrCreateAdditionalData().put(
-                        new StringBuilder().append(lineNumber).append(".itemId").toString(),
-                        invoiceLine.getItemId());
+            if (invoiceLine.getItemId() != null && ! invoiceLine.getItemId().isEmpty()) {
+                this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemId").toString(), invoiceLine.getItemId());
             }
 
             count++;
@@ -194,10 +176,8 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
             return false;
         }
         PaymentRequest paymentRequest = (PaymentRequest) o;
-        return super.equals(paymentRequest) &&
-                Objects.equals(this.card, paymentRequest.card) &&
-                Objects.equals(this.mpiData, paymentRequest.mpiData) &&
-                Objects.equals(this.bankAccount, paymentRequest.bankAccount);
+        return super.equals(paymentRequest) && Objects.equals(this.card, paymentRequest.card) && Objects.equals(this.mpiData, paymentRequest.mpiData) && Objects.equals(this.bankAccount,
+                                                                                                                                                                        paymentRequest.bankAccount);
     }
 
     @Override
