@@ -42,12 +42,14 @@ public interface ApiConstants {
         String THREE_D_OFFERERED = "threeDOffered";
         String THREE_D_AUTHENTICATED = "threeDAuthenticated";
         String AVS_RESULT = "avsResult";
+        String PAYMENT_TOKEN = "payment.token";
 
         String BOLETO_BARCODE_REFERENCE = "boletobancario.barCodeReference";
         String BOLETO_DATA = "boletobancario.data";
         String BOLETO_DUE_DATE = "boletobancario.dueDate";
         String BOLETO_URL = "boletobancario.url";
         String BOLETO_EXPIRATION_DATE = "boletobancario.expirationDate";
+
 
         interface Card {
             interface Encrypted {
