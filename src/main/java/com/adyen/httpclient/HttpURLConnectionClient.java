@@ -61,7 +61,6 @@ public class HttpURLConnectionClient implements ClientInterface {
             throws IOException {
         //\A is the beginning of the stream boundary
         Scanner scanner = new Scanner(responseStream, CHARSET);
-        scanner.useDelimiter("\\A");
         String rBody = scanner.useDelimiter("\\A").next();
         scanner.close();
         responseStream.close();
