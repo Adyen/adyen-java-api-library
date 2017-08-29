@@ -203,8 +203,8 @@ public class PaymentTest extends BaseTest {
 
         when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class))).thenThrow(httpClientException);
 
-        Client client = new Client();
-        client.setHttpClient(httpURLConnectionClient);
+        Client client = createClientMock();
+        when(client.createHttpClient()).thenReturn(httpURLConnectionClient);
 
         Payment payment = new Payment(client);
 
@@ -221,12 +221,9 @@ public class PaymentTest extends BaseTest {
 
     /**
      * Test OpenInvoice API flow for klarna
-     *
-     * @throws Exception
      */
     @Test
     public void TestOpenInvoice() throws Exception {
-
         Client client = createMockClientFromFile("mocks/authorise-success-klarna.json");
         Payment payment = new Payment(client);
 
@@ -239,7 +236,6 @@ public class PaymentTest extends BaseTest {
 
     @Test
     public void TestBoletoSuccess() throws Exception {
-
         Client client = createMockClientFromFile("mocks/authorise-success-boleto.json");
         Payment payment = new Payment(client);
 

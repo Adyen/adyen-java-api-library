@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -25,8 +25,6 @@ import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HttpURLConnectionClient;
 
 public class Client {
-
-    private ClientInterface httpClient;
     private Config config;
 
     public static final String ENDPOINT_TEST = "https://pal-test.adyen.com";
@@ -71,22 +69,12 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client [webServiceUser=" + this.config.username + ", webServicePassword=" + this.config.password
-                + ", environment=" + this.config.environment + "]";
+        return "Client [webServiceUser=" + this.config.username + ", webServicePassword=" + this.config.password + ", environment=" + this.config.environment + "]";
     }
 
-    public ClientInterface getHttpClient() {
-
-        if (this.httpClient == null) {
-            this.httpClient = new HttpURLConnectionClient();
-        }
-        return this.httpClient;
+    public ClientInterface createHttpClient() {
+        return new HttpURLConnectionClient();
     }
-
-    public void setHttpClient(ClientInterface httpClient) {
-        this.httpClient = httpClient;
-    }
-
 
     public Config getConfig() {
         return config;
@@ -107,5 +95,4 @@ public class Client {
     public void setApplicationName(String applicationName) {
         this.config.setApplicationName(applicationName);
     }
-
 }
