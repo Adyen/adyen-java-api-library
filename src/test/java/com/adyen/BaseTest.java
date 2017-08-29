@@ -1,19 +1,19 @@
-/**
- * ######
- * ######
+/*
+ *                       ######
+ *                       ######
  * ############    ####( ######  #####. ######  ############   ############
  * #############  #####( ######  #####. ######  #############  #############
- * ######  #####( ######  #####. ######  #####  ######  #####  ######
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
  * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
  * ###### ######  #####( ######  #####. ######  #####          #####  ######
  * #############  #############  #############  #############  #####  ######
- * ############   ############  #############   ############  #####  ######
- * ######
- * #############
- * ############
- * <p>
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
  * Adyen Java API Library
- * <p>
+ *
  * Copyright (c) 2017 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
@@ -47,6 +47,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class BaseTest {
+    protected Client createClientMock() {
+        Client client = mock(Client.class);
+        when(client.getConfig()).thenReturn(new Config());
+        return client;
+    }
+
     /**
      * Returns a Client object that has a mocked response
      */
@@ -58,12 +64,13 @@ public class BaseTest {
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }
-        Client client = new Client();
-        client.setHttpClient(httpURLConnectionClient);
+
+        Client client = createClientMock();
+        when(client.createHttpClient()).thenReturn(httpURLConnectionClient);
 
         Config config = new Config();
         config.setHmacKey("DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00");
-        client.setConfig(config);
+        when(client.getConfig()).thenReturn(config);
 
         return client;
     }
@@ -225,8 +232,10 @@ public class BaseTest {
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }
-        Client client = new Client();
-        client.setHttpClient(httpURLConnectionClient);
+
+        Client client = createClientMock();
+        when(client.createHttpClient()).thenReturn(httpURLConnectionClient);
+
         return client;
     }
 

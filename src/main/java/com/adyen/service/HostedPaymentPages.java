@@ -53,7 +53,7 @@ public class HostedPaymentPages extends Service {
 
     public String directoryLookup(Map<String, String> postParameters) throws HTTPClientException, IOException {
         String endpoint = this.getClient().getConfig().getHppEndpoint() + "/directory.shtml";
-        ClientInterface httpClient = (ClientInterface) this.getClient().getHttpClient();
+        ClientInterface httpClient = (ClientInterface) this.getClient().createHttpClient();
         Config config = this.getClient().getConfig();
 
         return httpClient.post(endpoint, postParameters, config);

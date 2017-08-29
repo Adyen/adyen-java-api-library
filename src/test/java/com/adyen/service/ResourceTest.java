@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -52,7 +52,7 @@ public class ResourceTest extends BaseTest {
 
     @Before
     public void setUp() {
-        when(clientMock.getHttpClient()).thenReturn(clientInterfaceMock);
+        when(clientMock.createHttpClient()).thenReturn(clientInterfaceMock);
         when(clientMock.getConfig()).thenReturn(null);
         when(serviceMock.getClient()).thenReturn(clientMock);
     }

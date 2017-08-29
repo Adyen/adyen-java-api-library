@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -47,14 +47,9 @@ public class Resource {
 
     /**
      * Request using json String
-     *
-     * @param json
-     * @return
-     * @throws ApiException
-     * @throws IOException
      */
     public String request(String json) throws ApiException, IOException {
-        ClientInterface clientInterface = (ClientInterface) this.service.getClient().getHttpClient();
+        ClientInterface clientInterface = (ClientInterface) this.service.getClient().createHttpClient();
         Config config = this.service.getClient().getConfig();
         String result = null;
         try {
