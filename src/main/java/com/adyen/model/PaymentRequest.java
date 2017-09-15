@@ -1,4 +1,4 @@
-/*
+/**
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -25,6 +25,8 @@ import java.util.Objects;
 import com.adyen.Util.Util;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.additionalData.InvoiceLine;
+import com.adyen.model.additionalData.SplitPayment;
+import com.adyen.model.additionalData.SplitPaymentItem;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -108,6 +110,31 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         }
 
         this.getOrCreateAdditionalData().put("openinvoicedata.numberOfLines", Integer.toString(invoiceLines.size()));
+        return this;
+    }
+
+    public PaymentRequest setSplitPayment(SplitPayment splitPayment) {
+        this.getOrCreateAdditionalData().put("split.api", splitPayment.getApi().toString());
+        this.getOrCreateAdditionalData().put("split.totalAmount", splitPayment.getTotalAmount().toString());
+        this.getOrCreateAdditionalData().put("split.currencyCode", splitPayment.getCurrencyCode());
+
+        Integer count = 1;
+        for (SplitPaymentItem splitPaymentItem : splitPayment.getSplitPaymentItems()) {
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("split.item");
+            sb.append(Integer.toString(count));
+            String lineNumber = sb.toString();
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".amount").toString(), splitPaymentItem.getAmount().toString());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".type").toString(), splitPaymentItem.getType());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".account").toString(), splitPaymentItem.getAccount());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".reference").toString(), splitPaymentItem.getReference());
+            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".description").toString(), splitPaymentItem.getDescription());
+
+            count++;
+        }
+        this.getOrCreateAdditionalData().put("split.nrOfItems", Integer.toString(splitPayment.getSplitPaymentItems().size()));
+
         return this;
     }
 

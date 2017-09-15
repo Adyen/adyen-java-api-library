@@ -33,7 +33,10 @@ public class Client {
     public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
     public static final String HPP_TEST = "https://test.adyen.com/hpp";
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
+    public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
+    public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
     public static final String API_VERSION = "v25";
+    public static final String MARKETPAY_API_VERSION = "v3";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
     public static final String LIB_VERSION = "1.1.0";
 
@@ -59,10 +62,12 @@ public class Client {
         if (environment.equals(Environment.TEST)) {
             this.config.setEnvironment(environment);
             this.config.setEndpoint(ENDPOINT_TEST);
+            this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
             this.config.setHppEndpoint(HPP_TEST);
         } else if (environment.equals(Environment.LIVE)) {
             this.config.setEnvironment(environment);
             this.config.setEndpoint(ENDPOINT_LIVE);
+            this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
             this.config.setHppEndpoint(HPP_LIVE);
         } else {
             // throw exception
@@ -71,8 +76,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client [webServiceUser=" + this.config.username + ", webServicePassword=" + this.config.password
-                + ", environment=" + this.config.environment + "]";
+        return "Client [webServiceUser=" + this.config.username + ", webServicePassword=" + this.config.password + ", environment=" + this.config.environment + "]";
     }
 
     public ClientInterface getHttpClient() {
@@ -98,6 +102,10 @@ public class Client {
 
     public String getApiVersion() {
         return API_VERSION;
+    }
+
+    public String getMarketPayApiVersion() {
+        return MARKETPAY_API_VERSION;
     }
 
     public String getLibraryVersion() {
