@@ -311,14 +311,83 @@ public class MarketPayTest extends BaseTest {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/get-business-account-holder-success.json");
 
+        // use Account service
+        Account account = new Account(client);
+
         // Get Account Holder Request
         GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
         getAccountHolderRequest.setAccountHolderCode("TestAccountHolder480834");
 
+        GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
+        System.out.println(getAccountHolderResponse);
+    }
+
+    @Test
+    public void TestUploadDocumentSuccess() throws Exception {
+
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/upload-document-success.json");
+
         // use Account service
         Account account = new Account(client);
 
-        GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
-        System.out.println(getAccountHolderResponse);
+        // Create Upload Document Request
+        UploadDocumentRequest uploadDocumentRequest = new UploadDocumentRequest();
+        uploadDocumentRequest.setDocumentContent("dGVzdCBkb2N1bWVudCBjb250ZW50");
+
+        // Create Document Detail
+        DocumentDetail documentDetail = new DocumentDetail();
+        documentDetail.setAccountHolderCode("TestAccountHolder534055");
+        documentDetail.setDocumentType(DocumentDetail.DocumentTypeEnum.PASSPORT);
+        documentDetail.setFilename("passport.png");
+        documentDetail.setDescription("test passport description");
+
+        // Set Document Detail
+        uploadDocumentRequest.setDocumentDetail(documentDetail);
+
+        UploadDocumentResponse uploadDocumentResponse = account.uploadDocument(uploadDocumentRequest);
+        System.out.println(uploadDocumentResponse);
+    }
+
+    @Test
+    public void TestTransferFundsSuccess() throws Exception {
+
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/fund/transfer-funds-success.json");
+
+        // use Fund service
+        Fund fund = new Fund(client);
+
+        // create AccountHolderBalance Request
+        TransferFundsRequest transferFundsRequest = new TransferFundsRequest();
+        transferFundsRequest.setSourceAccountCode("100000000");
+        transferFundsRequest.setDestinationAccountCode("190324759");
+
+        // create Amount
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(new Long(2000));
+        transferFundsRequest.setAmount(amount);
+
+        transferFundsRequest.setTransferCode("CODE_A");
+        TransferFundsResponse transferFundsResponse = fund.transferFunds(transferFundsRequest);
+
+        System.out.println(transferFundsResponse);
+    }
+
+    @Test
+    public void TestCreateAccountSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/create-account-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        CreateAccountRequest createAccountRequest = new CreateAccountRequest();
+        createAccountRequest.setAccountHolderCode("TestAccountHolder5691");
+
+        CreateAccountResponse createAccountResponse = account.createAccount(createAccountRequest);
+        System.out.println(createAccountResponse);
+
     }
 }

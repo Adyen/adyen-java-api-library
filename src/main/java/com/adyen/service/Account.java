@@ -23,9 +23,7 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.*;
-import com.adyen.service.resource.account.CreateAccountHolder;
-import com.adyen.service.resource.account.GetAccountHolder;
-import com.adyen.service.resource.account.UpdateAccountHolder;
+import com.adyen.service.resource.account.*;
 import com.google.gson.reflect.TypeToken;
 
 /**
@@ -36,6 +34,8 @@ public class Account extends Service {
     private CreateAccountHolder createAccountHolder;
     private UpdateAccountHolder updateAccountHolder;
     private GetAccountHolder getAccountHolder;
+    private UploadDocument uploadDocument;
+    private CreateAccount createAccount;
 
     public Account(Client client) {
         super(client);
@@ -43,6 +43,8 @@ public class Account extends Service {
         createAccountHolder = new CreateAccountHolder(this);
         updateAccountHolder = new UpdateAccountHolder(this);
         getAccountHolder = new GetAccountHolder(this);
+        uploadDocument = new UploadDocument(this);
+        createAccount = new CreateAccount(this);
     }
 
     public CreateAccountHolderResponse createAccountHolder(CreateAccountHolderRequest accountHolderRequest) throws Exception {
@@ -57,8 +59,8 @@ public class Account extends Service {
 
     }
 
-    public UpdateAccountHolderResponse updateAccountHolder(UpdateAccountHolderRequest accountHolderRequest) throws Exception {
-        String jsonRequest = GSON.toJson(accountHolderRequest);
+    public UpdateAccountHolderResponse updateAccountHolder(UpdateAccountHolderRequest updateAccountHolderRequest) throws Exception {
+        String jsonRequest = GSON.toJson(updateAccountHolderRequest);
 
         String jsonResult = updateAccountHolder.request(jsonRequest);
         UpdateAccountHolderResponse updateAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<UpdateAccountHolderResponse>() {
@@ -67,8 +69,8 @@ public class Account extends Service {
         return updateAccountHolderResponse;
     }
 
-    public GetAccountHolderResponse getAccountHolder(GetAccountHolderRequest accountHolderRequest) throws Exception {
-        String jsonRequest = GSON.toJson(accountHolderRequest);
+    public GetAccountHolderResponse getAccountHolder(GetAccountHolderRequest getAccountHolderRequest) throws Exception {
+        String jsonRequest = GSON.toJson(getAccountHolderRequest);
 
         String jsonResult = getAccountHolder.request(jsonRequest);
         GetAccountHolderResponse getAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<GetAccountHolderResponse>() {
@@ -76,4 +78,24 @@ public class Account extends Service {
 
         return getAccountHolderResponse;
     }
+
+    public UploadDocumentResponse uploadDocument(UploadDocumentRequest uploadDocumentRequest) throws Exception {
+        String jsonRequest = GSON.toJson(uploadDocumentRequest);
+
+        String jsonResult = uploadDocument.request(jsonRequest);
+        UploadDocumentResponse uploadDocumentResponse = GSON.fromJson(jsonResult, new TypeToken<UploadDocumentResponse>() {
+        }.getType());
+        return uploadDocumentResponse;
+    }
+
+    public CreateAccountResponse createAccount(CreateAccountRequest createAccountRequest) throws Exception {
+        String jsonRequest = GSON.toJson(createAccountRequest);
+
+        String jsonResult = createAccount.request(jsonRequest);
+        CreateAccountResponse createAccountResponse = GSON.fromJson(jsonResult, new TypeToken<CreateAccountResponse>() {
+        }.getType());
+
+        return createAccountResponse;
+    }
+
 }

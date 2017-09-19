@@ -24,7 +24,10 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.AccountHolderBalanceRequest;
 import com.adyen.model.AccountHolderBalanceResponse;
+import com.adyen.model.TransferFundsRequest;
+import com.adyen.model.TransferFundsResponse;
 import com.adyen.service.resource.fund.AccountHolderBalance;
+import com.adyen.service.resource.fund.TransferFunds;
 import com.google.gson.reflect.TypeToken;
 
 /**
@@ -33,10 +36,12 @@ import com.google.gson.reflect.TypeToken;
 public class Fund extends Service {
 
     private AccountHolderBalance accountHolderBalance;
+    private TransferFunds transferFunds;
 
     public Fund(Client client) {
         super(client);
         this.accountHolderBalance = new AccountHolderBalance(this);
+        transferFunds = new TransferFunds(this);
     }
 
     public AccountHolderBalanceResponse AccountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws Exception {
@@ -49,5 +54,18 @@ public class Fund extends Service {
 
 
         return accountHolderBalanceResponse;
+    }
+
+    public TransferFundsResponse transferFunds(TransferFundsRequest transferFundsRequest) throws Exception {
+
+        String jsonRequest = GSON.toJson(transferFundsRequest);
+
+        String jsonResult = transferFunds.request(jsonRequest);
+
+        TransferFundsResponse transferFundsResponse = GSON.fromJson(jsonResult, new TypeToken<TransferFundsResponse>() {
+        }.getType());
+
+
+        return transferFundsResponse;
     }
 }
