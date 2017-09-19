@@ -23,21 +23,9 @@ package com.adyen;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.adyen.model.*;
 import org.junit.Test;
-import com.adyen.model.AccountHolderBalanceRequest;
-import com.adyen.model.AccountHolderBalanceResponse;
-import com.adyen.model.AccountHolderDetails;
-import com.adyen.model.Address;
-import com.adyen.model.BankAccountDetail;
-import com.adyen.model.CreateAccountHolderRequest;
-import com.adyen.model.CreateAccountHolderResponse;
-import com.adyen.model.FraudCheckResult;
-import com.adyen.model.IndividualDetails;
-import com.adyen.model.Name;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentResult;
-import com.adyen.model.PersonalData;
-import com.adyen.model.PhoneNumber;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.service.Account;
@@ -237,5 +225,100 @@ public class MarketPayTest extends BaseTest {
         AccountHolderBalanceResponse accountHolderBalanceResponse = fund.AccountHolderBalance(accountHolderBalanceRequest);
 
         System.out.println(accountHolderBalanceResponse);
+    }
+
+    @Test
+    public void TestUpdateAccountHolderSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/update-account-holder-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // Update Account Holder Request
+        UpdateAccountHolderRequest updateAccountHolderRequest = new UpdateAccountHolderRequest();
+        updateAccountHolderRequest.setAccountHolderCode("TestAccountHolder414261");
+
+        // create AcountHolderDetails
+        AccountHolderDetails accountHolderDetails = new AccountHolderDetails();
+
+        // Add address to AcountHolderDetails
+        Address address = new Address();
+        address.setCity("Amsterdam");
+        address.setCountry("NL");
+        address.houseNumberOrName("10");
+        address.postalCode("12345");
+        address.stateOrProvince("NH");
+        address.setStreet("Teststreet 1");
+        accountHolderDetails.setAddress(address);
+        accountHolderDetails.setEmail("test@adyen.com");
+
+        // set individualDetails
+        IndividualDetails individualDetails = new IndividualDetails();
+
+        // update name inside individualDetails
+        Name name = new Name();
+        name.firstName("First name");
+        name.lastName("Last Name");
+        name.gender(Name.GenderEnum.MALE);
+        individualDetails.setName(name);
+
+        // update personal data inside individualDetails
+        PersonalData personalData = new PersonalData();
+        personalData.dateOfBirth("1970-01-01");
+        personalData.setIdNumber("1234567890");
+        personalData.setNationality("NL");
+        individualDetails.setPersonalData(personalData);
+
+        // attach individualDetails into accountHolderDetails
+        accountHolderDetails.setIndividualDetails(individualDetails);
+        accountHolderDetails.setMerchantCategoryCode("7999");
+
+        // create phone number and set Web Address
+        PhoneNumber phoneNumber = new PhoneNumber();
+        phoneNumber.setPhoneCountryCode("NL");
+        phoneNumber.setPhoneNumber("0612345678");
+        phoneNumber.setPhoneType(PhoneNumber.PhoneTypeEnum.MOBILE);
+        accountHolderDetails.setPhoneNumber(phoneNumber);
+        accountHolderDetails.setWebAddress("http://www.accountholderwebsite.com");
+
+        // updateAccountHolder
+        UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
+        System.out.println(updateAccountHolderResponse);
+
+    }
+
+    @Test
+    public void TestGetIndividualAccountHolderSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/get-individual-account-holder-success.json");
+
+        // Get Account Holder Request
+        GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
+        getAccountHolderRequest.setAccountHolderCode("TestAccountHolder3110");
+
+        // use Account service
+        Account account = new Account(client);
+
+        GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
+        System.out.println(getAccountHolderResponse);
+
+    }
+
+    @Test
+    public void TestGetBusinessAccountHolderSuccess() throws Exception {
+
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/get-business-account-holder-success.json");
+
+        // Get Account Holder Request
+        GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
+        getAccountHolderRequest.setAccountHolderCode("TestAccountHolder480834");
+
+        // use Account service
+        Account account = new Account(client);
+
+        GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
+        System.out.println(getAccountHolderResponse);
     }
 }
