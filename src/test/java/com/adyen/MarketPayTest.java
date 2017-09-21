@@ -383,6 +383,7 @@ public class MarketPayTest extends BaseTest {
         // use Account service
         Account account = new Account(client);
 
+        // create CreateAccount Request
         CreateAccountRequest createAccountRequest = new CreateAccountRequest();
         createAccountRequest.setAccountHolderCode("TestAccountHolder5691");
 
@@ -390,4 +391,73 @@ public class MarketPayTest extends BaseTest {
         System.out.println(createAccountResponse);
 
     }
+
+    @Test
+    public void TestDeleteBankAccountSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-bank-account-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create DeleteBankAccount Request
+        DeleteBankAccountRequest deleteBankAccountRequest = new DeleteBankAccountRequest();
+        deleteBankAccountRequest.setAccountHolderCode("TestAccountHolder8843");
+        deleteBankAccountRequest.addBankAccountUUIDsItem("eeb6ed22-3bae-483c-83b9-bc2097a75d40");
+
+        DeleteBankAccountResponse deleteBankAccountResponse = account.deleteBankAccount(deleteBankAccountRequest);
+        System.out.println(deleteBankAccountResponse);
+
+
+    }
+
+    @Test
+    public void TestDeleteShareholderSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-shareholder-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create DeleteShareholder Request
+        DeleteShareholderRequest deleteShareholderRequest = new DeleteShareholderRequest();
+        deleteShareholderRequest.setAccountHolderCode("TestAccountHolder289429");
+        deleteShareholderRequest.addShareholderCodesItem("9188218c-576e-4cbe-8e86-72722f453920");
+
+        DeleteShareholderResponse deleteShareholderResponse = account.deleteShareholder(deleteShareholderRequest);
+        System.out.println(deleteShareholderResponse);
+    }
+
+    @Test
+    public void TestSuspendAccountHolderSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/suspend-account-holder-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create DeleteBankAccount Request
+        SuspendAccountHolderRequest suspendAccountHolderRequest = new SuspendAccountHolderRequest();
+        suspendAccountHolderRequest.setAccountHolderCode("TestAccountHolder192192");
+
+        SuspendAccountHolderResponse suspendAccountHolderResponse = account.suspendAccountHolder(suspendAccountHolderRequest);
+        System.out.println(suspendAccountHolderResponse);
+    }
+
+    @Test
+    public void TestUnSuspendAccountHolderSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/un-suspend-account-holder-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create DeleteBankAccount Request
+        UnSuspendAccountHolderRequest unSuspendAccountHolderRequest = new UnSuspendAccountHolderRequest();
+        unSuspendAccountHolderRequest.setAccountHolderCode("TestAccountHolder192192");
+
+        UnSuspendAccountHolderResponse unSuspendAccountHolderResponse = account.unSuspendAccountHolder(unSuspendAccountHolderRequest);
+        System.out.println(unSuspendAccountHolderResponse);
+    }
+
 }

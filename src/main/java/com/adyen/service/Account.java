@@ -36,6 +36,10 @@ public class Account extends Service {
     private GetAccountHolder getAccountHolder;
     private UploadDocument uploadDocument;
     private CreateAccount createAccount;
+    private DeleteBankAccount deleteBankAccount;
+    private DeleteShareholder deleteShareholder;
+    private SuspendAccountHolder suspendAccountHolder;
+    private UnSuspendAccountHolder unSuspendAccountHolder;
 
     public Account(Client client) {
         super(client);
@@ -45,6 +49,11 @@ public class Account extends Service {
         getAccountHolder = new GetAccountHolder(this);
         uploadDocument = new UploadDocument(this);
         createAccount = new CreateAccount(this);
+        deleteBankAccount = new DeleteBankAccount(this);
+        deleteShareholder = new DeleteShareholder(this);
+        suspendAccountHolder = new SuspendAccountHolder(this);
+        unSuspendAccountHolder = new UnSuspendAccountHolder(this);
+
     }
 
     public CreateAccountHolderResponse createAccountHolder(CreateAccountHolderRequest accountHolderRequest) throws Exception {
@@ -98,4 +107,43 @@ public class Account extends Service {
         return createAccountResponse;
     }
 
+    public DeleteBankAccountResponse deleteBankAccount(DeleteBankAccountRequest deleteBankAccountRequest) throws Exception{
+        String jsonRequest = GSON.toJson(deleteBankAccountRequest);
+
+        String jsonResult = deleteBankAccount.request(jsonRequest);
+        DeleteBankAccountResponse deleteBankAccountResponse = GSON.fromJson(jsonResult, new TypeToken<DeleteBankAccountResponse>() {
+        }.getType());
+
+        return deleteBankAccountResponse;
+    }
+
+    public DeleteShareholderResponse deleteShareholder(DeleteShareholderRequest deleteShareholderRequest) throws Exception{
+        String jsonRequest = GSON.toJson(deleteShareholderRequest);
+
+        String jsonResult = deleteShareholder.request(jsonRequest);
+        DeleteShareholderResponse deleteShareholderResponse = GSON.fromJson(jsonResult, new TypeToken<DeleteShareholderResponse>() {
+        }.getType());
+
+        return deleteShareholderResponse;
+    }
+
+    public SuspendAccountHolderResponse suspendAccountHolder(SuspendAccountHolderRequest suspendAccountHolderRequest) throws  Exception{
+        String jsonRequest = GSON.toJson(suspendAccountHolderRequest);
+
+        String jsonResult = suspendAccountHolder.request(jsonRequest);
+        SuspendAccountHolderResponse suspendAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<SuspendAccountHolderResponse>() {
+        }.getType());
+
+        return suspendAccountHolderResponse;
+    }
+
+    public UnSuspendAccountHolderResponse unSuspendAccountHolder(UnSuspendAccountHolderRequest unSuspendAccountHolderRequest) throws Exception {
+        String jsonRequest = GSON.toJson(unSuspendAccountHolderRequest);
+
+        String jsonResult = unSuspendAccountHolder.request(jsonRequest);
+        UnSuspendAccountHolderResponse unSuspendAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<UnSuspendAccountHolderResponse>() {
+        }.getType());
+
+        return unSuspendAccountHolderResponse;
+    }
 }
