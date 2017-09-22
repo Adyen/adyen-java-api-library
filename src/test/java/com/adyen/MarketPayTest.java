@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.adyen.model.*;
+import com.adyen.service.resource.account.UpdateAccountHolderState;
 import org.junit.Test;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
@@ -293,12 +294,12 @@ public class MarketPayTest extends BaseTest {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/get-individual-account-holder-success.json");
 
-        // Get Account Holder Request
-        GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
-        getAccountHolderRequest.setAccountHolderCode("TestAccountHolder3110");
-
         // use Account service
         Account account = new Account(client);
+
+        // create GetAccountHolder Request
+        GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
+        getAccountHolderRequest.setAccountHolderCode("TestAccountHolder3110");
 
         GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
         System.out.println(getAccountHolderResponse);
@@ -314,7 +315,7 @@ public class MarketPayTest extends BaseTest {
         // use Account service
         Account account = new Account(client);
 
-        // Get Account Holder Request
+        // create GetAccountHolder Request
         GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
         getAccountHolderRequest.setAccountHolderCode("TestAccountHolder480834");
 
@@ -331,7 +332,7 @@ public class MarketPayTest extends BaseTest {
         // use Account service
         Account account = new Account(client);
 
-        // Create Upload Document Request
+        // Create UploadDocument Request
         UploadDocumentRequest uploadDocumentRequest = new UploadDocumentRequest();
         uploadDocumentRequest.setDocumentContent("dGVzdCBkb2N1bWVudCBjb250ZW50");
 
@@ -358,7 +359,7 @@ public class MarketPayTest extends BaseTest {
         // use Fund service
         Fund fund = new Fund(client);
 
-        // create AccountHolderBalance Request
+        // create TransferFunds Request
         TransferFundsRequest transferFundsRequest = new TransferFundsRequest();
         transferFundsRequest.setSourceAccountCode("100000000");
         transferFundsRequest.setDestinationAccountCode("190324759");
@@ -436,7 +437,7 @@ public class MarketPayTest extends BaseTest {
         // use Account service
         Account account = new Account(client);
 
-        // create DeleteBankAccount Request
+        // create SuspendAccountHolder Request
         SuspendAccountHolderRequest suspendAccountHolderRequest = new SuspendAccountHolderRequest();
         suspendAccountHolderRequest.setAccountHolderCode("TestAccountHolder192192");
 
@@ -452,7 +453,7 @@ public class MarketPayTest extends BaseTest {
         // use Account service
         Account account = new Account(client);
 
-        // create DeleteBankAccount Request
+        // create UnSuspendAccountHolder Request
         UnSuspendAccountHolderRequest unSuspendAccountHolderRequest = new UnSuspendAccountHolderRequest();
         unSuspendAccountHolderRequest.setAccountHolderCode("TestAccountHolder192192");
 
@@ -460,4 +461,54 @@ public class MarketPayTest extends BaseTest {
         System.out.println(unSuspendAccountHolderResponse);
     }
 
+    @Test
+    public void TestUpdateAccountHolderStateSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/update-account-holder-state-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create UpdateAccountHolderState Request
+        UpdateAccountHolderStateRequest updateAccountHolderStateRequest = new UpdateAccountHolderStateRequest();
+        updateAccountHolderStateRequest.setAccountHolderCode("TestAccountHolder215394");
+        updateAccountHolderStateRequest.setDisable(true);
+        updateAccountHolderStateRequest.setReason("test reason payout");
+        updateAccountHolderStateRequest.stateType(UpdateAccountHolderStateRequest.StateTypeEnum.PAYOUT);
+
+        UpdateAccountHolderStateResponse updateAccountHolderStateResponse = account.updateAccountHolderState(updateAccountHolderStateRequest);
+        System.out.println(updateAccountHolderStateResponse);
+    }
+
+    @Test
+    public void TestCloseAccountSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/close-account-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create CloseAccount Request
+        CloseAccountRequest closeAccountRequest = new CloseAccountRequest();
+        closeAccountRequest.setAccountCode("118731451");
+
+        CloseAccountResponse closeAccountResponse = account.closeAccount(closeAccountRequest);
+        System.out.println(closeAccountResponse);
+    }
+
+    @Test
+    public void TestCloseAccountHolderSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/close-account-holder-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create CloseAccountHolder Request
+        CloseAccountHolderRequest closeAccountHolderRequest = new CloseAccountHolderRequest();
+        closeAccountHolderRequest.setAccountHolderCode("TestAccountHolder1450");
+
+        CloseAccountHolderResponse closeAccountHolderResponse = account.closeAccountHolder(closeAccountHolderRequest);
+        System.out.println(closeAccountHolderResponse);
+    }
 }

@@ -40,6 +40,9 @@ public class Account extends Service {
     private DeleteShareholder deleteShareholder;
     private SuspendAccountHolder suspendAccountHolder;
     private UnSuspendAccountHolder unSuspendAccountHolder;
+    private UpdateAccountHolderState updateAccountHolderState;
+    private CloseAccount closeAccount;
+    private CloseAccountHolder closeAccountHolder;
 
     public Account(Client client) {
         super(client);
@@ -53,6 +56,9 @@ public class Account extends Service {
         deleteShareholder = new DeleteShareholder(this);
         suspendAccountHolder = new SuspendAccountHolder(this);
         unSuspendAccountHolder = new UnSuspendAccountHolder(this);
+        updateAccountHolderState = new UpdateAccountHolderState(this);
+        closeAccount = new CloseAccount(this);
+        closeAccountHolder = new CloseAccountHolder(this);
 
     }
 
@@ -145,5 +151,35 @@ public class Account extends Service {
         }.getType());
 
         return unSuspendAccountHolderResponse;
+    }
+
+    public UpdateAccountHolderStateResponse updateAccountHolderState(UpdateAccountHolderStateRequest updateAccountHolderStateRequest) throws Exception{
+        String jsonRequest = GSON.toJson(updateAccountHolderStateRequest);
+
+        String jsonResult = updateAccountHolderState.request(jsonRequest);
+        UpdateAccountHolderStateResponse updateAccountHolderStateResponse = GSON.fromJson(jsonResult, new TypeToken<UpdateAccountHolderStateResponse>() {
+        }.getType());
+
+        return updateAccountHolderStateResponse;
+    }
+
+    public CloseAccountResponse closeAccount(CloseAccountRequest closeAccountRequest) throws Exception{
+        String jsonRequest = GSON.toJson(closeAccountRequest);
+
+        String jsonResult = closeAccount.request(jsonRequest);
+        CloseAccountResponse closeAccountResponse = GSON.fromJson(jsonResult, new TypeToken<CloseAccountResponse>() {
+        }.getType());
+
+        return closeAccountResponse;
+    }
+
+    public CloseAccountHolderResponse closeAccountHolder(CloseAccountHolderRequest closeAccountHolderRequest) throws Exception{
+        String jsonRequest = GSON.toJson(closeAccountHolderRequest);
+
+        String jsonResult = closeAccountHolder.request(jsonRequest);
+        CloseAccountHolderResponse closeAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<CloseAccountHolderResponse>() {
+        }.getType());
+
+        return closeAccountHolderResponse;
     }
 }
