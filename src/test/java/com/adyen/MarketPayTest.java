@@ -511,4 +511,76 @@ public class MarketPayTest extends BaseTest {
         CloseAccountHolderResponse closeAccountHolderResponse = account.closeAccountHolder(closeAccountHolderRequest);
         System.out.println(closeAccountHolderResponse);
     }
+
+    @Test
+    public void TestPayoutAccountHolderSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/fund/payout-account-holder-success.json");
+
+        // use Fund service
+        Fund fund = new Fund(client);
+
+        // create PayoutAccountHolder Request
+        PayoutAccountHolderRequest payoutAccountHolderRequest = new PayoutAccountHolderRequest();
+        payoutAccountHolderRequest.setAccountCode("118731451");
+        payoutAccountHolderRequest.setAccountHolderCode("TestAccountHolder877209");
+        payoutAccountHolderRequest.setDescription("12345 – Test");
+        payoutAccountHolderRequest.setBankAccountUUID("000b81aa-ae7e-4492-aa7e-72b2129dce0c");
+
+        // create Amount
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(new Long(2000));
+        payoutAccountHolderRequest.setAmount(amount);
+
+        PayoutAccountHolderResponse payoutAccountHolderResponse = fund.payoutAccountHolder(payoutAccountHolderRequest);
+
+        System.out.println(payoutAccountHolderResponse);
+    }
+
+    @Test
+    public void TestUpdateAccountSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/update-account-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create Update Account Request
+        UpdateAccountRequest updateAccountRequest = new UpdateAccountRequest();
+        updateAccountRequest.setAccountCode("198360329");
+
+        UpdatePayoutScheduleRequest updatePayoutScheduleRequest = new UpdatePayoutScheduleRequest();
+        updatePayoutScheduleRequest.setSchedule(UpdatePayoutScheduleRequest.ScheduleEnum.WEEKLY);
+        updatePayoutScheduleRequest.setAction(UpdatePayoutScheduleRequest.ActionEnum.CLOSE);
+
+        updateAccountRequest.setPayoutSchedule(updatePayoutScheduleRequest);
+
+        UpdateAccountResponse updateAccountResponse = account.updateAccount(updateAccountRequest);
+        System.out.println(updateAccountResponse);
+    }
+
+    @Test
+    public void TestAccountHolderTransactionListSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/fund/account-holder-transaction-list-success.json");
+
+        // use Fund service
+        Fund fund = new Fund(client);
+
+        // create AccountHolderTransactionList Request
+        AccountHolderTransactionListRequest accountHolderTransactionListRequest = new AccountHolderTransactionListRequest();
+        accountHolderTransactionListRequest.setAccountHolderCode("TestAccountHolder423978");
+        accountHolderTransactionListRequest.addTransactionStatusesItem(AccountHolderTransactionListRequest.TransactionStatusesEnum.PENDINGCREDIT);
+        accountHolderTransactionListRequest.addTransactionStatusesItem(AccountHolderTransactionListRequest.TransactionStatusesEnum.CREDITED);
+        accountHolderTransactionListRequest.addTransactionStatusesItem(AccountHolderTransactionListRequest.TransactionStatusesEnum.DEBITED);
+        TransactionListForAccount transactionListForAccount = new TransactionListForAccount();
+        transactionListForAccount.setAccountCode("2e64b396-1200-4474-b848-0cb06b52b3c7");
+        transactionListForAccount.setPage(2);
+        accountHolderTransactionListRequest.addTransactionListsPerAccountItem(transactionListForAccount);
+
+
+        AccountHolderTransactionListResponse accountHolderTransactionListResponse = fund.accountHolderTransactionList(accountHolderTransactionListRequest);
+        System.out.println(accountHolderTransactionListResponse);
+    }
 }

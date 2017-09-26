@@ -43,6 +43,7 @@ public class Account extends Service {
     private UpdateAccountHolderState updateAccountHolderState;
     private CloseAccount closeAccount;
     private CloseAccountHolder closeAccountHolder;
+    private UpdateAccount updateAccount;
 
     public Account(Client client) {
         super(client);
@@ -59,6 +60,7 @@ public class Account extends Service {
         updateAccountHolderState = new UpdateAccountHolderState(this);
         closeAccount = new CloseAccount(this);
         closeAccountHolder = new CloseAccountHolder(this);
+        updateAccount = new UpdateAccount(this);
 
     }
 
@@ -181,5 +183,15 @@ public class Account extends Service {
         }.getType());
 
         return closeAccountHolderResponse;
+    }
+
+    public UpdateAccountResponse updateAccount(UpdateAccountRequest updateAccountRequest) throws Exception{
+        String jsonRequest = GSON.toJson(updateAccountRequest);
+
+        String jsonResult = updateAccount.request(jsonRequest);
+        UpdateAccountResponse updateAccountResponse = GSON.fromJson(jsonResult, new TypeToken<UpdateAccountResponse>() {
+        }.getType());
+
+        return updateAccountResponse;
     }
 }

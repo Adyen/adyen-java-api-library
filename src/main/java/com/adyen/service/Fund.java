@@ -22,11 +22,10 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.AccountHolderBalanceRequest;
-import com.adyen.model.AccountHolderBalanceResponse;
-import com.adyen.model.TransferFundsRequest;
-import com.adyen.model.TransferFundsResponse;
+import com.adyen.model.*;
 import com.adyen.service.resource.fund.AccountHolderBalance;
+import com.adyen.service.resource.fund.AccountHolderTransactionList;
+import com.adyen.service.resource.fund.PayoutAccountHolder;
 import com.adyen.service.resource.fund.TransferFunds;
 import com.google.gson.reflect.TypeToken;
 
@@ -37,11 +36,15 @@ public class Fund extends Service {
 
     private AccountHolderBalance accountHolderBalance;
     private TransferFunds transferFunds;
+    private PayoutAccountHolder payoutAccountHolder;
+    private AccountHolderTransactionList accountHolderTransactionList;
 
     public Fund(Client client) {
         super(client);
         this.accountHolderBalance = new AccountHolderBalance(this);
         transferFunds = new TransferFunds(this);
+        this.payoutAccountHolder = new PayoutAccountHolder(this);
+        this.accountHolderTransactionList = new AccountHolderTransactionList(this);
     }
 
     public AccountHolderBalanceResponse AccountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws Exception {
@@ -67,5 +70,31 @@ public class Fund extends Service {
 
 
         return transferFundsResponse;
+    }
+
+    public PayoutAccountHolderResponse payoutAccountHolder(PayoutAccountHolderRequest payoutAccountHolderRequest) throws Exception {
+
+        String jsonRequest = GSON.toJson(payoutAccountHolderRequest);
+
+        String jsonResult = payoutAccountHolder.request(jsonRequest);
+
+        PayoutAccountHolderResponse payoutAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<PayoutAccountHolderResponse>() {
+        }.getType());
+
+
+        return payoutAccountHolderResponse;
+    }
+
+    public AccountHolderTransactionListResponse accountHolderTransactionList(AccountHolderTransactionListRequest accountHolderTransactionListRequest) throws Exception {
+
+        String jsonRequest = GSON.toJson(accountHolderTransactionListRequest);
+
+        String jsonResult = accountHolderTransactionList.request(jsonRequest);
+
+        AccountHolderTransactionListResponse accountHolderTransactionListResponse = GSON.fromJson(jsonResult, new TypeToken<AccountHolderTransactionListResponse>() {
+        }.getType());
+
+
+        return accountHolderTransactionListResponse;
     }
 }
