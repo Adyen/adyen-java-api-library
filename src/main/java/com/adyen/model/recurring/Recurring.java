@@ -41,7 +41,13 @@ public class Recurring {
     RECURRING("RECURRING"),
     
     @SerializedName("PAYOUT")
-    PAYOUT("PAYOUT");
+    PAYOUT("PAYOUT"),
+
+    @SerializedName("ONECLICK,RECURRING,PAYOUT")
+    ONECLICK_RECURRING_PAYOUT("ONECLICK,RECURRING,PAYOUT"),
+
+    @SerializedName("RECURRING,PAYOUT")
+    RECURRING_PAYOUT("RECURRING,PAYOUT");
 
     private String value;
 

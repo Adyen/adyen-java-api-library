@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -18,15 +18,23 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.httpclient;
+package com.adyen.serializer;
 
-import java.io.IOException;
-import java.util.Map;
-import com.adyen.Config;
+import java.util.Date;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
+import static org.junit.Assert.assertEquals;
 
-public interface ClientInterface {
+@RunWith(MockitoJUnitRunner.class)
+public class DateTimeGMTSerializerTest {
 
-	String request(String endpoint, String json, Config config) throws IOException, HTTPClientException;
+    @Test
+    public void testSerialize() throws Exception {
+        DateTimeGMTSerializer dateTimeGMTSerializer = new DateTimeGMTSerializer();
+        Date date = new Date();
+        date.setTime(1503580067000L);
 
-	String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException;
+        assertEquals("2017-08-24T13:07:47.000Z", dateTimeGMTSerializer.serialize(date, null, null).getAsString());
+    }
 }

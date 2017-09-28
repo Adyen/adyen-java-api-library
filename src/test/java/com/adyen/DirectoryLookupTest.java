@@ -30,6 +30,8 @@ import com.adyen.model.hpp.DirectoryLookupRequest;
 import com.adyen.model.hpp.Issuer;
 import com.adyen.model.hpp.PaymentMethod;
 import com.adyen.service.HostedPaymentPages;
+import static com.adyen.constants.BrandCodes.IDEAL;
+import static com.adyen.constants.BrandCodes.VISA;
 import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
 import static com.adyen.constants.HPPConstants.Fields.MERCHANT_SIG;
 import static org.junit.Assert.assertEquals;
@@ -70,7 +72,7 @@ public class DirectoryLookupTest extends BaseTest {
         assertEquals(8, paymentMethods.size());
 
         PaymentMethod ideal = paymentMethods.get(0);
-        assertEquals("ideal", ideal.getBrandCode());
+        assertEquals(IDEAL, ideal.getBrandCode());
         assertEquals("iDEAL", ideal.getName());
         assertFalse(ideal.isCard());
 
@@ -81,7 +83,7 @@ public class DirectoryLookupTest extends BaseTest {
         assertEquals("Test Issuer", issuer1.getName());
 
         PaymentMethod visa = paymentMethods.get(1);
-        assertEquals("visa", visa.getBrandCode());
+        assertEquals(VISA, visa.getBrandCode());
         assertTrue(visa.isCard());
     }
 

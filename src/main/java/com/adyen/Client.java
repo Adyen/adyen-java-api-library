@@ -35,7 +35,7 @@ public class Client {
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String API_VERSION = "v25";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
-    public static final String LIB_VERSION = "1.1.0";
+    public static final String LIB_VERSION = "1.2.0";
 
     public Client() {
         this.config = new Config();
