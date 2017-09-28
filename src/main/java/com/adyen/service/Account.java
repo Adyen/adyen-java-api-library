@@ -44,6 +44,7 @@ public class Account extends Service {
     private CloseAccount closeAccount;
     private CloseAccountHolder closeAccountHolder;
     private UpdateAccount updateAccount;
+    private GetUploadedDocuments getUploadedDocuments;
 
     public Account(Client client) {
         super(client);
@@ -61,6 +62,7 @@ public class Account extends Service {
         closeAccount = new CloseAccount(this);
         closeAccountHolder = new CloseAccountHolder(this);
         updateAccount = new UpdateAccount(this);
+        getUploadedDocuments = new GetUploadedDocuments(this);
 
     }
 
@@ -193,5 +195,15 @@ public class Account extends Service {
         }.getType());
 
         return updateAccountResponse;
+    }
+
+    public GetUploadedDocumentsResponse getUploadedDocuments(GetUploadedDocumentsRequest getUploadedDocumentsRequest) throws Exception{
+        String jsonRequest = GSON.toJson(getUploadedDocumentsRequest);
+
+        String jsonResult = getUploadedDocuments.request(jsonRequest);
+        GetUploadedDocumentsResponse getUploadedDocumentsResponse = GSON.fromJson(jsonResult, new TypeToken<GetUploadedDocumentsResponse>() {
+        }.getType());
+
+        return getUploadedDocumentsResponse;
     }
 }

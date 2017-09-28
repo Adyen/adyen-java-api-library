@@ -583,4 +583,55 @@ public class MarketPayTest extends BaseTest {
         AccountHolderTransactionListResponse accountHolderTransactionListResponse = fund.accountHolderTransactionList(accountHolderTransactionListRequest);
         System.out.println(accountHolderTransactionListResponse);
     }
+
+    @Test
+    public void TestGetUploadedDocumentsSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/get-uploaded-documents-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create GetUploadedDocuments request
+        GetUploadedDocumentsRequest getUploadedDocumentsRequest = new GetUploadedDocumentsRequest();
+        getUploadedDocumentsRequest.setAccountHolderCode("TestAccountHolder8031");
+        getUploadedDocumentsRequest.setBankAccountUUID("EXAMPLE_UUID");
+
+        GetUploadedDocumentsResponse getUploadedDocumentsResponse = account.getUploadedDocuments(getUploadedDocumentsRequest);
+        System.out.println(getUploadedDocumentsResponse);
+    }
+
+    @Test
+    public void TestRefundNotPaidOutTransfersSuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/fund/refund-not-paid-out-transfers-success.json");
+
+        // use Fund service
+        Fund fund = new Fund(client);
+
+        RefundNotPaidOutTransfersRequest refundNotPaidOutTransfersRequest = new RefundNotPaidOutTransfersRequest();
+        refundNotPaidOutTransfersRequest.setAccountHolderCode("TestAccountHolder502924");
+        refundNotPaidOutTransfersRequest.setAccountCode("189184578");
+
+        RefundNotPaidOutTransfersResponse refundNotPaidOutTransfersResponse = fund.refundNotPaidOutTransfers(refundNotPaidOutTransfersRequest);
+        System.out.println(refundNotPaidOutTransfersResponse);
+    }
+
+    @Test
+    public void TestSetupBeneficiarySuccess() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/fund/setup-beneficiary-success.json");
+
+        // use Fund service
+        Fund fund = new Fund(client);
+
+        SetupBeneficiaryRequest setupBeneficiaryRequest = new SetupBeneficiaryRequest();
+        setupBeneficiaryRequest.setDestinationAccountCode("128952522");
+        setupBeneficiaryRequest.setMerchantReference("Test");
+        setupBeneficiaryRequest.setSourceAccountCode("134498192");
+
+        SetupBeneficiaryResponse setupBeneficiaryResponse = fund.setupBeneficiary(setupBeneficiaryRequest);
+        System.out.println(setupBeneficiaryResponse);
+    }
+
 }

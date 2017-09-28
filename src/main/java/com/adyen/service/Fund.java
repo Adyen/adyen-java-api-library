@@ -23,10 +23,7 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.*;
-import com.adyen.service.resource.fund.AccountHolderBalance;
-import com.adyen.service.resource.fund.AccountHolderTransactionList;
-import com.adyen.service.resource.fund.PayoutAccountHolder;
-import com.adyen.service.resource.fund.TransferFunds;
+import com.adyen.service.resource.fund.*;
 import com.google.gson.reflect.TypeToken;
 
 /**
@@ -38,6 +35,8 @@ public class Fund extends Service {
     private TransferFunds transferFunds;
     private PayoutAccountHolder payoutAccountHolder;
     private AccountHolderTransactionList accountHolderTransactionList;
+    private RefundNotPaidOutTransfers refundNotPaidOutTransfers;
+    private SetupBeneficiary setupBeneficiary;
 
     public Fund(Client client) {
         super(client);
@@ -45,6 +44,9 @@ public class Fund extends Service {
         transferFunds = new TransferFunds(this);
         this.payoutAccountHolder = new PayoutAccountHolder(this);
         this.accountHolderTransactionList = new AccountHolderTransactionList(this);
+        refundNotPaidOutTransfers = new RefundNotPaidOutTransfers(this);
+        setupBeneficiary = new SetupBeneficiary(this);
+
     }
 
     public AccountHolderBalanceResponse AccountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws Exception {
@@ -96,5 +98,29 @@ public class Fund extends Service {
 
 
         return accountHolderTransactionListResponse;
+    }
+
+    public RefundNotPaidOutTransfersResponse refundNotPaidOutTransfers(RefundNotPaidOutTransfersRequest refundNotPaidOutTransfersRequest) throws Exception {
+
+        String jsonRequest = GSON.toJson(refundNotPaidOutTransfersRequest);
+
+        String jsonResult = refundNotPaidOutTransfers.request(jsonRequest);
+
+        RefundNotPaidOutTransfersResponse refundNotPaidOutTransfersResponse = GSON.fromJson(jsonResult, new TypeToken<RefundNotPaidOutTransfersResponse>() {
+        }.getType());
+
+        return refundNotPaidOutTransfersResponse;
+    }
+
+    public SetupBeneficiaryResponse setupBeneficiary(SetupBeneficiaryRequest setupBeneficiaryRequest) throws Exception{
+
+        String jsonRequest = GSON.toJson(setupBeneficiaryRequest);
+
+        String jsonResult = setupBeneficiary.request(jsonRequest);
+
+        SetupBeneficiaryResponse setupBeneficiaryResponse = GSON.fromJson(jsonResult, new TypeToken<SetupBeneficiaryResponse>() {
+        }.getType());
+
+        return setupBeneficiaryResponse;
     }
 }
