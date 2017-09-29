@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -24,19 +24,42 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.AccountHolderBalanceRequest;
 import com.adyen.model.AccountHolderBalanceResponse;
+import com.adyen.model.AccountHolderTransactionListRequest;
+import com.adyen.model.AccountHolderTransactionListResponse;
+import com.adyen.model.PayoutAccountHolderRequest;
+import com.adyen.model.PayoutAccountHolderResponse;
+import com.adyen.model.RefundNotPaidOutTransfersRequest;
+import com.adyen.model.RefundNotPaidOutTransfersResponse;
+import com.adyen.model.SetupBeneficiaryRequest;
+import com.adyen.model.SetupBeneficiaryResponse;
+import com.adyen.model.TransferFundsRequest;
+import com.adyen.model.TransferFundsResponse;
 import com.adyen.service.resource.fund.AccountHolderBalance;
+import com.adyen.service.resource.fund.AccountHolderTransactionList;
+import com.adyen.service.resource.fund.PayoutAccountHolder;
+import com.adyen.service.resource.fund.RefundNotPaidOutTransfers;
+import com.adyen.service.resource.fund.SetupBeneficiary;
+import com.adyen.service.resource.fund.TransferFunds;
 import com.google.gson.reflect.TypeToken;
 
-/**
- * Created by rikt on 9/7/17.
- */
 public class Fund extends Service {
 
     private AccountHolderBalance accountHolderBalance;
+    private TransferFunds transferFunds;
+    private PayoutAccountHolder payoutAccountHolder;
+    private AccountHolderTransactionList accountHolderTransactionList;
+    private RefundNotPaidOutTransfers refundNotPaidOutTransfers;
+    private SetupBeneficiary setupBeneficiary;
 
     public Fund(Client client) {
         super(client);
-        this.accountHolderBalance = new AccountHolderBalance(this);
+        accountHolderBalance = new AccountHolderBalance(this);
+        transferFunds = new TransferFunds(this);
+        payoutAccountHolder = new PayoutAccountHolder(this);
+        accountHolderTransactionList = new AccountHolderTransactionList(this);
+        refundNotPaidOutTransfers = new RefundNotPaidOutTransfers(this);
+        setupBeneficiary = new SetupBeneficiary(this);
+
     }
 
     public AccountHolderBalanceResponse AccountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws Exception {
@@ -49,5 +72,63 @@ public class Fund extends Service {
 
 
         return accountHolderBalanceResponse;
+    }
+
+    public TransferFundsResponse transferFunds(TransferFundsRequest transferFundsRequest) throws Exception {
+        String jsonRequest = GSON.toJson(transferFundsRequest);
+
+        String jsonResult = transferFunds.request(jsonRequest);
+
+        TransferFundsResponse transferFundsResponse = GSON.fromJson(jsonResult, new TypeToken<TransferFundsResponse>() {
+        }.getType());
+
+
+        return transferFundsResponse;
+    }
+
+    public PayoutAccountHolderResponse payoutAccountHolder(PayoutAccountHolderRequest payoutAccountHolderRequest) throws Exception {
+        String jsonRequest = GSON.toJson(payoutAccountHolderRequest);
+
+        String jsonResult = payoutAccountHolder.request(jsonRequest);
+
+        PayoutAccountHolderResponse payoutAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<PayoutAccountHolderResponse>() {
+        }.getType());
+
+
+        return payoutAccountHolderResponse;
+    }
+
+    public AccountHolderTransactionListResponse accountHolderTransactionList(AccountHolderTransactionListRequest accountHolderTransactionListRequest) throws Exception {
+        String jsonRequest = GSON.toJson(accountHolderTransactionListRequest);
+
+        String jsonResult = accountHolderTransactionList.request(jsonRequest);
+
+        AccountHolderTransactionListResponse accountHolderTransactionListResponse = GSON.fromJson(jsonResult, new TypeToken<AccountHolderTransactionListResponse>() {
+        }.getType());
+
+
+        return accountHolderTransactionListResponse;
+    }
+
+    public RefundNotPaidOutTransfersResponse refundNotPaidOutTransfers(RefundNotPaidOutTransfersRequest refundNotPaidOutTransfersRequest) throws Exception {
+        String jsonRequest = GSON.toJson(refundNotPaidOutTransfersRequest);
+
+        String jsonResult = refundNotPaidOutTransfers.request(jsonRequest);
+
+        RefundNotPaidOutTransfersResponse refundNotPaidOutTransfersResponse = GSON.fromJson(jsonResult, new TypeToken<RefundNotPaidOutTransfersResponse>() {
+        }.getType());
+
+        return refundNotPaidOutTransfersResponse;
+    }
+
+    public SetupBeneficiaryResponse setupBeneficiary(SetupBeneficiaryRequest setupBeneficiaryRequest) throws Exception {
+        String jsonRequest = GSON.toJson(setupBeneficiaryRequest);
+
+        String jsonResult = setupBeneficiary.request(jsonRequest);
+
+        SetupBeneficiaryResponse setupBeneficiaryResponse = GSON.fromJson(jsonResult, new TypeToken<SetupBeneficiaryResponse>() {
+        }.getType());
+
+        return setupBeneficiaryResponse;
     }
 }

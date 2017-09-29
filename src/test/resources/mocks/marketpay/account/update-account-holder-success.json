@@ -1,0 +1,95 @@
+{
+  "pspReference":"9914762676580105",
+  "submittedAsync":"false",
+  "accountHolderCode":"TestAccountHolder414261",
+  "accountHolderDetails":{
+    "address":{
+      "city":"Amsterdam",
+      "country":"NL",
+      "postalCode":"12345",
+      "stateOrProvince":"NH",
+      "street":"Teststreet 1"
+    },
+    "bankAccountDetails":[
+
+    ],
+    "email":"test@adyen.com",
+    "individualDetails":{
+      "name":{
+        "firstName":"First name",
+        "gender":"MALE",
+        "lastName":"Last Name"
+      },
+      "personalData":{
+        "dateOfBirth":"1970-01-01",
+        "idNumber":"1234567890",
+        "nationality":"NL"
+      }
+    },
+    "merchantCategoryCode":"7999",
+    "phoneNumber":{
+      "phoneCountryCode":"NL",
+      "phoneNumber":"0612345678",
+      "phoneType":"Mobile"
+    },
+    "webAddress":"http://www.accountholderwebsite.com"
+  },
+  "accountHolderStatus":{
+    "status":"Active",
+    "processingState":{
+      "processedFrom":{
+        "currency":"GBP",
+        "value":0
+      },
+      "processedTo":{
+        "currency":"GBP",
+        "value":9999
+      }
+    },
+    "payoutState":{
+      "allowPayout":"true",
+      "payoutLimit":{
+        "currency":"GBP",
+        "value":49999
+      }
+    }
+  },
+  "invalidFields":[
+
+  ],
+  "verification":{
+    "accountHolder":{
+      "checks":[
+        {
+          "type":"PASSPORT_VERIFICATION",
+          "status":"AWAITING_DATA",
+          "requiredFields":[
+            "AccountHolderDetails.Document.passport"
+          ]
+        },
+        {
+          "type":"IDENTITY_VERIFICATION",
+          "status":"PASSED",
+          "summary":{
+            "code":1602,
+            "description":"Passed"
+          }
+        }
+      ]
+    },
+    "bankAccounts":[
+      {
+        "bankAccountUUID":"2f11df0b-a265-47ae-89c0-3d892066e7f5",
+        "checks":[
+          {
+            "type":"BANK_ACCOUNT_VERIFICATION",
+            "status":"PASSED"
+          }
+        ]
+      }
+    ]
+  },
+  "updatedFields":[
+
+  ]
+}

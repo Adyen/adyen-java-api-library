@@ -1,0 +1,24 @@
+{
+  "pspReference":"9914762643560032",
+  "submittedAsync":"false",
+  "accountHolderStatus":{
+    "status":"Suspended",
+    "processingState":{
+      "processedFrom":{
+        "currency":"EUR",
+        "value":0
+      },
+      "processedTo":{
+        "currency":"EUR",
+        "value":9999
+      }
+    },
+    "payoutState":{
+      "allowPayout":"false",
+      "payoutLimit":{
+        "currency":"EUR",
+        "value":49999
+      }
+    }
+  }
+}
