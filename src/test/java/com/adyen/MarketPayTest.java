@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -23,10 +23,61 @@ package com.adyen;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.adyen.model.*;
-import com.adyen.service.resource.account.UpdateAccountHolderState;
 import org.junit.Test;
+import com.adyen.model.AccountHolderBalanceRequest;
+import com.adyen.model.AccountHolderBalanceResponse;
+import com.adyen.model.AccountHolderDetails;
+import com.adyen.model.AccountHolderTransactionListRequest;
+import com.adyen.model.AccountHolderTransactionListResponse;
+import com.adyen.model.Address;
+import com.adyen.model.Amount;
+import com.adyen.model.BankAccountDetail;
+import com.adyen.model.CloseAccountHolderRequest;
+import com.adyen.model.CloseAccountHolderResponse;
+import com.adyen.model.CloseAccountRequest;
+import com.adyen.model.CloseAccountResponse;
+import com.adyen.model.CreateAccountHolderRequest;
+import com.adyen.model.CreateAccountHolderResponse;
+import com.adyen.model.CreateAccountRequest;
+import com.adyen.model.CreateAccountResponse;
+import com.adyen.model.DeleteBankAccountRequest;
+import com.adyen.model.DeleteBankAccountResponse;
+import com.adyen.model.DeleteShareholderRequest;
+import com.adyen.model.DeleteShareholderResponse;
+import com.adyen.model.DocumentDetail;
+import com.adyen.model.FraudCheckResult;
+import com.adyen.model.GetAccountHolderRequest;
+import com.adyen.model.GetAccountHolderResponse;
+import com.adyen.model.GetUploadedDocumentsRequest;
+import com.adyen.model.GetUploadedDocumentsResponse;
+import com.adyen.model.IndividualDetails;
+import com.adyen.model.Name;
+import com.adyen.model.PaymentRequest;
+import com.adyen.model.PaymentResult;
+import com.adyen.model.PayoutAccountHolderRequest;
+import com.adyen.model.PayoutAccountHolderResponse;
+import com.adyen.model.PersonalData;
+import com.adyen.model.PhoneNumber;
+import com.adyen.model.RefundNotPaidOutTransfersRequest;
+import com.adyen.model.RefundNotPaidOutTransfersResponse;
+import com.adyen.model.SetupBeneficiaryRequest;
+import com.adyen.model.SetupBeneficiaryResponse;
+import com.adyen.model.SuspendAccountHolderRequest;
+import com.adyen.model.SuspendAccountHolderResponse;
+import com.adyen.model.TransactionListForAccount;
+import com.adyen.model.TransferFundsRequest;
+import com.adyen.model.TransferFundsResponse;
+import com.adyen.model.UnSuspendAccountHolderRequest;
+import com.adyen.model.UnSuspendAccountHolderResponse;
+import com.adyen.model.UpdateAccountHolderRequest;
+import com.adyen.model.UpdateAccountHolderResponse;
+import com.adyen.model.UpdateAccountHolderStateRequest;
+import com.adyen.model.UpdateAccountHolderStateResponse;
+import com.adyen.model.UpdateAccountRequest;
+import com.adyen.model.UpdateAccountResponse;
+import com.adyen.model.UpdatePayoutScheduleRequest;
+import com.adyen.model.UploadDocumentRequest;
+import com.adyen.model.UploadDocumentResponse;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.service.Account;
@@ -40,11 +91,8 @@ import static org.junit.Assert.assertTrue;
  * Tests for /authorise and /authorise3d
  */
 public class MarketPayTest extends BaseTest {
-
-
     /**
-     * Test success flow for
-     * POST /authorise
+     * Test success flow for POST /authorise
      */
     @Test
     public void TestCreateSplitPayment() throws Exception {
@@ -109,8 +157,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     /**
-     * Test success flow for
-     * POST /createAccountHolder
+     * Test success flow for POST /createAccountHolder
      */
     @Test
     public void TestCreateAccountHolderSuccess() throws Exception {
@@ -208,8 +255,7 @@ public class MarketPayTest extends BaseTest {
 
 
     /**
-     * Test success flow for
-     * POST /accountHolderBalance
+     * Test success flow for POST /accountHolderBalance
      */
     @Test
     public void TestAccountHolderBalanceSuccess() throws Exception {
@@ -394,7 +440,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestDeleteBankAccountSuccess() throws Exception{
+    public void TestDeleteBankAccountSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/delete-bank-account-success.json");
 
@@ -413,7 +459,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestDeleteShareholderSuccess() throws Exception{
+    public void TestDeleteShareholderSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/delete-shareholder-success.json");
 
@@ -430,7 +476,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestSuspendAccountHolderSuccess() throws Exception{
+    public void TestSuspendAccountHolderSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/suspend-account-holder-success.json");
 
@@ -446,7 +492,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestUnSuspendAccountHolderSuccess() throws Exception{
+    public void TestUnSuspendAccountHolderSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/un-suspend-account-holder-success.json");
 
@@ -462,7 +508,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestUpdateAccountHolderStateSuccess() throws Exception{
+    public void TestUpdateAccountHolderStateSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/update-account-holder-state-success.json");
 
@@ -481,7 +527,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestCloseAccountSuccess() throws Exception{
+    public void TestCloseAccountSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/close-account-success.json");
 
@@ -497,7 +543,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestCloseAccountHolderSuccess() throws Exception{
+    public void TestCloseAccountHolderSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/close-account-holder-success.json");
 
@@ -539,7 +585,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestUpdateAccountSuccess() throws Exception{
+    public void TestUpdateAccountSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/update-account-success.json");
 
@@ -561,7 +607,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestAccountHolderTransactionListSuccess() throws Exception{
+    public void TestAccountHolderTransactionListSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/fund/account-holder-transaction-list-success.json");
 
@@ -585,7 +631,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestGetUploadedDocumentsSuccess() throws Exception{
+    public void TestGetUploadedDocumentsSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/get-uploaded-documents-success.json");
 
@@ -602,7 +648,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestRefundNotPaidOutTransfersSuccess() throws Exception{
+    public void TestRefundNotPaidOutTransfersSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/fund/refund-not-paid-out-transfers-success.json");
 
@@ -618,7 +664,7 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestSetupBeneficiarySuccess() throws Exception{
+    public void TestSetupBeneficiarySuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/fund/setup-beneficiary-success.json");
 
