@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -22,13 +22,26 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.*;
-import com.adyen.service.resource.fund.*;
+import com.adyen.model.AccountHolderBalanceRequest;
+import com.adyen.model.AccountHolderBalanceResponse;
+import com.adyen.model.AccountHolderTransactionListRequest;
+import com.adyen.model.AccountHolderTransactionListResponse;
+import com.adyen.model.PayoutAccountHolderRequest;
+import com.adyen.model.PayoutAccountHolderResponse;
+import com.adyen.model.RefundNotPaidOutTransfersRequest;
+import com.adyen.model.RefundNotPaidOutTransfersResponse;
+import com.adyen.model.SetupBeneficiaryRequest;
+import com.adyen.model.SetupBeneficiaryResponse;
+import com.adyen.model.TransferFundsRequest;
+import com.adyen.model.TransferFundsResponse;
+import com.adyen.service.resource.fund.AccountHolderBalance;
+import com.adyen.service.resource.fund.AccountHolderTransactionList;
+import com.adyen.service.resource.fund.PayoutAccountHolder;
+import com.adyen.service.resource.fund.RefundNotPaidOutTransfers;
+import com.adyen.service.resource.fund.SetupBeneficiary;
+import com.adyen.service.resource.fund.TransferFunds;
 import com.google.gson.reflect.TypeToken;
 
-/**
- * Created by rikt on 9/7/17.
- */
 public class Fund extends Service {
 
     private AccountHolderBalance accountHolderBalance;
@@ -40,10 +53,10 @@ public class Fund extends Service {
 
     public Fund(Client client) {
         super(client);
-        this.accountHolderBalance = new AccountHolderBalance(this);
+        accountHolderBalance = new AccountHolderBalance(this);
         transferFunds = new TransferFunds(this);
-        this.payoutAccountHolder = new PayoutAccountHolder(this);
-        this.accountHolderTransactionList = new AccountHolderTransactionList(this);
+        payoutAccountHolder = new PayoutAccountHolder(this);
+        accountHolderTransactionList = new AccountHolderTransactionList(this);
         refundNotPaidOutTransfers = new RefundNotPaidOutTransfers(this);
         setupBeneficiary = new SetupBeneficiary(this);
 
@@ -62,7 +75,6 @@ public class Fund extends Service {
     }
 
     public TransferFundsResponse transferFunds(TransferFundsRequest transferFundsRequest) throws Exception {
-
         String jsonRequest = GSON.toJson(transferFundsRequest);
 
         String jsonResult = transferFunds.request(jsonRequest);
@@ -75,7 +87,6 @@ public class Fund extends Service {
     }
 
     public PayoutAccountHolderResponse payoutAccountHolder(PayoutAccountHolderRequest payoutAccountHolderRequest) throws Exception {
-
         String jsonRequest = GSON.toJson(payoutAccountHolderRequest);
 
         String jsonResult = payoutAccountHolder.request(jsonRequest);
@@ -88,7 +99,6 @@ public class Fund extends Service {
     }
 
     public AccountHolderTransactionListResponse accountHolderTransactionList(AccountHolderTransactionListRequest accountHolderTransactionListRequest) throws Exception {
-
         String jsonRequest = GSON.toJson(accountHolderTransactionListRequest);
 
         String jsonResult = accountHolderTransactionList.request(jsonRequest);
@@ -101,7 +111,6 @@ public class Fund extends Service {
     }
 
     public RefundNotPaidOutTransfersResponse refundNotPaidOutTransfers(RefundNotPaidOutTransfersRequest refundNotPaidOutTransfersRequest) throws Exception {
-
         String jsonRequest = GSON.toJson(refundNotPaidOutTransfersRequest);
 
         String jsonResult = refundNotPaidOutTransfers.request(jsonRequest);
@@ -112,8 +121,7 @@ public class Fund extends Service {
         return refundNotPaidOutTransfersResponse;
     }
 
-    public SetupBeneficiaryResponse setupBeneficiary(SetupBeneficiaryRequest setupBeneficiaryRequest) throws Exception{
-
+    public SetupBeneficiaryResponse setupBeneficiary(SetupBeneficiaryRequest setupBeneficiaryRequest) throws Exception {
         String jsonRequest = GSON.toJson(setupBeneficiaryRequest);
 
         String jsonResult = setupBeneficiary.request(jsonRequest);

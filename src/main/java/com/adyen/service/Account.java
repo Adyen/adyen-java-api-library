@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -22,13 +22,50 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.*;
-import com.adyen.service.resource.account.*;
+import com.adyen.model.CloseAccountHolderRequest;
+import com.adyen.model.CloseAccountHolderResponse;
+import com.adyen.model.CloseAccountRequest;
+import com.adyen.model.CloseAccountResponse;
+import com.adyen.model.CreateAccountHolderRequest;
+import com.adyen.model.CreateAccountHolderResponse;
+import com.adyen.model.CreateAccountRequest;
+import com.adyen.model.CreateAccountResponse;
+import com.adyen.model.DeleteBankAccountRequest;
+import com.adyen.model.DeleteBankAccountResponse;
+import com.adyen.model.DeleteShareholderRequest;
+import com.adyen.model.DeleteShareholderResponse;
+import com.adyen.model.GetAccountHolderRequest;
+import com.adyen.model.GetAccountHolderResponse;
+import com.adyen.model.GetUploadedDocumentsRequest;
+import com.adyen.model.GetUploadedDocumentsResponse;
+import com.adyen.model.SuspendAccountHolderRequest;
+import com.adyen.model.SuspendAccountHolderResponse;
+import com.adyen.model.UnSuspendAccountHolderRequest;
+import com.adyen.model.UnSuspendAccountHolderResponse;
+import com.adyen.model.UpdateAccountHolderRequest;
+import com.adyen.model.UpdateAccountHolderResponse;
+import com.adyen.model.UpdateAccountHolderStateRequest;
+import com.adyen.model.UpdateAccountHolderStateResponse;
+import com.adyen.model.UpdateAccountRequest;
+import com.adyen.model.UpdateAccountResponse;
+import com.adyen.model.UploadDocumentRequest;
+import com.adyen.model.UploadDocumentResponse;
+import com.adyen.service.resource.account.CloseAccount;
+import com.adyen.service.resource.account.CloseAccountHolder;
+import com.adyen.service.resource.account.CreateAccount;
+import com.adyen.service.resource.account.CreateAccountHolder;
+import com.adyen.service.resource.account.DeleteBankAccount;
+import com.adyen.service.resource.account.DeleteShareholder;
+import com.adyen.service.resource.account.GetAccountHolder;
+import com.adyen.service.resource.account.GetUploadedDocuments;
+import com.adyen.service.resource.account.SuspendAccountHolder;
+import com.adyen.service.resource.account.UnSuspendAccountHolder;
+import com.adyen.service.resource.account.UpdateAccount;
+import com.adyen.service.resource.account.UpdateAccountHolder;
+import com.adyen.service.resource.account.UpdateAccountHolderState;
+import com.adyen.service.resource.account.UploadDocument;
 import com.google.gson.reflect.TypeToken;
 
-/**
- * Created by rikt on 9/7/17.
- */
 public class Account extends Service {
 
     private CreateAccountHolder createAccountHolder;
@@ -117,7 +154,7 @@ public class Account extends Service {
         return createAccountResponse;
     }
 
-    public DeleteBankAccountResponse deleteBankAccount(DeleteBankAccountRequest deleteBankAccountRequest) throws Exception{
+    public DeleteBankAccountResponse deleteBankAccount(DeleteBankAccountRequest deleteBankAccountRequest) throws Exception {
         String jsonRequest = GSON.toJson(deleteBankAccountRequest);
 
         String jsonResult = deleteBankAccount.request(jsonRequest);
@@ -127,7 +164,7 @@ public class Account extends Service {
         return deleteBankAccountResponse;
     }
 
-    public DeleteShareholderResponse deleteShareholder(DeleteShareholderRequest deleteShareholderRequest) throws Exception{
+    public DeleteShareholderResponse deleteShareholder(DeleteShareholderRequest deleteShareholderRequest) throws Exception {
         String jsonRequest = GSON.toJson(deleteShareholderRequest);
 
         String jsonResult = deleteShareholder.request(jsonRequest);
@@ -137,7 +174,7 @@ public class Account extends Service {
         return deleteShareholderResponse;
     }
 
-    public SuspendAccountHolderResponse suspendAccountHolder(SuspendAccountHolderRequest suspendAccountHolderRequest) throws  Exception{
+    public SuspendAccountHolderResponse suspendAccountHolder(SuspendAccountHolderRequest suspendAccountHolderRequest) throws Exception {
         String jsonRequest = GSON.toJson(suspendAccountHolderRequest);
 
         String jsonResult = suspendAccountHolder.request(jsonRequest);
@@ -157,7 +194,7 @@ public class Account extends Service {
         return unSuspendAccountHolderResponse;
     }
 
-    public UpdateAccountHolderStateResponse updateAccountHolderState(UpdateAccountHolderStateRequest updateAccountHolderStateRequest) throws Exception{
+    public UpdateAccountHolderStateResponse updateAccountHolderState(UpdateAccountHolderStateRequest updateAccountHolderStateRequest) throws Exception {
         String jsonRequest = GSON.toJson(updateAccountHolderStateRequest);
 
         String jsonResult = updateAccountHolderState.request(jsonRequest);
@@ -167,7 +204,7 @@ public class Account extends Service {
         return updateAccountHolderStateResponse;
     }
 
-    public CloseAccountResponse closeAccount(CloseAccountRequest closeAccountRequest) throws Exception{
+    public CloseAccountResponse closeAccount(CloseAccountRequest closeAccountRequest) throws Exception {
         String jsonRequest = GSON.toJson(closeAccountRequest);
 
         String jsonResult = closeAccount.request(jsonRequest);
@@ -177,7 +214,7 @@ public class Account extends Service {
         return closeAccountResponse;
     }
 
-    public CloseAccountHolderResponse closeAccountHolder(CloseAccountHolderRequest closeAccountHolderRequest) throws Exception{
+    public CloseAccountHolderResponse closeAccountHolder(CloseAccountHolderRequest closeAccountHolderRequest) throws Exception {
         String jsonRequest = GSON.toJson(closeAccountHolderRequest);
 
         String jsonResult = closeAccountHolder.request(jsonRequest);
@@ -187,7 +224,7 @@ public class Account extends Service {
         return closeAccountHolderResponse;
     }
 
-    public UpdateAccountResponse updateAccount(UpdateAccountRequest updateAccountRequest) throws Exception{
+    public UpdateAccountResponse updateAccount(UpdateAccountRequest updateAccountRequest) throws Exception {
         String jsonRequest = GSON.toJson(updateAccountRequest);
 
         String jsonResult = updateAccount.request(jsonRequest);
@@ -197,7 +234,7 @@ public class Account extends Service {
         return updateAccountResponse;
     }
 
-    public GetUploadedDocumentsResponse getUploadedDocuments(GetUploadedDocumentsRequest getUploadedDocumentsRequest) throws Exception{
+    public GetUploadedDocumentsResponse getUploadedDocuments(GetUploadedDocumentsRequest getUploadedDocumentsRequest) throws Exception {
         String jsonRequest = GSON.toJson(getUploadedDocumentsRequest);
 
         String jsonResult = getUploadedDocuments.request(jsonRequest);
