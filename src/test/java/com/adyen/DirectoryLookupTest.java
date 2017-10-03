@@ -44,7 +44,11 @@ import static org.junit.Assert.fail;
  */
 public class DirectoryLookupTest extends BaseTest {
     private DirectoryLookupRequest createDirectoryLookupRequest() {
-        DirectoryLookupRequest directoryLookupRequest = new DirectoryLookupRequest().setCountryCode("NL").setMerchantReference("test:\\'test").setPaymentAmount("1000").setCurrencyCode("EUR");
+        DirectoryLookupRequest directoryLookupRequest = new DirectoryLookupRequest().setCountryCode("NL")
+                                                                                    .setMerchantReference("test:\\'test")
+                                                                                    .setPaymentAmount("1000")
+                                                                                    .setCurrencyCode("EUR")
+                                                                                    .setShopperLocale("en_GB");
         return directoryLookupRequest;
     }
 

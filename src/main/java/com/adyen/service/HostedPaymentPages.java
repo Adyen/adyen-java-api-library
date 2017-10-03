@@ -45,6 +45,7 @@ import static com.adyen.constants.HPPConstants.Fields.MERCHANT_SIG;
 import static com.adyen.constants.HPPConstants.Fields.PAYMENT_AMOUNT;
 import static com.adyen.constants.HPPConstants.Fields.SESSION_VALIDITY;
 import static com.adyen.constants.HPPConstants.Fields.SKIN_CODE;
+import static com.adyen.constants.HPPConstants.Response.SHOPPER_LOCALE;
 
 public class HostedPaymentPages extends Service {
     public HostedPaymentPages(Client client) {
@@ -83,6 +84,7 @@ public class HostedPaymentPages extends Service {
         postParameters.put(MERCHANT_REFERENCE, request.getMerchantReference());
         postParameters.put(SESSION_VALIDITY, request.getSessionValidity());
         postParameters.put(COUNTRY_CODE, request.getCountryCode());
+        postParameters.put(SHOPPER_LOCALE, request.getShopperLocale());
 
         HMACValidator hmacValidator = new HMACValidator();
 
