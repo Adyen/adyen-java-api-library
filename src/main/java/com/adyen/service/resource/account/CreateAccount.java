@@ -19,18 +19,14 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.service.resource.fund;
+package com.adyen.service.resource.account;
 
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
-/**
- * Created by rikt on 9/12/17.
- */
-public class AccountHolderBalance extends Resource {
+public class CreateAccount extends Resource {
 
-    public AccountHolderBalance(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + service.getClient().getMarketPayApiVersion() + "/accountHolderBalance", null);
+    public CreateAccount(Service service) {
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + service.getClient().getMarketPayApiVersion() + "/createAccount", null);
     }
-
 }

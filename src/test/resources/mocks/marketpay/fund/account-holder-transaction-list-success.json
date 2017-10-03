@@ -1,0 +1,73 @@
+{
+  "pspReference":"9914721175530029",
+  "accountTransactionLists":[
+    {
+      "AccountTransactionList":{
+        "accountCode":"118731451",
+        "transactions":[
+          {
+            "Transaction":{
+              "amount":{
+                "currency":"EUR",
+                "value":2300
+              },
+              "creationDate":"2016-08-19T13:43:35+02:00",
+              "description":"12345 - Test",
+              "pspReference":"9914716081770032",
+              "merchantReference":"testReference",
+              "capturePspReference":"9914710081779954",
+              "captureMerchantReference":"testCaptureReference",
+              "transactionStatus":"PendingCredit"
+            }
+          },
+          {
+            "Transaction":{
+              "amount":{
+                "currency":"EUR",
+                "value":2300
+              },
+              "creationDate":"2016-08-19T13:43:21+02:00",
+              "description":"12345 - Test",
+              "pspReference":"9914716081760025",
+              "merchantReference":"testReference2",
+              "capturePspReference":"9914799081779988",
+              "captureMerchantReference":"testCaptureReference2",
+              "transactionStatus":"Credited"
+            }
+          },
+          {
+            "Transaction":{
+              "amount":{
+                "currency":"EUR",
+                "value":2300
+              },
+              "creationDate":"2016-08-19T13:40:36+02:00",
+              "description":"12345 - Test",
+              "pspReference":"9914716081730010",
+              "merchantReference":"testReference3",
+              "capturePspReference":"9914710081111111",
+              "captureMerchantReference":"testCaptureReference3",
+              "transactionStatus":"Credited"
+            }
+          },
+          {
+            "Transaction":{
+              "amount":{
+                "currency":"EUR",
+                "value":2300
+              },
+              "creationDate":"2016-08-19T11:43:32+02:00",
+              "description":"12345 - Test",
+              "pspReference":"9914716006590028",
+              "merchantReference":"testReference4",
+              "capturePspReference":"9914654381771234",
+              "captureMerchantReference":"testCaptureReference4",
+              "transactionStatus":"Debited"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "resultCode":"Success"
+}
