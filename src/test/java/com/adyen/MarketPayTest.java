@@ -32,6 +32,7 @@ import com.adyen.model.AccountHolderTransactionListResponse;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.BankAccountDetail;
+import com.adyen.model.BankAccountDetailContainer;
 import com.adyen.model.CloseAccountHolderRequest;
 import com.adyen.model.CloseAccountHolderResponse;
 import com.adyen.model.CloseAccountRequest;
@@ -207,9 +208,11 @@ public class MarketPayTest extends BaseTest {
         bankAccountDetail.setOwnerStreet("ownerStreet");
         bankAccountDetail.setPrimaryAccount(true);
         bankAccountDetail.setTaxId("bankTaxId");
-        List<BankAccountDetail> bankAccountDetails = new ArrayList<BankAccountDetail>();
-        bankAccountDetails.add(bankAccountDetail);
-        accountHolderDetails.setBankAccountDetails(bankAccountDetails);
+        List<BankAccountDetailContainer> bankAccountDetailContainers = new ArrayList<>();
+        BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer();
+        bankAccountDetailContainer.setBankAccountDetail(bankAccountDetail);
+        bankAccountDetailContainers.add(bankAccountDetailContainer);
+        accountHolderDetails.addBankAccountDetailsItem(bankAccountDetailContainer);
         accountHolderDetails.setEmail("test@adyen.com");
 
         // set individualDetails
@@ -330,6 +333,7 @@ public class MarketPayTest extends BaseTest {
         accountHolderDetails.setWebAddress("http://www.accountholderwebsite.com");
 
         // updateAccountHolder
+        updateAccountHolderRequest.setAccountHolderDetails(accountHolderDetails);
         UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
         System.out.println(updateAccountHolderResponse);
 

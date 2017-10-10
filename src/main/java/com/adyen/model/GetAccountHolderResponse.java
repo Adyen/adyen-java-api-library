@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 /**
  * GetAccountHolderResponse
@@ -54,7 +55,15 @@ public class GetAccountHolderResponse {
     private AccountHolderStatus accountHolderStatus = null;
 
     @SerializedName("accounts")
-    private List<Account> accounts = new ArrayList<Account>();
+    private List<AccountContainer> accountContainers = new ArrayList<>();
+
+    private transient List<Account> accounts = new ArrayList<>();
+
+    public GetAccountHolderResponse() {
+        for(AccountContainer accountContainer :  accountContainers) {
+            accounts.add(accountContainer.getAccount());
+        }
+    }
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -241,13 +250,13 @@ public class GetAccountHolderResponse {
         this.accountHolderStatus = accountHolderStatus;
     }
 
-    public GetAccountHolderResponse accounts(List<Account> accounts) {
-        this.accounts = accounts;
+    public GetAccountHolderResponse accounts(List<AccountContainer> accounts) {
+        this.accountContainers = accounts;
         return this;
     }
 
-    public GetAccountHolderResponse addAccountsItem(Account accountsItem) {
-        this.accounts.add(accountsItem);
+    public GetAccountHolderResponse addAccountItem(AccountContainer accountItem) {
+        this.accountContainers.add(accountItem);
         return this;
     }
 
@@ -256,13 +265,13 @@ public class GetAccountHolderResponse {
      *
      * @return accounts
      **/
-    public List<Account> getAccounts() {
-        return accounts;
-    }
+//    public List<AccountContainer> getAccountContainer() {
+//        return accountContainers;
+//    }
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
+//    public void setAccountContainer(List<AccountContainer> accountContainer) {
+//        this.accountContainers = accountContainer;
+//    }
 
     public GetAccountHolderResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
@@ -341,7 +350,7 @@ public class GetAccountHolderResponse {
                 && Objects.equals(this.requirementsForNextAccountState, getAccountHolderResponse.requirementsForNextAccountState)
                 && Objects.equals(this.accountHolderDetails, getAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, getAccountHolderResponse.accountHolderStatus)
-                && Objects.equals(this.accounts, getAccountHolderResponse.accounts)
+                && Objects.equals(this.accountContainers, getAccountHolderResponse.accountContainers)
                 && Objects.equals(this.pspReference, getAccountHolderResponse.pspReference)
                 && Objects.equals(this.kycVerificationResults, getAccountHolderResponse.kycVerificationResults)
                 && Objects.equals(this.legalEntity, getAccountHolderResponse.legalEntity);
@@ -357,7 +366,7 @@ public class GetAccountHolderResponse {
                             requirementsForNextAccountState,
                             accountHolderDetails,
                             accountHolderStatus,
-                            accounts,
+                            accountContainers,
                             pspReference,
                             kycVerificationResults,
                             legalEntity);
@@ -377,7 +386,7 @@ public class GetAccountHolderResponse {
         sb.append("    requirementsForNextAccountState: ").append(toIndentedString(requirementsForNextAccountState)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
-        sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
+        sb.append("    accounts: ").append(toIndentedString(accountContainers)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    kycVerificationResults: ").append(toIndentedString(kycVerificationResults)).append("\n");
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");

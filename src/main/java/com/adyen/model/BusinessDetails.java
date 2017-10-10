@@ -30,8 +30,15 @@ import com.google.gson.annotations.SerializedName;
  */
 public class BusinessDetails {
     @SerializedName("shareholders")
-    private List<ShareholderContact> shareholders = new ArrayList<ShareholderContact>();
+    private List<ShareholderContactContainer> shareholderContactContainers = new ArrayList<ShareholderContactContainer>();
 
+    private transient List<ShareholderContact> shareholders = new ArrayList<>();
+
+    public BusinessDetails() {
+        for(ShareholderContactContainer shareholderContactContainer :  shareholderContactContainers) {
+            shareholders.add(shareholderContactContainer.getShareholderContact());
+        }
+    }
     @SerializedName("doingBusinessAs")
     private String doingBusinessAs = null;
 
@@ -41,13 +48,13 @@ public class BusinessDetails {
     @SerializedName("legalBusinessName")
     private String legalBusinessName = null;
 
-    public BusinessDetails shareholders(List<ShareholderContact> shareholders) {
-        this.shareholders = shareholders;
+    public BusinessDetails shareholderContactContainers(List<ShareholderContactContainer> shareholderContactContainers) {
+        this.shareholderContactContainers = shareholderContactContainers;
         return this;
     }
 
-    public BusinessDetails addShareholdersItem(ShareholderContact shareholdersItem) {
-        this.shareholders.add(shareholdersItem);
+    public BusinessDetails addShareholdersItem(ShareholderContactContainer shareholdersItem) {
+        this.shareholderContactContainers.add(shareholdersItem);
         return this;
     }
 
@@ -56,13 +63,13 @@ public class BusinessDetails {
      *
      * @return shareholders
      **/
-    public List<ShareholderContact> getShareholders() {
-        return shareholders;
-    }
-
-    public void setShareholders(List<ShareholderContact> shareholders) {
-        this.shareholders = shareholders;
-    }
+//    public List<ShareholderContactContainer> getShareholders() {
+//        return shareholderContactContainers;
+//    }
+//
+//    public void setShareholders(List<ShareholderContactContainer> shareholders) {
+//        this.shareholderContactContainers = shareholders;
+//    }
 
     public BusinessDetails doingBusinessAs(String doingBusinessAs) {
         this.doingBusinessAs = doingBusinessAs;
@@ -128,7 +135,7 @@ public class BusinessDetails {
             return false;
         }
         BusinessDetails businessDetails = (BusinessDetails) o;
-        return Objects.equals(this.shareholders, businessDetails.shareholders)
+        return Objects.equals(this.shareholderContactContainers, businessDetails.shareholderContactContainers)
                 && Objects.equals(this.doingBusinessAs, businessDetails.doingBusinessAs)
                 && Objects.equals(this.taxId,
                                   businessDetails.taxId)
@@ -137,7 +144,7 @@ public class BusinessDetails {
 
     @Override
     public int hashCode() {
-        return Objects.hash(shareholders, doingBusinessAs, taxId, legalBusinessName);
+        return Objects.hash(shareholderContactContainers, doingBusinessAs, taxId, legalBusinessName);
     }
 
 
@@ -146,7 +153,7 @@ public class BusinessDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class BusinessDetails {\n");
 
-        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
+        sb.append("    shareholders: ").append(toIndentedString(shareholderContactContainers)).append("\n");
         sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
         sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
         sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");

@@ -41,8 +41,15 @@ public class AccountHolderDetails {
     private PhoneNumber phoneNumber = null;
 
     @SerializedName("bankAccountDetails")
-    private List<BankAccountDetail> bankAccountDetails = new ArrayList<BankAccountDetail>();
+    private List<BankAccountDetailContainer> bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
 
+    private transient List<BankAccountDetail> bankAccountDetails = new ArrayList<>();
+
+    public AccountHolderDetails() {
+        for(BankAccountDetailContainer bankAccountDetailContainer :  bankAccountDetailContainers) {
+            bankAccountDetails.add(bankAccountDetailContainer.getBankAccountDetail());
+        }
+    }
     @SerializedName("individualDetails")
     private IndividualDetails individualDetails = null;
 
@@ -120,13 +127,13 @@ public class AccountHolderDetails {
         this.phoneNumber = phoneNumber;
     }
 
-    public AccountHolderDetails bankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
-        this.bankAccountDetails = bankAccountDetails;
-        return this;
-    }
+//    public AccountHolderDetails bankAccountDetails(List<BankAccountDetailContainer> bankAccountDetails) {
+//        this.bankAccountDetails = bankAccountDetails;
+//        return this;
+//    }
 
-    public AccountHolderDetails addBankAccountDetailsItem(BankAccountDetail bankAccountDetailsItem) {
-        this.bankAccountDetails.add(bankAccountDetailsItem);
+    public AccountHolderDetails addBankAccountDetailsItem(BankAccountDetailContainer bankAccountDetailsItem) {
+        this.bankAccountDetailContainers.add(bankAccountDetailsItem);
         return this;
     }
 
@@ -135,13 +142,13 @@ public class AccountHolderDetails {
      *
      * @return bankAccountDetails
      **/
-    public List<BankAccountDetail> getBankAccountDetails() {
-        return bankAccountDetails;
-    }
-
-    public void setBankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
-        this.bankAccountDetails = bankAccountDetails;
-    }
+//    public List<BankAccountDetailContainer> getBankAccountDetails() {
+//        return bankAccountDetails;
+//    }
+//
+//    public void setBankAccountDetails(List<BankAccountDetailContainer> bankAccountDetails) {
+//        this.bankAccountDetails = bankAccountDetails;
+//    }
 
     public AccountHolderDetails individualDetails(IndividualDetails individualDetails) {
         this.individualDetails = individualDetails;
@@ -265,7 +272,7 @@ public class AccountHolderDetails {
                 && Objects.equals(this.address, accountHolderDetails.address)
                 && Objects.equals(this.phoneNumber,
                                   accountHolderDetails.phoneNumber)
-                && Objects.equals(this.bankAccountDetails, accountHolderDetails.bankAccountDetails)
+                && Objects.equals(this.bankAccountDetailContainers, accountHolderDetails.bankAccountDetailContainers)
                 && Objects.equals(this.individualDetails, accountHolderDetails.individualDetails)
                 && Objects.equals(this.webAddress, accountHolderDetails.webAddress)
                 && Objects.equals(this.merchantCategoryCode, accountHolderDetails.merchantCategoryCode)
@@ -276,7 +283,7 @@ public class AccountHolderDetails {
 
     @Override
     public int hashCode() {
-        return Objects.hash(metadata, address, phoneNumber, bankAccountDetails, individualDetails, webAddress, merchantCategoryCode, fullPhoneNumber, businessDetails, email);
+        return Objects.hash(metadata, address, phoneNumber, bankAccountDetailContainers, individualDetails, webAddress, merchantCategoryCode, fullPhoneNumber, businessDetails, email);
     }
 
 
@@ -288,7 +295,7 @@ public class AccountHolderDetails {
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    address: ").append(toIndentedString(address)).append("\n");
         sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetails)).append("\n");
+        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetailContainers)).append("\n");
         sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
         sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
         sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
