@@ -33,7 +33,7 @@ public class AccountHolderTransactionListResponse {
     private Boolean submittedAsync = null;
 
     @SerializedName("accountTransactionLists")
-    private List<AccountTransactionList> accountTransactionLists = new ArrayList<AccountTransactionList>();
+    private List<AccountTransactionListContainer> accountTransactionListContainers = new ArrayList<AccountTransactionListContainer>();
 
     @SerializedName("resultCode")
     private String resultCode = null;
@@ -59,13 +59,13 @@ public class AccountHolderTransactionListResponse {
         this.submittedAsync = submittedAsync;
     }
 
-    public AccountHolderTransactionListResponse accountTransactionLists(List<AccountTransactionList> accountTransactionLists) {
-        this.accountTransactionLists = accountTransactionLists;
+    public AccountHolderTransactionListResponse accountTransactionListContainers(List<AccountTransactionListContainer> accountTransactionListContainers) {
+        this.accountTransactionListContainers = accountTransactionListContainers;
         return this;
     }
 
-    public AccountHolderTransactionListResponse addAccountTransactionListsItem(AccountTransactionList accountTransactionListsItem) {
-        this.accountTransactionLists.add(accountTransactionListsItem);
+    public AccountHolderTransactionListResponse addAccountTransactionListContainersItem(AccountTransactionListContainer accountTransactionListContainerItem) {
+        this.accountTransactionListContainers.add(accountTransactionListContainerItem);
         return this;
     }
 
@@ -74,13 +74,13 @@ public class AccountHolderTransactionListResponse {
      *
      * @return accountTransactionLists
      **/
-    public List<AccountTransactionList> getAccountTransactionLists() {
-        return accountTransactionLists;
-    }
-
-    public void setAccountTransactionLists(List<AccountTransactionList> accountTransactionLists) {
-        this.accountTransactionLists = accountTransactionLists;
-    }
+//    public List<AccountTransactionListContainer> getAccountTransactionListContainers() {
+//        return accountTransactionListContainers;
+//    }
+//
+//    public void setAccountTransactionLists(List<AccountTransactionListContainer> accountTransactionListContainers) {
+//        this.accountTransactionListContainers = accountTransactionListContainers;
+//    }
 
     public AccountHolderTransactionListResponse resultCode(String resultCode) {
         this.resultCode = resultCode;
@@ -129,15 +129,15 @@ public class AccountHolderTransactionListResponse {
         }
         AccountHolderTransactionListResponse accountHolderTransactionListResponse = (AccountHolderTransactionListResponse) o;
         return Objects.equals(this.submittedAsync, accountHolderTransactionListResponse.submittedAsync)
-                && Objects.equals(this.accountTransactionLists,
-                                  accountHolderTransactionListResponse.accountTransactionLists)
+                && Objects.equals(this.accountTransactionListContainers,
+                                  accountHolderTransactionListResponse.accountTransactionListContainers)
                 && Objects.equals(this.resultCode, accountHolderTransactionListResponse.resultCode)
                 && Objects.equals(this.pspReference, accountHolderTransactionListResponse.pspReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, accountTransactionLists, resultCode, pspReference);
+        return Objects.hash(submittedAsync, accountTransactionListContainers, resultCode, pspReference);
     }
 
 
@@ -147,7 +147,7 @@ public class AccountHolderTransactionListResponse {
         sb.append("class AccountHolderTransactionListResponse {\n");
 
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    accountTransactionLists: ").append(toIndentedString(accountTransactionLists)).append("\n");
+        sb.append("    accountTransactionLists: ").append(toIndentedString(accountTransactionListContainers)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");

@@ -36,7 +36,7 @@ public class AccountTransactionList {
     private Boolean hasNextPage = null;
 
     @SerializedName("transactions")
-    private List<Transaction> transactions = new ArrayList<Transaction>();
+    private List<TransactionContainer> transactionContainers = new ArrayList<TransactionContainer>();
 
     public AccountTransactionList accountCode(String accountCode) {
         this.accountCode = accountCode;
@@ -74,13 +74,13 @@ public class AccountTransactionList {
         this.hasNextPage = hasNextPage;
     }
 
-    public AccountTransactionList transactions(List<Transaction> transactions) {
-        this.transactions = transactions;
+    public AccountTransactionList transactionContainers(List<TransactionContainer> transactionContainers) {
+        this.transactionContainers = transactionContainers;
         return this;
     }
 
-    public AccountTransactionList addTransactionsItem(Transaction transactionsItem) {
-        this.transactions.add(transactionsItem);
+    public AccountTransactionList addTransactionContainerItem(TransactionContainer transactionContainerItem) {
+        this.transactionContainers.add(transactionContainerItem);
         return this;
     }
 
@@ -89,13 +89,13 @@ public class AccountTransactionList {
      *
      * @return transactions
      **/
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
-    }
+//    public List<Transaction> getTransactions() {
+//        return transactions;
+//    }
+//
+//    public void setTransactions(List<Transaction> transactions) {
+//        this.transactions = transactions;
+//    }
 
 
     @Override
@@ -107,13 +107,13 @@ public class AccountTransactionList {
             return false;
         }
         AccountTransactionList accountTransactionList = (AccountTransactionList) o;
-        return Objects.equals(this.accountCode, accountTransactionList.accountCode) && Objects.equals(this.hasNextPage, accountTransactionList.hasNextPage) && Objects.equals(this.transactions,
-                                                                                                                                                                              accountTransactionList.transactions);
+        return Objects.equals(this.accountCode, accountTransactionList.accountCode) && Objects.equals(this.hasNextPage, accountTransactionList.hasNextPage) && Objects.equals(this.transactionContainers,
+                                                                                                                                                                              accountTransactionList.transactionContainers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, hasNextPage, transactions);
+        return Objects.hash(accountCode, hasNextPage, transactionContainers);
     }
 
 
@@ -124,7 +124,7 @@ public class AccountTransactionList {
 
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
         sb.append("    hasNextPage: ").append(toIndentedString(hasNextPage)).append("\n");
-        sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+        sb.append("    transactions: ").append(toIndentedString(transactionContainers)).append("\n");
         sb.append("}");
         return sb.toString();
     }
