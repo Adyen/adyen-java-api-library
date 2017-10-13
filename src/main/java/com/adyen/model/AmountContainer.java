@@ -27,23 +27,23 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * TransactionContainer
+ * AmountContainer
  */
-public class TransactionContainer {
-    @SerializedName("Transaction")
-    private Transaction transaction = null;
+public class AmountContainer {
+    @SerializedName("amount")
+    private Amount amount = null;
 
     /**
-     * transaction
+     * amount
      *
-     * @return transaction
+     * @return amount
      */
-    public Transaction getTransaction() {
-        return transaction;
+    public Amount getAmount() {
+        return amount;
     }
 
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
+    public void setAmount(Amount amount) {
+        this.amount = amount;
     }
 
     @Override
@@ -54,22 +54,22 @@ public class TransactionContainer {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        TransactionContainer transactionContainer = (TransactionContainer) o;
-        return Objects.equals(this.transaction, transactionContainer.transaction);
+        AmountContainer amountContainer = (AmountContainer) o;
+        return Objects.equals(this.amount, amountContainer.amount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transaction);
+        return Objects.hash(amount);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionContainer {\n");
+        sb.append("class AmountContainer {\n");
 
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("}");
         return sb.toString();
     }

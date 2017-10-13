@@ -39,7 +39,7 @@ public class AccountHolderBalanceResponse {
     private String resultCode = null;
 
     @SerializedName("balancePerAccount")
-    private List<AccountDetailBalance> balancePerAccount = new ArrayList<AccountDetailBalance>();
+    private List<AccountDetailBalanceContainer> balancePerAccount = new ArrayList<AccountDetailBalanceContainer>();
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -96,12 +96,12 @@ public class AccountHolderBalanceResponse {
         this.resultCode = resultCode;
     }
 
-    public AccountHolderBalanceResponse balancePerAccount(List<AccountDetailBalance> balancePerAccount) {
+    public AccountHolderBalanceResponse balancePerAccount(List<AccountDetailBalanceContainer> balancePerAccount) {
         this.balancePerAccount = balancePerAccount;
         return this;
     }
 
-    public AccountHolderBalanceResponse addBalancePerAccountItem(AccountDetailBalance balancePerAccountItem) {
+    public AccountHolderBalanceResponse addBalancePerAccountItem(AccountDetailBalanceContainer balancePerAccountItem) {
         this.balancePerAccount.add(balancePerAccountItem);
         return this;
     }
@@ -111,11 +111,11 @@ public class AccountHolderBalanceResponse {
      *
      * @return balancePerAccount
      **/
-    public List<AccountDetailBalance> getBalancePerAccount() {
+    public List<AccountDetailBalanceContainer> getBalancePerAccount() {
         return balancePerAccount;
     }
 
-    public void setBalancePerAccount(List<AccountDetailBalance> balancePerAccount) {
+    public void setBalancePerAccount(List<AccountDetailBalanceContainer> balancePerAccount) {
         this.balancePerAccount = balancePerAccount;
     }
 

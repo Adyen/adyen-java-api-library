@@ -30,17 +30,17 @@ import com.google.gson.annotations.SerializedName;
  */
 public class DetailBalance {
     @SerializedName("pendingBalance")
-    private List<Amount> pendingBalance = new ArrayList<Amount>();
+    private List<AmountContainer> pendingBalance = new ArrayList<AmountContainer>();
 
     @SerializedName("balance")
-    private List<Amount> balance = new ArrayList<Amount>();
+    private List<AmountContainer> balance = new ArrayList<AmountContainer>();
 
-    public DetailBalance pendingBalance(List<Amount> pendingBalance) {
+    public DetailBalance pendingBalance(List<AmountContainer> pendingBalance) {
         this.pendingBalance = pendingBalance;
         return this;
     }
 
-    public DetailBalance addPendingBalanceItem(Amount pendingBalanceItem) {
+    public DetailBalance addPendingBalanceItem(AmountContainer pendingBalanceItem) {
         this.pendingBalance.add(pendingBalanceItem);
         return this;
     }
@@ -50,20 +50,20 @@ public class DetailBalance {
      *
      * @return pendingBalance
      **/
-    public List<Amount> getPendingBalance() {
+    public List<AmountContainer> getPendingBalance() {
         return pendingBalance;
     }
 
-    public void setPendingBalance(List<Amount> pendingBalance) {
+    public void setPendingBalance(List<AmountContainer> pendingBalance) {
         this.pendingBalance = pendingBalance;
     }
 
-    public DetailBalance balance(List<Amount> balance) {
+    public DetailBalance balance(List<AmountContainer> balance) {
         this.balance = balance;
         return this;
     }
 
-    public DetailBalance addBalanceItem(Amount balanceItem) {
+    public DetailBalance addBalanceItem(AmountContainer balanceItem) {
         this.balance.add(balanceItem);
         return this;
     }
@@ -73,11 +73,11 @@ public class DetailBalance {
      *
      * @return balance
      **/
-    public List<Amount> getBalance() {
+    public List<AmountContainer> getBalance() {
         return balance;
     }
 
-    public void setBalance(List<Amount> balance) {
+    public void setBalance(List<AmountContainer> balance) {
         this.balance = balance;
     }
 

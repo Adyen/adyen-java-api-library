@@ -27,23 +27,23 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * TransactionContainer
+ * AccountDetailBalanceContainer
  */
-public class TransactionContainer {
-    @SerializedName("Transaction")
-    private Transaction transaction = null;
+public class AccountDetailBalanceContainer {
+    @SerializedName("AccountDetailBalance")
+    private AccountDetailBalance accountDetailBalance = null;
 
     /**
-     * transaction
+     * accountDetailBalance
      *
-     * @return transaction
+     * @return accountDetailBalance
      */
-    public Transaction getTransaction() {
-        return transaction;
+    public AccountDetailBalance getAccountDetailBalance() {
+        return accountDetailBalance;
     }
 
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
+    public void setAccountDetailBalance(AccountDetailBalance accountDetailBalance) {
+        this.accountDetailBalance = accountDetailBalance;
     }
 
     @Override
@@ -54,22 +54,22 @@ public class TransactionContainer {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        TransactionContainer transactionContainer = (TransactionContainer) o;
-        return Objects.equals(this.transaction, transactionContainer.transaction);
+        AccountDetailBalanceContainer accountDetailBalanceContainer = (AccountDetailBalanceContainer) o;
+        return Objects.equals(this.accountDetailBalance, accountDetailBalanceContainer.accountDetailBalance);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transaction);
+        return Objects.hash(accountDetailBalance);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionContainer {\n");
+        sb.append("class AccountDetailBalanceContainer {\n");
 
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
+        sb.append("    accountDetailBalance: ").append(toIndentedString(accountDetailBalance)).append("\n");
         sb.append("}");
         return sb.toString();
     }
