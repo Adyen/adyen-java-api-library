@@ -1,22 +1,11 @@
 /**
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
+ * ###### ###### ############    ####( ######  #####. ######  ############   ############ #############  #####( ######  #####. ######  #############  ############# ######  #####( ######  #####. ######
+ * #####  ######  #####  ###### ###### ######  #####( ######  #####. ######  #####  #####   #####  ###### ###### ######  #####( ######  #####. ######  #####          #####  ###### #############
+ * #############  #############  #############  #####  ###### ############   ############  #############   ############  #####  ###### ###### ############# ############
+ * <p>
  * Adyen Java API Library
- *
- * Copyright (c) 2017 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
+ * <p>
+ * Copyright (c) 2017 Adyen B.V. This file is open source and available under the MIT license. See the LICENSE file for more info.
  */
 package com.adyen.model;
 
@@ -41,15 +30,10 @@ public class AccountHolderDetails {
     private PhoneNumber phoneNumber = null;
 
     @SerializedName("bankAccountDetails")
-    private List<BankAccountDetailContainer> bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
+    public List<BankAccountDetailContainer> bankAccountDetailContainers = null;
 
-    private transient List<BankAccountDetail> bankAccountDetails = new ArrayList<>();
+    private transient List<BankAccountDetail> bankAccountDetails = null;
 
-    public AccountHolderDetails() {
-        for(BankAccountDetailContainer bankAccountDetailContainer :  bankAccountDetailContainers) {
-            bankAccountDetails.add(bankAccountDetailContainer.getBankAccountDetail());
-        }
-    }
     @SerializedName("individualDetails")
     private IndividualDetails individualDetails = null;
 
@@ -127,28 +111,81 @@ public class AccountHolderDetails {
         this.phoneNumber = phoneNumber;
     }
 
-//    public AccountHolderDetails bankAccountDetails(List<BankAccountDetailContainer> bankAccountDetails) {
-//        this.bankAccountDetails = bankAccountDetails;
-//        return this;
-//    }
+    /**
+     * Populate the virtual bankAccountDetails to bypass the bankAccountDetailsContainer list
+     *
+     * @return
+     */
+    public List<BankAccountDetail> getBankAccountDetails() {
+        if (bankAccountDetails == null) {
+            bankAccountDetails = new ArrayList<BankAccountDetail>();
 
-    public AccountHolderDetails addBankAccountDetailsItem(BankAccountDetailContainer bankAccountDetailsItem) {
-        this.bankAccountDetailContainers.add(bankAccountDetailsItem);
-        return this;
+            if (bankAccountDetailContainers != null && ! bankAccountDetailContainers.isEmpty()) {
+                for (BankAccountDetailContainer bankAccountDetailContainer : bankAccountDetailContainers) {
+                    bankAccountDetails.add(bankAccountDetailContainer.getBankAccountDetail());
+                }
+            }
+        }
+        return bankAccountDetails;
     }
 
     /**
-     * account holder bank account details
+     * Creating a new bankAccountDetails list
      *
-     * @return bankAccountDetails
-     **/
-//    public List<BankAccountDetailContainer> getBankAccountDetails() {
-//        return bankAccountDetails;
-//    }
-//
-//    public void setBankAccountDetails(List<BankAccountDetailContainer> bankAccountDetails) {
-//        this.bankAccountDetails = bankAccountDetails;
-//    }
+     * @param bankAccountDetails
+     */
+    public void setBankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
+
+        this.bankAccountDetails = bankAccountDetails;
+
+        // set as well the container list this will be send in the API request
+        this.bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
+        for (BankAccountDetail bankAccountDetail : bankAccountDetails) {
+
+            BankAccountDetailContainer bankAccountDetailContainer = createBankAccountDetailContainerFromBankAccountDetail(bankAccountDetail);
+            this.bankAccountDetailContainers.add(bankAccountDetailContainer);
+        }
+    }
+
+    /**
+     * Add bankAccountDetail to the bankAccountDetailContainers and bankAccountDetails list
+     *
+     * @param bankAccountDetail
+     * @return
+     */
+    public AccountHolderDetails addBankAccountDetail(BankAccountDetail bankAccountDetail) {
+        BankAccountDetailContainer bankAccountDetailContainer = createBankAccountDetailContainerFromBankAccountDetail(bankAccountDetail);
+
+        if (bankAccountDetailContainers == null) {
+            bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
+        }
+        this.bankAccountDetailContainers.add(bankAccountDetailContainer);
+
+        if (bankAccountDetails == null) {
+            bankAccountDetails = new ArrayList<BankAccountDetail>();
+        }
+        this.bankAccountDetails.add(bankAccountDetail);
+
+        return this;
+    }
+
+
+    private BankAccountDetailContainer createBankAccountDetailContainerFromBankAccountDetail(BankAccountDetail bankAccountDetail) {
+        BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer();
+        bankAccountDetailContainer.setBankAccountDetail(bankAccountDetail);
+        return bankAccountDetailContainer;
+    }
+
+
+    //    public boolean isBankAccountDetail(BankAccountDetail bankAccountDetail) {
+    //
+    //        for(BankAccountDetailContainer bankAccountDetailContainer : bankAccountDetailContainers) {
+    //            if (bankAccountDetailContainer.getBankAccountDetail().equals(bankAccountDetail)){
+    //                return true;
+    //            }
+    //        }
+    //        return false;
+    //    }
 
     public AccountHolderDetails individualDetails(IndividualDetails individualDetails) {
         this.individualDetails = individualDetails;
@@ -289,13 +326,16 @@ public class AccountHolderDetails {
 
     @Override
     public String toString() {
+        // Populate the bankAccountDetails list to provide back in the toString() method
+        this.getBankAccountDetails();
+
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountHolderDetails {\n");
 
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    address: ").append(toIndentedString(address)).append("\n");
         sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetailContainers)).append("\n");
+        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetails)).append("\n");
         sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
         sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
         sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
@@ -307,8 +347,7 @@ public class AccountHolderDetails {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
