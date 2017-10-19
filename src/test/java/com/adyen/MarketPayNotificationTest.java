@@ -32,7 +32,7 @@ public class MarketPayNotificationTest extends BaseTest {
         Notification notification = new Notification(client);
 
         CreateNotificationConfigurationRequest createNotificationConfigurationRequest = new CreateNotificationConfigurationRequest();
-        GetNotificationConfigurationResponse getNotificationConfigurationResponse = notification.createNotificationConfiguration(createNotificationConfigurationRequest);
+        CreateNotificationConfigurationResponse getNotificationConfigurationResponse = notification.createNotificationConfiguration(createNotificationConfigurationRequest);
 
         System.out.println(getNotificationConfigurationResponse);
     }
@@ -43,7 +43,7 @@ public class MarketPayNotificationTest extends BaseTest {
         Notification notification = new Notification(client);
 
         UpdateNotificationConfigurationRequest updateNotificationConfigurationRequest = new UpdateNotificationConfigurationRequest();
-        GetNotificationConfigurationResponse getNotificationConfigurationResponse = notification.updateNotificationConfiguration(updateNotificationConfigurationRequest);
+        UpdateNotificationConfigurationResponse getNotificationConfigurationResponse = notification.updateNotificationConfiguration(updateNotificationConfigurationRequest);
 
         System.out.println(getNotificationConfigurationResponse);
     }
@@ -65,7 +65,7 @@ public class MarketPayNotificationTest extends BaseTest {
         Notification notification = new Notification(client);
 
         DeleteNotificationConfigurationRequest deleteNotificationConfigurationRequest = new DeleteNotificationConfigurationRequest();
-        GetNotificationConfigurationResponse getNotificationConfigurationResponse = notification.deleteNotificationConfiguration(deleteNotificationConfigurationRequest);
+        DeleteNotificationConfigurationResponse getNotificationConfigurationResponse = notification.deleteNotificationConfiguration(deleteNotificationConfigurationRequest);
 
         System.out.println(getNotificationConfigurationResponse);
     }

@@ -5,9 +5,7 @@ import com.adyen.service.Resource;
 
 import java.util.Arrays;
 
-/**
- * Created by rikt on 9/13/17.
- */
+
 public class TestNotificationConfiguration extends Resource {
 
     public TestNotificationConfiguration(Service service) {

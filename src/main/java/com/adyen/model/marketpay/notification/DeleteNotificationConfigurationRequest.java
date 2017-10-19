@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * DeleteNotificationConfigurationRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-11T12:23:08.541Z")
+
 public class DeleteNotificationConfigurationRequest {
     @SerializedName("notificationIds")
     private List<Long> notificationIds = null;

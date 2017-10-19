@@ -31,7 +31,6 @@ import com.google.gson.stream.JsonWriter;
 /**
  * NotificationEventConfiguration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-11T12:23:08.541Z")
 public class NotificationEventConfiguration {
     /**
      * specifies if the notification has to be sent in case an event of the mentioned type has occurred, or of events other than event of the mentioned type have occurred

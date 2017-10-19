@@ -25,9 +25,6 @@ import java.util.ArrayList;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
-/**
- * Created by rikt on 9/13/17.
- */
 public class GetNotificationConfigurationList extends Resource {
 
     public GetNotificationConfigurationList(Service service) {

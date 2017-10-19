@@ -26,7 +26,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * GenericResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-11T12:23:08.541Z")
 public class GenericResponse {
     @SerializedName("submittedAsync")
     private Boolean submittedAsync = null;

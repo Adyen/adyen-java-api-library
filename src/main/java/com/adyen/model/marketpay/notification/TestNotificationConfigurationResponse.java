@@ -33,7 +33,6 @@ import com.google.gson.stream.JsonWriter;
 /**
  * TestNotificationConfigurationResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-11T12:23:08.541Z")
 public class TestNotificationConfigurationResponse {
     @SerializedName("errorMessages")
     private List<String> errorMessages = null;
@@ -45,7 +44,7 @@ public class TestNotificationConfigurationResponse {
     private List<String> okMessages = null;
 
     @SerializedName("exchangeMessages")
-    private List<InlineResponse2002ExchangeMessages> exchangeMessages = null;
+    private List<ExchangeMessage> exchangeMessages = null;
 
     @SerializedName("notificationId")
     private Long notificationId = null;
@@ -197,14 +196,14 @@ public class TestNotificationConfigurationResponse {
         this.okMessages = okMessages;
     }
 
-    public TestNotificationConfigurationResponse exchangeMessages(List<InlineResponse2002ExchangeMessages> exchangeMessages) {
+    public TestNotificationConfigurationResponse exchangeMessages(List<ExchangeMessage> exchangeMessages) {
         this.exchangeMessages = exchangeMessages;
         return this;
     }
 
-    public TestNotificationConfigurationResponse addExchangeMessagesItem(InlineResponse2002ExchangeMessages exchangeMessagesItem) {
+    public TestNotificationConfigurationResponse addExchangeMessagesItem(ExchangeMessage exchangeMessagesItem) {
         if (this.exchangeMessages == null) {
-            this.exchangeMessages = new ArrayList<InlineResponse2002ExchangeMessages>();
+            this.exchangeMessages = new ArrayList<ExchangeMessage>();
         }
         this.exchangeMessages.add(exchangeMessagesItem);
         return this;
@@ -215,11 +214,11 @@ public class TestNotificationConfigurationResponse {
      *
      * @return exchangeMessages
      **/
-    public List<InlineResponse2002ExchangeMessages> getExchangeMessages() {
+    public List<ExchangeMessage> getExchangeMessages() {
         return exchangeMessages;
     }
 
-    public void setExchangeMessages(List<InlineResponse2002ExchangeMessages> exchangeMessages) {
+    public void setExchangeMessages(List<ExchangeMessage> exchangeMessages) {
         this.exchangeMessages = exchangeMessages;
     }
 

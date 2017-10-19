@@ -51,19 +51,19 @@ public class Notification extends Service {
         this.getNotificationConfigurationList = new GetNotificationConfigurationList(this);
     }
 
-    public GetNotificationConfigurationResponse createNotificationConfiguration(CreateNotificationConfigurationRequest createNotificationConfigurationRequest) throws Exception {
+    public CreateNotificationConfigurationResponse createNotificationConfiguration(CreateNotificationConfigurationRequest createNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(createNotificationConfigurationRequest);
         String jsonResult = createNotificationConfiguration.request(jsonRequest);
-        GetNotificationConfigurationResponse getNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationResponse>() {
+        CreateNotificationConfigurationResponse getNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<CreateNotificationConfigurationResponse>() {
         }.getType());
 
         return getNotificationConfigurationResponse;
     }
 
-    public GetNotificationConfigurationResponse updateNotificationConfiguration(UpdateNotificationConfigurationRequest updateNotificationConfigurationRequest) throws Exception {
+    public UpdateNotificationConfigurationResponse updateNotificationConfiguration(UpdateNotificationConfigurationRequest updateNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(updateNotificationConfigurationRequest);
         String jsonResult = updateNotificationConfiguration.request(jsonRequest);
-        GetNotificationConfigurationResponse getNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationResponse>() {
+        UpdateNotificationConfigurationResponse getNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<UpdateNotificationConfigurationResponse>() {
         }.getType());
 
         return getNotificationConfigurationResponse;
@@ -78,10 +78,10 @@ public class Notification extends Service {
         return getNotificationConfigurationResponse;
     }
 
-    public GetNotificationConfigurationResponse deleteNotificationConfiguration(DeleteNotificationConfigurationRequest deleteNotificationConfigurationRequest) throws Exception {
+    public DeleteNotificationConfigurationResponse deleteNotificationConfiguration(DeleteNotificationConfigurationRequest deleteNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(deleteNotificationConfigurationRequest);
         String jsonResult = deleteNotificationConfiguration.request(jsonRequest);
-        GetNotificationConfigurationResponse getNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationResponse>() {
+        DeleteNotificationConfigurationResponse getNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<DeleteNotificationConfigurationResponse>() {
         }.getType());
 
         return getNotificationConfigurationResponse;
