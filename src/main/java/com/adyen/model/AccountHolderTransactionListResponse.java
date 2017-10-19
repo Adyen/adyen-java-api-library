@@ -33,7 +33,9 @@ public class AccountHolderTransactionListResponse {
     private Boolean submittedAsync = null;
 
     @SerializedName("accountTransactionLists")
-    private List<AccountTransactionListContainer> accountTransactionListContainers = new ArrayList<AccountTransactionListContainer>();
+    private List<AccountTransactionListContainer> accountTransactionListContainers = null;
+
+    private transient List<AccountTransactionList> accountTransactionLists = null;
 
     @SerializedName("resultCode")
     private String resultCode = null;
@@ -70,17 +72,63 @@ public class AccountHolderTransactionListResponse {
     }
 
     /**
-     * The transactions per account
+     * Populate the virtual accountTransactionLists to bypass the accountTransactionListContainers list
      *
      * @return accountTransactionLists
      **/
-//    public List<AccountTransactionListContainer> getAccountTransactionListContainers() {
-//        return accountTransactionListContainers;
-//    }
-//
-//    public void setAccountTransactionLists(List<AccountTransactionListContainer> accountTransactionListContainers) {
-//        this.accountTransactionListContainers = accountTransactionListContainers;
-//    }
+    public List<AccountTransactionList> getAccountTransactionLists() {
+        if (accountTransactionLists == null) {
+            accountTransactionLists = new ArrayList<AccountTransactionList>();
+            if (accountTransactionListContainers != null && ! accountTransactionListContainers.isEmpty()) {
+                for (AccountTransactionListContainer accountTransactionListContainer : accountTransactionListContainers) {
+                    accountTransactionLists.add(accountTransactionListContainer.getAccountTransactionList());
+                }
+            }
+        }
+        return accountTransactionLists;
+    }
+
+    /**
+     * Creating a new accountTransactionLists list
+     *
+     * @param accountTransactionLists
+     */
+    public void setAccountTransactionLists(List<AccountTransactionList> accountTransactionLists) {
+
+        this.accountTransactionLists = accountTransactionLists;
+
+        this.accountTransactionListContainers = new ArrayList<AccountTransactionListContainer>();
+
+        for (AccountTransactionList accountTransactionList : accountTransactionLists) {
+
+            AccountTransactionListContainer accountTransactionListContainer = createAccountTransactionListContainerFromAccountTransactionList(accountTransactionList);
+            this.accountTransactionListContainers.add(accountTransactionListContainer);
+        }
+
+    }
+
+    public AccountHolderTransactionListResponse addAccountTransactionList(AccountTransactionList accountTransactionList) {
+        AccountTransactionListContainer accountTransactionListContainer = createAccountTransactionListContainerFromAccountTransactionList(accountTransactionList);
+
+        if (accountTransactionListContainers == null) {
+            accountTransactionListContainers = new ArrayList<AccountTransactionListContainer>();
+        }
+        this.accountTransactionListContainers.add(accountTransactionListContainer);
+
+        if (accountTransactionLists == null) {
+            accountTransactionLists = new ArrayList<AccountTransactionList>();
+        }
+        this.accountTransactionLists.add(accountTransactionList);
+
+        return this;
+    }
+
+    private AccountTransactionListContainer createAccountTransactionListContainerFromAccountTransactionList(AccountTransactionList accountTransactionList){
+        AccountTransactionListContainer accountTransactionListContainer = new AccountTransactionListContainer();
+        accountTransactionListContainer.setAccountTransactionList(accountTransactionList);
+        return accountTransactionListContainer;
+    }
+
 
     public AccountHolderTransactionListResponse resultCode(String resultCode) {
         this.resultCode = resultCode;
@@ -143,11 +191,13 @@ public class AccountHolderTransactionListResponse {
 
     @Override
     public String toString() {
+        // Populate the accountTransactionLists list to provide back in the toString() method
+        this.getAccountTransactionLists();
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountHolderTransactionListResponse {\n");
 
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    accountTransactionLists: ").append(toIndentedString(accountTransactionListContainers)).append("\n");
+        sb.append("    accountTransactionLists: ").append(toIndentedString(accountTransactionLists)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");
@@ -155,8 +205,7 @@ public class AccountHolderTransactionListResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

@@ -188,16 +188,6 @@ public class AccountHolderDetails {
     }
 
 
-    //    public boolean isBankAccountDetail(BankAccountDetail bankAccountDetail) {
-    //
-    //        for(BankAccountDetailContainer bankAccountDetailContainer : bankAccountDetailContainers) {
-    //            if (bankAccountDetailContainer.getBankAccountDetail().equals(bankAccountDetail)){
-    //                return true;
-    //            }
-    //        }
-    //        return false;
-    //    }
-
     public AccountHolderDetails individualDetails(IndividualDetails individualDetails) {
         this.individualDetails = individualDetails;
         return this;

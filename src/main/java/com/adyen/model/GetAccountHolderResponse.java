@@ -295,6 +295,8 @@ public class GetAccountHolderResponse {
             accounts = new ArrayList<Account>();
         }
 
+        this.accounts.add(account);
+
         return this;
 
     }
