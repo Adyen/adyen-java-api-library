@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 
 /**
  * GetAccountHolderResponse
@@ -55,15 +54,9 @@ public class GetAccountHolderResponse {
     private AccountHolderStatus accountHolderStatus = null;
 
     @SerializedName("accounts")
-    private List<AccountContainer> accountContainers = new ArrayList<>();
+    private List<AccountContainer> accountContainers = null;
 
-    private transient List<Account> accounts = new ArrayList<>();
-
-    public GetAccountHolderResponse() {
-        for(AccountContainer accountContainer :  accountContainers) {
-            accounts.add(accountContainer.getAccount());
-        }
-    }
+    private transient List<Account> accounts = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -75,11 +68,9 @@ public class GetAccountHolderResponse {
      * account holder legal entity type (Busines / Individual)
      */
     public enum LegalEntityEnum {
-        @SerializedName("Business")
-        BUSINESS("Business"),
+        @SerializedName("Business") BUSINESS("Business"),
 
-        @SerializedName("Individual")
-        INDIVIDUAL("Individual");
+        @SerializedName("Individual") INDIVIDUAL("Individual");
 
         private String value;
 
@@ -250,28 +241,69 @@ public class GetAccountHolderResponse {
         this.accountHolderStatus = accountHolderStatus;
     }
 
-    public GetAccountHolderResponse accounts(List<AccountContainer> accounts) {
-        this.accountContainers = accounts;
-        return this;
-    }
-
-    public GetAccountHolderResponse addAccountItem(AccountContainer accountItem) {
-        this.accountContainers.add(accountItem);
-        return this;
+    /**
+     * Populate the virtual accounts to bypass the accountContainers list
+     *
+     * @return
+     */
+    public List<Account> getAccounts() {
+        if (accounts == null) {
+            accounts = new ArrayList<Account>();
+            if (accountContainers != null && ! accountContainers.isEmpty()) {
+                for (AccountContainer accountContainer : accountContainers) {
+                    accounts.add(accountContainer.getAccount());
+                }
+            }
+        }
+        return accounts;
     }
 
     /**
-     * accounts
+     * Creating a new accounts list
      *
-     * @return accounts
-     **/
-//    public List<AccountContainer> getAccountContainer() {
-//        return accountContainers;
-//    }
+     * @param accounts
+     */
+    public void setAccounts(List<Account> accounts) {
 
-//    public void setAccountContainer(List<AccountContainer> accountContainer) {
-//        this.accountContainers = accountContainer;
-//    }
+        this.accounts = accounts;
+
+        // set as well the container list this will be send in the API request
+        this.accountContainers = new ArrayList<AccountContainer>();
+
+        for (Account account : accounts) {
+
+            AccountContainer accountContainer = createAccountContainerFromAccount(account);
+            this.accountContainers.add(accountContainer);
+        }
+    }
+
+    /**
+     * Add account to the accountContainers and accounts lists
+     *
+     * @param account
+     * @return
+     */
+    public GetAccountHolderResponse addAccount(Account account) {
+        AccountContainer accountContainer = createAccountContainerFromAccount(account);
+
+        if (accountContainers == null) {
+            accountContainers = new ArrayList<AccountContainer>();
+        }
+        this.accountContainers.add(accountContainer);
+
+        if (accounts == null) {
+            accounts = new ArrayList<Account>();
+        }
+
+        return this;
+
+    }
+
+    private AccountContainer createAccountContainerFromAccount(Account account) {
+        AccountContainer accountContainer = new AccountContainer();
+        accountContainer.setAccount(account);
+        return accountContainer;
+    }
 
     public GetAccountHolderResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
@@ -375,6 +407,9 @@ public class GetAccountHolderResponse {
 
     @Override
     public String toString() {
+        // Populate the accounts list to provide back in the toString() method
+        this.getAccounts();
+
         StringBuilder sb = new StringBuilder();
         sb.append("class GetAccountHolderResponse {\n");
 
@@ -386,7 +421,7 @@ public class GetAccountHolderResponse {
         sb.append("    requirementsForNextAccountState: ").append(toIndentedString(requirementsForNextAccountState)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
-        sb.append("    accounts: ").append(toIndentedString(accountContainers)).append("\n");
+        sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    kycVerificationResults: ").append(toIndentedString(kycVerificationResults)).append("\n");
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
@@ -395,8 +430,7 @@ public class GetAccountHolderResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

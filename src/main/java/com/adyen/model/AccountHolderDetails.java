@@ -1,11 +1,22 @@
-/**
- * ###### ###### ############    ####( ######  #####. ######  ############   ############ #############  #####( ######  #####. ######  #############  ############# ######  #####( ######  #####. ######
- * #####  ######  #####  ###### ###### ######  #####( ######  #####. ######  #####  #####   #####  ###### ###### ######  #####( ######  #####. ######  #####          #####  ###### #############
- * #############  #############  #############  #####  ###### ############   ############  #############   ############  #####  ###### ###### ############# ############
- * <p>
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
  * Adyen Java API Library
- * <p>
- * Copyright (c) 2017 Adyen B.V. This file is open source and available under the MIT license. See the LICENSE file for more info.
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
  */
 package com.adyen.model;
 
@@ -30,7 +41,7 @@ public class AccountHolderDetails {
     private PhoneNumber phoneNumber = null;
 
     @SerializedName("bankAccountDetails")
-    public List<BankAccountDetailContainer> bankAccountDetailContainers = null;
+    private List<BankAccountDetailContainer> bankAccountDetailContainers = null;
 
     private transient List<BankAccountDetail> bankAccountDetails = null;
 
