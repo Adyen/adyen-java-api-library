@@ -30,15 +30,10 @@ import com.google.gson.annotations.SerializedName;
  */
 public class BusinessDetails {
     @SerializedName("shareholders")
-    private List<ShareholderContactContainer> shareholderContactContainers = new ArrayList<ShareholderContactContainer>();
+    private List<ShareholderContactContainer> shareholderContactContainers = null;
 
-    private transient List<ShareholderContact> shareholders = new ArrayList<>();
+    private transient List<ShareholderContact> shareholders = null;
 
-    public BusinessDetails() {
-        for(ShareholderContactContainer shareholderContactContainer :  shareholderContactContainers) {
-            shareholders.add(shareholderContactContainer.getShareholderContact());
-        }
-    }
     @SerializedName("doingBusinessAs")
     private String doingBusinessAs = null;
 
@@ -48,28 +43,69 @@ public class BusinessDetails {
     @SerializedName("legalBusinessName")
     private String legalBusinessName = null;
 
-    public BusinessDetails shareholderContactContainers(List<ShareholderContactContainer> shareholderContactContainers) {
-        this.shareholderContactContainers = shareholderContactContainers;
-        return this;
-    }
-
-    public BusinessDetails addShareholdersItem(ShareholderContactContainer shareholdersItem) {
-        this.shareholderContactContainers.add(shareholdersItem);
-        return this;
-    }
-
     /**
-     * the business legal entity shareholders
+     * Populate the virtual shareholders to bypass the shareholderContactContainers list
      *
      * @return shareholders
      **/
-//    public List<ShareholderContactContainer> getShareholders() {
-//        return shareholderContactContainers;
-//    }
-//
-//    public void setShareholders(List<ShareholderContactContainer> shareholders) {
-//        this.shareholderContactContainers = shareholders;
-//    }
+    public List<ShareholderContact> getShareholders() {
+        if (shareholders == null) {
+            shareholders = new ArrayList<ShareholderContact>();
+
+            if (shareholderContactContainers != null && ! shareholderContactContainers.isEmpty()) {
+                for (ShareholderContactContainer shareholderContactContainer : shareholderContactContainers) {
+                    shareholders.add((shareholderContactContainer.getShareholderContact()));
+                }
+            }
+        }
+        return shareholders;
+    }
+
+
+    /**
+     * Creating a new shareholders list
+     *
+     * @param shareholders
+     */
+    public void setShareholders(List<ShareholderContact> shareholders) {
+        this.shareholders = shareholders;
+
+        // set as well the container list this will be send in the API request
+        this.shareholderContactContainers = new ArrayList<ShareholderContactContainer>();
+        for (ShareholderContact shareholderContact : shareholders) {
+
+            ShareholderContactContainer shareholderContactContainer = createShareholderContactContainerFromShareHolderContact(shareholderContact);
+            this.shareholderContactContainers.add(shareholderContactContainer);
+        }
+    }
+
+    /**
+     * Add shareholderContact to the shareholderContactContainers and shareholders list
+     *
+     * @param shareholderContact
+     * @return
+     */
+    public BusinessDetails addShareholderContact(ShareholderContact shareholderContact) {
+        ShareholderContactContainer shareholderContactContainer = createShareholderContactContainerFromShareHolderContact(shareholderContact);
+
+        if (shareholderContactContainers == null) {
+            shareholderContactContainers = new ArrayList<ShareholderContactContainer>();
+        }
+        this.shareholderContactContainers.add(shareholderContactContainer);
+
+        if (shareholders == null) {
+            shareholders = new ArrayList<ShareholderContact>();
+        }
+        this.shareholders.add(shareholderContact);
+
+        return this;
+    }
+
+    private ShareholderContactContainer createShareholderContactContainerFromShareHolderContact(ShareholderContact shareholderContact) {
+        ShareholderContactContainer shareholderContactContainer = new ShareholderContactContainer();
+        shareholderContactContainer.setShareholderContact(shareholderContact);
+        return shareholderContactContainer;
+    }
 
     public BusinessDetails doingBusinessAs(String doingBusinessAs) {
         this.doingBusinessAs = doingBusinessAs;
@@ -137,8 +173,7 @@ public class BusinessDetails {
         BusinessDetails businessDetails = (BusinessDetails) o;
         return Objects.equals(this.shareholderContactContainers, businessDetails.shareholderContactContainers)
                 && Objects.equals(this.doingBusinessAs, businessDetails.doingBusinessAs)
-                && Objects.equals(this.taxId,
-                                  businessDetails.taxId)
+                && Objects.equals(this.taxId, businessDetails.taxId)
                 && Objects.equals(this.legalBusinessName, businessDetails.legalBusinessName);
     }
 
@@ -150,10 +185,13 @@ public class BusinessDetails {
 
     @Override
     public String toString() {
+        // Populate the shareholders list to provide back in the toString() method
+        this.getShareholders();
+
         StringBuilder sb = new StringBuilder();
         sb.append("class BusinessDetails {\n");
 
-        sb.append("    shareholders: ").append(toIndentedString(shareholderContactContainers)).append("\n");
+        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
         sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
         sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
         sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
@@ -162,8 +200,7 @@ public class BusinessDetails {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
