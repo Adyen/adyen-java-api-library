@@ -154,7 +154,7 @@ public class AccountHolderBalanceResponse {
         return this;
     }
 
-    private AccountDetailBalanceContainer createAccountDetailBalanceContainerFromAccountDetailBalance(AccountDetailBalance accountDetailBalance){
+    private AccountDetailBalanceContainer createAccountDetailBalanceContainerFromAccountDetailBalance(AccountDetailBalance accountDetailBalance) {
         AccountDetailBalanceContainer accountDetailBalanceContainer = new AccountDetailBalanceContainer();
         accountDetailBalanceContainer.setAccountDetailBalance(accountDetailBalance);
         return accountDetailBalanceContainer;

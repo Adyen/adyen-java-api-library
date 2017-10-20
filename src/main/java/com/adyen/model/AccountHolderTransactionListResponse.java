@@ -123,7 +123,7 @@ public class AccountHolderTransactionListResponse {
         return this;
     }
 
-    private AccountTransactionListContainer createAccountTransactionListContainerFromAccountTransactionList(AccountTransactionList accountTransactionList){
+    private AccountTransactionListContainer createAccountTransactionListContainerFromAccountTransactionList(AccountTransactionList accountTransactionList) {
         AccountTransactionListContainer accountTransactionListContainer = new AccountTransactionListContainer();
         accountTransactionListContainer.setAccountTransactionList(accountTransactionList);
         return accountTransactionListContainer;

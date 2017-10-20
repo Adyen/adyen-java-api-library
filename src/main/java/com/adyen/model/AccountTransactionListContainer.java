@@ -21,8 +21,6 @@
 
 package com.adyen.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
@@ -31,7 +29,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class AccountTransactionListContainer {
     @SerializedName("AccountTransactionList")
-    private AccountTransactionList accountTransactionList  = null;
+    private AccountTransactionList accountTransactionList = null;
 
     /**
      * accountTransactionList
