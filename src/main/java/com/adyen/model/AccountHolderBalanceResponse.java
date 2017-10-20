@@ -197,7 +197,7 @@ public class AccountHolderBalanceResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, totalBalance, resultCode, balancePerAccount, pspReference);
+        return Objects.hash(submittedAsync, totalBalance, resultCode, balancePerAccountContainers, pspReference);
     }
 
 

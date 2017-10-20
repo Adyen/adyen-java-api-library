@@ -171,12 +171,12 @@ public class DetailBalance {
             return false;
         }
         DetailBalance detailBalance = (DetailBalance) o;
-        return Objects.equals(this.pendingBalance, detailBalance.pendingBalance) && Objects.equals(this.balance, detailBalance.balance);
+        return Objects.equals(this.pendingBalanceContainers, detailBalance.pendingBalanceContainers) && Objects.equals(this.balanceContainers, detailBalance.balanceContainers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pendingBalance, balance);
+        return Objects.hash(pendingBalanceContainers, balanceContainers);
     }
 
 
