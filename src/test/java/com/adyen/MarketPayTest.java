@@ -247,8 +247,8 @@ public class MarketPayTest extends BaseTest {
         // createAccountHolder
         CreateAccountHolderResponse createAccountHolderResponse = account.createAccountHolder(createAccountHolderRequest);
 
-        System.out.println(createAccountHolderResponse);
         assertEquals("140922935", createAccountHolderResponse.getAccountCode());
+        assertEquals("681d5df6-cf38-4557-aecd-ac8ed0c04195", createAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
     }
 
 
@@ -269,7 +269,8 @@ public class MarketPayTest extends BaseTest {
         accountHolderBalanceRequest.accountHolderCode("TestAccountHolder877209");
         AccountHolderBalanceResponse accountHolderBalanceResponse = fund.AccountHolderBalance(accountHolderBalanceRequest);
 
-        System.out.println(accountHolderBalanceResponse);
+        assertEquals(new Long(42058), accountHolderBalanceResponse.getTotalBalance().getPendingBalance().get(0).getValue());
+        assertEquals(new Long(99792), accountHolderBalanceResponse.getBalancePerAccount().get(0).getDetailBalance().getBalance().get(0).getValue());
     }
 
     @Test
@@ -347,7 +348,9 @@ public class MarketPayTest extends BaseTest {
         getAccountHolderRequest.setAccountHolderCode("TestAccountHolder3110");
 
         GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
-        System.out.println(getAccountHolderResponse);
+
+        assertEquals("681d5df6-cf38-4557-aecd-ac8ed0c04195", getAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
+        assertEquals("140922935", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
 
     }
 
@@ -366,6 +369,11 @@ public class MarketPayTest extends BaseTest {
 
         GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
         System.out.println(getAccountHolderResponse);
+
+        assertEquals("1abf8304-58c7-4a9e-8bd3-4d7eff9801e4", getAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
+        assertEquals("67890", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getAddress().getPostalCode());
+        assertEquals("123370698", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
+
     }
 
     @Test
@@ -626,7 +634,8 @@ public class MarketPayTest extends BaseTest {
 
 
         AccountHolderTransactionListResponse accountHolderTransactionListResponse = fund.accountHolderTransactionList(accountHolderTransactionListRequest);
-        System.out.println(accountHolderTransactionListResponse);
+
+        assertEquals("12345 - Test", accountHolderTransactionListResponse.getAccountTransactionLists().get(0).getTransactions().get(0).getDescription());
     }
 
     @Test
