@@ -44,7 +44,9 @@ public class TestNotificationConfigurationResponse {
     private List<String> okMessages = null;
 
     @SerializedName("exchangeMessages")
-    private List<ExchangeMessage> exchangeMessages = null;
+    private List<ExchangeMessageContainer> exchangeMessageContainers = null;
+
+    private transient List<ExchangeMessage> exchangeMessages = null;
 
     @SerializedName("notificationId")
     private Long notificationId = null;
@@ -210,16 +212,55 @@ public class TestNotificationConfigurationResponse {
     }
 
     /**
-     * Notification request and response related messages
+     * Populate the virtual exchangeMessages to bypass the exchangeMessageContainers list
      *
      * @return exchangeMessages
      **/
     public List<ExchangeMessage> getExchangeMessages() {
+
+        if(exchangeMessages == null) {
+            exchangeMessages = new ArrayList<ExchangeMessage>();
+
+            if(exchangeMessageContainers != null && !exchangeMessageContainers.isEmpty()){
+                for(ExchangeMessageContainer exchangeMessageContainer : exchangeMessageContainers) {
+                    exchangeMessages.add(exchangeMessageContainer.getExchangeMessage());
+                }
+            }
+        }
         return exchangeMessages;
     }
 
     public void setExchangeMessages(List<ExchangeMessage> exchangeMessages) {
         this.exchangeMessages = exchangeMessages;
+
+        // set as well the container list this will be send in the API request
+        this.exchangeMessageContainers = new ArrayList<ExchangeMessageContainer>();
+        for (ExchangeMessage exchangeMessage : exchangeMessages) {
+            ExchangeMessageContainer exchangeMessageContainer = createExchangeMessageContainerFromExchangeMessage(exchangeMessage);
+            this.exchangeMessageContainers.add(exchangeMessageContainer);
+        }
+
+    }
+
+    private ExchangeMessageContainer createExchangeMessageContainerFromExchangeMessage(ExchangeMessage exchangeMessage) {
+        ExchangeMessageContainer exchangeMessageContainer = new ExchangeMessageContainer();
+        exchangeMessageContainer.setExchangeMessage(exchangeMessage);
+        return exchangeMessageContainer;
+    }
+
+    public TestNotificationConfigurationResponse addExchangeMessage(ExchangeMessage exchangeMessage){
+        ExchangeMessageContainer exchangeMessageContainer = createExchangeMessageContainerFromExchangeMessage(exchangeMessage);
+        if(exchangeMessageContainers == null) {
+            exchangeMessageContainers = new ArrayList<ExchangeMessageContainer>();
+        }
+        this.exchangeMessageContainers.add(exchangeMessageContainer);
+
+        if(exchangeMessages == null) {
+            exchangeMessages = new ArrayList<ExchangeMessage>();
+        }
+        this.exchangeMessages.add(exchangeMessage);
+
+        return this;
     }
 
     public TestNotificationConfigurationResponse notificationId(Long notificationId) {
@@ -297,7 +338,7 @@ public class TestNotificationConfigurationResponse {
         return Objects.equals(this.errorMessages, testNotificationConfigurationResponse.errorMessages)
                 && Objects.equals(this.submittedAsync, testNotificationConfigurationResponse.submittedAsync)
                 && Objects.equals(this.okMessages, testNotificationConfigurationResponse.okMessages)
-                && Objects.equals(this.exchangeMessages, testNotificationConfigurationResponse.exchangeMessages)
+                && Objects.equals(this.exchangeMessageContainers, testNotificationConfigurationResponse.exchangeMessageContainers)
                 && Objects.equals(this.notificationId, testNotificationConfigurationResponse.notificationId)
                 && Objects.equals(this.eventTypes, testNotificationConfigurationResponse.eventTypes)
                 && Objects.equals(this.pspReference, testNotificationConfigurationResponse.pspReference);
@@ -305,12 +346,15 @@ public class TestNotificationConfigurationResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(errorMessages, submittedAsync, okMessages, exchangeMessages, notificationId, eventTypes, pspReference);
+        return Objects.hash(errorMessages, submittedAsync, okMessages, exchangeMessageContainers, notificationId, eventTypes, pspReference);
     }
 
 
     @Override
     public String toString() {
+        // Populate the exchangeMessages list to provide back in the toString() method
+        this.getExchangeMessages();
+
         StringBuilder sb = new StringBuilder();
         sb.append("class TestNotificationConfigurationResponse {\n");
 

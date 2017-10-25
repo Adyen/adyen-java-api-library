@@ -11,7 +11,7 @@ public class GetNotificationConfiguration extends Resource {
         super(service,
               service.getClient().getConfig().getMarketPayEndpoint() + "/Notification/" + service.getClient().getMarketPayApiVersion() + "/getNotificationConfiguration",
               Arrays.asList(
-                      "configurationDetails"
+                      "notificationId"
               )
         );
     }
