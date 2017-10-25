@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -33,7 +33,9 @@ public class AccountHolderTransactionListResponse {
     private Boolean submittedAsync = null;
 
     @SerializedName("accountTransactionLists")
-    private List<AccountTransactionList> accountTransactionLists = new ArrayList<AccountTransactionList>();
+    private List<AccountTransactionListContainer> accountTransactionListContainers = null;
+
+    private transient List<AccountTransactionList> accountTransactionLists = null;
 
     @SerializedName("resultCode")
     private String resultCode = null;
@@ -59,28 +61,74 @@ public class AccountHolderTransactionListResponse {
         this.submittedAsync = submittedAsync;
     }
 
-    public AccountHolderTransactionListResponse accountTransactionLists(List<AccountTransactionList> accountTransactionLists) {
-        this.accountTransactionLists = accountTransactionLists;
+    public AccountHolderTransactionListResponse accountTransactionListContainers(List<AccountTransactionListContainer> accountTransactionListContainers) {
+        this.accountTransactionListContainers = accountTransactionListContainers;
         return this;
     }
 
-    public AccountHolderTransactionListResponse addAccountTransactionListsItem(AccountTransactionList accountTransactionListsItem) {
-        this.accountTransactionLists.add(accountTransactionListsItem);
+    public AccountHolderTransactionListResponse addAccountTransactionListContainersItem(AccountTransactionListContainer accountTransactionListContainerItem) {
+        this.accountTransactionListContainers.add(accountTransactionListContainerItem);
         return this;
     }
 
     /**
-     * The transactions per account
+     * Populate the virtual accountTransactionLists to bypass the accountTransactionListContainers list
      *
      * @return accountTransactionLists
      **/
     public List<AccountTransactionList> getAccountTransactionLists() {
+        if (accountTransactionLists == null) {
+            accountTransactionLists = new ArrayList<AccountTransactionList>();
+            if (accountTransactionListContainers != null && ! accountTransactionListContainers.isEmpty()) {
+                for (AccountTransactionListContainer accountTransactionListContainer : accountTransactionListContainers) {
+                    accountTransactionLists.add(accountTransactionListContainer.getAccountTransactionList());
+                }
+            }
+        }
         return accountTransactionLists;
     }
 
+    /**
+     * Creating a new accountTransactionLists list
+     *
+     * @param accountTransactionLists
+     */
     public void setAccountTransactionLists(List<AccountTransactionList> accountTransactionLists) {
+
         this.accountTransactionLists = accountTransactionLists;
+
+        this.accountTransactionListContainers = new ArrayList<AccountTransactionListContainer>();
+
+        for (AccountTransactionList accountTransactionList : accountTransactionLists) {
+
+            AccountTransactionListContainer accountTransactionListContainer = createAccountTransactionListContainerFromAccountTransactionList(accountTransactionList);
+            this.accountTransactionListContainers.add(accountTransactionListContainer);
+        }
+
     }
+
+    public AccountHolderTransactionListResponse addAccountTransactionList(AccountTransactionList accountTransactionList) {
+        AccountTransactionListContainer accountTransactionListContainer = createAccountTransactionListContainerFromAccountTransactionList(accountTransactionList);
+
+        if (accountTransactionListContainers == null) {
+            accountTransactionListContainers = new ArrayList<AccountTransactionListContainer>();
+        }
+        this.accountTransactionListContainers.add(accountTransactionListContainer);
+
+        if (accountTransactionLists == null) {
+            accountTransactionLists = new ArrayList<AccountTransactionList>();
+        }
+        this.accountTransactionLists.add(accountTransactionList);
+
+        return this;
+    }
+
+    private AccountTransactionListContainer createAccountTransactionListContainerFromAccountTransactionList(AccountTransactionList accountTransactionList) {
+        AccountTransactionListContainer accountTransactionListContainer = new AccountTransactionListContainer();
+        accountTransactionListContainer.setAccountTransactionList(accountTransactionList);
+        return accountTransactionListContainer;
+    }
+
 
     public AccountHolderTransactionListResponse resultCode(String resultCode) {
         this.resultCode = resultCode;
@@ -129,20 +177,22 @@ public class AccountHolderTransactionListResponse {
         }
         AccountHolderTransactionListResponse accountHolderTransactionListResponse = (AccountHolderTransactionListResponse) o;
         return Objects.equals(this.submittedAsync, accountHolderTransactionListResponse.submittedAsync)
-                && Objects.equals(this.accountTransactionLists,
-                                  accountHolderTransactionListResponse.accountTransactionLists)
+                && Objects.equals(this.accountTransactionListContainers,
+                                  accountHolderTransactionListResponse.accountTransactionListContainers)
                 && Objects.equals(this.resultCode, accountHolderTransactionListResponse.resultCode)
                 && Objects.equals(this.pspReference, accountHolderTransactionListResponse.pspReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, accountTransactionLists, resultCode, pspReference);
+        return Objects.hash(submittedAsync, accountTransactionListContainers, resultCode, pspReference);
     }
 
 
     @Override
     public String toString() {
+        // Populate the accountTransactionLists list to provide back in the toString() method
+        this.getAccountTransactionLists();
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountHolderTransactionListResponse {\n");
 
@@ -155,8 +205,7 @@ public class AccountHolderTransactionListResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

@@ -21,7 +21,7 @@
   "resultCode":"Success",
   "balancePerAccount":[
     {
-      "accountDetailBalance":{
+      "AccountDetailBalance":{
         "detailBalance":{
           "pendingBalance":[
             {

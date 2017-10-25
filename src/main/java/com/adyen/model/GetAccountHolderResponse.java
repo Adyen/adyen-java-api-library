@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -54,7 +54,9 @@ public class GetAccountHolderResponse {
     private AccountHolderStatus accountHolderStatus = null;
 
     @SerializedName("accounts")
-    private List<Account> accounts = new ArrayList<Account>();
+    private List<AccountContainer> accountContainers = null;
+
+    private transient List<Account> accounts = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -66,11 +68,9 @@ public class GetAccountHolderResponse {
      * account holder legal entity type (Busines / Individual)
      */
     public enum LegalEntityEnum {
-        @SerializedName("Business")
-        BUSINESS("Business"),
+        @SerializedName("Business") BUSINESS("Business"),
 
-        @SerializedName("Individual")
-        INDIVIDUAL("Individual");
+        @SerializedName("Individual") INDIVIDUAL("Individual");
 
         private String value;
 
@@ -241,27 +241,70 @@ public class GetAccountHolderResponse {
         this.accountHolderStatus = accountHolderStatus;
     }
 
-    public GetAccountHolderResponse accounts(List<Account> accounts) {
-        this.accounts = accounts;
-        return this;
-    }
-
-    public GetAccountHolderResponse addAccountsItem(Account accountsItem) {
-        this.accounts.add(accountsItem);
-        return this;
-    }
-
     /**
-     * accounts
+     * Populate the virtual accounts to bypass the accountContainers list
      *
-     * @return accounts
-     **/
+     * @return
+     */
     public List<Account> getAccounts() {
+        if (accounts == null) {
+            accounts = new ArrayList<Account>();
+            if (accountContainers != null && ! accountContainers.isEmpty()) {
+                for (AccountContainer accountContainer : accountContainers) {
+                    accounts.add(accountContainer.getAccount());
+                }
+            }
+        }
         return accounts;
     }
 
+    /**
+     * Creating a new accounts list
+     *
+     * @param accounts
+     */
     public void setAccounts(List<Account> accounts) {
+
         this.accounts = accounts;
+
+        // set as well the container list this will be send in the API request
+        this.accountContainers = new ArrayList<AccountContainer>();
+
+        for (Account account : accounts) {
+
+            AccountContainer accountContainer = createAccountContainerFromAccount(account);
+            this.accountContainers.add(accountContainer);
+        }
+    }
+
+    /**
+     * Add account to the accountContainers and accounts lists
+     *
+     * @param account
+     * @return
+     */
+    public GetAccountHolderResponse addAccount(Account account) {
+        AccountContainer accountContainer = createAccountContainerFromAccount(account);
+
+        if (accountContainers == null) {
+            accountContainers = new ArrayList<AccountContainer>();
+        }
+        this.accountContainers.add(accountContainer);
+
+        if (accounts == null) {
+            accounts = new ArrayList<Account>();
+        }
+
+        this.accounts.add(account);
+
+        return this;
+
+    }
+
+    private AccountContainer createAccountContainerFromAccount(Account account) {
+        AccountContainer accountContainer = new AccountContainer();
+        accountContainer.setAccount(account);
+        return accountContainer;
     }
 
     public GetAccountHolderResponse pspReference(String pspReference) {
@@ -341,7 +384,7 @@ public class GetAccountHolderResponse {
                 && Objects.equals(this.requirementsForNextAccountState, getAccountHolderResponse.requirementsForNextAccountState)
                 && Objects.equals(this.accountHolderDetails, getAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, getAccountHolderResponse.accountHolderStatus)
-                && Objects.equals(this.accounts, getAccountHolderResponse.accounts)
+                && Objects.equals(this.accountContainers, getAccountHolderResponse.accountContainers)
                 && Objects.equals(this.pspReference, getAccountHolderResponse.pspReference)
                 && Objects.equals(this.kycVerificationResults, getAccountHolderResponse.kycVerificationResults)
                 && Objects.equals(this.legalEntity, getAccountHolderResponse.legalEntity);
@@ -357,7 +400,7 @@ public class GetAccountHolderResponse {
                             requirementsForNextAccountState,
                             accountHolderDetails,
                             accountHolderStatus,
-                            accounts,
+                            accountContainers,
                             pspReference,
                             kycVerificationResults,
                             legalEntity);
@@ -366,6 +409,9 @@ public class GetAccountHolderResponse {
 
     @Override
     public String toString() {
+        // Populate the accounts list to provide back in the toString() method
+        this.getAccounts();
+
         StringBuilder sb = new StringBuilder();
         sb.append("class GetAccountHolderResponse {\n");
 
@@ -386,8 +432,7 @@ public class GetAccountHolderResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

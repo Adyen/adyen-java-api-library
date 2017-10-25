@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -41,7 +41,9 @@ public class AccountHolderDetails {
     private PhoneNumber phoneNumber = null;
 
     @SerializedName("bankAccountDetails")
-    private List<BankAccountDetail> bankAccountDetails = new ArrayList<BankAccountDetail>();
+    private List<BankAccountDetailContainer> bankAccountDetailContainers = null;
+
+    private transient List<BankAccountDetail> bankAccountDetails = null;
 
     @SerializedName("individualDetails")
     private IndividualDetails individualDetails = null;
@@ -120,28 +122,71 @@ public class AccountHolderDetails {
         this.phoneNumber = phoneNumber;
     }
 
-    public AccountHolderDetails bankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
-        this.bankAccountDetails = bankAccountDetails;
-        return this;
-    }
-
-    public AccountHolderDetails addBankAccountDetailsItem(BankAccountDetail bankAccountDetailsItem) {
-        this.bankAccountDetails.add(bankAccountDetailsItem);
-        return this;
-    }
-
     /**
-     * account holder bank account details
+     * Populate the virtual bankAccountDetails to bypass the bankAccountDetailsContainer list
      *
-     * @return bankAccountDetails
-     **/
+     * @return
+     */
     public List<BankAccountDetail> getBankAccountDetails() {
+        if (bankAccountDetails == null) {
+            bankAccountDetails = new ArrayList<BankAccountDetail>();
+
+            if (bankAccountDetailContainers != null && ! bankAccountDetailContainers.isEmpty()) {
+                for (BankAccountDetailContainer bankAccountDetailContainer : bankAccountDetailContainers) {
+                    bankAccountDetails.add(bankAccountDetailContainer.getBankAccountDetail());
+                }
+            }
+        }
         return bankAccountDetails;
     }
 
+    /**
+     * Creating a new bankAccountDetails list
+     *
+     * @param bankAccountDetails
+     */
     public void setBankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
+
         this.bankAccountDetails = bankAccountDetails;
+
+        // set as well the container list this will be send in the API request
+        this.bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
+        for (BankAccountDetail bankAccountDetail : bankAccountDetails) {
+
+            BankAccountDetailContainer bankAccountDetailContainer = createBankAccountDetailContainerFromBankAccountDetail(bankAccountDetail);
+            this.bankAccountDetailContainers.add(bankAccountDetailContainer);
+        }
     }
+
+    /**
+     * Add bankAccountDetail to the bankAccountDetailContainers and bankAccountDetails list
+     *
+     * @param bankAccountDetail
+     * @return
+     */
+    public AccountHolderDetails addBankAccountDetail(BankAccountDetail bankAccountDetail) {
+        BankAccountDetailContainer bankAccountDetailContainer = createBankAccountDetailContainerFromBankAccountDetail(bankAccountDetail);
+
+        if (bankAccountDetailContainers == null) {
+            bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
+        }
+        this.bankAccountDetailContainers.add(bankAccountDetailContainer);
+
+        if (bankAccountDetails == null) {
+            bankAccountDetails = new ArrayList<BankAccountDetail>();
+        }
+        this.bankAccountDetails.add(bankAccountDetail);
+
+        return this;
+    }
+
+
+    private BankAccountDetailContainer createBankAccountDetailContainerFromBankAccountDetail(BankAccountDetail bankAccountDetail) {
+        BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer();
+        bankAccountDetailContainer.setBankAccountDetail(bankAccountDetail);
+        return bankAccountDetailContainer;
+    }
+
 
     public AccountHolderDetails individualDetails(IndividualDetails individualDetails) {
         this.individualDetails = individualDetails;
@@ -265,7 +310,7 @@ public class AccountHolderDetails {
                 && Objects.equals(this.address, accountHolderDetails.address)
                 && Objects.equals(this.phoneNumber,
                                   accountHolderDetails.phoneNumber)
-                && Objects.equals(this.bankAccountDetails, accountHolderDetails.bankAccountDetails)
+                && Objects.equals(this.bankAccountDetailContainers, accountHolderDetails.bankAccountDetailContainers)
                 && Objects.equals(this.individualDetails, accountHolderDetails.individualDetails)
                 && Objects.equals(this.webAddress, accountHolderDetails.webAddress)
                 && Objects.equals(this.merchantCategoryCode, accountHolderDetails.merchantCategoryCode)
@@ -276,12 +321,15 @@ public class AccountHolderDetails {
 
     @Override
     public int hashCode() {
-        return Objects.hash(metadata, address, phoneNumber, bankAccountDetails, individualDetails, webAddress, merchantCategoryCode, fullPhoneNumber, businessDetails, email);
+        return Objects.hash(metadata, address, phoneNumber, bankAccountDetailContainers, individualDetails, webAddress, merchantCategoryCode, fullPhoneNumber, businessDetails, email);
     }
 
 
     @Override
     public String toString() {
+        // Populate the bankAccountDetails list to provide back in the toString() method
+        this.getBankAccountDetails();
+
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountHolderDetails {\n");
 
@@ -300,8 +348,7 @@ public class AccountHolderDetails {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
