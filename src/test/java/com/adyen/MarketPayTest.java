@@ -48,6 +48,7 @@ import com.adyen.model.DocumentDetail;
 import com.adyen.model.FraudCheckResult;
 import com.adyen.model.GetAccountHolderRequest;
 import com.adyen.model.GetAccountHolderResponse;
+import com.adyen.model.GetTierConfigurationResponse;
 import com.adyen.model.GetUploadedDocumentsRequest;
 import com.adyen.model.GetUploadedDocumentsResponse;
 import com.adyen.model.IndividualDetails;
@@ -683,4 +684,32 @@ public class MarketPayTest extends BaseTest {
         //        System.out.println(setupBeneficiaryResponse);
     }
 
+    @Test
+    public void TestGetTierConfiguration() throws Exception {
+
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/get-tier-configuration-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        GetTierConfigurationResponse getTierConfigurationResponse = account.getTierConfiguration();
+        System.out.println(getTierConfigurationResponse);
+    }
+
+    @Test
+    public void TestCreateAccountHolderInvalid() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/create-account-holder-error-invalid-fields.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // Create Account Holder Reqeust
+        CreateAccountHolderRequest createAccountHolderRequest = new CreateAccountHolderRequest();
+
+        CreateAccountHolderResponse createAccountHolderResponse = account.createAccountHolder(createAccountHolderRequest);
+
+        assertEquals(new Integer(17), createAccountHolderResponse.getInvalidFields().get(0).getErrorCode());
+    }
 }

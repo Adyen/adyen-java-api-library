@@ -1,0 +1,173 @@
+{
+  "pspReference": "8815089219366954",
+  "submittedAsync": "false",
+  "tierConfiguration": [
+    {
+      "countryCode": "GB",
+      "tiers": [
+        {
+          "tierNumber": 0,
+          "fromAmount": {
+            "currency": "GBP",
+            "value": 0
+          },
+          "toAmount": {
+            "currency": "GBP",
+            "value": 10000
+          }
+        },
+        {
+          "tierNumber": 1,
+          "fromAmount": {
+            "currency": "GBP",
+            "value": 10000
+          },
+          "toAmount": {
+            "currency": "GBP",
+            "value": 50000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        },
+        {
+          "tierNumber": 2,
+          "fromAmount": {
+            "currency": "GBP",
+            "value": 50000
+          },
+          "toAmount": {
+            "currency": "GBP",
+            "value": 500000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        },
+        {
+          "tierNumber": 3,
+          "fromAmount": {
+            "currency": "GBP",
+            "value": 500000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        }
+      ]
+    },
+    {
+      "countryCode": "US",
+      "tiers": [
+        {
+          "tierNumber": 0,
+          "fromAmount": {
+            "currency": "USD",
+            "value": 0
+          },
+          "toAmount": {
+            "currency": "USD",
+            "value": 10000
+          }
+        },
+        {
+          "tierNumber": 1,
+          "fromAmount": {
+            "currency": "USD",
+            "value": 10000
+          },
+          "toAmount": {
+            "currency": "USD",
+            "value": 75000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        },
+        {
+          "tierNumber": 2,
+          "fromAmount": {
+            "currency": "USD",
+            "value": 75000
+          },
+          "toAmount": {
+            "currency": "USD",
+            "value": 500000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        },
+        {
+          "tierNumber": 3,
+          "fromAmount": {
+            "currency": "USD",
+            "value": 500000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        }
+      ]
+    },
+    {
+      "countryCode": "ZZ",
+      "tiers": [
+        {
+          "tierNumber": 0,
+          "fromAmount": {
+            "currency": "EUR",
+            "value": 0
+          },
+          "toAmount": {
+            "currency": "EUR",
+            "value": 10000
+          }
+        },
+        {
+          "tierNumber": 1,
+          "fromAmount": {
+            "currency": "EUR",
+            "value": 10000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        }
+      ]
+    },
+    {
+      "tiers": [
+        {
+          "tierNumber": 0,
+          "fromAmount": {
+            "currency": "EUR",
+            "value": 0
+          },
+          "toAmount": {
+            "currency": "EUR",
+            "value": 10000
+          }
+        },
+        {
+          "tierNumber": 1,
+          "fromAmount": {
+            "currency": "EUR",
+            "value": 10000
+          },
+          "toAmount": {
+            "currency": "EUR",
+            "value": 50000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        },
+        {
+          "tierNumber": 2,
+          "fromAmount": {
+            "currency": "EUR",
+            "value": 50000
+          },
+          "toAmount": {
+            "currency": "EUR",
+            "value": 500000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        },
+        {
+          "tierNumber": 3,
+          "fromAmount": {
+            "currency": "EUR",
+            "value": 500000
+          },
+          "deadlineConfiguration": "{\"duration\":\"30\",\"durationUnit\":\"DAY\"}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "pspReference": "8815089411506100",
+  "submittedAsync": "false",
+  "invalidFields": [{
+    "ErrorFieldType": {
+      "errorCode": 17,
+      "errorDescription": "IBAN and accountNumber\/branchCode\/bankCode specified, please provide one or the other",
+      "fieldType": {
+        "field": "AccountHolderDetails.BankAccountDetails.iban",
+        "fieldName": "iban"
+      }
+    }
+  }]
+}
