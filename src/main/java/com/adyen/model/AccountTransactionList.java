@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -36,7 +36,9 @@ public class AccountTransactionList {
     private Boolean hasNextPage = null;
 
     @SerializedName("transactions")
-    private List<Transaction> transactions = new ArrayList<Transaction>();
+    private List<TransactionContainer> transactionContainers = null;
+
+    private transient List<Transaction> transactions = null;
 
     public AccountTransactionList accountCode(String accountCode) {
         this.accountCode = accountCode;
@@ -74,27 +76,70 @@ public class AccountTransactionList {
         this.hasNextPage = hasNextPage;
     }
 
-    public AccountTransactionList transactions(List<Transaction> transactions) {
-        this.transactions = transactions;
+    public AccountTransactionList transactionContainers(List<TransactionContainer> transactionContainers) {
+        this.transactionContainers = transactionContainers;
         return this;
     }
 
-    public AccountTransactionList addTransactionsItem(Transaction transactionsItem) {
-        this.transactions.add(transactionsItem);
+    public AccountTransactionList addTransactionContainerItem(TransactionContainer transactionContainerItem) {
+        this.transactionContainers.add(transactionContainerItem);
         return this;
     }
 
     /**
-     * The list of most recent transactions for this account
+     * Populate the virtual transactions to bypass the transactionContainers list
      *
      * @return transactions
      **/
     public List<Transaction> getTransactions() {
+        if (transactions == null) {
+            transactions = new ArrayList<Transaction>();
+            if (transactionContainers != null && ! transactionContainers.isEmpty()) {
+                for (TransactionContainer transactionContainer : transactionContainers) {
+                    transactions.add(transactionContainer.getTransaction());
+                }
+            }
+        }
         return transactions;
     }
 
+    /**
+     * Creating a new transactions list
+     *
+     * @param transactions
+     */
     public void setTransactions(List<Transaction> transactions) {
+
         this.transactions = transactions;
+
+        // set as well the container list this will be send in the API request
+        this.transactionContainers = new ArrayList<TransactionContainer>();
+
+        for (Transaction transaction : transactions) {
+
+            TransactionContainer transactionContainer = createTransactionContainerFromTransaction(transaction);
+            this.transactionContainers.add(transactionContainer);
+        }
+    }
+
+    public AccountTransactionList addTransaction(Transaction transaction) {
+        TransactionContainer transactionContainer = createTransactionContainerFromTransaction(transaction);
+
+        if (transactionContainers == null) {
+            transactionContainers = new ArrayList<TransactionContainer>();
+        }
+        this.transactionContainers.add(transactionContainer);
+
+        if (transactions == null) {
+            transactions = new ArrayList<Transaction>();
+        }
+        return this;
+    }
+
+    private TransactionContainer createTransactionContainerFromTransaction(Transaction transaction) {
+        TransactionContainer transactionContainer = new TransactionContainer();
+        transactionContainer.setTransaction(transaction);
+        return transactionContainer;
     }
 
 
@@ -107,18 +152,21 @@ public class AccountTransactionList {
             return false;
         }
         AccountTransactionList accountTransactionList = (AccountTransactionList) o;
-        return Objects.equals(this.accountCode, accountTransactionList.accountCode) && Objects.equals(this.hasNextPage, accountTransactionList.hasNextPage) && Objects.equals(this.transactions,
-                                                                                                                                                                              accountTransactionList.transactions);
+        return Objects.equals(this.accountCode, accountTransactionList.accountCode)
+                && Objects.equals(this.hasNextPage, accountTransactionList.hasNextPage)
+                && Objects.equals(this.transactionContainers, accountTransactionList.transactionContainers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, hasNextPage, transactions);
+        return Objects.hash(accountCode, hasNextPage, transactionContainers);
     }
 
 
     @Override
     public String toString() {
+        // Populate the accounts list to provide back in the toString() method
+        this.getTransactions();
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountTransactionList {\n");
 
@@ -130,8 +178,7 @@ public class AccountTransactionList {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

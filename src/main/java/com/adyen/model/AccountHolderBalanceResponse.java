@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -39,7 +39,9 @@ public class AccountHolderBalanceResponse {
     private String resultCode = null;
 
     @SerializedName("balancePerAccount")
-    private List<AccountDetailBalance> balancePerAccount = new ArrayList<AccountDetailBalance>();
+    private List<AccountDetailBalanceContainer> balancePerAccountContainers = null;
+
+    private transient List<AccountDetailBalance> balancePerAccount = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -96,27 +98,66 @@ public class AccountHolderBalanceResponse {
         this.resultCode = resultCode;
     }
 
-    public AccountHolderBalanceResponse balancePerAccount(List<AccountDetailBalance> balancePerAccount) {
-        this.balancePerAccount = balancePerAccount;
-        return this;
-    }
-
-    public AccountHolderBalanceResponse addBalancePerAccountItem(AccountDetailBalance balancePerAccountItem) {
-        this.balancePerAccount.add(balancePerAccountItem);
-        return this;
-    }
 
     /**
-     * Get balancePerAccount
+     * Populate the virtual balancePerAccount to bypass the balancePerAccountContainers list
      *
      * @return balancePerAccount
      **/
     public List<AccountDetailBalance> getBalancePerAccount() {
+
+        if (balancePerAccount == null) {
+            balancePerAccount = new ArrayList<AccountDetailBalance>();
+
+            if (balancePerAccountContainers != null && ! balancePerAccountContainers.isEmpty()) {
+                for (AccountDetailBalanceContainer balancePerAccountContainer : balancePerAccountContainers) {
+                    balancePerAccount.add(balancePerAccountContainer.getAccountDetailBalance());
+                }
+            }
+        }
+
         return balancePerAccount;
     }
 
+    /**
+     * Creating a new balancePerAccount list
+     *
+     * @param balancePerAccount
+     */
     public void setBalancePerAccount(List<AccountDetailBalance> balancePerAccount) {
+
         this.balancePerAccount = balancePerAccount;
+
+        // set as well the container list this will be send in the API request
+        this.balancePerAccountContainers = new ArrayList<AccountDetailBalanceContainer>();
+
+        for (AccountDetailBalance accountDetailBalance : balancePerAccount) {
+
+            AccountDetailBalanceContainer accountDetailBalanceContainer = createAccountDetailBalanceContainerFromAccountDetailBalance(accountDetailBalance);
+            this.balancePerAccountContainers.add(accountDetailBalanceContainer);
+        }
+    }
+
+    public AccountHolderBalanceResponse addBalancePerAccount(AccountDetailBalance accountDetailBalance) {
+        AccountDetailBalanceContainer accountDetailBalanceContainer = createAccountDetailBalanceContainerFromAccountDetailBalance(accountDetailBalance);
+
+        if (balancePerAccountContainers == null) {
+            balancePerAccountContainers = new ArrayList<AccountDetailBalanceContainer>();
+        }
+        this.balancePerAccountContainers.add(accountDetailBalanceContainer);
+
+        if (balancePerAccount == null) {
+            balancePerAccount = new ArrayList<AccountDetailBalance>();
+        }
+        this.balancePerAccount.add(accountDetailBalance);
+
+        return this;
+    }
+
+    private AccountDetailBalanceContainer createAccountDetailBalanceContainerFromAccountDetailBalance(AccountDetailBalance accountDetailBalance) {
+        AccountDetailBalanceContainer accountDetailBalanceContainer = new AccountDetailBalanceContainer();
+        accountDetailBalanceContainer.setAccountDetailBalance(accountDetailBalance);
+        return accountDetailBalanceContainer;
     }
 
     public AccountHolderBalanceResponse pspReference(String pspReference) {
@@ -150,18 +191,20 @@ public class AccountHolderBalanceResponse {
         return Objects.equals(this.submittedAsync, accountHolderBalanceResponse.submittedAsync)
                 && Objects.equals(this.totalBalance, accountHolderBalanceResponse.totalBalance)
                 && Objects.equals(this.resultCode, accountHolderBalanceResponse.resultCode)
-                && Objects.equals(this.balancePerAccount, accountHolderBalanceResponse.balancePerAccount)
+                && Objects.equals(this.balancePerAccountContainers, accountHolderBalanceResponse.balancePerAccountContainers)
                 && Objects.equals(this.pspReference, accountHolderBalanceResponse.pspReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, totalBalance, resultCode, balancePerAccount, pspReference);
+        return Objects.hash(submittedAsync, totalBalance, resultCode, balancePerAccountContainers, pspReference);
     }
 
 
     @Override
     public String toString() {
+        // Populate the balancePerAccount list to provide back in the toString() method
+        this.getBalancePerAccount();
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountHolderBalanceResponse {\n");
 
@@ -175,8 +218,7 @@ public class AccountHolderBalanceResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
