@@ -249,7 +249,7 @@ public class MarketPayTest extends BaseTest {
         // createAccountHolder
         CreateAccountHolderResponse createAccountHolderResponse = account.createAccountHolder(createAccountHolderRequest);
 
-        System.out.println(createAccountHolderResponse);
+        //       System.out.println(createAccountHolderResponse);
         assertEquals("140922935", createAccountHolderResponse.getAccountCode());
     }
 
@@ -271,7 +271,7 @@ public class MarketPayTest extends BaseTest {
         accountHolderBalanceRequest.accountHolderCode("TestAccountHolder877209");
         AccountHolderBalanceResponse accountHolderBalanceResponse = fund.AccountHolderBalance(accountHolderBalanceRequest);
 
-        System.out.println(accountHolderBalanceResponse);
+        //        System.out.println(accountHolderBalanceResponse);
     }
 
     @Test
@@ -331,7 +331,7 @@ public class MarketPayTest extends BaseTest {
 
         // updateAccountHolder
         UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
-        System.out.println(updateAccountHolderResponse);
+        //        System.out.println(updateAccountHolderResponse);
 
     }
 
@@ -348,7 +348,7 @@ public class MarketPayTest extends BaseTest {
         getAccountHolderRequest.setAccountHolderCode("TestAccountHolder3110");
 
         GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
-        System.out.println(getAccountHolderResponse);
+        //        System.out.println(getAccountHolderResponse);
 
     }
 
@@ -366,7 +366,7 @@ public class MarketPayTest extends BaseTest {
         getAccountHolderRequest.setAccountHolderCode("TestAccountHolder480834");
 
         GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
-        System.out.println(getAccountHolderResponse);
+        //        System.out.println(getAccountHolderResponse);
     }
 
     @Test
@@ -393,7 +393,7 @@ public class MarketPayTest extends BaseTest {
         uploadDocumentRequest.setDocumentDetail(documentDetail);
 
         UploadDocumentResponse uploadDocumentResponse = account.uploadDocument(uploadDocumentRequest);
-        System.out.println(uploadDocumentResponse);
+        //        System.out.println(uploadDocumentResponse);
     }
 
     @Test
@@ -419,7 +419,7 @@ public class MarketPayTest extends BaseTest {
         transferFundsRequest.setTransferCode("CODE_A");
         TransferFundsResponse transferFundsResponse = fund.transferFunds(transferFundsRequest);
 
-        System.out.println(transferFundsResponse);
+        //        System.out.println(transferFundsResponse);
     }
 
     @Test
@@ -435,7 +435,7 @@ public class MarketPayTest extends BaseTest {
         createAccountRequest.setAccountHolderCode("TestAccountHolder5691");
 
         CreateAccountResponse createAccountResponse = account.createAccount(createAccountRequest);
-        System.out.println(createAccountResponse);
+        //        System.out.println(createAccountResponse);
 
     }
 
@@ -453,7 +453,7 @@ public class MarketPayTest extends BaseTest {
         deleteBankAccountRequest.addBankAccountUUIDsItem("eeb6ed22-3bae-483c-83b9-bc2097a75d40");
 
         DeleteBankAccountResponse deleteBankAccountResponse = account.deleteBankAccount(deleteBankAccountRequest);
-        System.out.println(deleteBankAccountResponse);
+        //        System.out.println(deleteBankAccountResponse);
 
 
     }
@@ -472,7 +472,7 @@ public class MarketPayTest extends BaseTest {
         deleteShareholderRequest.addShareholderCodesItem("9188218c-576e-4cbe-8e86-72722f453920");
 
         DeleteShareholderResponse deleteShareholderResponse = account.deleteShareholder(deleteShareholderRequest);
-        System.out.println(deleteShareholderResponse);
+        //        System.out.println(deleteShareholderResponse);
     }
 
     @Test
@@ -488,7 +488,7 @@ public class MarketPayTest extends BaseTest {
         suspendAccountHolderRequest.setAccountHolderCode("TestAccountHolder192192");
 
         SuspendAccountHolderResponse suspendAccountHolderResponse = account.suspendAccountHolder(suspendAccountHolderRequest);
-        System.out.println(suspendAccountHolderResponse);
+        //        System.out.println(suspendAccountHolderResponse);
     }
 
     @Test
@@ -504,7 +504,7 @@ public class MarketPayTest extends BaseTest {
         unSuspendAccountHolderRequest.setAccountHolderCode("TestAccountHolder192192");
 
         UnSuspendAccountHolderResponse unSuspendAccountHolderResponse = account.unSuspendAccountHolder(unSuspendAccountHolderRequest);
-        System.out.println(unSuspendAccountHolderResponse);
+        //        System.out.println(unSuspendAccountHolderResponse);
     }
 
     @Test
@@ -523,7 +523,7 @@ public class MarketPayTest extends BaseTest {
         updateAccountHolderStateRequest.stateType(UpdateAccountHolderStateRequest.StateTypeEnum.PAYOUT);
 
         UpdateAccountHolderStateResponse updateAccountHolderStateResponse = account.updateAccountHolderState(updateAccountHolderStateRequest);
-        System.out.println(updateAccountHolderStateResponse);
+        //        System.out.println(updateAccountHolderStateResponse);
     }
 
     @Test
@@ -539,7 +539,7 @@ public class MarketPayTest extends BaseTest {
         closeAccountRequest.setAccountCode("118731451");
 
         CloseAccountResponse closeAccountResponse = account.closeAccount(closeAccountRequest);
-        System.out.println(closeAccountResponse);
+        //        System.out.println(closeAccountResponse);
     }
 
     @Test
@@ -555,7 +555,7 @@ public class MarketPayTest extends BaseTest {
         closeAccountHolderRequest.setAccountHolderCode("TestAccountHolder1450");
 
         CloseAccountHolderResponse closeAccountHolderResponse = account.closeAccountHolder(closeAccountHolderRequest);
-        System.out.println(closeAccountHolderResponse);
+        //        System.out.println(closeAccountHolderResponse);
     }
 
     @Test
@@ -581,7 +581,7 @@ public class MarketPayTest extends BaseTest {
 
         PayoutAccountHolderResponse payoutAccountHolderResponse = fund.payoutAccountHolder(payoutAccountHolderRequest);
 
-        System.out.println(payoutAccountHolderResponse);
+        //        System.out.println(payoutAccountHolderResponse);
     }
 
     @Test
@@ -603,7 +603,7 @@ public class MarketPayTest extends BaseTest {
         updateAccountRequest.setPayoutSchedule(updatePayoutScheduleRequest);
 
         UpdateAccountResponse updateAccountResponse = account.updateAccount(updateAccountRequest);
-        System.out.println(updateAccountResponse);
+        //        System.out.println(updateAccountResponse);
     }
 
     @Test
@@ -627,7 +627,7 @@ public class MarketPayTest extends BaseTest {
 
 
         AccountHolderTransactionListResponse accountHolderTransactionListResponse = fund.accountHolderTransactionList(accountHolderTransactionListRequest);
-        System.out.println(accountHolderTransactionListResponse);
+        //        System.out.println(accountHolderTransactionListResponse);
     }
 
     @Test
@@ -644,7 +644,7 @@ public class MarketPayTest extends BaseTest {
         getUploadedDocumentsRequest.setBankAccountUUID("EXAMPLE_UUID");
 
         GetUploadedDocumentsResponse getUploadedDocumentsResponse = account.getUploadedDocuments(getUploadedDocumentsRequest);
-        System.out.println(getUploadedDocumentsResponse);
+        //        System.out.println(getUploadedDocumentsResponse);
     }
 
     @Test
@@ -660,7 +660,7 @@ public class MarketPayTest extends BaseTest {
         refundNotPaidOutTransfersRequest.setAccountCode("189184578");
 
         RefundNotPaidOutTransfersResponse refundNotPaidOutTransfersResponse = fund.refundNotPaidOutTransfers(refundNotPaidOutTransfersRequest);
-        System.out.println(refundNotPaidOutTransfersResponse);
+        //        System.out.println(refundNotPaidOutTransfersResponse);
     }
 
     @Test
@@ -677,7 +677,7 @@ public class MarketPayTest extends BaseTest {
         setupBeneficiaryRequest.setSourceAccountCode("134498192");
 
         SetupBeneficiaryResponse setupBeneficiaryResponse = fund.setupBeneficiary(setupBeneficiaryRequest);
-        System.out.println(setupBeneficiaryResponse);
+        //        System.out.println(setupBeneficiaryResponse);
     }
 
 }
