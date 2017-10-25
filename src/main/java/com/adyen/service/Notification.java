@@ -54,10 +54,10 @@ public class Notification extends Service {
     public CreateNotificationConfigurationResponse createNotificationConfiguration(CreateNotificationConfigurationRequest createNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(createNotificationConfigurationRequest);
         String jsonResult = createNotificationConfiguration.request(jsonRequest);
-        CreateNotificationConfigurationResponse getNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<CreateNotificationConfigurationResponse>() {
+        CreateNotificationConfigurationResponse createNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<CreateNotificationConfigurationResponse>() {
         }.getType());
 
-        return getNotificationConfigurationResponse;
+        return createNotificationConfigurationResponse;
     }
 
     public UpdateNotificationConfigurationResponse updateNotificationConfiguration(UpdateNotificationConfigurationRequest updateNotificationConfigurationRequest) throws Exception {

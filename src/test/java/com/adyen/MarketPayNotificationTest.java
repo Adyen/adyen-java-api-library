@@ -35,7 +35,7 @@ public class MarketPayNotificationTest extends BaseTest {
         CreateNotificationConfigurationRequest createNotificationConfigurationRequest = new CreateNotificationConfigurationRequest();
         CreateNotificationConfigurationResponse getNotificationConfigurationResponse = notification.createNotificationConfiguration(createNotificationConfigurationRequest);
 
-        System.out.println(getNotificationConfigurationResponse);
+//        System.out.println(getNotificationConfigurationResponse);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class MarketPayNotificationTest extends BaseTest {
         UpdateNotificationConfigurationRequest updateNotificationConfigurationRequest = new UpdateNotificationConfigurationRequest();
         UpdateNotificationConfigurationResponse getNotificationConfigurationResponse = notification.updateNotificationConfiguration(updateNotificationConfigurationRequest);
 
-        System.out.println(getNotificationConfigurationResponse);
+//        System.out.println(getNotificationConfigurationResponse);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class MarketPayNotificationTest extends BaseTest {
         GetNotificationConfigurationRequest getNotificationConfigurationRequest = new GetNotificationConfigurationRequest();
         GetNotificationConfigurationResponse getNotificationConfigurationResponse = notification.getNotificationConfiguration(getNotificationConfigurationRequest);
 
-        System.out.println(getNotificationConfigurationResponse);
+//        System.out.println(getNotificationConfigurationResponse);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class MarketPayNotificationTest extends BaseTest {
         DeleteNotificationConfigurationRequest deleteNotificationConfigurationRequest = new DeleteNotificationConfigurationRequest();
         DeleteNotificationConfigurationResponse getNotificationConfigurationResponse = notification.deleteNotificationConfiguration(deleteNotificationConfigurationRequest);
 
-        System.out.println(getNotificationConfigurationResponse);
+//        System.out.println(getNotificationConfigurationResponse);
     }
 
     @Test
@@ -76,7 +76,7 @@ public class MarketPayNotificationTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/marketpay/notification/get-notification-configurationList-success.json");
         Notification notification = new Notification(client);
         GetNotificationConfigurationListResponse getNotificationConfigurationListResponse = notification.getNotificationConfigurationList();
-        System.out.println(getNotificationConfigurationListResponse);
+//        System.out.println(getNotificationConfigurationListResponse);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class MarketPayNotificationTest extends BaseTest {
         TestNotificationConfigurationRequest testNotificationConfigurationRequest = new TestNotificationConfigurationRequest();
         TestNotificationConfigurationResponse testNotificationConfigurationResponse = notification.testNotificationConfiguration(testNotificationConfigurationRequest);
 
-        System.out.println(testNotificationConfigurationResponse);
+//        System.out.println(testNotificationConfigurationResponse);
 
 
         //assertEquals("Number", testNotificationConfigurationResponse.getExchangeMessages().get(0).getMessageCode());
