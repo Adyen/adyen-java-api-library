@@ -1,0 +1,19 @@
+package com.adyen.service.resource.notification;
+
+import com.adyen.Service;
+import com.adyen.service.Resource;
+
+import java.util.Arrays;
+
+
+public class DeleteNotificationConfigurations extends Resource {
+
+    public DeleteNotificationConfigurations(Service service) {
+        super(service,
+              service.getClient().getConfig().getMarketPayEndpoint() + "/Notification/" + service.getClient().getMarketPayApiVersion() + "/deleteNotificationConfigurations",
+              Arrays.asList(
+                      "notificationIds"
+              )
+        );
+    }
+}
