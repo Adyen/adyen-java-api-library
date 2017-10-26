@@ -60,11 +60,6 @@ public class GetNotificationConfigurationListResponse {
         this.submittedAsync = submittedAsync;
     }
 
-    public GetNotificationConfigurationListResponse configurations(List<NotificationConfigurationDetails> configurations) {
-        this.configurations = configurations;
-        return this;
-    }
-
     /**
      * Populate the virtual configurations to bypass the notificationConfigurationDetails list
      *

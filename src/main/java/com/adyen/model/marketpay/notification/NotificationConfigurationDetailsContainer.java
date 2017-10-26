@@ -24,9 +24,6 @@ package com.adyen.model.marketpay.notification;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by rikt on 10/26/17.
- */
 public class NotificationConfigurationDetailsContainer {
 
 
