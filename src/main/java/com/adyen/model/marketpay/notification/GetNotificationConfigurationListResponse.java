@@ -29,7 +29,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * GetNotificationConfigurationListResponse
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-26T07:34:47.963Z")
 public class GetNotificationConfigurationListResponse {
     @SerializedName("submittedAsync")
     private Boolean submittedAsync = null;

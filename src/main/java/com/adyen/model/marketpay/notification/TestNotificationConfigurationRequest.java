@@ -29,7 +29,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * TestNotificationConfigurationRequest
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-26T07:34:47.963Z")
 public class TestNotificationConfigurationRequest {
     @SerializedName("notificationId")
     private Long notificationId = null;

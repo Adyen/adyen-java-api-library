@@ -27,7 +27,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * NotificationEventConfiguration
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-26T07:34:47.963Z")
 public class NotificationEventConfiguration {
     /**
      * specifies if the notification has to be sent in case an event of the mentioned type has occurred, or of events other than event of the mentioned type have occurred
