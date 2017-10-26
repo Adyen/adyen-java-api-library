@@ -21,42 +21,26 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * DeleteNotificationConfigurationRequest
+ * Created by rikt on 10/26/17.
  */
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-26T07:34:47.963Z")
-public class DeleteNotificationConfigurationRequest {
-    @SerializedName("notificationIds")
-    private List<Long> notificationIds = new ArrayList<Long>();
+public class NotificationConfigurationDetailsContainer {
 
-    public DeleteNotificationConfigurationRequest notificationIds(List<Long> notificationIds) {
-        this.notificationIds = notificationIds;
-        return this;
+
+    @SerializedName("NotificationConfigurationDetails")
+    NotificationConfigurationDetails notificationConfigurationDetails = new NotificationConfigurationDetails();
+
+
+    public NotificationConfigurationDetails getNotificationConfigurationDetails() {
+        return notificationConfigurationDetails;
     }
 
-    public DeleteNotificationConfigurationRequest addNotificationIdsItem(Long notificationIdsItem) {
-        this.notificationIds.add(notificationIdsItem);
-        return this;
+    public void setNotificationConfigurationDetails(NotificationConfigurationDetails notificationConfigurationDetails) {
+        this.notificationConfigurationDetails = notificationConfigurationDetails;
     }
-
-    /**
-     * IDs of the notification configurations to be deleted
-     *
-     * @return notificationIds
-     **/
-    public List<Long> getNotificationIds() {
-        return notificationIds;
-    }
-
-    public void setNotificationIds(List<Long> notificationIds) {
-        this.notificationIds = notificationIds;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -66,36 +50,30 @@ public class DeleteNotificationConfigurationRequest {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DeleteNotificationConfigurationRequest deleteNotificationConfigurationRequest = (DeleteNotificationConfigurationRequest) o;
-        return Objects.equals(this.notificationIds, deleteNotificationConfigurationRequest.notificationIds);
+        NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer = (NotificationConfigurationDetailsContainer) o;
+        return Objects.equals(this.notificationConfigurationDetails, notificationConfigurationDetailsContainer.notificationConfigurationDetails);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(notificationIds);
+        return Objects.hash(notificationConfigurationDetails);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteNotificationConfigurationRequest {\n");
+        sb.append("class NotificationConfigurationDetailsContainer {\n");
 
-        sb.append("    notificationIds: ").append(toIndentedString(notificationIds)).append("\n");
+        sb.append("    notificationConfigurationDetails: ").append(toIndentedString(notificationConfigurationDetails)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
     private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
     }
-
 }
-

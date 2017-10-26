@@ -1,4 +1,3 @@
-
 /*
  *                       ######
  *                       ######
@@ -19,6 +18,7 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay.notification;
 
 import java.util.ArrayList;
@@ -29,12 +29,16 @@ import com.google.gson.annotations.SerializedName;
 /**
  * GetNotificationConfigurationListResponse
  */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-26T07:34:47.963Z")
 public class GetNotificationConfigurationListResponse {
     @SerializedName("submittedAsync")
     private Boolean submittedAsync = null;
 
     @SerializedName("configurations")
-    private List<CreateNotificationConfigurationConfigurationDetails> configurations = null;
+    private List<NotificationConfigurationDetailsContainer> configurationsContainers = null;
+
+    private transient List<NotificationConfigurationDetails> configurations = null;
+
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -57,30 +61,45 @@ public class GetNotificationConfigurationListResponse {
         this.submittedAsync = submittedAsync;
     }
 
-    public GetNotificationConfigurationListResponse configurations(List<CreateNotificationConfigurationConfigurationDetails> configurations) {
+    public GetNotificationConfigurationListResponse configurations(List<NotificationConfigurationDetails> configurations) {
         this.configurations = configurations;
-        return this;
-    }
-
-    public GetNotificationConfigurationListResponse addConfigurationsItem(CreateNotificationConfigurationConfigurationDetails configurationsItem) {
-        if (this.configurations == null) {
-            this.configurations = new ArrayList<CreateNotificationConfigurationConfigurationDetails>();
-        }
-        this.configurations.add(configurationsItem);
         return this;
     }
 
     /**
-     * notification configurations
+     * Populate the virtual configurations to bypass the notificationConfigurationDetails list
      *
      * @return configurations
      **/
-    public List<CreateNotificationConfigurationConfigurationDetails> getConfigurations() {
+    public List<NotificationConfigurationDetails> getConfigurations() {
+        if (configurations == null) {
+            configurations = new ArrayList<NotificationConfigurationDetails>();
+
+            if (configurationsContainers != null && ! configurationsContainers.isEmpty()) {
+                for (NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer : configurationsContainers) {
+                    configurations.add(notificationConfigurationDetailsContainer.getNotificationConfigurationDetails());
+                }
+            }
+        }
         return configurations;
     }
 
-    public void setConfigurations(List<CreateNotificationConfigurationConfigurationDetails> configurations) {
+    public void setConfigurations(List<NotificationConfigurationDetails> configurations) {
+
         this.configurations = configurations;
+
+        // set as well the container list this will be send in the API request
+        this.configurationsContainers = new ArrayList<NotificationConfigurationDetailsContainer>();
+        for (NotificationConfigurationDetails notificationConfigurationDetails : configurations) {
+            NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer = createNotificationConfigurationDetailsContainerFromConfiguration(notificationConfigurationDetails);
+            this.configurationsContainers.add(notificationConfigurationDetailsContainer);
+        }
+    }
+
+    private NotificationConfigurationDetailsContainer createNotificationConfigurationDetailsContainerFromConfiguration(NotificationConfigurationDetails configuration) {
+        NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer = new NotificationConfigurationDetailsContainer();
+        notificationConfigurationDetailsContainer.setNotificationConfigurationDetails(configuration);
+        return notificationConfigurationDetailsContainer;
     }
 
     public GetNotificationConfigurationListResponse pspReference(String pspReference) {
@@ -103,7 +122,7 @@ public class GetNotificationConfigurationListResponse {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -125,6 +144,8 @@ public class GetNotificationConfigurationListResponse {
 
     @Override
     public String toString() {
+        // Populate the configurations list to provide back in the toString() method
+        this.getConfigurations();
         StringBuilder sb = new StringBuilder();
         sb.append("class GetNotificationConfigurationListResponse {\n");
 
@@ -136,9 +157,10 @@ public class GetNotificationConfigurationListResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

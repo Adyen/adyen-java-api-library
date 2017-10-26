@@ -18,6 +18,7 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay.notification;
 
 import java.util.Objects;
@@ -26,31 +27,32 @@ import com.google.gson.annotations.SerializedName;
 /**
  * UpdateNotificationConfigurationRequest
  */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-26T07:34:47.963Z")
 public class UpdateNotificationConfigurationRequest {
     @SerializedName("configurationDetails")
-    private CreateNotificationConfigurationConfigurationDetails configurationDetails = null;
+    private NotificationConfigurationDetails configurationDetails = null;
 
-    public UpdateNotificationConfigurationRequest configurationDetails(CreateNotificationConfigurationConfigurationDetails configurationDetails) {
+    public UpdateNotificationConfigurationRequest configurationDetails(NotificationConfigurationDetails configurationDetails) {
         this.configurationDetails = configurationDetails;
         return this;
     }
 
     /**
-     * Get configurationDetails
+     * details of notification configuration to be updated
      *
      * @return configurationDetails
      **/
-    public CreateNotificationConfigurationConfigurationDetails getConfigurationDetails() {
+    public NotificationConfigurationDetails getConfigurationDetails() {
         return configurationDetails;
     }
 
-    public void setConfigurationDetails(CreateNotificationConfigurationConfigurationDetails configurationDetails) {
+    public void setConfigurationDetails(NotificationConfigurationDetails configurationDetails) {
         this.configurationDetails = configurationDetails;
     }
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -78,9 +80,10 @@ public class UpdateNotificationConfigurationRequest {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

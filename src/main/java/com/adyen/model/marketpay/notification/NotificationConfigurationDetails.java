@@ -18,40 +18,40 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay.notification;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 
 /**
  * NotificationConfigurationDetails
  */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-10-26T07:34:47.963Z")
 public class NotificationConfigurationDetails {
     @SerializedName("settings")
-    private Map<String, String> settings = null;
+    private Map<String, String> settings = new HashMap<String, String>();
 
     @SerializedName("apiVersion")
     private Integer apiVersion = null;
 
     @SerializedName("eventConfigs")
-    private List<CreateNotificationConfigurationConfigurationDetailsEventConfigs> eventConfigs = null;
+    private List<NotificationEventConfigurationContainer> eventConfigsContainer = null;
+
+    private transient List<NotificationEventConfiguration> eventConfigs = null;
 
     /**
      * data interchange format
      */
-    @JsonAdapter(MessageFormatEnum.Adapter.class)
     public enum MessageFormatEnum {
+        @SerializedName("JSON")
         JSON("JSON"),
 
+        @SerializedName("SOAP")
         SOAP("SOAP");
 
         private String value;
@@ -60,35 +60,9 @@ public class NotificationConfigurationDetails {
             this.value = value;
         }
 
-        public String getValue() {
-            return value;
-        }
-
         @Override
         public String toString() {
             return String.valueOf(value);
-        }
-
-        public static MessageFormatEnum fromValue(String text) {
-            for (MessageFormatEnum b : MessageFormatEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<MessageFormatEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final MessageFormatEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public MessageFormatEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return MessageFormatEnum.fromValue(String.valueOf(value));
-            }
         }
     }
 
@@ -101,22 +75,29 @@ public class NotificationConfigurationDetails {
     /**
      * SSL protocol
      */
-    @JsonAdapter(SslProtocolEnum.Adapter.class)
     public enum SslProtocolEnum {
+        @SerializedName("SSL")
         SSL("SSL"),
 
+        @SerializedName("SSLInsecureCiphers")
         SSLINSECURECIPHERS("SSLInsecureCiphers"),
 
+        @SerializedName("SSLv3")
         SSLV3("SSLv3"),
 
+        @SerializedName("TLS")
         TLS("TLS"),
 
+        @SerializedName("TLSv10")
         TLSV10("TLSv10"),
 
+        @SerializedName("TLSv10InsecureCiphers")
         TLSV10INSECURECIPHERS("TLSv10InsecureCiphers"),
 
+        @SerializedName("TLSv11")
         TLSV11("TLSv11"),
 
+        @SerializedName("TLSv12")
         TLSV12("TLSv12");
 
         private String value;
@@ -125,35 +106,9 @@ public class NotificationConfigurationDetails {
             this.value = value;
         }
 
-        public String getValue() {
-            return value;
-        }
-
         @Override
         public String toString() {
             return String.valueOf(value);
-        }
-
-        public static SslProtocolEnum fromValue(String text) {
-            for (SslProtocolEnum b : SslProtocolEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<SslProtocolEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final SslProtocolEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public SslProtocolEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return SslProtocolEnum.fromValue(String.valueOf(value));
-            }
         }
     }
 
@@ -184,9 +139,6 @@ public class NotificationConfigurationDetails {
     }
 
     public NotificationConfigurationDetails putSettingsItem(String key, String settingsItem) {
-        if (this.settings == null) {
-            this.settings = new HashMap<String, String>();
-        }
         this.settings.put(key, settingsItem);
         return this;
     }
@@ -222,15 +174,20 @@ public class NotificationConfigurationDetails {
         this.apiVersion = apiVersion;
     }
 
-    public NotificationConfigurationDetails eventConfigs(List<CreateNotificationConfigurationConfigurationDetailsEventConfigs> eventConfigs) {
-        this.eventConfigs = eventConfigs;
-        return this;
-    }
 
-    public NotificationConfigurationDetails addEventConfigsItem(CreateNotificationConfigurationConfigurationDetailsEventConfigs eventConfigsItem) {
-        if (this.eventConfigs == null) {
-            this.eventConfigs = new ArrayList<CreateNotificationConfigurationConfigurationDetailsEventConfigs>();
+
+    public NotificationConfigurationDetails addEventConfigsItem(NotificationEventConfiguration eventConfigsItem) {
+
+        NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(eventConfigsItem);
+        if (eventConfigsContainer == null) {
+            eventConfigsContainer = new ArrayList<NotificationEventConfigurationContainer>();
         }
+        this.eventConfigsContainer.add(notificationEventConfigurationContainer);
+
+        if (eventConfigs == null) {
+            eventConfigs = new ArrayList<NotificationEventConfiguration>();
+        }
+
         this.eventConfigs.add(eventConfigsItem);
         return this;
     }
@@ -240,13 +197,37 @@ public class NotificationConfigurationDetails {
      *
      * @return eventConfigs
      **/
-    public List<CreateNotificationConfigurationConfigurationDetailsEventConfigs> getEventConfigs() {
+    public List<NotificationEventConfiguration> getEventConfigs() {
+        if (eventConfigs == null) {
+            eventConfigs = new ArrayList<NotificationEventConfiguration>();
+
+            if (eventConfigsContainer != null && ! eventConfigsContainer.isEmpty()) {
+                for (NotificationEventConfigurationContainer notificationEventConfigurationContainer : eventConfigsContainer) {
+                    eventConfigs.add(notificationEventConfigurationContainer.getNotificationEventConfiguration());
+                }
+            }
+        }
         return eventConfigs;
     }
 
-    public void setEventConfigs(List<CreateNotificationConfigurationConfigurationDetailsEventConfigs> eventConfigs) {
+    public void setEventConfigs(List<NotificationEventConfiguration> eventConfigs) {
         this.eventConfigs = eventConfigs;
+
+        // set as well the container list this will be send in the API request
+        this.eventConfigsContainer = new ArrayList<NotificationEventConfigurationContainer>();
+        for (NotificationEventConfiguration notificationConfigurationDetails : eventConfigs) {
+            NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(notificationConfigurationDetails);
+            this.eventConfigsContainer.add(notificationEventConfigurationContainer);
+        }
+
     }
+
+    private NotificationEventConfigurationContainer createEventConfigsContainerForEventConfig(NotificationEventConfiguration notificationConfigurationDetails) {
+        NotificationEventConfigurationContainer notificationEventConfigurationContainer = new NotificationEventConfigurationContainer();
+        notificationEventConfigurationContainer.setNotificationEventConfiguration(notificationConfigurationDetails);
+        return notificationEventConfigurationContainer;
+    }
+
 
     public NotificationConfigurationDetails messageFormat(MessageFormatEnum messageFormat) {
         this.messageFormat = messageFormat;
@@ -412,7 +393,7 @@ public class NotificationConfigurationDetails {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -442,6 +423,8 @@ public class NotificationConfigurationDetails {
 
     @Override
     public String toString() {
+        // Populate the eventConfigs list to provide back in the toString() method
+        this.getEventConfigs();
         StringBuilder sb = new StringBuilder();
         sb.append("class NotificationConfigurationDetails {\n");
 
@@ -462,9 +445,10 @@ public class NotificationConfigurationDetails {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

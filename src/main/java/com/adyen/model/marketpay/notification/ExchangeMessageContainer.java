@@ -24,6 +24,7 @@ package com.adyen.model.marketpay.notification;
 import com.google.gson.annotations.SerializedName;
 
 public class ExchangeMessageContainer {
+
     @SerializedName("ExchangeMessage")
     private ExchangeMessage exchangeMessage = null;
 
