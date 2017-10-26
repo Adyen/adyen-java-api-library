@@ -1,4 +1,3 @@
-
 /*
  *                       ######
  *                       ######
@@ -19,6 +18,7 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay.notification;
 
 import java.util.Objects;
@@ -51,7 +51,7 @@ public class GetNotificationConfigurationRequest {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -79,9 +79,10 @@ public class GetNotificationConfigurationRequest {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

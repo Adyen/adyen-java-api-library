@@ -18,17 +18,13 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay.notification;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 
 /**
  * TestNotificationConfigurationRequest
@@ -40,34 +36,47 @@ public class TestNotificationConfigurationRequest {
     /**
      * Gets or Sets eventTypes
      */
-    @JsonAdapter(EventTypesEnum.Adapter.class)
     public enum EventTypesEnum {
+        @SerializedName("ACCOUNT_CREATED")
         ACCOUNT_CREATED("ACCOUNT_CREATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_CREATED")
         ACCOUNT_HOLDER_CREATED("ACCOUNT_HOLDER_CREATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_LIMIT_REACHED")
         ACCOUNT_HOLDER_LIMIT_REACHED("ACCOUNT_HOLDER_LIMIT_REACHED"),
 
+        @SerializedName("ACCOUNT_HOLDER_PAYOUT")
         ACCOUNT_HOLDER_PAYOUT("ACCOUNT_HOLDER_PAYOUT"),
 
+        @SerializedName("ACCOUNT_HOLDER_STATUS_CHANGE")
         ACCOUNT_HOLDER_STATUS_CHANGE("ACCOUNT_HOLDER_STATUS_CHANGE"),
 
+        @SerializedName("ACCOUNT_HOLDER_UPDATED")
         ACCOUNT_HOLDER_UPDATED("ACCOUNT_HOLDER_UPDATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_VERIFICATION")
         ACCOUNT_HOLDER_VERIFICATION("ACCOUNT_HOLDER_VERIFICATION"),
 
+        @SerializedName("ACCOUNT_UPDATED")
         ACCOUNT_UPDATED("ACCOUNT_UPDATED"),
 
+        @SerializedName("BENEFICIARY_SETUP")
         BENEFICIARY_SETUP("BENEFICIARY_SETUP"),
 
+        @SerializedName("COMPENSATE_NEGATIVE_BALANCE")
         COMPENSATE_NEGATIVE_BALANCE("COMPENSATE_NEGATIVE_BALANCE"),
 
+        @SerializedName("PAYMENT_FAILURE")
         PAYMENT_FAILURE("PAYMENT_FAILURE"),
 
+        @SerializedName("REPORT_AVAILABLE")
         REPORT_AVAILABLE("REPORT_AVAILABLE"),
 
+        @SerializedName("SCHEDULED_REFUNDS")
         SCHEDULED_REFUNDS("SCHEDULED_REFUNDS"),
 
+        @SerializedName("TRANSFER_FUNDS")
         TRANSFER_FUNDS("TRANSFER_FUNDS");
 
         private String value;
@@ -76,40 +85,14 @@ public class TestNotificationConfigurationRequest {
             this.value = value;
         }
 
-        public String getValue() {
-            return value;
-        }
-
         @Override
         public String toString() {
             return String.valueOf(value);
         }
-
-        public static EventTypesEnum fromValue(String text) {
-            for (EventTypesEnum b : EventTypesEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<EventTypesEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final EventTypesEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public EventTypesEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return EventTypesEnum.fromValue(String.valueOf(value));
-            }
-        }
     }
 
     @SerializedName("eventTypes")
-    private List<EventTypesEnum> eventTypes = null;
+    private List<EventTypesEnum> eventTypes = new ArrayList<EventTypesEnum>();
 
     public TestNotificationConfigurationRequest notificationId(Long notificationId) {
         this.notificationId = notificationId;
@@ -135,9 +118,6 @@ public class TestNotificationConfigurationRequest {
     }
 
     public TestNotificationConfigurationRequest addEventTypesItem(EventTypesEnum eventTypesItem) {
-        if (this.eventTypes == null) {
-            this.eventTypes = new ArrayList<EventTypesEnum>();
-        }
         this.eventTypes.add(eventTypesItem);
         return this;
     }
@@ -157,7 +137,7 @@ public class TestNotificationConfigurationRequest {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -186,9 +166,10 @@ public class TestNotificationConfigurationRequest {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

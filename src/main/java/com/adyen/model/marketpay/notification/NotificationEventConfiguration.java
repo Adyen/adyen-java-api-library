@@ -18,15 +18,11 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay.notification;
 
-import java.io.IOException;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 
 /**
  * NotificationEventConfiguration
@@ -35,10 +31,11 @@ public class NotificationEventConfiguration {
     /**
      * specifies if the notification has to be sent in case an event of the mentioned type has occurred, or of events other than event of the mentioned type have occurred
      */
-    @JsonAdapter(IncludeModeEnum.Adapter.class)
     public enum IncludeModeEnum {
+        @SerializedName("EXCLUDE")
         EXCLUDE("EXCLUDE"),
 
+        @SerializedName("INCLUDE")
         INCLUDE("INCLUDE");
 
         private String value;
@@ -47,35 +44,9 @@ public class NotificationEventConfiguration {
             this.value = value;
         }
 
-        public String getValue() {
-            return value;
-        }
-
         @Override
         public String toString() {
             return String.valueOf(value);
-        }
-
-        public static IncludeModeEnum fromValue(String text) {
-            for (IncludeModeEnum b : IncludeModeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<IncludeModeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final IncludeModeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public IncludeModeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return IncludeModeEnum.fromValue(String.valueOf(value));
-            }
         }
     }
 
@@ -85,34 +56,47 @@ public class NotificationEventConfiguration {
     /**
      * type of the events triggering the notification
      */
-    @JsonAdapter(EventTypeEnum.Adapter.class)
     public enum EventTypeEnum {
+        @SerializedName("ACCOUNT_CREATED")
         ACCOUNT_CREATED("ACCOUNT_CREATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_CREATED")
         ACCOUNT_HOLDER_CREATED("ACCOUNT_HOLDER_CREATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_LIMIT_REACHED")
         ACCOUNT_HOLDER_LIMIT_REACHED("ACCOUNT_HOLDER_LIMIT_REACHED"),
 
+        @SerializedName("ACCOUNT_HOLDER_PAYOUT")
         ACCOUNT_HOLDER_PAYOUT("ACCOUNT_HOLDER_PAYOUT"),
 
+        @SerializedName("ACCOUNT_HOLDER_STATUS_CHANGE")
         ACCOUNT_HOLDER_STATUS_CHANGE("ACCOUNT_HOLDER_STATUS_CHANGE"),
 
+        @SerializedName("ACCOUNT_HOLDER_UPDATED")
         ACCOUNT_HOLDER_UPDATED("ACCOUNT_HOLDER_UPDATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_VERIFICATION")
         ACCOUNT_HOLDER_VERIFICATION("ACCOUNT_HOLDER_VERIFICATION"),
 
+        @SerializedName("ACCOUNT_UPDATED")
         ACCOUNT_UPDATED("ACCOUNT_UPDATED"),
 
+        @SerializedName("BENEFICIARY_SETUP")
         BENEFICIARY_SETUP("BENEFICIARY_SETUP"),
 
+        @SerializedName("COMPENSATE_NEGATIVE_BALANCE")
         COMPENSATE_NEGATIVE_BALANCE("COMPENSATE_NEGATIVE_BALANCE"),
 
+        @SerializedName("PAYMENT_FAILURE")
         PAYMENT_FAILURE("PAYMENT_FAILURE"),
 
+        @SerializedName("REPORT_AVAILABLE")
         REPORT_AVAILABLE("REPORT_AVAILABLE"),
 
+        @SerializedName("SCHEDULED_REFUNDS")
         SCHEDULED_REFUNDS("SCHEDULED_REFUNDS"),
 
+        @SerializedName("TRANSFER_FUNDS")
         TRANSFER_FUNDS("TRANSFER_FUNDS");
 
         private String value;
@@ -121,35 +105,9 @@ public class NotificationEventConfiguration {
             this.value = value;
         }
 
-        public String getValue() {
-            return value;
-        }
-
         @Override
         public String toString() {
             return String.valueOf(value);
-        }
-
-        public static EventTypeEnum fromValue(String text) {
-            for (EventTypeEnum b : EventTypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<EventTypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final EventTypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public EventTypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return EventTypeEnum.fromValue(String.valueOf(value));
-            }
         }
     }
 
@@ -194,7 +152,7 @@ public class NotificationEventConfiguration {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -223,9 +181,10 @@ public class NotificationEventConfiguration {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

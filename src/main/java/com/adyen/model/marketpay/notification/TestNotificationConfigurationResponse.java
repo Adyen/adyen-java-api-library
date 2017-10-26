@@ -20,15 +20,10 @@
  */
 package com.adyen.model.marketpay.notification;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 
 /**
  * TestNotificationConfigurationResponse
@@ -54,34 +49,47 @@ public class TestNotificationConfigurationResponse {
     /**
      * Gets or Sets eventTypes
      */
-    @JsonAdapter(EventTypesEnum.Adapter.class)
     public enum EventTypesEnum {
+        @SerializedName("ACCOUNT_CREATED")
         ACCOUNT_CREATED("ACCOUNT_CREATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_CREATED")
         ACCOUNT_HOLDER_CREATED("ACCOUNT_HOLDER_CREATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_LIMIT_REACHED")
         ACCOUNT_HOLDER_LIMIT_REACHED("ACCOUNT_HOLDER_LIMIT_REACHED"),
 
+        @SerializedName("ACCOUNT_HOLDER_PAYOUT")
         ACCOUNT_HOLDER_PAYOUT("ACCOUNT_HOLDER_PAYOUT"),
 
+        @SerializedName("ACCOUNT_HOLDER_STATUS_CHANGE")
         ACCOUNT_HOLDER_STATUS_CHANGE("ACCOUNT_HOLDER_STATUS_CHANGE"),
 
+        @SerializedName("ACCOUNT_HOLDER_UPDATED")
         ACCOUNT_HOLDER_UPDATED("ACCOUNT_HOLDER_UPDATED"),
 
+        @SerializedName("ACCOUNT_HOLDER_VERIFICATION")
         ACCOUNT_HOLDER_VERIFICATION("ACCOUNT_HOLDER_VERIFICATION"),
 
+        @SerializedName("ACCOUNT_UPDATED")
         ACCOUNT_UPDATED("ACCOUNT_UPDATED"),
 
+        @SerializedName("BENEFICIARY_SETUP")
         BENEFICIARY_SETUP("BENEFICIARY_SETUP"),
 
+        @SerializedName("COMPENSATE_NEGATIVE_BALANCE")
         COMPENSATE_NEGATIVE_BALANCE("COMPENSATE_NEGATIVE_BALANCE"),
 
+        @SerializedName("PAYMENT_FAILURE")
         PAYMENT_FAILURE("PAYMENT_FAILURE"),
 
+        @SerializedName("REPORT_AVAILABLE")
         REPORT_AVAILABLE("REPORT_AVAILABLE"),
 
+        @SerializedName("SCHEDULED_REFUNDS")
         SCHEDULED_REFUNDS("SCHEDULED_REFUNDS"),
 
+        @SerializedName("TRANSFER_FUNDS")
         TRANSFER_FUNDS("TRANSFER_FUNDS");
 
         private String value;
@@ -90,35 +98,9 @@ public class TestNotificationConfigurationResponse {
             this.value = value;
         }
 
-        public String getValue() {
-            return value;
-        }
-
         @Override
         public String toString() {
             return String.valueOf(value);
-        }
-
-        public static EventTypesEnum fromValue(String text) {
-            for (EventTypesEnum b : EventTypesEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<EventTypesEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final EventTypesEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public EventTypesEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return EventTypesEnum.fromValue(String.valueOf(value));
-            }
         }
     }
 
@@ -198,18 +180,6 @@ public class TestNotificationConfigurationResponse {
         this.okMessages = okMessages;
     }
 
-    public TestNotificationConfigurationResponse exchangeMessages(List<ExchangeMessage> exchangeMessages) {
-        this.exchangeMessages = exchangeMessages;
-        return this;
-    }
-
-    public TestNotificationConfigurationResponse addExchangeMessagesItem(ExchangeMessage exchangeMessagesItem) {
-        if (this.exchangeMessages == null) {
-            this.exchangeMessages = new ArrayList<ExchangeMessage>();
-        }
-        this.exchangeMessages.add(exchangeMessagesItem);
-        return this;
-    }
 
     /**
      * Populate the virtual exchangeMessages to bypass the exchangeMessageContainers list
@@ -246,21 +216,6 @@ public class TestNotificationConfigurationResponse {
         ExchangeMessageContainer exchangeMessageContainer = new ExchangeMessageContainer();
         exchangeMessageContainer.setExchangeMessage(exchangeMessage);
         return exchangeMessageContainer;
-    }
-
-    public TestNotificationConfigurationResponse addExchangeMessage(ExchangeMessage exchangeMessage){
-        ExchangeMessageContainer exchangeMessageContainer = createExchangeMessageContainerFromExchangeMessage(exchangeMessage);
-        if(exchangeMessageContainers == null) {
-            exchangeMessageContainers = new ArrayList<ExchangeMessageContainer>();
-        }
-        this.exchangeMessageContainers.add(exchangeMessageContainer);
-
-        if(exchangeMessages == null) {
-            exchangeMessages = new ArrayList<ExchangeMessage>();
-        }
-        this.exchangeMessages.add(exchangeMessage);
-
-        return this;
     }
 
     public TestNotificationConfigurationResponse notificationId(Long notificationId) {
@@ -327,7 +282,7 @@ public class TestNotificationConfigurationResponse {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -370,9 +325,10 @@ public class TestNotificationConfigurationResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

@@ -21,39 +21,24 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * DeleteNotificationConfigurationRequest
+ * NotificationEventConfiguration
  */
-public class DeleteNotificationConfigurationRequest {
-    @SerializedName("notificationIds")
-    private List<Long> notificationIds = new ArrayList<Long>();
+public class NotificationEventConfigurationContainer {
 
-    public DeleteNotificationConfigurationRequest notificationIds(List<Long> notificationIds) {
-        this.notificationIds = notificationIds;
-        return this;
+
+    @SerializedName("NotificationEventConfiguration")
+    NotificationEventConfiguration notificationEventConfiguration = new NotificationEventConfiguration();
+
+    public NotificationEventConfiguration getNotificationEventConfiguration() {
+        return notificationEventConfiguration;
     }
 
-    public DeleteNotificationConfigurationRequest addNotificationIdsItem(Long notificationIdsItem) {
-        this.notificationIds.add(notificationIdsItem);
-        return this;
-    }
-
-    /**
-     * IDs of the notification configurations to be deleted
-     *
-     * @return notificationIds
-     **/
-    public List<Long> getNotificationIds() {
-        return notificationIds;
-    }
-
-    public void setNotificationIds(List<Long> notificationIds) {
-        this.notificationIds = notificationIds;
+    public void setNotificationEventConfiguration(NotificationEventConfiguration notificationEventConfiguration) {
+        this.notificationEventConfiguration = notificationEventConfiguration;
     }
 
 
@@ -65,30 +50,26 @@ public class DeleteNotificationConfigurationRequest {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DeleteNotificationConfigurationRequest deleteNotificationConfigurationRequest = (DeleteNotificationConfigurationRequest) o;
-        return Objects.equals(this.notificationIds, deleteNotificationConfigurationRequest.notificationIds);
+        NotificationEventConfigurationContainer notificationEventConfigurationContainer = (NotificationEventConfigurationContainer) o;
+        return Objects.equals(this.notificationEventConfiguration, notificationEventConfigurationContainer.notificationEventConfiguration);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(notificationIds);
+        return Objects.hash(notificationEventConfiguration);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteNotificationConfigurationRequest {\n");
+        sb.append("class NotificationEventConfigurationContainer {\n");
 
-        sb.append("    notificationIds: ").append(toIndentedString(notificationIds)).append("\n");
+        sb.append("    notificationEventConfiguration: ").append(toIndentedString(notificationEventConfiguration)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
     private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
