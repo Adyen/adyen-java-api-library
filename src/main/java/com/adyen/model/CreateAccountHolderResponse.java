@@ -177,15 +177,6 @@ public class CreateAccountHolderResponse {
         this.requirementsForNextAccountState = requirementsForNextAccountState;
     }
 
-//    public CreateAccountHolderResponse invalidFields(List<ErrorFieldType> invalidFields) {
-//        this.invalidFields = invalidFields;
-//        return this;
-//    }
-//
-//    public CreateAccountHolderResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
-//        this.invalidFields.add(invalidFieldsItem);
-//        return this;
-//    }
 
     /**
      * Populate the virtual invalidFields to bypass the invalidFieldsContainers list

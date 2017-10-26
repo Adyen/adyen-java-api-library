@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -48,7 +48,9 @@ public class UpdateAccountHolderResponse {
     private List<AccountStateRequirement> requirementsForNextAccountState = new ArrayList<AccountStateRequirement>();
 
     @SerializedName("invalidFields")
-    private List<ErrorFieldType> invalidFields = new ArrayList<ErrorFieldType>();
+    public List<ErrorFieldTypeContainer> invalidFieldsContainers = null;
+
+    private transient List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("accountHolderDetails")
     private AccountHolderDetails accountHolderDetails = null;
@@ -180,27 +182,62 @@ public class UpdateAccountHolderResponse {
         this.requirementsForNextAccountState = requirementsForNextAccountState;
     }
 
-    public UpdateAccountHolderResponse invalidFields(List<ErrorFieldType> invalidFields) {
-        this.invalidFields = invalidFields;
-        return this;
-    }
-
-    public UpdateAccountHolderResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
-        this.invalidFields.add(invalidFieldsItem);
-        return this;
-    }
-
     /**
-     * in case the account holder has not been updated, contains account holder fields, that did not pass the validation
+     * Populate the virtual invalidFields to bypass the invalidFieldsContainers list
      *
      * @return invalidFields
      **/
     public List<ErrorFieldType> getInvalidFields() {
+        if (invalidFields == null) {
+            invalidFields = new ArrayList<ErrorFieldType>();
+
+            if (invalidFieldsContainers != null && ! invalidFieldsContainers.isEmpty()) {
+                for (ErrorFieldTypeContainer invalidFieldsContainer : invalidFieldsContainers) {
+                    invalidFields.add(invalidFieldsContainer.getErrorFieldType());
+                }
+            }
+        }
+
         return invalidFields;
     }
 
+    /**
+     * Creating a new invalidFields list
+     *
+     * @param invalidFields
+     */
     public void setInvalidFields(List<ErrorFieldType> invalidFields) {
         this.invalidFields = invalidFields;
+
+        // set as well the container list this will be send in the API request
+        this.invalidFieldsContainers = new ArrayList<ErrorFieldTypeContainer>();
+        for (ErrorFieldType invalidField : invalidFields) {
+
+            ErrorFieldTypeContainer invalidFieldContainer = createInvalidFieldContainerFromInvalidField(invalidField);
+            this.invalidFieldsContainers.add(invalidFieldContainer);
+        }
+    }
+
+    public UpdateAccountHolderResponse addInvalidField(ErrorFieldType invalidField) {
+        ErrorFieldTypeContainer invalidFieldContainer = createInvalidFieldContainerFromInvalidField(invalidField);
+
+        if (invalidFieldsContainers == null) {
+            invalidFieldsContainers = new ArrayList<ErrorFieldTypeContainer>();
+        }
+        this.invalidFieldsContainers.add(invalidFieldContainer);
+
+        if (invalidFields == null) {
+            invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidField);
+
+        return this;
+    }
+
+    private ErrorFieldTypeContainer createInvalidFieldContainerFromInvalidField(ErrorFieldType invalidField) {
+        ErrorFieldTypeContainer invalidFieldContainer = new ErrorFieldTypeContainer();
+        invalidFieldContainer.setErrorFieldType(invalidField);
+        return invalidFieldContainer;
     }
 
     public UpdateAccountHolderResponse accountHolderDetails(AccountHolderDetails accountHolderDetails) {
@@ -296,7 +333,7 @@ public class UpdateAccountHolderResponse {
                 && Objects.equals(this.accountHolderCode, updateAccountHolderResponse.accountHolderCode)
                 && Objects.equals(this.updatedFields, updateAccountHolderResponse.updatedFields)
                 && Objects.equals(this.requirementsForNextAccountState, updateAccountHolderResponse.requirementsForNextAccountState)
-                && Objects.equals(this.invalidFields, updateAccountHolderResponse.invalidFields)
+                && Objects.equals(this.invalidFieldsContainers, updateAccountHolderResponse.invalidFieldsContainers)
                 && Objects.equals(this.accountHolderDetails, updateAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, updateAccountHolderResponse.accountHolderStatus)
                 && Objects.equals(this.pspReference, updateAccountHolderResponse.pspReference)
@@ -311,7 +348,7 @@ public class UpdateAccountHolderResponse {
                             accountHolderCode,
                             updatedFields,
                             requirementsForNextAccountState,
-                            invalidFields,
+                            invalidFieldsContainers,
                             accountHolderDetails,
                             accountHolderStatus,
                             pspReference,
@@ -321,6 +358,9 @@ public class UpdateAccountHolderResponse {
 
     @Override
     public String toString() {
+        // Populate the shareholders list to provide back in the toString() method
+        this.getInvalidFields();
+
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateAccountHolderResponse {\n");
 
@@ -340,8 +380,7 @@ public class UpdateAccountHolderResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

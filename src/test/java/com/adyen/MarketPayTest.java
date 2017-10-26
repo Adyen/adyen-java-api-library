@@ -712,4 +712,20 @@ public class MarketPayTest extends BaseTest {
 
         assertEquals(new Integer(17), createAccountHolderResponse.getInvalidFields().get(0).getErrorCode());
     }
+
+    @Test
+    public void TestUpdateAccountHolderInvalid() throws Exception{
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/create-account-holder-error-invalid-fields.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // Create Account Holder Reqeust
+        UpdateAccountHolderRequest updateAccountHolderRequest = new UpdateAccountHolderRequest();
+
+        UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
+        System.out.println(updateAccountHolderResponse);
+        assertEquals(new Integer(17), updateAccountHolderResponse.getInvalidFields().get(0).getErrorCode());
+    }
 }
