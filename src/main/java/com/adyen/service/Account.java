@@ -36,6 +36,7 @@ import com.adyen.model.DeleteShareholderRequest;
 import com.adyen.model.DeleteShareholderResponse;
 import com.adyen.model.GetAccountHolderRequest;
 import com.adyen.model.GetAccountHolderResponse;
+import com.adyen.model.GetTierConfigurationResponse;
 import com.adyen.model.GetUploadedDocumentsRequest;
 import com.adyen.model.GetUploadedDocumentsResponse;
 import com.adyen.model.SuspendAccountHolderRequest;
@@ -57,6 +58,7 @@ import com.adyen.service.resource.account.CreateAccountHolder;
 import com.adyen.service.resource.account.DeleteBankAccount;
 import com.adyen.service.resource.account.DeleteShareholder;
 import com.adyen.service.resource.account.GetAccountHolder;
+import com.adyen.service.resource.account.GetTierConfiguration;
 import com.adyen.service.resource.account.GetUploadedDocuments;
 import com.adyen.service.resource.account.SuspendAccountHolder;
 import com.adyen.service.resource.account.UnSuspendAccountHolder;
@@ -82,6 +84,7 @@ public class Account extends Service {
     private CloseAccountHolder closeAccountHolder;
     private UpdateAccount updateAccount;
     private GetUploadedDocuments getUploadedDocuments;
+    private GetTierConfiguration getTierConfiguration;
 
     public Account(Client client) {
         super(client);
@@ -100,6 +103,7 @@ public class Account extends Service {
         closeAccountHolder = new CloseAccountHolder(this);
         updateAccount = new UpdateAccount(this);
         getUploadedDocuments = new GetUploadedDocuments(this);
+        getTierConfiguration = new GetTierConfiguration(this);
 
     }
 
@@ -242,5 +246,13 @@ public class Account extends Service {
         }.getType());
 
         return getUploadedDocumentsResponse;
+    }
+
+    public GetTierConfigurationResponse getTierConfiguration() throws Exception {
+        String jsonResult = getTierConfiguration.request("{}");
+        GetTierConfigurationResponse getTierConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<GetTierConfigurationResponse>() {
+        }.getType());
+
+        return getTierConfigurationResponse;
     }
 }

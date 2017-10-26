@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -30,7 +30,9 @@ import com.google.gson.annotations.SerializedName;
  */
 public class GetUploadedDocumentsResponse {
     @SerializedName("documentDetails")
-    private List<DocumentDetail> documentDetails = new ArrayList<DocumentDetail>();
+    private List<DocumentDetailContainer> documentDetailsContainers = null;
+
+    private transient List<DocumentDetail> documentDetails = null;
 
     @SerializedName("submittedAsync")
     private Boolean submittedAsync = null;
@@ -38,27 +40,69 @@ public class GetUploadedDocumentsResponse {
     @SerializedName("pspReference")
     private String pspReference = null;
 
-    public GetUploadedDocumentsResponse documentDetails(List<DocumentDetail> documentDetails) {
-        this.documentDetails = documentDetails;
-        return this;
-    }
-
-    public GetUploadedDocumentsResponse addDocumentDetailsItem(DocumentDetail documentDetailsItem) {
-        this.documentDetails.add(documentDetailsItem);
-        return this;
-    }
-
     /**
-     * details of uploaded documents
+     * Populate the virtual documentDetails to bypass the documentDetailsContainers list
      *
      * @return documentDetails
      **/
     public List<DocumentDetail> getDocumentDetails() {
+        if (documentDetails == null) {
+            documentDetails = new ArrayList<DocumentDetail>();
+
+            if (documentDetailsContainers != null && ! documentDetailsContainers.isEmpty()) {
+                for (DocumentDetailContainer documentDetailContainer : documentDetailsContainers) {
+                    documentDetails.add(documentDetailContainer.getDocumentDetail());
+                }
+            }
+        }
+
         return documentDetails;
     }
 
+    /**
+     * Creating a new documentDetails list
+     *
+     * @param documentDetails
+     */
     public void setDocumentDetails(List<DocumentDetail> documentDetails) {
         this.documentDetails = documentDetails;
+
+        // set as well the container list this will be send in the API request
+        this.documentDetailsContainers = new ArrayList<DocumentDetailContainer>();
+        for (DocumentDetail documentDetail : documentDetails) {
+
+            DocumentDetailContainer documentDetailContainer = createDocumentDetailContainerFromDocumentDetail(documentDetail);
+            this.documentDetailsContainers.add(documentDetailContainer);
+        }
+
+    }
+
+    /**
+     * Add documentDetail to the documentDetailsContainers and documentDetails list
+     *
+     * @param documentDetail
+     * @return
+     */
+    public GetUploadedDocumentsResponse addDocumentDetail(DocumentDetail documentDetail) {
+        DocumentDetailContainer documentDetailContainer = createDocumentDetailContainerFromDocumentDetail(documentDetail);
+
+        if (documentDetailsContainers == null) {
+            documentDetailsContainers = new ArrayList<DocumentDetailContainer>();
+        }
+        this.documentDetailsContainers.add(documentDetailContainer);
+
+        if (documentDetails == null) {
+            documentDetails = new ArrayList<DocumentDetail>();
+        }
+        this.documentDetails.add(documentDetail);
+
+        return this;
+    }
+
+    private DocumentDetailContainer createDocumentDetailContainerFromDocumentDetail(DocumentDetail documentDetail) {
+        DocumentDetailContainer documentDetailContainer = new DocumentDetailContainer();
+        documentDetailContainer.setDocumentDetail(documentDetail);
+        return documentDetailContainer;
     }
 
     public GetUploadedDocumentsResponse submittedAsync(Boolean submittedAsync) {
@@ -107,19 +151,22 @@ public class GetUploadedDocumentsResponse {
             return false;
         }
         GetUploadedDocumentsResponse getUploadedDocumentsResponse = (GetUploadedDocumentsResponse) o;
-        return Objects.equals(this.documentDetails, getUploadedDocumentsResponse.documentDetails) && Objects.equals(this.submittedAsync, getUploadedDocumentsResponse.submittedAsync) && Objects.equals(
-                this.pspReference,
-                getUploadedDocumentsResponse.pspReference);
+        return Objects.equals(this.documentDetailsContainers, getUploadedDocumentsResponse.documentDetails)
+                && Objects.equals(this.submittedAsync, getUploadedDocumentsResponse.submittedAsync)
+                && Objects.equals(this.pspReference, getUploadedDocumentsResponse.pspReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(documentDetails, submittedAsync, pspReference);
+        return Objects.hash(documentDetailsContainers, submittedAsync, pspReference);
     }
 
 
     @Override
     public String toString() {
+        // Populate the documentDetails list to provide back in the toString() method
+        this.getDocumentDetails();
+
         StringBuilder sb = new StringBuilder();
         sb.append("class GetUploadedDocumentsResponse {\n");
 
@@ -131,8 +178,7 @@ public class GetUploadedDocumentsResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
