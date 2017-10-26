@@ -358,7 +358,7 @@ public class UpdateAccountHolderResponse {
 
     @Override
     public String toString() {
-        // Populate the shareholders list to provide back in the toString() method
+        // Populate the invalidFields list to provide back in the toString() method
         this.getInvalidFields();
 
         StringBuilder sb = new StringBuilder();
