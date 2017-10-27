@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -48,7 +48,7 @@ public class UploadDocumentRequest {
     }
 
     /**
-     * code of account holder, whose document has to be uploded
+     * code of account holder, whose document has to be uploaded
      *
      * @return accountHolderCode
      **/

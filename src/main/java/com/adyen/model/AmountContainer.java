@@ -28,7 +28,7 @@ import com.google.gson.annotations.SerializedName;
  * AmountContainer
  */
 public class AmountContainer {
-    @SerializedName("amount")
+    @SerializedName("Amount")
     private Amount amount = null;
 
     /**
