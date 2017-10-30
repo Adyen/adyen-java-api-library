@@ -704,6 +704,7 @@ public class MarketPayTest extends BaseTest {
         Account account = new Account(client);
 
         GetTierConfigurationResponse getTierConfigurationResponse = account.getTierConfiguration();
+
         assertEquals(new Long(10000), getTierConfigurationResponse.getTierConfiguration().get(0).getTiers().get(0).getToAmount().getValue());
 
     }
