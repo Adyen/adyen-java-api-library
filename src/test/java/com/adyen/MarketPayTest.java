@@ -694,7 +694,6 @@ public class MarketPayTest extends BaseTest {
         Account account = new Account(client);
 
         GetTierConfigurationResponse getTierConfigurationResponse = account.getTierConfiguration();
-        System.out.println(getTierConfigurationResponse);
     }
 
     @Test
@@ -725,7 +724,6 @@ public class MarketPayTest extends BaseTest {
         UpdateAccountHolderRequest updateAccountHolderRequest = new UpdateAccountHolderRequest();
 
         UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
-        System.out.println(updateAccountHolderResponse);
         assertEquals(new Integer(17), updateAccountHolderResponse.getInvalidFields().get(0).getErrorCode());
     }
 }
