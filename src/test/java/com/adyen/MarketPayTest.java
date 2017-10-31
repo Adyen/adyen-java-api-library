@@ -595,7 +595,7 @@ public class MarketPayTest extends BaseTest {
 
         PayoutAccountHolderResponse payoutAccountHolderResponse = fund.payoutAccountHolder(payoutAccountHolderRequest);
 
-        assertEquals("eb27196f-ac0f-476b-aea7-1f314a3c46e2", payoutAccountHolderResponse.getBankAccountUUID());
+        assertEquals("000b81aa-ae7e-4492-aa7e-72b2129dce0c", payoutAccountHolderResponse.getBankAccountUUID());
     }
 
     @Test
@@ -674,7 +674,7 @@ public class MarketPayTest extends BaseTest {
         refundNotPaidOutTransfersRequest.setAccountCode("189184578");
 
         RefundNotPaidOutTransfersResponse refundNotPaidOutTransfersResponse = fund.refundNotPaidOutTransfers(refundNotPaidOutTransfersRequest);
-        assertEquals("Success", refundNotPaidOutTransfersResponse.getResultCode());
+        assertEquals("Failed", refundNotPaidOutTransfersResponse.getResultCode());
     }
 
     @Test
