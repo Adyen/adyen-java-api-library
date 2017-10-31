@@ -22,8 +22,6 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.CreateAccountHolderRequest;
-import com.adyen.model.CreateAccountHolderResponse;
 import com.adyen.model.marketpay.notification.*;
 import com.adyen.service.resource.notification.*;
 import com.google.gson.reflect.TypeToken;

@@ -2,7 +2,7 @@
   "totalBalance":{
     "pendingBalance":[
       {
-        "amount":{
+        "Amount":{
           "value":42058,
           "currency":"EUR"
         }
@@ -10,7 +10,7 @@
     ],
     "balance":[
       {
-        "amount":{
+        "Amount":{
           "currency":"EUR",
           "value":99792
         }
@@ -25,7 +25,7 @@
         "detailBalance":{
           "pendingBalance":[
             {
-              "amount":{
+              "Amount":{
                 "value":42058,
                 "currency":"EUR"
               }
@@ -33,7 +33,7 @@
           ],
           "balance":[
             {
-              "amount":{
+              "Amount":{
                 "currency":"EUR",
                 "value":99792
               }
