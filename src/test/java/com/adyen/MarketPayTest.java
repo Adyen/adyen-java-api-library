@@ -537,7 +537,7 @@ public class MarketPayTest extends BaseTest {
         updateAccountHolderStateRequest.stateType(UpdateAccountHolderStateRequest.StateTypeEnum.PAYOUT);
 
         UpdateAccountHolderStateResponse updateAccountHolderStateResponse = account.updateAccountHolderState(updateAccountHolderStateRequest);
-        assertEquals(new Long(49999), updateAccountHolderStateResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue());
+        assertEquals(new Long(74999), updateAccountHolderStateResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue());
     }
 
     @Test
@@ -595,7 +595,7 @@ public class MarketPayTest extends BaseTest {
 
         PayoutAccountHolderResponse payoutAccountHolderResponse = fund.payoutAccountHolder(payoutAccountHolderRequest);
 
-        assertEquals("000b81aa-ae7e-4492-aa7e-72b2129dce0c", payoutAccountHolderResponse.getBankAccountUUID());
+        assertEquals("eb27196f-ac0f-476b-aea7-1f314a3c46e2", payoutAccountHolderResponse.getBankAccountUUID());
     }
 
     @Test
