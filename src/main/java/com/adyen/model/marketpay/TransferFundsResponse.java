@@ -36,6 +36,9 @@ public class TransferFundsResponse {
     @SerializedName("pspReference")
     private String pspReference = null;
 
+    @SerializedName("merchantReference")
+    private String merchantReference = null;
+
     public TransferFundsResponse submittedAsync(Boolean submittedAsync) {
         this.submittedAsync = submittedAsync;
         return this;
@@ -90,6 +93,18 @@ public class TransferFundsResponse {
         this.pspReference = pspReference;
     }
 
+    /**
+     * get merchantReference
+     *
+     * @return merchantReference
+     */
+    public String getMerchantReference() {
+        return merchantReference;
+    }
+
+    public void setMerchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -100,13 +115,16 @@ public class TransferFundsResponse {
             return false;
         }
         TransferFundsResponse transferFundsResponse = (TransferFundsResponse) o;
-        return Objects.equals(this.submittedAsync, transferFundsResponse.submittedAsync) && Objects.equals(this.resultCode, transferFundsResponse.resultCode) && Objects.equals(this.pspReference,
-                                                                                                                                                                                transferFundsResponse.pspReference);
+        return Objects.equals(this.submittedAsync, transferFundsResponse.submittedAsync)
+                && Objects.equals(this.resultCode, transferFundsResponse.resultCode)
+                && Objects.equals(this.pspReference,
+                                  transferFundsResponse.pspReference)
+                && Objects.equals(this.merchantReference, transferFundsResponse.merchantReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, resultCode, pspReference);
+        return Objects.hash(submittedAsync, resultCode, pspReference, merchantReference);
     }
 
 
@@ -118,13 +136,13 @@ public class TransferFundsResponse {
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

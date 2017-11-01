@@ -40,6 +40,9 @@ public class TransferFundsRequest {
     @SerializedName("transferCode")
     private String transferCode = null;
 
+    @SerializedName("merchantReference")
+    private String merchantReference = null;
+
     public TransferFundsRequest sourceAccountCode(String sourceAccountCode) {
         this.sourceAccountCode = sourceAccountCode;
         return this;
@@ -112,6 +115,18 @@ public class TransferFundsRequest {
         this.transferCode = transferCode;
     }
 
+    /**
+     * get merchantReference
+     *
+     * @return merchantReference
+     */
+    public String getMerchantReference() {
+        return merchantReference;
+    }
+
+    public void setMerchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -126,12 +141,13 @@ public class TransferFundsRequest {
                 && Objects.equals(this.amount, transferFundsRequest.amount)
                 && Objects.equals(this.destinationAccountCode,
                                   transferFundsRequest.destinationAccountCode)
-                && Objects.equals(this.transferCode, transferFundsRequest.transferCode);
+                && Objects.equals(this.transferCode, transferFundsRequest.transferCode)
+                && Objects.equals(this.merchantReference, transferFundsRequest.merchantReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sourceAccountCode, amount, destinationAccountCode, transferCode);
+        return Objects.hash(sourceAccountCode, amount, destinationAccountCode, transferCode, merchantReference);
     }
 
 
@@ -144,13 +160,13 @@ public class TransferFundsRequest {
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append("\n");
         sb.append("    transferCode: ").append(toIndentedString(transferCode)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
@@ -158,6 +174,5 @@ public class TransferFundsRequest {
         }
         return o.toString().replace("\n", "\n    ");
     }
-
 }
 

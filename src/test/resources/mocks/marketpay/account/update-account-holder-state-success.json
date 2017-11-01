@@ -1,27 +1,27 @@
 {
-  "pspReference":"9914779157560083",
-  "submittedAsync":"false",
-  "accountHolderCode":"TestAccountHolder215394",
-  "accountHolderStatus":{
-    "status":"Active",
-    "processingState":{
-      "processedFrom":{
-        "currency":"GBP",
-        "value":0
+  "pspReference": "8515090175978108",
+  "submittedAsync": "false",
+  "accountHolderCode": "testIndividual5",
+  "accountHolderStatus": {
+    "status": "Active",
+    "processingState": {
+      "disabled": "false",
+      "processedFrom": {
+        "currency": "USD",
+        "value": 0
       },
-      "processedTo":{
-        "currency":"GBP",
-        "value":9999
+      "processedTo": {
+        "currency": "USD",
+        "value": 9999
       }
     },
-    "payoutState":{
-      "allowPayout":"true",
-      "disabled": "true",
-      "disableReason": "test reason payout",
-      "payoutLimit":{
-        "currency":"GBP",
-        "value":49999
-      }
+    "payoutState": {
+      "allowPayout": "true",
+      "payoutLimit": {
+        "currency": "USD",
+        "value": 74999
+      },
+      "disabled": "false"
     }
   }
 }

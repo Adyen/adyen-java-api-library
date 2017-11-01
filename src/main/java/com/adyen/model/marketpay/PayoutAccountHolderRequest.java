@@ -43,6 +43,9 @@ public class PayoutAccountHolderRequest {
     @SerializedName("description")
     private String description = null;
 
+    @SerializedName("merchantReference")
+    private String merchantReference = null;
+
     public PayoutAccountHolderRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
@@ -133,6 +136,18 @@ public class PayoutAccountHolderRequest {
         this.description = description;
     }
 
+    /**
+     * get merchantReference
+     *
+     * @return merchantReference
+     */
+    public String getMerchantReference() {
+        return merchantReference;
+    }
+
+    public void setMerchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -147,12 +162,13 @@ public class PayoutAccountHolderRequest {
                 && Objects.equals(this.accountCode, payoutAccountHolderRequest.accountCode)
                 && Objects.equals(this.amount, payoutAccountHolderRequest.amount)
                 && Objects.equals(this.bankAccountUUID, payoutAccountHolderRequest.bankAccountUUID)
-                && Objects.equals(this.description, payoutAccountHolderRequest.description);
+                && Objects.equals(this.description, payoutAccountHolderRequest.description)
+                && Objects.equals(this.merchantReference, payoutAccountHolderRequest.merchantReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, accountCode, amount, bankAccountUUID, description);
+        return Objects.hash(accountHolderCode, accountCode, amount, bankAccountUUID, description, merchantReference);
     }
 
 
@@ -166,6 +182,7 @@ public class PayoutAccountHolderRequest {
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }
