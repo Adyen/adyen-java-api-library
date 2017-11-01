@@ -36,6 +36,9 @@ public class PayoutAccountHolderResponse {
     @SerializedName("pspReference")
     private String pspReference = null;
 
+    @SerializedName("merchantReference")
+    private String merchantReference = null;
+
     public PayoutAccountHolderResponse submittedAsync(Boolean submittedAsync) {
         this.submittedAsync = submittedAsync;
         return this;
@@ -90,6 +93,18 @@ public class PayoutAccountHolderResponse {
         this.pspReference = pspReference;
     }
 
+    /**
+     * get merchantReference
+     *
+     * @return merchantReference
+     */
+    public String getMerchantReference() {
+        return merchantReference;
+    }
+
+    public void setMerchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -100,14 +115,15 @@ public class PayoutAccountHolderResponse {
             return false;
         }
         PayoutAccountHolderResponse payoutAccountHolderResponse = (PayoutAccountHolderResponse) o;
-        return Objects.equals(this.submittedAsync, payoutAccountHolderResponse.submittedAsync) && Objects.equals(this.bankAccountUUID, payoutAccountHolderResponse.bankAccountUUID) && Objects.equals(
-                this.pspReference,
-                payoutAccountHolderResponse.pspReference);
+        return Objects.equals(this.submittedAsync, payoutAccountHolderResponse.submittedAsync) &&
+               Objects.equals(this.bankAccountUUID, payoutAccountHolderResponse.bankAccountUUID) &&
+               Objects.equals(this.pspReference, payoutAccountHolderResponse.pspReference) &&
+               Objects.equals(this.merchantReference, payoutAccountHolderResponse.merchantReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, bankAccountUUID, pspReference);
+        return Objects.hash(submittedAsync, bankAccountUUID, pspReference, merchantReference);
     }
 
 
@@ -119,6 +135,7 @@ public class PayoutAccountHolderResponse {
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }

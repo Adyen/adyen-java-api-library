@@ -594,8 +594,8 @@ public class MarketPayTest extends BaseTest {
         payoutAccountHolderRequest.setAmount(amount);
 
         PayoutAccountHolderResponse payoutAccountHolderResponse = fund.payoutAccountHolder(payoutAccountHolderRequest);
-
-        assertEquals("000b81aa-ae7e-4492-aa7e-72b2129dce0c", payoutAccountHolderResponse.getBankAccountUUID());
+        System.out.println(payoutAccountHolderResponse);
+        assertEquals("testbankaccount", payoutAccountHolderResponse.getBankAccountUUID());
     }
 
     @Test
