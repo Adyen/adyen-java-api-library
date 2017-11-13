@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -22,9 +22,6 @@ package com.adyen.model.additionalData;
 
 import java.util.List;
 
-/**
- * Created by rikt on 9/13/17.
- */
 public class SplitPayment {
 
     private Integer api;

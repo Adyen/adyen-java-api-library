@@ -32,6 +32,10 @@ public class BankAccountDetailContainer {
     @SerializedName("BankAccountDetail")
     private BankAccountDetail bankAccountDetail = null;
 
+    public BankAccountDetailContainer(BankAccountDetail bankAccountDetail) {
+        this.bankAccountDetail = bankAccountDetail;
+    }
+
     /**
      * bankAccountDetail
      *
@@ -61,7 +65,6 @@ public class BankAccountDetailContainer {
     public int hashCode() {
         return Objects.hash(bankAccountDetail);
     }
-
 
     @Override
     public String toString() {

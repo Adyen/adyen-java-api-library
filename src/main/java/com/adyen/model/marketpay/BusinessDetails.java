@@ -74,7 +74,7 @@ public class BusinessDetails {
         this.shareholderContactContainers = new ArrayList<ShareholderContactContainer>();
         for (ShareholderContact shareholderContact : shareholders) {
 
-            ShareholderContactContainer shareholderContactContainer = createShareholderContactContainerFromShareHolderContact(shareholderContact);
+            ShareholderContactContainer shareholderContactContainer = new ShareholderContactContainer(shareholderContact);
             this.shareholderContactContainers.add(shareholderContactContainer);
         }
     }
@@ -86,7 +86,7 @@ public class BusinessDetails {
      * @return
      */
     public BusinessDetails addShareholderContact(ShareholderContact shareholderContact) {
-        ShareholderContactContainer shareholderContactContainer = createShareholderContactContainerFromShareHolderContact(shareholderContact);
+        ShareholderContactContainer shareholderContactContainer = new ShareholderContactContainer(shareholderContact);
 
         if (shareholderContactContainers == null) {
             shareholderContactContainers = new ArrayList<ShareholderContactContainer>();
@@ -99,12 +99,6 @@ public class BusinessDetails {
         this.shareholders.add(shareholderContact);
 
         return this;
-    }
-
-    private ShareholderContactContainer createShareholderContactContainerFromShareHolderContact(ShareholderContact shareholderContact) {
-        ShareholderContactContainer shareholderContactContainer = new ShareholderContactContainer();
-        shareholderContactContainer.setShareholderContact(shareholderContact);
-        return shareholderContactContainer;
     }
 
     public BusinessDetails doingBusinessAs(String doingBusinessAs) {

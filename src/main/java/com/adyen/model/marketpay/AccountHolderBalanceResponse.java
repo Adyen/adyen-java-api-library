@@ -133,13 +133,13 @@ public class AccountHolderBalanceResponse {
 
         for (AccountDetailBalance accountDetailBalance : balancePerAccount) {
 
-            AccountDetailBalanceContainer accountDetailBalanceContainer = createAccountDetailBalanceContainerFromAccountDetailBalance(accountDetailBalance);
+            AccountDetailBalanceContainer accountDetailBalanceContainer = new AccountDetailBalanceContainer(accountDetailBalance);
             this.balancePerAccountContainers.add(accountDetailBalanceContainer);
         }
     }
 
     public AccountHolderBalanceResponse addBalancePerAccount(AccountDetailBalance accountDetailBalance) {
-        AccountDetailBalanceContainer accountDetailBalanceContainer = createAccountDetailBalanceContainerFromAccountDetailBalance(accountDetailBalance);
+        AccountDetailBalanceContainer accountDetailBalanceContainer = new AccountDetailBalanceContainer(accountDetailBalance);
 
         if (balancePerAccountContainers == null) {
             balancePerAccountContainers = new ArrayList<AccountDetailBalanceContainer>();
@@ -152,12 +152,6 @@ public class AccountHolderBalanceResponse {
         this.balancePerAccount.add(accountDetailBalance);
 
         return this;
-    }
-
-    private AccountDetailBalanceContainer createAccountDetailBalanceContainerFromAccountDetailBalance(AccountDetailBalance accountDetailBalance) {
-        AccountDetailBalanceContainer accountDetailBalanceContainer = new AccountDetailBalanceContainer();
-        accountDetailBalanceContainer.setAccountDetailBalance(accountDetailBalance);
-        return accountDetailBalanceContainer;
     }
 
     public AccountHolderBalanceResponse pspReference(String pspReference) {

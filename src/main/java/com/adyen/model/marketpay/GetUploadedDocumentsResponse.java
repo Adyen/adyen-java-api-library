@@ -71,7 +71,7 @@ public class GetUploadedDocumentsResponse {
         this.documentDetailsContainers = new ArrayList<DocumentDetailContainer>();
         for (DocumentDetail documentDetail : documentDetails) {
 
-            DocumentDetailContainer documentDetailContainer = createDocumentDetailContainerFromDocumentDetail(documentDetail);
+            DocumentDetailContainer documentDetailContainer = new DocumentDetailContainer(documentDetail);
             this.documentDetailsContainers.add(documentDetailContainer);
         }
 
@@ -84,7 +84,7 @@ public class GetUploadedDocumentsResponse {
      * @return
      */
     public GetUploadedDocumentsResponse addDocumentDetail(DocumentDetail documentDetail) {
-        DocumentDetailContainer documentDetailContainer = createDocumentDetailContainerFromDocumentDetail(documentDetail);
+        DocumentDetailContainer documentDetailContainer = new DocumentDetailContainer(documentDetail);
 
         if (documentDetailsContainers == null) {
             documentDetailsContainers = new ArrayList<DocumentDetailContainer>();
@@ -97,12 +97,6 @@ public class GetUploadedDocumentsResponse {
         this.documentDetails.add(documentDetail);
 
         return this;
-    }
-
-    private DocumentDetailContainer createDocumentDetailContainerFromDocumentDetail(DocumentDetail documentDetail) {
-        DocumentDetailContainer documentDetailContainer = new DocumentDetailContainer();
-        documentDetailContainer.setDocumentDetail(documentDetail);
-        return documentDetailContainer;
     }
 
     public GetUploadedDocumentsResponse submittedAsync(Boolean submittedAsync) {

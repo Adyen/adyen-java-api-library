@@ -143,18 +143,14 @@ public class AccountHolderDetails {
 
     /**
      * Creating a new bankAccountDetails list
-     *
-     * @param bankAccountDetails
      */
     public void setBankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
-
         this.bankAccountDetails = bankAccountDetails;
 
         // set as well the container list this will be send in the API request
         this.bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
         for (BankAccountDetail bankAccountDetail : bankAccountDetails) {
-
-            BankAccountDetailContainer bankAccountDetailContainer = createBankAccountDetailContainerFromBankAccountDetail(bankAccountDetail);
+            BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer(bankAccountDetail);
             this.bankAccountDetailContainers.add(bankAccountDetailContainer);
         }
     }
@@ -166,7 +162,7 @@ public class AccountHolderDetails {
      * @return
      */
     public AccountHolderDetails addBankAccountDetail(BankAccountDetail bankAccountDetail) {
-        BankAccountDetailContainer bankAccountDetailContainer = createBankAccountDetailContainerFromBankAccountDetail(bankAccountDetail);
+        BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer(bankAccountDetail);
 
         if (bankAccountDetailContainers == null) {
             bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
@@ -180,14 +176,6 @@ public class AccountHolderDetails {
 
         return this;
     }
-
-
-    private BankAccountDetailContainer createBankAccountDetailContainerFromBankAccountDetail(BankAccountDetail bankAccountDetail) {
-        BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer();
-        bankAccountDetailContainer.setBankAccountDetail(bankAccountDetail);
-        return bankAccountDetailContainer;
-    }
-
 
     public AccountHolderDetails individualDetails(IndividualDetails individualDetails) {
         this.individualDetails = individualDetails;

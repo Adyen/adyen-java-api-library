@@ -31,6 +31,10 @@ public class ShareholderContactContainer {
     @SerializedName("ShareholderContact")
     private ShareholderContact shareholderContact = null;
 
+    public ShareholderContactContainer(ShareholderContact shareholderContact) {
+        this.shareholderContact = shareholderContact;
+    }
+
     /**
      * shareholderContact
      *

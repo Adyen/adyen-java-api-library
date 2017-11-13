@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -20,9 +20,6 @@
  */
 package com.adyen.model.additionalData;
 
-/**
- * Created by rikt on 9/13/17.
- */
 public class SplitPaymentItem {
 
     private Long amount;

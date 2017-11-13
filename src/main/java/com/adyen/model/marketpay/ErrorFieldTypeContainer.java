@@ -18,7 +18,6 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-
 package com.adyen.model.marketpay;
 
 import java.util.Objects;
@@ -27,6 +26,10 @@ import com.google.gson.annotations.SerializedName;
 public class ErrorFieldTypeContainer {
     @SerializedName("ErrorFieldType")
     private ErrorFieldType errorFieldType = null;
+
+    public ErrorFieldTypeContainer(ErrorFieldType errorFieldType) {
+        this.errorFieldType = errorFieldType;
+    }
 
     /**
      * errorFieldType

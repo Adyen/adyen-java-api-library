@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -26,9 +26,6 @@ import com.adyen.model.marketpay.notification.*;
 import com.adyen.service.resource.notification.*;
 import com.google.gson.reflect.TypeToken;
 
-/**
- * Created by rikt on 9/7/17.
- */
 public class Notification extends Service {
 
     private CreateNotificationConfiguration createNotificationConfiguration;

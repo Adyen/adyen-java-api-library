@@ -272,7 +272,7 @@ public class GetAccountHolderResponse {
 
         for (Account account : accounts) {
 
-            AccountContainer accountContainer = createAccountContainerFromAccount(account);
+            AccountContainer accountContainer = new AccountContainer(account);
             this.accountContainers.add(accountContainer);
         }
     }
@@ -284,7 +284,7 @@ public class GetAccountHolderResponse {
      * @return
      */
     public GetAccountHolderResponse addAccount(Account account) {
-        AccountContainer accountContainer = createAccountContainerFromAccount(account);
+        AccountContainer accountContainer = new AccountContainer(account);
 
         if (accountContainers == null) {
             accountContainers = new ArrayList<AccountContainer>();
@@ -299,12 +299,6 @@ public class GetAccountHolderResponse {
 
         return this;
 
-    }
-
-    private AccountContainer createAccountContainerFromAccount(Account account) {
-        AccountContainer accountContainer = new AccountContainer();
-        accountContainer.setAccount(account);
-        return accountContainer;
     }
 
     public GetAccountHolderResponse pspReference(String pspReference) {
