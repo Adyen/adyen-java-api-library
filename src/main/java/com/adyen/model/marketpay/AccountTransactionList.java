@@ -117,13 +117,13 @@ public class AccountTransactionList {
 
         for (Transaction transaction : transactions) {
 
-            TransactionContainer transactionContainer = createTransactionContainerFromTransaction(transaction);
+            TransactionContainer transactionContainer = new TransactionContainer(transaction);
             this.transactionContainers.add(transactionContainer);
         }
     }
 
     public AccountTransactionList addTransaction(Transaction transaction) {
-        TransactionContainer transactionContainer = createTransactionContainerFromTransaction(transaction);
+        TransactionContainer transactionContainer = new TransactionContainer(transaction);
 
         if (transactionContainers == null) {
             transactionContainers = new ArrayList<TransactionContainer>();
@@ -135,13 +135,6 @@ public class AccountTransactionList {
         }
         return this;
     }
-
-    private TransactionContainer createTransactionContainerFromTransaction(Transaction transaction) {
-        TransactionContainer transactionContainer = new TransactionContainer();
-        transactionContainer.setTransaction(transaction);
-        return transactionContainer;
-    }
-
 
     @Override
     public boolean equals(Object o) {

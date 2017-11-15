@@ -31,6 +31,10 @@ public class AccountTransactionListContainer {
     @SerializedName("AccountTransactionList")
     private AccountTransactionList accountTransactionList = null;
 
+    public AccountTransactionListContainer(AccountTransactionList accountTransactionList) {
+        this.accountTransactionList = accountTransactionList;
+    }
+
     /**
      * accountTransactionList
      *

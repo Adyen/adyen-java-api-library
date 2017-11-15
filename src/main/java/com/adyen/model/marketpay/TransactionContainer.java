@@ -31,6 +31,10 @@ public class TransactionContainer {
     @SerializedName("Transaction")
     private Transaction transaction = null;
 
+    public TransactionContainer(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
     /**
      * transaction
      *

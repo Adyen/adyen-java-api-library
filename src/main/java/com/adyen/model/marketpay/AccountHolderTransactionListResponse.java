@@ -101,14 +101,14 @@ public class AccountHolderTransactionListResponse {
 
         for (AccountTransactionList accountTransactionList : accountTransactionLists) {
 
-            AccountTransactionListContainer accountTransactionListContainer = createAccountTransactionListContainerFromAccountTransactionList(accountTransactionList);
+            AccountTransactionListContainer accountTransactionListContainer = new AccountTransactionListContainer(accountTransactionList);
             this.accountTransactionListContainers.add(accountTransactionListContainer);
         }
 
     }
 
     public AccountHolderTransactionListResponse addAccountTransactionList(AccountTransactionList accountTransactionList) {
-        AccountTransactionListContainer accountTransactionListContainer = createAccountTransactionListContainerFromAccountTransactionList(accountTransactionList);
+        AccountTransactionListContainer accountTransactionListContainer = new AccountTransactionListContainer(accountTransactionList);
 
         if (accountTransactionListContainers == null) {
             accountTransactionListContainers = new ArrayList<AccountTransactionListContainer>();
@@ -122,13 +122,6 @@ public class AccountHolderTransactionListResponse {
 
         return this;
     }
-
-    private AccountTransactionListContainer createAccountTransactionListContainerFromAccountTransactionList(AccountTransactionList accountTransactionList) {
-        AccountTransactionListContainer accountTransactionListContainer = new AccountTransactionListContainer();
-        accountTransactionListContainer.setAccountTransactionList(accountTransactionList);
-        return accountTransactionListContainer;
-    }
-
 
     public AccountHolderTransactionListResponse resultCode(String resultCode) {
         this.resultCode = resultCode;

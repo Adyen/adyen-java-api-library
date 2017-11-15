@@ -213,13 +213,13 @@ public class UpdateAccountHolderResponse {
         this.invalidFieldsContainers = new ArrayList<ErrorFieldTypeContainer>();
         for (ErrorFieldType invalidField : invalidFields) {
 
-            ErrorFieldTypeContainer invalidFieldContainer = createInvalidFieldContainerFromInvalidField(invalidField);
+            ErrorFieldTypeContainer invalidFieldContainer = new ErrorFieldTypeContainer(invalidField);
             this.invalidFieldsContainers.add(invalidFieldContainer);
         }
     }
 
     public UpdateAccountHolderResponse addInvalidField(ErrorFieldType invalidField) {
-        ErrorFieldTypeContainer invalidFieldContainer = createInvalidFieldContainerFromInvalidField(invalidField);
+        ErrorFieldTypeContainer invalidFieldContainer = new ErrorFieldTypeContainer(invalidField);
 
         if (invalidFieldsContainers == null) {
             invalidFieldsContainers = new ArrayList<ErrorFieldTypeContainer>();
@@ -232,12 +232,6 @@ public class UpdateAccountHolderResponse {
         this.invalidFields.add(invalidField);
 
         return this;
-    }
-
-    private ErrorFieldTypeContainer createInvalidFieldContainerFromInvalidField(ErrorFieldType invalidField) {
-        ErrorFieldTypeContainer invalidFieldContainer = new ErrorFieldTypeContainer();
-        invalidFieldContainer.setErrorFieldType(invalidField);
-        return invalidFieldContainer;
     }
 
     public UpdateAccountHolderResponse accountHolderDetails(AccountHolderDetails accountHolderDetails) {

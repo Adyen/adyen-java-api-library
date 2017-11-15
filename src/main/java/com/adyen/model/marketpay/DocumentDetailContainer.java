@@ -18,7 +18,6 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-
 package com.adyen.model.marketpay;
 
 import java.util.Objects;
@@ -30,6 +29,10 @@ import com.google.gson.annotations.SerializedName;
 public class DocumentDetailContainer {
     @SerializedName("DocumentDetail")
     private DocumentDetail documentDetail = null;
+
+    public DocumentDetailContainer(DocumentDetail documentDetail) {
+        this.documentDetail = documentDetail;
+    }
 
     /**
      * documentDetail
