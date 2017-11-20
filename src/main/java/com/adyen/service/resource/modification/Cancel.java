@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -21,18 +21,12 @@
 package com.adyen.service.resource.modification;
 
 import java.util.Arrays;
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class Cancel extends Resource {
-
-	public Cancel(Service service) {
-		super(service,
-				service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + service.getClient().getApiVersion() + "/cancel",
-				Arrays.asList(
-					"merchantAccount",
-					"originalReference"
-				)
-		);
-	}
+    public Cancel(Service service) {
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/cancel", Arrays.asList("merchantAccount", "originalReference"));
+    }
 }

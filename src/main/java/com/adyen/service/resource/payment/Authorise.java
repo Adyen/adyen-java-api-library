@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -21,20 +21,14 @@
 package com.adyen.service.resource.payment;
 
 import java.util.Arrays;
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class Authorise extends Resource {
-	
-
-	public Authorise(Service service) {
-		super(service,
-				service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + service.getClient().getApiVersion() + "/authorise",
-				Arrays.asList(
-						"merchantAccount",
-						"amount.value",
-						"amount.currency",
-						"reference"
-				));
-	}
+    public Authorise(Service service) {
+        super(service,
+              service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/authorise",
+              Arrays.asList("merchantAccount", "amount.value", "amount.currency", "reference"));
+    }
 }
