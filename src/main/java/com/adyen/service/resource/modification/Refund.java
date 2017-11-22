@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -21,21 +21,14 @@
 package com.adyen.service.resource.modification;
 
 import java.util.Arrays;
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class Refund extends Resource {
-
     public Refund(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + service.getClient().getApiVersion() + "/refund",
-                Arrays.asList(
-                        "merchantAccount",
-                        "modificationAmount",
-                        "modificationAmount.value",
-                        "modificationAmount.currency",
-                        "originalReference"
-                )
-        );
+              service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/refund",
+              Arrays.asList("merchantAccount", "modificationAmount", "modificationAmount.value", "modificationAmount.currency", "originalReference"));
     }
 }

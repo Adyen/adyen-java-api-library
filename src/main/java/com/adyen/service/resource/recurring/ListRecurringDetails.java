@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -21,17 +21,14 @@
 package com.adyen.service.resource.recurring;
 
 import java.util.Arrays;
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class ListRecurringDetails extends Resource {
     public ListRecurringDetails(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + "/pal/servlet/Recurring/" + service.getClient().getApiVersion() + "/listRecurringDetails",
-                Arrays.asList(
-                        "merchantAccount",
-                        "recurring.contract",
-                        "shopperReference"
-                ));
+              service.getClient().getConfig().getEndpoint() + "/pal/servlet/Recurring/" + Client.RECURRING_API_VERSION + "/listRecurringDetails",
+              Arrays.asList("merchantAccount", "recurring.contract", "shopperReference"));
     }
 }
