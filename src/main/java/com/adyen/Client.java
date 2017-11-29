@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -25,7 +25,6 @@ import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HttpURLConnectionClient;
 
 public class Client {
-
     private ClientInterface httpClient;
     private Config config;
 
@@ -33,9 +32,10 @@ public class Client {
     public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
     public static final String HPP_TEST = "https://test.adyen.com/hpp";
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
-    public static final String API_VERSION = "v25";
+    public static final String API_VERSION = "v30";
+    public static final String RECURRING_API_VERSION = "v25";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
-    public static final String LIB_VERSION = "1.2.1";
+    public static final String LIB_VERSION = "1.2.2";
 
     public Client() {
         this.config = new Config();
@@ -71,8 +71,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client [webServiceUser=" + this.config.username + ", webServicePassword=" + this.config.password
-                + ", environment=" + this.config.environment + "]";
+        return "Client [webServiceUser=" + this.config.username + ", webServicePassword=" + this.config.password + ", environment=" + this.config.environment + "]";
     }
 
     public ClientInterface getHttpClient() {
@@ -94,14 +93,6 @@ public class Client {
 
     public void setConfig(Config config) {
         this.config = config;
-    }
-
-    public String getApiVersion() {
-        return API_VERSION;
-    }
-
-    public String getLibraryVersion() {
-        return LIB_VERSION;
     }
 
     public void setApplicationName(String applicationName) {
