@@ -42,6 +42,9 @@ public class RecurringDetailsResult {
     @SerializedName("lastKnownShopperEmail")
     private String lastKnownShopperEmail = null;
 
+    @SerializedName("invalidOneclickContracts")
+    private String invalidOneClickContracts = null;
+
     public RecurringDetailsResult creationDate(Date creationDate) {
         this.creationDate = creationDate;
         return this;
@@ -119,6 +122,19 @@ public class RecurringDetailsResult {
         this.lastKnownShopperEmail = lastKnownShopperEmail;
     }
 
+    public RecurringDetailsResult invalidOneClickContracts(String invalidOneClickContracts) {
+        this.invalidOneClickContracts = invalidOneClickContracts;
+        return this;
+    }
+
+    public String getInvalidOneClickContracts() {
+        return invalidOneClickContracts;
+    }
+
+    public void setInvalidOneClickContracts(String invalidOneClickContracts) {
+        this.invalidOneClickContracts = invalidOneClickContracts;
+    }
+
     /**
      * Return RecurringDetails
      *
@@ -144,7 +160,9 @@ public class RecurringDetailsResult {
         return Objects.equals(this.creationDate, recurringDetailsResult.creationDate) &&
                 Objects.equals(this.shopperReference, recurringDetailsResult.shopperReference) &&
                 Objects.equals(this.details, recurringDetailsResult.details) &&
-                Objects.equals(this.lastKnownShopperEmail, recurringDetailsResult.lastKnownShopperEmail);
+                Objects.equals(this.lastKnownShopperEmail, recurringDetailsResult.lastKnownShopperEmail) &&
+                Objects.equals(this.invalidOneClickContracts, recurringDetailsResult.invalidOneClickContracts);
+
     }
 
     @Override
@@ -162,6 +180,7 @@ public class RecurringDetailsResult {
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    lastKnownShopperEmail: ").append(toIndentedString(lastKnownShopperEmail)).append("\n");
+        sb.append("    invalidOneClickContracts: ").append(toIndentedString(invalidOneClickContracts)).append("\n");
         sb.append("}");
         return sb.toString();
     }
