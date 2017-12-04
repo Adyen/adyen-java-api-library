@@ -67,6 +67,8 @@ public class RecurringTest extends BaseTest {
         assertEquals("recurringReference", recurringDetail.getRecurringDetailReference());
         assertEquals("cardAlias", recurringDetail.getAlias());
         assertEquals("1111", recurringDetail.getCard().getNumber());
+        assertEquals("false", result.getInvalidOneClickContracts());
+
     }
 
     @Test
