@@ -22,6 +22,8 @@
 package com.adyen.service.resource.fund;
 
 import java.util.Arrays;
+
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
@@ -29,7 +31,7 @@ public class PayoutAccountHolder extends Resource {
 
     public PayoutAccountHolder(Service service) {
         super(service,
-              service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + service.getClient().getMarketPayApiVersion() + "/payoutAccountHolder",null);
+              service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_API_VERSION + "/payoutAccountHolder",null);
     }
 
 }

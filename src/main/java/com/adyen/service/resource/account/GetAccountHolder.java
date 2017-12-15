@@ -21,12 +21,13 @@
 
 package com.adyen.service.resource.account;
 
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class GetAccountHolder extends Resource {
 
     public GetAccountHolder(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + service.getClient().getMarketPayApiVersion() + "/getAccountHolder", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/getAccountHolder", null);
     }
 }

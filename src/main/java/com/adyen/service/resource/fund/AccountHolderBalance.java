@@ -20,6 +20,7 @@
  */
 package com.adyen.service.resource.fund;
 
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
@@ -27,7 +28,7 @@ import com.adyen.service.Resource;
 public class AccountHolderBalance extends Resource {
 
     public AccountHolderBalance(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + service.getClient().getMarketPayApiVersion() + "/accountHolderBalance", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_API_VERSION + "/accountHolderBalance", null);
     }
 
 }

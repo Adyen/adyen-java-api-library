@@ -21,12 +21,13 @@
 
 package com.adyen.service.resource.account;
 
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class UnSuspendAccountHolder extends Resource {
 
     public UnSuspendAccountHolder(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + service.getClient().getMarketPayApiVersion() + "/unSuspendAccountHolder", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/unSuspendAccountHolder", null);
     }
 }

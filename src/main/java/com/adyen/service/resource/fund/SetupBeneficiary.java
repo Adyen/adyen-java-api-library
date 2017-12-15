@@ -21,13 +21,14 @@
 
 package com.adyen.service.resource.fund;
 
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class SetupBeneficiary extends Resource {
 
     public SetupBeneficiary(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + service.getClient().getMarketPayApiVersion() + "/setupBeneficiary", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_API_VERSION + "/setupBeneficiary", null);
     }
 
 }
