@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -31,7 +31,7 @@ public class DirectoryLookupRequest {
     private String skinCode;
     private String merchantAccount;
     private String hmacKey;
-
+    private String shopperLocale;
 
     public DirectoryLookupRequest() {
         sessionValidity = Util.calculateSessionValidity();
@@ -106,6 +106,15 @@ public class DirectoryLookupRequest {
 
     public DirectoryLookupRequest setHmacKey(String hmacKey) {
         this.hmacKey = hmacKey;
+        return this;
+    }
+
+    public String getShopperLocale() {
+        return shopperLocale;
+    }
+
+    public DirectoryLookupRequest setShopperLocale(String shopperLocale) {
+        this.shopperLocale = shopperLocale;
         return this;
     }
 }

@@ -25,7 +25,6 @@ import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HttpURLConnectionClient;
 
 public class Client {
-
     private ClientInterface httpClient;
     private Config config;
 
@@ -35,10 +34,11 @@ public class Client {
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
-    public static final String API_VERSION = "v25";
+    public static final String API_VERSION = "v30";
+    public static final String RECURRING_API_VERSION = "v25";
     public static final String MARKETPAY_API_VERSION = "v3";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
-    public static final String LIB_VERSION = "1.2.0";
+    public static final String LIB_VERSION = "1.3.0";
 
     public Client() {
         this.config = new Config();
@@ -98,18 +98,6 @@ public class Client {
 
     public void setConfig(Config config) {
         this.config = config;
-    }
-
-    public String getApiVersion() {
-        return API_VERSION;
-    }
-
-    public String getMarketPayApiVersion() {
-        return MARKETPAY_API_VERSION;
-    }
-
-    public String getLibraryVersion() {
-        return LIB_VERSION;
     }
 
     public void setApplicationName(String applicationName) {

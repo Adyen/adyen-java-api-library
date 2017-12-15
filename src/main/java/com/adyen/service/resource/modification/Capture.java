@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -22,24 +22,12 @@ package com.adyen.service.resource.modification;
 
 import java.util.Arrays;
 import java.util.List;
+import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class Capture extends Resource {
-	
-	protected List<String> requiredFields = Arrays.asList(
-	        "merchantAccount",
-	        "originalReference"
-	    );
-	
-	protected String endpoint;
-	
-	public Capture(Service service) {
-		super(service,
-				service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + service.getClient().getApiVersion() + "/capture",
-				Arrays.asList(
-						"merchantAccount",
-						"originalReference")
-		);
-	}
+    public Capture(Service service) {
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/capture", Arrays.asList("merchantAccount", "originalReference"));
+    }
 }

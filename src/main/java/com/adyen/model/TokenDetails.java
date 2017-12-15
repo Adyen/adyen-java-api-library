@@ -20,6 +20,7 @@
  */
 package com.adyen.model;
 
+import java.util.Map;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
@@ -31,7 +32,7 @@ public class TokenDetails {
   private String tokenDataType = null;
 
   @SerializedName("tokenData")
-  private String tokenData = null;
+  private Map<String, String> tokenData = null;
 
   public TokenDetails tokenDataType(String tokenDataType) {
     this.tokenDataType = tokenDataType;
@@ -50,23 +51,22 @@ public class TokenDetails {
     this.tokenDataType = tokenDataType;
   }
 
-  public TokenDetails tokenData(String tokenData) {
+  public TokenDetails tokenData(Map<String,String> tokenData) {
     this.tokenData = tokenData;
     return this;
   }
 
-   /**
+  /**
    * Get tokenData
    * @return tokenData
-  **/
-  public String getTokenData() {
+   */
+  public Map<String, String> getTokenData() {
     return tokenData;
   }
 
-  public void setTokenData(String tokenData) {
+  public void setTokenData(Map<String, String> tokenData) {
     this.tokenData = tokenData;
   }
-
 
   @Override
   public boolean equals(Object o) {

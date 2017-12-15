@@ -44,7 +44,30 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     @SerializedName("bankAccount")
     private BankAccount bankAccount = null;
 
-    private List<InvoiceLine> invoiceLines = null;
+    /**
+     * how the shopper interacts with the system
+     */
+    public enum RecurringProcessingModelEnum {
+        @SerializedName("Subscription")
+        SUBSCRIPTION("Subscription"),
+
+        @SerializedName("CardOnFile")
+        CARD_ON_FILE("CardOnFile");
+
+        private String value;
+
+        RecurringProcessingModelEnum(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+    }
+
+    @SerializedName("recurringProcessingModel")
+    private RecurringProcessingModelEnum recurringProcessingModel = null;
 
     public PaymentRequest setAmountData(String amount, String currency) {
         Amount amountData = Util.createAmount(amount, currency);
@@ -74,14 +97,21 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         return this;
     }
 
+    public RecurringProcessingModelEnum getRecurringProcessingModel() {
+        return recurringProcessingModel;
+    }
+
+    public PaymentRequest setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+        this.recurringProcessingModel = recurringProcessingModel;
+        return this;
+    }
+
     /**
      * Set invoiceLines in addtionalData
      */
     public PaymentRequest setInvoiceLines(List<InvoiceLine> invoiceLines) {
-
         Integer count = 1;
         for (InvoiceLine invoiceLine : invoiceLines) {
-
             StringBuilder sb = new StringBuilder();
             sb.append("openinvoicedata.line");
             sb.append(Integer.toString(count));
@@ -221,6 +251,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         sb.append("    card: ").append(toIndentedString(card)).append("\n");
         sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
         sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
+        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
         sb.append("}");
         return sb.toString();
     }

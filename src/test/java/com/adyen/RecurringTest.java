@@ -60,8 +60,8 @@ public class RecurringTest extends BaseTest {
         RecurringDetailsRequest request = createRecurringDetailsRequest();
 
         RecurringDetailsResult result = recurring.listRecurringDetails(request);
-        assertEquals(1, result.getDetails().size());
-        assertEquals(1, result.getRecurringDetails().size());
+        assertEquals(2, result.getDetails().size());
+        assertEquals(2, result.getRecurringDetails().size());
 
         RecurringDetail recurringDetail = result.getRecurringDetails().get(0);
         assertEquals("recurringReference", recurringDetail.getRecurringDetailReference());
