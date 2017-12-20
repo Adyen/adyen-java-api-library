@@ -1,0 +1,42 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
+{
+  "pspReference": "8515077331535427",
+  "submittedAsync": "false",
+  "configurationDetails": {
+    "active": "true",
+    "apiVersion": 1,
+    "description": "TestBas",
+    "eventConfigs": [
+      {
+        "NotificationEventConfiguration": {
+          "eventType": "ACCOUNT_HOLDER_STATUS_CHANGE",
+          "includeMode": "INCLUDE"
+        }
+      }
+    ],
+    "messageFormat": "SOAP",
+    "notificationId": 157,
+    "notifyURL": "https://cal-test.adyen.com/cal/services/ViasNotification/handleGenericEvent",
+    "sendActionHeader": "true",
+    "sslProtocol": "SSLInsecureCiphers"
+  }
+}
