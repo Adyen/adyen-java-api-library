@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
@@ -736,7 +737,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     public void setMcc(String mcc) {
         this.mcc = mcc;
     }
-    
+
     public T metadata(Map<String, String> metadata) {
         this.metadata = metadata;
         return (T) this;
@@ -747,11 +748,11 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      *
      * @return metadata
      **/
-    public Map<String, String>  getMetadata() {
+    public Map<String, String> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Map<String, String>  metadata) {
+    public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
 
@@ -858,7 +859,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
         sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
         sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(stringifyAdditionalData())).append("\n");
         sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append("\n");
@@ -874,6 +875,16 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
 
         return sb.toString();
+    }
+
+    private String stringifyAdditionalData() {
+        Map<String, String> nonSensitiveAdditionalData = new HashMap<String, String>(additionalData);
+
+        if (nonSensitiveAdditionalData.containsKey(ApiConstants.AdditionalData.Card.Encrypted.JSON)) {
+            nonSensitiveAdditionalData.put(ApiConstants.AdditionalData.Card.Encrypted.JSON, "***");
+        }
+
+        return nonSensitiveAdditionalData.toString();
     }
 
     /**
