@@ -1,0 +1,27 @@
+{
+  "pspReference": "8515090175978108",
+  "submittedAsync": "false",
+  "accountHolderCode": "testIndividual5",
+  "accountHolderStatus": {
+    "status": "Active",
+    "processingState": {
+      "disabled": "false",
+      "processedFrom": {
+        "currency": "USD",
+        "value": 0
+      },
+      "processedTo": {
+        "currency": "USD",
+        "value": 9999
+      }
+    },
+    "payoutState": {
+      "allowPayout": "true",
+      "payoutLimit": {
+        "currency": "USD",
+        "value": 74999
+      },
+      "disabled": "false"
+    }
+  }
+}
