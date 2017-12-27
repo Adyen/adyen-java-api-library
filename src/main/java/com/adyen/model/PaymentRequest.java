@@ -248,7 +248,6 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         sb.append("class PaymentRequest {\n");
 
         sb.append(super.toString());
-        sb.append("    card: ").append(toIndentedString(card)).append("\n");
         sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
         sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
         sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
