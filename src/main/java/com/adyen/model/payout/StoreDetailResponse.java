@@ -72,7 +72,7 @@ public class StoreDetailResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoreDetailAndSubmitResponse {\n");
+        sb.append("class StoreDetailResponse {\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");

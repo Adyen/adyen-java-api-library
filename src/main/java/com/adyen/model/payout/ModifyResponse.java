@@ -48,7 +48,7 @@ public class ModifyResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoreDetailAndSubmitResponse {\n");
+        sb.append("class ModifyRequest {\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    response: ").append(toIndentedString(response)).append("\n");
         sb.append("}");

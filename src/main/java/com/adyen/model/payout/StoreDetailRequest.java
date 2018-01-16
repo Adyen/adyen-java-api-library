@@ -137,7 +137,7 @@ public class StoreDetailRequest {
         this.fraudOffset = fraudOffset;
     }
 
-    public String getNationalty() {
+    public String getNationality() {
         return nationality;
     }
 
@@ -240,7 +240,7 @@ public class StoreDetailRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoreDetailsAndSubmitRequest {\n");
+        sb.append("class StoreDetailRequest {\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");

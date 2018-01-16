@@ -155,12 +155,12 @@ public class StoreDetailAndSubmitRequest {
         this.fraudOffset = fraudOffset;
     }
 
-    public String getNationalty() {
+    public String getNationality() {
         return nationality;
     }
 
-    public void setNationalty(String nationalty) {
-        this.nationality = nationalty;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
     public String getSelectedBrand() {

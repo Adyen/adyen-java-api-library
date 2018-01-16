@@ -196,10 +196,16 @@ public class SubmitRequest {
         this.socialSecurityNumber = socialSecurityNumber;
     }
 
+    public SubmitRequest() {
+        Recurring recurring = new Recurring();
+        recurring.setContract(Recurring.ContractEnum.PAYOUT);
+        this.recurring = recurring;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoreDetailsAndSubmitRequest {\n");
+        sb.append("class SubmitRequest {\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");

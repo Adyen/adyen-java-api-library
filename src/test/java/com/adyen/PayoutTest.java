@@ -21,8 +21,10 @@
 package com.adyen;
 
 import org.junit.Test;
-import com.adyen.model.payout.ModifyRequest;
-import com.adyen.model.payout.ModifyResponse;
+import com.adyen.model.payout.ConfirmThirdPartyRequest;
+import com.adyen.model.payout.ConfirmThirdPartyResponse;
+import com.adyen.model.payout.DeclineThirdPartyRequest;
+import com.adyen.model.payout.DeclineThirdPartyResponse;
 import com.adyen.model.payout.StoreDetailAndSubmitRequest;
 import com.adyen.model.payout.StoreDetailAndSubmitResponse;
 import com.adyen.model.payout.StoreDetailRequest;
@@ -68,8 +70,8 @@ public class PayoutTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/payout/modifyResponse-success.json");
         Payout payout = new Payout(client);
 
-        ModifyRequest request = new ModifyRequest();
-        ModifyResponse result = payout.confirmThirdParty(request);
+        ConfirmThirdPartyRequest request = new ConfirmThirdPartyRequest();
+        ConfirmThirdPartyResponse result = payout.confirmThirdParty(request);
 
         assertEquals("[payout-confirm-received]", result.getResponse());
         assertEquals("8815131762537886", result.getPspReference());
@@ -94,8 +96,8 @@ public class PayoutTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/payout/modifyResponse-success.json");
         Payout payout = new Payout(client);
 
-        ModifyRequest request = new ModifyRequest();
-        ModifyResponse result = payout.declineThirdParty(request);
+        DeclineThirdPartyRequest request = new DeclineThirdPartyRequest();
+        DeclineThirdPartyResponse result = payout.declineThirdParty(request);
 
         assertEquals("[payout-confirm-received]", result.getResponse());
         assertEquals("8815131762537886", result.getPspReference());

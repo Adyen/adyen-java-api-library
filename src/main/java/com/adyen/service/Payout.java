@@ -23,6 +23,10 @@ package com.adyen.service;
 import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.model.payout.ConfirmThirdPartyRequest;
+import com.adyen.model.payout.ConfirmThirdPartyResponse;
+import com.adyen.model.payout.DeclineThirdPartyRequest;
+import com.adyen.model.payout.DeclineThirdPartyResponse;
 import com.adyen.model.payout.ModifyRequest;
 import com.adyen.model.payout.ModifyResponse;
 import com.adyen.model.payout.StoreDetailAndSubmitRequest;
@@ -82,12 +86,12 @@ public class Payout extends Service {
      * @throws IOException
      * @throws ApiException
      */
-    public ModifyResponse confirmThirdParty(ModifyRequest request) throws IOException, ApiException {
+    public ConfirmThirdPartyResponse confirmThirdParty(ConfirmThirdPartyRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
         String jsonResult = confirmThirdParty.request(jsonRequest);
 
-        ModifyResponse result = GSON.fromJson(jsonResult, new TypeToken<ModifyResponse>() {
+        ConfirmThirdPartyResponse result = GSON.fromJson(jsonResult, new TypeToken<ConfirmThirdPartyResponse>() {
         }.getType());
         return result;
     }
@@ -100,12 +104,12 @@ public class Payout extends Service {
      * @throws IOException
      * @throws ApiException
      */
-    public ModifyResponse declineThirdParty(ModifyRequest request) throws IOException, ApiException {
+    public DeclineThirdPartyResponse declineThirdParty(DeclineThirdPartyRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
         String jsonResult = declineThirdParty.request(jsonRequest);
 
-        ModifyResponse result = GSON.fromJson(jsonResult, new TypeToken<ModifyResponse>() {
+        DeclineThirdPartyResponse result = GSON.fromJson(jsonResult, new TypeToken<DeclineThirdPartyResponse>() {
         }.getType());
         return result;
     }
