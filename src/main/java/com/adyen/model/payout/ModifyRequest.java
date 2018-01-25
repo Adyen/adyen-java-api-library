@@ -61,7 +61,6 @@ public class ModifyRequest {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ModifyRequest {\n");
-        sb.append("class ModifyRequest {\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
