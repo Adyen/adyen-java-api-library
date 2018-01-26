@@ -50,6 +50,10 @@ public interface ApiConstants {
         String BOLETO_URL = "boletobancario.url";
         String BOLETO_EXPIRATION_DATE = "boletobancario.expirationDate";
 
+        String ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
+        String ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
+        String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
+        String ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
 
         interface Card {
             interface Encrypted {

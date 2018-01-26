@@ -92,6 +92,48 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         return this;
     }
 
+    /**
+     * Set Data needed for payment request using secured fields
+     */
+    public PaymentRequest setSecuredFieldsData(String encryptedCardNumber, String cardHolder, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode) {
+        this.setCardHolder(cardHolder)
+            .setEncryptedCardNumber(encryptedCardNumber)
+            .setEncryptedExpiryMonth(encryptedExpiryMonth)
+            .setEncryptedExpiryYear(encryptedExpiryYear)
+            .setEncryptedSecurityCode(encryptedSecurityCode);
+
+        return this;
+    }
+
+    public PaymentRequest setCardHolder(String cardHolder) {
+        if (card == null) {
+            card = new Card();
+        }
+        card.setHolderName(cardHolder);
+
+        return this;
+    }
+
+    public PaymentRequest setEncryptedCardNumber(String encryptedCardNumber) {
+        getOrCreateAdditionalData().put(ApiConstants.AdditionalData.ENCRYPTED_CARD_NUMBER, encryptedCardNumber);
+        return this;
+    }
+
+    public PaymentRequest setEncryptedExpiryMonth(String encryptedExpiryMonth) {
+        getOrCreateAdditionalData().put(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_MONTH, encryptedExpiryMonth);
+        return this;
+    }
+
+    public PaymentRequest setEncryptedExpiryYear(String encryptedExpiryYear) {
+        getOrCreateAdditionalData().put(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_YEAR, encryptedExpiryYear);
+        return this;
+    }
+
+    public PaymentRequest setEncryptedSecurityCode(String encryptedSecurityCode) {
+        getOrCreateAdditionalData().put(ApiConstants.AdditionalData.ENCRYPTED_SECURITY_CODE, encryptedSecurityCode);
+        return this;
+    }
+
     public PaymentRequest setPaymentToken(String paymentToken) {
         getOrCreateAdditionalData().put(ApiConstants.AdditionalData.PAYMENT_TOKEN, paymentToken);
         return this;
