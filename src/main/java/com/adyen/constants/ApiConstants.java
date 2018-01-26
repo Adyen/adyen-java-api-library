@@ -43,6 +43,8 @@ public interface ApiConstants {
         String THREE_D_AUTHENTICATED = "threeDAuthenticated";
         String AVS_RESULT = "avsResult";
         String PAYMENT_TOKEN = "payment.token";
+        String FRAUD_RESULT_TYPE = "fraudResultType";
+        String FRAUD_MANUAL_REVIEW = "fraudManualReview";
 
         String BOLETO_BARCODE_REFERENCE = "boletobancario.barCodeReference";
         String BOLETO_DATA = "boletobancario.data";

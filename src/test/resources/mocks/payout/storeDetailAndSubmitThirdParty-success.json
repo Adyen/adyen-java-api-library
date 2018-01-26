@@ -1,0 +1,8 @@
+{
+  "additionalData": {
+    "fraudResultType": "GREEN",
+    "fraudManualReview": "false"
+  },
+  "pspReference": "8515131751004933",
+  "resultCode": "[payout-submit-received]"
+}
