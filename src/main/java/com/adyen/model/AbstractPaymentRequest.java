@@ -20,8 +20,10 @@
  */
 package com.adyen.model;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import com.adyen.constants.ApiConstants;
@@ -878,10 +880,21 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     }
 
     private String stringifyAdditionalData() {
-        Map<String, String> nonSensitiveAdditionalData = new HashMap<String, String>(additionalData);
+        if (additionalData == null) {
+            return null;
+        }
 
-        if (nonSensitiveAdditionalData.containsKey(ApiConstants.AdditionalData.Card.Encrypted.JSON)) {
-            nonSensitiveAdditionalData.put(ApiConstants.AdditionalData.Card.Encrypted.JSON, "***");
+        Map<String, String> nonSensitiveAdditionalData = new HashMap<String, String>(additionalData);
+        List<String> keys = Arrays.asList(ApiConstants.AdditionalData.Card.Encrypted.JSON,
+                                          ApiConstants.AdditionalData.ENCRYPTED_CARD_NUMBER,
+                                          ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_MONTH,
+                                          ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_YEAR,
+                                          ApiConstants.AdditionalData.ENCRYPTED_SECURITY_CODE);
+
+        for (String key : keys) {
+            if (nonSensitiveAdditionalData.containsKey(key)) {
+                nonSensitiveAdditionalData.put(key, "***");
+            }
         }
 
         return nonSensitiveAdditionalData.toString();

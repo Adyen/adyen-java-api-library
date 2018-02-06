@@ -22,6 +22,7 @@ package com.adyen;
 
 import java.util.HashMap;
 import org.junit.Test;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.google.gson.Gson;
@@ -116,5 +117,16 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "}";
 
         assertEquals(expected, paymentRequestJson);
+    }
+
+    @Test
+    public void TestSecuredFieldsPaymentRequest() {
+        PaymentRequest paymentRequest = new PaymentRequest().setSecuredFieldsData("encryptedCardNumber", "cardHolder", "encryptedExpiryMonth", "encryptedExpiryYear", "encryptedSecurityCode");
+
+        assertEquals("encryptedCardNumber", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_CARD_NUMBER));
+        assertEquals("cardHolder", paymentRequest.getCard().getHolderName());
+        assertEquals("encryptedExpiryMonth", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_MONTH));
+        assertEquals("encryptedExpiryYear", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_YEAR));
+        assertEquals("encryptedSecurityCode", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_SECURITY_CODE));
     }
 }
