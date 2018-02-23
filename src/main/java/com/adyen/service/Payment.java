@@ -25,9 +25,12 @@ import com.adyen.Service;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentResult;
+import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.payment.Authorise;
 import com.adyen.service.resource.payment.Authorise3D;
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
 
 public class Payment extends Service {
 
@@ -48,7 +51,7 @@ public class Payment extends Service {
      * @return
      * @throws Exception
      */
-    public PaymentResult authorise(PaymentRequest paymentRequest) throws Exception {
+    public PaymentResult authorise(PaymentRequest paymentRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentRequest);
 
         String jsonResult = authorise.request(jsonRequest);
