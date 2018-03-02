@@ -48,8 +48,6 @@ public class Payment extends Service {
      * POST /authorise API call
      *
      * @param paymentRequest
-     * @return
-     * @throws Exception
      */
     public PaymentResult authorise(PaymentRequest paymentRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentRequest);
