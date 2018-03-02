@@ -21,23 +21,46 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.marketpay.CreateAccountHolderResponse;
+import java.util.Date;
+import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
-public class AccountHolderCreatedNotification extends GenericNotification {
-    @SerializedName("content")
-    private CreateAccountHolderResponse content;
+public class CompensateNegativeBalanceNotificationRecord {
+    @SerializedName("accountCode")
+    private String accountCode;
 
-    public CreateAccountHolderResponse getContent() {
-        return content;
+    @SerializedName("transferDate")
+    private Date transferDate;
+
+    @SerializedName("amount")
+    private Amount amount;
+
+    public String getAccountCode() {
+        return accountCode;
     }
 
-    public void setContent(CreateAccountHolderResponse content) {
-        this.content = content;
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode;
+    }
+
+    public Date getTransferDate() {
+        return transferDate;
+    }
+
+    public void setTransferDate(Date transferDate) {
+        this.transferDate = transferDate;
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Amount amount) {
+        this.amount = amount;
     }
 
     @Override
     public String toString() {
-        return "AccountHolderCreatedNotification{" + "content=" + content + '}';
+        return "CompensateNegativeBalanceNotificationRecord{" + "accountCode='" + accountCode + '\'' + ", transferDate=" + transferDate + ", amount=" + amount + '}';
     }
 }

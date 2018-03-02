@@ -21,23 +21,22 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.marketpay.CreateAccountHolderResponse;
 import com.google.gson.annotations.SerializedName;
 
-public class AccountHolderCreatedNotification extends GenericNotification {
+public class ScheduledRefundsNotification extends GenericNotification {
     @SerializedName("content")
-    private CreateAccountHolderResponse content;
+    private ScheduledRefundsContent content;
 
-    public CreateAccountHolderResponse getContent() {
+    public ScheduledRefundsContent getContent() {
         return content;
     }
 
-    public void setContent(CreateAccountHolderResponse content) {
+    public void setContent(ScheduledRefundsContent content) {
         this.content = content;
     }
 
     @Override
     public String toString() {
-        return "AccountHolderCreatedNotification{" + "content=" + content + '}';
+        return "ScheduledRefundsNotification{" + "content=" + content + '}';
     }
 }

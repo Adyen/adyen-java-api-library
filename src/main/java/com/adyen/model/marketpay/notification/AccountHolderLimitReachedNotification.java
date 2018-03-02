@@ -34,4 +34,9 @@ public class AccountHolderLimitReachedNotification extends GenericNotification {
     public void setContent(AccountHolderLimitReachedContent content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "AccountHolderLimitReachedNotification{" + "content=" + content + '}';
+    }
 }

@@ -21,8 +21,13 @@
 
 package com.adyen.model.marketpay;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Message {
+    @SerializedName("code")
     private String code;
+
+    @SerializedName("text")
     private String text;
 
     public String getCode() {
@@ -39,5 +44,10 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" + "code='" + code + '\'' + ", text='" + text + '\'' + '}';
     }
 }

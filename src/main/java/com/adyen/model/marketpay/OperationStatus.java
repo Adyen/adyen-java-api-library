@@ -21,8 +21,13 @@
 
 package com.adyen.model.marketpay;
 
+import com.google.gson.annotations.SerializedName;
+
 public class OperationStatus {
+    @SerializedName("statusCode")
     private String statusCode;
+
+    @SerializedName("message")
     private Message message;
 
     public String getStatusCode() {
@@ -39,5 +44,10 @@ public class OperationStatus {
 
     public void setMessage(Message message) {
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return "OperationStatus{" + "statusCode='" + statusCode + '\'' + ", message=" + message + '}';
     }
 }

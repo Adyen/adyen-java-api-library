@@ -24,6 +24,7 @@ package com.adyen.model.marketpay.notification;
 import java.util.ArrayList;
 import java.util.List;
 import com.adyen.model.Amount;
+import com.adyen.model.marketpay.AmountContainer;
 import com.adyen.model.marketpay.BankAccountDetail;
 import com.adyen.model.marketpay.OperationStatus;
 
@@ -98,5 +99,29 @@ public class AccountHolderPayoutContent {
             amountList.add(amount.getAmount());
         }
         return amountList;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountHolderPayoutContent{"
+                + "accountHolderCode='"
+                + accountHolderCode
+                + '\''
+                + ", accountCode='"
+                + accountCode
+                + '\''
+                + ", bankAccountDetail="
+                + bankAccountDetail
+                + ", description='"
+                + description
+                + '\''
+                + ", amounts="
+                + amounts
+                + ", status="
+                + status
+                + ", merchantReference='"
+                + merchantReference
+                + '\''
+                + '}';
     }
 }

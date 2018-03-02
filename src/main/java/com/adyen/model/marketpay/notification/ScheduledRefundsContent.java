@@ -21,29 +21,22 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.marketpay.AccountHolderStatus;
+import java.util.List;
+import com.adyen.model.marketpay.Transaction;
 import com.google.gson.annotations.SerializedName;
 
-public class AccountCreatedContent {
-    @SerializedName("pspReference")
-    private String pspReference;
-
+public class ScheduledRefundsContent {
     @SerializedName("accountHolderCode")
     private String accountHolderCode;
 
     @SerializedName("accountCode")
     private String accountCode;
 
-    @SerializedName("status")
-    private AccountHolderStatus.StatusEnum status;
+    @SerializedName("refundResults")
+    private List<RefundResultContainer> refundResults;
 
-    public String getPspReference() {
-        return pspReference;
-    }
-
-    public void setPspReference(String pspReference) {
-        this.pspReference = pspReference;
-    }
+    @SerializedName("lastPayout")
+    private Transaction lastPayout;
 
     public String getAccountHolderCode() {
         return accountHolderCode;
@@ -61,28 +54,35 @@ public class AccountCreatedContent {
         this.accountCode = accountCode;
     }
 
-    public AccountHolderStatus.StatusEnum getStatus() {
-        return status;
+    public List<RefundResultContainer> getRefundResults() {
+        return refundResults;
     }
 
-    public void setStatus(AccountHolderStatus.StatusEnum status) {
-        this.status = status;
+    public void setRefundResults(List<RefundResultContainer> refundResults) {
+        this.refundResults = refundResults;
+    }
+
+    public Transaction getLastPayout() {
+        return lastPayout;
+    }
+
+    public void setLastPayout(Transaction lastPayout) {
+        this.lastPayout = lastPayout;
     }
 
     @Override
     public String toString() {
-        return "AccountCreatedContent{"
-                + "pspReference='"
-                + pspReference
-                + '\''
-                + ", accountHolderCode='"
+        return "ScheduledRefundsContent{"
+                + "accountHolderCode='"
                 + accountHolderCode
                 + '\''
                 + ", accountCode='"
                 + accountCode
                 + '\''
-                + ", status="
-                + status
+                + ", refundResults="
+                + refundResults
+                + ", lastPayout="
+                + lastPayout
                 + '}';
     }
 }

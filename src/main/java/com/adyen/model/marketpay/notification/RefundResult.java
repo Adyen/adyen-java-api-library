@@ -21,23 +21,45 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.marketpay.CreateAccountHolderResponse;
+import com.adyen.model.marketpay.Transaction;
 import com.google.gson.annotations.SerializedName;
 
-public class AccountHolderCreatedNotification extends GenericNotification {
-    @SerializedName("content")
-    private CreateAccountHolderResponse content;
+public class RefundResult {
+    @SerializedName("response")
+    private String response;
 
-    public CreateAccountHolderResponse getContent() {
-        return content;
+    @SerializedName("pspReference")
+    private String pspReference;
+
+    @SerializedName("originalTransaction")
+    private Transaction originalTransaction;
+
+    public String getResponse() {
+        return response;
     }
 
-    public void setContent(CreateAccountHolderResponse content) {
-        this.content = content;
+    public void setResponse(String response) {
+        this.response = response;
+    }
+
+    public String getPspReference() {
+        return pspReference;
+    }
+
+    public void setPspReference(String pspReference) {
+        this.pspReference = pspReference;
+    }
+
+    public Transaction getOriginalTransaction() {
+        return originalTransaction;
+    }
+
+    public void setOriginalTransaction(Transaction originalTransaction) {
+        this.originalTransaction = originalTransaction;
     }
 
     @Override
     public String toString() {
-        return "AccountHolderCreatedNotification{" + "content=" + content + '}';
+        return "RefundResult{" + "response='" + response + '\'' + ", pspReference='" + pspReference + '\'' + ", originalTransaction=" + originalTransaction + '}';
     }
 }

@@ -1,0 +1,21 @@
+{
+  "eventDate": "2018-03-07T13:44:34+01:00",
+  "eventType": "COMPENSATE_NEGATIVE_BALANCE",
+  "executingUserKey": "ws_957630",
+  "live": "false",
+  "pspReference": "Test_COMPENSATE_NEGATIVE_BALANCE",
+  "content": {
+    "records": [
+      {
+        "CompensateNegativeBalanceNotificationRecord": {
+          "accountCode": "testCirtualAccount",
+          "amount": {
+            "currency": "EUR",
+            "value": 10000
+          },
+          "transferDate": "2018-03-07T13:44:34+01:00"
+        }
+      }
+    ]
+  }
+}

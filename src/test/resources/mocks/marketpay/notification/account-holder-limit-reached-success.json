@@ -8,7 +8,7 @@
     "accountState": {
       "allowPayout": "false",
       "allowProcessing": "false",
-      "disableReason": "Clearing. CO Reversed Beneficiary Intent.",
+      "disableReason": "reason",
       "disabled": "false",
       "stateType": "Payout",
       "tierNumber": 1

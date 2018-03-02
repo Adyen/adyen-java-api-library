@@ -69,4 +69,23 @@ public class AccountHolderVerificationContent {
     public void setVerificationStatus(KYCCheckStatusData.CheckStatusEnum verificationStatus) {
         this.verificationStatus = verificationStatus;
     }
+
+    @Override
+    public String toString() {
+        return "AccountHolderVerificationContent{"
+                + "accountHolderCode='"
+                + accountHolderCode
+                + '\''
+                + ", shareholderCode='"
+                + shareholderCode
+                + '\''
+                + ", bankAccountUUID='"
+                + bankAccountUUID
+                + '\''
+                + ", verificationType="
+                + verificationType
+                + ", verificationStatus="
+                + verificationStatus
+                + '}';
+    }
 }

@@ -34,4 +34,9 @@ public class AccountHolderPayoutNotification extends GenericNotification {
     public void setContent(AccountHolderPayoutContent content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "AccountHolderPayoutNotification{" + "content=" + content + '}';
+    }
 }

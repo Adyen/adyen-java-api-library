@@ -119,4 +119,9 @@ public class GenericNotification {
     public void setPspReference(String pspReference) {
         this.pspReference = pspReference;
     }
+
+    @Override
+    public String toString() {
+        return "GenericNotification{" + "eventType=" + eventType + ", executingUserKey='" + executingUserKey + '\'' + ", live='" + live + '\'' + ", pspReference='" + pspReference + '\'' + '}';
+    }
 }

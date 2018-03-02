@@ -21,7 +21,6 @@
 package com.adyen.model.marketpay;
 
 import java.util.Date;
-import java.util.Objects;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
@@ -134,6 +133,12 @@ public class Transaction {
 
     @SerializedName("merchantReference")
     private String merchantReference = null;
+
+    @SerializedName("payoutPspReference")
+    private String payoutPspReference;
+
+    @SerializedName("paymentPspReference")
+    private String paymentPspReference;
 
     public Transaction captureMerchantReference(String captureMerchantReference) {
         this.captureMerchantReference = captureMerchantReference;
@@ -387,57 +392,26 @@ public class Transaction {
         this.merchantReference = merchantReference;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Transaction transaction = (Transaction) o;
-        return Objects.equals(this.captureMerchantReference, transaction.captureMerchantReference)
-                && Objects.equals(this.amount, transaction.amount)
-                && Objects.equals(this.sourceAccountCode,
-                                  transaction.sourceAccountCode)
-                && Objects.equals(this.transactionStatus, transaction.transactionStatus)
-                && Objects.equals(this.disputePspReference, transaction.disputePspReference)
-                && Objects.equals(this.description, transaction.description)
-                && Objects.equals(this.disputeReasonCode, transaction.disputeReasonCode)
-                && Objects.equals(this.creationDate, transaction.creationDate)
-                && Objects.equals(this.destinationAccountCode, transaction.destinationAccountCode)
-                && Objects.equals(this.transferCode, transaction.transferCode)
-                && Objects.equals(this.bankAccountDetail, transaction.bankAccountDetail)
-                && Objects.equals(this.capturePspReference, transaction.capturePspReference)
-                && Objects.equals(this.pspReference, transaction.pspReference)
-                && Objects.equals(this.merchantReference, transaction.merchantReference);
+    public String getPayoutPspReference() {
+        return payoutPspReference;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(captureMerchantReference,
-                            amount,
-                            sourceAccountCode,
-                            transactionStatus,
-                            disputePspReference,
-                            description,
-                            disputeReasonCode,
-                            creationDate,
-                            destinationAccountCode,
-                            transferCode,
-                            bankAccountDetail,
-                            capturePspReference,
-                            pspReference,
-                            merchantReference);
+    public void setPayoutPspReference(String payoutPspReference) {
+        this.payoutPspReference = payoutPspReference;
     }
 
+    public String getPaymentPspReference() {
+        return paymentPspReference;
+    }
+
+    public void setPaymentPspReference(String paymentPspReference) {
+        this.paymentPspReference = paymentPspReference;
+    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Transaction {\n");
-
         sb.append("    captureMerchantReference: ").append(toIndentedString(captureMerchantReference)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append("\n");
@@ -451,6 +425,8 @@ public class Transaction {
         sb.append("    bankAccountDetail: ").append(toIndentedString(bankAccountDetail)).append("\n");
         sb.append("    capturePspReference: ").append(toIndentedString(capturePspReference)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
+        sb.append("    payoutPspReference: ").append(toIndentedString(payoutPspReference)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("}");
         return sb.toString();

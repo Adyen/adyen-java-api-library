@@ -34,4 +34,9 @@ public class AccountCreatedNotification extends GenericNotification {
     public void setContent(AccountCreatedContent content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "AccountCreatedNotification{" + "content=" + content + '}';
+    }
 }

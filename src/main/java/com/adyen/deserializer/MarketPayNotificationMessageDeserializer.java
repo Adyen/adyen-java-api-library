@@ -29,7 +29,13 @@ import com.adyen.model.marketpay.notification.AccountHolderPayoutNotification;
 import com.adyen.model.marketpay.notification.AccountHolderStatusChangeNotification;
 import com.adyen.model.marketpay.notification.AccountHolderUpdatedNotification;
 import com.adyen.model.marketpay.notification.AccountHolderVerificationNotification;
+import com.adyen.model.marketpay.notification.BeneficiarySetupNotification;
+import com.adyen.model.marketpay.notification.CompensateNegativeBalanceNotification;
 import com.adyen.model.marketpay.notification.GenericNotification;
+import com.adyen.model.marketpay.notification.PaymentFailureNotification;
+import com.adyen.model.marketpay.notification.ReportAvailableNotification;
+import com.adyen.model.marketpay.notification.ScheduledRefundsNotification;
+import com.adyen.model.marketpay.notification.TransferFundsNotification;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -64,6 +70,24 @@ public class MarketPayNotificationMessageDeserializer implements JsonDeserialize
         }
         if (GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_UPDATED.toString().equalsIgnoreCase(eventType)) {
             return jsonDeserializationContext.deserialize(jsonElement, AccountHolderUpdatedNotification.class);
+        }
+        if (GenericNotification.EventTypeEnum.BENEFICIARY_SETUP.toString().equalsIgnoreCase(eventType)) {
+            return jsonDeserializationContext.deserialize(jsonElement, BeneficiarySetupNotification.class);
+        }
+        if (GenericNotification.EventTypeEnum.SCHEDULED_REFUNDS.toString().equalsIgnoreCase(eventType)) {
+            return jsonDeserializationContext.deserialize(jsonElement, ScheduledRefundsNotification.class);
+        }
+        if (GenericNotification.EventTypeEnum.COMPENSATE_NEGATIVE_BALANCE.toString().equalsIgnoreCase(eventType)) {
+            return jsonDeserializationContext.deserialize(jsonElement, CompensateNegativeBalanceNotification.class);
+        }
+        if (GenericNotification.EventTypeEnum.PAYMENT_FAILURE.toString().equalsIgnoreCase(eventType)) {
+            return jsonDeserializationContext.deserialize(jsonElement, PaymentFailureNotification.class);
+        }
+        if (GenericNotification.EventTypeEnum.REPORT_AVAILABLE.toString().equalsIgnoreCase(eventType)) {
+            return jsonDeserializationContext.deserialize(jsonElement, ReportAvailableNotification.class);
+        }
+        if (GenericNotification.EventTypeEnum.TRANSFER_FUNDS.toString().equalsIgnoreCase(eventType)) {
+            return jsonDeserializationContext.deserialize(jsonElement, TransferFundsNotification.class);
         }
 
         return jsonDeserializationContext.deserialize(jsonElement, GenericNotification.class);

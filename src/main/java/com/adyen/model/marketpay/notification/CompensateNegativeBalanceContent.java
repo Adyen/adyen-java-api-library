@@ -21,18 +21,23 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.Amount;
+import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class AmountContainer {
-    @SerializedName("Amount")
-    private Amount amount;
+public class CompensateNegativeBalanceContent {
+    @SerializedName("records")
+    private List<CompensateNegativeBalanceNotificationRecordContainer> records;
 
-    public Amount getAmount() {
-        return amount;
+    public List<CompensateNegativeBalanceNotificationRecordContainer> getRecords() {
+        return records;
     }
 
-    public void setAmount(Amount amount) {
-        this.amount = amount;
+    public void setRecords(List<CompensateNegativeBalanceNotificationRecordContainer> records) {
+        this.records = records;
+    }
+
+    @Override
+    public String toString() {
+        return "CompensateNegativeBalanceContent{" + "records=" + records + '}';
     }
 }

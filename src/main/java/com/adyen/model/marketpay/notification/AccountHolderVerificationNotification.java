@@ -34,4 +34,9 @@ public class AccountHolderVerificationNotification extends GenericNotification {
     public void setContent(AccountHolderVerificationContent content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "AccountHolderVerificationNotification{" + "content=" + content + '}';
+    }
 }

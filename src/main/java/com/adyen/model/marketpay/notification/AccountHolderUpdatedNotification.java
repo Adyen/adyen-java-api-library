@@ -35,4 +35,9 @@ public class AccountHolderUpdatedNotification extends GenericNotification {
     public void setContent(UpdateAccountHolderResponse content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "AccountHolderUpdatedNotification{" + "content=" + content + '}';
+    }
 }

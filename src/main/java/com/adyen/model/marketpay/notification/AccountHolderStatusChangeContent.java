@@ -60,4 +60,9 @@ public class AccountHolderStatusChangeContent {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
+    @Override
+    public String toString() {
+        return "AccountHolderStatusChangeContent{" + "accountHolderCode='" + accountHolderCode + '\'' + ", oldStatus=" + oldStatus + ", newStatus=" + newStatus + ", reason='" + reason + '\'' + '}';
+    }
 }

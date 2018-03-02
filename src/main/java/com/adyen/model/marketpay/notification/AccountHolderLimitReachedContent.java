@@ -93,5 +93,23 @@ public class AccountHolderLimitReachedContent {
         this.transactionFailed = transactionFailed;
     }
 
-    //todo tostring
+    @Override
+    public String toString() {
+        return "AccountHolderLimitReachedContent{"
+                + "accountHolderCode='"
+                + accountHolderCode
+                + '\''
+                + ", accountState="
+                + accountState
+                + ", amount="
+                + amount
+                + ", totalAmountBeforeLimit="
+                + totalAmountBeforeLimit
+                + ", transactionDate="
+                + transactionDate
+                + ", transactionFailed='"
+                + transactionFailed
+                + '\''
+                + '}';
+    }
 }

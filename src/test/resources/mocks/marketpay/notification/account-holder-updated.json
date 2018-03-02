@@ -33,7 +33,7 @@
             "ownerNationality": "NL",
             "ownerPostalCode": "1062HT",
             "ownerState": "NL",
-            "ownerStreet": "Delflandplein",
+            "ownerStreet": "street",
             "primaryAccount": "true"
           }
         }
@@ -59,7 +59,7 @@
           }
         ]
       },
-      "email": "ah62.georgios.adam@adyen.com"
+      "email": "ah62@adyen.com"
     },
     "accountHolderStatus": {
       "status": "Active",
