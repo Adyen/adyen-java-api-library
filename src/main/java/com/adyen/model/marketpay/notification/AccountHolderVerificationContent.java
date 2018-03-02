@@ -1,0 +1,72 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
+
+package com.adyen.model.marketpay.notification;
+
+import com.adyen.model.marketpay.KYCCheckStatusData;
+
+public class AccountHolderVerificationContent {
+    private String accountHolderCode;
+    private String shareholderCode;
+    private String bankAccountUUID;
+    KYCCheckStatusData.CheckTypeEnum verificationType;
+    KYCCheckStatusData.CheckStatusEnum verificationStatus;
+
+    public String getAccountHolderCode() {
+        return accountHolderCode;
+    }
+
+    public void setAccountHolderCode(String accountHolderCode) {
+        this.accountHolderCode = accountHolderCode;
+    }
+
+    public String getShareholderCode() {
+        return shareholderCode;
+    }
+
+    public void setShareholderCode(String shareholderCode) {
+        this.shareholderCode = shareholderCode;
+    }
+
+    public String getBankAccountUUID() {
+        return bankAccountUUID;
+    }
+
+    public void setBankAccountUUID(String bankAccountUUID) {
+        this.bankAccountUUID = bankAccountUUID;
+    }
+
+    public KYCCheckStatusData.CheckTypeEnum getVerificationType() {
+        return verificationType;
+    }
+
+    public void setVerificationType(KYCCheckStatusData.CheckTypeEnum verificationType) {
+        this.verificationType = verificationType;
+    }
+
+    public KYCCheckStatusData.CheckStatusEnum getVerificationStatus() {
+        return verificationStatus;
+    }
+
+    public void setVerificationStatus(KYCCheckStatusData.CheckStatusEnum verificationStatus) {
+        this.verificationStatus = verificationStatus;
+    }
+}
