@@ -20,14 +20,13 @@
  */
 package com.adyen.Util;
 
+import com.adyen.model.Amount;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import com.adyen.model.Amount;
 
 public final class Util {
     private Util() {
@@ -35,6 +34,7 @@ public final class Util {
 
     /**
      * Joins a list of items to a single string using "glue" as separator
+     * If the item is null, it will add as empty
      *
      * @param glue separator
      * @param list list of elements to be joined
@@ -47,15 +47,19 @@ public final class Util {
             return "";
         }
 
-        Iterator<T> iter = list.iterator();
-
-        // init the builder with the first element
+        // init the builder
         StringBuilder sb = new StringBuilder();
-        sb.append(iter.next());
-
+        boolean addGlue = false;
         // concat each element
-        while (iter.hasNext()) {
-            sb.append(glue).append(iter.next());
+        for (T item : list) {
+            if (addGlue) {
+                sb.append(glue);
+            } else {
+                addGlue = true;
+            }
+            if (item != null) {
+                sb.append(item);
+            }
         }
 
         // return result

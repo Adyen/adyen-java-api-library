@@ -20,14 +20,13 @@
  */
 package com.adyen.Util;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
 import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
-
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 
@@ -60,7 +59,7 @@ public class HMACValidator {
     }
 
     public String getDataToSign(SortedMap<String, String> postParameters) {
-        List<String> parts = new ArrayList<String>();
+        List<String> parts = new ArrayList<>();
 
         for (String key : postParameters.keySet()) {
             parts.add(escapeVal(key));

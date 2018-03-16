@@ -1,16 +1,19 @@
 package com.adyen;
 
-import java.math.BigDecimal;
-import java.security.SignatureException;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import org.junit.Test;
-import com.adyen.Util.HMACValidator;
-import com.adyen.Util.Util;
-import com.adyen.model.Amount;
 import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
 import static com.adyen.constants.HPPConstants.Fields.MERCHANT_ACCOUNT;
 import static org.junit.Assert.assertEquals;
+
+import com.adyen.Util.HMACValidator;
+import com.adyen.Util.Util;
+import com.adyen.model.Amount;
+import java.math.BigDecimal;
+import java.security.SignatureException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import org.junit.Test;
 
 /**
  * Tests for Util class
@@ -39,7 +42,7 @@ public class UtilTest {
     }
 
     @Test
-    public void testGetDataToSign() throws Exception {
+    public void testGetDataToSign() {
         SortedMap<String, String> postParameters;
 
         postParameters = new TreeMap<>();
@@ -57,6 +60,21 @@ public class UtilTest {
 
         dataToSign = hmacValidator.getDataToSign(postParameters);
         assertEquals("currencyCode:merchantAccount:EUR:ACC\\:\\\\'", dataToSign);
+    }
+
+    @Test
+    public void testImplode() {
+        List<String> data = new ArrayList<>();
+        data.add(null);
+        data.add(null);
+        data.add("NL");
+        data.add(null);
+        data.add("reference");
+        data.add(null);
+        data.add("merchantAccount");
+
+        String dataToSign = Util.implode(":", data);
+        assertEquals("::NL::reference::merchantAccount", dataToSign);
     }
 
     @Test
