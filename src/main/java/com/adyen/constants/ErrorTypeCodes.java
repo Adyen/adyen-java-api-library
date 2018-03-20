@@ -23,18 +23,24 @@ package com.adyen.constants;
 
 public interface ErrorTypeCodes {
     Integer FIELD_MISSING = 1;
-    Integer EMAIL_ADDRESS_INVALID = 2;
-    Integer COUNTRY_CODE_INVALID = 3;
-    Integer ILLEGAL_CHARACTERS = 4;
-    Integer URL_INVALID = 5;
-    Integer DATE_FORMAT_INVALID = 6;
-    Integer DATE_RANGE_INVALID = 7;
+    Integer EMAIL_INVALID = 2;
+    Integer COUNTRY_INVALID = 3;
+    Integer CONTAINS_NUMBERS = 4;
+    Integer WEB_ADDRESS_INVALID = 5;
+    Integer INVALID_DATE_FORMAT = 6;
+    Integer DATE_OUT_OF_RANGE = 7;
     Integer BANK_DETAILS_INVALID = 8;
     Integer POSTAL_CODE_INVALID = 9;
-    Integer PHONENUMBER_REDUNDANT = 12;
-    Integer FULLPHONENUMBER_INVALID = 13;
-    Integer PHONENUMBER_INVALID = 14;
+    Integer STATE_CODE_INVALID = 10;
+    Integer STATE_CODE_UNKNOWN = 11;
+    Integer PHONE_NUMBER_OBJECT = 12;
+    Integer PHONE_NUMBER_INVALID = 13;
+    Integer PHONE_NUMBER_TOO_SHORT = 14;
     Integer COUNTRY_NOT_SUPPORTED = 15;
-    Integer CURRENCY_INVALID = 16;
-    Integer IBAN_ACCOUNTNUMBER_BRANCHCODE_BANKCODE_REDUNDANT = 17;
+    Integer INVALID_CURRENCY = 16;
+    Integer IBAN_AND_ACCOUNT_NUMBER = 17;
+    Integer BANK_CODE_UNKNOWN = 18;
+    Integer TIER_NUMBER_INVALID = 19;
+    Integer FORBIDDEN_FIELD = 20;
+    Integer INVALID_ACCOUNT_DESCRIPTION = 21;
 }
