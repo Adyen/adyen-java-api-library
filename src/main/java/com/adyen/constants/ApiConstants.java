@@ -57,6 +57,8 @@ public interface ApiConstants {
         String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
         String ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
 
+        String HMAC_SIGNATURE = "hmacSignature";
+
         interface Card {
             interface Encrypted {
                 String JSON = "card.encrypted.json";
