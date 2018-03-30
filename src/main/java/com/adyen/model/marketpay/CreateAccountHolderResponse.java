@@ -278,8 +278,7 @@ public class CreateAccountHolderResponse {
                             invalidFieldsContainers,
                             accountHolderDetails,
                             accountHolderStatus,
-                            pspReference,
-                            verification);
+                            pspReference);
     }
 
 
@@ -299,7 +298,6 @@ public class CreateAccountHolderResponse {
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
         sb.append("}");
         return sb.toString();
     }
