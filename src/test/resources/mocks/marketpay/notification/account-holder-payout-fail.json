@@ -1,0 +1,32 @@
+{
+  "eventDate": "2018-02-01T06:22:20+01:00",
+  "eventType": "ACCOUNT_HOLDER_PAYOUT",
+  "executingUserKey": "Payout",
+  "live": "false",
+  "pspReference": "pspReference",
+  "content": {
+    "accountCode": "accountCode",
+    "accountHolderCode": "accountHolderCode",
+    "amount": {
+      "currency": "USD",
+      "value": 1000
+    },
+    "amounts": [
+      {
+        "Amount": {
+          "currency": "USD",
+          "value": 1000
+        }
+      }
+    ],
+    "description": "description",
+    "merchantReference": "merchantReference",
+    "status": {
+      "message": {
+        "code": "10_066",
+        "text": "There is not enough balance available for account accountCode. Available balance: USD 0.00; Requested amount: USD 10.00"
+      },
+      "statusCode": "Failed"
+    }
+  }
+}

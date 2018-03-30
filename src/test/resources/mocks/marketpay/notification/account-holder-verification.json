@@ -1,0 +1,14 @@
+{
+  "eventDate": "2018-03-01T15:04:18+01:00",
+  "eventType": "ACCOUNT_HOLDER_VERIFICATION",
+  "executingUserKey": "Account Holder Update",
+  "live": "false",
+  "pspReference": "8815199130589319",
+  "content": {
+    "accountHolderCode": "ah689",
+    "shareholderCode": "10700326-5dbc-43a9-9059-a9357e173a18",
+    "statusSummaryItems": [],
+    "verificationStatus": "DATA_PROVIDED",
+    "verificationType": "IDENTITY_VERIFICATION"
+  }
+}

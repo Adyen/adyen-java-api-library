@@ -1,0 +1,25 @@
+{
+  "eventDate": "2018-03-07T13:44:34+01:00",
+  "eventType": "PAYMENT_FAILURE",
+  "executingUserKey": "ws_957630",
+  "live": "false",
+  "pspReference": "Test_PAYMENT_FAILURE",
+  "content": {
+    "errorFields": [
+      {
+        "ErrorFieldType": {
+          "errorCode": 1,
+          "errorDescription": "Field is missing",
+          "fieldType": {
+            "field": "AccountHolderDetails.accountNumber",
+            "fieldName": "accountNumber"
+          }
+        }
+      }
+    ],
+    "errorMessage": {
+      "code": "10_062",
+      "text": "Processing is not allowed because the account holder TestAccountHolder is not in the processing state."
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "eventDate": "2018-03-02T17:35:58+01:00",
+  "eventType": "BENEFICIARY_SETUP",
+  "executingUserKey": "executingUserKey",
+  "live": "false",
+  "pspReference": "8815200085572134",
+  "content": {
+    "destinationAccountCode": "117001608",
+    "destinationAccountHolderCode": "ah690",
+    "merchantReference": "test",
+    "sourceAccountCode": "136058999",
+    "sourceAccountHolderCode": "ah689",
+    "transferDate": "2018-03-02T17:35:57+01:00",
+    "transferredTransactionCount": 0
+  }
+}

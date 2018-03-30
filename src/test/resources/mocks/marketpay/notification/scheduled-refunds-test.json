@@ -1,0 +1,70 @@
+{
+  "eventType": "SCHEDULED_REFUNDS",
+  "executingUserKey": "ws_957630",
+  "live": "false",
+  "pspReference": "Test_SCHEDULED_REFUNDS",
+  "content": {
+    "accountCode": "1234567890",
+    "accountHolderCode": "TestAccountHolder",
+    "lastPayout": {
+      "amount": {
+        "currency": "EUR",
+        "value": 5000
+      },
+      "creationDate": "2018-03-07T13:44:34+01:00",
+      "description": "Test reference - Test description",
+      "pspReference": "Test_SCHEDULED_REFUNDS_transactionReference",
+      "transactionStatus": "Payout"
+    },
+    "refundResults": [
+      {
+        "RefundResult": {
+          "originalTransaction": {
+            "amount": {
+              "currency": "EUR",
+              "value": 5000
+            },
+            "creationDate": "2018-03-07T13:44:34+01:00",
+            "description": "Test reference - Test description",
+            "pspReference": "Test_SCHEDULED_REFUNDS_transactionReference",
+            "transactionStatus": "PendingCredit"
+          },
+          "pspReference": "Test_SCHEDULED_REFUNDS_modificationReference",
+          "response": "[refund-received]"
+        }
+      },
+      {
+        "RefundResult": {
+          "originalTransaction": {
+            "amount": {
+              "currency": "EUR",
+              "value": 5000
+            },
+            "creationDate": "2018-03-07T13:44:34+01:00",
+            "description": "Test reference - Test description",
+            "pspReference": "Test_SCHEDULED_REFUNDS_transactionReference",
+            "transactionStatus": "PendingCredit"
+          },
+          "pspReference": "Test_SCHEDULED_REFUNDS_modificationReference",
+          "response": "Could not determine merchantAccount"
+        }
+      },
+      {
+        "RefundResult": {
+          "originalTransaction": {
+            "amount": {
+              "currency": "EUR",
+              "value": 5000
+            },
+            "creationDate": "2018-03-07T13:44:34+01:00",
+            "description": "Test reference - Test description",
+            "pspReference": "Test_SCHEDULED_REFUNDS_transactionReference",
+            "transactionStatus": "PendingCredit"
+          },
+          "pspReference": "Test_SCHEDULED_REFUNDS_modificationReference",
+          "response": "Failed to send refund: Service unavailable"
+        }
+      }
+    ]
+  }
+}

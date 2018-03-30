@@ -1,0 +1,14 @@
+{
+  "eventDate": "2018-03-07T13:44:34+01:00",
+  "eventType": "REPORT_AVAILABLE",
+  "executingUserKey": "ReportProcessor",
+  "live": "false",
+  "pspReference": "marketplace_payments_accounting_report_2016_01_01.csv",
+  "content": {
+    "accountCode": "TestMarketPlaceV1",
+    "accountType": "MarketPlace",
+    "eventDate": "2018-03-07T13:44:34+01:00",
+    "remoteAccessUrl": "https:\/\/ca-test.adyen.com\/reports\/download\/MarketPlace\/TestMarketPlaceV1\/marketplace_payments_accounting_report_2016_01_01.csv",
+    "success": "true"
+  }
+}

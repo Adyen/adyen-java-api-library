@@ -23,6 +23,7 @@ package com.adyen.model.marketpay;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import com.adyen.model.marketpay.v2.KYCVerificationResult;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -30,39 +31,33 @@ import com.google.gson.annotations.SerializedName;
  */
 public class CreateAccountHolderResponse {
     @SerializedName("accountStatus")
-    private AccountStatus accountStatus = null;
+    private AccountStatus accountStatus;
 
-    @SerializedName("verificationResult")
-    private KYCVerificationResult verificationResult = null;
+    @SerializedName("verification")
+    private com.adyen.model.marketpay.v2.KYCVerificationResult verification;
 
     @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
+    private Boolean submittedAsync;
 
     @SerializedName("accountHolderCode")
-    private String accountHolderCode = null;
+    private String accountHolderCode;
 
     @SerializedName("accountCode")
-    private String accountCode = null;
-
-    @SerializedName("requirementsForNextAccountState")
-    private List<AccountStateRequirement> requirementsForNextAccountState = new ArrayList<AccountStateRequirement>();
+    private String accountCode;
 
     @SerializedName("invalidFields")
-    public List<ErrorFieldTypeContainer> invalidFieldsContainers = null;
+    public List<ErrorFieldTypeContainer> invalidFieldsContainers;
 
-    private transient List<ErrorFieldType> invalidFields = null;
+    private transient List<ErrorFieldType> invalidFields;
 
     @SerializedName("accountHolderDetails")
-    private AccountHolderDetails accountHolderDetails = null;
+    private AccountHolderDetails accountHolderDetails;
 
     @SerializedName("accountHolderStatus")
-    private AccountHolderStatus accountHolderStatus = null;
+    private AccountHolderStatus accountHolderStatus;
 
     @SerializedName("pspReference")
-    private String pspReference = null;
-
-    @SerializedName("kycVerificationResults")
-    private List<KYCVerificationResult> kycVerificationResults = new ArrayList<KYCVerificationResult>();
+    private String pspReference;
 
     public CreateAccountHolderResponse accountStatus(AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
@@ -80,24 +75,6 @@ public class CreateAccountHolderResponse {
 
     public void setAccountStatus(AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
-    }
-
-    public CreateAccountHolderResponse verificationResult(KYCVerificationResult verificationResult) {
-        this.verificationResult = verificationResult;
-        return this;
-    }
-
-    /**
-     * verification result
-     *
-     * @return verificationResult
-     **/
-    public KYCVerificationResult getVerificationResult() {
-        return verificationResult;
-    }
-
-    public void setVerificationResult(KYCVerificationResult verificationResult) {
-        this.verificationResult = verificationResult;
     }
 
     public CreateAccountHolderResponse submittedAsync(Boolean submittedAsync) {
@@ -153,30 +130,6 @@ public class CreateAccountHolderResponse {
     public void setAccountCode(String accountCode) {
         this.accountCode = accountCode;
     }
-
-    public CreateAccountHolderResponse requirementsForNextAccountState(List<AccountStateRequirement> requirementsForNextAccountState) {
-        this.requirementsForNextAccountState = requirementsForNextAccountState;
-        return this;
-    }
-
-    public CreateAccountHolderResponse addRequirementsForNextAccountStateItem(AccountStateRequirement requirementsForNextAccountStateItem) {
-        this.requirementsForNextAccountState.add(requirementsForNextAccountStateItem);
-        return this;
-    }
-
-    /**
-     * account holder properties that must be provided, in order for the account holder to reach the next processing state level
-     *
-     * @return requirementsForNextAccountState
-     **/
-    public List<AccountStateRequirement> getRequirementsForNextAccountState() {
-        return requirementsForNextAccountState;
-    }
-
-    public void setRequirementsForNextAccountState(List<AccountStateRequirement> requirementsForNextAccountState) {
-        this.requirementsForNextAccountState = requirementsForNextAccountState;
-    }
-
 
     /**
      * Populate the virtual invalidFields to bypass the invalidFieldsContainers list
@@ -235,11 +188,6 @@ public class CreateAccountHolderResponse {
         return this;
     }
 
-    /**
-     * details of created account holder
-     *
-     * @return accountHolderDetails
-     **/
     public AccountHolderDetails getAccountHolderDetails() {
         return accountHolderDetails;
     }
@@ -284,29 +232,21 @@ public class CreateAccountHolderResponse {
         this.pspReference = pspReference;
     }
 
-    public CreateAccountHolderResponse kycVerificationResults(List<KYCVerificationResult> kycVerificationResults) {
-        this.kycVerificationResults = kycVerificationResults;
-        return this;
+    public com.adyen.model.marketpay.v2.KYCVerificationResult getVerification() {
+        return verification;
     }
 
-    public CreateAccountHolderResponse addKycVerificationResultsItem(KYCVerificationResult kycVerificationResultsItem) {
-        this.kycVerificationResults.add(kycVerificationResultsItem);
-        return this;
+    public void setVerification(KYCVerificationResult verification) {
+        this.verification = verification;
     }
 
-    /**
-     * KYC verification results
-     *
-     * @return kycVerificationResults
-     **/
-    public List<KYCVerificationResult> getKycVerificationResults() {
-        return kycVerificationResults;
+    public List<ErrorFieldTypeContainer> getInvalidFieldsContainers() {
+        return invalidFieldsContainers;
     }
 
-    public void setKycVerificationResults(List<KYCVerificationResult> kycVerificationResults) {
-        this.kycVerificationResults = kycVerificationResults;
+    public void setInvalidFieldsContainers(List<ErrorFieldTypeContainer> invalidFieldsContainers) {
+        this.invalidFieldsContainers = invalidFieldsContainers;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -318,31 +258,27 @@ public class CreateAccountHolderResponse {
         }
         CreateAccountHolderResponse createAccountHolderResponse = (CreateAccountHolderResponse) o;
         return Objects.equals(this.accountStatus, createAccountHolderResponse.accountStatus)
-                && Objects.equals(this.verificationResult, createAccountHolderResponse.verificationResult)
+                && Objects.equals(this.verification, createAccountHolderResponse.verification)
                 && Objects.equals(this.submittedAsync, createAccountHolderResponse.submittedAsync)
                 && Objects.equals(this.accountHolderCode, createAccountHolderResponse.accountHolderCode)
                 && Objects.equals(this.accountCode, createAccountHolderResponse.accountCode)
-                && Objects.equals(this.requirementsForNextAccountState, createAccountHolderResponse.requirementsForNextAccountState)
                 && Objects.equals(this.invalidFieldsContainers, createAccountHolderResponse.invalidFieldsContainers)
                 && Objects.equals(this.accountHolderDetails, createAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, createAccountHolderResponse.accountHolderStatus)
-                && Objects.equals(this.pspReference, createAccountHolderResponse.pspReference)
-                && Objects.equals(this.kycVerificationResults, createAccountHolderResponse.kycVerificationResults);
+                && Objects.equals(this.pspReference, createAccountHolderResponse.pspReference);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(accountStatus,
-                            verificationResult,
+                            verification,
                             submittedAsync,
                             accountHolderCode,
                             accountCode,
-                            requirementsForNextAccountState,
                             invalidFieldsContainers,
                             accountHolderDetails,
                             accountHolderStatus,
-                            pspReference,
-                            kycVerificationResults);
+                            pspReference);
     }
 
 
@@ -353,18 +289,15 @@ public class CreateAccountHolderResponse {
 
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAccountHolderResponse {\n");
-
         sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
-        sb.append("    verificationResult: ").append(toIndentedString(verificationResult)).append("\n");
+        sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
-        sb.append("    requirementsForNextAccountState: ").append(toIndentedString(requirementsForNextAccountState)).append("\n");
         sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    kycVerificationResults: ").append(toIndentedString(kycVerificationResults)).append("\n");
         sb.append("}");
         return sb.toString();
     }
