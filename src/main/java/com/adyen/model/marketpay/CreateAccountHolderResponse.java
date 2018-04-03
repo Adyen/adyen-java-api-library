@@ -23,7 +23,6 @@ package com.adyen.model.marketpay;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.adyen.model.marketpay.v2.KYCVerificationResult;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -34,7 +33,7 @@ public class CreateAccountHolderResponse {
     private AccountStatus accountStatus;
 
     @SerializedName("verification")
-    private com.adyen.model.marketpay.v2.KYCVerificationResult verification;
+    private KYCVerificationResult verification;
 
     @SerializedName("submittedAsync")
     private Boolean submittedAsync;
@@ -232,7 +231,7 @@ public class CreateAccountHolderResponse {
         this.pspReference = pspReference;
     }
 
-    public com.adyen.model.marketpay.v2.KYCVerificationResult getVerification() {
+    public KYCVerificationResult getVerification() {
         return verification;
     }
 

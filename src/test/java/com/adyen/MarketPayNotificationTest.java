@@ -52,6 +52,7 @@ import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationRes
 import com.adyen.notification.NotificationHandler;
 import com.adyen.service.Notification;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.DATA_PROVIDED;
+import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.COMPANY_VERIFICATION;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.IDENTITY_VERIFICATION;
 import static com.adyen.model.marketpay.Transaction.TransactionStatusEnum.PENDINGCREDIT;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_STATUS_CHANGE;
@@ -246,10 +247,14 @@ public class MarketPayNotificationTest extends BaseTest {
 
         assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_UPDATED, notificationMessage.getEventType());
         AccountHolderUpdatedNotification notification = (AccountHolderUpdatedNotification) notificationMessage;
+
         assertNotNull(notification.getContent());
 
         assertEquals("accountHolderCode", notification.getContent().getAccountHolderCode());
         assertEquals(AccountHolderStatus.StatusEnum.ACTIVE, notification.getContent().getAccountHolderStatus().getStatus());
+        assertEquals(COMPANY_VERIFICATION, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getCheckType());
+        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getCheckStatus());
+        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getShareholders().get(0).getChecks().get(0).getCheckStatus());
     }
 
     @Test

@@ -32,7 +32,7 @@ public class UpdateAccountHolderResponse {
     @SerializedName("accountStatus")
     private AccountStatus accountStatus = null;
 
-    @SerializedName("verificationResult")
+    @SerializedName("verification")
     private KYCVerificationResult verificationResult = null;
 
     @SerializedName("submittedAsync")
@@ -60,9 +60,6 @@ public class UpdateAccountHolderResponse {
 
     @SerializedName("pspReference")
     private String pspReference = null;
-
-    @SerializedName("kycVerificationResults")
-    private List<KYCVerificationResult> kycVerificationResults = new ArrayList<KYCVerificationResult>();
 
     public UpdateAccountHolderResponse accountStatus(AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
@@ -288,30 +285,6 @@ public class UpdateAccountHolderResponse {
         this.pspReference = pspReference;
     }
 
-    public UpdateAccountHolderResponse kycVerificationResults(List<KYCVerificationResult> kycVerificationResults) {
-        this.kycVerificationResults = kycVerificationResults;
-        return this;
-    }
-
-    public UpdateAccountHolderResponse addKycVerificationResultsItem(KYCVerificationResult kycVerificationResultsItem) {
-        this.kycVerificationResults.add(kycVerificationResultsItem);
-        return this;
-    }
-
-    /**
-     * KYC verification results
-     *
-     * @return kycVerificationResults
-     **/
-    public List<KYCVerificationResult> getKycVerificationResults() {
-        return kycVerificationResults;
-    }
-
-    public void setKycVerificationResults(List<KYCVerificationResult> kycVerificationResults) {
-        this.kycVerificationResults = kycVerificationResults;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -330,8 +303,7 @@ public class UpdateAccountHolderResponse {
                 && Objects.equals(this.invalidFieldsContainers, updateAccountHolderResponse.invalidFieldsContainers)
                 && Objects.equals(this.accountHolderDetails, updateAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, updateAccountHolderResponse.accountHolderStatus)
-                && Objects.equals(this.pspReference, updateAccountHolderResponse.pspReference)
-                && Objects.equals(this.kycVerificationResults, updateAccountHolderResponse.kycVerificationResults);
+                && Objects.equals(this.pspReference, updateAccountHolderResponse.pspReference);
     }
 
     @Override
@@ -345,8 +317,7 @@ public class UpdateAccountHolderResponse {
                             invalidFieldsContainers,
                             accountHolderDetails,
                             accountHolderStatus,
-                            pspReference,
-                            kycVerificationResults);
+                            pspReference);
     }
 
 
@@ -368,7 +339,6 @@ public class UpdateAccountHolderResponse {
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    kycVerificationResults: ").append(toIndentedString(kycVerificationResults)).append("\n");
         sb.append("}");
         return sb.toString();
     }

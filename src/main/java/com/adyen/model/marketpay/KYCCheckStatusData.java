@@ -57,7 +57,7 @@ public class KYCCheckStatusData {
         }
     }
 
-    @SerializedName("checkType")
+    @SerializedName("type")
     private CheckTypeEnum checkType = null;
 
     @SerializedName("summary")
@@ -106,7 +106,7 @@ public class KYCCheckStatusData {
         }
     }
 
-    @SerializedName("checkStatus")
+    @SerializedName("status")
     private CheckStatusEnum checkStatus = null;
 
     @SerializedName("requiredFields")
