@@ -28,8 +28,6 @@ import com.google.gson.annotations.SerializedName;
  * NotificationEventConfiguration
  */
 public class NotificationEventConfigurationContainer {
-
-
     @SerializedName("NotificationEventConfiguration")
     NotificationEventConfiguration notificationEventConfiguration = new NotificationEventConfiguration();
 

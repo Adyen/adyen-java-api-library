@@ -1,0 +1,181 @@
+{
+  "eventDate": "2018-03-02T10:02:45+01:00",
+  "eventType": "ACCOUNT_HOLDER_UPDATED",
+  "executingUserKey": "ws",
+  "live": "false",
+  "pspReference": "8515199813653278",
+  "content": {
+    "pspReference": "8515199813653278",
+    "submittedAsync": "false",
+    "accountHolderCode": "accountHolderCode",
+    "accountHolderDetails": {
+      "address": {
+        "city": "PASSEDCITY",
+        "country": "GB",
+        "postalCode": "12345",
+        "stateOrProvince": "NH",
+        "street": "Teststreet 1"
+      },
+      "bankAccountDetails": [
+        {
+          "BankAccountDetail": {
+            "bankAccountUUID": "0c9c8c09-f6cf-4d0f-b4a9-547d2147ac3c",
+            "bankCity": "PASSED",
+            "bankName": "testBank",
+            "countryCode": "GB",
+            "currencyCode": "EUR",
+            "iban": "GB26TEST40051512347366",
+            "ownerCity": "PASSED",
+            "ownerCountryCode": "NL",
+            "ownerDateOfBirth": "1980-01-01",
+            "ownerHouseNumberOrName": "9",
+            "ownerName": "TestData",
+            "ownerNationality": "NL",
+            "ownerPostalCode": "1062HT",
+            "ownerState": "NL",
+            "ownerStreet": "street",
+            "primaryAccount": "true"
+          }
+        }
+      ],
+      "businessDetails": {
+        "legalBusinessName": "Test company",
+        "shareholders": [
+          {
+            "ShareholderContact": {
+              "email": "test.ah681@adyen.com",
+              "name": {
+                "firstName": "Test",
+                "gender": "MALE",
+                "lastName": "Test"
+              },
+              "personalData": {
+                "dateOfBirth": "1970-01-01",
+                "idNumber": "1234567890",
+                "nationality": "NL"
+              },
+              "shareholderCode": "6d2d8ba3-751c-4ecc-8777-6bbdcd4053cd"
+            }
+          }
+        ]
+      },
+      "email": "ah62@adyen.com"
+    },
+    "accountHolderStatus": {
+      "status": "Active",
+      "processingState": {
+        "disabled": "false",
+        "processedFrom": {
+          "currency": "GBP",
+          "value": 0
+        },
+        "processedTo": {
+          "currency": "GBP",
+          "value": 0
+        },
+        "tierNumber": 0
+      },
+      "payoutState": {
+        "allowPayout": "false",
+        "disabled": "false",
+        "tierNumber": 0
+      },
+      "events": []
+    },
+    "invalidFields": [],
+    "kycVerificationResults": [
+      {
+        "KYCVerificationResult": {
+          "accountHolderCode": "ah690",
+          "checkResults": [
+            {
+              "KYCCheckResult": {
+                "checkType": "COMPANY_VERIFICATION",
+                "verificationStatus": "DATA_PROVIDED"
+              }
+            }
+          ],
+          "verificationStatuses": {
+            "COMPANY_VERIFICATION": "DATA_PROVIDED"
+          }
+        }
+      },
+      {
+        "KYCVerificationResult": {
+          "accountHolderCode": "ah690",
+          "checkResults": [
+            {
+              "KYCCheckResult": {
+                "checkType": "IDENTITY_VERIFICATION",
+                "verificationStatus": "DATA_PROVIDED"
+              }
+            },
+            {
+              "KYCCheckResult": {
+                "checkType": "PASSPORT_VERIFICATION",
+                "verificationStatus": "AWAITING_DATA"
+              }
+            }
+          ],
+          "shareholderCode": "6d2d8ba3-751c-4ecc-8777-6bbdcd4053cd",
+          "verificationStatuses": {
+            "IDENTITY_VERIFICATION": "DATA_PROVIDED",
+            "PASSPORT_VERIFICATION": "AWAITING_DATA"
+          }
+        }
+      },
+      {
+        "KYCVerificationResult": {
+          "accountHolderCode": "ah690",
+          "bankAccountUUID": "0c9c8c09-f6cf-4d0f-b4a9-547d2147ac3c",
+          "checkResults": [
+            {
+              "KYCCheckResult": {
+                "checkType": "BANK_ACCOUNT_VERIFICATION",
+                "verificationStatus": "DATA_PROVIDED"
+              }
+            }
+          ],
+          "verificationStatuses": {
+            "BANK_ACCOUNT_VERIFICATION": "DATA_PROVIDED"
+          }
+        }
+      }
+    ],
+    "legalEntity": "Business",
+    "requirementsForNextAccountState": [],
+    "updatedFields": [],
+    "verification": {
+      "accountHolder": {
+        "checks": [
+          {
+            "type": "COMPANY_VERIFICATION",
+            "status": "DATA_PROVIDED"
+          }
+        ]
+      },
+      "shareholders": [
+        {
+          "shareholderCode": "6d2d8ba3-751c-4ecc-8777-6bbdcd4053cd",
+          "checks": [
+            {
+              "type": "IDENTITY_VERIFICATION",
+              "status": "DATA_PROVIDED"
+            }
+          ]
+        }
+      ],
+      "bankAccounts": [
+        {
+          "bankAccountUUID": "0c9c8c09-f6cf-4d0f-b4a9-547d2147ac3c",
+          "checks": [
+            {
+              "type": "BANK_ACCOUNT_VERIFICATION",
+              "status": "DATA_PROVIDED"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

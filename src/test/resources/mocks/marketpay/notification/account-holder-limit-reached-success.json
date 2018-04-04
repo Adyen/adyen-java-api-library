@@ -1,0 +1,27 @@
+{
+  "eventType": "ACCOUNT_HOLDER_LIMIT_REACHED",
+  "executingUserKey": "ws",
+  "live": "true",
+  "pspReference": "pspReference",
+  "content": {
+    "accountHolderCode": "TestAccountHolder",
+    "accountState": {
+      "allowPayout": "false",
+      "allowProcessing": "false",
+      "disableReason": "reason",
+      "disabled": "false",
+      "stateType": "Payout",
+      "tierNumber": 1
+    },
+    "amount": {
+      "currency": "USD",
+      "value": 123
+    },
+    "totalAmountBeforeLimit": {
+      "currency": "USD",
+      "value": 123
+    },
+    "transactionDate": "2018-02-01T10:01:20+01:00",
+    "transactionFailed": "false"
+  }
+}

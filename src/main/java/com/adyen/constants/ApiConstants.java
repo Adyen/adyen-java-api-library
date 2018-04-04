@@ -43,6 +43,8 @@ public interface ApiConstants {
         String THREE_D_AUTHENTICATED = "threeDAuthenticated";
         String AVS_RESULT = "avsResult";
         String PAYMENT_TOKEN = "payment.token";
+        String FRAUD_RESULT_TYPE = "fraudResultType";
+        String FRAUD_MANUAL_REVIEW = "fraudManualReview";
 
         String BOLETO_BARCODE_REFERENCE = "boletobancario.barCodeReference";
         String BOLETO_DATA = "boletobancario.data";
@@ -50,6 +52,12 @@ public interface ApiConstants {
         String BOLETO_URL = "boletobancario.url";
         String BOLETO_EXPIRATION_DATE = "boletobancario.expirationDate";
 
+        String ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
+        String ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
+        String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
+        String ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
+
+        String HMAC_SIGNATURE = "hmacSignature";
 
         interface Card {
             interface Encrypted {

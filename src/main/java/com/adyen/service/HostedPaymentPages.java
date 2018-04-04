@@ -84,7 +84,10 @@ public class HostedPaymentPages extends Service {
         postParameters.put(MERCHANT_REFERENCE, request.getMerchantReference());
         postParameters.put(SESSION_VALIDITY, request.getSessionValidity());
         postParameters.put(COUNTRY_CODE, request.getCountryCode());
-        postParameters.put(SHOPPER_LOCALE, request.getShopperLocale());
+
+        if(request.getShopperLocale() != null) {
+            postParameters.put(SHOPPER_LOCALE, request.getShopperLocale());
+        }
 
         HMACValidator hmacValidator = new HMACValidator();
 

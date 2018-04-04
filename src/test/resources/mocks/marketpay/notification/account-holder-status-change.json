@@ -1,0 +1,40 @@
+{
+  "eventDate": "2018-03-01T15:04:18+01:00",
+  "eventType": "ACCOUNT_HOLDER_STATUS_CHANGE",
+  "executingUserKey": "Status Update",
+  "live": "false",
+  "pspReference": "8815199130589319",
+  "content": {
+    "accountHolderCode": "ah689",
+    "oldStatus": {
+      "status": "Active",
+      "processingState": {},
+      "payoutState": {
+        "allowPayout": "false"
+      },
+      "events": []
+    },
+    "newStatus": {
+      "status": "Active",
+      "processingState": {
+        "disabled": "false",
+        "processedFrom": {
+          "currency": "GBP",
+          "value": 0
+        },
+        "processedTo": {
+          "currency": "GBP",
+          "value": 0
+        },
+        "tierNumber": 0
+      },
+      "payoutState": {
+        "allowPayout": "false",
+        "disabled": "false",
+        "tierNumber": 0
+      },
+      "events": []
+    },
+    "reason": "Account holder has been updated"
+  }
+}

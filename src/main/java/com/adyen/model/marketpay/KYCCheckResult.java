@@ -29,30 +29,30 @@ import com.google.gson.annotations.SerializedName;
  * KYCCheckResult
  */
 public class KYCCheckResult {
-    @SerializedName("checkStatusData")
-    private List<KYCCheckStatusData> checkStatusData = new ArrayList<KYCCheckStatusData>();
+    @SerializedName("checks")
+    private List<KYCCheckStatusData> checks = new ArrayList<KYCCheckStatusData>();
 
     public KYCCheckResult checkStatusData(List<KYCCheckStatusData> checkStatusData) {
-        this.checkStatusData = checkStatusData;
+        this.checks = checkStatusData;
         return this;
     }
 
     public KYCCheckResult addCheckStatusDataItem(KYCCheckStatusData checkStatusDataItem) {
-        this.checkStatusData.add(checkStatusDataItem);
+        this.checks.add(checkStatusDataItem);
         return this;
     }
 
     /**
-     * Get checkStatusData
+     * Get checks
      *
-     * @return checkStatusData
+     * @return checks
      **/
-    public List<KYCCheckStatusData> getCheckStatusData() {
-        return checkStatusData;
+    public List<KYCCheckStatusData> getChecks() {
+        return checks;
     }
 
-    public void setCheckStatusData(List<KYCCheckStatusData> checkStatusData) {
-        this.checkStatusData = checkStatusData;
+    public void setChecks(List<KYCCheckStatusData> checks) {
+        this.checks = checks;
     }
 
 
@@ -65,12 +65,12 @@ public class KYCCheckResult {
             return false;
         }
         KYCCheckResult kyCCheckResult = (KYCCheckResult) o;
-        return Objects.equals(this.checkStatusData, kyCCheckResult.checkStatusData);
+        return Objects.equals(this.checks, kyCCheckResult.checks);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(checkStatusData);
+        return Objects.hash(checks);
     }
 
 
@@ -79,7 +79,7 @@ public class KYCCheckResult {
         StringBuilder sb = new StringBuilder();
         sb.append("class KYCCheckResult {\n");
 
-        sb.append("    checkStatusData: ").append(toIndentedString(checkStatusData)).append("\n");
+        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
         sb.append("}");
         return sb.toString();
     }

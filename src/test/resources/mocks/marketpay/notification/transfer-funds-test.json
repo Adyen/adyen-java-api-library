@@ -1,0 +1,20 @@
+{
+  "eventDate": "2018-03-07T13:44:34+01:00",
+  "eventType": "TRANSFER_FUNDS",
+  "executingUserKey": "ws_957630",
+  "live": "false",
+  "pspReference": "Test_TRANSFER_FUNDS",
+  "content": {
+    "amount": {
+      "currency": "EUR",
+      "value": 1000
+    },
+    "destinationAccountCode": "987654321",
+    "merchantReference": "MerchantReference",
+    "sourceAccountCode": "123456789",
+    "status": {
+      "statusCode": "Success"
+    },
+    "transferCode": "testTransferCode"
+  }
+}

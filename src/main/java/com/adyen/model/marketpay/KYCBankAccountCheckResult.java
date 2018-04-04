@@ -32,8 +32,8 @@ public class KYCBankAccountCheckResult {
     @SerializedName("bankAccountUUID")
     private String bankAccountUUID = null;
 
-    @SerializedName("checkStatusData")
-    private List<KYCCheckStatusData> checkStatusData = new ArrayList<KYCCheckStatusData>();
+    @SerializedName("checks")
+    private List<KYCCheckStatusData> checks = new ArrayList<KYCCheckStatusData>();
 
     public KYCBankAccountCheckResult bankAccountUUID(String bankAccountUUID) {
         this.bankAccountUUID = bankAccountUUID;
@@ -54,26 +54,26 @@ public class KYCBankAccountCheckResult {
     }
 
     public KYCBankAccountCheckResult checkStatusData(List<KYCCheckStatusData> checkStatusData) {
-        this.checkStatusData = checkStatusData;
+        this.checks = checkStatusData;
         return this;
     }
 
     public KYCBankAccountCheckResult addCheckStatusDataItem(KYCCheckStatusData checkStatusDataItem) {
-        this.checkStatusData.add(checkStatusDataItem);
+        this.checks.add(checkStatusDataItem);
         return this;
     }
 
     /**
-     * Get checkStatusData
+     * Get checks
      *
-     * @return checkStatusData
+     * @return checks
      **/
-    public List<KYCCheckStatusData> getCheckStatusData() {
-        return checkStatusData;
+    public List<KYCCheckStatusData> getChecks() {
+        return checks;
     }
 
-    public void setCheckStatusData(List<KYCCheckStatusData> checkStatusData) {
-        this.checkStatusData = checkStatusData;
+    public void setChecks(List<KYCCheckStatusData> checks) {
+        this.checks = checks;
     }
 
 
@@ -86,12 +86,12 @@ public class KYCBankAccountCheckResult {
             return false;
         }
         KYCBankAccountCheckResult kyCBankAccountCheckResult = (KYCBankAccountCheckResult) o;
-        return Objects.equals(this.bankAccountUUID, kyCBankAccountCheckResult.bankAccountUUID) && Objects.equals(this.checkStatusData, kyCBankAccountCheckResult.checkStatusData);
+        return Objects.equals(this.bankAccountUUID, kyCBankAccountCheckResult.bankAccountUUID) && Objects.equals(this.checks, kyCBankAccountCheckResult.checks);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bankAccountUUID, checkStatusData);
+        return Objects.hash(bankAccountUUID, checks);
     }
 
 
@@ -101,7 +101,7 @@ public class KYCBankAccountCheckResult {
         sb.append("class KYCBankAccountCheckResult {\n");
 
         sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
-        sb.append("    checkStatusData: ").append(toIndentedString(checkStatusData)).append("\n");
+        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
         sb.append("}");
         return sb.toString();
     }

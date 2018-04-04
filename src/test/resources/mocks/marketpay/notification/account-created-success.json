@@ -1,0 +1,11 @@
+{
+  "eventType": "ACCOUNT_CREATED",
+  "executingUserKey": "ws",
+  "live": "true",
+  "pspReference": "Test_ACCOUNT_CREATED",
+  "content": {
+    "pspReference": "Test_ACCOUNT_CREATED",
+    "accountHolderCode": "TestAccountHolder",
+    "status": "Active"
+  }
+}
