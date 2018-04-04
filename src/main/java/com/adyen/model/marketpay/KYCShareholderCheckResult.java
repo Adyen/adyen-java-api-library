@@ -29,33 +29,33 @@ import com.google.gson.annotations.SerializedName;
  * KYCShareholderCheckResult
  */
 public class KYCShareholderCheckResult {
-    @SerializedName("checkStatusData")
-    private List<KYCCheckStatusData> checkStatusData = new ArrayList<KYCCheckStatusData>();
+    @SerializedName("checks")
+    private List<KYCCheckStatusData> checks = new ArrayList<KYCCheckStatusData>();
 
     @SerializedName("shareholderCode")
     private String shareholderCode = null;
 
     public KYCShareholderCheckResult checkStatusData(List<KYCCheckStatusData> checkStatusData) {
-        this.checkStatusData = checkStatusData;
+        this.checks = checkStatusData;
         return this;
     }
 
     public KYCShareholderCheckResult addCheckStatusDataItem(KYCCheckStatusData checkStatusDataItem) {
-        this.checkStatusData.add(checkStatusDataItem);
+        this.checks.add(checkStatusDataItem);
         return this;
     }
 
     /**
-     * Get checkStatusData
+     * Get checks
      *
-     * @return checkStatusData
+     * @return checks
      **/
-    public List<KYCCheckStatusData> getCheckStatusData() {
-        return checkStatusData;
+    public List<KYCCheckStatusData> getChecks() {
+        return checks;
     }
 
-    public void setCheckStatusData(List<KYCCheckStatusData> checkStatusData) {
-        this.checkStatusData = checkStatusData;
+    public void setChecks(List<KYCCheckStatusData> checks) {
+        this.checks = checks;
     }
 
     public KYCShareholderCheckResult shareholderCode(String shareholderCode) {
@@ -86,12 +86,12 @@ public class KYCShareholderCheckResult {
             return false;
         }
         KYCShareholderCheckResult kyCShareholderCheckResult = (KYCShareholderCheckResult) o;
-        return Objects.equals(this.checkStatusData, kyCShareholderCheckResult.checkStatusData) && Objects.equals(this.shareholderCode, kyCShareholderCheckResult.shareholderCode);
+        return Objects.equals(this.checks, kyCShareholderCheckResult.checks) && Objects.equals(this.shareholderCode, kyCShareholderCheckResult.shareholderCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(checkStatusData, shareholderCode);
+        return Objects.hash(checks, shareholderCode);
     }
 
 
@@ -100,7 +100,7 @@ public class KYCShareholderCheckResult {
         StringBuilder sb = new StringBuilder();
         sb.append("class KYCShareholderCheckResult {\n");
 
-        sb.append("    checkStatusData: ").append(toIndentedString(checkStatusData)).append("\n");
+        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
         sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
         sb.append("}");
         return sb.toString();
