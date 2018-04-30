@@ -28,6 +28,6 @@ import com.adyen.service.Resource;
 public class CloseAccountHolder extends Resource {
 
     public CloseAccountHolder(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/closeAccountHolder", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/closeAccountHolder", null);
     }
 }

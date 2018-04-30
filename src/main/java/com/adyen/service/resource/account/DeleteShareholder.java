@@ -28,6 +28,6 @@ import com.adyen.service.Resource;
 public class DeleteShareholder extends Resource {
 
     public DeleteShareholder(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/deleteShareholders", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/deleteShareholders", null);
     }
 }

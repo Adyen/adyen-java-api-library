@@ -28,6 +28,6 @@ import com.adyen.service.Resource;
 public class GetUploadedDocuments extends Resource {
 
     public GetUploadedDocuments(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/getUploadedDocuments", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/getUploadedDocuments", null);
     }
 }

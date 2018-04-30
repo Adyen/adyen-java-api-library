@@ -28,6 +28,6 @@ import com.adyen.service.Resource;
 public class UpdateAccount extends Resource {
 
     public UpdateAccount(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/updateAccount", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/updateAccount", null);
     }
 }

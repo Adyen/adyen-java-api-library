@@ -27,7 +27,7 @@ import com.adyen.service.Resource;
 public class AccountHolderTransactionList extends Resource {
 
     public AccountHolderTransactionList(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_API_VERSION + "/accountHolderTransactionList", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_FUND_API_VERSION + "/accountHolderTransactionList", null);
     }
 
 }

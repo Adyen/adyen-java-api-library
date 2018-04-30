@@ -28,7 +28,7 @@ import com.adyen.service.Resource;
 public class RefundNotPaidOutTransfers extends Resource {
 
     public RefundNotPaidOutTransfers(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_API_VERSION + "/refundNotPaidOutTransfers", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_FUND_API_VERSION + "/refundNotPaidOutTransfers", null);
     }
 
 }

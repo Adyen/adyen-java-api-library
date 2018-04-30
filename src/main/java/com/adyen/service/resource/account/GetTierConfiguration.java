@@ -28,6 +28,6 @@ import com.adyen.service.Resource;
 public class GetTierConfiguration extends Resource {
 
     public GetTierConfiguration(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/getTierConfiguration", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/getTierConfiguration", null);
     }
 }
