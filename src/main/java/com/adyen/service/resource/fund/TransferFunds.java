@@ -28,7 +28,7 @@ import com.adyen.service.Resource;
 public class TransferFunds extends Resource {
 
     public TransferFunds(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_API_VERSION + "/transferFunds", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_FUND_API_VERSION + "/transferFunds", null);
     }
 
 }

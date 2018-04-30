@@ -28,6 +28,6 @@ import com.adyen.service.Resource;
 public class DeleteBankAccount extends Resource {
 
     public DeleteBankAccount(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/deleteBankAccounts", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/deleteBankAccounts", null);
     }
 }

@@ -28,7 +28,7 @@ import com.adyen.service.Resource;
 public class SetupBeneficiary extends Resource {
 
     public SetupBeneficiary(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_API_VERSION + "/setupBeneficiary", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_FUND_API_VERSION + "/setupBeneficiary", null);
     }
 
 }

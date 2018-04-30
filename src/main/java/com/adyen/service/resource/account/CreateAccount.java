@@ -28,6 +28,6 @@ import com.adyen.service.Resource;
 public class CreateAccount extends Resource {
 
     public CreateAccount(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/createAccount", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/createAccount", null);
     }
 }

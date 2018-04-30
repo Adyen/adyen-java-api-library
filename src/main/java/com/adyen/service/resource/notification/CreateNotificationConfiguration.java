@@ -10,7 +10,7 @@ public class CreateNotificationConfiguration extends Resource {
 
     public CreateNotificationConfiguration(Service service) {
         super(service,
-              service.getClient().getConfig().getMarketPayEndpoint() + "/Notification/" + Client.MARKETPAY_API_VERSION + "/createNotificationConfiguration",
+              service.getClient().getConfig().getMarketPayEndpoint() + "/Notification/" + Client.MARKETPAY_NOTIFICATION_API_VERSION + "/createNotificationConfiguration",
               Arrays.asList(
                       "configurationDetails"
               )
