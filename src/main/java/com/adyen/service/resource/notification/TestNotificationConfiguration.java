@@ -11,7 +11,7 @@ public class TestNotificationConfiguration extends Resource {
 
     public TestNotificationConfiguration(Service service) {
         super(service,
-              service.getClient().getConfig().getMarketPayEndpoint() + "/Notification/" + Client.MARKETPAY_API_VERSION + "/testNotificationConfiguration",
+              service.getClient().getConfig().getMarketPayEndpoint() + "/Notification/" + Client.MARKETPAY_NOTIFICATION_API_VERSION + "/testNotificationConfiguration",
               Arrays.asList(
                       "eventTypes",
                       "notificationId"

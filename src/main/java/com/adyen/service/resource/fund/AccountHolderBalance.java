@@ -28,7 +28,7 @@ import com.adyen.service.Resource;
 public class AccountHolderBalance extends Resource {
 
     public AccountHolderBalance(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_API_VERSION + "/accountHolderBalance", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Fund/" + Client.MARKETPAY_FUND_API_VERSION + "/accountHolderBalance", null);
     }
 
 }

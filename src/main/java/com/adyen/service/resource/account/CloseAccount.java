@@ -28,6 +28,6 @@ import com.adyen.service.Resource;
 public class CloseAccount extends Resource {
 
     public CloseAccount(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_API_VERSION + "/closeAccount", null);
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/closeAccount", null);
     }
 }
