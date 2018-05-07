@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -51,5 +51,10 @@ public class ApiException extends Exception {
 
     public void setStatusCode(int statusCode) {
         this.statusCode = statusCode;
+    }
+
+    @Override
+    public String toString() {
+        return "ApiException{" + "error=" + error + ", statusCode=" + statusCode + ", message=" + getMessage() + '}';
     }
 }
