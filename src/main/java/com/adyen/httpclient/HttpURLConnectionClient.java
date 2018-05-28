@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.Proxy;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -35,6 +36,7 @@ import com.adyen.Config;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
+    private Proxy proxy;
 
     /**
      * Does a POST request.
@@ -99,9 +101,14 @@ public class HttpURLConnectionClient implements ClientInterface {
      */
     private HttpURLConnection createRequest(String requestUrl, String applicationName) throws IOException {
         URL targetUrl = new URL(requestUrl);
+        HttpURLConnection httpConnection;
 
-        // set configurations
-        HttpURLConnection httpConnection = (HttpURLConnection) targetUrl.openConnection();
+        // Set proxy if configured
+        if (proxy != null) {
+            httpConnection = (HttpURLConnection) targetUrl.openConnection(proxy);
+        } else {
+            httpConnection = (HttpURLConnection) targetUrl.openConnection();
+        }
         httpConnection.setUseCaches(false);
         httpConnection.setDoOutput(true);
         httpConnection.setRequestMethod("POST");
@@ -162,5 +169,13 @@ public class HttpURLConnectionClient implements ClientInterface {
         httpConnection.disconnect();
 
         return response;
+    }
+
+    public Proxy getProxy() {
+        return proxy;
+    }
+
+    public void setProxy(Proxy proxy) {
+        this.proxy = proxy;
     }
 }
