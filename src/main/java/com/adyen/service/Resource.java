@@ -1,20 +1,20 @@
-/**
- * ######
- * ######
+/*
+ *                       ######
+ *                       ######
  * ############    ####( ######  #####. ######  ############   ############
  * #############  #####( ######  #####. ######  #############  #############
- * ######  #####( ######  #####. ######  #####  ######  #####  ######
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
  * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
  * ###### ######  #####( ######  #####. ######  #####          #####  ######
  * #############  #############  #############  #############  #####  ######
- * ############   ############  #############   ############  #####  ######
- * ######
- * #############
- * ############
- * <p>
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
  * Adyen Java API Library
- * <p>
- * Copyright (c) 2017 Adyen B.V.
+ *
+ * Copyright (c) 2018 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -34,11 +34,10 @@ import java.util.List;
 
 public class Resource {
 
-    private Service service;
+    protected static final Gson GSON = new Gson();
     protected String endpoint;
     protected List<String> requiredFields;
-
-    protected static final Gson GSON = new Gson();
+    private Service service;
 
     public Resource(Service service, String endpoint, List<String> requiredFields) {
         this.service = service;

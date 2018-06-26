@@ -93,7 +93,7 @@ public class CheckoutTest extends BaseTest {
         PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
         paymentMethodsRequest.setMerchantAccount("MagentoMerchantTest");
         PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
-        assertNull( paymentMethodsResponse.getPaymentMethods());
+        assertNull(paymentMethodsResponse.getPaymentMethods());
     }
 
     /**

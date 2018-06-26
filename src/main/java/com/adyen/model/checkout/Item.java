@@ -1,18 +1,28 @@
 /*
- * Adyen Checkout Service
- * Adyen Checkout API provides a simple and flexible way to initiate and authorise online payments. You can use the same integration for payments made with cards (including One-Click and 3D Secure), mobile wallets, and local payment methods (e.g. iDEAL and Sofort).  This API reference provides information on available endpoints and how to interact with them. To learn more about the API, visit [Checkout documentation](https://docs.adyen.com/developers/checkout).  ## Authentication Each request to the Checkout API must be signed with an API key. For this, obtain an API Key from your Customer Area, as described in [How to get the Checkout API key](https://docs.adyen.com/developers/user-management/how-to-get-the-checkout-api-key). Then set this key to the `X-API-Key` header value, for example:  ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: Your_Checkout_API_key\" \\ ... ``` Note that when going live, you need to generate a new API Key to access the [live endpoints](https://docs.adyen.com/developers/api-reference/live-endpoints).  ## Versioning Checkout API supports versioning of its endpoints through a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://checkout-test.adyen.com/v32/payments ```
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
  *
- * OpenAPI spec version: 32
- * Contact: support@adyen.com
+ * Adyen Java API Library
  *
- * Do not edit the class manually.
+ * Copyright (c) 2018 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
  */
 
 
 package com.adyen.model.checkout;
 
 import com.google.gson.annotations.SerializedName;
-
 
 import java.util.Objects;
 
@@ -21,87 +31,91 @@ import java.util.Objects;
  */
 public class Item {
 
-  @SerializedName("id")
-  private String id = null;
-  
-  @SerializedName("name")
-  private String name = null;
-  
-  public Item id(String id) {
-    this.id = id;
-    return this;
-  }
+    @SerializedName("id")
+    private String id = null;
 
-  
-  /**
-  * The value to provide in the result.
-  * @return id
-  **/
+    @SerializedName("name")
+    private String name = null;
+
+    public Item id(String id) {
+        this.id = id;
+        return this;
+    }
+
+
+    /**
+     * The value to provide in the result.
+     *
+     * @return id
+     **/
     public String getId() {
-    return id;
-  }
-  public void setId(String id) {
-    this.id = id;
-  }
-  
-  public Item name(String name) {
-    this.name = name;
-    return this;
-  }
+        return id;
+    }
 
-  
-  /**
-  * The display name.
-  * @return name
-  **/
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Item name(String name) {
+        this.name = name;
+        return this;
+    }
+
+
+    /**
+     * The display name.
+     *
+     * @return name
+     **/
     public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
-  
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        return name;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    Item item = (Item) o;
-    return Objects.equals(this.id, item.id) &&
-        Objects.equals(this.name, item.name);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Item {\n");
-
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Item item = (Item) o;
+        return Objects.equals(this.id, item.id) &&
+                Objects.equals(this.name, item.name);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
 
-  
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Item {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
+
 }
 
 
