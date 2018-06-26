@@ -13,57 +13,31 @@ package com.adyen.model.checkout;
 
 import com.google.gson.annotations.SerializedName;
 
-
-import java.util.Map;
 import java.util.Objects;
 
 /**
- * DetailsRequest
+ * PaymentResultRequest
  */
-public class DetailsRequest {
+public class PaymentResultRequest {
 
-  @SerializedName("details")
-  private Map<String, String> details = null;
-  
-  @SerializedName("paymentData")
-  private String paymentData = null;
-  
-  public DetailsRequest details(Map<String, String> details) {
-    this.details = details;
-    return this;
-  }
+  @SerializedName("payload")
+  private String payload = null;
 
-  public DetailsRequest putDetailsItem(String key, String detailsItem) {
-    
-    this.details.put(key, detailsItem);
-    return this;
-  }
-  /**
-  * Use this collection to submit the details that were returned as a result of the &#x60;/payments&#x60; call.
-  * @return details
-  **/
-    public Map<String, String> getDetails() {
-    return details;
-  }
-  public void setDetails(Map<String, String> details) {
-    this.details = details;
-  }
-  
-  public DetailsRequest paymentData(String paymentData) {
-    this.paymentData = paymentData;
+  public PaymentResultRequest payload(String payload) {
+    this.payload = payload;
     return this;
   }
 
   
   /**
-  * The &#x60;paymentData&#x60; value that you received in the response to the &#x60;/payments&#x60; call.
-  * @return paymentData
+  * Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.
+  * @return payload
   **/
-    public String getPaymentData() {
-    return paymentData;
+  public String getPayload() {
+    return payload;
   }
-  public void setPaymentData(String paymentData) {
-    this.paymentData = paymentData;
+  public void setPayload(String payload) {
+    this.payload = payload;
   }
   
   @Override
@@ -74,23 +48,21 @@ public class DetailsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DetailsRequest detailsRequest = (DetailsRequest) o;
-    return Objects.equals(this.details, detailsRequest.details) &&
-        Objects.equals(this.paymentData, detailsRequest.paymentData);
+    PaymentResultRequest paymentResultRequest = (PaymentResultRequest) o;
+    return Objects.equals(this.payload, paymentResultRequest.payload);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(details, paymentData);
+    return Objects.hash(payload);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DetailsRequest {\n");
+    sb.append("class PaymentResultRequest {\n");
 
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
-    sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("}");
     return sb.toString();
   }

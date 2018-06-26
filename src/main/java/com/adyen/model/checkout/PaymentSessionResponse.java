@@ -13,15 +13,14 @@ package com.adyen.model.checkout;
 
 import com.google.gson.annotations.SerializedName;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * PaymentSetupResponse
+ * PaymentSessionResponse
  */
-public class PaymentSetupResponse {
+public class PaymentSessionResponse {
 
   @SerializedName("company")
   private Company company = null;
@@ -73,8 +72,8 @@ public class PaymentSetupResponse {
   
   @SerializedName("sdkVersion")
   private String sdkVersion = null;
-  
-  public PaymentSetupResponse company(Company company) {
+
+  public PaymentSessionResponse company(Company company) {
     this.company = company;
     return this;
   }
@@ -90,8 +89,8 @@ public class PaymentSetupResponse {
   public void setCompany(Company company) {
     this.company = company;
   }
-  
-  public PaymentSetupResponse disableRecurringDetailUrl(String disableRecurringDetailUrl) {
+
+  public PaymentSessionResponse disableRecurringDetailUrl(String disableRecurringDetailUrl) {
     this.disableRecurringDetailUrl = disableRecurringDetailUrl;
     return this;
   }
@@ -107,8 +106,8 @@ public class PaymentSetupResponse {
   public void setDisableRecurringDetailUrl(String disableRecurringDetailUrl) {
     this.disableRecurringDetailUrl = disableRecurringDetailUrl;
   }
-  
-  public PaymentSetupResponse generationtime(String generationtime) {
+
+  public PaymentSessionResponse generationtime(String generationtime) {
     this.generationtime = generationtime;
     return this;
   }
@@ -124,8 +123,8 @@ public class PaymentSetupResponse {
   public void setGenerationtime(String generationtime) {
     this.generationtime = generationtime;
   }
-  
-  public PaymentSetupResponse html(String html) {
+
+  public PaymentSessionResponse html(String html) {
     this.html = html;
     return this;
   }
@@ -141,8 +140,8 @@ public class PaymentSetupResponse {
   public void setHtml(String html) {
     this.html = html;
   }
-  
-  public PaymentSetupResponse initiationUrl(String initiationUrl) {
+
+  public PaymentSessionResponse initiationUrl(String initiationUrl) {
     this.initiationUrl = initiationUrl;
     return this;
   }
@@ -158,13 +157,13 @@ public class PaymentSetupResponse {
   public void setInitiationUrl(String initiationUrl) {
     this.initiationUrl = initiationUrl;
   }
-  
-  public PaymentSetupResponse lineItems(List<LineItem> lineItems) {
+
+  public PaymentSessionResponse lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
   }
 
-  public PaymentSetupResponse addLineItemsItem(LineItem lineItemsItem) {
+  public PaymentSessionResponse addLineItemsItem(LineItem lineItemsItem) {
     
     if (this.lineItems == null) {
       this.lineItems = new ArrayList<LineItem>();
@@ -184,8 +183,8 @@ public class PaymentSetupResponse {
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
-  
-  public PaymentSetupResponse logoBaseUrl(String logoBaseUrl) {
+
+  public PaymentSessionResponse logoBaseUrl(String logoBaseUrl) {
     this.logoBaseUrl = logoBaseUrl;
     return this;
   }
@@ -201,13 +200,13 @@ public class PaymentSetupResponse {
   public void setLogoBaseUrl(String logoBaseUrl) {
     this.logoBaseUrl = logoBaseUrl;
   }
-  
-  public PaymentSetupResponse oneClickPaymentMethods(List<RecurringDetail> oneClickPaymentMethods) {
+
+  public PaymentSessionResponse oneClickPaymentMethods(List<RecurringDetail> oneClickPaymentMethods) {
     this.oneClickPaymentMethods = oneClickPaymentMethods;
     return this;
   }
 
-  public PaymentSetupResponse addOneClickPaymentMethodsItem(RecurringDetail oneClickPaymentMethodsItem) {
+  public PaymentSessionResponse addOneClickPaymentMethodsItem(RecurringDetail oneClickPaymentMethodsItem) {
     
     if (this.oneClickPaymentMethods == null) {
       this.oneClickPaymentMethods = new ArrayList<RecurringDetail>();
@@ -227,8 +226,8 @@ public class PaymentSetupResponse {
   public void setOneClickPaymentMethods(List<RecurringDetail> oneClickPaymentMethods) {
     this.oneClickPaymentMethods = oneClickPaymentMethods;
   }
-  
-  public PaymentSetupResponse origin(String origin) {
+
+  public PaymentSessionResponse origin(String origin) {
     this.origin = origin;
     return this;
   }
@@ -244,8 +243,8 @@ public class PaymentSetupResponse {
   public void setOrigin(String origin) {
     this.origin = origin;
   }
-  
-  public PaymentSetupResponse originKey(String originKey) {
+
+  public PaymentSessionResponse originKey(String originKey) {
     this.originKey = originKey;
     return this;
   }
@@ -261,8 +260,8 @@ public class PaymentSetupResponse {
   public void setOriginKey(String originKey) {
     this.originKey = originKey;
   }
-  
-  public PaymentSetupResponse payment(PaymentDetails payment) {
+
+  public PaymentSessionResponse payment(PaymentDetails payment) {
     this.payment = payment;
     return this;
   }
@@ -278,8 +277,8 @@ public class PaymentSetupResponse {
   public void setPayment(PaymentDetails payment) {
     this.payment = payment;
   }
-  
-  public PaymentSetupResponse paymentData(String paymentData) {
+
+  public PaymentSessionResponse paymentData(String paymentData) {
     this.paymentData = paymentData;
     return this;
   }
@@ -295,13 +294,13 @@ public class PaymentSetupResponse {
   public void setPaymentData(String paymentData) {
     this.paymentData = paymentData;
   }
-  
-  public PaymentSetupResponse paymentMethods(List<PaymentMethod> paymentMethods) {
+
+  public PaymentSessionResponse paymentMethods(List<PaymentMethod> paymentMethods) {
     this.paymentMethods = paymentMethods;
     return this;
   }
 
-  public PaymentSetupResponse addPaymentMethodsItem(PaymentMethod paymentMethodsItem) {
+  public PaymentSessionResponse addPaymentMethodsItem(PaymentMethod paymentMethodsItem) {
     
     if (this.paymentMethods == null) {
       this.paymentMethods = new ArrayList<PaymentMethod>();
@@ -321,8 +320,8 @@ public class PaymentSetupResponse {
   public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
     this.paymentMethods = paymentMethods;
   }
-  
-  public PaymentSetupResponse paymentSession(String paymentSession) {
+
+  public PaymentSessionResponse paymentSession(String paymentSession) {
     this.paymentSession = paymentSession;
     return this;
   }
@@ -338,8 +337,8 @@ public class PaymentSetupResponse {
   public void setPaymentSession(String paymentSession) {
     this.paymentSession = paymentSession;
   }
-  
-  public PaymentSetupResponse publicKey(String publicKey) {
+
+  public PaymentSessionResponse publicKey(String publicKey) {
     this.publicKey = publicKey;
     return this;
   }
@@ -355,8 +354,8 @@ public class PaymentSetupResponse {
   public void setPublicKey(String publicKey) {
     this.publicKey = publicKey;
   }
-  
-  public PaymentSetupResponse publicKeyToken(String publicKeyToken) {
+
+  public PaymentSessionResponse publicKeyToken(String publicKeyToken) {
     this.publicKeyToken = publicKeyToken;
     return this;
   }
@@ -372,8 +371,8 @@ public class PaymentSetupResponse {
   public void setPublicKeyToken(String publicKeyToken) {
     this.publicKeyToken = publicKeyToken;
   }
-  
-  public PaymentSetupResponse sdkVersion(String sdkVersion) {
+
+  public PaymentSessionResponse sdkVersion(String sdkVersion) {
     this.sdkVersion = sdkVersion;
     return this;
   }
@@ -398,24 +397,24 @@ public class PaymentSetupResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentSetupResponse paymentSetupResponse = (PaymentSetupResponse) o;
-    return Objects.equals(this.company, paymentSetupResponse.company) &&
-        Objects.equals(this.disableRecurringDetailUrl, paymentSetupResponse.disableRecurringDetailUrl) &&
-        Objects.equals(this.generationtime, paymentSetupResponse.generationtime) &&
-        Objects.equals(this.html, paymentSetupResponse.html) &&
-        Objects.equals(this.initiationUrl, paymentSetupResponse.initiationUrl) &&
-        Objects.equals(this.lineItems, paymentSetupResponse.lineItems) &&
-        Objects.equals(this.logoBaseUrl, paymentSetupResponse.logoBaseUrl) &&
-        Objects.equals(this.oneClickPaymentMethods, paymentSetupResponse.oneClickPaymentMethods) &&
-        Objects.equals(this.origin, paymentSetupResponse.origin) &&
-        Objects.equals(this.originKey, paymentSetupResponse.originKey) &&
-        Objects.equals(this.payment, paymentSetupResponse.payment) &&
-        Objects.equals(this.paymentData, paymentSetupResponse.paymentData) &&
-        Objects.equals(this.paymentMethods, paymentSetupResponse.paymentMethods) &&
-        Objects.equals(this.paymentSession, paymentSetupResponse.paymentSession) &&
-        Objects.equals(this.publicKey, paymentSetupResponse.publicKey) &&
-        Objects.equals(this.publicKeyToken, paymentSetupResponse.publicKeyToken) &&
-        Objects.equals(this.sdkVersion, paymentSetupResponse.sdkVersion);
+    PaymentSessionResponse paymentSessionResponse = (PaymentSessionResponse) o;
+    return Objects.equals(this.company, paymentSessionResponse.company) &&
+            Objects.equals(this.disableRecurringDetailUrl, paymentSessionResponse.disableRecurringDetailUrl) &&
+            Objects.equals(this.generationtime, paymentSessionResponse.generationtime) &&
+            Objects.equals(this.html, paymentSessionResponse.html) &&
+            Objects.equals(this.initiationUrl, paymentSessionResponse.initiationUrl) &&
+            Objects.equals(this.lineItems, paymentSessionResponse.lineItems) &&
+            Objects.equals(this.logoBaseUrl, paymentSessionResponse.logoBaseUrl) &&
+            Objects.equals(this.oneClickPaymentMethods, paymentSessionResponse.oneClickPaymentMethods) &&
+            Objects.equals(this.origin, paymentSessionResponse.origin) &&
+            Objects.equals(this.originKey, paymentSessionResponse.originKey) &&
+            Objects.equals(this.payment, paymentSessionResponse.payment) &&
+            Objects.equals(this.paymentData, paymentSessionResponse.paymentData) &&
+            Objects.equals(this.paymentMethods, paymentSessionResponse.paymentMethods) &&
+            Objects.equals(this.paymentSession, paymentSessionResponse.paymentSession) &&
+            Objects.equals(this.publicKey, paymentSessionResponse.publicKey) &&
+            Objects.equals(this.publicKeyToken, paymentSessionResponse.publicKeyToken) &&
+            Objects.equals(this.sdkVersion, paymentSessionResponse.sdkVersion);
   }
 
   @Override
@@ -426,7 +425,7 @@ public class PaymentSetupResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentSetupResponse {\n");
+    sb.append("class PaymentSessionResponse {\n");
 
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    disableRecurringDetailUrl: ").append(toIndentedString(disableRecurringDetailUrl)).append("\n");

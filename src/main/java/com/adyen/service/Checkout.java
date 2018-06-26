@@ -50,15 +50,15 @@ public class Checkout extends ApiKeyAuthenticatedService {
     /**
      * POST /payments API call
      *
-     * @param paymentRequest
+     * @param paymentsRequest
      * @return paymentResponse
      * @throws IOException
      * @throws ApiException
      */
-    public PaymentResponse payments(PaymentRequest paymentRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentRequest);
+    public PaymentsResponse payments(PaymentsRequest paymentsRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(paymentsRequest);
         String jsonResult = payments.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentsResponse>() {
         }.getType());
 
     }
@@ -83,15 +83,15 @@ public class Checkout extends ApiKeyAuthenticatedService {
     /**
      * POST payments/details API call
      *
-     * @param detailsRequest
+     * @param paymentsDetailsRequest
      * @return paymentResponse
      * @throws IOException
      * @throws ApiException
      */
-    public PaymentResponse paymentsDetails(DetailsRequest detailsRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(detailsRequest);
+    public PaymentsResponse paymentsDetails(PaymentsDetailsRequest paymentsDetailsRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(paymentsDetailsRequest);
         String jsonResult = paymentsDetails.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentsResponse>() {
         }.getType());
 
     }
@@ -99,32 +99,32 @@ public class Checkout extends ApiKeyAuthenticatedService {
     /**
      * POST /paymentSession API call
      *
-     * @param paymentSetupRequest
+     * @param paymentSessionRequest
      * @return paymentSetupResponse
      * @throws IOException
      * @throws ApiException
      */
 
-    public PaymentSetupResponse paymentSession(PaymentSetupRequest paymentSetupRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentSetupRequest);
+    public PaymentSessionResponse paymentSession(PaymentSessionRequest paymentSessionRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(paymentSessionRequest);
         String jsonResult = paymentSession.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentSetupResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentSessionResponse>() {
         }.getType());
     }
 
     /**
      * POST payments/result API call
      *
-     * @param paymentVerificationRequest
+     * @param paymentResultRequest
      * @return paymentVerificationResponse
      * @throws IOException
      * @throws ApiException
      */
 
-    public PaymentVerificationResponse paymentResult(PaymentVerificationRequest paymentVerificationRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentVerificationRequest);
+    public PaymentResultResponse paymentResult(PaymentResultRequest paymentResultRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(paymentResultRequest);
         String jsonResult = paymentsResult.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentVerificationResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentResultResponse>() {
         }.getType());
     }
 

@@ -18,15 +18,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-
-
 import java.io.IOException;
 import java.util.*;
 
 /**
- * PaymentSetupRequest
+ * PaymentsRequest
  */
-public class PaymentSetupRequest {
+public class PaymentsRequest {
 
   @SerializedName("additionalData")
   private Map<String, String> additionalData = null;
@@ -93,9 +91,6 @@ public class PaymentSetupRequest {
   
   @SerializedName("company")
   private Company company = null;
-  
-  @SerializedName("configuration")
-  private ModelConfiguration _configuration = null;
   
   @SerializedName("countryCode")
   private String countryCode = null;
@@ -174,9 +169,6 @@ public class PaymentSetupRequest {
   @SerializedName("fraudOffset")
   private Integer fraudOffset = null;
   
-  @SerializedName("html")
-  private Boolean html = null;
-  
   @SerializedName("installments")
   private Installments installments = null;
   
@@ -198,17 +190,14 @@ public class PaymentSetupRequest {
   @SerializedName("orderReference")
   private String orderReference = null;
   
-  @SerializedName("origin")
-  private String origin = null;
+  @SerializedName("paymentMethod")
+  private Map<String, String> paymentMethod = null;
   
   @SerializedName("reference")
   private String reference = null;
   
   @SerializedName("returnUrl")
   private String returnUrl = null;
-  
-  @SerializedName("sdkVersion")
-  private String sdkVersion = null;
   
   @SerializedName("sessionValidity")
   private String sessionValidity = null;
@@ -288,16 +277,13 @@ public class PaymentSetupRequest {
   
   @SerializedName("telephoneNumber")
   private String telephoneNumber = null;
-  
-  @SerializedName("token")
-  private String token = null;
-  
-  public PaymentSetupRequest additionalData(Map<String, String> additionalData) {
+
+  public PaymentsRequest additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
   }
 
-  public PaymentSetupRequest putAdditionalDataItem(String key, String additionalDataItem) {
+  public PaymentsRequest putAdditionalDataItem(String key, String additionalDataItem) {
     
     if (this.additionalData == null) {
       this.additionalData = null;
@@ -316,8 +302,8 @@ public class PaymentSetupRequest {
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
-  
-  public PaymentSetupRequest amount(Amount amount) {
+
+  public PaymentsRequest amount(Amount amount) {
     this.amount = amount;
     return this;
   }
@@ -333,8 +319,8 @@ public class PaymentSetupRequest {
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
-  
-  public PaymentSetupRequest billingAddress(Address billingAddress) {
+
+  public PaymentsRequest billingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
     return this;
   }
@@ -350,8 +336,8 @@ public class PaymentSetupRequest {
   public void setBillingAddress(Address billingAddress) {
     this.billingAddress = billingAddress;
   }
-  
-  public PaymentSetupRequest captureDelayHours(Integer captureDelayHours) {
+
+  public PaymentsRequest captureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
     return this;
   }
@@ -367,8 +353,8 @@ public class PaymentSetupRequest {
   public void setCaptureDelayHours(Integer captureDelayHours) {
     this.captureDelayHours = captureDelayHours;
   }
-  
-  public PaymentSetupRequest channel(ChannelEnum channel) {
+
+  public PaymentsRequest channel(ChannelEnum channel) {
     this.channel = channel;
     return this;
   }
@@ -384,8 +370,8 @@ public class PaymentSetupRequest {
   public void setChannel(ChannelEnum channel) {
     this.channel = channel;
   }
-  
-  public PaymentSetupRequest company(Company company) {
+
+  public PaymentsRequest company(Company company) {
     this.company = company;
     return this;
   }
@@ -401,25 +387,8 @@ public class PaymentSetupRequest {
   public void setCompany(Company company) {
     this.company = company;
   }
-  
-  public PaymentSetupRequest _configuration(ModelConfiguration _configuration) {
-    this._configuration = _configuration;
-    return this;
-  }
 
-  
-  /**
-  * Get _configuration
-  * @return _configuration
-  **/
-  public ModelConfiguration getConfiguration() {
-    return _configuration;
-  }
-  public void setConfiguration(ModelConfiguration _configuration) {
-    this._configuration = _configuration;
-  }
-  
-  public PaymentSetupRequest countryCode(String countryCode) {
+  public PaymentsRequest countryCode(String countryCode) {
     this.countryCode = countryCode;
     return this;
   }
@@ -435,8 +404,8 @@ public class PaymentSetupRequest {
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
   }
-  
-  public PaymentSetupRequest dateOfBirth(Date dateOfBirth) {
+
+  public PaymentsRequest dateOfBirth(Date dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
     return this;
   }
@@ -452,8 +421,8 @@ public class PaymentSetupRequest {
   public void setDateOfBirth(Date dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
-  
-  public PaymentSetupRequest dccQuote(ForexQuote dccQuote) {
+
+  public PaymentsRequest dccQuote(ForexQuote dccQuote) {
     this.dccQuote = dccQuote;
     return this;
   }
@@ -469,8 +438,8 @@ public class PaymentSetupRequest {
   public void setDccQuote(ForexQuote dccQuote) {
     this.dccQuote = dccQuote;
   }
-  
-  public PaymentSetupRequest deliveryAddress(Address deliveryAddress) {
+
+  public PaymentsRequest deliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
     return this;
   }
@@ -486,8 +455,8 @@ public class PaymentSetupRequest {
   public void setDeliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
   }
-  
-  public PaymentSetupRequest deliveryDate(Date deliveryDate) {
+
+  public PaymentsRequest deliveryDate(Date deliveryDate) {
     this.deliveryDate = deliveryDate;
     return this;
   }
@@ -503,8 +472,8 @@ public class PaymentSetupRequest {
   public void setDeliveryDate(Date deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
-  
-  public PaymentSetupRequest enableOneClick(Boolean enableOneClick) {
+
+  public PaymentsRequest enableOneClick(Boolean enableOneClick) {
     this.enableOneClick = enableOneClick;
     return this;
   }
@@ -514,14 +483,14 @@ public class PaymentSetupRequest {
   * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future one-click payments.
   * @return enableOneClick
   **/
-  public Boolean isEnableOneClick() {
+ public Boolean isEnableOneClick() {
     return enableOneClick;
   }
   public void setEnableOneClick(Boolean enableOneClick) {
     this.enableOneClick = enableOneClick;
   }
-  
-  public PaymentSetupRequest enablePayOut(Boolean enablePayOut) {
+
+  public PaymentsRequest enablePayOut(Boolean enablePayOut) {
     this.enablePayOut = enablePayOut;
     return this;
   }
@@ -537,8 +506,8 @@ public class PaymentSetupRequest {
   public void setEnablePayOut(Boolean enablePayOut) {
     this.enablePayOut = enablePayOut;
   }
-  
-  public PaymentSetupRequest enableRecurring(Boolean enableRecurring) {
+
+  public PaymentsRequest enableRecurring(Boolean enableRecurring) {
     this.enableRecurring = enableRecurring;
     return this;
   }
@@ -554,8 +523,8 @@ public class PaymentSetupRequest {
   public void setEnableRecurring(Boolean enableRecurring) {
     this.enableRecurring = enableRecurring;
   }
-  
-  public PaymentSetupRequest entityType(EntityTypeEnum entityType) {
+
+  public PaymentsRequest entityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
     return this;
   }
@@ -565,14 +534,15 @@ public class PaymentSetupRequest {
   * The type of the entity the payment is processed for.
   * @return entityType
   **/
+
   public EntityTypeEnum getEntityType() {
     return entityType;
   }
   public void setEntityType(EntityTypeEnum entityType) {
     this.entityType = entityType;
   }
-  
-  public PaymentSetupRequest fraudOffset(Integer fraudOffset) {
+
+  public PaymentsRequest fraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
     return this;
   }
@@ -588,25 +558,8 @@ public class PaymentSetupRequest {
   public void setFraudOffset(Integer fraudOffset) {
     this.fraudOffset = fraudOffset;
   }
-  
-  public PaymentSetupRequest html(Boolean html) {
-    this.html = html;
-    return this;
-  }
 
-  
-  /**
-  * Required for the Web integration.  Set this parameter to true to use the default Checkout UI from the SDK.
-  * @return html
-  **/
-  public Boolean isHtml() {
-    return html;
-  }
-  public void setHtml(Boolean html) {
-    this.html = html;
-  }
-  
-  public PaymentSetupRequest installments(Installments installments) {
+  public PaymentsRequest installments(Installments installments) {
     this.installments = installments;
     return this;
   }
@@ -616,19 +569,20 @@ public class PaymentSetupRequest {
   * Get installments
   * @return installments
   **/
-    public Installments getInstallments() {
+
+  public Installments getInstallments() {
     return installments;
   }
   public void setInstallments(Installments installments) {
     this.installments = installments;
   }
-  
-  public PaymentSetupRequest lineItems(List<LineItem> lineItems) {
+
+  public PaymentsRequest lineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
     return this;
   }
 
-  public PaymentSetupRequest addLineItemsItem(LineItem lineItemsItem) {
+  public PaymentsRequest addLineItemsItem(LineItem lineItemsItem) {
     
     if (this.lineItems == null) {
       this.lineItems = new ArrayList<LineItem>();
@@ -642,14 +596,14 @@ public class PaymentSetupRequest {
   * Line items regarding the payment.
   * @return lineItems
   **/
-    public List<LineItem> getLineItems() {
+  public List<LineItem> getLineItems() {
     return lineItems;
   }
   public void setLineItems(List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
-  
-  public PaymentSetupRequest mcc(String mcc) {
+
+  public PaymentsRequest mcc(String mcc) {
     this.mcc = mcc;
     return this;
   }
@@ -659,14 +613,14 @@ public class PaymentSetupRequest {
   * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
   * @return mcc
   **/
-    public String getMcc() {
+  public String getMcc() {
     return mcc;
   }
   public void setMcc(String mcc) {
     this.mcc = mcc;
   }
-  
-  public PaymentSetupRequest merchantAccount(String merchantAccount) {
+
+  public PaymentsRequest merchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -676,14 +630,14 @@ public class PaymentSetupRequest {
   * The merchant account identifier, with which you want to process the transaction.
   * @return merchantAccount
   **/
-    public String getMerchantAccount() {
+  public String getMerchantAccount() {
     return merchantAccount;
   }
   public void setMerchantAccount(String merchantAccount) {
     this.merchantAccount = merchantAccount;
   }
-  
-  public PaymentSetupRequest merchantOrderReference(String merchantOrderReference) {
+
+  public PaymentsRequest merchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
     return this;
   }
@@ -693,19 +647,19 @@ public class PaymentSetupRequest {
   * This reference allows linking multiple transactions to each other. &gt; When providing the &#x60;merchantOrderReference&#x60; value, we also recommend you submit &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values. 
   * @return merchantOrderReference
   **/
-    public String getMerchantOrderReference() {
+  public String getMerchantOrderReference() {
     return merchantOrderReference;
   }
   public void setMerchantOrderReference(String merchantOrderReference) {
     this.merchantOrderReference = merchantOrderReference;
   }
-  
-  public PaymentSetupRequest metadata(Map<String, String> metadata) {
+
+  public PaymentsRequest metadata(Map<String, String> metadata) {
     this.metadata = metadata;
     return this;
   }
 
-  public PaymentSetupRequest putMetadataItem(String key, String metadataItem) {
+  public PaymentsRequest putMetadataItem(String key, String metadataItem) {
     
     if (this.metadata == null) {
       this.metadata = null;
@@ -718,14 +672,14 @@ public class PaymentSetupRequest {
   * Metadata consists of entries, each of which includes a key and a value. Limitations: Error \&quot;177\&quot;, \&quot;Metadata size exceeds limit\&quot;
   * @return metadata
   **/
-    public Map<String, String> getMetadata() {
+  public Map<String, String> getMetadata() {
     return metadata;
   }
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
   }
-  
-  public PaymentSetupRequest orderReference(String orderReference) {
+
+  public PaymentsRequest orderReference(String orderReference) {
     this.orderReference = orderReference;
     return this;
   }
@@ -735,31 +689,35 @@ public class PaymentSetupRequest {
   * The order reference to link multiple partial payments.
   * @return orderReference
   **/
-    public String getOrderReference() {
+  public String getOrderReference() {
     return orderReference;
   }
   public void setOrderReference(String orderReference) {
     this.orderReference = orderReference;
   }
-  
-  public PaymentSetupRequest origin(String origin) {
-    this.origin = origin;
+
+  public PaymentsRequest paymentMethod(Map<String, String> paymentMethod) {
+    this.paymentMethod = paymentMethod;
     return this;
   }
 
-  
+  public PaymentsRequest putPaymentMethodItem(String key, String paymentMethodItem) {
+    
+    this.paymentMethod.put(key, paymentMethodItem);
+    return this;
+  }
   /**
-  * Required for the Web integration.  Set this parameter to the page URL, on which you are loading the SDK.
-  * @return origin
+  * The collection that contains the type of the payment method and its specific information (e.g. &#x60;idealIssuer&#x60;).
+  * @return paymentMethod
   **/
-    public String getOrigin() {
-    return origin;
+  public Map<String, String> getPaymentMethod() {
+    return paymentMethod;
   }
-  public void setOrigin(String origin) {
-    this.origin = origin;
+  public void setPaymentMethod(Map<String, String> paymentMethod) {
+    this.paymentMethod = paymentMethod;
   }
-  
-  public PaymentSetupRequest reference(String reference) {
+
+  public PaymentsRequest reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -769,14 +727,14 @@ public class PaymentSetupRequest {
   * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
   * @return reference
   **/
-    public String getReference() {
+  public String getReference() {
     return reference;
   }
   public void setReference(String reference) {
     this.reference = reference;
   }
-  
-  public PaymentSetupRequest returnUrl(String returnUrl) {
+
+  public PaymentsRequest returnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
     return this;
   }
@@ -786,31 +744,14 @@ public class PaymentSetupRequest {
   * The URL to return to.
   * @return returnUrl
   **/
-    public String getReturnUrl() {
+  public String getReturnUrl() {
     return returnUrl;
   }
   public void setReturnUrl(String returnUrl) {
     this.returnUrl = returnUrl;
   }
-  
-  public PaymentSetupRequest sdkVersion(String sdkVersion) {
-    this.sdkVersion = sdkVersion;
-    return this;
-  }
 
-  
-  /**
-  * The version of the Web SDK you are using (for web integrations only).
-  * @return sdkVersion
-  **/
-    public String getSdkVersion() {
-    return sdkVersion;
-  }
-  public void setSdkVersion(String sdkVersion) {
-    this.sdkVersion = sdkVersion;
-  }
-  
-  public PaymentSetupRequest sessionValidity(String sessionValidity) {
+  public PaymentsRequest sessionValidity(String sessionValidity) {
     this.sessionValidity = sessionValidity;
     return this;
   }
@@ -820,14 +761,14 @@ public class PaymentSetupRequest {
   * The maximum validity of the session.
   * @return sessionValidity
   **/
-    public String getSessionValidity() {
+  public String getSessionValidity() {
     return sessionValidity;
   }
   public void setSessionValidity(String sessionValidity) {
     this.sessionValidity = sessionValidity;
   }
-  
-  public PaymentSetupRequest shopperEmail(String shopperEmail) {
+
+  public PaymentsRequest shopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
     return this;
   }
@@ -837,14 +778,14 @@ public class PaymentSetupRequest {
   * The shopper&#x27;s email address. We recommend that you provide this data, as it is used in velocity fraud checks.
   * @return shopperEmail
   **/
-    public String getShopperEmail() {
+  public String getShopperEmail() {
     return shopperEmail;
   }
   public void setShopperEmail(String shopperEmail) {
     this.shopperEmail = shopperEmail;
   }
-  
-  public PaymentSetupRequest shopperIP(String shopperIP) {
+
+  public PaymentsRequest shopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
     return this;
   }
@@ -854,14 +795,14 @@ public class PaymentSetupRequest {
   * The shopper&#x27;s IP address. We recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; This field is mandatory for some merchants depending on your business model. For more information, [contact Support](https://support.adyen.com/hc/en-us/requests/new).
   * @return shopperIP
   **/
-    public String getShopperIP() {
+  public String getShopperIP() {
     return shopperIP;
   }
   public void setShopperIP(String shopperIP) {
     this.shopperIP = shopperIP;
   }
-  
-  public PaymentSetupRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
+
+  public PaymentsRequest shopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
     return this;
   }
@@ -871,14 +812,14 @@ public class PaymentSetupRequest {
   * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
   * @return shopperInteraction
   **/
-    public ShopperInteractionEnum getShopperInteraction() {
+  public ShopperInteractionEnum getShopperInteraction() {
     return shopperInteraction;
   }
   public void setShopperInteraction(ShopperInteractionEnum shopperInteraction) {
     this.shopperInteraction = shopperInteraction;
   }
-  
-  public PaymentSetupRequest shopperLocale(String shopperLocale) {
+
+  public PaymentsRequest shopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
     return this;
   }
@@ -888,14 +829,14 @@ public class PaymentSetupRequest {
   * The combination of a language code and a country code to specify the language to be used in the payment.
   * @return shopperLocale
   **/
-    public String getShopperLocale() {
+  public String getShopperLocale() {
     return shopperLocale;
   }
   public void setShopperLocale(String shopperLocale) {
     this.shopperLocale = shopperLocale;
   }
-  
-  public PaymentSetupRequest shopperName(Name shopperName) {
+
+  public PaymentsRequest shopperName(Name shopperName) {
     this.shopperName = shopperName;
     return this;
   }
@@ -905,14 +846,14 @@ public class PaymentSetupRequest {
   * Get shopperName
   * @return shopperName
   **/
-    public Name getShopperName() {
+  public Name getShopperName() {
     return shopperName;
   }
   public void setShopperName(Name shopperName) {
     this.shopperName = shopperName;
   }
-  
-  public PaymentSetupRequest shopperReference(String shopperReference) {
+
+  public PaymentsRequest shopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
     return this;
   }
@@ -922,14 +863,14 @@ public class PaymentSetupRequest {
   * The shopper&#x27;s reference to uniquely identify this shopper (e.g. user ID or account ID). &gt; This field is required for recurring payments.
   * @return shopperReference
   **/
-    public String getShopperReference() {
+  public String getShopperReference() {
     return shopperReference;
   }
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
   }
-  
-  public PaymentSetupRequest shopperStatement(String shopperStatement) {
+
+  public PaymentsRequest shopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
     return this;
   }
@@ -939,14 +880,14 @@ public class PaymentSetupRequest {
   * The text to appear on the shopper&#x27;s bank statement.
   * @return shopperStatement
   **/
-    public String getShopperStatement() {
+  public String getShopperStatement() {
     return shopperStatement;
   }
   public void setShopperStatement(String shopperStatement) {
     this.shopperStatement = shopperStatement;
   }
-  
-  public PaymentSetupRequest socialSecurityNumber(String socialSecurityNumber) {
+
+  public PaymentsRequest socialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
     return this;
   }
@@ -956,14 +897,14 @@ public class PaymentSetupRequest {
   * The shopper&#x27;s social security number.
   * @return socialSecurityNumber
   **/
-    public String getSocialSecurityNumber() {
+  public String getSocialSecurityNumber() {
     return socialSecurityNumber;
   }
   public void setSocialSecurityNumber(String socialSecurityNumber) {
     this.socialSecurityNumber = socialSecurityNumber;
   }
-  
-  public PaymentSetupRequest telephoneNumber(String telephoneNumber) {
+
+  public PaymentsRequest telephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
     return this;
   }
@@ -973,28 +914,11 @@ public class PaymentSetupRequest {
   * The shopper&#x27;s telephone number.
   * @return telephoneNumber
   **/
-    public String getTelephoneNumber() {
+  public String getTelephoneNumber() {
     return telephoneNumber;
   }
   public void setTelephoneNumber(String telephoneNumber) {
     this.telephoneNumber = telephoneNumber;
-  }
-  
-  public PaymentSetupRequest token(String token) {
-    this.token = token;
-    return this;
-  }
-
-  
-  /**
-  * The token obtained when initializing the SDK.  &gt; This parameter is required for iOS and Android; not required for Web.
-  * @return token
-  **/
-    public String getToken() {
-    return token;
-  }
-  public void setToken(String token) {
-    this.token = token;
   }
   
   @Override
@@ -1005,58 +929,54 @@ public class PaymentSetupRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentSetupRequest paymentSetupRequest = (PaymentSetupRequest) o;
-    return Objects.equals(this.additionalData, paymentSetupRequest.additionalData) &&
-        Objects.equals(this.amount, paymentSetupRequest.amount) &&
-        Objects.equals(this.billingAddress, paymentSetupRequest.billingAddress) &&
-        Objects.equals(this.captureDelayHours, paymentSetupRequest.captureDelayHours) &&
-        Objects.equals(this.channel, paymentSetupRequest.channel) &&
-        Objects.equals(this.company, paymentSetupRequest.company) &&
-        Objects.equals(this._configuration, paymentSetupRequest._configuration) &&
-        Objects.equals(this.countryCode, paymentSetupRequest.countryCode) &&
-        Objects.equals(this.dateOfBirth, paymentSetupRequest.dateOfBirth) &&
-        Objects.equals(this.dccQuote, paymentSetupRequest.dccQuote) &&
-        Objects.equals(this.deliveryAddress, paymentSetupRequest.deliveryAddress) &&
-        Objects.equals(this.deliveryDate, paymentSetupRequest.deliveryDate) &&
-        Objects.equals(this.enableOneClick, paymentSetupRequest.enableOneClick) &&
-        Objects.equals(this.enablePayOut, paymentSetupRequest.enablePayOut) &&
-        Objects.equals(this.enableRecurring, paymentSetupRequest.enableRecurring) &&
-        Objects.equals(this.entityType, paymentSetupRequest.entityType) &&
-        Objects.equals(this.fraudOffset, paymentSetupRequest.fraudOffset) &&
-        Objects.equals(this.html, paymentSetupRequest.html) &&
-        Objects.equals(this.installments, paymentSetupRequest.installments) &&
-        Objects.equals(this.lineItems, paymentSetupRequest.lineItems) &&
-        Objects.equals(this.mcc, paymentSetupRequest.mcc) &&
-        Objects.equals(this.merchantAccount, paymentSetupRequest.merchantAccount) &&
-        Objects.equals(this.merchantOrderReference, paymentSetupRequest.merchantOrderReference) &&
-        Objects.equals(this.metadata, paymentSetupRequest.metadata) &&
-        Objects.equals(this.orderReference, paymentSetupRequest.orderReference) &&
-        Objects.equals(this.origin, paymentSetupRequest.origin) &&
-        Objects.equals(this.reference, paymentSetupRequest.reference) &&
-        Objects.equals(this.returnUrl, paymentSetupRequest.returnUrl) &&
-        Objects.equals(this.sdkVersion, paymentSetupRequest.sdkVersion) &&
-        Objects.equals(this.sessionValidity, paymentSetupRequest.sessionValidity) &&
-        Objects.equals(this.shopperEmail, paymentSetupRequest.shopperEmail) &&
-        Objects.equals(this.shopperIP, paymentSetupRequest.shopperIP) &&
-        Objects.equals(this.shopperInteraction, paymentSetupRequest.shopperInteraction) &&
-        Objects.equals(this.shopperLocale, paymentSetupRequest.shopperLocale) &&
-        Objects.equals(this.shopperName, paymentSetupRequest.shopperName) &&
-        Objects.equals(this.shopperReference, paymentSetupRequest.shopperReference) &&
-        Objects.equals(this.shopperStatement, paymentSetupRequest.shopperStatement) &&
-        Objects.equals(this.socialSecurityNumber, paymentSetupRequest.socialSecurityNumber) &&
-        Objects.equals(this.telephoneNumber, paymentSetupRequest.telephoneNumber) &&
-        Objects.equals(this.token, paymentSetupRequest.token);
+    PaymentsRequest paymentsRequest = (PaymentsRequest) o;
+    return Objects.equals(this.additionalData, paymentsRequest.additionalData) &&
+            Objects.equals(this.amount, paymentsRequest.amount) &&
+            Objects.equals(this.billingAddress, paymentsRequest.billingAddress) &&
+            Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours) &&
+            Objects.equals(this.channel, paymentsRequest.channel) &&
+            Objects.equals(this.company, paymentsRequest.company) &&
+            Objects.equals(this.countryCode, paymentsRequest.countryCode) &&
+            Objects.equals(this.dateOfBirth, paymentsRequest.dateOfBirth) &&
+            Objects.equals(this.dccQuote, paymentsRequest.dccQuote) &&
+            Objects.equals(this.deliveryAddress, paymentsRequest.deliveryAddress) &&
+            Objects.equals(this.deliveryDate, paymentsRequest.deliveryDate) &&
+            Objects.equals(this.enableOneClick, paymentsRequest.enableOneClick) &&
+            Objects.equals(this.enablePayOut, paymentsRequest.enablePayOut) &&
+            Objects.equals(this.enableRecurring, paymentsRequest.enableRecurring) &&
+            Objects.equals(this.entityType, paymentsRequest.entityType) &&
+            Objects.equals(this.fraudOffset, paymentsRequest.fraudOffset) &&
+            Objects.equals(this.installments, paymentsRequest.installments) &&
+            Objects.equals(this.lineItems, paymentsRequest.lineItems) &&
+            Objects.equals(this.mcc, paymentsRequest.mcc) &&
+            Objects.equals(this.merchantAccount, paymentsRequest.merchantAccount) &&
+            Objects.equals(this.merchantOrderReference, paymentsRequest.merchantOrderReference) &&
+            Objects.equals(this.metadata, paymentsRequest.metadata) &&
+            Objects.equals(this.orderReference, paymentsRequest.orderReference) &&
+            Objects.equals(this.paymentMethod, paymentsRequest.paymentMethod) &&
+            Objects.equals(this.reference, paymentsRequest.reference) &&
+            Objects.equals(this.returnUrl, paymentsRequest.returnUrl) &&
+            Objects.equals(this.sessionValidity, paymentsRequest.sessionValidity) &&
+            Objects.equals(this.shopperEmail, paymentsRequest.shopperEmail) &&
+            Objects.equals(this.shopperIP, paymentsRequest.shopperIP) &&
+            Objects.equals(this.shopperInteraction, paymentsRequest.shopperInteraction) &&
+            Objects.equals(this.shopperLocale, paymentsRequest.shopperLocale) &&
+            Objects.equals(this.shopperName, paymentsRequest.shopperName) &&
+            Objects.equals(this.shopperReference, paymentsRequest.shopperReference) &&
+            Objects.equals(this.shopperStatement, paymentsRequest.shopperStatement) &&
+            Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber) &&
+            Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, amount, billingAddress, captureDelayHours, channel, company, _configuration, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, html, installments, lineItems, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, reference, returnUrl, sdkVersion, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, telephoneNumber, token);
+    return Objects.hash(additionalData, amount, billingAddress, captureDelayHours, channel, company, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, paymentMethod, reference, returnUrl, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, telephoneNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentSetupRequest {\n");
+    sb.append("class PaymentsRequest {\n");
 
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
@@ -1064,7 +984,6 @@ public class PaymentSetupRequest {
     sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
-    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
     sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");
@@ -1075,7 +994,6 @@ public class PaymentSetupRequest {
     sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
     sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
     sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
-    sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
@@ -1083,10 +1001,9 @@ public class PaymentSetupRequest {
     sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
-    sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
-    sb.append("    sdkVersion: ").append(toIndentedString(sdkVersion)).append("\n");
     sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
@@ -1097,7 +1014,6 @@ public class PaymentSetupRequest {
     sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
     sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
   }

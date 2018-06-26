@@ -18,35 +18,32 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /**
- * PaymentResponse
+ * PaymentResultResponse
  */
-public class PaymentResponse {
+public class PaymentResultResponse {
 
   @SerializedName("additionalData")
   private Map<String, String> additionalData = null;
   
-  @SerializedName("details")
-  private List<InputDetail> details = null;
+  @SerializedName("authResponse")
+  private String authResponse = null;
+  
+  @SerializedName("errorMessage")
+  private String errorMessage = null;
   
   @SerializedName("fraudResult")
   private FraudResult fraudResult = null;
   
-  @SerializedName("paymentData")
-  private String paymentData = null;
+  @SerializedName("merchantReference")
+  private String merchantReference = null;
   
   @SerializedName("pspReference")
   private String pspReference = null;
-  
-  @SerializedName("redirect")
-  private Redirect redirect = null;
   
   @SerializedName("refusalReason")
   private String refusalReason = null;
@@ -105,13 +102,13 @@ public class PaymentResponse {
   
   @SerializedName("resultCode")
   private ResultCodeEnum resultCode = null;
-  
-  public PaymentResponse additionalData(Map<String, String> additionalData) {
+
+  public PaymentResultResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
   }
 
-  public PaymentResponse putAdditionalDataItem(String key, String additionalDataItem) {
+  public PaymentResultResponse putAdditionalDataItem(String key, String additionalDataItem) {
     
     if (this.additionalData == null) {
       this.additionalData = null;
@@ -130,34 +127,42 @@ public class PaymentResponse {
   public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
-  
-  public PaymentResponse details(List<InputDetail> details) {
-    this.details = details;
+
+  public PaymentResultResponse authResponse(String authResponse) {
+    this.authResponse = authResponse;
     return this;
   }
 
-  public PaymentResponse addDetailsItem(InputDetail detailsItem) {
-    
-    if (this.details == null) {
-      this.details = new ArrayList<InputDetail>();
-    }
-    
-    this.details.add(detailsItem);
-    return this;
-  }
   
   /**
-  * When non-empty, contains all the fields that you must submit to the &#x60;/payments/details&#x60; endpoint.
-  * @return details
+  * The authorisation code representing the authentication result.  Possible values: * Received * Authorised * Error * Refused * Cancelled * Unknown
+  * @return authResponse
   **/
-  public List<InputDetail> getDetails() {
-    return details;
+  public String getAuthResponse() {
+    return authResponse;
   }
-  public void setDetails(List<InputDetail> details) {
-    this.details = details;
+  public void setAuthResponse(String authResponse) {
+    this.authResponse = authResponse;
   }
+
+  public PaymentResultResponse errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
   
-  public PaymentResponse fraudResult(FraudResult fraudResult) {
+  /**
+  * The error message.
+  * @return errorMessage
+  **/
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+  public PaymentResultResponse fraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
     return this;
   }
@@ -173,25 +178,25 @@ public class PaymentResponse {
   public void setFraudResult(FraudResult fraudResult) {
     this.fraudResult = fraudResult;
   }
-  
-  public PaymentResponse paymentData(String paymentData) {
-    this.paymentData = paymentData;
+
+  public PaymentResultResponse merchantReference(String merchantReference) {
+    this.merchantReference = merchantReference;
     return this;
   }
 
   
   /**
-  * When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint.
-  * @return paymentData
+  * A unique value that you provided in the initial &#x60;/paymentSession&#x60; request as a &#x60;reference&#x60; field.
+  * @return merchantReference
   **/
-  public String getPaymentData() {
-    return paymentData;
+  public String getMerchantReference() {
+    return merchantReference;
   }
-  public void setPaymentData(String paymentData) {
-    this.paymentData = paymentData;
+  public void setMerchantReference(String merchantReference) {
+    this.merchantReference = merchantReference;
   }
-  
-  public PaymentResponse pspReference(String pspReference) {
+
+  public PaymentResultResponse pspReference(String pspReference) {
     this.pspReference = pspReference;
     return this;
   }
@@ -207,25 +212,8 @@ public class PaymentResponse {
   public void setPspReference(String pspReference) {
     this.pspReference = pspReference;
   }
-  
-  public PaymentResponse redirect(Redirect redirect) {
-    this.redirect = redirect;
-    return this;
-  }
 
-  
-  /**
-  * Get redirect
-  * @return redirect
-  **/
-  public Redirect getRedirect() {
-    return redirect;
-  }
-  public void setRedirect(Redirect redirect) {
-    this.redirect = redirect;
-  }
-  
-  public PaymentResponse refusalReason(String refusalReason) {
+  public PaymentResultResponse refusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
     return this;
   }
@@ -241,8 +229,8 @@ public class PaymentResponse {
   public void setRefusalReason(String refusalReason) {
     this.refusalReason = refusalReason;
   }
-  
-  public PaymentResponse resultCode(ResultCodeEnum resultCode) {
+
+  public PaymentResultResponse resultCode(ResultCodeEnum resultCode) {
     this.resultCode = resultCode;
     return this;
   }
@@ -267,33 +255,33 @@ public class PaymentResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentResponse paymentResponse = (PaymentResponse) o;
-    return Objects.equals(this.additionalData, paymentResponse.additionalData) &&
-        Objects.equals(this.details, paymentResponse.details) &&
-        Objects.equals(this.fraudResult, paymentResponse.fraudResult) &&
-        Objects.equals(this.paymentData, paymentResponse.paymentData) &&
-        Objects.equals(this.pspReference, paymentResponse.pspReference) &&
-        Objects.equals(this.redirect, paymentResponse.redirect) &&
-        Objects.equals(this.refusalReason, paymentResponse.refusalReason) &&
-        Objects.equals(this.resultCode, paymentResponse.resultCode);
+    PaymentResultResponse paymentVerificationResponse = (PaymentResultResponse) o;
+    return Objects.equals(this.additionalData, paymentVerificationResponse.additionalData) &&
+        Objects.equals(this.authResponse, paymentVerificationResponse.authResponse) &&
+        Objects.equals(this.errorMessage, paymentVerificationResponse.errorMessage) &&
+        Objects.equals(this.fraudResult, paymentVerificationResponse.fraudResult) &&
+        Objects.equals(this.merchantReference, paymentVerificationResponse.merchantReference) &&
+        Objects.equals(this.pspReference, paymentVerificationResponse.pspReference) &&
+        Objects.equals(this.refusalReason, paymentVerificationResponse.refusalReason) &&
+        Objects.equals(this.resultCode, paymentVerificationResponse.resultCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode);
+    return Objects.hash(additionalData, authResponse, errorMessage, fraudResult, merchantReference, pspReference, refusalReason, resultCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentResponse {\n");
+    sb.append("class PaymentResultResponse {\n");
 
     sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-    sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-    sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
     sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
     sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
     sb.append("}");

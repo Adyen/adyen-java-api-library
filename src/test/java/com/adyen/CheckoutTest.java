@@ -50,18 +50,18 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-success.json");
         Checkout checkout = new Checkout(client);
-        PaymentRequest paymentRequest = createPaymentsCheckoutRequest();
-        PaymentResponse paymentResponse = checkout.payments(paymentRequest);
-        assertEquals("8535296650153317", paymentResponse.getPspReference());
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("8535296650153317", paymentsResponse.getPspReference());
     }
 
     @Test
     public void TestPaymentsErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-error-invalid-data-422.json");
         Checkout checkout = new Checkout(client);
-        PaymentRequest paymentRequest = createPaymentsCheckoutRequest();
-        PaymentResponse paymentResponse = checkout.payments(paymentRequest);
-        assertNull(paymentResponse.getPspReference());
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertNull(paymentsResponse.getPspReference());
     }
 
     @Test
@@ -90,14 +90,14 @@ public class CheckoutTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-sucess.json");
         Checkout checkout = new Checkout(client);
 
-        DetailsRequest detailsRequest = new DetailsRequest();
-        detailsRequest.setPaymentData("Ab02b4c0!BQABAgCJN1wRZuGJmq8dMncmypvknj9s7l5Tj...");
+        PaymentsDetailsRequest paymentsDetailsRequest = new PaymentsDetailsRequest();
+        paymentsDetailsRequest.setPaymentData("Ab02b4c0!BQABAgCJN1wRZuGJmq8dMncmypvknj9s7l5Tj...");
         HashMap<String, String> details = new HashMap<>();
         details.put("MD", "sdfsdfsdf...");
         details.put("PaRes","sdfsdfsdf...");
-        detailsRequest.setDetails(details);
-        PaymentResponse paymentResponse = checkout.paymentsDetails(detailsRequest);
-        assertEquals("Authorised", paymentResponse.getResultCode().toString());
+        paymentsDetailsRequest.setDetails(details);
+        PaymentsResponse paymentsResponse = checkout.paymentsDetails(paymentsDetailsRequest);
+        assertEquals("Authorised", paymentsResponse.getResultCode().toString());
 
     }
 
@@ -105,14 +105,14 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsDetailsErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-error-invalid-data-422.json");
         Checkout checkout = new Checkout(client);
-        DetailsRequest detailsRequest = new DetailsRequest();
-        detailsRequest.setPaymentData("Ab02b4c0!BQABAgCJN1wRZuGJmq8dMncmypvknj9s7l5Tj...");
+        PaymentsDetailsRequest paymentsDetailsRequest = new PaymentsDetailsRequest();
+        paymentsDetailsRequest.setPaymentData("Ab02b4c0!BQABAgCJN1wRZuGJmq8dMncmypvknj9s7l5Tj...");
         HashMap<String, String> details = new HashMap<>();
         details.put("MD", "sdfsdfsdf...");
         details.put("PaRes","sdfsdfsdf...");
-        detailsRequest.setDetails(details);
-        PaymentResponse paymentResponse = checkout.paymentsDetails(detailsRequest);
-        assertNull(paymentResponse.getResultCode());
+        paymentsDetailsRequest.setDetails(details);
+        PaymentsResponse paymentsResponse = checkout.paymentsDetails(paymentsDetailsRequest);
+        assertNull(paymentsResponse.getResultCode());
 
     }
 
@@ -120,27 +120,27 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentSessionSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsession-sucess.json");
         Checkout checkout = new Checkout(client);
-        PaymentSetupRequest paymentSetupRequest = createPaymentSessionRequest();
-        PaymentSetupResponse paymentSetupResponse = checkout.paymentSession(paymentSetupRequest);
-        assertNotNull(paymentSetupResponse.getPaymentSession());
+        PaymentSessionRequest paymentSessionRequest = createPaymentSessionRequest();
+        PaymentSessionResponse paymentSessionResponse = checkout.paymentSession(paymentSessionRequest);
+        assertNotNull(paymentSessionResponse.getPaymentSession());
     }
 
     @Test
     public void TestPaymentSessionErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsession-error-invalid-data-422.json");
         Checkout checkout = new Checkout(client);
-        PaymentSetupRequest paymentSetupRequest = createPaymentSessionRequest();
-        PaymentSetupResponse paymentSetupResponse = checkout.paymentSession(paymentSetupRequest);
-        assertNull(paymentSetupResponse.getPaymentSession());
+        PaymentSessionRequest paymentSessionRequest = createPaymentSessionRequest();
+        PaymentSessionResponse paymentSessionResponse = checkout.paymentSession(paymentSessionRequest);
+        assertNull(paymentSessionResponse.getPaymentSession());
     }
 
     @Test
     public void TestPaymentsResultSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsresult-sucess.json");
         Checkout checkout = new Checkout(client);
-        PaymentVerificationRequest paymentVerificationRequest = new PaymentVerificationRequest();
-        paymentVerificationRequest.setPayload("This is a test payload");
-        PaymentVerificationResponse paymentVerificationResponse = checkout.paymentResult(paymentVerificationRequest);
+        PaymentResultRequest paymentResultRequest = new PaymentResultRequest();
+        paymentResultRequest.setPayload("This is a test payload");
+        PaymentResultResponse paymentVerificationResponse = checkout.paymentResult(paymentResultRequest);
         assertEquals("Authorised", paymentVerificationResponse.getResultCode().toString());
     }
 
@@ -148,45 +148,45 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsResultErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsresult-error-invalid-data-payload-422.json");
         Checkout checkout = new Checkout(client);
-        PaymentVerificationRequest paymentVerificationRequest = new PaymentVerificationRequest();
-        paymentVerificationRequest.setPayload("This is a test payload");
-        PaymentVerificationResponse paymentVerificationResponse = checkout.paymentResult(paymentVerificationRequest);
+        PaymentResultRequest paymentResultRequest = new PaymentResultRequest();
+        paymentResultRequest.setPayload("This is a test payload");
+        PaymentResultResponse paymentVerificationResponse = checkout.paymentResult(paymentResultRequest);
         assertNull(paymentVerificationResponse.getResultCode());
     }
 
-    protected PaymentSetupRequest createPaymentSessionRequest() {
-        PaymentSetupRequest paymentSetupRequest = new PaymentSetupRequest();
-        paymentSetupRequest.setAmount(createAmountObject("USD",1000L));
-        paymentSetupRequest.setReference("Your order number");
-        paymentSetupRequest.setCountryCode("NL");
-        paymentSetupRequest.setReturnUrl("https://your-company.com/...");
-        paymentSetupRequest.setMerchantAccount("MagentoMerchantTest");
-        return paymentSetupRequest;
+    protected PaymentSessionRequest createPaymentSessionRequest() {
+        PaymentSessionRequest paymentSessionRequest = new PaymentSessionRequest();
+        paymentSessionRequest.setAmount(createAmountObject("USD", 1000L));
+        paymentSessionRequest.setReference("Your order number");
+        paymentSessionRequest.setCountryCode("NL");
+        paymentSessionRequest.setReturnUrl("https://your-company.com/...");
+        paymentSessionRequest.setMerchantAccount("MagentoMerchantTest");
+        return paymentSessionRequest;
 
     }
 
     /**
-     * Returns a sample PaymentRequest opbject with full card data
+     * Returns a sample PaymentsRequest opbject with full card data
      */
-    protected PaymentRequest createPaymentsCheckoutRequest() {
-        PaymentRequest paymentRequest = new PaymentRequest();
+    protected PaymentsRequest createPaymentsCheckoutRequest() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
 
-        paymentRequest.setReference("Your order number");
-        paymentRequest.setAmount(createAmountObject("USD",1000L));
+        paymentsRequest.setReference("Your order number");
+        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
         PaymentMethod paymentMethod = new PaymentMethod();
         paymentMethod.setType("scheme");
-        paymentRequest.setPaymentMethod(new HashMap<String, String>());
+        paymentsRequest.setPaymentMethod(new HashMap<String, String>());
 
-        paymentRequest.putPaymentMethodItem("number", "4111111111111111");
-        paymentRequest.putPaymentMethodItem("expiryMonth", "08");
-        paymentRequest.putPaymentMethodItem("expiryYear", "2018");
-        paymentRequest.putPaymentMethodItem("holderName", "John Smith");
-        paymentRequest.putPaymentMethodItem("cvc", "737");
+        paymentsRequest.putPaymentMethodItem("number", "4111111111111111");
+        paymentsRequest.putPaymentMethodItem("expiryMonth", "08");
+        paymentsRequest.putPaymentMethodItem("expiryYear", "2018");
+        paymentsRequest.putPaymentMethodItem("holderName", "John Smith");
+        paymentsRequest.putPaymentMethodItem("cvc", "737");
 
-        paymentRequest.setReturnUrl("https://your-company.com/...");
-        paymentRequest.setMerchantAccount("MagentoMerchantTest");
+        paymentsRequest.setReturnUrl("https://your-company.com/...");
+        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
 
-        return paymentRequest;
+        return paymentsRequest;
     }
 
     protected Amount createAmountObject(String currency, Long value) {
