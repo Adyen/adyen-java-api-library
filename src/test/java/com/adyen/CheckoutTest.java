@@ -39,12 +39,11 @@ import static org.junit.Assert.assertNotNull;
  * /paymentMethods
  * /payments
  * /payments/details
- * /originKeys
  */
 public class CheckoutTest extends BaseTest {
     /**
      * Test success flow for
-     * POST /authorise
+     * POST /payments
      */
     @Test
     public void TestPaymentsSuccessMocked() throws Exception {
@@ -55,6 +54,10 @@ public class CheckoutTest extends BaseTest {
         assertEquals("8535296650153317", paymentsResponse.getPspReference());
     }
 
+    /**
+     * Test error flow for
+     * POST /payments
+     */
     @Test
     public void TestPaymentsErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-error-invalid-data-422.json");
@@ -64,6 +67,10 @@ public class CheckoutTest extends BaseTest {
         assertNull(paymentsResponse.getPspReference());
     }
 
+    /**
+     * Test success flow for
+     * POST /paymentMethods
+     */
     @Test
     public void TestPaymentMethodsSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentmethods-success.json");
@@ -75,6 +82,10 @@ public class CheckoutTest extends BaseTest {
         assertEquals("AliPay", paymentMethodsResponse.getPaymentMethods().get(0).getName());
     }
 
+    /**
+     * Test error flow for
+     * POST /paymentMethods
+     */
     @Test
     public void TestPaymentMethodsErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentmethods-error-forbidden-403.json");
@@ -85,36 +96,37 @@ public class CheckoutTest extends BaseTest {
         assertNull( paymentMethodsResponse.getPaymentMethods());
     }
 
+    /**
+     * Test success flow for
+     * POST /payments/details
+     */
     @Test
     public void TestPaymentsDetailsSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-sucess.json");
         Checkout checkout = new Checkout(client);
-
-        PaymentsDetailsRequest paymentsDetailsRequest = new PaymentsDetailsRequest();
-        paymentsDetailsRequest.setPaymentData("Ab02b4c0!BQABAgCJN1wRZuGJmq8dMncmypvknj9s7l5Tj...");
-        HashMap<String, String> details = new HashMap<>();
-        details.put("MD", "sdfsdfsdf...");
-        details.put("PaRes","sdfsdfsdf...");
-        paymentsDetailsRequest.setDetails(details);
-        PaymentsResponse paymentsResponse = checkout.paymentsDetails(paymentsDetailsRequest);
+        PaymentsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
         assertEquals("Authorised", paymentsResponse.getResultCode().toString());
 
     }
+
+    /**
+     * Test error flow for
+     * POST /payments/details
+     */
 
     @Test
     public void TestPaymentsDetailsErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-error-invalid-data-422.json");
         Checkout checkout = new Checkout(client);
-        PaymentsDetailsRequest paymentsDetailsRequest = new PaymentsDetailsRequest();
-        paymentsDetailsRequest.setPaymentData("Ab02b4c0!BQABAgCJN1wRZuGJmq8dMncmypvknj9s7l5Tj...");
-        HashMap<String, String> details = new HashMap<>();
-        details.put("MD", "sdfsdfsdf...");
-        details.put("PaRes","sdfsdfsdf...");
-        paymentsDetailsRequest.setDetails(details);
-        PaymentsResponse paymentsResponse = checkout.paymentsDetails(paymentsDetailsRequest);
+        PaymentsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
         assertNull(paymentsResponse.getResultCode());
 
     }
+
+    /**
+     * Test success flow for
+     * POST  /paymentSession
+     */
 
     @Test
     public void TestPaymentSessionSuccessMocked() throws Exception {
@@ -125,6 +137,11 @@ public class CheckoutTest extends BaseTest {
         assertNotNull(paymentSessionResponse.getPaymentSession());
     }
 
+    /**
+     * Test error flow for
+     * POST  /paymentSession
+     */
+
     @Test
     public void TestPaymentSessionErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsession-error-invalid-data-422.json");
@@ -133,6 +150,11 @@ public class CheckoutTest extends BaseTest {
         PaymentSessionResponse paymentSessionResponse = checkout.paymentSession(paymentSessionRequest);
         assertNull(paymentSessionResponse.getPaymentSession());
     }
+
+    /**
+     * Test success flow for
+     * POST  /payments/result
+     */
 
     @Test
     public void TestPaymentsResultSuccessMocked() throws Exception {
@@ -144,6 +166,11 @@ public class CheckoutTest extends BaseTest {
         assertEquals("Authorised", paymentVerificationResponse.getResultCode().toString());
     }
 
+    /**
+     * Test error flow for
+     * POST  /payments/result
+     */
+
     @Test
     public void TestPaymentsResultErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsresult-error-invalid-data-payload-422.json");
@@ -153,6 +180,10 @@ public class CheckoutTest extends BaseTest {
         PaymentResultResponse paymentVerificationResponse = checkout.paymentResult(paymentResultRequest);
         assertNull(paymentVerificationResponse.getResultCode());
     }
+
+    /**
+     * Returns a sample PaymentSessionRequest opbject with test data
+     */
 
     protected PaymentSessionRequest createPaymentSessionRequest() {
         PaymentSessionRequest paymentSessionRequest = new PaymentSessionRequest();
@@ -166,7 +197,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
-     * Returns a sample PaymentsRequest opbject with full card data
+     * Returns a sample PaymentsRequest opbject with test data
      */
     protected PaymentsRequest createPaymentsCheckoutRequest() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
@@ -189,6 +220,23 @@ public class CheckoutTest extends BaseTest {
         return paymentsRequest;
     }
 
+    /**
+     * Returns a sample PaymentsDetailsRequest opbject with test data
+     */
+
+    protected PaymentsDetailsRequest createPaymentsDetailsRequest() {
+        PaymentsDetailsRequest paymentsDetailsRequest = new PaymentsDetailsRequest();
+        paymentsDetailsRequest.setPaymentData("Ab02b4c0!BQABAgCJN1wRZuGJmq8dMncmypvknj9s7l5Tj...");
+        HashMap<String, String> details = new HashMap<>();
+        details.put("MD", "sdfsdfsdf...");
+        details.put("PaRes", "sdfsdfsdf...");
+        paymentsDetailsRequest.setDetails(details);
+        return paymentsDetailsRequest;
+    }
+
+    /**
+     * Returns a sample Amount opbject with given currency and value
+     */
     protected Amount createAmountObject(String currency, Long value) {
         Amount amount = new Amount();
         amount.setCurrency(currency);
