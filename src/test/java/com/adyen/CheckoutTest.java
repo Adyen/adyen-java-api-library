@@ -162,8 +162,8 @@ public class CheckoutTest extends BaseTest {
         Checkout checkout = new Checkout(client);
         PaymentResultRequest paymentResultRequest = new PaymentResultRequest();
         paymentResultRequest.setPayload("This is a test payload");
-        PaymentResultResponse paymentVerificationResponse = checkout.paymentResult(paymentResultRequest);
-        assertEquals("Authorised", paymentVerificationResponse.getResultCode().toString());
+        PaymentResultResponse paymentResultResponse = checkout.paymentResult(paymentResultRequest);
+        assertEquals("Authorised", paymentResultResponse.getResultCode().toString());
     }
 
     /**
@@ -177,8 +177,8 @@ public class CheckoutTest extends BaseTest {
         Checkout checkout = new Checkout(client);
         PaymentResultRequest paymentResultRequest = new PaymentResultRequest();
         paymentResultRequest.setPayload("This is a test payload");
-        PaymentResultResponse paymentVerificationResponse = checkout.paymentResult(paymentResultRequest);
-        assertNull(paymentVerificationResponse.getResultCode());
+        PaymentResultResponse paymentResultResponse = checkout.paymentResult(paymentResultRequest);
+        assertNull(paymentResultResponse.getResultCode());
     }
 
     /**
