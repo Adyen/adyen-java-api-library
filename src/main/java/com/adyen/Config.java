@@ -30,11 +30,16 @@ public class Config {
     protected String endpoint;
     protected String marketPayEndpoint;
     protected String applicationName;
+    protected String apiKey;
 
     //HPP specific
     protected String hppEndpoint;
     protected String skinCode;
     protected String hmacKey;
+
+    //Checkout Specific
+    protected String checkoutEndpoint;
+
 
     public Config() {
         // do nothing
@@ -96,6 +101,10 @@ public class Config {
         this.applicationName = applicationName;
     }
 
+    public String getApiKey() { return apiKey; }
+
+    public void setApiKey(String apiKey) { this.apiKey = apiKey; }
+
     public String getHppEndpoint() {
         return hppEndpoint;
     }
@@ -119,4 +128,10 @@ public class Config {
     public void setHmacKey(String hmacKey) {
         this.hmacKey = hmacKey;
     }
+
+    public String getCheckoutEndpoint() { return checkoutEndpoint; }
+
+    public void setCheckoutEndpoint(String checkoutEndpoint) { this.checkoutEndpoint = checkoutEndpoint; }
+
+
 }

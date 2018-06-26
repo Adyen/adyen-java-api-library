@@ -42,6 +42,7 @@ import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -53,8 +54,9 @@ public class BaseTest {
     protected Client createMockClientFromResponse(String response) {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         try {
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class))).thenReturn(response);
             when(httpURLConnectionClient.post(any(String.class), any(Map.class), any(Config.class))).thenReturn(response);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenReturn(response);
+            when(httpURLConnectionClient.postWithApiKeyFlag(any(String.class), any(Map.class), any(Config.class), anyBoolean())).thenReturn(response);
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }
@@ -221,7 +223,7 @@ public class BaseTest {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<String, List<String>>(), response);
         try {
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class))).thenThrow(httpClientException);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }

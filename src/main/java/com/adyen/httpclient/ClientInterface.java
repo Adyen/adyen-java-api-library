@@ -25,8 +25,10 @@ import java.util.Map;
 import com.adyen.Config;
 
 public interface ClientInterface {
+    
+    String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException;
 
-	String request(String endpoint, String json, Config config) throws IOException, HTTPClientException;
+	String request(String endpoint, String json, Config config, boolean isApiKeySupported) throws IOException, HTTPClientException;
 
-	String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException;
+	String postWithApiKeyFlag(String endpoint, Map<String, String> postParameters, Config config, boolean isApiKeySupported ) throws IOException, HTTPClientException;
 }

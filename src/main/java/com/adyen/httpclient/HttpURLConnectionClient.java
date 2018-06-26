@@ -43,11 +43,14 @@ public class HttpURLConnectionClient implements ClientInterface {
      * config is used to obtain basic auth username, password and User-Agent
      */
     @Override
-    public String request(String requestUrl, String requestBody, Config config) throws IOException, HTTPClientException {
+    public String request(String requestUrl, String requestBody, Config config, boolean isApiKeySupported) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
+        if(isApiKeySupported)
+        {
+            setApiKey(httpConnection, config.getApiKey());
+        }
         setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
         setContentType(httpConnection, "application/json");
-
         String response = doPostRequest(httpConnection, requestBody);
 
         return response;
@@ -67,8 +70,17 @@ public class HttpURLConnectionClient implements ClientInterface {
      */
     @Override
     public String post(String requestUrl, Map<String, String> params, Config config) throws IOException, HTTPClientException {
+        return postWithApiKeyFlag(requestUrl,params,config,false);
+    }
+
+    @Override
+    public String postWithApiKeyFlag (String requestUrl, Map<String, String> params, Config config, boolean isApiKeySupported) throws IOException, HTTPClientException {
         String postQuery = getQuery(params);
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
+        if(isApiKeySupported)
+        {
+            setApiKey(httpConnection, config.getApiKey());
+        }
         String response = doPostRequest(httpConnection, postQuery);
 
         return response;
@@ -137,6 +149,14 @@ public class HttpURLConnectionClient implements ClientInterface {
      */
     private HttpURLConnection setContentType(HttpURLConnection httpConnection, String contentType) {
         httpConnection.setRequestProperty("Content-Type", contentType);
+        return httpConnection;
+    }
+
+    /**
+     * Sets api key
+     */
+    private HttpURLConnection setApiKey(HttpURLConnection httpConnection, String apiKey) {
+        httpConnection.setRequestProperty("x-api-key", apiKey);
         return httpConnection;
     }
 
