@@ -20,6 +20,10 @@
  */
 package com.adyen.httpclient;
 
+import com.adyen.Client;
+import com.adyen.Config;
+import org.apache.commons.codec.binary.Base64;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -30,9 +34,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Scanner;
-import org.apache.commons.codec.binary.Base64;
-import com.adyen.Client;
-import com.adyen.Config;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
@@ -45,8 +46,7 @@ public class HttpURLConnectionClient implements ClientInterface {
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeySupported) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
-        if(isApiKeySupported)
-        {
+        if (isApiKeySupported) {
             setApiKey(httpConnection, config.getApiKey());
         }
         setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
