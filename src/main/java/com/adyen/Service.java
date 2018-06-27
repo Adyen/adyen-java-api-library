@@ -25,7 +25,7 @@ import com.google.gson.Gson;
 public class Service {
 
     protected static final Gson GSON = new Gson();
-    protected boolean isApiKeySupported = false;
+    protected boolean isApiKeyRequired = false;
     private Client client;
 
     protected Service(Client client) {
@@ -40,12 +40,12 @@ public class Service {
         this.client = client;
     }
 
-    public boolean isApiKeySupported() {
-        return isApiKeySupported;
+    public boolean isApiKeyRequired() {
+        return isApiKeyRequired;
     }
 
-    public void setApiKeySupported(boolean apiKeySupported) {
-        isApiKeySupported = apiKeySupported;
+    public void setApiKeyRequired(boolean apiKeyRequired) {
+        isApiKeyRequired = apiKeyRequired;
     }
 
 }

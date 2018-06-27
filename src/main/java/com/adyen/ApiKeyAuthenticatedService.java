@@ -28,6 +28,6 @@ public class ApiKeyAuthenticatedService extends Service {
 
     protected ApiKeyAuthenticatedService(Client client) {
         super(client);
-        setApiKeySupported(true);
+        setApiKeyRequired(true);
     }
 }

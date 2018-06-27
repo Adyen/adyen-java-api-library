@@ -20,8 +20,6 @@
  */
 package com.adyen.service;
 
-import java.io.IOException;
-import java.util.List;
 import com.adyen.Config;
 import com.adyen.Service;
 import com.adyen.httpclient.ClientInterface;
@@ -31,13 +29,15 @@ import com.adyen.service.exception.ApiException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.util.List;
+
 public class Resource {
 
-    private Service service;
+    protected static final Gson GSON = new Gson();
     protected String endpoint;
     protected List<String> requiredFields;
-
-    protected static final Gson GSON = new Gson();
+    private Service service;
 
     public Resource(Service service, String endpoint, List<String> requiredFields) {
         this.service = service;
@@ -58,7 +58,7 @@ public class Resource {
         Config config = this.service.getClient().getConfig();
         String result = null;
         try {
-            result = clientInterface.request(this.endpoint, json, config, this.service.isApiKeySupported());
+            result = clientInterface.request(this.endpoint, json, config, this.service.isApiKeyRequired());
         } catch (HTTPClientException e) {
             String responseBody = e.getResponseBody();
 
@@ -66,6 +66,7 @@ public class Resource {
             }.getType());
             ApiException apiException = new ApiException(e.getMessage(), e.getCode());
             apiException.setError(apiError);
+
 
             throw apiException;
         }

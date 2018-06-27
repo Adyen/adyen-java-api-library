@@ -29,5 +29,5 @@ public interface ClientInterface {
 
     String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException;
 
-    String request(String endpoint, String json, Config config, boolean isApiKeySupported) throws IOException, HTTPClientException;
+    String request(String endpoint, String json, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException;
 }
