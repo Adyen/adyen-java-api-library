@@ -48,7 +48,6 @@ public class BaseTest {
         try {
             when(httpURLConnectionClient.post(any(String.class), any(Map.class), any(Config.class))).thenReturn(response);
             when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenReturn(response);
-            when(httpURLConnectionClient.postWithApiKeyFlag(any(String.class), any(Map.class), any(Config.class), anyBoolean())).thenReturn(response);
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }

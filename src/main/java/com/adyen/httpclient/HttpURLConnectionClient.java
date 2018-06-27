@@ -70,17 +70,8 @@ public class HttpURLConnectionClient implements ClientInterface {
      */
     @Override
     public String post(String requestUrl, Map<String, String> params, Config config) throws IOException, HTTPClientException {
-        return postWithApiKeyFlag(requestUrl,params,config,false);
-    }
-
-    @Override
-    public String postWithApiKeyFlag (String requestUrl, Map<String, String> params, Config config, boolean isApiKeySupported) throws IOException, HTTPClientException {
         String postQuery = getQuery(params);
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
-        if(isApiKeySupported)
-        {
-            setApiKey(httpConnection, config.getApiKey());
-        }
         String response = doPostRequest(httpConnection, postQuery);
 
         return response;
