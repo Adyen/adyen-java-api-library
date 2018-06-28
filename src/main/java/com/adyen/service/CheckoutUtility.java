@@ -34,12 +34,9 @@ public class CheckoutUtility extends ApiKeyAuthenticatedService {
 
     private OriginKeys originKeys;
 
-
     public CheckoutUtility(Client client) {
-
         super(client);
         originKeys = new OriginKeys(this);
-
     }
 
     /**
@@ -56,6 +53,5 @@ public class CheckoutUtility extends ApiKeyAuthenticatedService {
         String jsonResult = originKeys.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<OriginKeysResponse>() {
         }.getType());
-
     }
 }

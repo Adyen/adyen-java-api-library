@@ -61,13 +61,10 @@ public class Resource {
             result = clientInterface.request(this.endpoint, json, config, this.service.isApiKeyRequired());
         } catch (HTTPClientException e) {
             String responseBody = e.getResponseBody();
-
             ApiError apiError = GSON.fromJson(responseBody, new TypeToken<ApiError>() {
             }.getType());
             ApiException apiException = new ApiException(e.getMessage(), e.getCode());
             apiException.setError(apiError);
-
-
             throw apiException;
         }
         return result;

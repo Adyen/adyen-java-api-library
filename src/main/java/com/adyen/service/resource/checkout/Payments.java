@@ -32,6 +32,5 @@ public class Payments extends Resource {
     public Payments(Service service) {
         super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.CHECKOUT_API_VERSION + "/payments",
                 Arrays.asList("merchantAccount", "reference", "amount", "returnUrl", "paymentMethod"));
-
     }
 }

@@ -35,7 +35,6 @@ import static org.junit.Assert.assertNotNull;
  * Tests for
  * /paymentSession
  * /payments/result
- * <p>
  * /paymentMethods
  * /payments
  * /payments/details
