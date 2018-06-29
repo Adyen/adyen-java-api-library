@@ -43,6 +43,15 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Does a POST request.
      * config is used to obtain basic auth username, password and User-Agent
      */
+    /**
+     * Does a POST request.
+     * config is used to obtain basic auth username, password and User-Agent
+     */
+    @Override
+    public String request(String requestUrl, String requestBody, Config config) throws IOException, HTTPClientException {
+        return request(requestUrl, requestBody, config, false);
+    }
+
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
@@ -150,7 +159,7 @@ public class HttpURLConnectionClient implements ClientInterface {
     private HttpURLConnection setApiKey(HttpURLConnection httpConnection, String apiKey) {
         if (apiKey != null && !apiKey.isEmpty()) {
             httpConnection.setRequestProperty("x-api-key", apiKey);
-            }
+        }
         return httpConnection;
     }
 

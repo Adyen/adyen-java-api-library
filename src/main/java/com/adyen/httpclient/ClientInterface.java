@@ -27,6 +27,7 @@ import java.util.Map;
 
 public interface ClientInterface {
 
+    String request(String endpoint, String json, Config config) throws IOException, HTTPClientException;
     String request(String endpoint, String json, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException;
     String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException;
 }
