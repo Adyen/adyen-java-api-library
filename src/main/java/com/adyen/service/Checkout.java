@@ -52,7 +52,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /payments API call
      *
      * @param paymentsRequest
-     * @return paymentResponse
+     * @return paymentsResponse
      * @throws IOException
      * @throws ApiException
      */
@@ -85,7 +85,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST payments/details API call
      *
      * @param paymentsDetailsRequest
-     * @return paymentResponse
+     * @return paymentsResponse
      * @throws IOException
      * @throws ApiException
      */
@@ -101,7 +101,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /paymentSession API call
      *
      * @param paymentSessionRequest
-     * @return paymentSetupResponse
+     * @return paymentSessionResponse
      * @throws IOException
      * @throws ApiException
      */
@@ -117,7 +117,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST payments/result API call
      *
      * @param paymentResultRequest
-     * @return paymentVerificationResponse
+     * @return paymentResultResponse
      * @throws IOException
      * @throws ApiException
      */
