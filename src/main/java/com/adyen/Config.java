@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2018 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -30,11 +30,16 @@ public class Config {
     protected String endpoint;
     protected String marketPayEndpoint;
     protected String applicationName;
+    protected String apiKey;
 
     //HPP specific
     protected String hppEndpoint;
     protected String skinCode;
     protected String hmacKey;
+
+    //Checkout Specific
+    protected String checkoutEndpoint;
+
 
     public Config() {
         // do nothing
@@ -96,6 +101,14 @@ public class Config {
         this.applicationName = applicationName;
     }
 
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     public String getHppEndpoint() {
         return hppEndpoint;
     }
@@ -119,4 +132,14 @@ public class Config {
     public void setHmacKey(String hmacKey) {
         this.hmacKey = hmacKey;
     }
+
+    public String getCheckoutEndpoint() {
+        return checkoutEndpoint;
+    }
+
+    public void setCheckoutEndpoint(String checkoutEndpoint) {
+        this.checkoutEndpoint = checkoutEndpoint;
+    }
+
+
 }

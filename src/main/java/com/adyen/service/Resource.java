@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -14,14 +14,12 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2018 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen.service;
 
-import java.io.IOException;
-import java.util.List;
 import com.adyen.Config;
 import com.adyen.Service;
 import com.adyen.httpclient.ClientInterface;
@@ -31,13 +29,15 @@ import com.adyen.service.exception.ApiException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.util.List;
+
 public class Resource {
 
-    private Service service;
+    protected static final Gson GSON = new Gson();
     protected String endpoint;
     protected List<String> requiredFields;
-
-    protected static final Gson GSON = new Gson();
+    private Service service;
 
     public Resource(Service service, String endpoint, List<String> requiredFields) {
         this.service = service;
@@ -58,15 +58,13 @@ public class Resource {
         Config config = this.service.getClient().getConfig();
         String result = null;
         try {
-            result = clientInterface.request(this.endpoint, json, config);
+            result = clientInterface.request(this.endpoint, json, config, this.service.isApiKeyRequired());
         } catch (HTTPClientException e) {
             String responseBody = e.getResponseBody();
-
             ApiError apiError = GSON.fromJson(responseBody, new TypeToken<ApiError>() {
             }.getType());
             ApiException apiException = new ApiException(e.getMessage(), e.getCode());
             apiException.setError(apiError);
-
             throw apiException;
         }
         return result;

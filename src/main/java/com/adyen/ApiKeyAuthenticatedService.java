@@ -18,16 +18,16 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.httpclient;
+package com.adyen;
 
-import com.adyen.Config;
+/**
+ * <h1>ApiKeyAuthenticatedService</h1>
+ * The ApiKeyAuthenticatedService is an interface to enable a child service to support API key authentication feature.
+ */
+public class ApiKeyAuthenticatedService extends Service {
 
-import java.io.IOException;
-import java.util.Map;
-
-public interface ClientInterface {
-
-    String request(String endpoint, String json, Config config) throws IOException, HTTPClientException;
-    String request(String endpoint, String json, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException;
-    String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException;
+    protected ApiKeyAuthenticatedService(Client client) {
+        super(client);
+        setApiKeyRequired(true);
+    }
 }

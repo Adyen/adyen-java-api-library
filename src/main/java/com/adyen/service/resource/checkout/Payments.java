@@ -18,16 +18,19 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.httpclient;
 
-import com.adyen.Config;
+package com.adyen.service.resource.checkout;
 
-import java.io.IOException;
-import java.util.Map;
+import com.adyen.Client;
+import com.adyen.Service;
+import com.adyen.service.Resource;
 
-public interface ClientInterface {
+import java.util.Arrays;
 
-    String request(String endpoint, String json, Config config) throws IOException, HTTPClientException;
-    String request(String endpoint, String json, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException;
-    String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException;
+public class Payments extends Resource {
+
+    public Payments(Service service) {
+        super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.CHECKOUT_API_VERSION + "/payments",
+                Arrays.asList("merchantAccount", "reference", "amount", "returnUrl", "paymentMethod"));
+    }
 }

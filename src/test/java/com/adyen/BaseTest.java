@@ -1,50 +1,43 @@
-/**
- * ######
- * ######
+/*
+ *                       ######
+ *                       ######
  * ############    ####( ######  #####. ######  ############   ############
  * #############  #####( ######  #####. ######  #############  #############
- * ######  #####( ######  #####. ######  #####  ######  #####  ######
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
  * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
  * ###### ######  #####( ######  #####. ######  #####          #####  ######
  * #############  #############  #############  #############  #####  ######
- * ############   ############  #############   ############  #####  ######
- * ######
- * #############
- * ############
- * <p>
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
  * Adyen Java API Library
- * <p>
- * Copyright (c) 2017 Adyen B.V.
+ *
+ * Copyright (c) 2018 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import com.adyen.Util.DateUtil;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
-import com.adyen.model.AbstractPaymentRequest;
-import com.adyen.model.Address;
-import com.adyen.model.Name;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentRequest3d;
+import com.adyen.model.*;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.Mockito.*;
 
 public class BaseTest {
     /**
@@ -53,8 +46,8 @@ public class BaseTest {
     protected Client createMockClientFromResponse(String response) {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         try {
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class))).thenReturn(response);
             when(httpURLConnectionClient.post(any(String.class), any(Map.class), any(Config.class))).thenReturn(response);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenReturn(response);
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }
@@ -89,7 +82,7 @@ public class BaseTest {
             int length;
             InputStream fileStream = classLoader.getResourceAsStream(fileName);
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            while ((length = fileStream.read(buffer)) != - 1) {
+            while ((length = fileStream.read(buffer)) != -1) {
                 outputStream.write(buffer, 0, length);
             }
             result = outputStream.toString(StandardCharsets.UTF_8.name());
@@ -105,8 +98,8 @@ public class BaseTest {
      */
     protected <T extends AbstractPaymentRequest> T createBasePaymentRequest(T abstractPaymentRequest) {
         abstractPaymentRequest.merchantAccount("AMerchant")
-                              .setBrowserInfoData("User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36", "*/*")
-                              .setShopperIP("1.2.3.4");
+                .setBrowserInfoData("User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36", "*/*")
+                .setShopperIP("1.2.3.4");
 
         return abstractPaymentRequest;
     }
@@ -116,8 +109,8 @@ public class BaseTest {
      */
     protected PaymentRequest createFullCardPaymentRequest() {
         PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                                                                                      .setAmountData("1000", "EUR")
-                                                                                      .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
+                .setAmountData("1000", "EUR")
+                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
 
         return paymentRequest;
     }
@@ -221,7 +214,7 @@ public class BaseTest {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<String, List<String>>(), response);
         try {
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class))).thenThrow(httpClientException);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }

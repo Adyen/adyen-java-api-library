@@ -20,6 +20,10 @@
  */
 package com.adyen.httpclient;
 
+import com.adyen.Client;
+import com.adyen.Config;
+import org.apache.commons.codec.binary.Base64;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -30,9 +34,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Scanner;
-import org.apache.commons.codec.binary.Base64;
-import com.adyen.Client;
-import com.adyen.Config;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
@@ -42,12 +43,24 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Does a POST request.
      * config is used to obtain basic auth username, password and User-Agent
      */
+    /**
+     * Does a POST request.
+     * config is used to obtain basic auth username, password and User-Agent
+     */
     @Override
     public String request(String requestUrl, String requestBody, Config config) throws IOException, HTTPClientException {
-        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
-        setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
-        setContentType(httpConnection, "application/json");
+        return request(requestUrl, requestBody, config, false);
+    }
 
+    @Override
+    public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException {
+        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
+        if (isApiKeyRequired) {
+            setApiKey(httpConnection, config.getApiKey());
+        } else {
+            setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
+        }
+        setContentType(httpConnection, "application/json");
         String response = doPostRequest(httpConnection, requestBody);
 
         return response;
@@ -137,6 +150,16 @@ public class HttpURLConnectionClient implements ClientInterface {
      */
     private HttpURLConnection setContentType(HttpURLConnection httpConnection, String contentType) {
         httpConnection.setRequestProperty("Content-Type", contentType);
+        return httpConnection;
+    }
+
+    /**
+     * Sets api key
+     */
+    private HttpURLConnection setApiKey(HttpURLConnection httpConnection, String apiKey) {
+        if (apiKey != null && !apiKey.isEmpty()) {
+            httpConnection.setRequestProperty("x-api-key", apiKey);
+        }
         return httpConnection;
     }
 
