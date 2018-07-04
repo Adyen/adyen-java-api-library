@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Adyen-java-api-library by Adyen</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1>Adyen-java-api-library</h1>
+        <p>Adyen API Library for Java</p>
+
+        <p class="view"><a href="https://github.com/Adyen/adyen-java-api-library">View the Project on GitHub
+            <small>Adyen/adyen-java-api-library</small>
+        </a></p>
+
+
+        <ul>
+            <li><a href="https://github.com/Adyen/adyen-java-api-library/zipball/master">Download <strong>ZIP
+                File</strong></a></li>
+            <li><a href="https://github.com/Adyen/adyen-java-api-library/tarball/master">Download <strong>TAR
+                Ball</strong></a></li>
+            <li><a href="https://github.com/Adyen/adyen-java-api-library">View On <strong>GitHub</strong></a></li>
+        </ul>
+    </header>
+    <section>
+        <h1>Checkout SDK integration</h1>
+        <p>
+            The Checkout SDK service has the following methods:
+        </p>
+        <h2><a id="paymentSession_54"></a>paymentSession</h2>
+        <p>Provides the data object that can be used to start the Checkout SDK. To set up the payment, pass its amount, currency, and other required parameters. We use this to optimise the payment flow and perform better risk assessment of the transaction.</p>
+        <pre><code class="language-java">Checkout checkout = <span class="hljs-keyword">new</span> Checkout(client);
+PaymentSessionRequest paymentSessionRequest = <span class="hljs-keyword">new</span> PaymentSessionRequest();
+paymentSessionRequest.setAmount(createAmountObject(<span class="hljs-string">"EUR"</span>, <span class="hljs-number">17408L</span>));
+paymentSessionRequest.setReference(<span class="hljs-string">"Your order number"</span>);
+paymentSessionRequest.returnUrl(<span class="hljs-string">"https://www.yourshop.com/checkout/result"</span>);
+paymentSessionRequest.merchantAccount(<span class="hljs-string">"YOUR_MERCHANT_ACCOUNT"</span>);
+paymentSessionRequest.setCountryCode(<span class="hljs-string">"NL"</span>);
+paymentSessionRequest.setSdkVersion(<span class="hljs-string">"1.3.0"</span>);
+PaymentSessionResponse paymentSessionResponse = checkout.paymentSession(paymentSessionRequest);
+</code></pre>
+        <h2><a id="paymentsresult_67"></a>payments/result</h2>
+        <p>Verifies the payment result using the payload returned from the Checkout SDK.</p>
+        <pre><code class="language-java">Checkout checkout = <span class="hljs-keyword">new</span> Checkout(client);
+PaymentResultRequest paymentResultRequest = <span class="hljs-keyword">new</span> PaymentResultRequest();
+paymentResultRequest.setPayload(<span class="hljs-string">"This is a test payload"</span>);
+PaymentResultResponse paymentResultResponse = checkout.paymentResult(paymentResultRequest);
+</code></pre>
+
+    </section>
+    <footer>
+        <p>This project is maintained by <a href="https://github.com/Adyen">Adyen</a></p>
+        <p>
+            <small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>
+            </small>
+        </p>
+    </footer>
+</div>
+<script src="javascripts/scale.fix.js"></script>
+
+</body>
+</html>

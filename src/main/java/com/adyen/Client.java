@@ -40,7 +40,11 @@ public class Client {
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
-    public static final String LIB_VERSION = "1.4.1";
+    public static final String LIB_VERSION = "1.5.0";
+    public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com";
+    public static final String CHECKOUT_ENDPOINT_LIVE = "https://checkout-live.adyen.com";
+    public static final String CHECKOUT_API_VERSION = "v32";
+    public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
 
     public Client() {
         this.config = new Config();
@@ -66,11 +70,14 @@ public class Client {
             this.config.setEndpoint(ENDPOINT_TEST);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
             this.config.setHppEndpoint(HPP_TEST);
+            this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
+
         } else if (environment.equals(Environment.LIVE)) {
             this.config.setEnvironment(environment);
             this.config.setEndpoint(ENDPOINT_LIVE);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
             this.config.setHppEndpoint(HPP_LIVE);
+            this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_LIVE);
         } else {
             // throw exception
         }

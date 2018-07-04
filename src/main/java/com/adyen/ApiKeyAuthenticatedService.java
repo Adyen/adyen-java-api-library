@@ -14,47 +14,20 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2018 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.service.exception;
-
-import com.adyen.model.ApiError;
+package com.adyen;
 
 /**
- * API Exception class
+ * <h1>ApiKeyAuthenticatedService</h1>
+ * The ApiKeyAuthenticatedService is an interface to enable a child service to support API key authentication feature.
  */
-public class ApiException extends Exception {
-    //Describes the error
-    private ApiError error;
+public class ApiKeyAuthenticatedService extends Service {
 
-    //HTTP status code
-    private int statusCode;
-
-    public ApiException(String message, int statusCode) {
-        super(message);
-        this.statusCode = statusCode;
-    }
-
-    public ApiError getError() {
-        return error;
-    }
-
-    public void setError(ApiError error) {
-        this.error = error;
-    }
-
-    public int getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(int statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    @Override
-    public String toString() {
-        return "ApiException{" + "error=" + error + ", statusCode=" + statusCode + ", message=" + getMessage() + '}';
+    protected ApiKeyAuthenticatedService(Client client) {
+        super(client);
+        setApiKeyRequired(true);
     }
 }

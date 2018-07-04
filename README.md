@@ -23,14 +23,29 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>1.4.1</version>
+  <version>1.5.0</version>
 </dependency>
 ```
 
 ## Usage
 
 The code examples on using this library are located in the library section of the java-sample-code repository: https://github.com/adyen/adyen-java-sample-code
-  
+
+## Proxy configuration
+
+You can configure a proxy connection by injecting your own HttpURLConnectionClient on your client instance.
+
+Example:
+```
+...
+HttpURLConnectionClient httpURLConnectionClientWithProxy = new HttpURLConnectionClient();
+
+Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("PROXY_HOST", PROXY_PORT));
+httpURLConnectionClientWithProxy.setProxy(proxy);
+
+client.setHttpClient(httpURLConnectionClientWithProxy);
+```
+
 ## Support
 
 If you have any problems, questions or suggestions, create an issue here or send your inquiry to support@adyen.com.

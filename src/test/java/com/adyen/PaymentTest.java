@@ -43,7 +43,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -96,8 +98,8 @@ public class PaymentTest extends BaseTest {
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
         try {
-            PaymentResult paymentResult = payment.authorise(paymentRequest);
-            assertTrue("Exception expected", false);
+            payment.authorise(paymentRequest);
+            fail("Exception expected");
         } catch (ApiException e) {
             String errorCode = e.getError().getErrorCode();
             assertEquals("010", errorCode);
@@ -201,7 +203,7 @@ public class PaymentTest extends BaseTest {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<String, List<String>>(), null);
 
-        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class))).thenThrow(httpClientException);
+        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenThrow(httpClientException);
 
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);
@@ -211,9 +213,10 @@ public class PaymentTest extends BaseTest {
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
 
         try {
-            PaymentResult paymentResult = payment.authorise(paymentRequest);
-            assertTrue("Exception expected", false);
+            payment.authorise(paymentRequest);
+            fail("Exception expected");
         } catch (ApiException e) {
+            assertTrue(e.toString().contains("401"));
             assertEquals(401, e.getStatusCode());
             assertNull(e.getError());
         }
@@ -221,8 +224,6 @@ public class PaymentTest extends BaseTest {
 
     /**
      * Test OpenInvoice API flow for klarna
-     *
-     * @throws Exception
      */
     @Test
     public void TestOpenInvoice() throws Exception {
