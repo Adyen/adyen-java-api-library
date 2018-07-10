@@ -27,6 +27,10 @@ Add this dependency to your project's POM:
 </dependency>
 ```
 
+## Documentation
+
+Follow the rest of our guides from the [documentation](http://adyen.github.io/adyen-java-api-library/index.html) on how to use this library.
+
 ## Usage
 
 The code examples on using this library are located in the library section of the java-sample-code repository: https://github.com/adyen/adyen-java-sample-code
