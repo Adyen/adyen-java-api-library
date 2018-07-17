@@ -20,10 +20,15 @@
  */
 package com.adyen.model.marketpay;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 /**
  * UpdateAccountHolderResponse
@@ -50,6 +55,9 @@ public class UpdateAccountHolderResponse {
     @SerializedName("invalidFields")
     public List<ErrorFieldTypeContainer> invalidFieldsContainers = null;
 
+    @SerializedName("description")
+    private String description = null;
+
     private transient List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("accountHolderDetails")
@@ -57,6 +65,53 @@ public class UpdateAccountHolderResponse {
 
     @SerializedName("accountHolderStatus")
     private AccountHolderStatus accountHolderStatus = null;
+
+    public enum LegalEntityEnum {
+
+        BUSINESS("Business"),
+        INDIVIDUAL("Individual"),
+        NONPROFIT("NonProfit");
+
+        private String value;
+
+        LegalEntityEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static LegalEntityEnum fromValue(String text) {
+            for (LegalEntityEnum b : LegalEntityEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter<LegalEntityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LegalEntityEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public LegalEntityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return LegalEntityEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    @SerializedName("legalEntity")
+    private LegalEntityEnum legalEntity = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -231,6 +286,14 @@ public class UpdateAccountHolderResponse {
         return this;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public UpdateAccountHolderResponse accountHolderDetails(AccountHolderDetails accountHolderDetails) {
         this.accountHolderDetails = accountHolderDetails;
         return this;
@@ -301,8 +364,10 @@ public class UpdateAccountHolderResponse {
                 && Objects.equals(this.updatedFields, updateAccountHolderResponse.updatedFields)
                 && Objects.equals(this.requirementsForNextAccountState, updateAccountHolderResponse.requirementsForNextAccountState)
                 && Objects.equals(this.invalidFieldsContainers, updateAccountHolderResponse.invalidFieldsContainers)
+                && Objects.equals(this.description, updateAccountHolderResponse.description)
                 && Objects.equals(this.accountHolderDetails, updateAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, updateAccountHolderResponse.accountHolderStatus)
+                && Objects.equals(this.legalEntity, updateAccountHolderResponse.legalEntity)
                 && Objects.equals(this.pspReference, updateAccountHolderResponse.pspReference);
     }
 
@@ -315,8 +380,10 @@ public class UpdateAccountHolderResponse {
                             updatedFields,
                             requirementsForNextAccountState,
                             invalidFieldsContainers,
+                            description,
                             accountHolderDetails,
                             accountHolderStatus,
+                            legalEntity,
                             pspReference);
     }
 
@@ -336,8 +403,10 @@ public class UpdateAccountHolderResponse {
         sb.append("    updatedFields: ").append(toIndentedString(updatedFields)).append("\n");
         sb.append("    requirementsForNextAccountState: ").append(toIndentedString(requirementsForNextAccountState)).append("\n");
         sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");
         return sb.toString();

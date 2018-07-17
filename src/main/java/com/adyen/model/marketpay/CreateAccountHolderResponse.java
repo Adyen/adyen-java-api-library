@@ -20,10 +20,15 @@
  */
 package com.adyen.model.marketpay;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 /**
  * CreateAccountHolderResponse
@@ -55,8 +60,58 @@ public class CreateAccountHolderResponse {
     @SerializedName("accountHolderStatus")
     private AccountHolderStatus accountHolderStatus;
 
+    @SerializedName("description")
+    private String description = null;
+
     @SerializedName("pspReference")
     private String pspReference;
+
+    public enum LegalEntityEnum {
+
+        BUSINESS("Business"),
+        INDIVIDUAL("Individual"),
+        NONPROFIT("NonProfit");
+
+        private String value;
+
+        LegalEntityEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static LegalEntityEnum fromValue(String text) {
+            for (LegalEntityEnum b : LegalEntityEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter<LegalEntityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LegalEntityEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public LegalEntityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return LegalEntityEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    @SerializedName("legalEntity")
+    private LegalEntityEnum legalEntity = null;
 
     public CreateAccountHolderResponse accountStatus(AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
@@ -139,7 +194,7 @@ public class CreateAccountHolderResponse {
         if (invalidFields == null) {
             invalidFields = new ArrayList<ErrorFieldType>();
 
-            if (invalidFieldsContainers != null && ! invalidFieldsContainers.isEmpty()) {
+            if (invalidFieldsContainers != null && !invalidFieldsContainers.isEmpty()) {
                 for (ErrorFieldTypeContainer invalidFieldsContainer : invalidFieldsContainers) {
                     invalidFields.add(invalidFieldsContainer.getErrorFieldType());
                 }
@@ -218,6 +273,14 @@ public class CreateAccountHolderResponse {
         return this;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     /**
      * psp reference
      *
@@ -247,6 +310,14 @@ public class CreateAccountHolderResponse {
         this.invalidFieldsContainers = invalidFieldsContainers;
     }
 
+    public LegalEntityEnum getLegalEntity() {
+        return legalEntity;
+    }
+
+    public void setLegalEntity(LegalEntityEnum legalEntity) {
+        this.legalEntity = legalEntity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -264,20 +335,24 @@ public class CreateAccountHolderResponse {
                 && Objects.equals(this.invalidFieldsContainers, createAccountHolderResponse.invalidFieldsContainers)
                 && Objects.equals(this.accountHolderDetails, createAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, createAccountHolderResponse.accountHolderStatus)
-                && Objects.equals(this.pspReference, createAccountHolderResponse.pspReference);
+                && Objects.equals(this.description, createAccountHolderResponse.description)
+                && Objects.equals(this.pspReference, createAccountHolderResponse.pspReference)
+                && Objects.equals(this.legalEntity, createAccountHolderResponse.legalEntity);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(accountStatus,
-                            verification,
-                            submittedAsync,
-                            accountHolderCode,
-                            accountCode,
-                            invalidFieldsContainers,
-                            accountHolderDetails,
-                            accountHolderStatus,
-                            pspReference);
+                verification,
+                submittedAsync,
+                accountHolderCode,
+                accountCode,
+                invalidFieldsContainers,
+                accountHolderDetails,
+                accountHolderStatus,
+                description,
+                pspReference,
+                legalEntity);
     }
 
 
@@ -296,7 +371,9 @@ public class CreateAccountHolderResponse {
         sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
         sb.append("}");
         return sb.toString();
     }

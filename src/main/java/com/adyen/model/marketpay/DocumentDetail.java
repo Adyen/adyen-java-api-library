@@ -58,6 +58,12 @@ public class DocumentDetail {
         @SerializedName("ID_CARD")
         ID_CARD("ID_CARD"),
 
+        @SerializedName("ID_CARD_BACK")
+        ID_CARD_BACK("ID_CARD_BACK"),
+
+        @SerializedName("ID_CARD_FRONT")
+        ID_CARD_FRONT("ID_CARD_FRONT"),
+
         @SerializedName("NHIS")
         NHIS("NHIS"),
 

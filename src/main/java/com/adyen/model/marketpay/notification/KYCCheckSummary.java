@@ -18,42 +18,49 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.model.marketpay;
+
+package com.adyen.model.marketpay.notification;
 
 import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
-/**
- * UpdateAccountRequest
- */
-public class UpdateAccountRequest {
-    @SerializedName("accountCode")
-    private String accountCode = null;
+public class KYCCheckSummary {
+
+    @SerializedName("code")
+    private Integer code = null;
 
     @SerializedName("description")
     private String description = null;
 
-    @SerializedName("payoutSchedule")
-    private UpdatePayoutScheduleRequest payoutSchedule = null;
-
-    public UpdateAccountRequest accountCode(String accountCode) {
-        this.accountCode = accountCode;
+    public KYCCheckSummary code(Integer code) {
+        this.code = code;
         return this;
     }
 
     /**
-     * code of virtual account
+     * The code of the check.
      *
-     * @return accountCode
+     * @return code
      **/
-    public String getAccountCode() {
-        return accountCode;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setAccountCode(String accountCode) {
-        this.accountCode = accountCode;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
+    public KYCCheckSummary description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * A description of the check.
+     *
+     * @return description
+     **/
     public String getDescription() {
         return description;
     }
@@ -61,25 +68,6 @@ public class UpdateAccountRequest {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public UpdateAccountRequest payoutSchedule(UpdatePayoutScheduleRequest payoutSchedule) {
-        this.payoutSchedule = payoutSchedule;
-        return this;
-    }
-
-    /**
-     * parameters of the desired payout schedule
-     *
-     * @return payoutSchedule
-     **/
-    public UpdatePayoutScheduleRequest getPayoutSchedule() {
-        return payoutSchedule;
-    }
-
-    public void setPayoutSchedule(UpdatePayoutScheduleRequest payoutSchedule) {
-        this.payoutSchedule = payoutSchedule;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -89,24 +77,23 @@ public class UpdateAccountRequest {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpdateAccountRequest updateAccountRequest = (UpdateAccountRequest) o;
-        return Objects.equals(this.accountCode, updateAccountRequest.accountCode) && Objects.equals(this.description, updateAccountRequest.description) && Objects.equals(this.payoutSchedule, updateAccountRequest.payoutSchedule);
+        KYCCheckSummary kyCCheckSummary = (KYCCheckSummary) o;
+        return Objects.equals(this.code, kyCCheckSummary.code) &&
+                Objects.equals(this.description, kyCCheckSummary.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, description, payoutSchedule);
+        return Objects.hash(code, description);
     }
-
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateAccountRequest {\n");
+        sb.append("class KYCCheckSummary {\n");
 
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -121,6 +108,4 @@ public class UpdateAccountRequest {
         }
         return o.toString().replace("\n", "\n    ");
     }
-
 }
-
