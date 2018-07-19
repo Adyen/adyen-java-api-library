@@ -21,6 +21,7 @@
 package com.adyen.model.marketpay;
 
 import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -32,6 +33,9 @@ public class UpdateAccountResponse {
 
     @SerializedName("accountCode")
     private String accountCode = null;
+
+    @SerializedName("description")
+    private String description = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -73,6 +77,14 @@ public class UpdateAccountResponse {
 
     public void setAccountCode(String accountCode) {
         this.accountCode = accountCode;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public UpdateAccountResponse pspReference(String pspReference) {
@@ -123,14 +135,15 @@ public class UpdateAccountResponse {
         UpdateAccountResponse updateAccountResponse = (UpdateAccountResponse) o;
         return Objects.equals(this.submittedAsync, updateAccountResponse.submittedAsync)
                 && Objects.equals(this.accountCode, updateAccountResponse.accountCode)
+                && Objects.equals(this.description, updateAccountResponse.description)
                 && Objects.equals(this.pspReference,
-                                  updateAccountResponse.pspReference)
+                updateAccountResponse.pspReference)
                 && Objects.equals(this.payoutSchedule, updateAccountResponse.payoutSchedule);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, accountCode, pspReference, payoutSchedule);
+        return Objects.hash(submittedAsync, accountCode, description, pspReference, payoutSchedule);
     }
 
 
@@ -141,6 +154,7 @@ public class UpdateAccountResponse {
 
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
         sb.append("}");

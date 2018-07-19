@@ -23,6 +23,8 @@ package com.adyen.model.marketpay.notification;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class GenericNotification {
     public enum EventTypeEnum {
         @SerializedName("ACCOUNT_CREATED")
@@ -79,6 +81,9 @@ public class GenericNotification {
     @SerializedName("eventType")
     private EventTypeEnum eventType;
 
+    @SerializedName("eventDate")
+    private Date eventDate;
+
     @SerializedName("executingUserKey")
     private String executingUserKey;
 
@@ -94,6 +99,14 @@ public class GenericNotification {
 
     public void setEventType(EventTypeEnum eventType) {
         this.eventType = eventType;
+    }
+
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
     }
 
     public String getExecutingUserKey() {
@@ -122,6 +135,6 @@ public class GenericNotification {
 
     @Override
     public String toString() {
-        return "GenericNotification{" + "eventType=" + eventType + ", executingUserKey='" + executingUserKey + '\'' + ", live='" + live + '\'' + ", pspReference='" + pspReference + '\'' + '}';
+        return "GenericNotification{" + "eventType=" + eventType + "eventDate=" + eventDate + ", executingUserKey='" + executingUserKey + '\'' + ", live='" + live + '\'' + ", pspReference='" + pspReference + '\'' + '}';
     }
 }

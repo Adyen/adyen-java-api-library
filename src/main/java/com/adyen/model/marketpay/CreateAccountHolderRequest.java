@@ -30,6 +30,9 @@ public class CreateAccountHolderRequest {
     @SerializedName("createDefaultAccount")
     private Boolean createDefaultAccount = null;
 
+    @SerializedName("description")
+    private String description = null;
+
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
 
@@ -64,6 +67,9 @@ public class CreateAccountHolderRequest {
     @SerializedName("legalEntity")
     private LegalEntityEnum legalEntity = null;
 
+    @SerializedName("primaryCurrency")
+    private String primaryCurrency = null;
+
     public CreateAccountHolderRequest createDefaultAccount(Boolean createDefaultAccount) {
         this.createDefaultAccount = createDefaultAccount;
         return this;
@@ -85,6 +91,14 @@ public class CreateAccountHolderRequest {
     public CreateAccountHolderRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**
@@ -154,6 +168,13 @@ public class CreateAccountHolderRequest {
         this.legalEntity = legalEntity;
     }
 
+    public String getPrimaryCurrency() {
+        return primaryCurrency;
+    }
+
+    public void setPrimaryCurrency(String primaryCurrency) {
+        this.primaryCurrency = primaryCurrency;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -183,10 +204,12 @@ public class CreateAccountHolderRequest {
         sb.append("class CreateAccountHolderRequest {\n");
 
         sb.append("    createDefaultAccount: ").append(toIndentedString(createDefaultAccount)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
         sb.append("}");
         return sb.toString();
     }

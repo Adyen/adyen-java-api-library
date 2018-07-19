@@ -23,6 +23,7 @@ package com.adyen.model.marketpay;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -58,6 +59,9 @@ public class GetAccountHolderResponse {
 
     private transient List<Account> accounts = null;
 
+    @SerializedName("description")
+    private String description = null;
+
     @SerializedName("pspReference")
     private String pspReference = null;
 
@@ -86,6 +90,9 @@ public class GetAccountHolderResponse {
 
     @SerializedName("legalEntity")
     private LegalEntityEnum legalEntity = null;
+
+    @SerializedName("primaryCurrency")
+    private String primaryCurrency = null;
 
     public GetAccountHolderResponse accountStatus(AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
@@ -249,7 +256,7 @@ public class GetAccountHolderResponse {
     public List<Account> getAccounts() {
         if (accounts == null) {
             accounts = new ArrayList<Account>();
-            if (accountContainers != null && ! accountContainers.isEmpty()) {
+            if (accountContainers != null && !accountContainers.isEmpty()) {
                 for (AccountContainer accountContainer : accountContainers) {
                     accounts.add(accountContainer.getAccount());
                 }
@@ -299,6 +306,14 @@ public class GetAccountHolderResponse {
 
         return this;
 
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public GetAccountHolderResponse pspReference(String pspReference) {
@@ -361,6 +376,14 @@ public class GetAccountHolderResponse {
     }
 
 
+    public String getPrimaryCurrency() {
+        return primaryCurrency;
+    }
+
+    public void setPrimaryCurrency(String primaryCurrency) {
+        this.primaryCurrency = primaryCurrency;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -379,25 +402,29 @@ public class GetAccountHolderResponse {
                 && Objects.equals(this.accountHolderDetails, getAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, getAccountHolderResponse.accountHolderStatus)
                 && Objects.equals(this.accountContainers, getAccountHolderResponse.accountContainers)
+                && Objects.equals(this.description, getAccountHolderResponse.description)
                 && Objects.equals(this.pspReference, getAccountHolderResponse.pspReference)
                 && Objects.equals(this.kycVerificationResults, getAccountHolderResponse.kycVerificationResults)
-                && Objects.equals(this.legalEntity, getAccountHolderResponse.legalEntity);
+                && Objects.equals(this.legalEntity, getAccountHolderResponse.legalEntity)
+                && Objects.equals(this.legalEntity, getAccountHolderResponse.primaryCurrency);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(accountStatus,
-                            verificationResult,
-                            submittedAsync,
-                            accountHolderCode,
-                            virtualAccounts,
-                            requirementsForNextAccountState,
-                            accountHolderDetails,
-                            accountHolderStatus,
-                            accountContainers,
-                            pspReference,
-                            kycVerificationResults,
-                            legalEntity);
+                verificationResult,
+                submittedAsync,
+                accountHolderCode,
+                virtualAccounts,
+                requirementsForNextAccountState,
+                accountHolderDetails,
+                accountHolderStatus,
+                accountContainers,
+                description,
+                pspReference,
+                kycVerificationResults,
+                legalEntity,
+                primaryCurrency);
     }
 
 
@@ -418,6 +445,7 @@ public class GetAccountHolderResponse {
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
         sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    kycVerificationResults: ").append(toIndentedString(kycVerificationResults)).append("\n");
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");

@@ -36,6 +36,9 @@ public class CreateAccountResponse {
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
 
+    @SerializedName("description")
+    private String description = null;
+
     @SerializedName("accountCode")
     private String accountCode = null;
 
@@ -130,6 +133,14 @@ public class CreateAccountResponse {
         this.accountHolderCode = accountHolderCode;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public CreateAccountResponse accountCode(String accountCode) {
         this.accountCode = accountCode;
         return this;
@@ -215,6 +226,7 @@ public class CreateAccountResponse {
         return Objects.equals(this.accountStatus, createAccountResponse.accountStatus)
                 && Objects.equals(this.submittedAsync, createAccountResponse.submittedAsync)
                 && Objects.equals(this.accountHolderCode, createAccountResponse.accountHolderCode)
+                && Objects.equals(this.description, createAccountResponse.description)
                 && Objects.equals(this.accountCode, createAccountResponse.accountCode)
                 && Objects.equals(this.pspReference, createAccountResponse.pspReference)
                 && Objects.equals(this.status, createAccountResponse.status)
@@ -223,7 +235,7 @@ public class CreateAccountResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountStatus, submittedAsync, accountHolderCode, accountCode, pspReference, status, payoutSchedule);
+        return Objects.hash(accountStatus, submittedAsync, accountHolderCode, description, accountCode, pspReference, status, payoutSchedule);
     }
 
 
@@ -235,6 +247,7 @@ public class CreateAccountResponse {
         sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
