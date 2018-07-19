@@ -21,6 +21,7 @@
 package com.adyen.model.marketpay;
 
 import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -36,8 +37,14 @@ public class Account {
     @SerializedName("beneficiaryMerchantReference")
     private String beneficiaryMerchantReference = null;
 
+    @SerializedName("description")
+    private String description = null;
+
     @SerializedName("payoutSchedule")
     private PayoutScheduleResponse payoutSchedule = null;
+
+    @SerializedName("status")
+    private String status = null;
 
     public Account accountCode(String accountCode) {
         this.accountCode = accountCode;
@@ -93,6 +100,15 @@ public class Account {
         this.beneficiaryMerchantReference = beneficiaryMerchantReference;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
     public Account payoutSchedule(PayoutScheduleResponse payoutSchedule) {
         this.payoutSchedule = payoutSchedule;
         return this;
@@ -111,6 +127,13 @@ public class Account {
         this.payoutSchedule = payoutSchedule;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -124,7 +147,7 @@ public class Account {
         return Objects.equals(this.accountCode, account.accountCode)
                 && Objects.equals(this.beneficiaryAccount, account.beneficiaryAccount)
                 && Objects.equals(this.beneficiaryMerchantReference,
-                                  account.beneficiaryMerchantReference)
+                account.beneficiaryMerchantReference)
                 && Objects.equals(this.payoutSchedule, account.payoutSchedule);
     }
 
@@ -142,7 +165,9 @@ public class Account {
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
         sb.append("    beneficiaryAccount: ").append(toIndentedString(beneficiaryAccount)).append("\n");
         sb.append("    beneficiaryMerchantReference: ").append(toIndentedString(beneficiaryMerchantReference)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }

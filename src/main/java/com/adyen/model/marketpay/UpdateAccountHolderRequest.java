@@ -33,6 +33,12 @@ public class UpdateAccountHolderRequest {
     @SerializedName("accountHolderDetails")
     private AccountHolderDetails accountHolderDetails = null;
 
+    @SerializedName("description")
+    private String description = null;
+
+    @SerializedName("primaryCurrency")
+    private String primaryCurrency = null;
+
     @SerializedName("processingTier")
     private Integer processingTier = null;
 
@@ -72,6 +78,22 @@ public class UpdateAccountHolderRequest {
         this.accountHolderDetails = accountHolderDetails;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPrimaryCurrency() {
+        return primaryCurrency;
+    }
+
+    public void setPrimaryCurrency(String primaryCurrency) {
+        this.primaryCurrency = primaryCurrency;
+    }
+
     public UpdateAccountHolderRequest processingTier(Integer processingTier) {
         this.processingTier = processingTier;
         return this;
@@ -102,6 +124,8 @@ public class UpdateAccountHolderRequest {
         UpdateAccountHolderRequest updateAccountHolderRequest = (UpdateAccountHolderRequest) o;
         return Objects.equals(this.accountHolderCode, updateAccountHolderRequest.accountHolderCode)
                 && Objects.equals(this.accountHolderDetails, updateAccountHolderRequest.accountHolderDetails)
+                && Objects.equals(this.description, updateAccountHolderRequest.description)
+                && Objects.equals(this.primaryCurrency, updateAccountHolderRequest.primaryCurrency)
                 && Objects.equals(this.processingTier, updateAccountHolderRequest.processingTier);
     }
 
@@ -118,6 +142,8 @@ public class UpdateAccountHolderRequest {
 
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
         sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
         sb.append("}");
         return sb.toString();

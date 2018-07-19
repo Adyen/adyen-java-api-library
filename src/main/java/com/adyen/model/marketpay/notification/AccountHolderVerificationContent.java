@@ -22,6 +22,7 @@
 package com.adyen.model.marketpay.notification;
 
 import com.adyen.model.marketpay.KYCCheckStatusData;
+import com.google.gson.annotations.SerializedName;
 
 public class AccountHolderVerificationContent {
     private String accountHolderCode;
@@ -29,6 +30,8 @@ public class AccountHolderVerificationContent {
     private String bankAccountUUID;
     KYCCheckStatusData.CheckTypeEnum verificationType;
     KYCCheckStatusData.CheckStatusEnum verificationStatus;
+    @SerializedName("statusSummary")
+    private KYCCheckSummary statusSummary = null;
 
     public String getAccountHolderCode() {
         return accountHolderCode;
@@ -86,6 +89,19 @@ public class AccountHolderVerificationContent {
                 + verificationType
                 + ", verificationStatus="
                 + verificationStatus
+                + ", statusSummary="
+                + toIndentedString(statusSummary)
                 + '}';
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
     }
 }

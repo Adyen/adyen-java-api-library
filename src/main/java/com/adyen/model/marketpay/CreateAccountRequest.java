@@ -30,6 +30,9 @@ public class CreateAccountRequest {
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
 
+    @SerializedName("description")
+    private String description = null;
+
     @SerializedName("payoutScheduleReason")
     private String payoutScheduleReason = null;
 
@@ -85,6 +88,14 @@ public class CreateAccountRequest {
         this.accountHolderCode = accountHolderCode;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public CreateAccountRequest payoutScheduleReason(String payoutScheduleReason) {
         this.payoutScheduleReason = payoutScheduleReason;
         return this;
@@ -131,14 +142,14 @@ public class CreateAccountRequest {
             return false;
         }
         CreateAccountRequest createAccountRequest = (CreateAccountRequest) o;
-        return Objects.equals(this.accountHolderCode, createAccountRequest.accountHolderCode) && Objects.equals(this.payoutScheduleReason, createAccountRequest.payoutScheduleReason) && Objects.equals(
+        return Objects.equals(this.accountHolderCode, createAccountRequest.accountHolderCode) && Objects.equals(this.description, createAccountRequest.description) && Objects.equals(this.payoutScheduleReason, createAccountRequest.payoutScheduleReason) && Objects.equals(
                 this.payoutSchedule,
                 createAccountRequest.payoutSchedule);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, payoutScheduleReason, payoutSchedule);
+        return Objects.hash(accountHolderCode, description, payoutScheduleReason, payoutSchedule);
     }
 
 
@@ -148,6 +159,7 @@ public class CreateAccountRequest {
         sb.append("class CreateAccountRequest {\n");
 
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    payoutScheduleReason: ").append(toIndentedString(payoutScheduleReason)).append("\n");
         sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
         sb.append("}");

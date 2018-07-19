@@ -23,6 +23,7 @@ package com.adyen.model.marketpay;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -43,6 +44,9 @@ public class BusinessDetails {
     @SerializedName("legalBusinessName")
     private String legalBusinessName = null;
 
+    @SerializedName("registrationNumber")
+    private String registrationNumber = null;
+
     /**
      * Populate the virtual shareholders to bypass the shareholderContactContainers list
      *
@@ -52,7 +56,7 @@ public class BusinessDetails {
         if (shareholders == null) {
             shareholders = new ArrayList<ShareholderContact>();
 
-            if (shareholderContactContainers != null && ! shareholderContactContainers.isEmpty()) {
+            if (shareholderContactContainers != null && !shareholderContactContainers.isEmpty()) {
                 for (ShareholderContactContainer shareholderContactContainer : shareholderContactContainers) {
                     shareholders.add((shareholderContactContainer.getShareholderContact()));
                 }
@@ -155,6 +159,13 @@ public class BusinessDetails {
         this.legalBusinessName = legalBusinessName;
     }
 
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -189,6 +200,7 @@ public class BusinessDetails {
         sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
         sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
         sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
+        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -202,6 +214,4 @@ public class BusinessDetails {
         }
         return o.toString().replace("\n", "\n    ");
     }
-
 }
-
