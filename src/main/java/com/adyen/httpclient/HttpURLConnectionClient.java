@@ -38,6 +38,7 @@ import java.util.Scanner;
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
     private Proxy proxy;
+    private int connectTimeout = -1;
 
     /**
      * Does a POST request.
@@ -122,6 +123,11 @@ public class HttpURLConnectionClient implements ClientInterface {
         } else {
             httpConnection = (HttpURLConnection) targetUrl.openConnection();
         }
+        
+        if (connectTimeout >= 0) {
+        	httpConnection.setConnectTimeout(connectTimeout);
+        }
+        
         httpConnection.setUseCaches(false);
         httpConnection.setDoOutput(true);
         httpConnection.setRequestMethod("POST");
@@ -200,5 +206,13 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     public void setProxy(Proxy proxy) {
         this.proxy = proxy;
+    }
+    
+    public int getConnectTimeout() {
+    	return connectTimeout;
+    }
+    
+    public void setConnectTimeout(int connectTimeout) {
+    	this.connectTimeout = connectTimeout;
     }
 }
