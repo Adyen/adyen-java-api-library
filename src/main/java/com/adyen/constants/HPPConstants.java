@@ -46,6 +46,7 @@ public interface HPPConstants {
         String PSP_REFERENCE = "pspReference";
         String SHOPPER_LOCALE = "shopperLocale";
         String SKIN_CODE = "skinCode";
+        String MERCHANT_RETURN_DATA = "merchantReturnData";
 
         /*
          authResult Returns the outcome of the payment.
