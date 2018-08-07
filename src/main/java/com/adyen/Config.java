@@ -40,7 +40,7 @@ public class Config {
     //Checkout Specific
     protected String checkoutEndpoint;
     
-    protected Integer connectionTimeoutMillis;
+    protected int connectionTimeoutMillis = 0;
 
 
     public Config() {
@@ -143,12 +143,12 @@ public class Config {
         this.checkoutEndpoint = checkoutEndpoint;
     }
     
-    public Integer getConnectionTimeoutMillis() {
+    public int getConnectionTimeoutMillis() {
 		return connectionTimeoutMillis;
     	
     }
     
-    public void setConnectionTimeoutMillis(Integer connectionTimeoutMillis) {
+    public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
 		this.connectionTimeoutMillis = connectionTimeoutMillis;
     }
 
