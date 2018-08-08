@@ -30,20 +30,14 @@ import com.google.gson.annotations.SerializedName;
  * GetAccountHolderResponse
  */
 public class GetAccountHolderResponse {
-    @SerializedName("accountStatus")
-    private AccountStatus accountStatus = null;
-
-    @SerializedName("verificationResult")
-    private KYCVerificationResult verificationResult = null;
+    @SerializedName("verification")
+    private KYCVerificationResult verification = null;
 
     @SerializedName("submittedAsync")
     private Boolean submittedAsync = null;
 
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
-
-    @SerializedName("virtualAccounts")
-    private List<String> virtualAccounts = new ArrayList<String>();
 
     @SerializedName("requirementsForNextAccountState")
     private List<AccountStateRequirement> requirementsForNextAccountState = new ArrayList<AccountStateRequirement>();
@@ -64,9 +58,6 @@ public class GetAccountHolderResponse {
 
     @SerializedName("pspReference")
     private String pspReference = null;
-
-    @SerializedName("kycVerificationResults")
-    private List<KYCVerificationResult> kycVerificationResults = new ArrayList<KYCVerificationResult>();
 
     /**
      * account holder legal entity type (Busines / Individual)
@@ -94,26 +85,8 @@ public class GetAccountHolderResponse {
     @SerializedName("primaryCurrency")
     private String primaryCurrency = null;
 
-    public GetAccountHolderResponse accountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-        return this;
-    }
-
-    /**
-     * account holder status
-     *
-     * @return accountStatus
-     **/
-    public AccountStatus getAccountStatus() {
-        return accountStatus;
-    }
-
-    public void setAccountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-    }
-
     public GetAccountHolderResponse verificationResult(KYCVerificationResult verificationResult) {
-        this.verificationResult = verificationResult;
+        this.verification = verificationResult;
         return this;
     }
 
@@ -121,13 +94,23 @@ public class GetAccountHolderResponse {
      * verification result
      *
      * @return verificationResult
+     * @deprecated
      **/
     public KYCVerificationResult getVerificationResult() {
-        return verificationResult;
+        return verification;
     }
 
-    public void setVerificationResult(KYCVerificationResult verificationResult) {
-        this.verificationResult = verificationResult;
+    /**
+     * verification result
+     *
+     * @return verification
+     **/
+    public KYCVerificationResult getVerification() {
+        return verification;
+    }
+
+    public void setVerification(KYCVerificationResult verification) {
+        this.verification = verification;
     }
 
     public GetAccountHolderResponse submittedAsync(Boolean submittedAsync) {
@@ -164,29 +147,6 @@ public class GetAccountHolderResponse {
 
     public void setAccountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
-    }
-
-    public GetAccountHolderResponse virtualAccounts(List<String> virtualAccounts) {
-        this.virtualAccounts = virtualAccounts;
-        return this;
-    }
-
-    public GetAccountHolderResponse addVirtualAccountsItem(String virtualAccountsItem) {
-        this.virtualAccounts.add(virtualAccountsItem);
-        return this;
-    }
-
-    /**
-     * account holder's accounts
-     *
-     * @return virtualAccounts
-     **/
-    public List<String> getVirtualAccounts() {
-        return virtualAccounts;
-    }
-
-    public void setVirtualAccounts(List<String> virtualAccounts) {
-        this.virtualAccounts = virtualAccounts;
     }
 
     public GetAccountHolderResponse requirementsForNextAccountState(List<AccountStateRequirement> requirementsForNextAccountState) {
@@ -334,29 +294,6 @@ public class GetAccountHolderResponse {
         this.pspReference = pspReference;
     }
 
-    public GetAccountHolderResponse kycVerificationResults(List<KYCVerificationResult> kycVerificationResults) {
-        this.kycVerificationResults = kycVerificationResults;
-        return this;
-    }
-
-    public GetAccountHolderResponse addKycVerificationResultsItem(KYCVerificationResult kycVerificationResultsItem) {
-        this.kycVerificationResults.add(kycVerificationResultsItem);
-        return this;
-    }
-
-    /**
-     * Get kycVerificationResults
-     *
-     * @return kycVerificationResults
-     **/
-    public List<KYCVerificationResult> getKycVerificationResults() {
-        return kycVerificationResults;
-    }
-
-    public void setKycVerificationResults(List<KYCVerificationResult> kycVerificationResults) {
-        this.kycVerificationResults = kycVerificationResults;
-    }
-
     public GetAccountHolderResponse legalEntity(LegalEntityEnum legalEntity) {
         this.legalEntity = legalEntity;
         return this;
@@ -393,38 +330,32 @@ public class GetAccountHolderResponse {
             return false;
         }
         GetAccountHolderResponse getAccountHolderResponse = (GetAccountHolderResponse) o;
-        return Objects.equals(this.accountStatus, getAccountHolderResponse.accountStatus)
-                && Objects.equals(this.verificationResult, getAccountHolderResponse.verificationResult)
+        return Objects.equals(this.verification, getAccountHolderResponse.verification)
                 && Objects.equals(this.submittedAsync, getAccountHolderResponse.submittedAsync)
                 && Objects.equals(this.accountHolderCode, getAccountHolderResponse.accountHolderCode)
-                && Objects.equals(this.virtualAccounts, getAccountHolderResponse.virtualAccounts)
                 && Objects.equals(this.requirementsForNextAccountState, getAccountHolderResponse.requirementsForNextAccountState)
                 && Objects.equals(this.accountHolderDetails, getAccountHolderResponse.accountHolderDetails)
                 && Objects.equals(this.accountHolderStatus, getAccountHolderResponse.accountHolderStatus)
                 && Objects.equals(this.accountContainers, getAccountHolderResponse.accountContainers)
                 && Objects.equals(this.description, getAccountHolderResponse.description)
                 && Objects.equals(this.pspReference, getAccountHolderResponse.pspReference)
-                && Objects.equals(this.kycVerificationResults, getAccountHolderResponse.kycVerificationResults)
                 && Objects.equals(this.legalEntity, getAccountHolderResponse.legalEntity)
-                && Objects.equals(this.legalEntity, getAccountHolderResponse.primaryCurrency);
+                && Objects.equals(this.primaryCurrency, getAccountHolderResponse.primaryCurrency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountStatus,
-                verificationResult,
-                submittedAsync,
-                accountHolderCode,
-                virtualAccounts,
-                requirementsForNextAccountState,
-                accountHolderDetails,
-                accountHolderStatus,
-                accountContainers,
-                description,
-                pspReference,
-                kycVerificationResults,
-                legalEntity,
-                primaryCurrency);
+        return Objects.hash(verification,
+                            submittedAsync,
+                            accountHolderCode,
+                            requirementsForNextAccountState,
+                            accountHolderDetails,
+                            accountHolderStatus,
+                            accountContainers,
+                            description,
+                            pspReference,
+                            legalEntity,
+                            primaryCurrency);
     }
 
 
@@ -435,20 +366,17 @@ public class GetAccountHolderResponse {
 
         StringBuilder sb = new StringBuilder();
         sb.append("class GetAccountHolderResponse {\n");
-
-        sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
-        sb.append("    verificationResult: ").append(toIndentedString(verificationResult)).append("\n");
+        sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    virtualAccounts: ").append(toIndentedString(virtualAccounts)).append("\n");
         sb.append("    requirementsForNextAccountState: ").append(toIndentedString(requirementsForNextAccountState)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
         sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    kycVerificationResults: ").append(toIndentedString(kycVerificationResults)).append("\n");
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
         sb.append("}");
         return sb.toString();
     }

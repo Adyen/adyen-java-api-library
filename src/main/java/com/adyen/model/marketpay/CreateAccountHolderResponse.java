@@ -34,9 +34,6 @@ import com.google.gson.stream.JsonWriter;
  * CreateAccountHolderResponse
  */
 public class CreateAccountHolderResponse {
-    @SerializedName("accountStatus")
-    private AccountStatus accountStatus;
-
     @SerializedName("verification")
     private KYCVerificationResult verification;
 
@@ -112,24 +109,6 @@ public class CreateAccountHolderResponse {
 
     @SerializedName("legalEntity")
     private LegalEntityEnum legalEntity = null;
-
-    public CreateAccountHolderResponse accountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-        return this;
-    }
-
-    /**
-     * status of created account holder
-     *
-     * @return accountStatus
-     **/
-    public AccountStatus getAccountStatus() {
-        return accountStatus;
-    }
-
-    public void setAccountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-    }
 
     public CreateAccountHolderResponse submittedAsync(Boolean submittedAsync) {
         this.submittedAsync = submittedAsync;
@@ -327,8 +306,7 @@ public class CreateAccountHolderResponse {
             return false;
         }
         CreateAccountHolderResponse createAccountHolderResponse = (CreateAccountHolderResponse) o;
-        return Objects.equals(this.accountStatus, createAccountHolderResponse.accountStatus)
-                && Objects.equals(this.verification, createAccountHolderResponse.verification)
+        return Objects.equals(this.verification, createAccountHolderResponse.verification)
                 && Objects.equals(this.submittedAsync, createAccountHolderResponse.submittedAsync)
                 && Objects.equals(this.accountHolderCode, createAccountHolderResponse.accountHolderCode)
                 && Objects.equals(this.accountCode, createAccountHolderResponse.accountCode)
@@ -342,8 +320,7 @@ public class CreateAccountHolderResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountStatus,
-                verification,
+        return Objects.hash(verification,
                 submittedAsync,
                 accountHolderCode,
                 accountCode,
@@ -363,7 +340,6 @@ public class CreateAccountHolderResponse {
 
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAccountHolderResponse {\n");
-        sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
         sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
