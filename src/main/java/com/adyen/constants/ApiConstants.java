@@ -69,4 +69,18 @@ public interface ApiConstants {
     interface SelectedBrand {
         String BOLETO_SANTANDER = "boletobancario_santander";
     }
+
+    interface PaymentMethod {
+        String ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
+        String ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
+        String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
+        String ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
+        String METHOD_TYPE = "type";
+        String HOLDER_NAME = "holderName";
+        String RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+    }
+
+    interface PaymentMethodType {
+        String TYPE_SCHEME = "scheme";
+    }
 }
