@@ -55,7 +55,7 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException {
-        HttpURLConnection httpConnection = createRequest(requestUrl, config);
+        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), config.getConnectionTimeoutMillis());
         if (isApiKeyRequired) {
             setApiKey(httpConnection, config.getApiKey());
         } else {
@@ -82,7 +82,7 @@ public class HttpURLConnectionClient implements ClientInterface {
     @Override
     public String post(String requestUrl, Map<String, String> params, Config config) throws IOException, HTTPClientException {
         String postQuery = getQuery(params);
-        HttpURLConnection httpConnection = createRequest(requestUrl, config);
+        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), config.getConnectionTimeoutMillis());
         String response = doPostRequest(httpConnection, postQuery);
 
         return response;
@@ -113,7 +113,7 @@ public class HttpURLConnectionClient implements ClientInterface {
     /**
      * Initialize the httpConnection
      */
-    private HttpURLConnection createRequest(String requestUrl, Config config) throws IOException {
+    private HttpURLConnection createRequest(String requestUrl, String applicationName, int timeOutInMillis) throws IOException {
         URL targetUrl = new URL(requestUrl);
         HttpURLConnection httpConnection;
 
@@ -124,14 +124,14 @@ public class HttpURLConnectionClient implements ClientInterface {
             httpConnection = (HttpURLConnection) targetUrl.openConnection();
         }
         
-        setConnectionTimeout(httpConnection, config);
+        setConnectionTimeout(httpConnection, timeOutInMillis);
         
         httpConnection.setUseCaches(false);
         httpConnection.setDoOutput(true);
         httpConnection.setRequestMethod("POST");
 
         httpConnection.setRequestProperty("Accept-Charset", CHARSET);
-        httpConnection.setRequestProperty("User-Agent", String.format("%s %s%s", config.getApplicationName(), Client.USER_AGENT_SUFFIX, Client.LIB_VERSION));
+        httpConnection.setRequestProperty("User-Agent", String.format("%s %s%s", applicationName, Client.USER_AGENT_SUFFIX, Client.LIB_VERSION));
 
         return httpConnection;
     }
@@ -139,9 +139,9 @@ public class HttpURLConnectionClient implements ClientInterface {
     /**
      * Sets a timeout for the connection
      */
-	private void setConnectionTimeout(HttpURLConnection httpConnection, Config config) {
-		if (config.getConnectionTimeoutMillis() > 0) {
-        	httpConnection.setConnectTimeout(config.getConnectionTimeoutMillis());
+	private void setConnectionTimeout(HttpURLConnection httpConnection, int timeOutInMillis) {
+		if (timeOutInMillis > 0) {
+        	httpConnection.setConnectTimeout(timeOutInMillis);
 		} else if (connectionTimeoutMillis > 0) {
         	httpConnection.setConnectTimeout(connectionTimeoutMillis);
         }
