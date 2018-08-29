@@ -39,6 +39,8 @@ public class Config {
 
     //Checkout Specific
     protected String checkoutEndpoint;
+    
+    protected int connectionTimeoutMillis = 0;
 
 
     public Config() {
@@ -139,6 +141,15 @@ public class Config {
 
     public void setCheckoutEndpoint(String checkoutEndpoint) {
         this.checkoutEndpoint = checkoutEndpoint;
+    }
+    
+    public int getConnectionTimeoutMillis() {
+		return connectionTimeoutMillis;
+    	
+    }
+    
+    public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
+		this.connectionTimeoutMillis = connectionTimeoutMillis;
     }
 
 

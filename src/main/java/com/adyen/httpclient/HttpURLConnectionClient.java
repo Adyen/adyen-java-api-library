@@ -38,6 +38,7 @@ import java.util.Scanner;
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
     private Proxy proxy;
+    private int connectionTimeoutMillis = 0;
 
     /**
      * Does a POST request.
@@ -54,7 +55,7 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException {
-        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
+        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), config.getConnectionTimeoutMillis());
         if (isApiKeyRequired) {
             setApiKey(httpConnection, config.getApiKey());
         } else {
@@ -81,7 +82,7 @@ public class HttpURLConnectionClient implements ClientInterface {
     @Override
     public String post(String requestUrl, Map<String, String> params, Config config) throws IOException, HTTPClientException {
         String postQuery = getQuery(params);
-        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
+        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), config.getConnectionTimeoutMillis());
         String response = doPostRequest(httpConnection, postQuery);
 
         return response;
@@ -112,7 +113,7 @@ public class HttpURLConnectionClient implements ClientInterface {
     /**
      * Initialize the httpConnection
      */
-    private HttpURLConnection createRequest(String requestUrl, String applicationName) throws IOException {
+    private HttpURLConnection createRequest(String requestUrl, String applicationName, int timeOutInMillis) throws IOException {
         URL targetUrl = new URL(requestUrl);
         HttpURLConnection httpConnection;
 
@@ -122,6 +123,9 @@ public class HttpURLConnectionClient implements ClientInterface {
         } else {
             httpConnection = (HttpURLConnection) targetUrl.openConnection();
         }
+        
+        setConnectionTimeout(httpConnection, timeOutInMillis);
+        
         httpConnection.setUseCaches(false);
         httpConnection.setDoOutput(true);
         httpConnection.setRequestMethod("POST");
@@ -131,6 +135,17 @@ public class HttpURLConnectionClient implements ClientInterface {
 
         return httpConnection;
     }
+
+    /**
+     * Sets a timeout for the connection
+     */
+	private void setConnectionTimeout(HttpURLConnection httpConnection, int timeOutInMillis) {
+		if (timeOutInMillis > 0) {
+        	httpConnection.setConnectTimeout(timeOutInMillis);
+		} else if (connectionTimeoutMillis > 0) {
+        	httpConnection.setConnectTimeout(connectionTimeoutMillis);
+        }
+	}
 
     /**
      * Adds Basic Authentication headers
@@ -200,5 +215,13 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     public void setProxy(Proxy proxy) {
         this.proxy = proxy;
+    }
+    
+    public int getConnectionTimeoutMillis() {
+    	return connectionTimeoutMillis;
+    }
+    
+    public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
+    	this.connectionTimeoutMillis = connectionTimeoutMillis;
     }
 }
