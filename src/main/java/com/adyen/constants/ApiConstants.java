@@ -45,6 +45,7 @@ public interface ApiConstants {
         String PAYMENT_TOKEN = "payment.token";
         String FRAUD_RESULT_TYPE = "fraudResultType";
         String FRAUD_MANUAL_REVIEW = "fraudManualReview";
+        String AUTH_CODE = "authCode";
 
         String BOLETO_BARCODE_REFERENCE = "boletobancario.barCodeReference";
         String BOLETO_DATA = "boletobancario.data";
@@ -78,6 +79,13 @@ public interface ApiConstants {
         String METHOD_TYPE = "type";
         String HOLDER_NAME = "holderName";
         String RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+    }
+
+    interface Redirect {
+        interface Data {
+            String MD = "MD";
+            String PAREQ = "PaReq";
+        }
     }
 
     interface PaymentMethodType {

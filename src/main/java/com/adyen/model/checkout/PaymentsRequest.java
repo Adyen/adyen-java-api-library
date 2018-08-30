@@ -22,6 +22,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.Util.Util;
 import com.adyen.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -168,6 +169,12 @@ public class PaymentsRequest {
 
     public void setAmount(Amount amount) {
         this.amount = amount;
+    }
+
+    public PaymentsRequest setAmountData(String amount, String currency) {
+        Amount amountData = Util.createAmount(amount, currency);
+        this.setAmount(amountData);
+        return this;
     }
 
     public PaymentsRequest billingAddress(Address billingAddress) {
