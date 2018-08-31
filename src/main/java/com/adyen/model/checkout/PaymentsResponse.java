@@ -433,19 +433,7 @@ public class PaymentsResponse {
 
     public Date getExpiryDate() {
         String expiryDate = getAdditionalDataByKey(EXPIRY_DATE);
-        if (expiryDate == null) {
-            return null;
-        }
-
-        Date date;
-        SimpleDateFormat monthYear = new SimpleDateFormat("M/yyyy");
-        try {
-            date = monthYear.parse(expiryDate);
-        } catch (ParseException e) {
-            return null;
-        }
-
-        return date;
+        return DateUtil.parseMYDate(expiryDate);
     }
 
 }
