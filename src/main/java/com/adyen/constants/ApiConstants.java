@@ -45,6 +45,7 @@ public interface ApiConstants {
         String PAYMENT_TOKEN = "payment.token";
         String FRAUD_RESULT_TYPE = "fraudResultType";
         String FRAUD_MANUAL_REVIEW = "fraudManualReview";
+        String AUTH_CODE = "authCode";
 
         String BOLETO_BARCODE_REFERENCE = "boletobancario.barCodeReference";
         String BOLETO_DATA = "boletobancario.data";
@@ -68,5 +69,26 @@ public interface ApiConstants {
 
     interface SelectedBrand {
         String BOLETO_SANTANDER = "boletobancario_santander";
+    }
+
+    interface PaymentMethod {
+        String ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
+        String ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
+        String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
+        String ENCRYPTED_SECURITY_CODE = "encryptedSecurityCode";
+        String METHOD_TYPE = "type";
+        String HOLDER_NAME = "holderName";
+        String RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+    }
+
+    interface Redirect {
+        interface Data {
+            String MD = "MD";
+            String PAREQ = "PaReq";
+        }
+    }
+
+    interface PaymentMethodType {
+        String TYPE_SCHEME = "scheme";
     }
 }
