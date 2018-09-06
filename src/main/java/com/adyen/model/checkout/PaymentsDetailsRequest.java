@@ -82,10 +82,14 @@ public class PaymentsDetailsRequest {
     }
 
     public PaymentsDetailsRequest set3DRequestData(String md, String paRes, String paymentData) {
-        HashMap<String, String> details = new HashMap<>();
-        details.put("MD", md);
-        details.put("PaRes", paRes);
-        this.details(details).paymentData(paymentData);
+        if (this.details == null) {
+            this.details = new HashMap<>();
+        }
+
+        this.details.put("MD", md);
+        this.details.put("PaRes", paRes);
+
+        this.paymentData(paymentData);
         return this;
     }
 
