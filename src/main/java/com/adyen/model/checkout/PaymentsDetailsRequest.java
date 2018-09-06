@@ -23,6 +23,7 @@ package com.adyen.model.checkout;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -78,6 +79,14 @@ public class PaymentsDetailsRequest {
 
     public void setPaymentData(String paymentData) {
         this.paymentData = paymentData;
+    }
+
+    public PaymentsDetailsRequest set3DRequestData(String md, String paRes, String paymentData) {
+        HashMap<String, String> details = new HashMap<>();
+        details.put("MD", md);
+        details.put("PaRes", paRes);
+        this.details(details).paymentData(paymentData);
+        return this;
     }
 
     @Override
