@@ -226,10 +226,7 @@ public class CheckoutTest extends BaseTest {
     protected PaymentsDetailsRequest createPaymentsDetailsRequest() {
         PaymentsDetailsRequest paymentsDetailsRequest = new PaymentsDetailsRequest();
         paymentsDetailsRequest.setPaymentData("Ab02b4c0!BQABAgCJN1wRZuGJmq8dMncmypvknj9s7l5Tj...");
-        HashMap<String, String> details = new HashMap<>();
-        details.put("MD", "sdfsdfsdf...");
-        details.put("PaRes", "sdfsdfsdf...");
-        paymentsDetailsRequest.setDetails(details);
+        paymentsDetailsRequest.set3DRequestData("mdValue", "paResValue", "paymentDataValue");
         return paymentsDetailsRequest;
     }
 
