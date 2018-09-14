@@ -170,7 +170,6 @@ public class HttpURLConnectionClient implements ClientInterface {
     }
 
     private HttpURLConnection setConnectionTimeout(HttpURLConnection httpConnection, int connectionTimeout) {
-        System.out.println("connection timeout =" + httpConnection.getConnectTimeout());
         httpConnection.setConnectTimeout(connectionTimeout);
         return httpConnection;
     }
