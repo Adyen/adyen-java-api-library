@@ -56,11 +56,15 @@ public class HttpURLConnectionClient implements ClientInterface {
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
         String apiKey = config.getApiKey();
+        int connectionTimeoutMillis = config.getConnectionTimeoutMillis();
         // Use Api key if required or if provided
         if (isApiKeyRequired || (apiKey != null && !apiKey.isEmpty())) {
             setApiKey(httpConnection, apiKey);
         } else {
             setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
+        }
+        if (connectionTimeoutMillis > 0) {
+            setConnectionTimeout(httpConnection, connectionTimeoutMillis);
         }
         setContentType(httpConnection, "application/json");
         String response = doPostRequest(httpConnection, requestBody);
@@ -162,6 +166,12 @@ public class HttpURLConnectionClient implements ClientInterface {
         if (apiKey != null && !apiKey.isEmpty()) {
             httpConnection.setRequestProperty("x-api-key", apiKey);
         }
+        return httpConnection;
+    }
+
+    private HttpURLConnection setConnectionTimeout(HttpURLConnection httpConnection, int connectionTimeout) {
+        System.out.println("connection timeout =" + httpConnection.getConnectTimeout());
+        httpConnection.setConnectTimeout(connectionTimeout);
         return httpConnection;
     }
 

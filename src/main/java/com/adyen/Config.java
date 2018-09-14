@@ -31,6 +31,7 @@ public class Config {
     protected String marketPayEndpoint;
     protected String applicationName;
     protected String apiKey;
+    protected int connectionTimeoutMillis;
 
     //HPP specific
     protected String hppEndpoint;
@@ -139,6 +140,14 @@ public class Config {
 
     public void setCheckoutEndpoint(String checkoutEndpoint) {
         this.checkoutEndpoint = checkoutEndpoint;
+    }
+
+    public int getConnectionTimeoutMillis() {
+        return connectionTimeoutMillis;
+    }
+
+    public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
+        this.connectionTimeoutMillis = connectionTimeoutMillis;
     }
 
 
