@@ -63,13 +63,11 @@ public class HttpURLConnectionClient implements ClientInterface {
         } else {
             setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
         }
-        if (connectionTimeoutMillis > 0) {
-            setConnectionTimeout(httpConnection, connectionTimeoutMillis);
-        }
-        setContentType(httpConnection, "application/json");
-        String response = doPostRequest(httpConnection, requestBody);
 
-        return response;
+        httpConnection.setConnectTimeout(connectionTimeoutMillis);
+        setContentType(httpConnection, "application/json");
+
+        return doPostRequest(httpConnection, requestBody);
     }
 
     private static String getResponseBody(InputStream responseStream) throws IOException {
@@ -166,11 +164,6 @@ public class HttpURLConnectionClient implements ClientInterface {
         if (apiKey != null && !apiKey.isEmpty()) {
             httpConnection.setRequestProperty("x-api-key", apiKey);
         }
-        return httpConnection;
-    }
-
-    private HttpURLConnection setConnectionTimeout(HttpURLConnection httpConnection, int connectionTimeout) {
-        httpConnection.setConnectTimeout(connectionTimeout);
         return httpConnection;
     }
 
