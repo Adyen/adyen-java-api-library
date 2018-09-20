@@ -63,30 +63,27 @@ public class Client {
         this.config.setApplicationName(applicationName);
     }
 
-    public Client(String username, String password, Environment environment, String applicationName, int connectionTimeoutMillis) {
+    public Client(String username, String password, Environment environment, int connectionTimeoutMillis) {
 
         this.config = new Config();
         this.config.setUsername(username);
         this.config.setPassword(password);
         this.setEnvironment(environment);
-        this.config.setApplicationName(applicationName);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
-    public Client(String apiKey, Environment environment, String applicationName) {
+    public Client(String apiKey, Environment environment) {
 
         this.config = new Config();
         this.config.setApiKey(apiKey);
         this.setEnvironment(environment);
-        this.config.setApplicationName(applicationName);
     }
 
-    public Client(String apiKey, Environment environment, String applicationName, int connectionTimeoutMillis) {
+    public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
 
         this.config = new Config();
         this.config.setApiKey(apiKey);
         this.setEnvironment(environment);
-        this.config.setApplicationName(applicationName);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
