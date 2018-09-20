@@ -79,6 +79,7 @@ public interface ApiConstants {
         String METHOD_TYPE = "type";
         String HOLDER_NAME = "holderName";
         String RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
+        String STORE_DETAILS = "storeDetails";
     }
 
     interface Redirect {
