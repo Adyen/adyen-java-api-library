@@ -29,7 +29,7 @@ public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
     @SerializedName("modificationAmount")
     private Amount modificationAmount = null;
 
-    public AbstractModificationRequest modificationAmount(Amount modificationAmount) {
+    public RefundRequest modificationAmount(Amount modificationAmount) {
         this.modificationAmount = modificationAmount;
         return this;
     }

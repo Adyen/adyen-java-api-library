@@ -98,7 +98,7 @@ public class ModificationTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/refund-received.json");
         Modification modification = new Modification(client);
 
-        RefundRequest refundRequest = createBaseModificationRequest(new RefundRequest());
+        RefundRequest refundRequest = createRefundRequest();
 
         ModificationResult modificationResult = modification.refund(refundRequest);
         assertEquals(ModificationResult.ResponseEnum.REFUND_RECEIVED_, modificationResult.getResponse());
