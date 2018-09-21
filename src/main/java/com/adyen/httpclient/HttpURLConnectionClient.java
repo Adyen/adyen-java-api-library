@@ -55,15 +55,19 @@ public class HttpURLConnectionClient implements ClientInterface {
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
-        if (isApiKeyRequired) {
-            setApiKey(httpConnection, config.getApiKey());
+        String apiKey = config.getApiKey();
+        int connectionTimeoutMillis = config.getConnectionTimeoutMillis();
+        // Use Api key if required or if provided
+        if (isApiKeyRequired || (apiKey != null && !apiKey.isEmpty())) {
+            setApiKey(httpConnection, apiKey);
         } else {
             setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
         }
-        setContentType(httpConnection, "application/json");
-        String response = doPostRequest(httpConnection, requestBody);
 
-        return response;
+        httpConnection.setConnectTimeout(connectionTimeoutMillis);
+        setContentType(httpConnection, "application/json");
+
+        return doPostRequest(httpConnection, requestBody);
     }
 
     private static String getResponseBody(InputStream responseStream) throws IOException {

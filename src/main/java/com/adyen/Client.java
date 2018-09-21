@@ -40,7 +40,7 @@ public class Client {
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
-    public static final String LIB_VERSION = "1.5.2";
+    public static final String LIB_VERSION = "1.5.3";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com";
     public static final String CHECKOUT_ENDPOINT_LIVE = "https://checkout-live.adyen.com";
     public static final String CHECKOUT_API_VERSION = "v32";
@@ -61,6 +61,30 @@ public class Client {
         this.config.setPassword(password);
         this.setEnvironment(environment);
         this.config.setApplicationName(applicationName);
+    }
+
+    public Client(String username, String password, Environment environment, int connectionTimeoutMillis) {
+
+        this.config = new Config();
+        this.config.setUsername(username);
+        this.config.setPassword(password);
+        this.setEnvironment(environment);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+    }
+
+    public Client(String apiKey, Environment environment) {
+
+        this.config = new Config();
+        this.config.setApiKey(apiKey);
+        this.setEnvironment(environment);
+    }
+
+    public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
+
+        this.config = new Config();
+        this.config.setApiKey(apiKey);
+        this.setEnvironment(environment);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
     public void setEnvironment(Environment environment) {
