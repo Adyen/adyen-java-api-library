@@ -42,7 +42,7 @@ public class Client {
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
     public static final String LIB_VERSION = "1.5.3";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com";
-    public static final String CHECKOUT_ENDPOINT_LIVE = "https://checkout-live.adyen.com";
+    public static final String CHECKOUT_ENDPOINT_LIVE = "-checkout-live.adyenpayments.com";
     public static final String CHECKOUT_API_VERSION = "v32";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
 
@@ -101,7 +101,7 @@ public class Client {
             this.config.setEndpoint(ENDPOINT_LIVE);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
             this.config.setHppEndpoint(HPP_LIVE);
-            this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_LIVE);
+            this.config.setCheckoutEndpoint("https://" + this.config.getLiveEndpointUrlPrefix() + CHECKOUT_ENDPOINT_LIVE);
         } else {
             // throw exception
         }
