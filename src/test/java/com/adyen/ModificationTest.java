@@ -46,6 +46,7 @@ public class ModificationTest extends BaseTest {
 
         ModificationResult modificationResult = modification.capture(captureRequest);
         assertEquals(ModificationResult.ResponseEnum.CAPTURE_RECEIVED_, modificationResult.getResponse());
+        assertEquals("test", modificationResult.getAdditionalData().get("merchantReference"));
     }
 
     /**

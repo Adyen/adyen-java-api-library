@@ -1,4 +1,7 @@
 {
+  "additionalData":{
+    "merchantReference":"test"
+  },
   "pspReference": "8524840434233409",
   "response": "[capture-received]"
 }
