@@ -89,15 +89,6 @@ public class Client {
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
-    public Client(String username, String password, Environment environment, String applicationName, String liveEndpointUrlPrefix) {
-
-        this.config = new Config();
-        this.config.setUsername(username);
-        this.config.setPassword(password);
-        this.setEnvironment(environment, liveEndpointUrlPrefix);
-        this.config.setApplicationName(applicationName);
-    }
-
     public Client(String username, String password, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
 
         this.config = new Config();
