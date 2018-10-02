@@ -41,10 +41,6 @@ public class Config {
     //Checkout Specific
     protected String checkoutEndpoint;
 
-    //Checkout Specific - Provide the [random]-[company name] combination from the "API URLs and Response" menu in the Adyen Customer Area
-    protected String liveEndpointUrlPrefix;
-
-
     public Config() {
         // do nothing
     }
@@ -151,14 +147,6 @@ public class Config {
 
     public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
         this.connectionTimeoutMillis = connectionTimeoutMillis;
-    }
-
-    public String getLiveEndpointUrlPrefix() {
-        return liveEndpointUrlPrefix;
-    }
-
-    public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
-        this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
     }
 
 }
