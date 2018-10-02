@@ -119,22 +119,7 @@ public class Client {
      * @deprecated As of library version 1.5.4, replaced by {@link #setEnvironment(Environment environment, String liveEndpointUrlPrefix)}.
      */
     public void setEnvironment(Environment environment) {
-
-        if (environment.equals(Environment.TEST)) {
-            this.config.setEnvironment(environment);
-            this.config.setEndpoint(ENDPOINT_TEST);
-            this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
-            this.config.setHppEndpoint(HPP_TEST);
-            this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
-
-        } else if (environment.equals(Environment.LIVE)) {
-            this.config.setEnvironment(environment);
-            this.config.setEndpoint(ENDPOINT_LIVE);
-            this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
-            this.config.setHppEndpoint(HPP_LIVE);
-        } else {
-            // throw exception
-        }
+        this.setEnvironment(environment, null);
     }
 
     /**
@@ -143,28 +128,22 @@ public class Client {
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
 
-        if (environment.equals(Environment.TEST)) {
+        if (Environment.TEST.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setEndpoint(ENDPOINT_TEST);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
             this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
-
-        } else if (environment.equals(Environment.LIVE)) {
+        } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
             this.config.setHppEndpoint(HPP_LIVE);
-
-            if (liveEndpointUrlPrefix != null && !liveEndpointUrlPrefix.isEmpty()) {
+            if (liveEndpointUrlPrefix != null && ! liveEndpointUrlPrefix.isEmpty()) {
                 this.config.setEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + ENDPOINT_LIVE_SUFFIX);
                 this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);
             } else {
                 this.config.setEndpoint(ENDPOINT_LIVE);
-                this.config.setCheckoutEndpoint(null); // not supported please specify unique identifier
             }
-
-        } else {
-            // throw exception
         }
     }
 

@@ -36,6 +36,10 @@ public class CheckoutUtility extends ApiKeyAuthenticatedService {
 
     public CheckoutUtility(Client client) {
         super(client);
+        if (client.getConfig().getCheckoutEndpoint() == null || client.getConfig().getCheckoutEndpoint().isEmpty()) {
+            String message = "Please specify the unique identifier when setting the environment";
+            throw new IllegalArgumentException(message);
+        }
         originKeys = new OriginKeys(this);
     }
 

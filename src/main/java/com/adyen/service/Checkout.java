@@ -25,7 +25,6 @@ import java.io.IOException;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.model.checkout.*;
-import com.adyen.service.exception.AdyenException;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.checkout.*;
 import com.google.gson.reflect.TypeToken;
@@ -39,12 +38,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
     private PaymentSession paymentSession;
     private PaymentsResult paymentsResult;
 
-    public Checkout(Client client) throws AdyenException {
+    public Checkout(Client client) {
 
         super(client);
         if (client.getConfig().getCheckoutEndpoint() == null || client.getConfig().getCheckoutEndpoint().isEmpty()) {
             String message = "Please specify the unique identifier when setting the environment";
-            throw new AdyenException(message);
+            throw new IllegalArgumentException(message);
         }
         payments = new Payments(this);
         paymentMethods = new PaymentMethods(this);
