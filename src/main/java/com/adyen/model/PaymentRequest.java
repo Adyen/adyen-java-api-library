@@ -45,7 +45,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     private BankAccount bankAccount = null;
 
     @SerializedName("store")
-    private Long store = null;
+    private String store = null;
 
     /**
      * how the shopper interacts with the system
@@ -269,7 +269,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         this.bankAccount = bankAccount;
     }
 
-    public PaymentRequest store(Long store) {
+    public PaymentRequest store(String store) {
         this.store = store;
         return this;
     }
@@ -279,11 +279,11 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
      *
      * @return store
      **/
-    public Long getStore() {
+    public String getStore() {
         return store;
     }
 
-    public void setStore(Long store) {
+    public void setStore(String store) {
         this.store = store;
     }
 
