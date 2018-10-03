@@ -44,6 +44,9 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     @SerializedName("bankAccount")
     private BankAccount bankAccount = null;
 
+    @SerializedName("store")
+    private Long store = null;
+
     /**
      * how the shopper interacts with the system
      */
@@ -266,6 +269,24 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         this.bankAccount = bankAccount;
     }
 
+    public PaymentRequest store(Long store) {
+        this.store = store;
+        return this;
+    }
+
+    /**
+     * store id from which the payment request is made from
+     *
+     * @return store
+     **/
+    public Long getStore() {
+        return store;
+    }
+
+    public void setStore(Long store) {
+        this.store = store;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -275,8 +296,11 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
             return false;
         }
         PaymentRequest paymentRequest = (PaymentRequest) o;
-        return super.equals(paymentRequest) && Objects.equals(this.card, paymentRequest.card) && Objects.equals(this.mpiData, paymentRequest.mpiData) && Objects.equals(this.bankAccount,
-                                                                                                                                                                        paymentRequest.bankAccount);
+        return super.equals(paymentRequest)
+                && Objects.equals(this.card, paymentRequest.card)
+                && Objects.equals(this.mpiData, paymentRequest.mpiData)
+                && Objects.equals(this.bankAccount, paymentRequest.bankAccount)
+                && Objects.equals(this.store, paymentRequest.store);
     }
 
     @Override
@@ -309,4 +333,3 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     }
 
 }
-
