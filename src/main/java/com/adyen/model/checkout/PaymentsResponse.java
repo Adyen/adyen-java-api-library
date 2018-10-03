@@ -22,8 +22,6 @@
 package com.adyen.model.checkout;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -77,8 +75,18 @@ public class PaymentsResponse {
 
     @SerializedName("refusalReason")
     private String refusalReason = null;
+
     @SerializedName("resultCode")
     private ResultCodeEnum resultCode = null;
+
+    @SerializedName("serviceError")
+    private ServiceError serviceError;
+
+    @SerializedName("authResponse")
+    private ResultCodeEnum authResponse;
+
+    @SerializedName("merchantReference")
+    private String merchantReference;
 
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -263,6 +271,30 @@ public class PaymentsResponse {
         this.resultCode = resultCode;
     }
 
+    public ServiceError getServiceError() {
+        return serviceError;
+    }
+
+    public void setServiceError(ServiceError serviceError) {
+        this.serviceError = serviceError;
+    }
+
+    public ResultCodeEnum getAuthResponse() {
+        return authResponse;
+    }
+
+    public void setAuthResponse(ResultCodeEnum authResponse) {
+        this.authResponse = authResponse;
+    }
+
+    public String getMerchantReference() {
+        return merchantReference;
+    }
+
+    public void setMerchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -280,7 +312,10 @@ public class PaymentsResponse {
                 && Objects.equals(this.pspReference, paymentsResponse.pspReference)
                 && Objects.equals(this.redirect, paymentsResponse.redirect)
                 && Objects.equals(this.refusalReason, paymentsResponse.refusalReason)
-                && Objects.equals(this.resultCode, paymentsResponse.resultCode);
+                && Objects.equals(this.resultCode, paymentsResponse.resultCode)
+                && Objects.equals(this.serviceError, paymentsResponse.serviceError)
+                && Objects.equals(this.authResponse, paymentsResponse.authResponse)
+                && Objects.equals(this.merchantReference, paymentsResponse.merchantReference);
     }
 
     @Override
@@ -292,7 +327,6 @@ public class PaymentsResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentsResponse {\n");
-
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
@@ -301,6 +335,9 @@ public class PaymentsResponse {
         sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
         sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
+        sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -336,7 +373,8 @@ public class PaymentsResponse {
         ERROR("Error"),
         CANCELLED("Cancelled"),
         RECEIVED("Received"),
-        REDIRECTSHOPPER("RedirectShopper");
+        REDIRECTSHOPPER("RedirectShopper"),
+        UNKNOWN("Unknown"); //applicable for payments/details
 
         private String value;
 
