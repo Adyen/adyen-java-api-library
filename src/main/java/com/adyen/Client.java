@@ -30,6 +30,7 @@ public class Client {
 
     public static final String ENDPOINT_TEST = "https://pal-test.adyen.com";
     public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
+    public static final String ENDPOINT_LIVE_SUFFIX = "-pal-live.adyenpayments.com";
     public static final String HPP_TEST = "https://test.adyen.com/hpp";
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
@@ -41,10 +42,11 @@ public class Client {
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
     public static final String LIB_VERSION = "1.5.3";
-    public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com";
-    public static final String CHECKOUT_ENDPOINT_LIVE = "https://checkout-live.adyen.com";
+    public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
+    public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v32";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
+    public static final String ENDPOINT_PROTOCOL = "https://";
 
     public Client() {
         this.config = new Config();
@@ -87,23 +89,53 @@ public class Client {
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
-    public void setEnvironment(Environment environment) {
+    public Client(String username, String password, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
 
-        if (environment.equals(Environment.TEST)) {
+        this.config = new Config();
+        this.config.setUsername(username);
+        this.config.setPassword(password);
+        this.setEnvironment(environment, liveEndpointUrlPrefix);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+    }
+
+    public Client(String apiKey, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
+
+        this.config = new Config();
+        this.config.setApiKey(apiKey);
+        this.setEnvironment(environment, liveEndpointUrlPrefix);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+    }
+
+    /**
+     * @deprecated As of library version 1.5.4, replaced by {@link #setEnvironment(Environment environment, String liveEndpointUrlPrefix)}.
+     */
+    public void setEnvironment(Environment environment) {
+        this.setEnvironment(environment, null);
+    }
+
+    /**
+     * @param environment
+     * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
+     */
+    public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
+
+        if (Environment.TEST.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setEndpoint(ENDPOINT_TEST);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
             this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
-
-        } else if (environment.equals(Environment.LIVE)) {
+        } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
-            this.config.setEndpoint(ENDPOINT_LIVE);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
             this.config.setHppEndpoint(HPP_LIVE);
-            this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_LIVE);
-        } else {
-            // throw exception
+            if (liveEndpointUrlPrefix != null && ! liveEndpointUrlPrefix.isEmpty()) {
+                this.config.setEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + ENDPOINT_LIVE_SUFFIX);
+                this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);
+            } else {
+                this.config.setEndpoint(ENDPOINT_LIVE);
+                this.config.setCheckoutEndpoint(null);
+            }
         }
     }
 

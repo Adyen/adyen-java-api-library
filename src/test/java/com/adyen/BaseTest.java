@@ -58,6 +58,7 @@ public class BaseTest {
 
         Config config = new Config();
         config.setHmacKey("DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00");
+        config.setCheckoutEndpoint(client.CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
 
         return client;

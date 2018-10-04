@@ -21,6 +21,7 @@
 
 package com.adyen.service;
 
+import java.io.IOException;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.model.checkout.*;
@@ -28,7 +29,6 @@ import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.checkout.*;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
 
 public class Checkout extends ApiKeyAuthenticatedService {
 
