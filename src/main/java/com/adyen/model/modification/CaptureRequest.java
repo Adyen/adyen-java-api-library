@@ -32,7 +32,7 @@ public class CaptureRequest extends AbstractModificationRequest<CaptureRequest> 
     @SerializedName("modificationAmount")
     private Amount modificationAmount = null;
 
-    public AbstractModificationRequest modificationAmount(Amount modificationAmount) {
+    public CaptureRequest modificationAmount(Amount modificationAmount) {
         this.modificationAmount = modificationAmount;
         return this;
     }

@@ -41,7 +41,6 @@ public class Config {
     //Checkout Specific
     protected String checkoutEndpoint;
 
-
     public Config() {
         // do nothing
     }
@@ -135,6 +134,10 @@ public class Config {
     }
 
     public String getCheckoutEndpoint() {
+        if (checkoutEndpoint == null || checkoutEndpoint.isEmpty()) {
+            String message = "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide checkoutEndpoint in your config object.";
+            throw new IllegalArgumentException(message);
+        }
         return checkoutEndpoint;
     }
 
@@ -149,6 +152,5 @@ public class Config {
     public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
         this.connectionTimeoutMillis = connectionTimeoutMillis;
     }
-
 
 }

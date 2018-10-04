@@ -21,6 +21,7 @@
 package com.adyen;
 
 import com.adyen.Util.DateUtil;
+import com.adyen.Util.Util;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
@@ -28,6 +29,7 @@ import com.adyen.model.*;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
+import com.adyen.model.modification.RefundRequest;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -56,6 +58,7 @@ public class BaseTest {
 
         Config config = new Config();
         config.setHmacKey("DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00");
+        config.setCheckoutEndpoint(client.CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
 
         return client;
@@ -235,5 +238,11 @@ public class BaseTest {
         captureRequest.fillAmount("15.00", "EUR");
 
         return captureRequest;
+    }
+
+    protected RefundRequest createRefundRequest() {
+        Amount amount = Util.createAmount("15.00", "EUR");
+
+        return createBaseModificationRequest(new RefundRequest()).modificationAmount(amount);
     }
 }

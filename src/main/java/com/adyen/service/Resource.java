@@ -67,7 +67,7 @@ public class Resource {
             }.getType());
             apiException.setError(apiError);
         } catch (JsonSyntaxException ignored) {
-            throw new ApiException("Invalid respose or an invalid X-API-Key key was used", apiException.getStatusCode());
+            throw new ApiException("Invalid response or an invalid X-API-Key key was used", apiException.getStatusCode());
         }
 
         throw apiException;
