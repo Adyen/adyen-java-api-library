@@ -135,7 +135,7 @@ public class Config {
 
     public String getCheckoutEndpoint() {
         if (checkoutEndpoint == null || checkoutEndpoint.isEmpty()) {
-            String message = "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide endpointCheckout in your config object.";
+            String message = "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide checkoutEndpoint in your config object.";
             throw new IllegalArgumentException(message);
         }
         return checkoutEndpoint;

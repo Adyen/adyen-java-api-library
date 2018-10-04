@@ -191,7 +191,7 @@ public class CheckoutTest extends BaseTest {
         try {
             new Checkout(client);
         } catch (IllegalArgumentException e) {
-            assertEquals("Please provide your unique live url prefix on the setEnvironment() call on the Client or provide endpointCheckout in your config object.", e.getMessage());
+            assertEquals("Please provide your unique live url prefix on the setEnvironment() call on the Client or provide checkoutEndpoint in your config object.", e.getMessage());
         }
 
     }
