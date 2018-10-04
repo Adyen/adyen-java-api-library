@@ -41,10 +41,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
     public Checkout(Client client) {
 
         super(client);
-        if (client.getConfig().getCheckoutEndpoint() == null || client.getConfig().getCheckoutEndpoint().isEmpty()) {
-            String message = "Please specify the unique identifier when setting the environment";
-            throw new IllegalArgumentException(message);
-        }
         payments = new Payments(this);
         paymentMethods = new PaymentMethods(this);
         paymentsDetails = new PaymentsDetails(this);

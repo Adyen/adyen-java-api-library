@@ -27,6 +27,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
+import static com.adyen.enums.Environment.LIVE;
 import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -178,6 +179,21 @@ public class CheckoutTest extends BaseTest {
         paymentResultRequest.setPayload("This is a test payload");
         PaymentResultResponse paymentResultResponse = checkout.paymentResult(paymentResultRequest);
         assertNull(paymentResultResponse.getResultCode());
+    }
+
+    /**
+     * Test error flow on Checkout creation
+     */
+    @Test
+    public void TestPaymentMethodsFailureMissingIdentifierOnLive() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentsresult-error-invalid-data-payload-422.json");
+        client.setEnvironment(LIVE);
+        try {
+            new Checkout(client);
+        } catch (IllegalArgumentException e) {
+            assertEquals("Please provide your unique live url prefix on the setEnvironment() call on the Client or provide endpointCheckout in your config object.", e.getMessage());
+        }
+
     }
 
     /**

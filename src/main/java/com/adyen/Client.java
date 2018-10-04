@@ -115,7 +115,7 @@ public class Client {
 
     /**
      * @param environment
-     * @param liveEndpointUrlPrefix - Provide the [random]-[company name] combination from the "API URLs and Response" menu in the Adyen Customer Area
+     * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
 
@@ -134,6 +134,7 @@ public class Client {
                 this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);
             } else {
                 this.config.setEndpoint(ENDPOINT_LIVE);
+                this.config.setCheckoutEndpoint(null);
             }
         }
     }
