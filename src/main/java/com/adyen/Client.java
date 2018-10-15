@@ -109,6 +109,7 @@ public class Client {
     /**
      * @deprecated As of library version 1.5.4, replaced by {@link #setEnvironment(Environment environment, String liveEndpointUrlPrefix)}.
      */
+    @Deprecated
     public void setEnvironment(Environment environment) {
         this.setEnvironment(environment, null);
     }
