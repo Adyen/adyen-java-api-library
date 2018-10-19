@@ -81,6 +81,12 @@ public class Client {
         this.setEnvironment(environment);
     }
 
+    public Client(String apiKey, Environment environment, String liveEndpointUrlPrefix) {
+        this.config = new Config();
+        this.config.setApiKey(apiKey);
+        this.setEnvironment(environment, liveEndpointUrlPrefix);
+    }
+
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
 
         this.config = new Config();
