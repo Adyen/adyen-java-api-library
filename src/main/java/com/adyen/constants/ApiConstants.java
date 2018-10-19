@@ -72,6 +72,11 @@ public interface ApiConstants {
     }
 
     interface PaymentMethod {
+
+        String NUMBER = "number";
+        String EXPIRY_MONTH = "expiryMonth";
+        String EXPIRY_YEAR = "expiryYear";
+        String CVC = "cvc";
         String ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
         String ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
         String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";

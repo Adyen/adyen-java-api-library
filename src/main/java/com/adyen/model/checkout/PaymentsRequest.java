@@ -32,13 +32,8 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.*;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_CARD_NUMBER;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_EXPIRY_MONTH;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_EXPIRY_YEAR;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_SECURITY_CODE;
-import static com.adyen.constants.ApiConstants.PaymentMethod.HOLDER_NAME;
-import static com.adyen.constants.ApiConstants.PaymentMethod.METHOD_TYPE;
-import static com.adyen.constants.ApiConstants.PaymentMethod.RECURRING_DETAIL_REFERENCE;
+
+import static com.adyen.constants.ApiConstants.PaymentMethod.*;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
 
 /**
@@ -612,6 +607,26 @@ public class PaymentsRequest {
         this.paymentMethod.put(ENCRYPTED_EXPIRY_YEAR, encryptedExpiryYear);
         if (encryptedSecurityCode != null) {
             this.paymentMethod.put(ENCRYPTED_SECURITY_CODE, encryptedSecurityCode);
+        }
+        if (holderName != null) {
+            this.paymentMethod.put(HOLDER_NAME, holderName);
+        }
+
+        return this;
+    }
+
+    /**
+     *  Add raw card data into the payment request. You need to be PCI compliant!
+     * @return paymentMethod
+     */
+    public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
+        this.paymentMethod = new HashMap<>();
+        this.paymentMethod.put(METHOD_TYPE, TYPE_SCHEME);
+        this.paymentMethod.put(NUMBER, cardNumber);
+        this.paymentMethod.put(EXPIRY_MONTH, expiryMonth);
+        this.paymentMethod.put(EXPIRY_YEAR, expiryYear);
+        if (securityCode != null) {
+            this.paymentMethod.put(CVC, securityCode);
         }
         if (holderName != null) {
             this.paymentMethod.put(HOLDER_NAME, holderName);

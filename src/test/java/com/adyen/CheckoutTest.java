@@ -219,15 +219,7 @@ public class CheckoutTest extends BaseTest {
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
-        PaymentMethod paymentMethod = new PaymentMethod();
-        paymentMethod.setType("scheme");
-        paymentsRequest.setPaymentMethod(new HashMap<String, String>());
-
-        paymentsRequest.putPaymentMethodItem("number", "4111111111111111");
-        paymentsRequest.putPaymentMethodItem("expiryMonth", "08");
-        paymentsRequest.putPaymentMethodItem("expiryYear", "2018");
-        paymentsRequest.putPaymentMethodItem("holderName", "John Smith");
-        paymentsRequest.putPaymentMethodItem("cvc", "737");
+        paymentsRequest.addCardData("4111111111111111", "10", "2018", "737", "John Smith");
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
