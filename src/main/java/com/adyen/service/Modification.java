@@ -23,6 +23,7 @@ package com.adyen.service;
 import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CancelOrRefundRequest;
 import com.adyen.model.modification.CancelRequest;
@@ -60,10 +61,12 @@ public class Modification extends Service {
      * @throws ApiException
      */
     public ModificationResult capture(CaptureRequest captureRequest) throws IOException, ApiException {
+        return capture(captureRequest,null);
+    }
+
+    public ModificationResult capture(CaptureRequest captureRequest, RequestOptions requestOptions) throws IOException, ApiException {
         String jsonRequest = serializeRequest(captureRequest);
-
-        String jsonResult = capture.request(jsonRequest);
-
+        String jsonResult = capture.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
 
@@ -76,10 +79,12 @@ public class Modification extends Service {
      * @throws ApiException
      */
     public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest) throws IOException, ApiException {
+       return cancelOrRefund(cancelOrRefundRequest, null);
+    }
+
+    public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest, RequestOptions requestOptions) throws IOException, ApiException {
         String jsonRequest = serializeRequest(cancelOrRefundRequest);
-
-        String jsonResult = cancelOrRefund.request(jsonRequest);
-
+        String jsonResult = cancelOrRefund.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
 
@@ -92,10 +97,12 @@ public class Modification extends Service {
      * @throws ApiException
      */
     public ModificationResult refund(RefundRequest refundRequest) throws IOException, ApiException {
+        return refund(refundRequest, null);
+    }
+
+    public ModificationResult refund(RefundRequest refundRequest, RequestOptions requestOptions) throws IOException, ApiException {
         String jsonRequest = serializeRequest(refundRequest);
-
-        String jsonResult = refund.request(jsonRequest);
-
+        String jsonResult = refund.request(jsonRequest,requestOptions);
         return deserializeResponse(jsonResult);
     }
 
@@ -108,10 +115,13 @@ public class Modification extends Service {
      * @throws ApiException
      */
     public ModificationResult cancel(CancelRequest cancelRequest) throws IOException, ApiException {
+        return cancel(cancelRequest, null);
+    }
+
+    public ModificationResult cancel(CancelRequest cancelRequest, RequestOptions requestOptions) throws IOException, ApiException {
+
         String jsonRequest = serializeRequest(cancelRequest);
-
-        String jsonResult = cancel.request(jsonRequest);
-
+        String jsonResult = cancel.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
 
