@@ -59,7 +59,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
     public PaymentsResponse payments(PaymentsRequest paymentsRequest) throws ApiException, IOException {
         return payments(paymentsRequest,null);
-
     }
 
     public PaymentsResponse payments(PaymentsRequest paymentsRequest, RequestOptions requestOptions) throws ApiException, IOException {

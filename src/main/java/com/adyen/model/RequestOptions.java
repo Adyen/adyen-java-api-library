@@ -2,6 +2,8 @@ package com.adyen.model;
 
 public class RequestOptions {
 
+    private String idempotencyKey;
+
     public String getIdempotencyKey() {
         return idempotencyKey;
     }
@@ -10,6 +12,5 @@ public class RequestOptions {
         this.idempotencyKey = idempotencyKey;
     }
 
-    private String idempotencyKey;
 
 }

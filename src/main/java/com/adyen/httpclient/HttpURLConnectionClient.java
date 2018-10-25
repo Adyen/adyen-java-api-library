@@ -147,7 +147,7 @@ public class HttpURLConnectionClient implements ClientInterface {
 
         httpConnection.setRequestProperty(ACCEPT_CHARSET, CHARSET);
         httpConnection.setRequestProperty(USER_AGENT, String.format("%s %s%s", applicationName, Client.USER_AGENT_SUFFIX, Client.LIB_VERSION));
-        if (requestOptions != null) {
+        if (requestOptions != null && requestOptions.getIdempotencyKey() != null) {
             httpConnection.setRequestProperty(IDEMPOTENCY_KEY, requestOptions.getIdempotencyKey());
         }
         return httpConnection;
