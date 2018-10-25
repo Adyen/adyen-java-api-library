@@ -45,7 +45,22 @@
 config.setApiKey(<span class="hljs-string">"Your X-API-KEY"</span>));
 config.setApplicationName(<span class="hljs-string">"Adyen Java API Library"</span>);
 Client client = <span class="hljs-keyword">new</span> Client(config);
-client.setEnvironment(Environment.TEST);
+
+</code></pre>
+        </div>
+        <p>
+            Set the environment to TEST if you want to connect to Adyen Test environment. In case of TEST environment,
+            liveEndpointUrlPrefix value will be null as shown in following code snippet.
+        <div class="highlight highlight-text-html-java"><pre><code class="language-java">client.setEnvironment(Environment.TEST, null);
+</code></pre>
+            If you want to connect to Live environment, Set the environment to LIVE and provide value for
+            liveEndPointUrlPrefix as shown in following code snippet.
+
+            Note : YOUR LIVE ENDPOINT URL PREFIX is the unique live url prefix which you can get from the "API URLs and
+            Response" menu in the Adyen Customer Area
+        </div>
+        <div class="highlight highlight-text-html-java"><pre><code class="language-java">client.setEnvironment(Environment.LIVE, <span
+                class="hljs-string">"YOUR LIVE ENDPOINT URL PREFIX"</span> );
 </code></pre>
         </div>
 
@@ -59,12 +74,7 @@ client.setEnvironment(Environment.TEST);
 config.setPassword(<span class="hljs-string">"YOUR PASSWORD"</span>);
 </code></pre>
         </div>
-        <p>
-            The example connects you to the Adyen test platform. If you want to use our live platform use:
-        </p>
-        <div class="highlight highlight-text-html-java"><pre><code class="language-java">client.setEnvironment(Environment.LIVE);
-</code></pre>
-        </div>
+
 
         <h2>Adyen Checkout Service</h2>
         <p>Adyen Checkout API provides a simple and flexible way to initiate and authorise online payments.
