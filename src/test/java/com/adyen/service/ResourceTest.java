@@ -59,7 +59,7 @@ public class ResourceTest extends BaseTest {
 
     @Test
     public void testRequest() throws Exception {
-        when(clientInterfaceMock.request("", "request", null, false)).thenReturn("response");
+        when(clientInterfaceMock.request("", "request", null, false, null)).thenReturn("response");
 
         Resource resource = new Resource(serviceMock, "", null);
         String response = resource.request("request");
@@ -70,7 +70,7 @@ public class ResourceTest extends BaseTest {
     @Test
     public void testRequestExceptionEmpty() throws IOException, HTTPClientException {
         try {
-            when(clientInterfaceMock.request("", "request", null, false))
+            when(clientInterfaceMock.request("", "request", null, false, null))
                     .thenThrow(new HTTPClientException("message", 403, new HashMap<String, List<String>>(), null));
 
             Resource resource = new Resource(serviceMock, "", null);

@@ -34,6 +34,7 @@ import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentResult;
+import com.adyen.model.RequestOptions;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
@@ -46,6 +47,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -203,7 +205,8 @@ public class PaymentTest extends BaseTest {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<String, List<String>>(), null);
 
-        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenThrow(httpClientException);
+        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
+        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), (RequestOptions)isNull())).thenThrow(httpClientException);
 
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);

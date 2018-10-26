@@ -24,6 +24,7 @@ package com.adyen.service;
 import java.io.IOException;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.*;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.checkout.*;
@@ -57,11 +58,14 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws ApiException
      */
     public PaymentsResponse payments(PaymentsRequest paymentsRequest) throws ApiException, IOException {
+        return payments(paymentsRequest,null);
+    }
+
+    public PaymentsResponse payments(PaymentsRequest paymentsRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentsRequest);
-        String jsonResult = payments.request(jsonRequest);
+        String jsonResult = payments.request(jsonRequest, requestOptions);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentsResponse>() {
         }.getType());
-
     }
 
     /**
@@ -107,8 +111,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
 
     public PaymentSessionResponse paymentSession(PaymentSessionRequest paymentSessionRequest) throws ApiException, IOException {
+        return paymentSession(paymentSessionRequest, null);
+    }
+
+    public PaymentSessionResponse paymentSession(PaymentSessionRequest paymentSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentSessionRequest);
-        String jsonResult = paymentSession.request(jsonRequest);
+        String jsonResult = paymentSession.request(jsonRequest, requestOptions);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentSessionResponse>() {
         }.getType());
     }
