@@ -62,7 +62,7 @@ public class RecurringTest extends BaseTest {
     			.shopperEmail("johndoe@merchant.com")
     			.shopperStatement("this is your statement")
     			.shopperIP("192.168.1.1")
-    			.selectOneClickRecurringContract()
+    			.setContractToOneClick()
     			.setCardData("5136333333333335", "John Doe", "08", "2018", "737");
 
     	return request;

@@ -184,4 +184,20 @@ public class StoreTokenResult {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getClass().getSimpleName());
+		sb.append("[");
+		sb.append("pspReference=").append(pspReference);
+		sb.append(", recurringDetailReference=").append(recurringDetailReference);
+		sb.append(", result=").append(result);
+		sb.append(", alias=").append(alias);
+		sb.append(", aliasType=").append(aliasType);
+		sb.append(", redirectUrl=").append(redirectUrl);
+		sb.append(", redirectType=").append(redirectType);
+		sb.append("]");
+		return sb.toString();
+	}
+
 }

@@ -230,28 +230,33 @@ public class StoreTokenRequest {
 		return this;
 	}
 
-	public StoreTokenRequest selectRecurringContract() {
-		Recurring recurring = new Recurring();
-		recurring.contract(Recurring.ContractEnum.RECURRING);
-		setRecurring(recurring);
-
+	public StoreTokenRequest setContractToRecurring() {
+		setRecurring(new Recurring().contract(Recurring.ContractEnum.RECURRING));
 		return this;
 	}
 
-	public StoreTokenRequest selectOneClickContract() {
-		Recurring recurring = new Recurring();
-		recurring.contract(Recurring.ContractEnum.ONECLICK);
-		setRecurring(recurring);
-
+	public StoreTokenRequest setContractToOneClick() {
+		setRecurring(new Recurring().contract(Recurring.ContractEnum.ONECLICK));
 		return this;
 	}
 
-	public StoreTokenRequest selectOneClickRecurringContract() {
-		Recurring recurring = new Recurring();
-		recurring.contract(Recurring.ContractEnum.ONECLICK_RECURRING);
-		setRecurring(recurring);
-
+	public StoreTokenRequest setContractToOneClickRecurring() {
+		setRecurring(new Recurring().contract(Recurring.ContractEnum.ONECLICK_RECURRING));
 		return this;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.getClass().getSimpleName());
+		sb.append("[merchantAccount=").append(merchantAccount);
+		sb.append(", shopperReference=").append(shopperReference);
+		sb.append(", shopperEmail=").append(shopperEmail);
+		sb.append(", hasCard=").append(card != null);
+		sb.append(", selectedBrand=").append(selectedBrand);
+		sb.append(", shopperStatement=").append(shopperStatement);
+		sb.append("]");
+		return sb.toString();
 	}
 
 }
