@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -53,7 +53,7 @@ public class NotificationRequest {
 
     public List<NotificationRequestItem> getNotificationItems() {
         List<NotificationRequestItem> notificationRequestItems = new ArrayList<>();
-        for(NotificationRequestItemContainer container: this.notificationItemContainers) {
+        for (NotificationRequestItemContainer container : this.notificationItemContainers) {
             notificationRequestItems.add(container.getNotificationItem());
         }
 

@@ -18,16 +18,13 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-
-
 package com.adyen.model.checkout;
-
-import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * PaymentMethod
@@ -35,7 +32,7 @@ import java.util.Objects;
 public class PaymentMethod {
 
     @SerializedName("configuration")
-    private Map<String, String> _configuration = null;
+    private Map<String, String> configuration = null;
 
     @SerializedName("details")
     private List<InputDetail> details = null;
@@ -52,32 +49,32 @@ public class PaymentMethod {
     @SerializedName("type")
     private String type = null;
 
-    public PaymentMethod _configuration(Map<String, String> _configuration) {
-        this._configuration = _configuration;
+    public PaymentMethod configuration(Map<String, String> configuration) {
+        this.configuration = configuration;
         return this;
     }
 
-    public PaymentMethod putConfigurationItem(String key, String _configurationItem) {
+    public PaymentMethod putConfigurationItem(String key, String configurationItem) {
 
-        if (this._configuration == null) {
-            this._configuration = null;
+        if (this.configuration == null) {
+            this.configuration = null;
         }
 
-        this._configuration.put(key, _configurationItem);
+        this.configuration.put(key, configurationItem);
         return this;
     }
 
     /**
      * The configuration of the payment method.
      *
-     * @return _configuration
+     * @return configuration
      **/
     public Map<String, String> getConfiguration() {
-        return _configuration;
+        return configuration;
     }
 
-    public void setConfiguration(Map<String, String> _configuration) {
-        this._configuration = _configuration;
+    public void setConfiguration(Map<String, String> configuration) {
+        this.configuration = configuration;
     }
 
     public PaymentMethod details(List<InputDetail> details) {
@@ -193,17 +190,17 @@ public class PaymentMethod {
             return false;
         }
         PaymentMethod paymentMethod = (PaymentMethod) o;
-        return Objects.equals(this._configuration, paymentMethod._configuration) &&
-                Objects.equals(this.details, paymentMethod.details) &&
-                Objects.equals(this.group, paymentMethod.group) &&
-                Objects.equals(this.name, paymentMethod.name) &&
-                Objects.equals(this.paymentMethodData, paymentMethod.paymentMethodData) &&
-                Objects.equals(this.type, paymentMethod.type);
+        return Objects.equals(this.configuration, paymentMethod.configuration)
+                && Objects.equals(this.details, paymentMethod.details)
+                && Objects.equals(this.group, paymentMethod.group)
+                && Objects.equals(this.name, paymentMethod.name)
+                && Objects.equals(this.paymentMethodData, paymentMethod.paymentMethodData)
+                && Objects.equals(this.type, paymentMethod.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(_configuration, details, group, name, paymentMethodData, type);
+        return Objects.hash(configuration, details, group, name, paymentMethodData, type);
     }
 
     @Override
@@ -211,7 +208,7 @@ public class PaymentMethod {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentMethod {\n");
 
-        sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");

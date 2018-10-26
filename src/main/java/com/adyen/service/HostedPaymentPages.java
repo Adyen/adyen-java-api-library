@@ -85,7 +85,7 @@ public class HostedPaymentPages extends Service {
         postParameters.put(SESSION_VALIDITY, request.getSessionValidity());
         postParameters.put(COUNTRY_CODE, request.getCountryCode());
 
-        if(request.getShopperLocale() != null) {
+        if (request.getShopperLocale() != null) {
             postParameters.put(SHOPPER_LOCALE, request.getShopperLocale());
         }
 

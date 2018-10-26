@@ -62,7 +62,7 @@ public class Fund extends Service {
 
     }
 
-    public AccountHolderBalanceResponse AccountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws Exception {
+    public AccountHolderBalanceResponse accountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws Exception {
         String jsonRequest = GSON.toJson(accountHolderBalanceRequest);
 
         String jsonResult = accountHolderBalance.request(jsonRequest);

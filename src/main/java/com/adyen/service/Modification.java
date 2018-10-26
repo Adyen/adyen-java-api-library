@@ -1,19 +1,19 @@
 /**
- *                       ######
- *                       ######
+ * ######
+ * ######
  * ############    ####( ######  #####. ######  ############   ############
  * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ######  #####( ######  #####. ######  #####  ######  #####  ######
  * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
  * ###### ######  #####( ######  #####. ######  #####          #####  ######
  * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
+ * ############   ############  #############   ############  #####  ######
+ * ######
+ * #############
+ * ############
+ * <p>
  * Adyen Java API Library
- *
+ * <p>
  * Copyright (c) 2017 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
@@ -61,7 +61,7 @@ public class Modification extends Service {
      * @throws ApiException
      */
     public ModificationResult capture(CaptureRequest captureRequest) throws IOException, ApiException {
-        return capture(captureRequest,null);
+        return capture(captureRequest, null);
     }
 
     public ModificationResult capture(CaptureRequest captureRequest, RequestOptions requestOptions) throws IOException, ApiException {
@@ -79,7 +79,7 @@ public class Modification extends Service {
      * @throws ApiException
      */
     public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest) throws IOException, ApiException {
-       return cancelOrRefund(cancelOrRefundRequest, null);
+        return cancelOrRefund(cancelOrRefundRequest, null);
     }
 
     public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest, RequestOptions requestOptions) throws IOException, ApiException {
@@ -102,7 +102,7 @@ public class Modification extends Service {
 
     public ModificationResult refund(RefundRequest refundRequest, RequestOptions requestOptions) throws IOException, ApiException {
         String jsonRequest = serializeRequest(refundRequest);
-        String jsonResult = refund.request(jsonRequest,requestOptions);
+        String jsonResult = refund.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
 

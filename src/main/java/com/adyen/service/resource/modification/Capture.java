@@ -21,7 +21,6 @@
 package com.adyen.service.resource.modification;
 
 import java.util.Arrays;
-import java.util.List;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
