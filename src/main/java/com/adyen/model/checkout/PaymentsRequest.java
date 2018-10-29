@@ -25,7 +25,6 @@ package com.adyen.model.checkout;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -41,17 +40,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import static com.adyen.constants.ApiConstants.PaymentMethod.CVC;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_CARD_NUMBER;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_EXPIRY_MONTH;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_EXPIRY_YEAR;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_SECURITY_CODE;
-import static com.adyen.constants.ApiConstants.PaymentMethod.EXPIRY_MONTH;
-import static com.adyen.constants.ApiConstants.PaymentMethod.EXPIRY_YEAR;
-import static com.adyen.constants.ApiConstants.PaymentMethod.HOLDER_NAME;
-import static com.adyen.constants.ApiConstants.PaymentMethod.METHOD_TYPE;
-import static com.adyen.constants.ApiConstants.PaymentMethod.NUMBER;
-import static com.adyen.constants.ApiConstants.PaymentMethod.RECURRING_DETAIL_REFERENCE;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
 
 /**
@@ -109,7 +97,7 @@ public class PaymentsRequest {
     @SerializedName("orderReference")
     private String orderReference = null;
     @SerializedName("paymentMethod")
-    private Map<String, String> paymentMethod = null;
+    private PaymentMethodDetails paymentMethod = null;
     @SerializedName("reference")
     private String reference = null;
     @SerializedName("returnUrl")
@@ -593,41 +581,29 @@ public class PaymentsRequest {
         this.orderReference = orderReference;
     }
 
-    public PaymentsRequest paymentMethod(Map<String, String> paymentMethod) {
-        this.paymentMethod = paymentMethod;
-        return this;
-    }
-
-    public PaymentsRequest putPaymentMethodItem(String key, String paymentMethodItem) {
-
-        this.paymentMethod.put(key, paymentMethodItem);
-        return this;
-    }
-
-    /**
-     * The collection that contains the type of the payment method and its specific information (e.g. &#x60;idealIssuer&#x60;).
-     *
-     * @return paymentMethod
-     **/
-    public Map<String, String> getPaymentMethod() {
+    public PaymentMethodDetails getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(Map<String, String> paymentMethod) {
+    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
+    public PaymentsRequest paymentMethod(PaymentMethodDetails paymentMethod) {
+        this.paymentMethod = paymentMethod;
+        return this;
+    }
+
     public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
-        this.paymentMethod = new HashMap<>();
-        this.paymentMethod.put(METHOD_TYPE, TYPE_SCHEME);
-        this.paymentMethod.put(ENCRYPTED_CARD_NUMBER, encryptedCardNumber);
-        this.paymentMethod.put(ENCRYPTED_EXPIRY_MONTH, encryptedExpiryMonth);
-        this.paymentMethod.put(ENCRYPTED_EXPIRY_YEAR, encryptedExpiryYear);
+        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
+        this.paymentMethod = paymentMethodDetails;
+
+        paymentMethodDetails.type(TYPE_SCHEME).encryptedCardNumber(encryptedCardNumber).encryptedExpiryMonth(encryptedExpiryMonth).encryptedExpiryYear(encryptedExpiryYear);
         if (encryptedSecurityCode != null) {
-            this.paymentMethod.put(ENCRYPTED_SECURITY_CODE, encryptedSecurityCode);
+            paymentMethodDetails.setEncryptedSecurityCode(encryptedSecurityCode);
         }
         if (holderName != null) {
-            this.paymentMethod.put(HOLDER_NAME, holderName);
+            paymentMethodDetails.setHolderName(holderName);
         }
 
         return this;
@@ -639,26 +615,26 @@ public class PaymentsRequest {
      * @return paymentMethod
      */
     public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
-        this.paymentMethod = new HashMap<>();
-        this.paymentMethod.put(METHOD_TYPE, TYPE_SCHEME);
-        this.paymentMethod.put(NUMBER, cardNumber);
-        this.paymentMethod.put(EXPIRY_MONTH, expiryMonth);
-        this.paymentMethod.put(EXPIRY_YEAR, expiryYear);
+        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
+        this.paymentMethod = paymentMethodDetails;
+
+        paymentMethodDetails.type(TYPE_SCHEME).number(cardNumber).expiryMonth(expiryMonth).expiryYear(expiryYear);
         if (securityCode != null) {
-            this.paymentMethod.put(CVC, securityCode);
+            paymentMethodDetails.setCvc(securityCode);
         }
         if (holderName != null) {
-            this.paymentMethod.put(HOLDER_NAME, holderName);
+            paymentMethodDetails.setHolderName(holderName);
         }
 
         return this;
     }
 
     public PaymentsRequest addOneClickData(String recurringDetailReference, String encryptedSecurityCode) {
-        this.paymentMethod = new HashMap<>();
-        this.paymentMethod.put(METHOD_TYPE, TYPE_SCHEME);
-        this.paymentMethod.put(RECURRING_DETAIL_REFERENCE, recurringDetailReference);
-        this.paymentMethod.put(ENCRYPTED_SECURITY_CODE, encryptedSecurityCode);
+        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
+        this.paymentMethod = paymentMethodDetails;
+
+        paymentMethodDetails.type(TYPE_SCHEME).recurringDetailReference(recurringDetailReference).encryptedSecurityCode(encryptedSecurityCode);
+
         return this;
     }
 
