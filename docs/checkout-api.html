@@ -79,8 +79,17 @@ paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"expiryYear"</spa
 paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"holderName"</span>, <span class="hljs-string">"John Smith"</span>);
 paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"cvc"</span>, <span class="hljs-string">"737"</span>);
 paymentsRequest.setReturnUrl(<span class="hljs-string">"https://your-company.com/..."</span>);
-paymentsRequest.setMerchantAccount(<span class="hljs-string">"YOUR_MERCHANT_ACCOUNT"</span>);
-PaymentsResponse paymentResponse = checkout.payments(paymentsRequest);
+paymentsRequest.setMerchantAccount(<span class="hljs-string">"YOUR_MERCHANT_ACCOUNT"</span>);</code></pre>
+        This Adyen API supports idempotency. To enable idempotent behavior on this request call, you need
+        to supply a RequestOptions object with idempotencyKey. In following example,&nbsp;<code class="language-java">"IDEMPOTENCY
+        KEY FOR THIS REQUEST"</code> is a unique identifer for the message with a maximum 64 characters (we recommend a
+        UUID).
+        <p/>
+        <pre><code class="language-java">RequestOptions requestOptions = <span class="hljs-keyword">new</span> RequestOptions();<br/>requestOptions.setIdempotencyKey(<span
+                class="hljs-string">"IDEMPOTENCY KEY FOR THIS REQUEST"</span>);<br/>PaymentsResponse paymentResponse = checkout.payments(paymentsRequest, requestOptions); </code></pre>
+        If you don't want to use idempotencyKey, simply send paymentRequest as shown in following example:
+        <p/>
+        <pre><code class="language-java">PaymentsResponse paymentResponse = checkout.payments(paymentsRequest);
 </code></pre>
 
         <h2><a id="paymentsDetails_37"></a>payments/details</h2>
