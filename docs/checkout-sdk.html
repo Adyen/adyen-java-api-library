@@ -38,7 +38,9 @@
             The Checkout SDK service has the following methods:
         </p>
         <h2><a id="paymentSession_54"></a>paymentSession</h2>
-        <p>Provides the data object that can be used to start the Checkout SDK. To set up the payment, pass its amount, currency, and other required parameters. We use this to optimise the payment flow and perform better risk assessment of the transaction.</p>
+        <p>Provides the data object that can be used to start the Checkout SDK. To set up the payment, pass its amount,
+            currency, and other required parameters. We use this to optimise the payment flow and perform better risk
+            assessment of the transaction.</p>
         <pre><code class="language-java">Checkout checkout = <span class="hljs-keyword">new</span> Checkout(client);
 PaymentSessionRequest paymentSessionRequest = <span class="hljs-keyword">new</span> PaymentSessionRequest();
 paymentSessionRequest.setAmount(createAmountObject(<span class="hljs-string">"EUR"</span>, <span class="hljs-number">17408L</span>));
@@ -46,9 +48,19 @@ paymentSessionRequest.setReference(<span class="hljs-string">"Your order number"
 paymentSessionRequest.returnUrl(<span class="hljs-string">"https://www.yourshop.com/checkout/result"</span>);
 paymentSessionRequest.merchantAccount(<span class="hljs-string">"YOUR_MERCHANT_ACCOUNT"</span>);
 paymentSessionRequest.setCountryCode(<span class="hljs-string">"NL"</span>);
-paymentSessionRequest.setSdkVersion(<span class="hljs-string">"1.3.0"</span>);
-PaymentSessionResponse paymentSessionResponse = checkout.paymentSession(paymentSessionRequest);
+paymentSessionRequest.setSdkVersion(<span class="hljs-string">"1.3.0"</span>);</code></pre>
+        This Adyen API supports idempotency. To enable idempotent behavior on this request call, you need
+        to supply a RequestOptions object with idempotencyKey. In following example,&nbsp;<code class="language-java">"IDEMPOTENCY
+        KEY FOR THIS REQUEST"</code> is a unique identifer for the message with a maximum 64 characters (we recommend a
+        UUID).
+        <p/>
+        <pre><code class="language-java">RequestOptions requestOptions = <span class="hljs-keyword">new</span> RequestOptions();<br/>requestOptions.setIdempotencyKey(<span
+                class="hljs-string">"IDEMPOTENCY KEY FOR THIS REQUEST"</span>);<br/>PaymentSessionResponse paymentSessionResponse = checkout.paymentSession(paymentSessionRequest, requestOptions);</code></pre>
+        If you don't want to use idempotencyKey, simply send paymentRequest as shown in following example:
+        <p/>
+        <pre><code class="language-java">PaymentSessionResponse paymentSessionResponse = checkout.paymentSession(paymentSessionRequest);
 </code></pre>
+        </code></pre>
         <h2><a id="paymentsresult_67"></a>payments/result</h2>
         <p>Verifies the payment result using the payload returned from the Checkout SDK.</p>
         <pre><code class="language-java">Checkout checkout = <span class="hljs-keyword">new</span> Checkout(client);
