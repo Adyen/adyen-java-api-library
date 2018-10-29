@@ -21,26 +21,32 @@
 package com.adyen.service;
 
 import java.io.IOException;
+
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.recurring.DisableRequest;
 import com.adyen.model.recurring.DisableResult;
 import com.adyen.model.recurring.RecurringDetailsRequest;
 import com.adyen.model.recurring.RecurringDetailsResult;
+import com.adyen.model.recurring.StoreTokenRequest;
+import com.adyen.model.recurring.StoreTokenResult;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.recurring.Disable;
 import com.adyen.service.resource.recurring.ListRecurringDetails;
+import com.adyen.service.resource.recurring.StoreToken;
 import com.google.gson.reflect.TypeToken;
 
 public class Recurring extends Service {
     private ListRecurringDetails listRecurringDetails;
     private Disable disable;
+    private StoreToken storeToken;
 
     public Recurring(Client client) {
         super(client);
 
         listRecurringDetails = new ListRecurringDetails(this);
         disable = new Disable(this);
+        storeToken = new StoreToken(this);
     }
 
     /**
@@ -77,4 +83,23 @@ public class Recurring extends Service {
         }.getType());
         return result;
     }
+
+	/**
+	 * Issues a storeToken API call
+	 *
+	 * @param request
+	 * @return
+	 * @throws IOException
+	 * @throws ApiException
+	 */
+	public StoreTokenResult storeToken(StoreTokenRequest request) throws IOException, ApiException {
+		String jsonRequest = GSON.toJson(request);
+
+		String jsonResult = storeToken.request(jsonRequest);
+
+		StoreTokenResult result = GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
+		}.getType());
+		return result;
+	}
+
 }
