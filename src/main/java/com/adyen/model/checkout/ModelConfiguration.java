@@ -21,10 +21,9 @@
 
 package com.adyen.model.checkout;
 
+import java.util.Objects;
 import com.adyen.model.Installments;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.Objects;
 
 /**
  * ModelConfiguration
@@ -105,10 +104,9 @@ public class ModelConfiguration {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ModelConfiguration _configuration = (ModelConfiguration) o;
-        return Objects.equals(this.avs, _configuration.avs) &&
-                Objects.equals(this.cardHolderNameRequired, _configuration.cardHolderNameRequired) &&
-                Objects.equals(this.installments, _configuration.installments);
+        ModelConfiguration configuration = (ModelConfiguration) o;
+        return Objects.equals(this.avs, configuration.avs) && Objects.equals(this.cardHolderNameRequired, configuration.cardHolderNameRequired) && Objects.equals(this.installments,
+                                                                                                                                                                    configuration.installments);
     }
 
     @Override

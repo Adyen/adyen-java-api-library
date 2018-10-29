@@ -188,11 +188,11 @@ public class TestNotificationConfigurationResponse {
      **/
     public List<ExchangeMessage> getExchangeMessages() {
 
-        if(exchangeMessages == null) {
+        if (exchangeMessages == null) {
             exchangeMessages = new ArrayList<ExchangeMessage>();
 
-            if(exchangeMessageContainers != null && !exchangeMessageContainers.isEmpty()){
-                for(ExchangeMessageContainer exchangeMessageContainer : exchangeMessageContainers) {
+            if (exchangeMessageContainers != null && ! exchangeMessageContainers.isEmpty()) {
+                for (ExchangeMessageContainer exchangeMessageContainer : exchangeMessageContainers) {
                     exchangeMessages.add(exchangeMessageContainer.getExchangeMessage());
                 }
             }

@@ -20,11 +20,6 @@
  */
 package com.adyen.httpclient;
 
-import com.adyen.Client;
-import com.adyen.Config;
-import com.adyen.model.RequestOptions;
-import org.apache.commons.codec.binary.Base64;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -35,8 +30,17 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Scanner;
-
-import static com.adyen.constants.ApiConstants.RequestProperty.*;
+import org.apache.commons.codec.binary.Base64;
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.model.RequestOptions;
+import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
+import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
+import static com.adyen.constants.ApiConstants.RequestProperty.APPLICATION_JSON_TYPE;
+import static com.adyen.constants.ApiConstants.RequestProperty.CONTENT_TYPE;
+import static com.adyen.constants.ApiConstants.RequestProperty.IDEMPOTENCY_KEY;
+import static com.adyen.constants.ApiConstants.RequestProperty.METHOD_POST;
+import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
@@ -66,7 +70,7 @@ public class HttpURLConnectionClient implements ClientInterface {
         String apiKey = config.getApiKey();
         int connectionTimeoutMillis = config.getConnectionTimeoutMillis();
         // Use Api key if required or if provided
-        if (isApiKeyRequired || (apiKey != null && !apiKey.isEmpty())) {
+        if (isApiKeyRequired || (apiKey != null && ! apiKey.isEmpty())) {
             setApiKey(httpConnection, apiKey);
         } else {
             setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
@@ -178,7 +182,7 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Sets api key
      */
     private HttpURLConnection setApiKey(HttpURLConnection httpConnection, String apiKey) {
-        if (apiKey != null && !apiKey.isEmpty()) {
+        if (apiKey != null && ! apiKey.isEmpty()) {
             httpConnection.setRequestProperty(API_KEY, apiKey);
         }
         return httpConnection;

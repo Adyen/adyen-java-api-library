@@ -22,18 +22,36 @@
 
 package com.adyen.model.checkout;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import com.adyen.Util.Util;
-import com.adyen.model.*;
+import com.adyen.model.Address;
+import com.adyen.model.Amount;
+import com.adyen.model.BrowserInfo;
+import com.adyen.model.ForexQuote;
+import com.adyen.model.Installments;
+import com.adyen.model.Name;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
-import java.util.*;
-
-import static com.adyen.constants.ApiConstants.PaymentMethod.*;
+import static com.adyen.constants.ApiConstants.PaymentMethod.CVC;
+import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_CARD_NUMBER;
+import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_EXPIRY_MONTH;
+import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_EXPIRY_YEAR;
+import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_SECURITY_CODE;
+import static com.adyen.constants.ApiConstants.PaymentMethod.EXPIRY_MONTH;
+import static com.adyen.constants.ApiConstants.PaymentMethod.EXPIRY_YEAR;
+import static com.adyen.constants.ApiConstants.PaymentMethod.HOLDER_NAME;
+import static com.adyen.constants.ApiConstants.PaymentMethod.METHOD_TYPE;
+import static com.adyen.constants.ApiConstants.PaymentMethod.NUMBER;
+import static com.adyen.constants.ApiConstants.PaymentMethod.RECURRING_DETAIL_REFERENCE;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
 
 /**
@@ -616,7 +634,8 @@ public class PaymentsRequest {
     }
 
     /**
-     *  Add raw card data into the payment request. You need to be PCI compliant!
+     * Add raw card data into the payment request. You need to be PCI compliant!
+     *
      * @return paymentMethod
      */
     public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {

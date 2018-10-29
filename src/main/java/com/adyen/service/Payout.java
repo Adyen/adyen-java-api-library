@@ -27,8 +27,6 @@ import com.adyen.model.payout.ConfirmThirdPartyRequest;
 import com.adyen.model.payout.ConfirmThirdPartyResponse;
 import com.adyen.model.payout.DeclineThirdPartyRequest;
 import com.adyen.model.payout.DeclineThirdPartyResponse;
-import com.adyen.model.payout.ModifyRequest;
-import com.adyen.model.payout.ModifyResponse;
 import com.adyen.model.payout.StoreDetailAndSubmitRequest;
 import com.adyen.model.payout.StoreDetailAndSubmitResponse;
 import com.adyen.model.payout.StoreDetailRequest;

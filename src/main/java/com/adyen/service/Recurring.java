@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -21,7 +21,6 @@
 package com.adyen.service;
 
 import java.io.IOException;
-
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.recurring.DisableRequest;
@@ -69,6 +68,7 @@ public class Recurring extends Service {
 
     /**
      * Issues a disable recurring contract API call
+     *
      * @param request
      * @return
      * @throws IOException
@@ -84,22 +84,22 @@ public class Recurring extends Service {
         return result;
     }
 
-	/**
-	 * Issues a storeToken API call
-	 *
-	 * @param request
-	 * @return
-	 * @throws IOException
-	 * @throws ApiException
-	 */
-	public StoreTokenResult storeToken(StoreTokenRequest request) throws IOException, ApiException {
-		String jsonRequest = GSON.toJson(request);
+    /**
+     * Issues a storeToken API call
+     *
+     * @param request
+     * @return
+     * @throws IOException
+     * @throws ApiException
+     */
+    public StoreTokenResult storeToken(StoreTokenRequest request) throws IOException, ApiException {
+        String jsonRequest = GSON.toJson(request);
 
-		String jsonResult = storeToken.request(jsonRequest);
+        String jsonResult = storeToken.request(jsonRequest);
 
-		StoreTokenResult result = GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
-		}.getType());
-		return result;
-	}
+        StoreTokenResult result = GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
+        }.getType());
+        return result;
+    }
 
 }

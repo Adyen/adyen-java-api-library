@@ -22,8 +22,23 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.marketpay.notification.*;
-import com.adyen.service.resource.notification.*;
+import com.adyen.model.marketpay.notification.CreateNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.CreateNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.GetNotificationConfigurationListResponse;
+import com.adyen.model.marketpay.notification.GetNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.GetNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.TestNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.TestNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationResponse;
+import com.adyen.service.resource.notification.CreateNotificationConfiguration;
+import com.adyen.service.resource.notification.DeleteNotificationConfigurations;
+import com.adyen.service.resource.notification.GetNotificationConfiguration;
+import com.adyen.service.resource.notification.GetNotificationConfigurationList;
+import com.adyen.service.resource.notification.TestNotificationConfiguration;
+import com.adyen.service.resource.notification.UpdateNotificationConfiguration;
 import com.google.gson.reflect.TypeToken;
 
 public class Notification extends Service {
@@ -82,23 +97,23 @@ public class Notification extends Service {
         return deleteNotificationConfigurationResponse;
     }
 
-   public TestNotificationConfigurationResponse testNotificationConfiguration(TestNotificationConfigurationRequest testNotificationConfigurationRequest) throws Exception{
-       String jsonRequest = GSON.toJson(testNotificationConfigurationRequest);
-       String jsonResult = testNotificationConfiguration.request(jsonRequest);
+    public TestNotificationConfigurationResponse testNotificationConfiguration(TestNotificationConfigurationRequest testNotificationConfigurationRequest) throws Exception {
+        String jsonRequest = GSON.toJson(testNotificationConfigurationRequest);
+        String jsonResult = testNotificationConfiguration.request(jsonRequest);
 
-       TestNotificationConfigurationResponse testNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<TestNotificationConfigurationResponse>() {
-       }.getType());
+        TestNotificationConfigurationResponse testNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<TestNotificationConfigurationResponse>() {
+        }.getType());
 
-       return testNotificationConfigurationResponse;
-   }
+        return testNotificationConfigurationResponse;
+    }
 
-   public GetNotificationConfigurationListResponse getNotificationConfigurationList() throws Exception{
+    public GetNotificationConfigurationListResponse getNotificationConfigurationList() throws Exception {
         String jsonResult = getNotificationConfigurationList.request("{}");
-        GetNotificationConfigurationListResponse getNotificationConfigurationListResponse = GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationListResponse>(){
+        GetNotificationConfigurationListResponse getNotificationConfigurationListResponse = GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationListResponse>() {
         }.getType());
 
         return getNotificationConfigurationListResponse;
-   }
+    }
 
 
 }

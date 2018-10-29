@@ -277,7 +277,7 @@ public class MarketPayTest extends BaseTest {
         // create AccountHolderBalance Request
         AccountHolderBalanceRequest accountHolderBalanceRequest = new AccountHolderBalanceRequest();
         accountHolderBalanceRequest.accountHolderCode("TestAccountHolder877209");
-        AccountHolderBalanceResponse accountHolderBalanceResponse = fund.AccountHolderBalance(accountHolderBalanceRequest);
+        AccountHolderBalanceResponse accountHolderBalanceResponse = fund.accountHolderBalance(accountHolderBalanceRequest);
 
 
         assertEquals(new Long(42058), accountHolderBalanceResponse.getTotalBalance().getPendingBalance().get(0).getValue());

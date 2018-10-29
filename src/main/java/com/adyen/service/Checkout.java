@@ -25,9 +25,21 @@ import java.io.IOException;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.checkout.*;
+import com.adyen.model.checkout.PaymentMethodsRequest;
+import com.adyen.model.checkout.PaymentMethodsResponse;
+import com.adyen.model.checkout.PaymentResultRequest;
+import com.adyen.model.checkout.PaymentResultResponse;
+import com.adyen.model.checkout.PaymentSessionRequest;
+import com.adyen.model.checkout.PaymentSessionResponse;
+import com.adyen.model.checkout.PaymentsDetailsRequest;
+import com.adyen.model.checkout.PaymentsRequest;
+import com.adyen.model.checkout.PaymentsResponse;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.checkout.*;
+import com.adyen.service.resource.checkout.PaymentMethods;
+import com.adyen.service.resource.checkout.PaymentSession;
+import com.adyen.service.resource.checkout.Payments;
+import com.adyen.service.resource.checkout.PaymentsDetails;
+import com.adyen.service.resource.checkout.PaymentsResult;
 import com.google.gson.reflect.TypeToken;
 
 
@@ -58,7 +70,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws ApiException
      */
     public PaymentsResponse payments(PaymentsRequest paymentsRequest) throws ApiException, IOException {
-        return payments(paymentsRequest,null);
+        return payments(paymentsRequest, null);
     }
 
     public PaymentsResponse payments(PaymentsRequest paymentsRequest, RequestOptions requestOptions) throws ApiException, IOException {

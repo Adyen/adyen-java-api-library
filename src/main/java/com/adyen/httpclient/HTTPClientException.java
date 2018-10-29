@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -28,7 +28,8 @@ public class HTTPClientException extends Exception {
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
 
-    public HTTPClientException() {}
+    public HTTPClientException() {
+    }
 
     public HTTPClientException(Throwable throwable) {
         super(throwable);
