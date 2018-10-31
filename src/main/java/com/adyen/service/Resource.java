@@ -20,6 +20,8 @@
  */
 package com.adyen.service;
 
+import java.io.IOException;
+import java.util.List;
 import com.adyen.Config;
 import com.adyen.Service;
 import com.adyen.httpclient.ClientInterface;
@@ -30,9 +32,6 @@ import com.adyen.service.exception.ApiException;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-import java.util.List;
 
 public class Resource {
 
