@@ -124,6 +124,8 @@ public class PaymentsRequest {
     private String telephoneNumber = null;
     @SerializedName("browserInfo")
     private BrowserInfo browserInfo = null;
+    @SerializedName("deviceFingerprint")
+    private String deviceFingerprint = null;
 
     public PaymentsRequest additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -596,7 +598,6 @@ public class PaymentsRequest {
 
     public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
-        this.paymentMethod = paymentMethodDetails;
 
         paymentMethodDetails.type(TYPE_SCHEME).encryptedCardNumber(encryptedCardNumber).encryptedExpiryMonth(encryptedExpiryMonth).encryptedExpiryYear(encryptedExpiryYear);
         if (encryptedSecurityCode != null) {
@@ -606,6 +607,7 @@ public class PaymentsRequest {
             paymentMethodDetails.setHolderName(holderName);
         }
 
+        this.paymentMethod = paymentMethodDetails;
         return this;
     }
 
@@ -616,9 +618,8 @@ public class PaymentsRequest {
      */
     public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
-        this.paymentMethod = paymentMethodDetails;
-
         paymentMethodDetails.type(TYPE_SCHEME).number(cardNumber).expiryMonth(expiryMonth).expiryYear(expiryYear);
+
         if (securityCode != null) {
             paymentMethodDetails.setCvc(securityCode);
         }
@@ -626,15 +627,15 @@ public class PaymentsRequest {
             paymentMethodDetails.setHolderName(holderName);
         }
 
+        this.paymentMethod = paymentMethodDetails;
         return this;
     }
 
     public PaymentsRequest addOneClickData(String recurringDetailReference, String encryptedSecurityCode) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
-        this.paymentMethod = paymentMethodDetails;
-
         paymentMethodDetails.type(TYPE_SCHEME).recurringDetailReference(recurringDetailReference).encryptedSecurityCode(encryptedSecurityCode);
 
+        this.paymentMethod = paymentMethodDetails;
         return this;
     }
 
@@ -883,6 +884,19 @@ public class PaymentsRequest {
         return this;
     }
 
+    public String getDeviceFingerprint() {
+        return deviceFingerprint;
+    }
+
+    public void setDeviceFingerprint(String deviceFingerprint) {
+        this.deviceFingerprint = deviceFingerprint;
+    }
+
+    public PaymentsRequest deviceFingerprint(String deviceFingerprint) {
+        this.deviceFingerprint = deviceFingerprint;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -928,6 +942,7 @@ public class PaymentsRequest {
                 && Objects.equals(this.shopperReference, paymentsRequest.shopperReference)
                 && Objects.equals(this.shopperStatement, paymentsRequest.shopperStatement)
                 && Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber)
+                && Objects.equals(this.deviceFingerprint, paymentsRequest.deviceFingerprint)
                 && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber);
     }
 
@@ -968,6 +983,7 @@ public class PaymentsRequest {
                             shopperReference,
                             shopperStatement,
                             socialSecurityNumber,
+                            deviceFingerprint,
                             telephoneNumber);
     }
 
@@ -1011,6 +1027,7 @@ public class PaymentsRequest {
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
         sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
+        sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
         sb.append("}");
         return sb.toString();
