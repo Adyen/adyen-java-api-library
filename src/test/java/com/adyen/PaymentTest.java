@@ -20,9 +20,12 @@
  */
 package com.adyen;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 import org.junit.Test;
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
@@ -34,6 +37,7 @@ import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentResult;
+import com.adyen.model.RequestOptions;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
@@ -46,6 +50,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -68,7 +73,9 @@ public class PaymentTest extends BaseTest {
 
         assertTrue(paymentResult.isAuthorised());
 
-        SimpleDateFormat format = new SimpleDateFormat("M/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("M/yyyy", Locale.ENGLISH);
+        format.setTimeZone(TimeZone.getTimeZone("GMT"));
+
         assertEquals("8/2018", format.format(paymentResult.getExpiryDate()));
 
         assertEquals("411111", paymentResult.getCardBin());
@@ -203,7 +210,8 @@ public class PaymentTest extends BaseTest {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<String, List<String>>(), null);
 
-        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenThrow(httpClientException);
+        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
+        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), (RequestOptions) isNull())).thenThrow(httpClientException);
 
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);
@@ -269,11 +277,14 @@ public class PaymentTest extends BaseTest {
                 "BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z/z9EdC5yFH3+1o/DQH3v3dtTxqXD2DrEdVH0Ro3r/+G9bdUzrCUjfMFh7YB32VL2oPqye9Ly/MWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR/CBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3+qihZa7vvzV/XylTXdgirxboVKpk07Wfvpad8Owg/K/ofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ+9vZs+aor/E//s+EjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1/AvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL+DKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT/eVf+wncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs=",
                 paymentResult.getBoletoData());
 
-        assertEquals("2017-05-22", new SimpleDateFormat("yyyy-MM-dd").format(paymentResult.getBoletoDueDate()));
+        DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+        assertEquals("2017-05-22", fmt.format(paymentResult.getBoletoDueDate()));
         assertEquals(
                 "https://test.adyen.com/hpp/generationBoleto.shtml?data=BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z%2Fz9EdC5yFH3%2B1o%2FDQH3v3dtTxqXD2DrEdVH0Ro3r%2F%2BG9bdUzrCUjfMFh7YB32VL2oPqye9Ly%2FMWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR%2FCBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3%2BqihZa7vvzV%2FXylTXdgirxboVKpk07Wfvpad8Owg%2FK%2FofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ%2B9vZs%2Baor%2FE%2F%2Fs%2BEjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1%2FAvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL%2BDKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT%2FeVf%2BwncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs%3D",
                 paymentResult.getBoletoUrl());
-        assertEquals("2017-06-06", new SimpleDateFormat("yyyy-MM-dd").format(paymentResult.getBoletoExpirationDate()));
+        assertEquals("2017-06-06", fmt.format(paymentResult.getBoletoExpirationDate()));
         assertEquals(RECEIVED, paymentResult.getResultCode());
         assertEquals("8814950120218231", paymentResult.getPspReference());
     }

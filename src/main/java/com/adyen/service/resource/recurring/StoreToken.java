@@ -18,39 +18,20 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.Util;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
+package com.adyen.service.resource.recurring;
 
-public final class DateUtil {
-    private DateUtil() {
+import java.util.Arrays;
+
+import com.adyen.Client;
+import com.adyen.Service;
+import com.adyen.service.Resource;
+
+public class StoreToken extends Resource {
+
+    public StoreToken(Service service) {
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Recurring/" + Client.RECURRING_API_VERSION + "/storeToken",
+                Arrays.asList("merchantAccount", "recurring.contract", "shopperReference"));
     }
 
-    public static Date parseDateToFormat(String dateString, String format) {
-        if (dateString == null) {
-            return null;
-        }
-
-        SimpleDateFormat fmt = new SimpleDateFormat(format, Locale.ENGLISH);
-        fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
-
-        try {
-            return fmt.parse(dateString);
-        } catch (ParseException ignored) {
-        }
-
-        return null;
-    }
-
-    public static Date parseYmdDate(String dateString) {
-        return parseDateToFormat(dateString, "yyyy-MM-dd");
-    }
-
-    public static Date parseMYDate(String dateString) {
-        return parseDateToFormat(dateString, "M/yyyy");
-    }
 }

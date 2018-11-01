@@ -21,7 +21,5 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.model.marketpay.GetAccountHolderResponse;
-
 public class UpdateAccountHolderStateResponse extends GetAccountHolderResponse {
 }

@@ -18,16 +18,13 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-
-
 package com.adyen.model.checkout;
-
-import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * RecurringDetail
@@ -35,7 +32,7 @@ import java.util.Objects;
 public class RecurringDetail {
 
     @SerializedName("configuration")
-    private Map<String, String> _configuration = null;
+    private Map<String, String> configuration = null;
 
     @SerializedName("details")
     private List<InputDetail> details = null;
@@ -55,32 +52,32 @@ public class RecurringDetail {
     @SerializedName("type")
     private String type = null;
 
-    public RecurringDetail _configuration(Map<String, String> _configuration) {
-        this._configuration = _configuration;
+    public RecurringDetail configuration(Map<String, String> configuration) {
+        this.configuration = configuration;
         return this;
     }
 
-    public RecurringDetail putConfigurationItem(String key, String _configurationItem) {
+    public RecurringDetail putConfigurationItem(String key, String configurationItem) {
 
-        if (this._configuration == null) {
-            this._configuration = null;
+        if (this.configuration == null) {
+            this.configuration = null;
         }
 
-        this._configuration.put(key, _configurationItem);
+        this.configuration.put(key, configurationItem);
         return this;
     }
 
     /**
      * The configuration of the payment method.
      *
-     * @return _configuration
+     * @return configuration
      **/
     public Map<String, String> getConfiguration() {
-        return _configuration;
+        return configuration;
     }
 
-    public void setConfiguration(Map<String, String> _configuration) {
-        this._configuration = _configuration;
+    public void setConfiguration(Map<String, String> configuration) {
+        this.configuration = configuration;
     }
 
     public RecurringDetail details(List<InputDetail> details) {
@@ -215,18 +212,18 @@ public class RecurringDetail {
             return false;
         }
         RecurringDetail recurringDetail = (RecurringDetail) o;
-        return Objects.equals(this._configuration, recurringDetail._configuration) &&
-                Objects.equals(this.details, recurringDetail.details) &&
-                Objects.equals(this.group, recurringDetail.group) &&
-                Objects.equals(this.name, recurringDetail.name) &&
-                Objects.equals(this.paymentMethodData, recurringDetail.paymentMethodData) &&
-                Objects.equals(this.storedDetails, recurringDetail.storedDetails) &&
-                Objects.equals(this.type, recurringDetail.type);
+        return Objects.equals(this.configuration, recurringDetail.configuration)
+                && Objects.equals(this.details, recurringDetail.details)
+                && Objects.equals(this.group, recurringDetail.group)
+                && Objects.equals(this.name, recurringDetail.name)
+                && Objects.equals(this.paymentMethodData, recurringDetail.paymentMethodData)
+                && Objects.equals(this.storedDetails, recurringDetail.storedDetails)
+                && Objects.equals(this.type, recurringDetail.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(_configuration, details, group, name, paymentMethodData, storedDetails, type);
+        return Objects.hash(configuration, details, group, name, paymentMethodData, storedDetails, type);
     }
 
     @Override
@@ -234,7 +231,7 @@ public class RecurringDetail {
         StringBuilder sb = new StringBuilder();
         sb.append("class RecurringDetail {\n");
 
-        sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");

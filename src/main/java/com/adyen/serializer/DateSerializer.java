@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -23,6 +23,7 @@ package com.adyen.serializer;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
@@ -34,7 +35,7 @@ public class DateSerializer implements JsonSerializer<Date> {
 
     @Override
     public JsonElement serialize(Date date, Type typeOfSrc, JsonSerializationContext context) {
-        SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT);
+        SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT, Locale.ENGLISH);
         formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
         return new JsonPrimitive(formatter.format(date));
     }

@@ -72,6 +72,11 @@ public interface ApiConstants {
     }
 
     interface PaymentMethod {
+
+        String NUMBER = "number";
+        String EXPIRY_MONTH = "expiryMonth";
+        String EXPIRY_YEAR = "expiryYear";
+        String CVC = "cvc";
         String ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
         String ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
         String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";
@@ -91,5 +96,15 @@ public interface ApiConstants {
 
     interface PaymentMethodType {
         String TYPE_SCHEME = "scheme";
+    }
+
+    interface RequestProperty {
+        String IDEMPOTENCY_KEY = "Idempotency-Key";
+        String ACCEPT_CHARSET = "Accept-Charset";
+        String USER_AGENT = "User-Agent";
+        String METHOD_POST = "POST";
+        String CONTENT_TYPE = "Content-Type";
+        String API_KEY = "x-api-key";
+        String APPLICATION_JSON_TYPE = "application/json";
     }
 }

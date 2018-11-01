@@ -18,18 +18,24 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-
 package com.adyen.model.checkout;
 
-import com.adyen.model.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import com.adyen.model.Address;
+import com.adyen.model.Amount;
+import com.adyen.model.ForexQuote;
+import com.adyen.model.Installments;
+import com.adyen.model.Name;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
-import java.util.*;
 
 /**
  * PaymentSessionRequest
@@ -52,7 +58,7 @@ public class PaymentSessionRequest {
     @SerializedName("company")
     private Company company = null;
     @SerializedName("configuration")
-    private ModelConfiguration _configuration = null;
+    private ModelConfiguration configuration = null;
     @SerializedName("countryCode")
     private String countryCode = null;
     @SerializedName("dateOfBirth")
@@ -136,7 +142,8 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value. For more information on possible key-value pairs, refer to the [additionalData section](https://docs.adyen.com/developers/api-reference/payments-api#paymentrequestadditionaldata).
+     * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and
+     * value. For more information on possible key-value pairs, refer to the [additionalData section](https://docs.adyen.com/developers/api-reference/payments-api#paymentrequestadditionaldata).
      *
      * @return additionalData
      **/
@@ -208,7 +215,8 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or token.  Possible values: * iOS * Android * Web
+     * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we
+     * will try to infer it from the &#x60;sdkVersion&#x60; or token.  Possible values: * iOS * Android * Web
      *
      * @return channel
      **/
@@ -238,22 +246,22 @@ public class PaymentSessionRequest {
         this.company = company;
     }
 
-    public PaymentSessionRequest _configuration(ModelConfiguration _configuration) {
-        this._configuration = _configuration;
+    public PaymentSessionRequest configuration(ModelConfiguration configuration) {
+        this.configuration = configuration;
         return this;
     }
 
     /**
-     * Get _configuration
+     * Get configuration
      *
-     * @return _configuration
+     * @return configuration
      **/
     public ModelConfiguration getConfiguration() {
-        return _configuration;
+        return configuration;
     }
 
-    public void setConfiguration(ModelConfiguration _configuration) {
-        this._configuration = _configuration;
+    public void setConfiguration(ModelConfiguration configuration) {
+        this.configuration = configuration;
     }
 
     public PaymentSessionRequest countryCode(String countryCode) {
@@ -506,7 +514,8 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
+     * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant
+     * activity that is conducted by the merchant.
      *
      * @return mcc
      **/
@@ -542,7 +551,8 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * This reference allows linking multiple transactions to each other. &gt; When providing the &#x60;merchantOrderReference&#x60; value, we also recommend you submit &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values.
+     * This reference allows linking multiple transactions to each other. &gt; When providing the &#x60;merchantOrderReference&#x60; value, we also recommend you submit
+     * &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values.
      *
      * @return merchantOrderReference
      **/
@@ -624,7 +634,8 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
+     * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a
+     * requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
      *
      * @return reference
      **/
@@ -714,7 +725,8 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * The shopper&#x27;s IP address. We recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; This field is mandatory for some merchants depending on your business model. For more information, [contact Support](https://support.adyen.com/hc/en-us/requests/new).
+     * The shopper&#x27;s IP address. We recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; This
+     * field is mandatory for some merchants depending on your business model. For more information, [contact Support](https://support.adyen.com/hc/en-us/requests/new).
      *
      * @return shopperIP
      **/
@@ -732,7 +744,12 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+     * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper
+     * interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we
+     * recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant
+     * (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order
+     * transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment
+     * using a secure payment terminal.
      *
      * @return shopperInteraction
      **/
@@ -879,51 +896,91 @@ public class PaymentSessionRequest {
             return false;
         }
         PaymentSessionRequest paymentSessionRequest = (PaymentSessionRequest) o;
-        return Objects.equals(this.additionalData, paymentSessionRequest.additionalData) &&
-                Objects.equals(this.amount, paymentSessionRequest.amount) &&
-                Objects.equals(this.billingAddress, paymentSessionRequest.billingAddress) &&
-                Objects.equals(this.captureDelayHours, paymentSessionRequest.captureDelayHours) &&
-                Objects.equals(this.channel, paymentSessionRequest.channel) &&
-                Objects.equals(this.company, paymentSessionRequest.company) &&
-                Objects.equals(this._configuration, paymentSessionRequest._configuration) &&
-                Objects.equals(this.countryCode, paymentSessionRequest.countryCode) &&
-                Objects.equals(this.dateOfBirth, paymentSessionRequest.dateOfBirth) &&
-                Objects.equals(this.dccQuote, paymentSessionRequest.dccQuote) &&
-                Objects.equals(this.deliveryAddress, paymentSessionRequest.deliveryAddress) &&
-                Objects.equals(this.deliveryDate, paymentSessionRequest.deliveryDate) &&
-                Objects.equals(this.enableOneClick, paymentSessionRequest.enableOneClick) &&
-                Objects.equals(this.enablePayOut, paymentSessionRequest.enablePayOut) &&
-                Objects.equals(this.enableRecurring, paymentSessionRequest.enableRecurring) &&
-                Objects.equals(this.entityType, paymentSessionRequest.entityType) &&
-                Objects.equals(this.fraudOffset, paymentSessionRequest.fraudOffset) &&
-                Objects.equals(this.html, paymentSessionRequest.html) &&
-                Objects.equals(this.installments, paymentSessionRequest.installments) &&
-                Objects.equals(this.lineItems, paymentSessionRequest.lineItems) &&
-                Objects.equals(this.mcc, paymentSessionRequest.mcc) &&
-                Objects.equals(this.merchantAccount, paymentSessionRequest.merchantAccount) &&
-                Objects.equals(this.merchantOrderReference, paymentSessionRequest.merchantOrderReference) &&
-                Objects.equals(this.metadata, paymentSessionRequest.metadata) &&
-                Objects.equals(this.orderReference, paymentSessionRequest.orderReference) &&
-                Objects.equals(this.origin, paymentSessionRequest.origin) &&
-                Objects.equals(this.reference, paymentSessionRequest.reference) &&
-                Objects.equals(this.returnUrl, paymentSessionRequest.returnUrl) &&
-                Objects.equals(this.sdkVersion, paymentSessionRequest.sdkVersion) &&
-                Objects.equals(this.sessionValidity, paymentSessionRequest.sessionValidity) &&
-                Objects.equals(this.shopperEmail, paymentSessionRequest.shopperEmail) &&
-                Objects.equals(this.shopperIP, paymentSessionRequest.shopperIP) &&
-                Objects.equals(this.shopperInteraction, paymentSessionRequest.shopperInteraction) &&
-                Objects.equals(this.shopperLocale, paymentSessionRequest.shopperLocale) &&
-                Objects.equals(this.shopperName, paymentSessionRequest.shopperName) &&
-                Objects.equals(this.shopperReference, paymentSessionRequest.shopperReference) &&
-                Objects.equals(this.shopperStatement, paymentSessionRequest.shopperStatement) &&
-                Objects.equals(this.socialSecurityNumber, paymentSessionRequest.socialSecurityNumber) &&
-                Objects.equals(this.telephoneNumber, paymentSessionRequest.telephoneNumber) &&
-                Objects.equals(this.token, paymentSessionRequest.token);
+        return Objects.equals(this.additionalData, paymentSessionRequest.additionalData)
+                && Objects.equals(this.amount, paymentSessionRequest.amount)
+                && Objects.equals(this.billingAddress,
+                                  paymentSessionRequest.billingAddress)
+                && Objects.equals(this.captureDelayHours, paymentSessionRequest.captureDelayHours)
+                && Objects.equals(this.channel, paymentSessionRequest.channel)
+                && Objects.equals(this.company, paymentSessionRequest.company)
+                && Objects.equals(this.configuration, paymentSessionRequest.configuration)
+                && Objects.equals(this.countryCode, paymentSessionRequest.countryCode)
+                && Objects.equals(this.dateOfBirth, paymentSessionRequest.dateOfBirth)
+                && Objects.equals(this.dccQuote, paymentSessionRequest.dccQuote)
+                && Objects.equals(this.deliveryAddress, paymentSessionRequest.deliveryAddress)
+                && Objects.equals(this.deliveryDate, paymentSessionRequest.deliveryDate)
+                && Objects.equals(this.enableOneClick, paymentSessionRequest.enableOneClick)
+                && Objects.equals(this.enablePayOut, paymentSessionRequest.enablePayOut)
+                && Objects.equals(this.enableRecurring, paymentSessionRequest.enableRecurring)
+                && Objects.equals(this.entityType, paymentSessionRequest.entityType)
+                && Objects.equals(this.fraudOffset, paymentSessionRequest.fraudOffset)
+                && Objects.equals(this.html, paymentSessionRequest.html)
+                && Objects.equals(this.installments, paymentSessionRequest.installments)
+                && Objects.equals(this.lineItems, paymentSessionRequest.lineItems)
+                && Objects.equals(this.mcc, paymentSessionRequest.mcc)
+                && Objects.equals(this.merchantAccount, paymentSessionRequest.merchantAccount)
+                && Objects.equals(this.merchantOrderReference, paymentSessionRequest.merchantOrderReference)
+                && Objects.equals(this.metadata, paymentSessionRequest.metadata)
+                && Objects.equals(this.orderReference, paymentSessionRequest.orderReference)
+                && Objects.equals(this.origin, paymentSessionRequest.origin)
+                && Objects.equals(this.reference, paymentSessionRequest.reference)
+                && Objects.equals(this.returnUrl, paymentSessionRequest.returnUrl)
+                && Objects.equals(this.sdkVersion, paymentSessionRequest.sdkVersion)
+                && Objects.equals(this.sessionValidity, paymentSessionRequest.sessionValidity)
+                && Objects.equals(this.shopperEmail, paymentSessionRequest.shopperEmail)
+                && Objects.equals(this.shopperIP, paymentSessionRequest.shopperIP)
+                && Objects.equals(this.shopperInteraction, paymentSessionRequest.shopperInteraction)
+                && Objects.equals(this.shopperLocale, paymentSessionRequest.shopperLocale)
+                && Objects.equals(this.shopperName, paymentSessionRequest.shopperName)
+                && Objects.equals(this.shopperReference, paymentSessionRequest.shopperReference)
+                && Objects.equals(this.shopperStatement, paymentSessionRequest.shopperStatement)
+                && Objects.equals(this.socialSecurityNumber, paymentSessionRequest.socialSecurityNumber)
+                && Objects.equals(this.telephoneNumber, paymentSessionRequest.telephoneNumber)
+                && Objects.equals(this.token, paymentSessionRequest.token);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, amount, billingAddress, captureDelayHours, channel, company, _configuration, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, html, installments, lineItems, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, reference, returnUrl, sdkVersion, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, telephoneNumber, token);
+        return Objects.hash(additionalData,
+                            amount,
+                            billingAddress,
+                            captureDelayHours,
+                            channel,
+                            company,
+                            configuration,
+                            countryCode,
+                            dateOfBirth,
+                            dccQuote,
+                            deliveryAddress,
+                            deliveryDate,
+                            enableOneClick,
+                            enablePayOut,
+                            enableRecurring,
+                            entityType,
+                            fraudOffset,
+                            html,
+                            installments,
+                            lineItems,
+                            mcc,
+                            merchantAccount,
+                            merchantOrderReference,
+                            metadata,
+                            orderReference,
+                            origin,
+                            reference,
+                            returnUrl,
+                            sdkVersion,
+                            sessionValidity,
+                            shopperEmail,
+                            shopperIP,
+                            shopperInteraction,
+                            shopperLocale,
+                            shopperName,
+                            shopperReference,
+                            shopperStatement,
+                            socialSecurityNumber,
+                            telephoneNumber,
+                            token);
     }
 
     @Override
@@ -937,7 +994,7 @@ public class PaymentSessionRequest {
         sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
         sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
         sb.append("    company: ").append(toIndentedString(company)).append("\n");
-        sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
         sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
         sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");
@@ -987,7 +1044,8 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or token.  Possible values: * iOS * Android * Web
+     * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we
+     * will try to infer it from the &#x60;sdkVersion&#x60; or token.  Possible values: * iOS * Android * Web
      */
     @JsonAdapter(ChannelEnum.Adapter.class)
     public enum ChannelEnum {
@@ -1082,7 +1140,12 @@ public class PaymentSessionRequest {
     }
 
     /**
-     * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+     * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper
+     * interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we
+     * recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant
+     * (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order
+     * transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment
+     * using a secure payment terminal.
      */
     @JsonAdapter(ShopperInteractionEnum.Adapter.class)
     public enum ShopperInteractionEnum {

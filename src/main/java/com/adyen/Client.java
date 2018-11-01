@@ -41,7 +41,7 @@ public class Client {
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
-    public static final String LIB_VERSION = "1.5.4";
+    public static final String LIB_VERSION = "1.6.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v32";
@@ -81,6 +81,12 @@ public class Client {
         this.setEnvironment(environment);
     }
 
+    public Client(String apiKey, Environment environment, String liveEndpointUrlPrefix) {
+        this.config = new Config();
+        this.config.setApiKey(apiKey);
+        this.setEnvironment(environment, liveEndpointUrlPrefix);
+    }
+
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
 
         this.config = new Config();
@@ -109,6 +115,7 @@ public class Client {
     /**
      * @deprecated As of library version 1.5.4, replaced by {@link #setEnvironment(Environment environment, String liveEndpointUrlPrefix)}.
      */
+    @Deprecated
     public void setEnvironment(Environment environment) {
         this.setEnvironment(environment, null);
     }

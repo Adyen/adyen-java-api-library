@@ -22,23 +22,26 @@
 
 package com.adyen.model.checkout;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import com.adyen.Util.Util;
-import com.adyen.model.*;
+import com.adyen.model.Address;
+import com.adyen.model.Amount;
+import com.adyen.model.BrowserInfo;
+import com.adyen.model.ForexQuote;
+import com.adyen.model.Installments;
+import com.adyen.model.Name;
+import com.adyen.serializer.DateSerializer;
+import com.adyen.serializer.DateTimeGMTSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
-import java.util.*;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_CARD_NUMBER;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_EXPIRY_MONTH;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_EXPIRY_YEAR;
-import static com.adyen.constants.ApiConstants.PaymentMethod.ENCRYPTED_SECURITY_CODE;
-import static com.adyen.constants.ApiConstants.PaymentMethod.HOLDER_NAME;
-import static com.adyen.constants.ApiConstants.PaymentMethod.METHOD_TYPE;
-import static com.adyen.constants.ApiConstants.PaymentMethod.RECURRING_DETAIL_REFERENCE;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
 
 /**
@@ -64,12 +67,14 @@ public class PaymentsRequest {
     @SerializedName("countryCode")
     private String countryCode = null;
     @SerializedName("dateOfBirth")
+    @JsonAdapter(DateSerializer.class)
     private Date dateOfBirth = null;
     @SerializedName("dccQuote")
     private ForexQuote dccQuote = null;
     @SerializedName("deliveryAddress")
     private Address deliveryAddress = null;
     @SerializedName("deliveryDate")
+    @JsonAdapter(DateTimeGMTSerializer.class)
     private Date deliveryDate = null;
     @SerializedName("enableOneClick")
     private Boolean enableOneClick = null;
@@ -96,7 +101,7 @@ public class PaymentsRequest {
     @SerializedName("orderReference")
     private String orderReference = null;
     @SerializedName("paymentMethod")
-    private Map<String, String> paymentMethod = null;
+    private PaymentMethodDetails paymentMethod = null;
     @SerializedName("reference")
     private String reference = null;
     @SerializedName("returnUrl")
@@ -123,6 +128,8 @@ public class PaymentsRequest {
     private String telephoneNumber = null;
     @SerializedName("browserInfo")
     private BrowserInfo browserInfo = null;
+    @SerializedName("deviceFingerprint")
+    private String deviceFingerprint = null;
 
     public PaymentsRequest additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -580,51 +587,59 @@ public class PaymentsRequest {
         this.orderReference = orderReference;
     }
 
-    public PaymentsRequest paymentMethod(Map<String, String> paymentMethod) {
+    public PaymentMethodDetails getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public PaymentsRequest paymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
         return this;
     }
 
-    public PaymentsRequest putPaymentMethodItem(String key, String paymentMethodItem) {
+    public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
+        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
 
-        this.paymentMethod.put(key, paymentMethodItem);
+        paymentMethodDetails.type(TYPE_SCHEME).encryptedCardNumber(encryptedCardNumber).encryptedExpiryMonth(encryptedExpiryMonth).encryptedExpiryYear(encryptedExpiryYear);
+        if (encryptedSecurityCode != null) {
+            paymentMethodDetails.setEncryptedSecurityCode(encryptedSecurityCode);
+        }
+        if (holderName != null) {
+            paymentMethodDetails.setHolderName(holderName);
+        }
+
+        this.paymentMethod = paymentMethodDetails;
         return this;
     }
 
     /**
-     * The collection that contains the type of the payment method and its specific information (e.g. &#x60;idealIssuer&#x60;).
+     * Add raw card data into the payment request. You need to be PCI compliant!
      *
      * @return paymentMethod
-     **/
-    public Map<String, String> getPaymentMethod() {
-        return paymentMethod;
-    }
+     */
+    public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
+        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
+        paymentMethodDetails.type(TYPE_SCHEME).number(cardNumber).expiryMonth(expiryMonth).expiryYear(expiryYear);
 
-    public void setPaymentMethod(Map<String, String> paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
-        this.paymentMethod = new HashMap<>();
-        this.paymentMethod.put(METHOD_TYPE, TYPE_SCHEME);
-        this.paymentMethod.put(ENCRYPTED_CARD_NUMBER, encryptedCardNumber);
-        this.paymentMethod.put(ENCRYPTED_EXPIRY_MONTH, encryptedExpiryMonth);
-        this.paymentMethod.put(ENCRYPTED_EXPIRY_YEAR, encryptedExpiryYear);
-        if (encryptedSecurityCode != null) {
-            this.paymentMethod.put(ENCRYPTED_SECURITY_CODE, encryptedSecurityCode);
+        if (securityCode != null) {
+            paymentMethodDetails.setCvc(securityCode);
         }
         if (holderName != null) {
-            this.paymentMethod.put(HOLDER_NAME, holderName);
+            paymentMethodDetails.setHolderName(holderName);
         }
 
+        this.paymentMethod = paymentMethodDetails;
         return this;
     }
 
     public PaymentsRequest addOneClickData(String recurringDetailReference, String encryptedSecurityCode) {
-        this.paymentMethod = new HashMap<>();
-        this.paymentMethod.put(METHOD_TYPE, TYPE_SCHEME);
-        this.paymentMethod.put(RECURRING_DETAIL_REFERENCE, recurringDetailReference);
-        this.paymentMethod.put(ENCRYPTED_SECURITY_CODE, encryptedSecurityCode);
+        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
+        paymentMethodDetails.type(TYPE_SCHEME).recurringDetailReference(recurringDetailReference).encryptedSecurityCode(encryptedSecurityCode);
+
+        this.paymentMethod = paymentMethodDetails;
         return this;
     }
 
@@ -873,6 +888,19 @@ public class PaymentsRequest {
         return this;
     }
 
+    public String getDeviceFingerprint() {
+        return deviceFingerprint;
+    }
+
+    public void setDeviceFingerprint(String deviceFingerprint) {
+        this.deviceFingerprint = deviceFingerprint;
+    }
+
+    public PaymentsRequest deviceFingerprint(String deviceFingerprint) {
+        this.deviceFingerprint = deviceFingerprint;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -918,6 +946,7 @@ public class PaymentsRequest {
                 && Objects.equals(this.shopperReference, paymentsRequest.shopperReference)
                 && Objects.equals(this.shopperStatement, paymentsRequest.shopperStatement)
                 && Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber)
+                && Objects.equals(this.deviceFingerprint, paymentsRequest.deviceFingerprint)
                 && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber);
     }
 
@@ -958,6 +987,7 @@ public class PaymentsRequest {
                             shopperReference,
                             shopperStatement,
                             socialSecurityNumber,
+                            deviceFingerprint,
                             telephoneNumber);
     }
 
@@ -1001,6 +1031,7 @@ public class PaymentsRequest {
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
         sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
+        sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
         sb.append("}");
         return sb.toString();

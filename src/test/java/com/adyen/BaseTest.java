@@ -49,7 +49,9 @@ public class BaseTest {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         try {
             when(httpURLConnectionClient.post(any(String.class), any(Map.class), any(Config.class))).thenReturn(response);
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenReturn(response);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenReturn(response);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), (RequestOptions) isNull())).thenReturn(response);
+
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }
@@ -217,7 +219,7 @@ public class BaseTest {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
         HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<String, List<String>>(), response);
         try {
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean())).thenThrow(httpClientException);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), (RequestOptions) isNull())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }

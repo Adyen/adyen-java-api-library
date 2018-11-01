@@ -23,6 +23,8 @@ package com.adyen;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 import org.junit.Test;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -146,7 +148,9 @@ public class MarketPayTest extends BaseTest {
 
         assertTrue(paymentResult.isAuthorised());
 
-        SimpleDateFormat format = new SimpleDateFormat("M/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("M/yyyy", Locale.ENGLISH);
+        format.setTimeZone(TimeZone.getTimeZone("GMT"));
+
         assertEquals("8/2018", format.format(paymentResult.getExpiryDate()));
 
         assertEquals("411111", paymentResult.getCardBin());
@@ -277,7 +281,7 @@ public class MarketPayTest extends BaseTest {
         // create AccountHolderBalance Request
         AccountHolderBalanceRequest accountHolderBalanceRequest = new AccountHolderBalanceRequest();
         accountHolderBalanceRequest.accountHolderCode("TestAccountHolder877209");
-        AccountHolderBalanceResponse accountHolderBalanceResponse = fund.AccountHolderBalance(accountHolderBalanceRequest);
+        AccountHolderBalanceResponse accountHolderBalanceResponse = fund.accountHolderBalance(accountHolderBalanceRequest);
 
 
         assertEquals(new Long(42058), accountHolderBalanceResponse.getTotalBalance().getPendingBalance().get(0).getValue());

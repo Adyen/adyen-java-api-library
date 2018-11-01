@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -20,10 +20,6 @@
  */
 package com.adyen.Util;
 
-import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
-
-import com.adyen.model.Amount;
-import com.adyen.model.notification.NotificationRequestItem;
 import java.nio.charset.Charset;
 import java.security.SignatureException;
 import java.util.ArrayList;
@@ -33,10 +29,13 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
+import com.adyen.model.Amount;
+import com.adyen.model.notification.NotificationRequestItem;
+import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
 public class HMACValidator {
-    public final static String HMAC_SHA256_ALGORITHM = "HmacSHA256";
-    public final static Charset C_UTF8 = Charset.forName("UTF8");
+    public static final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
+    public static final Charset C_UTF8 = Charset.forName("UTF8");
     public static final String DATA_SEPARATOR = ":";
 
     // To calculate the HMAC SHA-256
@@ -64,13 +63,11 @@ public class HMACValidator {
     }
 
     // To calculate the HMAC SHA-256
-    public String calculateHMAC(NotificationRequestItem notificationRequestItem, String key)
-      throws SignatureException {
+    public String calculateHMAC(NotificationRequestItem notificationRequestItem, String key) throws SignatureException {
         return calculateHMAC(getDataToSign(notificationRequestItem), key);
     }
 
-    public boolean validateHMAC(NotificationRequestItem notificationRequestItem, String key)
-      throws SignatureException {
+    public boolean validateHMAC(NotificationRequestItem notificationRequestItem, String key) throws SignatureException {
 
         final String expectedSign = calculateHMAC(notificationRequestItem, key);
         final String merchantSign = notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE);

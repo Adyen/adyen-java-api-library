@@ -20,10 +20,6 @@
  */
 package com.adyen.httpclient;
 
-import com.adyen.Client;
-import com.adyen.Config;
-import org.apache.commons.codec.binary.Base64;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -34,6 +30,17 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Scanner;
+import org.apache.commons.codec.binary.Base64;
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.model.RequestOptions;
+import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
+import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
+import static com.adyen.constants.ApiConstants.RequestProperty.APPLICATION_JSON_TYPE;
+import static com.adyen.constants.ApiConstants.RequestProperty.CONTENT_TYPE;
+import static com.adyen.constants.ApiConstants.RequestProperty.IDEMPOTENCY_KEY;
+import static com.adyen.constants.ApiConstants.RequestProperty.METHOD_POST;
+import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
@@ -53,19 +60,24 @@ public class HttpURLConnectionClient implements ClientInterface {
     }
 
     @Override
-    public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException {
-        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
+    public String request(String endpoint, String json, Config config, boolean isApiKeyRequired) throws IOException, HTTPClientException {
+        return request(endpoint, json, config, isApiKeyRequired, null);
+    }
+
+    @Override
+    public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
+        HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
         String apiKey = config.getApiKey();
         int connectionTimeoutMillis = config.getConnectionTimeoutMillis();
         // Use Api key if required or if provided
-        if (isApiKeyRequired || (apiKey != null && !apiKey.isEmpty())) {
+        if (isApiKeyRequired || (apiKey != null && ! apiKey.isEmpty())) {
             setApiKey(httpConnection, apiKey);
         } else {
             setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
         }
 
         httpConnection.setConnectTimeout(connectionTimeoutMillis);
-        setContentType(httpConnection, "application/json");
+        setContentType(httpConnection, APPLICATION_JSON_TYPE);
 
         return doPostRequest(httpConnection, requestBody);
     }
@@ -117,6 +129,13 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Initialize the httpConnection
      */
     private HttpURLConnection createRequest(String requestUrl, String applicationName) throws IOException {
+        return createRequest(requestUrl, applicationName, null);
+    }
+
+    /**
+     * Initialize the httpConnection
+     */
+    private HttpURLConnection createRequest(String requestUrl, String applicationName, RequestOptions requestOptions) throws IOException {
         URL targetUrl = new URL(requestUrl);
         HttpURLConnection httpConnection;
 
@@ -128,11 +147,13 @@ public class HttpURLConnectionClient implements ClientInterface {
         }
         httpConnection.setUseCaches(false);
         httpConnection.setDoOutput(true);
-        httpConnection.setRequestMethod("POST");
+        httpConnection.setRequestMethod(METHOD_POST);
 
-        httpConnection.setRequestProperty("Accept-Charset", CHARSET);
-        httpConnection.setRequestProperty("User-Agent", String.format("%s %s%s", applicationName, Client.USER_AGENT_SUFFIX, Client.LIB_VERSION));
-
+        httpConnection.setRequestProperty(ACCEPT_CHARSET, CHARSET);
+        httpConnection.setRequestProperty(USER_AGENT, String.format("%s %s%s", applicationName, Client.USER_AGENT_SUFFIX, Client.LIB_VERSION));
+        if (requestOptions != null && requestOptions.getIdempotencyKey() != null) {
+            httpConnection.setRequestProperty(IDEMPOTENCY_KEY, requestOptions.getIdempotencyKey());
+        }
         return httpConnection;
     }
 
@@ -153,7 +174,7 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Sets content type
      */
     private HttpURLConnection setContentType(HttpURLConnection httpConnection, String contentType) {
-        httpConnection.setRequestProperty("Content-Type", contentType);
+        httpConnection.setRequestProperty(CONTENT_TYPE, contentType);
         return httpConnection;
     }
 
@@ -161,8 +182,8 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Sets api key
      */
     private HttpURLConnection setApiKey(HttpURLConnection httpConnection, String apiKey) {
-        if (apiKey != null && !apiKey.isEmpty()) {
-            httpConnection.setRequestProperty("x-api-key", apiKey);
+        if (apiKey != null && ! apiKey.isEmpty()) {
+            httpConnection.setRequestProperty(API_KEY, apiKey);
         }
         return httpConnection;
     }
