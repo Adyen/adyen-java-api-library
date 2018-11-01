@@ -20,6 +20,11 @@
  */
 package com.adyen;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 import org.junit.Test;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.PaymentMethodDetails;
@@ -221,6 +226,20 @@ public class CheckoutTest extends BaseTest {
         assertEquals(
                 "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"testKey\":\"testValue\",\"type\":\"testType\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\"}",
                 jsonRequest);
+    }
+
+    @Test
+    public void TestDateSerializers() throws ParseException {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+        Date d = fmt.parse("2018-10-31");
+        paymentsRequest.setDateOfBirth(d);
+        paymentsRequest.setDeliveryDate(d);
+        String jsonRequest = GSON.toJson(paymentsRequest);
+        assertEquals("{\"dateOfBirth\":\"2018-10-31\",\"deliveryDate\":\"2018-10-31T00:00:00.000Z\"}", jsonRequest);
     }
 
     /**

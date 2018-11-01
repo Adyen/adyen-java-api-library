@@ -23,10 +23,13 @@ package com.adyen.Util;
 import com.adyen.model.Amount;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public final class Util {
     private Util() {
@@ -149,6 +152,9 @@ public final class Util {
         calendar.add(Calendar.DATE, 1);
         Date sessionDate = calendar.getTime();
 
-        return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX").format(sessionDate);
+        DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.ENGLISH);
+        fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+        return fmt.format(sessionDate);
     }
 }

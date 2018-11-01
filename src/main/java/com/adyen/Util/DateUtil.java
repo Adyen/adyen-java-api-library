@@ -23,6 +23,8 @@ package com.adyen.Util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public final class DateUtil {
     private DateUtil() {
@@ -33,15 +35,15 @@ public final class DateUtil {
             return null;
         }
 
-        Date date;
-        SimpleDateFormat fmt = new SimpleDateFormat(format);
+        SimpleDateFormat fmt = new SimpleDateFormat(format, Locale.ENGLISH);
+        fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
+
         try {
-            date = fmt.parse(dateString);
-        } catch (ParseException e) {
-            return null;
+            return fmt.parse(dateString);
+        } catch (ParseException ignored) {
         }
 
-        return date;
+        return null;
     }
 
     public static Date parseYmdDate(String dateString) {

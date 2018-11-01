@@ -35,6 +35,8 @@ import com.adyen.model.BrowserInfo;
 import com.adyen.model.ForexQuote;
 import com.adyen.model.Installments;
 import com.adyen.model.Name;
+import com.adyen.serializer.DateSerializer;
+import com.adyen.serializer.DateTimeGMTSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,12 +67,14 @@ public class PaymentsRequest {
     @SerializedName("countryCode")
     private String countryCode = null;
     @SerializedName("dateOfBirth")
+    @JsonAdapter(DateSerializer.class)
     private Date dateOfBirth = null;
     @SerializedName("dccQuote")
     private ForexQuote dccQuote = null;
     @SerializedName("deliveryAddress")
     private Address deliveryAddress = null;
     @SerializedName("deliveryDate")
+    @JsonAdapter(DateTimeGMTSerializer.class)
     private Date deliveryDate = null;
     @SerializedName("enableOneClick")
     private Boolean enableOneClick = null;
