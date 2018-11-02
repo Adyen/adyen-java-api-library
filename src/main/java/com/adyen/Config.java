@@ -32,6 +32,7 @@ public class Config {
     protected String applicationName;
     protected String apiKey;
     protected int connectionTimeoutMillis;
+    protected int readTimeoutMillis;
 
     //HPP specific
     protected String hppEndpoint;
@@ -151,6 +152,14 @@ public class Config {
 
     public void setConnectionTimeoutMillis(int connectionTimeoutMillis) {
         this.connectionTimeoutMillis = connectionTimeoutMillis;
+    }
+
+    public int getReadTimeoutMillis() {
+        return readTimeoutMillis;
+    }
+
+    public void setReadTimeoutMillis(int readTimeoutMillis) {
+        this.readTimeoutMillis = readTimeoutMillis;
     }
 
 }

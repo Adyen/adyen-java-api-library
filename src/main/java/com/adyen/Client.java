@@ -57,59 +57,26 @@ public class Client {
     }
 
     public Client(String username, String password, Environment environment, String applicationName) {
+        this(username, password, environment, null, applicationName);
+    }
+
+    public Client(String username, String password, Environment environment, String liveEndpointUrlPrefix, String applicationName) {
 
         this.config = new Config();
         this.config.setUsername(username);
         this.config.setPassword(password);
-        this.setEnvironment(environment);
+        this.setEnvironment(environment, liveEndpointUrlPrefix);
         this.config.setApplicationName(applicationName);
     }
 
-    public Client(String username, String password, Environment environment, int connectionTimeoutMillis) {
-
-        this.config = new Config();
-        this.config.setUsername(username);
-        this.config.setPassword(password);
-        this.setEnvironment(environment);
-        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
-    }
-
     public Client(String apiKey, Environment environment) {
-
-        this.config = new Config();
-        this.config.setApiKey(apiKey);
-        this.setEnvironment(environment);
+        this(apiKey, environment, null);
     }
 
     public Client(String apiKey, Environment environment, String liveEndpointUrlPrefix) {
         this.config = new Config();
         this.config.setApiKey(apiKey);
         this.setEnvironment(environment, liveEndpointUrlPrefix);
-    }
-
-    public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
-
-        this.config = new Config();
-        this.config.setApiKey(apiKey);
-        this.setEnvironment(environment);
-        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
-    }
-
-    public Client(String username, String password, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
-
-        this.config = new Config();
-        this.config.setUsername(username);
-        this.config.setPassword(password);
-        this.setEnvironment(environment, liveEndpointUrlPrefix);
-        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
-    }
-
-    public Client(String apiKey, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
-
-        this.config = new Config();
-        this.config.setApiKey(apiKey);
-        this.setEnvironment(environment, liveEndpointUrlPrefix);
-        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
     /**
@@ -174,6 +141,11 @@ public class Client {
 
     public void setApplicationName(String applicationName) {
         this.config.setApplicationName(applicationName);
+    }
+
+    public void setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis) {
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+        this.config.setReadTimeoutMillis(readTimeoutMillis);
     }
 
 }
