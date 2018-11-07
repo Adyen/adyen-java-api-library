@@ -22,7 +22,7 @@ package com.adyen.model.applicationinfo;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ExternalPlatform {
+public class ExternalPlatform extends CommonField {
     @SerializedName("integrator")
     private String integrator;
 
@@ -36,6 +36,6 @@ public class ExternalPlatform {
 
     @Override
     public String toString() {
-        return "ExternalPlatform{" + "integrator='" + integrator + '\'' + '}';
+        return "ExternalPlatform{" + "integrator='" + integrator + '\'' + "} extends " + super.toString();
     }
 }
