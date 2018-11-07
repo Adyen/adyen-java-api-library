@@ -18,8 +18,6 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-
-
 package com.adyen.model.checkout;
 
 import java.io.IOException;
@@ -35,6 +33,8 @@ import com.adyen.model.BrowserInfo;
 import com.adyen.model.ForexQuote;
 import com.adyen.model.Installments;
 import com.adyen.model.Name;
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.adyen.model.applicationinfo.CommonField;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
 import com.google.gson.TypeAdapter;
@@ -42,22 +42,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
 
 /**
  * PaymentsRequest
  */
 public class PaymentsRequest {
-
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
-
     @SerializedName("amount")
     private Amount amount = null;
-
     @SerializedName("billingAddress")
     private Address billingAddress = null;
-
     @SerializedName("captureDelayHours")
     private Integer captureDelayHours = null;
     @SerializedName("channel")
@@ -130,6 +128,17 @@ public class PaymentsRequest {
     private BrowserInfo browserInfo = null;
     @SerializedName("deviceFingerprint")
     private String deviceFingerprint = null;
+    @SerializedName("applicationInfo")
+    private ApplicationInfo applicationInfo;
+
+    public PaymentsRequest() {
+        CommonField adyenLibrary = new CommonField();
+        adyenLibrary.setName(LIB_NAME);
+        adyenLibrary.setVersion(LIB_VERSION);
+
+        this.applicationInfo = new ApplicationInfo();
+        this.applicationInfo.setAdyenLibrary(adyenLibrary);
+    }
 
     public PaymentsRequest additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -901,6 +910,19 @@ public class PaymentsRequest {
         return this;
     }
 
+    public ApplicationInfo getApplicationInfo() {
+        return applicationInfo;
+    }
+
+    public void setApplicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
+    }
+
+    public PaymentsRequest applicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -947,6 +969,7 @@ public class PaymentsRequest {
                 && Objects.equals(this.shopperStatement, paymentsRequest.shopperStatement)
                 && Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber)
                 && Objects.equals(this.deviceFingerprint, paymentsRequest.deviceFingerprint)
+                && Objects.equals(this.applicationInfo, paymentsRequest.applicationInfo)
                 && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber);
     }
 
@@ -988,6 +1011,7 @@ public class PaymentsRequest {
                             shopperStatement,
                             socialSecurityNumber,
                             deviceFingerprint,
+                            applicationInfo,
                             telephoneNumber);
     }
 
@@ -1032,6 +1056,7 @@ public class PaymentsRequest {
         sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
         sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
         sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
         sb.append("}");
         return sb.toString();

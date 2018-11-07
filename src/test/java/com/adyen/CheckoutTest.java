@@ -200,7 +200,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentMethodsFailureMissingIdentifierOnLive() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsresult-error-invalid-data-payload-422.json");
-        client.setEnvironment(LIVE);
+        client.setEnvironment(LIVE, "dumyPrefix");
         try {
             new Checkout(client);
         } catch (IllegalArgumentException e) {
@@ -214,7 +214,7 @@ public class CheckoutTest extends BaseTest {
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         String jsonRequest = GSON.toJson(paymentsRequest);
         assertEquals(
-                "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"scheme\",\"number\":\"4111111111111111\",\"expiryMonth\":\"10\",\"expiryYear\":\"2018\",\"holderName\":\"John Smith\",\"cvc\":\"737\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\"}",
+                "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"scheme\",\"number\":\"4111111111111111\",\"expiryMonth\":\"10\",\"expiryYear\":\"2018\",\"holderName\":\"John Smith\",\"cvc\":\"737\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"1.6.0\"}}}",
                 jsonRequest);
 
         TestPaymentMethodDetails testPaymentMethodDetails = new TestPaymentMethodDetails();
@@ -224,7 +224,7 @@ public class CheckoutTest extends BaseTest {
 
         jsonRequest = GSON.toJson(paymentsRequest);
         assertEquals(
-                "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"testKey\":\"testValue\",\"type\":\"testType\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\"}",
+                "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"testKey\":\"testValue\",\"type\":\"testType\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"1.6.0\"}}}",
                 jsonRequest);
     }
 
@@ -239,7 +239,8 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setDateOfBirth(d);
         paymentsRequest.setDeliveryDate(d);
         String jsonRequest = GSON.toJson(paymentsRequest);
-        assertEquals("{\"dateOfBirth\":\"2018-10-31\",\"deliveryDate\":\"2018-10-31T00:00:00.000Z\"}", jsonRequest);
+        assertEquals("{\"dateOfBirth\":\"2018-10-31\",\"deliveryDate\":\"2018-10-31T00:00:00.000Z\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"1.6.0\"}}}",
+                     jsonRequest);
     }
 
     /**
