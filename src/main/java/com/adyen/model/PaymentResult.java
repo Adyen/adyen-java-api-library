@@ -24,7 +24,6 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 import com.adyen.Util.DateUtil;
-import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.annotations.SerializedName;
 import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
 import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_BARCODE_REFERENCE;
@@ -113,9 +112,6 @@ public class PaymentResult {
 
     @SerializedName("fraudResult")
     private FraudResult fraudResult = null;
-
-    @SerializedName("applicationInfo")
-    private ApplicationInfo applicationInfo;
 
     public PaymentResult authCode(String authCode) {
         this.authCode = authCode;
@@ -315,19 +311,6 @@ public class PaymentResult {
         this.fraudResult = fraudResult;
     }
 
-    public ApplicationInfo getApplicationInfo() {
-        return applicationInfo;
-    }
-
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
-    }
-
-    public PaymentResult applicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -347,13 +330,12 @@ public class PaymentResult {
                 && Objects.equals(this.resultCode, paymentResult.resultCode)
                 && Objects.equals(this.additionalData, paymentResult.additionalData)
                 && Objects.equals(this.refusalReason, paymentResult.refusalReason)
-                && Objects.equals(this.applicationInfo, paymentResult.applicationInfo)
                 && Objects.equals(this.fraudResult, paymentResult.fraudResult);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authCode, paRequest, issuerUrl, md, dccAmount, dccSignature, pspReference, resultCode, additionalData, refusalReason, fraudResult, applicationInfo);
+        return Objects.hash(authCode, paRequest, issuerUrl, md, dccAmount, dccSignature, pspReference, resultCode, additionalData, refusalReason, fraudResult);
     }
 
 
@@ -372,7 +354,6 @@ public class PaymentResult {
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
         sb.append("}");
         return sb.toString();
