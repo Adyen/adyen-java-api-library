@@ -69,6 +69,26 @@ public class Client {
         this.config.setApplicationName(applicationName);
     }
 
+    /**
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     */
+    @Deprecated
+    public Client(String username, String password, Environment environment, int connectionTimeoutMillis) {
+
+        this(username, password, environment, null);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+    }
+
+    /**
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     */
+    @Deprecated
+    public Client(String username, String password, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
+
+        this(username, password, environment, liveEndpointUrlPrefix, null);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+    }
+
     public Client(String apiKey, Environment environment) {
         this(apiKey, environment, null);
     }
@@ -77,6 +97,26 @@ public class Client {
         this.config = new Config();
         this.config.setApiKey(apiKey);
         this.setEnvironment(environment, liveEndpointUrlPrefix);
+    }
+
+    /**
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     */
+    @Deprecated
+    public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
+
+        this(apiKey, environment);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+    }
+
+    /**
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     */
+    @Deprecated
+    public Client(String apiKey, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
+
+        this(apiKey, environment, liveEndpointUrlPrefix);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
     /**
