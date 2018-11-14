@@ -38,9 +38,6 @@ public class ApplicationInfo {
     @SerializedName("externalPlatform")
     private ExternalPlatform externalPlatform;
 
-    @SerializedName("paymentDetailsSource")
-    private CommonField paymentDetailsSource;
-
     @SerializedName("shopperInteractionDevice")
     private ShopperInteractionDevice shopperInteractionDevice;
 
@@ -84,14 +81,6 @@ public class ApplicationInfo {
         this.externalPlatform = externalPlatform;
     }
 
-    public CommonField getPaymentDetailsSource() {
-        return paymentDetailsSource;
-    }
-
-    public void setPaymentDetailsSource(CommonField paymentDetailsSource) {
-        this.paymentDetailsSource = paymentDetailsSource;
-    }
-
     public ShopperInteractionDevice getShopperInteractionDevice() {
         return shopperInteractionDevice;
     }
@@ -113,8 +102,6 @@ public class ApplicationInfo {
                 + merchantDevice
                 + ", externalPlatform="
                 + externalPlatform
-                + ", paymentDetailsSource="
-                + paymentDetailsSource
                 + ", shopperInteractionDevice="
                 + shopperInteractionDevice
                 + '}';
