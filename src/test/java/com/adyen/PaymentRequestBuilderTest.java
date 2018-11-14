@@ -25,17 +25,15 @@ import org.junit.Test;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import static org.junit.Assert.assertEquals;
 
 public class PaymentRequestBuilderTest extends BaseTest {
 
-    private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     @Test
     public void TestCCPaymentRequest() {
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
+        paymentRequest.setApplicationInfo(null);
 
         // Test metadata
         paymentRequest.setMetadata(new HashMap<String, String>());
@@ -77,6 +75,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
     @Test
     public void TestCSEPaymentRequest() {
         PaymentRequest paymentRequest = createCSEPaymentRequest();
+        paymentRequest.setApplicationInfo(null);
 
         String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest);
 
