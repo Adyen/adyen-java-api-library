@@ -39,7 +39,6 @@ import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PaymentsResponse;
 import com.adyen.service.Checkout;
 import com.google.gson.annotations.SerializedName;
-import static com.adyen.Service.GSON;
 import static com.adyen.enums.Environment.LIVE;
 import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
@@ -200,7 +199,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentMethodsFailureMissingIdentifierOnLive() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsresult-error-invalid-data-payload-422.json");
-        client.setEnvironment(LIVE);
+        client.setEnvironment(LIVE, "dumyPrefix");
         try {
             new Checkout(client);
         } catch (IllegalArgumentException e) {
@@ -212,25 +211,52 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentMethodDetails() {
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        String jsonRequest = GSON.toJson(paymentsRequest);
-        assertEquals(
-                "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"scheme\",\"number\":\"4111111111111111\",\"expiryMonth\":\"10\",\"expiryYear\":\"2018\",\"holderName\":\"John Smith\",\"cvc\":\"737\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\"}",
-                jsonRequest);
+        paymentsRequest.setApplicationInfo(null);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                             + "  \"amount\": {\n"
+                             + "    \"value\": 1000,\n"
+                             + "    \"currency\": \"USD\"\n"
+                             + "  },\n"
+                             + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                             + "  \"paymentMethod\": {\n"
+                             + "    \"type\": \"scheme\",\n"
+                             + "    \"number\": \"4111111111111111\",\n"
+                             + "    \"expiryMonth\": \"10\",\n"
+                             + "    \"expiryYear\": \"2018\",\n"
+                             + "    \"holderName\": \"John Smith\",\n"
+                             + "    \"cvc\": \"737\"\n"
+                             + "  },\n"
+                             + "  \"reference\": \"Your order number\",\n"
+                             + "  \"returnUrl\": \"https://your-company.com/...\"\n"
+                             + "}", jsonRequest);
 
         TestPaymentMethodDetails testPaymentMethodDetails = new TestPaymentMethodDetails();
         testPaymentMethodDetails.setType("testType");
         testPaymentMethodDetails.setTestValue("testValue");
         paymentsRequest.setPaymentMethod(testPaymentMethodDetails);
 
-        jsonRequest = GSON.toJson(paymentsRequest);
-        assertEquals(
-                "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"testKey\":\"testValue\",\"type\":\"testType\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\"}",
-                jsonRequest);
+        jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n"
+                             + "  \"amount\": {\n"
+                             + "    \"value\": 1000,\n"
+                             + "    \"currency\": \"USD\"\n"
+                             + "  },\n"
+                             + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                             + "  \"paymentMethod\": {\n"
+                             + "    \"testKey\": \"testValue\",\n"
+                             + "    \"type\": \"testType\"\n"
+                             + "  },\n"
+                             + "  \"reference\": \"Your order number\",\n"
+                             + "  \"returnUrl\": \"https://your-company.com/...\"\n"
+                             + "}", jsonRequest);
     }
 
     @Test
     public void TestDateSerializers() throws ParseException {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
+        paymentsRequest.setApplicationInfo(null);
 
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -238,8 +264,8 @@ public class CheckoutTest extends BaseTest {
         Date d = fmt.parse("2018-10-31");
         paymentsRequest.setDateOfBirth(d);
         paymentsRequest.setDeliveryDate(d);
-        String jsonRequest = GSON.toJson(paymentsRequest);
-        assertEquals("{\"dateOfBirth\":\"2018-10-31\",\"deliveryDate\":\"2018-10-31T00:00:00.000Z\"}", jsonRequest);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n" + "  \"dateOfBirth\": \"2018-10-31\",\n" + "  \"deliveryDate\": \"2018-10-31T00:00:00.000Z\"\n" + "}", jsonRequest);
     }
 
     /**

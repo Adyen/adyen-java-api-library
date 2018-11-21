@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -27,7 +27,11 @@ import java.util.Objects;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.adyen.model.applicationinfo.CommonField;
 import com.google.gson.annotations.SerializedName;
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 
 /**
  * Abstract class for modification requests
@@ -47,6 +51,18 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+
+    @SerializedName("applicationInfo")
+    private ApplicationInfo applicationInfo;
+
+    public AbstractModificationRequest() {
+        CommonField adyenLibrary = new CommonField();
+        adyenLibrary.setName(LIB_NAME);
+        adyenLibrary.setVersion(LIB_VERSION);
+
+        this.applicationInfo = new ApplicationInfo();
+        this.applicationInfo.setAdyenLibrary(adyenLibrary);
+    }
 
     public T reference(String reference) {
         this.reference = reference;
@@ -118,6 +134,19 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     public void setMerchantAccount(String merchantAccount) {
         this.merchantAccount = merchantAccount;
+    }
+
+    public ApplicationInfo getApplicationInfo() {
+        return applicationInfo;
+    }
+
+    public void setApplicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
+    }
+
+    public T applicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
+        return (T) this;
     }
 
     public Map<String, String> getAdditionalData() {
@@ -221,12 +250,13 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
                 && Objects.equals(this.originalReference,
                                   modificationRequest.originalReference)
                 && Objects.equals(this.merchantAccount, modificationRequest.merchantAccount)
+                && Objects.equals(this.applicationInfo, modificationRequest.applicationInfo)
                 && Objects.equals(this.additionalData, modificationRequest.additionalData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reference, authorisationCode, originalReference, merchantAccount, additionalData);
+        return Objects.hash(reference, authorisationCode, originalReference, merchantAccount, additionalData, applicationInfo);
     }
 
     @Override
@@ -237,6 +267,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         sb.append("    authorisationCode: ").append(toIndentedString(authorisationCode)).append("\n");
         sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    applicationInfo: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
 
         return sb.toString();

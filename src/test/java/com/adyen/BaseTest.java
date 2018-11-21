@@ -20,28 +20,43 @@
  */
 package com.adyen;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.adyen.Util.DateUtil;
 import com.adyen.Util.Util;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
-import com.adyen.model.*;
+import com.adyen.model.AbstractPaymentRequest;
+import com.adyen.model.Address;
+import com.adyen.model.Amount;
+import com.adyen.model.Name;
+import com.adyen.model.PaymentRequest;
+import com.adyen.model.PaymentRequest3d;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.RefundRequest;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.isNull;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class BaseTest {
+    protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
+
     /**
      * Returns a Client object that has a mocked response
      */
@@ -60,7 +75,7 @@ public class BaseTest {
 
         Config config = new Config();
         config.setHmacKey("DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00");
-        config.setCheckoutEndpoint(client.CHECKOUT_ENDPOINT_TEST);
+        config.setCheckoutEndpoint(Client.CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
 
         return client;
@@ -87,7 +102,7 @@ public class BaseTest {
             int length;
             InputStream fileStream = classLoader.getResourceAsStream(fileName);
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            while ((length = fileStream.read(buffer)) != -1) {
+            while ((length = fileStream.read(buffer)) != - 1) {
                 outputStream.write(buffer, 0, length);
             }
             result = outputStream.toString(StandardCharsets.UTF_8.name());
@@ -103,8 +118,8 @@ public class BaseTest {
      */
     protected <T extends AbstractPaymentRequest> T createBasePaymentRequest(T abstractPaymentRequest) {
         abstractPaymentRequest.merchantAccount("AMerchant")
-                .setBrowserInfoData("User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36", "*/*")
-                .setShopperIP("1.2.3.4");
+                              .setBrowserInfoData("User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36", "*/*")
+                              .setShopperIP("1.2.3.4");
 
         return abstractPaymentRequest;
     }
@@ -114,8 +129,8 @@ public class BaseTest {
      */
     protected PaymentRequest createFullCardPaymentRequest() {
         PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                .setAmountData("1000", "EUR")
-                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
+                                                                                      .setAmountData("1000", "EUR")
+                                                                                      .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
 
         return paymentRequest;
     }

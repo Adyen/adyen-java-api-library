@@ -21,15 +21,15 @@
 
 package com.adyen.model.checkout;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
 import com.adyen.model.Amount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
-import java.util.Objects;
 
 /**
  * PaymentMethodsRequest
@@ -48,6 +48,10 @@ public class PaymentMethodsRequest {
     private String shopperLocale = null;
     @SerializedName("shopperReference")
     private String shopperReference = null;
+    @SerializedName("allowedPaymentMethods")
+    private List<String> allowedPaymentMethods;
+    @SerializedName("blockedPaymentMethods")
+    private List<String> blockedPaymentMethods;
 
     public PaymentMethodsRequest amount(Amount amount) {
         this.amount = amount;
@@ -73,7 +77,8 @@ public class PaymentMethodsRequest {
     }
 
     /**
-     * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
+     * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android *
+     * Web
      *
      * @return channel
      **/
@@ -157,6 +162,22 @@ public class PaymentMethodsRequest {
         this.shopperReference = shopperReference;
     }
 
+    public List<String> getAllowedPaymentMethods() {
+        return allowedPaymentMethods;
+    }
+
+    public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
+        this.allowedPaymentMethods = allowedPaymentMethods;
+    }
+
+    public List<String> getBlockedPaymentMethods() {
+        return blockedPaymentMethods;
+    }
+
+    public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
+        this.blockedPaymentMethods = blockedPaymentMethods;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -166,17 +187,20 @@ public class PaymentMethodsRequest {
             return false;
         }
         PaymentMethodsRequest paymentMethodsRequest = (PaymentMethodsRequest) o;
-        return Objects.equals(this.amount, paymentMethodsRequest.amount) &&
-                Objects.equals(this.channel, paymentMethodsRequest.channel) &&
-                Objects.equals(this.countryCode, paymentMethodsRequest.countryCode) &&
-                Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount) &&
-                Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
-                Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference);
+        return Objects.equals(this.amount, paymentMethodsRequest.amount)
+                && Objects.equals(this.channel, paymentMethodsRequest.channel)
+                && Objects.equals(this.countryCode,
+                                  paymentMethodsRequest.countryCode)
+                && Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount)
+                && Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale)
+                && Objects.equals(this.allowedPaymentMethods, paymentMethodsRequest.allowedPaymentMethods)
+                && Objects.equals(this.blockedPaymentMethods, paymentMethodsRequest.blockedPaymentMethods)
+                && Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, channel, countryCode, merchantAccount, shopperLocale, shopperReference);
+        return Objects.hash(amount, channel, countryCode, merchantAccount, shopperLocale, shopperReference, allowedPaymentMethods, blockedPaymentMethods);
     }
 
     @Override
@@ -190,6 +214,8 @@ public class PaymentMethodsRequest {
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
+        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -206,7 +232,8 @@ public class PaymentMethodsRequest {
     }
 
     /**
-     * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
+     * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android *
+     * Web
      */
     @JsonAdapter(ChannelEnum.Adapter.class)
     public enum ChannelEnum {

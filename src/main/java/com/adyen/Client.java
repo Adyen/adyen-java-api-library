@@ -35,16 +35,16 @@ public class Client {
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
-    public static final String API_VERSION = "v30";
+    public static final String API_VERSION = "v40";
     public static final String RECURRING_API_VERSION = "v25";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v4";
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
-    public static final String USER_AGENT_SUFFIX = "adyen-java-api-library/";
-    public static final String LIB_VERSION = "1.6.0";
+    public static final String LIB_NAME = "adyen-java-api-library";
+    public static final String LIB_VERSION = "1.7.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
-    public static final String CHECKOUT_API_VERSION = "v32";
+    public static final String CHECKOUT_API_VERSION = "v40";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
     public static final String ENDPOINT_PROTOCOL = "https://";
 
@@ -57,28 +57,40 @@ public class Client {
     }
 
     public Client(String username, String password, Environment environment, String applicationName) {
+        this(username, password, environment, null, applicationName);
+    }
+
+    public Client(String username, String password, Environment environment, String liveEndpointUrlPrefix, String applicationName) {
 
         this.config = new Config();
         this.config.setUsername(username);
         this.config.setPassword(password);
-        this.setEnvironment(environment);
+        this.setEnvironment(environment, liveEndpointUrlPrefix);
         this.config.setApplicationName(applicationName);
     }
 
+    /**
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     */
+    @Deprecated
     public Client(String username, String password, Environment environment, int connectionTimeoutMillis) {
 
-        this.config = new Config();
-        this.config.setUsername(username);
-        this.config.setPassword(password);
-        this.setEnvironment(environment);
+        this(username, password, environment, null);
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+    }
+
+    /**
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     */
+    @Deprecated
+    public Client(String username, String password, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
+
+        this(username, password, environment, liveEndpointUrlPrefix, null);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
     public Client(String apiKey, Environment environment) {
-
-        this.config = new Config();
-        this.config.setApiKey(apiKey);
-        this.setEnvironment(environment);
+        this(apiKey, environment, null);
     }
 
     public Client(String apiKey, Environment environment, String liveEndpointUrlPrefix) {
@@ -87,28 +99,23 @@ public class Client {
         this.setEnvironment(environment, liveEndpointUrlPrefix);
     }
 
+    /**
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     */
+    @Deprecated
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
 
-        this.config = new Config();
-        this.config.setApiKey(apiKey);
-        this.setEnvironment(environment);
+        this(apiKey, environment);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
-    public Client(String username, String password, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
-
-        this.config = new Config();
-        this.config.setUsername(username);
-        this.config.setPassword(password);
-        this.setEnvironment(environment, liveEndpointUrlPrefix);
-        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
-    }
-
+    /**
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     */
+    @Deprecated
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
 
-        this.config = new Config();
-        this.config.setApiKey(apiKey);
-        this.setEnvironment(environment, liveEndpointUrlPrefix);
+        this(apiKey, environment, liveEndpointUrlPrefix);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
 
@@ -174,6 +181,11 @@ public class Client {
 
     public void setApplicationName(String applicationName) {
         this.config.setApplicationName(applicationName);
+    }
+
+    public void setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis) {
+        this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
+        this.config.setReadTimeoutMillis(readTimeoutMillis);
     }
 
 }
