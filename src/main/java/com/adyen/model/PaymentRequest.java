@@ -29,6 +29,10 @@ import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.CommonField;
+import com.adyen.model.checkout.AccountInfo;
+import com.adyen.model.checkout.MerchantRiskIndicator;
+import com.adyen.model.checkout.Split;
+import com.adyen.model.checkout.ThreeDS2RequestData;
 import com.google.gson.annotations.SerializedName;
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
@@ -38,6 +42,9 @@ import static com.adyen.Client.LIB_VERSION;
  */
 public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     private static final String ADDITIONAL_DATA = "/authorise-3d-adyen-response";
+
+    @SerializedName("accountInfo")
+    private AccountInfo accountInfo = null;
 
     @SerializedName("card")
     private Card card = null;
@@ -53,6 +60,18 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
     @SerializedName("applicationInfo")
     private ApplicationInfo applicationInfo;
+
+    @SerializedName("merchantRiskIndicator")
+    private MerchantRiskIndicator merchantRiskIndicator = null;
+
+    @SerializedName("splits")
+    private List<Split> splits = null;
+
+    @SerializedName("trustedShopper")
+    private Boolean trustedShopper = null;
+
+    @SerializedName("threeDS2RequestData")
+    private ThreeDS2RequestData threeDS2RequestData = null;
 
     public PaymentRequest() {
         CommonField adyenLibrary = new CommonField();
@@ -315,6 +334,45 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         this.applicationInfo = applicationInfo;
         return this;
     }
+    public AccountInfo getAccountInfo() {
+        return accountInfo;
+    }
+
+    public void setAccountInfo(AccountInfo accountInfo) {
+        this.accountInfo = accountInfo;
+    }
+
+    public MerchantRiskIndicator getMerchantRiskIndicator() {
+        return merchantRiskIndicator;
+    }
+
+    public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+        this.merchantRiskIndicator = merchantRiskIndicator;
+    }
+
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
+    }
+
+    public Boolean getTrustedShopper() {
+        return trustedShopper;
+    }
+
+    public void setTrustedShopper(Boolean trustedShopper) {
+        this.trustedShopper = trustedShopper;
+    }
+
+    public ThreeDS2RequestData getThreeDS2RequestData() {
+        return threeDS2RequestData;
+    }
+
+    public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -325,13 +383,17 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
             return false;
         }
         PaymentRequest paymentRequest = (PaymentRequest) o;
-        return super.equals(paymentRequest)
-                && Objects.equals(this.card, paymentRequest.card)
-                && Objects.equals(this.mpiData, paymentRequest.mpiData)
-                && Objects.equals(this.bankAccount,
-                                  paymentRequest.bankAccount)
-                && Objects.equals(this.applicationInfo, paymentRequest.applicationInfo)
-                && Objects.equals(this.store, paymentRequest.store);
+        return Objects.equals(this.accountInfo, paymentRequest.accountInfo) &&
+                Objects.equals(this.applicationInfo, paymentRequest.applicationInfo) &&
+                Objects.equals(this.bankAccount, paymentRequest.bankAccount) &&
+                Objects.equals(this.card, paymentRequest.card) &&
+                Objects.equals(this.merchantRiskIndicator, paymentRequest.merchantRiskIndicator) &&
+                Objects.equals(this.mpiData, paymentRequest.mpiData) &&
+                Objects.equals(this.recurringProcessingModel, paymentRequest.recurringProcessingModel) &&
+                Objects.equals(this.splits, paymentRequest.splits) &&
+                Objects.equals(this.store, paymentRequest.store) &&
+                Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData) &&
+                Objects.equals(this.trustedShopper, paymentRequest.trustedShopper);
     }
 
     @Override
@@ -343,13 +405,19 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentRequest {\n");
-
-        sb.append(super.toString());
-        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
-        sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
-        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
+        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
+        sb.append("    card: ").append(toIndentedString(card)).append("\n");
+        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
+        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
+        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
         sb.append("}");
+
         return sb.toString();
     }
 
