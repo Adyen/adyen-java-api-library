@@ -21,8 +21,12 @@
 package com.adyen.model.checkout;
 
 
-import java.util.Objects;
-import com.adyen.model.*;
+import com.adyen.model.Address;
+import com.adyen.model.Amount;
+import com.adyen.model.BrowserInfo;
+import com.adyen.model.ForexQuote;
+import com.adyen.model.Installments;
+import com.adyen.model.Name;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
 import com.google.gson.TypeAdapter;
@@ -30,10 +34,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import org.threeten.bp.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.threeten.bp.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * PaymentRequest3ds2
