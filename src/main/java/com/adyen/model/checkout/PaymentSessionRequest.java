@@ -20,15 +20,8 @@
  */
 package com.adyen.model.checkout;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-import com.adyen.model.Address;
 import com.adyen.model.Amount;
+import com.adyen.model.Address;
 import com.adyen.model.ForexQuote;
 import com.adyen.model.Installments;
 import com.adyen.model.Name;
@@ -38,6 +31,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import org.threeten.bp.OffsetDateTime;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * PaymentSessionRequest
@@ -118,7 +116,7 @@ public class PaymentSessionRequest {
     private Company company = null;
 
     @SerializedName("configuration")
-    private ModelConfiguration _configuration = null;
+    private ModelConfiguration configuration = null;
 
     @SerializedName("countryCode")
     private String countryCode = null;
@@ -448,18 +446,18 @@ public class PaymentSessionRequest {
         this.company = company;
     }
 
-    public PaymentSessionRequest _configuration(ModelConfiguration _configuration) {
-        this._configuration = _configuration;
+    public PaymentSessionRequest configuration(ModelConfiguration configuration) {
+        this.configuration = configuration;
         return this;
     }
 
 
     public ModelConfiguration getConfiguration() {
-        return _configuration;
+        return configuration;
     }
 
-    public void setConfiguration(ModelConfiguration _configuration) {
-        this._configuration = _configuration;
+    public void setConfiguration(ModelConfiguration configuration) {
+        this.configuration = configuration;
     }
 
     public PaymentSessionRequest countryCode(String countryCode) {
@@ -962,7 +960,7 @@ public class PaymentSessionRequest {
                 Objects.equals(this.captureDelayHours, paymentSetupRequest.captureDelayHours) &&
                 Objects.equals(this.channel, paymentSetupRequest.channel) &&
                 Objects.equals(this.company, paymentSetupRequest.company) &&
-                Objects.equals(this._configuration, paymentSetupRequest._configuration) &&
+                Objects.equals(this.configuration, paymentSetupRequest.configuration) &&
                 Objects.equals(this.countryCode, paymentSetupRequest.countryCode) &&
                 Objects.equals(this.dateOfBirth, paymentSetupRequest.dateOfBirth) &&
                 Objects.equals(this.dccQuote, paymentSetupRequest.dccQuote) &&
@@ -1001,7 +999,7 @@ public class PaymentSessionRequest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, allowedPaymentMethods, amount, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, _configuration, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, reference, returnUrl, sdkVersion, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, telephoneNumber, token, trustedShopper);
+        return Objects.hash(additionalData, allowedPaymentMethods, amount, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, configuration, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, reference, returnUrl, sdkVersion, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, telephoneNumber, token, trustedShopper);
     }
 
     @Override
@@ -1017,7 +1015,7 @@ public class PaymentSessionRequest {
         sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
         sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
         sb.append("    company: ").append(toIndentedString(company)).append("\n");
-        sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
         sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
         sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");

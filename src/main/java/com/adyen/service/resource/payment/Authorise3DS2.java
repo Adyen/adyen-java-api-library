@@ -10,6 +10,4 @@ public class Authorise3DS2 extends Resource {
         super(service,
                 service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/authorise3ds2", null);
     }
-    {
-    }
 }

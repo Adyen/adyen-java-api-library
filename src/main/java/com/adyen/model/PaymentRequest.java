@@ -20,8 +20,6 @@
  */
 package com.adyen.model;
 
-import java.util.List;
-import java.util.Objects;
 import com.adyen.Util.Util;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.additionalData.InvoiceLine;
@@ -32,8 +30,11 @@ import com.adyen.model.applicationinfo.CommonField;
 import com.adyen.model.checkout.AccountInfo;
 import com.adyen.model.checkout.MerchantRiskIndicator;
 import com.adyen.model.checkout.Split;
-import com.adyen.model.checkout.ThreeDS2RequestData;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+import java.util.Objects;
+
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 

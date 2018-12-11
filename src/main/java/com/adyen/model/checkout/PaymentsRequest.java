@@ -20,20 +20,13 @@
  */
 package com.adyen.model.checkout;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
 import com.adyen.Util.Util;
-import com.adyen.model.Address;
 import com.adyen.model.Amount;
-import com.adyen.model.BrowserInfo;
+import com.adyen.model.Address;
 import com.adyen.model.ForexQuote;
 import com.adyen.model.Installments;
 import com.adyen.model.Name;
+import com.adyen.model.BrowserInfo;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.CommonField;
 import com.adyen.serializer.DateSerializer;
@@ -43,6 +36,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.ArrayList;
+
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;

@@ -8,6 +8,6 @@ public class Retrieve3ds2Result extends Resource {
 
     public Retrieve3ds2Result(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/retrieve3ds2Result",null);
+                service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/retrieve3ds2Result", null);
     }
 }
