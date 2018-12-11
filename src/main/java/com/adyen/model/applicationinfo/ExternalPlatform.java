@@ -29,50 +29,12 @@ public class ExternalPlatform extends CommonField {
     @SerializedName("integrator")
     private String integrator = null;
 
-    @SerializedName("name")
-    private String name = null;
-
-    @SerializedName("version")
-    private String version = null;
-
-    public ExternalPlatform integrator(String integrator) {
-        this.integrator = integrator;
-        return this;
-    }
-
     public String getIntegrator() {
         return integrator;
     }
 
     public void setIntegrator(String integrator) {
         this.integrator = integrator;
-    }
-
-    public ExternalPlatform name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public ExternalPlatform version(String version) {
-        this.version = version;
-        return this;
-    }
-
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
     }
 
     @Override
@@ -84,14 +46,12 @@ public class ExternalPlatform extends CommonField {
             return false;
         }
         ExternalPlatform externalPlatform = (ExternalPlatform) o;
-        return Objects.equals(this.integrator, externalPlatform.integrator) &&
-                Objects.equals(this.name, externalPlatform.name) &&
-                Objects.equals(this.version, externalPlatform.version);
+        return Objects.equals(this.integrator, externalPlatform.integrator);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(integrator, name, version);
+        return Objects.hash(integrator);
     }
 
     @Override
@@ -100,8 +60,7 @@ public class ExternalPlatform extends CommonField {
         sb.append("class ExternalPlatform {\n");
 
         sb.append("    integrator: ").append(toIndentedString(integrator)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+
         sb.append("}");
         return sb.toString();
     }
@@ -116,4 +75,6 @@ public class ExternalPlatform extends CommonField {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
+
 }

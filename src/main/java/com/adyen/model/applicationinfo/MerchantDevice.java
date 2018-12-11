@@ -20,9 +20,8 @@
  */
 package com.adyen.model.applicationinfo;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 public class MerchantDevice {
 
@@ -86,9 +85,7 @@ public class MerchantDevice {
             return false;
         }
         MerchantDevice merchantDevice = (MerchantDevice) o;
-        return Objects.equals(this.os, merchantDevice.os) &&
-                Objects.equals(this.osVersion, merchantDevice.osVersion) &&
-                Objects.equals(this.reference, merchantDevice.reference);
+        return Objects.equals(this.os, merchantDevice.os) && Objects.equals(this.osVersion, merchantDevice.osVersion) && Objects.equals(this.reference, merchantDevice.reference);
     }
 
     @Override
@@ -109,8 +106,7 @@ public class MerchantDevice {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {

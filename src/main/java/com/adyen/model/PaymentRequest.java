@@ -20,6 +20,8 @@
  */
 package com.adyen.model;
 
+import java.util.List;
+import java.util.Objects;
 import com.adyen.Util.Util;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.additionalData.InvoiceLine;
@@ -31,10 +33,6 @@ import com.adyen.model.checkout.AccountInfo;
 import com.adyen.model.checkout.MerchantRiskIndicator;
 import com.adyen.model.checkout.Split;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
-import java.util.Objects;
-
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 
@@ -71,7 +69,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
 
-       public PaymentRequest() {
+    public PaymentRequest() {
         CommonField adyenLibrary = new CommonField();
         adyenLibrary.setName(LIB_NAME);
         adyenLibrary.setVersion(LIB_VERSION);
@@ -84,11 +82,9 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
      * how the shopper interacts with the system
      */
     public enum RecurringProcessingModelEnum {
-        @SerializedName("Subscription")
-        SUBSCRIPTION("Subscription"),
+        @SerializedName("Subscription") SUBSCRIPTION("Subscription"),
 
-        @SerializedName("CardOnFile")
-        CARD_ON_FILE("CardOnFile");
+        @SerializedName("CardOnFile") CARD_ON_FILE("CardOnFile");
 
         private String value;
 
@@ -332,6 +328,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         this.applicationInfo = applicationInfo;
         return this;
     }
+
     public AccountInfo getAccountInfo() {
         return accountInfo;
     }
@@ -374,15 +371,17 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
             return false;
         }
         PaymentRequest paymentRequest = (PaymentRequest) o;
-        return Objects.equals(this.accountInfo, paymentRequest.accountInfo) &&
-                Objects.equals(this.applicationInfo, paymentRequest.applicationInfo) &&
-                Objects.equals(this.bankAccount, paymentRequest.bankAccount) &&
-                Objects.equals(this.card, paymentRequest.card) &&
-                Objects.equals(this.merchantRiskIndicator, paymentRequest.merchantRiskIndicator) &&
-                Objects.equals(this.mpiData, paymentRequest.mpiData) &&
-                Objects.equals(this.recurringProcessingModel, paymentRequest.recurringProcessingModel) &&
-                Objects.equals(this.splits, paymentRequest.splits) &&
-                Objects.equals(this.store, paymentRequest.store) &&
+        return Objects.equals(this.accountInfo, paymentRequest.accountInfo)
+                && Objects.equals(this.applicationInfo, paymentRequest.applicationInfo)
+                && Objects.equals(this.bankAccount,
+                                  paymentRequest.bankAccount)
+                && Objects.equals(this.card, paymentRequest.card)
+                && Objects.equals(this.merchantRiskIndicator, paymentRequest.merchantRiskIndicator)
+                && Objects.equals(this.mpiData, paymentRequest.mpiData)
+                && Objects.equals(this.recurringProcessingModel, paymentRequest.recurringProcessingModel)
+                && Objects.equals(this.splits, paymentRequest.splits)
+                && Objects.equals(this.store, paymentRequest.store)
+                &&
 
                 Objects.equals(this.trustedShopper, paymentRequest.trustedShopper);
     }
@@ -412,8 +411,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
