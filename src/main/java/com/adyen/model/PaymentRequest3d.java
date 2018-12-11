@@ -20,7 +20,14 @@
  */
 package com.adyen.model;
 
+import java.util.List;
 import java.util.Objects;
+
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.adyen.model.checkout.AccountInfo;
+import com.adyen.model.checkout.MerchantRiskIndicator;
+import com.adyen.model.checkout.Split;
+import com.adyen.model.checkout.ThreeDS2RequestData;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -33,6 +40,25 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
     @SerializedName("paResponse")
     private String paResponse = null;
 
+    @SerializedName("accountInfo")
+    private AccountInfo accountInfo = null;
+
+    @SerializedName("applicationInfo")
+    private ApplicationInfo applicationInfo;
+
+    @SerializedName("merchantRiskIndicator")
+    private MerchantRiskIndicator merchantRiskIndicator = null;
+
+    @SerializedName("splits")
+    private List<Split> splits = null;
+
+    @SerializedName("trustedShopper")
+    private Boolean trustedShopper = null;
+
+    @SerializedName("threeDS2RequestData")
+    private ThreeDS2RequestData threeDS2RequestData = null;
+
+
     public PaymentRequest3d set3DRequestData(String md, String paResponse) {
         return this.md(md).paResponse(paResponse);
     }
@@ -40,6 +66,54 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
     public PaymentRequest3d md(String md) {
         this.md = md;
         return this;
+    }
+
+    public AccountInfo getAccountInfo() {
+        return accountInfo;
+    }
+
+    public void setAccountInfo(AccountInfo accountInfo) {
+        this.accountInfo = accountInfo;
+    }
+
+    public ApplicationInfo getApplicationInfo() {
+        return applicationInfo;
+    }
+
+    public void setApplicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
+    }
+
+    public MerchantRiskIndicator getMerchantRiskIndicator() {
+        return merchantRiskIndicator;
+    }
+
+    public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+        this.merchantRiskIndicator = merchantRiskIndicator;
+    }
+
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
+    }
+
+    public Boolean getTrustedShopper() {
+        return trustedShopper;
+    }
+
+    public void setTrustedShopper(Boolean trustedShopper) {
+        this.trustedShopper = trustedShopper;
+    }
+
+    public ThreeDS2RequestData getThreeDS2RequestData() {
+        return threeDS2RequestData;
+    }
+
+    public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
     }
 
     /**

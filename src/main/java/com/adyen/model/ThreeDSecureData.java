@@ -30,6 +30,9 @@ public class ThreeDSecureData {
     @SerializedName("cavvAlgorithm")
     private String cavvAlgorithm = null;
 
+    @SerializedName("threeDSVersion")
+    private String threeDSVersion = null;
+
     /**
      * the enrollment response from the 3D directory server
      */
@@ -138,6 +141,14 @@ public class ThreeDSecureData {
     public ThreeDSecureData authenticationResponse(AuthenticationResponseEnum authenticationResponse) {
         this.authenticationResponse = authenticationResponse;
         return this;
+    }
+
+    public String getThreeDSVersion() {
+        return threeDSVersion;
+    }
+
+    public void setThreeDSVersion(String threeDSVersion) {
+        this.threeDSVersion = threeDSVersion;
     }
 
     /**

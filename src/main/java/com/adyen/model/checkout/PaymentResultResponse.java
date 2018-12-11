@@ -43,9 +43,6 @@ public class PaymentResultResponse {
     @SerializedName("authResponse")
     private String authResponse = null;
 
-    @SerializedName("errorMessage")
-    private String errorMessage = null;
-
     @SerializedName("fraudResult")
     private FraudResult fraudResult = null;
 
@@ -57,8 +54,10 @@ public class PaymentResultResponse {
 
     @SerializedName("refusalReason")
     private String refusalReason = null;
+
     @SerializedName("resultCode")
     private ResultCodeEnum resultCode = null;
+
 
     public PaymentResultResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -104,29 +103,6 @@ public class PaymentResultResponse {
 
     public void setAuthResponse(String authResponse) {
         this.authResponse = authResponse;
-    }
-
-    public PaymentResultResponse errorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-        return this;
-    }
-
-    /**
-     * The error message.
-     *
-     * @return errorMessage
-     **/
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
-
-    public PaymentResultResponse fraudResult(FraudResult fraudResult) {
-        this.fraudResult = fraudResult;
-        return this;
     }
 
     /**
@@ -225,7 +201,6 @@ public class PaymentResultResponse {
         PaymentResultResponse paymentVerificationResponse = (PaymentResultResponse) o;
         return Objects.equals(this.additionalData, paymentVerificationResponse.additionalData) &&
                 Objects.equals(this.authResponse, paymentVerificationResponse.authResponse) &&
-                Objects.equals(this.errorMessage, paymentVerificationResponse.errorMessage) &&
                 Objects.equals(this.fraudResult, paymentVerificationResponse.fraudResult) &&
                 Objects.equals(this.merchantReference, paymentVerificationResponse.merchantReference) &&
                 Objects.equals(this.pspReference, paymentVerificationResponse.pspReference) &&
@@ -235,7 +210,7 @@ public class PaymentResultResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, authResponse, errorMessage, fraudResult, merchantReference, pspReference, refusalReason, resultCode);
+        return Objects.hash(additionalData, authResponse, fraudResult, merchantReference, pspReference, refusalReason, resultCode);
     }
 
     @Override
@@ -245,7 +220,6 @@ public class PaymentResultResponse {
 
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
-        sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
         sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");

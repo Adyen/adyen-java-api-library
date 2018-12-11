@@ -28,7 +28,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
 import java.io.IOException;
+
 import org.threeten.bp.OffsetDateTime;
 
 /**
@@ -40,7 +42,7 @@ public class MerchantRiskIndicator {
     private Boolean addressMatch = null;
 
     /**
-     * Gets or Sets deliveryAddressIndicator
+     * Indicator regarding the delivery address.
      */
     @JsonAdapter(DeliveryAddressIndicatorEnum.Adapter.class)
     public enum DeliveryAddressIndicatorEnum {
@@ -98,7 +100,7 @@ public class MerchantRiskIndicator {
     private String deliveryEmail = null;
 
     /**
-     * Gets or Sets deliveryTimeframe
+     * The estimated delivery time for the shopper to receive the goods.
      */
     @JsonAdapter(DeliveryTimeframeEnum.Adapter.class)
     public enum DeliveryTimeframeEnum {
@@ -196,6 +198,7 @@ public class MerchantRiskIndicator {
         return this;
     }
 
+
     public String getDeliveryEmail() {
         return deliveryEmail;
     }
@@ -208,6 +211,7 @@ public class MerchantRiskIndicator {
         this.deliveryTimeframe = deliveryTimeframe;
         return this;
     }
+
 
     public DeliveryTimeframeEnum getDeliveryTimeframe() {
         return deliveryTimeframe;
@@ -222,6 +226,7 @@ public class MerchantRiskIndicator {
         return this;
     }
 
+
     public Amount getGiftCardAmount() {
         return giftCardAmount;
     }
@@ -234,6 +239,7 @@ public class MerchantRiskIndicator {
         this.giftCardCount = giftCardCount;
         return this;
     }
+
 
     public Integer getGiftCardCount() {
         return giftCardCount;
@@ -261,6 +267,7 @@ public class MerchantRiskIndicator {
         return this;
     }
 
+
     public Boolean isPreOrderPurchase() {
         return preOrderPurchase;
     }
@@ -273,6 +280,7 @@ public class MerchantRiskIndicator {
         this.reorderItems = reorderItems;
         return this;
     }
+
 
     public Boolean isReorderItems() {
         return reorderItems;
@@ -336,6 +344,4 @@ public class MerchantRiskIndicator {
         return o.toString().replace("\n", "\n    ");
     }
 }
-
-
 

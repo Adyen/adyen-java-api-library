@@ -29,6 +29,7 @@ import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.CommonField;
+import com.adyen.model.checkout.Split;
 import com.google.gson.annotations.SerializedName;
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
@@ -54,6 +55,9 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     @SerializedName("applicationInfo")
     private ApplicationInfo applicationInfo;
+
+    @SerializedName("splits")
+    private List<Split> splits = null;
 
     public AbstractModificationRequest() {
         CommonField adyenLibrary = new CommonField();
@@ -155,6 +159,14 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     public void setAdditionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
+    }
+
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
     }
 
     /**

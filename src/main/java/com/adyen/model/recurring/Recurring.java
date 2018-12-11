@@ -22,6 +22,7 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Recurring
@@ -70,6 +71,12 @@ public class Recurring {
     @SerializedName("recurringDetailName")
     private String recurringDetailName = null;
 
+    @SerializedName("recurringExpiry")
+    private OffsetDateTime recurringExpiry = null;
+
+    @SerializedName("recurringFrequency")
+    private String recurringFrequency = null;
+
     public Recurring contract(ContractEnum contract) {
         this.contract = contract;
         return this;
@@ -106,6 +113,21 @@ public class Recurring {
         this.recurringDetailName = recurringDetailName;
     }
 
+    public OffsetDateTime getRecurringExpiry() {
+        return recurringExpiry;
+    }
+
+    public void setRecurringExpiry(OffsetDateTime recurringExpiry) {
+        this.recurringExpiry = recurringExpiry;
+    }
+
+    public String getRecurringFrequency() {
+        return recurringFrequency;
+    }
+
+    public void setRecurringFrequency(String recurringFrequency) {
+        this.recurringFrequency = recurringFrequency;
+    }
 
     @Override
     public boolean equals(Object o) {

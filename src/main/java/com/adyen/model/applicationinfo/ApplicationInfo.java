@@ -24,22 +24,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApplicationInfo {
     @SerializedName("adyenLibrary")
-    private CommonField adyenLibrary;
+    private CommonField adyenLibrary = null;
 
     @SerializedName("adyenPaymentSource")
-    private CommonField adyenPaymentSource;
-
-    @SerializedName("merchantApplication")
-    private CommonField merchantApplication;
-
-    @SerializedName("merchantDevice")
-    private MerchantDevice merchantDevice;
+    private CommonField adyenPaymentSource = null;
 
     @SerializedName("externalPlatform")
-    private ExternalPlatform externalPlatform;
+    private ExternalPlatform externalPlatform = null;
+
+    @SerializedName("merchantApplication")
+    private CommonField merchantApplication = null;
+
+    @SerializedName("merchantDevice")
+    private MerchantDevice merchantDevice = null;
+
+    @SerializedName("paymentDetailsSource")
+    private CommonField paymentDetailsSource = null;
 
     @SerializedName("shopperInteractionDevice")
-    private ShopperInteractionDevice shopperInteractionDevice;
+    private ShopperInteractionDevice shopperInteractionDevice = null;
+
+    public CommonField getPaymentDetailsSource() {
+        return paymentDetailsSource;
+    }
+
+    public void setPaymentDetailsSource(CommonField paymentDetailsSource) {
+        this.paymentDetailsSource = paymentDetailsSource;
+    }
+
 
     public CommonField getAdyenLibrary() {
         return adyenLibrary;

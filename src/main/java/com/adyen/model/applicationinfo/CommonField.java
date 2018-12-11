@@ -22,20 +22,30 @@ package com.adyen.model.applicationinfo;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class CommonField {
     @SerializedName("name")
-    private String name;
+    private String name = null;
 
     @SerializedName("version")
-    private String version;
+    private String version = null;
 
-    public String getName() {
-        return name;
+    public CommonField name(String name) {
+        this.name = name;
+        return this;
     }
+
 
     public void setName(String name) {
         this.name = name;
     }
+
+    public CommonField version(String version) {
+        this.version = version;
+        return this;
+    }
+
 
     public String getVersion() {
         return version;
@@ -46,7 +56,42 @@ public class CommonField {
     }
 
     @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CommonField commonField = (CommonField) o;
+        return Objects.equals(this.name, commonField.name) &&
+                Objects.equals(this.version, commonField.version);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, version);
+    }
+
+    @Override
     public String toString() {
-        return "CommonField{" + "name='" + name + '\'' + ", version='" + version + '\'' + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CommonField {\n");
+
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
     }
 }

@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
 import com.adyen.Util.Util;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -42,6 +43,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
@@ -50,8 +52,13 @@ import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
  * PaymentsRequest
  */
 public class PaymentsRequest {
+
+    @SerializedName("accountInfo")
+    private AccountInfo accountInfo = null;
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+    @SerializedName("allowedPaymentMethods")
+    private List<String> allowedPaymentMethods = null;
     @SerializedName("amount")
     private Amount amount = null;
     @SerializedName("billingAddress")
@@ -130,6 +137,12 @@ public class PaymentsRequest {
     private String deviceFingerprint = null;
     @SerializedName("applicationInfo")
     private ApplicationInfo applicationInfo;
+    @SerializedName("splits")
+    private List<Split> splits = null;
+
+    @SerializedName("trustedShopper")
+    private Boolean trustedShopper = null;
+
 
     public PaymentsRequest() {
         CommonField adyenLibrary = new CommonField();
@@ -138,6 +151,50 @@ public class PaymentsRequest {
 
         this.applicationInfo = new ApplicationInfo();
         this.applicationInfo.setAdyenLibrary(adyenLibrary);
+    }
+
+    public AccountInfo getAccountInfo() {
+        return accountInfo;
+    }
+
+    public void setAccountInfo(AccountInfo accountInfo) {
+        this.accountInfo = accountInfo;
+    }
+
+    public List<String> getAllowedPaymentMethods() {
+        return allowedPaymentMethods;
+    }
+
+    public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
+        this.allowedPaymentMethods = allowedPaymentMethods;
+    }
+
+    public Boolean getEnableOneClick() {
+        return enableOneClick;
+    }
+
+    public Boolean getEnablePayOut() {
+        return enablePayOut;
+    }
+
+    public Boolean getEnableRecurring() {
+        return enableRecurring;
+    }
+
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
+    }
+
+    public Boolean getTrustedShopper() {
+        return trustedShopper;
+    }
+
+    public void setTrustedShopper(Boolean trustedShopper) {
+        this.trustedShopper = trustedShopper;
     }
 
     public PaymentsRequest additionalData(Map<String, String> additionalData) {
@@ -935,7 +992,7 @@ public class PaymentsRequest {
         return Objects.equals(this.additionalData, paymentsRequest.additionalData)
                 && Objects.equals(this.amount, paymentsRequest.amount)
                 && Objects.equals(this.billingAddress,
-                                  paymentsRequest.billingAddress)
+                paymentsRequest.billingAddress)
                 && Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours)
                 && Objects.equals(this.channel, paymentsRequest.channel)
                 && Objects.equals(this.company, paymentsRequest.company)
@@ -970,49 +1027,57 @@ public class PaymentsRequest {
                 && Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber)
                 && Objects.equals(this.deviceFingerprint, paymentsRequest.deviceFingerprint)
                 && Objects.equals(this.applicationInfo, paymentsRequest.applicationInfo)
-                && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber);
+                && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber)
+                && Objects.equals(this.splits, paymentsRequest.splits)
+                && Objects.equals(this.accountInfo, paymentsRequest.accountInfo)
+                && Objects.equals(this.allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
+                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(additionalData,
-                            amount,
-                            billingAddress,
-                            captureDelayHours,
-                            channel,
-                            company,
-                            countryCode,
-                            dateOfBirth,
-                            dccQuote,
-                            deliveryAddress,
-                            deliveryDate,
-                            enableOneClick,
-                            enablePayOut,
-                            enableRecurring,
-                            entityType,
-                            fraudOffset,
-                            installments,
-                            lineItems,
-                            mcc,
-                            merchantAccount,
-                            merchantOrderReference,
-                            metadata,
-                            orderReference,
-                            paymentMethod,
-                            reference,
-                            returnUrl,
-                            sessionValidity,
-                            shopperEmail,
-                            shopperIP,
-                            shopperInteraction,
-                            shopperLocale,
-                            shopperName,
-                            shopperReference,
-                            shopperStatement,
-                            socialSecurityNumber,
-                            deviceFingerprint,
-                            applicationInfo,
-                            telephoneNumber);
+                amount,
+                billingAddress,
+                captureDelayHours,
+                channel,
+                company,
+                countryCode,
+                dateOfBirth,
+                dccQuote,
+                deliveryAddress,
+                deliveryDate,
+                enableOneClick,
+                enablePayOut,
+                enableRecurring,
+                entityType,
+                fraudOffset,
+                installments,
+                lineItems,
+                mcc,
+                merchantAccount,
+                merchantOrderReference,
+                metadata,
+                orderReference,
+                paymentMethod,
+                reference,
+                returnUrl,
+                sessionValidity,
+                shopperEmail,
+                shopperIP,
+                shopperInteraction,
+                shopperLocale,
+                shopperName,
+                shopperReference,
+                shopperStatement,
+                socialSecurityNumber,
+                deviceFingerprint,
+                applicationInfo,
+                telephoneNumber,
+                accountInfo,
+                allowedPaymentMethods,
+                splits,
+                trustedShopper);
     }
 
     @Override
@@ -1058,6 +1123,11 @@ public class PaymentsRequest {
         sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    telephoneNumber: ").append(toIndentedString(accountInfo)).append("\n");
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
+
         sb.append("}");
         return sb.toString();
     }

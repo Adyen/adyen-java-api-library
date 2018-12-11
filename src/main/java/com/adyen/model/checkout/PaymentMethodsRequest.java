@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import com.adyen.model.Amount;
+import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,6 +53,27 @@ public class PaymentMethodsRequest {
     private List<String> allowedPaymentMethods;
     @SerializedName("blockedPaymentMethods")
     private List<String> blockedPaymentMethods;
+    @SerializedName("additionalData")
+    private Object additionalData = null;
+
+    @SerializedName("accountInfo")
+    private AccountInfo accountInfo = null;
+
+    @SerializedName("configId")
+    private String configId = null;
+
+    @SerializedName("splits")
+    private Split split = null;
+
+    @SerializedName("threeDS2RequestData")
+    private ThreeDS2RequestData threeDS2RequestData = null;
+
+    @SerializedName("trustedShopper")
+    private String trustedShopper = null;
+
+    @SerializedName("applciationInfo")
+    private ApplicationInfo applicationInfo = null;
+
 
     public PaymentMethodsRequest amount(Amount amount) {
         this.amount = amount;
@@ -208,14 +230,17 @@ public class PaymentMethodsRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentMethodsRequest {\n");
 
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
         sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
-        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
+
+
         sb.append("}");
         return sb.toString();
     }
