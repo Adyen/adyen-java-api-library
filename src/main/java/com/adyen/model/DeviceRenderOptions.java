@@ -1,4 +1,4 @@
-package com.adyen.model.checkout;
+package com.adyen.model;
 
 import java.util.Objects;
 

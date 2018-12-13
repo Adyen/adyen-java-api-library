@@ -22,12 +22,7 @@ package com.adyen.model;
 
 import java.util.List;
 import java.util.Objects;
-
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.checkout.AccountInfo;
-import com.adyen.model.checkout.MerchantRiskIndicator;
-import com.adyen.model.checkout.Split;
-import com.adyen.model.checkout.ThreeDS2RequestData;
 import com.google.gson.annotations.SerializedName;
 
 /**

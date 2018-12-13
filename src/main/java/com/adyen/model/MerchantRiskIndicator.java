@@ -18,20 +18,16 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.model.checkout;
+package com.adyen.model;
 
+import java.io.IOException;
 import java.util.Objects;
-
-import com.adyen.model.Amount;
+import org.threeten.bp.OffsetDateTime;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
-
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * MerchantRiskIndicator

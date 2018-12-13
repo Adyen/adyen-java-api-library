@@ -29,9 +29,6 @@ import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.CommonField;
-import com.adyen.model.checkout.AccountInfo;
-import com.adyen.model.checkout.MerchantRiskIndicator;
-import com.adyen.model.checkout.Split;
 import com.google.gson.annotations.SerializedName;
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
@@ -68,6 +65,9 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
+
+    @SerializedName("threeDS2RequestData")
+    private ThreeDS2RequestData threeDS2RequestData = null;
 
     public PaymentRequest() {
         CommonField adyenLibrary = new CommonField();
@@ -178,6 +178,14 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     public PaymentRequest setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
         this.recurringProcessingModel = recurringProcessingModel;
         return this;
+    }
+
+    public ThreeDS2RequestData getThreeDS2RequestData() {
+        return threeDS2RequestData;
+    }
+
+    public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
     }
 
     /**
@@ -381,9 +389,8 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
                 && Objects.equals(this.recurringProcessingModel, paymentRequest.recurringProcessingModel)
                 && Objects.equals(this.splits, paymentRequest.splits)
                 && Objects.equals(this.store, paymentRequest.store)
-                &&
-
-                Objects.equals(this.trustedShopper, paymentRequest.trustedShopper);
+                && Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData)
+                && Objects.equals(this.trustedShopper, paymentRequest.trustedShopper);
     }
 
     @Override
@@ -405,6 +412,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
         sb.append("    store: ").append(toIndentedString(store)).append("\n");
         sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
         sb.append("}");
 
         return sb.toString();

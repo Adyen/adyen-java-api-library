@@ -20,13 +20,23 @@
  */
 package com.adyen.model.checkout;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import com.adyen.Util.Util;
-import com.adyen.model.Amount;
+import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
+import com.adyen.model.Amount;
+import com.adyen.model.BrowserInfo;
 import com.adyen.model.ForexQuote;
 import com.adyen.model.Installments;
+import com.adyen.model.MerchantRiskIndicator;
 import com.adyen.model.Name;
-import com.adyen.model.BrowserInfo;
+import com.adyen.model.Split;
+import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.CommonField;
 import com.adyen.serializer.DateSerializer;
@@ -36,15 +46,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.ArrayList;
-
-
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
@@ -140,9 +141,19 @@ public class PaymentsRequest {
     private ApplicationInfo applicationInfo;
     @SerializedName("splits")
     private List<Split> splits = null;
+    @SerializedName("merchantRiskIndicator")
+    private MerchantRiskIndicator merchantRiskIndicator = null;
+    @SerializedName("threeDS2RequestData")
+    private ThreeDS2RequestData threeDS2RequestData = null;
 
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
+
+    @SerializedName("configId")
+    private String configId = null;
+
+    @SerializedName("blockedPaymentMethods")
+    private List<String> blockedPaymentMethods = null;
 
 
     public PaymentsRequest() {
@@ -152,6 +163,14 @@ public class PaymentsRequest {
 
         this.applicationInfo = new ApplicationInfo();
         this.applicationInfo.setAdyenLibrary(adyenLibrary);
+    }
+
+    public MerchantRiskIndicator getMerchantRiskIndicator() {
+        return merchantRiskIndicator;
+    }
+
+    public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+        this.merchantRiskIndicator = merchantRiskIndicator;
     }
 
     public AccountInfo getAccountInfo() {
@@ -198,6 +217,14 @@ public class PaymentsRequest {
         this.trustedShopper = trustedShopper;
     }
 
+    public ThreeDS2RequestData getThreeDS2RequestData() {
+        return threeDS2RequestData;
+    }
+
+    public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
+    }
+
     public PaymentsRequest additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
         return this;
@@ -230,6 +257,22 @@ public class PaymentsRequest {
     public PaymentsRequest amount(Amount amount) {
         this.amount = amount;
         return this;
+    }
+
+    public String getConfigId() {
+        return configId;
+    }
+
+    public void setConfigId(String configId) {
+        this.configId = configId;
+    }
+
+    public List<String> getBlockedPaymentMethods() {
+        return blockedPaymentMethods;
+    }
+
+    public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
+        this.blockedPaymentMethods = blockedPaymentMethods;
     }
 
     /**
@@ -993,7 +1036,7 @@ public class PaymentsRequest {
         return Objects.equals(this.additionalData, paymentsRequest.additionalData)
                 && Objects.equals(this.amount, paymentsRequest.amount)
                 && Objects.equals(this.billingAddress,
-                paymentsRequest.billingAddress)
+                                  paymentsRequest.billingAddress)
                 && Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours)
                 && Objects.equals(this.channel, paymentsRequest.channel)
                 && Objects.equals(this.company, paymentsRequest.company)
@@ -1032,53 +1075,59 @@ public class PaymentsRequest {
                 && Objects.equals(this.splits, paymentsRequest.splits)
                 && Objects.equals(this.accountInfo, paymentsRequest.accountInfo)
                 && Objects.equals(this.allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
+                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
+                && Objects.equals(this.merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
+                && Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData)
                 && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper);
+
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(additionalData,
-                amount,
-                billingAddress,
-                captureDelayHours,
-                channel,
-                company,
-                countryCode,
-                dateOfBirth,
-                dccQuote,
-                deliveryAddress,
-                deliveryDate,
-                enableOneClick,
-                enablePayOut,
-                enableRecurring,
-                entityType,
-                fraudOffset,
-                installments,
-                lineItems,
-                mcc,
-                merchantAccount,
-                merchantOrderReference,
-                metadata,
-                orderReference,
-                paymentMethod,
-                reference,
-                returnUrl,
-                sessionValidity,
-                shopperEmail,
-                shopperIP,
-                shopperInteraction,
-                shopperLocale,
-                shopperName,
-                shopperReference,
-                shopperStatement,
-                socialSecurityNumber,
-                deviceFingerprint,
-                applicationInfo,
-                telephoneNumber,
-                accountInfo,
-                allowedPaymentMethods,
-                splits,
-                trustedShopper);
+                            amount,
+                            billingAddress,
+                            captureDelayHours,
+                            channel,
+                            company,
+                            countryCode,
+                            dateOfBirth,
+                            dccQuote,
+                            deliveryAddress,
+                            deliveryDate,
+                            enableOneClick,
+                            enablePayOut,
+                            enableRecurring,
+                            entityType,
+                            fraudOffset,
+                            installments,
+                            lineItems,
+                            mcc,
+                            merchantAccount,
+                            merchantOrderReference,
+                            metadata,
+                            orderReference,
+                            paymentMethod,
+                            reference,
+                            returnUrl,
+                            sessionValidity,
+                            shopperEmail,
+                            shopperIP,
+                            shopperInteraction,
+                            shopperLocale,
+                            shopperName,
+                            shopperReference,
+                            shopperStatement,
+                            socialSecurityNumber,
+                            deviceFingerprint,
+                            applicationInfo,
+                            telephoneNumber,
+                            accountInfo,
+                            allowedPaymentMethods,
+                            splits,
+                            trustedShopper,
+                            blockedPaymentMethods,
+                            configId);
     }
 
     @Override
@@ -1124,18 +1173,21 @@ public class PaymentsRequest {
         sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-        sb.append("    telephoneNumber: ").append(toIndentedString(accountInfo)).append("\n");
+        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
         sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
-
+        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
+        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
+        sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

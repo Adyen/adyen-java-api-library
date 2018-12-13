@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.checkout.Split;
+import com.adyen.model.Split;
 import com.google.gson.annotations.SerializedName;
 
 /**

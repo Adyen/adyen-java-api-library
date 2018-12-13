@@ -18,7 +18,7 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.model.checkout;
+package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;

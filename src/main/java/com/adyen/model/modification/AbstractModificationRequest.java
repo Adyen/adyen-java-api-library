@@ -29,7 +29,7 @@ import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.CommonField;
-import com.adyen.model.checkout.Split;
+import com.adyen.model.Split;
 import com.google.gson.annotations.SerializedName;
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
