@@ -25,11 +25,13 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.modification.AbstractModificationRequest;
+import com.adyen.model.modification.AdjustAuthorisationRequest;
 import com.adyen.model.modification.CancelOrRefundRequest;
 import com.adyen.model.modification.CancelRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.ModificationResult;
 import com.adyen.model.modification.RefundRequest;
+import com.adyen.model.modification.TechnicalCancelRequest;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.modification.Cancel;
 import com.adyen.service.resource.modification.CancelOrRefund;
@@ -124,6 +126,46 @@ public class Modification extends Service {
         String jsonResult = cancel.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
+
+
+    /**
+     * Issues /technical Cancel
+     *
+     * @param technicalCancelRequest
+     * @return
+     * @throws IOException
+     * @throws ApiException
+     */
+    public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest) throws IOException, ApiException {
+        return technicalCancel(technicalCancelRequest, null);
+    }
+
+    public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest, RequestOptions requestOptions) throws IOException, ApiException {
+
+        String jsonRequest = serializeRequest(technicalCancelRequest);
+        String jsonResult = cancel.request(jsonRequest, requestOptions);
+        return deserializeResponse(jsonResult);
+    }
+
+    /**
+     * Issues /adjust Authorisation
+     *
+     * @param adjustAuthorisationRequest
+     * @return
+     * @throws IOException
+     * @throws ApiException
+     */
+    public ModificationResult adjustAuthorization(AdjustAuthorisationRequest adjustAuthorisationRequest) throws IOException, ApiException {
+        return adjustAuthorization(adjustAuthorisationRequest, null);
+    }
+
+    public ModificationResult adjustAuthorization(AdjustAuthorisationRequest adjustAuthorisationRequest, RequestOptions requestOptions) throws IOException, ApiException {
+
+        String jsonRequest = serializeRequest(adjustAuthorisationRequest);
+        String jsonResult = cancel.request(jsonRequest, requestOptions);
+        return deserializeResponse(jsonResult);
+    }
+
 
     private String serializeRequest(AbstractModificationRequest modificationRequest) {
         String jsonRequest = GSON.toJson(modificationRequest);
