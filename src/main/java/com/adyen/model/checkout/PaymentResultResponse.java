@@ -232,7 +232,7 @@ public class PaymentResultResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, authResponse, fraudResult, merchantReference, pspReference, refusalReason, resultCode);
+        return Objects.hash(additionalData, authResponse, fraudResult, merchantReference, pspReference, refusalReason, refusalReasonCode, resultCode);
     }
 
     @Override

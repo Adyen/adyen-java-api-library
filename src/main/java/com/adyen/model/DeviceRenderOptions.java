@@ -1,15 +1,36 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ *
+ */
+
 package com.adyen.model;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * DeviceRenderOptions
@@ -165,8 +186,7 @@ public class DeviceRenderOptions {
             return false;
         }
         DeviceRenderOptions deviceRenderOptions = (DeviceRenderOptions) o;
-        return Objects.equals(this.sdkInterface, deviceRenderOptions.sdkInterface) &&
-                Objects.equals(this.sdkUiType, deviceRenderOptions.sdkUiType);
+        return Objects.equals(this.sdkInterface, deviceRenderOptions.sdkInterface) && Objects.equals(this.sdkUiType, deviceRenderOptions.sdkUiType);
     }
 
     @Override
@@ -186,8 +206,7 @@ public class DeviceRenderOptions {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {

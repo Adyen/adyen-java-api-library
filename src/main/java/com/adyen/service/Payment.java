@@ -24,6 +24,7 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
+import com.adyen.model.PaymentRequest3ds2;
 import com.adyen.model.PaymentResult;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
@@ -72,6 +73,24 @@ public class Payment extends Service {
      */
     public PaymentResult authorise3D(PaymentRequest3d paymentRequest3d) throws Exception {
         String jsonRequest = GSON.toJson(paymentRequest3d);
+
+        String jsonResult = authorise3D.request(jsonRequest);
+
+        PaymentResult paymentResult = GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
+        }.getType());
+
+        return paymentResult;
+    }
+
+    /**
+     * POST /authorise3ds2 API call
+     *
+     * @param paymentRequest3d
+     * @return
+     * @throws Exception
+     */
+    public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws Exception {
+        String jsonRequest = GSON.toJson(paymentRequest3ds2);
 
         String jsonResult = authorise3D.request(jsonRequest);
 

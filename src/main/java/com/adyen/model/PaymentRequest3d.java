@@ -1,11 +1,23 @@
-/**
- * ###### ###### ############    ####( ######  #####. ######  ############   ############ #############  #####( ######  #####. ######  #############  ############# ######  #####( ######  #####. ######
- *  #####  ######  #####  ###### ###### ######  #####( ######  #####. ######  #####  #####   #####  ###### ###### ######  #####( ######  #####. ######  #####          #####  ###### #############
- * #############  #############  #############  #####  ###### ############   ############  #############   ############  #####  ###### ###### ############# ############
- * <p>
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
  * Adyen Java API Library
- * <p>
- * Copyright (c) 2017 Adyen B.V. This file is open source and available under the MIT license. See the LICENSE file for more info.
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ *
  */
 package com.adyen.model;
 
@@ -149,8 +161,7 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

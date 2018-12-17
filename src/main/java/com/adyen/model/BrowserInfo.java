@@ -1,8 +1,28 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2017 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ *
+ */
 package com.adyen.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * BrowserInfo
@@ -43,6 +63,7 @@ public class BrowserInfo {
     public String getAcceptHeader() {
         return acceptHeader;
     }
+
     public void setAcceptHeader(String acceptHeader) {
         this.acceptHeader = acceptHeader;
     }
@@ -56,6 +77,7 @@ public class BrowserInfo {
     public Integer getColorDepth() {
         return colorDepth;
     }
+
     public void setColorDepth(Integer colorDepth) {
         this.colorDepth = colorDepth;
     }
@@ -68,6 +90,7 @@ public class BrowserInfo {
     public Boolean isJavaEnabled() {
         return javaEnabled;
     }
+
     public void setJavaEnabled(Boolean javaEnabled) {
         this.javaEnabled = javaEnabled;
     }
@@ -80,6 +103,7 @@ public class BrowserInfo {
     public String getLanguage() {
         return language;
     }
+
     public void setLanguage(String language) {
         this.language = language;
     }
@@ -92,6 +116,7 @@ public class BrowserInfo {
     public Integer getScreenHeight() {
         return screenHeight;
     }
+
     public void setScreenHeight(Integer screenHeight) {
         this.screenHeight = screenHeight;
     }
@@ -105,6 +130,7 @@ public class BrowserInfo {
     public Integer getScreenWidth() {
         return screenWidth;
     }
+
     public void setScreenWidth(Integer screenWidth) {
         this.screenWidth = screenWidth;
     }
@@ -117,6 +143,7 @@ public class BrowserInfo {
     public Integer getTimeZoneOffset() {
         return timeZoneOffset;
     }
+
     public void setTimeZoneOffset(Integer timeZoneOffset) {
         this.timeZoneOffset = timeZoneOffset;
     }
@@ -129,6 +156,7 @@ public class BrowserInfo {
     public String getUserAgent() {
         return userAgent;
     }
+
     public void setUserAgent(String userAgent) {
         this.userAgent = userAgent;
     }
@@ -142,14 +170,14 @@ public class BrowserInfo {
             return false;
         }
         BrowserInfo browserInfo = (BrowserInfo) o;
-        return Objects.equals(this.acceptHeader, browserInfo.acceptHeader) &&
-                Objects.equals(this.colorDepth, browserInfo.colorDepth) &&
-                Objects.equals(this.javaEnabled, browserInfo.javaEnabled) &&
-                Objects.equals(this.language, browserInfo.language) &&
-                Objects.equals(this.screenHeight, browserInfo.screenHeight) &&
-                Objects.equals(this.screenWidth, browserInfo.screenWidth) &&
-                Objects.equals(this.timeZoneOffset, browserInfo.timeZoneOffset) &&
-                Objects.equals(this.userAgent, browserInfo.userAgent);
+        return Objects.equals(this.acceptHeader, browserInfo.acceptHeader)
+                && Objects.equals(this.colorDepth, browserInfo.colorDepth)
+                && Objects.equals(this.javaEnabled, browserInfo.javaEnabled)
+                && Objects.equals(this.language, browserInfo.language)
+                && Objects.equals(this.screenHeight, browserInfo.screenHeight)
+                && Objects.equals(this.screenWidth, browserInfo.screenWidth)
+                && Objects.equals(this.timeZoneOffset, browserInfo.timeZoneOffset)
+                && Objects.equals(this.userAgent, browserInfo.userAgent);
     }
 
     @Override
@@ -174,8 +202,7 @@ public class BrowserInfo {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {
