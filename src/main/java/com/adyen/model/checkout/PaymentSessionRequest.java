@@ -22,9 +22,9 @@ package com.adyen.model.checkout;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import org.threeten.bp.OffsetDateTime;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -39,6 +39,7 @@ import com.adyen.model.Split;
 import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
+import com.adyen.serializer.DateSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -156,7 +157,8 @@ public class PaymentSessionRequest {
     private String countryCode = null;
 
     @SerializedName("dateOfBirth")
-    private OffsetDateTime dateOfBirth = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date dateOfBirth = null;
 
     @SerializedName("dccQuote")
     private ForexQuote dccQuote = null;
@@ -165,7 +167,7 @@ public class PaymentSessionRequest {
     private Address deliveryAddress = null;
 
     @SerializedName("deliveryDate")
-    private OffsetDateTime deliveryDate = null;
+    private Date deliveryDate = null;
 
     @SerializedName("deviceFingerprint")
     private String deviceFingerprint = null;
@@ -698,16 +700,16 @@ public class PaymentSessionRequest {
         this.countryCode = countryCode;
     }
 
-    public PaymentSessionRequest dateOfBirth(OffsetDateTime dateOfBirth) {
+    public PaymentSessionRequest dateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
         return this;
     }
 
-    public OffsetDateTime getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(OffsetDateTime dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -738,16 +740,16 @@ public class PaymentSessionRequest {
         this.deliveryAddress = deliveryAddress;
     }
 
-    public PaymentSessionRequest deliveryDate(OffsetDateTime deliveryDate) {
+    public PaymentSessionRequest deliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
         return this;
     }
 
-    public OffsetDateTime getDeliveryDate() {
+    public Date getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(OffsetDateTime deliveryDate) {
+    public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 

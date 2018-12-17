@@ -20,9 +20,9 @@
  */
 package com.adyen.model.applicationinfo;
 
-import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 public class CommonField {
     @SerializedName("name")
@@ -31,11 +31,14 @@ public class CommonField {
     @SerializedName("version")
     private String version = null;
 
+    public String getName() {
+        return name;
+    }
+
     public CommonField name(String name) {
         this.name = name;
         return this;
     }
-
 
     public void setName(String name) {
         this.name = name;
@@ -64,8 +67,7 @@ public class CommonField {
             return false;
         }
         CommonField commonField = (CommonField) o;
-        return Objects.equals(this.name, commonField.name) &&
-                Objects.equals(this.version, commonField.version);
+        return Objects.equals(this.name, commonField.name) && Objects.equals(this.version, commonField.version);
     }
 
     @Override
@@ -85,8 +87,7 @@ public class CommonField {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {

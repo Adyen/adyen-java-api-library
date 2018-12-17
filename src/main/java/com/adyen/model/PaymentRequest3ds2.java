@@ -15,11 +15,12 @@ package com.adyen.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import org.threeten.bp.OffsetDateTime;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
+import com.adyen.serializer.DateSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -70,7 +71,8 @@ public class PaymentRequest3ds2 {
     private Integer captureDelayHours = null;
 
     @SerializedName("dateOfBirth")
-    private OffsetDateTime dateOfBirth = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date dateOfBirth = null;
 
     @SerializedName("dccQuote")
     private ForexQuote dccQuote = null;
@@ -79,7 +81,8 @@ public class PaymentRequest3ds2 {
     private Address deliveryAddress = null;
 
     @SerializedName("deliveryDate")
-    private OffsetDateTime deliveryDate = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date deliveryDate = null;
 
     @SerializedName("deviceFingerprint")
     private String deviceFingerprint = null;
@@ -388,17 +391,17 @@ public class PaymentRequest3ds2 {
         this.captureDelayHours = captureDelayHours;
     }
 
-    public PaymentRequest3ds2 dateOfBirth(OffsetDateTime dateOfBirth) {
+    public PaymentRequest3ds2 dateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
         return this;
     }
 
 
-    public OffsetDateTime getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(OffsetDateTime dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -430,17 +433,17 @@ public class PaymentRequest3ds2 {
         this.deliveryAddress = deliveryAddress;
     }
 
-    public PaymentRequest3ds2 deliveryDate(OffsetDateTime deliveryDate) {
+    public PaymentRequest3ds2 deliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
         return this;
     }
 
 
-    public OffsetDateTime getDeliveryDate() {
+    public Date getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(OffsetDateTime deliveryDate) {
+    public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 

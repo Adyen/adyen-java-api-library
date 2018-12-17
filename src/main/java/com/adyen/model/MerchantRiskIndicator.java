@@ -21,8 +21,9 @@
 package com.adyen.model;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-import org.threeten.bp.OffsetDateTime;
+import com.adyen.serializer.DateSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -154,7 +155,8 @@ public class MerchantRiskIndicator {
     private Integer giftCardCount = null;
 
     @SerializedName("preOrderDate")
-    private OffsetDateTime preOrderDate = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date preOrderDate = null;
 
     @SerializedName("preOrderPurchase")
     private Boolean preOrderPurchase = null;
@@ -245,16 +247,16 @@ public class MerchantRiskIndicator {
         this.giftCardCount = giftCardCount;
     }
 
-    public MerchantRiskIndicator preOrderDate(OffsetDateTime preOrderDate) {
+    public MerchantRiskIndicator preOrderDate(Date preOrderDate) {
         this.preOrderDate = preOrderDate;
         return this;
     }
 
-    public OffsetDateTime getPreOrderDate() {
+    public Date getPreOrderDate() {
         return preOrderDate;
     }
 
-    public void setPreOrderDate(OffsetDateTime preOrderDate) {
+    public void setPreOrderDate(Date preOrderDate) {
         this.preOrderDate = preOrderDate;
     }
 
@@ -295,15 +297,17 @@ public class MerchantRiskIndicator {
             return false;
         }
         MerchantRiskIndicator merchantRiskIndicator = (MerchantRiskIndicator) o;
-        return Objects.equals(this.addressMatch, merchantRiskIndicator.addressMatch) &&
-                Objects.equals(this.deliveryAddressIndicator, merchantRiskIndicator.deliveryAddressIndicator) &&
-                Objects.equals(this.deliveryEmail, merchantRiskIndicator.deliveryEmail) &&
-                Objects.equals(this.deliveryTimeframe, merchantRiskIndicator.deliveryTimeframe) &&
-                Objects.equals(this.giftCardAmount, merchantRiskIndicator.giftCardAmount) &&
-                Objects.equals(this.giftCardCount, merchantRiskIndicator.giftCardCount) &&
-                Objects.equals(this.preOrderDate, merchantRiskIndicator.preOrderDate) &&
-                Objects.equals(this.preOrderPurchase, merchantRiskIndicator.preOrderPurchase) &&
-                Objects.equals(this.reorderItems, merchantRiskIndicator.reorderItems);
+        return Objects.equals(this.addressMatch, merchantRiskIndicator.addressMatch)
+                && Objects.equals(this.deliveryAddressIndicator, merchantRiskIndicator.deliveryAddressIndicator)
+                && Objects.equals(this.deliveryEmail,
+                                  merchantRiskIndicator.deliveryEmail)
+                && Objects.equals(this.deliveryTimeframe, merchantRiskIndicator.deliveryTimeframe)
+                && Objects.equals(this.giftCardAmount,
+                                  merchantRiskIndicator.giftCardAmount)
+                && Objects.equals(this.giftCardCount, merchantRiskIndicator.giftCardCount)
+                && Objects.equals(this.preOrderDate, merchantRiskIndicator.preOrderDate)
+                && Objects.equals(this.preOrderPurchase, merchantRiskIndicator.preOrderPurchase)
+                && Objects.equals(this.reorderItems, merchantRiskIndicator.reorderItems);
     }
 
     @Override
@@ -330,8 +334,7 @@ public class MerchantRiskIndicator {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {

@@ -23,8 +23,9 @@ package com.adyen.model;
 //import org.threeten.bp.OffsetDateTime;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
-import org.threeten.bp.OffsetDateTime;
+import com.adyen.serializer.DateSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -91,7 +92,8 @@ public class AccountInfo {
     private AccountAgeIndicatorEnum accountAgeIndicator = null;
 
     @SerializedName("accountChangeDate")
-    private OffsetDateTime accountChangeDate = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date accountChangeDate = null;
 
     /**
      * Gets or Sets accountChangeIndicator
@@ -146,13 +148,13 @@ public class AccountInfo {
     private AccountChangeIndicatorEnum accountChangeIndicator = null;
 
     @SerializedName("accountCreationDate")
-    private OffsetDateTime accountCreationDate = null;
+    private Date accountCreationDate = null;
 
     @SerializedName("addCardAttemptsDay")
     private Integer addCardAttemptsDay = null;
 
     @SerializedName("deliveryAddressUsageDate")
-    private OffsetDateTime deliveryAddressUsageDate = null;
+    private Date deliveryAddressUsageDate = null;
 
     /**
      * Gets or Sets deliveryAddressUsageIndicator
@@ -213,7 +215,8 @@ public class AccountInfo {
     private String mobilePhone = null;
 
     @SerializedName("passwordChangeDate")
-    private OffsetDateTime passwordChangeDate = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date passwordChangeDate = null;
 
     /**
      * Gets or Sets passwordChangeIndicator
@@ -275,7 +278,8 @@ public class AccountInfo {
     private Integer pastTransactionsYear = null;
 
     @SerializedName("paymentAccountAge")
-    private OffsetDateTime paymentAccountAge = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date paymentAccountAge = null;
 
     /**
      * Gets or Sets paymentAccountIndicator
@@ -352,16 +356,16 @@ public class AccountInfo {
         this.accountAgeIndicator = accountAgeIndicator;
     }
 
-    public AccountInfo accountChangeDate(OffsetDateTime accountChangeDate) {
+    public AccountInfo accountChangeDate(Date accountChangeDate) {
         this.accountChangeDate = accountChangeDate;
         return this;
     }
 
-    public OffsetDateTime getAccountChangeDate() {
+    public Date getAccountChangeDate() {
         return accountChangeDate;
     }
 
-    public void setAccountChangeDate(OffsetDateTime accountChangeDate) {
+    public void setAccountChangeDate(Date accountChangeDate) {
         this.accountChangeDate = accountChangeDate;
     }
 
@@ -378,16 +382,16 @@ public class AccountInfo {
         this.accountChangeIndicator = accountChangeIndicator;
     }
 
-    public AccountInfo accountCreationDate(OffsetDateTime accountCreationDate) {
+    public AccountInfo accountCreationDate(Date accountCreationDate) {
         this.accountCreationDate = accountCreationDate;
         return this;
     }
 
-    public OffsetDateTime getAccountCreationDate() {
+    public Date getAccountCreationDate() {
         return accountCreationDate;
     }
 
-    public void setAccountCreationDate(OffsetDateTime accountCreationDate) {
+    public void setAccountCreationDate(Date accountCreationDate) {
         this.accountCreationDate = accountCreationDate;
     }
 
@@ -404,16 +408,16 @@ public class AccountInfo {
         this.addCardAttemptsDay = addCardAttemptsDay;
     }
 
-    public AccountInfo deliveryAddressUsageDate(OffsetDateTime deliveryAddressUsageDate) {
+    public AccountInfo deliveryAddressUsageDate(Date deliveryAddressUsageDate) {
         this.deliveryAddressUsageDate = deliveryAddressUsageDate;
         return this;
     }
 
-    public OffsetDateTime getDeliveryAddressUsageDate() {
+    public Date getDeliveryAddressUsageDate() {
         return deliveryAddressUsageDate;
     }
 
-    public void setDeliveryAddressUsageDate(OffsetDateTime deliveryAddressUsageDate) {
+    public void setDeliveryAddressUsageDate(Date deliveryAddressUsageDate) {
         this.deliveryAddressUsageDate = deliveryAddressUsageDate;
     }
 
@@ -456,16 +460,16 @@ public class AccountInfo {
         this.mobilePhone = mobilePhone;
     }
 
-    public AccountInfo passwordChangeDate(OffsetDateTime passwordChangeDate) {
+    public AccountInfo passwordChangeDate(Date passwordChangeDate) {
         this.passwordChangeDate = passwordChangeDate;
         return this;
     }
 
-    public OffsetDateTime getPasswordChangeDate() {
+    public Date getPasswordChangeDate() {
         return passwordChangeDate;
     }
 
-    public void setPasswordChangeDate(OffsetDateTime passwordChangeDate) {
+    public void setPasswordChangeDate(Date passwordChangeDate) {
         this.passwordChangeDate = passwordChangeDate;
     }
 
@@ -508,16 +512,16 @@ public class AccountInfo {
         this.pastTransactionsYear = pastTransactionsYear;
     }
 
-    public AccountInfo paymentAccountAge(OffsetDateTime paymentAccountAge) {
+    public AccountInfo paymentAccountAge(Date paymentAccountAge) {
         this.paymentAccountAge = paymentAccountAge;
         return this;
     }
 
-    public OffsetDateTime getPaymentAccountAge() {
+    public Date getPaymentAccountAge() {
         return paymentAccountAge;
     }
 
-    public void setPaymentAccountAge(OffsetDateTime paymentAccountAge) {
+    public void setPaymentAccountAge(Date paymentAccountAge) {
         this.paymentAccountAge = paymentAccountAge;
     }
 

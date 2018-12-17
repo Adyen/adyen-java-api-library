@@ -24,15 +24,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import com.adyen.model.Split;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.applicationinfo.CommonField;
-import com.adyen.model.Split;
 import com.google.gson.annotations.SerializedName;
-import static com.adyen.Client.LIB_NAME;
-import static com.adyen.Client.LIB_VERSION;
 
 /**
  * Abstract class for modification requests
@@ -58,15 +55,6 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     @SerializedName("splits")
     private List<Split> splits = null;
-
-    public AbstractModificationRequest() {
-        CommonField adyenLibrary = new CommonField();
-        adyenLibrary.setName(LIB_NAME);
-        adyenLibrary.setVersion(LIB_VERSION);
-
-        this.applicationInfo = new ApplicationInfo();
-        this.applicationInfo.setAdyenLibrary(adyenLibrary);
-    }
 
     public T reference(String reference) {
         this.reference = reference;
@@ -170,8 +158,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     }
 
     /**
-     * get additionalData map
-     * Create the map if doesn't exists
+     * get additionalData map Create the map if doesn't exists
      *
      * @return
      */
@@ -286,8 +273,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

@@ -27,11 +27,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
-import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.applicationinfo.CommonField;
 import com.google.gson.annotations.SerializedName;
-import static com.adyen.Client.LIB_NAME;
-import static com.adyen.Client.LIB_VERSION;
 
 /**
  * PaymentRequest
@@ -54,8 +50,6 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     @SerializedName("store")
     private String store = null;
 
-    @SerializedName("applicationInfo")
-    private ApplicationInfo applicationInfo;
 
     @SerializedName("merchantRiskIndicator")
     private MerchantRiskIndicator merchantRiskIndicator = null;
@@ -69,14 +63,6 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     @SerializedName("threeDS2RequestData")
     private ThreeDS2RequestData threeDS2RequestData = null;
 
-    public PaymentRequest() {
-        CommonField adyenLibrary = new CommonField();
-        adyenLibrary.setName(LIB_NAME);
-        adyenLibrary.setVersion(LIB_VERSION);
-
-        this.applicationInfo = new ApplicationInfo();
-        this.applicationInfo.setAdyenLibrary(adyenLibrary);
-    }
 
     /**
      * how the shopper interacts with the system
@@ -324,19 +310,6 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         this.store = store;
     }
 
-    public ApplicationInfo getApplicationInfo() {
-        return applicationInfo;
-    }
-
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
-    }
-
-    public PaymentRequest applicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
-        return this;
-    }
-
     public AccountInfo getAccountInfo() {
         return accountInfo;
     }
@@ -380,7 +353,6 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         }
         PaymentRequest paymentRequest = (PaymentRequest) o;
         return Objects.equals(this.accountInfo, paymentRequest.accountInfo)
-                && Objects.equals(this.applicationInfo, paymentRequest.applicationInfo)
                 && Objects.equals(this.bankAccount,
                                   paymentRequest.bankAccount)
                 && Objects.equals(this.card, paymentRequest.card)
@@ -403,7 +375,6 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentRequest {\n");
         sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
         sb.append("    card: ").append(toIndentedString(card)).append("\n");
         sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");

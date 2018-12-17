@@ -20,9 +20,11 @@
  */
 package com.adyen.model.recurring;
 
+import java.util.Date;
 import java.util.Objects;
+import com.adyen.serializer.DateSerializer;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * Recurring
@@ -72,7 +74,8 @@ public class Recurring {
     private String recurringDetailName = null;
 
     @SerializedName("recurringExpiry")
-    private OffsetDateTime recurringExpiry = null;
+    @JsonAdapter(DateSerializer.class)
+    private Date recurringExpiry = null;
 
     @SerializedName("recurringFrequency")
     private String recurringFrequency = null;
@@ -113,11 +116,11 @@ public class Recurring {
         this.recurringDetailName = recurringDetailName;
     }
 
-    public OffsetDateTime getRecurringExpiry() {
+    public Date getRecurringExpiry() {
         return recurringExpiry;
     }
 
-    public void setRecurringExpiry(OffsetDateTime recurringExpiry) {
+    public void setRecurringExpiry(Date recurringExpiry) {
         this.recurringExpiry = recurringExpiry;
     }
 

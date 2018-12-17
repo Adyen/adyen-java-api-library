@@ -21,6 +21,8 @@
 package com.adyen.model.applicationinfo;
 
 import com.google.gson.annotations.SerializedName;
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 
 public class ApplicationInfo {
     @SerializedName("adyenLibrary")
@@ -31,6 +33,12 @@ public class ApplicationInfo {
 
     @SerializedName("externalPlatform")
     private ExternalPlatform externalPlatform = null;
+
+    public ApplicationInfo() {
+        adyenLibrary = new CommonField();
+        adyenLibrary.setName(LIB_NAME);
+        adyenLibrary.setVersion(LIB_VERSION);
+    }
 
     @SerializedName("merchantApplication")
     private CommonField merchantApplication = null;

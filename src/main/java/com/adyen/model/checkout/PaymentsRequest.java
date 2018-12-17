@@ -38,7 +38,6 @@ import com.adyen.model.Name;
 import com.adyen.model.Split;
 import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.applicationinfo.CommonField;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
 import com.google.gson.TypeAdapter;
@@ -46,8 +45,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import static com.adyen.Client.LIB_NAME;
-import static com.adyen.Client.LIB_VERSION;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
 
 /**
@@ -157,12 +154,9 @@ public class PaymentsRequest {
 
 
     public PaymentsRequest() {
-        CommonField adyenLibrary = new CommonField();
-        adyenLibrary.setName(LIB_NAME);
-        adyenLibrary.setVersion(LIB_VERSION);
-
-        this.applicationInfo = new ApplicationInfo();
-        this.applicationInfo.setAdyenLibrary(adyenLibrary);
+        if (this.applicationInfo == null) {
+            this.applicationInfo = new ApplicationInfo();
+        }
     }
 
     public MerchantRiskIndicator getMerchantRiskIndicator() {

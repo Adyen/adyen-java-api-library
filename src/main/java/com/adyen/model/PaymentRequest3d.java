@@ -1,28 +1,16 @@
 /**
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
+ * ###### ###### ############    ####( ######  #####. ######  ############   ############ #############  #####( ######  #####. ######  #############  ############# ######  #####( ######  #####. ######
+ *  #####  ######  #####  ###### ###### ######  #####( ######  #####. ######  #####  #####   #####  ###### ###### ######  #####( ######  #####. ######  #####          #####  ###### #############
+ * #############  #############  #############  #####  ###### ############   ############  #############   ############  #####  ###### ###### ############# ############
+ * <p>
  * Adyen Java API Library
- *
- * Copyright (c) 2017 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
+ * <p>
+ * Copyright (c) 2017 Adyen B.V. This file is open source and available under the MIT license. See the LICENSE file for more info.
  */
 package com.adyen.model;
 
 import java.util.List;
 import java.util.Objects;
-import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -37,9 +25,6 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
 
     @SerializedName("accountInfo")
     private AccountInfo accountInfo = null;
-
-    @SerializedName("applicationInfo")
-    private ApplicationInfo applicationInfo;
 
     @SerializedName("merchantRiskIndicator")
     private MerchantRiskIndicator merchantRiskIndicator = null;
@@ -69,14 +54,6 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
 
     public void setAccountInfo(AccountInfo accountInfo) {
         this.accountInfo = accountInfo;
-    }
-
-    public ApplicationInfo getApplicationInfo() {
-        return applicationInfo;
-    }
-
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
     }
 
     public MerchantRiskIndicator getMerchantRiskIndicator() {
@@ -151,9 +128,7 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
             return false;
         }
         PaymentRequest3d paymentRequest3d = (PaymentRequest3d) o;
-        return super.equals(paymentRequest3d) &&
-                Objects.equals(this.md, paymentRequest3d.md) &&
-                Objects.equals(this.paResponse, paymentRequest3d.paResponse);
+        return super.equals(paymentRequest3d) && Objects.equals(this.md, paymentRequest3d.md) && Objects.equals(this.paResponse, paymentRequest3d.paResponse);
     }
 
     @Override
