@@ -2,9 +2,10 @@ package com.adyen.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
 /*
-* ThreeDS2Result
-*/
+ * ThreeDS2Result
+ */
 public class ThreeDS2Result {
 
     @SerializedName("authenticationValue")

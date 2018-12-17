@@ -21,14 +21,13 @@
 package com.adyen.model;
 
 
+import java.io.IOException;
+import java.util.Objects;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
-import java.util.Objects;
 
 
 /**
@@ -318,25 +317,38 @@ public class ThreeDS2RequestData {
             return false;
         }
         ThreeDS2RequestData threeDS2RequestData = (ThreeDS2RequestData) o;
-        return Objects.equals(this.authenticationOnly, threeDS2RequestData.authenticationOnly) &&
-                Objects.equals(this.challengeIndicator, threeDS2RequestData.challengeIndicator) &&
-                Objects.equals(this.deviceChannel, threeDS2RequestData.deviceChannel) &&
-                Objects.equals(this.deviceRenderOptions, threeDS2RequestData.deviceRenderOptions) &&
-                Objects.equals(this.notificationURL, threeDS2RequestData.notificationURL) &&
-                Objects.equals(this.sdkAppID, threeDS2RequestData.sdkAppID) &&
-                Objects.equals(this.sdkEncData, threeDS2RequestData.sdkEncData) &&
-                Objects.equals(this.sdkEphemPubKey, threeDS2RequestData.sdkEphemPubKey) &&
-                Objects.equals(this.sdkMaxTimeout, threeDS2RequestData.sdkMaxTimeout) &&
-                Objects.equals(this.sdkReferenceNumber, threeDS2RequestData.sdkReferenceNumber) &&
-                Objects.equals(this.sdkTransID, threeDS2RequestData.sdkTransID) &&
-                Objects.equals(this.threeDSCompInd, threeDS2RequestData.threeDSCompInd) &&
-                Objects.equals(this.threeDSRequestorURL, threeDS2RequestData.threeDSRequestorURL) &&
-                Objects.equals(this.threeDSServerTransID, threeDS2RequestData.threeDSServerTransID);
+        return Objects.equals(this.authenticationOnly, threeDS2RequestData.authenticationOnly)
+                && Objects.equals(this.challengeIndicator, threeDS2RequestData.challengeIndicator)
+                && Objects.equals(this.deviceChannel, threeDS2RequestData.deviceChannel)
+                && Objects.equals(this.deviceRenderOptions, threeDS2RequestData.deviceRenderOptions)
+                && Objects.equals(this.notificationURL, threeDS2RequestData.notificationURL)
+                && Objects.equals(this.sdkAppID, threeDS2RequestData.sdkAppID)
+                && Objects.equals(this.sdkEncData, threeDS2RequestData.sdkEncData)
+                && Objects.equals(this.sdkEphemPubKey, threeDS2RequestData.sdkEphemPubKey)
+                && Objects.equals(this.sdkMaxTimeout, threeDS2RequestData.sdkMaxTimeout)
+                && Objects.equals(this.sdkReferenceNumber, threeDS2RequestData.sdkReferenceNumber)
+                && Objects.equals(this.sdkTransID, threeDS2RequestData.sdkTransID)
+                && Objects.equals(this.threeDSCompInd, threeDS2RequestData.threeDSCompInd)
+                && Objects.equals(this.threeDSRequestorURL, threeDS2RequestData.threeDSRequestorURL)
+                && Objects.equals(this.threeDSServerTransID, threeDS2RequestData.threeDSServerTransID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, notificationURL, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, threeDSCompInd, threeDSRequestorURL, threeDSServerTransID);
+        return Objects.hash(authenticationOnly,
+                            challengeIndicator,
+                            deviceChannel,
+                            deviceRenderOptions,
+                            notificationURL,
+                            sdkAppID,
+                            sdkEncData,
+                            sdkEphemPubKey,
+                            sdkMaxTimeout,
+                            sdkReferenceNumber,
+                            sdkTransID,
+                            threeDSCompInd,
+                            threeDSRequestorURL,
+                            threeDSServerTransID);
     }
 
     @Override
@@ -363,8 +375,7 @@ public class ThreeDS2RequestData {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {

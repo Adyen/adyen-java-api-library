@@ -21,9 +21,8 @@
 package com.adyen.model;
 
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * SplitAmount
@@ -71,8 +70,7 @@ public class SplitAmount {
             return false;
         }
         SplitAmount splitAmount = (SplitAmount) o;
-        return Objects.equals(this.currency, splitAmount.currency) &&
-                Objects.equals(this.value, splitAmount.value);
+        return Objects.equals(this.currency, splitAmount.currency) && Objects.equals(this.value, splitAmount.value);
     }
 
     @Override
@@ -92,8 +90,7 @@ public class SplitAmount {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {

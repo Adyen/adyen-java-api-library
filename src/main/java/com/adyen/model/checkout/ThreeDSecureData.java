@@ -21,137 +21,31 @@
 
 package com.adyen.model.checkout;
 
+import java.io.IOException;
 import java.util.Objects;
-
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-import java.io.IOException;
-
 /**
  * ThreeDSecureData
  */
 public class ThreeDSecureData {
 
-    /**
-     * The authentication response if the shopper was redirected.
-     */
-    @JsonAdapter(AuthenticationResponseEnum.Adapter.class)
-    public enum AuthenticationResponseEnum {
-
-        Y("Y"),
-        N("N"),
-        U("U"),
-        A("A");
-
-        private String value;
-
-        AuthenticationResponseEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static AuthenticationResponseEnum fromValue(String text) {
-            for (AuthenticationResponseEnum b : AuthenticationResponseEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<AuthenticationResponseEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final AuthenticationResponseEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public AuthenticationResponseEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return AuthenticationResponseEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
     @SerializedName("authenticationResponse")
     private AuthenticationResponseEnum authenticationResponse = null;
-
     @SerializedName("cavv")
     private byte[] cavv = null;
-
     @SerializedName("cavvAlgorithm")
     private String cavvAlgorithm = null;
-
-    /**
-     * The enrollment response from the 3D directory server.
-     */
-    @JsonAdapter(DirectoryResponseEnum.Adapter.class)
-    public enum DirectoryResponseEnum {
-
-        Y("Y"),
-        N("N"),
-        U("U"),
-        E("E");
-
-        private String value;
-
-        DirectoryResponseEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static DirectoryResponseEnum fromValue(String text) {
-            for (DirectoryResponseEnum b : DirectoryResponseEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<DirectoryResponseEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final DirectoryResponseEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public DirectoryResponseEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return DirectoryResponseEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
     @SerializedName("directoryResponse")
     private DirectoryResponseEnum directoryResponse = null;
-
     @SerializedName("eci")
     private String eci = null;
-
     @SerializedName("threeDSVersion")
     private String threeDSVersion = null;
-
     @SerializedName("xid")
     private byte[] xid = null;
 
@@ -255,13 +149,14 @@ public class ThreeDSecureData {
             return false;
         }
         ThreeDSecureData threeDSecureData = (ThreeDSecureData) o;
-        return Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse) &&
-                Objects.equals(this.cavv, threeDSecureData.cavv) &&
-                Objects.equals(this.cavvAlgorithm, threeDSecureData.cavvAlgorithm) &&
-                Objects.equals(this.directoryResponse, threeDSecureData.directoryResponse) &&
-                Objects.equals(this.eci, threeDSecureData.eci) &&
-                Objects.equals(this.threeDSVersion, threeDSecureData.threeDSVersion) &&
-                Objects.equals(this.xid, threeDSecureData.xid);
+        return Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse)
+                && Objects.equals(this.cavv, threeDSecureData.cavv)
+                && Objects.equals(this.cavvAlgorithm,
+                                  threeDSecureData.cavvAlgorithm)
+                && Objects.equals(this.directoryResponse, threeDSecureData.directoryResponse)
+                && Objects.equals(this.eci, threeDSecureData.eci)
+                && Objects.equals(this.threeDSVersion, threeDSecureData.threeDSVersion)
+                && Objects.equals(this.xid, threeDSecureData.xid);
     }
 
     @Override
@@ -286,14 +181,111 @@ public class ThreeDSecureData {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    /**
+     * The authentication response if the shopper was redirected.
+     */
+    @JsonAdapter(AuthenticationResponseEnum.Adapter.class)
+    public enum AuthenticationResponseEnum {
+
+        Y("Y"),
+        N("N"),
+        U("U"),
+        A("A");
+
+        private String value;
+
+        AuthenticationResponseEnum(String value) {
+            this.value = value;
+        }
+
+        public static AuthenticationResponseEnum fromValue(String text) {
+            for (AuthenticationResponseEnum b : AuthenticationResponseEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<AuthenticationResponseEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AuthenticationResponseEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AuthenticationResponseEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return AuthenticationResponseEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    /**
+     * The enrollment response from the 3D directory server.
+     */
+    @JsonAdapter(DirectoryResponseEnum.Adapter.class)
+    public enum DirectoryResponseEnum {
+
+        Y("Y"),
+        N("N"),
+        U("U"),
+        E("E");
+
+        private String value;
+
+        DirectoryResponseEnum(String value) {
+            this.value = value;
+        }
+
+        public static DirectoryResponseEnum fromValue(String text) {
+            for (DirectoryResponseEnum b : DirectoryResponseEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<DirectoryResponseEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DirectoryResponseEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DirectoryResponseEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return DirectoryResponseEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
 
