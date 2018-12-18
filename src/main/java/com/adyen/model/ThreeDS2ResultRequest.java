@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * ThreeDS2ResultRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.java.JavaClientCodegen", date = "2018-12-12T11:46:05.579Z[GMT]")
 public class ThreeDS2ResultRequest {
 
     @SerializedName("merchantAccount")

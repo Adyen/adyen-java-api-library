@@ -30,7 +30,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.java.JavaClientCodegen", date = "2018-12-11T13:51:52.335Z[GMT]")
 public class ModelConfiguration {
 
     @SerializedName("avs")

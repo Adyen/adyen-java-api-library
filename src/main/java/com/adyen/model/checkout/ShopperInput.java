@@ -33,7 +33,6 @@ import java.io.IOException;
 /**
  * ShopperInput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.java.JavaClientCodegen", date = "2018-11-08T13:12:01.900Z[GMT]")
 public class ShopperInput {
 
     /**

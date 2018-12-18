@@ -31,7 +31,6 @@ import java.util.Objects;
 /**
  * Split
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.java.JavaClientCodegen", date = "2018-12-06T14:10:59.920Z[GMT]")
 public class Split {
 
     @SerializedName("account")
