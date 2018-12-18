@@ -721,8 +721,12 @@ public class PaymentsRequest {
 
     /**
      * Add raw card data into the payment request. You need to be PCI compliant!
-     *
-     * @return paymentMethod
+     * @param cardNumber card number
+     * @param expiryMonth expiry month
+     * @param expiryYear expiry year
+     * @param holderName holder name
+     * @param securityCode  security code
+     * @return paymentMethod payment method
      */
     public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();

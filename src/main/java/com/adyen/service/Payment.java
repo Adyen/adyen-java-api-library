@@ -20,6 +20,7 @@
  */
 package com.adyen.service;
 
+import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.PaymentRequest;
@@ -31,8 +32,6 @@ import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.payment.Authorise;
 import com.adyen.service.resource.payment.Authorise3D;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
 
 public class Payment extends Service {
 
@@ -49,7 +48,10 @@ public class Payment extends Service {
     /**
      * POST /authorise API call
      *
-     * @param paymentRequest
+     * @param paymentRequest paymentRequest
+     * @return PaymentResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
      */
     public PaymentResult authorise(PaymentRequest paymentRequest) throws ApiException, IOException {
         return authorise(paymentRequest, null);
@@ -67,9 +69,9 @@ public class Payment extends Service {
     /**
      * POST /authorise3d API call
      *
-     * @param paymentRequest3d
-     * @return
-     * @throws Exception
+     * @param paymentRequest3d authorise3D
+     * @return PaymentResult
+     * @throws Exception Exception
      */
     public PaymentResult authorise3D(PaymentRequest3d paymentRequest3d) throws Exception {
         String jsonRequest = GSON.toJson(paymentRequest3d);
@@ -85,9 +87,9 @@ public class Payment extends Service {
     /**
      * POST /authorise3ds2 API call
      *
-     * @param paymentRequest3d
-     * @return
-     * @throws Exception
+     * @param paymentRequest3ds2 PaymentRequest3ds2
+     * @return PaymentResult
+     * @throws Exception Exception
      */
     public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws Exception {
         String jsonRequest = GSON.toJson(paymentRequest3ds2);

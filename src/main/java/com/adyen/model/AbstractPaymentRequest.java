@@ -169,6 +169,9 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
 
     /**
      * Set browser data
+     * @param userAgent http header
+     * @param acceptHeader http header
+     * @return browser data
      */
     public T setBrowserInfoData(String userAgent, String acceptHeader) {
         BrowserInfo browserInfo = new BrowserInfo();
@@ -182,7 +185,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     /**
      * get additionalData map Create the map if doesn't exists
      *
-     * @return
+     * @return additional data
      */
     public Map<String, String> getOrCreateAdditionalData() {
         if (this.getAdditionalData() == null) {

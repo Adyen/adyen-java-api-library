@@ -256,7 +256,7 @@ public class UpdateAccountHolderResponse {
     /**
      * Creating a new invalidFields list
      *
-     * @param invalidFields
+     * @param invalidFields invalidFields
      */
     public void setInvalidFields(List<ErrorFieldType> invalidFields) {
         this.invalidFields = invalidFields;

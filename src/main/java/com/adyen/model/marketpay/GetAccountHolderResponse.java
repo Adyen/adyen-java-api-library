@@ -211,7 +211,7 @@ public class GetAccountHolderResponse {
     /**
      * Populate the virtual accounts to bypass the accountContainers list
      *
-     * @return
+     * @return accounts
      */
     public List<Account> getAccounts() {
         if (accounts == null) {
@@ -228,7 +228,7 @@ public class GetAccountHolderResponse {
     /**
      * Creating a new accounts list
      *
-     * @param accounts
+     * @param accounts accounts
      */
     public void setAccounts(List<Account> accounts) {
 
@@ -247,8 +247,8 @@ public class GetAccountHolderResponse {
     /**
      * Add account to the accountContainers and accounts lists
      *
-     * @param account
-     * @return
+     * @param account Account
+     * @return AccountHolderResponse
      */
     public GetAccountHolderResponse addAccount(Account account) {
         AccountContainer accountContainer = new AccountContainer(account);
@@ -383,6 +383,7 @@ public class GetAccountHolderResponse {
 
     /**
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     *
      */
     private String toIndentedString(Object o) {
         if (o == null) {

@@ -126,7 +126,7 @@ public class AccountHolderDetails {
     /**
      * Populate the virtual bankAccountDetails to bypass the bankAccountDetailsContainer list
      *
-     * @return
+     * @return bank account details
      */
     public List<BankAccountDetail> getBankAccountDetails() {
         if (bankAccountDetails == null) {
@@ -143,6 +143,7 @@ public class AccountHolderDetails {
 
     /**
      * Creating a new bankAccountDetails list
+     * @param bankAccountDetails  bank account details
      */
     public void setBankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
         this.bankAccountDetails = bankAccountDetails;
@@ -158,8 +159,8 @@ public class AccountHolderDetails {
     /**
      * Add bankAccountDetail to the bankAccountDetailContainers and bankAccountDetails list
      *
-     * @param bankAccountDetail
-     * @return
+     * @param bankAccountDetail BankAccountDetail
+     * @return account holder details
      */
     public AccountHolderDetails addBankAccountDetail(BankAccountDetail bankAccountDetail) {
         BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer(bankAccountDetail);

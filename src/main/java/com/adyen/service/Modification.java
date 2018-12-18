@@ -63,11 +63,12 @@ public class Modification extends Service {
     /**
      * Issues /capture request
      *
-     * @param captureRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param captureRequest CaptureRequest
+     * @return ModificationResult
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
+
     public ModificationResult capture(CaptureRequest captureRequest) throws IOException, ApiException {
         return capture(captureRequest, null);
     }
@@ -81,10 +82,10 @@ public class Modification extends Service {
     /**
      * Issues /cancelOrRefund request
      *
-     * @param cancelOrRefundRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param cancelOrRefundRequest CancelOrRefundRequest
+     * @return ModificationResult
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest) throws IOException, ApiException {
         return cancelOrRefund(cancelOrRefundRequest, null);
@@ -99,10 +100,10 @@ public class Modification extends Service {
     /**
      * Issues /refund request
      *
-     * @param refundRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param refundRequest RefundRequest
+     * @return ModificationResult
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public ModificationResult refund(RefundRequest refundRequest) throws IOException, ApiException {
         return refund(refundRequest, null);
@@ -117,10 +118,10 @@ public class Modification extends Service {
     /**
      * Issues /cancel request
      *
-     * @param cancelRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param cancelRequest CancelRequest
+     * @return ModificationResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
     public ModificationResult cancel(CancelRequest cancelRequest) throws IOException, ApiException {
         return cancel(cancelRequest, null);
@@ -137,10 +138,10 @@ public class Modification extends Service {
     /**
      * Issues /technical Cancel
      *
-     * @param technicalCancelRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param technicalCancelRequest TechnicalCancelRequest
+     * @return ModificationResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
     public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest) throws IOException, ApiException {
         return technicalCancel(technicalCancelRequest, null);
@@ -156,10 +157,10 @@ public class Modification extends Service {
     /**
      * Issues /adjust Authorisation
      *
-     * @param adjustAuthorisationRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param adjustAuthorisationRequest AdjustAuthorisationRequest
+     * @return ModificationResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
     public ModificationResult adjustAuthorization(AdjustAuthorisationRequest adjustAuthorisationRequest) throws IOException, ApiException {
         return adjustAuthorization(adjustAuthorisationRequest, null);

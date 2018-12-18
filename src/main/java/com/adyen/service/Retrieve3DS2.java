@@ -45,7 +45,10 @@ public class Retrieve3DS2 extends Service {
     /**
      * POST /threeDS2Resul" API call
      *
-     * @param threeDS2ResultRequest"
+     * @param threeDS2ResultRequest threeDS2ResultRequest
+     * @return ThreeDS2ResultResponse
+     * @throws  ApiException ApiException
+     * @throws  IOException IOException
      */
 
     public ThreeDS2ResultResponse authorise(ThreeDS2ResultRequest threeDS2ResultRequest) throws ApiException, IOException {

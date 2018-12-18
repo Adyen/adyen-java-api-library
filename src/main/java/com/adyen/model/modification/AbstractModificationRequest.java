@@ -160,7 +160,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     /**
      * get additionalData map Create the map if doesn't exists
      *
-     * @return
+     * @return additional data
      */
     public Map<String, String> getOrCreateAdditionalData() {
         if (this.getAdditionalData() == null) {
@@ -172,6 +172,8 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     /**
      * Set invoiceLines in addtionalData
+     * @param invoiceLines invoicelines
+     * @return InvoiceLines
      */
     public T setInvoiceLines(List<InvoiceLine> invoiceLines) {
 
@@ -274,6 +276,9 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     /**
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     *
+     * @param o string
+     * @return Indented string
      */
     private String toIndentedString(Object o) {
         if (o == null) {

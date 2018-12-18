@@ -122,7 +122,7 @@ public class AccountHolderBalanceResponse {
     /**
      * Creating a new balancePerAccount list
      *
-     * @param balancePerAccount
+     * @param balancePerAccount balance per account
      */
     public void setBalancePerAccount(List<AccountDetailBalance> balancePerAccount) {
 

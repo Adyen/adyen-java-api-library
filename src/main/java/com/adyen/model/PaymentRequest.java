@@ -112,6 +112,12 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
     /**
      * Set Data needed for payment request using secured fields
+     * @param encryptedCardNumber encrypted Card Number
+     * @param cardHolder card holder
+     * @param encryptedExpiryMonth encrypted expiry month
+     * @param encryptedExpiryYear encrypted expiry year
+     * @param encryptedSecurityCode encrypted security code
+     * @return payment request
      */
     public PaymentRequest setSecuredFieldsData(String encryptedCardNumber, String cardHolder, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode) {
         this.setCardHolder(cardHolder)
@@ -176,6 +182,8 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
     /**
      * Set invoiceLines in addtionalData
+     * @param invoiceLines Invoice lines
+     * @return payment request
      */
     public PaymentRequest setInvoiceLines(List<InvoiceLine> invoiceLines) {
         Integer count = 1;

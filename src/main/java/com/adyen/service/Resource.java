@@ -48,6 +48,11 @@ public class Resource {
 
     /**
      * Request using json String
+     *
+     * @param json request json
+     * @return request
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
      */
     public String request(String json) throws ApiException, IOException {
         return request(json, null);
@@ -55,6 +60,12 @@ public class Resource {
 
     /**
      * Request using json String with additional request parameters like idempotency-key
+     *
+     * @param json   json
+     * @param requestOptions request options
+     * @throws ApiException apiException
+     * @throws IOException  IOException
+     * @return request
      */
     public String request(String json, RequestOptions requestOptions) throws ApiException, IOException {
         ClientInterface clientInterface = (ClientInterface) this.service.getClient().getHttpClient();

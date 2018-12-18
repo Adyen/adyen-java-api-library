@@ -42,12 +42,11 @@ public class CheckoutUtility extends ApiKeyAuthenticatedService {
     /**
      * POST /originKeys API call
      *
-     * @param originKeysRequest
+     * @param originKeysRequest OriginKeysRequest
      * @return originKeysResponse
-     * @throws IOException
-     * @throws ApiException
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
-
     public OriginKeysResponse originKeys(OriginKeysRequest originKeysRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(originKeysRequest);
         String jsonResult = originKeys.request(jsonRequest);

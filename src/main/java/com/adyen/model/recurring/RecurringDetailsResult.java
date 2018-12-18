@@ -138,7 +138,7 @@ public class RecurringDetailsResult {
     /**
      * Return RecurringDetails
      *
-     * @return
+     * @return RecurringDetails
      */
     public List<RecurringDetail> getRecurringDetails() {
         List<RecurringDetail> recurringDetails = new ArrayList<>();
