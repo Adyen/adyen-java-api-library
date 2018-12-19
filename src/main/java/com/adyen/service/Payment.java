@@ -28,21 +28,29 @@ import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentRequest3ds2;
 import com.adyen.model.PaymentResult;
 import com.adyen.model.RequestOptions;
+import com.adyen.model.ThreeDS2ResultRequest;
+import com.adyen.model.ThreeDS2ResultResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.payment.Authorise;
 import com.adyen.service.resource.payment.Authorise3D;
+import com.adyen.service.resource.payment.Authorise3DS2;
+import com.adyen.service.resource.payment.Retrieve3DS2Result;
 import com.google.gson.reflect.TypeToken;
 
 public class Payment extends Service {
 
     private Authorise authorise;
     private Authorise3D authorise3D;
+    private Authorise3DS2 authorise3DS;
+    private Retrieve3DS2Result retrieve3DS2Result;
 
     public Payment(Client client) {
         super(client);
 
         authorise = new Authorise(this);
         authorise3D = new Authorise3D(this);
+        authorise3DS = new Authorise3DS2(this);
+        retrieve3DS2Result = new Retrieve3DS2Result(this);
     }
 
     /**
@@ -94,11 +102,29 @@ public class Payment extends Service {
     public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws Exception {
         String jsonRequest = GSON.toJson(paymentRequest3ds2);
 
-        String jsonResult = authorise3D.request(jsonRequest);
+        String jsonResult = authorise3DS.request(jsonRequest);
 
         PaymentResult paymentResult = GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
 
         return paymentResult;
+    }
+
+    /**
+     * POST /retrieve3ds2Result API call
+     *
+     * @param threeDS2ResultRequest PaymentRequest3ds2
+     * @return PaymentResult
+     * @throws Exception Exception
+     */
+    public ThreeDS2ResultResponse retrieve3ds2Result(ThreeDS2ResultRequest threeDS2ResultRequest) throws Exception {
+        String jsonRequest = GSON.toJson(threeDS2ResultRequest);
+
+        String jsonResult = retrieve3DS2Result.request(jsonRequest);
+
+        ThreeDS2ResultResponse threeDS2ResultResponse = GSON.fromJson(jsonResult, new TypeToken<ThreeDS2ResultResponse>() {
+        }.getType());
+
+        return threeDS2ResultResponse;
     }
 }

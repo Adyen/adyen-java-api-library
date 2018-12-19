@@ -59,6 +59,4 @@ public class Retrieve3DS2 extends Service {
 
         return threeDS2ResultResponse;
     }
-
-
 }
