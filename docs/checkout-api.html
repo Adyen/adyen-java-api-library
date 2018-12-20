@@ -69,15 +69,9 @@ amount.setCurrency(<span class="hljs-string">"USD"</span>);
 amount.setValue(<span class="hljs-number">1000L</span>);
 paymentsRequest.setReference(<span class="hljs-string">"Your order number"</span>);
 paymentsRequest.setAmount(amount);
-paymentsRequest.setPaymentMethod(<span class="hljs-keyword">new</span> HashMap&lt;String, String&gt;());
-paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"number"</span>, <span class="hljs-string">"4111111111111111"</span>);
-paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"type"</span>, <span class="hljs-string">"scheme"</span>);
-paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"expiryMonth"</span>, <span
-                    class="hljs-string">"08"</span>);
-paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"expiryYear"</span>, <span
-                    class="hljs-string">"2018"</span>);
-paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"holderName"</span>, <span class="hljs-string">"John Smith"</span>);
-paymentsRequest.putPaymentMethodItem(<span class="hljs-string">"cvc"</span>, <span class="hljs-string">"737"</span>);
+paymentsRequest.setPaymentMethod(<span class="hljs-keyword">new</span> DefaultPaymentMethodDetails().number(<span class="hljs-string">"4111111111111111"</span>).
+                expiryMonth(<span class="hljs-string">"10"</span>).expiryYear(<span class="hljs-string">"2020"</span>).
+                cvc(<span class="hljs-string">"737"</span>).holderName(<span class="hljs-string">"John Smith"</span>).type(<span class="hljs-string">"scheme"</span>));
 paymentsRequest.setReturnUrl(<span class="hljs-string">"https://your-company.com/..."</span>);
 paymentsRequest.setMerchantAccount(<span class="hljs-string">"YOUR_MERCHANT_ACCOUNT"</span>);</code></pre>
         This Adyen API supports idempotency. To enable idempotent behavior on this request call, you need
