@@ -1,3 +1,4 @@
+
 /*
  *                       ######
  *                       ######
@@ -14,43 +15,48 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2017 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
+ *
  */
+
 package com.adyen.service;
 
-import com.adyen.ApiKeyAuthenticatedService;
+import java.io.IOException;
 import com.adyen.Client;
-import com.adyen.model.checkoututility.OriginKeysRequest;
-import com.adyen.model.checkoututility.OriginKeysResponse;
+import com.adyen.Service;
+import com.adyen.model.ThreeDS2ResultRequest;
+import com.adyen.model.ThreeDS2ResultResponse;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.checkoututility.OriginKeys;
+import com.adyen.service.resource.payment.Retrieve3DS2Result;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
+public class Retrieve3DS2 extends Service {
 
-public class CheckoutUtility extends ApiKeyAuthenticatedService {
+    private Retrieve3DS2Result retrieve3DS2Result;
 
-    private OriginKeys originKeys;
-
-    public CheckoutUtility(Client client) {
+    public Retrieve3DS2(Client client) {
         super(client);
-        originKeys = new OriginKeys(this);
+
+        retrieve3DS2Result = new Retrieve3DS2Result(this);
     }
 
     /**
-     * POST /originKeys API call
+     * POST /threeDS2Resul" API call
      *
-     * @param originKeysRequest OriginKeysRequest
-     * @return originKeysResponse
-     * @throws IOException IOException
-     * @throws ApiException ApiException
+     * @param threeDS2ResultRequest threeDS2ResultRequest
+     * @return ThreeDS2ResultResponse
+     * @throws  ApiException ApiException
+     * @throws  IOException IOException
      */
-    public OriginKeysResponse originKeys(OriginKeysRequest originKeysRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(originKeysRequest);
-        String jsonResult = originKeys.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<OriginKeysResponse>() {
+
+    public ThreeDS2ResultResponse authorise(ThreeDS2ResultRequest threeDS2ResultRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(threeDS2ResultRequest);
+        String jsonResult = retrieve3DS2Result.request(jsonRequest);
+        ThreeDS2ResultResponse threeDS2ResultResponse = GSON.fromJson(jsonResult, new TypeToken<ThreeDS2ResultResponse>() {
         }.getType());
+
+        return threeDS2ResultResponse;
     }
 }

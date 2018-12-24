@@ -24,14 +24,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import com.adyen.model.Split;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.applicationinfo.CommonField;
 import com.google.gson.annotations.SerializedName;
-import static com.adyen.Client.LIB_NAME;
-import static com.adyen.Client.LIB_VERSION;
 
 /**
  * Abstract class for modification requests
@@ -55,14 +53,8 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     @SerializedName("applicationInfo")
     private ApplicationInfo applicationInfo;
 
-    public AbstractModificationRequest() {
-        CommonField adyenLibrary = new CommonField();
-        adyenLibrary.setName(LIB_NAME);
-        adyenLibrary.setVersion(LIB_VERSION);
-
-        this.applicationInfo = new ApplicationInfo();
-        this.applicationInfo.setAdyenLibrary(adyenLibrary);
-    }
+    @SerializedName("splits")
+    private List<Split> splits = null;
 
     public T reference(String reference) {
         this.reference = reference;
@@ -157,11 +149,18 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         this.additionalData = additionalData;
     }
 
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
+    }
+
     /**
-     * get additionalData map
-     * Create the map if doesn't exists
+     * get additionalData map Create the map if doesn't exists
      *
-     * @return
+     * @return additional data
      */
     public Map<String, String> getOrCreateAdditionalData() {
         if (this.getAdditionalData() == null) {
@@ -173,6 +172,8 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     /**
      * Set invoiceLines in addtionalData
+     * @param invoiceLines invoicelines
+     * @return InvoiceLines
      */
     public T setInvoiceLines(List<InvoiceLine> invoiceLines) {
 
@@ -274,8 +275,10 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     *
+     * @param o string
+     * @return Indented string
      */
     private String toIndentedString(Object o) {
         if (o == null) {

@@ -73,9 +73,9 @@ public final class Util {
     /**
      * Returns an Amount struct to use on requests
      *
-     * @param amount
-     * @param currency
-     * @return
+     * @param amount Defines the amount
+     * @param currency Defines the amount currency
+     * @return amount
      */
     public static Amount createAmount(String amount, String currency) {
         return createAmount(new BigDecimal(amount), currency);
@@ -84,9 +84,9 @@ public final class Util {
     /**
      * Returns an Amount struct to use on requests
      *
-     * @param amount
-     * @param currency
-     * @return
+     * @param amount Defines the amount
+     * @param currency Defines the amount currency
+     * @return amount
      */
     public static Amount createAmount(BigDecimal amount, String currency) {
         Amount amountData = new Amount();
@@ -138,6 +138,8 @@ public final class Util {
     /**
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
+     * @param o string
+     * @return string target "\n" replacement with "\n    "
      */
     public static String toIndentedString(Object o) {
         if (o == null) {

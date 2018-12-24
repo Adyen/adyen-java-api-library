@@ -27,14 +27,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import com.adyen.Util.Util;
+import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.BrowserInfo;
 import com.adyen.model.ForexQuote;
 import com.adyen.model.Installments;
+import com.adyen.model.MerchantRiskIndicator;
 import com.adyen.model.Name;
+import com.adyen.model.Split;
+import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.applicationinfo.CommonField;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
 import com.google.gson.TypeAdapter;
@@ -42,16 +45,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import static com.adyen.Client.LIB_NAME;
-import static com.adyen.Client.LIB_VERSION;
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
 
 /**
  * PaymentsRequest
  */
 public class PaymentsRequest {
+
+    @SerializedName("accountInfo")
+    private AccountInfo accountInfo = null;
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+    @SerializedName("allowedPaymentMethods")
+    private List<String> allowedPaymentMethods = null;
     @SerializedName("amount")
     private Amount amount = null;
     @SerializedName("billingAddress")
@@ -130,14 +136,87 @@ public class PaymentsRequest {
     private String deviceFingerprint = null;
     @SerializedName("applicationInfo")
     private ApplicationInfo applicationInfo;
+    @SerializedName("splits")
+    private List<Split> splits = null;
+    @SerializedName("merchantRiskIndicator")
+    private MerchantRiskIndicator merchantRiskIndicator = null;
+    @SerializedName("threeDS2RequestData")
+    private ThreeDS2RequestData threeDS2RequestData = null;
+
+    @SerializedName("trustedShopper")
+    private Boolean trustedShopper = null;
+
+    @SerializedName("configId")
+    private String configId = null;
+
+    @SerializedName("blockedPaymentMethods")
+    private List<String> blockedPaymentMethods = null;
+
 
     public PaymentsRequest() {
-        CommonField adyenLibrary = new CommonField();
-        adyenLibrary.setName(LIB_NAME);
-        adyenLibrary.setVersion(LIB_VERSION);
+        if (this.applicationInfo == null) {
+            this.applicationInfo = new ApplicationInfo();
+        }
+    }
 
-        this.applicationInfo = new ApplicationInfo();
-        this.applicationInfo.setAdyenLibrary(adyenLibrary);
+    public MerchantRiskIndicator getMerchantRiskIndicator() {
+        return merchantRiskIndicator;
+    }
+
+    public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+        this.merchantRiskIndicator = merchantRiskIndicator;
+    }
+
+    public AccountInfo getAccountInfo() {
+        return accountInfo;
+    }
+
+    public void setAccountInfo(AccountInfo accountInfo) {
+        this.accountInfo = accountInfo;
+    }
+
+    public List<String> getAllowedPaymentMethods() {
+        return allowedPaymentMethods;
+    }
+
+    public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
+        this.allowedPaymentMethods = allowedPaymentMethods;
+    }
+
+    public Boolean getEnableOneClick() {
+        return enableOneClick;
+    }
+
+    public Boolean getEnablePayOut() {
+        return enablePayOut;
+    }
+
+    public Boolean getEnableRecurring() {
+        return enableRecurring;
+    }
+
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
+    }
+
+    public Boolean getTrustedShopper() {
+        return trustedShopper;
+    }
+
+    public void setTrustedShopper(Boolean trustedShopper) {
+        this.trustedShopper = trustedShopper;
+    }
+
+    public ThreeDS2RequestData getThreeDS2RequestData() {
+        return threeDS2RequestData;
+    }
+
+    public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
     }
 
     public PaymentsRequest additionalData(Map<String, String> additionalData) {
@@ -172,6 +251,22 @@ public class PaymentsRequest {
     public PaymentsRequest amount(Amount amount) {
         this.amount = amount;
         return this;
+    }
+
+    public String getConfigId() {
+        return configId;
+    }
+
+    public void setConfigId(String configId) {
+        this.configId = configId;
+    }
+
+    public List<String> getBlockedPaymentMethods() {
+        return blockedPaymentMethods;
+    }
+
+    public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
+        this.blockedPaymentMethods = blockedPaymentMethods;
     }
 
     /**
@@ -626,8 +721,12 @@ public class PaymentsRequest {
 
     /**
      * Add raw card data into the payment request. You need to be PCI compliant!
-     *
-     * @return paymentMethod
+     * @param cardNumber card number
+     * @param expiryMonth expiry month
+     * @param expiryYear expiry year
+     * @param holderName holder name
+     * @param securityCode  security code
+     * @return paymentMethod payment method
      */
     public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
@@ -970,7 +1069,15 @@ public class PaymentsRequest {
                 && Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber)
                 && Objects.equals(this.deviceFingerprint, paymentsRequest.deviceFingerprint)
                 && Objects.equals(this.applicationInfo, paymentsRequest.applicationInfo)
-                && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber);
+                && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber)
+                && Objects.equals(this.splits, paymentsRequest.splits)
+                && Objects.equals(this.accountInfo, paymentsRequest.accountInfo)
+                && Objects.equals(this.allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
+                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
+                && Objects.equals(this.merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
+                && Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData)
+                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper);
+
     }
 
     @Override
@@ -1012,7 +1119,13 @@ public class PaymentsRequest {
                             socialSecurityNumber,
                             deviceFingerprint,
                             applicationInfo,
-                            telephoneNumber);
+                            telephoneNumber,
+                            accountInfo,
+                            allowedPaymentMethods,
+                            splits,
+                            trustedShopper,
+                            blockedPaymentMethods,
+                            configId);
     }
 
     @Override
@@ -1058,13 +1171,21 @@ public class PaymentsRequest {
         sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
+        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
+        sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
@@ -34,8 +35,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * AbstractPaymentRequest
- * Base for PaymentRequest and PaymentRequest3D
+ * AbstractPaymentRequest Base for PaymentRequest and PaymentRequest3D
  */
 public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>> {
     @SerializedName("amount")
@@ -60,14 +60,11 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      * how the shopper interacts with the system
      */
     public enum ShopperInteractionEnum {
-        @SerializedName("Ecommerce")
-        ECOMMERCE("Ecommerce"),
+        @SerializedName("Ecommerce") ECOMMERCE("Ecommerce"),
 
-        @SerializedName("ContAuth")
-        CONTAUTH("ContAuth"),
+        @SerializedName("ContAuth") CONTAUTH("ContAuth"),
 
-        @SerializedName("Moto")
-        MOTO("Moto");
+        @SerializedName("Moto") MOTO("Moto");
 
         private String value;
 
@@ -161,8 +158,20 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     @SerializedName("metadata")
     private Map<String, String> metadata = null;
 
+    @SerializedName("applicationInfo")
+    private ApplicationInfo applicationInfo;
+
+    public AbstractPaymentRequest() {
+        if (this.applicationInfo == null) {
+            applicationInfo = new ApplicationInfo();
+        }
+    }
+
     /**
      * Set browser data
+     * @param userAgent http header
+     * @param acceptHeader http header
+     * @return browser data
      */
     public T setBrowserInfoData(String userAgent, String acceptHeader) {
         BrowserInfo browserInfo = new BrowserInfo();
@@ -174,10 +183,9 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     }
 
     /**
-     * get additionalData map
-     * Create the map if doesn't exists
+     * get additionalData map Create the map if doesn't exists
      *
-     * @return
+     * @return additional data
      */
     public Map<String, String> getOrCreateAdditionalData() {
         if (this.getAdditionalData() == null) {
@@ -745,6 +753,14 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         return (T) this;
     }
 
+    public ApplicationInfo getApplicationInfo() {
+        return applicationInfo;
+    }
+
+    public void setApplicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
+    }
+
     /**
      * a map of key/value pairs of metadata sent by merchant
      *
@@ -799,7 +815,8 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
                 && Objects.equals(this.dateOfBirth, paymentRequest.dateOfBirth)
                 && Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber)
                 && Objects.equals(this.mcc, paymentRequest.mcc)
-                && Objects.equals(this.metadata, paymentRequest.metadata);
+                && Objects.equals(this.metadata, paymentRequest.metadata)
+                && Objects.equals(this.applicationInfo, paymentRequest.applicationInfo);
     }
 
     @Override
@@ -835,7 +852,8 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
                             dateOfBirth,
                             telephoneNumber,
                             mcc,
-                            metadata);
+                            metadata,
+                            applicationInfo);
     }
 
 
@@ -875,6 +893,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
         sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
 
         return sb.toString();
     }
@@ -901,8 +920,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

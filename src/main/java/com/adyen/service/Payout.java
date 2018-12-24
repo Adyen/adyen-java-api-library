@@ -61,10 +61,10 @@ public class Payout extends Service {
     /**
      * Issues a storeDetailAndSubmitThirdParty API call
      *
-     * @param request
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param request StoreDetailAndSubmitRequest
+     * @return StoreDetailAndSubmitResponse
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public StoreDetailAndSubmitResponse storeDetailAndSubmitThirdParty(StoreDetailAndSubmitRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
@@ -79,10 +79,10 @@ public class Payout extends Service {
     /**
      * Issues a ConfirmThirdParty API call
      *
-     * @param request
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param request ConfirmThirdPartyRequest
+     * @return ConfirmThirdPartyResponse
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public ConfirmThirdPartyResponse confirmThirdParty(ConfirmThirdPartyRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
@@ -97,10 +97,10 @@ public class Payout extends Service {
     /**
      * Issues a DeclineThirdParty API call
      *
-     * @param request
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param request DeclineThirdPartyRequest
+     * @return DeclineThirdPartyResponse
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public DeclineThirdPartyResponse declineThirdParty(DeclineThirdPartyRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
@@ -115,10 +115,10 @@ public class Payout extends Service {
     /**
      * Issues a storeDetail API call
      *
-     * @param request
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param request StoreDetailRequest
+     * @return StoreDetailResponse
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public StoreDetailResponse storeDetail(StoreDetailRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
@@ -133,10 +133,10 @@ public class Payout extends Service {
     /**
      * Issues a SubmitThirdParty API call
      *
-     * @param request
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param request SubmitRequest
+     * @return submitThirdparty
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public SubmitResponse submitThirdparty(SubmitRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);

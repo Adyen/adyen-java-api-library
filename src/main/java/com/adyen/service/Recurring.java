@@ -51,10 +51,10 @@ public class Recurring extends Service {
     /**
      * Issues a listRecurringDetails API call
      *
-     * @param request
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param request RecurringDetailsResult
+     * @return recurring details result
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
@@ -69,10 +69,10 @@ public class Recurring extends Service {
     /**
      * Issues a disable recurring contract API call
      *
-     * @param request
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param request DisableRequest
+     * @return DisableResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
     public DisableResult disable(DisableRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
@@ -87,10 +87,10 @@ public class Recurring extends Service {
     /**
      * Issues a storeToken API call
      *
-     * @param request
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param request StoreTokenRequest
+     * @return StoreTokenResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
     public StoreTokenResult storeToken(StoreTokenRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);

@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
 import com.adyen.Util.DateUtil;
 import com.adyen.model.FraudResult;
 import com.google.gson.TypeAdapter;
@@ -35,6 +36,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
 import static com.adyen.constants.ApiConstants.AdditionalData.AUTH_CODE;
 import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
 import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_BARCODE_REFERENCE;
@@ -75,6 +77,9 @@ public class PaymentsResponse {
 
     @SerializedName("refusalReason")
     private String refusalReason = null;
+
+    @SerializedName("refusalReasonCode")
+    private String refusalReasonCode = null;
 
     @SerializedName("resultCode")
     private ResultCodeEnum resultCode = null;
@@ -250,6 +255,14 @@ public class PaymentsResponse {
         return this;
     }
 
+    public String getRefusalReasonCode() {
+        return refusalReasonCode;
+    }
+
+    public void setRefusalReasonCode(String refusalReasonCode) {
+        this.refusalReasonCode = refusalReasonCode;
+    }
+
     /**
      * The result of the payment. Possible values:  * **Authorised** – Indicates the payment authorisation was successfully completed. This state serves as an indicator to proceed with the delivery of
      * goods and services. This is a final state. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. *
@@ -307,11 +320,12 @@ public class PaymentsResponse {
         return Objects.equals(this.additionalData, paymentsResponse.additionalData)
                 && Objects.equals(this.details, paymentsResponse.details)
                 && Objects.equals(this.fraudResult,
-                                  paymentsResponse.fraudResult)
+                paymentsResponse.fraudResult)
                 && Objects.equals(this.paymentData, paymentsResponse.paymentData)
                 && Objects.equals(this.pspReference, paymentsResponse.pspReference)
                 && Objects.equals(this.redirect, paymentsResponse.redirect)
                 && Objects.equals(this.refusalReason, paymentsResponse.refusalReason)
+                && Objects.equals(this.refusalReasonCode, paymentsResponse.refusalReasonCode)
                 && Objects.equals(this.resultCode, paymentsResponse.resultCode)
                 && Objects.equals(this.serviceError, paymentsResponse.serviceError)
                 && Objects.equals(this.authResponse, paymentsResponse.authResponse)
@@ -334,6 +348,7 @@ public class PaymentsResponse {
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
         sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
+        sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
         sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");

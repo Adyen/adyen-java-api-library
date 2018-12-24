@@ -21,25 +21,45 @@
 package com.adyen.model.applicationinfo;
 
 import com.google.gson.annotations.SerializedName;
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 
 public class ApplicationInfo {
     @SerializedName("adyenLibrary")
-    private CommonField adyenLibrary;
+    private CommonField adyenLibrary = null;
 
     @SerializedName("adyenPaymentSource")
-    private CommonField adyenPaymentSource;
-
-    @SerializedName("merchantApplication")
-    private CommonField merchantApplication;
-
-    @SerializedName("merchantDevice")
-    private MerchantDevice merchantDevice;
+    private CommonField adyenPaymentSource = null;
 
     @SerializedName("externalPlatform")
-    private ExternalPlatform externalPlatform;
+    private ExternalPlatform externalPlatform = null;
+
+    public ApplicationInfo() {
+        adyenLibrary = new CommonField();
+        adyenLibrary.setName(LIB_NAME);
+        adyenLibrary.setVersion(LIB_VERSION);
+    }
+
+    @SerializedName("merchantApplication")
+    private CommonField merchantApplication = null;
+
+    @SerializedName("merchantDevice")
+    private MerchantDevice merchantDevice = null;
+
+    @SerializedName("paymentDetailsSource")
+    private CommonField paymentDetailsSource = null;
 
     @SerializedName("shopperInteractionDevice")
-    private ShopperInteractionDevice shopperInteractionDevice;
+    private ShopperInteractionDevice shopperInteractionDevice = null;
+
+    public CommonField getPaymentDetailsSource() {
+        return paymentDetailsSource;
+    }
+
+    public void setPaymentDetailsSource(CommonField paymentDetailsSource) {
+        this.paymentDetailsSource = paymentDetailsSource;
+    }
+
 
     public CommonField getAdyenLibrary() {
         return adyenLibrary;

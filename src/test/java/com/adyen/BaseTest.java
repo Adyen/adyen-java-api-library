@@ -40,7 +40,9 @@ import com.adyen.model.Amount;
 import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
+import com.adyen.model.PaymentRequest3ds2;
 import com.adyen.model.RequestOptions;
+import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
@@ -223,6 +225,18 @@ public class BaseTest {
         PaymentRequest3d paymentRequest3d = createBasePaymentRequest(new PaymentRequest3d()).set3DRequestData("mdString", "paResString");
 
         return paymentRequest3d;
+    }
+
+    /**
+     * Returns a PaymentRequest3d object for 3D secure authorisation
+     */
+    protected PaymentRequest3ds2 create3DS2PaymentRequest() {
+
+        PaymentRequest3ds2 paymentRequest3ds2 = createBasePaymentRequest(new PaymentRequest3ds2());
+        paymentRequest3ds2.setThreeDS2Token("— - BINARY DATA - -");
+        paymentRequest3ds2.setThreeDS2RequestData(new ThreeDS2RequestData());
+        paymentRequest3ds2.getThreeDS2RequestData().setThreeDSCompInd("Y");
+        return paymentRequest3ds2;
     }
 
     /**

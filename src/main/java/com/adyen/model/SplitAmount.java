@@ -18,44 +18,47 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.model.applicationinfo;
+package com.adyen.model;
 
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
-public class CommonField {
-    @SerializedName("name")
-    private String name = null;
+/**
+ * SplitAmount
+ */
+public class SplitAmount {
 
-    @SerializedName("version")
-    private String version = null;
+    @SerializedName("currency")
+    private String currency = null;
 
-    public String getName() {
-        return name;
-    }
+    @SerializedName("value")
+    private Long value = null;
 
-    public CommonField name(String name) {
-        this.name = name;
+    public SplitAmount currency(String currency) {
+        this.currency = currency;
         return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCurrency() {
+        return currency;
     }
 
-    public CommonField version(String version) {
-        this.version = version;
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public SplitAmount value(Long value) {
+        this.value = value;
         return this;
     }
 
-
-    public String getVersion() {
-        return version;
+    public Long getValue() {
+        return value;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setValue(Long value) {
+        this.value = value;
     }
 
     @Override
@@ -66,22 +69,22 @@ public class CommonField {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CommonField commonField = (CommonField) o;
-        return Objects.equals(this.name, commonField.name) && Objects.equals(this.version, commonField.version);
+        SplitAmount splitAmount = (SplitAmount) o;
+        return Objects.equals(this.currency, splitAmount.currency) && Objects.equals(this.value, splitAmount.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, version);
+        return Objects.hash(currency, value);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CommonField {\n");
+        sb.append("class SplitAmount {\n");
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -95,4 +98,9 @@ public class CommonField {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
+
 }
+
+
+

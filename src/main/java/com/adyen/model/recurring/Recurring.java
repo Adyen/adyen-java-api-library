@@ -20,7 +20,10 @@
  */
 package com.adyen.model.recurring;
 
+import java.util.Date;
 import java.util.Objects;
+import com.adyen.serializer.DateSerializer;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -70,6 +73,13 @@ public class Recurring {
     @SerializedName("recurringDetailName")
     private String recurringDetailName = null;
 
+    @SerializedName("recurringExpiry")
+    @JsonAdapter(DateSerializer.class)
+    private Date recurringExpiry = null;
+
+    @SerializedName("recurringFrequency")
+    private String recurringFrequency = null;
+
     public Recurring contract(ContractEnum contract) {
         this.contract = contract;
         return this;
@@ -106,6 +116,21 @@ public class Recurring {
         this.recurringDetailName = recurringDetailName;
     }
 
+    public Date getRecurringExpiry() {
+        return recurringExpiry;
+    }
+
+    public void setRecurringExpiry(Date recurringExpiry) {
+        this.recurringExpiry = recurringExpiry;
+    }
+
+    public String getRecurringFrequency() {
+        return recurringFrequency;
+    }
+
+    public void setRecurringFrequency(String recurringFrequency) {
+        this.recurringFrequency = recurringFrequency;
+    }
 
     @Override
     public boolean equals(Object o) {

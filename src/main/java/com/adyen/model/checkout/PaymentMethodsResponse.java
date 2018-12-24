@@ -21,11 +21,10 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * PaymentMethodsResponse
@@ -103,8 +102,7 @@ public class PaymentMethodsResponse {
             return false;
         }
         PaymentMethodsResponse paymentMethodsResponse = (PaymentMethodsResponse) o;
-        return Objects.equals(this.oneClickPaymentMethods, paymentMethodsResponse.oneClickPaymentMethods) &&
-                Objects.equals(this.paymentMethods, paymentMethodsResponse.paymentMethods);
+        return Objects.equals(this.oneClickPaymentMethods, paymentMethodsResponse.oneClickPaymentMethods) && Objects.equals(this.paymentMethods, paymentMethodsResponse.paymentMethods);
     }
 
     @Override
@@ -124,8 +122,7 @@ public class PaymentMethodsResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

@@ -69,7 +69,7 @@ public class BusinessDetails {
     /**
      * Creating a new shareholders list
      *
-     * @param shareholders
+     * @param shareholders shareholders
      */
     public void setShareholders(List<ShareholderContact> shareholders) {
         this.shareholders = shareholders;
@@ -86,8 +86,8 @@ public class BusinessDetails {
     /**
      * Add shareholderContact to the shareholderContactContainers and shareholders list
      *
-     * @param shareholderContact
-     * @return
+     * @param shareholderContact shareholderContact
+     * @return BusinessDetails
      */
     public BusinessDetails addShareholderContact(ShareholderContact shareholderContact) {
         ShareholderContactContainer shareholderContactContainer = new ShareholderContactContainer(shareholderContact);

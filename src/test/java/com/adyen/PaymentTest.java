@@ -36,8 +36,11 @@ import com.adyen.model.FraudCheckResult;
 import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
+import com.adyen.model.PaymentRequest3ds2;
 import com.adyen.model.PaymentResult;
 import com.adyen.model.RequestOptions;
+import com.adyen.model.ThreeDS2ResultRequest;
+import com.adyen.model.ThreeDS2ResultResponse;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
@@ -59,8 +62,7 @@ import static org.mockito.Mockito.when;
  */
 public class PaymentTest extends BaseTest {
     /**
-     * Test success flow for
-     * POST /authorise
+     * Test success flow for POST /authorise
      */
     @Test
     public void TestAuthoriseSuccessMocked() throws Exception {
@@ -94,8 +96,7 @@ public class PaymentTest extends BaseTest {
     }
 
     /**
-     * Test error flow 010 for
-     * POST /authorise
+     * Test error flow 010 for POST /authorise
      */
     @Test
     public void TestAuthoriseError010Mocked() throws Exception {
@@ -117,8 +118,7 @@ public class PaymentTest extends BaseTest {
     }
 
     /**
-     * Test error flow with wrong CVC for
-     * POST /authorise
+     * Test error flow with wrong CVC for POST /authorise
      */
     @Test
     public void TestAuthoriseErrorCVCDeclinedMocked() throws Exception {
@@ -133,8 +133,7 @@ public class PaymentTest extends BaseTest {
     }
 
     /**
-     * Test success flow with 3D secured CC for
-     * POST /authorise
+     * Test success flow with 3D secured CC for POST /authorise
      */
     @Test
     public void TestAuthoriseSuccess3DMocked() throws Exception {
@@ -152,8 +151,7 @@ public class PaymentTest extends BaseTest {
     }
 
     /**
-     * Test success flow for
-     * POST /authorise3d
+     * Test success flow for POST /authorise3d
      */
     @Test
     public void TestAuthorise3DSuccessMocked() throws Exception {
@@ -169,8 +167,44 @@ public class PaymentTest extends BaseTest {
     }
 
     /**
-     * Test success flow (CSE) for
-     * POST /authorise
+     * Test success flow for POST /authorise3ds2
+     */
+    @Test
+    public void TestAuthorise3DS2SuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success-3ds2.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest3ds2 paymentRequest3ds2 = create3DS2PaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise3DS2(paymentRequest3ds2);
+
+        assertTrue(paymentResult.isAuthorised());
+        assertNotNull(paymentResult.getAdditionalData());
+        assertEquals(paymentResult.getPspReference(), "9935272408535455");
+        assertEquals(paymentResult.getAuthCode(), "46125");
+    }
+
+    /**
+     * Test success flow for POST /retrieve3ds2Result
+     */
+    @Test
+    public void TestRetrieve3ds2ResultSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/retrieve-result-success-3ds2.json");
+        Payment payment = new Payment(client);
+        ThreeDS2ResultRequest threeDS2ResultRequest = new ThreeDS2ResultRequest();
+        threeDS2ResultRequest.setMerchantAccount("AMerchantAccount");
+        threeDS2ResultRequest.setPspReference("9935272408535455");
+
+        ThreeDS2ResultResponse threeDS2ResultResponse = payment.retrieve3ds2Result(threeDS2ResultRequest);
+
+        assertEquals(threeDS2ResultResponse.getThreeDS2Result().getTransStatus(), "Y");
+        assertEquals(threeDS2ResultResponse.getThreeDS2Result().getAuthenticationValue(), "3q2+78r+ur7erb7vyv66vv8deha8=");
+        assertEquals(threeDS2ResultResponse.getThreeDS2Result().getEci(), "07");
+        assertEquals(threeDS2ResultResponse.getThreeDS2Result().getThreeDSServerTransID(), "73aab3ce-eb39-49e8-8e9b-46fb77a472f1");
+    }
+
+    /**
+     * Test success flow (CSE) for POST /authorise
      */
     @Test
     public void TestAuthoriseCSESuccessMocked() throws Exception {
@@ -185,8 +219,7 @@ public class PaymentTest extends BaseTest {
     }
 
     /**
-     * Test flow (CSE) expired card for
-     * POST /authorise
+     * Test flow (CSE) expired card for POST /authorise
      */
     @Test
     public void TestAuthoriseCSEErrorExpiredMocked() throws Exception {
