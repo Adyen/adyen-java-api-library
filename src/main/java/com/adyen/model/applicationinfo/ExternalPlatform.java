@@ -22,9 +22,12 @@ package com.adyen.model.applicationinfo;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class ExternalPlatform extends CommonField {
+
     @SerializedName("integrator")
-    private String integrator;
+    private String integrator = null;
 
     public String getIntegrator() {
         return integrator;
@@ -35,7 +38,43 @@ public class ExternalPlatform extends CommonField {
     }
 
     @Override
-    public String toString() {
-        return "ExternalPlatform{" + "integrator='" + integrator + '\'' + "} extends " + super.toString();
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ExternalPlatform externalPlatform = (ExternalPlatform) o;
+        return Objects.equals(this.integrator, externalPlatform.integrator);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(integrator);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ExternalPlatform {\n");
+
+        sb.append("    integrator: ").append(toIndentedString(integrator)).append("\n");
+
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
+
 }

@@ -62,7 +62,7 @@ public class GetUploadedDocumentsResponse {
     /**
      * Creating a new documentDetails list
      *
-     * @param documentDetails
+     * @param documentDetails documentDetails
      */
     public void setDocumentDetails(List<DocumentDetail> documentDetails) {
         this.documentDetails = documentDetails;
@@ -80,8 +80,8 @@ public class GetUploadedDocumentsResponse {
     /**
      * Add documentDetail to the documentDetailsContainers and documentDetails list
      *
-     * @param documentDetail
-     * @return
+     * @param documentDetail documentDetail
+     * @return UploadedDocumentsResponse
      */
     public GetUploadedDocumentsResponse addDocumentDetail(DocumentDetail documentDetail) {
         DocumentDetailContainer documentDetailContainer = new DocumentDetailContainer(documentDetail);

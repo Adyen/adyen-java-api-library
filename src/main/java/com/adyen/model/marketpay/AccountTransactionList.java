@@ -105,8 +105,7 @@ public class AccountTransactionList {
 
     /**
      * Creating a new transactions list
-     *
-     * @param transactions
+     * @param transactions transactions
      */
     public void setTransactions(List<Transaction> transactions) {
 

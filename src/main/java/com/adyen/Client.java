@@ -41,7 +41,7 @@ public class Client {
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "1.7.0";
+    public static final String LIB_VERSION = "1.8.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v40";
@@ -70,7 +70,12 @@ public class Client {
     }
 
     /**
-     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     * @param username your merchant account Username
+     * @param password your merchant accont Password
+     * @param environment This defines the payment enviroment live or test
+     * @param connectionTimeoutMillis Provide the time to time out
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
+     * com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
      */
     @Deprecated
     public Client(String username, String password, Environment environment, int connectionTimeoutMillis) {
@@ -80,7 +85,13 @@ public class Client {
     }
 
     /**
-     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     * @param username your merchant account Username
+     * @param password your merchant accont Password
+     * @param environment This defines the payment enviroment live or test
+     * @param connectionTimeoutMillis Provide the time to time out
+     * @param liveEndpointUrlPrefix provide the merchant specific url
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
+     * com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
      */
     @Deprecated
     public Client(String username, String password, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
@@ -100,7 +111,11 @@ public class Client {
     }
 
     /**
-     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     * @param apiKey Defines the api key that can be retrieved by back office
+     * @param environment This defines the payment enviroment live or test
+     * @param connectionTimeoutMillis Provide the time to time out
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
+     * com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
      */
     @Deprecated
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
@@ -110,7 +125,12 @@ public class Client {
     }
 
     /**
-     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
+     * @param apiKey Defines the api key that can be retrieved by back office
+     * @param environment This defines the payment enviroment live or test
+     * @param connectionTimeoutMillis Provide the time to time out
+     * @param liveEndpointUrlPrefix provide the merchant specific url
+     * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
+     * com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
      */
     @Deprecated
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
@@ -120,6 +140,7 @@ public class Client {
     }
 
     /**
+     * @param environment This defines the payment enviroment live or test
      * @deprecated As of library version 1.5.4, replaced by {@link #setEnvironment(Environment environment, String liveEndpointUrlPrefix)}.
      */
     @Deprecated
@@ -128,7 +149,7 @@ public class Client {
     }
 
     /**
-     * @param environment
+     * @param environment           This defines the payment enviroment live or test
      * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {

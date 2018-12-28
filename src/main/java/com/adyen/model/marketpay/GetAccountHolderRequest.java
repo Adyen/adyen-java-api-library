@@ -33,6 +33,9 @@ public class GetAccountHolderRequest {
     @SerializedName("accountCode")
     private String accountCode = null;
 
+    @SerializedName("showDetails")
+    private Boolean showDetails = null;
+
     public GetAccountHolderRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
@@ -69,6 +72,18 @@ public class GetAccountHolderRequest {
         this.accountCode = accountCode;
     }
 
+    /**
+     * True if the request should return the account holder details
+     *
+     * @return showDetails
+     **/
+    public Boolean getShowDetails() {
+        return showDetails;
+    }
+
+    public void setShowDetails(Boolean showDetails) {
+        this.showDetails = showDetails;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -79,12 +94,12 @@ public class GetAccountHolderRequest {
             return false;
         }
         GetAccountHolderRequest getAccountHolderRequest = (GetAccountHolderRequest) o;
-        return Objects.equals(this.accountHolderCode, getAccountHolderRequest.accountHolderCode) && Objects.equals(this.accountCode, getAccountHolderRequest.accountCode);
+        return Objects.equals(this.accountHolderCode, getAccountHolderRequest.accountHolderCode) && Objects.equals(this.accountCode, getAccountHolderRequest.accountCode) && Objects.equals(this.showDetails, getAccountHolderRequest.showDetails);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, accountCode);
+        return Objects.hash(accountHolderCode, accountCode, showDetails);
     }
 
 
@@ -95,6 +110,7 @@ public class GetAccountHolderRequest {
 
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    showDetails: ").append(toIndentedString(showDetails)).append("\n");
         sb.append("}");
         return sb.toString();
     }

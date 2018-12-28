@@ -64,14 +64,15 @@ public class Checkout extends ApiKeyAuthenticatedService {
     /**
      * POST /payments API call
      *
-     * @param paymentsRequest
+     * @param paymentsRequest  PaymentsRequest
      * @return paymentsResponse
-     * @throws IOException
-     * @throws ApiException
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
     public PaymentsResponse payments(PaymentsRequest paymentsRequest) throws ApiException, IOException {
         return payments(paymentsRequest, null);
     }
+
 
     public PaymentsResponse payments(PaymentsRequest paymentsRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentsRequest);
@@ -83,10 +84,10 @@ public class Checkout extends ApiKeyAuthenticatedService {
     /**
      * POST /paymentMethods API call
      *
-     * @param paymentMethodsRequest
-     * @return paymentMethodsResponse
-     * @throws IOException
-     * @throws ApiException
+     * @param paymentMethodsRequest PaymentMethodsRequest
+     * @return paymentMethodsResponse PaymentMethodsResponse
+     * @throws IOException IOException
+     * @throws  ApiException ApiException
      */
 
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest) throws ApiException, IOException {
@@ -100,10 +101,10 @@ public class Checkout extends ApiKeyAuthenticatedService {
     /**
      * POST payments/details API call
      *
-     * @param paymentsDetailsRequest
-     * @return paymentsResponse
-     * @throws IOException
-     * @throws ApiException
+     * @param paymentsDetailsRequest paymentsDetailsRequest
+     * @return paymentsResponse paymentsResponse
+     * @throws IOException IOException
+     * @throws  ApiException ApiException
      */
     public PaymentsResponse paymentsDetails(PaymentsDetailsRequest paymentsDetailsRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentsDetailsRequest);
@@ -116,10 +117,10 @@ public class Checkout extends ApiKeyAuthenticatedService {
     /**
      * POST /paymentSession API call
      *
-     * @param paymentSessionRequest
+     * @param paymentSessionRequest paymentSessionRequest
      * @return paymentSessionResponse
-     * @throws IOException
-     * @throws ApiException
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
 
     public PaymentSessionResponse paymentSession(PaymentSessionRequest paymentSessionRequest) throws ApiException, IOException {
@@ -136,12 +137,11 @@ public class Checkout extends ApiKeyAuthenticatedService {
     /**
      * POST payments/result API call
      *
-     * @param paymentResultRequest
+     * @param paymentResultRequest paymentResultRequest
      * @return paymentResultResponse
-     * @throws IOException
-     * @throws ApiException
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
-
     public PaymentResultResponse paymentResult(PaymentResultRequest paymentResultRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentResultRequest);
         String jsonResult = paymentsResult.request(jsonRequest);

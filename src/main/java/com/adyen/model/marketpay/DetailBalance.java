@@ -61,7 +61,7 @@ public class DetailBalance {
     /**
      * Creating a new pendingBalance list
      *
-     * @param pendingBalance
+     * @param pendingBalance pendingBalance
      */
     public void setPendingBalance(List<Amount> pendingBalance) {
 
@@ -78,8 +78,8 @@ public class DetailBalance {
 
     /**
      * Add amount to the pendingBalanceContainers and pendingBalance list
-     *
-     * @return
+     * @param amount amount
+     * @return DetailBalance
      */
     public DetailBalance addPendingBalanceItem(Amount amount) {
         AmountContainer amountContainer = createAmountContainerFromAmount(amount);
@@ -125,7 +125,7 @@ public class DetailBalance {
     /**
      * Creating a new balance list
      *
-     * @param balance
+     * @param balance balance
      */
     public void setBalance(List<Amount> balance) {
 
@@ -143,8 +143,8 @@ public class DetailBalance {
     /**
      * Add amount to the balanceContainers and balance list
      *
-     * @param amount
-     * @return
+     * @param amount amount
+     * @return DetailBalance
      */
     public DetailBalance addBalanceItem(Amount amount) {
         AmountContainer amountContainer = createAmountContainerFromAmount(amount);
@@ -200,6 +200,8 @@ public class DetailBalance {
 
     /**
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * @param o string
+     * @return indented string
      */
     private String toIndentedString(Object o) {
         if (o == null) {

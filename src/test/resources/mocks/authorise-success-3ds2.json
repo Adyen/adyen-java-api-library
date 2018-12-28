@@ -1,0 +1,15 @@
+{
+   "additionalData": {
+      "cvcResult": "1 Matches",
+      "authCode": "46125",
+      "avsResult": "4 AVS not supported for this card type",
+      "avsResultRaw": "4",
+      "cvcResultRaw": "M",
+      "refusalReasonRaw": "AUTHORISED",
+      "acquirerCode": "TestPmmAcquirer",
+      "acquirerReference": "8PPSD0S76PE"
+   },
+   "pspReference": "9935272408535455",
+   "resultCode": "Authorised",
+   "authCode": "46125"
+}

@@ -20,16 +20,28 @@
  */
 package com.adyen.model.modification;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.adyen.model.Split;
 import com.google.gson.annotations.SerializedName;
 
 /**
  * ModificationResult
  */
 public class ModificationResult {
+
     @SerializedName("pspReference")
     private String pspReference = null;
+
+    @SerializedName("applicationInfo")
+    private ApplicationInfo applicationInfo = null;
+
+    @SerializedName("splits")
+    private List<Split> splits = null;
+
 
     /**
      * the response which indicates if the modification request has been received for processing.
@@ -137,6 +149,8 @@ public class ModificationResult {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ModificationResult {\n");
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    response: ").append(toIndentedString(response)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");

@@ -20,17 +20,25 @@
  */
 package com.adyen.model.applicationinfo;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 public class MerchantDevice {
+
     @SerializedName("os")
-    private String os;
+    private String os = null;
 
     @SerializedName("osVersion")
-    private String osVersion;
+    private String osVersion = null;
 
     @SerializedName("reference")
-    private String reference;
+    private String reference = null;
+
+    public MerchantDevice os(String os) {
+        this.os = os;
+        return this;
+    }
+
 
     public String getOs() {
         return os;
@@ -40,6 +48,12 @@ public class MerchantDevice {
         this.os = os;
     }
 
+    public MerchantDevice osVersion(String osVersion) {
+        this.osVersion = osVersion;
+        return this;
+    }
+
+
     public String getOsVersion() {
         return osVersion;
     }
@@ -47,6 +61,12 @@ public class MerchantDevice {
     public void setOsVersion(String osVersion) {
         this.osVersion = osVersion;
     }
+
+    public MerchantDevice reference(String reference) {
+        this.reference = reference;
+        return this;
+    }
+
 
     public String getReference() {
         return reference;
@@ -57,7 +77,43 @@ public class MerchantDevice {
     }
 
     @Override
-    public String toString() {
-        return "MerchantDevice{" + "os='" + os + '\'' + ", osVersion='" + osVersion + '\'' + ", reference='" + reference + '\'' + '}';
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MerchantDevice merchantDevice = (MerchantDevice) o;
+        return Objects.equals(this.os, merchantDevice.os) && Objects.equals(this.osVersion, merchantDevice.osVersion) && Objects.equals(this.reference, merchantDevice.reference);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(os, osVersion, reference);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MerchantDevice {\n");
+
+        sb.append("    os: ").append(toIndentedString(os)).append("\n");
+        sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
+
 }

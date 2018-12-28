@@ -90,8 +90,8 @@ public class AccountHolderTransactionListResponse {
 
     /**
      * Creating a new accountTransactionLists list
-     *
-     * @param accountTransactionLists
+     * @param accountTransactionLists  AccountTransactionList
+
      */
     public void setAccountTransactionLists(List<AccountTransactionList> accountTransactionLists) {
 
@@ -107,6 +107,12 @@ public class AccountHolderTransactionListResponse {
 
     }
 
+    /**
+     * Creating a new AccountHolderTransactionList Response
+     *
+     * @param accountTransactionList accountTransactionList
+     * @return AccountHolderTransactionListResponse
+     */
     public AccountHolderTransactionListResponse addAccountTransactionList(AccountTransactionList accountTransactionList) {
         AccountTransactionListContainer accountTransactionListContainer = new AccountTransactionListContainer(accountTransactionList);
 

@@ -25,16 +25,20 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.modification.AbstractModificationRequest;
+import com.adyen.model.modification.AdjustAuthorisationRequest;
 import com.adyen.model.modification.CancelOrRefundRequest;
 import com.adyen.model.modification.CancelRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.ModificationResult;
 import com.adyen.model.modification.RefundRequest;
+import com.adyen.model.modification.TechnicalCancelRequest;
 import com.adyen.service.exception.ApiException;
+import com.adyen.service.resource.modification.AdjustAuthorisation;
 import com.adyen.service.resource.modification.Cancel;
 import com.adyen.service.resource.modification.CancelOrRefund;
 import com.adyen.service.resource.modification.Capture;
 import com.adyen.service.resource.modification.Refund;
+import com.adyen.service.resource.modification.TechnicalCancel;
 import com.google.gson.reflect.TypeToken;
 
 public class Modification extends Service {
@@ -42,6 +46,8 @@ public class Modification extends Service {
     private Cancel cancel;
     private Capture capture;
     private Refund refund;
+    private AdjustAuthorisation adjustAuthorisation;
+    private TechnicalCancel technicalCancel;
 
     public Modification(Client client) {
         super(client);
@@ -50,16 +56,19 @@ public class Modification extends Service {
         cancelOrRefund = new CancelOrRefund(this);
         cancel = new Cancel(this);
         refund = new Refund(this);
+        adjustAuthorisation = new AdjustAuthorisation(this);
+        technicalCancel = new TechnicalCancel(this);
     }
 
     /**
      * Issues /capture request
      *
-     * @param captureRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param captureRequest CaptureRequest
+     * @return ModificationResult
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
+
     public ModificationResult capture(CaptureRequest captureRequest) throws IOException, ApiException {
         return capture(captureRequest, null);
     }
@@ -73,10 +82,10 @@ public class Modification extends Service {
     /**
      * Issues /cancelOrRefund request
      *
-     * @param cancelOrRefundRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param cancelOrRefundRequest CancelOrRefundRequest
+     * @return ModificationResult
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest) throws IOException, ApiException {
         return cancelOrRefund(cancelOrRefundRequest, null);
@@ -91,10 +100,10 @@ public class Modification extends Service {
     /**
      * Issues /refund request
      *
-     * @param refundRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param refundRequest RefundRequest
+     * @return ModificationResult
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public ModificationResult refund(RefundRequest refundRequest) throws IOException, ApiException {
         return refund(refundRequest, null);
@@ -109,10 +118,10 @@ public class Modification extends Service {
     /**
      * Issues /cancel request
      *
-     * @param cancelRequest
-     * @return
-     * @throws IOException
-     * @throws ApiException
+     * @param cancelRequest CancelRequest
+     * @return ModificationResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
     public ModificationResult cancel(CancelRequest cancelRequest) throws IOException, ApiException {
         return cancel(cancelRequest, null);
@@ -124,6 +133,46 @@ public class Modification extends Service {
         String jsonResult = cancel.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
+
+
+    /**
+     * Issues /technical Cancel
+     *
+     * @param technicalCancelRequest TechnicalCancelRequest
+     * @return ModificationResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest) throws IOException, ApiException {
+        return technicalCancel(technicalCancelRequest, null);
+    }
+
+    public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest, RequestOptions requestOptions) throws IOException, ApiException {
+
+        String jsonRequest = serializeRequest(technicalCancelRequest);
+        String jsonResult = technicalCancel.request(jsonRequest, requestOptions);
+        return deserializeResponse(jsonResult);
+    }
+
+    /**
+     * Issues /adjust Authorisation
+     *
+     * @param adjustAuthorisationRequest AdjustAuthorisationRequest
+     * @return ModificationResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public ModificationResult adjustAuthorization(AdjustAuthorisationRequest adjustAuthorisationRequest) throws IOException, ApiException {
+        return adjustAuthorization(adjustAuthorisationRequest, null);
+    }
+
+    public ModificationResult adjustAuthorization(AdjustAuthorisationRequest adjustAuthorisationRequest, RequestOptions requestOptions) throws IOException, ApiException {
+
+        String jsonRequest = serializeRequest(adjustAuthorisationRequest);
+        String jsonResult = adjustAuthorisation.request(jsonRequest, requestOptions);
+        return deserializeResponse(jsonResult);
+    }
+
 
     private String serializeRequest(AbstractModificationRequest modificationRequest) {
         String jsonRequest = GSON.toJson(modificationRequest);
