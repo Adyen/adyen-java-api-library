@@ -7,6 +7,18 @@
 
 The Adyen API Library for Java enables you to work with Adyen APIs and Hosted Payment Pages.
 
+## Integration
+The Library supports all APIs under the following services:
+
+* checkout
+* checkout utility
+* payments
+* modifications
+* payouts
+* recurring
+* marketpay
+* notifications
+
 ## Requirements
 
 * Java 7 or higher
@@ -28,8 +40,8 @@ Add this dependency to your project's POM:
 ```
 
 ## Documentation
-
-Follow the rest of our guides from the [documentation](http://adyen.github.io/adyen-java-api-library/index.html) on how to use this library.
+* https://docs.adyen.com/developers/development-resources/libraries
+* https://docs.adyen.com/developers/checkout/api-integration
 
 ## Usage
 
