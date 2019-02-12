@@ -93,6 +93,9 @@ public class PaymentsResponse {
     @SerializedName("merchantReference")
     private String merchantReference;
 
+    @SerializedName("outputDetails")
+    private Map<String, String> outputDetails;
+
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
         return this;
@@ -308,6 +311,14 @@ public class PaymentsResponse {
         this.merchantReference = merchantReference;
     }
 
+    public Map<String, String> getOutputDetails() {
+        return outputDetails;
+    }
+
+    public void setOutputDetails(Map<String, String> outputDetails) {
+        this.outputDetails = outputDetails;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -329,7 +340,8 @@ public class PaymentsResponse {
                 && Objects.equals(this.resultCode, paymentsResponse.resultCode)
                 && Objects.equals(this.serviceError, paymentsResponse.serviceError)
                 && Objects.equals(this.authResponse, paymentsResponse.authResponse)
-                && Objects.equals(this.merchantReference, paymentsResponse.merchantReference);
+                && Objects.equals(this.merchantReference, paymentsResponse.merchantReference)
+                && Objects.equals(this.outputDetails, paymentsResponse.outputDetails);
     }
 
     @Override
@@ -353,6 +365,7 @@ public class PaymentsResponse {
         sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
         sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
         sb.append("}");
         return sb.toString();
     }

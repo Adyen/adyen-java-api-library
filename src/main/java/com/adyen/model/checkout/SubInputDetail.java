@@ -47,6 +47,9 @@ public class SubInputDetail {
     @SerializedName("value")
     private String value = null;
 
+    @SerializedName("Configuration")
+    private Object configuration = null;
+
     public SubInputDetail items(List<Item> items) {
         this.items = items;
         return this;
@@ -149,6 +152,19 @@ public class SubInputDetail {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    /**
+     * The value can be pre-filled, if available.
+     *
+     * @return value
+     **/
+    public Object getConfiguration() {
+        return configuration;
+    }
+
+    public void setConfiguration(Object configuration) {
+        this.configuration = configuration;
     }
 
     @Override
