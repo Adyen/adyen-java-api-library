@@ -148,6 +148,13 @@ public class PaymentsResponse {
         return this;
     }
 
+    public String getOutputDetailDataByKey(String key) {
+        if (outputDetails == null) {
+            return null;
+        }
+        return outputDetails.get(key);
+    }
+
     /**
      * When non-empty, contains all the fields that you must submit to the &#x60;/payments/details&#x60; endpoint.
      *
@@ -402,6 +409,7 @@ public class PaymentsResponse {
         CANCELLED("Cancelled"),
         RECEIVED("Received"),
         REDIRECTSHOPPER("RedirectShopper"),
+        PRESENTTOSHOPPER("PresentToShopper"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
         private String value;
@@ -471,29 +479,29 @@ public class PaymentsResponse {
     }
 
     public String getBoletoBarCodeReference() {
-        return getAdditionalDataByKey(BOLETO_BARCODE_REFERENCE);
+        return getOutputDetailDataByKey(BOLETO_BARCODE_REFERENCE);
     }
 
     public String getBoletoData() {
-        return getAdditionalDataByKey(BOLETO_DATA);
+        return getOutputDetailDataByKey(BOLETO_DATA);
     }
 
     public String getAuthCode() {
-        return getAdditionalDataByKey(AUTH_CODE);
+        return getOutputDetailDataByKey(AUTH_CODE);
     }
 
     public Date getBoletoDueDate() {
-        String date = getAdditionalDataByKey(BOLETO_DUE_DATE);
+        String date = getOutputDetailDataByKey(BOLETO_DUE_DATE);
         return DateUtil.parseYmdDate(date);
     }
 
     public Date getBoletoExpirationDate() {
-        String date = getAdditionalDataByKey(BOLETO_EXPIRATION_DATE);
+        String date = getOutputDetailDataByKey(BOLETO_EXPIRATION_DATE);
         return DateUtil.parseYmdDate(date);
     }
 
     public String getBoletoUrl() {
-        return getAdditionalDataByKey(BOLETO_URL);
+        return getOutputDetailDataByKey(BOLETO_URL);
     }
 
 
