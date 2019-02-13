@@ -25,6 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -48,7 +49,7 @@ public class SubInputDetail {
     private String value = null;
 
     @SerializedName("Configuration")
-    private Object configuration = null;
+    private Map<String, String> configuration;
 
     public SubInputDetail items(List<Item> items) {
         this.items = items;
@@ -159,11 +160,11 @@ public class SubInputDetail {
      *
      * @return value
      **/
-    public Object getConfiguration() {
+    public Map<String, String> getConfiguration() {
         return configuration;
     }
 
-    public void setConfiguration(Object configuration) {
+    public void setConfiguration(Map<String, String> configuration) {
         this.configuration = configuration;
     }
 
@@ -180,7 +181,8 @@ public class SubInputDetail {
                 Objects.equals(this.key, subInputDetail.key) &&
                 Objects.equals(this.optional, subInputDetail.optional) &&
                 Objects.equals(this.type, subInputDetail.type) &&
-                Objects.equals(this.value, subInputDetail.value);
+                Objects.equals(this.value, subInputDetail.value) &&
+                Objects.equals(this.configuration,subInputDetail.configuration);
     }
 
     @Override
@@ -198,6 +200,7 @@ public class SubInputDetail {
         sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("}");
         return sb.toString();
     }
