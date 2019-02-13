@@ -21,12 +21,11 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * SubInputDetail
@@ -177,12 +176,13 @@ public class SubInputDetail {
             return false;
         }
         SubInputDetail subInputDetail = (SubInputDetail) o;
-        return Objects.equals(this.items, subInputDetail.items) &&
-                Objects.equals(this.key, subInputDetail.key) &&
-                Objects.equals(this.optional, subInputDetail.optional) &&
-                Objects.equals(this.type, subInputDetail.type) &&
-                Objects.equals(this.value, subInputDetail.value) &&
-                Objects.equals(this.configuration,subInputDetail.configuration);
+        return Objects.equals(this.items, subInputDetail.items)
+                && Objects.equals(this.key, subInputDetail.key)
+                && Objects.equals(this.optional, subInputDetail.optional)
+                && Objects.equals(this.type,
+                                  subInputDetail.type)
+                && Objects.equals(this.value, subInputDetail.value)
+                && Objects.equals(this.configuration, subInputDetail.configuration);
     }
 
     @Override
@@ -206,8 +206,7 @@ public class SubInputDetail {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
