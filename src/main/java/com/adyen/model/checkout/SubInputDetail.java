@@ -21,11 +21,11 @@
 
 package com.adyen.model.checkout;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * SubInputDetail
@@ -46,6 +46,9 @@ public class SubInputDetail {
 
     @SerializedName("value")
     private String value = null;
+
+    @SerializedName("Configuration")
+    private Map<String, String> configuration;
 
     public SubInputDetail items(List<Item> items) {
         this.items = items;
@@ -151,6 +154,19 @@ public class SubInputDetail {
         this.value = value;
     }
 
+    /**
+     * The value can be pre-filled, if available.
+     *
+     * @return value
+     **/
+    public Map<String, String> getConfiguration() {
+        return configuration;
+    }
+
+    public void setConfiguration(Map<String, String> configuration) {
+        this.configuration = configuration;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -160,11 +176,13 @@ public class SubInputDetail {
             return false;
         }
         SubInputDetail subInputDetail = (SubInputDetail) o;
-        return Objects.equals(this.items, subInputDetail.items) &&
-                Objects.equals(this.key, subInputDetail.key) &&
-                Objects.equals(this.optional, subInputDetail.optional) &&
-                Objects.equals(this.type, subInputDetail.type) &&
-                Objects.equals(this.value, subInputDetail.value);
+        return Objects.equals(this.items, subInputDetail.items)
+                && Objects.equals(this.key, subInputDetail.key)
+                && Objects.equals(this.optional, subInputDetail.optional)
+                && Objects.equals(this.type,
+                                  subInputDetail.type)
+                && Objects.equals(this.value, subInputDetail.value)
+                && Objects.equals(this.configuration, subInputDetail.configuration);
     }
 
     @Override
@@ -182,13 +200,13 @@ public class SubInputDetail {
         sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

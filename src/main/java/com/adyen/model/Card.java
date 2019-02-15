@@ -208,8 +208,7 @@ public class Card {
         return Objects.equals(this.expiryMonth, card.expiryMonth)
                 && Objects.equals(this.expiryYear, card.expiryYear)
                 && Objects.equals(this.cvc, card.cvc)
-                && Objects.equals(this.holderName,
-                                  card.holderName)
+                && Objects.equals(this.holderName, card.holderName)
                 && Objects.equals(this.issueNumber, card.issueNumber)
                 && Objects.equals(this.number, card.number)
                 && Objects.equals(this.startMonth, card.startMonth)

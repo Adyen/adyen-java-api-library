@@ -93,6 +93,9 @@ public class PaymentsResponse {
     @SerializedName("merchantReference")
     private String merchantReference;
 
+    @SerializedName("outputDetails")
+    private Map<String, String> outputDetails;
+
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
         return this;
@@ -143,6 +146,13 @@ public class PaymentsResponse {
 
         this.details.add(detailsItem);
         return this;
+    }
+
+    public String getOutputDetailDataByKey(String key) {
+        if (outputDetails == null) {
+            return null;
+        }
+        return outputDetails.get(key);
     }
 
     /**
@@ -308,6 +318,14 @@ public class PaymentsResponse {
         this.merchantReference = merchantReference;
     }
 
+    public Map<String, String> getOutputDetails() {
+        return outputDetails;
+    }
+
+    public void setOutputDetails(Map<String, String> outputDetails) {
+        this.outputDetails = outputDetails;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -329,7 +347,8 @@ public class PaymentsResponse {
                 && Objects.equals(this.resultCode, paymentsResponse.resultCode)
                 && Objects.equals(this.serviceError, paymentsResponse.serviceError)
                 && Objects.equals(this.authResponse, paymentsResponse.authResponse)
-                && Objects.equals(this.merchantReference, paymentsResponse.merchantReference);
+                && Objects.equals(this.merchantReference, paymentsResponse.merchantReference)
+                && Objects.equals(this.outputDetails, paymentsResponse.outputDetails);
     }
 
     @Override
@@ -353,6 +372,7 @@ public class PaymentsResponse {
         sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
         sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -389,6 +409,7 @@ public class PaymentsResponse {
         CANCELLED("Cancelled"),
         RECEIVED("Received"),
         REDIRECTSHOPPER("RedirectShopper"),
+        PRESENTTOSHOPPER("PresentToShopper"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
         private String value;
@@ -458,29 +479,29 @@ public class PaymentsResponse {
     }
 
     public String getBoletoBarCodeReference() {
-        return getAdditionalDataByKey(BOLETO_BARCODE_REFERENCE);
+        return getOutputDetailDataByKey(BOLETO_BARCODE_REFERENCE);
     }
 
     public String getBoletoData() {
-        return getAdditionalDataByKey(BOLETO_DATA);
+        return getOutputDetailDataByKey(BOLETO_DATA);
     }
 
     public String getAuthCode() {
-        return getAdditionalDataByKey(AUTH_CODE);
+        return getOutputDetailDataByKey(AUTH_CODE);
     }
 
     public Date getBoletoDueDate() {
-        String date = getAdditionalDataByKey(BOLETO_DUE_DATE);
+        String date = getOutputDetailDataByKey(BOLETO_DUE_DATE);
         return DateUtil.parseYmdDate(date);
     }
 
     public Date getBoletoExpirationDate() {
-        String date = getAdditionalDataByKey(BOLETO_EXPIRATION_DATE);
+        String date = getOutputDetailDataByKey(BOLETO_EXPIRATION_DATE);
         return DateUtil.parseYmdDate(date);
     }
 
     public String getBoletoUrl() {
-        return getAdditionalDataByKey(BOLETO_URL);
+        return getOutputDetailDataByKey(BOLETO_URL);
     }
 
 
