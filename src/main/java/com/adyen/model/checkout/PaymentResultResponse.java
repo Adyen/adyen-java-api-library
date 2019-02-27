@@ -238,19 +238,16 @@ public class PaymentResultResponse {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentResultResponse {\n");
-
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
-        sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
-        sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class PaymentResultResponse {\n"
+            + "    additionalData: " + toIndentedString(additionalData) + "\n"
+            + "    authResponse: " + toIndentedString(authResponse) + "\n"
+            + "    fraudResult: " + toIndentedString(fraudResult) + "\n"
+            + "    merchantReference: " + toIndentedString(merchantReference) + "\n"
+            + "    pspReference: " + toIndentedString(pspReference) + "\n"
+            + "    refusalReason: " + toIndentedString(refusalReason) + "\n"
+            + "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + "\n"
+            + "    resultCode: " + toIndentedString(resultCode) + "\n"
+            + "}";
     }
 
     /**
