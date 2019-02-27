@@ -655,7 +655,7 @@ public class PaymentsRequest {
     public PaymentsRequest putMetadataItem(String key, String metadataItem) {
 
         if (this.metadata == null) {
-            this.metadata = null;
+            this.metadata = new HashMap<>();
         }
 
         this.metadata.put(key, metadataItem);
