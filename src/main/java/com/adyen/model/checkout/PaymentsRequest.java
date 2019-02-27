@@ -20,12 +20,8 @@
  */
 package com.adyen.model.checkout;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
+
 import com.adyen.Util.Util;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
@@ -45,7 +41,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * PaymentsRequest
@@ -227,7 +229,7 @@ public class PaymentsRequest {
     public PaymentsRequest putAdditionalDataItem(String key, String additionalDataItem) {
 
         if (this.additionalData == null) {
-            this.additionalData = null;
+            this.additionalData = new HashMap<>();
         }
 
         this.additionalData.put(key, additionalDataItem);
@@ -569,7 +571,7 @@ public class PaymentsRequest {
     public PaymentsRequest addLineItemsItem(LineItem lineItemsItem) {
 
         if (this.lineItems == null) {
-            this.lineItems = new ArrayList<LineItem>();
+            this.lineItems = new ArrayList<>();
         }
 
         this.lineItems.add(lineItemsItem);
