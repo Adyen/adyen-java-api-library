@@ -410,7 +410,7 @@ public class PaymentsResponse {
         RECEIVED("Received"),
         REDIRECTSHOPPER("RedirectShopper"),
         PRESENTTOSHOPPER("PresentToShopper"),
-        IDENTIGYSHOPPER("IdentifyShopper"),
+        IDENTIFYSHOPPER("IdentifyShopper"),
         CHALLENGESHOPPER("ChallengeShopper"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
