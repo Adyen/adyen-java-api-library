@@ -43,9 +43,6 @@ Add this dependency to your project's POM:
 * https://docs.adyen.com/developers/development-resources/libraries
 * https://docs.adyen.com/developers/checkout/api-integration
 
-## Usage
-
-The code examples on using this library are located in the library section of the java-sample-code repository: https://github.com/adyen/adyen-java-sample-code
 
 ## Proxy configuration
 
