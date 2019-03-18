@@ -148,6 +148,9 @@ public class PaymentsRequest {
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
 
+    @SerializedName("origin")
+    private String origin;
+
     @SerializedName("configId")
     private String configId = null;
 
@@ -1024,6 +1027,14 @@ public class PaymentsRequest {
         return this;
     }
 
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1078,7 +1089,8 @@ public class PaymentsRequest {
                 && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
                 && Objects.equals(this.merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
                 && Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData)
-                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper);
+                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
+                && Objects.equals(this.origin, paymentsRequest.origin);
 
     }
 
@@ -1181,6 +1193,7 @@ public class PaymentsRequest {
           + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
           + "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + "\n"
           + "    configId: " + toIndentedString(configId) + "\n"
+          + "    origin: " + toIndentedString(origin) + "\n"
           + "}";
     }
 
