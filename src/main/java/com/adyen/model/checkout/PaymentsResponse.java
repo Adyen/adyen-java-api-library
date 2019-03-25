@@ -410,6 +410,7 @@ public class PaymentsResponse {
         RECEIVED("Received"),
         REDIRECTSHOPPER("RedirectShopper"),
         PRESENTTOSHOPPER("PresentToShopper"),
+        PENDING("Pending"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
         private String value;
