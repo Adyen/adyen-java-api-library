@@ -20,13 +20,14 @@
  */
 package com.adyen.model.applicationinfo;
 
+import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 
 public class ApplicationInfo {
     @SerializedName("adyenLibrary")
-    private CommonField adyenLibrary = null;
+    private CommonField adyenLibrary;
 
     @SerializedName("adyenPaymentSource")
     private CommonField adyenPaymentSource = null;
@@ -126,4 +127,29 @@ public class ApplicationInfo {
                 + shopperInteractionDevice
                 + '}';
     }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ApplicationInfo applicationInfo = (ApplicationInfo) o;
+        return Objects.equals(this.adyenLibrary, applicationInfo.adyenLibrary)
+                && Objects.equals(this.adyenPaymentSource, applicationInfo.adyenPaymentSource)
+                && Objects.equals(this.externalPlatform,
+                                  applicationInfo.externalPlatform)
+                && Objects.equals(this.merchantApplication, applicationInfo.merchantApplication)
+                && Objects.equals(this.merchantDevice, applicationInfo.merchantDevice)
+                && Objects.equals(this.paymentDetailsSource, applicationInfo.paymentDetailsSource)
+                && Objects.equals(this.shopperInteractionDevice, applicationInfo.shopperInteractionDevice);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(adyenLibrary, adyenPaymentSource, externalPlatform, merchantApplication, merchantDevice, paymentDetailsSource, shopperInteractionDevice);
+    }
+
 }
