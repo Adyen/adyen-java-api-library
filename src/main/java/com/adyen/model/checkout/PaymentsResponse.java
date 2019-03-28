@@ -411,6 +411,8 @@ public class PaymentsResponse {
         REDIRECTSHOPPER("RedirectShopper"),
         PRESENTTOSHOPPER("PresentToShopper"),
         PENDING("Pending"),
+        IDENTIFYSHOPPER("IdentifyShopper"),
+        CHALLENGESHOPPER("ChallengeShopper"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
         private String value;
