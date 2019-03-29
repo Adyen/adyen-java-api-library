@@ -1035,6 +1035,11 @@ public class PaymentsRequest {
         this.origin = origin;
     }
 
+    public PaymentsRequest origin(String origin) {
+        this.origin = origin;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
