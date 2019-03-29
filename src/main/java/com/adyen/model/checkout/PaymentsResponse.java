@@ -51,6 +51,10 @@ import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
 import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_ENTITY;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_AMOUNT;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_REFERENCE;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_DEADLINE;
 
 /**
  * PaymentsResponse
@@ -507,12 +511,26 @@ public class PaymentsResponse {
         return getOutputDetailDataByKey(BOLETO_URL);
     }
 
-
     public Date getExpiryDate() {
         String expiryDate = getAdditionalDataByKey(EXPIRY_DATE);
         return DateUtil.parseMYDate(expiryDate);
     }
 
+    public String getMultibancoEntity() {
+        return getAdditionalDataByKey(MULTIBANCO_ENTITY);
+    }
+
+    public String getMultibancoAmount() {
+        return getAdditionalDataByKey(MULTIBANCO_AMOUNT);
+    }
+
+    public String getMultibancoDeadline() {
+        return getAdditionalDataByKey(MULTIBANCO_DEADLINE);
+    }
+
+    public String getMultibancoReference() {
+        return getAdditionalDataByKey(MULTIBANCO_REFERENCE);
+    }
 }
 
 
