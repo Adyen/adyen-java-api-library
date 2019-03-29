@@ -60,6 +60,10 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private Boolean storeDetails;
     @SerializedName("idealIssuer")
     private String idealIssuer;
+    @SerializedName("sepa.ownerName")
+    private String sepaOwnerName;
+    @SerializedName("sepa.ibanNumber")
+    private String sepaIbanNumber;
 
     @Override
     public String getType() {
@@ -284,6 +288,22 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return this;
     }
 
+    public String getSepaOwnerName() {
+        return sepaOwnerName;
+    }
+
+    public void setSepaOwnerName(String sepaOwnerName) {
+        this.sepaOwnerName = sepaOwnerName;
+    }
+
+    public String getSepaIbanNumber() {
+        return sepaIbanNumber;
+    }
+
+    public void setSepaIbanNumber(String sepaIbanNumber) {
+        this.sepaIbanNumber = sepaIbanNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -311,7 +331,9 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(encryptedSecurityCode, that.encryptedSecurityCode)
                 && Objects.equals(recurringDetailReference, that.recurringDetailReference)
                 && Objects.equals(storeDetails, that.storeDetails)
-                && Objects.equals(idealIssuer, that.idealIssuer);
+                && Objects.equals(idealIssuer, that.idealIssuer)
+                && Objects.equals(sepaIbanNumber, that.sepaIbanNumber)
+                && Objects.equals(sepaOwnerName, that.sepaOwnerName);
     }
 
     @Override
