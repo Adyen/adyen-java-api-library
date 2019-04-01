@@ -96,6 +96,9 @@ public class PaymentsResponse {
     @SerializedName("outputDetails")
     private Map<String, String> outputDetails;
 
+    @SerializedName("authentication")
+    private Map<String, String> authentication;
+
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
         return this;
@@ -338,7 +341,7 @@ public class PaymentsResponse {
         return Objects.equals(this.additionalData, paymentsResponse.additionalData)
                 && Objects.equals(this.details, paymentsResponse.details)
                 && Objects.equals(this.fraudResult,
-                paymentsResponse.fraudResult)
+                                  paymentsResponse.fraudResult)
                 && Objects.equals(this.paymentData, paymentsResponse.paymentData)
                 && Objects.equals(this.pspReference, paymentsResponse.pspReference)
                 && Objects.equals(this.redirect, paymentsResponse.redirect)
@@ -373,6 +376,7 @@ public class PaymentsResponse {
         sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
+        sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -449,8 +453,7 @@ public class PaymentsResponse {
                 String value = jsonReader.nextString();
                 return ResultCodeEnum.fromValue(String.valueOf(value));
             }
-        }
-    }
+        }}
 
     public String getCardBin() {
         return getAdditionalDataByKey(CARD_BIN);
@@ -490,6 +493,14 @@ public class PaymentsResponse {
 
     public String getAuthCode() {
         return getOutputDetailDataByKey(AUTH_CODE);
+    }
+
+    public Map<String, String> getAuthentication() {
+        return authentication;
+    }
+
+    public void setAuthentication(Map<String, String> authentication) {
+        this.authentication = authentication;
     }
 
     public Date getBoletoDueDate() {
