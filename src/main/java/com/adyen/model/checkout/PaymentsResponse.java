@@ -455,7 +455,8 @@ public class PaymentsResponse {
                 String value = jsonReader.nextString();
                 return ResultCodeEnum.fromValue(String.valueOf(value));
             }
-        }}
+        }
+    }
 
     public String getCardBin() {
         return getAdditionalDataByKey(CARD_BIN);
