@@ -265,7 +265,7 @@ public class CheckoutTest extends BaseTest {
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
         assertEquals("8111111111111111", paymentsResponse.getPspReference());
-        assertEquals(new BigDecimal("101.01"), paymentsResponse.getMultibancoAmount());
+        assertEquals(0, new BigDecimal("101.01").compareTo(paymentsResponse.getMultibancoAmount()));
         assertEquals("3",paymentsResponse.getMultibancoDeadline());
         assertEquals("12345",paymentsResponse.getMultibancoEntity());
     }
