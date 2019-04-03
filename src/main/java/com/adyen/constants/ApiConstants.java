@@ -96,7 +96,6 @@ public interface ApiConstants {
 
     interface PaymentMethodType {
         String TYPE_SCHEME = "scheme";
-        String TYPE_SEPA_DIRECT_DEBIT = "sepadirectdebit";
     }
 
     interface RequestProperty {
