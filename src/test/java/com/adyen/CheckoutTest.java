@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -251,6 +252,22 @@ public class CheckoutTest extends BaseTest {
                              + "  \"reference\": \"Your order number\",\n"
                              + "  \"returnUrl\": \"https://your-company.com/...\"\n"
                              + "}", jsonRequest);
+    }
+
+    /**
+     * Test success flow for
+     * POST /payments
+     */
+    @Test
+    public void TestMultibancoPaymentsSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentsresult-multibanco-succes.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("8111111111111111", paymentsResponse.getPspReference());
+        assertEquals(new BigDecimal("101.01"), paymentsResponse.getMultibancoAmount());
+        assertEquals("3",paymentsResponse.getMultibancoDeadline());
+        assertEquals("12345",paymentsResponse.getMultibancoEntity());
     }
 
     @Test

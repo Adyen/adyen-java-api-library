@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -520,8 +521,8 @@ public class PaymentsResponse {
         return getAdditionalDataByKey(MULTIBANCO_ENTITY);
     }
 
-    public String getMultibancoAmount() {
-        return getAdditionalDataByKey(MULTIBANCO_AMOUNT);
+    public BigDecimal getMultibancoAmount() {
+        return new BigDecimal(getAdditionalDataByKey(MULTIBANCO_AMOUNT));
     }
 
     public String getMultibancoDeadline() {
