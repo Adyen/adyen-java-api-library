@@ -710,6 +710,10 @@ public class PaymentsRequest {
     }
 
     public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
+        return addEncryptedCardData(encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, holderName, null);
+    }
+
+    public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName, Boolean storeDetails) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
 
         paymentMethodDetails.type(TYPE_SCHEME).encryptedCardNumber(encryptedCardNumber).encryptedExpiryMonth(encryptedExpiryMonth).encryptedExpiryYear(encryptedExpiryYear);
@@ -718,6 +722,9 @@ public class PaymentsRequest {
         }
         if (holderName != null) {
             paymentMethodDetails.setHolderName(holderName);
+        }
+        if (storeDetails != null) {
+            paymentMethodDetails.setStoreDetails(storeDetails);
         }
 
         this.paymentMethod = paymentMethodDetails;
@@ -734,6 +741,10 @@ public class PaymentsRequest {
      * @return paymentMethod payment method
      */
     public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
+        return addCardData(cardNumber, expiryMonth, expiryYear, securityCode, holderName, null);
+    }
+
+    public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName, Boolean storeDetails) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
         paymentMethodDetails.type(TYPE_SCHEME).number(cardNumber).expiryMonth(expiryMonth).expiryYear(expiryYear);
 
@@ -742,6 +753,9 @@ public class PaymentsRequest {
         }
         if (holderName != null) {
             paymentMethodDetails.setHolderName(holderName);
+        }
+        if (storeDetails != null) {
+            paymentMethodDetails.setStoreDetails(storeDetails);
         }
 
         this.paymentMethod = paymentMethodDetails;
