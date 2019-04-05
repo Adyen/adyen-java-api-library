@@ -52,6 +52,9 @@ public class NotificationRequest {
     }
 
     public List<NotificationRequestItem> getNotificationItems() {
+        if (this.notificationItemContainers == null) {
+            return null;
+        }
         List<NotificationRequestItem> notificationRequestItems = new ArrayList<>();
         for (NotificationRequestItemContainer container : this.notificationItemContainers) {
             notificationRequestItems.add(container.getNotificationItem());
