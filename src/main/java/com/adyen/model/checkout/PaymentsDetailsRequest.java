@@ -93,6 +93,25 @@ public class PaymentsDetailsRequest {
         return this;
     }
 
+    public PaymentsDetailsRequest setFingerPrint(String fingerPrint, String paymentData) {
+        if (this.details == null) {
+            this.details = new HashMap<>();
+        }
+
+        this.details.put("threeds2.fingerprint", fingerPrint);
+        this.paymentData(paymentData);
+        return this;
+    }
+
+    public PaymentsDetailsRequest setChallengeResult(String challengeResult, String paymentData) {
+        if (this.details == null) {
+            this.details = new HashMap<>();
+        }
+        this.details.put("threeds2.challengeResult", challengeResult);
+        this.paymentData(paymentData);
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -102,8 +121,7 @@ public class PaymentsDetailsRequest {
             return false;
         }
         PaymentsDetailsRequest paymentsDetailsRequest = (PaymentsDetailsRequest) o;
-        return Objects.equals(this.details, paymentsDetailsRequest.details) &&
-                Objects.equals(this.paymentData, paymentsDetailsRequest.paymentData);
+        return Objects.equals(this.details, paymentsDetailsRequest.details) && Objects.equals(this.paymentData, paymentsDetailsRequest.paymentData);
     }
 
     @Override

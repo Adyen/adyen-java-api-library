@@ -501,7 +501,7 @@ public class PaymentsResponse {
     }
 
     public String getAuthCode() {
-        return getOutputDetailDataByKey(AUTH_CODE);
+        return getAdditionalDataByKey(AUTH_CODE);
     }
 
     public Map<String, String> getAuthentication() {
