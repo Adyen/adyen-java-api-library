@@ -34,6 +34,10 @@ public class NotificationRequest {
     @SerializedName("notificationItems")
     private List<NotificationRequestItemContainer> notificationItemContainers = null;
 
+    public NotificationRequest() {
+        this.notificationItemContainers = new ArrayList<>();
+    }
+
     public String getLive() {
         return live;
     }
