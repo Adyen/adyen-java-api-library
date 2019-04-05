@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,6 +28,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import org.junit.Test;
 import com.adyen.model.Amount;
+import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
@@ -251,6 +253,51 @@ public class CheckoutTest extends BaseTest {
                              + "  \"reference\": \"Your order number\",\n"
                              + "  \"returnUrl\": \"https://your-company.com/...\"\n"
                              + "}", jsonRequest);
+    }
+
+    /**
+     * Test success flow for
+     * POST /payments
+     */
+    @Test
+    public void TestMultibancoPaymentsSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentsresult-multibanco-succes.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("8111111111111111", paymentsResponse.getPspReference());
+        assertEquals(0, new BigDecimal("101.01").compareTo(paymentsResponse.getMultibancoAmount()));
+        assertEquals("3",paymentsResponse.getMultibancoDeadline());
+        assertEquals("12345",paymentsResponse.getMultibancoEntity());
+    }
+
+    @Test
+    public void TestSepaPaymentMethodDetails() {
+        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
+        defaultPaymentMethodDetails.type("sepadirectdebit");
+        defaultPaymentMethodDetails.setSepaOwnerName("A. Schneider");
+        defaultPaymentMethodDetails.setSepaIbanNumber("DE87123456781234567890");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setApplicationInfo(null);
+        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"type\": \"sepadirectdebit\",\n"
+                + "    \"sepa.ownerName\": \"A. Schneider\",\n"
+                + "    \"sepa.ibanNumber\": \"DE87123456781234567890\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\"\n"
+                + "}",jsonRequest );
     }
 
     @Test

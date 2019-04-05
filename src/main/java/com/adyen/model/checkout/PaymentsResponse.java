@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -51,6 +52,10 @@ import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
 import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_ENTITY;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_AMOUNT;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_REFERENCE;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_DEADLINE;
 
 /**
  * PaymentsResponse
@@ -95,6 +100,9 @@ public class PaymentsResponse {
 
     @SerializedName("outputDetails")
     private Map<String, String> outputDetails;
+
+    @SerializedName("authentication")
+    private Map<String, String> authentication;
 
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -338,7 +346,7 @@ public class PaymentsResponse {
         return Objects.equals(this.additionalData, paymentsResponse.additionalData)
                 && Objects.equals(this.details, paymentsResponse.details)
                 && Objects.equals(this.fraudResult,
-                paymentsResponse.fraudResult)
+                                  paymentsResponse.fraudResult)
                 && Objects.equals(this.paymentData, paymentsResponse.paymentData)
                 && Objects.equals(this.pspReference, paymentsResponse.pspReference)
                 && Objects.equals(this.redirect, paymentsResponse.redirect)
@@ -348,7 +356,9 @@ public class PaymentsResponse {
                 && Objects.equals(this.serviceError, paymentsResponse.serviceError)
                 && Objects.equals(this.authResponse, paymentsResponse.authResponse)
                 && Objects.equals(this.merchantReference, paymentsResponse.merchantReference)
-                && Objects.equals(this.outputDetails, paymentsResponse.outputDetails);
+                && Objects.equals(this.outputDetails, paymentsResponse.outputDetails)
+                && Objects.equals(this.authentication, paymentsResponse.authentication);
+
     }
 
     @Override
@@ -373,6 +383,7 @@ public class PaymentsResponse {
         sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
+        sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -410,6 +421,9 @@ public class PaymentsResponse {
         RECEIVED("Received"),
         REDIRECTSHOPPER("RedirectShopper"),
         PRESENTTOSHOPPER("PresentToShopper"),
+        PENDING("Pending"),
+        IDENTIFYSHOPPER("IdentifyShopper"),
+        CHALLENGESHOPPER("ChallengeShopper"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
         private String value;
@@ -487,7 +501,15 @@ public class PaymentsResponse {
     }
 
     public String getAuthCode() {
-        return getOutputDetailDataByKey(AUTH_CODE);
+        return getAdditionalDataByKey(AUTH_CODE);
+    }
+
+    public Map<String, String> getAuthentication() {
+        return authentication;
+    }
+
+    public void setAuthentication(Map<String, String> authentication) {
+        this.authentication = authentication;
     }
 
     public Date getBoletoDueDate() {
@@ -504,12 +526,26 @@ public class PaymentsResponse {
         return getOutputDetailDataByKey(BOLETO_URL);
     }
 
-
     public Date getExpiryDate() {
         String expiryDate = getAdditionalDataByKey(EXPIRY_DATE);
         return DateUtil.parseMYDate(expiryDate);
     }
 
+    public String getMultibancoEntity() {
+        return getAdditionalDataByKey(MULTIBANCO_ENTITY);
+    }
+
+    public BigDecimal getMultibancoAmount() {
+        return new BigDecimal(getAdditionalDataByKey(MULTIBANCO_AMOUNT));
+    }
+
+    public String getMultibancoDeadline() {
+        return getAdditionalDataByKey(MULTIBANCO_DEADLINE);
+    }
+
+    public String getMultibancoReference() {
+        return getAdditionalDataByKey(MULTIBANCO_REFERENCE);
+    }
 }
 
 

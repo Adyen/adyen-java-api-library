@@ -20,12 +20,8 @@
  */
 package com.adyen.model.checkout;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
+
 import com.adyen.Util.Util;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
@@ -45,7 +41,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * PaymentsRequest
@@ -146,6 +148,9 @@ public class PaymentsRequest {
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
 
+    @SerializedName("origin")
+    private String origin;
+
     @SerializedName("configId")
     private String configId = null;
 
@@ -227,7 +232,7 @@ public class PaymentsRequest {
     public PaymentsRequest putAdditionalDataItem(String key, String additionalDataItem) {
 
         if (this.additionalData == null) {
-            this.additionalData = null;
+            this.additionalData = new HashMap<>();
         }
 
         this.additionalData.put(key, additionalDataItem);
@@ -569,7 +574,7 @@ public class PaymentsRequest {
     public PaymentsRequest addLineItemsItem(LineItem lineItemsItem) {
 
         if (this.lineItems == null) {
-            this.lineItems = new ArrayList<LineItem>();
+            this.lineItems = new ArrayList<>();
         }
 
         this.lineItems.add(lineItemsItem);
@@ -653,7 +658,7 @@ public class PaymentsRequest {
     public PaymentsRequest putMetadataItem(String key, String metadataItem) {
 
         if (this.metadata == null) {
-            this.metadata = null;
+            this.metadata = new HashMap<>();
         }
 
         this.metadata.put(key, metadataItem);
@@ -705,6 +710,10 @@ public class PaymentsRequest {
     }
 
     public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
+        return addEncryptedCardData(encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, holderName, null);
+    }
+
+    public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName, Boolean storeDetails) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
 
         paymentMethodDetails.type(TYPE_SCHEME).encryptedCardNumber(encryptedCardNumber).encryptedExpiryMonth(encryptedExpiryMonth).encryptedExpiryYear(encryptedExpiryYear);
@@ -713,6 +722,9 @@ public class PaymentsRequest {
         }
         if (holderName != null) {
             paymentMethodDetails.setHolderName(holderName);
+        }
+        if (storeDetails != null) {
+            paymentMethodDetails.setStoreDetails(storeDetails);
         }
 
         this.paymentMethod = paymentMethodDetails;
@@ -729,6 +741,10 @@ public class PaymentsRequest {
      * @return paymentMethod payment method
      */
     public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
+        return addCardData(cardNumber, expiryMonth, expiryYear, securityCode, holderName, null);
+    }
+
+    public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName, Boolean storeDetails) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
         paymentMethodDetails.type(TYPE_SCHEME).number(cardNumber).expiryMonth(expiryMonth).expiryYear(expiryYear);
 
@@ -737,6 +753,9 @@ public class PaymentsRequest {
         }
         if (holderName != null) {
             paymentMethodDetails.setHolderName(holderName);
+        }
+        if (storeDetails != null) {
+            paymentMethodDetails.setStoreDetails(storeDetails);
         }
 
         this.paymentMethod = paymentMethodDetails;
@@ -1022,6 +1041,19 @@ public class PaymentsRequest {
         return this;
     }
 
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public PaymentsRequest origin(String origin) {
+        this.origin = origin;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1033,8 +1065,7 @@ public class PaymentsRequest {
         PaymentsRequest paymentsRequest = (PaymentsRequest) o;
         return Objects.equals(this.additionalData, paymentsRequest.additionalData)
                 && Objects.equals(this.amount, paymentsRequest.amount)
-                && Objects.equals(this.billingAddress,
-                                  paymentsRequest.billingAddress)
+                && Objects.equals(this.billingAddress, paymentsRequest.billingAddress)
                 && Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours)
                 && Objects.equals(this.channel, paymentsRequest.channel)
                 && Objects.equals(this.company, paymentsRequest.company)
@@ -1076,7 +1107,8 @@ public class PaymentsRequest {
                 && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
                 && Objects.equals(this.merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
                 && Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData)
-                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper);
+                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
+                && Objects.equals(this.origin, paymentsRequest.origin);
 
     }
 
@@ -1130,58 +1162,57 @@ public class PaymentsRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentsRequest {\n");
 
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
-        sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-        sb.append("    company: ").append(toIndentedString(company)).append("\n");
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-        sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");
-        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-        sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
-        sb.append("    enableOneClick: ").append(toIndentedString(enableOneClick)).append("\n");
-        sb.append("    enablePayOut: ").append(toIndentedString(enablePayOut)).append("\n");
-        sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
-        sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
-        sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
-        sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
-        sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
-        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
-        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
-        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
-        sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
-        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
-        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
-        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
-        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
-        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
-        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
-        sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
-        sb.append("}");
-        return sb.toString();
+      return "class PaymentsRequest {\n"
+          + "    additionalData: " + toIndentedString(additionalData) + "\n"
+          + "    amount: " + toIndentedString(amount) + "\n"
+          + "    billingAddress: " + toIndentedString(billingAddress) + "\n"
+          + "    captureDelayHours: " + toIndentedString(captureDelayHours) + "\n"
+          + "    channel: " + toIndentedString(channel) + "\n"
+          + "    company: " + toIndentedString(company) + "\n"
+          + "    countryCode: " + toIndentedString(countryCode) + "\n"
+          + "    dateOfBirth: " + toIndentedString(dateOfBirth) + "\n"
+          + "    dccQuote: " + toIndentedString(dccQuote) + "\n"
+          + "    deliveryAddress: " + toIndentedString(deliveryAddress) + "\n"
+          + "    deliveryDate: " + toIndentedString(deliveryDate) + "\n"
+          + "    enableOneClick: " + toIndentedString(enableOneClick) + "\n"
+          + "    enablePayOut: " + toIndentedString(enablePayOut) + "\n"
+          + "    enableRecurring: " + toIndentedString(enableRecurring) + "\n"
+          + "    entityType: " + toIndentedString(entityType) + "\n"
+          + "    fraudOffset: " + toIndentedString(fraudOffset) + "\n"
+          + "    installments: " + toIndentedString(installments) + "\n"
+          + "    lineItems: " + toIndentedString(lineItems) + "\n"
+          + "    mcc: " + toIndentedString(mcc) + "\n"
+          + "    merchantAccount: " + toIndentedString(merchantAccount) + "\n"
+          + "    merchantOrderReference: " + toIndentedString(merchantOrderReference) + "\n"
+          + "    metadata: " + toIndentedString(metadata) + "\n"
+          + "    orderReference: " + toIndentedString(orderReference) + "\n"
+          + "    paymentMethod: " + toIndentedString(paymentMethod) + "\n"
+          + "    reference: " + toIndentedString(reference) + "\n"
+          + "    returnUrl: " + toIndentedString(returnUrl) + "\n"
+          + "    sessionValidity: " + toIndentedString(sessionValidity) + "\n"
+          + "    shopperEmail: " + toIndentedString(shopperEmail) + "\n"
+          + "    shopperIP: " + toIndentedString(shopperIP) + "\n"
+          + "    shopperInteraction: " + toIndentedString(shopperInteraction) + "\n"
+          + "    shopperLocale: " + toIndentedString(shopperLocale) + "\n"
+          + "    shopperName: " + toIndentedString(shopperName) + "\n"
+          + "    shopperReference: " + toIndentedString(shopperReference) + "\n"
+          + "    shopperStatement: " + toIndentedString(shopperStatement) + "\n"
+          + "    socialSecurityNumber: " + toIndentedString(socialSecurityNumber) + "\n"
+          + "    deviceFingerprint: " + toIndentedString(deviceFingerprint) + "\n"
+          + "    applicationInfo: " + toIndentedString(applicationInfo) + "\n"
+          + "    telephoneNumber: " + toIndentedString(telephoneNumber) + "\n"
+          + "    accountInfo: " + toIndentedString(accountInfo) + "\n"
+          + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
+          + "    splits: " + toIndentedString(splits) + "\n"
+          + "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + "\n"
+          + "    merchantRiskIndicator: " + toIndentedString(merchantRiskIndicator) + "\n"
+          + "    threeDS2RequestData: " + toIndentedString(threeDS2RequestData) + "\n"
+          + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
+          + "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + "\n"
+          + "    configId: " + toIndentedString(configId) + "\n"
+          + "    origin: " + toIndentedString(origin) + "\n"
+          + "}";
     }
 
     /**
