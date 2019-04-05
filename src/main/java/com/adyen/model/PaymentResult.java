@@ -87,7 +87,13 @@ public class PaymentResult {
         RECEIVED("Received"),
 
         @SerializedName("RedirectShopper")
-        REDIRECTSHOPPER("RedirectShopper");
+        REDIRECTSHOPPER("RedirectShopper"),
+
+        @SerializedName("IdentifyShopper")
+        IDENTIFYSHOPPER("IdentifyShopper"),
+
+        @SerializedName("ChallengeShopper")
+        CHALLENGESHOPPER("ChallengeShopper");
 
         private String value;
 
