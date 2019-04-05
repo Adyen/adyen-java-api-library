@@ -34,10 +34,6 @@ public class NotificationRequest {
     @SerializedName("notificationItems")
     private List<NotificationRequestItemContainer> notificationItemContainers = null;
 
-    public NotificationRequest() {
-        this.notificationItemContainers = new ArrayList<>();
-    }
-
     public String getLive() {
         return live;
     }
@@ -56,6 +52,9 @@ public class NotificationRequest {
     }
 
     public List<NotificationRequestItem> getNotificationItems() {
+        if (this.notificationItemContainers == null) {
+            return null;
+        }
         List<NotificationRequestItem> notificationRequestItems = new ArrayList<>();
         for (NotificationRequestItemContainer container : this.notificationItemContainers) {
             notificationRequestItems.add(container.getNotificationItem());
