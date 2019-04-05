@@ -58,7 +58,6 @@ public interface ApiConstants {
         String MULTIBANCO_DEADLINE = "comprafacil.deadline";
         String MULTIBANCO_REFERENCE = "comprafacil.reference";
 
-
         String ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
         String ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
         String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";

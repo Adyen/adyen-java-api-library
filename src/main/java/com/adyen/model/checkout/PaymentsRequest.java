@@ -1065,8 +1065,7 @@ public class PaymentsRequest {
         PaymentsRequest paymentsRequest = (PaymentsRequest) o;
         return Objects.equals(this.additionalData, paymentsRequest.additionalData)
                 && Objects.equals(this.amount, paymentsRequest.amount)
-                && Objects.equals(this.billingAddress,
-                                  paymentsRequest.billingAddress)
+                && Objects.equals(this.billingAddress, paymentsRequest.billingAddress)
                 && Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours)
                 && Objects.equals(this.channel, paymentsRequest.channel)
                 && Objects.equals(this.company, paymentsRequest.company)
