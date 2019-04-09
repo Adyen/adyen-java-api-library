@@ -159,9 +159,7 @@ public class PaymentsRequest {
 
 
     public PaymentsRequest() {
-        if (this.applicationInfo == null) {
-            this.applicationInfo = new ApplicationInfo();
-        }
+        this.applicationInfo = new ApplicationInfo();
     }
 
     public MerchantRiskIndicator getMerchantRiskIndicator() {
@@ -1375,8 +1373,4 @@ public class PaymentsRequest {
         }
     }
 
-
 }
-
-
-

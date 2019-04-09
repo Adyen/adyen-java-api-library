@@ -162,9 +162,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     private ApplicationInfo applicationInfo;
 
     public AbstractPaymentRequest() {
-        if (this.applicationInfo == null) {
-            applicationInfo = new ApplicationInfo();
-        }
+        applicationInfo = new ApplicationInfo();
     }
 
     /**
@@ -930,4 +928,3 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     }
 
 }
-

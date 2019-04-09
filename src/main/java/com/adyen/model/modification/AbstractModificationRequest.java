@@ -56,6 +56,10 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     @SerializedName("splits")
     private List<Split> splits = null;
 
+    public AbstractModificationRequest() {
+        applicationInfo = new ApplicationInfo();
+    }
+
     public T reference(String reference) {
         this.reference = reference;
         return (T) this;
@@ -288,4 +292,3 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     }
 
 }
-

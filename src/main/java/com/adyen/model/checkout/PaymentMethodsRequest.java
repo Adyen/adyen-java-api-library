@@ -64,7 +64,7 @@ public class PaymentMethodsRequest {
     private AccountInfo accountInfo = null;
 
     @SerializedName("applciationInfo")
-    private ApplicationInfo applicationInfo = null;
+    private ApplicationInfo applicationInfo;
 
     @SerializedName("configId")
     private String configId = null;
@@ -80,6 +80,10 @@ public class PaymentMethodsRequest {
 
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
+
+    public PaymentMethodsRequest() {
+        applicationInfo = new ApplicationInfo();
+    }
 
     public Object getAdditionalData() {
         return additionalData;
@@ -389,8 +393,4 @@ public class PaymentMethodsRequest {
         }
     }
 
-
 }
-
-
-
