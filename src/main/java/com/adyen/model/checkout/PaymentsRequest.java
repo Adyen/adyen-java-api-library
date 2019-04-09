@@ -1031,11 +1031,15 @@ public class PaymentsRequest {
     }
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
+        if (applicationInfo == null) {
+            this.applicationInfo = new ApplicationInfo();
+        } else {
+            this.applicationInfo = applicationInfo;
+        }
     }
 
     public PaymentsRequest applicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
+        setApplicationInfo(applicationInfo);
         return this;
     }
 

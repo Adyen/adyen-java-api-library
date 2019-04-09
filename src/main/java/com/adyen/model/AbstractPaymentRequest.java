@@ -756,7 +756,11 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     }
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
+        if (applicationInfo == null) {
+            this.applicationInfo = new ApplicationInfo();
+        } else {
+            this.applicationInfo = applicationInfo;
+        }
     }
 
     /**

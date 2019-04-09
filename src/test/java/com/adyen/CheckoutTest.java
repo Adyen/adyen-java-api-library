@@ -217,22 +217,28 @@ public class CheckoutTest extends BaseTest {
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
         assertEquals("{\n"
-                             + "  \"amount\": {\n"
-                             + "    \"value\": 1000,\n"
-                             + "    \"currency\": \"USD\"\n"
-                             + "  },\n"
-                             + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
-                             + "  \"paymentMethod\": {\n"
-                             + "    \"type\": \"scheme\",\n"
-                             + "    \"number\": \"4111111111111111\",\n"
-                             + "    \"expiryMonth\": \"10\",\n"
-                             + "    \"expiryYear\": \"2018\",\n"
-                             + "    \"holderName\": \"John Smith\",\n"
-                             + "    \"cvc\": \"737\"\n"
-                             + "  },\n"
-                             + "  \"reference\": \"Your order number\",\n"
-                             + "  \"returnUrl\": \"https://your-company.com/...\"\n"
-                             + "}", jsonRequest);
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"type\": \"scheme\",\n"
+                + "    \"number\": \"4111111111111111\",\n"
+                + "    \"expiryMonth\": \"10\",\n"
+                + "    \"expiryYear\": \"2018\",\n"
+                + "    \"holderName\": \"John Smith\",\n"
+                + "    \"cvc\": \"737\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"adyen-java-api-library\",\n"
+                + "      \"version\": \"2.0.1\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}", jsonRequest);
 
         TestPaymentMethodDetails testPaymentMethodDetails = new TestPaymentMethodDetails();
         testPaymentMethodDetails.setType("testType");
@@ -241,18 +247,24 @@ public class CheckoutTest extends BaseTest {
 
         jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
         assertEquals("{\n"
-                             + "  \"amount\": {\n"
-                             + "    \"value\": 1000,\n"
-                             + "    \"currency\": \"USD\"\n"
-                             + "  },\n"
-                             + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
-                             + "  \"paymentMethod\": {\n"
-                             + "    \"testKey\": \"testValue\",\n"
-                             + "    \"type\": \"testType\"\n"
-                             + "  },\n"
-                             + "  \"reference\": \"Your order number\",\n"
-                             + "  \"returnUrl\": \"https://your-company.com/...\"\n"
-                             + "}", jsonRequest);
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"testKey\": \"testValue\",\n"
+                + "    \"type\": \"testType\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"adyen-java-api-library\",\n"
+                + "      \"version\": \"2.0.1\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}", jsonRequest);
     }
 
     /**
@@ -296,7 +308,13 @@ public class CheckoutTest extends BaseTest {
                 + "    \"sepa.ibanNumber\": \"DE87123456781234567890\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
-                + "  \"returnUrl\": \"https://your-company.com/...\"\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"adyen-java-api-library\",\n"
+                + "      \"version\": \"2.0.1\"\n"
+                + "    }\n"
+                + "  }\n"
                 + "}",jsonRequest );
     }
 
@@ -312,7 +330,16 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setDateOfBirth(d);
         paymentsRequest.setDeliveryDate(d);
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertEquals("{\n" + "  \"dateOfBirth\": \"2018-10-31\",\n" + "  \"deliveryDate\": \"2018-10-31T00:00:00.000Z\"\n" + "}", jsonRequest);
+        assertEquals("{\n"
+                + "  \"dateOfBirth\": \"2018-10-31\",\n"
+                + "  \"deliveryDate\": \"2018-10-31T00:00:00.000Z\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"adyen-java-api-library\",\n"
+                + "      \"version\": \"2.0.1\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
     }
 
     /**

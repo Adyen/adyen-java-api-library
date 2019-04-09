@@ -137,11 +137,15 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     }
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
+        if (applicationInfo == null) {
+            this.applicationInfo = new ApplicationInfo();
+        } else {
+            this.applicationInfo = applicationInfo;
+        }
     }
 
     public T applicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
+        setApplicationInfo(applicationInfo);
         return (T) this;
     }
 

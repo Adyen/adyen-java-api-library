@@ -525,7 +525,7 @@ public class PaymentSessionRequest {
     }
 
     public PaymentSessionRequest applicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
+        setApplicationInfo(applicationInfo);
         return this;
     }
 
@@ -534,7 +534,11 @@ public class PaymentSessionRequest {
     }
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
+        if (applicationInfo == null) {
+            this.applicationInfo = new ApplicationInfo();
+        } else {
+            this.applicationInfo = applicationInfo;
+        }
     }
 
     public PaymentSessionRequest bankAccount(BankAccount bankAccount) {
