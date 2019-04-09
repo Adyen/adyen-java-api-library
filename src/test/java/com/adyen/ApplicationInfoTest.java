@@ -16,8 +16,16 @@ public class ApplicationInfoTest {
         ApplicationInfo applicationInfo2 = new ApplicationInfo();
 
         assertEquals(applicationInfo, applicationInfo2);
+    }
+
+    @Test
+    public void TestApplicationInfoPrefilledLibraryFields() {
+        ApplicationInfo applicationInfo = new ApplicationInfo();
+
         assertNotNull(applicationInfo.getAdyenLibrary());
+        assertNotNull(applicationInfo.getAdyenLibrary().getName());
         assertEquals(LIB_NAME, applicationInfo.getAdyenLibrary().getName());
+        assertNotNull(applicationInfo.getAdyenLibrary().getVersion());
         assertEquals(LIB_VERSION, applicationInfo.getAdyenLibrary().getVersion());
     }
 }
