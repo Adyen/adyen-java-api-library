@@ -115,6 +115,12 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  },\n"
                 + "  \"additionalData\": {\n"
                 + "    \"card.encrypted.json\": \"adyenjs_0_1_4p1$...\"\n"
+                + "  },\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"adyen-java-api-library\",\n"
+                + "      \"version\": \"2.0.1\"\n"
+                + "    }\n"
                 + "  }\n"
                 + "}";
 
