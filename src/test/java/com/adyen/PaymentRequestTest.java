@@ -20,10 +20,15 @@
  */
 package com.adyen;
 
+import com.adyen.model.applicationinfo.ApplicationInfo;
 import org.junit.Test;
 import com.adyen.enums.VatCategory;
 import com.adyen.model.PaymentRequest;
+
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class PaymentRequestTest extends BaseTest {
 
@@ -59,5 +64,44 @@ public class PaymentRequestTest extends BaseTest {
         assertEquals(new Long("2345"), paymentRequest.getAmount().getValue());
         assertEquals("EUR", paymentRequest.getAmount().getCurrency());
         assertEquals("apaymenttoken", paymentRequest.getAdditionalData().get("payment.token"));
+    }
+
+    @Test
+    public void TestDefaultApplicationInfoAdyenLibrary() {
+        PaymentRequest paymentRequest = new PaymentRequest();
+
+        assertNotNull(paymentRequest.getApplicationInfo());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertEquals(LIB_NAME, paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+        assertEquals(LIB_VERSION, paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+    }
+
+    @Test
+    public void TestCustomApplicationInfoAdyenLibrary() {
+        PaymentRequest paymentRequest = new PaymentRequest();
+        ApplicationInfo applicationInfo = new ApplicationInfo();
+        paymentRequest.setApplicationInfo(applicationInfo);
+
+        assertNotNull(paymentRequest.getApplicationInfo());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertEquals(LIB_NAME, paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+        assertEquals(LIB_VERSION, paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+    }
+
+    @Test
+    public void TestNullApplicationInfoAdyenLibrary() {
+        PaymentRequest paymentRequest = new PaymentRequest();
+        paymentRequest.setApplicationInfo(null);
+
+        assertNotNull(paymentRequest.getApplicationInfo());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertEquals(LIB_NAME, paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+        assertEquals(LIB_VERSION, paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
     }
 }
