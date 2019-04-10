@@ -57,16 +57,9 @@ public class ModificationRequestTest {
         assertEquals(LIB_VERSION, modificationRequest.getApplicationInfo().getAdyenLibrary().getVersion());
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void TestNullApplicationInfoAdyenLibrary() {
         AbstractModificationRequest modificationRequest = new AbstractModificationRequest();
         modificationRequest.setApplicationInfo(null);
-
-        assertNotNull(modificationRequest.getApplicationInfo());
-        assertNotNull(modificationRequest.getApplicationInfo().getAdyenLibrary());
-        assertNotNull(modificationRequest.getApplicationInfo().getAdyenLibrary().getName());
-        assertEquals(LIB_NAME, modificationRequest.getApplicationInfo().getAdyenLibrary().getName());
-        assertNotNull(modificationRequest.getApplicationInfo().getAdyenLibrary().getVersion());
-        assertEquals(LIB_VERSION, modificationRequest.getApplicationInfo().getAdyenLibrary().getVersion());
     }
 }

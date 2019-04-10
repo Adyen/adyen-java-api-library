@@ -20,16 +20,17 @@
  */
 package com.adyen.model.modification;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 import com.adyen.model.Split;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Abstract class for modification requests
@@ -138,10 +139,9 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
         if (applicationInfo == null) {
-            this.applicationInfo = new ApplicationInfo();
-        } else {
-            this.applicationInfo = applicationInfo;
+            throw new IllegalArgumentException("ApplicationInfo cannot be null");
         }
+        this.applicationInfo = applicationInfo;
     }
 
     public T applicationInfo(ApplicationInfo applicationInfo) {

@@ -107,10 +107,9 @@ public class PaymentMethodsRequest {
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
         if (applicationInfo == null) {
-            this.applicationInfo = new ApplicationInfo();
-        } else {
-            this.applicationInfo = applicationInfo;
+            throw new IllegalArgumentException("ApplicationInfo cannot be null");
         }
+        this.applicationInfo = applicationInfo;
     }
 
     public PaymentMethodsRequest amount(Amount amount) {

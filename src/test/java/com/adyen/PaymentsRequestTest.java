@@ -57,16 +57,9 @@ public class PaymentsRequestTest {
         assertEquals(LIB_VERSION, paymentsRequest.getApplicationInfo().getAdyenLibrary().getVersion());
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void TestNullApplicationInfoAdyenLibrary() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
         paymentsRequest.setApplicationInfo(null);
-
-        assertNotNull(paymentsRequest.getApplicationInfo());
-        assertNotNull(paymentsRequest.getApplicationInfo().getAdyenLibrary());
-        assertNotNull(paymentsRequest.getApplicationInfo().getAdyenLibrary().getName());
-        assertEquals(LIB_NAME, paymentsRequest.getApplicationInfo().getAdyenLibrary().getName());
-        assertNotNull(paymentsRequest.getApplicationInfo().getAdyenLibrary().getVersion());
-        assertEquals(LIB_VERSION, paymentsRequest.getApplicationInfo().getAdyenLibrary().getVersion());
     }
 }

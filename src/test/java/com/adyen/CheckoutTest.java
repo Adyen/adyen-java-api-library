@@ -20,13 +20,6 @@
  */
 package com.adyen;
 
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
-import org.junit.Test;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
@@ -41,6 +34,17 @@ import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PaymentsResponse;
 import com.adyen.service.Checkout;
 import com.google.gson.annotations.SerializedName;
+import org.junit.Test;
+
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 import static com.adyen.enums.Environment.LIVE;
 import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
@@ -213,7 +217,6 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentMethodDetails() {
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setApplicationInfo(null);
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
         assertEquals("{\n"
@@ -234,8 +237,8 @@ public class CheckoutTest extends BaseTest {
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
                 + "  \"applicationInfo\": {\n"
                 + "    \"adyenLibrary\": {\n"
-                + "      \"name\": \"adyen-java-api-library\",\n"
-                + "      \"version\": \"2.0.1\"\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
                 + "}", jsonRequest);
@@ -260,8 +263,8 @@ public class CheckoutTest extends BaseTest {
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
                 + "  \"applicationInfo\": {\n"
                 + "    \"adyenLibrary\": {\n"
-                + "      \"name\": \"adyen-java-api-library\",\n"
-                + "      \"version\": \"2.0.1\"\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
                 + "}", jsonRequest);
@@ -291,7 +294,6 @@ public class CheckoutTest extends BaseTest {
         defaultPaymentMethodDetails.setSepaIbanNumber("DE87123456781234567890");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setApplicationInfo(null);
         paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
@@ -311,8 +313,8 @@ public class CheckoutTest extends BaseTest {
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
                 + "  \"applicationInfo\": {\n"
                 + "    \"adyenLibrary\": {\n"
-                + "      \"name\": \"adyen-java-api-library\",\n"
-                + "      \"version\": \"2.0.1\"\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
                 + "}",jsonRequest );
@@ -321,7 +323,6 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestDateSerializers() throws ParseException {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
-        paymentsRequest.setApplicationInfo(null);
 
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -335,8 +336,8 @@ public class CheckoutTest extends BaseTest {
                 + "  \"deliveryDate\": \"2018-10-31T00:00:00.000Z\",\n"
                 + "  \"applicationInfo\": {\n"
                 + "    \"adyenLibrary\": {\n"
-                + "      \"name\": \"adyen-java-api-library\",\n"
-                + "      \"version\": \"2.0.1\"\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
                 + "}",jsonRequest );
