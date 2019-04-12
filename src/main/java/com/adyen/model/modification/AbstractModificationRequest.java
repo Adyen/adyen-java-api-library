@@ -268,7 +268,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         sb.append("    authorisationCode: ").append(toIndentedString(authorisationCode)).append("\n");
         sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
 
         return sb.toString();
