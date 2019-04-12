@@ -45,9 +45,8 @@ public class ModificationRequestTest {
 
     @Test
     public void TestCustomApplicationInfoAdyenLibrary() {
-        AbstractModificationRequest modificationRequest = new AbstractModificationRequest();
         ApplicationInfo applicationInfo = new ApplicationInfo();
-        modificationRequest.setApplicationInfo(applicationInfo);
+        AbstractModificationRequest modificationRequest = new AbstractModificationRequest().applicationInfo(applicationInfo);
 
         assertNotNull(modificationRequest.getApplicationInfo());
         assertNotNull(modificationRequest.getApplicationInfo().getAdyenLibrary());
@@ -59,7 +58,6 @@ public class ModificationRequestTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void TestNullApplicationInfoAdyenLibrary() {
-        AbstractModificationRequest modificationRequest = new AbstractModificationRequest();
-        modificationRequest.setApplicationInfo(null);
+        AbstractModificationRequest modificationRequest = new AbstractModificationRequest().applicationInfo(null);
     }
 }

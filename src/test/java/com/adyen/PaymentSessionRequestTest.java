@@ -45,9 +45,8 @@ public class PaymentSessionRequestTest {
 
     @Test
     public void TestCustomApplicationInfoAdyenLibrary() {
-        PaymentSessionRequest paymentSessionRequest = new PaymentSessionRequest();
         ApplicationInfo applicationInfo = new ApplicationInfo();
-        paymentSessionRequest.setApplicationInfo(applicationInfo);
+        PaymentSessionRequest paymentSessionRequest = new PaymentSessionRequest().applicationInfo(applicationInfo);
 
         assertNotNull(paymentSessionRequest.getApplicationInfo());
         assertNotNull(paymentSessionRequest.getApplicationInfo().getAdyenLibrary());
@@ -59,7 +58,6 @@ public class PaymentSessionRequestTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void TestNullApplicationInfoAdyenLibrary() {
-        PaymentSessionRequest paymentSessionRequest = new PaymentSessionRequest();
-        paymentSessionRequest.setApplicationInfo(null);
+        PaymentSessionRequest paymentSessionRequest = new PaymentSessionRequest().applicationInfo(null);
     }
 }
