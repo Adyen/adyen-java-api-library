@@ -137,18 +137,6 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         return applicationInfo;
     }
 
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        if (applicationInfo == null) {
-            throw new IllegalArgumentException("ApplicationInfo cannot be null");
-        }
-        this.applicationInfo = applicationInfo;
-    }
-
-    public T applicationInfo(ApplicationInfo applicationInfo) {
-        setApplicationInfo(applicationInfo);
-        return (T) this;
-    }
-
     public Map<String, String> getAdditionalData() {
         return additionalData;
     }

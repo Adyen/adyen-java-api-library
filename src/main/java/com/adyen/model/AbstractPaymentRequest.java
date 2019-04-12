@@ -755,13 +755,6 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         return applicationInfo;
     }
 
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        if (applicationInfo == null) {
-            throw new IllegalArgumentException("ApplicationInfo cannot be null");
-        }
-        this.applicationInfo = applicationInfo;
-    }
-
     /**
      * a map of key/value pairs of metadata sent by merchant
      *

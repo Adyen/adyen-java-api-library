@@ -20,7 +20,7 @@
  */
 package com.adyen;
 
-import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.adyen.model.applicationinfo.ExternalPlatform;
 import com.adyen.model.modification.AbstractModificationRequest;
 import org.junit.Test;
 
@@ -44,9 +44,11 @@ public class ModificationRequestTest {
     }
 
     @Test
-    public void TestCustomApplicationInfoAdyenLibrary() {
-        ApplicationInfo applicationInfo = new ApplicationInfo();
-        AbstractModificationRequest modificationRequest = new AbstractModificationRequest().applicationInfo(applicationInfo);
+    public void TestModifiedApplicationInfoAdyenLibrary() {
+        AbstractModificationRequest modificationRequest = new AbstractModificationRequest();
+        ExternalPlatform externalPlatform = new ExternalPlatform();
+        externalPlatform.setIntegrator("TEST");
+        modificationRequest.getApplicationInfo().setExternalPlatform(externalPlatform);
 
         assertNotNull(modificationRequest.getApplicationInfo());
         assertNotNull(modificationRequest.getApplicationInfo().getAdyenLibrary());
@@ -54,10 +56,5 @@ public class ModificationRequestTest {
         assertEquals(LIB_NAME, modificationRequest.getApplicationInfo().getAdyenLibrary().getName());
         assertNotNull(modificationRequest.getApplicationInfo().getAdyenLibrary().getVersion());
         assertEquals(LIB_VERSION, modificationRequest.getApplicationInfo().getAdyenLibrary().getVersion());
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void TestNullApplicationInfoAdyenLibrary() {
-        AbstractModificationRequest modificationRequest = new AbstractModificationRequest().applicationInfo(null);
     }
 }

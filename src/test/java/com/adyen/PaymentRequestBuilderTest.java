@@ -40,11 +40,10 @@ public class PaymentRequestBuilderTest extends BaseTest {
     public void TestCCPaymentRequest() {
         String integratorName = "TestIntegrator";
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
-        ApplicationInfo applicationInfo = new ApplicationInfo();
         ExternalPlatform externalPlatform = new ExternalPlatform();
         externalPlatform.setIntegrator(integratorName);
-        applicationInfo.setExternalPlatform(externalPlatform);
-        paymentRequest.setApplicationInfo(applicationInfo);
+        paymentRequest.getApplicationInfo().setExternalPlatform(externalPlatform);
+
 
         // Test metadata
         paymentRequest.setMetadata(new HashMap<String, String>());

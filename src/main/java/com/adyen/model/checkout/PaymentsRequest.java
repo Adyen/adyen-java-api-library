@@ -159,7 +159,9 @@ public class PaymentsRequest {
 
 
     public PaymentsRequest() {
-        this.applicationInfo = new ApplicationInfo();
+        if (this.applicationInfo == null) {
+            this.applicationInfo = new ApplicationInfo();
+        }
     }
 
     public MerchantRiskIndicator getMerchantRiskIndicator() {
@@ -1031,14 +1033,11 @@ public class PaymentsRequest {
     }
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        if (applicationInfo == null) {
-            throw new IllegalArgumentException("ApplicationInfo cannot be null");
-        }
         this.applicationInfo = applicationInfo;
     }
 
     public PaymentsRequest applicationInfo(ApplicationInfo applicationInfo) {
-        setApplicationInfo(applicationInfo);
+        this.applicationInfo = applicationInfo;
         return this;
     }
 
@@ -1376,4 +1375,8 @@ public class PaymentsRequest {
         }
     }
 
+
 }
+
+
+

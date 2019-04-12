@@ -20,10 +20,10 @@
  */
 package com.adyen;
 
-import com.adyen.model.applicationinfo.ApplicationInfo;
-import org.junit.Test;
 import com.adyen.enums.VatCategory;
 import com.adyen.model.PaymentRequest;
+import com.adyen.model.applicationinfo.ExternalPlatform;
+import org.junit.Test;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
@@ -81,8 +81,9 @@ public class PaymentRequestTest extends BaseTest {
     @Test
     public void TestCustomApplicationInfoAdyenLibrary() {
         PaymentRequest paymentRequest = new PaymentRequest();
-        ApplicationInfo applicationInfo = new ApplicationInfo();
-        paymentRequest.setApplicationInfo(applicationInfo);
+        ExternalPlatform externalPlatform = new ExternalPlatform();
+        externalPlatform.setIntegrator("TEST");
+        paymentRequest.getApplicationInfo().setExternalPlatform(externalPlatform);
 
         assertNotNull(paymentRequest.getApplicationInfo());
         assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary());
@@ -90,11 +91,5 @@ public class PaymentRequestTest extends BaseTest {
         assertEquals(LIB_NAME, paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
         assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
         assertEquals(LIB_VERSION, paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void TestNullApplicationInfoAdyenLibrary() {
-        PaymentRequest paymentRequest = new PaymentRequest();
-        paymentRequest.setApplicationInfo(null);
     }
 }

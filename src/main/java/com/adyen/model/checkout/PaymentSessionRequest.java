@@ -89,6 +89,9 @@ public class PaymentSessionRequest {
     @SerializedName("card")
     private Card card = null;
 
+
+
+
     /**
      * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we
      * will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
@@ -445,14 +448,11 @@ public class PaymentSessionRequest {
     @SerializedName("uniqueTerminalId")
     private String uniqueTerminalId = null;
 
-    public PaymentSessionRequest() {
-        applicationInfo = new ApplicationInfo();
-    }
-
     public PaymentSessionRequest accountInfo(AccountInfo accountInfo) {
         this.accountInfo = accountInfo;
         return this;
     }
+
 
     public AccountInfo getAccountInfo() {
         return accountInfo;
@@ -467,6 +467,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public Amount getAdditionalAmount() {
         return additionalAmount;
     }
@@ -479,6 +480,7 @@ public class PaymentSessionRequest {
         this.additionalData = additionalData;
         return this;
     }
+
 
     public Object getAdditionalData() {
         return additionalData;
@@ -503,6 +505,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public List<String> getAllowedPaymentMethods() {
         return allowedPaymentMethods;
     }
@@ -516,6 +519,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public Amount getAmount() {
         return amount;
     }
@@ -525,7 +529,7 @@ public class PaymentSessionRequest {
     }
 
     public PaymentSessionRequest applicationInfo(ApplicationInfo applicationInfo) {
-        setApplicationInfo(applicationInfo);
+        this.applicationInfo = applicationInfo;
         return this;
     }
 
@@ -534,9 +538,6 @@ public class PaymentSessionRequest {
     }
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        if (applicationInfo == null) {
-            throw new IllegalArgumentException("ApplicationInfo cannot be null");
-        }
         this.applicationInfo = applicationInfo;
     }
 
@@ -544,6 +545,7 @@ public class PaymentSessionRequest {
         this.bankAccount = bankAccount;
         return this;
     }
+
 
     public BankAccount getBankAccount() {
         return bankAccount;
@@ -557,6 +559,7 @@ public class PaymentSessionRequest {
         this.billingAddress = billingAddress;
         return this;
     }
+
 
     public Address getBillingAddress() {
         return billingAddress;
@@ -580,6 +583,7 @@ public class PaymentSessionRequest {
         this.blockedPaymentMethods.add(blockedPaymentMethodsItem);
         return this;
     }
+
 
     public List<String> getBlockedPaymentMethods() {
         return blockedPaymentMethods;
@@ -607,6 +611,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public Integer getCaptureDelayHours() {
         return captureDelayHours;
     }
@@ -633,6 +638,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public ChannelEnum getChannel() {
         return channel;
     }
@@ -658,6 +664,7 @@ public class PaymentSessionRequest {
         this.configId = configId;
         return this;
     }
+
 
     public String getConfigId() {
         return configId;
@@ -724,6 +731,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public Address getDeliveryAddress() {
         return deliveryAddress;
     }
@@ -776,6 +784,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public Boolean isEnablePayOut() {
         return enablePayOut;
     }
@@ -802,6 +811,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public EntityTypeEnum getEntityType() {
         return entityType;
     }
@@ -814,6 +824,7 @@ public class PaymentSessionRequest {
         this.fraudOffset = fraudOffset;
         return this;
     }
+
 
     public Integer getFraudOffset() {
         return fraudOffset;
@@ -841,6 +852,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public Installments getInstallments() {
         return installments;
     }
@@ -864,6 +876,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public List<LineItem> getLineItems() {
         return lineItems;
     }
@@ -876,6 +889,7 @@ public class PaymentSessionRequest {
         this.mcc = mcc;
         return this;
     }
+
 
     public String getMcc() {
         return mcc;
@@ -890,6 +904,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public String getMerchantAccount() {
         return merchantAccount;
     }
@@ -902,6 +917,7 @@ public class PaymentSessionRequest {
         this.merchantOrderReference = merchantOrderReference;
         return this;
     }
+
 
     public String getMerchantOrderReference() {
         return merchantOrderReference;
@@ -916,6 +932,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public MerchantRiskIndicator getMerchantRiskIndicator() {
         return merchantRiskIndicator;
     }
@@ -928,6 +945,7 @@ public class PaymentSessionRequest {
         this.metadata = metadata;
         return this;
     }
+
 
     public Object getMetadata() {
         return metadata;
@@ -942,6 +960,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public ThreeDSecureData getMpiData() {
         return mpiData;
     }
@@ -954,6 +973,7 @@ public class PaymentSessionRequest {
         this.nationality = nationality;
         return this;
     }
+
 
     public String getNationality() {
         return nationality;
@@ -968,6 +988,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public String getOrderReference() {
         return orderReference;
     }
@@ -980,6 +1001,7 @@ public class PaymentSessionRequest {
         this.origin = origin;
         return this;
     }
+
 
     public String getOrigin() {
         return origin;
@@ -994,6 +1016,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public Recurring getRecurring() {
         return recurring;
     }
@@ -1006,6 +1029,7 @@ public class PaymentSessionRequest {
         this.recurringProcessingModel = recurringProcessingModel;
         return this;
     }
+
 
     public RecurringProcessingModelEnum getRecurringProcessingModel() {
         return recurringProcessingModel;
@@ -1033,6 +1057,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public String getReturnUrl() {
         return returnUrl;
     }
@@ -1045,6 +1070,7 @@ public class PaymentSessionRequest {
         this.sdkVersion = sdkVersion;
         return this;
     }
+
 
     public String getSdkVersion() {
         return sdkVersion;
@@ -1072,6 +1098,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public String getSelectedRecurringDetailReference() {
         return selectedRecurringDetailReference;
     }
@@ -1084,6 +1111,7 @@ public class PaymentSessionRequest {
         this.sessionId = sessionId;
         return this;
     }
+
 
     public String getSessionId() {
         return sessionId;
@@ -1111,6 +1139,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public String getShopperEmail() {
         return shopperEmail;
     }
@@ -1123,6 +1152,7 @@ public class PaymentSessionRequest {
         this.shopperIP = shopperIP;
         return this;
     }
+
 
     public String getShopperIP() {
         return shopperIP;
@@ -1137,6 +1167,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public ShopperInteractionEnum getShopperInteraction() {
         return shopperInteraction;
     }
@@ -1149,6 +1180,7 @@ public class PaymentSessionRequest {
         this.shopperLocale = shopperLocale;
         return this;
     }
+
 
     public String getShopperLocale() {
         return shopperLocale;
@@ -1175,6 +1207,7 @@ public class PaymentSessionRequest {
         this.shopperReference = shopperReference;
         return this;
     }
+
 
     public String getShopperReference() {
         return shopperReference;
@@ -1238,6 +1271,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public String getStore() {
         return store;
     }
@@ -1251,6 +1285,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public String getTelephoneNumber() {
         return telephoneNumber;
     }
@@ -1263,6 +1298,7 @@ public class PaymentSessionRequest {
         this.threeDS2RequestData = threeDS2RequestData;
         return this;
     }
+
 
     public ThreeDS2RequestData getThreeDS2RequestData() {
         return threeDS2RequestData;
@@ -1290,6 +1326,7 @@ public class PaymentSessionRequest {
         return this;
     }
 
+
     public void setTotalsGroup(String totalsGroup) {
         this.totalsGroup = totalsGroup;
     }
@@ -1298,6 +1335,7 @@ public class PaymentSessionRequest {
         this.trustedShopper = trustedShopper;
         return this;
     }
+
 
     public Boolean isTrustedShopper() {
         return trustedShopper;
@@ -1311,6 +1349,7 @@ public class PaymentSessionRequest {
         this.uniqueTerminalId = uniqueTerminalId;
         return this;
     }
+
 
     public String getUniqueTerminalId() {
         return uniqueTerminalId;
@@ -1547,4 +1586,7 @@ public class PaymentSessionRequest {
         return o.toString().replace("\n", "\n    ");
     }
 
+
 }
+
+

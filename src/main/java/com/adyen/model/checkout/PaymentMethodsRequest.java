@@ -64,7 +64,7 @@ public class PaymentMethodsRequest {
     private AccountInfo accountInfo = null;
 
     @SerializedName("applciationInfo")
-    private ApplicationInfo applicationInfo;
+    private ApplicationInfo applicationInfo = null;
 
     @SerializedName("configId")
     private String configId = null;
@@ -80,10 +80,6 @@ public class PaymentMethodsRequest {
 
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
-
-    public PaymentMethodsRequest() {
-        applicationInfo = new ApplicationInfo();
-    }
 
     public Object getAdditionalData() {
         return additionalData;
@@ -106,9 +102,6 @@ public class PaymentMethodsRequest {
     }
 
     public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        if (applicationInfo == null) {
-            throw new IllegalArgumentException("ApplicationInfo cannot be null");
-        }
         this.applicationInfo = applicationInfo;
     }
 
@@ -396,4 +389,8 @@ public class PaymentMethodsRequest {
         }
     }
 
+
 }
+
+
+
