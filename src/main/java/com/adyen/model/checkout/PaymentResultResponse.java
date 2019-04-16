@@ -275,12 +275,12 @@ public class PaymentResultResponse {
     public enum ResultCodeEnum {
 
         AUTHORISED("Authorised"),
-        PARTIALLYAUTHORISED("PartiallyAuthorised"),
         REFUSED("Refused"),
         ERROR("Error"),
         CANCELLED("Cancelled"),
         RECEIVED("Received"),
-        REDIRECTSHOPPER("RedirectShopper");
+        REDIRECTSHOPPER("RedirectShopper"),
+        PENDING("Pending");
 
         private String value;
 
