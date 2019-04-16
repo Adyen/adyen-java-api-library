@@ -61,13 +61,8 @@ public class ApplicationInfo {
         this.paymentDetailsSource = paymentDetailsSource;
     }
 
-
     public CommonField getAdyenLibrary() {
         return adyenLibrary;
-    }
-
-    public void setAdyenLibrary(CommonField adyenLibrary) {
-        this.adyenLibrary = adyenLibrary;
     }
 
     public CommonField getAdyenPaymentSource() {
