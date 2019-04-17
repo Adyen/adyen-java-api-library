@@ -20,13 +20,17 @@
  */
 package com.adyen;
 
-import java.util.HashMap;
-import org.junit.Test;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.ExternalPlatform;
+import org.junit.Test;
+
+import java.util.HashMap;
+
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.assertEquals;
 
 public class PaymentRequestBuilderTest extends BaseTest {
@@ -36,11 +40,10 @@ public class PaymentRequestBuilderTest extends BaseTest {
     public void TestCCPaymentRequest() {
         String integratorName = "TestIntegrator";
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
-        ApplicationInfo applicationInfo = new ApplicationInfo();
         ExternalPlatform externalPlatform = new ExternalPlatform();
         externalPlatform.setIntegrator(integratorName);
-        applicationInfo.setExternalPlatform(externalPlatform);
-        paymentRequest.setApplicationInfo(applicationInfo);
+        paymentRequest.getApplicationInfo().setExternalPlatform(externalPlatform);
+
 
         // Test metadata
         paymentRequest.setMetadata(new HashMap<String, String>());
@@ -76,12 +79,8 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  },\n"
                 + "  \"applicationInfo\": {\n"
                 + "    \"adyenLibrary\": {\n"
-                + "      \"name\": \""
-                + Client.LIB_NAME
-                + "\",\n"
-                + "      \"version\": \""
-                + Client.LIB_VERSION
-                + "\"\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    },\n"
                 + "    \"externalPlatform\": {\n"
                 + "      \"integrator\": \""
@@ -97,7 +96,6 @@ public class PaymentRequestBuilderTest extends BaseTest {
     @Test
     public void TestCSEPaymentRequest() {
         PaymentRequest paymentRequest = createCSEPaymentRequest();
-        paymentRequest.setApplicationInfo(null);
 
         String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest);
 
@@ -115,6 +113,12 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  },\n"
                 + "  \"additionalData\": {\n"
                 + "    \"card.encrypted.json\": \"adyenjs_0_1_4p1$...\"\n"
+                + "  },\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
                 + "  }\n"
                 + "}";
 
@@ -137,12 +141,8 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  },\n"
                 + "  \"applicationInfo\": {\n"
                 + "    \"adyenLibrary\": {\n"
-                + "      \"name\": \""
-                + Client.LIB_NAME
-                + "\",\n"
-                + "      \"version\": \""
-                + Client.LIB_VERSION
-                + "\"\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
                 + "}";

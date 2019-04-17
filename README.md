@@ -24,9 +24,9 @@ The Library supports all APIs under the following services:
 * Java 7 or higher
 
 ## Installation
-  
+
 You can use Maven or simply download the release.
-  
+
 ### Maven
 
 Add this dependency to your project's POM:
@@ -35,7 +35,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
 </dependency>
 ```
 
@@ -62,7 +62,7 @@ client.setHttpClient(httpURLConnectionClientWithProxy);
 ## Support
 
 If you have any problems, questions or suggestions, create an issue here or send your inquiry to support@adyen.com.
-  
+
 ## Licence
 
 MIT license. For more information, see the LICENSE file.
