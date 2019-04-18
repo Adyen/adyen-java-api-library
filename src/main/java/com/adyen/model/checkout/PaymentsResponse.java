@@ -29,7 +29,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-
 import com.adyen.Util.DateUtil;
 import com.adyen.model.FraudResult;
 import com.google.gson.TypeAdapter;
@@ -37,7 +36,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
 import static com.adyen.constants.ApiConstants.AdditionalData.AUTH_CODE;
 import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
 import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_BARCODE_REFERENCE;
@@ -49,13 +47,13 @@ import static com.adyen.constants.ApiConstants.AdditionalData.CARD_BIN;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_HOLDER_NAME;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_SUMMARY;
 import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_AMOUNT;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_DEADLINE;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_ENTITY;
+import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_REFERENCE;
 import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
-import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_ENTITY;
-import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_AMOUNT;
-import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_REFERENCE;
-import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_DEADLINE;
 
 /**
  * PaymentsResponse
@@ -536,6 +534,9 @@ public class PaymentsResponse {
     }
 
     public BigDecimal getMultibancoAmount() {
+        if (getAdditionalDataByKey(MULTIBANCO_AMOUNT) == null) {
+            return null;
+        }
         return new BigDecimal(getAdditionalDataByKey(MULTIBANCO_AMOUNT));
     }
 

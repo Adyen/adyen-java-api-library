@@ -20,6 +20,14 @@
  */
 package com.adyen;
 
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+import org.junit.Assert;
+import org.junit.Test;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
@@ -34,15 +42,6 @@ import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PaymentsResponse;
 import com.adyen.service.Checkout;
 import com.google.gson.annotations.SerializedName;
-import org.junit.Test;
-
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
-
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static com.adyen.enums.Environment.LIVE;
@@ -341,6 +340,30 @@ public class CheckoutTest extends BaseTest {
                 + "    }\n"
                 + "  }\n"
                 + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestPaymentResponseDate() {
+        PaymentsResponse paymentsResponse = new PaymentsResponse();
+        try {
+            Date expiryDate = paymentsResponse.getExpiryDate();
+            assertEquals(null, expiryDate);
+        } catch (Exception ex) {
+
+            Assert.fail("multibanco date throw Exception");
+        }
+    }
+
+    @Test
+    public void TestPaymentResponseMultibanco() {
+        PaymentsResponse paymentsResponse = new PaymentsResponse();
+        try {
+            BigDecimal multibancoAmount = paymentsResponse.getMultibancoAmount();
+            assertEquals(null, multibancoAmount);
+        } catch (Exception ex) {
+
+            Assert.fail("multibanco amount throw Exception");
+        }
     }
 
     /**
