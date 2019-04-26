@@ -1,210 +1,93 @@
 
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Data related to the loyalty transaction.
- * 
- * <p>Java class for LoyaltyTransactionType complex type.
- * 
+ * <p>Java class for LoyaltyTransactionType.
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
- * &lt;complexType name="LoyaltyTransactionType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="OriginalPOITransaction" type="{}OriginalPOITransactionType" minOccurs="0"/>
- *         &lt;element name="TransactionConditions" type="{}TransactionConditionsType" minOccurs="0"/>
- *         &lt;element name="SaleItem" type="{}SaleItemType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="LoyaltyTransactionType" use="required" type="{}LoyaltyTransactionTypeTypeCode" />
- *       &lt;attribute name="Currency" type="{}ISOCurrency3A" />
- *       &lt;attribute name="TotalAmount" type="{}SimpleAmountType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;simpleType name="LoyaltyTransactionType">
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *     &lt;enumeration value="Award"/>
+ *     &lt;enumeration value="Rebate"/>
+ *     &lt;enumeration value="Redemption"/>
+ *     &lt;enumeration value="AwardRefund"/>
+ *     &lt;enumeration value="RebateRefund"/>
+ *     &lt;enumeration value="RedemptionRefund"/>
+ *   &lt;/restriction>
+ * &lt;/simpleType>
  * </pre>
- * 
- * 
+ *
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LoyaltyTransactionType", propOrder = {
-    "originalPOITransaction",
-    "transactionConditions",
-    "saleItem"
-})
-public class LoyaltyTransactionType {
+@XmlType(name = "LoyaltyTransactionType")
+@XmlEnum
+public enum LoyaltyTransactionType {
 
-    @XmlElement(name = "OriginalPOITransaction")
-    protected OriginalPOITransactionType originalPOITransaction;
-    @XmlElement(name = "TransactionConditions")
-    protected TransactionConditionsType transactionConditions;
-    @XmlElement(name = "SaleItem")
-    protected List<SaleItemType> saleItem;
-    @XmlAttribute(name = "LoyaltyTransactionType", required = true)
-    protected String loyaltyTransactionType;
-    @XmlAttribute(name = "Currency")
-    protected String currency;
-    @XmlAttribute(name = "TotalAmount")
-    protected BigDecimal totalAmount;
 
     /**
-     * Gets the value of the originalPOITransaction property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link OriginalPOITransactionType }
-     *     
+     * Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of a
+     *
      */
-    public OriginalPOITransactionType getOriginalPOITransaction() {
-        return originalPOITransaction;
+    @XmlEnumValue("Award")
+    AWARD("Award"),
+
+    /**
+     * Rebate on a total amount, sale item amount, or sale items
+     *
+     */
+    @XmlEnumValue("Rebate")
+    REBATE("Rebate"),
+
+    /**
+     * Redemption on a loyalty account.
+     *
+     */
+    @XmlEnumValue("Redemption")
+    REDEMPTION("Redemption"),
+
+    /**
+     * Refund of a loyalty award transaction.
+     *
+     */
+    @XmlEnumValue("AwardRefund")
+    AWARD_REFUND("AwardRefund"),
+
+    /**
+     * Refund of a loyalty rebate transaction.
+     *
+     */
+    @XmlEnumValue("RebateRefund")
+    REBATE_REFUND("RebateRefund"),
+
+    /**
+     * Refund of a loyalty redemption transaction.
+     *
+     */
+    @XmlEnumValue("RedemptionRefund")
+    REDEMPTION_REFUND("RedemptionRefund");
+    private final String value;
+
+    LoyaltyTransactionType(String v) {
+        value = v;
     }
 
-    /**
-     * Sets the value of the originalPOITransaction property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link OriginalPOITransactionType }
-     *     
-     */
-    public void setOriginalPOITransaction(OriginalPOITransactionType value) {
-        this.originalPOITransaction = value;
+    public String value() {
+        return value;
     }
 
-    /**
-     * Gets the value of the transactionConditions property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TransactionConditionsType }
-     *     
-     */
-    public TransactionConditionsType getTransactionConditions() {
-        return transactionConditions;
-    }
-
-    /**
-     * Sets the value of the transactionConditions property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TransactionConditionsType }
-     *     
-     */
-    public void setTransactionConditions(TransactionConditionsType value) {
-        this.transactionConditions = value;
-    }
-
-    /**
-     * Gets the value of the saleItem property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the saleItem property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getSaleItem().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link SaleItemType }
-     * 
-     * 
-     */
-    public List<SaleItemType> getSaleItem() {
-        if (saleItem == null) {
-            saleItem = new ArrayList<SaleItemType>();
+    public static LoyaltyTransactionType fromValue(String v) {
+        for (LoyaltyTransactionType c: LoyaltyTransactionType.values()) {
+            if (c.value.equals(v)) {
+                return c;
+            }
         }
-        return this.saleItem;
-    }
-
-    /**
-     * Gets the value of the loyaltyTransactionType property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLoyaltyTransactionType() {
-        return loyaltyTransactionType;
-    }
-
-    /**
-     * Sets the value of the loyaltyTransactionType property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLoyaltyTransactionType(String value) {
-        this.loyaltyTransactionType = value;
-    }
-
-    /**
-     * Gets the value of the currency property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCurrency() {
-        return currency;
-    }
-
-    /**
-     * Sets the value of the currency property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCurrency(String value) {
-        this.currency = value;
-    }
-
-    /**
-     * Gets the value of the totalAmount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getTotalAmount() {
-        return totalAmount;
-    }
-
-    /**
-     * Sets the value of the totalAmount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setTotalAmount(BigDecimal value) {
-        this.totalAmount = value;
+        throw new IllegalArgumentException(v);
     }
 
 }

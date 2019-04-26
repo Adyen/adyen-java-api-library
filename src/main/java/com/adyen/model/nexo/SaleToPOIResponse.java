@@ -10,49 +10,49 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="MessageHeader" type="{}MessageHeaderType"/>
+ *         &lt;element name="MessageHeader" type="{}MessageHeader"/>
  *         &lt;choice>
- *           &lt;element name="BalanceInquiryResponse" type="{}BalanceInquiryResponseType"/>
- *           &lt;element name="BatchResponse" type="{}BatchResponseType"/>
- *           &lt;element name="CardAcquisitionResponse" type="{}CardAcquisitionResponseType"/>
- *           &lt;element name="AdminResponse" type="{}AdminResponseType"/>
- *           &lt;element name="DiagnosisResponse" type="{}DiagnosisResponseType"/>
- *           &lt;element name="DisplayResponse" type="{}DisplayResponseType"/>
- *           &lt;element name="EnableServiceResponse" type="{}EnableServiceResponseType"/>
- *           &lt;element name="GetTotalsResponse" type="{}GetTotalsResponseType"/>
- *           &lt;element name="InputResponse" type="{}InputResponseType"/>
- *           &lt;element name="LoginResponse" type="{}LoginResponseType"/>
- *           &lt;element name="LogoutResponse" type="{}LogoutResponseType"/>
- *           &lt;element name="LoyaltyResponse" type="{}LoyaltyResponseType"/>
- *           &lt;element name="PaymentResponse" type="{}PaymentResponseType"/>
- *           &lt;element name="PINResponse" type="{}PINResponseType"/>
- *           &lt;element name="PrintResponse" type="{}PrintResponseType"/>
- *           &lt;element name="CardReaderInitResponse" type="{}CardReaderInitResponseType"/>
- *           &lt;element name="CardReaderAPDUResponse" type="{}CardReaderAPDUResponseType"/>
- *           &lt;element name="CardReaderPowerOffResponse" type="{}CardReaderPowerOffResponseType"/>
- *           &lt;element name="ReconciliationResponse" type="{}ReconciliationResponseType"/>
- *           &lt;element name="ReversalResponse" type="{}ReversalResponseType"/>
- *           &lt;element name="SoundResponse" type="{}SoundResponseType"/>
- *           &lt;element name="StoredValueResponse" type="{}StoredValueResponseType"/>
- *           &lt;element name="TransactionStatusResponse" type="{}TransactionStatusResponseType"/>
- *           &lt;element name="TransmitResponse" type="{}TransmitResponseType"/>
+ *           &lt;element name="BalanceInquiryResponse" type="{}BalanceInquiryResponse"/>
+ *           &lt;element name="BatchResponse" type="{}BatchResponse"/>
+ *           &lt;element name="CardAcquisitionResponse" type="{}CardAcquisitionResponse"/>
+ *           &lt;element name="AdminResponse" type="{}AdminResponse"/>
+ *           &lt;element name="DiagnosisResponse" type="{}DiagnosisResponse"/>
+ *           &lt;element name="DisplayResponse" type="{}DisplayResponse"/>
+ *           &lt;element name="EnableServiceResponse" type="{}EnableServiceResponse"/>
+ *           &lt;element name="GetTotalsResponse" type="{}GetTotalsResponse"/>
+ *           &lt;element name="InputResponse" type="{}InputResponse"/>
+ *           &lt;element name="LoginResponse" type="{}LoginResponse"/>
+ *           &lt;element name="LogoutResponse" type="{}LogoutResponse"/>
+ *           &lt;element name="LoyaltyResponse" type="{}LoyaltyResponse"/>
+ *           &lt;element name="PaymentResponse" type="{}PaymentResponse"/>
+ *           &lt;element name="PINResponse" type="{}PINResponse"/>
+ *           &lt;element name="PrintResponse" type="{}PrintResponse"/>
+ *           &lt;element name="CardReaderInitResponse" type="{}CardReaderInitResponse"/>
+ *           &lt;element name="CardReaderAPDUResponse" type="{}CardReaderAPDUResponse"/>
+ *           &lt;element name="CardReaderPowerOffResponse" type="{}CardReaderPowerOffResponse"/>
+ *           &lt;element name="ReconciliationResponse" type="{}ReconciliationResponse"/>
+ *           &lt;element name="ReversalResponse" type="{}ReversalResponse"/>
+ *           &lt;element name="SoundResponse" type="{}SoundResponse"/>
+ *           &lt;element name="StoredValueResponse" type="{}StoredValueResponse"/>
+ *           &lt;element name="TransactionStatusResponse" type="{}TransactionStatusResponse"/>
+ *           &lt;element name="TransmitResponse" type="{}TransmitResponse"/>
  *         &lt;/choice>
- *         &lt;element name="SecurityTrailer" type="{}ContentInformationType" minOccurs="0"/>
+ *         &lt;element name="SecurityTrailer" type="{}ContentInformation" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -87,679 +87,679 @@ import javax.xml.bind.annotation.XmlType;
 public class SaleToPOIResponse {
 
     @XmlElement(name = "MessageHeader", required = true)
-    protected MessageHeaderType messageHeader;
+    protected MessageHeader messageHeader;
     @XmlElement(name = "BalanceInquiryResponse")
-    protected BalanceInquiryResponseType balanceInquiryResponse;
+    protected BalanceInquiryResponse balanceInquiryResponse;
     @XmlElement(name = "BatchResponse")
-    protected BatchResponseType batchResponse;
+    protected BatchResponse batchResponse;
     @XmlElement(name = "CardAcquisitionResponse")
-    protected CardAcquisitionResponseType cardAcquisitionResponse;
+    protected CardAcquisitionResponse cardAcquisitionResponse;
     @XmlElement(name = "AdminResponse")
-    protected AdminResponseType adminResponse;
+    protected AdminResponse adminResponse;
     @XmlElement(name = "DiagnosisResponse")
-    protected DiagnosisResponseType diagnosisResponse;
+    protected DiagnosisResponse diagnosisResponse;
     @XmlElement(name = "DisplayResponse")
-    protected DisplayResponseType displayResponse;
+    protected DisplayResponse displayResponse;
     @XmlElement(name = "EnableServiceResponse")
-    protected EnableServiceResponseType enableServiceResponse;
+    protected EnableServiceResponse enableServiceResponse;
     @XmlElement(name = "GetTotalsResponse")
-    protected GetTotalsResponseType getTotalsResponse;
+    protected GetTotalsResponse getTotalsResponse;
     @XmlElement(name = "InputResponse")
-    protected InputResponseType inputResponse;
+    protected InputResponse inputResponse;
     @XmlElement(name = "LoginResponse")
-    protected LoginResponseType loginResponse;
+    protected LoginResponse loginResponse;
     @XmlElement(name = "LogoutResponse")
-    protected LogoutResponseType logoutResponse;
+    protected LogoutResponse logoutResponse;
     @XmlElement(name = "LoyaltyResponse")
-    protected LoyaltyResponseType loyaltyResponse;
+    protected LoyaltyResponse loyaltyResponse;
     @XmlElement(name = "PaymentResponse")
-    protected PaymentResponseType paymentResponse;
+    protected PaymentResponse paymentResponse;
     @XmlElement(name = "PINResponse")
-    protected PINResponseType pinResponse;
+    protected PINResponse pinResponse;
     @XmlElement(name = "PrintResponse")
-    protected PrintResponseType printResponse;
+    protected PrintResponse printResponse;
     @XmlElement(name = "CardReaderInitResponse")
-    protected CardReaderInitResponseType cardReaderInitResponse;
+    protected CardReaderInitResponse cardReaderInitResponse;
     @XmlElement(name = "CardReaderAPDUResponse")
-    protected CardReaderAPDUResponseType cardReaderAPDUResponse;
+    protected CardReaderAPDUResponse cardReaderAPDUResponse;
     @XmlElement(name = "CardReaderPowerOffResponse")
-    protected CardReaderPowerOffResponseType cardReaderPowerOffResponse;
+    protected CardReaderPowerOffResponse cardReaderPowerOffResponse;
     @XmlElement(name = "ReconciliationResponse")
-    protected ReconciliationResponseType reconciliationResponse;
+    protected ReconciliationResponse reconciliationResponse;
     @XmlElement(name = "ReversalResponse")
-    protected ReversalResponseType reversalResponse;
+    protected ReversalResponse reversalResponse;
     @XmlElement(name = "SoundResponse")
-    protected SoundResponseType soundResponse;
+    protected SoundResponse soundResponse;
     @XmlElement(name = "StoredValueResponse")
-    protected StoredValueResponseType storedValueResponse;
+    protected StoredValueResponse storedValueResponse;
     @XmlElement(name = "TransactionStatusResponse")
-    protected TransactionStatusResponseType transactionStatusResponse;
+    protected TransactionStatusResponse transactionStatusResponse;
     @XmlElement(name = "TransmitResponse")
-    protected TransmitResponseType transmitResponse;
+    protected TransmitResponse transmitResponse;
     @XmlElement(name = "SecurityTrailer")
-    protected ContentInformationType securityTrailer;
+    protected ContentInformation securityTrailer;
 
     /**
      * Gets the value of the messageHeader property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link MessageHeaderType }
-     *     
+     *     {@link MessageHeader }
+     *
      */
-    public MessageHeaderType getMessageHeader() {
+    public MessageHeader getMessageHeader() {
         return messageHeader;
     }
 
     /**
      * Sets the value of the messageHeader property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link MessageHeaderType }
-     *     
+     *     {@link MessageHeader }
+     *
      */
-    public void setMessageHeader(MessageHeaderType value) {
+    public void setMessageHeader(MessageHeader value) {
         this.messageHeader = value;
     }
 
     /**
      * Gets the value of the balanceInquiryResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link BalanceInquiryResponseType }
-     *     
+     *     {@link BalanceInquiryResponse }
+     *
      */
-    public BalanceInquiryResponseType getBalanceInquiryResponse() {
+    public BalanceInquiryResponse getBalanceInquiryResponse() {
         return balanceInquiryResponse;
     }
 
     /**
      * Sets the value of the balanceInquiryResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link BalanceInquiryResponseType }
-     *     
+     *     {@link BalanceInquiryResponse }
+     *
      */
-    public void setBalanceInquiryResponse(BalanceInquiryResponseType value) {
+    public void setBalanceInquiryResponse(BalanceInquiryResponse value) {
         this.balanceInquiryResponse = value;
     }
 
     /**
      * Gets the value of the batchResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link BatchResponseType }
-     *     
+     *     {@link BatchResponse }
+     *
      */
-    public BatchResponseType getBatchResponse() {
+    public BatchResponse getBatchResponse() {
         return batchResponse;
     }
 
     /**
      * Sets the value of the batchResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link BatchResponseType }
-     *     
+     *     {@link BatchResponse }
+     *
      */
-    public void setBatchResponse(BatchResponseType value) {
+    public void setBatchResponse(BatchResponse value) {
         this.batchResponse = value;
     }
 
     /**
      * Gets the value of the cardAcquisitionResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link CardAcquisitionResponseType }
-     *     
+     *     {@link CardAcquisitionResponse }
+     *
      */
-    public CardAcquisitionResponseType getCardAcquisitionResponse() {
+    public CardAcquisitionResponse getCardAcquisitionResponse() {
         return cardAcquisitionResponse;
     }
 
     /**
      * Sets the value of the cardAcquisitionResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link CardAcquisitionResponseType }
-     *     
+     *     {@link CardAcquisitionResponse }
+     *
      */
-    public void setCardAcquisitionResponse(CardAcquisitionResponseType value) {
+    public void setCardAcquisitionResponse(CardAcquisitionResponse value) {
         this.cardAcquisitionResponse = value;
     }
 
     /**
      * Gets the value of the adminResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link AdminResponseType }
-     *     
+     *     {@link AdminResponse }
+     *
      */
-    public AdminResponseType getAdminResponse() {
+    public AdminResponse getAdminResponse() {
         return adminResponse;
     }
 
     /**
      * Sets the value of the adminResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link AdminResponseType }
-     *     
+     *     {@link AdminResponse }
+     *
      */
-    public void setAdminResponse(AdminResponseType value) {
+    public void setAdminResponse(AdminResponse value) {
         this.adminResponse = value;
     }
 
     /**
      * Gets the value of the diagnosisResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link DiagnosisResponseType }
-     *     
+     *     {@link DiagnosisResponse }
+     *
      */
-    public DiagnosisResponseType getDiagnosisResponse() {
+    public DiagnosisResponse getDiagnosisResponse() {
         return diagnosisResponse;
     }
 
     /**
      * Sets the value of the diagnosisResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link DiagnosisResponseType }
-     *     
+     *     {@link DiagnosisResponse }
+     *
      */
-    public void setDiagnosisResponse(DiagnosisResponseType value) {
+    public void setDiagnosisResponse(DiagnosisResponse value) {
         this.diagnosisResponse = value;
     }
 
     /**
      * Gets the value of the displayResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link DisplayResponseType }
-     *     
+     *     {@link DisplayResponse }
+     *
      */
-    public DisplayResponseType getDisplayResponse() {
+    public DisplayResponse getDisplayResponse() {
         return displayResponse;
     }
 
     /**
      * Sets the value of the displayResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link DisplayResponseType }
-     *     
+     *     {@link DisplayResponse }
+     *
      */
-    public void setDisplayResponse(DisplayResponseType value) {
+    public void setDisplayResponse(DisplayResponse value) {
         this.displayResponse = value;
     }
 
     /**
      * Gets the value of the enableServiceResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link EnableServiceResponseType }
-     *     
+     *     {@link EnableServiceResponse }
+     *
      */
-    public EnableServiceResponseType getEnableServiceResponse() {
+    public EnableServiceResponse getEnableServiceResponse() {
         return enableServiceResponse;
     }
 
     /**
      * Sets the value of the enableServiceResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link EnableServiceResponseType }
-     *     
+     *     {@link EnableServiceResponse }
+     *
      */
-    public void setEnableServiceResponse(EnableServiceResponseType value) {
+    public void setEnableServiceResponse(EnableServiceResponse value) {
         this.enableServiceResponse = value;
     }
 
     /**
      * Gets the value of the getTotalsResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link GetTotalsResponseType }
-     *     
+     *     {@link GetTotalsResponse }
+     *
      */
-    public GetTotalsResponseType getGetTotalsResponse() {
+    public GetTotalsResponse getGetTotalsResponse() {
         return getTotalsResponse;
     }
 
     /**
      * Sets the value of the getTotalsResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link GetTotalsResponseType }
-     *     
+     *     {@link GetTotalsResponse }
+     *
      */
-    public void setGetTotalsResponse(GetTotalsResponseType value) {
+    public void setGetTotalsResponse(GetTotalsResponse value) {
         this.getTotalsResponse = value;
     }
 
     /**
      * Gets the value of the inputResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link InputResponseType }
-     *     
+     *     {@link InputResponse }
+     *
      */
-    public InputResponseType getInputResponse() {
+    public InputResponse getInputResponse() {
         return inputResponse;
     }
 
     /**
      * Sets the value of the inputResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link InputResponseType }
-     *     
+     *     {@link InputResponse }
+     *
      */
-    public void setInputResponse(InputResponseType value) {
+    public void setInputResponse(InputResponse value) {
         this.inputResponse = value;
     }
 
     /**
      * Gets the value of the loginResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link LoginResponseType }
-     *     
+     *     {@link LoginResponse }
+     *
      */
-    public LoginResponseType getLoginResponse() {
+    public LoginResponse getLoginResponse() {
         return loginResponse;
     }
 
     /**
      * Sets the value of the loginResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link LoginResponseType }
-     *     
+     *     {@link LoginResponse }
+     *
      */
-    public void setLoginResponse(LoginResponseType value) {
+    public void setLoginResponse(LoginResponse value) {
         this.loginResponse = value;
     }
 
     /**
      * Gets the value of the logoutResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link LogoutResponseType }
-     *     
+     *     {@link LogoutResponse }
+     *
      */
-    public LogoutResponseType getLogoutResponse() {
+    public LogoutResponse getLogoutResponse() {
         return logoutResponse;
     }
 
     /**
      * Sets the value of the logoutResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link LogoutResponseType }
-     *     
+     *     {@link LogoutResponse }
+     *
      */
-    public void setLogoutResponse(LogoutResponseType value) {
+    public void setLogoutResponse(LogoutResponse value) {
         this.logoutResponse = value;
     }
 
     /**
      * Gets the value of the loyaltyResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link LoyaltyResponseType }
-     *     
+     *     {@link LoyaltyResponse }
+     *
      */
-    public LoyaltyResponseType getLoyaltyResponse() {
+    public LoyaltyResponse getLoyaltyResponse() {
         return loyaltyResponse;
     }
 
     /**
      * Sets the value of the loyaltyResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link LoyaltyResponseType }
-     *     
+     *     {@link LoyaltyResponse }
+     *
      */
-    public void setLoyaltyResponse(LoyaltyResponseType value) {
+    public void setLoyaltyResponse(LoyaltyResponse value) {
         this.loyaltyResponse = value;
     }
 
     /**
      * Gets the value of the paymentResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link PaymentResponseType }
-     *     
+     *     {@link PaymentResponse }
+     *
      */
-    public PaymentResponseType getPaymentResponse() {
+    public PaymentResponse getPaymentResponse() {
         return paymentResponse;
     }
 
     /**
      * Sets the value of the paymentResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link PaymentResponseType }
-     *     
+     *     {@link PaymentResponse }
+     *
      */
-    public void setPaymentResponse(PaymentResponseType value) {
+    public void setPaymentResponse(PaymentResponse value) {
         this.paymentResponse = value;
     }
 
     /**
      * Gets the value of the pinResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link PINResponseType }
-     *     
+     *     {@link PINResponse }
+     *
      */
-    public PINResponseType getPINResponse() {
+    public PINResponse getPINResponse() {
         return pinResponse;
     }
 
     /**
      * Sets the value of the pinResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link PINResponseType }
-     *     
+     *     {@link PINResponse }
+     *
      */
-    public void setPINResponse(PINResponseType value) {
+    public void setPINResponse(PINResponse value) {
         this.pinResponse = value;
     }
 
     /**
      * Gets the value of the printResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link PrintResponseType }
-     *     
+     *     {@link PrintResponse }
+     *
      */
-    public PrintResponseType getPrintResponse() {
+    public PrintResponse getPrintResponse() {
         return printResponse;
     }
 
     /**
      * Sets the value of the printResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link PrintResponseType }
-     *     
+     *     {@link PrintResponse }
+     *
      */
-    public void setPrintResponse(PrintResponseType value) {
+    public void setPrintResponse(PrintResponse value) {
         this.printResponse = value;
     }
 
     /**
      * Gets the value of the cardReaderInitResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link CardReaderInitResponseType }
-     *     
+     *     {@link CardReaderInitResponse }
+     *
      */
-    public CardReaderInitResponseType getCardReaderInitResponse() {
+    public CardReaderInitResponse getCardReaderInitResponse() {
         return cardReaderInitResponse;
     }
 
     /**
      * Sets the value of the cardReaderInitResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link CardReaderInitResponseType }
-     *     
+     *     {@link CardReaderInitResponse }
+     *
      */
-    public void setCardReaderInitResponse(CardReaderInitResponseType value) {
+    public void setCardReaderInitResponse(CardReaderInitResponse value) {
         this.cardReaderInitResponse = value;
     }
 
     /**
      * Gets the value of the cardReaderAPDUResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link CardReaderAPDUResponseType }
-     *     
+     *     {@link CardReaderAPDUResponse }
+     *
      */
-    public CardReaderAPDUResponseType getCardReaderAPDUResponse() {
+    public CardReaderAPDUResponse getCardReaderAPDUResponse() {
         return cardReaderAPDUResponse;
     }
 
     /**
      * Sets the value of the cardReaderAPDUResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link CardReaderAPDUResponseType }
-     *     
+     *     {@link CardReaderAPDUResponse }
+     *
      */
-    public void setCardReaderAPDUResponse(CardReaderAPDUResponseType value) {
+    public void setCardReaderAPDUResponse(CardReaderAPDUResponse value) {
         this.cardReaderAPDUResponse = value;
     }
 
     /**
      * Gets the value of the cardReaderPowerOffResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link CardReaderPowerOffResponseType }
-     *     
+     *     {@link CardReaderPowerOffResponse }
+     *
      */
-    public CardReaderPowerOffResponseType getCardReaderPowerOffResponse() {
+    public CardReaderPowerOffResponse getCardReaderPowerOffResponse() {
         return cardReaderPowerOffResponse;
     }
 
     /**
      * Sets the value of the cardReaderPowerOffResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link CardReaderPowerOffResponseType }
-     *     
+     *     {@link CardReaderPowerOffResponse }
+     *
      */
-    public void setCardReaderPowerOffResponse(CardReaderPowerOffResponseType value) {
+    public void setCardReaderPowerOffResponse(CardReaderPowerOffResponse value) {
         this.cardReaderPowerOffResponse = value;
     }
 
     /**
      * Gets the value of the reconciliationResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link ReconciliationResponseType }
-     *     
+     *     {@link ReconciliationResponse }
+     *
      */
-    public ReconciliationResponseType getReconciliationResponse() {
+    public ReconciliationResponse getReconciliationResponse() {
         return reconciliationResponse;
     }
 
     /**
      * Sets the value of the reconciliationResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link ReconciliationResponseType }
-     *     
+     *     {@link ReconciliationResponse }
+     *
      */
-    public void setReconciliationResponse(ReconciliationResponseType value) {
+    public void setReconciliationResponse(ReconciliationResponse value) {
         this.reconciliationResponse = value;
     }
 
     /**
      * Gets the value of the reversalResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link ReversalResponseType }
-     *     
+     *     {@link ReversalResponse }
+     *
      */
-    public ReversalResponseType getReversalResponse() {
+    public ReversalResponse getReversalResponse() {
         return reversalResponse;
     }
 
     /**
      * Sets the value of the reversalResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link ReversalResponseType }
-     *     
+     *     {@link ReversalResponse }
+     *
      */
-    public void setReversalResponse(ReversalResponseType value) {
+    public void setReversalResponse(ReversalResponse value) {
         this.reversalResponse = value;
     }
 
     /**
      * Gets the value of the soundResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link SoundResponseType }
-     *     
+     *     {@link SoundResponse }
+     *
      */
-    public SoundResponseType getSoundResponse() {
+    public SoundResponse getSoundResponse() {
         return soundResponse;
     }
 
     /**
      * Sets the value of the soundResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link SoundResponseType }
-     *     
+     *     {@link SoundResponse }
+     *
      */
-    public void setSoundResponse(SoundResponseType value) {
+    public void setSoundResponse(SoundResponse value) {
         this.soundResponse = value;
     }
 
     /**
      * Gets the value of the storedValueResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link StoredValueResponseType }
-     *     
+     *     {@link StoredValueResponse }
+     *
      */
-    public StoredValueResponseType getStoredValueResponse() {
+    public StoredValueResponse getStoredValueResponse() {
         return storedValueResponse;
     }
 
     /**
      * Sets the value of the storedValueResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link StoredValueResponseType }
-     *     
+     *     {@link StoredValueResponse }
+     *
      */
-    public void setStoredValueResponse(StoredValueResponseType value) {
+    public void setStoredValueResponse(StoredValueResponse value) {
         this.storedValueResponse = value;
     }
 
     /**
      * Gets the value of the transactionStatusResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link TransactionStatusResponseType }
-     *     
+     *     {@link TransactionStatusResponse }
+     *
      */
-    public TransactionStatusResponseType getTransactionStatusResponse() {
+    public TransactionStatusResponse getTransactionStatusResponse() {
         return transactionStatusResponse;
     }
 
     /**
      * Sets the value of the transactionStatusResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link TransactionStatusResponseType }
-     *     
+     *     {@link TransactionStatusResponse }
+     *
      */
-    public void setTransactionStatusResponse(TransactionStatusResponseType value) {
+    public void setTransactionStatusResponse(TransactionStatusResponse value) {
         this.transactionStatusResponse = value;
     }
 
     /**
      * Gets the value of the transmitResponse property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link TransmitResponseType }
-     *     
+     *     {@link TransmitResponse }
+     *
      */
-    public TransmitResponseType getTransmitResponse() {
+    public TransmitResponse getTransmitResponse() {
         return transmitResponse;
     }
 
     /**
      * Sets the value of the transmitResponse property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link TransmitResponseType }
-     *     
+     *     {@link TransmitResponse }
+     *
      */
-    public void setTransmitResponse(TransmitResponseType value) {
+    public void setTransmitResponse(TransmitResponse value) {
         this.transmitResponse = value;
     }
 
     /**
      * Gets the value of the securityTrailer property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link ContentInformationType }
-     *     
+     *     {@link ContentInformation }
+     *
      */
-    public ContentInformationType getSecurityTrailer() {
+    public ContentInformation getSecurityTrailer() {
         return securityTrailer;
     }
 
     /**
      * Sets the value of the securityTrailer property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link ContentInformationType }
-     *     
+     *     {@link ContentInformation }
+     *
      */
-    public void setSecurityTrailer(ContentInformationType value) {
+    public void setSecurityTrailer(ContentInformation value) {
         this.securityTrailer = value;
     }
 

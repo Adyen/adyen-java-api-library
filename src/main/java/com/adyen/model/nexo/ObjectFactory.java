@@ -9,1328 +9,1164 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the com.adyen.model.nexo package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the com.adyen.model.nexo package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CardAcquisitionTransactionTypeForceEntryMode_QNAME = new QName("", "ForceEntryMode");
+    private static final QName CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME = new QName("", "ForceEntryMode");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.adyen.model.nexo
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link SaleToPOIRequest }
-     * 
      */
     public SaleToPOIRequest createSaleToPOIRequest() {
         return new SaleToPOIRequest();
     }
 
     /**
-     * Create an instance of {@link MessageHeaderType }
-     * 
+     * Create an instance of {@link MessageHeader }
      */
-    public MessageHeaderType createMessageHeaderType() {
-        return new MessageHeaderType();
+    public MessageHeader createMessageHeader() {
+        return new MessageHeader();
     }
 
     /**
-     * Create an instance of {@link AbortRequestType }
-     * 
+     * Create an instance of {@link AbortRequest }
      */
-    public AbortRequestType createAbortRequestType() {
-        return new AbortRequestType();
+    public AbortRequest createAbortRequest() {
+        return new AbortRequest();
     }
 
     /**
-     * Create an instance of {@link BalanceInquiryRequestType }
-     * 
+     * Create an instance of {@link BalanceInquiryRequest }
      */
-    public BalanceInquiryRequestType createBalanceInquiryRequestType() {
-        return new BalanceInquiryRequestType();
+    public BalanceInquiryRequest createBalanceInquiryRequest() {
+        return new BalanceInquiryRequest();
     }
 
     /**
-     * Create an instance of {@link BatchRequestType }
-     * 
+     * Create an instance of {@link BatchRequest }
      */
-    public BatchRequestType createBatchRequestType() {
-        return new BatchRequestType();
+    public BatchRequest createBatchRequest() {
+        return new BatchRequest();
     }
 
     /**
-     * Create an instance of {@link CardAcquisitionRequestType }
-     * 
+     * Create an instance of {@link CardAcquisitionRequest }
      */
-    public CardAcquisitionRequestType createCardAcquisitionRequestType() {
-        return new CardAcquisitionRequestType();
+    public CardAcquisitionRequest createCardAcquisitionRequest() {
+        return new CardAcquisitionRequest();
     }
 
     /**
-     * Create an instance of {@link AdminRequestType }
-     * 
+     * Create an instance of {@link AdminRequest }
      */
-    public AdminRequestType createAdminRequestType() {
-        return new AdminRequestType();
+    public AdminRequest createAdminRequest() {
+        return new AdminRequest();
     }
 
     /**
-     * Create an instance of {@link DiagnosisRequestType }
-     * 
+     * Create an instance of {@link DiagnosisRequest }
      */
-    public DiagnosisRequestType createDiagnosisRequestType() {
-        return new DiagnosisRequestType();
+    public DiagnosisRequest createDiagnosisRequest() {
+        return new DiagnosisRequest();
     }
 
     /**
-     * Create an instance of {@link DisplayRequestType }
-     * 
+     * Create an instance of {@link DisplayRequest }
      */
-    public DisplayRequestType createDisplayRequestType() {
-        return new DisplayRequestType();
+    public DisplayRequest createDisplayRequest() {
+        return new DisplayRequest();
     }
 
     /**
-     * Create an instance of {@link EnableServiceRequestType }
-     * 
+     * Create an instance of {@link EnableServiceRequest }
      */
-    public EnableServiceRequestType createEnableServiceRequestType() {
-        return new EnableServiceRequestType();
+    public EnableServiceRequest createEnableServiceRequest() {
+        return new EnableServiceRequest();
     }
 
     /**
-     * Create an instance of {@link EventNotificationType }
-     * 
+     * Create an instance of {@link EventNotification }
      */
-    public EventNotificationType createEventNotificationType() {
-        return new EventNotificationType();
+    public EventNotification createEventNotification() {
+        return new EventNotification();
     }
 
     /**
-     * Create an instance of {@link GetTotalsRequestType }
-     * 
+     * Create an instance of {@link GetTotalsRequest }
      */
-    public GetTotalsRequestType createGetTotalsRequestType() {
-        return new GetTotalsRequestType();
+    public GetTotalsRequest createGetTotalsRequest() {
+        return new GetTotalsRequest();
     }
 
     /**
-     * Create an instance of {@link InputRequestType }
-     * 
+     * Create an instance of {@link InputRequest }
      */
-    public InputRequestType createInputRequestType() {
-        return new InputRequestType();
+    public InputRequest createInputRequest() {
+        return new InputRequest();
     }
 
     /**
-     * Create an instance of {@link InputUpdateType }
-     * 
+     * Create an instance of {@link InputUpdate }
      */
-    public InputUpdateType createInputUpdateType() {
-        return new InputUpdateType();
+    public InputUpdate createInputUpdate() {
+        return new InputUpdate();
     }
 
     /**
-     * Create an instance of {@link LoginRequestType }
-     * 
+     * Create an instance of {@link LoginRequest }
      */
-    public LoginRequestType createLoginRequestType() {
-        return new LoginRequestType();
+    public LoginRequest createLoginRequest() {
+        return new LoginRequest();
     }
 
     /**
-     * Create an instance of {@link LogoutRequestType }
-     * 
+     * Create an instance of {@link LogoutRequest }
      */
-    public LogoutRequestType createLogoutRequestType() {
-        return new LogoutRequestType();
+    public LogoutRequest createLogoutRequest() {
+        return new LogoutRequest();
     }
 
     /**
-     * Create an instance of {@link LoyaltyRequestType }
-     * 
+     * Create an instance of {@link LoyaltyRequest }
      */
-    public LoyaltyRequestType createLoyaltyRequestType() {
-        return new LoyaltyRequestType();
+    public LoyaltyRequest createLoyaltyRequest() {
+        return new LoyaltyRequest();
     }
 
     /**
-     * Create an instance of {@link PaymentRequestType }
-     * 
+     * Create an instance of {@link PaymentRequest }
      */
-    public PaymentRequestType createPaymentRequestType() {
-        return new PaymentRequestType();
+    public PaymentRequest createPaymentRequest() {
+        return new PaymentRequest();
     }
 
     /**
-     * Create an instance of {@link PINRequestType }
-     * 
+     * Create an instance of {@link PINRequest }
      */
-    public PINRequestType createPINRequestType() {
-        return new PINRequestType();
+    public PINRequest createPINRequest() {
+        return new PINRequest();
     }
 
     /**
-     * Create an instance of {@link PrintRequestType }
-     * 
+     * Create an instance of {@link PrintRequest }
      */
-    public PrintRequestType createPrintRequestType() {
-        return new PrintRequestType();
+    public PrintRequest createPrintRequest() {
+        return new PrintRequest();
     }
 
     /**
-     * Create an instance of {@link CardReaderInitRequestType }
-     * 
+     * Create an instance of {@link CardReaderInitRequest }
      */
-    public CardReaderInitRequestType createCardReaderInitRequestType() {
-        return new CardReaderInitRequestType();
+    public CardReaderInitRequest createCardReaderInitRequest() {
+        return new CardReaderInitRequest();
     }
 
     /**
-     * Create an instance of {@link CardReaderAPDURequestType }
-     * 
+     * Create an instance of {@link CardReaderAPDURequest }
      */
-    public CardReaderAPDURequestType createCardReaderAPDURequestType() {
-        return new CardReaderAPDURequestType();
+    public CardReaderAPDURequest createCardReaderAPDURequest() {
+        return new CardReaderAPDURequest();
     }
 
     /**
-     * Create an instance of {@link CardReaderPowerOffRequestType }
-     * 
+     * Create an instance of {@link CardReaderPowerOffRequest }
      */
-    public CardReaderPowerOffRequestType createCardReaderPowerOffRequestType() {
-        return new CardReaderPowerOffRequestType();
+    public CardReaderPowerOffRequest createCardReaderPowerOffRequest() {
+        return new CardReaderPowerOffRequest();
     }
 
     /**
-     * Create an instance of {@link ReconciliationRequestType }
-     * 
+     * Create an instance of {@link ReconciliationRequest }
      */
-    public ReconciliationRequestType createReconciliationRequestType() {
-        return new ReconciliationRequestType();
+    public ReconciliationRequest createReconciliationRequest() {
+        return new ReconciliationRequest();
     }
 
     /**
-     * Create an instance of {@link ReversalRequestType }
-     * 
+     * Create an instance of {@link ReversalRequest }
      */
-    public ReversalRequestType createReversalRequestType() {
-        return new ReversalRequestType();
+    public ReversalRequest createReversalRequest() {
+        return new ReversalRequest();
     }
 
     /**
-     * Create an instance of {@link SoundRequestType }
-     * 
+     * Create an instance of {@link SoundRequest }
      */
-    public SoundRequestType createSoundRequestType() {
-        return new SoundRequestType();
+    public SoundRequest createSoundRequest() {
+        return new SoundRequest();
     }
 
     /**
-     * Create an instance of {@link StoredValueRequestType }
-     * 
+     * Create an instance of {@link StoredValueRequest }
      */
-    public StoredValueRequestType createStoredValueRequestType() {
-        return new StoredValueRequestType();
+    public StoredValueRequest createStoredValueRequest() {
+        return new StoredValueRequest();
     }
 
     /**
-     * Create an instance of {@link TransactionStatusRequestType }
-     * 
+     * Create an instance of {@link TransactionStatusRequest }
      */
-    public TransactionStatusRequestType createTransactionStatusRequestType() {
-        return new TransactionStatusRequestType();
+    public TransactionStatusRequest createTransactionStatusRequest() {
+        return new TransactionStatusRequest();
     }
 
     /**
-     * Create an instance of {@link TransmitRequestType }
-     * 
+     * Create an instance of {@link TransmitRequest }
      */
-    public TransmitRequestType createTransmitRequestType() {
-        return new TransmitRequestType();
+    public TransmitRequest createTransmitRequest() {
+        return new TransmitRequest();
     }
 
     /**
-     * Create an instance of {@link ContentInformationType }
-     * 
+     * Create an instance of {@link ContentInformation }
      */
-    public ContentInformationType createContentInformationType() {
-        return new ContentInformationType();
+    public ContentInformation createContentInformation() {
+        return new ContentInformation();
     }
 
     /**
      * Create an instance of {@link SaleToPOIResponse }
-     * 
      */
     public SaleToPOIResponse createSaleToPOIResponse() {
         return new SaleToPOIResponse();
     }
 
     /**
-     * Create an instance of {@link BalanceInquiryResponseType }
-     * 
+     * Create an instance of {@link BalanceInquiryResponse }
      */
-    public BalanceInquiryResponseType createBalanceInquiryResponseType() {
-        return new BalanceInquiryResponseType();
+    public BalanceInquiryResponse createBalanceInquiryResponse() {
+        return new BalanceInquiryResponse();
     }
 
     /**
-     * Create an instance of {@link BatchResponseType }
-     * 
+     * Create an instance of {@link BatchResponse }
      */
-    public BatchResponseType createBatchResponseType() {
-        return new BatchResponseType();
+    public BatchResponse createBatchResponse() {
+        return new BatchResponse();
     }
 
     /**
-     * Create an instance of {@link CardAcquisitionResponseType }
-     * 
+     * Create an instance of {@link CardAcquisitionResponse }
      */
-    public CardAcquisitionResponseType createCardAcquisitionResponseType() {
-        return new CardAcquisitionResponseType();
+    public CardAcquisitionResponse createCardAcquisitionResponse() {
+        return new CardAcquisitionResponse();
     }
 
     /**
-     * Create an instance of {@link AdminResponseType }
-     * 
+     * Create an instance of {@link AdminResponse }
      */
-    public AdminResponseType createAdminResponseType() {
-        return new AdminResponseType();
+    public AdminResponse createAdminResponse() {
+        return new AdminResponse();
     }
 
     /**
-     * Create an instance of {@link DiagnosisResponseType }
-     * 
+     * Create an instance of {@link DiagnosisResponse }
      */
-    public DiagnosisResponseType createDiagnosisResponseType() {
-        return new DiagnosisResponseType();
+    public DiagnosisResponse createDiagnosisResponse() {
+        return new DiagnosisResponse();
     }
 
     /**
-     * Create an instance of {@link DisplayResponseType }
-     * 
+     * Create an instance of {@link DisplayResponse }
      */
-    public DisplayResponseType createDisplayResponseType() {
-        return new DisplayResponseType();
+    public DisplayResponse createDisplayResponse() {
+        return new DisplayResponse();
     }
 
     /**
-     * Create an instance of {@link EnableServiceResponseType }
-     * 
+     * Create an instance of {@link EnableServiceResponse }
      */
-    public EnableServiceResponseType createEnableServiceResponseType() {
-        return new EnableServiceResponseType();
+    public EnableServiceResponse createEnableServiceResponse() {
+        return new EnableServiceResponse();
     }
 
     /**
-     * Create an instance of {@link GetTotalsResponseType }
-     * 
+     * Create an instance of {@link GetTotalsResponse }
      */
-    public GetTotalsResponseType createGetTotalsResponseType() {
-        return new GetTotalsResponseType();
+    public GetTotalsResponse createGetTotalsResponse() {
+        return new GetTotalsResponse();
     }
 
     /**
-     * Create an instance of {@link InputResponseType }
-     * 
+     * Create an instance of {@link InputResponse }
      */
-    public InputResponseType createInputResponseType() {
-        return new InputResponseType();
+    public InputResponse createInputResponse() {
+        return new InputResponse();
     }
 
     /**
-     * Create an instance of {@link LoginResponseType }
-     * 
+     * Create an instance of {@link LoginResponse }
      */
-    public LoginResponseType createLoginResponseType() {
-        return new LoginResponseType();
+    public LoginResponse createLoginResponse() {
+        return new LoginResponse();
     }
 
     /**
-     * Create an instance of {@link LogoutResponseType }
-     * 
+     * Create an instance of {@link LogoutResponse }
      */
-    public LogoutResponseType createLogoutResponseType() {
-        return new LogoutResponseType();
+    public LogoutResponse createLogoutResponse() {
+        return new LogoutResponse();
     }
 
     /**
-     * Create an instance of {@link LoyaltyResponseType }
-     * 
+     * Create an instance of {@link LoyaltyResponse }
      */
-    public LoyaltyResponseType createLoyaltyResponseType() {
-        return new LoyaltyResponseType();
+    public LoyaltyResponse createLoyaltyResponse() {
+        return new LoyaltyResponse();
     }
 
     /**
-     * Create an instance of {@link PaymentResponseType }
-     * 
+     * Create an instance of {@link PaymentResponse }
      */
-    public PaymentResponseType createPaymentResponseType() {
-        return new PaymentResponseType();
+    public PaymentResponse createPaymentResponse() {
+        return new PaymentResponse();
     }
 
     /**
-     * Create an instance of {@link PINResponseType }
-     * 
+     * Create an instance of {@link PINResponse }
      */
-    public PINResponseType createPINResponseType() {
-        return new PINResponseType();
+    public PINResponse createPINResponse() {
+        return new PINResponse();
     }
 
     /**
-     * Create an instance of {@link PrintResponseType }
-     * 
+     * Create an instance of {@link PrintResponse }
      */
-    public PrintResponseType createPrintResponseType() {
-        return new PrintResponseType();
+    public PrintResponse createPrintResponse() {
+        return new PrintResponse();
     }
 
     /**
-     * Create an instance of {@link CardReaderInitResponseType }
-     * 
+     * Create an instance of {@link CardReaderInitResponse }
      */
-    public CardReaderInitResponseType createCardReaderInitResponseType() {
-        return new CardReaderInitResponseType();
+    public CardReaderInitResponse createCardReaderInitResponse() {
+        return new CardReaderInitResponse();
     }
 
     /**
-     * Create an instance of {@link CardReaderAPDUResponseType }
-     * 
+     * Create an instance of {@link CardReaderAPDUResponse }
      */
-    public CardReaderAPDUResponseType createCardReaderAPDUResponseType() {
-        return new CardReaderAPDUResponseType();
+    public CardReaderAPDUResponse createCardReaderAPDUResponse() {
+        return new CardReaderAPDUResponse();
     }
 
     /**
-     * Create an instance of {@link CardReaderPowerOffResponseType }
-     * 
+     * Create an instance of {@link CardReaderPowerOffResponse }
      */
-    public CardReaderPowerOffResponseType createCardReaderPowerOffResponseType() {
-        return new CardReaderPowerOffResponseType();
+    public CardReaderPowerOffResponse createCardReaderPowerOffResponse() {
+        return new CardReaderPowerOffResponse();
     }
 
     /**
-     * Create an instance of {@link ReconciliationResponseType }
-     * 
+     * Create an instance of {@link ReconciliationResponse }
      */
-    public ReconciliationResponseType createReconciliationResponseType() {
-        return new ReconciliationResponseType();
+    public ReconciliationResponse createReconciliationResponse() {
+        return new ReconciliationResponse();
     }
 
     /**
-     * Create an instance of {@link ReversalResponseType }
-     * 
+     * Create an instance of {@link ReversalResponse }
      */
-    public ReversalResponseType createReversalResponseType() {
-        return new ReversalResponseType();
+    public ReversalResponse createReversalResponse() {
+        return new ReversalResponse();
     }
 
     /**
-     * Create an instance of {@link SoundResponseType }
-     * 
+     * Create an instance of {@link SoundResponse }
      */
-    public SoundResponseType createSoundResponseType() {
-        return new SoundResponseType();
+    public SoundResponse createSoundResponse() {
+        return new SoundResponse();
     }
 
     /**
-     * Create an instance of {@link StoredValueResponseType }
-     * 
+     * Create an instance of {@link StoredValueResponse }
      */
-    public StoredValueResponseType createStoredValueResponseType() {
-        return new StoredValueResponseType();
+    public StoredValueResponse createStoredValueResponse() {
+        return new StoredValueResponse();
     }
 
     /**
-     * Create an instance of {@link TransactionStatusResponseType }
-     * 
+     * Create an instance of {@link TransactionStatusResponse }
      */
-    public TransactionStatusResponseType createTransactionStatusResponseType() {
-        return new TransactionStatusResponseType();
+    public TransactionStatusResponse createTransactionStatusResponse() {
+        return new TransactionStatusResponse();
     }
 
     /**
-     * Create an instance of {@link TransmitResponseType }
-     * 
+     * Create an instance of {@link TransmitResponse }
      */
-    public TransmitResponseType createTransmitResponseType() {
-        return new TransmitResponseType();
+    public TransmitResponse createTransmitResponse() {
+        return new TransmitResponse();
     }
 
     /**
-     * Create an instance of {@link PaymentAcquirerDataType }
-     * 
+     * Create an instance of {@link PaymentReceipt }
      */
-    public PaymentAcquirerDataType createPaymentAcquirerDataType() {
-        return new PaymentAcquirerDataType();
+    public PaymentReceipt createPaymentReceipt() {
+        return new PaymentReceipt();
     }
 
     /**
-     * Create an instance of {@link SaleProfileType }
-     * 
+     * Create an instance of {@link POITerminalData }
      */
-    public SaleProfileType createSaleProfileType() {
-        return new SaleProfileType();
+    public POITerminalData createPOITerminalData() {
+        return new POITerminalData();
     }
 
     /**
-     * Create an instance of {@link OutputTextType }
-     * 
+     * Create an instance of {@link POIProfile }
      */
-    public OutputTextType createOutputTextType() {
-        return new OutputTextType();
+    public POIProfile createPOIProfile() {
+        return new POIProfile();
     }
 
     /**
-     * Create an instance of {@link SignaturePointType }
-     * 
+     * Create an instance of {@link SaleToIssuerData }
      */
-    public SignaturePointType createSignaturePointType() {
-        return new SignaturePointType();
+    public SaleToIssuerData createSaleToIssuerData() {
+        return new SaleToIssuerData();
     }
 
     /**
-     * Create an instance of {@link GeographicCoordinatesType }
-     * 
+     * Create an instance of {@link SoundContent }
      */
-    public GeographicCoordinatesType createGeographicCoordinatesType() {
-        return new GeographicCoordinatesType();
+    public SoundContent createSoundContent() {
+        return new SoundContent();
     }
 
     /**
-     * Create an instance of {@link LoyaltyAccountStatusType }
-     * 
+     * Create an instance of {@link PaymentAcquirerData }
      */
-    public LoyaltyAccountStatusType createLoyaltyAccountStatusType() {
-        return new LoyaltyAccountStatusType();
+    public PaymentAcquirerData createPaymentAcquirerData() {
+        return new PaymentAcquirerData();
     }
 
     /**
-     * Create an instance of {@link SaleToIssuerDataType }
-     * 
+     * Create an instance of {@link SaleProfile }
      */
-    public SaleToIssuerDataType createSaleToIssuerDataType() {
-        return new SaleToIssuerDataType();
+    public SaleProfile createSaleProfile() {
+        return new SaleProfile();
     }
 
     /**
-     * Create an instance of {@link CardholderPINType }
-     * 
+     * Create an instance of {@link PaymentToken }
      */
-    public CardholderPINType createCardholderPINType() {
-        return new CardholderPINType();
+    public PaymentToken createPaymentToken() {
+        return new PaymentToken();
     }
 
     /**
-     * Create an instance of {@link OutputContentType }
-     * 
+     * Create an instance of {@link LoyaltyAccountID }
      */
-    public OutputContentType createOutputContentType() {
-        return new OutputContentType();
+    public LoyaltyAccountID createLoyaltyAccountID() {
+        return new LoyaltyAccountID();
     }
 
     /**
-     * Create an instance of {@link LoyaltyAmountType }
-     * 
+     * Create an instance of {@link PaymentInstrumentData }
      */
-    public LoyaltyAmountType createLoyaltyAmountType() {
-        return new LoyaltyAmountType();
+    public PaymentInstrumentData createPaymentInstrumentData() {
+        return new PaymentInstrumentData();
     }
 
     /**
-     * Create an instance of {@link PaymentTokenType }
-     * 
+     * Create an instance of {@link Parameter }
      */
-    public PaymentTokenType createPaymentTokenType() {
-        return new PaymentTokenType();
+    public Parameter createParameter() {
+        return new Parameter();
     }
 
     /**
-     * Create an instance of {@link IssuerType }
-     * 
+     * Create an instance of {@link EnvelopedData }
      */
-    public IssuerType createIssuerType() {
-        return new IssuerType();
+    public EnvelopedData createEnvelopedData() {
+        return new EnvelopedData();
     }
 
     /**
-     * Create an instance of {@link RecipientIdentifierType }
-     * 
+     * Create an instance of {@link SignerIdentifier }
      */
-    public RecipientIdentifierType createRecipientIdentifierType() {
-        return new RecipientIdentifierType();
+    public SignerIdentifier createSignerIdentifier() {
+        return new SignerIdentifier();
     }
 
     /**
-     * Create an instance of {@link InstalmentType }
-     * 
+     * Create an instance of {@link MessageReference }
      */
-    public InstalmentType createInstalmentType() {
-        return new InstalmentType();
+    public MessageReference createMessageReference() {
+        return new MessageReference();
     }
 
     /**
-     * Create an instance of {@link SponsoredMerchantType }
-     * 
+     * Create an instance of {@link PaymentAccountStatus }
      */
-    public SponsoredMerchantType createSponsoredMerchantType() {
-        return new SponsoredMerchantType();
+    public PaymentAccountStatus createPaymentAccountStatus() {
+        return new PaymentAccountStatus();
     }
 
     /**
-     * Create an instance of {@link KEKType }
-     * 
+     * Create an instance of {@link IssuerAndSerialNumber }
      */
-    public KEKType createKEKType() {
-        return new KEKType();
+    public IssuerAndSerialNumber createIssuerAndSerialNumber() {
+        return new IssuerAndSerialNumber();
     }
 
     /**
-     * Create an instance of {@link UTMCoordinatesType }
-     * 
+     * Create an instance of {@link StoredValueAccountID }
      */
-    public UTMCoordinatesType createUTMCoordinatesType() {
-        return new UTMCoordinatesType();
+    public StoredValueAccountID createStoredValueAccountID() {
+        return new StoredValueAccountID();
     }
 
     /**
-     * Create an instance of {@link PredefinedContentType }
-     * 
+     * Create an instance of {@link Signer }
      */
-    public PredefinedContentType createPredefinedContentType() {
-        return new PredefinedContentType();
+    public Signer createSigner() {
+        return new Signer();
     }
 
     /**
-     * Create an instance of {@link SignerType }
-     * 
+     * Create an instance of {@link TransactionConditions }
      */
-    public SignerType createSignerType() {
-        return new SignerType();
+    public TransactionConditions createTransactionConditions() {
+        return new TransactionConditions();
     }
 
     /**
-     * Create an instance of {@link CashHandlingDeviceType }
-     * 
+     * Create an instance of {@link EncryptedContent }
      */
-    public CashHandlingDeviceType createCashHandlingDeviceType() {
-        return new CashHandlingDeviceType();
+    public EncryptedContent createEncryptedContent() {
+        return new EncryptedContent();
     }
 
     /**
-     * Create an instance of {@link POIProfileType }
-     * 
+     * Create an instance of {@link OriginalPOITransaction }
      */
-    public POIProfileType createPOIProfileType() {
-        return new POIProfileType();
-    }
-
-    /**
-     * Create an instance of {@link RelativeDistinguishedNameType }
-     * 
-     */
-    public RelativeDistinguishedNameType createRelativeDistinguishedNameType() {
-        return new RelativeDistinguishedNameType();
-    }
-
-    /**
-     * Create an instance of {@link MessageReferenceType }
-     * 
-     */
-    public MessageReferenceType createMessageReferenceType() {
-        return new MessageReferenceType();
-    }
-
-    /**
-     * Create an instance of {@link CardAcquisitionTransactionType }
-     * 
-     */
-    public CardAcquisitionTransactionType createCardAcquisitionTransactionType() {
-        return new CardAcquisitionTransactionType();
-    }
-
-    /**
-     * Create an instance of {@link EncryptedContentType }
-     * 
-     */
-    public EncryptedContentType createEncryptedContentType() {
-        return new EncryptedContentType();
-    }
-
-    /**
-     * Create an instance of {@link ResponseType }
-     * 
-     */
-    public ResponseType createResponseType() {
-        return new ResponseType();
-    }
-
-    /**
-     * Create an instance of {@link TransactionToPerformType }
-     * 
-     */
-    public TransactionToPerformType createTransactionToPerformType() {
-        return new TransactionToPerformType();
-    }
-
-    /**
-     * Create an instance of {@link CurrencyConversionType }
-     * 
-     */
-    public CurrencyConversionType createCurrencyConversionType() {
-        return new CurrencyConversionType();
-    }
-
-    /**
-     * Create an instance of {@link ICCResetDataType }
-     * 
-     */
-    public ICCResetDataType createICCResetDataType() {
-        return new ICCResetDataType();
-    }
-
-    /**
-     * Create an instance of {@link POITerminalDataType }
-     * 
-     */
-    public POITerminalDataType createPOITerminalDataType() {
-        return new POITerminalDataType();
-    }
-
-    /**
-     * Create an instance of {@link StoredValueResultType }
-     * 
-     */
-    public StoredValueResultType createStoredValueResultType() {
-        return new StoredValueResultType();
-    }
-
-    /**
-     * Create an instance of {@link HostStatusType }
-     * 
-     */
-    public HostStatusType createHostStatusType() {
-        return new HostStatusType();
+    public OriginalPOITransaction createOriginalPOITransaction() {
+        return new OriginalPOITransaction();
     }
 
     /**
      * Create an instance of {@link AlgorithmIdentifier }
-     * 
      */
     public AlgorithmIdentifier createAlgorithmIdentifier() {
         return new AlgorithmIdentifier();
     }
 
     /**
-     * Create an instance of {@link NamedKeyEncryptedDataType }
-     * 
+     * Create an instance of {@link RecipientIdentifier }
      */
-    public NamedKeyEncryptedDataType createNamedKeyEncryptedDataType() {
-        return new NamedKeyEncryptedDataType();
+    public RecipientIdentifier createRecipientIdentifier() {
+        return new RecipientIdentifier();
     }
 
     /**
-     * Create an instance of {@link CheckDataType }
-     * 
+     * Create an instance of {@link PaymentData }
      */
-    public CheckDataType createCheckDataType() {
-        return new CheckDataType();
+    public PaymentData createPaymentData() {
+        return new PaymentData();
     }
 
     /**
-     * Create an instance of {@link MenuEntryType }
-     * 
+     * Create an instance of {@link KEKIdentifier }
      */
-    public MenuEntryType createMenuEntryType() {
-        return new MenuEntryType();
+    public KEKIdentifier createKEKIdentifier() {
+        return new KEKIdentifier();
     }
 
     /**
-     * Create an instance of {@link PaymentTransactionType }
-     * 
+     * Create an instance of {@link PrintOutput }
      */
-    public PaymentTransactionType createPaymentTransactionType() {
-        return new PaymentTransactionType();
+    public PrintOutput createPrintOutput() {
+        return new PrintOutput();
     }
 
     /**
-     * Create an instance of {@link EnvelopedDataType }
-     * 
+     * Create an instance of {@link AmountsResp }
      */
-    public EnvelopedDataType createEnvelopedDataType() {
-        return new EnvelopedDataType();
+    public AmountsResp createAmountsResp() {
+        return new AmountsResp();
     }
 
     /**
-     * Create an instance of {@link SaleItemRebateType }
-     * 
+     * Create an instance of {@link LoyaltyAccountStatus }
      */
-    public SaleItemRebateType createSaleItemRebateType() {
-        return new SaleItemRebateType();
+    public LoyaltyAccountStatus createLoyaltyAccountStatus() {
+        return new LoyaltyAccountStatus();
     }
 
     /**
-     * Create an instance of {@link CardDataType }
-     * 
+     * Create an instance of {@link TransactionToPerform }
      */
-    public CardDataType createCardDataType() {
-        return new CardDataType();
+    public TransactionToPerform createTransactionToPerform() {
+        return new TransactionToPerform();
     }
 
     /**
-     * Create an instance of {@link LoyaltyTransactionType }
-     * 
+     * Create an instance of {@link MenuEntry }
      */
-    public LoyaltyTransactionType createLoyaltyTransactionType() {
-        return new LoyaltyTransactionType();
+    public MenuEntry createMenuEntry() {
+        return new MenuEntry();
     }
 
     /**
-     * Create an instance of {@link PaymentDataType }
-     * 
+     * Create an instance of {@link DisplayOutput }
      */
-    public PaymentDataType createPaymentDataType() {
-        return new PaymentDataType();
+    public DisplayOutput createDisplayOutput() {
+        return new DisplayOutput();
     }
 
     /**
-     * Create an instance of {@link TransactionConditionsType }
-     * 
+     * Create an instance of {@link SignedData }
      */
-    public TransactionConditionsType createTransactionConditionsType() {
-        return new TransactionConditionsType();
+    public SignedData createSignedData() {
+        return new SignedData();
     }
 
     /**
-     * Create an instance of {@link AreaSizeType }
-     * 
+     * Create an instance of {@link Amount }
      */
-    public AreaSizeType createAreaSizeType() {
-        return new AreaSizeType();
+    public Amount createAmount() {
+        return new Amount();
     }
 
     /**
-     * Create an instance of {@link KeyTransportType }
-     * 
+     * Create an instance of {@link PaymentTotals }
      */
-    public KeyTransportType createKeyTransportType() {
-        return new KeyTransportType();
+    public PaymentTotals createPaymentTotals() {
+        return new PaymentTotals();
     }
 
     /**
-     * Create an instance of {@link IssuerAndSerialNumberType }
-     * 
+     * Create an instance of {@link CurrencyConversion }
      */
-    public IssuerAndSerialNumberType createIssuerAndSerialNumberType() {
-        return new IssuerAndSerialNumberType();
+    public CurrencyConversion createCurrencyConversion() {
+        return new CurrencyConversion();
     }
 
     /**
-     * Create an instance of {@link TransactionTotalsType }
-     * 
+     * Create an instance of {@link SensitiveMobileData }
      */
-    public TransactionTotalsType createTransactionTotalsType() {
-        return new TransactionTotalsType();
+    public SensitiveMobileData createSensitiveMobileData() {
+        return new SensitiveMobileData();
     }
 
     /**
-     * Create an instance of {@link TransactionIdentificationType }
-     * 
+     * Create an instance of {@link Instalment }
      */
-    public TransactionIdentificationType createTransactionIdentificationType() {
-        return new TransactionIdentificationType();
+    public Instalment createInstalment() {
+        return new Instalment();
     }
 
     /**
-     * Create an instance of {@link SaleTerminalDataType }
-     * 
+     * Create an instance of {@link LoyaltyAccount }
      */
-    public SaleTerminalDataType createSaleTerminalDataType() {
-        return new SaleTerminalDataType();
+    public LoyaltyAccount createLoyaltyAccount() {
+        return new LoyaltyAccount();
     }
 
     /**
-     * Create an instance of {@link LoyaltyAccountIDType }
-     * 
+     * Create an instance of {@link TrackData }
      */
-    public LoyaltyAccountIDType createLoyaltyAccountIDType() {
-        return new LoyaltyAccountIDType();
+    public TrackData createTrackData() {
+        return new TrackData();
     }
 
     /**
-     * Create an instance of {@link PaymentAccountStatusType }
-     * 
+     * Create an instance of {@link PaymentAccountReq }
      */
-    public PaymentAccountStatusType createPaymentAccountStatusType() {
-        return new PaymentAccountStatusType();
+    public PaymentAccountReq createPaymentAccountReq() {
+        return new PaymentAccountReq();
     }
 
     /**
-     * Create an instance of {@link GeolocationType }
-     * 
+     * Create an instance of {@link GeographicCoordinates }
      */
-    public GeolocationType createGeolocationType() {
-        return new GeolocationType();
+    public GeographicCoordinates createGeographicCoordinates() {
+        return new GeographicCoordinates();
     }
 
     /**
-     * Create an instance of {@link EncapsulatedContentType }
-     * 
+     * Create an instance of {@link LoyaltyResult }
      */
-    public EncapsulatedContentType createEncapsulatedContentType() {
-        return new EncapsulatedContentType();
+    public LoyaltyResult createLoyaltyResult() {
+        return new LoyaltyResult();
     }
 
     /**
-     * Create an instance of {@link TrackDataType }
-     * 
+     * Create an instance of {@link CardData }
      */
-    public TrackDataType createTrackDataType() {
-        return new TrackDataType();
+    public CardData createCardData() {
+        return new CardData();
     }
 
     /**
-     * Create an instance of {@link MobileDataType }
-     * 
+     * Create an instance of {@link LoyaltyAmount }
      */
-    public MobileDataType createMobileDataType() {
-        return new MobileDataType();
+    public LoyaltyAmount createLoyaltyAmount() {
+        return new LoyaltyAmount();
     }
 
     /**
-     * Create an instance of {@link AllowedProductType }
-     * 
+     * Create an instance of {@link SensitiveCardData }
      */
-    public AllowedProductType createAllowedProductType() {
-        return new AllowedProductType();
+    public SensitiveCardData createSensitiveCardData() {
+        return new SensitiveCardData();
     }
 
     /**
-     * Create an instance of {@link SaleDataType }
-     * 
+     * Create an instance of {@link Issuer }
      */
-    public SaleDataType createSaleDataType() {
-        return new SaleDataType();
+    public Issuer createIssuer() {
+        return new Issuer();
     }
 
     /**
-     * Create an instance of {@link AmountType }
-     * 
+     * Create an instance of {@link NamedKeyEncryptedData }
      */
-    public AmountType createAmountType() {
-        return new AmountType();
+    public NamedKeyEncryptedData createNamedKeyEncryptedData() {
+        return new NamedKeyEncryptedData();
     }
 
     /**
-     * Create an instance of {@link SignerIdentifierType }
-     * 
+     * Create an instance of {@link POISoftware }
      */
-    public SignerIdentifierType createSignerIdentifierType() {
-        return new SignerIdentifierType();
+    public POISoftware createPOISoftware() {
+        return new POISoftware();
     }
 
     /**
-     * Create an instance of {@link OriginalPOITransactionType }
-     * 
+     * Create an instance of {@link PerformedTransaction }
      */
-    public OriginalPOITransactionType createOriginalPOITransactionType() {
-        return new OriginalPOITransactionType();
+    public PerformedTransaction createPerformedTransaction() {
+        return new PerformedTransaction();
     }
 
     /**
-     * Create an instance of {@link POISoftwareType }
-     * 
+     * Create an instance of {@link ICCResetData }
      */
-    public POISoftwareType createPOISoftwareType() {
-        return new POISoftwareType();
+    public ICCResetData createICCResetData() {
+        return new ICCResetData();
     }
 
     /**
-     * Create an instance of {@link SoundContentType }
-     * 
+     * Create an instance of {@link CardholderPIN }
      */
-    public SoundContentType createSoundContentType() {
-        return new SoundContentType();
+    public CardholderPIN createCardholderPIN() {
+        return new CardholderPIN();
     }
 
     /**
-     * Create an instance of {@link CoinsOrBillsType }
-     * 
+     * Create an instance of {@link StoredValueResult }
      */
-    public CoinsOrBillsType createCoinsOrBillsType() {
-        return new CoinsOrBillsType();
+    public StoredValueResult createStoredValueResult() {
+        return new StoredValueResult();
     }
 
     /**
-     * Create an instance of {@link LoyaltyTotalsType }
-     * 
+     * Create an instance of {@link POIData }
      */
-    public LoyaltyTotalsType createLoyaltyTotalsType() {
-        return new LoyaltyTotalsType();
+    public POIData createPOIData() {
+        return new POIData();
     }
 
     /**
-     * Create an instance of {@link SensitiveMobileDataType }
-     * 
+     * Create an instance of {@link KEK }
      */
-    public SensitiveMobileDataType createSensitiveMobileDataType() {
-        return new SensitiveMobileDataType();
+    public KEK createKEK() {
+        return new KEK();
     }
 
     /**
-     * Create an instance of {@link POIDataType }
-     * 
+     * Create an instance of {@link DigestedData }
      */
-    public POIDataType createPOIDataType() {
-        return new POIDataType();
+    public DigestedData createDigestedData() {
+        return new DigestedData();
     }
 
     /**
-     * Create an instance of {@link KEKIdentifierType }
-     * 
+     * Create an instance of {@link SignaturePoint }
      */
-    public KEKIdentifierType createKEKIdentifierType() {
-        return new KEKIdentifierType();
+    public SignaturePoint createSignaturePoint() {
+        return new SignaturePoint();
     }
 
     /**
-     * Create an instance of {@link TotalFilterType }
-     * 
+     * Create an instance of {@link AmountsReq }
      */
-    public TotalFilterType createTotalFilterType() {
-        return new TotalFilterType();
+    public AmountsReq createAmountsReq() {
+        return new AmountsReq();
     }
 
     /**
-     * Create an instance of {@link POISystemDataType }
-     * 
+     * Create an instance of {@link TransactionTotals }
      */
-    public POISystemDataType createPOISystemDataType() {
-        return new POISystemDataType();
+    public TransactionTotals createTransactionTotals() {
+        return new TransactionTotals();
     }
 
     /**
-     * Create an instance of {@link StoredValueDataType }
-     * 
+     * Create an instance of {@link RepeatedMessageResponse }
      */
-    public StoredValueDataType createStoredValueDataType() {
-        return new StoredValueDataType();
+    public RepeatedMessageResponse createRepeatedMessageResponse() {
+        return new RepeatedMessageResponse();
     }
 
     /**
-     * Create an instance of {@link PaymentResultType }
-     * 
+     * Create an instance of {@link SponsoredMerchant }
      */
-    public PaymentResultType createPaymentResultType() {
-        return new PaymentResultType();
+    public SponsoredMerchant createSponsoredMerchant() {
+        return new SponsoredMerchant();
     }
 
     /**
-     * Create an instance of {@link PaymentAccountReqType }
-     * 
+     * Create an instance of {@link UTMCoordinates }
      */
-    public PaymentAccountReqType createPaymentAccountReqType() {
-        return new PaymentAccountReqType();
+    public UTMCoordinates createUTMCoordinates() {
+        return new UTMCoordinates();
     }
 
     /**
-     * Create an instance of {@link LoyaltyResultType }
-     * 
+     * Create an instance of {@link Geolocation }
      */
-    public LoyaltyResultType createLoyaltyResultType() {
-        return new LoyaltyResultType();
+    public Geolocation createGeolocation() {
+        return new Geolocation();
     }
 
     /**
-     * Create an instance of {@link DigestedDataType }
-     * 
+     * Create an instance of {@link SaleSoftware }
      */
-    public DigestedDataType createDigestedDataType() {
-        return new DigestedDataType();
+    public SaleSoftware createSaleSoftware() {
+        return new SaleSoftware();
     }
 
     /**
-     * Create an instance of {@link SignedDataType }
-     * 
+     * Create an instance of {@link LoyaltyData }
      */
-    public SignedDataType createSignedDataType() {
-        return new SignedDataType();
+    public LoyaltyData createLoyaltyData() {
+        return new LoyaltyData();
     }
 
     /**
-     * Create an instance of {@link PaymentTotalsType }
-     * 
+     * Create an instance of {@link Rebates }
      */
-    public PaymentTotalsType createPaymentTotalsType() {
-        return new PaymentTotalsType();
+    public Rebates createRebates() {
+        return new Rebates();
     }
 
     /**
-     * Create an instance of {@link PerformedTransactionType }
-     * 
+     * Create an instance of {@link InputResult }
      */
-    public PerformedTransactionType createPerformedTransactionType() {
-        return new PerformedTransactionType();
+    public InputResult createInputResult() {
+        return new InputResult();
     }
 
     /**
-     * Create an instance of {@link LoyaltyAccountType }
-     * 
+     * Create an instance of {@link AreaSize }
      */
-    public LoyaltyAccountType createLoyaltyAccountType() {
-        return new LoyaltyAccountType();
+    public AreaSize createAreaSize() {
+        return new AreaSize();
     }
 
     /**
-     * Create an instance of {@link InputResultType }
-     * 
+     * Create an instance of {@link CapturedSignature }
      */
-    public InputResultType createInputResultType() {
-        return new InputResultType();
+    public CapturedSignature createCapturedSignature() {
+        return new CapturedSignature();
     }
 
     /**
-     * Create an instance of {@link DisplayOutputType }
-     * 
+     * Create an instance of {@link LoyaltyAccountReq }
      */
-    public DisplayOutputType createDisplayOutputType() {
-        return new DisplayOutputType();
+    public LoyaltyAccountReq createLoyaltyAccountReq() {
+        return new LoyaltyAccountReq();
     }
 
     /**
-     * Create an instance of {@link AuthenticatedDataType }
-     * 
+     * Create an instance of {@link AllowedProduct }
      */
-    public AuthenticatedDataType createAuthenticatedDataType() {
-        return new AuthenticatedDataType();
+    public AllowedProduct createAllowedProduct() {
+        return new AllowedProduct();
     }
 
     /**
-     * Create an instance of {@link InputDataType }
-     * 
+     * Create an instance of {@link HostStatus }
      */
-    public InputDataType createInputDataType() {
-        return new InputDataType();
+    public HostStatus createHostStatus() {
+        return new HostStatus();
     }
 
     /**
-     * Create an instance of {@link LoyaltyAcquirerDataType }
-     * 
+     * Create an instance of {@link RelativeDistinguishedName }
      */
-    public LoyaltyAcquirerDataType createLoyaltyAcquirerDataType() {
-        return new LoyaltyAcquirerDataType();
+    public RelativeDistinguishedName createRelativeDistinguishedName() {
+        return new RelativeDistinguishedName();
     }
 
     /**
-     * Create an instance of {@link SaleItemType }
-     * 
+     * Create an instance of {@link POIStatus }
      */
-    public SaleItemType createSaleItemType() {
-        return new SaleItemType();
+    public POIStatus createPOIStatus() {
+        return new POIStatus();
     }
 
     /**
-     * Create an instance of {@link InputType }
-     * 
+     * Create an instance of {@link TransactionIdentification }
      */
-    public InputType createInputType() {
-        return new InputType();
+    public TransactionIdentification createTransactionIdentification() {
+        return new TransactionIdentification();
     }
 
     /**
-     * Create an instance of {@link SensitiveCardDataType }
-     * 
+     * Create an instance of {@link CustomerOrder }
      */
-    public SensitiveCardDataType createSensitiveCardDataType() {
-        return new SensitiveCardDataType();
+    public CustomerOrder createCustomerOrder() {
+        return new CustomerOrder();
     }
 
     /**
-     * Create an instance of {@link OutputResultType }
-     * 
+     * Create an instance of {@link StoredValueData }
      */
-    public OutputResultType createOutputResultType() {
-        return new OutputResultType();
+    public StoredValueData createStoredValueData() {
+        return new StoredValueData();
     }
 
     /**
-     * Create an instance of {@link StoredValueAccountStatusType }
-     * 
+     * Create an instance of {@link OutputText }
      */
-    public StoredValueAccountStatusType createStoredValueAccountStatusType() {
-        return new StoredValueAccountStatusType();
+    public OutputText createOutputText() {
+        return new OutputText();
     }
 
     /**
-     * Create an instance of {@link ParameterType }
-     * 
+     * Create an instance of {@link OutputBarcode }
      */
-    public ParameterType createParameterType() {
-        return new ParameterType();
+    public OutputBarcode createOutputBarcode() {
+        return new OutputBarcode();
     }
 
     /**
-     * Create an instance of {@link SaleSoftwareType }
-     * 
+     * Create an instance of {@link SaleItem }
      */
-    public SaleSoftwareType createSaleSoftwareType() {
-        return new SaleSoftwareType();
+    public SaleItem createSaleItem() {
+        return new SaleItem();
     }
 
     /**
-     * Create an instance of {@link LoyaltyDataType }
-     * 
+     * Create an instance of {@link LoyaltyTransaction }
      */
-    public LoyaltyDataType createLoyaltyDataType() {
-        return new LoyaltyDataType();
+    public LoyaltyTransaction createLoyaltyTransaction() {
+        return new LoyaltyTransaction();
     }
 
     /**
-     * Create an instance of {@link RepeatedMessageResponseType }
-     * 
+     * Create an instance of {@link LoyaltyAcquirerData }
      */
-    public RepeatedMessageResponseType createRepeatedMessageResponseType() {
-        return new RepeatedMessageResponseType();
+    public LoyaltyAcquirerData createLoyaltyAcquirerData() {
+        return new LoyaltyAcquirerData();
     }
 
     /**
-     * Create an instance of {@link RebatesType }
-     * 
+     * Create an instance of {@link StoredValueAccountStatus }
      */
-    public RebatesType createRebatesType() {
-        return new RebatesType();
+    public StoredValueAccountStatus createStoredValueAccountStatus() {
+        return new StoredValueAccountStatus();
     }
 
     /**
-     * Create an instance of {@link POIStatusType }
-     * 
+     * Create an instance of {@link LoyaltyTotals }
      */
-    public POIStatusType createPOIStatusType() {
-        return new POIStatusType();
+    public LoyaltyTotals createLoyaltyTotals() {
+        return new LoyaltyTotals();
     }
 
     /**
-     * Create an instance of {@link OutputBarcodeType }
-     * 
+     * Create an instance of {@link POISystemData }
      */
-    public OutputBarcodeType createOutputBarcodeType() {
-        return new OutputBarcodeType();
+    public POISystemData createPOISystemData() {
+        return new POISystemData();
     }
 
     /**
-     * Create an instance of {@link CapturedSignatureType }
-     * 
+     * Create an instance of {@link CardAcquisitionTransaction }
      */
-    public CapturedSignatureType createCapturedSignatureType() {
-        return new CapturedSignatureType();
+    public CardAcquisitionTransaction createCardAcquisitionTransaction() {
+        return new CardAcquisitionTransaction();
     }
 
     /**
-     * Create an instance of {@link PrintOutputType }
-     * 
+     * Create an instance of {@link CoinsOrBills }
      */
-    public PrintOutputType createPrintOutputType() {
-        return new PrintOutputType();
+    public CoinsOrBills createCoinsOrBills() {
+        return new CoinsOrBills();
     }
 
     /**
-     * Create an instance of {@link AmountsReqType }
-     * 
+     * Create an instance of {@link InputData }
      */
-    public AmountsReqType createAmountsReqType() {
-        return new AmountsReqType();
+    public InputData createInputData() {
+        return new InputData();
     }
 
     /**
-     * Create an instance of {@link AmountsRespType }
-     * 
+     * Create an instance of {@link SaleItemRebate }
      */
-    public AmountsRespType createAmountsRespType() {
-        return new AmountsRespType();
+    public SaleItemRebate createSaleItemRebate() {
+        return new SaleItemRebate();
     }
 
     /**
-     * Create an instance of {@link StoredValueAccountIDType }
-     * 
+     * Create an instance of {@link AuthenticatedData }
      */
-    public StoredValueAccountIDType createStoredValueAccountIDType() {
-        return new StoredValueAccountIDType();
+    public AuthenticatedData createAuthenticatedData() {
+        return new AuthenticatedData();
     }
 
     /**
-     * Create an instance of {@link PaymentInstrumentDataType }
-     * 
+     * Create an instance of {@link TotalFilter }
      */
-    public PaymentInstrumentDataType createPaymentInstrumentDataType() {
-        return new PaymentInstrumentDataType();
+    public TotalFilter createTotalFilter() {
+        return new TotalFilter();
     }
 
     /**
-     * Create an instance of {@link CustomerOrderType }
-     * 
+     * Create an instance of {@link SaleData }
      */
-    public CustomerOrderType createCustomerOrderType() {
-        return new CustomerOrderType();
+    public SaleData createSaleData() {
+        return new SaleData();
     }
 
     /**
-     * Create an instance of {@link PaymentReceiptType }
-     * 
+     * Create an instance of {@link PredefinedContent }
      */
-    public PaymentReceiptType createPaymentReceiptType() {
-        return new PaymentReceiptType();
+    public PredefinedContent createPredefinedContent() {
+        return new PredefinedContent();
     }
 
     /**
-     * Create an instance of {@link LoyaltyAccountReqType }
-     * 
+     * Create an instance of {@link Input }
      */
-    public LoyaltyAccountReqType createLoyaltyAccountReqType() {
-        return new LoyaltyAccountReqType();
+    public Input createInput() {
+        return new Input();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}}
-     * 
+     * Create an instance of {@link KeyTransport }
      */
-    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = CardAcquisitionTransactionType.class)
-    public JAXBElement<List<String>> createCardAcquisitionTransactionTypeForceEntryMode(List<String> value) {
-        return new JAXBElement<List<String>>(_CardAcquisitionTransactionTypeForceEntryMode_QNAME, ((Class) List.class), CardAcquisitionTransactionType.class, ((List<String> ) value));
+    public KeyTransport createKeyTransport() {
+        return new KeyTransport();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}}
-     * 
+     * Create an instance of {@link CheckData }
      */
-    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = CardReaderInitRequestType.class)
-    public JAXBElement<List<String>> createCardReaderInitRequestTypeForceEntryMode(List<String> value) {
-        return new JAXBElement<List<String>>(_CardAcquisitionTransactionTypeForceEntryMode_QNAME, ((Class) List.class), CardReaderInitRequestType.class, ((List<String> ) value));
+    public CheckData createCheckData() {
+        return new CheckData();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}}
-     * 
+     * Create an instance of {@link SaleTerminalData }
      */
-    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = TransactionConditionsType.class)
-    public JAXBElement<List<String>> createTransactionConditionsTypeForceEntryMode(List<String> value) {
-        return new JAXBElement<List<String>>(_CardAcquisitionTransactionTypeForceEntryMode_QNAME, ((Class) List.class), TransactionConditionsType.class, ((List<String> ) value));
+    public SaleTerminalData createSaleTerminalData() {
+        return new SaleTerminalData();
+    }
+
+    /**
+     * Create an instance of {@link PaymentTransaction }
+     */
+    public PaymentTransaction createPaymentTransaction() {
+        return new PaymentTransaction();
+    }
+
+    /**
+     * Create an instance of {@link OutputContent }
+     */
+    public OutputContent createOutputContent() {
+        return new OutputContent();
+    }
+
+    /**
+     * Create an instance of {@link PaymentResult }
+     */
+    public PaymentResult createPaymentResult() {
+        return new PaymentResult();
+    }
+
+    /**
+     * Create an instance of {@link MobileData }
+     */
+    public MobileData createMobileData() {
+        return new MobileData();
+    }
+
+    /**
+     * Create an instance of {@link OutputResult }
+     */
+    public OutputResult createOutputResult() {
+        return new OutputResult();
+    }
+
+    /**
+     * Create an instance of {@link CashHandlingDevice }
+     */
+    public CashHandlingDevice createCashHandlingDevice() {
+        return new CashHandlingDevice();
+    }
+
+    /**
+     * Create an instance of {@link Response }
+     */
+    public Response createResponse() {
+        return new Response();
+    }
+
+    /**
+     * Create an instance of {@link EncapsulatedContent }
+     */
+    public EncapsulatedContent createEncapsulatedContent() {
+        return new EncapsulatedContent();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = CardReaderInitRequest.class)
+    public JAXBElement<List<ForceEntryModeType>> createCardReaderInitRequestForceEntryMode(List<ForceEntryModeType> value) {
+        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), CardReaderInitRequest.class, ((List<ForceEntryModeType>) value));
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = CardAcquisitionTransaction.class)
+    public JAXBElement<List<ForceEntryModeType>> createCardAcquisitionTransactionForceEntryMode(List<ForceEntryModeType> value) {
+        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), CardAcquisitionTransaction.class, ((List<ForceEntryModeType>) value));
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = TransactionConditions.class)
+    public JAXBElement<List<ForceEntryModeType>> createTransactionConditionsForceEntryMode(List<ForceEntryModeType> value) {
+        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), TransactionConditions.class, ((List<ForceEntryModeType>) value));
     }
 
 }
