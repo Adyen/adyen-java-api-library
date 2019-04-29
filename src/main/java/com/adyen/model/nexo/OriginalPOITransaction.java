@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Identification of a previous POI transaction. -- Usage: In the Payment or the Loyalty Request message, it allows using the card of a previous CardAcquisition or Payment/Loyalty request. To reverse a Payment or the Loyalty transaction. By default, the reversal is requested from the same Sale
+ * Definition: Identification of a previous POI transaction. -- Usage: In the Payment or the Loyalty Request messageType, it allows using the card of a previous CardAcquisition or Payment/Loyalty request. To reverse a Payment or the Loyalty transaction. By default, the reversal is requested from the same Sale
  *
  * <p>Java class for OriginalPOITransaction complex type.
  *

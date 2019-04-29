@@ -52,7 +52,7 @@ public enum MessageCategoryType {
 
 
     /**
-     * Abort message request
+     * Abort messageType request
      *
      */
     @XmlEnumValue("Abort")
@@ -115,125 +115,125 @@ public enum MessageCategoryType {
     DIAGNOSIS("Diagnosis"),
 
     /**
-     * Display message request or response
+     * Display messageType request or response
      *
      */
     @XmlEnumValue("Display")
     DISPLAY("Display"),
 
     /**
-     * Enable Service message request or response
+     * Enable Service messageType request or response
      *
      */
     @XmlEnumValue("EnableService")
     ENABLE_SERVICE("EnableService"),
 
     /**
-     * Event Notification message
+     * Event Notification messageType
      *
      */
     @XmlEnumValue("Event")
     EVENT("Event"),
 
     /**
-     * GetTotals message request or response
+     * GetTotals messageType request or response
      *
      */
     @XmlEnumValue("GetTotals")
     GET_TOTALS("GetTotals"),
 
     /**
-     * Input message request or response
+     * Input messageType request or response
      *
      */
     @XmlEnumValue("Input")
     INPUT("Input"),
 
     /**
-     * Input Update message
+     * Input Update messageType
      *
      */
     @XmlEnumValue("InputUpdate")
     INPUT_UPDATE("InputUpdate"),
 
     /**
-     * Login message request or response
+     * Login messageType request or response
      *
      */
     @XmlEnumValue("Login")
     LOGIN("Login"),
 
     /**
-     * Logout message request or response
+     * Logout messageType request or response
      *
      */
     @XmlEnumValue("Logout")
     LOGOUT("Logout"),
 
     /**
-     * Loyalty message request or response
+     * Loyalty messageType request or response
      *
      */
     @XmlEnumValue("Loyalty")
     LOYALTY("Loyalty"),
 
     /**
-     * Payment message request or response
+     * Payment messageType request or response
      *
      */
     @XmlEnumValue("Payment")
     PAYMENT("Payment"),
 
     /**
-     * PIN message request or response
+     * PIN messageType request or response
      *
      */
     PIN("PIN"),
 
     /**
-     * Print message request or response
+     * Print messageType request or response
      *
      */
     @XmlEnumValue("Print")
     PRINT("Print"),
 
     /**
-     * Reconciliation message request or response
+     * Reconciliation messageType request or response
      *
      */
     @XmlEnumValue("Reconciliation")
     RECONCILIATION("Reconciliation"),
 
     /**
-     * Reversal message request or response
+     * Reversal messageType request or response
      *
      */
     @XmlEnumValue("Reversal")
     REVERSAL("Reversal"),
 
     /**
-     * Sound message request or response
+     * Sound messageType request or response
      *
      */
     @XmlEnumValue("Sound")
     SOUND("Sound"),
 
     /**
-     * Stored Value message request or response
+     * Stored Value messageType request or response
      *
      */
     @XmlEnumValue("StoredValue")
     STORED_VALUE("StoredValue"),
 
     /**
-     * TransactionStatus message request or response
+     * TransactionStatus messageType request or response
      *
      */
     @XmlEnumValue("TransactionStatus")
     TRANSACTION_STATUS("TransactionStatus"),
 
     /**
-     * Transmit message request or response
+     * Transmit messageType request or response
      *
      */
     @XmlEnumValue("Transmit")

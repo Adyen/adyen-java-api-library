@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Reversal Request message. -- Usage: It conveys Information related to the reversal of a previous payment or a loyalty transaction.
+ * Definition: Content of the Reversal Request messageType. -- Usage: It conveys Information related to the reversal of a previous payment or a loyalty transaction.
  *
  * <p>Java class for ReversalRequest complex type.
  *

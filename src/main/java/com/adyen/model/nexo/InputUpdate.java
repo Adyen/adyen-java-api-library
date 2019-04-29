@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Input Update message. -- Usage: It conveys update of the display of an Input request in progress.
+ * Definition: Content of the Input Update messageType. -- Usage: It conveys update of the display of an Input request in progress.
  *
  * <p>Java class for InputUpdate complex type.
  *

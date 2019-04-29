@@ -58,7 +58,7 @@ public enum LoyaltyHandlingType {
     PROPOSED("Proposed"),
 
     /**
-     * The loyalty is required, and the POI refuses the processing of the message request if the cardholder does not entre a loyalty card
+     * The loyalty is required, and the POI refuses the processing of the messageType request if the cardholder does not entre a loyalty card
      *
      */
     @XmlEnumValue("Required")

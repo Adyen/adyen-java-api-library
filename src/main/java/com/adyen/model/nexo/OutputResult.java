@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Information related to the result the output (display, print, input). -- Usage: In the message response, it contains the result of the output, if required in the message request.
+ * Definition: Information related to the result the output (display, print, input). -- Usage: In the messageType response, it contains the result of the output, if required in the messageType request.
  *
  * <p>Java class for OutputResult complex type.
  *

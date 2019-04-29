@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Loyalty Response message. -- Usage: It conveys Information related to the Loyalty transaction processed by the POI System.
+ * Definition: Content of the Loyalty Response messageType. -- Usage: It conveys Information related to the Loyalty transaction processed by the POI System.
  *
  * <p>Java class for LoyaltyResponse complex type.
  *

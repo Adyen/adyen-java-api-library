@@ -68,7 +68,7 @@ public enum SaleCapabilitiesType {
     POI_REPLICATION("POIReplication"),
 
     /**
-     * Any kind of keyboard allowing all or part of the commands of the Input message request from the Sale System to the POI System (InputCommand data element). The
+     * Any kind of keyboard allowing all or part of the commands of the Input messageType request from the Sale System to the POI System (InputCommand data element). The
      *
      */
     @XmlEnumValue("CashierInput")
@@ -96,7 +96,7 @@ public enum SaleCapabilitiesType {
     CUSTOMER_ERROR("CustomerError"),
 
     /**
-     * Any kind of keyboard allowing all or part of the commands of the Input message request from the Sale System to the POI System (InputCommand data element). The
+     * Any kind of keyboard allowing all or part of the commands of the Input messageType request from the Sale System to the POI System (InputCommand data element). The
      *
      */
     @XmlEnumValue("CustomerInput")

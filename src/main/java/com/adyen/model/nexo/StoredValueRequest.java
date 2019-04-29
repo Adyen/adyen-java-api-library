@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Stored Value Request message. -- Usage: It conveys Information related to the Stored Value transaction to process
+ * Definition: Content of the Stored Value Request messageType. -- Usage: It conveys Information related to the Stored Value transaction to process
  *
  * <p>Java class for StoredValueRequest complex type.
  *

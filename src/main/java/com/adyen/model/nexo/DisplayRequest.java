@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Display Request message. -- Usage: It conveys the data to display and the way to process the display. It contains the complete content to display. It might contain an operation (the DisplayOutput element) per Display Device type.
+ * Definition: Content of the Display Request messageType. -- Usage: It conveys the data to display and the way to process the display. It contains the complete content to display. It might contain an operation (the DisplayOutput element) per Display Device type.
  *
  * <p>Java class for DisplayRequest complex type.
  *

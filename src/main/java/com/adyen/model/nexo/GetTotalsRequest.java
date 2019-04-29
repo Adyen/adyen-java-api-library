@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Get Totals Request message. -- Usage: It conveys information from the Sale System related to the scope and the format of the totals to be computed by the POI System.
+ * Definition: Content of the Get Totals Request messageType. -- Usage: It conveys information from the Sale System related to the scope and the format of the totals to be computed by the POI System.
  *
  * <p>Java class for GetTotalsRequest complex type.
  *

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Sound Request message. -- Usage: It conveys the data to start a sound,  stop a sound, or modify the default sound volume. The sound to play may be a preloaded sound or a text to play.
+ * Definition: Content of the Sound Request messageType. -- Usage: It conveys the data to start a sound,  stop a sound, or modify the default sound volume. The sound to play may be a preloaded sound or a text to play.
  *
  * <p>Java class for SoundRequest complex type.
  *

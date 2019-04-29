@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the PIN Request message. -- Usage: It contains the type of request related to the PIN, and the associated parameters.
+ * Definition: Content of the PIN Request messageType. -- Usage: It contains the type of request related to the PIN, and the associated parameters.
  *
  * <p>Java class for PINRequest complex type.
  *

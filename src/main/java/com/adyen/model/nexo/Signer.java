@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Cryptographic Message Syntax (CMS) data structure containing signer information  -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains:  the version of the data structure (which is v1 in EPAS protocol context)  the identifiers of the message digest algorithms  the encapsulated content  the information about the signer
+ * Definition: Cryptographic Message Syntax (CMS) data structure containing signer information  -- Reference: RFC 3852: Cryptographic Message Syntax (CMS) -- Usage: This data structure contains:  the version of the data structure (which is v1 in EPAS protocol context)  the identifiers of the messageType digest algorithms  the encapsulated content  the information about the signer
  *
  * <p>Java class for Signer complex type.
  *

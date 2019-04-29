@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Body of the Abort Request message. -- Usage: It conveys Information requested for identification of the message request carrying the transaction to abort. A message to display on the CustomerError Device could be sent by the Sale System (DisplayOutput).
+ * Definition: Body of the Abort Request messageType. -- Usage: It conveys Information requested for identification of the messageType request carrying the transaction to abort. A messageType to display on the CustomerError Device could be sent by the Sale System (DisplayOutput).
  *
  * <p>Java class for AbortRequest complex type.
  *

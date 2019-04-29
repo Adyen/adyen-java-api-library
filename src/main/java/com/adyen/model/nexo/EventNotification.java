@@ -10,7 +10,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * Definition: Content of the EventNotification message. -- Usage: It conveys Information related to the event, and possible action (maintenance, message to display).
+ * Definition: Content of the EventNotification messageType. -- Usage: It conveys Information related to the event, and possible action (maintenance, messageType to display).
  *
  * <p>Java class for EventNotification complex type.
  *

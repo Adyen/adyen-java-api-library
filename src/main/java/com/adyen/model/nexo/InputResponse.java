@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Input Response message. -- Usage: It conveys:The result of the outputs, parallel to the message request, except if response not required and absent.The result of the input
+ * Definition: Content of the Input Response messageType. -- Usage: It conveys:The result of the outputs, parallel to the messageType request, except if response not required and absent.The result of the input
  *
  * <p>Java class for InputResponse complex type.
  *

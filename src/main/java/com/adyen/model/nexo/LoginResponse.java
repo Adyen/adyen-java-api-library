@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Login Response message. -- Usage: It conveys Information related to the Login to process
+ * Definition: Content of the Login Response messageType. -- Usage: It conveys Information related to the Login to process
  *
  * <p>Java class for LoginResponse complex type.
  *

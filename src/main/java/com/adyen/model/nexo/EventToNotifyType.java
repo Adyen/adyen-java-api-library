@@ -76,7 +76,7 @@ public enum EventToNotifyType {
     OUT_OF_ORDER("OutOfOrder"),
 
     /**
-     * An Abort request has been sent to abort a message which is already completed.
+     * An Abort request has been sent to abort a messageType which is already completed.
      *
      */
     @XmlEnumValue("Completed")
@@ -146,7 +146,7 @@ public enum EventToNotifyType {
     CARD_REMOVED("CardRemoved"),
 
     /**
-     * A message request is rejected. An error explanation and the message in error have to be put in the EventDetails data element.
+     * A messageType request is rejected. An error explanation and the messageType in error have to be put in the EventDetails data element.
      *
      */
     @XmlEnumValue("Reject")

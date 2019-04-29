@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Reconciliation Response message. -- Usage: It conveys Information related to the Reconciliation transaction processed by the POI System
+ * Definition: Content of the Reconciliation Response messageType. -- Usage: It conveys Information related to the Reconciliation transaction processed by the POI System
  *
  * <p>Java class for ReconciliationResponse complex type.
  *

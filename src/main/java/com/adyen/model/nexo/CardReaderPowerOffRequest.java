@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Card Reader Power-Off Request message. -- Usage: It contains a possible invitation message to display on the CashierInterface or the CustomerInterface, for removing the card.
+ * Definition: Content of the Card Reader Power-Off Request messageType. -- Usage: It contains a possible invitation messageType to display on the CashierInterface or the CustomerInterface, for removing the card.
  *
  * <p>Java class for CardReaderPowerOffRequest complex type.
  *

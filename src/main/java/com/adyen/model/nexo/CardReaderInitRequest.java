@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Card Reader Init Request message. -- Usage: It contains possible restrictions for the type of card reader to use, and a possible invitation message to display on the CashierInterface or the CustomerInterface.
+ * Definition: Content of the Card Reader Init Request messageType. -- Usage: It contains possible restrictions for the type of card reader to use, and a possible invitation messageType to display on the CashierInterface or the CustomerInterface.
  *
  * <p>Java class for CardReaderInitRequest complex type.
  *

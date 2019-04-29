@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Transmit Response message. -- Usage: It conveys the response of the transmission.
+ * Definition: Content of the Transmit Response messageType. -- Usage: It conveys the response of the transmission.
  *
  * <p>Java class for TransmitResponse complex type.
  *
@@ -66,7 +66,7 @@ public class TransmitResponse {
     }
 
     /**
-     * Gets the value of the message property.
+     * Gets the value of the messageType property.
      *
      * @return
      *     possible object is
@@ -77,7 +77,7 @@ public class TransmitResponse {
     }
 
     /**
-     * Sets the value of the message property.
+     * Sets the value of the messageType property.
      *
      * @param value
      *     allowed object is

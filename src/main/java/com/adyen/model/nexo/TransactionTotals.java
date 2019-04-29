@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Result of the Sale to POI Reconciliation processing. -- Usage: If Result is Success, contains all the totals, classified as required by the Sale in the message request. At least, transaction totals are provided per Acquirer, Acquirer Settlement, and Card Brand.
+ * Definition: Result of the Sale to POI Reconciliation processing. -- Usage: If Result is Success, contains all the totals, classified as required by the Sale in the messageType request. At least, transaction totals are provided per Acquirer, Acquirer Settlement, and Card Brand.
  *
  * <p>Java class for TransactionTotals complex type.
  *

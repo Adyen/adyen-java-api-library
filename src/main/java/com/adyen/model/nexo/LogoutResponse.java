@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Logout Response message. -- Usage: It conveys the result of the Logout.
+ * Definition: Content of the Logout Response messageType. -- Usage: It conveys the result of the Logout.
  *
  * <p>Java class for LogoutResponse complex type.
  *

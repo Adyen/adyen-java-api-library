@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Information related to the software and hardware feature of the POI Terminal -- Usage: Allows in a session to identify the features of the POI Terminal attached to a Sale Terminal per a Login Request message.
+ * Definition: Information related to the software and hardware feature of the POI Terminal -- Usage: Allows in a session to identify the features of the POI Terminal attached to a Sale Terminal per a Login Request messageType.
  *
  * <p>Java class for POITerminalData complex type.
  *

@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Reconciliation Request message. -- Usage: It conveys Information related to the Reconciliation requested by the Sale System: Type of reconciliation (with or without closure of the reconciliation time period) The Acquirers identification if they are involved and could be selected
+ * Definition: Content of the Reconciliation Request messageType. -- Usage: It conveys Information related to the Reconciliation requested by the Sale System: Type of reconciliation (with or without closure of the reconciliation time period) The Acquirers identification if they are involved and could be selected
  *
  * <p>Java class for ReconciliationRequest complex type.
  *

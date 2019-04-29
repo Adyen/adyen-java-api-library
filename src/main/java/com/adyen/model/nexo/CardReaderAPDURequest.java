@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Card Reader APDU Request message. -- Usage: It contains the APDU request to send to the chip of the card, and a possible invitation message to display on the CashierInterface or the CustomerInterface.
+ * Definition: Content of the Card Reader APDU Request messageType. -- Usage: It contains the APDU request to send to the chip of the card, and a possible invitation messageType to display on the CashierInterface or the CustomerInterface.
  *
  * <p>Java class for CardReaderAPDURequest complex type.
  *

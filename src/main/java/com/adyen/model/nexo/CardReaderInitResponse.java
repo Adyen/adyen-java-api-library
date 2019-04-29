@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Card Reader Init Response message. -- Usage: It contains the result of the Card Reader by the POI Card Reader (magnetic stripe content, or chip initialisation data).
+ * Definition: Content of the Card Reader Init Response messageType. -- Usage: It contains the result of the Card Reader by the POI Card Reader (magnetic stripe content, or chip initialisation data).
  *
  * <p>Java class for CardReaderInitResponse complex type.
  *

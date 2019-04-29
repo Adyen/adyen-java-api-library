@@ -35,14 +35,14 @@ public enum InfoQualifyType {
 
 
     /**
-     * The information is a new state on which the message sender is entering. For instance, during a payment, the POI could display to the Cashier that POI request
+     * The information is a new state on which the messageType sender is entering. For instance, during a payment, the POI could display to the Cashier that POI request
      *
      */
     @XmlEnumValue("Status")
     STATUS("Status"),
 
     /**
-     * The information is related to an error situation occurring on the message sender.
+     * The information is related to an error situation occurring on the messageType sender.
      *
      */
     @XmlEnumValue("Error")

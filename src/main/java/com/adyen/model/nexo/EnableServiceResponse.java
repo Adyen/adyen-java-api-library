@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Enable Service Response message. -- Usage: It conveys the result of the Enable Service processing.
+ * Definition: Content of the Enable Service Response messageType. -- Usage: It conveys the result of the Enable Service processing.
  *
  * <p>Java class for EnableServiceResponse complex type.
  *

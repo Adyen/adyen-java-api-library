@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Custom Admin Request message. -- Usage: Empty
+ * Definition: Content of the Custom Admin Request messageType. -- Usage: Empty
  *
  * <p>Java class for AdminRequest complex type.
  *

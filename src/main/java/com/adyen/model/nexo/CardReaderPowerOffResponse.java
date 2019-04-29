@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Card Reader Power-Off Response message. -- Usage: It contains the result of the processed command.
+ * Definition: Content of the Card Reader Power-Off Response messageType. -- Usage: It contains the result of the processed command.
  *
  * <p>Java class for CardReaderPowerOffResponse complex type.
  *

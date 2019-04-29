@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Result of loading/reloading a stored value card.. -- Usage: For each stored value card loaded or reloaded, in the StoredValue response message
+ * Definition: Result of loading/reloading a stored value card.. -- Usage: For each stored value card loaded or reloaded, in the StoredValue response messageType
  *
  * <p>Java class for StoredValueResult complex type.
  *

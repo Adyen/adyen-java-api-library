@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Diagnosis Request message. -- Usage: It conveys Information related to the target POI for which the diagnosis is requested
+ * Definition: Content of the Diagnosis Request messageType. -- Usage: It conveys Information related to the target POI for which the diagnosis is requested
  *
  * <p>Java class for DiagnosisRequest complex type.
  *

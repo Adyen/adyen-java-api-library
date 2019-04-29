@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Payment Request message. -- Usage: It conveys Information related to the Payment transaction to process
+ * Definition: Content of the Payment Request messageType. -- Usage: It conveys Information related to the Payment transaction to process
  *
  * <p>Java class for PaymentRequest complex type.
  *

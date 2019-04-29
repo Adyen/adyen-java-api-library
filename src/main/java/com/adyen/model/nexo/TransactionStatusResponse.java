@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the TransactionStatus Response message. -- Usage: It conveys Information related to the status of the last or current Payment, Loyalty or Reversal transaction.
+ * Definition: Content of the TransactionStatus Response messageType. -- Usage: It conveys Information related to the status of the last or current Payment, Loyalty or Reversal transaction.
  *
  * <p>Java class for TransactionStatusResponse complex type.
  *

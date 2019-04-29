@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Data related to a Loyalty program or account. -- Usage: In the Payment, Loyalty or Balance Inquiry Request message, it allows the Sale Terminal to send the identification of the loyalty account or an awarded amount or an amount to redeem to the loyalty account.
+ * Definition: Data related to a Loyalty program or account. -- Usage: In the Payment, Loyalty or Balance Inquiry Request messageType, it allows the Sale Terminal to send the identification of the loyalty account or an awarded amount or an amount to redeem to the loyalty account.
  *
  * <p>Java class for LoyaltyData complex type.
  *

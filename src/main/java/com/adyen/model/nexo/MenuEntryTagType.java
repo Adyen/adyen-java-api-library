@@ -43,7 +43,7 @@ public enum MenuEntryTagType {
     NON_SELECTABLE("NonSelectable"),
 
     /**
-     * The selection of this entry produces the display of a sub-menu (by the sending of another Input Request message containing the entries of this sub-menu).
+     * The selection of this entry produces the display of a sub-menu (by the sending of another Input Request messageType containing the entries of this sub-menu).
      *
      */
     @XmlEnumValue("SubMenu")

@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Identification of a previous POI transaction. -- Usage: To abort a transaction in progress or to request the status of a transaction from which no response has been received.  It identifies the message header of the message request to abort or request the status. The Abort or TransactionStatus
+ * Definition: Identification of a previous POI transaction. -- Usage: To abort a transaction in progress or to request the status of a transaction from which no response has been received.  It identifies the messageType header of the messageType request to abort or request the status. The Abort or TransactionStatus
  *
  * <p>Java class for MessageReference complex type.
  *

@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the PIN Response message. -- Usage: It contains the result of the requested service, with possibly the encrypted PIN.
+ * Definition: Content of the PIN Response messageType. -- Usage: It contains the result of the requested service, with possibly the encrypted PIN.
  *
  * <p>Java class for PINResponse complex type.
  *

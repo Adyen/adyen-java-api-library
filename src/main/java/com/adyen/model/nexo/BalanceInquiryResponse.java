@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Balance Inquiry Response message. -- Usage: It conveys the balance and the identification of the associated payment, loyalty or stored value account.
+ * Definition: Content of the Balance Inquiry Response messageType. -- Usage: It conveys the balance and the identification of the associated payment, loyalty or stored value account.
  *
  * <p>Java class for BalanceInquiryResponse complex type.
  *

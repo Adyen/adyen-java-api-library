@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Display Response message. -- Usage: It conveys the result of the display, parallel to the message request, except if response not required and absent.
+ * Definition: Content of the Display Response messageType. -- Usage: It conveys the result of the display, parallel to the messageType request, except if response not required and absent.
  *
  * <p>Java class for DisplayResponse complex type.
  *

@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Balance Inquiry Request message. -- Usage: It conveys Information related to the account for which a Balance Inquiry is requested
+ * Definition: Content of the Balance Inquiry Request messageType. -- Usage: It conveys Information related to the account for which a Balance Inquiry is requested
  *
  * <p>Java class for BalanceInquiryRequest complex type.
  *

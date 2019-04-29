@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Enable Service Request message. -- Usage: It conveys the services that will be enabled for the  POI Terminal without the request of the Sale System, and a possible invitation for the Customer to start the services.
+ * Definition: Content of the Enable Service Request messageType. -- Usage: It conveys the services that will be enabled for the  POI Terminal without the request of the Sale System, and a possible invitation for the Customer to start the services.
  *
  * <p>Java class for EnableServiceRequest complex type.
  *

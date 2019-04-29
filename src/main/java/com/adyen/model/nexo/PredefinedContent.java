@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Reference of a predefined message to display or print. -- Usage: It conveys Information related to the predefined message
+ * Definition: Reference of a predefined messageType to display or print. -- Usage: It conveys Information related to the predefined messageType
  *
  * <p>Java class for PredefinedContent complex type.
  *

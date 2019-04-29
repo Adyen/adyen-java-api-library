@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Print Response message. -- Usage: It conveys the result of the print, parallel to the message request, except if response not required and absent.
+ * Definition: Content of the Print Response messageType. -- Usage: It conveys the result of the print, parallel to the messageType request, except if response not required and absent.
  *
  * <p>Java class for PrintResponse complex type.
  *

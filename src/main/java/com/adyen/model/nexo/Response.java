@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Result of a message request processing. -- Usage: If Result is Success, ErrorCondition is absent or not used in the processing of the message. In the other cases, the ErrorCondition has to be present and can refine the processing of the message response. AdditionalResponse gives more
+ * Definition: Result of a messageType request processing. -- Usage: If Result is Success, ErrorCondition is absent or not used in the processing of the messageType. In the other cases, the ErrorCondition has to be present and can refine the processing of the messageType response. AdditionalResponse gives more
  *
  * <p>Java class for Response complex type.
  *

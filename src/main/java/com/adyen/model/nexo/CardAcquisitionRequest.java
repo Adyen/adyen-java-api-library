@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Card Acquisition Request message. -- Usage: It conveys Information related to the payment and loyalty cards to read and analyse. This message pair is usually followed by a message pair (e.g. payment or loyalty) which refers to this Card Acquisition message pair. The Card Acquisition
+ * Definition: Content of the Card Acquisition Request messageType. -- Usage: It conveys Information related to the payment and loyalty cards to read and analyse. This messageType pair is usually followed by a messageType pair (e.g. payment or loyalty) which refers to this Card Acquisition messageType pair. The Card Acquisition
  *
  * <p>Java class for CardAcquisitionRequest complex type.
  *

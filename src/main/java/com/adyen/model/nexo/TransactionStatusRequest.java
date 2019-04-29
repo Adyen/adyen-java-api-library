@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the TransactionStatus Request message. -- Usage: It conveys Information requested for status of the last or current Payment, Loyalty or Reversal transaction.
+ * Definition: Content of the TransactionStatus Request messageType. -- Usage: It conveys Information requested for status of the last or current Payment, Loyalty or Reversal transaction.
  *
  * <p>Java class for TransactionStatusRequest complex type.
  *

@@ -5,11 +5,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * Definition: Content of text message to display or print. -- Usage: It conveys Information related to the content of the text message and its format. All the data elements related to the format of the text to display or print are parameters valid for the whole Text content.
+ * Definition: Content of text messageType to display or print. -- Usage: It conveys Information related to the content of the text messageType and its format. All the data elements related to the format of the text to display or print are parameters valid for the whole Text content.
  *
  * <p>Java class for OutputText complex type.
  *
@@ -38,12 +37,12 @@ import javax.xml.bind.annotation.XmlValue;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OutputText", propOrder = {
-    "value"
+    "text"
 })
 public class OutputText {
 
-    @XmlValue
-    protected String value;
+    @XmlAttribute(name = "Text")
+    protected String text;
     @XmlAttribute(name = "CharacterSet")
     protected Integer characterSet;
     @XmlAttribute(name = "Font")
@@ -66,27 +65,27 @@ public class OutputText {
     protected Boolean endOfLineFlag;
 
     /**
-     * Gets the value of the value property.
+     * Gets the value of the text property.
      *
      * @return
      *     possible object is
      *     {@link String }
      *
      */
-    public String getValue() {
-        return value;
+    public String getText() {
+        return text;
     }
 
     /**
-     * Sets the value of the value property.
+     * Sets the value of the text property.
      *
-     * @param value
+     * @param text
      *     allowed object is
      *     {@link String }
      *
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setText(String text) {
+        this.text = text;
     }
 
     /**

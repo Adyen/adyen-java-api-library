@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Payment Response message. -- Usage: It conveys Information related to the Payment transaction processed by the POI System
+ * Definition: Content of the Payment Response messageType. -- Usage: It conveys Information related to the Payment transaction processed by the POI System
  *
  * <p>Java class for PaymentResponse complex type.
  *

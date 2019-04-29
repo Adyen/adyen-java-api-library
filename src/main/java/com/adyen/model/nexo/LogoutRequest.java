@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Logout Request message. -- Usage: Empty
+ * Definition: Content of the Logout Request messageType. -- Usage: Empty
  *
  * <p>Java class for LogoutRequest complex type.
  *

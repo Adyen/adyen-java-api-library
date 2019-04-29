@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * Definition: Identification of a Loyalty account. -- Usage: In the Payment or the Loyalty Request message, it allows to identify the loyalty account by the Sale Terminal instead of the POI Terminal (e.g. because the account identification is a bar-code read by the Cashier on a scanner device). In
+ * Definition: Identification of a Loyalty account. -- Usage: In the Payment or the Loyalty Request messageType, it allows to identify the loyalty account by the Sale Terminal instead of the POI Terminal (e.g. because the account identification is a bar-code read by the Cashier on a scanner device). In
  *
  * <p>Java class for LoyaltyAccountID complex type.
  *

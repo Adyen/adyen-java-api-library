@@ -29,14 +29,14 @@ public enum OutputFormatType {
 
 
     /**
-     * Predefined message (of any format) on the POI or the Sale. The output is then a PredefinedContent data structure.
+     * Predefined messageType (of any format) on the POI or the Sale. The output is then a PredefinedContent data structure.
      *
      */
     @XmlEnumValue("MessageRef")
     MESSAGE_REF("MessageRef"),
 
     /**
-     * Text message including control characters prefixed by an escape character. The DisplayOutput is then an OutputText data structure.
+     * Text messageType including control characters prefixed by an escape character. The DisplayOutput is then an OutputText data structure.
      *
      */
     @XmlEnumValue("Text")

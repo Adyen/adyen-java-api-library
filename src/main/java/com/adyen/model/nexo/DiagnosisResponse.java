@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Diagnosis Response message. -- Usage: It conveys the result of the requested diagnosis and a possible message to display on a logical device.
+ * Definition: Content of the Diagnosis Response messageType. -- Usage: It conveys the result of the requested diagnosis and a possible messageType to display on a logical device.
  *
  * <p>Java class for DiagnosisResponse complex type.
  *

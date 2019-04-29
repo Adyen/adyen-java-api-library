@@ -34,7 +34,7 @@ public enum InputCommandType {
 
 
     /**
-     * Wait for a key pressed on the Terminal, to be able to read the message displayed on the Terminal.
+     * Wait for a key pressed on the Terminal, to be able to read the messageType displayed on the Terminal.
      *
      */
     @XmlEnumValue("GetAnyKey")

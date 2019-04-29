@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Stored Value Response message. -- Usage: It conveys Information related to the Stored Value transaction processed by the POI System.
+ * Definition: Content of the Stored Value Response messageType. -- Usage: It conveys Information related to the Stored Value transaction processed by the POI System.
  *
  * <p>Java class for StoredValueResponse complex type.
  *

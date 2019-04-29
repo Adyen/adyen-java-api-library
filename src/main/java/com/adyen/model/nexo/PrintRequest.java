@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Print Request message. -- Usage: It conveys the data to print and the way to process the print. It contains the complete content to print.
+ * Definition: Content of the Print Request messageType. -- Usage: It conveys the data to print and the way to process the print. It contains the complete content to print.
  *
  * <p>Java class for PrintRequest complex type.
  *

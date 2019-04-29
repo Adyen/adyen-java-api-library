@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Custom Admin Response message. -- Usage: It conveys the result of the Custom Admin.
+ * Definition: Content of the Custom Admin Response messageType. -- Usage: It conveys the result of the Custom Admin.
  *
  * <p>Java class for AdminResponse complex type.
  *

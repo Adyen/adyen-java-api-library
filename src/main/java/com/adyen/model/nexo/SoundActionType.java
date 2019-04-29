@@ -28,7 +28,7 @@ public enum SoundActionType {
 
 
     /**
-     * Start the sound as specified in the message.
+     * Start the sound as specified in the messageType.
      *
      */
     @XmlEnumValue("StartSound")

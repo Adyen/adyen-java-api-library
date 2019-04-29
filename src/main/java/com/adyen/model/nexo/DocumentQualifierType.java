@@ -66,7 +66,7 @@ public enum DocumentQualifierType {
     VOUCHER("Voucher"),
 
     /**
-     * When the POI or the Sale System wants to store a message on the journal printer or electronic journal of the Sale Terminal (it is sometimes a Sale
+     * When the POI or the Sale System wants to store a messageType on the journal printer or electronic journal of the Sale Terminal (it is sometimes a Sale
      *
      */
     @XmlEnumValue("Journal")

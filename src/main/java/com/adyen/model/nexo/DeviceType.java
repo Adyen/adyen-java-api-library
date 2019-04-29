@@ -43,14 +43,14 @@ public enum DeviceType {
     CUSTOMER_DISPLAY("CustomerDisplay"),
 
     /**
-     * Any kind of keyboard allowing all or part of the commands of the Input message request from the Sale System to the POI System (InputCommand data element). The
+     * Any kind of keyboard allowing all or part of the commands of the Input messageType request from the Sale System to the POI System (InputCommand data element). The
      *
      */
     @XmlEnumValue("CashierInput")
     CASHIER_INPUT("CashierInput"),
 
     /**
-     * Any kind of keyboard allowing all or part of the commands of the Input message request from the POI System to the Sale System (InputCommand data element). The
+     * Any kind of keyboard allowing all or part of the commands of the Input messageType request from the POI System to the Sale System (InputCommand data element). The
      *
      */
     @XmlEnumValue("CustomerInput")

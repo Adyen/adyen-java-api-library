@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Batch Response message. -- Usage: It conveys either the response of transactions to perform sent in the batch request, or a collection of results of performed Payment, Loyalty and Reversal transactions in a batch message or file.
+ * Definition: Content of the Batch Response messageType. -- Usage: It conveys either the response of transactions to perform sent in the batch request, or a collection of results of performed Payment, Loyalty and Reversal transactions in a batch messageType or file.
  *
  * <p>Java class for BatchResponse complex type.
  *

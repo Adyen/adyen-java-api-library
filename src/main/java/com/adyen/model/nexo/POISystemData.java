@@ -10,7 +10,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * Definition: Information related to the POI System -- Usage: In the Login message response, the data structure contains information related to the POI System fixed for the session or defined as default value.
+ * Definition: Information related to the POI System -- Usage: In the Login messageType response, the data structure contains information related to the POI System fixed for the session or defined as default value.
  *
  * <p>Java class for POISystemData complex type.
  *

@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Message header of the Sale to POI protocol message. -- Usage: It conveys Information related to the Sale to POI protocol management
+ * Definition: Message header of the Sale to POI protocol messageType. -- Usage: It conveys Information related to the Sale to POI protocol management
  *
  * <p>Java class for MessageHeader complex type.
  *
@@ -43,8 +43,8 @@ public class MessageHeader {
     protected MessageClassType messageClass;
     @XmlAttribute(name = "MessageCategory", required = true)
     protected MessageCategoryType messageCategory;
-    @XmlAttribute(name = "Message", required = true)
-    protected MessageType message;
+    @XmlAttribute(name = "MessageType", required = true)
+    protected MessageType messageType;
     @XmlAttribute(name = "ServiceID")
     protected String serviceID;
     @XmlAttribute(name = "DeviceID")
@@ -127,27 +127,27 @@ public class MessageHeader {
     }
 
     /**
-     * Gets the value of the message property.
+     * Gets the value of the messageType property.
      *
      * @return
      *     possible object is
      *     {@link MessageType }
      *
      */
-    public MessageType getMessage() {
-        return message;
+    public MessageType getMessageType() {
+        return messageType;
     }
 
     /**
-     * Sets the value of the message property.
+     * Sets the value of the messageType property.
      *
      * @param value
      *     allowed object is
      *     {@link MessageType }
      *
      */
-    public void setMessage(MessageType value) {
-        this.message = value;
+    public void setMessageType(MessageType value) {
+        this.messageType = value;
     }
 
     /**

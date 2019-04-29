@@ -52,7 +52,7 @@ public enum POICapabilitiesType {
     CASHIER_ERROR("CashierError"),
 
     /**
-     * Any kind of keyboard allowing all or part of the commands of the Input message request from the POI System to the Sale System (InputCommand data element). The
+     * Any kind of keyboard allowing all or part of the commands of the Input messageType request from the POI System to the Sale System (InputCommand data element). The
      *
      */
     @XmlEnumValue("CashierInput")
@@ -73,7 +73,7 @@ public enum POICapabilitiesType {
     CUSTOMER_ERROR("CustomerError"),
 
     /**
-     * Any kind of keyboard allowing all or part of the commands of the Input message request from the POI System to the Sale System (InputCommand data element). The
+     * Any kind of keyboard allowing all or part of the commands of the Input messageType request from the POI System to the Sale System (InputCommand data element). The
      *
      */
     @XmlEnumValue("CustomerInput")

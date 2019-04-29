@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Card Reader APDU Response message. -- Usage: It contains the result of the requested service, APDU response sent by the chip of the card in response to the APDU request.
+ * Definition: Content of the Card Reader APDU Response messageType. -- Usage: It contains the result of the requested service, APDU response sent by the chip of the card in response to the APDU request.
  *
  * <p>Java class for CardReaderAPDUResponse complex type.
  *

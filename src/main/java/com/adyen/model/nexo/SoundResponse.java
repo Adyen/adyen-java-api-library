@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Sound Response message. -- Usage: It conveys the result of the Sound request. The response may be absent, at the beginning of the processing, or at the end of the processing.
+ * Definition: Content of the Sound Response messageType. -- Usage: It conveys the result of the Sound request. The response may be absent, at the beginning of the processing, or at the end of the processing.
  *
  * <p>Java class for SoundResponse complex type.
  *

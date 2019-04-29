@@ -42,7 +42,7 @@ public enum ErrorConditionType {
 
 
     /**
-     * The Initiator of the request has sent an Abort message request, which was accepted and processed.
+     * The Initiator of the request has sent an Abort messageType request, which was accepted and processed.
      *
      */
     @XmlEnumValue("Aborted")
@@ -91,14 +91,14 @@ public enum ErrorConditionType {
     LOGGED_OUT("LoggedOut"),
 
     /**
-     * Error on the format of the message, AdditionalResponse shall contain the identification of the data, and the reason in clear text.
+     * Error on the format of the messageType, AdditionalResponse shall contain the identification of the data, and the reason in clear text.
      *
      */
     @XmlEnumValue("MessageFormat")
     MESSAGE_FORMAT("MessageFormat"),
 
     /**
-     * A service request is sent during a Service dialogue. A combination of services not possible to provide. During the CardReaderInit message processing, the user
+     * A service request is sent during a Service dialogue. A combination of services not possible to provide. During the CardReaderInit messageType processing, the user
      *
      */
     @XmlEnumValue("NotAllowed")

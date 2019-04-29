@@ -66,7 +66,7 @@ public class CardData {
     protected List<CustomerOrder> customerOrder;
     @XmlAttribute(name = "PaymentBrand")
     protected String paymentBrand;
-    @XmlAttribute(name = "MaskedPAN")
+    @XmlAttribute(name = "MaskedPan")
     protected String maskedPAN;
     @XmlAttribute(name = "PaymentAccountRef")
     protected String paymentAccountRef;

@@ -28,7 +28,7 @@ public enum ResultType {
 
 
     /**
-     * Processing OK. Information related to the result of the processing is contained in other parts of the response message.
+     * Processing OK. Information related to the result of the processing is contained in other parts of the response messageType.
      *
      */
     @XmlEnumValue("Success")

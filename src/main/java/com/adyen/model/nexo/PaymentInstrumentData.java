@@ -46,7 +46,7 @@ public class PaymentInstrumentData {
     protected CheckData checkData;
     @XmlElement(name = "MobileData")
     protected MobileData mobileData;
-    @XmlAttribute(name = "PaymentInstrument", required = true)
+    @XmlAttribute(name = "PaymentInstrumentType", required = true)
     protected PaymentInstrumentType paymentInstrument;
 
     /**

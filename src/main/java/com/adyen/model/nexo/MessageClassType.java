@@ -28,14 +28,14 @@ public enum MessageClassType {
 
 
     /**
-     * A transaction message pair initiated by the Sale System, and requested to the POI System.
+     * A transaction messageType pair initiated by the Sale System, and requested to the POI System.
      *
      */
     @XmlEnumValue("Service")
     SERVICE("Service"),
 
     /**
-     * A device message pair either: Inside a Service request and response. This device message pair is initiated by the POI System, and sent to Sale System,
+     * A device messageType pair either: Inside a Service request and response. This device messageType pair is initiated by the POI System, and sent to Sale System,
      *
      */
     @XmlEnumValue("Device")

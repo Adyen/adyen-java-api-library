@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: An entryof the menu to present to the Cashier -- Usage: It conveys message text and parameters of the menu entry. This output data could be only provided for an input command, in order to choose an entryof the menu.
+ * Definition: An entryof the menu to present to the Cashier -- Usage: It conveys messageType text and parameters of the menu entry. This output data could be only provided for an input command, in order to choose an entryof the menu.
  *
  * <p>Java class for MenuEntry complex type.
  *

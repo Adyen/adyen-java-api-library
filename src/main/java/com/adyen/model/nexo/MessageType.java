@@ -28,21 +28,21 @@ public enum MessageType {
 
 
     /**
-     * Request message that requires a response, except if the request message mentions explicitely that a response message is not expected.
+     * Request messageType that requires a response, except if the request messageType mentions explicitely that a response messageType is not expected.
      *
      */
     @XmlEnumValue("Request")
     REQUEST("Request"),
 
     /**
-     * Response message, sent to answer to a request message.
+     * Response messageType, sent to answer to a request messageType.
      *
      */
     @XmlEnumValue("Response")
     RESPONSE("Response"),
 
     /**
-     * Unsollicited notification message that does not require an answer.
+     * Unsollicited notification messageType that does not require an answer.
      *
      */
     @XmlEnumValue("Notification")

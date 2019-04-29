@@ -13,7 +13,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * Definition: Content of the Login Request message. -- Usage: It conveys Information related to the session (period between a Login and the following Logout) to process
+ * Definition: Content of the Login Request messageType. -- Usage: It conveys Information related to the session (period between a Login and the following Logout) to process
  *
  * <p>Java class for LoginRequest complex type.
  *

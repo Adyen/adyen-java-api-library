@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Transmit Request message. -- Usage: It contains a message to transmit.
+ * Definition: Content of the Transmit Request messageType. -- Usage: It contains a messageType to transmit.
  *
  * <p>Java class for TransmitRequest complex type.
  *
@@ -49,7 +49,7 @@ public class TransmitRequest {
     protected String destinationAddress;
 
     /**
-     * Gets the value of the message property.
+     * Gets the value of the messageType property.
      *
      * @return
      *     possible object is
@@ -60,7 +60,7 @@ public class TransmitRequest {
     }
 
     /**
-     * Sets the value of the message property.
+     * Sets the value of the messageType property.
      *
      * @param value
      *     allowed object is

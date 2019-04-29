@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Loyalty Request message. -- Usage: It conveys Information related to the Loyalty transaction to process
+ * Definition: Content of the Loyalty Request messageType. -- Usage: It conveys Information related to the Loyalty transaction to process
  *
  * <p>Java class for LoyaltyRequest complex type.
  *

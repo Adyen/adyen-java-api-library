@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of the Reversal Response message. -- Usage: It conveys Information related to the reversal processed by the POI System.
+ * Definition: Content of the Reversal Response messageType. -- Usage: It conveys Information related to the reversal processed by the POI System.
  *
  * <p>Java class for ReversalResponse complex type.
  *

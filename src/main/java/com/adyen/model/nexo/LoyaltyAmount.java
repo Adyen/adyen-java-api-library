@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * Definition: Amount of a loyalty account. -- Usage: An awarded amount or an amount to redeem to the loyalty account might be sent in the Payment request message. The amount to apply on the requested loyalty service, if not computed from the TotalAmount of the Loyalty request message. The
+ * Definition: Amount of a loyalty account. -- Usage: An awarded amount or an amount to redeem to the loyalty account might be sent in the Payment request messageType. The amount to apply on the requested loyalty service, if not computed from the TotalAmount of the Loyalty request messageType. The
  *
  * <p>Java class for LoyaltyAmount complex type.
  *
