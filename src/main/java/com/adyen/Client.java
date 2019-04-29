@@ -46,6 +46,8 @@ public class Client {
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v41";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
+    public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
     public static final String ENDPOINT_PROTOCOL = "https://";
 
     public Client() {
@@ -160,6 +162,7 @@ public class Client {
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
             this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
+            this.config.setTerminalApiEndpoint(TERMINAL_API_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
@@ -171,6 +174,7 @@ public class Client {
                 this.config.setEndpoint(ENDPOINT_LIVE);
                 this.config.setCheckoutEndpoint(null);
             }
+            this.config.setTerminalApiEndpoint(TERMINAL_API_ENDPOINT_LIVE);
         }
     }
 

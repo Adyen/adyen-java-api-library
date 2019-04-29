@@ -42,6 +42,9 @@ public class Config {
     //Checkout Specific
     protected String checkoutEndpoint;
 
+    //Terminal API Specific
+    protected String terminalApiEndpoint;
+
     public Config() {
         // do nothing
     }
@@ -144,6 +147,14 @@ public class Config {
 
     public void setCheckoutEndpoint(String checkoutEndpoint) {
         this.checkoutEndpoint = checkoutEndpoint;
+    }
+
+    public String getTerminalApiEndpoint() {
+        return terminalApiEndpoint;
+    }
+
+    public void setTerminalApiEndpoint(String terminalApiEndpoint) {
+        this.terminalApiEndpoint = terminalApiEndpoint;
     }
 
     public int getConnectionTimeoutMillis() {
