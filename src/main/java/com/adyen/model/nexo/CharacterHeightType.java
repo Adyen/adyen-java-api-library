@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -10,26 +9,34 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Java class for CharacterHeightType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="CharacterHeightType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="SingleHeight"/>
- *     &lt;enumeration value="DoubleHeight"/>
- *     &lt;enumeration value="HalfHeight"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
  *
+ * <pre>
+ * &lt;simpleType name="CharacterHeightType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="SingleHeight"/&gt;
+ *     &lt;enumeration value="DoubleHeight"/&gt;
+ *     &lt;enumeration value="HalfHeight"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * </pre>
  */
 @XmlType(name = "CharacterHeightType")
 @XmlEnum
 public enum CharacterHeightType {
 
+    /**
+     * Single height character height type.
+     */
     @XmlEnumValue("SingleHeight")
     SINGLE_HEIGHT("SingleHeight"),
+    /**
+     * Double height character height type.
+     */
     @XmlEnumValue("DoubleHeight")
     DOUBLE_HEIGHT("DoubleHeight"),
+    /**
+     * Half height character height type.
+     */
     @XmlEnumValue("HalfHeight")
     HALF_HEIGHT("HalfHeight");
     private final String value;
@@ -38,12 +45,23 @@ public enum CharacterHeightType {
         value = v;
     }
 
+    /**
+     * Value string.
+     *
+     * @return the string
+     */
     public String value() {
         return value;
     }
 
+    /**
+     * From value character height type.
+     *
+     * @param v the v
+     * @return the character height type
+     */
     public static CharacterHeightType fromValue(String v) {
-        for (CharacterHeightType c: CharacterHeightType.values()) {
+        for (CharacterHeightType c : CharacterHeightType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

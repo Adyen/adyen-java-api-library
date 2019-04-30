@@ -1,25 +1,14 @@
-
 package com.adyen.model.nexo;
 
-import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
+import java.util.List;
 
 
 /**
- * This object contains factory methods for each
- * Java content interface and Java element interface
- * generated in the com.adyen.model.nexo package.
- * <p>An ObjectFactory allows you to programatically
- * construct new instances of the Java representation
- * for XML content. The Java representation of XML
- * content can consist of schema derived interfaces
- * and classes representing the binding of schema
- * type definitions, element declarations and model
- * groups.  Factory methods for each of these are
- * provided in this class.
+ * The type Object factory.
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -33,7 +22,9 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SaleToPOIRequest }
+     * Create sale to poi request sale to poi request.
+     *
+     * @return the sale to poi request
      */
     public SaleToPOIRequest createSaleToPOIRequest() {
         return new SaleToPOIRequest();
@@ -41,6 +32,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MessageHeader }
+     *
+     * @return the message header
      */
     public MessageHeader createMessageHeader() {
         return new MessageHeader();
@@ -48,6 +41,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AbortRequest }
+     *
+     * @return the abort request
      */
     public AbortRequest createAbortRequest() {
         return new AbortRequest();
@@ -55,6 +50,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BalanceInquiryRequest }
+     *
+     * @return the balance inquiry request
      */
     public BalanceInquiryRequest createBalanceInquiryRequest() {
         return new BalanceInquiryRequest();
@@ -62,6 +59,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BatchRequest }
+     *
+     * @return the batch request
      */
     public BatchRequest createBatchRequest() {
         return new BatchRequest();
@@ -69,6 +68,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardAcquisitionRequest }
+     *
+     * @return the card acquisition request
      */
     public CardAcquisitionRequest createCardAcquisitionRequest() {
         return new CardAcquisitionRequest();
@@ -76,6 +77,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AdminRequest }
+     *
+     * @return the admin request
      */
     public AdminRequest createAdminRequest() {
         return new AdminRequest();
@@ -83,6 +86,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DiagnosisRequest }
+     *
+     * @return the diagnosis request
      */
     public DiagnosisRequest createDiagnosisRequest() {
         return new DiagnosisRequest();
@@ -90,6 +95,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DisplayRequest }
+     *
+     * @return the display request
      */
     public DisplayRequest createDisplayRequest() {
         return new DisplayRequest();
@@ -97,6 +104,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EnableServiceRequest }
+     *
+     * @return the enable service request
      */
     public EnableServiceRequest createEnableServiceRequest() {
         return new EnableServiceRequest();
@@ -104,6 +113,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EventNotification }
+     *
+     * @return the event notification
      */
     public EventNotification createEventNotification() {
         return new EventNotification();
@@ -111,6 +122,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetTotalsRequest }
+     *
+     * @return the get totals request
      */
     public GetTotalsRequest createGetTotalsRequest() {
         return new GetTotalsRequest();
@@ -118,6 +131,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InputRequest }
+     *
+     * @return the input request
      */
     public InputRequest createInputRequest() {
         return new InputRequest();
@@ -125,6 +140,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InputUpdate }
+     *
+     * @return the input update
      */
     public InputUpdate createInputUpdate() {
         return new InputUpdate();
@@ -132,6 +149,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoginRequest }
+     *
+     * @return the login request
      */
     public LoginRequest createLoginRequest() {
         return new LoginRequest();
@@ -139,6 +158,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LogoutRequest }
+     *
+     * @return the logout request
      */
     public LogoutRequest createLogoutRequest() {
         return new LogoutRequest();
@@ -146,6 +167,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyRequest }
+     *
+     * @return the loyalty request
      */
     public LoyaltyRequest createLoyaltyRequest() {
         return new LoyaltyRequest();
@@ -153,6 +176,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentRequest }
+     *
+     * @return the payment request
      */
     public PaymentRequest createPaymentRequest() {
         return new PaymentRequest();
@@ -160,6 +185,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PINRequest }
+     *
+     * @return the pin request
      */
     public PINRequest createPINRequest() {
         return new PINRequest();
@@ -167,6 +194,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PrintRequest }
+     *
+     * @return the print request
      */
     public PrintRequest createPrintRequest() {
         return new PrintRequest();
@@ -174,6 +203,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardReaderInitRequest }
+     *
+     * @return the card reader init request
      */
     public CardReaderInitRequest createCardReaderInitRequest() {
         return new CardReaderInitRequest();
@@ -181,6 +212,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardReaderAPDURequest }
+     *
+     * @return the card reader apdu request
      */
     public CardReaderAPDURequest createCardReaderAPDURequest() {
         return new CardReaderAPDURequest();
@@ -188,6 +221,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardReaderPowerOffRequest }
+     *
+     * @return the card reader power off request
      */
     public CardReaderPowerOffRequest createCardReaderPowerOffRequest() {
         return new CardReaderPowerOffRequest();
@@ -195,6 +230,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReconciliationRequest }
+     *
+     * @return the reconciliation request
      */
     public ReconciliationRequest createReconciliationRequest() {
         return new ReconciliationRequest();
@@ -202,6 +239,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReversalRequest }
+     *
+     * @return the reversal request
      */
     public ReversalRequest createReversalRequest() {
         return new ReversalRequest();
@@ -209,6 +248,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SoundRequest }
+     *
+     * @return the sound request
      */
     public SoundRequest createSoundRequest() {
         return new SoundRequest();
@@ -216,6 +257,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link StoredValueRequest }
+     *
+     * @return the stored value request
      */
     public StoredValueRequest createStoredValueRequest() {
         return new StoredValueRequest();
@@ -223,6 +266,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransactionStatusRequest }
+     *
+     * @return the transaction status request
      */
     public TransactionStatusRequest createTransactionStatusRequest() {
         return new TransactionStatusRequest();
@@ -230,6 +275,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransmitRequest }
+     *
+     * @return the transmit request
      */
     public TransmitRequest createTransmitRequest() {
         return new TransmitRequest();
@@ -237,6 +284,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ContentInformation }
+     *
+     * @return the content information
      */
     public ContentInformation createContentInformation() {
         return new ContentInformation();
@@ -244,6 +293,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SaleToPOIResponse }
+     *
+     * @return the sale to poi response
      */
     public SaleToPOIResponse createSaleToPOIResponse() {
         return new SaleToPOIResponse();
@@ -251,6 +302,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BalanceInquiryResponse }
+     *
+     * @return the balance inquiry response
      */
     public BalanceInquiryResponse createBalanceInquiryResponse() {
         return new BalanceInquiryResponse();
@@ -258,6 +311,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link BatchResponse }
+     *
+     * @return the batch response
      */
     public BatchResponse createBatchResponse() {
         return new BatchResponse();
@@ -265,6 +320,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardAcquisitionResponse }
+     *
+     * @return the card acquisition response
      */
     public CardAcquisitionResponse createCardAcquisitionResponse() {
         return new CardAcquisitionResponse();
@@ -272,6 +329,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AdminResponse }
+     *
+     * @return the admin response
      */
     public AdminResponse createAdminResponse() {
         return new AdminResponse();
@@ -279,6 +338,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DiagnosisResponse }
+     *
+     * @return the diagnosis response
      */
     public DiagnosisResponse createDiagnosisResponse() {
         return new DiagnosisResponse();
@@ -286,6 +347,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DisplayResponse }
+     *
+     * @return the display response
      */
     public DisplayResponse createDisplayResponse() {
         return new DisplayResponse();
@@ -293,6 +356,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EnableServiceResponse }
+     *
+     * @return the enable service response
      */
     public EnableServiceResponse createEnableServiceResponse() {
         return new EnableServiceResponse();
@@ -300,6 +365,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetTotalsResponse }
+     *
+     * @return the get totals response
      */
     public GetTotalsResponse createGetTotalsResponse() {
         return new GetTotalsResponse();
@@ -307,6 +374,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InputResponse }
+     *
+     * @return the input response
      */
     public InputResponse createInputResponse() {
         return new InputResponse();
@@ -314,6 +383,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoginResponse }
+     *
+     * @return the login response
      */
     public LoginResponse createLoginResponse() {
         return new LoginResponse();
@@ -321,6 +392,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LogoutResponse }
+     *
+     * @return the logout response
      */
     public LogoutResponse createLogoutResponse() {
         return new LogoutResponse();
@@ -328,6 +401,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyResponse }
+     *
+     * @return the loyalty response
      */
     public LoyaltyResponse createLoyaltyResponse() {
         return new LoyaltyResponse();
@@ -335,6 +410,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentResponse }
+     *
+     * @return the payment response
      */
     public PaymentResponse createPaymentResponse() {
         return new PaymentResponse();
@@ -342,6 +419,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PINResponse }
+     *
+     * @return the pin response
      */
     public PINResponse createPINResponse() {
         return new PINResponse();
@@ -349,6 +428,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PrintResponse }
+     *
+     * @return the print response
      */
     public PrintResponse createPrintResponse() {
         return new PrintResponse();
@@ -356,6 +437,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardReaderInitResponse }
+     *
+     * @return the card reader init response
      */
     public CardReaderInitResponse createCardReaderInitResponse() {
         return new CardReaderInitResponse();
@@ -363,6 +446,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardReaderAPDUResponse }
+     *
+     * @return the card reader apdu response
      */
     public CardReaderAPDUResponse createCardReaderAPDUResponse() {
         return new CardReaderAPDUResponse();
@@ -370,6 +455,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardReaderPowerOffResponse }
+     *
+     * @return the card reader power off response
      */
     public CardReaderPowerOffResponse createCardReaderPowerOffResponse() {
         return new CardReaderPowerOffResponse();
@@ -377,6 +464,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReconciliationResponse }
+     *
+     * @return the reconciliation response
      */
     public ReconciliationResponse createReconciliationResponse() {
         return new ReconciliationResponse();
@@ -384,6 +473,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReversalResponse }
+     *
+     * @return the reversal response
      */
     public ReversalResponse createReversalResponse() {
         return new ReversalResponse();
@@ -391,6 +482,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SoundResponse }
+     *
+     * @return the sound response
      */
     public SoundResponse createSoundResponse() {
         return new SoundResponse();
@@ -398,6 +491,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link StoredValueResponse }
+     *
+     * @return the stored value response
      */
     public StoredValueResponse createStoredValueResponse() {
         return new StoredValueResponse();
@@ -405,6 +500,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransactionStatusResponse }
+     *
+     * @return the transaction status response
      */
     public TransactionStatusResponse createTransactionStatusResponse() {
         return new TransactionStatusResponse();
@@ -412,6 +509,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransmitResponse }
+     *
+     * @return the transmit response
      */
     public TransmitResponse createTransmitResponse() {
         return new TransmitResponse();
@@ -419,6 +518,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentReceipt }
+     *
+     * @return the payment receipt
      */
     public PaymentReceipt createPaymentReceipt() {
         return new PaymentReceipt();
@@ -426,6 +527,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link POITerminalData }
+     *
+     * @return the poi terminal data
      */
     public POITerminalData createPOITerminalData() {
         return new POITerminalData();
@@ -433,6 +536,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link POIProfile }
+     *
+     * @return the poi profile
      */
     public POIProfile createPOIProfile() {
         return new POIProfile();
@@ -440,6 +545,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SaleToIssuerData }
+     *
+     * @return the sale to issuer data
      */
     public SaleToIssuerData createSaleToIssuerData() {
         return new SaleToIssuerData();
@@ -447,6 +554,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SoundContent }
+     *
+     * @return the sound content
      */
     public SoundContent createSoundContent() {
         return new SoundContent();
@@ -454,6 +563,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentAcquirerData }
+     *
+     * @return the payment acquirer data
      */
     public PaymentAcquirerData createPaymentAcquirerData() {
         return new PaymentAcquirerData();
@@ -461,6 +572,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SaleProfile }
+     *
+     * @return the sale profile
      */
     public SaleProfile createSaleProfile() {
         return new SaleProfile();
@@ -468,6 +581,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentToken }
+     *
+     * @return the payment token
      */
     public PaymentToken createPaymentToken() {
         return new PaymentToken();
@@ -475,6 +590,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyAccountID }
+     *
+     * @return the loyalty account id
      */
     public LoyaltyAccountID createLoyaltyAccountID() {
         return new LoyaltyAccountID();
@@ -482,6 +599,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentInstrumentData }
+     *
+     * @return the payment instrument data
      */
     public PaymentInstrumentData createPaymentInstrumentData() {
         return new PaymentInstrumentData();
@@ -489,6 +608,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Parameter }
+     *
+     * @return the parameter
      */
     public Parameter createParameter() {
         return new Parameter();
@@ -496,6 +617,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EnvelopedData }
+     *
+     * @return the enveloped data
      */
     public EnvelopedData createEnvelopedData() {
         return new EnvelopedData();
@@ -503,6 +626,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignerIdentifier }
+     *
+     * @return the signer identifier
      */
     public SignerIdentifier createSignerIdentifier() {
         return new SignerIdentifier();
@@ -510,6 +635,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MessageReference }
+     *
+     * @return the message reference
      */
     public MessageReference createMessageReference() {
         return new MessageReference();
@@ -517,6 +644,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentAccountStatus }
+     *
+     * @return the payment account status
      */
     public PaymentAccountStatus createPaymentAccountStatus() {
         return new PaymentAccountStatus();
@@ -524,6 +653,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link IssuerAndSerialNumber }
+     *
+     * @return the issuer and serial number
      */
     public IssuerAndSerialNumber createIssuerAndSerialNumber() {
         return new IssuerAndSerialNumber();
@@ -531,6 +662,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link StoredValueAccountID }
+     *
+     * @return the stored value account id
      */
     public StoredValueAccountID createStoredValueAccountID() {
         return new StoredValueAccountID();
@@ -538,6 +671,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Signer }
+     *
+     * @return the signer
      */
     public Signer createSigner() {
         return new Signer();
@@ -545,6 +680,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransactionConditions }
+     *
+     * @return the transaction conditions
      */
     public TransactionConditions createTransactionConditions() {
         return new TransactionConditions();
@@ -552,6 +689,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EncryptedContent }
+     *
+     * @return the encrypted content
      */
     public EncryptedContent createEncryptedContent() {
         return new EncryptedContent();
@@ -559,6 +698,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OriginalPOITransaction }
+     *
+     * @return the original poi transaction
      */
     public OriginalPOITransaction createOriginalPOITransaction() {
         return new OriginalPOITransaction();
@@ -566,6 +707,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AlgorithmIdentifier }
+     *
+     * @return the algorithm identifier
      */
     public AlgorithmIdentifier createAlgorithmIdentifier() {
         return new AlgorithmIdentifier();
@@ -573,6 +716,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RecipientIdentifier }
+     *
+     * @return the recipient identifier
      */
     public RecipientIdentifier createRecipientIdentifier() {
         return new RecipientIdentifier();
@@ -580,6 +725,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentData }
+     *
+     * @return the payment data
      */
     public PaymentData createPaymentData() {
         return new PaymentData();
@@ -587,6 +734,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KEKIdentifier }
+     *
+     * @return the kek identifier
      */
     public KEKIdentifier createKEKIdentifier() {
         return new KEKIdentifier();
@@ -594,6 +743,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PrintOutput }
+     *
+     * @return the print output
      */
     public PrintOutput createPrintOutput() {
         return new PrintOutput();
@@ -601,6 +752,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AmountsResp }
+     *
+     * @return the amounts resp
      */
     public AmountsResp createAmountsResp() {
         return new AmountsResp();
@@ -608,6 +761,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyAccountStatus }
+     *
+     * @return the loyalty account status
      */
     public LoyaltyAccountStatus createLoyaltyAccountStatus() {
         return new LoyaltyAccountStatus();
@@ -615,6 +770,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransactionToPerform }
+     *
+     * @return the transaction to perform
      */
     public TransactionToPerform createTransactionToPerform() {
         return new TransactionToPerform();
@@ -622,6 +779,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MenuEntry }
+     *
+     * @return the menu entry
      */
     public MenuEntry createMenuEntry() {
         return new MenuEntry();
@@ -629,6 +788,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DisplayOutput }
+     *
+     * @return the display output
      */
     public DisplayOutput createDisplayOutput() {
         return new DisplayOutput();
@@ -636,6 +797,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedData }
+     *
+     * @return the signed data
      */
     public SignedData createSignedData() {
         return new SignedData();
@@ -643,6 +806,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Amount }
+     *
+     * @return the amount
      */
     public Amount createAmount() {
         return new Amount();
@@ -650,6 +815,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentTotals }
+     *
+     * @return the payment totals
      */
     public PaymentTotals createPaymentTotals() {
         return new PaymentTotals();
@@ -657,6 +824,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CurrencyConversion }
+     *
+     * @return the currency conversion
      */
     public CurrencyConversion createCurrencyConversion() {
         return new CurrencyConversion();
@@ -664,6 +833,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SensitiveMobileData }
+     *
+     * @return the sensitive mobile data
      */
     public SensitiveMobileData createSensitiveMobileData() {
         return new SensitiveMobileData();
@@ -671,6 +842,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Instalment }
+     *
+     * @return the instalment
      */
     public Instalment createInstalment() {
         return new Instalment();
@@ -678,6 +851,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyAccount }
+     *
+     * @return the loyalty account
      */
     public LoyaltyAccount createLoyaltyAccount() {
         return new LoyaltyAccount();
@@ -685,6 +860,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TrackData }
+     *
+     * @return the track data
      */
     public TrackData createTrackData() {
         return new TrackData();
@@ -692,6 +869,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentAccountReq }
+     *
+     * @return the payment account req
      */
     public PaymentAccountReq createPaymentAccountReq() {
         return new PaymentAccountReq();
@@ -699,6 +878,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GeographicCoordinates }
+     *
+     * @return the geographic coordinates
      */
     public GeographicCoordinates createGeographicCoordinates() {
         return new GeographicCoordinates();
@@ -706,6 +887,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyResult }
+     *
+     * @return the loyalty result
      */
     public LoyaltyResult createLoyaltyResult() {
         return new LoyaltyResult();
@@ -713,6 +896,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardData }
+     *
+     * @return the card data
      */
     public CardData createCardData() {
         return new CardData();
@@ -720,6 +905,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyAmount }
+     *
+     * @return the loyalty amount
      */
     public LoyaltyAmount createLoyaltyAmount() {
         return new LoyaltyAmount();
@@ -727,6 +914,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SensitiveCardData }
+     *
+     * @return the sensitive card data
      */
     public SensitiveCardData createSensitiveCardData() {
         return new SensitiveCardData();
@@ -734,6 +923,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Issuer }
+     *
+     * @return the issuer
      */
     public Issuer createIssuer() {
         return new Issuer();
@@ -741,6 +932,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NamedKeyEncryptedData }
+     *
+     * @return the named key encrypted data
      */
     public NamedKeyEncryptedData createNamedKeyEncryptedData() {
         return new NamedKeyEncryptedData();
@@ -748,6 +941,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link POISoftware }
+     *
+     * @return the poi software
      */
     public POISoftware createPOISoftware() {
         return new POISoftware();
@@ -755,6 +950,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PerformedTransaction }
+     *
+     * @return the performed transaction
      */
     public PerformedTransaction createPerformedTransaction() {
         return new PerformedTransaction();
@@ -762,6 +959,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ICCResetData }
+     *
+     * @return the icc reset data
      */
     public ICCResetData createICCResetData() {
         return new ICCResetData();
@@ -769,6 +968,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardholderPIN }
+     *
+     * @return the cardholder pin
      */
     public CardholderPIN createCardholderPIN() {
         return new CardholderPIN();
@@ -776,6 +977,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link StoredValueResult }
+     *
+     * @return the stored value result
      */
     public StoredValueResult createStoredValueResult() {
         return new StoredValueResult();
@@ -783,6 +986,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link POIData }
+     *
+     * @return the poi data
      */
     public POIData createPOIData() {
         return new POIData();
@@ -790,6 +995,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KEK }
+     *
+     * @return the kek
      */
     public KEK createKEK() {
         return new KEK();
@@ -797,6 +1004,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DigestedData }
+     *
+     * @return the digested data
      */
     public DigestedData createDigestedData() {
         return new DigestedData();
@@ -804,6 +1013,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignaturePoint }
+     *
+     * @return the signature point
      */
     public SignaturePoint createSignaturePoint() {
         return new SignaturePoint();
@@ -811,6 +1022,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AmountsReq }
+     *
+     * @return the amounts req
      */
     public AmountsReq createAmountsReq() {
         return new AmountsReq();
@@ -818,6 +1031,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransactionTotals }
+     *
+     * @return the transaction totals
      */
     public TransactionTotals createTransactionTotals() {
         return new TransactionTotals();
@@ -825,6 +1040,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RepeatedMessageResponse }
+     *
+     * @return the repeated message response
      */
     public RepeatedMessageResponse createRepeatedMessageResponse() {
         return new RepeatedMessageResponse();
@@ -832,6 +1049,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SponsoredMerchant }
+     *
+     * @return the sponsored merchant
      */
     public SponsoredMerchant createSponsoredMerchant() {
         return new SponsoredMerchant();
@@ -839,6 +1058,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UTMCoordinates }
+     *
+     * @return the utm coordinates
      */
     public UTMCoordinates createUTMCoordinates() {
         return new UTMCoordinates();
@@ -846,6 +1067,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Geolocation }
+     *
+     * @return the geolocation
      */
     public Geolocation createGeolocation() {
         return new Geolocation();
@@ -853,6 +1076,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SaleSoftware }
+     *
+     * @return the sale software
      */
     public SaleSoftware createSaleSoftware() {
         return new SaleSoftware();
@@ -860,6 +1085,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyData }
+     *
+     * @return the loyalty data
      */
     public LoyaltyData createLoyaltyData() {
         return new LoyaltyData();
@@ -867,6 +1094,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rebates }
+     *
+     * @return the rebates
      */
     public Rebates createRebates() {
         return new Rebates();
@@ -874,6 +1103,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InputResult }
+     *
+     * @return the input result
      */
     public InputResult createInputResult() {
         return new InputResult();
@@ -881,6 +1112,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AreaSize }
+     *
+     * @return the area size
      */
     public AreaSize createAreaSize() {
         return new AreaSize();
@@ -888,6 +1121,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CapturedSignature }
+     *
+     * @return the captured signature
      */
     public CapturedSignature createCapturedSignature() {
         return new CapturedSignature();
@@ -895,6 +1130,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyAccountReq }
+     *
+     * @return the loyalty account req
      */
     public LoyaltyAccountReq createLoyaltyAccountReq() {
         return new LoyaltyAccountReq();
@@ -902,6 +1139,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AllowedProduct }
+     *
+     * @return the allowed product
      */
     public AllowedProduct createAllowedProduct() {
         return new AllowedProduct();
@@ -909,6 +1148,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link HostStatus }
+     *
+     * @return the host status
      */
     public HostStatus createHostStatus() {
         return new HostStatus();
@@ -916,6 +1157,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RelativeDistinguishedName }
+     *
+     * @return the relative distinguished name
      */
     public RelativeDistinguishedName createRelativeDistinguishedName() {
         return new RelativeDistinguishedName();
@@ -923,6 +1166,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link POIStatus }
+     *
+     * @return the poi status
      */
     public POIStatus createPOIStatus() {
         return new POIStatus();
@@ -930,6 +1175,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransactionIdentification }
+     *
+     * @return the transaction identification
      */
     public TransactionIdentification createTransactionIdentification() {
         return new TransactionIdentification();
@@ -937,6 +1184,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CustomerOrder }
+     *
+     * @return the customer order
      */
     public CustomerOrder createCustomerOrder() {
         return new CustomerOrder();
@@ -944,6 +1193,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link StoredValueData }
+     *
+     * @return the stored value data
      */
     public StoredValueData createStoredValueData() {
         return new StoredValueData();
@@ -951,6 +1202,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OutputText }
+     *
+     * @return the output text
      */
     public OutputText createOutputText() {
         return new OutputText();
@@ -958,6 +1211,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OutputBarcode }
+     *
+     * @return the output barcode
      */
     public OutputBarcode createOutputBarcode() {
         return new OutputBarcode();
@@ -965,6 +1220,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SaleItem }
+     *
+     * @return the sale item
      */
     public SaleItem createSaleItem() {
         return new SaleItem();
@@ -972,6 +1229,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyTransaction }
+     *
+     * @return the loyalty transaction
      */
     public LoyaltyTransaction createLoyaltyTransaction() {
         return new LoyaltyTransaction();
@@ -979,6 +1238,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyAcquirerData }
+     *
+     * @return the loyalty acquirer data
      */
     public LoyaltyAcquirerData createLoyaltyAcquirerData() {
         return new LoyaltyAcquirerData();
@@ -986,6 +1247,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link StoredValueAccountStatus }
+     *
+     * @return the stored value account status
      */
     public StoredValueAccountStatus createStoredValueAccountStatus() {
         return new StoredValueAccountStatus();
@@ -993,6 +1256,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoyaltyTotals }
+     *
+     * @return the loyalty totals
      */
     public LoyaltyTotals createLoyaltyTotals() {
         return new LoyaltyTotals();
@@ -1000,6 +1265,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link POISystemData }
+     *
+     * @return the poi system data
      */
     public POISystemData createPOISystemData() {
         return new POISystemData();
@@ -1007,6 +1274,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CardAcquisitionTransaction }
+     *
+     * @return the card acquisition transaction
      */
     public CardAcquisitionTransaction createCardAcquisitionTransaction() {
         return new CardAcquisitionTransaction();
@@ -1014,6 +1283,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CoinsOrBills }
+     *
+     * @return the coins or bills
      */
     public CoinsOrBills createCoinsOrBills() {
         return new CoinsOrBills();
@@ -1021,6 +1292,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InputData }
+     *
+     * @return the input data
      */
     public InputData createInputData() {
         return new InputData();
@@ -1028,6 +1301,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SaleItemRebate }
+     *
+     * @return the sale item rebate
      */
     public SaleItemRebate createSaleItemRebate() {
         return new SaleItemRebate();
@@ -1035,6 +1310,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AuthenticatedData }
+     *
+     * @return the authenticated data
      */
     public AuthenticatedData createAuthenticatedData() {
         return new AuthenticatedData();
@@ -1042,6 +1319,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TotalFilter }
+     *
+     * @return the total filter
      */
     public TotalFilter createTotalFilter() {
         return new TotalFilter();
@@ -1049,6 +1328,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SaleData }
+     *
+     * @return the sale data
      */
     public SaleData createSaleData() {
         return new SaleData();
@@ -1056,6 +1337,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PredefinedContent }
+     *
+     * @return the predefined content
      */
     public PredefinedContent createPredefinedContent() {
         return new PredefinedContent();
@@ -1063,6 +1346,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Input }
+     *
+     * @return the input
      */
     public Input createInput() {
         return new Input();
@@ -1070,6 +1355,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KeyTransport }
+     *
+     * @return the key transport
      */
     public KeyTransport createKeyTransport() {
         return new KeyTransport();
@@ -1077,6 +1364,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CheckData }
+     *
+     * @return the check data
      */
     public CheckData createCheckData() {
         return new CheckData();
@@ -1084,6 +1373,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SaleTerminalData }
+     *
+     * @return the sale terminal data
      */
     public SaleTerminalData createSaleTerminalData() {
         return new SaleTerminalData();
@@ -1091,6 +1382,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentTransaction }
+     *
+     * @return the payment transaction
      */
     public PaymentTransaction createPaymentTransaction() {
         return new PaymentTransaction();
@@ -1098,6 +1391,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OutputContent }
+     *
+     * @return the output content
      */
     public OutputContent createOutputContent() {
         return new OutputContent();
@@ -1105,6 +1400,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link PaymentResult }
+     *
+     * @return the payment result
      */
     public PaymentResult createPaymentResult() {
         return new PaymentResult();
@@ -1112,6 +1409,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MobileData }
+     *
+     * @return the mobile data
      */
     public MobileData createMobileData() {
         return new MobileData();
@@ -1119,6 +1418,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link OutputResult }
+     *
+     * @return the output result
      */
     public OutputResult createOutputResult() {
         return new OutputResult();
@@ -1126,6 +1427,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CashHandlingDevice }
+     *
+     * @return the cash handling device
      */
     public CashHandlingDevice createCashHandlingDevice() {
         return new CashHandlingDevice();
@@ -1133,6 +1436,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Response }
+     *
+     * @return the response
      */
     public Response createResponse() {
         return new Response();
@@ -1140,6 +1445,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EncapsulatedContent }
+     *
+     * @return the encapsulated content
      */
     public EncapsulatedContent createEncapsulatedContent() {
         return new EncapsulatedContent();
@@ -1147,26 +1454,35 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
+     *
+     * @param value the value
+     * @return the jaxb element
      */
     @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = CardReaderInitRequest.class)
     public JAXBElement<List<ForceEntryModeType>> createCardReaderInitRequestForceEntryMode(List<ForceEntryModeType> value) {
-        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), CardReaderInitRequest.class, ((List<ForceEntryModeType>) value));
+        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), CardReaderInitRequest.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
+     *
+     * @param value the value
+     * @return the jaxb element
      */
     @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = CardAcquisitionTransaction.class)
     public JAXBElement<List<ForceEntryModeType>> createCardAcquisitionTransactionForceEntryMode(List<ForceEntryModeType> value) {
-        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), CardAcquisitionTransaction.class, ((List<ForceEntryModeType>) value));
+        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), CardAcquisitionTransaction.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
+     *
+     * @param value the value
+     * @return the jaxb element
      */
     @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = TransactionConditions.class)
     public JAXBElement<List<ForceEntryModeType>> createTransactionConditionsForceEntryMode(List<ForceEntryModeType> value) {
-        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), TransactionConditions.class, ((List<ForceEntryModeType>) value));
+        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), TransactionConditions.class, value);
     }
 
 }

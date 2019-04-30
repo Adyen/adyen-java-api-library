@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigInteger;
 
 
 /**
@@ -17,58 +16,74 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="Input">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="ConfirmedFlag" type="{}ConfirmedFlag" minOccurs="0"/>
- *         &lt;element name="FunctionKey" type="{}FunctionKey" minOccurs="0"/>
- *         &lt;element name="TextInput" type="{}TextInput" minOccurs="0"/>
- *         &lt;element name="DigitInput" type="{}DigitInput" minOccurs="0"/>
- *         &lt;element name="Password" type="{}ContentInformation" minOccurs="0"/>
- *         &lt;element name="MenuEntryNumber" type="{}MenuEntryNumber" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="InputCommand" use="required" type="{}InputCommandType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="Input"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="ConfirmedFlag" type="{}ConfirmedFlag" minOccurs="0"/&gt;
+ *         &lt;element name="FunctionKey" type="{}FunctionKey" minOccurs="0"/&gt;
+ *         &lt;element name="TextInput" type="{}TextInput" minOccurs="0"/&gt;
+ *         &lt;element name="DigitInput" type="{}DigitInput" minOccurs="0"/&gt;
+ *         &lt;element name="Password" type="{}ContentInformation" minOccurs="0"/&gt;
+ *         &lt;element name="MenuEntryNumber" type="{}MenuEntryNumber" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="InputCommand" use="required" type="{}InputCommandType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Input", propOrder = {
-    "confirmedFlag",
-    "functionKey",
-    "textInput",
-    "digitInput",
-    "password",
-    "menuEntryNumber"
+        "confirmedFlag",
+        "functionKey",
+        "textInput",
+        "digitInput",
+        "password",
+        "menuEntryNumber"
 })
 public class Input {
 
+    /**
+     * The Confirmed flag.
+     */
     @XmlElement(name = "ConfirmedFlag")
     protected Boolean confirmedFlag;
+    /**
+     * The Function key.
+     */
     @XmlElement(name = "FunctionKey")
     protected String functionKey;
+    /**
+     * The Text input.
+     */
     @XmlElement(name = "TextInput")
     protected String textInput;
+    /**
+     * The Digit input.
+     */
     @XmlElement(name = "DigitInput")
     protected String digitInput;
+    /**
+     * The Password.
+     */
     @XmlElement(name = "Password")
     protected ContentInformation password;
+    /**
+     * The Menu entry number.
+     */
     @XmlElement(name = "MenuEntryNumber")
     protected BigInteger menuEntryNumber;
+    /**
+     * The Input command.
+     */
     @XmlAttribute(name = "InputCommand", required = true)
     protected InputCommandType inputCommand;
 
     /**
      * Gets the value of the confirmedFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public Boolean isConfirmedFlag() {
         return confirmedFlag;
@@ -77,10 +92,7 @@ public class Input {
     /**
      * Sets the value of the confirmedFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setConfirmedFlag(Boolean value) {
         this.confirmedFlag = value;
@@ -89,10 +101,7 @@ public class Input {
     /**
      * Gets the value of the functionKey property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getFunctionKey() {
         return functionKey;
@@ -101,10 +110,7 @@ public class Input {
     /**
      * Sets the value of the functionKey property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setFunctionKey(String value) {
         this.functionKey = value;
@@ -113,10 +119,7 @@ public class Input {
     /**
      * Gets the value of the textInput property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getTextInput() {
         return textInput;
@@ -125,10 +128,7 @@ public class Input {
     /**
      * Sets the value of the textInput property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setTextInput(String value) {
         this.textInput = value;
@@ -137,10 +137,7 @@ public class Input {
     /**
      * Gets the value of the digitInput property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getDigitInput() {
         return digitInput;
@@ -149,10 +146,7 @@ public class Input {
     /**
      * Sets the value of the digitInput property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setDigitInput(String value) {
         this.digitInput = value;
@@ -161,10 +155,7 @@ public class Input {
     /**
      * Gets the value of the password property.
      *
-     * @return
-     *     possible object is
-     *     {@link ContentInformation }
-     *
+     * @return possible      object is     {@link ContentInformation }
      */
     public ContentInformation getPassword() {
         return password;
@@ -173,10 +164,7 @@ public class Input {
     /**
      * Sets the value of the password property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ContentInformation }
-     *
+     * @param value allowed object is     {@link ContentInformation }
      */
     public void setPassword(ContentInformation value) {
         this.password = value;
@@ -185,10 +173,7 @@ public class Input {
     /**
      * Gets the value of the menuEntryNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *
+     * @return possible      object is     {@link BigInteger }
      */
     public BigInteger getMenuEntryNumber() {
         return menuEntryNumber;
@@ -197,10 +182,7 @@ public class Input {
     /**
      * Sets the value of the menuEntryNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *
+     * @param value allowed object is     {@link BigInteger }
      */
     public void setMenuEntryNumber(BigInteger value) {
         this.menuEntryNumber = value;
@@ -209,10 +191,7 @@ public class Input {
     /**
      * Gets the value of the inputCommand property.
      *
-     * @return
-     *     possible object is
-     *     {@link InputCommandType }
-     *
+     * @return possible      object is     {@link InputCommandType }
      */
     public InputCommandType getInputCommand() {
         return inputCommand;
@@ -221,10 +200,7 @@ public class Input {
     /**
      * Sets the value of the inputCommand property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link InputCommandType }
-     *
+     * @param value allowed object is     {@link InputCommandType }
      */
     public void setInputCommand(InputCommandType value) {
         this.inputCommand = value;

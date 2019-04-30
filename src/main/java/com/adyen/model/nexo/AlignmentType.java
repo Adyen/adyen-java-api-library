@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -10,29 +9,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Java class for AlignmentType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="AlignmentType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="Left"/>
- *     &lt;enumeration value="Right"/>
- *     &lt;enumeration value="Centred"/>
- *     &lt;enumeration value="Justified"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
  *
+ * <pre>
+ * &lt;simpleType name="AlignmentType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="Left"/&gt;
+ *     &lt;enumeration value="Right"/&gt;
+ *     &lt;enumeration value="Centred"/&gt;
+ *     &lt;enumeration value="Justified"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * </pre>
  */
 @XmlType(name = "AlignmentType")
 @XmlEnum
 public enum AlignmentType {
 
+    /**
+     * Left alignment type.
+     */
     @XmlEnumValue("Left")
     LEFT("Left"),
+    /**
+     * Right alignment type.
+     */
     @XmlEnumValue("Right")
     RIGHT("Right"),
+    /**
+     * Centred alignment type.
+     */
     @XmlEnumValue("Centred")
     CENTRED("Centred"),
+    /**
+     * Justified alignment type.
+     */
     @XmlEnumValue("Justified")
     JUSTIFIED("Justified");
     private final String value;
@@ -41,12 +51,23 @@ public enum AlignmentType {
         value = v;
     }
 
+    /**
+     * Value string.
+     *
+     * @return the string
+     */
     public String value() {
         return value;
     }
 
+    /**
+     * From value alignment type.
+     *
+     * @param v the v
+     * @return the alignment type
+     */
     public static AlignmentType fromValue(String v) {
-        for (AlignmentType c: AlignmentType.values()) {
+        for (AlignmentType c : AlignmentType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

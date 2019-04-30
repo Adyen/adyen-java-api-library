@@ -1,14 +1,13 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 /**
@@ -19,72 +18,100 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SaleItem">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="UnitOfMeasure" type="{}UnitOfMeasureType" minOccurs="0"/>
- *         &lt;element name="Quantity" type="{}Quantity" minOccurs="0"/>
- *         &lt;element name="UnitPrice" type="{}SimpleAmountType" minOccurs="0"/>
- *         &lt;element name="TaxCode" type="{}TaxCode" minOccurs="0"/>
- *         &lt;element name="SaleChannel" type="{}SaleChannel" minOccurs="0"/>
- *         &lt;element name="ProductLabel" type="{}ProductLabel" minOccurs="0"/>
- *         &lt;element name="AdditionalProductInfo" type="{}AdditionalProductInfo" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="ItemID" use="required" type="{}ItemID" />
- *       &lt;attribute name="ProductCode" use="required" type="{}ProductCode" />
- *       &lt;attribute name="EanUpc" type="{}EanUpc" />
- *       &lt;attribute name="ItemAmount" use="required" type="{}SimpleAmountType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SaleItem"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="UnitOfMeasure" type="{}UnitOfMeasureType" minOccurs="0"/&gt;
+ *         &lt;element name="Quantity" type="{}Quantity" minOccurs="0"/&gt;
+ *         &lt;element name="UnitPrice" type="{}SimpleAmountType" minOccurs="0"/&gt;
+ *         &lt;element name="TaxCode" type="{}TaxCode" minOccurs="0"/&gt;
+ *         &lt;element name="SaleChannel" type="{}SaleChannel" minOccurs="0"/&gt;
+ *         &lt;element name="ProductLabel" type="{}ProductLabel" minOccurs="0"/&gt;
+ *         &lt;element name="AdditionalProductInfo" type="{}AdditionalProductInfo" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="ItemID" use="required" type="{}ItemID" /&gt;
+ *       &lt;attribute name="ProductCode" use="required" type="{}ProductCode" /&gt;
+ *       &lt;attribute name="EanUpc" type="{}EanUpc" /&gt;
+ *       &lt;attribute name="ItemAmount" use="required" type="{}SimpleAmountType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SaleItem", propOrder = {
-    "unitOfMeasure",
-    "quantity",
-    "unitPrice",
-    "taxCode",
-    "saleChannel",
-    "productLabel",
-    "additionalProductInfo"
+        "unitOfMeasure",
+        "quantity",
+        "unitPrice",
+        "taxCode",
+        "saleChannel",
+        "productLabel",
+        "additionalProductInfo"
 })
 public class SaleItem {
 
+    /**
+     * The Unit of measure.
+     */
     @XmlElement(name = "UnitOfMeasure")
     @XmlSchemaType(name = "string")
     protected UnitOfMeasureType unitOfMeasure;
+    /**
+     * The Quantity.
+     */
     @XmlElement(name = "Quantity")
     protected BigDecimal quantity;
+    /**
+     * The Unit price.
+     */
     @XmlElement(name = "UnitPrice")
     protected BigDecimal unitPrice;
+    /**
+     * The Tax code.
+     */
     @XmlElement(name = "TaxCode")
     protected String taxCode;
+    /**
+     * The Sale channel.
+     */
     @XmlElement(name = "SaleChannel")
     protected String saleChannel;
+    /**
+     * The Product label.
+     */
     @XmlElement(name = "ProductLabel")
     protected String productLabel;
+    /**
+     * The Additional product info.
+     */
     @XmlElement(name = "AdditionalProductInfo")
     protected String additionalProductInfo;
+    /**
+     * The Item id.
+     */
     @XmlAttribute(name = "ItemID", required = true)
     protected BigInteger itemID;
+    /**
+     * The Product code.
+     */
     @XmlAttribute(name = "ProductCode", required = true)
     protected String productCode;
+    /**
+     * The Ean upc.
+     */
     @XmlAttribute(name = "EanUpc")
     protected String eanUpc;
+    /**
+     * The Item amount.
+     */
     @XmlAttribute(name = "ItemAmount", required = true)
     protected BigDecimal itemAmount;
 
     /**
      * Gets the value of the unitOfMeasure property.
      *
-     * @return
-     *     possible object is
-     *     {@link UnitOfMeasureType }
-     *
+     * @return possible      object is     {@link UnitOfMeasureType }
      */
     public UnitOfMeasureType getUnitOfMeasure() {
         return unitOfMeasure;
@@ -93,10 +120,7 @@ public class SaleItem {
     /**
      * Sets the value of the unitOfMeasure property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link UnitOfMeasureType }
-     *
+     * @param value allowed object is     {@link UnitOfMeasureType }
      */
     public void setUnitOfMeasure(UnitOfMeasureType value) {
         this.unitOfMeasure = value;
@@ -105,10 +129,7 @@ public class SaleItem {
     /**
      * Gets the value of the quantity property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getQuantity() {
         return quantity;
@@ -117,10 +138,7 @@ public class SaleItem {
     /**
      * Sets the value of the quantity property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setQuantity(BigDecimal value) {
         this.quantity = value;
@@ -129,10 +147,7 @@ public class SaleItem {
     /**
      * Gets the value of the unitPrice property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getUnitPrice() {
         return unitPrice;
@@ -141,10 +156,7 @@ public class SaleItem {
     /**
      * Sets the value of the unitPrice property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setUnitPrice(BigDecimal value) {
         this.unitPrice = value;
@@ -153,10 +165,7 @@ public class SaleItem {
     /**
      * Gets the value of the taxCode property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getTaxCode() {
         return taxCode;
@@ -165,10 +174,7 @@ public class SaleItem {
     /**
      * Sets the value of the taxCode property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setTaxCode(String value) {
         this.taxCode = value;
@@ -177,10 +183,7 @@ public class SaleItem {
     /**
      * Gets the value of the saleChannel property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getSaleChannel() {
         return saleChannel;
@@ -189,10 +192,7 @@ public class SaleItem {
     /**
      * Sets the value of the saleChannel property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setSaleChannel(String value) {
         this.saleChannel = value;
@@ -201,10 +201,7 @@ public class SaleItem {
     /**
      * Gets the value of the productLabel property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getProductLabel() {
         return productLabel;
@@ -213,10 +210,7 @@ public class SaleItem {
     /**
      * Sets the value of the productLabel property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setProductLabel(String value) {
         this.productLabel = value;
@@ -225,10 +219,7 @@ public class SaleItem {
     /**
      * Gets the value of the additionalProductInfo property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAdditionalProductInfo() {
         return additionalProductInfo;
@@ -237,10 +228,7 @@ public class SaleItem {
     /**
      * Sets the value of the additionalProductInfo property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAdditionalProductInfo(String value) {
         this.additionalProductInfo = value;
@@ -249,10 +237,7 @@ public class SaleItem {
     /**
      * Gets the value of the itemID property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *
+     * @return possible      object is     {@link BigInteger }
      */
     public BigInteger getItemID() {
         return itemID;
@@ -261,10 +246,7 @@ public class SaleItem {
     /**
      * Sets the value of the itemID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *
+     * @param value allowed object is     {@link BigInteger }
      */
     public void setItemID(BigInteger value) {
         this.itemID = value;
@@ -273,10 +255,7 @@ public class SaleItem {
     /**
      * Gets the value of the productCode property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getProductCode() {
         return productCode;
@@ -285,10 +264,7 @@ public class SaleItem {
     /**
      * Sets the value of the productCode property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setProductCode(String value) {
         this.productCode = value;
@@ -297,10 +273,7 @@ public class SaleItem {
     /**
      * Gets the value of the eanUpc property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getEanUpc() {
         return eanUpc;
@@ -309,10 +282,7 @@ public class SaleItem {
     /**
      * Sets the value of the eanUpc property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setEanUpc(String value) {
         this.eanUpc = value;
@@ -321,10 +291,7 @@ public class SaleItem {
     /**
      * Gets the value of the itemAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getItemAmount() {
         return itemAmount;
@@ -333,10 +300,7 @@ public class SaleItem {
     /**
      * Sets the value of the itemAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setItemAmount(BigDecimal value) {
         this.itemAmount = value;

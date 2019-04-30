@@ -1,13 +1,12 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,50 +17,66 @@ import javax.xml.bind.annotation.XmlValue;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="StoredValueAccountID">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;>TextString">
- *       &lt;attribute name="StoredValueAccount" use="required" type="{}StoredValueAccountType" />
- *       &lt;attribute name="StoredValueProvider" type="{}StoredValueProvider" />
- *       &lt;attribute name="OwnerName" type="{}OwnerName" />
- *       &lt;attribute name="ExpiryDate" type="{}ExpiryDate" />
- *       &lt;attribute name="EntryMode" use="required" type="{}EntryMode" />
- *       &lt;attribute name="Identification" use="required" type="{}IdentificationType" />
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
+ * &lt;complexType name="StoredValueAccountID"&gt;
+ *   &lt;simpleContent&gt;
+ *     &lt;extension base="TextString"&gt;
+ *       &lt;attribute name="StoredValueAccount" use="required" type="{}StoredValueAccountType" /&gt;
+ *       &lt;attribute name="StoredValueProvider" type="{}StoredValueProvider" /&gt;
+ *       &lt;attribute name="OwnerName" type="{}OwnerName" /&gt;
+ *       &lt;attribute name="ExpiryDate" type="{}ExpiryDate" /&gt;
+ *       &lt;attribute name="EntryMode" use="required" type="{}EntryMode" /&gt;
+ *       &lt;attribute name="Identification" use="required" type="{}IdentificationType" /&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/simpleContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "StoredValueAccountID", propOrder = {
-    "value"
+        "value"
 })
 public class StoredValueAccountID {
 
+    /**
+     * The Value.
+     */
     @XmlValue
     protected String value;
+    /**
+     * The Stored value account.
+     */
     @XmlAttribute(name = "StoredValueAccount", required = true)
     protected StoredValueAccountType storedValueAccount;
+    /**
+     * The Stored value provider.
+     */
     @XmlAttribute(name = "StoredValueProvider")
     protected String storedValueProvider;
+    /**
+     * The Owner name.
+     */
     @XmlAttribute(name = "OwnerName")
     protected String ownerName;
+    /**
+     * The Expiry date.
+     */
     @XmlAttribute(name = "ExpiryDate")
     protected String expiryDate;
+    /**
+     * The Entry mode.
+     */
     @XmlAttribute(name = "EntryMode", required = true)
     protected List<EntryModeType> entryMode;
+    /**
+     * The Identification.
+     */
     @XmlAttribute(name = "Identification", required = true)
     protected IdentificationType identification;
 
     /**
      * Gets the value of the value property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getValue() {
         return value;
@@ -70,10 +85,7 @@ public class StoredValueAccountID {
     /**
      * Sets the value of the value property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setValue(String value) {
         this.value = value;
@@ -82,10 +94,7 @@ public class StoredValueAccountID {
     /**
      * Gets the value of the storedValueAccount property.
      *
-     * @return
-     *     possible object is
-     *     {@link StoredValueAccountType }
-     *
+     * @return possible      object is     {@link StoredValueAccountType }
      */
     public StoredValueAccountType getStoredValueAccount() {
         return storedValueAccount;
@@ -94,10 +103,7 @@ public class StoredValueAccountID {
     /**
      * Sets the value of the storedValueAccount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link StoredValueAccountType }
-     *
+     * @param value allowed object is     {@link StoredValueAccountType }
      */
     public void setStoredValueAccount(StoredValueAccountType value) {
         this.storedValueAccount = value;
@@ -106,10 +112,7 @@ public class StoredValueAccountID {
     /**
      * Gets the value of the storedValueProvider property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getStoredValueProvider() {
         return storedValueProvider;
@@ -118,10 +121,7 @@ public class StoredValueAccountID {
     /**
      * Sets the value of the storedValueProvider property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setStoredValueProvider(String value) {
         this.storedValueProvider = value;
@@ -130,10 +130,7 @@ public class StoredValueAccountID {
     /**
      * Gets the value of the ownerName property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getOwnerName() {
         return ownerName;
@@ -142,10 +139,7 @@ public class StoredValueAccountID {
     /**
      * Sets the value of the ownerName property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setOwnerName(String value) {
         this.ownerName = value;
@@ -154,10 +148,7 @@ public class StoredValueAccountID {
     /**
      * Gets the value of the expiryDate property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getExpiryDate() {
         return expiryDate;
@@ -166,10 +157,7 @@ public class StoredValueAccountID {
     /**
      * Sets the value of the expiryDate property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setExpiryDate(String value) {
         this.expiryDate = value;
@@ -178,24 +166,24 @@ public class StoredValueAccountID {
     /**
      * Gets the value of the entryMode property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the entryMode property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getEntryMode().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link EntryModeType }
      *
-     *
+     * @return the entry mode
      */
     public List<EntryModeType> getEntryMode() {
         if (entryMode == null) {
@@ -207,10 +195,7 @@ public class StoredValueAccountID {
     /**
      * Gets the value of the identification property.
      *
-     * @return
-     *     possible object is
-     *     {@link IdentificationType }
-     *
+     * @return possible      object is     {@link IdentificationType }
      */
     public IdentificationType getIdentification() {
         return identification;
@@ -219,10 +204,7 @@ public class StoredValueAccountID {
     /**
      * Sets the value of the identification property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link IdentificationType }
-     *
+     * @param value allowed object is     {@link IdentificationType }
      */
     public void setIdentification(IdentificationType value) {
         this.identification = value;

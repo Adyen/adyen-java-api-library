@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,38 +15,39 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="PrintResponse">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Response" type="{}Response"/>
- *       &lt;/sequence>
- *       &lt;attribute name="DocumentQualifier" use="required" type="{}DocumentQualifierType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="PrintResponse"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Response" type="{}Response"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="DocumentQualifier" use="required" type="{}DocumentQualifierType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PrintResponse", propOrder = {
-    "response"
+        "response"
 })
 public class PrintResponse {
 
+    /**
+     * The Response.
+     */
     @XmlElement(name = "Response", required = true)
     protected Response response;
+    /**
+     * The Document qualifier.
+     */
     @XmlAttribute(name = "DocumentQualifier", required = true)
     protected DocumentQualifierType documentQualifier;
 
     /**
      * Gets the value of the response property.
      *
-     * @return
-     *     possible object is
-     *     {@link Response }
-     *
+     * @return possible      object is     {@link Response }
      */
     public Response getResponse() {
         return response;
@@ -56,10 +56,7 @@ public class PrintResponse {
     /**
      * Sets the value of the response property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Response }
-     *
+     * @param value allowed object is     {@link Response }
      */
     public void setResponse(Response value) {
         this.response = value;
@@ -68,10 +65,7 @@ public class PrintResponse {
     /**
      * Gets the value of the documentQualifier property.
      *
-     * @return
-     *     possible object is
-     *     {@link DocumentQualifierType }
-     *
+     * @return possible      object is     {@link DocumentQualifierType }
      */
     public DocumentQualifierType getDocumentQualifier() {
         return documentQualifier;
@@ -80,10 +74,7 @@ public class PrintResponse {
     /**
      * Sets the value of the documentQualifier property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DocumentQualifierType }
-     *
+     * @param value allowed object is     {@link DocumentQualifierType }
      */
     public void setDocumentQualifier(DocumentQualifierType value) {
         this.documentQualifier = value;

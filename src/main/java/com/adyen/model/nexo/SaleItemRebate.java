@@ -1,14 +1,13 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 /**
@@ -19,56 +18,72 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SaleItemRebate">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="UnitOfMeasure" type="{}UnitOfMeasureType" minOccurs="0"/>
- *         &lt;element name="Quantity" type="{}Quantity" minOccurs="0"/>
- *         &lt;element name="RebateLabel" type="{}RebateLabel" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="ItemID" use="required" type="{}ItemID" />
- *       &lt;attribute name="ProductCode" use="required" type="{}ProductCode" />
- *       &lt;attribute name="EanUpc" type="{}EanUpc" />
- *       &lt;attribute name="ItemAmount" type="{}SimpleAmountType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SaleItemRebate"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="UnitOfMeasure" type="{}UnitOfMeasureType" minOccurs="0"/&gt;
+ *         &lt;element name="Quantity" type="{}Quantity" minOccurs="0"/&gt;
+ *         &lt;element name="RebateLabel" type="{}RebateLabel" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="ItemID" use="required" type="{}ItemID" /&gt;
+ *       &lt;attribute name="ProductCode" use="required" type="{}ProductCode" /&gt;
+ *       &lt;attribute name="EanUpc" type="{}EanUpc" /&gt;
+ *       &lt;attribute name="ItemAmount" type="{}SimpleAmountType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SaleItemRebate", propOrder = {
-    "unitOfMeasure",
-    "quantity",
-    "rebateLabel"
+        "unitOfMeasure",
+        "quantity",
+        "rebateLabel"
 })
 public class SaleItemRebate {
 
+    /**
+     * The Unit of measure.
+     */
     @XmlElement(name = "UnitOfMeasure")
     @XmlSchemaType(name = "string")
     protected UnitOfMeasureType unitOfMeasure;
+    /**
+     * The Quantity.
+     */
     @XmlElement(name = "Quantity")
     protected BigDecimal quantity;
+    /**
+     * The Rebate label.
+     */
     @XmlElement(name = "RebateLabel")
     protected String rebateLabel;
+    /**
+     * The Item id.
+     */
     @XmlAttribute(name = "ItemID", required = true)
     protected BigInteger itemID;
+    /**
+     * The Product code.
+     */
     @XmlAttribute(name = "ProductCode", required = true)
     protected String productCode;
+    /**
+     * The Ean upc.
+     */
     @XmlAttribute(name = "EanUpc")
     protected String eanUpc;
+    /**
+     * The Item amount.
+     */
     @XmlAttribute(name = "ItemAmount")
     protected BigDecimal itemAmount;
 
     /**
      * Gets the value of the unitOfMeasure property.
      *
-     * @return
-     *     possible object is
-     *     {@link UnitOfMeasureType }
-     *
+     * @return possible      object is     {@link UnitOfMeasureType }
      */
     public UnitOfMeasureType getUnitOfMeasure() {
         return unitOfMeasure;
@@ -77,10 +92,7 @@ public class SaleItemRebate {
     /**
      * Sets the value of the unitOfMeasure property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link UnitOfMeasureType }
-     *
+     * @param value allowed object is     {@link UnitOfMeasureType }
      */
     public void setUnitOfMeasure(UnitOfMeasureType value) {
         this.unitOfMeasure = value;
@@ -89,10 +101,7 @@ public class SaleItemRebate {
     /**
      * Gets the value of the quantity property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getQuantity() {
         return quantity;
@@ -101,10 +110,7 @@ public class SaleItemRebate {
     /**
      * Sets the value of the quantity property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setQuantity(BigDecimal value) {
         this.quantity = value;
@@ -113,10 +119,7 @@ public class SaleItemRebate {
     /**
      * Gets the value of the rebateLabel property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getRebateLabel() {
         return rebateLabel;
@@ -125,10 +128,7 @@ public class SaleItemRebate {
     /**
      * Sets the value of the rebateLabel property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setRebateLabel(String value) {
         this.rebateLabel = value;
@@ -137,10 +137,7 @@ public class SaleItemRebate {
     /**
      * Gets the value of the itemID property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *
+     * @return possible      object is     {@link BigInteger }
      */
     public BigInteger getItemID() {
         return itemID;
@@ -149,10 +146,7 @@ public class SaleItemRebate {
     /**
      * Sets the value of the itemID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *
+     * @param value allowed object is     {@link BigInteger }
      */
     public void setItemID(BigInteger value) {
         this.itemID = value;
@@ -161,10 +155,7 @@ public class SaleItemRebate {
     /**
      * Gets the value of the productCode property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getProductCode() {
         return productCode;
@@ -173,10 +164,7 @@ public class SaleItemRebate {
     /**
      * Sets the value of the productCode property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setProductCode(String value) {
         this.productCode = value;
@@ -185,10 +173,7 @@ public class SaleItemRebate {
     /**
      * Gets the value of the eanUpc property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getEanUpc() {
         return eanUpc;
@@ -197,10 +182,7 @@ public class SaleItemRebate {
     /**
      * Sets the value of the eanUpc property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setEanUpc(String value) {
         this.eanUpc = value;
@@ -209,10 +191,7 @@ public class SaleItemRebate {
     /**
      * Gets the value of the itemAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getItemAmount() {
         return itemAmount;
@@ -221,10 +200,7 @@ public class SaleItemRebate {
     /**
      * Sets the value of the itemAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setItemAmount(BigDecimal value) {
         this.itemAmount = value;

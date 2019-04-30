@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigInteger;
 
 
 /**
@@ -17,38 +16,39 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CardReaderPowerOffRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="DisplayOutput" type="{}DisplayOutput" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="MaxWaitingTime" type="{}MaxWaitingTime" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CardReaderPowerOffRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="DisplayOutput" type="{}DisplayOutput" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="MaxWaitingTime" type="{}MaxWaitingTime" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CardReaderPowerOffRequest", propOrder = {
-    "displayOutput"
+        "displayOutput"
 })
 public class CardReaderPowerOffRequest {
 
+    /**
+     * The Display output.
+     */
     @XmlElement(name = "DisplayOutput")
     protected DisplayOutput displayOutput;
+    /**
+     * The Max waiting time.
+     */
     @XmlAttribute(name = "MaxWaitingTime")
     protected BigInteger maxWaitingTime;
 
     /**
      * Gets the value of the displayOutput property.
      *
-     * @return
-     *     possible object is
-     *     {@link DisplayOutput }
-     *
+     * @return possible      object is     {@link DisplayOutput }
      */
     public DisplayOutput getDisplayOutput() {
         return displayOutput;
@@ -57,10 +57,7 @@ public class CardReaderPowerOffRequest {
     /**
      * Sets the value of the displayOutput property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DisplayOutput }
-     *
+     * @param value allowed object is     {@link DisplayOutput }
      */
     public void setDisplayOutput(DisplayOutput value) {
         this.displayOutput = value;
@@ -69,10 +66,7 @@ public class CardReaderPowerOffRequest {
     /**
      * Gets the value of the maxWaitingTime property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *
+     * @return possible      object is     {@link BigInteger }
      */
     public BigInteger getMaxWaitingTime() {
         return maxWaitingTime;
@@ -81,10 +75,7 @@ public class CardReaderPowerOffRequest {
     /**
      * Sets the value of the maxWaitingTime property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *
+     * @param value allowed object is     {@link BigInteger }
      */
     public void setMaxWaitingTime(BigInteger value) {
         this.maxWaitingTime = value;

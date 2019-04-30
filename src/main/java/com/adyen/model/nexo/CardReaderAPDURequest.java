@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,49 +15,63 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CardReaderAPDURequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="APDUData" type="{}APDUData" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="APDUClass" use="required" type="{}APDUClass" />
- *       &lt;attribute name="APDUInstruction" use="required" type="{}APDUInstruction" />
- *       &lt;attribute name="APDUPar1" use="required" type="{}APDUPar1" />
- *       &lt;attribute name="APDUPar2" use="required" type="{}APDUPar2" />
- *       &lt;attribute name="APDUExpectedLength" type="{}APDUExpectedLength" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CardReaderAPDURequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="APDUData" type="{}APDUData" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="APDUClass" use="required" type="{}APDUClass" /&gt;
+ *       &lt;attribute name="APDUInstruction" use="required" type="{}APDUInstruction" /&gt;
+ *       &lt;attribute name="APDUPar1" use="required" type="{}APDUPar1" /&gt;
+ *       &lt;attribute name="APDUPar2" use="required" type="{}APDUPar2" /&gt;
+ *       &lt;attribute name="APDUExpectedLength" type="{}APDUExpectedLength" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CardReaderAPDURequest", propOrder = {
-    "apduData"
+        "apduData"
 })
 public class CardReaderAPDURequest {
 
+    /**
+     * The Apdu data.
+     */
     @XmlElement(name = "APDUData")
     protected byte[] apduData;
+    /**
+     * The Apdu class.
+     */
     @XmlAttribute(name = "APDUClass", required = true)
     protected byte[] apduClass;
+    /**
+     * The Apdu instruction.
+     */
     @XmlAttribute(name = "APDUInstruction", required = true)
     protected byte[] apduInstruction;
+    /**
+     * The Apdu par 1.
+     */
     @XmlAttribute(name = "APDUPar1", required = true)
     protected byte[] apduPar1;
+    /**
+     * The Apdu par 2.
+     */
     @XmlAttribute(name = "APDUPar2", required = true)
     protected byte[] apduPar2;
+    /**
+     * The Apdu expected length.
+     */
     @XmlAttribute(name = "APDUExpectedLength")
     protected byte[] apduExpectedLength;
 
     /**
      * Gets the value of the apduData property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getAPDUData() {
         return apduData;
@@ -67,9 +80,7 @@ public class CardReaderAPDURequest {
     /**
      * Sets the value of the apduData property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setAPDUData(byte[] value) {
         this.apduData = value;
@@ -78,9 +89,7 @@ public class CardReaderAPDURequest {
     /**
      * Gets the value of the apduClass property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getAPDUClass() {
         return apduClass;
@@ -89,9 +98,7 @@ public class CardReaderAPDURequest {
     /**
      * Sets the value of the apduClass property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setAPDUClass(byte[] value) {
         this.apduClass = value;
@@ -100,9 +107,7 @@ public class CardReaderAPDURequest {
     /**
      * Gets the value of the apduInstruction property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getAPDUInstruction() {
         return apduInstruction;
@@ -111,9 +116,7 @@ public class CardReaderAPDURequest {
     /**
      * Sets the value of the apduInstruction property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setAPDUInstruction(byte[] value) {
         this.apduInstruction = value;
@@ -122,9 +125,7 @@ public class CardReaderAPDURequest {
     /**
      * Gets the value of the apduPar1 property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getAPDUPar1() {
         return apduPar1;
@@ -133,9 +134,7 @@ public class CardReaderAPDURequest {
     /**
      * Sets the value of the apduPar1 property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setAPDUPar1(byte[] value) {
         this.apduPar1 = value;
@@ -144,9 +143,7 @@ public class CardReaderAPDURequest {
     /**
      * Gets the value of the apduPar2 property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getAPDUPar2() {
         return apduPar2;
@@ -155,9 +152,7 @@ public class CardReaderAPDURequest {
     /**
      * Sets the value of the apduPar2 property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setAPDUPar2(byte[] value) {
         this.apduPar2 = value;
@@ -166,9 +161,7 @@ public class CardReaderAPDURequest {
     /**
      * Gets the value of the apduExpectedLength property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getAPDUExpectedLength() {
         return apduExpectedLength;
@@ -177,9 +170,7 @@ public class CardReaderAPDURequest {
     /**
      * Sets the value of the apduExpectedLength property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setAPDUExpectedLength(byte[] value) {
         this.apduExpectedLength = value;

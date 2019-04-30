@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,48 +15,58 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="PaymentAcquirerData">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="AcquirerTransactionID" type="{}TransactionIdentification" minOccurs="0"/>
- *         &lt;element name="ApprovalCode" type="{}ApprovalCode" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="AcquirerID" type="{}AcquirerID" />
- *       &lt;attribute name="MerchantID" use="required" type="{}MerchantID" />
- *       &lt;attribute name="AcquirerPOIID" use="required" type="{}AcquirerPOIID" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="PaymentAcquirerData"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="AcquirerTransactionID" type="{}TransactionIdentification" minOccurs="0"/&gt;
+ *         &lt;element name="ApprovalCode" type="{}ApprovalCode" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="AcquirerID" type="{}AcquirerID" /&gt;
+ *       &lt;attribute name="MerchantID" use="required" type="{}MerchantID" /&gt;
+ *       &lt;attribute name="AcquirerPOIID" use="required" type="{}AcquirerPOIID" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PaymentAcquirerData", propOrder = {
-    "acquirerTransactionID",
-    "approvalCode"
+        "acquirerTransactionID",
+        "approvalCode"
 })
 public class PaymentAcquirerData {
 
+    /**
+     * The Acquirer transaction id.
+     */
     @XmlElement(name = "AcquirerTransactionID")
     protected TransactionIdentification acquirerTransactionID;
+    /**
+     * The Approval code.
+     */
     @XmlElement(name = "ApprovalCode")
     protected String approvalCode;
+    /**
+     * The Acquirer id.
+     */
     @XmlAttribute(name = "AcquirerID")
     protected String acquirerID;
+    /**
+     * The Merchant id.
+     */
     @XmlAttribute(name = "MerchantID", required = true)
     protected String merchantID;
+    /**
+     * The Acquirer poiid.
+     */
     @XmlAttribute(name = "AcquirerPOIID", required = true)
     protected String acquirerPOIID;
 
     /**
      * Gets the value of the acquirerTransactionID property.
      *
-     * @return
-     *     possible object is
-     *     {@link TransactionIdentification }
-     *
+     * @return possible      object is     {@link TransactionIdentification }
      */
     public TransactionIdentification getAcquirerTransactionID() {
         return acquirerTransactionID;
@@ -66,10 +75,7 @@ public class PaymentAcquirerData {
     /**
      * Sets the value of the acquirerTransactionID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TransactionIdentification }
-     *
+     * @param value allowed object is     {@link TransactionIdentification }
      */
     public void setAcquirerTransactionID(TransactionIdentification value) {
         this.acquirerTransactionID = value;
@@ -78,10 +84,7 @@ public class PaymentAcquirerData {
     /**
      * Gets the value of the approvalCode property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getApprovalCode() {
         return approvalCode;
@@ -90,10 +93,7 @@ public class PaymentAcquirerData {
     /**
      * Sets the value of the approvalCode property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setApprovalCode(String value) {
         this.approvalCode = value;
@@ -102,10 +102,7 @@ public class PaymentAcquirerData {
     /**
      * Gets the value of the acquirerID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAcquirerID() {
         return acquirerID;
@@ -114,10 +111,7 @@ public class PaymentAcquirerData {
     /**
      * Sets the value of the acquirerID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAcquirerID(String value) {
         this.acquirerID = value;
@@ -126,10 +120,7 @@ public class PaymentAcquirerData {
     /**
      * Gets the value of the merchantID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getMerchantID() {
         return merchantID;
@@ -138,10 +129,7 @@ public class PaymentAcquirerData {
     /**
      * Sets the value of the merchantID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setMerchantID(String value) {
         this.merchantID = value;
@@ -150,10 +138,7 @@ public class PaymentAcquirerData {
     /**
      * Gets the value of the acquirerPOIID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAcquirerPOIID() {
         return acquirerPOIID;
@@ -162,10 +147,7 @@ public class PaymentAcquirerData {
     /**
      * Sets the value of the acquirerPOIID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAcquirerPOIID(String value) {
         this.acquirerPOIID = value;

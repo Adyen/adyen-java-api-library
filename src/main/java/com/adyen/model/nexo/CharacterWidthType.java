@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -10,23 +9,28 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Java class for CharacterWidthType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="CharacterWidthType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="SingleWidth"/>
- *     &lt;enumeration value="DoubleWidth"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
  *
+ * <pre>
+ * &lt;simpleType name="CharacterWidthType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="SingleWidth"/&gt;
+ *     &lt;enumeration value="DoubleWidth"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * </pre>
  */
 @XmlType(name = "CharacterWidthType")
 @XmlEnum
 public enum CharacterWidthType {
 
+    /**
+     * Single width character width type.
+     */
     @XmlEnumValue("SingleWidth")
     SINGLE_WIDTH("SingleWidth"),
+    /**
+     * Double width character width type.
+     */
     @XmlEnumValue("DoubleWidth")
     DOUBLE_WIDTH("DoubleWidth");
     private final String value;
@@ -35,12 +39,23 @@ public enum CharacterWidthType {
         value = v;
     }
 
+    /**
+     * Value string.
+     *
+     * @return the string
+     */
     public String value() {
         return value;
     }
 
+    /**
+     * From value character width type.
+     *
+     * @param v the v
+     * @return the character width type
+     */
     public static CharacterWidthType fromValue(String v) {
-        for (CharacterWidthType c: CharacterWidthType.values()) {
+        for (CharacterWidthType c : CharacterWidthType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

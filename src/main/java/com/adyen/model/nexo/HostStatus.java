@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,34 +14,35 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="HostStatus">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="AcquirerID" use="required" type="{}AcquirerID" />
- *       &lt;attribute name="IsReachableFlag" type="{}IsReachableFlag" default="true" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="HostStatus"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="AcquirerID" use="required" type="{}AcquirerID" /&gt;
+ *       &lt;attribute name="IsReachableFlag" type="{}IsReachableFlag" default="true" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "HostStatus")
 public class HostStatus {
 
+    /**
+     * The Acquirer id.
+     */
     @XmlAttribute(name = "AcquirerID", required = true)
     protected String acquirerID;
+    /**
+     * The Is reachable flag.
+     */
     @XmlAttribute(name = "IsReachableFlag")
     protected Boolean isReachableFlag;
 
     /**
      * Gets the value of the acquirerID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAcquirerID() {
         return acquirerID;
@@ -51,10 +51,7 @@ public class HostStatus {
     /**
      * Sets the value of the acquirerID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAcquirerID(String value) {
         this.acquirerID = value;
@@ -63,10 +60,7 @@ public class HostStatus {
     /**
      * Gets the value of the isReachableFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isIsReachableFlag() {
         if (isReachableFlag == null) {
@@ -79,10 +73,7 @@ public class HostStatus {
     /**
      * Sets the value of the isReachableFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setIsReachableFlag(Boolean value) {
         this.isReachableFlag = value;

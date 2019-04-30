@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -17,39 +16,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="BatchResponse">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Response" type="{}Response"/>
- *         &lt;element name="PerformedTransaction" type="{}PerformedTransaction" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="BatchResponse"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Response" type="{}Response"/&gt;
+ *         &lt;element name="PerformedTransaction" type="{}PerformedTransaction" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BatchResponse", propOrder = {
-    "response",
-    "performedTransaction"
+        "response",
+        "performedTransaction"
 })
 public class BatchResponse {
 
+    /**
+     * The Response.
+     */
     @XmlElement(name = "Response", required = true)
     protected Response response;
+    /**
+     * The Performed transaction.
+     */
     @XmlElement(name = "PerformedTransaction")
     protected List<PerformedTransaction> performedTransaction;
 
     /**
      * Gets the value of the response property.
      *
-     * @return
-     *     possible object is
-     *     {@link Response }
-     *
+     * @return possible      object is     {@link Response }
      */
     public Response getResponse() {
         return response;
@@ -58,10 +58,7 @@ public class BatchResponse {
     /**
      * Sets the value of the response property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Response }
-     *
+     * @param value allowed object is     {@link Response }
      */
     public void setResponse(Response value) {
         this.response = value;
@@ -70,24 +67,24 @@ public class BatchResponse {
     /**
      * Gets the value of the performedTransaction property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the performedTransaction property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPerformedTransaction().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link PerformedTransaction }
      *
-     *
+     * @return the performed transaction
      */
     public List<PerformedTransaction> getPerformedTransaction() {
         if (performedTransaction == null) {

@@ -1,11 +1,10 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigInteger;
 
 
 /**
@@ -16,39 +15,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="IssuerAndSerialNumber">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Issuer" type="{}Issuer"/>
- *         &lt;element name="SerialNumber" type="{}SerialNumber"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="IssuerAndSerialNumber"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Issuer" type="{}Issuer"/&gt;
+ *         &lt;element name="SerialNumber" type="{}SerialNumber"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IssuerAndSerialNumber", propOrder = {
-    "issuer",
-    "serialNumber"
+        "issuer",
+        "serialNumber"
 })
 public class IssuerAndSerialNumber {
 
+    /**
+     * The Issuer.
+     */
     @XmlElement(name = "Issuer", required = true)
     protected Issuer issuer;
+    /**
+     * The Serial number.
+     */
     @XmlElement(name = "SerialNumber", required = true)
     protected BigInteger serialNumber;
 
     /**
      * Gets the value of the issuer property.
      *
-     * @return
-     *     possible object is
-     *     {@link Issuer }
-     *
+     * @return possible      object is     {@link Issuer }
      */
     public Issuer getIssuer() {
         return issuer;
@@ -57,10 +57,7 @@ public class IssuerAndSerialNumber {
     /**
      * Sets the value of the issuer property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Issuer }
-     *
+     * @param value allowed object is     {@link Issuer }
      */
     public void setIssuer(Issuer value) {
         this.issuer = value;
@@ -69,10 +66,7 @@ public class IssuerAndSerialNumber {
     /**
      * Gets the value of the serialNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *
+     * @return possible      object is     {@link BigInteger }
      */
     public BigInteger getSerialNumber() {
         return serialNumber;
@@ -81,10 +75,7 @@ public class IssuerAndSerialNumber {
     /**
      * Sets the value of the serialNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *
+     * @param value allowed object is     {@link BigInteger }
      */
     public void setSerialNumber(BigInteger value) {
         this.serialNumber = value;

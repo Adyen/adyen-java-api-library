@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,43 +14,47 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="BalanceInquiryResponse">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Response" type="{}Response"/>
- *         &lt;element name="PaymentAccountStatus" type="{}PaymentAccountStatus" minOccurs="0"/>
- *         &lt;element name="LoyaltyAccountStatus" type="{}LoyaltyAccountStatus" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="BalanceInquiryResponse"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Response" type="{}Response"/&gt;
+ *         &lt;element name="PaymentAccountStatus" type="{}PaymentAccountStatus" minOccurs="0"/&gt;
+ *         &lt;element name="LoyaltyAccountStatus" type="{}LoyaltyAccountStatus" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BalanceInquiryResponse", propOrder = {
-    "response",
-    "paymentAccountStatus",
-    "loyaltyAccountStatus"
+        "response",
+        "paymentAccountStatus",
+        "loyaltyAccountStatus"
 })
 public class BalanceInquiryResponse {
 
+    /**
+     * The Response.
+     */
     @XmlElement(name = "Response", required = true)
     protected Response response;
+    /**
+     * The Payment account status.
+     */
     @XmlElement(name = "PaymentAccountStatus")
     protected PaymentAccountStatus paymentAccountStatus;
+    /**
+     * The Loyalty account status.
+     */
     @XmlElement(name = "LoyaltyAccountStatus")
     protected LoyaltyAccountStatus loyaltyAccountStatus;
 
     /**
      * Gets the value of the response property.
      *
-     * @return
-     *     possible object is
-     *     {@link Response }
-     *
+     * @return possible      object is     {@link Response }
      */
     public Response getResponse() {
         return response;
@@ -60,10 +63,7 @@ public class BalanceInquiryResponse {
     /**
      * Sets the value of the response property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Response }
-     *
+     * @param value allowed object is     {@link Response }
      */
     public void setResponse(Response value) {
         this.response = value;
@@ -72,10 +72,7 @@ public class BalanceInquiryResponse {
     /**
      * Gets the value of the paymentAccountStatus property.
      *
-     * @return
-     *     possible object is
-     *     {@link PaymentAccountStatus }
-     *
+     * @return possible      object is     {@link PaymentAccountStatus }
      */
     public PaymentAccountStatus getPaymentAccountStatus() {
         return paymentAccountStatus;
@@ -84,10 +81,7 @@ public class BalanceInquiryResponse {
     /**
      * Sets the value of the paymentAccountStatus property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link PaymentAccountStatus }
-     *
+     * @param value allowed object is     {@link PaymentAccountStatus }
      */
     public void setPaymentAccountStatus(PaymentAccountStatus value) {
         this.paymentAccountStatus = value;
@@ -96,10 +90,7 @@ public class BalanceInquiryResponse {
     /**
      * Gets the value of the loyaltyAccountStatus property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoyaltyAccountStatus }
-     *
+     * @return possible      object is     {@link LoyaltyAccountStatus }
      */
     public LoyaltyAccountStatus getLoyaltyAccountStatus() {
         return loyaltyAccountStatus;
@@ -108,10 +99,7 @@ public class BalanceInquiryResponse {
     /**
      * Sets the value of the loyaltyAccountStatus property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoyaltyAccountStatus }
-     *
+     * @param value allowed object is     {@link LoyaltyAccountStatus }
      */
     public void setLoyaltyAccountStatus(LoyaltyAccountStatus value) {
         this.loyaltyAccountStatus = value;

@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -10,23 +9,28 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Java class for CheckTypeCodeType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="CheckTypeCodeType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="Personal"/>
- *     &lt;enumeration value="Company"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
  *
+ * <pre>
+ * &lt;simpleType name="CheckTypeCodeType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="Personal"/&gt;
+ *     &lt;enumeration value="Company"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * </pre>
  */
 @XmlType(name = "CheckTypeCodeType")
 @XmlEnum
 public enum CheckTypeCodeType {
 
+    /**
+     * Personal check type code type.
+     */
     @XmlEnumValue("Personal")
     PERSONAL("Personal"),
+    /**
+     * Company check type code type.
+     */
     @XmlEnumValue("Company")
     COMPANY("Company");
     private final String value;
@@ -35,12 +39,23 @@ public enum CheckTypeCodeType {
         value = v;
     }
 
+    /**
+     * Value string.
+     *
+     * @return the string
+     */
     public String value() {
         return value;
     }
 
+    /**
+     * From value check type code type.
+     *
+     * @param v the v
+     * @return the check type code type
+     */
     public static CheckTypeCodeType fromValue(String v) {
-        for (CheckTypeCodeType c: CheckTypeCodeType.values()) {
+        for (CheckTypeCodeType c : CheckTypeCodeType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

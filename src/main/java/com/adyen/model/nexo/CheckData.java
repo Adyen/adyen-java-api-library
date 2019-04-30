@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,57 +15,73 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CheckData">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="BankID" type="{}BankID" minOccurs="0"/>
- *         &lt;element name="AccountNumber" type="{}AccountNumber" minOccurs="0"/>
- *         &lt;element name="CheckNumber" type="{}CheckNumber" minOccurs="0"/>
- *         &lt;element name="TrackData" type="{}TrackData" minOccurs="0"/>
- *         &lt;element name="CheckCardNumber" type="{}CheckCardNumber" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="Type" type="{}CheckTypeCodeType" default="Personal" />
- *       &lt;attribute name="Country" type="{}ISOCountry3A" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CheckData"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="BankID" type="{}BankID" minOccurs="0"/&gt;
+ *         &lt;element name="AccountNumber" type="{}AccountNumber" minOccurs="0"/&gt;
+ *         &lt;element name="CheckNumber" type="{}CheckNumber" minOccurs="0"/&gt;
+ *         &lt;element name="TrackData" type="{}TrackData" minOccurs="0"/&gt;
+ *         &lt;element name="CheckCardNumber" type="{}CheckCardNumber" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="Type" type="{}CheckTypeCodeType" default="Personal" /&gt;
+ *       &lt;attribute name="Country" type="{}ISOCountry3A" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CheckData", propOrder = {
-    "bankID",
-    "accountNumber",
-    "checkNumber",
-    "trackData",
-    "checkCardNumber"
+        "bankID",
+        "accountNumber",
+        "checkNumber",
+        "trackData",
+        "checkCardNumber"
 })
 public class CheckData {
 
+    /**
+     * The Bank id.
+     */
     @XmlElement(name = "BankID")
     protected String bankID;
+    /**
+     * The Account number.
+     */
     @XmlElement(name = "AccountNumber")
     protected String accountNumber;
+    /**
+     * The Check number.
+     */
     @XmlElement(name = "CheckNumber")
     protected String checkNumber;
+    /**
+     * The Track data.
+     */
     @XmlElement(name = "TrackData")
     protected TrackData trackData;
+    /**
+     * The Check card number.
+     */
     @XmlElement(name = "CheckCardNumber")
     protected String checkCardNumber;
+    /**
+     * The Type.
+     */
     @XmlAttribute(name = "Type")
     protected CheckTypeCodeType type;
+    /**
+     * The Country.
+     */
     @XmlAttribute(name = "Country")
     protected String country;
 
     /**
      * Gets the value of the bankID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getBankID() {
         return bankID;
@@ -75,10 +90,7 @@ public class CheckData {
     /**
      * Sets the value of the bankID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setBankID(String value) {
         this.bankID = value;
@@ -87,10 +99,7 @@ public class CheckData {
     /**
      * Gets the value of the accountNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAccountNumber() {
         return accountNumber;
@@ -99,10 +108,7 @@ public class CheckData {
     /**
      * Sets the value of the accountNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAccountNumber(String value) {
         this.accountNumber = value;
@@ -111,10 +117,7 @@ public class CheckData {
     /**
      * Gets the value of the checkNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getCheckNumber() {
         return checkNumber;
@@ -123,10 +126,7 @@ public class CheckData {
     /**
      * Sets the value of the checkNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setCheckNumber(String value) {
         this.checkNumber = value;
@@ -135,10 +135,7 @@ public class CheckData {
     /**
      * Gets the value of the trackData property.
      *
-     * @return
-     *     possible object is
-     *     {@link TrackData }
-     *
+     * @return possible      object is     {@link TrackData }
      */
     public TrackData getTrackData() {
         return trackData;
@@ -147,10 +144,7 @@ public class CheckData {
     /**
      * Sets the value of the trackData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TrackData }
-     *
+     * @param value allowed object is     {@link TrackData }
      */
     public void setTrackData(TrackData value) {
         this.trackData = value;
@@ -159,10 +153,7 @@ public class CheckData {
     /**
      * Gets the value of the checkCardNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getCheckCardNumber() {
         return checkCardNumber;
@@ -171,10 +162,7 @@ public class CheckData {
     /**
      * Sets the value of the checkCardNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setCheckCardNumber(String value) {
         this.checkCardNumber = value;
@@ -183,10 +171,7 @@ public class CheckData {
     /**
      * Gets the value of the type property.
      *
-     * @return
-     *     possible object is
-     *     {@link CheckTypeCodeType }
-     *
+     * @return possible      object is     {@link CheckTypeCodeType }
      */
     public CheckTypeCodeType getType() {
         if (type == null) {
@@ -199,10 +184,7 @@ public class CheckData {
     /**
      * Sets the value of the type property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link CheckTypeCodeType }
-     *
+     * @param value allowed object is     {@link CheckTypeCodeType }
      */
     public void setType(CheckTypeCodeType value) {
         this.type = value;
@@ -211,10 +193,7 @@ public class CheckData {
     /**
      * Gets the value of the country property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getCountry() {
         return country;
@@ -223,10 +202,7 @@ public class CheckData {
     /**
      * Sets the value of the country property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setCountry(String value) {
         this.country = value;

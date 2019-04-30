@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,37 +14,41 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SensitiveMobileData">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="MSISDN" use="required" type="{}MSISDN" />
- *       &lt;attribute name="IMSI" type="{}IMSI" />
- *       &lt;attribute name="IMEI" type="{}IMEI" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SensitiveMobileData"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="MSISDN" use="required" type="{}MSISDN" /&gt;
+ *       &lt;attribute name="IMSI" type="{}IMSI" /&gt;
+ *       &lt;attribute name="IMEI" type="{}IMEI" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SensitiveMobileData")
 public class SensitiveMobileData {
 
+    /**
+     * The Msisdn.
+     */
     @XmlAttribute(name = "MSISDN", required = true)
     protected String msisdn;
+    /**
+     * The Imsi.
+     */
     @XmlAttribute(name = "IMSI")
     protected String imsi;
+    /**
+     * The Imei.
+     */
     @XmlAttribute(name = "IMEI")
     protected String imei;
 
     /**
      * Gets the value of the msisdn property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getMSISDN() {
         return msisdn;
@@ -54,10 +57,7 @@ public class SensitiveMobileData {
     /**
      * Sets the value of the msisdn property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setMSISDN(String value) {
         this.msisdn = value;
@@ -66,10 +66,7 @@ public class SensitiveMobileData {
     /**
      * Gets the value of the imsi property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getIMSI() {
         return imsi;
@@ -78,10 +75,7 @@ public class SensitiveMobileData {
     /**
      * Sets the value of the imsi property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setIMSI(String value) {
         this.imsi = value;
@@ -90,10 +84,7 @@ public class SensitiveMobileData {
     /**
      * Gets the value of the imei property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getIMEI() {
         return imei;
@@ -102,10 +93,7 @@ public class SensitiveMobileData {
     /**
      * Sets the value of the imei property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setIMEI(String value) {
         this.imei = value;

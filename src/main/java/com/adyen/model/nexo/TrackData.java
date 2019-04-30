@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,38 +15,42 @@ import javax.xml.bind.annotation.XmlValue;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="TrackData">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;>TextString">
- *       &lt;attribute name="TrackNumb" type="{}TrackNumb" default="2" />
- *       &lt;attribute name="TrackFormat" type="{}TrackFormatType" default="ISO" />
- *     &lt;/extension>
- *   &lt;/simpleContent>
- * &lt;/complexType>
+ * &lt;complexType name="TrackData"&gt;
+ *   &lt;simpleContent&gt;
+ *     &lt;extension base="TextString"&gt;
+ *       &lt;attribute name="TrackNumb" type="{}TrackNumb" default="2" /&gt;
+ *       &lt;attribute name="TrackFormat" type="{}TrackFormatType" default="ISO" /&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/simpleContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TrackData", propOrder = {
-    "value"
+        "value"
 })
 public class TrackData {
 
+    /**
+     * The Value.
+     */
     @XmlValue
     protected String value;
+    /**
+     * The Track numb.
+     */
     @XmlAttribute(name = "TrackNumb")
     protected Integer trackNumb;
+    /**
+     * The Track format.
+     */
     @XmlAttribute(name = "TrackFormat")
     protected TrackFormatType trackFormat;
 
     /**
      * Gets the value of the value property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getValue() {
         return value;
@@ -56,10 +59,7 @@ public class TrackData {
     /**
      * Sets the value of the value property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setValue(String value) {
         this.value = value;
@@ -68,14 +68,11 @@ public class TrackData {
     /**
      * Gets the value of the trackNumb property.
      *
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *
+     * @return possible      object is     {@link Integer }
      */
     public int getTrackNumb() {
         if (trackNumb == null) {
-            return  2;
+            return 2;
         } else {
             return trackNumb;
         }
@@ -84,10 +81,7 @@ public class TrackData {
     /**
      * Sets the value of the trackNumb property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *
+     * @param value allowed object is     {@link Integer }
      */
     public void setTrackNumb(Integer value) {
         this.trackNumb = value;
@@ -96,10 +90,7 @@ public class TrackData {
     /**
      * Gets the value of the trackFormat property.
      *
-     * @return
-     *     possible object is
-     *     {@link TrackFormatType }
-     *
+     * @return possible      object is     {@link TrackFormatType }
      */
     public TrackFormatType getTrackFormat() {
         if (trackFormat == null) {
@@ -112,10 +103,7 @@ public class TrackData {
     /**
      * Sets the value of the trackFormat property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TrackFormatType }
-     *
+     * @param value allowed object is     {@link TrackFormatType }
      */
     public void setTrackFormat(TrackFormatType value) {
         this.trackFormat = value;

@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="BalanceInquiryRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="PaymentAccountReq" type="{}PaymentAccountReq" minOccurs="0"/>
- *         &lt;element name="LoyaltyAccountReq" type="{}LoyaltyAccountReq" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="BalanceInquiryRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="PaymentAccountReq" type="{}PaymentAccountReq" minOccurs="0"/&gt;
+ *         &lt;element name="LoyaltyAccountReq" type="{}LoyaltyAccountReq" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BalanceInquiryRequest", propOrder = {
-    "paymentAccountReq",
-    "loyaltyAccountReq"
+        "paymentAccountReq",
+        "loyaltyAccountReq"
 })
 public class BalanceInquiryRequest {
 
+    /**
+     * The Payment account req.
+     */
     @XmlElement(name = "PaymentAccountReq")
     protected PaymentAccountReq paymentAccountReq;
+    /**
+     * The Loyalty account req.
+     */
     @XmlElement(name = "LoyaltyAccountReq")
     protected LoyaltyAccountReq loyaltyAccountReq;
 
     /**
      * Gets the value of the paymentAccountReq property.
      *
-     * @return
-     *     possible object is
-     *     {@link PaymentAccountReq }
-     *
+     * @return possible      object is     {@link PaymentAccountReq }
      */
     public PaymentAccountReq getPaymentAccountReq() {
         return paymentAccountReq;
@@ -56,10 +56,7 @@ public class BalanceInquiryRequest {
     /**
      * Sets the value of the paymentAccountReq property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link PaymentAccountReq }
-     *
+     * @param value allowed object is     {@link PaymentAccountReq }
      */
     public void setPaymentAccountReq(PaymentAccountReq value) {
         this.paymentAccountReq = value;
@@ -68,10 +65,7 @@ public class BalanceInquiryRequest {
     /**
      * Gets the value of the loyaltyAccountReq property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoyaltyAccountReq }
-     *
+     * @return possible      object is     {@link LoyaltyAccountReq }
      */
     public LoyaltyAccountReq getLoyaltyAccountReq() {
         return loyaltyAccountReq;
@@ -80,10 +74,7 @@ public class BalanceInquiryRequest {
     /**
      * Sets the value of the loyaltyAccountReq property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoyaltyAccountReq }
-     *
+     * @param value allowed object is     {@link LoyaltyAccountReq }
      */
     public void setLoyaltyAccountReq(LoyaltyAccountReq value) {
         this.loyaltyAccountReq = value;

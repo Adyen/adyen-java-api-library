@@ -1,13 +1,12 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,64 +17,77 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SignedData">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="DigestAlgorithm" type="{}AlgorithmIdentifier" maxOccurs="unbounded"/>
- *         &lt;element name="EncapsulatedContent" type="{}EncapsulatedContent"/>
- *         &lt;element name="Certificate" type="{}Certificate" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="Signer" type="{}Signer" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *       &lt;attribute name="Version" type="{}VersionType" default="v1" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SignedData"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="DigestAlgorithm" type="{}AlgorithmIdentifier" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="EncapsulatedContent" type="{}EncapsulatedContent"/&gt;
+ *         &lt;element name="Certificate" type="{}Certificate" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="Signer" type="{}Signer" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="Version" type="{}VersionType" default="v1" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SignedData", propOrder = {
-    "digestAlgorithm",
-    "encapsulatedContent",
-    "certificate",
-    "signer"
+        "digestAlgorithm",
+        "encapsulatedContent",
+        "certificate",
+        "signer"
 })
 public class SignedData {
 
+    /**
+     * The Digest algorithm.
+     */
     @XmlElement(name = "DigestAlgorithm", required = true)
     protected List<AlgorithmIdentifier> digestAlgorithm;
+    /**
+     * The Encapsulated content.
+     */
     @XmlElement(name = "EncapsulatedContent", required = true)
     protected EncapsulatedContent encapsulatedContent;
+    /**
+     * The Certificate.
+     */
     @XmlElement(name = "Certificate")
     protected List<byte[]> certificate;
+    /**
+     * The Signer.
+     */
     @XmlElement(name = "Signer", required = true)
     protected List<Signer> signer;
+    /**
+     * The Version.
+     */
     @XmlAttribute(name = "Version")
     protected VersionType version;
 
     /**
      * Gets the value of the digestAlgorithm property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the digestAlgorithm property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getDigestAlgorithm().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link AlgorithmIdentifier }
      *
-     *
+     * @return the digest algorithm
      */
     public List<AlgorithmIdentifier> getDigestAlgorithm() {
         if (digestAlgorithm == null) {
@@ -87,10 +99,7 @@ public class SignedData {
     /**
      * Gets the value of the encapsulatedContent property.
      *
-     * @return
-     *     possible object is
-     *     {@link EncapsulatedContent }
-     *
+     * @return possible      object is     {@link EncapsulatedContent }
      */
     public EncapsulatedContent getEncapsulatedContent() {
         return encapsulatedContent;
@@ -99,10 +108,7 @@ public class SignedData {
     /**
      * Sets the value of the encapsulatedContent property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link EncapsulatedContent }
-     *
+     * @param value allowed object is     {@link EncapsulatedContent }
      */
     public void setEncapsulatedContent(EncapsulatedContent value) {
         this.encapsulatedContent = value;
@@ -111,23 +117,24 @@ public class SignedData {
     /**
      * Gets the value of the certificate property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the certificate property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCertificate().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * byte[]
      *
+     * @return the certificate
      */
     public List<byte[]> getCertificate() {
         if (certificate == null) {
@@ -139,24 +146,24 @@ public class SignedData {
     /**
      * Gets the value of the signer property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the signer property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSigner().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link Signer }
      *
-     *
+     * @return the signer
      */
     public List<Signer> getSigner() {
         if (signer == null) {
@@ -168,10 +175,7 @@ public class SignedData {
     /**
      * Gets the value of the version property.
      *
-     * @return
-     *     possible object is
-     *     {@link VersionType }
-     *
+     * @return possible      object is     {@link VersionType }
      */
     public VersionType getVersion() {
         if (version == null) {
@@ -184,10 +188,7 @@ public class SignedData {
     /**
      * Sets the value of the version property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link VersionType }
-     *
+     * @param value allowed object is     {@link VersionType }
      */
     public void setVersion(VersionType value) {
         this.version = value;

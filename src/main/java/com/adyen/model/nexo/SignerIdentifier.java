@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,35 +14,33 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SignerIdentifier">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="IssuerAndSerialNumber" type="{}IssuerAndSerialNumber"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SignerIdentifier"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="IssuerAndSerialNumber" type="{}IssuerAndSerialNumber"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SignerIdentifier", propOrder = {
-    "issuerAndSerialNumber"
+        "issuerAndSerialNumber"
 })
 public class SignerIdentifier {
 
+    /**
+     * The Issuer and serial number.
+     */
     @XmlElement(name = "IssuerAndSerialNumber", required = true)
     protected IssuerAndSerialNumber issuerAndSerialNumber;
 
     /**
      * Gets the value of the issuerAndSerialNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link IssuerAndSerialNumber }
-     *
+     * @return possible      object is     {@link IssuerAndSerialNumber }
      */
     public IssuerAndSerialNumber getIssuerAndSerialNumber() {
         return issuerAndSerialNumber;
@@ -52,10 +49,7 @@ public class SignerIdentifier {
     /**
      * Sets the value of the issuerAndSerialNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link IssuerAndSerialNumber }
-     *
+     * @param value allowed object is     {@link IssuerAndSerialNumber }
      */
     public void setIssuerAndSerialNumber(IssuerAndSerialNumber value) {
         this.issuerAndSerialNumber = value;

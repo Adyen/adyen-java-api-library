@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -10,37 +9,57 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Java class for BarcodeType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="BarcodeType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="EAN8"/>
- *     &lt;enumeration value="EAN13"/>
- *     &lt;enumeration value="UPCA"/>
- *     &lt;enumeration value="Code25"/>
- *     &lt;enumeration value="Code128"/>
- *     &lt;enumeration value="PDF417"/>
- *     &lt;enumeration value="QRCODE"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
  *
+ * <pre>
+ * &lt;simpleType name="BarcodeType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="EAN8"/&gt;
+ *     &lt;enumeration value="EAN13"/&gt;
+ *     &lt;enumeration value="UPCA"/&gt;
+ *     &lt;enumeration value="Code25"/&gt;
+ *     &lt;enumeration value="Code128"/&gt;
+ *     &lt;enumeration value="PDF417"/&gt;
+ *     &lt;enumeration value="QRCODE"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * </pre>
  */
 @XmlType(name = "BarcodeType")
 @XmlEnum
 public enum BarcodeType {
 
+    /**
+     * Ean 8 barcode type.
+     */
     @XmlEnumValue("EAN8")
     EAN_8("EAN8"),
+    /**
+     * Ean 13 barcode type.
+     */
     @XmlEnumValue("EAN13")
     EAN_13("EAN13"),
+    /**
+     * Upca barcode type.
+     */
     UPCA("UPCA"),
+    /**
+     * Code 25 barcode type.
+     */
     @XmlEnumValue("Code25")
     CODE_25("Code25"),
+    /**
+     * Code 128 barcode type.
+     */
     @XmlEnumValue("Code128")
     CODE_128("Code128"),
+    /**
+     * Pdf 417 barcode type.
+     */
     @XmlEnumValue("PDF417")
     PDF_417("PDF417"),
+    /**
+     * Qrcode barcode type.
+     */
     QRCODE("QRCODE");
     private final String value;
 
@@ -48,12 +67,23 @@ public enum BarcodeType {
         value = v;
     }
 
+    /**
+     * Value string.
+     *
+     * @return the string
+     */
     public String value() {
         return value;
     }
 
+    /**
+     * From value barcode type.
+     *
+     * @param v the v
+     * @return the barcode type
+     */
     public static BarcodeType fromValue(String v) {
-        for (BarcodeType c: BarcodeType.values()) {
+        for (BarcodeType c : BarcodeType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,38 +15,39 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="POIData">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="POITransactionID" type="{}TransactionIdentification"/>
- *       &lt;/sequence>
- *       &lt;attribute name="POIReconciliationID" type="{}POIReconciliationID" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="POIData"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="POITransactionID" type="{}TransactionIdentification"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="POIReconciliationID" type="{}POIReconciliationID" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "POIData", propOrder = {
-    "poiTransactionID"
+        "poiTransactionID"
 })
 public class POIData {
 
+    /**
+     * The Poi transaction id.
+     */
     @XmlElement(name = "POITransactionID", required = true)
     protected TransactionIdentification poiTransactionID;
+    /**
+     * The Poi reconciliation id.
+     */
     @XmlAttribute(name = "POIReconciliationID")
     protected String poiReconciliationID;
 
     /**
      * Gets the value of the poiTransactionID property.
      *
-     * @return
-     *     possible object is
-     *     {@link TransactionIdentification }
-     *
+     * @return possible      object is     {@link TransactionIdentification }
      */
     public TransactionIdentification getPOITransactionID() {
         return poiTransactionID;
@@ -56,10 +56,7 @@ public class POIData {
     /**
      * Sets the value of the poiTransactionID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TransactionIdentification }
-     *
+     * @param value allowed object is     {@link TransactionIdentification }
      */
     public void setPOITransactionID(TransactionIdentification value) {
         this.poiTransactionID = value;
@@ -68,10 +65,7 @@ public class POIData {
     /**
      * Gets the value of the poiReconciliationID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getPOIReconciliationID() {
         return poiReconciliationID;
@@ -80,10 +74,7 @@ public class POIData {
     /**
      * Sets the value of the poiReconciliationID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setPOIReconciliationID(String value) {
         this.poiReconciliationID = value;

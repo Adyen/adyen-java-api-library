@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="TransmitResponse">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Response" type="{}Response"/>
- *         &lt;element name="Message" type="{}Message" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TransmitResponse"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Response" type="{}Response"/&gt;
+ *         &lt;element name="Message" type="{}Message" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TransmitResponse", propOrder = {
-    "response",
-    "message"
+        "response",
+        "message"
 })
 public class TransmitResponse {
 
+    /**
+     * The Response.
+     */
     @XmlElement(name = "Response", required = true)
     protected Response response;
+    /**
+     * The Message.
+     */
     @XmlElement(name = "Message")
     protected byte[] message;
 
     /**
      * Gets the value of the response property.
      *
-     * @return
-     *     possible object is
-     *     {@link Response }
-     *
+     * @return possible      object is     {@link Response }
      */
     public Response getResponse() {
         return response;
@@ -56,10 +56,7 @@ public class TransmitResponse {
     /**
      * Sets the value of the response property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Response }
-     *
+     * @param value allowed object is     {@link Response }
      */
     public void setResponse(Response value) {
         this.response = value;
@@ -68,9 +65,7 @@ public class TransmitResponse {
     /**
      * Gets the value of the messageType property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getMessage() {
         return message;
@@ -79,9 +74,7 @@ public class TransmitResponse {
     /**
      * Sets the value of the messageType property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setMessage(byte[] value) {
         this.message = value;

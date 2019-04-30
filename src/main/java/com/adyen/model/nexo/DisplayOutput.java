@@ -1,13 +1,12 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,55 +17,71 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="DisplayOutput">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="OutputContent" type="{}OutputContent"/>
- *         &lt;element name="MenuEntry" type="{}MenuEntry" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="OutputSignature" type="{}OutputSignature" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="ResponseRequiredFlag" type="{}ResponseRequiredFlag" default="true" />
- *       &lt;attribute name="MinimumDisplayTime" type="{}MinimumDisplayTime" default="0" />
- *       &lt;attribute name="Device" use="required" type="{}DeviceType" />
- *       &lt;attribute name="InfoQualify" use="required" type="{}InfoQualifyType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="DisplayOutput"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="OutputContent" type="{}OutputContent"/&gt;
+ *         &lt;element name="MenuEntry" type="{}MenuEntry" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="OutputSignature" type="{}OutputSignature" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="ResponseRequiredFlag" type="{}ResponseRequiredFlag" default="true" /&gt;
+ *       &lt;attribute name="MinimumDisplayTime" type="{}MinimumDisplayTime" default="0" /&gt;
+ *       &lt;attribute name="Device" use="required" type="{}DeviceType" /&gt;
+ *       &lt;attribute name="InfoQualify" use="required" type="{}InfoQualifyType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DisplayOutput", propOrder = {
-    "outputContent",
-    "menuEntry",
-    "outputSignature"
+        "outputContent",
+        "menuEntry",
+        "outputSignature"
 })
 public class DisplayOutput {
 
+    /**
+     * The Output content.
+     */
     @XmlElement(name = "OutputContent", required = true)
     protected OutputContent outputContent;
+    /**
+     * The Menu entry.
+     */
     @XmlElement(name = "MenuEntry")
     protected List<MenuEntry> menuEntry;
+    /**
+     * The Output signature.
+     */
     @XmlElement(name = "OutputSignature")
     protected byte[] outputSignature;
+    /**
+     * The Response required flag.
+     */
     @XmlAttribute(name = "ResponseRequiredFlag")
     protected Boolean responseRequiredFlag;
+    /**
+     * The Minimum display time.
+     */
     @XmlAttribute(name = "MinimumDisplayTime")
     protected Integer minimumDisplayTime;
+    /**
+     * The Device.
+     */
     @XmlAttribute(name = "Device", required = true)
     protected DeviceType device;
+    /**
+     * The Info qualify.
+     */
     @XmlAttribute(name = "InfoQualify", required = true)
     protected InfoQualifyType infoQualify;
 
     /**
      * Gets the value of the outputContent property.
      *
-     * @return
-     *     possible object is
-     *     {@link OutputContent }
-     *
+     * @return possible      object is     {@link OutputContent }
      */
     public OutputContent getOutputContent() {
         return outputContent;
@@ -75,10 +90,7 @@ public class DisplayOutput {
     /**
      * Sets the value of the outputContent property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link OutputContent }
-     *
+     * @param value allowed object is     {@link OutputContent }
      */
     public void setOutputContent(OutputContent value) {
         this.outputContent = value;
@@ -87,24 +99,24 @@ public class DisplayOutput {
     /**
      * Gets the value of the menuEntry property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the menuEntry property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMenuEntry().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link MenuEntry }
      *
-     *
+     * @return the menu entry
      */
     public List<MenuEntry> getMenuEntry() {
         if (menuEntry == null) {
@@ -116,9 +128,7 @@ public class DisplayOutput {
     /**
      * Gets the value of the outputSignature property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getOutputSignature() {
         return outputSignature;
@@ -127,9 +137,7 @@ public class DisplayOutput {
     /**
      * Sets the value of the outputSignature property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setOutputSignature(byte[] value) {
         this.outputSignature = value;
@@ -138,10 +146,7 @@ public class DisplayOutput {
     /**
      * Gets the value of the responseRequiredFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isResponseRequiredFlag() {
         if (responseRequiredFlag == null) {
@@ -154,10 +159,7 @@ public class DisplayOutput {
     /**
      * Sets the value of the responseRequiredFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setResponseRequiredFlag(Boolean value) {
         this.responseRequiredFlag = value;
@@ -166,14 +168,11 @@ public class DisplayOutput {
     /**
      * Gets the value of the minimumDisplayTime property.
      *
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *
+     * @return possible      object is     {@link Integer }
      */
     public int getMinimumDisplayTime() {
         if (minimumDisplayTime == null) {
-            return  0;
+            return 0;
         } else {
             return minimumDisplayTime;
         }
@@ -182,10 +181,7 @@ public class DisplayOutput {
     /**
      * Sets the value of the minimumDisplayTime property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *
+     * @param value allowed object is     {@link Integer }
      */
     public void setMinimumDisplayTime(Integer value) {
         this.minimumDisplayTime = value;
@@ -194,10 +190,7 @@ public class DisplayOutput {
     /**
      * Gets the value of the device property.
      *
-     * @return
-     *     possible object is
-     *     {@link DeviceType }
-     *
+     * @return possible      object is     {@link DeviceType }
      */
     public DeviceType getDevice() {
         return device;
@@ -206,10 +199,7 @@ public class DisplayOutput {
     /**
      * Sets the value of the device property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DeviceType }
-     *
+     * @param value allowed object is     {@link DeviceType }
      */
     public void setDevice(DeviceType value) {
         this.device = value;
@@ -218,10 +208,7 @@ public class DisplayOutput {
     /**
      * Gets the value of the infoQualify property.
      *
-     * @return
-     *     possible object is
-     *     {@link InfoQualifyType }
-     *
+     * @return possible      object is     {@link InfoQualifyType }
      */
     public InfoQualifyType getInfoQualify() {
         return infoQualify;
@@ -230,10 +217,7 @@ public class DisplayOutput {
     /**
      * Sets the value of the infoQualify property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link InfoQualifyType }
-     *
+     * @param value allowed object is     {@link InfoQualifyType }
      */
     public void setInfoQualify(InfoQualifyType value) {
         this.infoQualify = value;

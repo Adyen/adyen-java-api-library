@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="LoginResponse">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Response" type="{}Response"/>
- *         &lt;element name="POISystemData" type="{}POISystemData" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="LoginResponse"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Response" type="{}Response"/&gt;
+ *         &lt;element name="POISystemData" type="{}POISystemData" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LoginResponse", propOrder = {
-    "response",
-    "poiSystemData"
+        "response",
+        "poiSystemData"
 })
 public class LoginResponse {
 
+    /**
+     * The Response.
+     */
     @XmlElement(name = "Response", required = true)
     protected Response response;
+    /**
+     * The Poi system data.
+     */
     @XmlElement(name = "POISystemData")
     protected POISystemData poiSystemData;
 
     /**
      * Gets the value of the response property.
      *
-     * @return
-     *     possible object is
-     *     {@link Response }
-     *
+     * @return possible      object is     {@link Response }
      */
     public Response getResponse() {
         return response;
@@ -56,10 +56,7 @@ public class LoginResponse {
     /**
      * Sets the value of the response property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Response }
-     *
+     * @param value allowed object is     {@link Response }
      */
     public void setResponse(Response value) {
         this.response = value;
@@ -68,10 +65,7 @@ public class LoginResponse {
     /**
      * Gets the value of the poiSystemData property.
      *
-     * @return
-     *     possible object is
-     *     {@link POISystemData }
-     *
+     * @return possible      object is     {@link POISystemData }
      */
     public POISystemData getPOISystemData() {
         return poiSystemData;
@@ -80,10 +74,7 @@ public class LoginResponse {
     /**
      * Sets the value of the poiSystemData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link POISystemData }
-     *
+     * @param value allowed object is     {@link POISystemData }
      */
     public void setPOISystemData(POISystemData value) {
         this.poiSystemData = value;

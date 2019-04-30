@@ -1,13 +1,12 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,55 +17,62 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="DiagnosisRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="AcquirerID" type="{}AcquirerID" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="POIID" type="{}POIID" />
- *       &lt;attribute name="HostDiagnosisFlag" type="{}HostDiagnosisFlag" default="false" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="DiagnosisRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="AcquirerID" type="{}AcquirerID" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="POIID" type="{}POIID" /&gt;
+ *       &lt;attribute name="HostDiagnosisFlag" type="{}HostDiagnosisFlag" default="false" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DiagnosisRequest", propOrder = {
-    "acquirerID"
+        "acquirerID"
 })
 public class DiagnosisRequest {
 
+    /**
+     * The Acquirer id.
+     */
     @XmlElement(name = "AcquirerID")
     protected List<String> acquirerID;
+    /**
+     * The Poiid.
+     */
     @XmlAttribute(name = "POIID")
     protected String poiid;
+    /**
+     * The Host diagnosis flag.
+     */
     @XmlAttribute(name = "HostDiagnosisFlag")
     protected Boolean hostDiagnosisFlag;
 
     /**
      * Gets the value of the acquirerID property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the acquirerID property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAcquirerID().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
-     *
+     * @return the acquirer id
      */
     public List<String> getAcquirerID() {
         if (acquirerID == null) {
@@ -78,10 +84,7 @@ public class DiagnosisRequest {
     /**
      * Gets the value of the poiid property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getPOIID() {
         return poiid;
@@ -90,10 +93,7 @@ public class DiagnosisRequest {
     /**
      * Sets the value of the poiid property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setPOIID(String value) {
         this.poiid = value;
@@ -102,10 +102,7 @@ public class DiagnosisRequest {
     /**
      * Gets the value of the hostDiagnosisFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isHostDiagnosisFlag() {
         if (hostDiagnosisFlag == null) {
@@ -118,10 +115,7 @@ public class DiagnosisRequest {
     /**
      * Sets the value of the hostDiagnosisFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setHostDiagnosisFlag(Boolean value) {
         this.hostDiagnosisFlag = value;

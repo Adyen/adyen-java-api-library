@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,44 +15,51 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="PaymentReceipt">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="OutputContent" type="{}OutputContent"/>
- *       &lt;/sequence>
- *       &lt;attribute name="DocumentQualifier" use="required" type="{}DocumentQualifierType" />
- *       &lt;attribute name="IntegratedPrintFlag" type="{}IntegratedPrintFlag" default="false" />
- *       &lt;attribute name="RequiredSignatureFlag" type="{}RequiredSignatureFlag" default="false" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="PaymentReceipt"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="OutputContent" type="{}OutputContent"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="DocumentQualifier" use="required" type="{}DocumentQualifierType" /&gt;
+ *       &lt;attribute name="IntegratedPrintFlag" type="{}IntegratedPrintFlag" default="false" /&gt;
+ *       &lt;attribute name="RequiredSignatureFlag" type="{}RequiredSignatureFlag" default="false" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PaymentReceipt", propOrder = {
-    "outputContent"
+        "outputContent"
 })
 public class PaymentReceipt {
 
+    /**
+     * The Output content.
+     */
     @XmlElement(name = "OutputContent", required = true)
     protected OutputContent outputContent;
+    /**
+     * The Document qualifier.
+     */
     @XmlAttribute(name = "DocumentQualifier", required = true)
     protected DocumentQualifierType documentQualifier;
+    /**
+     * The Integrated print flag.
+     */
     @XmlAttribute(name = "IntegratedPrintFlag")
     protected Boolean integratedPrintFlag;
+    /**
+     * The Required signature flag.
+     */
     @XmlAttribute(name = "RequiredSignatureFlag")
     protected Boolean requiredSignatureFlag;
 
     /**
      * Gets the value of the outputContent property.
      *
-     * @return
-     *     possible object is
-     *     {@link OutputContent }
-     *
+     * @return possible      object is     {@link OutputContent }
      */
     public OutputContent getOutputContent() {
         return outputContent;
@@ -62,10 +68,7 @@ public class PaymentReceipt {
     /**
      * Sets the value of the outputContent property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link OutputContent }
-     *
+     * @param value allowed object is     {@link OutputContent }
      */
     public void setOutputContent(OutputContent value) {
         this.outputContent = value;
@@ -74,10 +77,7 @@ public class PaymentReceipt {
     /**
      * Gets the value of the documentQualifier property.
      *
-     * @return
-     *     possible object is
-     *     {@link DocumentQualifierType }
-     *
+     * @return possible      object is     {@link DocumentQualifierType }
      */
     public DocumentQualifierType getDocumentQualifier() {
         return documentQualifier;
@@ -86,10 +86,7 @@ public class PaymentReceipt {
     /**
      * Sets the value of the documentQualifier property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DocumentQualifierType }
-     *
+     * @param value allowed object is     {@link DocumentQualifierType }
      */
     public void setDocumentQualifier(DocumentQualifierType value) {
         this.documentQualifier = value;
@@ -98,10 +95,7 @@ public class PaymentReceipt {
     /**
      * Gets the value of the integratedPrintFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isIntegratedPrintFlag() {
         if (integratedPrintFlag == null) {
@@ -114,10 +108,7 @@ public class PaymentReceipt {
     /**
      * Sets the value of the integratedPrintFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setIntegratedPrintFlag(Boolean value) {
         this.integratedPrintFlag = value;
@@ -126,10 +117,7 @@ public class PaymentReceipt {
     /**
      * Gets the value of the requiredSignatureFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isRequiredSignatureFlag() {
         if (requiredSignatureFlag == null) {
@@ -142,10 +130,7 @@ public class PaymentReceipt {
     /**
      * Sets the value of the requiredSignatureFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setRequiredSignatureFlag(Boolean value) {
         this.requiredSignatureFlag = value;

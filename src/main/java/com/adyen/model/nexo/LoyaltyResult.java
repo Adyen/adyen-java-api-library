@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
 
 
 /**
@@ -17,50 +16,60 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="LoyaltyResult">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="LoyaltyAccount" type="{}LoyaltyAccount"/>
- *         &lt;element name="LoyaltyAmount" type="{}LoyaltyAmount" minOccurs="0"/>
- *         &lt;element name="LoyaltyAcquirerData" type="{}LoyaltyAcquirerData" minOccurs="0"/>
- *         &lt;element name="Rebates" type="{}Rebates" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="CurrentBalance" type="{}SimpleAmountType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="LoyaltyResult"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="LoyaltyAccount" type="{}LoyaltyAccount"/&gt;
+ *         &lt;element name="LoyaltyAmount" type="{}LoyaltyAmount" minOccurs="0"/&gt;
+ *         &lt;element name="LoyaltyAcquirerData" type="{}LoyaltyAcquirerData" minOccurs="0"/&gt;
+ *         &lt;element name="Rebates" type="{}Rebates" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="CurrentBalance" type="{}SimpleAmountType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LoyaltyResult", propOrder = {
-    "loyaltyAccount",
-    "loyaltyAmount",
-    "loyaltyAcquirerData",
-    "rebates"
+        "loyaltyAccount",
+        "loyaltyAmount",
+        "loyaltyAcquirerData",
+        "rebates"
 })
 public class LoyaltyResult {
 
+    /**
+     * The Loyalty account.
+     */
     @XmlElement(name = "LoyaltyAccount", required = true)
     protected LoyaltyAccount loyaltyAccount;
+    /**
+     * The Loyalty amount.
+     */
     @XmlElement(name = "LoyaltyAmount")
     protected LoyaltyAmount loyaltyAmount;
+    /**
+     * The Loyalty acquirer data.
+     */
     @XmlElement(name = "LoyaltyAcquirerData")
     protected LoyaltyAcquirerData loyaltyAcquirerData;
+    /**
+     * The Rebates.
+     */
     @XmlElement(name = "Rebates")
     protected Rebates rebates;
+    /**
+     * The Current balance.
+     */
     @XmlAttribute(name = "CurrentBalance")
     protected BigDecimal currentBalance;
 
     /**
      * Gets the value of the loyaltyAccount property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoyaltyAccount }
-     *
+     * @return possible      object is     {@link LoyaltyAccount }
      */
     public LoyaltyAccount getLoyaltyAccount() {
         return loyaltyAccount;
@@ -69,10 +78,7 @@ public class LoyaltyResult {
     /**
      * Sets the value of the loyaltyAccount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoyaltyAccount }
-     *
+     * @param value allowed object is     {@link LoyaltyAccount }
      */
     public void setLoyaltyAccount(LoyaltyAccount value) {
         this.loyaltyAccount = value;
@@ -81,10 +87,7 @@ public class LoyaltyResult {
     /**
      * Gets the value of the loyaltyAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoyaltyAmount }
-     *
+     * @return possible      object is     {@link LoyaltyAmount }
      */
     public LoyaltyAmount getLoyaltyAmount() {
         return loyaltyAmount;
@@ -93,10 +96,7 @@ public class LoyaltyResult {
     /**
      * Sets the value of the loyaltyAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoyaltyAmount }
-     *
+     * @param value allowed object is     {@link LoyaltyAmount }
      */
     public void setLoyaltyAmount(LoyaltyAmount value) {
         this.loyaltyAmount = value;
@@ -105,10 +105,7 @@ public class LoyaltyResult {
     /**
      * Gets the value of the loyaltyAcquirerData property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoyaltyAcquirerData }
-     *
+     * @return possible      object is     {@link LoyaltyAcquirerData }
      */
     public LoyaltyAcquirerData getLoyaltyAcquirerData() {
         return loyaltyAcquirerData;
@@ -117,10 +114,7 @@ public class LoyaltyResult {
     /**
      * Sets the value of the loyaltyAcquirerData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoyaltyAcquirerData }
-     *
+     * @param value allowed object is     {@link LoyaltyAcquirerData }
      */
     public void setLoyaltyAcquirerData(LoyaltyAcquirerData value) {
         this.loyaltyAcquirerData = value;
@@ -129,10 +123,7 @@ public class LoyaltyResult {
     /**
      * Gets the value of the rebates property.
      *
-     * @return
-     *     possible object is
-     *     {@link Rebates }
-     *
+     * @return possible      object is     {@link Rebates }
      */
     public Rebates getRebates() {
         return rebates;
@@ -141,10 +132,7 @@ public class LoyaltyResult {
     /**
      * Sets the value of the rebates property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Rebates }
-     *
+     * @param value allowed object is     {@link Rebates }
      */
     public void setRebates(Rebates value) {
         this.rebates = value;
@@ -153,10 +141,7 @@ public class LoyaltyResult {
     /**
      * Gets the value of the currentBalance property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getCurrentBalance() {
         return currentBalance;
@@ -165,10 +150,7 @@ public class LoyaltyResult {
     /**
      * Sets the value of the currentBalance property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setCurrentBalance(BigDecimal value) {
         this.currentBalance = value;

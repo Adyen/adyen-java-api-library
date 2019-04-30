@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,41 +15,45 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="OutputResult">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Response" type="{}Response"/>
- *       &lt;/sequence>
- *       &lt;attribute name="Device" use="required" type="{}DeviceType" />
- *       &lt;attribute name="InfoQualify" use="required" type="{}InfoQualifyType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="OutputResult"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Response" type="{}Response"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="Device" use="required" type="{}DeviceType" /&gt;
+ *       &lt;attribute name="InfoQualify" use="required" type="{}InfoQualifyType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OutputResult", propOrder = {
-    "response"
+        "response"
 })
 public class OutputResult {
 
+    /**
+     * The Response.
+     */
     @XmlElement(name = "Response", required = true)
     protected Response response;
+    /**
+     * The Device.
+     */
     @XmlAttribute(name = "Device", required = true)
     protected DeviceType device;
+    /**
+     * The Info qualify.
+     */
     @XmlAttribute(name = "InfoQualify", required = true)
     protected InfoQualifyType infoQualify;
 
     /**
      * Gets the value of the response property.
      *
-     * @return
-     *     possible object is
-     *     {@link Response }
-     *
+     * @return possible      object is     {@link Response }
      */
     public Response getResponse() {
         return response;
@@ -59,10 +62,7 @@ public class OutputResult {
     /**
      * Sets the value of the response property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Response }
-     *
+     * @param value allowed object is     {@link Response }
      */
     public void setResponse(Response value) {
         this.response = value;
@@ -71,10 +71,7 @@ public class OutputResult {
     /**
      * Gets the value of the device property.
      *
-     * @return
-     *     possible object is
-     *     {@link DeviceType }
-     *
+     * @return possible      object is     {@link DeviceType }
      */
     public DeviceType getDevice() {
         return device;
@@ -83,10 +80,7 @@ public class OutputResult {
     /**
      * Sets the value of the device property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DeviceType }
-     *
+     * @param value allowed object is     {@link DeviceType }
      */
     public void setDevice(DeviceType value) {
         this.device = value;
@@ -95,10 +89,7 @@ public class OutputResult {
     /**
      * Gets the value of the infoQualify property.
      *
-     * @return
-     *     possible object is
-     *     {@link InfoQualifyType }
-     *
+     * @return possible      object is     {@link InfoQualifyType }
      */
     public InfoQualifyType getInfoQualify() {
         return infoQualify;
@@ -107,10 +98,7 @@ public class OutputResult {
     /**
      * Sets the value of the infoQualify property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link InfoQualifyType }
-     *
+     * @param value allowed object is     {@link InfoQualifyType }
      */
     public void setInfoQualify(InfoQualifyType value) {
         this.infoQualify = value;

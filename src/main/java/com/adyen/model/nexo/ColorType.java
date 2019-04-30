@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -10,41 +9,64 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Java class for ColorType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="ColorType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="White"/>
- *     &lt;enumeration value="Black"/>
- *     &lt;enumeration value="Red"/>
- *     &lt;enumeration value="Green"/>
- *     &lt;enumeration value="Blue"/>
- *     &lt;enumeration value="Yellow"/>
- *     &lt;enumeration value="Magenta"/>
- *     &lt;enumeration value="Cyan"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
  *
+ * <pre>
+ * &lt;simpleType name="ColorType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="White"/&gt;
+ *     &lt;enumeration value="Black"/&gt;
+ *     &lt;enumeration value="Red"/&gt;
+ *     &lt;enumeration value="Green"/&gt;
+ *     &lt;enumeration value="Blue"/&gt;
+ *     &lt;enumeration value="Yellow"/&gt;
+ *     &lt;enumeration value="Magenta"/&gt;
+ *     &lt;enumeration value="Cyan"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * </pre>
  */
 @XmlType(name = "ColorType")
 @XmlEnum
 public enum ColorType {
 
+    /**
+     * White color type.
+     */
     @XmlEnumValue("White")
     WHITE("White"),
+    /**
+     * Black color type.
+     */
     @XmlEnumValue("Black")
     BLACK("Black"),
+    /**
+     * Red color type.
+     */
     @XmlEnumValue("Red")
     RED("Red"),
+    /**
+     * Green color type.
+     */
     @XmlEnumValue("Green")
     GREEN("Green"),
+    /**
+     * Blue color type.
+     */
     @XmlEnumValue("Blue")
     BLUE("Blue"),
+    /**
+     * Yellow color type.
+     */
     @XmlEnumValue("Yellow")
     YELLOW("Yellow"),
+    /**
+     * Magenta color type.
+     */
     @XmlEnumValue("Magenta")
     MAGENTA("Magenta"),
+    /**
+     * Cyan color type.
+     */
     @XmlEnumValue("Cyan")
     CYAN("Cyan");
     private final String value;
@@ -53,12 +75,23 @@ public enum ColorType {
         value = v;
     }
 
+    /**
+     * Value string.
+     *
+     * @return the string
+     */
     public String value() {
         return value;
     }
 
+    /**
+     * From value color type.
+     *
+     * @param v the v
+     * @return the color type
+     */
     public static ColorType fromValue(String v) {
-        for (ColorType c: ColorType.values()) {
+        for (ColorType c : ColorType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

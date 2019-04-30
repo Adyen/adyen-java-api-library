@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,42 +15,46 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="EncryptedContent">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="ContentEncryptionAlgorithm" type="{}AlgorithmIdentifier"/>
- *         &lt;element name="EncryptedData" type="{}EncryptedData"/>
- *       &lt;/sequence>
- *       &lt;attribute name="Content" use="required" type="{}ContentType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="EncryptedContent"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="ContentEncryptionAlgorithm" type="{}AlgorithmIdentifier"/&gt;
+ *         &lt;element name="EncryptedData" type="{}EncryptedData"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="Content" use="required" type="{}ContentType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EncryptedContent", propOrder = {
-    "contentEncryptionAlgorithm",
-    "encryptedData"
+        "contentEncryptionAlgorithm",
+        "encryptedData"
 })
 public class EncryptedContent {
 
+    /**
+     * The Content encryption algorithm.
+     */
     @XmlElement(name = "ContentEncryptionAlgorithm", required = true)
     protected AlgorithmIdentifier contentEncryptionAlgorithm;
+    /**
+     * The Encrypted data.
+     */
     @XmlElement(name = "EncryptedData", required = true)
     protected byte[] encryptedData;
+    /**
+     * The Content.
+     */
     @XmlAttribute(name = "Content", required = true)
     protected ContentType content;
 
     /**
      * Gets the value of the contentEncryptionAlgorithm property.
      *
-     * @return
-     *     possible object is
-     *     {@link AlgorithmIdentifier }
-     *
+     * @return possible      object is     {@link AlgorithmIdentifier }
      */
     public AlgorithmIdentifier getContentEncryptionAlgorithm() {
         return contentEncryptionAlgorithm;
@@ -60,10 +63,7 @@ public class EncryptedContent {
     /**
      * Sets the value of the contentEncryptionAlgorithm property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link AlgorithmIdentifier }
-     *
+     * @param value allowed object is     {@link AlgorithmIdentifier }
      */
     public void setContentEncryptionAlgorithm(AlgorithmIdentifier value) {
         this.contentEncryptionAlgorithm = value;
@@ -72,9 +72,7 @@ public class EncryptedContent {
     /**
      * Gets the value of the encryptedData property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getEncryptedData() {
         return encryptedData;
@@ -83,9 +81,7 @@ public class EncryptedContent {
     /**
      * Sets the value of the encryptedData property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setEncryptedData(byte[] value) {
         this.encryptedData = value;
@@ -94,10 +90,7 @@ public class EncryptedContent {
     /**
      * Gets the value of the content property.
      *
-     * @return
-     *     possible object is
-     *     {@link ContentType }
-     *
+     * @return possible      object is     {@link ContentType }
      */
     public ContentType getContent() {
         return content;
@@ -106,10 +99,7 @@ public class EncryptedContent {
     /**
      * Sets the value of the content property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ContentType }
-     *
+     * @param value allowed object is     {@link ContentType }
      */
     public void setContent(ContentType value) {
         this.content = value;

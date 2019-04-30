@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="Geolocation">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="GeographicCoordinates" type="{}GeographicCoordinates" minOccurs="0"/>
- *         &lt;element name="UTMCoordinates" type="{}UTMCoordinates" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="Geolocation"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="GeographicCoordinates" type="{}GeographicCoordinates" minOccurs="0"/&gt;
+ *         &lt;element name="UTMCoordinates" type="{}UTMCoordinates" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Geolocation", propOrder = {
-    "geographicCoordinates",
-    "utmCoordinates"
+        "geographicCoordinates",
+        "utmCoordinates"
 })
 public class Geolocation {
 
+    /**
+     * The Geographic coordinates.
+     */
     @XmlElement(name = "GeographicCoordinates")
     protected GeographicCoordinates geographicCoordinates;
+    /**
+     * The Utm coordinates.
+     */
     @XmlElement(name = "UTMCoordinates")
     protected UTMCoordinates utmCoordinates;
 
     /**
      * Gets the value of the geographicCoordinates property.
      *
-     * @return
-     *     possible object is
-     *     {@link GeographicCoordinates }
-     *
+     * @return possible      object is     {@link GeographicCoordinates }
      */
     public GeographicCoordinates getGeographicCoordinates() {
         return geographicCoordinates;
@@ -56,10 +56,7 @@ public class Geolocation {
     /**
      * Sets the value of the geographicCoordinates property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link GeographicCoordinates }
-     *
+     * @param value allowed object is     {@link GeographicCoordinates }
      */
     public void setGeographicCoordinates(GeographicCoordinates value) {
         this.geographicCoordinates = value;
@@ -68,10 +65,7 @@ public class Geolocation {
     /**
      * Gets the value of the utmCoordinates property.
      *
-     * @return
-     *     possible object is
-     *     {@link UTMCoordinates }
-     *
+     * @return possible      object is     {@link UTMCoordinates }
      */
     public UTMCoordinates getUTMCoordinates() {
         return utmCoordinates;
@@ -80,10 +74,7 @@ public class Geolocation {
     /**
      * Sets the value of the utmCoordinates property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link UTMCoordinates }
-     *
+     * @param value allowed object is     {@link UTMCoordinates }
      */
     public void setUTMCoordinates(UTMCoordinates value) {
         this.utmCoordinates = value;

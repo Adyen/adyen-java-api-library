@@ -1,13 +1,12 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,76 +17,110 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SaleData">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="SaleTransactionID" type="{}TransactionIdentification"/>
- *         &lt;element name="SaleTerminalData" type="{}SaleTerminalData" minOccurs="0"/>
- *         &lt;element name="SponsoredMerchant" type="{}SponsoredMerchant" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="SaleToPOIData" type="{}SaleToPOIData" minOccurs="0"/>
- *         &lt;element name="SaleToAcquirerData" type="{}SaleToAcquirerData" minOccurs="0"/>
- *         &lt;element name="SaleToIssuerData" type="{}SaleToIssuerData" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="OperatorID" type="{}OperatorID" />
- *       &lt;attribute name="OperatorLanguage" type="{}ISOLanguage2A" />
- *       &lt;attribute name="ShiftNumber" type="{}ShiftNumber" />
- *       &lt;attribute name="SaleReferenceID" type="{}SaleReferenceID" />
- *       &lt;attribute name="TokenRequested" type="{}TokenRequestedType" />
- *       &lt;attribute name="CustomerOrderID" type="{}CustomerOrderID" />
- *       &lt;attribute name="CustomerOrderReq" type="{}CustomerOrderReq" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SaleData"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="SaleTransactionID" type="{}TransactionIdentification"/&gt;
+ *         &lt;element name="SaleTerminalData" type="{}SaleTerminalData" minOccurs="0"/&gt;
+ *         &lt;element name="SponsoredMerchant" type="{}SponsoredMerchant" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="SaleToPOIData" type="{}SaleToPOIData" minOccurs="0"/&gt;
+ *         &lt;element name="SaleToAcquirerData" type="{}SaleToAcquirerData" minOccurs="0"/&gt;
+ *         &lt;element name="SaleToIssuerData" type="{}SaleToIssuerData" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="OperatorID" type="{}OperatorID" /&gt;
+ *       &lt;attribute name="OperatorLanguage" type="{}ISOLanguage2A" /&gt;
+ *       &lt;attribute name="ShiftNumber" type="{}ShiftNumber" /&gt;
+ *       &lt;attribute name="SaleReferenceID" type="{}SaleReferenceID" /&gt;
+ *       &lt;attribute name="TokenRequested" type="{}TokenRequestedType" /&gt;
+ *       &lt;attribute name="CustomerOrderID" type="{}CustomerOrderID" /&gt;
+ *       &lt;attribute name="CustomerOrderReq" type="{}CustomerOrderReq" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SaleData", propOrder = {
-    "saleTransactionID",
-    "saleTerminalData",
-    "sponsoredMerchant",
-    "saleToPOIData",
-    "saleToAcquirerData",
-    "saleToIssuerData"
+        "saleTransactionID",
+        "saleTerminalData",
+        "sponsoredMerchant",
+        "saleToPOIData",
+        "saleToAcquirerData",
+        "saleToIssuerData"
 })
 public class SaleData {
 
+    /**
+     * The Sale transaction id.
+     */
     @XmlElement(name = "SaleTransactionID", required = true)
     protected TransactionIdentification saleTransactionID;
+    /**
+     * The Sale terminal data.
+     */
     @XmlElement(name = "SaleTerminalData")
     protected SaleTerminalData saleTerminalData;
+    /**
+     * The Sponsored merchant.
+     */
     @XmlElement(name = "SponsoredMerchant")
     protected List<SponsoredMerchant> sponsoredMerchant;
+    /**
+     * The Sale to poi data.
+     */
     @XmlElement(name = "SaleToPOIData")
     protected String saleToPOIData;
+    /**
+     * The Sale to acquirer data.
+     */
     @XmlElement(name = "SaleToAcquirerData")
     protected String saleToAcquirerData;
+    /**
+     * The Sale to issuer data.
+     */
     @XmlElement(name = "SaleToIssuerData")
     protected SaleToIssuerData saleToIssuerData;
+    /**
+     * The Operator id.
+     */
     @XmlAttribute(name = "OperatorID")
     protected String operatorID;
+    /**
+     * The Operator language.
+     */
     @XmlAttribute(name = "OperatorLanguage")
     protected String operatorLanguage;
+    /**
+     * The Shift number.
+     */
     @XmlAttribute(name = "ShiftNumber")
     protected String shiftNumber;
+    /**
+     * The Sale reference id.
+     */
     @XmlAttribute(name = "SaleReferenceID")
     protected String saleReferenceID;
+    /**
+     * The Token requested.
+     */
     @XmlAttribute(name = "TokenRequested")
     protected TokenRequestedType tokenRequested;
+    /**
+     * The Customer order id.
+     */
     @XmlAttribute(name = "CustomerOrderID")
     protected String customerOrderID;
+    /**
+     * The Customer order req.
+     */
     @XmlAttribute(name = "CustomerOrderReq")
     protected List<CustomerOrderReqType> customerOrderReq;
 
     /**
      * Gets the value of the saleTransactionID property.
      *
-     * @return
-     *     possible object is
-     *     {@link TransactionIdentification }
-     *
+     * @return possible      object is     {@link TransactionIdentification }
      */
     public TransactionIdentification getSaleTransactionID() {
         return saleTransactionID;
@@ -96,10 +129,7 @@ public class SaleData {
     /**
      * Sets the value of the saleTransactionID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TransactionIdentification }
-     *
+     * @param value allowed object is     {@link TransactionIdentification }
      */
     public void setSaleTransactionID(TransactionIdentification value) {
         this.saleTransactionID = value;
@@ -108,10 +138,7 @@ public class SaleData {
     /**
      * Gets the value of the saleTerminalData property.
      *
-     * @return
-     *     possible object is
-     *     {@link SaleTerminalData }
-     *
+     * @return possible      object is     {@link SaleTerminalData }
      */
     public SaleTerminalData getSaleTerminalData() {
         return saleTerminalData;
@@ -120,10 +147,7 @@ public class SaleData {
     /**
      * Sets the value of the saleTerminalData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link SaleTerminalData }
-     *
+     * @param value allowed object is     {@link SaleTerminalData }
      */
     public void setSaleTerminalData(SaleTerminalData value) {
         this.saleTerminalData = value;
@@ -132,24 +156,24 @@ public class SaleData {
     /**
      * Gets the value of the sponsoredMerchant property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the sponsoredMerchant property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSponsoredMerchant().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link SponsoredMerchant }
      *
-     *
+     * @return the sponsored merchant
      */
     public List<SponsoredMerchant> getSponsoredMerchant() {
         if (sponsoredMerchant == null) {
@@ -161,10 +185,7 @@ public class SaleData {
     /**
      * Gets the value of the saleToPOIData property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getSaleToPOIData() {
         return saleToPOIData;
@@ -173,10 +194,7 @@ public class SaleData {
     /**
      * Sets the value of the saleToPOIData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setSaleToPOIData(String value) {
         this.saleToPOIData = value;
@@ -185,10 +203,7 @@ public class SaleData {
     /**
      * Gets the value of the saleToAcquirerData property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getSaleToAcquirerData() {
         return saleToAcquirerData;
@@ -197,10 +212,7 @@ public class SaleData {
     /**
      * Sets the value of the saleToAcquirerData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setSaleToAcquirerData(String value) {
         this.saleToAcquirerData = value;
@@ -209,10 +221,7 @@ public class SaleData {
     /**
      * Gets the value of the saleToIssuerData property.
      *
-     * @return
-     *     possible object is
-     *     {@link SaleToIssuerData }
-     *
+     * @return possible      object is     {@link SaleToIssuerData }
      */
     public SaleToIssuerData getSaleToIssuerData() {
         return saleToIssuerData;
@@ -221,10 +230,7 @@ public class SaleData {
     /**
      * Sets the value of the saleToIssuerData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link SaleToIssuerData }
-     *
+     * @param value allowed object is     {@link SaleToIssuerData }
      */
     public void setSaleToIssuerData(SaleToIssuerData value) {
         this.saleToIssuerData = value;
@@ -233,10 +239,7 @@ public class SaleData {
     /**
      * Gets the value of the operatorID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getOperatorID() {
         return operatorID;
@@ -245,10 +248,7 @@ public class SaleData {
     /**
      * Sets the value of the operatorID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setOperatorID(String value) {
         this.operatorID = value;
@@ -257,10 +257,7 @@ public class SaleData {
     /**
      * Gets the value of the operatorLanguage property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getOperatorLanguage() {
         return operatorLanguage;
@@ -269,10 +266,7 @@ public class SaleData {
     /**
      * Sets the value of the operatorLanguage property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setOperatorLanguage(String value) {
         this.operatorLanguage = value;
@@ -281,10 +275,7 @@ public class SaleData {
     /**
      * Gets the value of the shiftNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getShiftNumber() {
         return shiftNumber;
@@ -293,10 +284,7 @@ public class SaleData {
     /**
      * Sets the value of the shiftNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setShiftNumber(String value) {
         this.shiftNumber = value;
@@ -305,10 +293,7 @@ public class SaleData {
     /**
      * Gets the value of the saleReferenceID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getSaleReferenceID() {
         return saleReferenceID;
@@ -317,10 +302,7 @@ public class SaleData {
     /**
      * Sets the value of the saleReferenceID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setSaleReferenceID(String value) {
         this.saleReferenceID = value;
@@ -329,10 +311,7 @@ public class SaleData {
     /**
      * Gets the value of the tokenRequested property.
      *
-     * @return
-     *     possible object is
-     *     {@link TokenRequestedType }
-     *
+     * @return possible      object is     {@link TokenRequestedType }
      */
     public TokenRequestedType getTokenRequested() {
         return tokenRequested;
@@ -341,10 +320,7 @@ public class SaleData {
     /**
      * Sets the value of the tokenRequested property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TokenRequestedType }
-     *
+     * @param value allowed object is     {@link TokenRequestedType }
      */
     public void setTokenRequested(TokenRequestedType value) {
         this.tokenRequested = value;
@@ -353,10 +329,7 @@ public class SaleData {
     /**
      * Gets the value of the customerOrderID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getCustomerOrderID() {
         return customerOrderID;
@@ -365,10 +338,7 @@ public class SaleData {
     /**
      * Sets the value of the customerOrderID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setCustomerOrderID(String value) {
         this.customerOrderID = value;
@@ -377,24 +347,24 @@ public class SaleData {
     /**
      * Gets the value of the customerOrderReq property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the customerOrderReq property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCustomerOrderReq().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link CustomerOrderReqType }
      *
-     *
+     * @return the customer order req
      */
     public List<CustomerOrderReqType> getCustomerOrderReq() {
         if (customerOrderReq == null) {

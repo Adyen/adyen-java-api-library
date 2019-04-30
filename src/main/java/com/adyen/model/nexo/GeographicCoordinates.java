@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="GeographicCoordinates">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Latitude" type="{}Latitude"/>
- *         &lt;element name="Longitude" type="{}Longitude"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="GeographicCoordinates"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Latitude" type="{}Latitude"/&gt;
+ *         &lt;element name="Longitude" type="{}Longitude"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GeographicCoordinates", propOrder = {
-    "latitude",
-    "longitude"
+        "latitude",
+        "longitude"
 })
 public class GeographicCoordinates {
 
+    /**
+     * The Latitude.
+     */
     @XmlElement(name = "Latitude", required = true)
     protected String latitude;
+    /**
+     * The Longitude.
+     */
     @XmlElement(name = "Longitude", required = true)
     protected String longitude;
 
     /**
      * Gets the value of the latitude property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getLatitude() {
         return latitude;
@@ -56,10 +56,7 @@ public class GeographicCoordinates {
     /**
      * Sets the value of the latitude property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setLatitude(String value) {
         this.latitude = value;
@@ -68,10 +65,7 @@ public class GeographicCoordinates {
     /**
      * Gets the value of the longitude property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getLongitude() {
         return longitude;
@@ -80,10 +74,7 @@ public class GeographicCoordinates {
     /**
      * Sets the value of the longitude property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setLongitude(String value) {
         this.longitude = value;

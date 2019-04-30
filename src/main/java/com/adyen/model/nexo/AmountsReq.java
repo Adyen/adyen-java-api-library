@@ -1,11 +1,10 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
 
 
 /**
@@ -16,52 +15,71 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AmountsReq">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="Currency" use="required" type="{}ISOCurrency3A" />
- *       &lt;attribute name="RequestedAmount" type="{}SimpleAmountType" />
- *       &lt;attribute name="CashBackAmount" type="{}SimpleAmountType" />
- *       &lt;attribute name="TipAmount" type="{}SimpleAmountType" />
- *       &lt;attribute name="PaidAmount" type="{}SimpleAmountType" />
- *       &lt;attribute name="MinimumAmountToDeliver" type="{}SimpleAmountType" />
- *       &lt;attribute name="MaximumCashBackAmount" type="{}SimpleAmountType" />
- *       &lt;attribute name="MinimumSplitAmount" type="{}SimpleAmountType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AmountsReq"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="Currency" use="required" type="{}ISOCurrency3A" /&gt;
+ *       &lt;attribute name="RequestedAmount" type="{}SimpleAmountType" /&gt;
+ *       &lt;attribute name="CashBackAmount" type="{}SimpleAmountType" /&gt;
+ *       &lt;attribute name="TipAmount" type="{}SimpleAmountType" /&gt;
+ *       &lt;attribute name="PaidAmount" type="{}SimpleAmountType" /&gt;
+ *       &lt;attribute name="MinimumAmountToDeliver" type="{}SimpleAmountType" /&gt;
+ *       &lt;attribute name="MaximumCashBackAmount" type="{}SimpleAmountType" /&gt;
+ *       &lt;attribute name="MinimumSplitAmount" type="{}SimpleAmountType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AmountsReq")
 public class AmountsReq {
 
+    /**
+     * The Currency.
+     */
     @XmlAttribute(name = "Currency", required = true)
     protected String currency;
+    /**
+     * The Requested amount.
+     */
     @XmlAttribute(name = "RequestedAmount")
     protected BigDecimal requestedAmount;
+    /**
+     * The Cash back amount.
+     */
     @XmlAttribute(name = "CashBackAmount")
     protected BigDecimal cashBackAmount;
+    /**
+     * The Tip amount.
+     */
     @XmlAttribute(name = "TipAmount")
     protected BigDecimal tipAmount;
+    /**
+     * The Paid amount.
+     */
     @XmlAttribute(name = "PaidAmount")
     protected BigDecimal paidAmount;
+    /**
+     * The Minimum amount to deliver.
+     */
     @XmlAttribute(name = "MinimumAmountToDeliver")
     protected BigDecimal minimumAmountToDeliver;
+    /**
+     * The Maximum cash back amount.
+     */
     @XmlAttribute(name = "MaximumCashBackAmount")
     protected BigDecimal maximumCashBackAmount;
+    /**
+     * The Minimum split amount.
+     */
     @XmlAttribute(name = "MinimumSplitAmount")
     protected BigDecimal minimumSplitAmount;
 
     /**
      * Gets the value of the currency property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getCurrency() {
         return currency;
@@ -70,10 +88,7 @@ public class AmountsReq {
     /**
      * Sets the value of the currency property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setCurrency(String value) {
         this.currency = value;
@@ -82,10 +97,7 @@ public class AmountsReq {
     /**
      * Gets the value of the requestedAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getRequestedAmount() {
         return requestedAmount;
@@ -94,10 +106,7 @@ public class AmountsReq {
     /**
      * Sets the value of the requestedAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setRequestedAmount(BigDecimal value) {
         this.requestedAmount = value;
@@ -106,10 +115,7 @@ public class AmountsReq {
     /**
      * Gets the value of the cashBackAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getCashBackAmount() {
         return cashBackAmount;
@@ -118,10 +124,7 @@ public class AmountsReq {
     /**
      * Sets the value of the cashBackAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setCashBackAmount(BigDecimal value) {
         this.cashBackAmount = value;
@@ -130,10 +133,7 @@ public class AmountsReq {
     /**
      * Gets the value of the tipAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getTipAmount() {
         return tipAmount;
@@ -142,10 +142,7 @@ public class AmountsReq {
     /**
      * Sets the value of the tipAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setTipAmount(BigDecimal value) {
         this.tipAmount = value;
@@ -154,10 +151,7 @@ public class AmountsReq {
     /**
      * Gets the value of the paidAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getPaidAmount() {
         return paidAmount;
@@ -166,10 +160,7 @@ public class AmountsReq {
     /**
      * Sets the value of the paidAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setPaidAmount(BigDecimal value) {
         this.paidAmount = value;
@@ -178,10 +169,7 @@ public class AmountsReq {
     /**
      * Gets the value of the minimumAmountToDeliver property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getMinimumAmountToDeliver() {
         return minimumAmountToDeliver;
@@ -190,10 +178,7 @@ public class AmountsReq {
     /**
      * Sets the value of the minimumAmountToDeliver property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setMinimumAmountToDeliver(BigDecimal value) {
         this.minimumAmountToDeliver = value;
@@ -202,10 +187,7 @@ public class AmountsReq {
     /**
      * Gets the value of the maximumCashBackAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getMaximumCashBackAmount() {
         return maximumCashBackAmount;
@@ -214,10 +196,7 @@ public class AmountsReq {
     /**
      * Sets the value of the maximumCashBackAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setMaximumCashBackAmount(BigDecimal value) {
         this.maximumCashBackAmount = value;
@@ -226,10 +205,7 @@ public class AmountsReq {
     /**
      * Gets the value of the minimumSplitAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getMinimumSplitAmount() {
         return minimumSplitAmount;
@@ -238,10 +214,7 @@ public class AmountsReq {
     /**
      * Sets the value of the minimumSplitAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setMinimumSplitAmount(BigDecimal value) {
         this.minimumSplitAmount = value;
