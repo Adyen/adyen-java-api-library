@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  * The type Repeated message response body.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RepeatedMessageResponseBody", propOrder = {
+@XmlType(name = "RepeatedResponseMessageBody", propOrder = {
         "loyaltyResponse",
         "paymentResponse",
         "reversalResponse",
@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
         "cardAcquisitionResponse",
         "cardReaderAPDUResponse"
 })
-public class RepeatedMessageResponseBody {
+public class RepeatedResponseMessageBody {
 
     /**
      * The Loyalty response.
