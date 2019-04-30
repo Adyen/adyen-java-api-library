@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -14,150 +13,232 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="MessageHeader" type="{}MessageHeader"/>
- *         &lt;choice>
- *           &lt;element name="AbortRequest" type="{}AbortRequest"/>
- *           &lt;element name="BalanceInquiryRequest" type="{}BalanceInquiryRequest"/>
- *           &lt;element name="BatchRequest" type="{}BatchRequest"/>
- *           &lt;element name="CardAcquisitionRequest" type="{}CardAcquisitionRequest"/>
- *           &lt;element name="AdminRequest" type="{}AdminRequest"/>
- *           &lt;element name="DiagnosisRequest" type="{}DiagnosisRequest"/>
- *           &lt;element name="DisplayRequest" type="{}DisplayRequest"/>
- *           &lt;element name="EnableServiceRequest" type="{}EnableServiceRequest"/>
- *           &lt;element name="EventNotification" type="{}EventNotification"/>
- *           &lt;element name="GetTotalsRequest" type="{}GetTotalsRequest"/>
- *           &lt;element name="InputRequest" type="{}InputRequest"/>
- *           &lt;element name="InputUpdate" type="{}InputUpdate"/>
- *           &lt;element name="LoginRequest" type="{}LoginRequest"/>
- *           &lt;element name="LogoutRequest" type="{}LogoutRequest"/>
- *           &lt;element name="LoyaltyRequest" type="{}LoyaltyRequest"/>
- *           &lt;element name="PaymentRequest" type="{}PaymentRequest"/>
- *           &lt;element name="PINRequest" type="{}PINRequest"/>
- *           &lt;element name="PrintRequest" type="{}PrintRequest"/>
- *           &lt;element name="CardReaderInitRequest" type="{}CardReaderInitRequest"/>
- *           &lt;element name="CardReaderAPDURequest" type="{}CardReaderAPDURequest"/>
- *           &lt;element name="CardReaderPowerOffRequest" type="{}CardReaderPowerOffRequest"/>
- *           &lt;element name="ReconciliationRequest" type="{}ReconciliationRequest"/>
- *           &lt;element name="ReversalRequest" type="{}ReversalRequest"/>
- *           &lt;element name="SoundRequest" type="{}SoundRequest"/>
- *           &lt;element name="StoredValueRequest" type="{}StoredValueRequest"/>
- *           &lt;element name="TransactionStatusRequest" type="{}TransactionStatusRequest"/>
- *           &lt;element name="TransmitRequest" type="{}TransmitRequest"/>
- *         &lt;/choice>
- *         &lt;element name="SecurityTrailer" type="{}ContentInformation" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="MessageHeader" type="{}MessageHeader"/&gt;
+ *         &lt;choice&gt;
+ *           &lt;element name="AbortRequest" type="{}AbortRequest"/&gt;
+ *           &lt;element name="BalanceInquiryRequest" type="{}BalanceInquiryRequest"/&gt;
+ *           &lt;element name="BatchRequest" type="{}BatchRequest"/&gt;
+ *           &lt;element name="CardAcquisitionRequest" type="{}CardAcquisitionRequest"/&gt;
+ *           &lt;element name="AdminRequest" type="{}AdminRequest"/&gt;
+ *           &lt;element name="DiagnosisRequest" type="{}DiagnosisRequest"/&gt;
+ *           &lt;element name="DisplayRequest" type="{}DisplayRequest"/&gt;
+ *           &lt;element name="EnableServiceRequest" type="{}EnableServiceRequest"/&gt;
+ *           &lt;element name="EventNotification" type="{}EventNotification"/&gt;
+ *           &lt;element name="GetTotalsRequest" type="{}GetTotalsRequest"/&gt;
+ *           &lt;element name="InputRequest" type="{}InputRequest"/&gt;
+ *           &lt;element name="InputUpdate" type="{}InputUpdate"/&gt;
+ *           &lt;element name="LoginRequest" type="{}LoginRequest"/&gt;
+ *           &lt;element name="LogoutRequest" type="{}LogoutRequest"/&gt;
+ *           &lt;element name="LoyaltyRequest" type="{}LoyaltyRequest"/&gt;
+ *           &lt;element name="PaymentRequest" type="{}PaymentRequest"/&gt;
+ *           &lt;element name="PINRequest" type="{}PINRequest"/&gt;
+ *           &lt;element name="PrintRequest" type="{}PrintRequest"/&gt;
+ *           &lt;element name="CardReaderInitRequest" type="{}CardReaderInitRequest"/&gt;
+ *           &lt;element name="CardReaderAPDURequest" type="{}CardReaderAPDURequest"/&gt;
+ *           &lt;element name="CardReaderPowerOffRequest" type="{}CardReaderPowerOffRequest"/&gt;
+ *           &lt;element name="ReconciliationRequest" type="{}ReconciliationRequest"/&gt;
+ *           &lt;element name="ReversalRequest" type="{}ReversalRequest"/&gt;
+ *           &lt;element name="SoundRequest" type="{}SoundRequest"/&gt;
+ *           &lt;element name="StoredValueRequest" type="{}StoredValueRequest"/&gt;
+ *           &lt;element name="TransactionStatusRequest" type="{}TransactionStatusRequest"/&gt;
+ *           &lt;element name="TransmitRequest" type="{}TransmitRequest"/&gt;
+ *         &lt;/choice&gt;
+ *         &lt;element name="SecurityTrailer" type="{}ContentInformation" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "messageHeader",
-    "abortRequest",
-    "balanceInquiryRequest",
-    "batchRequest",
-    "cardAcquisitionRequest",
-    "adminRequest",
-    "diagnosisRequest",
-    "displayRequest",
-    "enableServiceRequest",
-    "eventNotification",
-    "getTotalsRequest",
-    "inputRequest",
-    "inputUpdate",
-    "loginRequest",
-    "logoutRequest",
-    "loyaltyRequest",
-    "paymentRequest",
-    "pinRequest",
-    "printRequest",
-    "cardReaderInitRequest",
-    "cardReaderAPDURequest",
-    "cardReaderPowerOffRequest",
-    "reconciliationRequest",
-    "reversalRequest",
-    "soundRequest",
-    "storedValueRequest",
-    "transactionStatusRequest",
-    "transmitRequest",
-    "securityTrailer"
+        "messageHeader",
+        "abortRequest",
+        "balanceInquiryRequest",
+        "batchRequest",
+        "cardAcquisitionRequest",
+        "adminRequest",
+        "diagnosisRequest",
+        "displayRequest",
+        "enableServiceRequest",
+        "eventNotification",
+        "getTotalsRequest",
+        "inputRequest",
+        "inputUpdate",
+        "loginRequest",
+        "logoutRequest",
+        "loyaltyRequest",
+        "paymentRequest",
+        "pinRequest",
+        "printRequest",
+        "cardReaderInitRequest",
+        "cardReaderAPDURequest",
+        "cardReaderPowerOffRequest",
+        "reconciliationRequest",
+        "reversalRequest",
+        "soundRequest",
+        "storedValueRequest",
+        "transactionStatusRequest",
+        "transmitRequest",
+        "securityTrailer"
 })
 @XmlRootElement(name = "SaleToPOIRequest")
 public class SaleToPOIRequest {
 
+    /**
+     * The Message header.
+     */
     @XmlElement(name = "MessageHeader", required = true)
     protected MessageHeader messageHeader;
+    /**
+     * The Abort request.
+     */
     @XmlElement(name = "AbortRequest")
     protected AbortRequest abortRequest;
+    /**
+     * The Balance inquiry request.
+     */
     @XmlElement(name = "BalanceInquiryRequest")
     protected BalanceInquiryRequest balanceInquiryRequest;
+    /**
+     * The Batch request.
+     */
     @XmlElement(name = "BatchRequest")
     protected BatchRequest batchRequest;
+    /**
+     * The Card acquisition request.
+     */
     @XmlElement(name = "CardAcquisitionRequest")
     protected CardAcquisitionRequest cardAcquisitionRequest;
+    /**
+     * The Admin request.
+     */
     @XmlElement(name = "AdminRequest")
     protected AdminRequest adminRequest;
+    /**
+     * The Diagnosis request.
+     */
     @XmlElement(name = "DiagnosisRequest")
     protected DiagnosisRequest diagnosisRequest;
+    /**
+     * The Display request.
+     */
     @XmlElement(name = "DisplayRequest")
     protected DisplayRequest displayRequest;
+    /**
+     * The Enable service request.
+     */
     @XmlElement(name = "EnableServiceRequest")
     protected EnableServiceRequest enableServiceRequest;
+    /**
+     * The Event notification.
+     */
     @XmlElement(name = "EventNotification")
     protected EventNotification eventNotification;
+    /**
+     * The Get totals request.
+     */
     @XmlElement(name = "GetTotalsRequest")
     protected GetTotalsRequest getTotalsRequest;
+    /**
+     * The Input request.
+     */
     @XmlElement(name = "InputRequest")
     protected InputRequest inputRequest;
+    /**
+     * The Input update.
+     */
     @XmlElement(name = "InputUpdate")
     protected InputUpdate inputUpdate;
+    /**
+     * The Login request.
+     */
     @XmlElement(name = "LoginRequest")
     protected LoginRequest loginRequest;
+    /**
+     * The Logout request.
+     */
     @XmlElement(name = "LogoutRequest")
     protected LogoutRequest logoutRequest;
+    /**
+     * The Loyalty request.
+     */
     @XmlElement(name = "LoyaltyRequest")
     protected LoyaltyRequest loyaltyRequest;
+    /**
+     * The Payment request.
+     */
     @XmlElement(name = "PaymentRequest")
     protected PaymentRequest paymentRequest;
+    /**
+     * The Pin request.
+     */
     @XmlElement(name = "PINRequest")
     protected PINRequest pinRequest;
+    /**
+     * The Print request.
+     */
     @XmlElement(name = "PrintRequest")
     protected PrintRequest printRequest;
+    /**
+     * The Card reader init request.
+     */
     @XmlElement(name = "CardReaderInitRequest")
     protected CardReaderInitRequest cardReaderInitRequest;
+    /**
+     * The Card reader apdu request.
+     */
     @XmlElement(name = "CardReaderAPDURequest")
     protected CardReaderAPDURequest cardReaderAPDURequest;
+    /**
+     * The Card reader power off request.
+     */
     @XmlElement(name = "CardReaderPowerOffRequest")
     protected CardReaderPowerOffRequest cardReaderPowerOffRequest;
+    /**
+     * The Reconciliation request.
+     */
     @XmlElement(name = "ReconciliationRequest")
     protected ReconciliationRequest reconciliationRequest;
+    /**
+     * The Reversal request.
+     */
     @XmlElement(name = "ReversalRequest")
     protected ReversalRequest reversalRequest;
+    /**
+     * The Sound request.
+     */
     @XmlElement(name = "SoundRequest")
     protected SoundRequest soundRequest;
+    /**
+     * The Stored value request.
+     */
     @XmlElement(name = "StoredValueRequest")
     protected StoredValueRequest storedValueRequest;
+    /**
+     * The Transaction status request.
+     */
     @XmlElement(name = "TransactionStatusRequest")
     protected TransactionStatusRequest transactionStatusRequest;
+    /**
+     * The Transmit request.
+     */
     @XmlElement(name = "TransmitRequest")
     protected TransmitRequest transmitRequest;
+    /**
+     * The Security trailer.
+     */
     @XmlElement(name = "SecurityTrailer")
     protected ContentInformation securityTrailer;
 
     /**
      * Gets the value of the messageHeader property.
      *
-     * @return
-     *     possible object is
-     *     {@link MessageHeader }
-     *
+     * @return possible      object is     {@link MessageHeader }
      */
     public MessageHeader getMessageHeader() {
         return messageHeader;
@@ -166,10 +247,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the messageHeader property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link MessageHeader }
-     *
+     * @param value allowed object is     {@link MessageHeader }
      */
     public void setMessageHeader(MessageHeader value) {
         this.messageHeader = value;
@@ -178,10 +256,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the abortRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link AbortRequest }
-     *
+     * @return possible      object is     {@link AbortRequest }
      */
     public AbortRequest getAbortRequest() {
         return abortRequest;
@@ -190,10 +265,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the abortRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link AbortRequest }
-     *
+     * @param value allowed object is     {@link AbortRequest }
      */
     public void setAbortRequest(AbortRequest value) {
         this.abortRequest = value;
@@ -202,10 +274,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the balanceInquiryRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link BalanceInquiryRequest }
-     *
+     * @return possible      object is     {@link BalanceInquiryRequest }
      */
     public BalanceInquiryRequest getBalanceInquiryRequest() {
         return balanceInquiryRequest;
@@ -214,10 +283,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the balanceInquiryRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BalanceInquiryRequest }
-     *
+     * @param value allowed object is     {@link BalanceInquiryRequest }
      */
     public void setBalanceInquiryRequest(BalanceInquiryRequest value) {
         this.balanceInquiryRequest = value;
@@ -226,10 +292,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the batchRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link BatchRequest }
-     *
+     * @return possible      object is     {@link BatchRequest }
      */
     public BatchRequest getBatchRequest() {
         return batchRequest;
@@ -238,10 +301,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the batchRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BatchRequest }
-     *
+     * @param value allowed object is     {@link BatchRequest }
      */
     public void setBatchRequest(BatchRequest value) {
         this.batchRequest = value;
@@ -250,10 +310,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the cardAcquisitionRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link CardAcquisitionRequest }
-     *
+     * @return possible      object is     {@link CardAcquisitionRequest }
      */
     public CardAcquisitionRequest getCardAcquisitionRequest() {
         return cardAcquisitionRequest;
@@ -262,10 +319,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the cardAcquisitionRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link CardAcquisitionRequest }
-     *
+     * @param value allowed object is     {@link CardAcquisitionRequest }
      */
     public void setCardAcquisitionRequest(CardAcquisitionRequest value) {
         this.cardAcquisitionRequest = value;
@@ -274,10 +328,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the adminRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link AdminRequest }
-     *
+     * @return possible      object is     {@link AdminRequest }
      */
     public AdminRequest getAdminRequest() {
         return adminRequest;
@@ -286,10 +337,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the adminRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link AdminRequest }
-     *
+     * @param value allowed object is     {@link AdminRequest }
      */
     public void setAdminRequest(AdminRequest value) {
         this.adminRequest = value;
@@ -298,10 +346,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the diagnosisRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link DiagnosisRequest }
-     *
+     * @return possible      object is     {@link DiagnosisRequest }
      */
     public DiagnosisRequest getDiagnosisRequest() {
         return diagnosisRequest;
@@ -310,10 +355,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the diagnosisRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DiagnosisRequest }
-     *
+     * @param value allowed object is     {@link DiagnosisRequest }
      */
     public void setDiagnosisRequest(DiagnosisRequest value) {
         this.diagnosisRequest = value;
@@ -322,10 +364,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the displayRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link DisplayRequest }
-     *
+     * @return possible      object is     {@link DisplayRequest }
      */
     public DisplayRequest getDisplayRequest() {
         return displayRequest;
@@ -334,10 +373,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the displayRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DisplayRequest }
-     *
+     * @param value allowed object is     {@link DisplayRequest }
      */
     public void setDisplayRequest(DisplayRequest value) {
         this.displayRequest = value;
@@ -346,10 +382,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the enableServiceRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link EnableServiceRequest }
-     *
+     * @return possible      object is     {@link EnableServiceRequest }
      */
     public EnableServiceRequest getEnableServiceRequest() {
         return enableServiceRequest;
@@ -358,10 +391,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the enableServiceRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link EnableServiceRequest }
-     *
+     * @param value allowed object is     {@link EnableServiceRequest }
      */
     public void setEnableServiceRequest(EnableServiceRequest value) {
         this.enableServiceRequest = value;
@@ -370,10 +400,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the eventNotification property.
      *
-     * @return
-     *     possible object is
-     *     {@link EventNotification }
-     *
+     * @return possible      object is     {@link EventNotification }
      */
     public EventNotification getEventNotification() {
         return eventNotification;
@@ -382,10 +409,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the eventNotification property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link EventNotification }
-     *
+     * @param value allowed object is     {@link EventNotification }
      */
     public void setEventNotification(EventNotification value) {
         this.eventNotification = value;
@@ -394,10 +418,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the getTotalsRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link GetTotalsRequest }
-     *
+     * @return possible      object is     {@link GetTotalsRequest }
      */
     public GetTotalsRequest getGetTotalsRequest() {
         return getTotalsRequest;
@@ -406,10 +427,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the getTotalsRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link GetTotalsRequest }
-     *
+     * @param value allowed object is     {@link GetTotalsRequest }
      */
     public void setGetTotalsRequest(GetTotalsRequest value) {
         this.getTotalsRequest = value;
@@ -418,10 +436,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the inputRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link InputRequest }
-     *
+     * @return possible      object is     {@link InputRequest }
      */
     public InputRequest getInputRequest() {
         return inputRequest;
@@ -430,10 +445,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the inputRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link InputRequest }
-     *
+     * @param value allowed object is     {@link InputRequest }
      */
     public void setInputRequest(InputRequest value) {
         this.inputRequest = value;
@@ -442,10 +454,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the inputUpdate property.
      *
-     * @return
-     *     possible object is
-     *     {@link InputUpdate }
-     *
+     * @return possible      object is     {@link InputUpdate }
      */
     public InputUpdate getInputUpdate() {
         return inputUpdate;
@@ -454,10 +463,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the inputUpdate property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link InputUpdate }
-     *
+     * @param value allowed object is     {@link InputUpdate }
      */
     public void setInputUpdate(InputUpdate value) {
         this.inputUpdate = value;
@@ -466,10 +472,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the loginRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoginRequest }
-     *
+     * @return possible      object is     {@link LoginRequest }
      */
     public LoginRequest getLoginRequest() {
         return loginRequest;
@@ -478,10 +481,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the loginRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoginRequest }
-     *
+     * @param value allowed object is     {@link LoginRequest }
      */
     public void setLoginRequest(LoginRequest value) {
         this.loginRequest = value;
@@ -490,10 +490,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the logoutRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link LogoutRequest }
-     *
+     * @return possible      object is     {@link LogoutRequest }
      */
     public LogoutRequest getLogoutRequest() {
         return logoutRequest;
@@ -502,10 +499,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the logoutRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LogoutRequest }
-     *
+     * @param value allowed object is     {@link LogoutRequest }
      */
     public void setLogoutRequest(LogoutRequest value) {
         this.logoutRequest = value;
@@ -514,10 +508,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the loyaltyRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoyaltyRequest }
-     *
+     * @return possible      object is     {@link LoyaltyRequest }
      */
     public LoyaltyRequest getLoyaltyRequest() {
         return loyaltyRequest;
@@ -526,10 +517,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the loyaltyRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoyaltyRequest }
-     *
+     * @param value allowed object is     {@link LoyaltyRequest }
      */
     public void setLoyaltyRequest(LoyaltyRequest value) {
         this.loyaltyRequest = value;
@@ -538,10 +526,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the paymentRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link PaymentRequest }
-     *
+     * @return possible      object is     {@link PaymentRequest }
      */
     public PaymentRequest getPaymentRequest() {
         return paymentRequest;
@@ -550,10 +535,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the paymentRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link PaymentRequest }
-     *
+     * @param value allowed object is     {@link PaymentRequest }
      */
     public void setPaymentRequest(PaymentRequest value) {
         this.paymentRequest = value;
@@ -562,10 +544,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the pinRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link PINRequest }
-     *
+     * @return possible      object is     {@link PINRequest }
      */
     public PINRequest getPINRequest() {
         return pinRequest;
@@ -574,10 +553,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the pinRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link PINRequest }
-     *
+     * @param value allowed object is     {@link PINRequest }
      */
     public void setPINRequest(PINRequest value) {
         this.pinRequest = value;
@@ -586,10 +562,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the printRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link PrintRequest }
-     *
+     * @return possible      object is     {@link PrintRequest }
      */
     public PrintRequest getPrintRequest() {
         return printRequest;
@@ -598,10 +571,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the printRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link PrintRequest }
-     *
+     * @param value allowed object is     {@link PrintRequest }
      */
     public void setPrintRequest(PrintRequest value) {
         this.printRequest = value;
@@ -610,10 +580,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the cardReaderInitRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link CardReaderInitRequest }
-     *
+     * @return possible      object is     {@link CardReaderInitRequest }
      */
     public CardReaderInitRequest getCardReaderInitRequest() {
         return cardReaderInitRequest;
@@ -622,10 +589,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the cardReaderInitRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link CardReaderInitRequest }
-     *
+     * @param value allowed object is     {@link CardReaderInitRequest }
      */
     public void setCardReaderInitRequest(CardReaderInitRequest value) {
         this.cardReaderInitRequest = value;
@@ -634,10 +598,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the cardReaderAPDURequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link CardReaderAPDURequest }
-     *
+     * @return possible      object is     {@link CardReaderAPDURequest }
      */
     public CardReaderAPDURequest getCardReaderAPDURequest() {
         return cardReaderAPDURequest;
@@ -646,10 +607,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the cardReaderAPDURequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link CardReaderAPDURequest }
-     *
+     * @param value allowed object is     {@link CardReaderAPDURequest }
      */
     public void setCardReaderAPDURequest(CardReaderAPDURequest value) {
         this.cardReaderAPDURequest = value;
@@ -658,10 +616,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the cardReaderPowerOffRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link CardReaderPowerOffRequest }
-     *
+     * @return possible      object is     {@link CardReaderPowerOffRequest }
      */
     public CardReaderPowerOffRequest getCardReaderPowerOffRequest() {
         return cardReaderPowerOffRequest;
@@ -670,10 +625,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the cardReaderPowerOffRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link CardReaderPowerOffRequest }
-     *
+     * @param value allowed object is     {@link CardReaderPowerOffRequest }
      */
     public void setCardReaderPowerOffRequest(CardReaderPowerOffRequest value) {
         this.cardReaderPowerOffRequest = value;
@@ -682,10 +634,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the reconciliationRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link ReconciliationRequest }
-     *
+     * @return possible      object is     {@link ReconciliationRequest }
      */
     public ReconciliationRequest getReconciliationRequest() {
         return reconciliationRequest;
@@ -694,10 +643,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the reconciliationRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ReconciliationRequest }
-     *
+     * @param value allowed object is     {@link ReconciliationRequest }
      */
     public void setReconciliationRequest(ReconciliationRequest value) {
         this.reconciliationRequest = value;
@@ -706,10 +652,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the reversalRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link ReversalRequest }
-     *
+     * @return possible      object is     {@link ReversalRequest }
      */
     public ReversalRequest getReversalRequest() {
         return reversalRequest;
@@ -718,10 +661,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the reversalRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ReversalRequest }
-     *
+     * @param value allowed object is     {@link ReversalRequest }
      */
     public void setReversalRequest(ReversalRequest value) {
         this.reversalRequest = value;
@@ -730,10 +670,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the soundRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link SoundRequest }
-     *
+     * @return possible      object is     {@link SoundRequest }
      */
     public SoundRequest getSoundRequest() {
         return soundRequest;
@@ -742,10 +679,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the soundRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link SoundRequest }
-     *
+     * @param value allowed object is     {@link SoundRequest }
      */
     public void setSoundRequest(SoundRequest value) {
         this.soundRequest = value;
@@ -754,10 +688,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the storedValueRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link StoredValueRequest }
-     *
+     * @return possible      object is     {@link StoredValueRequest }
      */
     public StoredValueRequest getStoredValueRequest() {
         return storedValueRequest;
@@ -766,10 +697,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the storedValueRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link StoredValueRequest }
-     *
+     * @param value allowed object is     {@link StoredValueRequest }
      */
     public void setStoredValueRequest(StoredValueRequest value) {
         this.storedValueRequest = value;
@@ -778,10 +706,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the transactionStatusRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link TransactionStatusRequest }
-     *
+     * @return possible      object is     {@link TransactionStatusRequest }
      */
     public TransactionStatusRequest getTransactionStatusRequest() {
         return transactionStatusRequest;
@@ -790,10 +715,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the transactionStatusRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TransactionStatusRequest }
-     *
+     * @param value allowed object is     {@link TransactionStatusRequest }
      */
     public void setTransactionStatusRequest(TransactionStatusRequest value) {
         this.transactionStatusRequest = value;
@@ -802,10 +724,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the transmitRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link TransmitRequest }
-     *
+     * @return possible      object is     {@link TransmitRequest }
      */
     public TransmitRequest getTransmitRequest() {
         return transmitRequest;
@@ -814,10 +733,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the transmitRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TransmitRequest }
-     *
+     * @param value allowed object is     {@link TransmitRequest }
      */
     public void setTransmitRequest(TransmitRequest value) {
         this.transmitRequest = value;
@@ -826,10 +742,7 @@ public class SaleToPOIRequest {
     /**
      * Gets the value of the securityTrailer property.
      *
-     * @return
-     *     possible object is
-     *     {@link ContentInformation }
-     *
+     * @return possible      object is     {@link ContentInformation }
      */
     public ContentInformation getSecurityTrailer() {
         return securityTrailer;
@@ -838,10 +751,7 @@ public class SaleToPOIRequest {
     /**
      * Sets the value of the securityTrailer property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ContentInformation }
-     *
+     * @param value allowed object is     {@link ContentInformation }
      */
     public void setSecurityTrailer(ContentInformation value) {
         this.securityTrailer = value;

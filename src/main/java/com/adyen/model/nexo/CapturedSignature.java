@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -17,39 +16,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CapturedSignature">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="AreaSize" type="{}AreaSize" minOccurs="0"/>
- *         &lt;element name="SignaturePoint" type="{}SignaturePoint" maxOccurs="unbounded"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CapturedSignature"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="AreaSize" type="{}AreaSize" minOccurs="0"/&gt;
+ *         &lt;element name="SignaturePoint" type="{}SignaturePoint" maxOccurs="unbounded"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CapturedSignature", propOrder = {
-    "areaSize",
-    "signaturePoint"
+        "areaSize",
+        "signaturePoint"
 })
 public class CapturedSignature {
 
+    /**
+     * The Area size.
+     */
     @XmlElement(name = "AreaSize")
     protected AreaSize areaSize;
+    /**
+     * The Signature point.
+     */
     @XmlElement(name = "SignaturePoint", required = true)
     protected List<SignaturePoint> signaturePoint;
 
     /**
      * Gets the value of the areaSize property.
      *
-     * @return
-     *     possible object is
-     *     {@link AreaSize }
-     *
+     * @return possible      object is     {@link AreaSize }
      */
     public AreaSize getAreaSize() {
         return areaSize;
@@ -58,10 +58,7 @@ public class CapturedSignature {
     /**
      * Sets the value of the areaSize property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link AreaSize }
-     *
+     * @param value allowed object is     {@link AreaSize }
      */
     public void setAreaSize(AreaSize value) {
         this.areaSize = value;
@@ -70,24 +67,24 @@ public class CapturedSignature {
     /**
      * Gets the value of the signaturePoint property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the signaturePoint property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSignaturePoint().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link SignaturePoint }
      *
-     *
+     * @return the signature point
      */
     public List<SignaturePoint> getSignaturePoint() {
         if (signaturePoint == null) {

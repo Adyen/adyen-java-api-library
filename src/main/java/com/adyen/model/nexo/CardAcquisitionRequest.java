@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CardAcquisitionRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="SaleData" type="{}SaleData"/>
- *         &lt;element name="CardAcquisitionTransaction" type="{}CardAcquisitionTransaction"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CardAcquisitionRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="SaleData" type="{}SaleData"/&gt;
+ *         &lt;element name="CardAcquisitionTransaction" type="{}CardAcquisitionTransaction"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CardAcquisitionRequest", propOrder = {
-    "saleData",
-    "cardAcquisitionTransaction"
+        "saleData",
+        "cardAcquisitionTransaction"
 })
 public class CardAcquisitionRequest {
 
+    /**
+     * The Sale data.
+     */
     @XmlElement(name = "SaleData", required = true)
     protected SaleData saleData;
+    /**
+     * The Card acquisition transaction.
+     */
     @XmlElement(name = "CardAcquisitionTransaction", required = true)
     protected CardAcquisitionTransaction cardAcquisitionTransaction;
 
     /**
      * Gets the value of the saleData property.
      *
-     * @return
-     *     possible object is
-     *     {@link SaleData }
-     *
+     * @return possible      object is     {@link SaleData }
      */
     public SaleData getSaleData() {
         return saleData;
@@ -56,10 +56,7 @@ public class CardAcquisitionRequest {
     /**
      * Sets the value of the saleData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link SaleData }
-     *
+     * @param value allowed object is     {@link SaleData }
      */
     public void setSaleData(SaleData value) {
         this.saleData = value;
@@ -68,10 +65,7 @@ public class CardAcquisitionRequest {
     /**
      * Gets the value of the cardAcquisitionTransaction property.
      *
-     * @return
-     *     possible object is
-     *     {@link CardAcquisitionTransaction }
-     *
+     * @return possible      object is     {@link CardAcquisitionTransaction }
      */
     public CardAcquisitionTransaction getCardAcquisitionTransaction() {
         return cardAcquisitionTransaction;
@@ -80,10 +74,7 @@ public class CardAcquisitionRequest {
     /**
      * Sets the value of the cardAcquisitionTransaction property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link CardAcquisitionTransaction }
-     *
+     * @param value allowed object is     {@link CardAcquisitionTransaction }
      */
     public void setCardAcquisitionTransaction(CardAcquisitionTransaction value) {
         this.cardAcquisitionTransaction = value;

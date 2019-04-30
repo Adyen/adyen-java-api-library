@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="InputRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="DisplayOutput" type="{}DisplayOutput" minOccurs="0"/>
- *         &lt;element name="InputData" type="{}InputData"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="InputRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="DisplayOutput" type="{}DisplayOutput" minOccurs="0"/&gt;
+ *         &lt;element name="InputData" type="{}InputData"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InputRequest", propOrder = {
-    "displayOutput",
-    "inputData"
+        "displayOutput",
+        "inputData"
 })
 public class InputRequest {
 
+    /**
+     * The Display output.
+     */
     @XmlElement(name = "DisplayOutput")
     protected DisplayOutput displayOutput;
+    /**
+     * The Input data.
+     */
     @XmlElement(name = "InputData", required = true)
     protected InputData inputData;
 
     /**
      * Gets the value of the displayOutput property.
      *
-     * @return
-     *     possible object is
-     *     {@link DisplayOutput }
-     *
+     * @return possible      object is     {@link DisplayOutput }
      */
     public DisplayOutput getDisplayOutput() {
         return displayOutput;
@@ -56,10 +56,7 @@ public class InputRequest {
     /**
      * Sets the value of the displayOutput property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DisplayOutput }
-     *
+     * @param value allowed object is     {@link DisplayOutput }
      */
     public void setDisplayOutput(DisplayOutput value) {
         this.displayOutput = value;
@@ -68,10 +65,7 @@ public class InputRequest {
     /**
      * Gets the value of the inputData property.
      *
-     * @return
-     *     possible object is
-     *     {@link InputData }
-     *
+     * @return possible      object is     {@link InputData }
      */
     public InputData getInputData() {
         return inputData;
@@ -80,10 +74,7 @@ public class InputRequest {
     /**
      * Sets the value of the inputData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link InputData }
-     *
+     * @param value allowed object is     {@link InputData }
      */
     public void setInputData(InputData value) {
         this.inputData = value;

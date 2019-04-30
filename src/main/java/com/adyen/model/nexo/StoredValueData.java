@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
 
 
 /**
@@ -17,57 +16,76 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="StoredValueData">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="StoredValueAccountID" type="{}StoredValueAccountID" minOccurs="0"/>
- *         &lt;element name="OriginalPOITransaction" type="{}OriginalPOITransaction" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="StoredValueProvider" type="{}StoredValueProvider" />
- *       &lt;attribute name="StoredValueTransaction" use="required" type="{}StoredValueTransactionType" />
- *       &lt;attribute name="ProductCode" type="{}ProductCode" />
- *       &lt;attribute name="EanUpc" type="{}EanUpc" />
- *       &lt;attribute name="ItemAmount" use="required" type="{}SimpleAmountType" />
- *       &lt;attribute name="Currency" use="required" type="{}ISOCurrency3A" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="StoredValueData"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="StoredValueAccountID" type="{}StoredValueAccountID" minOccurs="0"/&gt;
+ *         &lt;element name="OriginalPOITransaction" type="{}OriginalPOITransaction" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="StoredValueProvider" type="{}StoredValueProvider" /&gt;
+ *       &lt;attribute name="StoredValueTransaction" use="required" type="{}StoredValueTransactionType" /&gt;
+ *       &lt;attribute name="ProductCode" type="{}ProductCode" /&gt;
+ *       &lt;attribute name="EanUpc" type="{}EanUpc" /&gt;
+ *       &lt;attribute name="ItemAmount" use="required" type="{}SimpleAmountType" /&gt;
+ *       &lt;attribute name="Currency" use="required" type="{}ISOCurrency3A" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "StoredValueData", propOrder = {
-    "storedValueAccountID",
-    "originalPOITransaction"
+        "storedValueAccountID",
+        "originalPOITransaction"
 })
 public class StoredValueData {
 
+    /**
+     * The Stored value account id.
+     */
     @XmlElement(name = "StoredValueAccountID")
     protected StoredValueAccountID storedValueAccountID;
+    /**
+     * The Original poi transaction.
+     */
     @XmlElement(name = "OriginalPOITransaction")
     protected OriginalPOITransaction originalPOITransaction;
+    /**
+     * The Stored value provider.
+     */
     @XmlAttribute(name = "StoredValueProvider")
     protected String storedValueProvider;
+    /**
+     * The Stored value transaction.
+     */
     @XmlAttribute(name = "StoredValueTransaction", required = true)
     protected StoredValueTransactionType storedValueTransaction;
+    /**
+     * The Product code.
+     */
     @XmlAttribute(name = "ProductCode")
     protected String productCode;
+    /**
+     * The Ean upc.
+     */
     @XmlAttribute(name = "EanUpc")
     protected String eanUpc;
+    /**
+     * The Item amount.
+     */
     @XmlAttribute(name = "ItemAmount", required = true)
     protected BigDecimal itemAmount;
+    /**
+     * The Currency.
+     */
     @XmlAttribute(name = "Currency", required = true)
     protected String currency;
 
     /**
      * Gets the value of the storedValueAccountID property.
      *
-     * @return
-     *     possible object is
-     *     {@link StoredValueAccountID }
-     *
+     * @return possible      object is     {@link StoredValueAccountID }
      */
     public StoredValueAccountID getStoredValueAccountID() {
         return storedValueAccountID;
@@ -76,10 +94,7 @@ public class StoredValueData {
     /**
      * Sets the value of the storedValueAccountID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link StoredValueAccountID }
-     *
+     * @param value allowed object is     {@link StoredValueAccountID }
      */
     public void setStoredValueAccountID(StoredValueAccountID value) {
         this.storedValueAccountID = value;
@@ -88,10 +103,7 @@ public class StoredValueData {
     /**
      * Gets the value of the originalPOITransaction property.
      *
-     * @return
-     *     possible object is
-     *     {@link OriginalPOITransaction }
-     *
+     * @return possible      object is     {@link OriginalPOITransaction }
      */
     public OriginalPOITransaction getOriginalPOITransaction() {
         return originalPOITransaction;
@@ -100,10 +112,7 @@ public class StoredValueData {
     /**
      * Sets the value of the originalPOITransaction property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link OriginalPOITransaction }
-     *
+     * @param value allowed object is     {@link OriginalPOITransaction }
      */
     public void setOriginalPOITransaction(OriginalPOITransaction value) {
         this.originalPOITransaction = value;
@@ -112,10 +121,7 @@ public class StoredValueData {
     /**
      * Gets the value of the storedValueProvider property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getStoredValueProvider() {
         return storedValueProvider;
@@ -124,10 +130,7 @@ public class StoredValueData {
     /**
      * Sets the value of the storedValueProvider property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setStoredValueProvider(String value) {
         this.storedValueProvider = value;
@@ -136,10 +139,7 @@ public class StoredValueData {
     /**
      * Gets the value of the storedValueTransaction property.
      *
-     * @return
-     *     possible object is
-     *     {@link StoredValueTransactionType }
-     *
+     * @return possible      object is     {@link StoredValueTransactionType }
      */
     public StoredValueTransactionType getStoredValueTransaction() {
         return storedValueTransaction;
@@ -148,10 +148,7 @@ public class StoredValueData {
     /**
      * Sets the value of the storedValueTransaction property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link StoredValueTransactionType }
-     *
+     * @param value allowed object is     {@link StoredValueTransactionType }
      */
     public void setStoredValueTransaction(StoredValueTransactionType value) {
         this.storedValueTransaction = value;
@@ -160,10 +157,7 @@ public class StoredValueData {
     /**
      * Gets the value of the productCode property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getProductCode() {
         return productCode;
@@ -172,10 +166,7 @@ public class StoredValueData {
     /**
      * Sets the value of the productCode property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setProductCode(String value) {
         this.productCode = value;
@@ -184,10 +175,7 @@ public class StoredValueData {
     /**
      * Gets the value of the eanUpc property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getEanUpc() {
         return eanUpc;
@@ -196,10 +184,7 @@ public class StoredValueData {
     /**
      * Sets the value of the eanUpc property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setEanUpc(String value) {
         this.eanUpc = value;
@@ -208,10 +193,7 @@ public class StoredValueData {
     /**
      * Gets the value of the itemAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getItemAmount() {
         return itemAmount;
@@ -220,10 +202,7 @@ public class StoredValueData {
     /**
      * Sets the value of the itemAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setItemAmount(BigDecimal value) {
         this.itemAmount = value;
@@ -232,10 +211,7 @@ public class StoredValueData {
     /**
      * Gets the value of the currency property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getCurrency() {
         return currency;
@@ -244,10 +220,7 @@ public class StoredValueData {
     /**
      * Sets the value of the currency property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setCurrency(String value) {
         this.currency = value;

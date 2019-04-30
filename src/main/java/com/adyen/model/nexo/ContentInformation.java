@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,56 +15,69 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="ContentInformation">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;choice>
- *           &lt;element name="EnvelopedData" type="{}EnvelopedData"/>
- *           &lt;element name="AuthenticatedData" type="{}AuthenticatedData"/>
- *           &lt;element name="SignedData" type="{}SignedData"/>
- *           &lt;element name="DigestedData" type="{}DigestedData"/>
- *           &lt;element name="NamedKeyEncryptedData" type="{}NamedKeyEncryptedData"/>
- *         &lt;/choice>
- *       &lt;/sequence>
- *       &lt;attribute name="Content" use="required" type="{}ContentType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="ContentInformation"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;choice&gt;
+ *           &lt;element name="EnvelopedData" type="{}EnvelopedData"/&gt;
+ *           &lt;element name="AuthenticatedData" type="{}AuthenticatedData"/&gt;
+ *           &lt;element name="SignedData" type="{}SignedData"/&gt;
+ *           &lt;element name="DigestedData" type="{}DigestedData"/&gt;
+ *           &lt;element name="NamedKeyEncryptedData" type="{}NamedKeyEncryptedData"/&gt;
+ *         &lt;/choice&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="Content" use="required" type="{}ContentType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ContentInformation", propOrder = {
-    "envelopedData",
-    "authenticatedData",
-    "signedData",
-    "digestedData",
-    "namedKeyEncryptedData"
+        "envelopedData",
+        "authenticatedData",
+        "signedData",
+        "digestedData",
+        "namedKeyEncryptedData"
 })
 public class ContentInformation {
 
+    /**
+     * The Enveloped data.
+     */
     @XmlElement(name = "EnvelopedData")
     protected EnvelopedData envelopedData;
+    /**
+     * The Authenticated data.
+     */
     @XmlElement(name = "AuthenticatedData")
     protected AuthenticatedData authenticatedData;
+    /**
+     * The Signed data.
+     */
     @XmlElement(name = "SignedData")
     protected SignedData signedData;
+    /**
+     * The Digested data.
+     */
     @XmlElement(name = "DigestedData")
     protected DigestedData digestedData;
+    /**
+     * The Named key encrypted data.
+     */
     @XmlElement(name = "NamedKeyEncryptedData")
     protected NamedKeyEncryptedData namedKeyEncryptedData;
+    /**
+     * The Content.
+     */
     @XmlAttribute(name = "Content", required = true)
     protected ContentType content;
 
     /**
      * Gets the value of the envelopedData property.
      *
-     * @return
-     *     possible object is
-     *     {@link EnvelopedData }
-     *
+     * @return possible      object is     {@link EnvelopedData }
      */
     public EnvelopedData getEnvelopedData() {
         return envelopedData;
@@ -74,10 +86,7 @@ public class ContentInformation {
     /**
      * Sets the value of the envelopedData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link EnvelopedData }
-     *
+     * @param value allowed object is     {@link EnvelopedData }
      */
     public void setEnvelopedData(EnvelopedData value) {
         this.envelopedData = value;
@@ -86,10 +95,7 @@ public class ContentInformation {
     /**
      * Gets the value of the authenticatedData property.
      *
-     * @return
-     *     possible object is
-     *     {@link AuthenticatedData }
-     *
+     * @return possible      object is     {@link AuthenticatedData }
      */
     public AuthenticatedData getAuthenticatedData() {
         return authenticatedData;
@@ -98,10 +104,7 @@ public class ContentInformation {
     /**
      * Sets the value of the authenticatedData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link AuthenticatedData }
-     *
+     * @param value allowed object is     {@link AuthenticatedData }
      */
     public void setAuthenticatedData(AuthenticatedData value) {
         this.authenticatedData = value;
@@ -110,10 +113,7 @@ public class ContentInformation {
     /**
      * Gets the value of the signedData property.
      *
-     * @return
-     *     possible object is
-     *     {@link SignedData }
-     *
+     * @return possible      object is     {@link SignedData }
      */
     public SignedData getSignedData() {
         return signedData;
@@ -122,10 +122,7 @@ public class ContentInformation {
     /**
      * Sets the value of the signedData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link SignedData }
-     *
+     * @param value allowed object is     {@link SignedData }
      */
     public void setSignedData(SignedData value) {
         this.signedData = value;
@@ -134,10 +131,7 @@ public class ContentInformation {
     /**
      * Gets the value of the digestedData property.
      *
-     * @return
-     *     possible object is
-     *     {@link DigestedData }
-     *
+     * @return possible      object is     {@link DigestedData }
      */
     public DigestedData getDigestedData() {
         return digestedData;
@@ -146,10 +140,7 @@ public class ContentInformation {
     /**
      * Sets the value of the digestedData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DigestedData }
-     *
+     * @param value allowed object is     {@link DigestedData }
      */
     public void setDigestedData(DigestedData value) {
         this.digestedData = value;
@@ -158,10 +149,7 @@ public class ContentInformation {
     /**
      * Gets the value of the namedKeyEncryptedData property.
      *
-     * @return
-     *     possible object is
-     *     {@link NamedKeyEncryptedData }
-     *
+     * @return possible      object is     {@link NamedKeyEncryptedData }
      */
     public NamedKeyEncryptedData getNamedKeyEncryptedData() {
         return namedKeyEncryptedData;
@@ -170,10 +158,7 @@ public class ContentInformation {
     /**
      * Sets the value of the namedKeyEncryptedData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link NamedKeyEncryptedData }
-     *
+     * @param value allowed object is     {@link NamedKeyEncryptedData }
      */
     public void setNamedKeyEncryptedData(NamedKeyEncryptedData value) {
         this.namedKeyEncryptedData = value;
@@ -182,10 +167,7 @@ public class ContentInformation {
     /**
      * Gets the value of the content property.
      *
-     * @return
-     *     possible object is
-     *     {@link ContentType }
-     *
+     * @return possible      object is     {@link ContentType }
      */
     public ContentType getContent() {
         return content;
@@ -194,10 +176,7 @@ public class ContentInformation {
     /**
      * Sets the value of the content property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ContentType }
-     *
+     * @param value allowed object is     {@link ContentType }
      */
     public void setContent(ContentType value) {
         this.content = value;

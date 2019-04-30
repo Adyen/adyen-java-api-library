@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
 
 
 /**
@@ -17,48 +16,58 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="ReversalRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="OriginalPOITransaction" type="{}OriginalPOITransaction"/>
- *         &lt;element name="CustomerOrderID" type="{}CustomerOrder" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="SaleReferenceID" type="{}SaleReferenceID" />
- *       &lt;attribute name="ReversalReason" use="required" type="{}ReversalReasonType" />
- *       &lt;attribute name="ReversedAmount" type="{}SimpleAmountType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="ReversalRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="OriginalPOITransaction" type="{}OriginalPOITransaction"/&gt;
+ *         &lt;element name="CustomerOrderID" type="{}CustomerOrder" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="SaleReferenceID" type="{}SaleReferenceID" /&gt;
+ *       &lt;attribute name="ReversalReason" use="required" type="{}ReversalReasonType" /&gt;
+ *       &lt;attribute name="ReversedAmount" type="{}SimpleAmountType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ReversalRequest", propOrder = {
-    "originalPOITransaction",
-    "customerOrderID"
+        "originalPOITransaction",
+        "customerOrderID"
 })
 public class ReversalRequest {
 
+    /**
+     * The Original poi transaction.
+     */
     @XmlElement(name = "OriginalPOITransaction", required = true)
     protected OriginalPOITransaction originalPOITransaction;
+    /**
+     * The Customer order id.
+     */
     @XmlElement(name = "CustomerOrderID")
     protected CustomerOrder customerOrderID;
+    /**
+     * The Sale reference id.
+     */
     @XmlAttribute(name = "SaleReferenceID")
     protected String saleReferenceID;
+    /**
+     * The Reversal reason.
+     */
     @XmlAttribute(name = "ReversalReason", required = true)
     protected ReversalReasonType reversalReason;
+    /**
+     * The Reversed amount.
+     */
     @XmlAttribute(name = "ReversedAmount")
     protected BigDecimal reversedAmount;
 
     /**
      * Gets the value of the originalPOITransaction property.
      *
-     * @return
-     *     possible object is
-     *     {@link OriginalPOITransaction }
-     *
+     * @return possible      object is     {@link OriginalPOITransaction }
      */
     public OriginalPOITransaction getOriginalPOITransaction() {
         return originalPOITransaction;
@@ -67,10 +76,7 @@ public class ReversalRequest {
     /**
      * Sets the value of the originalPOITransaction property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link OriginalPOITransaction }
-     *
+     * @param value allowed object is     {@link OriginalPOITransaction }
      */
     public void setOriginalPOITransaction(OriginalPOITransaction value) {
         this.originalPOITransaction = value;
@@ -79,10 +85,7 @@ public class ReversalRequest {
     /**
      * Gets the value of the customerOrderID property.
      *
-     * @return
-     *     possible object is
-     *     {@link CustomerOrder }
-     *
+     * @return possible      object is     {@link CustomerOrder }
      */
     public CustomerOrder getCustomerOrderID() {
         return customerOrderID;
@@ -91,10 +94,7 @@ public class ReversalRequest {
     /**
      * Sets the value of the customerOrderID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link CustomerOrder }
-     *
+     * @param value allowed object is     {@link CustomerOrder }
      */
     public void setCustomerOrderID(CustomerOrder value) {
         this.customerOrderID = value;
@@ -103,10 +103,7 @@ public class ReversalRequest {
     /**
      * Gets the value of the saleReferenceID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getSaleReferenceID() {
         return saleReferenceID;
@@ -115,10 +112,7 @@ public class ReversalRequest {
     /**
      * Sets the value of the saleReferenceID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setSaleReferenceID(String value) {
         this.saleReferenceID = value;
@@ -127,10 +121,7 @@ public class ReversalRequest {
     /**
      * Gets the value of the reversalReason property.
      *
-     * @return
-     *     possible object is
-     *     {@link ReversalReasonType }
-     *
+     * @return possible      object is     {@link ReversalReasonType }
      */
     public ReversalReasonType getReversalReason() {
         return reversalReason;
@@ -139,10 +130,7 @@ public class ReversalRequest {
     /**
      * Sets the value of the reversalReason property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ReversalReasonType }
-     *
+     * @param value allowed object is     {@link ReversalReasonType }
      */
     public void setReversalReason(ReversalReasonType value) {
         this.reversalReason = value;
@@ -151,10 +139,7 @@ public class ReversalRequest {
     /**
      * Gets the value of the reversedAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getReversedAmount() {
         return reversedAmount;
@@ -163,10 +148,7 @@ public class ReversalRequest {
     /**
      * Sets the value of the reversedAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setReversedAmount(BigDecimal value) {
         this.reversedAmount = value;

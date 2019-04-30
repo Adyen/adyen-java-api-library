@@ -1,9 +1,5 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -11,6 +7,9 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -21,75 +20,100 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CardAcquisitionTransaction">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="AllowedPaymentBrand" type="{}AllowedPaymentBrand" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="AllowedLoyaltyBrand" type="{}AllowedLoyaltyBrand" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="ForceEntryMode" type="{}ForceEntryMode" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="LoyaltyHandling" type="{}LoyaltyHandlingType" default="Allowed" />
- *       &lt;attribute name="CustomerLanguage" type="{}ISOLanguage2A" />
- *       &lt;attribute name="ForceCustomerSelectionFlag" type="{}ForceCustomerSelectionFlag" default="false" />
- *       &lt;attribute name="TotalAmount" type="{}SimpleAmountType" />
- *       &lt;attribute name="Payment" type="{}PaymentType" />
- *       &lt;attribute name="CashBackFlag" type="{}CashBackFlag" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CardAcquisitionTransaction"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="AllowedPaymentBrand" type="{}AllowedPaymentBrand" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="AllowedLoyaltyBrand" type="{}AllowedLoyaltyBrand" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="ForceEntryMode" type="{}ForceEntryMode" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="LoyaltyHandling" type="{}LoyaltyHandlingType" default="Allowed" /&gt;
+ *       &lt;attribute name="CustomerLanguage" type="{}ISOLanguage2A" /&gt;
+ *       &lt;attribute name="ForceCustomerSelectionFlag" type="{}ForceCustomerSelectionFlag" default="false" /&gt;
+ *       &lt;attribute name="TotalAmount" type="{}SimpleAmountType" /&gt;
+ *       &lt;attribute name="Payment" type="{}PaymentType" /&gt;
+ *       &lt;attribute name="CashBackFlag" type="{}CashBackFlag" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CardAcquisitionTransaction", propOrder = {
-    "allowedPaymentBrand",
-    "allowedLoyaltyBrand",
-    "forceEntryMode"
+        "allowedPaymentBrand",
+        "allowedLoyaltyBrand",
+        "forceEntryMode"
 })
 public class CardAcquisitionTransaction {
 
+    /**
+     * The Allowed payment brand.
+     */
     @XmlElement(name = "AllowedPaymentBrand")
     protected List<String> allowedPaymentBrand;
+    /**
+     * The Allowed loyalty brand.
+     */
     @XmlElement(name = "AllowedLoyaltyBrand")
     protected List<String> allowedLoyaltyBrand;
+    /**
+     * The Force entry mode.
+     */
     @XmlElementRef(name = "ForceEntryMode", type = JAXBElement.class, required = false)
     protected List<JAXBElement<List<ForceEntryModeType>>> forceEntryMode;
+    /**
+     * The Loyalty handling.
+     */
     @XmlAttribute(name = "LoyaltyHandling")
     protected LoyaltyHandlingType loyaltyHandling;
+    /**
+     * The Customer language.
+     */
     @XmlAttribute(name = "CustomerLanguage")
     protected String customerLanguage;
+    /**
+     * The Force customer selection flag.
+     */
     @XmlAttribute(name = "ForceCustomerSelectionFlag")
     protected Boolean forceCustomerSelectionFlag;
+    /**
+     * The Total amount.
+     */
     @XmlAttribute(name = "TotalAmount")
     protected BigDecimal totalAmount;
+    /**
+     * The Payment.
+     */
     @XmlAttribute(name = "Payment")
     protected PaymentType payment;
+    /**
+     * The Cash back flag.
+     */
     @XmlAttribute(name = "CashBackFlag")
     protected Boolean cashBackFlag;
 
     /**
      * Gets the value of the allowedPaymentBrand property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedPaymentBrand property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedPaymentBrand().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
-     *
+     * @return the allowed payment brand
      */
     public List<String> getAllowedPaymentBrand() {
         if (allowedPaymentBrand == null) {
@@ -101,24 +125,24 @@ public class CardAcquisitionTransaction {
     /**
      * Gets the value of the allowedLoyaltyBrand property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedLoyaltyBrand property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedLoyaltyBrand().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
-     *
+     * @return the allowed loyalty brand
      */
     public List<String> getAllowedLoyaltyBrand() {
         if (allowedLoyaltyBrand == null) {
@@ -130,24 +154,24 @@ public class CardAcquisitionTransaction {
     /**
      * Gets the value of the forceEntryMode property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the forceEntryMode property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getForceEntryMode().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}
      *
-     *
+     * @return the force entry mode
      */
     public List<JAXBElement<List<ForceEntryModeType>>> getForceEntryMode() {
         if (forceEntryMode == null) {
@@ -159,10 +183,7 @@ public class CardAcquisitionTransaction {
     /**
      * Gets the value of the loyaltyHandling property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoyaltyHandlingType }
-     *
+     * @return possible      object is     {@link LoyaltyHandlingType }
      */
     public LoyaltyHandlingType getLoyaltyHandling() {
         if (loyaltyHandling == null) {
@@ -175,10 +196,7 @@ public class CardAcquisitionTransaction {
     /**
      * Sets the value of the loyaltyHandling property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoyaltyHandlingType }
-     *
+     * @param value allowed object is     {@link LoyaltyHandlingType }
      */
     public void setLoyaltyHandling(LoyaltyHandlingType value) {
         this.loyaltyHandling = value;
@@ -187,10 +205,7 @@ public class CardAcquisitionTransaction {
     /**
      * Gets the value of the customerLanguage property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getCustomerLanguage() {
         return customerLanguage;
@@ -199,10 +214,7 @@ public class CardAcquisitionTransaction {
     /**
      * Sets the value of the customerLanguage property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setCustomerLanguage(String value) {
         this.customerLanguage = value;
@@ -211,10 +223,7 @@ public class CardAcquisitionTransaction {
     /**
      * Gets the value of the forceCustomerSelectionFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isForceCustomerSelectionFlag() {
         if (forceCustomerSelectionFlag == null) {
@@ -227,10 +236,7 @@ public class CardAcquisitionTransaction {
     /**
      * Sets the value of the forceCustomerSelectionFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setForceCustomerSelectionFlag(Boolean value) {
         this.forceCustomerSelectionFlag = value;
@@ -239,10 +245,7 @@ public class CardAcquisitionTransaction {
     /**
      * Gets the value of the totalAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getTotalAmount() {
         return totalAmount;
@@ -251,10 +254,7 @@ public class CardAcquisitionTransaction {
     /**
      * Sets the value of the totalAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setTotalAmount(BigDecimal value) {
         this.totalAmount = value;
@@ -263,10 +263,7 @@ public class CardAcquisitionTransaction {
     /**
      * Gets the value of the payment property.
      *
-     * @return
-     *     possible object is
-     *     {@link PaymentType }
-     *
+     * @return possible      object is     {@link PaymentType }
      */
     public PaymentType getPayment() {
         return payment;
@@ -275,10 +272,7 @@ public class CardAcquisitionTransaction {
     /**
      * Sets the value of the payment property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link PaymentType }
-     *
+     * @param value allowed object is     {@link PaymentType }
      */
     public void setPayment(PaymentType value) {
         this.payment = value;
@@ -287,10 +281,7 @@ public class CardAcquisitionTransaction {
     /**
      * Gets the value of the cashBackFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public Boolean isCashBackFlag() {
         return cashBackFlag;
@@ -299,10 +290,7 @@ public class CardAcquisitionTransaction {
     /**
      * Sets the value of the cashBackFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setCashBackFlag(Boolean value) {
         this.cashBackFlag = value;

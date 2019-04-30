@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,34 +14,35 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AreaSize">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="X" use="required" type="{}X" />
- *       &lt;attribute name="Y" use="required" type="{}Y" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AreaSize"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="X" use="required" type="{}X" /&gt;
+ *       &lt;attribute name="Y" use="required" type="{}Y" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AreaSize")
 public class AreaSize {
 
+    /**
+     * The X.
+     */
     @XmlAttribute(name = "X", required = true)
     protected String x;
+    /**
+     * The Y.
+     */
     @XmlAttribute(name = "Y", required = true)
     protected String y;
 
     /**
      * Gets the value of the x property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getX() {
         return x;
@@ -51,10 +51,7 @@ public class AreaSize {
     /**
      * Sets the value of the x property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setX(String value) {
         this.x = value;
@@ -63,10 +60,7 @@ public class AreaSize {
     /**
      * Gets the value of the y property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getY() {
         return y;
@@ -75,10 +69,7 @@ public class AreaSize {
     /**
      * Sets the value of the y property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setY(String value) {
         this.y = value;

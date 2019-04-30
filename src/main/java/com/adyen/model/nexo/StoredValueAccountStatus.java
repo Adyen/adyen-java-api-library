@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
 
 
 /**
@@ -17,38 +16,39 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="StoredValueAccountStatus">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="StoredValueAccountID" type="{}StoredValueAccountID"/>
- *       &lt;/sequence>
- *       &lt;attribute name="CurrentBalance" type="{}SimpleAmountType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="StoredValueAccountStatus"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="StoredValueAccountID" type="{}StoredValueAccountID"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="CurrentBalance" type="{}SimpleAmountType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "StoredValueAccountStatus", propOrder = {
-    "storedValueAccountID"
+        "storedValueAccountID"
 })
 public class StoredValueAccountStatus {
 
+    /**
+     * The Stored value account id.
+     */
     @XmlElement(name = "StoredValueAccountID", required = true)
     protected StoredValueAccountID storedValueAccountID;
+    /**
+     * The Current balance.
+     */
     @XmlAttribute(name = "CurrentBalance")
     protected BigDecimal currentBalance;
 
     /**
      * Gets the value of the storedValueAccountID property.
      *
-     * @return
-     *     possible object is
-     *     {@link StoredValueAccountID }
-     *
+     * @return possible      object is     {@link StoredValueAccountID }
      */
     public StoredValueAccountID getStoredValueAccountID() {
         return storedValueAccountID;
@@ -57,10 +57,7 @@ public class StoredValueAccountStatus {
     /**
      * Sets the value of the storedValueAccountID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link StoredValueAccountID }
-     *
+     * @param value allowed object is     {@link StoredValueAccountID }
      */
     public void setStoredValueAccountID(StoredValueAccountID value) {
         this.storedValueAccountID = value;
@@ -69,10 +66,7 @@ public class StoredValueAccountStatus {
     /**
      * Gets the value of the currentBalance property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getCurrentBalance() {
         return currentBalance;
@@ -81,10 +75,7 @@ public class StoredValueAccountStatus {
     /**
      * Sets the value of the currentBalance property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setCurrentBalance(BigDecimal value) {
         this.currentBalance = value;

@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,43 +14,47 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="UTMCoordinates">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="UTMZone" type="{}UTMZone"/>
- *         &lt;element name="UTMEastward" type="{}UTMEastward"/>
- *         &lt;element name="UTMNorthward" type="{}UTMNorthward"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="UTMCoordinates"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="UTMZone" type="{}UTMZone"/&gt;
+ *         &lt;element name="UTMEastward" type="{}UTMEastward"/&gt;
+ *         &lt;element name="UTMNorthward" type="{}UTMNorthward"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UTMCoordinates", propOrder = {
-    "utmZone",
-    "utmEastward",
-    "utmNorthward"
+        "utmZone",
+        "utmEastward",
+        "utmNorthward"
 })
 public class UTMCoordinates {
 
+    /**
+     * The Utm zone.
+     */
     @XmlElement(name = "UTMZone", required = true)
     protected String utmZone;
+    /**
+     * The Utm eastward.
+     */
     @XmlElement(name = "UTMEastward", required = true)
     protected String utmEastward;
+    /**
+     * The Utm northward.
+     */
     @XmlElement(name = "UTMNorthward", required = true)
     protected String utmNorthward;
 
     /**
      * Gets the value of the utmZone property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getUTMZone() {
         return utmZone;
@@ -60,10 +63,7 @@ public class UTMCoordinates {
     /**
      * Sets the value of the utmZone property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setUTMZone(String value) {
         this.utmZone = value;
@@ -72,10 +72,7 @@ public class UTMCoordinates {
     /**
      * Gets the value of the utmEastward property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getUTMEastward() {
         return utmEastward;
@@ -84,10 +81,7 @@ public class UTMCoordinates {
     /**
      * Sets the value of the utmEastward property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setUTMEastward(String value) {
         this.utmEastward = value;
@@ -96,10 +90,7 @@ public class UTMCoordinates {
     /**
      * Gets the value of the utmNorthward property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getUTMNorthward() {
         return utmNorthward;
@@ -108,10 +99,7 @@ public class UTMCoordinates {
     /**
      * Sets the value of the utmNorthward property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setUTMNorthward(String value) {
         this.utmNorthward = value;

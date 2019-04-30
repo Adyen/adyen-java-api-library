@@ -1,12 +1,11 @@
-
 package com.adyen.model.nexo;
 
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
 
 
 /**
@@ -17,52 +16,65 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CurrencyConversion">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="ConvertedAmount" type="{}Amount"/>
- *         &lt;element name="Commission" type="{}SimpleAmountType" minOccurs="0"/>
- *         &lt;element name="Declaration" type="{}Declaration" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="CustomerApprovedFlag" type="{}CustomerApprovedFlag" default="true" />
- *       &lt;attribute name="Rate" type="{}Rate" />
- *       &lt;attribute name="Markup" type="{}Markup" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CurrencyConversion"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="ConvertedAmount" type="{}Amount"/&gt;
+ *         &lt;element name="Commission" type="{}SimpleAmountType" minOccurs="0"/&gt;
+ *         &lt;element name="Declaration" type="{}Declaration" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="CustomerApprovedFlag" type="{}CustomerApprovedFlag" default="true" /&gt;
+ *       &lt;attribute name="Rate" type="{}Rate" /&gt;
+ *       &lt;attribute name="Markup" type="{}Markup" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CurrencyConversion", propOrder = {
-    "convertedAmount",
-    "commission",
-    "declaration"
+        "convertedAmount",
+        "commission",
+        "declaration"
 })
 public class CurrencyConversion {
 
+    /**
+     * The Converted amount.
+     */
     @XmlElement(name = "ConvertedAmount", required = true)
     protected Amount convertedAmount;
+    /**
+     * The Commission.
+     */
     @XmlElement(name = "Commission")
     protected BigDecimal commission;
+    /**
+     * The Declaration.
+     */
     @XmlElement(name = "Declaration")
     protected String declaration;
+    /**
+     * The Customer approved flag.
+     */
     @XmlAttribute(name = "CustomerApprovedFlag")
     protected Boolean customerApprovedFlag;
+    /**
+     * The Rate.
+     */
     @XmlAttribute(name = "Rate")
     protected BigDecimal rate;
+    /**
+     * The Markup.
+     */
     @XmlAttribute(name = "Markup")
     protected BigDecimal markup;
 
     /**
      * Gets the value of the convertedAmount property.
      *
-     * @return
-     *     possible object is
-     *     {@link Amount }
-     *
+     * @return possible      object is     {@link Amount }
      */
     public Amount getConvertedAmount() {
         return convertedAmount;
@@ -71,10 +83,7 @@ public class CurrencyConversion {
     /**
      * Sets the value of the convertedAmount property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Amount }
-     *
+     * @param value allowed object is     {@link Amount }
      */
     public void setConvertedAmount(Amount value) {
         this.convertedAmount = value;
@@ -83,10 +92,7 @@ public class CurrencyConversion {
     /**
      * Gets the value of the commission property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getCommission() {
         return commission;
@@ -95,10 +101,7 @@ public class CurrencyConversion {
     /**
      * Sets the value of the commission property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setCommission(BigDecimal value) {
         this.commission = value;
@@ -107,10 +110,7 @@ public class CurrencyConversion {
     /**
      * Gets the value of the declaration property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getDeclaration() {
         return declaration;
@@ -119,10 +119,7 @@ public class CurrencyConversion {
     /**
      * Sets the value of the declaration property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setDeclaration(String value) {
         this.declaration = value;
@@ -131,10 +128,7 @@ public class CurrencyConversion {
     /**
      * Gets the value of the customerApprovedFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isCustomerApprovedFlag() {
         if (customerApprovedFlag == null) {
@@ -147,10 +141,7 @@ public class CurrencyConversion {
     /**
      * Sets the value of the customerApprovedFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setCustomerApprovedFlag(Boolean value) {
         this.customerApprovedFlag = value;
@@ -159,10 +150,7 @@ public class CurrencyConversion {
     /**
      * Gets the value of the rate property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getRate() {
         return rate;
@@ -171,10 +159,7 @@ public class CurrencyConversion {
     /**
      * Sets the value of the rate property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setRate(BigDecimal value) {
         this.rate = value;
@@ -183,10 +168,7 @@ public class CurrencyConversion {
     /**
      * Gets the value of the markup property.
      *
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *
+     * @return possible      object is     {@link BigDecimal }
      */
     public BigDecimal getMarkup() {
         return markup;
@@ -195,10 +177,7 @@ public class CurrencyConversion {
     /**
      * Sets the value of the markup property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *
+     * @param value allowed object is     {@link BigDecimal }
      */
     public void setMarkup(BigDecimal value) {
         this.markup = value;

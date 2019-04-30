@@ -1,13 +1,12 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,70 +17,98 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="CardData">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="ProtectedCardData" type="{}ContentInformation" minOccurs="0"/>
- *         &lt;element name="SensitiveCardData" type="{}SensitiveCardData" minOccurs="0"/>
- *         &lt;element name="AllowedProductCode" type="{}AllowedProductCode" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="AllowedProduct" type="{}AllowedProduct" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="PaymentToken" type="{}PaymentToken" minOccurs="0"/>
- *         &lt;element name="CustomerOrder" type="{}CustomerOrder" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="PaymentBrand" type="{}PaymentBrand" />
- *       &lt;attribute name="MaskedPAN" type="{}MaskedPAN" />
- *       &lt;attribute name="PaymentAccountRef" type="{}PaymentAccountRef" />
- *       &lt;attribute name="EntryMode" type="{}EntryMode" />
- *       &lt;attribute name="CardCountryCode" type="{}CardCountryCode" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="CardData"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="ProtectedCardData" type="{}ContentInformation" minOccurs="0"/&gt;
+ *         &lt;element name="SensitiveCardData" type="{}SensitiveCardData" minOccurs="0"/&gt;
+ *         &lt;element name="AllowedProductCode" type="{}AllowedProductCode" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="AllowedProduct" type="{}AllowedProduct" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="PaymentToken" type="{}PaymentToken" minOccurs="0"/&gt;
+ *         &lt;element name="CustomerOrder" type="{}CustomerOrder" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="PaymentBrand" type="{}PaymentBrand" /&gt;
+ *       &lt;attribute name="MaskedPAN" type="{}MaskedPAN" /&gt;
+ *       &lt;attribute name="PaymentAccountRef" type="{}PaymentAccountRef" /&gt;
+ *       &lt;attribute name="EntryMode" type="{}EntryMode" /&gt;
+ *       &lt;attribute name="CardCountryCode" type="{}CardCountryCode" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CardData", propOrder = {
-    "protectedCardData",
-    "sensitiveCardData",
-    "allowedProductCode",
-    "allowedProduct",
-    "paymentToken",
-    "customerOrder"
+        "protectedCardData",
+        "sensitiveCardData",
+        "allowedProductCode",
+        "allowedProduct",
+        "paymentToken",
+        "customerOrder"
 })
 public class CardData {
 
+    /**
+     * The Protected card data.
+     */
     @XmlElement(name = "ProtectedCardData")
     protected ContentInformation protectedCardData;
+    /**
+     * The Sensitive card data.
+     */
     @XmlElement(name = "SensitiveCardData")
     protected SensitiveCardData sensitiveCardData;
+    /**
+     * The Allowed product code.
+     */
     @XmlElement(name = "AllowedProductCode")
     protected List<String> allowedProductCode;
+    /**
+     * The Allowed product.
+     */
     @XmlElement(name = "AllowedProduct")
     protected List<AllowedProduct> allowedProduct;
+    /**
+     * The Payment token.
+     */
     @XmlElement(name = "PaymentToken")
     protected PaymentToken paymentToken;
+    /**
+     * The Customer order.
+     */
     @XmlElement(name = "CustomerOrder")
     protected List<CustomerOrder> customerOrder;
+    /**
+     * The Payment brand.
+     */
     @XmlAttribute(name = "PaymentBrand")
     protected String paymentBrand;
+    /**
+     * The Masked pan.
+     */
     @XmlAttribute(name = "MaskedPan")
     protected String maskedPAN;
+    /**
+     * The Payment account ref.
+     */
     @XmlAttribute(name = "PaymentAccountRef")
     protected String paymentAccountRef;
+    /**
+     * The Entry mode.
+     */
     @XmlAttribute(name = "EntryMode")
     protected List<EntryModeType> entryMode;
+    /**
+     * The Card country code.
+     */
     @XmlAttribute(name = "CardCountryCode")
     protected String cardCountryCode;
 
     /**
      * Gets the value of the protectedCardData property.
      *
-     * @return
-     *     possible object is
-     *     {@link ContentInformation }
-     *
+     * @return possible      object is     {@link ContentInformation }
      */
     public ContentInformation getProtectedCardData() {
         return protectedCardData;
@@ -90,10 +117,7 @@ public class CardData {
     /**
      * Sets the value of the protectedCardData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ContentInformation }
-     *
+     * @param value allowed object is     {@link ContentInformation }
      */
     public void setProtectedCardData(ContentInformation value) {
         this.protectedCardData = value;
@@ -102,10 +126,7 @@ public class CardData {
     /**
      * Gets the value of the sensitiveCardData property.
      *
-     * @return
-     *     possible object is
-     *     {@link SensitiveCardData }
-     *
+     * @return possible      object is     {@link SensitiveCardData }
      */
     public SensitiveCardData getSensitiveCardData() {
         return sensitiveCardData;
@@ -114,10 +135,7 @@ public class CardData {
     /**
      * Sets the value of the sensitiveCardData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link SensitiveCardData }
-     *
+     * @param value allowed object is     {@link SensitiveCardData }
      */
     public void setSensitiveCardData(SensitiveCardData value) {
         this.sensitiveCardData = value;
@@ -126,24 +144,24 @@ public class CardData {
     /**
      * Gets the value of the allowedProductCode property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedProductCode property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedProductCode().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
-     *
+     * @return the allowed product code
      */
     public List<String> getAllowedProductCode() {
         if (allowedProductCode == null) {
@@ -155,24 +173,24 @@ public class CardData {
     /**
      * Gets the value of the allowedProduct property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedProduct property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedProduct().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link AllowedProduct }
      *
-     *
+     * @return the allowed product
      */
     public List<AllowedProduct> getAllowedProduct() {
         if (allowedProduct == null) {
@@ -184,10 +202,7 @@ public class CardData {
     /**
      * Gets the value of the paymentToken property.
      *
-     * @return
-     *     possible object is
-     *     {@link PaymentToken }
-     *
+     * @return possible      object is     {@link PaymentToken }
      */
     public PaymentToken getPaymentToken() {
         return paymentToken;
@@ -196,10 +211,7 @@ public class CardData {
     /**
      * Sets the value of the paymentToken property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link PaymentToken }
-     *
+     * @param value allowed object is     {@link PaymentToken }
      */
     public void setPaymentToken(PaymentToken value) {
         this.paymentToken = value;
@@ -208,24 +220,24 @@ public class CardData {
     /**
      * Gets the value of the customerOrder property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the customerOrder property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCustomerOrder().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link CustomerOrder }
      *
-     *
+     * @return the customer order
      */
     public List<CustomerOrder> getCustomerOrder() {
         if (customerOrder == null) {
@@ -237,10 +249,7 @@ public class CardData {
     /**
      * Gets the value of the paymentBrand property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getPaymentBrand() {
         return paymentBrand;
@@ -249,10 +258,7 @@ public class CardData {
     /**
      * Sets the value of the paymentBrand property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setPaymentBrand(String value) {
         this.paymentBrand = value;
@@ -261,10 +267,7 @@ public class CardData {
     /**
      * Gets the value of the maskedPAN property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getMaskedPAN() {
         return maskedPAN;
@@ -273,10 +276,7 @@ public class CardData {
     /**
      * Sets the value of the maskedPAN property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setMaskedPAN(String value) {
         this.maskedPAN = value;
@@ -285,10 +285,7 @@ public class CardData {
     /**
      * Gets the value of the paymentAccountRef property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getPaymentAccountRef() {
         return paymentAccountRef;
@@ -297,10 +294,7 @@ public class CardData {
     /**
      * Sets the value of the paymentAccountRef property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setPaymentAccountRef(String value) {
         this.paymentAccountRef = value;
@@ -309,24 +303,24 @@ public class CardData {
     /**
      * Gets the value of the entryMode property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the entryMode property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getEntryMode().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link EntryModeType }
      *
-     *
+     * @return the entry mode
      */
     public List<EntryModeType> getEntryMode() {
         if (entryMode == null) {
@@ -338,10 +332,7 @@ public class CardData {
     /**
      * Gets the value of the cardCountryCode property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getCardCountryCode() {
         return cardCountryCode;
@@ -350,10 +341,7 @@ public class CardData {
     /**
      * Sets the value of the cardCountryCode property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setCardCountryCode(String value) {
         this.cardCountryCode = value;

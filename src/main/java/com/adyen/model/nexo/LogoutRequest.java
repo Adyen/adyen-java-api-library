@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,31 +14,29 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="LogoutRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="MaintenanceAllowed" type="{}MaintenanceAllowed" default="false" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="LogoutRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="MaintenanceAllowed" type="{}MaintenanceAllowed" default="false" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LogoutRequest")
 public class LogoutRequest {
 
+    /**
+     * The Maintenance allowed.
+     */
     @XmlAttribute(name = "MaintenanceAllowed")
     protected Boolean maintenanceAllowed;
 
     /**
      * Gets the value of the maintenanceAllowed property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isMaintenanceAllowed() {
         if (maintenanceAllowed == null) {
@@ -52,10 +49,7 @@ public class LogoutRequest {
     /**
      * Sets the value of the maintenanceAllowed property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setMaintenanceAllowed(Boolean value) {
         this.maintenanceAllowed = value;

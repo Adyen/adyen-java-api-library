@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,30 +14,29 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="Parameter">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="InitialisationVector" type="{}InitialisationVector" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="Parameter"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="InitialisationVector" type="{}InitialisationVector" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Parameter")
 public class Parameter {
 
+    /**
+     * The Initialisation vector.
+     */
     @XmlAttribute(name = "InitialisationVector")
     protected byte[] initialisationVector;
 
     /**
      * Gets the value of the initialisationVector property.
      *
-     * @return
-     *     possible object is
-     *     byte[]
+     * @return possible      object is     byte[]
      */
     public byte[] getInitialisationVector() {
         return initialisationVector;
@@ -47,9 +45,7 @@ public class Parameter {
     /**
      * Sets the value of the initialisationVector property.
      *
-     * @param value
-     *     allowed object is
-     *     byte[]
+     * @param value allowed object is     byte[]
      */
     public void setInitialisationVector(byte[] value) {
         this.initialisationVector = value;

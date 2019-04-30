@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,45 +15,52 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AllowedProduct">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="ProductLabel" type="{}ProductLabel" minOccurs="0"/>
- *         &lt;element name="AdditionalProductInfo" type="{}AdditionalProductInfo" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="ProductCode" use="required" type="{}ProductCode" />
- *       &lt;attribute name="EanUpc" type="{}EanUpc" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AllowedProduct"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="ProductLabel" type="{}ProductLabel" minOccurs="0"/&gt;
+ *         &lt;element name="AdditionalProductInfo" type="{}AdditionalProductInfo" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="ProductCode" use="required" type="{}ProductCode" /&gt;
+ *       &lt;attribute name="EanUpc" type="{}EanUpc" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AllowedProduct", propOrder = {
-    "productLabel",
-    "additionalProductInfo"
+        "productLabel",
+        "additionalProductInfo"
 })
 public class AllowedProduct {
 
+    /**
+     * The Product label.
+     */
     @XmlElement(name = "ProductLabel")
     protected String productLabel;
+    /**
+     * The Additional product info.
+     */
     @XmlElement(name = "AdditionalProductInfo")
     protected String additionalProductInfo;
+    /**
+     * The Product code.
+     */
     @XmlAttribute(name = "ProductCode", required = true)
     protected String productCode;
+    /**
+     * The Ean upc.
+     */
     @XmlAttribute(name = "EanUpc")
     protected String eanUpc;
 
     /**
      * Gets the value of the productLabel property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getProductLabel() {
         return productLabel;
@@ -63,10 +69,7 @@ public class AllowedProduct {
     /**
      * Sets the value of the productLabel property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setProductLabel(String value) {
         this.productLabel = value;
@@ -75,10 +78,7 @@ public class AllowedProduct {
     /**
      * Gets the value of the additionalProductInfo property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAdditionalProductInfo() {
         return additionalProductInfo;
@@ -87,10 +87,7 @@ public class AllowedProduct {
     /**
      * Sets the value of the additionalProductInfo property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAdditionalProductInfo(String value) {
         this.additionalProductInfo = value;
@@ -99,10 +96,7 @@ public class AllowedProduct {
     /**
      * Gets the value of the productCode property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getProductCode() {
         return productCode;
@@ -111,10 +105,7 @@ public class AllowedProduct {
     /**
      * Sets the value of the productCode property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setProductCode(String value) {
         this.productCode = value;
@@ -123,10 +114,7 @@ public class AllowedProduct {
     /**
      * Gets the value of the eanUpc property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getEanUpc() {
         return eanUpc;
@@ -135,10 +123,7 @@ public class AllowedProduct {
     /**
      * Sets the value of the eanUpc property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setEanUpc(String value) {
         this.eanUpc = value;

@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -10,20 +9,19 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Java class for VersionType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="VersionType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="v0"/>
- *     &lt;enumeration value="v1"/>
- *     &lt;enumeration value="v2"/>
- *     &lt;enumeration value="v3"/>
- *     &lt;enumeration value="v4"/>
- *     &lt;enumeration value="v5"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
  *
+ * <pre>
+ * &lt;simpleType name="VersionType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="v0"/&gt;
+ *     &lt;enumeration value="v1"/&gt;
+ *     &lt;enumeration value="v2"/&gt;
+ *     &lt;enumeration value="v3"/&gt;
+ *     &lt;enumeration value="v4"/&gt;
+ *     &lt;enumeration value="v5"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * </pre>
  */
 @XmlType(name = "VersionType")
 @XmlEnum
@@ -32,42 +30,36 @@ public enum VersionType {
 
     /**
      * Version 0
-     *
      */
     @XmlEnumValue("v0")
     V_0("v0"),
 
     /**
      * Version 1
-     *
      */
     @XmlEnumValue("v1")
     V_1("v1"),
 
     /**
      * Version 2
-     *
      */
     @XmlEnumValue("v2")
     V_2("v2"),
 
     /**
      * Version 3
-     *
      */
     @XmlEnumValue("v3")
     V_3("v3"),
 
     /**
      * Version 4
-     *
      */
     @XmlEnumValue("v4")
     V_4("v4"),
 
     /**
      * Version 5
-     *
      */
     @XmlEnumValue("v5")
     V_5("v5");
@@ -77,12 +69,23 @@ public enum VersionType {
         value = v;
     }
 
+    /**
+     * Value string.
+     *
+     * @return the string
+     */
     public String value() {
         return value;
     }
 
+    /**
+     * From value version type.
+     *
+     * @param v the v
+     * @return the version type
+     */
     public static VersionType fromValue(String v) {
-        for (VersionType c: VersionType.values()) {
+        for (VersionType c : VersionType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

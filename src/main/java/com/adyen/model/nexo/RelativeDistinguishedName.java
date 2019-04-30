@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="RelativeDistinguishedName">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Attribute" type="{}AttributeTypeCodeZ"/>
- *         &lt;element name="AttributeValue" type="{}AttributeValue"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="RelativeDistinguishedName"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Attribute" type="{}AttributeTypeCodeZ"/&gt;
+ *         &lt;element name="AttributeValue" type="{}AttributeValue"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RelativeDistinguishedName", propOrder = {
-    "attribute",
-    "attributeValue"
+        "attribute",
+        "attributeValue"
 })
 public class RelativeDistinguishedName {
 
+    /**
+     * The Attribute.
+     */
     @XmlElement(name = "Attribute", required = true)
     protected String attribute;
+    /**
+     * The Attribute value.
+     */
     @XmlElement(name = "AttributeValue", required = true)
     protected String attributeValue;
 
     /**
      * Gets the value of the attribute property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAttribute() {
         return attribute;
@@ -56,10 +56,7 @@ public class RelativeDistinguishedName {
     /**
      * Sets the value of the attribute property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAttribute(String value) {
         this.attribute = value;
@@ -68,10 +65,7 @@ public class RelativeDistinguishedName {
     /**
      * Gets the value of the attributeValue property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAttributeValue() {
         return attributeValue;
@@ -80,10 +74,7 @@ public class RelativeDistinguishedName {
     /**
      * Sets the value of the attributeValue property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAttributeValue(String value) {
         this.attributeValue = value;

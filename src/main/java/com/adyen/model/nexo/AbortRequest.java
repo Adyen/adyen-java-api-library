@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,43 +14,47 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AbortRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="MessageReference" type="{}MessageReference"/>
- *         &lt;element name="AbortReason" type="{}AbortReason"/>
- *         &lt;element name="DisplayOutput" type="{}DisplayOutput" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AbortRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="MessageReference" type="{}MessageReference"/&gt;
+ *         &lt;element name="AbortReason" type="{}AbortReason"/&gt;
+ *         &lt;element name="DisplayOutput" type="{}DisplayOutput" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbortRequest", propOrder = {
-    "messageReference",
-    "abortReason",
-    "displayOutput"
+        "messageReference",
+        "abortReason",
+        "displayOutput"
 })
 public class AbortRequest {
 
+    /**
+     * The Message reference.
+     */
     @XmlElement(name = "MessageReference", required = true)
     protected MessageReference messageReference;
+    /**
+     * The Abort reason.
+     */
     @XmlElement(name = "AbortReason", required = true)
     protected String abortReason;
+    /**
+     * The Display output.
+     */
     @XmlElement(name = "DisplayOutput")
     protected DisplayOutput displayOutput;
 
     /**
      * Gets the value of the messageReference property.
      *
-     * @return
-     *     possible object is
-     *     {@link MessageReference }
-     *
+     * @return possible      object is     {@link MessageReference }
      */
     public MessageReference getMessageReference() {
         return messageReference;
@@ -60,10 +63,7 @@ public class AbortRequest {
     /**
      * Sets the value of the messageReference property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link MessageReference }
-     *
+     * @param value allowed object is     {@link MessageReference }
      */
     public void setMessageReference(MessageReference value) {
         this.messageReference = value;
@@ -72,10 +72,7 @@ public class AbortRequest {
     /**
      * Gets the value of the abortReason property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getAbortReason() {
         return abortReason;
@@ -84,10 +81,7 @@ public class AbortRequest {
     /**
      * Sets the value of the abortReason property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setAbortReason(String value) {
         this.abortReason = value;
@@ -96,10 +90,7 @@ public class AbortRequest {
     /**
      * Gets the value of the displayOutput property.
      *
-     * @return
-     *     possible object is
-     *     {@link DisplayOutput }
-     *
+     * @return possible      object is     {@link DisplayOutput }
      */
     public DisplayOutput getDisplayOutput() {
         return displayOutput;
@@ -108,10 +99,7 @@ public class AbortRequest {
     /**
      * Sets the value of the displayOutput property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link DisplayOutput }
-     *
+     * @param value allowed object is     {@link DisplayOutput }
      */
     public void setDisplayOutput(DisplayOutput value) {
         this.displayOutput = value;

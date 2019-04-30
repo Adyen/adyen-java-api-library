@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -10,16 +9,15 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Java class for TokenRequestedType.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * <p>
- * <pre>
- * &lt;simpleType name="TokenRequestedType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="Transaction"/>
- *     &lt;enumeration value="Customer"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
- * </pre>
  *
+ * <pre>
+ * &lt;simpleType name="TokenRequestedType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="Transaction"/&gt;
+ *     &lt;enumeration value="Customer"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
+ * </pre>
  */
 @XmlType(name = "TokenRequestedType")
 @XmlEnum
@@ -28,14 +26,12 @@ public enum TokenRequestedType {
 
     /**
      * The token is generated to recognise a customer during the time of a transaction.
-     *
      */
     @XmlEnumValue("Transaction")
     TRANSACTION("Transaction"),
 
     /**
      * The token is generated to recognise a customer for a longer period.
-     *
      */
     @XmlEnumValue("Customer")
     CUSTOMER("Customer");
@@ -45,12 +41,23 @@ public enum TokenRequestedType {
         value = v;
     }
 
+    /**
+     * Value string.
+     *
+     * @return the string
+     */
     public String value() {
         return value;
     }
 
+    /**
+     * From value token requested type.
+     *
+     * @param v the v
+     * @return the token requested type
+     */
     public static TokenRequestedType fromValue(String v) {
-        for (TokenRequestedType c: TokenRequestedType.values()) {
+        for (TokenRequestedType c : TokenRequestedType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

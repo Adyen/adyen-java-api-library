@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,34 +15,35 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="TransactionIdentification">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="TransactionID" use="required" type="{}TransactionID" />
- *       &lt;attribute name="TimeStamp" use="required" type="{}TimeStamp" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TransactionIdentification"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="TransactionID" use="required" type="{}TransactionID" /&gt;
+ *       &lt;attribute name="TimeStamp" use="required" type="{}TimeStamp" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TransactionIdentification")
 public class TransactionIdentification {
 
+    /**
+     * The Transaction id.
+     */
     @XmlAttribute(name = "TransactionID", required = true)
     protected String transactionID;
+    /**
+     * The Time stamp.
+     */
     @XmlAttribute(name = "TimeStamp", required = true)
     protected XMLGregorianCalendar timeStamp;
 
     /**
      * Gets the value of the transactionID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getTransactionID() {
         return transactionID;
@@ -52,10 +52,7 @@ public class TransactionIdentification {
     /**
      * Sets the value of the transactionID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setTransactionID(String value) {
         this.transactionID = value;
@@ -64,10 +61,7 @@ public class TransactionIdentification {
     /**
      * Gets the value of the timeStamp property.
      *
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *
+     * @return possible      object is     {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getTimeStamp() {
         return timeStamp;
@@ -76,10 +70,7 @@ public class TransactionIdentification {
     /**
      * Sets the value of the timeStamp property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *
+     * @param value allowed object is     {@link XMLGregorianCalendar }
      */
     public void setTimeStamp(XMLGregorianCalendar value) {
         this.timeStamp = value;

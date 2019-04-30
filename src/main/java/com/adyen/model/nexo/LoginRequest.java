@@ -1,8 +1,5 @@
-
 package com.adyen.model.nexo;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -10,6 +7,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -20,65 +19,90 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="LoginRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="DateTime" type="{}DateTime"/>
- *         &lt;element name="SaleSoftware" type="{}SaleSoftware"/>
- *         &lt;element name="SaleTerminalData" type="{}SaleTerminalData" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="TrainingModeFlag" type="{}TrainingModeFlag" default="false" />
- *       &lt;attribute name="OperatorLanguage" use="required" type="{}ISOLanguage2A" />
- *       &lt;attribute name="OperatorID" type="{}OperatorID" />
- *       &lt;attribute name="ShiftNumber" type="{}ShiftNumber" />
- *       &lt;attribute name="TokenRequested" type="{}TokenRequestedType" />
- *       &lt;attribute name="CustomerOrderReq" type="{}CustomerOrderReq" />
- *       &lt;attribute name="POISerialNumber" type="{}POISerialNumber" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="LoginRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="DateTime" type="{}DateTime"/&gt;
+ *         &lt;element name="SaleSoftware" type="{}SaleSoftware"/&gt;
+ *         &lt;element name="SaleTerminalData" type="{}SaleTerminalData" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="TrainingModeFlag" type="{}TrainingModeFlag" default="false" /&gt;
+ *       &lt;attribute name="OperatorLanguage" use="required" type="{}ISOLanguage2A" /&gt;
+ *       &lt;attribute name="OperatorID" type="{}OperatorID" /&gt;
+ *       &lt;attribute name="ShiftNumber" type="{}ShiftNumber" /&gt;
+ *       &lt;attribute name="TokenRequested" type="{}TokenRequestedType" /&gt;
+ *       &lt;attribute name="CustomerOrderReq" type="{}CustomerOrderReq" /&gt;
+ *       &lt;attribute name="POISerialNumber" type="{}POISerialNumber" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LoginRequest", propOrder = {
-    "dateTime",
-    "saleSoftware",
-    "saleTerminalData"
+        "dateTime",
+        "saleSoftware",
+        "saleTerminalData"
 })
 public class LoginRequest {
 
+    /**
+     * The Date time.
+     */
     @XmlElement(name = "DateTime", required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dateTime;
+    /**
+     * The Sale software.
+     */
     @XmlElement(name = "SaleSoftware", required = true)
     protected SaleSoftware saleSoftware;
+    /**
+     * The Sale terminal data.
+     */
     @XmlElement(name = "SaleTerminalData")
     protected SaleTerminalData saleTerminalData;
+    /**
+     * The Training mode flag.
+     */
     @XmlAttribute(name = "TrainingModeFlag")
     protected Boolean trainingModeFlag;
+    /**
+     * The Operator language.
+     */
     @XmlAttribute(name = "OperatorLanguage", required = true)
     protected String operatorLanguage;
+    /**
+     * The Operator id.
+     */
     @XmlAttribute(name = "OperatorID")
     protected String operatorID;
+    /**
+     * The Shift number.
+     */
     @XmlAttribute(name = "ShiftNumber")
     protected String shiftNumber;
+    /**
+     * The Token requested.
+     */
     @XmlAttribute(name = "TokenRequested")
     protected TokenRequestedType tokenRequested;
+    /**
+     * The Customer order req.
+     */
     @XmlAttribute(name = "CustomerOrderReq")
     protected List<CustomerOrderReqType> customerOrderReq;
+    /**
+     * The Poi serial number.
+     */
     @XmlAttribute(name = "POISerialNumber")
     protected String poiSerialNumber;
 
     /**
      * Gets the value of the dateTime property.
      *
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *
+     * @return possible      object is     {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getDateTime() {
         return dateTime;
@@ -87,10 +111,7 @@ public class LoginRequest {
     /**
      * Sets the value of the dateTime property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *
+     * @param value allowed object is     {@link XMLGregorianCalendar }
      */
     public void setDateTime(XMLGregorianCalendar value) {
         this.dateTime = value;
@@ -99,10 +120,7 @@ public class LoginRequest {
     /**
      * Gets the value of the saleSoftware property.
      *
-     * @return
-     *     possible object is
-     *     {@link SaleSoftware }
-     *
+     * @return possible      object is     {@link SaleSoftware }
      */
     public SaleSoftware getSaleSoftware() {
         return saleSoftware;
@@ -111,10 +129,7 @@ public class LoginRequest {
     /**
      * Sets the value of the saleSoftware property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link SaleSoftware }
-     *
+     * @param value allowed object is     {@link SaleSoftware }
      */
     public void setSaleSoftware(SaleSoftware value) {
         this.saleSoftware = value;
@@ -123,10 +138,7 @@ public class LoginRequest {
     /**
      * Gets the value of the saleTerminalData property.
      *
-     * @return
-     *     possible object is
-     *     {@link SaleTerminalData }
-     *
+     * @return possible      object is     {@link SaleTerminalData }
      */
     public SaleTerminalData getSaleTerminalData() {
         return saleTerminalData;
@@ -135,10 +147,7 @@ public class LoginRequest {
     /**
      * Sets the value of the saleTerminalData property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link SaleTerminalData }
-     *
+     * @param value allowed object is     {@link SaleTerminalData }
      */
     public void setSaleTerminalData(SaleTerminalData value) {
         this.saleTerminalData = value;
@@ -147,10 +156,7 @@ public class LoginRequest {
     /**
      * Gets the value of the trainingModeFlag property.
      *
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *
+     * @return possible      object is     {@link Boolean }
      */
     public boolean isTrainingModeFlag() {
         if (trainingModeFlag == null) {
@@ -163,10 +169,7 @@ public class LoginRequest {
     /**
      * Sets the value of the trainingModeFlag property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *
+     * @param value allowed object is     {@link Boolean }
      */
     public void setTrainingModeFlag(Boolean value) {
         this.trainingModeFlag = value;
@@ -175,10 +178,7 @@ public class LoginRequest {
     /**
      * Gets the value of the operatorLanguage property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getOperatorLanguage() {
         return operatorLanguage;
@@ -187,10 +187,7 @@ public class LoginRequest {
     /**
      * Sets the value of the operatorLanguage property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setOperatorLanguage(String value) {
         this.operatorLanguage = value;
@@ -199,10 +196,7 @@ public class LoginRequest {
     /**
      * Gets the value of the operatorID property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getOperatorID() {
         return operatorID;
@@ -211,10 +205,7 @@ public class LoginRequest {
     /**
      * Sets the value of the operatorID property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setOperatorID(String value) {
         this.operatorID = value;
@@ -223,10 +214,7 @@ public class LoginRequest {
     /**
      * Gets the value of the shiftNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getShiftNumber() {
         return shiftNumber;
@@ -235,10 +223,7 @@ public class LoginRequest {
     /**
      * Sets the value of the shiftNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setShiftNumber(String value) {
         this.shiftNumber = value;
@@ -247,10 +232,7 @@ public class LoginRequest {
     /**
      * Gets the value of the tokenRequested property.
      *
-     * @return
-     *     possible object is
-     *     {@link TokenRequestedType }
-     *
+     * @return possible      object is     {@link TokenRequestedType }
      */
     public TokenRequestedType getTokenRequested() {
         return tokenRequested;
@@ -259,10 +241,7 @@ public class LoginRequest {
     /**
      * Sets the value of the tokenRequested property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link TokenRequestedType }
-     *
+     * @param value allowed object is     {@link TokenRequestedType }
      */
     public void setTokenRequested(TokenRequestedType value) {
         this.tokenRequested = value;
@@ -271,24 +250,24 @@ public class LoginRequest {
     /**
      * Gets the value of the customerOrderReq property.
      *
-     * <p>
+     *
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the customerOrderReq property.
      *
-     * <p>
+     *
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCustomerOrderReq().add(newItem);
      * </pre>
      *
      *
-     * <p>
+     *
      * Objects of the following type(s) are allowed in the list
      * {@link CustomerOrderReqType }
      *
-     *
+     * @return the customer order req
      */
     public List<CustomerOrderReqType> getCustomerOrderReq() {
         if (customerOrderReq == null) {
@@ -300,10 +279,7 @@ public class LoginRequest {
     /**
      * Gets the value of the poiSerialNumber property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible      object is     {@link String }
      */
     public String getPOISerialNumber() {
         return poiSerialNumber;
@@ -312,10 +288,7 @@ public class LoginRequest {
     /**
      * Sets the value of the poiSerialNumber property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is     {@link String }
      */
     public void setPOISerialNumber(String value) {
         this.poiSerialNumber = value;

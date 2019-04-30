@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,39 +14,40 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="InputResponse">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="OutputResult" type="{}OutputResult" minOccurs="0"/>
- *         &lt;element name="InputResult" type="{}InputResult"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="InputResponse"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="OutputResult" type="{}OutputResult" minOccurs="0"/&gt;
+ *         &lt;element name="InputResult" type="{}InputResult"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InputResponse", propOrder = {
-    "outputResult",
-    "inputResult"
+        "outputResult",
+        "inputResult"
 })
 public class InputResponse {
 
+    /**
+     * The Output result.
+     */
     @XmlElement(name = "OutputResult")
     protected OutputResult outputResult;
+    /**
+     * The Input result.
+     */
     @XmlElement(name = "InputResult", required = true)
     protected InputResult inputResult;
 
     /**
      * Gets the value of the outputResult property.
      *
-     * @return
-     *     possible object is
-     *     {@link OutputResult }
-     *
+     * @return possible      object is     {@link OutputResult }
      */
     public OutputResult getOutputResult() {
         return outputResult;
@@ -56,10 +56,7 @@ public class InputResponse {
     /**
      * Sets the value of the outputResult property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link OutputResult }
-     *
+     * @param value allowed object is     {@link OutputResult }
      */
     public void setOutputResult(OutputResult value) {
         this.outputResult = value;
@@ -68,10 +65,7 @@ public class InputResponse {
     /**
      * Gets the value of the inputResult property.
      *
-     * @return
-     *     possible object is
-     *     {@link InputResult }
-     *
+     * @return possible      object is     {@link InputResult }
      */
     public InputResult getInputResult() {
         return inputResult;
@@ -80,10 +74,7 @@ public class InputResponse {
     /**
      * Sets the value of the inputResult property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link InputResult }
-     *
+     * @param value allowed object is     {@link InputResult }
      */
     public void setInputResult(InputResult value) {
         this.inputResult = value;

@@ -1,4 +1,3 @@
-
 package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,43 +14,47 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="TransactionToPerform">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;choice>
- *         &lt;element name="PaymentRequest" type="{}PaymentRequest" minOccurs="0"/>
- *         &lt;element name="LoyaltyRequest" type="{}LoyaltyRequest" minOccurs="0"/>
- *         &lt;element name="ReversalRequest" type="{}ReversalRequest" minOccurs="0"/>
- *       &lt;/choice>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TransactionToPerform"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;choice&gt;
+ *         &lt;element name="PaymentRequest" type="{}PaymentRequest" minOccurs="0"/&gt;
+ *         &lt;element name="LoyaltyRequest" type="{}LoyaltyRequest" minOccurs="0"/&gt;
+ *         &lt;element name="ReversalRequest" type="{}ReversalRequest" minOccurs="0"/&gt;
+ *       &lt;/choice&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TransactionToPerform", propOrder = {
-    "paymentRequest",
-    "loyaltyRequest",
-    "reversalRequest"
+        "paymentRequest",
+        "loyaltyRequest",
+        "reversalRequest"
 })
 public class TransactionToPerform {
 
+    /**
+     * The Payment request.
+     */
     @XmlElement(name = "PaymentRequest")
     protected PaymentRequest paymentRequest;
+    /**
+     * The Loyalty request.
+     */
     @XmlElement(name = "LoyaltyRequest")
     protected LoyaltyRequest loyaltyRequest;
+    /**
+     * The Reversal request.
+     */
     @XmlElement(name = "ReversalRequest")
     protected ReversalRequest reversalRequest;
 
     /**
      * Gets the value of the paymentRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link PaymentRequest }
-     *
+     * @return possible      object is     {@link PaymentRequest }
      */
     public PaymentRequest getPaymentRequest() {
         return paymentRequest;
@@ -60,10 +63,7 @@ public class TransactionToPerform {
     /**
      * Sets the value of the paymentRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link PaymentRequest }
-     *
+     * @param value allowed object is     {@link PaymentRequest }
      */
     public void setPaymentRequest(PaymentRequest value) {
         this.paymentRequest = value;
@@ -72,10 +72,7 @@ public class TransactionToPerform {
     /**
      * Gets the value of the loyaltyRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link LoyaltyRequest }
-     *
+     * @return possible      object is     {@link LoyaltyRequest }
      */
     public LoyaltyRequest getLoyaltyRequest() {
         return loyaltyRequest;
@@ -84,10 +81,7 @@ public class TransactionToPerform {
     /**
      * Sets the value of the loyaltyRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link LoyaltyRequest }
-     *
+     * @param value allowed object is     {@link LoyaltyRequest }
      */
     public void setLoyaltyRequest(LoyaltyRequest value) {
         this.loyaltyRequest = value;
@@ -96,10 +90,7 @@ public class TransactionToPerform {
     /**
      * Gets the value of the reversalRequest property.
      *
-     * @return
-     *     possible object is
-     *     {@link ReversalRequest }
-     *
+     * @return possible      object is     {@link ReversalRequest }
      */
     public ReversalRequest getReversalRequest() {
         return reversalRequest;
@@ -108,10 +99,7 @@ public class TransactionToPerform {
     /**
      * Sets the value of the reversalRequest property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link ReversalRequest }
-     *
+     * @param value allowed object is     {@link ReversalRequest }
      */
     public void setReversalRequest(ReversalRequest value) {
         this.reversalRequest = value;

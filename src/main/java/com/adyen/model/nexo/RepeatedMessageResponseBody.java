@@ -27,6 +27,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * The type Repeated message response body.
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RepeatedMessageResponseBody", propOrder = {
         "loyaltyResponse",
@@ -38,24 +41,41 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class RepeatedMessageResponseBody {
 
+    /**
+     * The Loyalty response.
+     */
     @XmlElement(name = "LoyaltyResponse")
     protected LoyaltyResponse loyaltyResponse;
+    /**
+     * The Payment response.
+     */
     @XmlElement(name = "PaymentResponse")
     protected PaymentResponse paymentResponse;
+    /**
+     * The Reversal response.
+     */
     @XmlElement(name = "ReversalResponse")
     protected ReversalResponse reversalResponse;
+    /**
+     * The Stored value response.
+     */
     @XmlElement(name = "StoredValueResponse")
     protected StoredValueResponse storedValueResponse;
+    /**
+     * The Card acquisition response.
+     */
     @XmlElement(name = "CardAcquisitionResponse")
     protected CardAcquisitionResponse cardAcquisitionResponse;
+    /**
+     * The Card reader apdu response.
+     */
     @XmlElement(name = "CardReaderAPDUResponse")
     protected CardReaderAPDUResponse cardReaderAPDUResponse;
 
     /**
      * Gets the value of the loyaltyResponse property.
      *
-     * @return possible object is
-     * {@link LoyaltyResponse }
+     * @return possible object is {@link LoyaltyResponse }
      */
     public LoyaltyResponse getLoyaltyResponse() {
         return loyaltyResponse;
@@ -64,8 +84,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Sets the value of the loyaltyResponse property.
      *
-     * @param value allowed object is
-     *              {@link LoyaltyResponse }
+     * @param value allowed object is              {@link LoyaltyResponse }
      */
     public void setLoyaltyResponse(LoyaltyResponse value) {
         this.loyaltyResponse = value;
@@ -74,8 +93,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Gets the value of the paymentResponse property.
      *
-     * @return possible object is
-     * {@link PaymentResponse }
+     * @return possible object is {@link PaymentResponse }
      */
     public PaymentResponse getPaymentResponse() {
         return paymentResponse;
@@ -84,8 +102,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Sets the value of the paymentResponse property.
      *
-     * @param value allowed object is
-     *              {@link PaymentResponse }
+     * @param value allowed object is              {@link PaymentResponse }
      */
     public void setPaymentResponse(PaymentResponse value) {
         this.paymentResponse = value;
@@ -94,8 +111,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Gets the value of the reversalResponse property.
      *
-     * @return possible object is
-     * {@link ReversalResponse }
+     * @return possible object is {@link ReversalResponse }
      */
     public ReversalResponse getReversalResponse() {
         return reversalResponse;
@@ -104,8 +120,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Sets the value of the reversalResponse property.
      *
-     * @param value allowed object is
-     *              {@link ReversalResponse }
+     * @param value allowed object is              {@link ReversalResponse }
      */
     public void setReversalResponse(ReversalResponse value) {
         this.reversalResponse = value;
@@ -114,8 +129,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Gets the value of the storedValueResponse property.
      *
-     * @return possible object is
-     * {@link StoredValueResponse }
+     * @return possible object is {@link StoredValueResponse }
      */
     public StoredValueResponse getStoredValueResponse() {
         return storedValueResponse;
@@ -124,8 +138,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Sets the value of the storedValueResponse property.
      *
-     * @param value allowed object is
-     *              {@link StoredValueResponse }
+     * @param value allowed object is              {@link StoredValueResponse }
      */
     public void setStoredValueResponse(StoredValueResponse value) {
         this.storedValueResponse = value;
@@ -134,8 +147,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Gets the value of the cardAcquisitionResponse property.
      *
-     * @return possible object is
-     * {@link CardAcquisitionResponse }
+     * @return possible object is {@link CardAcquisitionResponse }
      */
     public CardAcquisitionResponse getCardAcquisitionResponse() {
         return cardAcquisitionResponse;
@@ -144,8 +156,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Sets the value of the cardAcquisitionResponse property.
      *
-     * @param value allowed object is
-     *              {@link CardAcquisitionResponse }
+     * @param value allowed object is              {@link CardAcquisitionResponse }
      */
     public void setCardAcquisitionResponse(CardAcquisitionResponse value) {
         this.cardAcquisitionResponse = value;
@@ -154,8 +165,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Gets the value of the cardReaderAPDUResponse property.
      *
-     * @return possible object is
-     * {@link CardReaderAPDUResponse }
+     * @return possible object is {@link CardReaderAPDUResponse }
      */
     public CardReaderAPDUResponse getCardReaderAPDUResponse() {
         return cardReaderAPDUResponse;
@@ -164,8 +174,7 @@ public class RepeatedMessageResponseBody {
     /**
      * Sets the value of the cardReaderAPDUResponse property.
      *
-     * @param value allowed object is
-     *              {@link CardReaderAPDUResponse }
+     * @param value allowed object is              {@link CardReaderAPDUResponse }
      */
     public void setCardReaderAPDUResponse(CardReaderAPDUResponse value) {
         this.cardReaderAPDUResponse = value;
