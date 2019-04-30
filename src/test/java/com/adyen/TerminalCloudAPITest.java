@@ -33,8 +33,9 @@ import com.adyen.model.nexo.PaymentResult;
 import com.adyen.model.nexo.Response;
 import com.adyen.model.nexo.ResultType;
 import com.adyen.model.nexo.SaleData;
-import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.SaleToPOIResponse;
+import com.adyen.model.terminal.TerminalAPIRequest;
+import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.service.TerminalCloudAPI;
 import org.junit.Test;
 
@@ -59,9 +60,9 @@ public class TerminalCloudAPITest extends BaseTest {
         Client client = createMockClientFromFile("mocks/terminal-api/payment-async-success");
         TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
 
-        SaleToPOIRequest saleToPoiRequest = createSaleToPOIRequest();
+        TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
 
-        String requestResponse = terminalCloudApi.async(saleToPoiRequest);
+        String requestResponse = terminalCloudApi.async(terminalAPIPaymentRequest);
 
         assertNotNull(requestResponse);
         assertEquals("ok", requestResponse);
@@ -75,11 +76,14 @@ public class TerminalCloudAPITest extends BaseTest {
         Client client = createMockClientFromFile("mocks/terminal-api/payment-sync-success.json");
         TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
 
-        SaleToPOIRequest saleToPoiRequest = createSaleToPOIRequest();
+        TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
 
-        SaleToPOIResponse saleToPoiResponse = terminalCloudApi.sync(saleToPoiRequest);
+        TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIPaymentRequest);
 
-        assertNotNull(saleToPoiResponse);
+        assertNotNull(terminalAPIResponse);
+        assertNotNull(terminalAPIResponse.getSaleToPOIResponse());
+
+        SaleToPOIResponse saleToPoiResponse = terminalAPIResponse.getSaleToPOIResponse();
         assertNotNull(saleToPoiResponse.getMessageHeader());
         assertNotNull(saleToPoiResponse.getPaymentResponse());
 
@@ -142,41 +146,4 @@ public class TerminalCloudAPITest extends BaseTest {
         assertEquals(ResultType.SUCCESS, response.getResult());
         assertNotNull(response.getAdditionalResponse());
     }
-
-//    /**
-//     * Test error flow 010 for POST /authorise
-//     */
-//    @Test
-//    public void TestAuthoriseError010Mocked() throws Exception {
-//        Client client = createMockClientForErrors(403, "mocks/authorise-error-010.json");
-//        Payment payment = new Payment(client);
-//
-//        PaymentRequest paymentRequest = createFullCardPaymentRequest();
-//
-//        try {
-//            payment.authorise(paymentRequest);
-//            fail("Exception expected");
-//        } catch (ApiException e) {
-//            String errorCode = e.getError().getErrorCode();
-//            assertEquals("010", errorCode);
-//
-//            int status = e.getError().getStatus();
-//            assertEquals(403, status);
-//        }
-//    }
-//
-//    /**
-//     * Test error flow with wrong CVC for POST /authorise
-//     */
-//    @Test
-//    public void TestAuthoriseErrorCVCDeclinedMocked() throws Exception {
-//        Client client = createMockClientFromFile("mocks/authorise-error-cvc-declined.json");
-//        Payment payment = new Payment(client);
-//
-//        PaymentRequest paymentRequest = createFullCardPaymentRequest();
-//
-//        PaymentResult paymentResult = payment.authorise(paymentRequest);
-//
-//        assertTrue(paymentResult.isRefused());
-//    }
 }

@@ -26,7 +26,7 @@ import com.adyen.service.Resource;
 public class Sync extends Resource {
     public Sync(Service service) {
         super(service,
-              service.getClient().getConfig().getEndpoint() + "/sync",
+              service.getClient().getConfig().getTerminalApiEndpoint() + "/sync",
               null);
     }
 }

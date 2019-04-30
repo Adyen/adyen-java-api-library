@@ -26,7 +26,7 @@ import com.adyen.service.Resource;
 public class Async extends Resource {
     public Async(Service service) {
         super(service,
-              service.getClient().getConfig().getEndpoint() + "/async",
+              service.getClient().getConfig().getTerminalApiEndpoint() + "/async",
               null);
     }
 }

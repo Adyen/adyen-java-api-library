@@ -59,6 +59,7 @@ import com.adyen.model.nexo.PaymentTransaction;
 import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.TransactionIdentification;
+import com.adyen.model.terminal.TerminalAPIRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -294,7 +295,7 @@ public class BaseTest {
         return createBaseModificationRequest(new RefundRequest()).modificationAmount(amount);
     }
 
-    protected SaleToPOIRequest createSaleToPOIRequest() throws DatatypeConfigurationException {
+    protected TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {
         SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
 
         MessageHeader messageHeader = new MessageHeader();
@@ -328,6 +329,9 @@ public class BaseTest {
 
         saleToPOIRequest.setPaymentRequest(paymentRequest);
 
-        return saleToPOIRequest;
+        TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
+        terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
+
+        return terminalAPIRequest;
     }
 }

@@ -31,7 +31,6 @@ import com.google.gson.stream.JsonWriter;
 
 import javax.xml.bind.annotation.XmlEnumValue;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class XmlEnumAdapterFactory implements TypeAdapterFactory {
@@ -67,9 +66,8 @@ public class XmlEnumAdapterFactory implements TypeAdapterFactory {
                 } else {
                     out.value(enumValue.name());
                 }
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-                out.jsonValue(enumValue.name());
+            } catch (Exception e) {
+                throw new IOException(e);
             }
         }
 
@@ -93,8 +91,8 @@ public class XmlEnumAdapterFactory implements TypeAdapterFactory {
                 if (enumObject == null) {
                     enumObject = (T) Enum.valueOf(Enum.class, value);
                 }
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                throw new IOException(e);
             }
 
             return enumObject;
