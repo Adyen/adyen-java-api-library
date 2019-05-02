@@ -26,6 +26,7 @@ import com.adyen.model.terminal.security.NexoDerivedKey;
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.model.terminal.security.SecurityTrailer;
+import com.adyen.security.exception.InvalidSecurityKeyException;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.BadPaddingException;
@@ -48,6 +49,8 @@ public class NexoCrypto {
 
     public SaleToPOISecuredMessage encrypt(
             String saleToPoiMessageJson, MessageHeader messageHeader, SecurityKey securityKey) throws Exception {
+        validateSecurityKey(securityKey);
+
         NexoDerivedKey derivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
         byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(Charset.forName(StandardCharsets.US_ASCII.displayName()));
         byte[] ivNonce = generateRandomIvNonce();
@@ -70,12 +73,25 @@ public class NexoCrypto {
     }
 
     public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage, SecurityKey securityKey) throws Exception {
+        validateSecurityKey(securityKey);
+
         byte[] encryptedSaleToPoiMessageByteArray = Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob());
         NexoDerivedKey derivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
         byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
         byte[] decryptedSaleToPoiMessageByteArray = crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
 
         return new String(decryptedSaleToPoiMessageByteArray, StandardCharsets.US_ASCII);
+    }
+
+    private void validateSecurityKey(SecurityKey securityKey) throws InvalidSecurityKeyException {
+        if (securityKey == null
+                || securityKey.getPassphrase() == null
+                || securityKey.getPassphrase().isEmpty()
+                || securityKey.getKeyIdentifier() == null
+                || securityKey.getKeyVersion() == null
+                || securityKey.getAdyenCryptoVersion() == null) {
+            throw new InvalidSecurityKeyException("Invalid Security Key");
+        }
     }
 
     /**

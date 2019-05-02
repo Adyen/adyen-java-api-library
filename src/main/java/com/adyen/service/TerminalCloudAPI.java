@@ -27,6 +27,7 @@ import com.adyen.enums.adapter.XmlEnumAdapterFactory;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.serializer.XMLGregorianCalendarSerializer;
+import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.terminal.cloud.Async;
 import com.adyen.service.resource.terminal.cloud.Sync;
 import com.google.gson.FieldNamingStrategy;
@@ -38,6 +39,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.IOException;
 import java.lang.reflect.Field;
 
 public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
@@ -84,10 +86,11 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * POST /async API call
      *
      * @param terminalAPIRequest TerminalAPIRequest
-     * @return String
-     * @throws Exception Exception
+     * @return String string
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
-    public String async(TerminalAPIRequest terminalAPIRequest) throws Exception {
+    public String async(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
 
         String response = terminalApiAsync.request(jsonRequest);
@@ -99,9 +102,10 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      *
      * @param terminalAPIRequest TerminalAPIRequest
      * @return SaleToPOIResponse
-     * @throws Exception Exception
+     * @throws IOException IOException
+     * @throws ApiException ApiException
      */
-    public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws Exception {
+    public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
 
         String jsonResponse = terminalApiSync.request(jsonRequest);
