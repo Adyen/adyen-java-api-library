@@ -162,7 +162,7 @@ public class Client {
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
             this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
-            this.config.setTerminalApiEndpoint(TERMINAL_API_ENDPOINT_TEST);
+            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
@@ -174,7 +174,7 @@ public class Client {
                 this.config.setEndpoint(ENDPOINT_LIVE);
                 this.config.setCheckoutEndpoint(null);
             }
-            this.config.setTerminalApiEndpoint(TERMINAL_API_ENDPOINT_LIVE);
+            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
         }
     }
 

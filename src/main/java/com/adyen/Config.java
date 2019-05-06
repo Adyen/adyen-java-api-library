@@ -43,7 +43,8 @@ public class Config {
     protected String checkoutEndpoint;
 
     //Terminal API Specific
-    protected String terminalApiEndpoint;
+    protected String terminalApiCloudEndpoint;
+    protected String terminalApiLocalEndpoint;
 
     public Config() {
         // do nothing
@@ -149,12 +150,20 @@ public class Config {
         this.checkoutEndpoint = checkoutEndpoint;
     }
 
-    public String getTerminalApiEndpoint() {
-        return terminalApiEndpoint;
+    public String getTerminalApiCloudEndpoint() {
+        return terminalApiCloudEndpoint;
     }
 
-    public void setTerminalApiEndpoint(String terminalApiEndpoint) {
-        this.terminalApiEndpoint = terminalApiEndpoint;
+    public void setTerminalApiCloudEndpoint(String terminalApiCloudEndpoint) {
+        this.terminalApiCloudEndpoint = terminalApiCloudEndpoint;
+    }
+
+    public String getTerminalApiLocalEndpoint() {
+        return terminalApiLocalEndpoint;
+    }
+
+    public void setTerminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
+        this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
     }
 
     public int getConnectionTimeoutMillis() {

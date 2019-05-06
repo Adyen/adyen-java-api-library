@@ -27,13 +27,13 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
 public class SaleToPOISecuredMessage {
-    @SerializedName("messageHeader")
+    @SerializedName("MessageHeader")
     private MessageHeader messageHeader;
 
-    @SerializedName("nexoBlob")
+    @SerializedName("NexoBlob")
     private String nexoBlob;
 
-    @SerializedName("securityTrailer")
+    @SerializedName("SecurityTrailer")
     private SecurityTrailer securityTrailer;
 
     public MessageHeader getMessageHeader() {

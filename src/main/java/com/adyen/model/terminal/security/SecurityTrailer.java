@@ -27,19 +27,19 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class SecurityTrailer {
-    @SerializedName("adyenCryptoVersion")
+    @SerializedName("AdyenCryptoVersion")
     private Integer adyenCryptoVersion;
 
-    @SerializedName("keyIdentifier")
+    @SerializedName("KeyIdentifier")
     private String keyIdentifier;
 
-    @SerializedName("keyVersion")
+    @SerializedName("KeyVersion")
     private Integer keyVersion;
 
-    @SerializedName("nonce")
+    @SerializedName("Nonce")
     private byte[] nonce;
 
-    @SerializedName("hmac")
+    @SerializedName("Hmac")
     private byte[] hmac;
 
     public Integer getAdyenCryptoVersion() {

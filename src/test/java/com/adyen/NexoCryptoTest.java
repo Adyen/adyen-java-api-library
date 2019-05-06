@@ -25,8 +25,11 @@ import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.security.NexoCrypto;
+import com.adyen.security.exception.InvalidSecurityKeyException;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import javax.xml.datatype.DatatypeConfigurationException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -74,5 +77,14 @@ public class NexoCryptoTest extends BaseTest {
         String decryptedMessage = nexoCrypto.decrypt(encryptedMessage, testSecurityKey);
         assertNotNull(decryptedMessage);
         assertEquals(requestJson, decryptedMessage);
+    }
+
+    @Test(expected = InvalidSecurityKeyException.class)
+    public void testEncryptionWithInvalidSecurityKey() throws Exception {
+        TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
+        MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
+        String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
+
+        new NexoCrypto().encrypt(requestJson, messageHeader, new SecurityKey());
     }
 }
