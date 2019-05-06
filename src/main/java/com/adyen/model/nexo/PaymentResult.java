@@ -88,7 +88,7 @@ public class PaymentResult {
     @XmlElement(name = "PaymentAcquirerData")
     protected PaymentAcquirerData paymentAcquirerData;
     /**
-     * The Payment.
+     * The Payment type.
      */
     @XmlAttribute(name = "PaymentType")
     protected PaymentType paymentType;

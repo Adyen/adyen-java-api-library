@@ -5,7 +5,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * Definition: Content of the requested Message Response. -- Usage: Allow the knowledge of the last Payment, Loyalty or Reversal transaction
  *
@@ -37,7 +36,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "RepeatedMessageResponse", propOrder = {
         "repeatedResponseMessageBody",
         "messageHeader"
-})
+        })
 public class RepeatedMessageResponse {
 
     /**
