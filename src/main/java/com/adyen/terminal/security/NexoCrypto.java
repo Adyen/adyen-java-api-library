@@ -26,7 +26,7 @@ import com.adyen.model.terminal.security.NexoDerivedKey;
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.model.terminal.security.SecurityTrailer;
-import com.adyen.terminal.security.exception.InvalidSecurityKeyException;
+import com.adyen.terminal.security.exception.NexoCryptoException;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.BadPaddingException;
@@ -79,17 +79,20 @@ public class NexoCrypto {
         byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
         byte[] decryptedSaleToPoiMessageByteArray = crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
 
+        byte[] receivedHmac = saleToPoiSecuredMessage.getSecurityTrailer().getHmac();
+        validateHmac(receivedHmac, decryptedSaleToPoiMessageByteArray, derivedKey);
+
         return new String(decryptedSaleToPoiMessageByteArray, StandardCharsets.UTF_8);
     }
 
-    private void validateSecurityKey(SecurityKey securityKey) throws InvalidSecurityKeyException {
+    private void validateSecurityKey(SecurityKey securityKey) throws NexoCryptoException {
         if (securityKey == null
                 || securityKey.getPassphrase() == null
                 || securityKey.getPassphrase().isEmpty()
                 || securityKey.getKeyIdentifier() == null
                 || securityKey.getKeyVersion() == null
                 || securityKey.getAdyenCryptoVersion() == null) {
-            throw new InvalidSecurityKeyException("Invalid Security Key");
+            throw new NexoCryptoException("Invalid Security Key");
         }
     }
 
@@ -126,6 +129,27 @@ public class NexoCrypto {
 
         mac.init(s);
         return mac.doFinal(bytes);
+    }
+
+    /**
+     * Validate the hmac from a received message
+     */
+    private void validateHmac(byte[] receivedHmac, byte[] decryptedMessage, NexoDerivedKey derivedKey) throws NexoCryptoException, InvalidKeyException, NoSuchAlgorithmException {
+        byte[] hmac = hmac(decryptedMessage, derivedKey);
+
+        boolean valid = true;
+        if (receivedHmac.length != hmac.length) {
+            valid = false;
+        }
+        for (int i = 0; i < hmac.length && valid; i++) {
+            if (receivedHmac[i] != hmac[i]) {
+                valid = false;
+            }
+        }
+
+        if (!valid) {
+            throw new NexoCryptoException("Hmac validation failed");
+        }
     }
 
     /**

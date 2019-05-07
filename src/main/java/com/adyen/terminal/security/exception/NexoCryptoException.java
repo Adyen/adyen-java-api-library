@@ -23,13 +23,13 @@ package com.adyen.terminal.security.exception;
 /**
  * API Exception class
  */
-public class InvalidSecurityKeyException extends Exception {
-    public InvalidSecurityKeyException(String message) {
+public class NexoCryptoException extends Exception {
+    public NexoCryptoException(String message) {
         super(message);
     }
 
     @Override
     public String toString() {
-        return "InvalidSecurityKeyException{message=" + getMessage() + '}';
+        return "NexoCryptoException{message=" + getMessage() + '}';
     }
 }

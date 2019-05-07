@@ -25,9 +25,11 @@ import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.terminal.security.NexoCrypto;
-import com.adyen.terminal.security.exception.InvalidSecurityKeyException;
+import com.adyen.terminal.security.exception.NexoCryptoException;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -77,12 +79,29 @@ public class NexoCryptoTest extends BaseTest {
         assertEquals(requestJson, decryptedMessage);
     }
 
-    @Test(expected = InvalidSecurityKeyException.class)
+    @Test(expected = NexoCryptoException.class)
     public void testEncryptionWithInvalidSecurityKey() throws Exception {
         TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
         MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
         String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
 
         new NexoCrypto().encrypt(requestJson, messageHeader, new SecurityKey());
+    }
+
+    @Test(expected = NexoCryptoException.class)
+    public void testDecryptionWithInvalidHmac() throws Exception {
+        TerminalAPIRequest terminalAPIRequest = createTerminalAPIPaymentRequest();
+        MessageHeader messageHeader = terminalAPIRequest.getSaleToPOIRequest().getMessageHeader();
+        String requestJson = PRETTY_PRINT_GSON.toJson(terminalAPIRequest);
+
+        NexoCrypto nexoCrypto = new NexoCrypto();
+
+        SaleToPOISecuredMessage encryptedMessage = nexoCrypto.encrypt(requestJson, messageHeader, testSecurityKey);
+
+        byte[] modifiedHmac = new byte[32];
+        new Random().nextBytes(modifiedHmac);
+        encryptedMessage.getSecurityTrailer().setHmac(modifiedHmac);
+
+        nexoCrypto.decrypt(encryptedMessage, testSecurityKey);
     }
 }
