@@ -24,12 +24,10 @@ import com.adyen.model.nexo.MessageHeader;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
-import com.adyen.security.NexoCrypto;
-import com.adyen.security.exception.InvalidSecurityKeyException;
+import com.adyen.terminal.security.NexoCrypto;
+import com.adyen.terminal.security.exception.InvalidSecurityKeyException;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import javax.xml.datatype.DatatypeConfigurationException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

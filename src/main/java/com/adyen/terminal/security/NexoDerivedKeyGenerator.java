@@ -19,7 +19,7 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.security;
+package com.adyen.terminal.security;
 
 import com.adyen.model.terminal.security.NexoDerivedKey;
 

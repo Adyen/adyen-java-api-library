@@ -19,7 +19,7 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.enums.adapter;
+package com.adyen.terminal.serialization;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-public class XmlEnumAdapterFactory implements TypeAdapterFactory {
+public class XMLEnumAdapterFactory implements TypeAdapterFactory {
     @Override
     public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) {
         Class<? super T> rawType = type.getRawType();

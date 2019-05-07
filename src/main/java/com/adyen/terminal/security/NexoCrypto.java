@@ -19,14 +19,14 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.security;
+package com.adyen.terminal.security;
 
 import com.adyen.model.nexo.MessageHeader;
 import com.adyen.model.terminal.security.NexoDerivedKey;
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.model.terminal.security.SecurityTrailer;
-import com.adyen.security.exception.InvalidSecurityKeyException;
+import com.adyen.terminal.security.exception.InvalidSecurityKeyException;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.BadPaddingException;
@@ -36,7 +36,6 @@ import javax.crypto.Mac;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -52,7 +51,7 @@ public class NexoCrypto {
         validateSecurityKey(securityKey);
 
         NexoDerivedKey derivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
-        byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(Charset.forName(StandardCharsets.US_ASCII.displayName()));
+        byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.US_ASCII);
         byte[] ivNonce = generateRandomIvNonce();
         byte[] encryptedSaleToPoiMessage = crypt(saleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.ENCRYPT_MODE);
         byte[] encryptedSaleToPoiMessageHmac = hmac(saleToPoiMessageByteArray, derivedKey);
@@ -80,7 +79,7 @@ public class NexoCrypto {
         byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
         byte[] decryptedSaleToPoiMessageByteArray = crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
 
-        return new String(decryptedSaleToPoiMessageByteArray, StandardCharsets.US_ASCII);
+        return new String(decryptedSaleToPoiMessageByteArray, StandardCharsets.UTF_8);
     }
 
     private void validateSecurityKey(SecurityKey securityKey) throws InvalidSecurityKeyException {
