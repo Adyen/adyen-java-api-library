@@ -60,8 +60,8 @@ final class NexoDerivedKeyGenerator {
     private static NexoDerivedKey readKeyData(byte[] key) {
         NexoDerivedKey nexoDerivedKey = new NexoDerivedKey();
 
-        nexoDerivedKey.setCipherKey(Arrays.copyOfRange(key, 0, NEXO_HMAC_KEY_LENGTH));
-        nexoDerivedKey.setHmacKey(Arrays.copyOfRange(key, NEXO_HMAC_KEY_LENGTH, NEXO_HMAC_KEY_LENGTH + NEXO_CIPHER_KEY_LENGTH));
+        nexoDerivedKey.setHmacKey(Arrays.copyOfRange(key, 0, NEXO_HMAC_KEY_LENGTH));
+        nexoDerivedKey.setCipherKey(Arrays.copyOfRange(key, NEXO_HMAC_KEY_LENGTH, NEXO_HMAC_KEY_LENGTH + NEXO_CIPHER_KEY_LENGTH));
         nexoDerivedKey.setIv(Arrays.copyOfRange(key, NEXO_HMAC_KEY_LENGTH + NEXO_CIPHER_KEY_LENGTH, NEXO_CIPHER_KEY_LENGTH + NEXO_HMAC_KEY_LENGTH + NEXO_IV_LENGTH));
 
         return nexoDerivedKey;

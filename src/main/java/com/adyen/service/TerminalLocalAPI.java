@@ -25,6 +25,7 @@ import com.adyen.Client;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.model.terminal.TerminalAPISecuredRequest;
+import com.adyen.model.terminal.TerminalAPISecuredResponse;
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
 import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.service.resource.terminal.local.LocalRequest;
@@ -64,19 +65,13 @@ public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
 
         String jsonResponse = localRequest.request(jsonEncryptedRequest);
 
-        SaleToPOISecuredMessage saleToPOISecuredResponse = terminalApiGson.fromJson(jsonResponse, new TypeToken<SaleToPOISecuredMessage>() {
+        TerminalAPISecuredResponse securedPaymentResponse = terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPISecuredResponse>() {
         }.getType());
+        SaleToPOISecuredMessage saleToPOISecuredResponse = securedPaymentResponse.getSaleToPOIResponse();
         String jsonDecryptedResponse = nexoCrypto.decrypt(saleToPOISecuredResponse, securityKey);
         TerminalAPIResponse response = terminalApiGson.fromJson(jsonDecryptedResponse, new TypeToken<TerminalAPIResponse>() {
         }.getType());
 
         return response;
-    }
-
-    public void test(String s, SecurityKey securityKey) throws Exception {
-        TerminalAPISecuredRequest saleToPOISecuredResponse = terminalApiGson.fromJson(s, new TypeToken<TerminalAPISecuredRequest>() {
-        }.getType());
-        String jsonDecryptedResponse = nexoCrypto.decrypt(saleToPOISecuredResponse.getSaleToPOIRequest(), securityKey);
-        System.out.println(jsonDecryptedResponse);
     }
 }
