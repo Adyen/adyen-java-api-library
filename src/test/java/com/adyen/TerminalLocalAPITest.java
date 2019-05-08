@@ -36,7 +36,9 @@ import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIResponse;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
+import com.adyen.model.terminal.security.SecurityKey;
 import com.adyen.service.TerminalCloudAPI;
+import com.adyen.service.TerminalLocalAPI;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -48,37 +50,27 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Tests for /sync and /async
+ * Tests for local Terminal API request
  */
-public class TerminalCloudAPITest extends BaseTest {
+public class TerminalLocalAPITest extends BaseTest {
 
     /**
-     * Test success flow for POST /async
-     */
-    @Test
-    public void asyncPaymentRequestSuccess() throws Exception {
-        Client client = createMockClientFromFile("mocks/terminal-api/payment-async-success");
-        TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
-
-        TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
-
-        String requestResponse = terminalCloudApi.async(terminalAPIPaymentRequest);
-
-        assertNotNull(requestResponse);
-        assertEquals("ok", requestResponse);
-    }
-
-    /**
-     * Test success flow for POST /sync
+     * Test success flow for local request
      */
     @Test
     public void syncPaymentRequestSuccess() throws Exception {
-        Client client = createMockClientFromFile("mocks/terminal-api/payment-sync-success.json");
-        TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
+        Client client = createMockClientFromFile("mocks/terminal-api/payment-local-success.json");
+        TerminalLocalAPI terminalLocalApi = new TerminalLocalAPI(client);
 
         TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
 
-        TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIPaymentRequest);
+        SecurityKey securityKey = new SecurityKey();
+        securityKey.setKeyVersion(1);
+        securityKey.setAdyenCryptoVersion(1);
+        securityKey.setKeyIdentifier("CryptoKeyIdentifier12345");
+        securityKey.setPassphrase("p@ssw0rd123456");
+
+        TerminalAPIResponse terminalAPIResponse = terminalLocalApi.request(terminalAPIPaymentRequest, securityKey);
 
         assertNotNull(terminalAPIResponse);
         assertNotNull(terminalAPIResponse.getSaleToPOIResponse());
@@ -92,9 +84,9 @@ public class TerminalCloudAPITest extends BaseTest {
         assertEquals(MessageClassType.SERVICE, messageHeader.getMessageClass());
         assertEquals(MessageCategoryType.PAYMENT, messageHeader.getMessageCategory());
         assertEquals("3.0", messageHeader.getProtocolVersion());
-        assertEquals("001", messageHeader.getSaleID());
-        assertEquals("001", messageHeader.getServiceID());
-        assertEquals("P400Plus-123456789", messageHeader.getPOIID());
+        assertEquals("325488592", messageHeader.getSaleID());
+        assertEquals("325488592", messageHeader.getServiceID());
+        assertEquals("P400Plus-275039202", messageHeader.getPOIID());
 
         assertNotNull(saleToPoiResponse.getPaymentResponse().getResponse());
         Response response = saleToPoiResponse.getPaymentResponse().getResponse();
@@ -105,14 +97,14 @@ public class TerminalCloudAPITest extends BaseTest {
         POIData poiData = saleToPoiResponse.getPaymentResponse().getPOIData();
         assertEquals("1000", poiData.getPOIReconciliationID());
         assertNotNull(poiData.getPOITransactionID());
-        assertEquals("4r7i001556529591000.8515565295894301", poiData.getPOITransactionID().getTransactionID());
-        assertEquals("2019-04-29T00:00:00.000Z", poiData.getPOITransactionID().getTimeStamp().toString());
+        assertEquals("4r7i001557325515012.8815573255107661", poiData.getPOITransactionID().getTransactionID());
+        assertEquals("2019-05-08T14:25:15.000Z", poiData.getPOITransactionID().getTimeStamp().toString());
 
         assertNotNull(saleToPoiResponse.getPaymentResponse().getSaleData());
         SaleData saleData = saleToPoiResponse.getPaymentResponse().getSaleData();
         assertNotNull(saleData.getSaleTransactionID());
-        assertEquals("001", saleData.getSaleTransactionID().getTransactionID());
-        assertEquals("2019-04-29T00:00:00.000Z", saleData.getSaleTransactionID().getTimeStamp().toString());
+        assertEquals("999", saleData.getSaleTransactionID().getTransactionID());
+        assertEquals("2019-05-08T14:24:48.598Z", saleData.getSaleTransactionID().getTimeStamp().toString());
 
         assertNotNull(saleToPoiResponse.getPaymentResponse().getPaymentReceipt());
         assertFalse(saleToPoiResponse.getPaymentResponse().getPaymentReceipt().isEmpty());
@@ -133,14 +125,14 @@ public class TerminalCloudAPITest extends BaseTest {
         PaymentResult paymentResult = saleToPoiResponse.getPaymentResponse().getPaymentResult();
         assertTrue(paymentResult.isOnlineFlag());
         assertNotNull(paymentResult.getPaymentAcquirerData());
-        assertEquals("P400Plus-123456789", paymentResult.getPaymentAcquirerData().getAcquirerPOIID());
+        assertEquals("P400Plus-275039202", paymentResult.getPaymentAcquirerData().getAcquirerPOIID());
         assertEquals("123456", paymentResult.getPaymentAcquirerData().getApprovalCode());
-        assertEquals("TestMerchant", paymentResult.getPaymentAcquirerData().getMerchantID());
+        assertEquals("TestMerchantRenatoTest", paymentResult.getPaymentAcquirerData().getMerchantID());
         assertNotNull(paymentResult.getPaymentAcquirerData().getAcquirerTransactionID());
         assertNotNull(paymentResult.getPaymentInstrumentData());
         assertNotNull(paymentResult.getPaymentInstrumentData().getCardData());
         assertEquals("mc", paymentResult.getPaymentInstrumentData().getCardData().getPaymentBrand());
-        assertEquals("411111 **** 1111", paymentResult.getPaymentInstrumentData().getCardData().getMaskedPAN());
+        assertEquals("541333 **** 0010", paymentResult.getPaymentInstrumentData().getCardData().getMaskedPAN());
         assertEquals(PaymentInstrumentType.CARD, paymentResult.getPaymentInstrumentData().getPaymentInstrument());
         assertNotNull(paymentResult.getAmountsResp());
         assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
