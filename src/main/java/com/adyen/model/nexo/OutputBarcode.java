@@ -38,8 +38,8 @@ public class OutputBarcode {
     /**
      * The Barcode.
      */
-    @XmlAttribute(name = "Barcode")
-    protected BarcodeType barcode;
+    @XmlAttribute(name = "BarcodeType")
+    protected BarcodeType barcodeType;
 
     /**
      * Gets the value of the value property.
@@ -60,25 +60,25 @@ public class OutputBarcode {
     }
 
     /**
-     * Gets the value of the barcode property.
+     * Gets the value of the barcodeType property.
      *
      * @return possible      object is     {@link BarcodeType }
      */
-    public BarcodeType getBarcode() {
-        if (barcode == null) {
+    public BarcodeType getBarcodeType() {
+        if (barcodeType == null) {
             return BarcodeType.EAN_13;
         } else {
-            return barcode;
+            return barcodeType;
         }
     }
 
     /**
-     * Sets the value of the barcode property.
+     * Sets the value of the barcodeType property.
      *
      * @param value allowed object is     {@link BarcodeType }
      */
-    public void setBarcode(BarcodeType value) {
-        this.barcode = value;
+    public void setBarcodeType(BarcodeType value) {
+        this.barcodeType = value;
     }
 
 }

@@ -44,8 +44,8 @@ public class ReconciliationRequest {
     /**
      * The Reconciliation.
      */
-    @XmlAttribute(name = "Reconciliation", required = true)
-    protected ReconciliationType reconciliation;
+    @XmlAttribute(name = "ReconciliationType", required = true)
+    protected ReconciliationType reconciliationType;
     /**
      * The Poi reconciliation id.
      */
@@ -82,21 +82,21 @@ public class ReconciliationRequest {
     }
 
     /**
-     * Gets the value of the reconciliation property.
+     * Gets the value of the reconciliationType property.
      *
      * @return possible      object is     {@link ReconciliationType }
      */
-    public ReconciliationType getReconciliation() {
-        return reconciliation;
+    public ReconciliationType getReconciliationType() {
+        return reconciliationType;
     }
 
     /**
-     * Sets the value of the reconciliation property.
+     * Sets the value of the reconciliationType property.
      *
      * @param value allowed object is     {@link ReconciliationType }
      */
-    public void setReconciliation(ReconciliationType value) {
-        this.reconciliation = value;
+    public void setReconciliationType(ReconciliationType value) {
+        this.reconciliationType = value;
     }
 
     /**

@@ -48,8 +48,8 @@ public class PaymentAccountReq {
     /**
      * The Account.
      */
-    @XmlAttribute(name = "Account")
-    protected AccountType account;
+    @XmlAttribute(name = "AccountType")
+    protected AccountType accountType;
 
     /**
      * Gets the value of the cardAcquisitionReference property.
@@ -88,25 +88,25 @@ public class PaymentAccountReq {
     }
 
     /**
-     * Gets the value of the account property.
+     * Gets the value of the AccountType property.
      *
      * @return possible      object is     {@link AccountType }
      */
-    public AccountType getAccount() {
-        if (account == null) {
+    public AccountType getAccountType() {
+        if (accountType == null) {
             return AccountType.DEFAULT;
         } else {
-            return account;
+            return accountType;
         }
     }
 
     /**
-     * Sets the value of the account property.
+     * Sets the value of the AccountType property.
      *
      * @param value allowed object is     {@link AccountType }
      */
-    public void setAccount(AccountType value) {
-        this.account = value;
+    public void setAccountType(AccountType value) {
+        this.accountType = value;
     }
 
 }
