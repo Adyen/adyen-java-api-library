@@ -93,7 +93,7 @@ public class TerminalCloudAPITest extends BaseTest {
         assertEquals(MessageCategoryType.PAYMENT, messageHeader.getMessageCategory());
         assertEquals("3.0", messageHeader.getProtocolVersion());
         assertEquals("001", messageHeader.getSaleID());
-        assertEquals("001", messageHeader.getServiceID());
+        assertEquals("1234567890", messageHeader.getServiceID());
         assertEquals("P400Plus-123456789", messageHeader.getPOIID());
 
         assertNotNull(saleToPoiResponse.getPaymentResponse().getResponse());

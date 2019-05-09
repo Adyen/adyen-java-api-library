@@ -20,6 +20,18 @@
  */
 package com.adyen.httpclient;
 
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.model.RequestOptions;
+import org.apache.commons.codec.binary.Base64;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -28,12 +40,12 @@ import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.Scanner;
-import org.apache.commons.codec.binary.Base64;
-import com.adyen.Client;
-import com.adyen.Config;
-import com.adyen.model.RequestOptions;
+
 import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
 import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
 import static com.adyen.constants.ApiConstants.RequestProperty.APPLICATION_JSON_TYPE;
@@ -44,6 +56,10 @@ import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
+    //Managers for SSL validation
+    private static final HostnameVerifier DEFAULT_HOSTNAME_VERIFIER = HttpsURLConnection.getDefaultHostnameVerifier();
+    private static final SSLSocketFactory DEFAULT_SSL_SOCKET_FACTORY = HttpsURLConnection.getDefaultSSLSocketFactory();
+
     private Proxy proxy;
 
     /**
@@ -66,11 +82,15 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
+        if (config.getSkipCertificationValidation()) {
+            installAllTrustManager(requestUrl);
+        }
+
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
 
         String apiKey = config.getApiKey();
         // Use Api key if required or if provided
-        if (isApiKeyRequired || (apiKey != null && ! apiKey.isEmpty())) {
+        if (isApiKeyRequired || (apiKey != null && !apiKey.isEmpty())) {
             setApiKey(httpConnection, apiKey);
         } else {
             setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
@@ -81,7 +101,13 @@ public class HttpURLConnectionClient implements ClientInterface {
 
         setContentType(httpConnection, APPLICATION_JSON_TYPE);
 
-        return doPostRequest(httpConnection, requestBody);
+        String response = doPostRequest(httpConnection, requestBody);
+
+        if (config.getSkipCertificationValidation()) {
+            installDefaultTrustManager();
+        }
+
+        return response;
     }
 
     private static String getResponseBody(InputStream responseStream) throws IOException {
@@ -184,7 +210,7 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Sets api key
      */
     private HttpURLConnection setApiKey(HttpURLConnection httpConnection, String apiKey) {
-        if (apiKey != null && ! apiKey.isEmpty()) {
+        if (apiKey != null && !apiKey.isEmpty()) {
             httpConnection.setRequestProperty(API_KEY, apiKey);
         }
         return httpConnection;
@@ -219,6 +245,59 @@ public class HttpURLConnectionClient implements ClientInterface {
         httpConnection.disconnect();
 
         return response;
+    }
+
+    /**
+     * Install trust manager that skips all SSL certificate validations
+     */
+    private void installAllTrustManager(final String trustedEndpoint) {
+        try {
+            // Create a trust manager that does not validate certificate chains
+            TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
+                public X509Certificate[] getAcceptedIssuers() {
+                    return null;
+                }
+
+                public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                }
+
+                public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                }
+            }
+            };
+
+            // Install the all-trusting trust manager
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+
+            // Create all-trusting host name verifier
+            HostnameVerifier allHostsValid = new HostnameVerifier() {
+                public boolean verify(String host, SSLSession session) {
+                    if (trustedEndpoint.contains(host)) {
+                        return true;
+                    }
+                    // important: use default verifier for all other hosts
+                    return DEFAULT_HOSTNAME_VERIFIER.verify(host, session);
+                }
+            };
+
+            // Install the all-trusting host verifier
+            HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
+
+            //SSLSocketFactory.getDefault();
+
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Restore default trust manager for SSL certificate validations
+     */
+    private void installDefaultTrustManager() {
+        HttpsURLConnection.setDefaultSSLSocketFactory(DEFAULT_SSL_SOCKET_FACTORY);
+        HttpsURLConnection.setDefaultHostnameVerifier(DEFAULT_HOSTNAME_VERIFIER);
     }
 
     public Proxy getProxy() {
