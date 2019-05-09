@@ -96,6 +96,7 @@ public interface ApiConstants {
         interface Data {
             String MD = "MD";
             String PAREQ = "PaReq";
+            String PAYMENT_DATA = "paymentData";
         }
     }
 
@@ -111,5 +112,15 @@ public interface ApiConstants {
         String CONTENT_TYPE = "Content-Type";
         String API_KEY = "x-api-key";
         String APPLICATION_JSON_TYPE = "application/json";
+    }
+
+    interface ThreeDS2Property {
+        String THREEDS2_FINGERPRINT_TOKEN = "threeds2.fingerprintToken";
+        String THREEDS2_CHALLENGE_TOKEN = "threeds2.challengeToken";
+        String THREEDS2_CHALLENGE_RESULT = "threeds2.challengeResult";
+        String FINGERPRINT_TOKEN = "fingerprintToken";
+        String CHALLENGE_TOKEN = "challengeToken";
+        String FINGERPRINT_RESULT = "fingerprintResult";
+        String CHALLENGE_RESULT = "challengeResult";
     }
 }
