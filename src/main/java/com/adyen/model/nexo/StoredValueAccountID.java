@@ -45,8 +45,8 @@ public class StoredValueAccountID {
     /**
      * The Stored value account.
      */
-    @XmlAttribute(name = "StoredValueAccount", required = true)
-    protected StoredValueAccountType storedValueAccount;
+    @XmlAttribute(name = "StoredValueAccountType", required = true)
+    protected StoredValueAccountType storedValueAccountType;
     /**
      * The Stored value provider.
      */
@@ -70,8 +70,8 @@ public class StoredValueAccountID {
     /**
      * The Identification.
      */
-    @XmlAttribute(name = "Identification", required = true)
-    protected IdentificationType identification;
+    @XmlAttribute(name = "IdentificationType", required = true)
+    protected IdentificationType identificationType;
 
     /**
      * Gets the value of the value property.
@@ -92,21 +92,21 @@ public class StoredValueAccountID {
     }
 
     /**
-     * Gets the value of the storedValueAccount property.
+     * Gets the value of the storedValueAccountType property.
      *
      * @return possible      object is     {@link StoredValueAccountType }
      */
-    public StoredValueAccountType getStoredValueAccount() {
-        return storedValueAccount;
+    public StoredValueAccountType getStoredValueAccountType() {
+        return storedValueAccountType;
     }
 
     /**
-     * Sets the value of the storedValueAccount property.
+     * Sets the value of the storedValueAccountType property.
      *
      * @param value allowed object is     {@link StoredValueAccountType }
      */
-    public void setStoredValueAccount(StoredValueAccountType value) {
-        this.storedValueAccount = value;
+    public void setStoredValueAccountType(StoredValueAccountType value) {
+        this.storedValueAccountType = value;
     }
 
     /**
@@ -193,21 +193,21 @@ public class StoredValueAccountID {
     }
 
     /**
-     * Gets the value of the identification property.
+     * Gets the value of the identificationType property.
      *
      * @return possible      object is     {@link IdentificationType }
      */
-    public IdentificationType getIdentification() {
-        return identification;
+    public IdentificationType getIdentificationType() {
+        return identificationType;
     }
 
     /**
-     * Sets the value of the identification property.
+     * Sets the value of the identificationType property.
      *
      * @param value allowed object is     {@link IdentificationType }
      */
-    public void setIdentification(IdentificationType value) {
-        this.identification = value;
+    public void setIdentificationType(IdentificationType value) {
+        this.identificationType = value;
     }
 
 }

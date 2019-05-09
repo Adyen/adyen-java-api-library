@@ -62,8 +62,8 @@ public class TransactionTotals {
     /**
      * The Payment instrument.
      */
-    @XmlAttribute(name = "PaymentInstrument", required = true)
-    protected PaymentInstrumentType paymentInstrument;
+    @XmlAttribute(name = "PaymentInstrumentType", required = true)
+    protected PaymentInstrumentType paymentInstrumentType;
     /**
      * The Acquirer id.
      */
@@ -184,21 +184,21 @@ public class TransactionTotals {
     }
 
     /**
-     * Gets the value of the paymentInstrument property.
+     * Gets the value of the paymentInstrumentType property.
      *
      * @return possible      object is     {@link PaymentInstrumentType }
      */
-    public PaymentInstrumentType getPaymentInstrument() {
-        return paymentInstrument;
+    public PaymentInstrumentType getPaymentInstrumentType() {
+        return paymentInstrumentType;
     }
 
     /**
-     * Sets the value of the paymentInstrument property.
+     * Sets the value of the paymentInstrumentType property.
      *
      * @param value allowed object is     {@link PaymentInstrumentType }
      */
-    public void setPaymentInstrument(PaymentInstrumentType value) {
-        this.paymentInstrument = value;
+    public void setPaymentInstrumentType(PaymentInstrumentType value) {
+        this.paymentInstrumentType = value;
     }
 
     /**

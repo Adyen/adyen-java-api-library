@@ -47,8 +47,8 @@ public class LoyaltyAccountID {
     /**
      * The Identification.
      */
-    @XmlAttribute(name = "Identification", required = true)
-    protected IdentificationType identification;
+    @XmlAttribute(name = "IdentificationType", required = true)
+    protected IdentificationType identificationType;
     /**
      * The Identification support.
      */
@@ -103,21 +103,21 @@ public class LoyaltyAccountID {
     }
 
     /**
-     * Gets the value of the identification property.
+     * Gets the value of the identificationType property.
      *
      * @return possible      object is     {@link IdentificationType }
      */
-    public IdentificationType getIdentification() {
-        return identification;
+    public IdentificationType getIdentificationType() {
+        return identificationType;
     }
 
     /**
-     * Sets the value of the identification property.
+     * Sets the value of the identificationType property.
      *
      * @param value allowed object is     {@link IdentificationType }
      */
-    public void setIdentification(IdentificationType value) {
-        this.identification = value;
+    public void setIdentificationType(IdentificationType value) {
+        this.identificationType = value;
     }
 
     /**

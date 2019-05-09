@@ -48,8 +48,8 @@ public class PINRequest {
     /**
      * The Pin request.
      */
-    @XmlAttribute(name = "PINRequest", required = true)
-    protected PINRequestType pinRequest;
+    @XmlAttribute(name = "PINRequestType", required = true)
+    protected PINRequestType pinRequestType;
     /**
      * The Pin verif method.
      */
@@ -100,21 +100,21 @@ public class PINRequest {
     }
 
     /**
-     * Gets the value of the pinRequest property.
+     * Gets the value of the pinRequestType property.
      *
      * @return possible      object is     {@link PINRequestType }
      */
-    public PINRequestType getPINRequest() {
-        return pinRequest;
+    public PINRequestType getPINRequestType() {
+        return pinRequestType;
     }
 
     /**
-     * Sets the value of the pinRequest property.
+     * Sets the value of the pinRequestType property.
      *
      * @param value allowed object is     {@link PINRequestType }
      */
-    public void setPINRequest(PINRequestType value) {
-        this.pinRequest = value;
+    public void setPINRequestType(PINRequestType value) {
+        this.pinRequestType = value;
     }
 
     /**

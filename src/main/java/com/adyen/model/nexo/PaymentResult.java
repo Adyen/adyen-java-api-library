@@ -256,7 +256,7 @@ public class PaymentResult {
     }
 
     /**
-     * Gets the value of the payment property.
+     * Gets the value of the PaymentType property.
      *
      * @return possible      object is     {@link PaymentType }
      */
@@ -269,7 +269,7 @@ public class PaymentResult {
     }
 
     /**
-     * Sets the value of the payment property.
+     * Sets the value of the PaymentType property.
      *
      * @param value allowed object is     {@link PaymentType }
      */
