@@ -133,7 +133,7 @@ public class TerminalLocalAPITest extends BaseTest {
         assertNotNull(paymentResult.getPaymentInstrumentData().getCardData());
         assertEquals("mc", paymentResult.getPaymentInstrumentData().getCardData().getPaymentBrand());
         assertEquals("541333 **** 0010", paymentResult.getPaymentInstrumentData().getCardData().getMaskedPAN());
-        assertEquals(PaymentInstrumentType.CARD, paymentResult.getPaymentInstrumentData().getPaymentInstrument());
+        assertEquals(PaymentInstrumentType.CARD, paymentResult.getPaymentInstrumentData().getPaymentInstrumentType());
         assertNotNull(paymentResult.getAmountsResp());
         assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
         assertEquals(BigDecimal.ONE, paymentResult.getAmountsResp().getAuthorizedAmount());

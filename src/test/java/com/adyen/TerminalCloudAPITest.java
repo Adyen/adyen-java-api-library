@@ -141,7 +141,7 @@ public class TerminalCloudAPITest extends BaseTest {
         assertNotNull(paymentResult.getPaymentInstrumentData().getCardData());
         assertEquals("mc", paymentResult.getPaymentInstrumentData().getCardData().getPaymentBrand());
         assertEquals("411111 **** 1111", paymentResult.getPaymentInstrumentData().getCardData().getMaskedPAN());
-        assertEquals(PaymentInstrumentType.CARD, paymentResult.getPaymentInstrumentData().getPaymentInstrument());
+        assertEquals(PaymentInstrumentType.CARD, paymentResult.getPaymentInstrumentData().getPaymentInstrumentType());
         assertNotNull(paymentResult.getAmountsResp());
         assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
         assertEquals(BigDecimal.ONE, paymentResult.getAmountsResp().getAuthorizedAmount());
