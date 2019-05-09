@@ -343,6 +343,35 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
+    public void TestRecurringProcessingModels() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+        String applicationInfo ="{\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"adyen-java-api-library\",\n"
+                + "      \"version\": \"2.1.0\"\n"
+                + "    }\n"
+                + "  },\n";
+
+        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARD_ON_FILE);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals(applicationInfo
+                             + "  \"recurringProcessingModel\": \"CardOnFile\"\n"
+                             + "}",jsonRequest );
+        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.SUBSCRIPTION);
+        jsonRequest =PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals(applicationInfo
+                             + "  \"recurringProcessingModel\": \"Subscription\"\n"
+                             + "}",jsonRequest );
+        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.UNSCHEDULED_CARD_ON_FILE);
+        jsonRequest= PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals(applicationInfo
+                             + "  \"recurringProcessingModel\": \"UnscheduledCardOnFile\"\n"
+                             + "}",jsonRequest );
+    }
+
+    @Test
     public void TestPaymentResponseDate() {
         PaymentsResponse paymentsResponse = new PaymentsResponse();
         try {
