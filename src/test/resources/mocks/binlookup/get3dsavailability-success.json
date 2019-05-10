@@ -1,0 +1,16 @@
+{
+  "dsPublicKeys": [{
+    "brand": "visa",
+    "directoryServerId": "F013371337",
+    "publicKey": "eyJrdHkiOiJSU0EiLCJlIjoiQVFBQiIsIm4iOiI4VFBxZkFOWk4xSUEzcHFuMkdhUVZjZ1g4LUpWZ1Y0M2diWURtYmdTY0N5SkVSN3lPWEJqQmQyaTBEcVFBQWpVUVBXVUxZU1FsRFRKYm91bVB1aXVoeVMxUHN2NTM4UHBRRnEySkNaSERkaV85WThVZG9hbmlrU095c2NHQWtBVmJJWHA5cnVOSm1wTTBwZ0s5VGxJSWVHYlE3ZEJaR01OQVJLQXRKeTY3dVlvbVpXV0ZBbWpwM2d4SDVzNzdCR2xkaE9RUVlQTFdybDdyS0pLQlUwNm1tZlktUDNpazk5MmtPUTNEak02bHR2WmNvLThET2RCR0RKYmdWRGFmb29LUnVNd2NUTXhDdTRWYWpyNmQyZkppVXlqNUYzcVBrYng4WDl6a1c3UmlxVno2SU1qdE54NzZicmg3aU9Vd2JiWmoxYWF6VG1GQ2xEb0dyY2JxOV80Nnc9PSJ9"
+  }],
+  "threeDS1Supported": true,
+  "threeDS2CardRangeDetails": [{
+    "brandCode": "visa",
+    "endRange": "411111111111",
+    "startRange": "411111111111",
+    "threeDS2Version": "2.1.0",
+    "threeDSMethodURL": "https://pal-test.adyen.com/threeds2simulator/acs/startMethod.shtml"
+  }],
+  "threeDS2supported": true
+}
