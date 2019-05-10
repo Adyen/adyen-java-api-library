@@ -171,12 +171,12 @@ public class PaymentsRequest {
         return recurringProcessingModel;
     }
 
-    public PaymentsRequest setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+    public PaymentsRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
         this.recurringProcessingModel = recurringProcessingModel;
         return this;
     }
 
-    public void recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+    public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
         this.recurringProcessingModel = recurringProcessingModel;
     }
 
