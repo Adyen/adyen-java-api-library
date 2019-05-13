@@ -346,7 +346,6 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestRecurringProcessingModels() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
-
         paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARD_ON_FILE);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
