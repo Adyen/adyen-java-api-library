@@ -20,14 +20,15 @@
  */
 package com.adyen.model.binlookup;
 
-import java.io.IOException;
-import java.util.Objects;
 import com.adyen.model.Amount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.Objects;
 
 /**
  * CostEstimateRequest
@@ -109,7 +110,8 @@ public class CostEstimateRequest {
                 String value = jsonReader.nextString();
                 return ShopperInteractionEnum.fromValue(String.valueOf(value));
             }
-        }}
+        }
+    }
 
     @SerializedName("shopperInteraction")
     private ShopperInteractionEnum shopperInteraction = null;
@@ -326,11 +328,11 @@ public class CostEstimateRequest {
         return Objects.equals(this.amount, costEstimateRequest.amount)
                 && Objects.equals(this.assumptions, costEstimateRequest.assumptions)
                 && Objects.equals(this.cardNumber,
-                                  costEstimateRequest.cardNumber)
+                costEstimateRequest.cardNumber)
                 && Objects.equals(this.encryptedCard, costEstimateRequest.encryptedCard)
                 && Objects.equals(this.merchantAccount, costEstimateRequest.merchantAccount)
                 && Objects.equals(this.merchantDetails,
-                                  costEstimateRequest.merchantDetails)
+                costEstimateRequest.merchantDetails)
                 && Objects.equals(this.recurring, costEstimateRequest.recurring)
                 && Objects.equals(this.selectedRecurringDetailReference, costEstimateRequest.selectedRecurringDetailReference)
                 && Objects.equals(this.shopperInteraction, costEstimateRequest.shopperInteraction)

@@ -8,7 +8,8 @@ import com.adyen.service.Resource;
 public class GetCostEstimate extends Resource {
 
     public GetCostEstimate(Service service) {
-        super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.BIN_LOOKUP_API_VERSION + "/getCostEstimate",
+        super(service,
+                service.getClient().getConfig().getEndpoint() + "/pal/servlet/BinLookup/" + Client.BIN_LOOKUP_API_VERSION + "/getCostEstimate",
               Arrays.asList("merchantAccount", "amount"));
     }
 }

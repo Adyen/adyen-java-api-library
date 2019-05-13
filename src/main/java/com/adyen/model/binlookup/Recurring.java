@@ -20,14 +20,15 @@
  */
 package com.adyen.model.binlookup;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.Objects;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.Objects;
 
 /**
  * Recurring
@@ -81,7 +82,8 @@ public class Recurring {
                 String value = jsonReader.nextString();
                 return ContractEnum.fromValue(String.valueOf(value));
             }
-        }}
+        }
+    }
 
     @SerializedName("contract")
     private ContractEnum contract = null;
@@ -138,7 +140,8 @@ public class Recurring {
                 String value = jsonReader.nextString();
                 return TokenServiceEnum.fromValue(String.valueOf(value));
             }
-        }}
+        }
+    }
 
     @SerializedName("tokenService")
     private TokenServiceEnum tokenService = null;
@@ -253,7 +256,7 @@ public class Recurring {
         return Objects.equals(this.contract, recurring.contract)
                 && Objects.equals(this.recurringDetailName, recurring.recurringDetailName)
                 && Objects.equals(this.recurringExpiry,
-                                  recurring.recurringExpiry)
+                recurring.recurringExpiry)
                 && Objects.equals(this.recurringFrequency, recurring.recurringFrequency)
                 && Objects.equals(this.tokenService, recurring.tokenService);
     }

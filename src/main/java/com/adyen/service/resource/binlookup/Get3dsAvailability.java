@@ -8,7 +8,8 @@ import com.adyen.service.Resource;
 public class Get3dsAvailability extends Resource {
 
     public Get3dsAvailability(Service service) {
-        super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.BIN_LOOKUP_API_VERSION + "/get3dsAvailability",
+        super(service,
+                service.getClient().getConfig().getEndpoint() + "/pal/servlet/BinLookup/" + Client.BIN_LOOKUP_API_VERSION + "/get3dsAvailability",
               Arrays.asList("merchantAccount", "cardNumber"));
     }
 }
