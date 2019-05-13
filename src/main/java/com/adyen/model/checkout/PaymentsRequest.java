@@ -157,11 +157,27 @@ public class PaymentsRequest {
     @SerializedName("blockedPaymentMethods")
     private List<String> blockedPaymentMethods = null;
 
+    @SerializedName("recurringProcessingModel")
+    private RecurringProcessingModelEnum recurringProcessingModel = null;
+
 
     public PaymentsRequest() {
         if (this.applicationInfo == null) {
             this.applicationInfo = new ApplicationInfo();
         }
+    }
+
+    public RecurringProcessingModelEnum getRecurringProcessingModel() {
+        return recurringProcessingModel;
+    }
+
+    public PaymentsRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+        this.recurringProcessingModel = recurringProcessingModel;
+        return this;
+    }
+
+    public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+        this.recurringProcessingModel = recurringProcessingModel;
     }
 
     public MerchantRiskIndicator getMerchantRiskIndicator() {
@@ -1089,6 +1105,7 @@ public class PaymentsRequest {
                 && Objects.equals(this.paymentMethod, paymentsRequest.paymentMethod)
                 && Objects.equals(this.reference, paymentsRequest.reference)
                 && Objects.equals(this.returnUrl, paymentsRequest.returnUrl)
+                && Objects.equals(this.recurringProcessingModel, paymentsRequest.recurringProcessingModel)
                 && Objects.equals(this.sessionValidity, paymentsRequest.sessionValidity)
                 && Objects.equals(this.shopperEmail, paymentsRequest.shopperEmail)
                 && Objects.equals(this.shopperIP, paymentsRequest.shopperIP)
@@ -1140,6 +1157,7 @@ public class PaymentsRequest {
                             paymentMethod,
                             reference,
                             returnUrl,
+                            recurringProcessingModel,
                             sessionValidity,
                             shopperEmail,
                             shopperIP,
@@ -1189,6 +1207,7 @@ public class PaymentsRequest {
           + "    orderReference: " + toIndentedString(orderReference) + "\n"
           + "    paymentMethod: " + toIndentedString(paymentMethod) + "\n"
           + "    reference: " + toIndentedString(reference) + "\n"
+          + "    recurringProcessingModel: " + toIndentedString(recurringProcessingModel) + "\n" + "  "
           + "    returnUrl: " + toIndentedString(returnUrl) + "\n"
           + "    sessionValidity: " + toIndentedString(sessionValidity) + "\n"
           + "    shopperEmail: " + toIndentedString(shopperEmail) + "\n"
@@ -1318,6 +1337,41 @@ public class PaymentsRequest {
                 String value = jsonReader.nextString();
                 return EntityTypeEnum.fromValue(String.valueOf(value));
             }
+        }
+    }
+
+    /**
+     * how the shopper interacts with the system
+     */
+    public enum RecurringProcessingModelEnum {
+
+        /**
+         * A transaction for a fixed or variable amount, which follows a fixed schedule. This is the default value.
+         */
+        @SerializedName("Subscription") SUBSCRIPTION("Subscription"),
+
+        /**
+         * Card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process.
+         * Any subscription not following a fixed schedule is also considered as a card-on-file transaction.
+         */
+
+        @SerializedName("CardOnFile") CARD_ON_FILE("CardOnFile"),
+
+        /**
+         * A transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount.
+         */
+        @SerializedName("UnscheduledCardOnFile") UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
+
+
+        private String value;
+
+        RecurringProcessingModelEnum(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
         }
     }
 
