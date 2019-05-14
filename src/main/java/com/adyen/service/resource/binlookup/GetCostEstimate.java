@@ -9,7 +9,7 @@ public class GetCostEstimate extends Resource {
 
     public GetCostEstimate(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + "/pal/servlet/BinLookup/" + Client.BIN_LOOKUP_API_VERSION + "/getCostEstimate",
+                service.getClient().getConfig().getEndpoint() + Client.BIN_LOOKUP_PAL_SUFFIX + Client.BIN_LOOKUP_API_VERSION + "/getCostEstimate",
               Arrays.asList("merchantAccount", "amount"));
     }
 }
