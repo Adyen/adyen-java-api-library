@@ -70,8 +70,8 @@ public class PaymentData {
     /**
      * The Payment.
      */
-    @XmlAttribute(name = "Payment")
-    protected PaymentType payment;
+    @XmlAttribute(name = "PaymentType")
+    protected PaymentType paymentType;
     /**
      * The Split payment flag.
      */
@@ -169,25 +169,25 @@ public class PaymentData {
     }
 
     /**
-     * Gets the value of the payment property.
+     * Gets the value of the PaymentType property.
      *
      * @return possible      object is     {@link PaymentType }
      */
-    public PaymentType getPayment() {
-        if (payment == null) {
+    public PaymentType getPaymentType() {
+        if (paymentType == null) {
             return PaymentType.NORMAL;
         } else {
-            return payment;
+            return paymentType;
         }
     }
 
     /**
-     * Sets the value of the payment property.
+     * Sets the value of the PaymentType property.
      *
      * @param value allowed object is     {@link PaymentType }
      */
-    public void setPayment(PaymentType value) {
-        this.payment = value;
+    public void setPaymentType(PaymentType value) {
+        this.paymentType = value;
     }
 
     /**

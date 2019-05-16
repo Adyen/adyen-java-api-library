@@ -60,8 +60,8 @@ public class LoyaltyTransaction {
     /**
      * The Loyalty transaction.
      */
-    @XmlAttribute(name = "LoyaltyTransaction", required = true)
-    protected LoyaltyTransactionType loyaltyTransaction;
+    @XmlAttribute(name = "LoyaltyTransactionType", required = true)
+    protected LoyaltyTransactionType loyaltyTransactionType;
     /**
      * The Currency.
      */
@@ -139,21 +139,21 @@ public class LoyaltyTransaction {
     }
 
     /**
-     * Gets the value of the loyaltyTransaction property.
+     * Gets the value of the loyaltyTransactionType property.
      *
      * @return possible      object is     {@link LoyaltyTransactionType }
      */
-    public LoyaltyTransactionType getLoyaltyTransaction() {
-        return loyaltyTransaction;
+    public LoyaltyTransactionType getLoyaltyTransactionType() {
+        return loyaltyTransactionType;
     }
 
     /**
-     * Sets the value of the loyaltyTransaction property.
+     * Sets the value of the loyaltyTransactionType property.
      *
      * @param value allowed object is     {@link LoyaltyTransactionType }
      */
-    public void setLoyaltyTransaction(LoyaltyTransactionType value) {
-        this.loyaltyTransaction = value;
+    public void setLoyaltyTransactionType(LoyaltyTransactionType value) {
+        this.loyaltyTransactionType = value;
     }
 
     /**

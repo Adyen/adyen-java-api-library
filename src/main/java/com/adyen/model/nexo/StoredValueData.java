@@ -59,8 +59,8 @@ public class StoredValueData {
     /**
      * The Stored value transaction.
      */
-    @XmlAttribute(name = "StoredValueTransaction", required = true)
-    protected StoredValueTransactionType storedValueTransaction;
+    @XmlAttribute(name = "StoredValueTransactionType", required = true)
+    protected StoredValueTransactionType storedValueTransactionType;
     /**
      * The Product code.
      */
@@ -137,21 +137,21 @@ public class StoredValueData {
     }
 
     /**
-     * Gets the value of the storedValueTransaction property.
+     * Gets the value of the storedValueTransactionType property.
      *
      * @return possible      object is     {@link StoredValueTransactionType }
      */
-    public StoredValueTransactionType getStoredValueTransaction() {
-        return storedValueTransaction;
+    public StoredValueTransactionType getStoredValueTransactionType() {
+        return storedValueTransactionType;
     }
 
     /**
-     * Sets the value of the storedValueTransaction property.
+     * Sets the value of the storedValueTransactionType property.
      *
      * @param value allowed object is     {@link StoredValueTransactionType }
      */
-    public void setStoredValueTransaction(StoredValueTransactionType value) {
-        this.storedValueTransaction = value;
+    public void setStoredValueTransactionType(StoredValueTransactionType value) {
+        this.storedValueTransactionType = value;
     }
 
     /**

@@ -56,7 +56,7 @@ public class PaymentInstrumentData {
      * The Payment instrument.
      */
     @XmlAttribute(name = "PaymentInstrumentType", required = true)
-    protected PaymentInstrumentType paymentInstrument;
+    protected PaymentInstrumentType paymentInstrumentType;
 
     /**
      * Gets the value of the cardData property.
@@ -113,21 +113,21 @@ public class PaymentInstrumentData {
     }
 
     /**
-     * Gets the value of the paymentInstrument property.
+     * Gets the value of the paymentInstrumentType property.
      *
      * @return possible      object is     {@link PaymentInstrumentType }
      */
-    public PaymentInstrumentType getPaymentInstrument() {
-        return paymentInstrument;
+    public PaymentInstrumentType getPaymentInstrumentType() {
+        return paymentInstrumentType;
     }
 
     /**
-     * Sets the value of the paymentInstrument property.
+     * Sets the value of the paymentInstrumentType property.
      *
      * @param value allowed object is     {@link PaymentInstrumentType }
      */
-    public void setPaymentInstrument(PaymentInstrumentType value) {
-        this.paymentInstrument = value;
+    public void setPaymentInstrumentType(PaymentInstrumentType value) {
+        this.paymentInstrumentType = value;
     }
 
 }
