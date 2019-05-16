@@ -1,0 +1,6 @@
+{
+  "status": 422,
+  "errorCode": "000",
+  "message": "Card number missing",
+  "errorType": "validation"
+}
