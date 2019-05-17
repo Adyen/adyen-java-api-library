@@ -18,6 +18,7 @@ The Library supports all APIs under the following services:
 * recurring
 * marketpay
 * notifications
+* BIN lookup
 
 ## Requirements
 
