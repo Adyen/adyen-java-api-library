@@ -41,10 +41,12 @@ public class Client {
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "2.1.0";
+    public static final String LIB_VERSION = "2.2.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v41";
+    public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
+    public static final String BIN_LOOKUP_API_VERSION = "v40";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
     public static final String ENDPOINT_PROTOCOL = "https://";
 

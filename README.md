@@ -18,6 +18,7 @@ The Library supports all APIs under the following services:
 * recurring
 * marketpay
 * notifications
+* BIN lookup
 
 ## Requirements
 
@@ -35,7 +36,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>2.1.0</version>
+  <version>2.2.0</version>
 </dependency>
 ```
 
