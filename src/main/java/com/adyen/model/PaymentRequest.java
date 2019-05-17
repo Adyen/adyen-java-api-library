@@ -70,7 +70,9 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
     public enum RecurringProcessingModelEnum {
         @SerializedName("Subscription") SUBSCRIPTION("Subscription"),
 
-        @SerializedName("CardOnFile") CARD_ON_FILE("CardOnFile");
+        @SerializedName("CardOnFile") CARD_ON_FILE("CardOnFile"),
+
+        @SerializedName("UnscheduledCardOnFile") UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
 
         private String value;
 
