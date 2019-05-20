@@ -1,0 +1,19 @@
+{
+  "SaleToPOIRequest": {
+    "MessageHeader": {
+      "DeviceID": "286881016",
+      "MessageCategory": "Event",
+      "MessageClass": "Event",
+      "MessageType": "Notification",
+      "POIID": "N/A",
+      "ProtocolVersion": "3.0",
+      "SaleID": "N/A"
+    },
+    "EventNotification": {
+      "RejectedMessage": "",
+      "EventToNotify": "Reject",
+      "TimeStamp": "2019-05-17T14:12:39.323Z",
+      "EventDetails": "message=Empty+input+which+would+have+resulted+in+a+null+result."
+    }
+  }
+}

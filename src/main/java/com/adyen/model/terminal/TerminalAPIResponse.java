@@ -20,6 +20,7 @@
  */
 package com.adyen.model.terminal;
 
+import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.SaleToPOIResponse;
 import com.google.gson.annotations.SerializedName;
 
@@ -31,6 +32,27 @@ import java.util.Objects;
 public class TerminalAPIResponse {
     @SerializedName("SaleToPOIResponse")
     private SaleToPOIResponse saleToPOIResponse;
+
+    @SerializedName("SaleToPOIRequest")
+    private SaleToPOIRequest saleToPOIRequest;
+
+    /**
+     * Gets sale to POI request.
+     *
+     * @return the sale to POI request
+     */
+    public SaleToPOIRequest getSaleToPOIRequest() {
+        return saleToPOIRequest;
+    }
+
+    /**
+     * Sets sale to POI request.
+     *
+     * @param saleToPOIRequest the sale to POI request
+     */
+    public void setSaleToPOIRequest(SaleToPOIRequest saleToPOIRequest) {
+        this.saleToPOIRequest = saleToPOIRequest;
+    }
 
     /**
      * Gets sale to POI response.
@@ -58,19 +80,21 @@ public class TerminalAPIResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        TerminalAPIResponse that = (TerminalAPIResponse) o;
-        return Objects.equals(saleToPOIResponse, that.saleToPOIResponse);
+        TerminalAPIResponse response = (TerminalAPIResponse) o;
+        return Objects.equals(saleToPOIResponse, response.saleToPOIResponse) &&
+                Objects.equals(saleToPOIRequest, response.saleToPOIRequest);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(saleToPOIResponse);
+        return Objects.hash(saleToPOIResponse, saleToPOIRequest);
     }
 
     @Override
     public String toString() {
         return "TerminalAPIResponse{" +
                 "saleToPOIResponse=" + saleToPOIResponse +
+                ", saleToPOIRequest=" + saleToPOIRequest +
                 '}';
     }
 }

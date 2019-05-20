@@ -52,7 +52,7 @@ public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
      * POST /sync API call
      *
      * @param terminalAPIRequest TerminalAPIRequest
-     * @return SaleToPOIResponse
+     * @return TerminalAPIResponse
      * @throws Exception exception
      */
     public TerminalAPIResponse request(TerminalAPIRequest terminalAPIRequest, SecurityKey securityKey) throws Exception {

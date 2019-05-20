@@ -66,7 +66,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * POST /sync API call
      *
      * @param terminalAPIRequest TerminalAPIRequest
-     * @return SaleToPOIResponse
+     * @return TerminalAPIResponse
      * @throws IOException IOException
      * @throws ApiException ApiException
      */

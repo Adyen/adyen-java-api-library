@@ -124,7 +124,7 @@ public class TerminalCloudAPITest extends BaseTest {
             assertNotNull(paymentReceipt.getOutputContent().getOutputText());
             assertFalse(paymentReceipt.getOutputContent().getOutputText().isEmpty());
             List<OutputText> outputTextList = paymentReceipt.getOutputContent().getOutputText();
-            for(OutputText outputText : outputTextList) {
+            for (OutputText outputText : outputTextList) {
                 assertNotNull(outputText.getText());
             }
         }
@@ -145,5 +145,19 @@ public class TerminalCloudAPITest extends BaseTest {
         assertNotNull(paymentResult.getAmountsResp());
         assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
         assertEquals(BigDecimal.ONE, paymentResult.getAmountsResp().getAuthorizedAmount());
+    }
+
+    /**
+     * Test error flow for POST /sync
+     */
+    @Test
+    public void syncPaymentRequestErrorEmptyBody() throws Exception {
+        Client client = createMockClientFromFile("mocks/terminal-api/payment-sync-error-empty.json");
+        TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
+
+        TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(null);
+
+        assertNotNull(terminalAPIResponse);
+        assertNotNull(terminalAPIResponse.getSaleToPOIRequest());
     }
 }
