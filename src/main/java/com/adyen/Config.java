@@ -29,6 +29,9 @@ public class Config {
     protected Environment environment;
     protected String endpoint;
     protected String marketPayEndpoint;
+    /**
+     * Application name: used as HTTP client User-Agent
+     */
     protected String applicationName;
     protected String apiKey;
     protected int connectionTimeoutMillis;
