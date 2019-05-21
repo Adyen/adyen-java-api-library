@@ -29,9 +29,9 @@ public class UtilTest {
     public void testAmountDecimals() {
         Amount amount = new Amount();
         amount.setCurrency("EUR");
-        amount.setValue(1000L);
+        amount.setValue(1001L);
 
-        assertEquals(0, new BigDecimal("10.00").compareTo(amount.getDecimalValue()));
+        assertEquals(new BigDecimal("10.01"), amount.getDecimalValue());
     }
 
     @Test

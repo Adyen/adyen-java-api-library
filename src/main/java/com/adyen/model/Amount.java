@@ -36,11 +36,7 @@ public class Amount {
     private String currency = null;
 
     public BigDecimal getDecimalValue() {
-        BigDecimal divisor = new BigDecimal(10)
-                .pow(Util.getDecimalPlaces(getCurrency()));
-
-        BigDecimal amountValue = new BigDecimal(getValue())
-                .divide(divisor);
+        BigDecimal amountValue =  BigDecimal.valueOf(getValue(), Util.getDecimalPlaces(getCurrency()));
         return amountValue;
     }
 
