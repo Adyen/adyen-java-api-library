@@ -20,8 +20,6 @@
  */
 package com.adyen.model.checkout;
 
-import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
-
 import com.adyen.Util.Util;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
@@ -41,6 +39,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,6 +47,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
 
 /**
  * PaymentsRequest
@@ -58,8 +59,6 @@ public class PaymentsRequest {
     private AccountInfo accountInfo = null;
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
-    @SerializedName("allowedPaymentMethods")
-    private List<String> allowedPaymentMethods = null;
     @SerializedName("amount")
     private Amount amount = null;
     @SerializedName("billingAddress")
@@ -160,6 +159,17 @@ public class PaymentsRequest {
     @SerializedName("recurringProcessingModel")
     private RecurringProcessingModelEnum recurringProcessingModel = null;
 
+    @SerializedName("merchantData")
+    private String merchantData = null;
+
+    @SerializedName("mpiData")
+    private ThreeDSecureData mpiData = null;
+
+    @SerializedName("redirectFromIssuerMethod")
+    private String redirectFromIssuerMethod = null;
+
+    @SerializedName("redirectToIssuerMethod")
+    private String redirectToIssuerMethod = null;
 
     public PaymentsRequest() {
         if (this.applicationInfo == null) {
@@ -194,14 +204,6 @@ public class PaymentsRequest {
 
     public void setAccountInfo(AccountInfo accountInfo) {
         this.accountInfo = accountInfo;
-    }
-
-    public List<String> getAllowedPaymentMethods() {
-        return allowedPaymentMethods;
-    }
-
-    public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
-        this.allowedPaymentMethods = allowedPaymentMethods;
     }
 
     public Boolean getEnableOneClick() {
@@ -1070,6 +1072,78 @@ public class PaymentsRequest {
         return this;
     }
 
+    /**
+     * Holds different merchant data points like product, purchase, customer, and so on. It takes data in a JSON string.
+     *
+     * @return the merchant data
+     */
+    public String getMerchantData() {
+        return merchantData;
+    }
+
+    public void setMerchantData(String merchantData) {
+        this.merchantData = merchantData;
+    }
+
+    public PaymentsRequest merchantData(String merchantData) {
+        this.merchantData = merchantData;
+        return this;
+    }
+
+    /**
+     * Authentication data produced by an MPI (Mastercard SecureCode or Verified By Visa).
+     *
+     * @return the mpi data
+     */
+    public ThreeDSecureData getMpiData() {
+        return mpiData;
+    }
+
+    public void setMpiData(ThreeDSecureData mpiData) {
+        this.mpiData = mpiData;
+    }
+
+    public PaymentsRequest mpiData(ThreeDSecureData mpiData) {
+        this.mpiData = mpiData;
+        return this;
+    }
+
+    /**
+     * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
+     *
+     * @return the redirect from issuer method
+     */
+    public String getRedirectFromIssuerMethod() {
+        return redirectFromIssuerMethod;
+    }
+
+    public void setRedirectFromIssuerMethod(String redirectFromIssuerMethod) {
+        this.redirectFromIssuerMethod = redirectFromIssuerMethod;
+    }
+
+    public PaymentsRequest redirectFromIssuerMethod(String redirectFromIssuerMethod) {
+        this.redirectFromIssuerMethod = redirectFromIssuerMethod;
+        return this;
+    }
+
+    /**
+     * Specifies the redirect method (GET or POST) when redirecting to the issuer.
+     *
+     * @return the redirect to issuer method
+     */
+    public String getRedirectToIssuerMethod() {
+        return redirectToIssuerMethod;
+    }
+
+    public void setRedirectToIssuerMethod(String redirectToIssuerMethod) {
+        this.redirectToIssuerMethod = redirectToIssuerMethod;
+    }
+
+    public PaymentsRequest redirectToIssuerMethod(String redirectToIssuerMethod) {
+        this.redirectToIssuerMethod = redirectToIssuerMethod;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1079,7 +1153,8 @@ public class PaymentsRequest {
             return false;
         }
         PaymentsRequest paymentsRequest = (PaymentsRequest) o;
-        return Objects.equals(this.additionalData, paymentsRequest.additionalData)
+        return Objects.equals(this.accountInfo, paymentsRequest.accountInfo)
+                && Objects.equals(this.additionalData, paymentsRequest.additionalData)
                 && Objects.equals(this.amount, paymentsRequest.amount)
                 && Objects.equals(this.billingAddress, paymentsRequest.billingAddress)
                 && Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours)
@@ -1105,7 +1180,6 @@ public class PaymentsRequest {
                 && Objects.equals(this.paymentMethod, paymentsRequest.paymentMethod)
                 && Objects.equals(this.reference, paymentsRequest.reference)
                 && Objects.equals(this.returnUrl, paymentsRequest.returnUrl)
-                && Objects.equals(this.recurringProcessingModel, paymentsRequest.recurringProcessingModel)
                 && Objects.equals(this.sessionValidity, paymentsRequest.sessionValidity)
                 && Objects.equals(this.shopperEmail, paymentsRequest.shopperEmail)
                 && Objects.equals(this.shopperIP, paymentsRequest.shopperIP)
@@ -1115,23 +1189,28 @@ public class PaymentsRequest {
                 && Objects.equals(this.shopperReference, paymentsRequest.shopperReference)
                 && Objects.equals(this.shopperStatement, paymentsRequest.shopperStatement)
                 && Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber)
+                && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber)
+                && Objects.equals(this.browserInfo, paymentsRequest.browserInfo)
                 && Objects.equals(this.deviceFingerprint, paymentsRequest.deviceFingerprint)
                 && Objects.equals(this.applicationInfo, paymentsRequest.applicationInfo)
-                && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber)
                 && Objects.equals(this.splits, paymentsRequest.splits)
-                && Objects.equals(this.accountInfo, paymentsRequest.accountInfo)
-                && Objects.equals(this.allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
-                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
                 && Objects.equals(this.merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
                 && Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData)
                 && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
-                && Objects.equals(this.origin, paymentsRequest.origin);
-
+                && Objects.equals(this.origin, paymentsRequest.origin)
+                && Objects.equals(this.configId, paymentsRequest.configId)
+                && Objects.equals(this.blockedPaymentMethods, paymentsRequest.blockedPaymentMethods)
+                && Objects.equals(this.recurringProcessingModel, paymentsRequest.recurringProcessingModel)
+                && Objects.equals(this.merchantData, paymentsRequest.merchantData)
+                && Objects.equals(this.mpiData, paymentsRequest.mpiData)
+                && Objects.equals(this.redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod)
+                && Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData,
+        return Objects.hash(accountInfo,
+                            additionalData,
                             amount,
                             billingAddress,
                             captureDelayHours,
@@ -1157,7 +1236,6 @@ public class PaymentsRequest {
                             paymentMethod,
                             reference,
                             returnUrl,
-                            recurringProcessingModel,
                             sessionValidity,
                             shopperEmail,
                             shopperIP,
@@ -1167,15 +1245,22 @@ public class PaymentsRequest {
                             shopperReference,
                             shopperStatement,
                             socialSecurityNumber,
+                            telephoneNumber,
+                            browserInfo,
                             deviceFingerprint,
                             applicationInfo,
-                            telephoneNumber,
-                            accountInfo,
-                            allowedPaymentMethods,
                             splits,
+                            merchantRiskIndicator,
+                            threeDS2RequestData,
                             trustedShopper,
+                            origin,
+                            configId,
                             blockedPaymentMethods,
-                            configId);
+                            recurringProcessingModel,
+                            merchantData,
+                            mpiData,
+                            redirectFromIssuerMethod,
+                            redirectToIssuerMethod);
     }
 
     @Override
@@ -1224,13 +1309,16 @@ public class PaymentsRequest {
           + "    accountInfo: " + toIndentedString(accountInfo) + "\n"
           + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
           + "    splits: " + toIndentedString(splits) + "\n"
-          + "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + "\n"
           + "    merchantRiskIndicator: " + toIndentedString(merchantRiskIndicator) + "\n"
           + "    threeDS2RequestData: " + toIndentedString(threeDS2RequestData) + "\n"
           + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
           + "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + "\n"
           + "    configId: " + toIndentedString(configId) + "\n"
           + "    origin: " + toIndentedString(origin) + "\n"
+          + "    metadata: " + toIndentedString(metadata) + "\n"
+          + "    mpiData: " + toIndentedString(mpiData) + "\n"
+          + "    redirectFromIssuerMethod: " + toIndentedString(redirectFromIssuerMethod) + "\n"
+          + "    redirectToIssuerMethod: " + toIndentedString(redirectToIssuerMethod) + "\n"
           + "}";
     }
 
