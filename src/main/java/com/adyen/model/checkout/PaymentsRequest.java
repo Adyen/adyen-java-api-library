@@ -58,8 +58,6 @@ public class PaymentsRequest {
     private AccountInfo accountInfo = null;
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
-    @SerializedName("allowedPaymentMethods")
-    private List<String> allowedPaymentMethods = null;
     @SerializedName("amount")
     private Amount amount = null;
     @SerializedName("billingAddress")
@@ -160,6 +158,17 @@ public class PaymentsRequest {
     @SerializedName("recurringProcessingModel")
     private RecurringProcessingModelEnum recurringProcessingModel = null;
 
+    @SerializedName("merchantData")
+    private String merchantData = null;
+
+    @SerializedName("mpiData")
+    private ThreeDSecureData mpiData = null;
+
+    @SerializedName("redirectFromIssuerMethod")
+    private String redirectFromIssuerMethod = null;
+
+    @SerializedName("redirectToIssuerMethod")
+    private String redirectToIssuerMethod = null;
 
     public PaymentsRequest() {
         if (this.applicationInfo == null) {
@@ -194,14 +203,6 @@ public class PaymentsRequest {
 
     public void setAccountInfo(AccountInfo accountInfo) {
         this.accountInfo = accountInfo;
-    }
-
-    public List<String> getAllowedPaymentMethods() {
-        return allowedPaymentMethods;
-    }
-
-    public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
-        this.allowedPaymentMethods = allowedPaymentMethods;
     }
 
     public Boolean getEnableOneClick() {
@@ -1070,6 +1071,58 @@ public class PaymentsRequest {
         return this;
     }
 
+    /**
+     * Holds different merchant data points like product, purchase, customer, and so on. It takes data in a JSON string.
+     *
+     * @return the merchant data
+     */
+    public String getMerchantData() {
+        return merchantData;
+    }
+
+    public void setMerchantData(String merchantData) {
+        this.merchantData = merchantData;
+    }
+
+    /**
+     * Authentication data produced by an MPI (Mastercard SecureCode or Verified By Visa).
+     *
+     * @return the mpi data
+     */
+    public ThreeDSecureData getMpiData() {
+        return mpiData;
+    }
+
+    public void setMpiData(ThreeDSecureData mpiData) {
+        this.mpiData = mpiData;
+    }
+
+    /**
+     * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
+     *
+     * @return the redirect from issuer method
+     */
+    public String getRedirectFromIssuerMethod() {
+        return redirectFromIssuerMethod;
+    }
+
+    public void setRedirectFromIssuerMethod(String redirectFromIssuerMethod) {
+        this.redirectFromIssuerMethod = redirectFromIssuerMethod;
+    }
+
+    /**
+     * Specifies the redirect method (GET or POST) when redirecting to the issuer.
+     *
+     * @return the redirect to issuer method
+     */
+    public String getRedirectToIssuerMethod() {
+        return redirectToIssuerMethod;
+    }
+
+    public void setRedirectToIssuerMethod(String redirectToIssuerMethod) {
+        this.redirectToIssuerMethod = redirectToIssuerMethod;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1120,13 +1173,15 @@ public class PaymentsRequest {
                 && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber)
                 && Objects.equals(this.splits, paymentsRequest.splits)
                 && Objects.equals(this.accountInfo, paymentsRequest.accountInfo)
-                && Objects.equals(this.allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
                 && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
                 && Objects.equals(this.merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
                 && Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData)
                 && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
-                && Objects.equals(this.origin, paymentsRequest.origin);
-
+                && Objects.equals(this.origin, paymentsRequest.origin)
+                && Objects.equals(this.metadata, paymentsRequest.metadata)
+                && Objects.equals(this.mpiData, paymentsRequest.mpiData)
+                && Objects.equals(this.redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod)
+                && Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod);
     }
 
     @Override
@@ -1171,11 +1226,14 @@ public class PaymentsRequest {
                             applicationInfo,
                             telephoneNumber,
                             accountInfo,
-                            allowedPaymentMethods,
                             splits,
                             trustedShopper,
                             blockedPaymentMethods,
-                            configId);
+                            configId,
+                            metadata,
+                            mpiData,
+                            redirectFromIssuerMethod,
+                            redirectToIssuerMethod);
     }
 
     @Override
@@ -1224,13 +1282,16 @@ public class PaymentsRequest {
           + "    accountInfo: " + toIndentedString(accountInfo) + "\n"
           + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
           + "    splits: " + toIndentedString(splits) + "\n"
-          + "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + "\n"
           + "    merchantRiskIndicator: " + toIndentedString(merchantRiskIndicator) + "\n"
           + "    threeDS2RequestData: " + toIndentedString(threeDS2RequestData) + "\n"
           + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
           + "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + "\n"
           + "    configId: " + toIndentedString(configId) + "\n"
           + "    origin: " + toIndentedString(origin) + "\n"
+          + "    metadata: " + toIndentedString(metadata) + "\n"
+          + "    mpiData: " + toIndentedString(mpiData) + "\n"
+          + "    redirectFromIssuerMethod: " + toIndentedString(redirectFromIssuerMethod) + "\n"
+          + "    redirectToIssuerMethod: " + toIndentedString(redirectToIssuerMethod) + "\n"
           + "}";
     }
 
