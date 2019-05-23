@@ -35,6 +35,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Scanner;
@@ -49,8 +50,6 @@ import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
-    //Managers for SSL validation
-    private static final HostnameVerifier DEFAULT_HOSTNAME_VERIFIER = HttpsURLConnection.getDefaultHostnameVerifier();
 
     private Proxy proxy;
 
@@ -74,11 +73,11 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
-        if (config.getSkipCertificationValidation()) {
-            installHostnameVerifier();
-        }
-
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
+
+        if (config.getSkipCertificationValidation()) {
+            installHostnameVerifier(httpConnection);
+        }
 
         String apiKey = config.getApiKey();
         // Use Api key if required or if provided
@@ -235,21 +234,49 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     /**
      * Install hostname verifier that skips terminal hostname validations
+     * @param connection
      */
-    private void installHostnameVerifier() {
-        // Create terminal-trusting host name verifier
-        HostnameVerifier terminalHostsValid = new HostnameVerifier() {
-            public boolean verify(String host, SSLSession session) {
-                if (host.matches(".+\\..+\\.terminal\\.adyen\\.com")) {
-                    return true;
-                }
-                // important: use default verifier for all other hosts
-                return DEFAULT_HOSTNAME_VERIFIER.verify(host, session);
-            }
-        };
+    private void installHostnameVerifier(URLConnection connection) {
+        if (connection instanceof HttpsURLConnection) {
+            HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
 
-        // Install the terminal-trusting host verifier
-        HttpsURLConnection.setDefaultHostnameVerifier(terminalHostsValid);
+//            try {
+//                // Create a trust manager that does not validate certificate chains
+//                TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
+//                    public X509Certificate[] getAcceptedIssuers() {
+//                        return null;
+//                    }
+//
+//                    public void checkClientTrusted(X509Certificate[] certs, String authType) {
+//                    }
+//
+//                    public void checkServerTrusted(X509Certificate[] certs, String authType) {
+//                    }
+//                }
+//                };
+//
+//                // Install the all-trusting trust manager
+//                SSLContext sc = SSLContext.getInstance("SSL");
+//                sc.init(null, trustAllCerts, new java.security.SecureRandom());
+//                httpsConnection.setSSLSocketFactory(sc.getSocketFactory());
+//            } catch (NoSuchAlgorithmException | KeyManagementException e) {
+//                e.printStackTrace();
+//            }
+
+            // Create terminal-trusting host name verifier
+            HostnameVerifier terminalHostsValid = new HostnameVerifier() {
+                public boolean verify(String host, SSLSession session) {
+                    if (host.matches(".+\\..+\\.terminal\\.adyen\\.com")) {
+                        return true;
+                    }
+                    // important: use default verifier for all other hosts
+                    return HttpsURLConnection.getDefaultHostnameVerifier().verify(host, session);
+                }
+            };
+
+            // Install the terminal-trusting host verifier
+            httpsConnection.setHostnameVerifier(terminalHostsValid);
+        }
     }
 
     public Proxy getProxy() {
