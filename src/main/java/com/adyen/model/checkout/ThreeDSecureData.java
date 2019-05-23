@@ -248,7 +248,8 @@ public class ThreeDSecureData {
         Y("Y"),
         N("N"),
         U("U"),
-        E("E");
+        E("E"),
+        C("C");
 
         private String value;
 
