@@ -91,10 +91,9 @@ public final class Util {
     public static Amount createAmount(BigDecimal amount, String currency) {
         Amount amountData = new Amount();
         amountData.setCurrency(currency);
-        Long amountValue;
 
-        Integer scale = getDecimalPlaces(currency);
-        amountValue = new BigDecimal(10).pow(scale).multiply(amount.setScale(scale, RoundingMode.HALF_UP)).longValue();
+        int scale = getDecimalPlaces(currency);
+        Long amountValue = BigDecimal.TEN.pow(scale).multiply(amount.setScale(scale, RoundingMode.HALF_UP)).longValue();
 
         amountData.setValue(amountValue);
 

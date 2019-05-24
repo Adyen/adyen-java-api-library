@@ -106,7 +106,6 @@ public class MarketPayTest extends BaseTest {
      */
     @Test
     public void TestCreateSplitPayment() throws Exception {
-
         Client client = createMockClientFromFile("mocks/authorise-success.json");
         Payment payment = new Payment(client);
 
@@ -117,14 +116,14 @@ public class MarketPayTest extends BaseTest {
         // splitPayment
         SplitPayment splitPayment = new SplitPayment();
         splitPayment.setApi(1);
-        splitPayment.setTotalAmount(new Long("6200"));
+        splitPayment.setTotalAmount(6200L);
         splitPayment.setCurrencyCode("EUR");
 
         List<SplitPaymentItem> splitPaymentItems = new ArrayList<SplitPaymentItem>();
 
         // first split payment item
         SplitPaymentItem splitPaymentItem = new SplitPaymentItem();
-        splitPaymentItem.setAmount(new Long(6000));
+        splitPaymentItem.setAmount(6000L);
         splitPaymentItem.setType("MarketPlace");
         splitPaymentItem.setAccount("151272963");
         splitPaymentItem.setReference("6124145");
@@ -133,7 +132,7 @@ public class MarketPayTest extends BaseTest {
 
         // seconf split payment item
         SplitPaymentItem splitPaymentItem2 = new SplitPaymentItem();
-        splitPaymentItem2.setAmount(new Long(200));
+        splitPaymentItem2.setAmount(200L);
         splitPaymentItem2.setType("Commission");
         splitPaymentItem2.setReference("6124146");
         splitPaymentItems.add(splitPaymentItem2);
@@ -173,14 +172,13 @@ public class MarketPayTest extends BaseTest {
      */
     @Test
     public void TestCreateAccountHolderSuccess() throws Exception {
-
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/create-account-holder-success.json");
 
         // use Account service
         Account account = new Account(client);
 
-        // Create Account Holder Reqeust
+        // Create Account Holder Request
         CreateAccountHolderRequest createAccountHolderRequest = new CreateAccountHolderRequest();
         createAccountHolderRequest.setAccountHolderCode("TestAccountHolder781664");
 
@@ -271,7 +269,6 @@ public class MarketPayTest extends BaseTest {
      */
     @Test
     public void TestAccountHolderBalanceSuccess() throws Exception {
-
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/fund/account-holder-balance-success.json");
 
@@ -284,8 +281,8 @@ public class MarketPayTest extends BaseTest {
         AccountHolderBalanceResponse accountHolderBalanceResponse = fund.accountHolderBalance(accountHolderBalanceRequest);
 
 
-        assertEquals(new Long(42058), accountHolderBalanceResponse.getTotalBalance().getPendingBalance().get(0).getValue());
-        assertEquals(new Long(99792), accountHolderBalanceResponse.getBalancePerAccount().get(0).getDetailBalance().getBalance().get(0).getValue());
+        assertEquals(42058L, accountHolderBalanceResponse.getTotalBalance().getPendingBalance().get(0).getValue().longValue());
+        assertEquals(99792L, accountHolderBalanceResponse.getBalancePerAccount().get(0).getDetailBalance().getBalance().get(0).getValue().longValue());
     }
 
     @Test
@@ -347,9 +344,7 @@ public class MarketPayTest extends BaseTest {
         updateAccountHolderRequest.setAccountHolderDetails(accountHolderDetails);
         UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
 
-        assertEquals(new Long(49999), updateAccountHolderResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue());
-
-
+        assertEquals(49999L, updateAccountHolderResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue().longValue());
     }
 
     @Test
@@ -374,7 +369,6 @@ public class MarketPayTest extends BaseTest {
 
     @Test
     public void TestGetBusinessAccountHolderSuccess() throws Exception {
-
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/get-business-account-holder-success.json");
 
@@ -397,7 +391,6 @@ public class MarketPayTest extends BaseTest {
 
     @Test
     public void TestUploadDocumentSuccess() throws Exception {
-
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/upload-document-success.json");
 
@@ -419,13 +412,12 @@ public class MarketPayTest extends BaseTest {
         uploadDocumentRequest.setDocumentDetail(documentDetail);
 
         UploadDocumentResponse uploadDocumentResponse = account.uploadDocument(uploadDocumentRequest);
-        assertEquals(new Long(9999), uploadDocumentResponse.getAccountHolderStatus().getProcessingState().getProcessedTo().getValue());
+        assertEquals(9999L, uploadDocumentResponse.getAccountHolderStatus().getProcessingState().getProcessedTo().getValue().longValue());
 
     }
 
     @Test
     public void TestTransferFundsSuccess() throws Exception {
-
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/fund/transfer-funds-success.json");
 
@@ -440,7 +432,7 @@ public class MarketPayTest extends BaseTest {
         // create Amount
         Amount amount = new Amount();
         amount.setCurrency("EUR");
-        amount.setValue(new Long(2000));
+        amount.setValue(2000L);
         transferFundsRequest.setAmount(amount);
 
         transferFundsRequest.setTransferCode("CODE_A");
@@ -517,7 +509,7 @@ public class MarketPayTest extends BaseTest {
         suspendAccountHolderRequest.setAccountHolderCode("TestAccountHolder192192");
 
         SuspendAccountHolderResponse suspendAccountHolderResponse = account.suspendAccountHolder(suspendAccountHolderRequest);
-        assertEquals(new Long(49999), suspendAccountHolderResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue());
+        assertEquals(49999L, suspendAccountHolderResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue().longValue());
 
     }
 
@@ -534,7 +526,7 @@ public class MarketPayTest extends BaseTest {
         unSuspendAccountHolderRequest.setAccountHolderCode("TestAccountHolder192192");
 
         UnSuspendAccountHolderResponse unSuspendAccountHolderResponse = account.unSuspendAccountHolder(unSuspendAccountHolderRequest);
-        assertEquals(new Long(49999), unSuspendAccountHolderResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue());
+        assertEquals(49999L, unSuspendAccountHolderResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue().longValue());
     }
 
     @Test
@@ -553,7 +545,7 @@ public class MarketPayTest extends BaseTest {
         updateAccountHolderStateRequest.stateType(UpdateAccountHolderStateRequest.StateTypeEnum.PAYOUT);
 
         UpdateAccountHolderStateResponse updateAccountHolderStateResponse = account.updateAccountHolderState(updateAccountHolderStateRequest);
-        assertEquals(new Long(74999), updateAccountHolderStateResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue());
+        assertEquals(74999L, updateAccountHolderStateResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue().longValue());
     }
 
     @Test
@@ -606,7 +598,7 @@ public class MarketPayTest extends BaseTest {
         // create Amount
         Amount amount = new Amount();
         amount.setCurrency("EUR");
-        amount.setValue(new Long(2000));
+        amount.setValue(2000L);
         payoutAccountHolderRequest.setAmount(amount);
 
         PayoutAccountHolderResponse payoutAccountHolderResponse = fund.payoutAccountHolder(payoutAccountHolderRequest);
@@ -711,7 +703,6 @@ public class MarketPayTest extends BaseTest {
 
     @Test
     public void TestGetTierConfiguration() throws Exception {
-
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/get-tier-configuration-success.json");
 
@@ -720,8 +711,7 @@ public class MarketPayTest extends BaseTest {
 
         GetTierConfigurationResponse getTierConfigurationResponse = account.getTierConfiguration();
 
-        assertEquals(new Long(10000), getTierConfigurationResponse.getTierConfiguration().get(0).getTiers().get(0).getToAmount().getValue());
-
+        assertEquals(10000L, getTierConfigurationResponse.getTierConfiguration().get(0).getTiers().get(0).getToAmount().getValue().longValue());
     }
 
     @Test
@@ -732,12 +722,12 @@ public class MarketPayTest extends BaseTest {
         // use Account service
         Account account = new Account(client);
 
-        // Create Account Holder Reqeust
+        // Create Account Holder Request
         CreateAccountHolderRequest createAccountHolderRequest = new CreateAccountHolderRequest();
 
         CreateAccountHolderResponse createAccountHolderResponse = account.createAccountHolder(createAccountHolderRequest);
 
-        assertEquals(new Integer(17), createAccountHolderResponse.getInvalidFields().get(0).getErrorCode());
+        assertEquals(17, createAccountHolderResponse.getInvalidFields().get(0).getErrorCode().intValue());
     }
 
     @Test
@@ -748,11 +738,11 @@ public class MarketPayTest extends BaseTest {
         // use Account service
         Account account = new Account(client);
 
-        // Create Account Holder Reqeust
+        // Create Account Holder Request
         UpdateAccountHolderRequest updateAccountHolderRequest = new UpdateAccountHolderRequest();
 
         UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
 
-        assertEquals(new Integer(17), updateAccountHolderResponse.getInvalidFields().get(0).getErrorCode());
+        assertEquals(17, updateAccountHolderResponse.getInvalidFields().get(0).getErrorCode().intValue());
     }
 }

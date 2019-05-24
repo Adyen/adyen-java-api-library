@@ -20,12 +20,11 @@
  */
 package com.adyen.model;
 
-//import org.threeten.bp.OffsetDateTime;
 
 import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
-import com.adyen.serializer.DateSerializer;
+import com.adyen.serializer.DateTimeISO8601Serializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -92,7 +91,7 @@ public class AccountInfo {
     private AccountAgeIndicatorEnum accountAgeIndicator = null;
 
     @SerializedName("accountChangeDate")
-    @JsonAdapter(DateSerializer.class)
+    @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date accountChangeDate = null;
 
     /**
@@ -148,12 +147,14 @@ public class AccountInfo {
     private AccountChangeIndicatorEnum accountChangeIndicator = null;
 
     @SerializedName("accountCreationDate")
+    @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date accountCreationDate = null;
 
     @SerializedName("addCardAttemptsDay")
     private Integer addCardAttemptsDay = null;
 
     @SerializedName("deliveryAddressUsageDate")
+    @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date deliveryAddressUsageDate = null;
 
     /**
@@ -215,7 +216,7 @@ public class AccountInfo {
     private String mobilePhone = null;
 
     @SerializedName("passwordChangeDate")
-    @JsonAdapter(DateSerializer.class)
+    @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date passwordChangeDate = null;
 
     /**
@@ -278,7 +279,7 @@ public class AccountInfo {
     private Integer pastTransactionsYear = null;
 
     @SerializedName("paymentAccountAge")
-    @JsonAdapter(DateSerializer.class)
+    @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date paymentAccountAge = null;
 
     /**

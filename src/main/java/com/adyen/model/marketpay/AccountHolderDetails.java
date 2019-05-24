@@ -220,7 +220,8 @@ public class AccountHolderDetails {
     }
 
     /**
-     * merchant category code
+     * Merchant Category Code (MCC) is classifier of the business by the type of goods or services it provides.
+     * https://en.wikipedia.org/wiki/Merchant_category_code
      *
      * @return merchantCategoryCode
      **/
