@@ -41,10 +41,12 @@ public class Client {
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "2.1.0";
+    public static final String LIB_VERSION = "2.3.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v41";
+    public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
+    public static final String BIN_LOOKUP_API_VERSION = "v40";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
@@ -63,7 +65,6 @@ public class Client {
     }
 
     public Client(String username, String password, Environment environment, String liveEndpointUrlPrefix, String applicationName) {
-
         this.config = new Config();
         this.config.setUsername(username);
         this.config.setPassword(password);
@@ -81,7 +82,6 @@ public class Client {
      */
     @Deprecated
     public Client(String username, String password, Environment environment, int connectionTimeoutMillis) {
-
         this(username, password, environment, null);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
@@ -97,7 +97,6 @@ public class Client {
      */
     @Deprecated
     public Client(String username, String password, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
-
         this(username, password, environment, liveEndpointUrlPrefix, null);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
@@ -121,7 +120,6 @@ public class Client {
      */
     @Deprecated
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis) {
-
         this(apiKey, environment);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
@@ -136,7 +134,6 @@ public class Client {
      */
     @Deprecated
     public Client(String apiKey, Environment environment, int connectionTimeoutMillis, String liveEndpointUrlPrefix) {
-
         this(apiKey, environment, liveEndpointUrlPrefix);
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
     }
@@ -155,7 +152,6 @@ public class Client {
      * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
-
         if (Environment.TEST.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setEndpoint(ENDPOINT_TEST);
@@ -180,11 +176,10 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client [webServiceUser=" + this.config.username + ", webServicePassword=" + this.config.password + ", environment=" + this.config.environment + "]";
+        return "Client [webServiceUser=" + this.config.username + ", environment=" + this.config.environment + "]";
     }
 
     public ClientInterface getHttpClient() {
-
         if (this.httpClient == null) {
             this.httpClient = new HttpURLConnectionClient();
         }

@@ -1,0 +1,6 @@
+{
+  "status": 500,
+  "errorCode": "901",
+  "message": "Invalid Merchant Account",
+  "errorType": "internal"
+}

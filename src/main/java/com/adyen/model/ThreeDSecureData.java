@@ -47,7 +47,10 @@ public class ThreeDSecureData {
         U("U"),
 
         @SerializedName("E")
-        E("E");
+        E("E"),
+
+        @SerializedName("C")
+        C("C");
 
         private String value;
 

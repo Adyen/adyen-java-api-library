@@ -29,9 +29,9 @@ public class UtilTest {
     public void testAmountDecimals() {
         Amount amount = new Amount();
         amount.setCurrency("EUR");
-        amount.setValue(new Long("1000"));
+        amount.setValue(1001L);
 
-        assertEquals(0, new BigDecimal("10.00").compareTo(amount.getDecimalValue()));
+        assertEquals(new BigDecimal("10.01"), amount.getDecimalValue());
     }
 
     @Test
@@ -41,10 +41,10 @@ public class UtilTest {
         Amount amountMRO = Util.createAmount("123.45234", "MRO");
         Amount amountBHD = Util.createAmount("1.2345234", "BHD");
 
-        assertEquals(new Long("1235"), amount.getValue());
-        assertEquals(new Long("1234"), amountJPY.getValue());
-        assertEquals(new Long("1235"), amountMRO.getValue());
-        assertEquals(new Long("1235"), amountBHD.getValue());
+        assertEquals(1235L, amount.getValue().longValue());
+        assertEquals(1234L, amountJPY.getValue().longValue());
+        assertEquals(1235L, amountMRO.getValue().longValue());
+        assertEquals(1235L, amountBHD.getValue().longValue());
     }
 
     @Test
