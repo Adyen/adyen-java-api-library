@@ -48,6 +48,7 @@ public class Config {
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
     protected String terminalApiLocalEndpoint;
+    protected String terminalCertificatePath;
 
     public Config() {
         // do nothing
@@ -167,6 +168,14 @@ public class Config {
 
     public void setTerminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
         this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
+    }
+
+    public String getTerminalCertificatePath() {
+        return terminalCertificatePath;
+    }
+
+    public void setTerminalCertificatePath(String terminalCertificatePath) {
+        this.terminalCertificatePath = terminalCertificatePath;
     }
 
     public int getConnectionTimeoutMillis() {

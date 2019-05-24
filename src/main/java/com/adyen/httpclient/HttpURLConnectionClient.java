@@ -46,6 +46,8 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -84,7 +86,9 @@ public class HttpURLConnectionClient implements ClientInterface {
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
 
-        installHostnameVerifier(httpConnection);
+        if (config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) {
+            installCertificateVerifier(httpConnection, config.getTerminalCertificatePath());
+        }
 
         String apiKey = config.getApiKey();
         // Use Api key if required or if provided
@@ -247,22 +251,26 @@ public class HttpURLConnectionClient implements ClientInterface {
         this.proxy = proxy;
     }
 
-    private void installHostnameVerifier(URLConnection connection) {
+    private void installCertificateVerifier(URLConnection connection, String terminalCertificatePath) {
         if (connection instanceof HttpsURLConnection) {
             HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
 
+            // Create new KeyStore for the terminal certificate
             try {
-                String keyPassphrase = "";
+                InputStream certificateInput = new FileInputStream(terminalCertificatePath);
+                CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+                X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(certificateInput);
 
                 KeyStore keyStore = KeyStore.getInstance("JKS");
-                keyStore.load(new FileInputStream("/Users/renatoma/Documents/terminal_api/adyen-terminalfleet-test.pem"), keyPassphrase.toCharArray());
+                keyStore.load(null, null);
+                keyStore.setCertificateEntry("TerminalCertificate", cert);
 
                 TrustManagerFactory trustFactory =
                         TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
                 trustFactory.init(keyStore);
                 TrustManager[] trustManagers = trustFactory.getTrustManagers();
 
-                // Install the all-trusting trust manager
+                // Install the terminal certificate trust manager
                 SSLContext sc = SSLContext.getInstance("SSL");
                 sc.init(null, trustManagers, new java.security.SecureRandom());
                 httpsConnection.setSSLSocketFactory(sc.getSocketFactory());
@@ -270,11 +278,12 @@ public class HttpURLConnectionClient implements ClientInterface {
                 e.printStackTrace();
             }
 
-
             // Create terminal-trusting host name verifier
             HostnameVerifier terminalHostsValid = new HostnameVerifier() {
                 public boolean verify(String host, SSLSession session) {
-                    if (host.matches(".+\\..+\\.terminal\\.adyen\\.com")) {
+                    String url = host + ":" + session.getPeerPort();
+                    if (url.matches(".+\\..+\\.terminal\\.adyen\\.com:8443")
+                            || url.matches("\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b:8443")) {
                         return true;
                     }
                     // important: use default verifier for all other hosts
