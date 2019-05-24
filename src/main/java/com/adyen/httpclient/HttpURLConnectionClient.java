@@ -25,6 +25,13 @@ import com.adyen.Config;
 import com.adyen.model.RequestOptions;
 import org.apache.commons.codec.binary.Base64;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -32,7 +39,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -70,6 +83,8 @@ public class HttpURLConnectionClient implements ClientInterface {
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
+
+        installHostnameVerifier(httpConnection);
 
         String apiKey = config.getApiKey();
         // Use Api key if required or if provided
@@ -230,5 +245,45 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     public void setProxy(Proxy proxy) {
         this.proxy = proxy;
+    }
+
+    private void installHostnameVerifier(URLConnection connection) {
+        if (connection instanceof HttpsURLConnection) {
+            HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
+
+            try {
+                String keyPassphrase = "";
+
+                KeyStore keyStore = KeyStore.getInstance("JKS");
+                keyStore.load(new FileInputStream("/Users/renatoma/Documents/terminal_api/adyen-terminalfleet-test.pem"), keyPassphrase.toCharArray());
+
+                TrustManagerFactory trustFactory =
+                        TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                trustFactory.init(keyStore);
+                TrustManager[] trustManagers = trustFactory.getTrustManagers();
+
+                // Install the all-trusting trust manager
+                SSLContext sc = SSLContext.getInstance("SSL");
+                sc.init(null, trustManagers, new java.security.SecureRandom());
+                httpsConnection.setSSLSocketFactory(sc.getSocketFactory());
+            } catch (KeyStoreException | IOException | NoSuchAlgorithmException | CertificateException | KeyManagementException e) {
+                e.printStackTrace();
+            }
+
+
+            // Create terminal-trusting host name verifier
+            HostnameVerifier terminalHostsValid = new HostnameVerifier() {
+                public boolean verify(String host, SSLSession session) {
+                    if (host.matches(".+\\..+\\.terminal\\.adyen\\.com")) {
+                        return true;
+                    }
+                    // important: use default verifier for all other hosts
+                    return HttpsURLConnection.getDefaultHostnameVerifier().verify(host, session);
+                }
+            };
+
+            // Install the terminal-trusting host verifier
+            httpsConnection.setHostnameVerifier(terminalHostsValid);
+        }
     }
 }
