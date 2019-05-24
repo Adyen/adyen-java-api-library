@@ -59,6 +59,9 @@ public class PaymentsRequest {
     private AccountInfo accountInfo = null;
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+    /**
+     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
+     */
     @Deprecated
     @SerializedName("allowedPaymentMethods")
     private List<String> allowedPaymentMethods = null;
@@ -209,11 +212,17 @@ public class PaymentsRequest {
         this.accountInfo = accountInfo;
     }
 
+    /**
+     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
+     */
     @Deprecated
     public List<String> getAllowedPaymentMethods() {
         return allowedPaymentMethods;
     }
 
+    /**
+     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
+     */
     @Deprecated
     public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
         this.allowedPaymentMethods = allowedPaymentMethods;
