@@ -59,6 +59,12 @@ public class PaymentsRequest {
     private AccountInfo accountInfo = null;
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+    /**
+     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
+     */
+    @Deprecated
+    @SerializedName("allowedPaymentMethods")
+    private List<String> allowedPaymentMethods = null;
     @SerializedName("amount")
     private Amount amount = null;
     @SerializedName("billingAddress")
@@ -204,6 +210,22 @@ public class PaymentsRequest {
 
     public void setAccountInfo(AccountInfo accountInfo) {
         this.accountInfo = accountInfo;
+    }
+
+    /**
+     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
+     */
+    @Deprecated
+    public List<String> getAllowedPaymentMethods() {
+        return allowedPaymentMethods;
+    }
+
+    /**
+     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
+     */
+    @Deprecated
+    public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
+        this.allowedPaymentMethods = allowedPaymentMethods;
     }
 
     public Boolean getEnableOneClick() {
@@ -1155,6 +1177,7 @@ public class PaymentsRequest {
         PaymentsRequest paymentsRequest = (PaymentsRequest) o;
         return Objects.equals(this.accountInfo, paymentsRequest.accountInfo)
                 && Objects.equals(this.additionalData, paymentsRequest.additionalData)
+                && Objects.equals(this.allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
                 && Objects.equals(this.amount, paymentsRequest.amount)
                 && Objects.equals(this.billingAddress, paymentsRequest.billingAddress)
                 && Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours)
@@ -1211,6 +1234,7 @@ public class PaymentsRequest {
     public int hashCode() {
         return Objects.hash(accountInfo,
                             additionalData,
+                            allowedPaymentMethods,
                             amount,
                             billingAddress,
                             captureDelayHours,
@@ -1268,6 +1292,7 @@ public class PaymentsRequest {
 
       return "class PaymentsRequest {\n"
           + "    additionalData: " + toIndentedString(additionalData) + "\n"
+          + "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + "\n"
           + "    amount: " + toIndentedString(amount) + "\n"
           + "    billingAddress: " + toIndentedString(billingAddress) + "\n"
           + "    captureDelayHours: " + toIndentedString(captureDelayHours) + "\n"
