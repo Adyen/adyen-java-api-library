@@ -25,9 +25,6 @@ import com.adyen.Config;
 import com.adyen.model.RequestOptions;
 import org.apache.commons.codec.binary.Base64;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSession;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -35,7 +32,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Scanner;
@@ -74,10 +70,6 @@ public class HttpURLConnectionClient implements ClientInterface {
     @Override
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
-
-        if (config.getSkipCertificationValidation()) {
-            installHostnameVerifier(httpConnection);
-        }
 
         String apiKey = config.getApiKey();
         // Use Api key if required or if provided
@@ -230,53 +222,6 @@ public class HttpURLConnectionClient implements ClientInterface {
         httpConnection.disconnect();
 
         return response;
-    }
-
-    /**
-     * Install hostname verifier that skips terminal hostname validations
-     * @param connection
-     */
-    private void installHostnameVerifier(URLConnection connection) {
-        if (connection instanceof HttpsURLConnection) {
-            HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
-
-//            try {
-//                // Create a trust manager that does not validate certificate chains
-//                TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
-//                    public X509Certificate[] getAcceptedIssuers() {
-//                        return null;
-//                    }
-//
-//                    public void checkClientTrusted(X509Certificate[] certs, String authType) {
-//                    }
-//
-//                    public void checkServerTrusted(X509Certificate[] certs, String authType) {
-//                    }
-//                }
-//                };
-//
-//                // Install the all-trusting trust manager
-//                SSLContext sc = SSLContext.getInstance("SSL");
-//                sc.init(null, trustAllCerts, new java.security.SecureRandom());
-//                httpsConnection.setSSLSocketFactory(sc.getSocketFactory());
-//            } catch (NoSuchAlgorithmException | KeyManagementException e) {
-//                e.printStackTrace();
-//            }
-
-            // Create terminal-trusting host name verifier
-            HostnameVerifier terminalHostsValid = new HostnameVerifier() {
-                public boolean verify(String host, SSLSession session) {
-                    if (host.matches(".+\\..+\\.terminal\\.adyen\\.com")) {
-                        return true;
-                    }
-                    // important: use default verifier for all other hosts
-                    return HttpsURLConnection.getDefaultHostnameVerifier().verify(host, session);
-                }
-            };
-
-            // Install the terminal-trusting host verifier
-            httpsConnection.setHostnameVerifier(terminalHostsValid);
-        }
     }
 
     public Proxy getProxy() {
