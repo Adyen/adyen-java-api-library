@@ -38,6 +38,9 @@ public class PaymentsDetailsRequest {
     @SerializedName("paymentData")
     private String paymentData = null;
 
+    @SerializedName("threeDSAuthenticationOnly")
+    private Boolean threeDSAuthenticationOnly;
+
     public PaymentsDetailsRequest details(Map<String, String> details) {
         this.details = details;
         return this;
@@ -112,6 +115,24 @@ public class PaymentsDetailsRequest {
         return this;
     }
 
+    /**
+     * Change the authenticationOnly indicator originally set in the &#x60;/payments&#x60; request. Only needs to be set if you want to modify the value set previously.
+     *
+     * @return the three ds authentication only
+     */
+    public Boolean getThreeDSAuthenticationOnly() {
+        return threeDSAuthenticationOnly;
+    }
+
+    public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    }
+
+    public PaymentsDetailsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -121,12 +142,14 @@ public class PaymentsDetailsRequest {
             return false;
         }
         PaymentsDetailsRequest paymentsDetailsRequest = (PaymentsDetailsRequest) o;
-        return Objects.equals(this.details, paymentsDetailsRequest.details) && Objects.equals(this.paymentData, paymentsDetailsRequest.paymentData);
+        return Objects.equals(this.details, paymentsDetailsRequest.details)
+                && Objects.equals(this.paymentData, paymentsDetailsRequest.paymentData)
+                && Objects.equals(this.threeDSAuthenticationOnly, paymentsDetailsRequest.threeDSAuthenticationOnly);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(details, paymentData);
+        return Objects.hash(details, paymentData, threeDSAuthenticationOnly);
     }
 
     @Override
@@ -136,6 +159,7 @@ public class PaymentsDetailsRequest {
 
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
         sb.append("}");
         return sb.toString();
     }
