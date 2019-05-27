@@ -93,7 +93,10 @@ public class PaymentResult {
         IDENTIFYSHOPPER("IdentifyShopper"),
 
         @SerializedName("ChallengeShopper")
-        CHALLENGESHOPPER("ChallengeShopper");
+        CHALLENGESHOPPER("ChallengeShopper"),
+
+        @SerializedName("AuthenticationFinished")
+        AUTHENTICATIONFINISHED("AuthenticationFinished");
 
         private String value;
 
