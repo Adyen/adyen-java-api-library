@@ -41,11 +41,8 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.security.KeyManagementException;
+import java.security.GeneralSecurityException;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Map;
@@ -61,6 +58,8 @@ import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
+    private static final String TERMINAL_API_HOST_REGEX = ".+\\..+\\.terminal\\.adyen\\.com:8443";
+    private static final String TERMINAL_API_IP_REGEX = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b:8443";
 
     private Proxy proxy;
 
@@ -251,12 +250,12 @@ public class HttpURLConnectionClient implements ClientInterface {
         this.proxy = proxy;
     }
 
-    private void installCertificateVerifier(URLConnection connection, String terminalCertificatePath) {
+    private void installCertificateVerifier(URLConnection connection, String terminalCertificatePath) throws HTTPClientException {
         if (connection instanceof HttpsURLConnection) {
             HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
 
-            // Create new KeyStore for the terminal certificate
             try {
+                // Create new KeyStore for the terminal certificate
                 InputStream certificateInput = new FileInputStream(terminalCertificatePath);
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(certificateInput);
@@ -272,18 +271,18 @@ public class HttpURLConnectionClient implements ClientInterface {
 
                 // Install the terminal certificate trust manager
                 SSLContext sc = SSLContext.getInstance("SSL");
+
                 sc.init(null, trustManagers, new java.security.SecureRandom());
                 httpsConnection.setSSLSocketFactory(sc.getSocketFactory());
-            } catch (KeyStoreException | IOException | NoSuchAlgorithmException | CertificateException | KeyManagementException e) {
-                e.printStackTrace();
+            } catch (GeneralSecurityException | IOException e) {
+                throw new HTTPClientException("Error loading certificate from path", e);
             }
 
             // Create terminal-trusting host name verifier
             HostnameVerifier terminalHostsValid = new HostnameVerifier() {
                 public boolean verify(String host, SSLSession session) {
                     String url = host + ":" + session.getPeerPort();
-                    if (url.matches(".+\\..+\\.terminal\\.adyen\\.com:8443")
-                            || url.matches("\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b:8443")) {
+                    if (url.matches(TERMINAL_API_HOST_REGEX) || url.matches(TERMINAL_API_IP_REGEX)) {
                         return true;
                     }
                     // important: use default verifier for all other hosts

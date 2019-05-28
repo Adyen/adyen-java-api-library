@@ -39,6 +39,10 @@ public class HTTPClientException extends Exception {
         super(message);
     }
 
+    public HTTPClientException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
     public HTTPClientException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders, String responseBody) {
         super(message, throwable);
         this.code = code;
