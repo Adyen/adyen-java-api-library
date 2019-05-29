@@ -21,6 +21,14 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.Util.DateUtil;
+import com.adyen.model.FraudResult;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -29,13 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import com.adyen.Util.DateUtil;
-import com.adyen.model.FraudResult;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
 import static com.adyen.constants.ApiConstants.AdditionalData.AUTH_CODE;
 import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
 import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_BARCODE_REFERENCE;
@@ -101,6 +103,12 @@ public class PaymentsResponse {
 
     @SerializedName("authentication")
     private Map<String, String> authentication;
+
+    @SerializedName("threeDS2Result")
+    private ThreeDS2Result threeDS2Result;
+
+    @SerializedName("action")
+    private CheckoutPaymentsAction action;
 
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -332,6 +340,42 @@ public class PaymentsResponse {
         this.outputDetails = outputDetails;
     }
 
+    /**
+     * Result of the 3D Secure 2 authentication.
+     *
+     * @return threeDS2Result
+     **/
+    public ThreeDS2Result getThreeDS2Result() {
+        return threeDS2Result;
+    }
+
+    public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {
+        this.threeDS2Result = threeDS2Result;
+    }
+
+    public PaymentsResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
+        this.threeDS2Result = threeDS2Result;
+        return this;
+    }
+
+    /**
+     * Action to be taken for completing the payment.
+     *
+     * @return action
+     **/
+    public CheckoutPaymentsAction getAction() {
+        return action;
+    }
+
+    public void setAction(CheckoutPaymentsAction action) {
+        this.action = action;
+    }
+
+    public PaymentsResponse action(CheckoutPaymentsAction action) {
+        this.action = action;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -344,7 +388,7 @@ public class PaymentsResponse {
         return Objects.equals(this.additionalData, paymentsResponse.additionalData)
                 && Objects.equals(this.details, paymentsResponse.details)
                 && Objects.equals(this.fraudResult,
-                                  paymentsResponse.fraudResult)
+                paymentsResponse.fraudResult)
                 && Objects.equals(this.paymentData, paymentsResponse.paymentData)
                 && Objects.equals(this.pspReference, paymentsResponse.pspReference)
                 && Objects.equals(this.redirect, paymentsResponse.redirect)
@@ -355,13 +399,15 @@ public class PaymentsResponse {
                 && Objects.equals(this.authResponse, paymentsResponse.authResponse)
                 && Objects.equals(this.merchantReference, paymentsResponse.merchantReference)
                 && Objects.equals(this.outputDetails, paymentsResponse.outputDetails)
-                && Objects.equals(this.authentication, paymentsResponse.authentication);
+                && Objects.equals(this.authentication, paymentsResponse.authentication)
+                && Objects.equals(this.threeDS2Result, paymentsResponse.threeDS2Result)
+                && Objects.equals(this.action, paymentsResponse.action);
 
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode);
+        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode, serviceError, authResponse, merchantReference, outputDetails, authentication, threeDS2Result, action);
     }
 
     @Override
@@ -382,6 +428,8 @@ public class PaymentsResponse {
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
         sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
+        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
+        sb.append("    action: ").append(toIndentedString(action)).append("\n");
         sb.append("}");
         return sb.toString();
     }
