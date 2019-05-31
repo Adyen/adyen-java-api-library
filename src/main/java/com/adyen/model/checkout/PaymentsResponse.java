@@ -446,30 +446,33 @@ public class PaymentsResponse {
     }
 
     /**
-     * The result of the payment. Possible values:  * **Authorised** – Indicates the payment authorisation was successfully completed. This state serves as an indicator to proceed with the delivery of
-     * goods and services. This is a final state. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. *
-     * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. For more information on handling a redirect, refer to [Handling a
-     * redirect](https://docs.adyen.com/developers/checkout/api-integration/payments#handlingaredirect). * **Received** – Indicates the payment has successfully been received by Adyen, and will be
-     * processed. This is the initial state for all payments. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This
-     * is a final state. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment
-     * are unavailable, or if the shopper needs to take further action to complete the payment. For more information on handling a pending payment, refer to [Payments with pending
-     * status](https://docs.adyen.com/developers/development-resources/payments-with-pending-status). * **Error** – Indicates an error occurred during processing of the payment. The reason is given in
-     * the &#x60;refusalReason&#x60; field. This is a final state.
+     * The result of the payment. Possible values:
+     * * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions.
+     * * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state.
+     * * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state.
+     * * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions.
+     * * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state.
+     * * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions.
+     * * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. For more information on handling a pending payment, refer to [Payments with pending status](https://docs.adyen.com/development-resources/payments-with-pending-status).
+     * * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments.
+     * * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation.
+     * * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
      */
     @JsonAdapter(ResultCodeEnum.Adapter.class)
     public enum ResultCodeEnum {
 
+        AUTHENTICATIONFINISHED("AuthenticationFinished"),
         AUTHORISED("Authorised"),
-        PARTIALLYAUTHORISED("PartiallyAuthorised"),
-        REFUSED("Refused"),
-        ERROR("Error"),
         CANCELLED("Cancelled"),
+        CHALLENGESHOPPER("ChallengeShopper"),
+        ERROR("Error"),
+        IDENTIFYSHOPPER("IdentifyShopper"),
+        PENDING("Pending"),
         RECEIVED("Received"),
         REDIRECTSHOPPER("RedirectShopper"),
+        REFUSED("Refused"),
+        PARTIALLYAUTHORISED("PartiallyAuthorised"),
         PRESENTTOSHOPPER("PresentToShopper"),
-        PENDING("Pending"),
-        IDENTIFYSHOPPER("IdentifyShopper"),
-        CHALLENGESHOPPER("ChallengeShopper"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
         private String value;

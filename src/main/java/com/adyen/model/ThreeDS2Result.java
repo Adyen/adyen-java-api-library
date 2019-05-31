@@ -26,9 +26,6 @@ public class ThreeDS2Result {
     @SerializedName("transStatusReason")
     private String transStatusReason = null;
 
-    @SerializedName("dsTransID")
-    private String dsTransID;
-
     public ThreeDS2Result authenticationValue(String authenticationValue) {
         this.authenticationValue = authenticationValue;
         return this;
@@ -113,23 +110,6 @@ public class ThreeDS2Result {
         this.transStatusReason = transStatusReason;
     }
 
-    /**
-     * The dsTransID value as defined in the 3D Secure 2 specification.
-     * @return dsTransID
-     */
-    public String getDsTransID() {
-        return dsTransID;
-    }
-
-    public void setDsTransID(String dsTransID) {
-        this.dsTransID = dsTransID;
-    }
-
-    public ThreeDS2Result dsTransID(String dsTransID) {
-        this.dsTransID = dsTransID;
-        return this;
-    }
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -145,13 +125,12 @@ public class ThreeDS2Result {
                                   threeDS2Result.threeDSServerTransID)
                 && Objects.equals(this.timestamp, threeDS2Result.timestamp)
                 && Objects.equals(this.transStatus, threeDS2Result.transStatus)
-                && Objects.equals(this.transStatusReason, threeDS2Result.transStatusReason)
-                && Objects.equals(this.dsTransID, threeDS2Result.dsTransID);
+                && Objects.equals(this.transStatusReason, threeDS2Result.transStatusReason);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authenticationValue, eci, threeDSServerTransID, timestamp, transStatus, transStatusReason, dsTransID);
+        return Objects.hash(authenticationValue, eci, threeDSServerTransID, timestamp, transStatus, transStatusReason);
     }
 
     @Override
@@ -165,7 +144,6 @@ public class ThreeDS2Result {
         sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("    transStatus: ").append(toIndentedString(transStatus)).append("\n");
         sb.append("    transStatusReason: ").append(toIndentedString(transStatusReason)).append("\n");
-        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
         sb.append("}");
         return sb.toString();
     }

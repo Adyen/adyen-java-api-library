@@ -21,7 +21,6 @@
 package com.adyen.model.modification;
 
 import com.adyen.model.Split;
-import com.adyen.model.ThreeDSecureData;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
@@ -57,9 +56,6 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
 
     @SerializedName("splits")
     private List<Split> splits = null;
-
-    @SerializedName("mpiData")
-    private ThreeDSecureData mpiData = null;
 
     public AbstractModificationRequest() {
         applicationInfo = new ApplicationInfo();
@@ -158,19 +154,6 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     }
 
     /**
-     * authentication data produced by an MPI (MasterCard SecureCode or Verified By Visa)
-     *
-     * @return mpiData
-     **/
-    public ThreeDSecureData getMpiData() {
-        return mpiData;
-    }
-
-    public void setMpiData(ThreeDSecureData mpiData) {
-        this.mpiData = mpiData;
-    }
-
-    /**
      * get additionalData map Create the map if doesn't exists
      *
      * @return additional data
@@ -265,13 +248,12 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
                                   modificationRequest.originalReference)
                 && Objects.equals(this.merchantAccount, modificationRequest.merchantAccount)
                 && Objects.equals(this.applicationInfo, modificationRequest.applicationInfo)
-                && Objects.equals(this.additionalData, modificationRequest.additionalData)
-                && Objects.equals(this.mpiData, modificationRequest.mpiData);
+                && Objects.equals(this.additionalData, modificationRequest.additionalData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reference, authorisationCode, originalReference, merchantAccount, additionalData, applicationInfo, mpiData);
+        return Objects.hash(reference, authorisationCode, originalReference, merchantAccount, additionalData, applicationInfo);
     }
 
     @Override
@@ -284,7 +266,6 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
 
         return sb.toString();
     }
