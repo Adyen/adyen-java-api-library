@@ -35,7 +35,7 @@ public class Client {
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
-    public static final String API_VERSION = "v46";
+    public static final String API_VERSION = "v49";
     public static final String RECURRING_API_VERSION = "v25";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v4";
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
