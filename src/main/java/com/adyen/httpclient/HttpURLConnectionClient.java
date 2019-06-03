@@ -58,8 +58,6 @@ import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
-    private static final String TERMINAL_API_HOST_REGEX = ".+\\..+\\.terminal\\.adyen\\.com:8443";
-    private static final String TERMINAL_API_IP_REGEX = "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b:8443";
 
     private Proxy proxy;
 
@@ -278,15 +276,10 @@ public class HttpURLConnectionClient implements ClientInterface {
                 throw new HTTPClientException("Error loading certificate from path", e);
             }
 
-            // Create terminal-trusting host name verifier
+            // Skip host name verifier
             HostnameVerifier terminalHostsValid = new HostnameVerifier() {
                 public boolean verify(String host, SSLSession session) {
-                    String url = host + ":" + session.getPeerPort();
-                    if (url.matches(TERMINAL_API_HOST_REGEX) || url.matches(TERMINAL_API_IP_REGEX)) {
-                        return true;
-                    }
-                    // important: use default verifier for all other hosts
-                    return HttpsURLConnection.getDefaultHostnameVerifier().verify(host, session);
+                    return true;
                 }
             };
 
