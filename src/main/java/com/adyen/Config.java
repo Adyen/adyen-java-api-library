@@ -48,7 +48,7 @@ public class Config {
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
     protected String terminalApiLocalEndpoint;
-    protected boolean skipCertificationValidation = false;
+    protected String terminalCertificatePath;
 
     public Config() {
         // do nothing
@@ -170,12 +170,12 @@ public class Config {
         this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
     }
 
-    public boolean getSkipCertificationValidation() {
-        return skipCertificationValidation;
+    public String getTerminalCertificatePath() {
+        return terminalCertificatePath;
     }
 
-    public void setSkipCertificationValidation(boolean skipCertificationValidation) {
-        this.skipCertificationValidation = skipCertificationValidation;
+    public void setTerminalCertificatePath(String terminalCertificatePath) {
+        this.terminalCertificatePath = terminalCertificatePath;
     }
 
     public int getConnectionTimeoutMillis() {
