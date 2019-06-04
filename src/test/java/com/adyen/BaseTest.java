@@ -23,9 +23,12 @@ package com.adyen;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,8 +50,23 @@ import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.RefundRequest;
+import com.adyen.model.nexo.AmountsReq;
+import com.adyen.model.nexo.MessageCategoryType;
+import com.adyen.model.nexo.MessageClassType;
+import com.adyen.model.nexo.MessageHeader;
+import com.adyen.model.nexo.MessageType;
+import com.adyen.model.nexo.PaymentTransaction;
+import com.adyen.model.nexo.SaleData;
+import com.adyen.model.nexo.SaleToPOIRequest;
+import com.adyen.model.nexo.TransactionIdentification;
+import com.adyen.model.terminal.TerminalAPIRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.Mockito.any;
@@ -275,5 +293,45 @@ public class BaseTest {
         Amount amount = Util.createAmount("15.00", "EUR");
 
         return createBaseModificationRequest(new RefundRequest()).modificationAmount(amount);
+    }
+
+    protected TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {
+        SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
+
+        MessageHeader messageHeader = new MessageHeader();
+        messageHeader.setProtocolVersion("3.0");
+        messageHeader.setMessageClass(MessageClassType.SERVICE);
+        messageHeader.setMessageCategory(MessageCategoryType.PAYMENT);
+        messageHeader.setMessageType(MessageType.REQUEST);
+        messageHeader.setSaleID("001");
+        messageHeader.setServiceID("001");
+        messageHeader.setPOIID("P400Plus-123456789");
+
+        saleToPOIRequest.setMessageHeader(messageHeader);
+
+        com.adyen.model.nexo.PaymentRequest paymentRequest = new com.adyen.model.nexo.PaymentRequest();
+
+        SaleData saleData = new SaleData();
+        TransactionIdentification transactionIdentification = new TransactionIdentification();
+        transactionIdentification.setTransactionID("001");
+        XMLGregorianCalendar timestamp = DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar());
+        transactionIdentification.setTimeStamp(timestamp);
+        saleData.setSaleTransactionID(transactionIdentification);
+
+        PaymentTransaction paymentTransaction = new PaymentTransaction();
+        AmountsReq amountsReq = new AmountsReq();
+        amountsReq.setCurrency("EUR");
+        amountsReq.setRequestedAmount(BigDecimal.ONE);
+        paymentTransaction.setAmountsReq(amountsReq);
+
+        paymentRequest.setSaleData(saleData);
+        paymentRequest.setPaymentTransaction(paymentTransaction);
+
+        saleToPOIRequest.setPaymentRequest(paymentRequest);
+
+        TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
+        terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
+
+        return terminalAPIRequest;
     }
 }

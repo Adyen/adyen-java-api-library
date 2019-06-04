@@ -20,6 +20,18 @@
  */
 package com.adyen.httpclient;
 
+import com.adyen.Client;
+import com.adyen.Config;
+import com.adyen.model.RequestOptions;
+import org.apache.commons.codec.binary.Base64;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -27,13 +39,15 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.security.GeneralSecurityException;
+import java.security.KeyStore;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.Scanner;
-import org.apache.commons.codec.binary.Base64;
-import com.adyen.Client;
-import com.adyen.Config;
-import com.adyen.model.RequestOptions;
+
 import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
 import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
 import static com.adyen.constants.ApiConstants.RequestProperty.APPLICATION_JSON_TYPE;
@@ -44,6 +58,7 @@ import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
+
     private Proxy proxy;
 
     /**
@@ -68,9 +83,13 @@ public class HttpURLConnectionClient implements ClientInterface {
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
 
+        if (config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) {
+            installCertificateVerifier(httpConnection, config.getTerminalCertificatePath());
+        }
+
         String apiKey = config.getApiKey();
         // Use Api key if required or if provided
-        if (isApiKeyRequired || (apiKey != null && ! apiKey.isEmpty())) {
+        if (isApiKeyRequired || (apiKey != null && !apiKey.isEmpty())) {
             setApiKey(httpConnection, apiKey);
         } else {
             setBasicAuthentication(httpConnection, config.getUsername(), config.getPassword());
@@ -184,7 +203,7 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Sets api key
      */
     private HttpURLConnection setApiKey(HttpURLConnection httpConnection, String apiKey) {
-        if (apiKey != null && ! apiKey.isEmpty()) {
+        if (apiKey != null && !apiKey.isEmpty()) {
             httpConnection.setRequestProperty(API_KEY, apiKey);
         }
         return httpConnection;
@@ -227,5 +246,45 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     public void setProxy(Proxy proxy) {
         this.proxy = proxy;
+    }
+
+    private void installCertificateVerifier(URLConnection connection, String terminalCertificatePath) throws HTTPClientException {
+        if (connection instanceof HttpsURLConnection) {
+            HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
+
+            try {
+                // Create new KeyStore for the terminal certificate
+                InputStream certificateInput = new FileInputStream(terminalCertificatePath);
+                CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+                X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(certificateInput);
+
+                KeyStore keyStore = KeyStore.getInstance("JKS");
+                keyStore.load(null, null);
+                keyStore.setCertificateEntry("TerminalCertificate", cert);
+
+                TrustManagerFactory trustFactory =
+                        TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                trustFactory.init(keyStore);
+                TrustManager[] trustManagers = trustFactory.getTrustManagers();
+
+                // Install the terminal certificate trust manager
+                SSLContext sc = SSLContext.getInstance("SSL");
+
+                sc.init(null, trustManagers, new java.security.SecureRandom());
+                httpsConnection.setSSLSocketFactory(sc.getSocketFactory());
+            } catch (GeneralSecurityException | IOException e) {
+                throw new HTTPClientException("Error loading certificate from path", e);
+            }
+
+            // Skip host name verifier
+            HostnameVerifier terminalHostsValid = new HostnameVerifier() {
+                public boolean verify(String host, SSLSession session) {
+                    return true;
+                }
+            };
+
+            // Install the terminal-trusting host verifier
+            httpsConnection.setHostnameVerifier(terminalHostsValid);
+        }
     }
 }

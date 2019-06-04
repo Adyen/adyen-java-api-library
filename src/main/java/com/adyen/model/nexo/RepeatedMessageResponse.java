@@ -5,7 +5,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
  * Definition: Content of the requested Message Response. -- Usage: Allow the knowledge of the last Payment, Loyalty or Reversal transaction
  *
@@ -35,16 +34,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RepeatedMessageResponse", propOrder = {
-        "repeatedMessageResponseBody",
+        "repeatedResponseMessageBody",
         "messageHeader"
-})
+        })
 public class RepeatedMessageResponse {
 
     /**
      * The Repeated message response body.
      */
-    @XmlElement(name = "RepeatedMessageResponseBody", required = true)
-    protected RepeatedMessageResponseBody repeatedMessageResponseBody;
+    @XmlElement(name = "RepeatedResponseMessageBody", required = true)
+    protected RepeatedResponseMessageBody repeatedResponseMessageBody;
     /**
      * The Message header.
      */
@@ -52,21 +51,21 @@ public class RepeatedMessageResponse {
     protected MessageHeader messageHeader;
 
     /**
-     * Gets the value of the repeatedMessageResponseBody property.
+     * Gets the value of the repeatedResponseMessageBody property.
      *
-     * @return possible      object is     {@link RepeatedMessageResponseBody }
+     * @return possible      object is     {@link RepeatedResponseMessageBody }
      */
-    public RepeatedMessageResponseBody getRepeatedMessageResponseBody() {
-        return repeatedMessageResponseBody;
+    public RepeatedResponseMessageBody getRepeatedResponseMessageBody() {
+        return repeatedResponseMessageBody;
     }
 
     /**
-     * Sets the value of the repeatedMessageResponseBody property.
+     * Sets the value of the repeatedResponseMessageBody property.
      *
-     * @param value allowed object is     {@link RepeatedMessageResponseBody }
+     * @param value allowed object is     {@link RepeatedResponseMessageBody }
      */
-    public void setRepeatedMessageResponseBody(RepeatedMessageResponseBody value) {
-        this.repeatedMessageResponseBody = value;
+    public void setRepeatedResponseMessageBody(RepeatedResponseMessageBody value) {
+        this.repeatedResponseMessageBody = value;
     }
 
     /**
