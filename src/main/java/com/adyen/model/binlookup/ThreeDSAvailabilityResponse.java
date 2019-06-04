@@ -20,16 +20,19 @@
  */
 package com.adyen.model.binlookup;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * ThreeDSAvailabilityResponse
  */
-
 public class ThreeDSAvailabilityResponse {
+
+    @SerializedName("binDetails")
+    private BinDetail binDetails = null;
 
     @SerializedName("dsPublicKeys")
     private List<DSPublicKeyDetail> dsPublicKeys = null;
@@ -42,6 +45,24 @@ public class ThreeDSAvailabilityResponse {
 
     @SerializedName("threeDS2supported")
     private Boolean threeDS2supported = null;
+
+    public ThreeDSAvailabilityResponse binDetails(BinDetail binDetails) {
+        this.binDetails = binDetails;
+        return this;
+    }
+
+    /**
+     * Get binDetails
+     *
+     * @return binDetails
+     **/
+    public BinDetail getBinDetails() {
+        return binDetails;
+    }
+
+    public void setBinDetails(BinDetail binDetails) {
+        this.binDetails = binDetails;
+    }
 
     public ThreeDSAvailabilityResponse dsPublicKeys(List<DSPublicKeyDetail> dsPublicKeys) {
         this.dsPublicKeys = dsPublicKeys;
@@ -73,7 +94,6 @@ public class ThreeDSAvailabilityResponse {
         this.threeDS1Supported = threeDS1Supported;
         return this;
     }
-
 
     /**
      * Indicator if 3D Secure 1 is supported.
@@ -119,7 +139,6 @@ public class ThreeDSAvailabilityResponse {
         return this;
     }
 
-
     /**
      * Indicator if 3D Secure 2 is supported.
      *
@@ -142,21 +161,23 @@ public class ThreeDSAvailabilityResponse {
             return false;
         }
         ThreeDSAvailabilityResponse threeDSAvailabilityResponse = (ThreeDSAvailabilityResponse) o;
-        return Objects.equals(this.dsPublicKeys, threeDSAvailabilityResponse.dsPublicKeys) && Objects.equals(this.threeDS1Supported, threeDSAvailabilityResponse.threeDS1Supported) && Objects.equals(
-                this.threeDS2CardRangeDetails,
-                threeDSAvailabilityResponse.threeDS2CardRangeDetails) && Objects.equals(this.threeDS2supported, threeDSAvailabilityResponse.threeDS2supported);
+        return Objects.equals(this.binDetails, threeDSAvailabilityResponse.binDetails) &&
+                Objects.equals(this.dsPublicKeys, threeDSAvailabilityResponse.dsPublicKeys) &&
+                Objects.equals(this.threeDS1Supported, threeDSAvailabilityResponse.threeDS1Supported) &&
+                Objects.equals(this.threeDS2CardRangeDetails, threeDSAvailabilityResponse.threeDS2CardRangeDetails) &&
+                Objects.equals(this.threeDS2supported, threeDSAvailabilityResponse.threeDS2supported);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dsPublicKeys, threeDS1Supported, threeDS2CardRangeDetails, threeDS2supported);
+        return Objects.hash(binDetails, dsPublicKeys, threeDS1Supported, threeDS2CardRangeDetails, threeDS2supported);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ThreeDSAvailabilityResponse {\n");
-
+        sb.append("    binDetails: ").append(toIndentedString(binDetails)).append("\n");
         sb.append("    dsPublicKeys: ").append(toIndentedString(dsPublicKeys)).append("\n");
         sb.append("    threeDS1Supported: ").append(toIndentedString(threeDS1Supported)).append("\n");
         sb.append("    threeDS2CardRangeDetails: ").append(toIndentedString(threeDS2CardRangeDetails)).append("\n");

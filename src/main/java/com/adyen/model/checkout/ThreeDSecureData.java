@@ -48,6 +48,8 @@ public class ThreeDSecureData {
     private String threeDSVersion = null;
     @SerializedName("xid")
     private byte[] xid = null;
+    @SerializedName("dsTransID")
+    private String dsTransID = null;
 
     public ThreeDSecureData authenticationResponse(AuthenticationResponseEnum authenticationResponse) {
         this.authenticationResponse = authenticationResponse;
@@ -140,6 +142,23 @@ public class ThreeDSecureData {
         this.xid = xid;
     }
 
+    /**
+     * Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.
+     * @return dsTransID
+     */
+    public String getDsTransID() {
+        return dsTransID;
+    }
+
+    public void setDsTransID(String dsTransID) {
+        this.dsTransID = dsTransID;
+    }
+
+    public ThreeDSecureData dsTransID(String dsTransID) {
+        this.dsTransID = dsTransID;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -156,12 +175,13 @@ public class ThreeDSecureData {
                 && Objects.equals(this.directoryResponse, threeDSecureData.directoryResponse)
                 && Objects.equals(this.eci, threeDSecureData.eci)
                 && Objects.equals(this.threeDSVersion, threeDSecureData.threeDSVersion)
-                && Objects.equals(this.xid, threeDSecureData.xid);
+                && Objects.equals(this.xid, threeDSecureData.xid)
+                && Objects.equals(this.dsTransID, threeDSecureData.dsTransID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authenticationResponse, cavv, cavvAlgorithm, directoryResponse, eci, threeDSVersion, xid);
+        return Objects.hash(authenticationResponse, cavv, cavvAlgorithm, directoryResponse, eci, threeDSVersion, xid, dsTransID);
     }
 
     @Override
@@ -176,6 +196,7 @@ public class ThreeDSecureData {
         sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
         sb.append("    threeDSVersion: ").append(toIndentedString(threeDSVersion)).append("\n");
         sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
+        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
         sb.append("}");
         return sb.toString();
     }

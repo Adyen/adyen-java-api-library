@@ -14,42 +14,40 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2019 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
- *
  */
+package com.adyen.model.binlookup;
 
-package com.adyen.model.modification;
-
-import com.adyen.Util.Util;
-import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-public class AdjustAuthorisationRequest extends AbstractModificationRequest<AdjustAuthorisationRequest> {
-    @SerializedName("modificationAmount")
-    private Amount modificationAmount = null;
+/**
+ * BinDetail
+ */
+public class BinDetail {
 
-    public AdjustAuthorisationRequest modificationAmount(Amount modificationAmount) {
-        this.modificationAmount = modificationAmount;
+    @SerializedName("issuerCountry")
+    private String issuerCountry = null;
+
+    public BinDetail issuerCountry(String issuerCountry) {
+        this.issuerCountry = issuerCountry;
         return this;
     }
 
-    public Amount getModificationAmount() {
-        return modificationAmount;
+    /**
+     * The country where the card was issued.
+     *
+     * @return issuerCountry
+     **/
+    public String getIssuerCountry() {
+        return issuerCountry;
     }
 
-    public void setModificationAmount(Amount modificationAmount) {
-        this.modificationAmount = modificationAmount;
-    }
-
-    public AdjustAuthorisationRequest fillAmount(String amount, String currency) {
-        Amount amountData = Util.createAmount(amount, currency);
-
-        this.setModificationAmount(amountData);
-        return this;
+    public void setIssuerCountry(String issuerCountry) {
+        this.issuerCountry = issuerCountry;
     }
 
     @Override
@@ -60,23 +58,20 @@ public class AdjustAuthorisationRequest extends AbstractModificationRequest<Adju
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AdjustAuthorisationRequest adjustAuthorisationRequest = (AdjustAuthorisationRequest) o;
-        return super.equals(adjustAuthorisationRequest) &&
-                Objects.equals(this.modificationAmount, adjustAuthorisationRequest.modificationAmount);
+        BinDetail binDetail = (BinDetail) o;
+        return Objects.equals(this.issuerCountry, binDetail.issuerCountry);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(modificationAmount, super.hashCode());
+        return Objects.hash(issuerCountry);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AdjustAuthorisationRequest {\n");
-
-        sb.append(super.toString());
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
+        sb.append("class BinDetail {\n");
+        sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -91,4 +86,5 @@ public class AdjustAuthorisationRequest extends AbstractModificationRequest<Adju
         }
         return o.toString().replace("\n", "\n    ");
     }
+
 }

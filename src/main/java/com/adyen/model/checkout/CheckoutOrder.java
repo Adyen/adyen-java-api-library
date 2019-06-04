@@ -14,42 +14,62 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2019 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
- *
  */
+package com.adyen.model.checkout;
 
-package com.adyen.model.modification;
-
-import com.adyen.Util.Util;
-import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-public class AdjustAuthorisationRequest extends AbstractModificationRequest<AdjustAuthorisationRequest> {
-    @SerializedName("modificationAmount")
-    private Amount modificationAmount = null;
+/**
+ * CheckoutOrder
+ */
 
-    public AdjustAuthorisationRequest modificationAmount(Amount modificationAmount) {
-        this.modificationAmount = modificationAmount;
+public class CheckoutOrder {
+
+    @SerializedName("orderData")
+    private String orderData = null;
+
+    @SerializedName("pspReference")
+    private String pspReference = null;
+
+    public CheckoutOrder orderData(String orderData) {
+        this.orderData = orderData;
         return this;
     }
 
-    public Amount getModificationAmount() {
-        return modificationAmount;
+    /**
+     * The encrypted order data
+     *
+     * @return orderData
+     **/
+    public String getOrderData() {
+        return orderData;
     }
 
-    public void setModificationAmount(Amount modificationAmount) {
-        this.modificationAmount = modificationAmount;
+    public void setOrderData(String orderData) {
+        this.orderData = orderData;
     }
 
-    public AdjustAuthorisationRequest fillAmount(String amount, String currency) {
-        Amount amountData = Util.createAmount(amount, currency);
-
-        this.setModificationAmount(amountData);
+    public CheckoutOrder pspReference(String pspReference) {
+        this.pspReference = pspReference;
         return this;
+    }
+
+    /**
+     * The pspReference that belongs to the order
+     *
+     * @return pspReference
+     **/
+    public String getPspReference() {
+        return pspReference;
+    }
+
+    public void setPspReference(String pspReference) {
+        this.pspReference = pspReference;
     }
 
     @Override
@@ -60,23 +80,23 @@ public class AdjustAuthorisationRequest extends AbstractModificationRequest<Adju
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AdjustAuthorisationRequest adjustAuthorisationRequest = (AdjustAuthorisationRequest) o;
-        return super.equals(adjustAuthorisationRequest) &&
-                Objects.equals(this.modificationAmount, adjustAuthorisationRequest.modificationAmount);
+        CheckoutOrder checkoutOrder = (CheckoutOrder) o;
+        return Objects.equals(this.orderData, checkoutOrder.orderData) &&
+                Objects.equals(this.pspReference, checkoutOrder.pspReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(modificationAmount, super.hashCode());
+        return Objects.hash(orderData, pspReference);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AdjustAuthorisationRequest {\n");
+        sb.append("class CheckoutOrder {\n");
 
-        sb.append(super.toString());
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
+        sb.append("    orderData: ").append(toIndentedString(orderData)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -91,4 +111,5 @@ public class AdjustAuthorisationRequest extends AbstractModificationRequest<Adju
         }
         return o.toString().replace("\n", "\n    ");
     }
+
 }

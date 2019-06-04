@@ -107,6 +107,9 @@ public class ThreeDSecureData {
     @SerializedName("eci")
     private String eci = null;
 
+    @SerializedName("dsTransID")
+    private String dsTransID = null;
+
     public ThreeDSecureData cavvAlgorithm(String cavvAlgorithm) {
         this.cavvAlgorithm = cavvAlgorithm;
         return this;
@@ -217,6 +220,22 @@ public class ThreeDSecureData {
         this.eci = eci;
     }
 
+    /**
+     * Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.
+     * @return dsTransID
+     */
+    public String getDsTransID() {
+        return dsTransID;
+    }
+
+    public void setDsTransID(String dsTransID) {
+        this.dsTransID = dsTransID;
+    }
+
+    public ThreeDSecureData dsTransID(String dsTransID) {
+        this.dsTransID = dsTransID;
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -232,12 +251,13 @@ public class ThreeDSecureData {
                 && Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse)
                 && Objects.equals(this.xid, threeDSecureData.xid)
                 && Objects.equals(this.cavv, threeDSecureData.cavv)
-                && Objects.equals(this.eci, threeDSecureData.eci);
+                && Objects.equals(this.eci, threeDSecureData.eci)
+                && Objects.equals(this.dsTransID, threeDSecureData.dsTransID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cavvAlgorithm, directoryResponse, authenticationResponse, xid, cavv, eci);
+        return Objects.hash(cavvAlgorithm, directoryResponse, authenticationResponse, xid, cavv, eci, dsTransID);
     }
 
 
@@ -252,6 +272,7 @@ public class ThreeDSecureData {
         sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
         sb.append("    cavv: ").append(toIndentedString(cavv)).append("\n");
         sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
+        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
         sb.append("}");
         return sb.toString();
     }

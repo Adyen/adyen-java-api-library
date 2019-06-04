@@ -53,6 +53,9 @@ public class BrowserInfo {
     @SerializedName("acceptHeader")
     private String acceptHeader = null;
 
+    @SerializedName("javaScriptEnabled")
+    private Boolean javaScriptEnabled = null;
+
     public BrowserInfo acceptHeader(String acceptHeader) {
         this.acceptHeader = acceptHeader;
         return this;
@@ -160,6 +163,19 @@ public class BrowserInfo {
         this.userAgent = userAgent;
     }
 
+    public BrowserInfo javaScriptEnabled(Boolean javaScriptEnabled) {
+        this.javaScriptEnabled = javaScriptEnabled;
+        return this;
+    }
+
+    public Boolean isJavaScriptEnabled() {
+        return javaScriptEnabled;
+    }
+
+    public void setJavaScriptEnabled(Boolean javaScriptEnabled) {
+        this.javaScriptEnabled = javaScriptEnabled;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -176,12 +192,13 @@ public class BrowserInfo {
                 && Objects.equals(this.screenHeight, browserInfo.screenHeight)
                 && Objects.equals(this.screenWidth, browserInfo.screenWidth)
                 && Objects.equals(this.timeZoneOffset, browserInfo.timeZoneOffset)
-                && Objects.equals(this.userAgent, browserInfo.userAgent);
+                && Objects.equals(this.userAgent, browserInfo.userAgent)
+                && Objects.equals(this.javaScriptEnabled, browserInfo.javaScriptEnabled);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(acceptHeader, colorDepth, javaEnabled, language, screenHeight, screenWidth, timeZoneOffset, userAgent);
+        return Objects.hash(acceptHeader, colorDepth, javaEnabled, language, screenHeight, screenWidth, timeZoneOffset, userAgent, javaScriptEnabled);
     }
 
     @Override
@@ -196,6 +213,7 @@ public class BrowserInfo {
         sb.append("    screenWidth: ").append(toIndentedString(screenWidth)).append("\n");
         sb.append("    timeZoneOffset: ").append(toIndentedString(timeZoneOffset)).append("\n");
         sb.append("    acceptHeader: ").append(toIndentedString(acceptHeader)).append("\n");
+        sb.append("    javaScriptEnabled: ").append(toIndentedString(javaScriptEnabled)).append("\n");
         sb.append("}");
         return sb.toString();
     }

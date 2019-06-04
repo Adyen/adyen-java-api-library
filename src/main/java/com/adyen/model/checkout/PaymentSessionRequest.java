@@ -20,11 +20,6 @@
  */
 package com.adyen.model.checkout;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -45,6 +40,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * PaymentSessionRequest
@@ -88,8 +89,6 @@ public class PaymentSessionRequest {
 
     @SerializedName("card")
     private Card card = null;
-
-
 
 
     /**
@@ -429,6 +428,9 @@ public class PaymentSessionRequest {
 
     @SerializedName("store")
     private String store = null;
+
+    @SerializedName("storePaymentMethod")
+    private Boolean storePaymentMethod = null;
 
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
@@ -1266,6 +1268,19 @@ public class PaymentSessionRequest {
         this.splits = splits;
     }
 
+    public PaymentSessionRequest storePaymentMethod(Boolean storePaymentMethod) {
+        this.storePaymentMethod = storePaymentMethod;
+        return this;
+    }
+
+    public Boolean getStorePaymentMethod() {
+        return storePaymentMethod;
+    }
+
+    public void setStorePaymentMethod(Boolean storePaymentMethod) {
+        this.storePaymentMethod = storePaymentMethod;
+    }
+
     public PaymentSessionRequest store(String store) {
         this.store = store;
         return this;
@@ -1371,7 +1386,7 @@ public class PaymentSessionRequest {
         return Objects.equals(this.accountInfo, paymentSessionRequest.accountInfo)
                 && Objects.equals(this.additionalAmount, paymentSessionRequest.additionalAmount)
                 && Objects.equals(this.additionalData,
-                                  paymentSessionRequest.additionalData)
+                paymentSessionRequest.additionalData)
                 && Objects.equals(this.allowedPaymentMethods, paymentSessionRequest.allowedPaymentMethods)
                 && Objects.equals(this.amount, paymentSessionRequest.amount)
                 && Objects.equals(this.applicationInfo, paymentSessionRequest.applicationInfo)
@@ -1427,6 +1442,7 @@ public class PaymentSessionRequest {
                 && Objects.equals(this.socialSecurityNumber, paymentSessionRequest.socialSecurityNumber)
                 && Objects.equals(this.splits, paymentSessionRequest.splits)
                 && Objects.equals(this.store, paymentSessionRequest.store)
+                && Objects.equals(this.storePaymentMethod, paymentSessionRequest.storePaymentMethod)
                 && Objects.equals(this.telephoneNumber, paymentSessionRequest.telephoneNumber)
                 && Objects.equals(this.threeDS2RequestData, paymentSessionRequest.threeDS2RequestData)
                 && Objects.equals(this.token, paymentSessionRequest.token)
@@ -1438,69 +1454,70 @@ public class PaymentSessionRequest {
     @Override
     public int hashCode() {
         return Objects.hash(accountInfo,
-                            additionalAmount,
-                            additionalData,
-                            allowedPaymentMethods,
-                            amount,
-                            applicationInfo,
-                            bankAccount,
-                            billingAddress,
-                            blockedPaymentMethods,
-                            browserInfo,
-                            captureDelayHours,
-                            card,
-                            channel,
-                            company,
-                            configId,
-                            configuration,
-                            countryCode,
-                            dateOfBirth,
-                            dccQuote,
-                            deliveryAddress,
-                            deliveryDate,
-                            deviceFingerprint,
-                            enableOneClick,
-                            enablePayOut,
-                            enableRecurring,
-                            entityType,
-                            fraudOffset,
-                            html,
-                            installments,
-                            lineItems,
-                            mcc,
-                            merchantAccount,
-                            merchantOrderReference,
-                            merchantRiskIndicator,
-                            metadata,
-                            mpiData,
-                            nationality,
-                            orderReference,
-                            origin,
-                            recurring,
-                            recurringProcessingModel,
-                            reference,
-                            returnUrl,
-                            sdkVersion,
-                            selectedBrand,
-                            selectedRecurringDetailReference,
-                            sessionId,
-                            sessionValidity,
-                            shopperEmail,
-                            shopperIP,
-                            shopperInteraction,
-                            shopperLocale,
-                            shopperName,
-                            shopperReference,
-                            shopperStatement,
-                            socialSecurityNumber,
-                            splits,
-                            store,
-                            telephoneNumber,
-                            threeDS2RequestData,
-                            token,
-                            totalsGroup,
-                            trustedShopper,
-                            uniqueTerminalId);
+                additionalAmount,
+                additionalData,
+                allowedPaymentMethods,
+                amount,
+                applicationInfo,
+                bankAccount,
+                billingAddress,
+                blockedPaymentMethods,
+                browserInfo,
+                captureDelayHours,
+                card,
+                channel,
+                company,
+                configId,
+                configuration,
+                countryCode,
+                dateOfBirth,
+                dccQuote,
+                deliveryAddress,
+                deliveryDate,
+                deviceFingerprint,
+                enableOneClick,
+                enablePayOut,
+                enableRecurring,
+                entityType,
+                fraudOffset,
+                html,
+                installments,
+                lineItems,
+                mcc,
+                merchantAccount,
+                merchantOrderReference,
+                merchantRiskIndicator,
+                metadata,
+                mpiData,
+                nationality,
+                orderReference,
+                origin,
+                recurring,
+                recurringProcessingModel,
+                reference,
+                returnUrl,
+                sdkVersion,
+                selectedBrand,
+                selectedRecurringDetailReference,
+                sessionId,
+                sessionValidity,
+                shopperEmail,
+                shopperIP,
+                shopperInteraction,
+                shopperLocale,
+                shopperName,
+                shopperReference,
+                shopperStatement,
+                socialSecurityNumber,
+                splits,
+                store,
+                storePaymentMethod,
+                telephoneNumber,
+                threeDS2RequestData,
+                token,
+                totalsGroup,
+                trustedShopper,
+                uniqueTerminalId);
     }
 
     @Override
@@ -1566,6 +1583,7 @@ public class PaymentSessionRequest {
         sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
         sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
         sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
         sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
         sb.append("    token: ").append(toIndentedString(token)).append("\n");
