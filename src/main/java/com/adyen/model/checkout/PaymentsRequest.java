@@ -177,6 +177,12 @@ public class PaymentsRequest {
     @SerializedName("redirectToIssuerMethod")
     private String redirectToIssuerMethod = null;
 
+    @SerializedName("order")
+    private CheckoutOrder order = null;
+
+    @SerializedName("storePaymentMethod")
+    private Boolean storePaymentMethod = null;
+
     public PaymentsRequest() {
         if (this.applicationInfo == null) {
             this.applicationInfo = new ApplicationInfo();
@@ -1166,6 +1172,42 @@ public class PaymentsRequest {
         return this;
     }
 
+    /**
+     * Contains the order information which is required for partial payments.
+     *
+     * @return order
+     */
+    public CheckoutOrder getOrder() {
+        return order;
+    }
+
+    public void setOrder(CheckoutOrder order) {
+        this.order = order;
+    }
+
+    public PaymentsRequest order(CheckoutOrder order) {
+        this.order = order;
+        return this;
+    }
+
+    /**
+     * When true and shopperReference is provided, the payment details will be stored.
+     *
+     * @return storePaymentMethod
+     */
+    public Boolean getStorePaymentMethod() {
+        return storePaymentMethod;
+    }
+
+    public void setStorePaymentMethod(Boolean storePaymentMethod) {
+        this.storePaymentMethod = storePaymentMethod;
+    }
+
+    public PaymentsRequest storePaymentMethod(Boolean storePaymentMethod) {
+        this.storePaymentMethod = storePaymentMethod;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1227,7 +1269,9 @@ public class PaymentsRequest {
                 && Objects.equals(this.merchantData, paymentsRequest.merchantData)
                 && Objects.equals(this.mpiData, paymentsRequest.mpiData)
                 && Objects.equals(this.redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod)
-                && Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod);
+                && Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod)
+                && Objects.equals(this.order, paymentsRequest.order)
+                && Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod);
     }
 
     @Override
@@ -1284,7 +1328,9 @@ public class PaymentsRequest {
                             merchantData,
                             mpiData,
                             redirectFromIssuerMethod,
-                            redirectToIssuerMethod);
+                            redirectToIssuerMethod,
+                            order,
+                            storePaymentMethod);
     }
 
     @Override
@@ -1344,6 +1390,8 @@ public class PaymentsRequest {
           + "    mpiData: " + toIndentedString(mpiData) + "\n"
           + "    redirectFromIssuerMethod: " + toIndentedString(redirectFromIssuerMethod) + "\n"
           + "    redirectToIssuerMethod: " + toIndentedString(redirectToIssuerMethod) + "\n"
+          + "    order: " + toIndentedString(order) + "\n"
+          + "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + "\n"
           + "}";
     }
 

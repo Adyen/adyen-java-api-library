@@ -205,7 +205,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentMethodsFailureMissingIdentifierOnLive() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsresult-error-invalid-data-payload-422.json");
-        client.setEnvironment(LIVE, "dumyPrefix");
+        client.setEnvironment(LIVE, null);
         try {
             new Checkout(client);
         } catch (IllegalArgumentException e) {

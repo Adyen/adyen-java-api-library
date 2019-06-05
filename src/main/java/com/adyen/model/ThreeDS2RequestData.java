@@ -122,8 +122,27 @@ public class ThreeDS2RequestData {
     @SerializedName("threeDSRequestorURL")
     private String threeDSRequestorURL = null;
 
+    @Deprecated
     @SerializedName("threeDSServerTransID")
     private String threeDSServerTransID = null;
+
+    @SerializedName("messageVersion")
+    private String messageVersion = null;
+
+    @SerializedName("threeDSRequestorID")
+    private String threeDSRequestorID = null;
+
+    @SerializedName("threeDSRequestorName")
+    private String threeDSRequestorName = null;
+
+    @SerializedName("acquirerBIN")
+    private String acquirerBIN = null;
+
+    @SerializedName("acquirerMerchantID")
+    private String acquirerMerchantID = null;
+
+    @SerializedName("mcc")
+    private String mcc = null;
 
     public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
         this.authenticationOnly = authenticationOnly;
@@ -295,17 +314,131 @@ public class ThreeDS2RequestData {
         this.threeDSRequestorURL = threeDSRequestorURL;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 41, this field is not used anymore.
+     */
+    @Deprecated
     public ThreeDS2RequestData threeDSServerTransID(String threeDSServerTransID) {
         this.threeDSServerTransID = threeDSServerTransID;
         return this;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 41, this field is not used anymore.
+     */
+    @Deprecated
     public String getThreeDSServerTransID() {
         return threeDSServerTransID;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 41, this field is not used anymore.
+     */
+    @Deprecated
     public void setThreeDSServerTransID(String threeDSServerTransID) {
         this.threeDSServerTransID = threeDSServerTransID;
+    }
+
+    /**
+     * The messageVersion value indicating the 3D Secure 2 protocol version.
+     * @return messageVersion
+     */
+    public String getMessageVersion() {
+        return messageVersion;
+    }
+
+    public void setMessageVersion(String messageVersion) {
+        this.messageVersion = messageVersion;
+    }
+
+    public ThreeDS2RequestData messageVersion(String messageVersion) {
+        this.messageVersion = messageVersion;
+        return this;
+    }
+
+    /**
+     * Required for [authentication-only integration](https://docs.adyen.com/checkout/3d-secure-2/3ds2-checkout-authentication-only-integration) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
+     * @return threeDSRequestorID
+     */
+    public String getThreeDSRequestorID() {
+        return threeDSRequestorID;
+    }
+
+    public void setThreeDSRequestorID(String threeDSRequestorID) {
+        this.threeDSRequestorID = threeDSRequestorID;
+    }
+
+    public ThreeDS2RequestData threeDSRequestorID(String threeDSRequestorID) {
+        this.threeDSRequestorID = threeDSRequestorID;
+        return this;
+    }
+
+    /**
+     * Required for [authentication-only integration](https://docs.adyen.com/checkout/3d-secure-2/3ds2-checkout-authentication-only-integration) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
+     * @return threeDSRequestorName
+     */
+    public String getThreeDSRequestorName() {
+        return threeDSRequestorName;
+    }
+
+    public void setThreeDSRequestorName(String threeDSRequestorName) {
+        this.threeDSRequestorName = threeDSRequestorName;
+    }
+
+    public ThreeDS2RequestData threeDSRequestorName(String threeDSRequestorName) {
+        this.threeDSRequestorName = threeDSRequestorName;
+        return this;
+    }
+
+    /**
+     * Required for [authentication-only integration](https://docs.adyen.com/checkout/3d-secure-2/3ds2-checkout-authentication-only-integration). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation.
+     * @return acquirerBIN
+     */
+    public String getAcquirerBIN() {
+        return acquirerBIN;
+    }
+
+    public void setAcquirerBIN(String acquirerBIN) {
+        this.acquirerBIN = acquirerBIN;
+    }
+
+    public ThreeDS2RequestData acquirerBIN(String acquirerBIN) {
+        this.acquirerBIN = acquirerBIN;
+        return this;
+    }
+
+    /**
+     * Required for [authentication-only integration](https://docs.adyen.com/checkout/3d-secure-2/3ds2-checkout-authentication-only-integration). The merchantId that is enrolled for 3D Secure 2 by the merchant's acquirer. This string should match the value that you will use in the authorisation.
+     * @return acquirerMerchantID
+     */
+    public String getAcquirerMerchantID() {
+        return acquirerMerchantID;
+    }
+
+    public void setAcquirerMerchantID(String acquirerMerchantID) {
+        this.acquirerMerchantID = acquirerMerchantID;
+    }
+
+    public ThreeDS2RequestData acquirerMerchantID(String acquirerMerchantID) {
+        this.acquirerMerchantID = acquirerMerchantID;
+        return this;
+    }
+
+    /**
+     * Required for merchants that have been enrolled for 3DS2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/checkout/3d-secure-2/3ds2-checkout-authentication-only-integration). The mcc is a four-digit code with which the previously given acquirerMerchantID is registered at the scheme.
+     * @return mcc
+     */
+    public String getMcc() {
+        return mcc;
+    }
+
+    public void setMcc(String mcc) {
+        this.mcc = mcc;
+    }
+
+    public ThreeDS2RequestData mcc(String mcc) {
+        this.mcc = mcc;
+        return this;
     }
 
     @Override
@@ -330,7 +463,13 @@ public class ThreeDS2RequestData {
                 && Objects.equals(this.sdkTransID, threeDS2RequestData.sdkTransID)
                 && Objects.equals(this.threeDSCompInd, threeDS2RequestData.threeDSCompInd)
                 && Objects.equals(this.threeDSRequestorURL, threeDS2RequestData.threeDSRequestorURL)
-                && Objects.equals(this.threeDSServerTransID, threeDS2RequestData.threeDSServerTransID);
+                && Objects.equals(this.threeDSServerTransID, threeDS2RequestData.threeDSServerTransID)
+                && Objects.equals(this.messageVersion, threeDS2RequestData.messageVersion)
+                && Objects.equals(this.threeDSRequestorID, threeDS2RequestData.threeDSRequestorID)
+                && Objects.equals(this.threeDSRequestorName, threeDS2RequestData.threeDSRequestorName)
+                && Objects.equals(this.acquirerBIN, threeDS2RequestData.acquirerBIN)
+                && Objects.equals(this.acquirerMerchantID, threeDS2RequestData.acquirerMerchantID)
+                && Objects.equals(this.mcc, threeDS2RequestData.mcc);
     }
 
     @Override
@@ -348,7 +487,13 @@ public class ThreeDS2RequestData {
                             sdkTransID,
                             threeDSCompInd,
                             threeDSRequestorURL,
-                            threeDSServerTransID);
+                            threeDSServerTransID,
+                            messageVersion,
+                            threeDSRequestorID,
+                            threeDSRequestorName,
+                            acquirerBIN,
+                            acquirerMerchantID,
+                            mcc);
     }
 
     @Override
@@ -370,6 +515,12 @@ public class ThreeDS2RequestData {
         sb.append("    threeDSCompInd: ").append(toIndentedString(threeDSCompInd)).append("\n");
         sb.append("    threeDSRequestorURL: ").append(toIndentedString(threeDSRequestorURL)).append("\n");
         sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append("\n");
+        sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
+        sb.append("    threeDSRequestorID: ").append(toIndentedString(threeDSRequestorID)).append("\n");
+        sb.append("    threeDSRequestorName: ").append(toIndentedString(threeDSRequestorName)).append("\n");
+        sb.append("    acquirerBIN: ").append(toIndentedString(acquirerBIN)).append("\n");
+        sb.append("    acquirerMerchantID: ").append(toIndentedString(acquirerMerchantID)).append("\n");
+        sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
         sb.append("}");
         return sb.toString();
     }

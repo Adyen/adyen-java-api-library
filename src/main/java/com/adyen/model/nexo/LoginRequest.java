@@ -86,8 +86,8 @@ public class LoginRequest {
     /**
      * The Token requested.
      */
-    @XmlAttribute(name = "TokenRequested")
-    protected TokenRequestedType tokenRequested;
+    @XmlAttribute(name = "TokenRequestedType")
+    protected TokenRequestedType tokenRequestedType;
     /**
      * The Customer order req.
      */
@@ -230,21 +230,21 @@ public class LoginRequest {
     }
 
     /**
-     * Gets the value of the tokenRequested property.
+     * Gets the value of the tokenRequestedType property.
      *
      * @return possible      object is     {@link TokenRequestedType }
      */
-    public TokenRequestedType getTokenRequested() {
-        return tokenRequested;
+    public TokenRequestedType getTokenRequestedType() {
+        return tokenRequestedType;
     }
 
     /**
-     * Sets the value of the tokenRequested property.
+     * Sets the value of the tokenRequestedType property.
      *
      * @param value allowed object is     {@link TokenRequestedType }
      */
-    public void setTokenRequested(TokenRequestedType value) {
-        this.tokenRequested = value;
+    public void setTokenRequestedType(TokenRequestedType value) {
+        this.tokenRequestedType = value;
     }
 
     /**

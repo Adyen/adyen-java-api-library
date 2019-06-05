@@ -34,8 +34,8 @@ public class LoyaltyTotals {
     /**
      * The Transaction.
      */
-    @XmlAttribute(name = "Transaction", required = true)
-    protected TransactionType transaction;
+    @XmlAttribute(name = "TransactionType", required = true)
+    protected TransactionType transactionType;
     /**
      * The Transaction count.
      */
@@ -48,21 +48,21 @@ public class LoyaltyTotals {
     protected BigDecimal transactionAmount;
 
     /**
-     * Gets the value of the transaction property.
+     * Gets the value of the transactionType property.
      *
      * @return possible      object is     {@link TransactionType }
      */
-    public TransactionType getTransaction() {
-        return transaction;
+    public TransactionType getTransactionType() {
+        return transactionType;
     }
 
     /**
-     * Sets the value of the transaction property.
+     * Sets the value of the transactionType property.
      *
      * @param value allowed object is     {@link TransactionType }
      */
-    public void setTransaction(TransactionType value) {
-        this.transaction = value;
+    public void setTransactionType(TransactionType value) {
+        this.transactionType = value;
     }
 
     /**

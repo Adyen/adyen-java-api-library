@@ -48,8 +48,8 @@ public class EncryptedContent {
     /**
      * The Content.
      */
-    @XmlAttribute(name = "Content", required = true)
-    protected ContentType content;
+    @XmlAttribute(name = "ContentType", required = true)
+    protected ContentType contentType;
 
     /**
      * Gets the value of the contentEncryptionAlgorithm property.
@@ -88,21 +88,21 @@ public class EncryptedContent {
     }
 
     /**
-     * Gets the value of the content property.
+     * Gets the value of the contentType property.
      *
      * @return possible      object is     {@link ContentType }
      */
-    public ContentType getContent() {
-        return content;
+    public ContentType getContentType() {
+        return contentType;
     }
 
     /**
-     * Sets the value of the content property.
+     * Sets the value of the contentType property.
      *
      * @param value allowed object is     {@link ContentType }
      */
-    public void setContent(ContentType value) {
-        this.content = value;
+    public void setContentType(ContentType value) {
+        this.contentType = value;
     }
 
 }

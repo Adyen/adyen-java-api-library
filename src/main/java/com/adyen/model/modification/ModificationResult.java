@@ -57,7 +57,10 @@ public class ModificationResult {
         REFUND_RECEIVED_("[refund-received]"),
 
         @SerializedName("[cancelOrRefund-received]")
-        CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]");
+        CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]"),
+
+        @SerializedName("[adjustAuthorisation-received]")
+        ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]");
 
         private String value;
 

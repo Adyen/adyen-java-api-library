@@ -45,6 +45,11 @@ public class Config {
     //Checkout Specific
     protected String checkoutEndpoint;
 
+    //Terminal API Specific
+    protected String terminalApiCloudEndpoint;
+    protected String terminalApiLocalEndpoint;
+    protected String terminalCertificatePath;
+
     public Config() {
         // do nothing
     }
@@ -147,6 +152,30 @@ public class Config {
 
     public void setCheckoutEndpoint(String checkoutEndpoint) {
         this.checkoutEndpoint = checkoutEndpoint;
+    }
+
+    public String getTerminalApiCloudEndpoint() {
+        return terminalApiCloudEndpoint;
+    }
+
+    public void setTerminalApiCloudEndpoint(String terminalApiCloudEndpoint) {
+        this.terminalApiCloudEndpoint = terminalApiCloudEndpoint;
+    }
+
+    public String getTerminalApiLocalEndpoint() {
+        return terminalApiLocalEndpoint;
+    }
+
+    public void setTerminalApiLocalEndpoint(String terminalApiLocalEndpoint) {
+        this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
+    }
+
+    public String getTerminalCertificatePath() {
+        return terminalCertificatePath;
+    }
+
+    public void setTerminalCertificatePath(String terminalCertificatePath) {
+        this.terminalCertificatePath = terminalCertificatePath;
     }
 
     public int getConnectionTimeoutMillis() {

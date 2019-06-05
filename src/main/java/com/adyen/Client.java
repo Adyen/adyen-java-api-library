@@ -35,19 +35,21 @@ public class Client {
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
-    public static final String API_VERSION = "v40";
+    public static final String API_VERSION = "v49";
     public static final String RECURRING_API_VERSION = "v25";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v4";
     public static final String MARKETPAY_FUND_API_VERSION = "v3";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "2.3.1";
+    public static final String LIB_VERSION = "2.4.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
-    public static final String CHECKOUT_API_VERSION = "v41";
+    public static final String CHECKOUT_API_VERSION = "v49";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
-    public static final String BIN_LOOKUP_API_VERSION = "v40";
+    public static final String BIN_LOOKUP_API_VERSION = "v50";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
+    public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
+    public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
     public static final String ENDPOINT_PROTOCOL = "https://";
 
     public Client() {
@@ -156,6 +158,7 @@ public class Client {
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
             this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
+            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
@@ -167,6 +170,7 @@ public class Client {
                 this.config.setEndpoint(ENDPOINT_LIVE);
                 this.config.setCheckoutEndpoint(null);
             }
+            this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
         }
     }
 

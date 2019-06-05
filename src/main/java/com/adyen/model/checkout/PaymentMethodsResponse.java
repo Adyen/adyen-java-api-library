@@ -21,10 +21,11 @@
 
 package com.adyen.model.checkout;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * PaymentMethodsResponse
@@ -36,6 +37,12 @@ public class PaymentMethodsResponse {
 
     @SerializedName("paymentMethods")
     private List<PaymentMethod> paymentMethods = null;
+
+    @SerializedName("storedPaymentMethods")
+    private List<StoredPaymentMethod> storedPaymentMethods;
+
+    @SerializedName("groups")
+    private List<PaymentMethodsGroup> groups;
 
     public PaymentMethodsResponse oneClickPaymentMethods(List<RecurringDetail> oneClickPaymentMethods) {
         this.oneClickPaymentMethods = oneClickPaymentMethods;
@@ -93,6 +100,58 @@ public class PaymentMethodsResponse {
         this.paymentMethods = paymentMethods;
     }
 
+    /**
+     * List of all stored payment methods.
+     *
+     * @return storedPaymentMethods
+     **/
+    public List<StoredPaymentMethod> getStoredPaymentMethods() {
+        return storedPaymentMethods;
+    }
+
+    public void setStoredPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
+        this.storedPaymentMethods = storedPaymentMethods;
+    }
+
+    public PaymentMethodsResponse storedPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
+        this.storedPaymentMethods = storedPaymentMethods;
+        return this;
+    }
+
+    public PaymentMethodsResponse addStoredPaymentMethodItem(StoredPaymentMethod storedPaymentMethodItem) {
+        if (this.storedPaymentMethods == null) {
+            this.storedPaymentMethods = new ArrayList<>();
+        }
+        this.storedPaymentMethods.add(storedPaymentMethodItem);
+        return this;
+    }
+
+    /**
+     * Groups of payment methods.
+     *
+     * @return groups
+     **/
+    public List<PaymentMethodsGroup> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<PaymentMethodsGroup> groups) {
+        this.groups = groups;
+    }
+
+    public PaymentMethodsResponse groups(List<PaymentMethodsGroup> groups) {
+        this.groups = groups;
+        return this;
+    }
+
+    public PaymentMethodsResponse addGroupsItem(PaymentMethodsGroup groupsItem) {
+        if (this.groups == null) {
+            this.groups = new ArrayList<>();
+        }
+        this.groups.add(groupsItem);
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -102,12 +161,15 @@ public class PaymentMethodsResponse {
             return false;
         }
         PaymentMethodsResponse paymentMethodsResponse = (PaymentMethodsResponse) o;
-        return Objects.equals(this.oneClickPaymentMethods, paymentMethodsResponse.oneClickPaymentMethods) && Objects.equals(this.paymentMethods, paymentMethodsResponse.paymentMethods);
+        return Objects.equals(this.oneClickPaymentMethods, paymentMethodsResponse.oneClickPaymentMethods)
+                && Objects.equals(this.paymentMethods, paymentMethodsResponse.paymentMethods)
+                && Objects.equals(this.storedPaymentMethods, paymentMethodsResponse.storedPaymentMethods)
+                && Objects.equals(this.groups, paymentMethodsResponse.groups);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(oneClickPaymentMethods, paymentMethods);
+        return Objects.hash(oneClickPaymentMethods, paymentMethods, storedPaymentMethods, groups);
     }
 
     @Override
@@ -117,6 +179,8 @@ public class PaymentMethodsResponse {
 
         sb.append("    oneClickPaymentMethods: ").append(toIndentedString(oneClickPaymentMethods)).append("\n");
         sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
+        sb.append("    storedPaymentMethods: ").append(toIndentedString(storedPaymentMethods)).append("\n");
+        sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
         sb.append("}");
         return sb.toString();
     }

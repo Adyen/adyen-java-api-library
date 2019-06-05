@@ -21,6 +21,14 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.Util.DateUtil;
+import com.adyen.model.FraudResult;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -29,13 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import com.adyen.Util.DateUtil;
-import com.adyen.model.FraudResult;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
 import static com.adyen.constants.ApiConstants.AdditionalData.AUTH_CODE;
 import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
 import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_BARCODE_REFERENCE;
@@ -101,6 +103,12 @@ public class PaymentsResponse {
 
     @SerializedName("authentication")
     private Map<String, String> authentication;
+
+    @SerializedName("threeDS2Result")
+    private ThreeDS2Result threeDS2Result;
+
+    @SerializedName("action")
+    private CheckoutPaymentsAction action;
 
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -332,6 +340,42 @@ public class PaymentsResponse {
         this.outputDetails = outputDetails;
     }
 
+    /**
+     * Result of the 3D Secure 2 authentication.
+     *
+     * @return threeDS2Result
+     **/
+    public ThreeDS2Result getThreeDS2Result() {
+        return threeDS2Result;
+    }
+
+    public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {
+        this.threeDS2Result = threeDS2Result;
+    }
+
+    public PaymentsResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
+        this.threeDS2Result = threeDS2Result;
+        return this;
+    }
+
+    /**
+     * Action to be taken for completing the payment.
+     *
+     * @return action
+     **/
+    public CheckoutPaymentsAction getAction() {
+        return action;
+    }
+
+    public void setAction(CheckoutPaymentsAction action) {
+        this.action = action;
+    }
+
+    public PaymentsResponse action(CheckoutPaymentsAction action) {
+        this.action = action;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -344,7 +388,7 @@ public class PaymentsResponse {
         return Objects.equals(this.additionalData, paymentsResponse.additionalData)
                 && Objects.equals(this.details, paymentsResponse.details)
                 && Objects.equals(this.fraudResult,
-                                  paymentsResponse.fraudResult)
+                paymentsResponse.fraudResult)
                 && Objects.equals(this.paymentData, paymentsResponse.paymentData)
                 && Objects.equals(this.pspReference, paymentsResponse.pspReference)
                 && Objects.equals(this.redirect, paymentsResponse.redirect)
@@ -355,13 +399,15 @@ public class PaymentsResponse {
                 && Objects.equals(this.authResponse, paymentsResponse.authResponse)
                 && Objects.equals(this.merchantReference, paymentsResponse.merchantReference)
                 && Objects.equals(this.outputDetails, paymentsResponse.outputDetails)
-                && Objects.equals(this.authentication, paymentsResponse.authentication);
+                && Objects.equals(this.authentication, paymentsResponse.authentication)
+                && Objects.equals(this.threeDS2Result, paymentsResponse.threeDS2Result)
+                && Objects.equals(this.action, paymentsResponse.action);
 
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode);
+        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode, serviceError, authResponse, merchantReference, outputDetails, authentication, threeDS2Result, action);
     }
 
     @Override
@@ -382,6 +428,8 @@ public class PaymentsResponse {
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
         sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
+        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
+        sb.append("    action: ").append(toIndentedString(action)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -398,30 +446,33 @@ public class PaymentsResponse {
     }
 
     /**
-     * The result of the payment. Possible values:  * **Authorised** – Indicates the payment authorisation was successfully completed. This state serves as an indicator to proceed with the delivery of
-     * goods and services. This is a final state. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. *
-     * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. For more information on handling a redirect, refer to [Handling a
-     * redirect](https://docs.adyen.com/developers/checkout/api-integration/payments#handlingaredirect). * **Received** – Indicates the payment has successfully been received by Adyen, and will be
-     * processed. This is the initial state for all payments. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This
-     * is a final state. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment
-     * are unavailable, or if the shopper needs to take further action to complete the payment. For more information on handling a pending payment, refer to [Payments with pending
-     * status](https://docs.adyen.com/developers/development-resources/payments-with-pending-status). * **Error** – Indicates an error occurred during processing of the payment. The reason is given in
-     * the &#x60;refusalReason&#x60; field. This is a final state.
+     * The result of the payment. Possible values:
+     * * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions.
+     * * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state.
+     * * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state.
+     * * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions.
+     * * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state.
+     * * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions.
+     * * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. For more information on handling a pending payment, refer to [Payments with pending status](https://docs.adyen.com/development-resources/payments-with-pending-status).
+     * * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments.
+     * * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation.
+     * * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
      */
     @JsonAdapter(ResultCodeEnum.Adapter.class)
     public enum ResultCodeEnum {
 
+        AUTHENTICATIONFINISHED("AuthenticationFinished"),
         AUTHORISED("Authorised"),
-        PARTIALLYAUTHORISED("PartiallyAuthorised"),
-        REFUSED("Refused"),
-        ERROR("Error"),
         CANCELLED("Cancelled"),
+        CHALLENGESHOPPER("ChallengeShopper"),
+        ERROR("Error"),
+        IDENTIFYSHOPPER("IdentifyShopper"),
+        PENDING("Pending"),
         RECEIVED("Received"),
         REDIRECTSHOPPER("RedirectShopper"),
+        REFUSED("Refused"),
+        PARTIALLYAUTHORISED("PartiallyAuthorised"),
         PRESENTTOSHOPPER("PresentToShopper"),
-        PENDING("Pending"),
-        IDENTIFYSHOPPER("IdentifyShopper"),
-        CHALLENGESHOPPER("ChallengeShopper"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
         private String value;
