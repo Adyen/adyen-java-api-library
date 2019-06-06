@@ -31,7 +31,7 @@ import com.google.gson.JsonSerializer;
 
 import java.lang.reflect.Type;
 
-public class ByteArrayToStringTypeAdapter implements JsonSerializer<byte[]>, JsonDeserializer<byte[]> {
+public class ByteArrayToStringAdapter implements JsonSerializer<byte[]>, JsonDeserializer<byte[]> {
     public byte[] deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         return json.getAsString().getBytes();
     }
