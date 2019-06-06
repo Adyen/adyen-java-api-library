@@ -22,7 +22,6 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import com.adyen.model.Address;
 import com.google.gson.annotations.SerializedName;
 
 public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
@@ -40,12 +39,6 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String cvc;
     @SerializedName("installmentConfigurationKey")
     private String installmentConfigurationKey;
-    @SerializedName("personalDetails")
-    private PersonalDetails personalDetails;
-    @SerializedName("billingAddress")
-    private Address billingAddress;
-    @SerializedName("deliveryAddress")
-    private Address deliveryAddress;
     @SerializedName("encryptedCardNumber")
     private String encryptedCardNumber;
     @SerializedName("encryptedExpiryMonth")
@@ -155,45 +148,6 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
 
     public DefaultPaymentMethodDetails installmentConfigurationKey(String installmentConfigurationKey) {
         this.installmentConfigurationKey = installmentConfigurationKey;
-        return this;
-    }
-
-    public PersonalDetails getPersonalDetails() {
-        return personalDetails;
-    }
-
-    public void setPersonalDetails(PersonalDetails personalDetails) {
-        this.personalDetails = personalDetails;
-    }
-
-    public DefaultPaymentMethodDetails personalDetails(PersonalDetails personalDetails) {
-        this.personalDetails = personalDetails;
-        return this;
-    }
-
-    public Address getBillingAddress() {
-        return billingAddress;
-    }
-
-    public void setBillingAddress(Address billingAddress) {
-        this.billingAddress = billingAddress;
-    }
-
-    public DefaultPaymentMethodDetails billingAddress(Address billingAddress) {
-        this.billingAddress = billingAddress;
-        return this;
-    }
-
-    public Address getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(Address deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
-
-    public DefaultPaymentMethodDetails deliveryAddress(Address deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
         return this;
     }
 
@@ -321,10 +275,6 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                                   that.holderName)
                 && Objects.equals(cvc, that.cvc)
                 && Objects.equals(installmentConfigurationKey, that.installmentConfigurationKey)
-                && Objects.equals(personalDetails,
-                                  that.personalDetails)
-                && Objects.equals(billingAddress, that.billingAddress)
-                && Objects.equals(deliveryAddress, that.deliveryAddress)
                 && Objects.equals(encryptedCardNumber, that.encryptedCardNumber)
                 && Objects.equals(encryptedExpiryMonth, that.encryptedExpiryMonth)
                 && Objects.equals(encryptedExpiryYear, that.encryptedExpiryYear)
@@ -345,9 +295,6 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                             holderName,
                             cvc,
                             installmentConfigurationKey,
-                            personalDetails,
-                            billingAddress,
-                            deliveryAddress,
                             encryptedCardNumber,
                             encryptedExpiryMonth,
                             encryptedExpiryYear,
@@ -375,12 +322,6 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 + ", installmentConfigurationKey='"
                 + installmentConfigurationKey
                 + '\''
-                + ", personalDetails="
-                + personalDetails
-                + ", billingAddress="
-                + billingAddress
-                + ", deliveryAddress="
-                + deliveryAddress
                 + ", encryptedExpiryMonth='"
                 + encryptedExpiryMonth
                 + '\''
