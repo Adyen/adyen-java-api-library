@@ -65,6 +65,10 @@ public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
 
         String jsonResponse = localRequest.request(jsonEncryptedRequest);
 
+        if (jsonResponse == null || jsonResponse.isEmpty()) {
+            return null;
+        }
+
         TerminalAPISecuredResponse securedPaymentResponse = terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPISecuredResponse>() {
         }.getType());
         SaleToPOISecuredMessage saleToPOISecuredResponse = securedPaymentResponse.getSaleToPOIResponse();

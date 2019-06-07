@@ -105,10 +105,16 @@ public class HttpURLConnectionClient implements ClientInterface {
 
     private static String getResponseBody(InputStream responseStream) throws IOException {
         //\A is the beginning of the stream boundary
-        Scanner scanner = new Scanner(responseStream, CHARSET);
-        String rBody = scanner.useDelimiter("\\A").next();
+        Scanner scanner = new Scanner(responseStream, CHARSET).useDelimiter("\\A");
+
+        String rBody = null;
+        if (scanner.hasNext()) {
+            rBody = scanner.next();
+        }
+
         scanner.close();
         responseStream.close();
+
         return rBody;
     }
 
