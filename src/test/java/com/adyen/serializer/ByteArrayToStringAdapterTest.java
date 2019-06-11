@@ -18,26 +18,38 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-
 package com.adyen.serializer;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import org.apache.commons.codec.binary.Base64;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
-import java.lang.reflect.Type;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
-public class ByteArrayToBase64TypeAdapter implements JsonSerializer<byte[]>, JsonDeserializer<byte[]> {
-    public byte[] deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        return Base64.decodeBase64(json.getAsString());
+@RunWith(MockitoJUnitRunner.class)
+public class ByteArrayToStringAdapterTest {
+
+    @Test
+    public void testSerialize() {
+        ByteArrayToStringAdapter adapter = new ByteArrayToStringAdapter();
+        byte[] base64Bytes = Base64.encodeBase64("Bytes-To-Be-Encoded".getBytes());
+
+        JsonElement serializedElement = adapter.serialize(base64Bytes, null, null);
+        assertEquals("Qnl0ZXMtVG8tQmUtRW5jb2RlZA==", serializedElement.getAsString());
     }
 
-    public JsonElement serialize(byte[] src, Type typeOfSrc, JsonSerializationContext context) {
-        return new JsonPrimitive(Base64.encodeBase64String(src));
+    @Test
+    public void testDeserialize() {
+        ByteArrayToStringAdapter adapter = new ByteArrayToStringAdapter();
+        byte[] base64Bytes = Base64.encodeBase64("Bytes-To-Be-Encoded".getBytes());
+
+        JsonElement element = new JsonPrimitive("Qnl0ZXMtVG8tQmUtRW5jb2RlZA==");
+        byte[] deserializedBytes = adapter.deserialize(element, null, null);
+
+        assertArrayEquals(deserializedBytes, base64Bytes);
     }
 }
