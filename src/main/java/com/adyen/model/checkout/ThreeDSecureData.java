@@ -23,6 +23,8 @@ package com.adyen.model.checkout;
 
 import java.io.IOException;
 import java.util.Objects;
+
+import com.adyen.serializer.ByteArrayToStringAdapter;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,6 +39,7 @@ public class ThreeDSecureData {
     @SerializedName("authenticationResponse")
     private AuthenticationResponseEnum authenticationResponse = null;
     @SerializedName("cavv")
+    @JsonAdapter(ByteArrayToStringAdapter.class)
     private byte[] cavv = null;
     @SerializedName("cavvAlgorithm")
     private String cavvAlgorithm = null;
@@ -47,6 +50,7 @@ public class ThreeDSecureData {
     @SerializedName("threeDSVersion")
     private String threeDSVersion = null;
     @SerializedName("xid")
+    @JsonAdapter(ByteArrayToStringAdapter.class)
     private byte[] xid = null;
     @SerializedName("dsTransID")
     private String dsTransID = null;

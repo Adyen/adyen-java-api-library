@@ -22,7 +22,7 @@ package com.adyen.model.binlookup;
 
 import java.util.Objects;
 
-import com.adyen.serializer.ByteArrayToBase64TypeAdapter;
+import com.adyen.serializer.ByteArrayToStringAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
@@ -39,7 +39,7 @@ public class DSPublicKeyDetail {
     private String directoryServerId = null;
 
     @SerializedName("publicKey")
-    @JsonAdapter(ByteArrayToBase64TypeAdapter.class)
+    @JsonAdapter(ByteArrayToStringAdapter.class)
     private byte[] publicKey = null;
 
     public DSPublicKeyDetail brand(String brand) {
