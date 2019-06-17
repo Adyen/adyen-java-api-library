@@ -45,6 +45,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -159,5 +160,20 @@ public class TerminalCloudAPITest extends BaseTest {
 
         assertNotNull(terminalAPIResponse);
         assertNotNull(terminalAPIResponse.getSaleToPOIRequest());
+    }
+
+    /**
+     * Test error flow for POST /sync
+     */
+    @Test
+    public void syncAbortRequestSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/terminal-api/abort-sync-success");
+        TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
+
+        TerminalAPIRequest terminalAPIAbortRequest = createTerminalAPIPaymentRequest();
+
+        TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIAbortRequest);
+
+        assertNull(terminalAPIResponse);
     }
 }
