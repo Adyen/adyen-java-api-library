@@ -1360,6 +1360,7 @@ public class PaymentsRequest {
           + "    merchantAccount: " + toIndentedString(merchantAccount) + "\n"
           + "    merchantOrderReference: " + toIndentedString(merchantOrderReference) + "\n"
           + "    metadata: " + toIndentedString(metadata) + "\n"
+          + "    browserInfo: " + toIndentedString(browserInfo) + "\n"
           + "    orderReference: " + toIndentedString(orderReference) + "\n"
           + "    paymentMethod: " + toIndentedString(paymentMethod) + "\n"
           + "    reference: " + toIndentedString(reference) + "\n"
