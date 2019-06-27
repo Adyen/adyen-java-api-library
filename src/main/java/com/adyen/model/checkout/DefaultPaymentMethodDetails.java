@@ -22,7 +22,7 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import com.adyen.model.Address;
+
 import com.google.gson.annotations.SerializedName;
 
 public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
@@ -42,10 +42,6 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String installmentConfigurationKey;
     @SerializedName("personalDetails")
     private PersonalDetails personalDetails;
-    @SerializedName("billingAddress")
-    private Address billingAddress;
-    @SerializedName("deliveryAddress")
-    private Address deliveryAddress;
     @SerializedName("encryptedCardNumber")
     private String encryptedCardNumber;
     @SerializedName("encryptedExpiryMonth")
@@ -171,32 +167,6 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return this;
     }
 
-    public Address getBillingAddress() {
-        return billingAddress;
-    }
-
-    public void setBillingAddress(Address billingAddress) {
-        this.billingAddress = billingAddress;
-    }
-
-    public DefaultPaymentMethodDetails billingAddress(Address billingAddress) {
-        this.billingAddress = billingAddress;
-        return this;
-    }
-
-    public Address getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(Address deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
-
-    public DefaultPaymentMethodDetails deliveryAddress(Address deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-        return this;
-    }
-
     public String getEncryptedCardNumber() {
         return encryptedCardNumber;
     }
@@ -317,14 +287,10 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(number, that.number)
                 && Objects.equals(expiryMonth, that.expiryMonth)
                 && Objects.equals(expiryYear, that.expiryYear)
-                && Objects.equals(holderName,
-                                  that.holderName)
+                && Objects.equals(holderName, that.holderName)
                 && Objects.equals(cvc, that.cvc)
                 && Objects.equals(installmentConfigurationKey, that.installmentConfigurationKey)
-                && Objects.equals(personalDetails,
-                                  that.personalDetails)
-                && Objects.equals(billingAddress, that.billingAddress)
-                && Objects.equals(deliveryAddress, that.deliveryAddress)
+                && Objects.equals(personalDetails, that.personalDetails)
                 && Objects.equals(encryptedCardNumber, that.encryptedCardNumber)
                 && Objects.equals(encryptedExpiryMonth, that.encryptedExpiryMonth)
                 && Objects.equals(encryptedExpiryYear, that.encryptedExpiryYear)
@@ -339,22 +305,20 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     @Override
     public int hashCode() {
         return Objects.hash(type,
-                            number,
-                            expiryMonth,
-                            expiryYear,
-                            holderName,
-                            cvc,
-                            installmentConfigurationKey,
-                            personalDetails,
-                            billingAddress,
-                            deliveryAddress,
-                            encryptedCardNumber,
-                            encryptedExpiryMonth,
-                            encryptedExpiryYear,
-                            encryptedSecurityCode,
-                            recurringDetailReference,
-                            storeDetails,
-                            idealIssuer);
+                number,
+                expiryMonth,
+                expiryYear,
+                holderName,
+                cvc,
+                installmentConfigurationKey,
+                personalDetails,
+                encryptedCardNumber,
+                encryptedExpiryMonth,
+                encryptedExpiryYear,
+                encryptedSecurityCode,
+                recurringDetailReference,
+                storeDetails,
+                idealIssuer);
     }
 
     @Override
@@ -377,10 +341,6 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 + '\''
                 + ", personalDetails="
                 + personalDetails
-                + ", billingAddress="
-                + billingAddress
-                + ", deliveryAddress="
-                + deliveryAddress
                 + ", encryptedExpiryMonth='"
                 + encryptedExpiryMonth
                 + '\''
