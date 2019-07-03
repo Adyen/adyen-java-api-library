@@ -50,7 +50,7 @@ public class Instalment {
      * The Instalment.
      */
     @XmlList
-    @XmlElement(name = "Instalment")
+    @XmlElement(name = "InstalmentType")
     protected List<InstalmentType> instalment;
     /**
      * The Sequence number.

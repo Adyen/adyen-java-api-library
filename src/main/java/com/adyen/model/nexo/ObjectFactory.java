@@ -1,10 +1,6 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
-import java.util.List;
 
 
 /**
@@ -12,8 +8,6 @@ import java.util.List;
  */
 @XmlRegistry
 public class ObjectFactory {
-
-    private static final QName CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME = new QName("", "ForceEntryMode");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.adyen.model.nexo
@@ -1450,39 +1444,6 @@ public class ObjectFactory {
      */
     public EncapsulatedContent createEncapsulatedContent() {
         return new EncapsulatedContent();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
-     *
-     * @param value the value
-     * @return the jaxb element
-     */
-    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = CardReaderInitRequest.class)
-    public JAXBElement<List<ForceEntryModeType>> createCardReaderInitRequestForceEntryMode(List<ForceEntryModeType> value) {
-        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), CardReaderInitRequest.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
-     *
-     * @param value the value
-     * @return the jaxb element
-     */
-    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = CardAcquisitionTransaction.class)
-    public JAXBElement<List<ForceEntryModeType>> createCardAcquisitionTransactionForceEntryMode(List<ForceEntryModeType> value) {
-        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), CardAcquisitionTransaction.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}}
-     *
-     * @param value the value
-     * @return the jaxb element
-     */
-    @XmlElementDecl(namespace = "", name = "ForceEntryMode", scope = TransactionConditions.class)
-    public JAXBElement<List<ForceEntryModeType>> createTransactionConditionsForceEntryMode(List<ForceEntryModeType> value) {
-        return new JAXBElement<List<ForceEntryModeType>>(CARD_READER_INIT_REQUEST_FORCE_ENTRY_MODE_QNAME, ((Class) List.class), TransactionConditions.class, value);
     }
 
 }
