@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="TrackData" type="{}TrackData" minOccurs="0"/&gt;
  *         &lt;element name="CheckCardNumber" type="{}CheckCardNumber" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="Type" type="{}CheckTypeCodeType" default="Personal" /&gt;
+ *       &lt;attribute name="TypeCode" type="{}CheckTypeCodeType" default="Personal" /&gt;
  *       &lt;attribute name="Country" type="{}ISOCountry3A" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -68,10 +68,10 @@ public class CheckData {
     @XmlElement(name = "CheckCardNumber")
     protected String checkCardNumber;
     /**
-     * The Type.
+     * The Type code.
      */
-    @XmlAttribute(name = "Type")
-    protected CheckTypeCodeType type;
+    @XmlAttribute(name = "TypeCode")
+    protected CheckTypeCodeType typeCode;
     /**
      * The Country.
      */
@@ -173,11 +173,11 @@ public class CheckData {
      *
      * @return possible      object is     {@link CheckTypeCodeType }
      */
-    public CheckTypeCodeType getType() {
-        if (type == null) {
+    public CheckTypeCodeType getTypeCode() {
+        if (typeCode == null) {
             return CheckTypeCodeType.PERSONAL;
         } else {
-            return type;
+            return typeCode;
         }
     }
 
@@ -186,8 +186,8 @@ public class CheckData {
      *
      * @param value allowed object is     {@link CheckTypeCodeType }
      */
-    public void setType(CheckTypeCodeType value) {
-        this.type = value;
+    public void setTypeCode(CheckTypeCodeType value) {
+        this.typeCode = value;
     }
 
     /**
