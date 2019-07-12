@@ -118,8 +118,6 @@ public final class Util {
             case "XOF":
             case "XPF":
                 return 0;
-            case "MRO":
-                return 1;
             case "BHD":
             case "IQD":
             case "JOD":
