@@ -101,6 +101,23 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test success flow for
+     * POST /paymentMethods
+     * including one-click methods
+     */
+    @Test
+    public void TestPaymentMethodsOneClickSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentmethods-oneclick-success.json");
+        Checkout checkout = new Checkout(client);
+        PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
+        paymentMethodsRequest.setMerchantAccount("MagentoMerchantTest");
+        PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
+        assertNotNull(paymentMethodsResponse.getOneClickPaymentMethods());
+        assertEquals(2, paymentMethodsResponse.getOneClickPaymentMethods().size());
+        assertEquals("8314960677671745", paymentMethodsResponse.getOneClickPaymentMethods().get(0).getRecurringDetailReference());
+    }
+
+    /**
      * Test error flow for
      * POST /paymentMethods
      */
