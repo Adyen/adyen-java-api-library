@@ -102,31 +102,28 @@ public final class Util {
 
     public static int getDecimalPlaces(String currency) {
         switch (currency) {
-            case "JPY":
-            case "IDR":
-            case "KRW":
-            case "BYR":
-            case "VND":
             case "CVE":
             case "DJF":
             case "GNF":
+            case "IDR":
+            case "JPY":
+            case "KMF":
+            case "KRW":
             case "PYG":
             case "RWF":
             case "UGX":
+            case "VND":
             case "VUV":
             case "XAF":
             case "XOF":
             case "XPF":
-            case "GHC":
-            case "KMF":
                 return 0;
-            case "MRO":
-                return 1;
             case "BHD":
+            case "IQD":
             case "JOD":
             case "KWD":
-            case "OMR":
             case "LYD":
+            case "OMR":
             case "TND":
                 return 3;
             default:

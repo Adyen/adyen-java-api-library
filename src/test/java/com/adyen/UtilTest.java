@@ -38,12 +38,10 @@ public class UtilTest {
     public void testCreateAmount() {
         Amount amount = Util.createAmount("12.345234", "EUR");
         Amount amountJPY = Util.createAmount("1234", "JPY");
-        Amount amountMRO = Util.createAmount("123.45234", "MRO");
         Amount amountBHD = Util.createAmount("1.2345234", "BHD");
 
         assertEquals(1235L, amount.getValue().longValue());
         assertEquals(1234L, amountJPY.getValue().longValue());
-        assertEquals(1235L, amountMRO.getValue().longValue());
         assertEquals(1235L, amountBHD.getValue().longValue());
     }
 
