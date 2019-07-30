@@ -1,11 +1,9 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,8 +63,8 @@ public class TransactionConditions {
     /**
      * The Force entry mode.
      */
-    @XmlElementRef(name = "ForceEntryMode", type = JAXBElement.class, required = false)
-    protected List<JAXBElement<List<ForceEntryModeType>>> forceEntryMode;
+    @XmlElement(name = "ForceEntryMode")
+    protected List<ForceEntryModeType> forceEntryMode;
     /**
      * The Debit preferred flag.
      */
@@ -198,13 +196,13 @@ public class TransactionConditions {
      *
      *
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link List }{@code <}{@link ForceEntryModeType }{@code >}{@code >}
+     * {@link ForceEntryModeType }
      *
      * @return the force entry mode
      */
-    public List<JAXBElement<List<ForceEntryModeType>>> getForceEntryMode() {
+    public List<ForceEntryModeType> getForceEntryMode() {
         if (forceEntryMode == null) {
-            forceEntryMode = new ArrayList<JAXBElement<List<ForceEntryModeType>>>();
+            forceEntryMode = new ArrayList<ForceEntryModeType>();
         }
         return this.forceEntryMode;
     }

@@ -18,18 +18,23 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.checkout;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * RecurringDetail
  */
+
 public class RecurringDetail {
+    @SerializedName("brands")
+    private List<String> brands = null;
 
     @SerializedName("configuration")
     private Map<String, String> configuration = null;
@@ -46,11 +51,43 @@ public class RecurringDetail {
     @SerializedName("paymentMethodData")
     private String paymentMethodData = null;
 
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
+
     @SerializedName("storedDetails")
     private StoredDetails storedDetails = null;
 
+    @SerializedName("supportsRecurring")
+    private Boolean supportsRecurring = null;
+
     @SerializedName("type")
     private String type = null;
+
+    public RecurringDetail brands(List<String> brands) {
+        this.brands = brands;
+        return this;
+    }
+
+    public RecurringDetail addBrandsItem(String brandsItem) {
+        if (this.brands == null) {
+            this.brands = new ArrayList<String>();
+        }
+        this.brands.add(brandsItem);
+        return this;
+    }
+
+    /**
+     * List of possible brands. For example: visa, mc.
+     *
+     * @return brands
+     **/
+    public List<String> getBrands() {
+        return brands;
+    }
+
+    public void setBrands(List<String> brands) {
+        this.brands = brands;
+    }
 
     public RecurringDetail configuration(Map<String, String> configuration) {
         this.configuration = configuration;
@@ -86,11 +123,9 @@ public class RecurringDetail {
     }
 
     public RecurringDetail addDetailsItem(InputDetail detailsItem) {
-
         if (this.details == null) {
             this.details = new ArrayList<InputDetail>();
         }
-
         this.details.add(detailsItem);
         return this;
     }
@@ -113,7 +148,6 @@ public class RecurringDetail {
         return this;
     }
 
-
     /**
      * Get group
      *
@@ -131,7 +165,6 @@ public class RecurringDetail {
         this.name = name;
         return this;
     }
-
 
     /**
      * The displayable name of this payment method.
@@ -151,7 +184,6 @@ public class RecurringDetail {
         return this;
     }
 
-
     /**
      * Echo data required to send in next calls.
      *
@@ -165,11 +197,28 @@ public class RecurringDetail {
         this.paymentMethodData = paymentMethodData;
     }
 
+    public RecurringDetail recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * The reference that uniquely identifies the recurring detail.
+     *
+     * @return recurringDetailReference
+     **/
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
+
     public RecurringDetail storedDetails(StoredDetails storedDetails) {
         this.storedDetails = storedDetails;
         return this;
     }
-
 
     /**
      * Get storedDetails
@@ -184,11 +233,28 @@ public class RecurringDetail {
         this.storedDetails = storedDetails;
     }
 
+    public RecurringDetail supportsRecurring(Boolean supportsRecurring) {
+        this.supportsRecurring = supportsRecurring;
+        return this;
+    }
+
+    /**
+     * Indicates whether this payment method supports tokenization or not.
+     *
+     * @return supportsRecurring
+     **/
+    public Boolean isSupportsRecurring() {
+        return supportsRecurring;
+    }
+
+    public void setSupportsRecurring(Boolean supportsRecurring) {
+        this.supportsRecurring = supportsRecurring;
+    }
+
     public RecurringDetail type(String type) {
         this.type = type;
         return this;
     }
-
 
     /**
      * The unique payment method code.
@@ -203,6 +269,7 @@ public class RecurringDetail {
         this.type = type;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -212,31 +279,38 @@ public class RecurringDetail {
             return false;
         }
         RecurringDetail recurringDetail = (RecurringDetail) o;
-        return Objects.equals(this.configuration, recurringDetail.configuration)
-                && Objects.equals(this.details, recurringDetail.details)
-                && Objects.equals(this.group, recurringDetail.group)
-                && Objects.equals(this.name, recurringDetail.name)
-                && Objects.equals(this.paymentMethodData, recurringDetail.paymentMethodData)
-                && Objects.equals(this.storedDetails, recurringDetail.storedDetails)
-                && Objects.equals(this.type, recurringDetail.type);
+        return Objects.equals(this.brands, recurringDetail.brands) &&
+                Objects.equals(this.configuration, recurringDetail.configuration) &&
+                Objects.equals(this.details, recurringDetail.details) &&
+                Objects.equals(this.group, recurringDetail.group) &&
+                Objects.equals(this.name, recurringDetail.name) &&
+                Objects.equals(this.paymentMethodData, recurringDetail.paymentMethodData) &&
+                Objects.equals(this.recurringDetailReference, recurringDetail.recurringDetailReference) &&
+                Objects.equals(this.storedDetails, recurringDetail.storedDetails) &&
+                Objects.equals(this.supportsRecurring, recurringDetail.supportsRecurring) &&
+                Objects.equals(this.type, recurringDetail.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(configuration, details, group, name, paymentMethodData, storedDetails, type);
+        return Objects.hash(brands, configuration, details, group, name, paymentMethodData, recurringDetailReference, storedDetails, supportsRecurring, type);
     }
+
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class RecurringDetail {\n");
 
+        sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
         sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    paymentMethodData: ").append(toIndentedString(paymentMethodData)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedDetails: ").append(toIndentedString(storedDetails)).append("\n");
+        sb.append("    supportsRecurring: ").append(toIndentedString(supportsRecurring)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -253,8 +327,4 @@ public class RecurringDetail {
         return o.toString().replace("\n", "\n    ");
     }
 
-
 }
-
-
-

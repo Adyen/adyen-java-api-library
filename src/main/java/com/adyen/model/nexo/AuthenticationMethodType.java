@@ -3,6 +3,7 @@ package com.adyen.model.nexo;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Arrays;
 
 
 /**
@@ -61,7 +62,7 @@ public enum AuthenticationMethodType {
      * On-line PIN authentication (Personal Identification Number).
      */
     @XmlEnumValue("OnLinePIN")
-    ON_LINE_PIN("OnLinePIN"),
+    ON_LINE_PIN("OnLinePIN", "OnlinePIN"),
 
     /**
      * Handwritten paper signature.
@@ -98,18 +99,19 @@ public enum AuthenticationMethodType {
      */
     @XmlEnumValue("UnknownMethod")
     UNKNOWN_METHOD("UnknownMethod");
-    private final String value;
 
-    AuthenticationMethodType(String v) {
+    private final String[] value;
+
+    AuthenticationMethodType(String... v) {
         value = v;
     }
 
     /**
-     * Value string.
+     * Values array.
      *
-     * @return the string
+     * @return the values
      */
-    public String value() {
+    public String[] value() {
         return value;
     }
 
@@ -121,7 +123,7 @@ public enum AuthenticationMethodType {
      */
     public static AuthenticationMethodType fromValue(String v) {
         for (AuthenticationMethodType c : AuthenticationMethodType.values()) {
-            if (c.value.equals(v)) {
+            if (Arrays.asList(c.value).contains(v)) {
                 return c;
             }
         }

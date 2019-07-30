@@ -57,6 +57,16 @@ public class PaymentInstrumentData {
      */
     @XmlAttribute(name = "PaymentInstrumentType", required = true)
     protected PaymentInstrumentType paymentInstrumentType;
+    /**
+     * The Stored value account id.
+     */
+    @XmlAttribute(name = "StoredValueAccountID")
+    protected StoredValueAccountID storedValueAccountID;
+    /**
+     * The Protected card data.
+     */
+    @XmlAttribute(name = "ProtectedCardData")
+    protected ContentInformation protectedCardData;
 
     /**
      * Gets the value of the cardData property.
@@ -130,4 +140,39 @@ public class PaymentInstrumentData {
         this.paymentInstrumentType = value;
     }
 
+    /**
+     * Gets the value of the storedValueAccountID property.
+     *
+     * @return possible      object is     {@link StoredValueAccountID }
+     */
+    public StoredValueAccountID getStoredValueAccountID() {
+        return storedValueAccountID;
+    }
+
+    /**
+     * Sets the value of the storedValueAccountID property.
+     *
+     * @param value allowed object is     {@link StoredValueAccountID }
+     */
+    public void setStoredValueAccountID(StoredValueAccountID value) {
+        this.storedValueAccountID = value;
+    }
+
+    /**
+     * Gets the value of the protectedCardData property.
+     *
+     * @return possible      object is     {@link ContentInformation }
+     */
+    public ContentInformation getProtectedCardData() {
+        return protectedCardData;
+    }
+
+    /**
+     * Sets the value of the protectedCardData property.
+     *
+     * @param value allowed object is     {@link ContentInformation }
+     */
+    public void setProtectedCardData(ContentInformation value) {
+        this.protectedCardData = value;
+    }
 }

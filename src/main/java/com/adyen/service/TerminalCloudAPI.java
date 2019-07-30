@@ -52,7 +52,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      *
      * @param terminalAPIRequest TerminalAPIRequest
      * @return String string
-     * @throws IOException IOException
+     * @throws IOException  IOException
      * @throws ApiException ApiException
      */
     public String async(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
@@ -67,13 +67,17 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      *
      * @param terminalAPIRequest TerminalAPIRequest
      * @return TerminalAPIResponse
-     * @throws IOException IOException
+     * @throws IOException  IOException
      * @throws ApiException ApiException
      */
     public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
 
         String jsonResponse = terminalApiSync.request(jsonRequest);
+
+        if (jsonResponse == null || jsonResponse.isEmpty() || "ok".equals(jsonResponse)) {
+            return null;
+        }
 
         TerminalAPIResponse terminalAPIResponse = terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPIResponse>() {
         }.getType());

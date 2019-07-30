@@ -144,6 +144,9 @@ public class ThreeDS2RequestData {
     @SerializedName("mcc")
     private String mcc = null;
 
+    @SerializedName("merchantName")
+    private String merchantName;
+
     public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
         this.authenticationOnly = authenticationOnly;
         return this;
@@ -441,6 +444,26 @@ public class ThreeDS2RequestData {
         return this;
     }
 
+    /**
+     * Required for [authentication-only integration](https://docs.adyen.com/checkout/3d-secure-2/3ds2-checkout-authentication-only-integration). The merchant name that the
+     * issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters.
+     * Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/checkout/3d-secure-2/3ds2-checkout-api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to
+     * override the merchant name already configured on your account.
+     * @return merchantName
+     */
+    public String getMerchantName() {
+        return merchantName;
+    }
+
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName;
+    }
+
+    public ThreeDS2RequestData merchantName(String merchantName) {
+        this.merchantName = merchantName;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -469,7 +492,8 @@ public class ThreeDS2RequestData {
                 && Objects.equals(this.threeDSRequestorName, threeDS2RequestData.threeDSRequestorName)
                 && Objects.equals(this.acquirerBIN, threeDS2RequestData.acquirerBIN)
                 && Objects.equals(this.acquirerMerchantID, threeDS2RequestData.acquirerMerchantID)
-                && Objects.equals(this.mcc, threeDS2RequestData.mcc);
+                && Objects.equals(this.mcc, threeDS2RequestData.mcc)
+                && Objects.equals(this.merchantName, threeDS2RequestData.merchantName);
     }
 
     @Override
@@ -493,7 +517,8 @@ public class ThreeDS2RequestData {
                             threeDSRequestorName,
                             acquirerBIN,
                             acquirerMerchantID,
-                            mcc);
+                            mcc,
+                            merchantName);
     }
 
     @Override
@@ -521,6 +546,7 @@ public class ThreeDS2RequestData {
         sb.append("    acquirerBIN: ").append(toIndentedString(acquirerBIN)).append("\n");
         sb.append("    acquirerMerchantID: ").append(toIndentedString(acquirerMerchantID)).append("\n");
         sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
+        sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
         sb.append("}");
         return sb.toString();
     }

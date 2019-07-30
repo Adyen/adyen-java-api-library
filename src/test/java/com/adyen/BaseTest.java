@@ -50,10 +50,12 @@ import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.RefundRequest;
+import com.adyen.model.nexo.AbortRequest;
 import com.adyen.model.nexo.AmountsReq;
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
 import com.adyen.model.nexo.MessageHeader;
+import com.adyen.model.nexo.MessageReference;
 import com.adyen.model.nexo.MessageType;
 import com.adyen.model.nexo.PaymentTransaction;
 import com.adyen.model.nexo.SaleData;
@@ -328,6 +330,37 @@ public class BaseTest {
         paymentRequest.setPaymentTransaction(paymentTransaction);
 
         saleToPOIRequest.setPaymentRequest(paymentRequest);
+
+        TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
+        terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
+
+        return terminalAPIRequest;
+    }
+
+    protected TerminalAPIRequest createTerminalAPIAbortRequest() throws DatatypeConfigurationException {
+        SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
+
+        MessageHeader messageHeader = new MessageHeader();
+        messageHeader.setProtocolVersion("3.0");
+        messageHeader.setMessageClass(MessageClassType.SERVICE);
+        messageHeader.setMessageCategory(MessageCategoryType.ABORT);
+        messageHeader.setMessageType(MessageType.REQUEST);
+        messageHeader.setSaleID("001");
+        messageHeader.setServiceID("001");
+        messageHeader.setPOIID("P400Plus-123456789");
+
+        saleToPOIRequest.setMessageHeader(messageHeader);
+
+        AbortRequest abortRequest = new AbortRequest();
+        abortRequest.setAbortReason("test");
+
+        MessageReference messageReference = new MessageReference();
+        messageReference.setSaleID("002");
+        messageReference.setServiceID("002");
+        messageReference.setMessageCategory(MessageCategoryType.PAYMENT);
+        abortRequest.setMessageReference(messageReference);
+
+        saleToPOIRequest.setAbortRequest(abortRequest);
 
         TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
         terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);

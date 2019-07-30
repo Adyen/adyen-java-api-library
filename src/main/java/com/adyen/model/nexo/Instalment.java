@@ -42,16 +42,16 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Instalment", propOrder = {
-        "instalment"
+        "instalmentType"
 })
 public class Instalment {
 
     /**
-     * The Instalment.
+     * The Instalment type.
      */
     @XmlList
-    @XmlElement(name = "Instalment")
-    protected List<InstalmentType> instalment;
+    @XmlElement(name = "InstalmentType")
+    protected List<InstalmentType> instalmentType;
     /**
      * The Sequence number.
      */
@@ -120,11 +120,11 @@ public class Instalment {
      *
      * @return the instalment
      */
-    public List<InstalmentType> getInstalment() {
-        if (instalment == null) {
-            instalment = new ArrayList<InstalmentType>();
+    public List<InstalmentType> getInstalmentType() {
+        if (instalmentType == null) {
+            instalmentType = new ArrayList<InstalmentType>();
         }
-        return this.instalment;
+        return this.instalmentType;
     }
 
     /**
