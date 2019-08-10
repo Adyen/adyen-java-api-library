@@ -341,11 +341,17 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 + '\''
                 + ", personalDetails="
                 + personalDetails
+                + ", encryptedCardNumber='"
+                + encryptedCardNumber
+                + '\''
                 + ", encryptedExpiryMonth='"
                 + encryptedExpiryMonth
                 + '\''
                 + ", encryptedExpiryYear='"
                 + encryptedExpiryYear
+                + '\''
+                + ", encryptedSecurityCode='"
+                + encryptedSecurityCode
                 + '\''
                 + ", recurringDetailReference='"
                 + recurringDetailReference
