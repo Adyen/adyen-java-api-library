@@ -22,12 +22,14 @@ package com.adyen.httpclient;
 
 import com.adyen.Client;
 import com.adyen.Config;
+import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
@@ -47,6 +49,8 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
 import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
@@ -58,6 +62,10 @@ import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class HttpURLConnectionClient implements ClientInterface {
     private static final String CHARSET = "UTF-8";
+    private static final String ENVIRONMENT_WILDCARD = "{ENVIRONMENT}";
+    private static final String TERMINAL_API_CN_REGEX = "[a-zA-Z0-9]{4,}-[0-9]{9}\\." + ENVIRONMENT_WILDCARD + "\\.terminal\\.adyen\\.com";
+    private static final String TERMINAL_API_LEGACY_CN = "legacy-terminal-certificate." + ENVIRONMENT_WILDCARD + ".terminal.adyen.com";
+
 
     private Proxy proxy;
 
@@ -84,7 +92,9 @@ public class HttpURLConnectionClient implements ClientInterface {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
 
         if (config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) {
+            String environment = getEnvironment(config);
             installCertificateVerifier(httpConnection, config.getTerminalCertificatePath());
+            installCertificateCommonNameValidator(httpConnection, environment);
         }
 
         String apiKey = config.getApiKey();
@@ -101,6 +111,11 @@ public class HttpURLConnectionClient implements ClientInterface {
         setContentType(httpConnection, APPLICATION_JSON_TYPE);
 
         return doPostRequest(httpConnection, requestBody);
+    }
+
+    private String getEnvironment(Config config) {
+        //Assume TEST if no environment was set
+        return config.getEnvironment() != null ? config.getEnvironment().name().toLowerCase() : Environment.TEST.name().toLowerCase();
     }
 
     private static String getResponseBody(InputStream responseStream) throws IOException {
@@ -281,14 +296,44 @@ public class HttpURLConnectionClient implements ClientInterface {
             } catch (GeneralSecurityException | IOException e) {
                 throw new HTTPClientException("Error loading certificate from path", e);
             }
+        }
+    }
 
-            // Skip host name verifier
+
+    private void installCertificateCommonNameValidator(HttpURLConnection connection, final String environment) {
+        if (connection instanceof HttpsURLConnection) {
+            HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
+
             HostnameVerifier terminalHostsValid = new HostnameVerifier() {
                 public boolean verify(String host, SSLSession session) {
-                    return true;
+                    try {
+                        if (session.getPeerCertificateChain() != null && session.getPeerCertificateChain().length > 0) {
+                            for (javax.security.cert.X509Certificate certificate : session.getPeerCertificateChain()) {
+                                String name = certificate.getSubjectDN().getName();
+                                String pattern = "(?:^|,\\s?)(?:(?<name>[A-Z]+)=(?<val>\"(?:[^\"]|\"\")+\"|[^,]+))+";
+                                Pattern r = Pattern.compile(pattern);
+                                Matcher m = r.matcher(name);
+                                boolean found = false;
+                                while (m.find() && !found) {
+                                    String groupName = m.group("name");
+                                    if ("CN".equals(groupName)) {
+                                        String commonName = m.group("val");
+                                        found = commonName.matches(TERMINAL_API_CN_REGEX.replace(ENVIRONMENT_WILDCARD, environment))
+                                                || commonName.equals(TERMINAL_API_LEGACY_CN.replace(ENVIRONMENT_WILDCARD, environment));
+                                    }
+                                }
+                                if (found) {
+                                    return true;
+                                }
+                            }
+                        }
+                        return false;
+                    } catch (SSLPeerUnverifiedException e) {
+                        e.printStackTrace();
+                        return false;
+                    }
                 }
             };
-
             // Install the terminal-trusting host verifier
             httpsConnection.setHostnameVerifier(terminalHostsValid);
         }
