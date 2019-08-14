@@ -39,14 +39,14 @@ public final class TerminalCommonNameValidator {
     public static boolean validateCertificate(X509Certificate certificate, Environment environment) {
         String environmentName = environment.name().toLowerCase();
         String name = certificate.getSubjectDN().getName();
-        String pattern = "(?:^|,\\s?)(?:(?<name>[A-Z]+)=(?<val>\"(?:[^\"]|\"\")+\"|[^,]+))+";
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(name);
+        String patternRegex = "(?:^|,\\s?)(?:(?<name>[A-Z]+)=(?<val>\"(?:[^\"]|\"\")+\"|[^,]+))+";
+        Pattern pattern = Pattern.compile(patternRegex);
+        Matcher matcher = pattern.matcher(name);
         boolean valid = false;
-        while (m.find() && !valid) {
-            String groupName = m.group("name");
+        while (matcher.find() && !valid) {
+            String groupName = matcher.group("name");
             if ("CN".equals(groupName)) {
-                String commonName = m.group("val");
+                String commonName = matcher.group("val");
                 valid = commonName.matches(TERMINAL_API_CN_REGEX.replace(ENVIRONMENT_WILDCARD, environmentName))
                         || commonName.equals(TERMINAL_API_LEGACY_CN.replace(ENVIRONMENT_WILDCARD, environmentName));
             }
