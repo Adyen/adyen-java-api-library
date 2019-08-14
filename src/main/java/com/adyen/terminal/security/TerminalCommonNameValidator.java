@@ -23,7 +23,7 @@ package com.adyen.terminal.security;
 
 import com.adyen.enums.Environment;
 
-import javax.security.cert.X509Certificate;
+import java.security.cert.X509Certificate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

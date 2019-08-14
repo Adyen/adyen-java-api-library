@@ -29,7 +29,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.mockito.Mock;
 
-import javax.security.cert.X509Certificate;
+import java.security.cert.X509Certificate;
 import java.security.Principal;
 import java.util.Arrays;
 import java.util.Collection;
