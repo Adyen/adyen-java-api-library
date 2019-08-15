@@ -33,25 +33,24 @@
 
 package com.adyen.model.payout;
 
-import java.util.Objects;
-import java.util.Arrays;
+import com.adyen.model.Amount;
+import com.adyen.model.FraudResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.Amount;
-import io.swagger.client.model.FraudResult;
-import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.IOException;
+import java.util.Map;
+import java.util.Objects;
 /**
  * PayoutResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2019-08-14T14:17:40.935Z[GMT]")
 public class PayoutResponse {
   @SerializedName("additionalData")
-  private Object additionalData = null;
+  private Map<String, String> additionalData = null;
 
   @SerializedName("authCode")
   private String authCode = null;
@@ -129,7 +128,7 @@ public class PayoutResponse {
   }  @SerializedName("resultCode")
   private ResultCodeEnum resultCode = null;
 
-  public PayoutResponse additionalData(Object additionalData) {
+  public PayoutResponse additionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
     return this;
   }
@@ -138,12 +137,11 @@ public class PayoutResponse {
    * This field contains additional data, which may be required to return in a particular payment response. To choose data fields to be returned, go to **Customer Area** &gt; **Account** &gt; **API URLs**.
    * @return additionalData
   **/
-  @Schema(description = "This field contains additional data, which may be required to return in a particular payment response. To choose data fields to be returned, go to **Customer Area** > **Account** > **API URLs**.")
-  public Object getAdditionalData() {
+  public Map<String, String> getAdditionalData() {
     return additionalData;
   }
 
-  public void setAdditionalData(Object additionalData) {
+  public void setAdditionalData(Map<String, String> additionalData) {
     this.additionalData = additionalData;
   }
 
@@ -156,7 +154,6 @@ public class PayoutResponse {
    * Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.
    * @return authCode
   **/
-  @Schema(description = "Authorisation code: * When the payment is authorised successfully, this field holds the authorisation code for the payment. * When the payment is not authorised, this field is empty.")
   public String getAuthCode() {
     return authCode;
   }
@@ -174,7 +171,6 @@ public class PayoutResponse {
    * Get dccAmount
    * @return dccAmount
   **/
-  @Schema(description = "")
   public Amount getDccAmount() {
     return dccAmount;
   }
@@ -192,7 +188,6 @@ public class PayoutResponse {
    * Cryptographic signature used to verify &#x60;dccQuote&#x60;. &gt; This value only applies if you have implemented Dynamic Currency Conversion. For more information, [contact Support](https://support.adyen.com/hc/en-us/requests/new).
    * @return dccSignature
   **/
-  @Schema(description = "Cryptographic signature used to verify `dccQuote`. > This value only applies if you have implemented Dynamic Currency Conversion. For more information, [contact Support](https://support.adyen.com/hc/en-us/requests/new).")
   public String getDccSignature() {
     return dccSignature;
   }
@@ -210,7 +205,6 @@ public class PayoutResponse {
    * Get fraudResult
    * @return fraudResult
   **/
-  @Schema(description = "")
   public FraudResult getFraudResult() {
     return fraudResult;
   }
@@ -228,7 +222,6 @@ public class PayoutResponse {
    * The URL to direct the shopper to. &gt; In case of SecurePlus, do not redirect a shopper to this URL.
    * @return issuerUrl
   **/
-  @Schema(description = "The URL to direct the shopper to. > In case of SecurePlus, do not redirect a shopper to this URL.")
   public String getIssuerUrl() {
     return issuerUrl;
   }
@@ -246,7 +239,6 @@ public class PayoutResponse {
    * The payment session.
    * @return md
   **/
-  @Schema(description = "The payment session.")
   public String getMd() {
     return md;
   }
@@ -264,7 +256,6 @@ public class PayoutResponse {
    * The 3D request data for the issuer.  If the value is **CUPSecurePlus-CollectSMSVerificationCode**, collect an SMS code from the shopper and pass it in the &#x60;/authorise3D&#x60; request. For more information, see [3D Secure](https://docs.adyen.com/risk-management/3d-secure).
    * @return paRequest
   **/
-  @Schema(description = "The 3D request data for the issuer.  If the value is **CUPSecurePlus-CollectSMSVerificationCode**, collect an SMS code from the shopper and pass it in the `/authorise3D` request. For more information, see [3D Secure](https://docs.adyen.com/risk-management/3d-secure).")
   public String getPaRequest() {
     return paRequest;
   }
@@ -282,7 +273,6 @@ public class PayoutResponse {
    * Adyen&#x27;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.  &gt; &#x60;pspReference&#x60; is returned only for non-redirect payment methods.
    * @return pspReference
   **/
-  @Schema(description = "Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.  > `pspReference` is returned only for non-redirect payment methods.")
   public String getPspReference() {
     return pspReference;
   }
@@ -300,7 +290,6 @@ public class PayoutResponse {
    * If the payment&#x27;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#x27;s mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
    * @return refusalReason
   **/
-  @Schema(description = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error.  When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.")
   public String getRefusalReason() {
     return refusalReason;
   }
@@ -318,7 +307,6 @@ public class PayoutResponse {
    * The result of the payment. Possible values:  * **Authorised** – Indicates the payment authorisation was successfully completed. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. For more information on handling a pending payment, refer to [Payments with pending status](https://docs.adyen.com/development-resources/payments-with-pending-status). * **Error** – Indicates an error occurred during processing of the payment. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    * @return resultCode
   **/
-  @Schema(description = "The result of the payment. Possible values:  * **Authorised** – Indicates the payment authorisation was successfully completed. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. For more information on handling a pending payment, refer to [Payments with pending status](https://docs.adyen.com/development-resources/payments-with-pending-status). * **Error** – Indicates an error occurred during processing of the payment. The reason is given in the `refusalReason` field. This is a final state.")
   public ResultCodeEnum getResultCode() {
     return resultCode;
   }
