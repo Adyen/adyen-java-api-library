@@ -27,6 +27,8 @@ import com.adyen.model.payout.ConfirmThirdPartyRequest;
 import com.adyen.model.payout.ConfirmThirdPartyResponse;
 import com.adyen.model.payout.DeclineThirdPartyRequest;
 import com.adyen.model.payout.DeclineThirdPartyResponse;
+import com.adyen.model.payout.PayoutRequest;
+import com.adyen.model.payout.PayoutResponse;
 import com.adyen.model.payout.StoreDetailAndSubmitRequest;
 import com.adyen.model.payout.StoreDetailAndSubmitResponse;
 import com.adyen.model.payout.StoreDetailRequest;
@@ -47,6 +49,7 @@ public class Payout extends Service {
     private DeclineThirdParty declineThirdParty;
     private StoreDetail storeDetail;
     private SubmitThirdParty submitThirdparty;
+    private com.adyen.service.resource.payout.Payout payout;
 
     public Payout(Client client) {
         super(client);
@@ -56,6 +59,7 @@ public class Payout extends Service {
         declineThirdParty = new DeclineThirdParty(this);
         storeDetail = new StoreDetail(this);
         submitThirdparty = new SubmitThirdParty(this);
+        payout = new com.adyen.service.resource.payout.Payout(this);
     }
 
     /**
@@ -144,6 +148,24 @@ public class Payout extends Service {
         String jsonResult = submitThirdparty.request(jsonRequest);
 
         SubmitResponse result = GSON.fromJson(jsonResult, new TypeToken<SubmitResponse>() {
+        }.getType());
+        return result;
+    }
+
+    /**
+     * Issues a payout API call
+     *
+     * @param request PayoutRequest
+     * @return payoutResponse
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
+     */
+    public PayoutResponse payout(PayoutRequest request) throws IOException, ApiException {
+        String jsonRequest = GSON.toJson(request);
+
+        String jsonResult = payout.request(jsonRequest);
+
+        PayoutResponse result = GSON.fromJson(jsonResult, new TypeToken<PayoutResponse>() {
         }.getType());
         return result;
     }

@@ -20,11 +20,15 @@
  */
 package com.adyen.model.recurring;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
 import com.adyen.serializer.DateSerializer;
+import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 /**
  * Recurring
@@ -80,6 +84,51 @@ public class Recurring {
     @SerializedName("recurringFrequency")
     private String recurringFrequency = null;
 
+    /**
+     * The name of the token service.
+     */
+    @JsonAdapter(TokenServiceEnum.Adapter.class)
+    public enum TokenServiceEnum {
+        VISATOKENSERVICE("VISATOKENSERVICE"),
+        MCTOKENSERVICE("MCTOKENSERVICE");
+
+        private String value;
+
+        TokenServiceEnum(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+        public static TokenServiceEnum fromValue(String text) {
+            for (TokenServiceEnum b : TokenServiceEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static class Adapter extends TypeAdapter<TokenServiceEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TokenServiceEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TokenServiceEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TokenServiceEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+    @SerializedName("tokenService")
+    private TokenServiceEnum tokenService = null;
+
     public Recurring contract(ContractEnum contract) {
         this.contract = contract;
         return this;
@@ -132,6 +181,23 @@ public class Recurring {
         this.recurringFrequency = recurringFrequency;
     }
 
+    public Recurring tokenService(TokenServiceEnum tokenService) {
+        this.tokenService = tokenService;
+        return this;
+    }
+
+    /**
+     * The name of the token service.
+     * @return tokenService
+     **/
+    public TokenServiceEnum getTokenService() {
+        return tokenService;
+    }
+
+    public void setTokenService(TokenServiceEnum tokenService) {
+        this.tokenService = tokenService;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -141,12 +207,16 @@ public class Recurring {
             return false;
         }
         Recurring recurring = (Recurring) o;
-        return Objects.equals(this.contract, recurring.contract) && Objects.equals(this.recurringDetailName, recurring.recurringDetailName);
+        return Objects.equals(this.contract, recurring.contract)
+                && Objects.equals(this.recurringDetailName, recurring.recurringDetailName)
+                && Objects.equals(this.recurringExpiry, recurring.recurringExpiry)
+                && Objects.equals(this.recurringFrequency, recurring.recurringFrequency)
+                && Objects.equals(this.tokenService, recurring.tokenService);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contract, recurringDetailName);
+        return Objects.hash(contract, recurringDetailName, recurringExpiry, recurringFrequency, tokenService);
     }
 
 
@@ -154,9 +224,11 @@ public class Recurring {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Recurring {\n");
-
         sb.append("    contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("    recurringDetailName: ").append(toIndentedString(recurringDetailName)).append("\n");
+        sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
+        sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
+        sb.append("    tokenService: ").append(toIndentedString(tokenService)).append("\n");
         sb.append("}");
         return sb.toString();
     }

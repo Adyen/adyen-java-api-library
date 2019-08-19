@@ -20,6 +20,9 @@
  */
 package com.adyen;
 
+import com.adyen.model.payout.PayoutRequest;
+import com.adyen.model.payout.PayoutResponse;
+import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 import com.adyen.model.payout.ConfirmThirdPartyRequest;
 import com.adyen.model.payout.ConfirmThirdPartyResponse;
@@ -35,6 +38,9 @@ import com.adyen.service.Payout;
 import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_MANUAL_REVIEW;
 import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_RESULT_TYPE;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 public class PayoutTest extends BaseTest {
 
@@ -101,5 +107,52 @@ public class PayoutTest extends BaseTest {
 
         assertEquals("[payout-confirm-received]", result.getResponse());
         assertEquals("8815131762537886", result.getPspReference());
+    }
+
+    @Test
+    public void testPayoutSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/payout/payout-success.json");
+        Payout payout = new Payout(client);
+
+        PayoutRequest request = new PayoutRequest();
+        PayoutResponse result = payout.payout(request);
+
+        assertEquals(PayoutResponse.ResultCodeEnum.AUTHORISED, result.getResultCode());
+        assertEquals("8814689190961342", result.getPspReference());
+        assertEquals("12345", result.getAuthCode());
+    }
+
+    @Test
+    public void testPayoutErrorMerchant() throws Exception {
+        Client client = createMockClientForErrors(403, "mocks/payout/payout-error-403.json");
+        Payout payout = new Payout(client);
+
+        PayoutRequest request = new PayoutRequest();
+
+        try {
+            payout.payout(request);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("901", e.getError().getErrorCode());
+            assertEquals(403, e.getError().getStatus());
+        }
+    }
+
+    @Test
+    public void testPayoutErrorReference() throws Exception {
+        Client client = createMockClientForErrors(422, "mocks/payout/payout-error-422.json");
+        Payout payout = new Payout(client);
+
+        PayoutRequest request = new PayoutRequest();
+
+        try {
+            payout.payout(request);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("130", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+        }
     }
 }
