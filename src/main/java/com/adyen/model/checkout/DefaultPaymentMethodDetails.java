@@ -21,9 +21,9 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     @SerializedName("type")
@@ -40,6 +40,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String cvc;
     @SerializedName("installmentConfigurationKey")
     private String installmentConfigurationKey;
+    @SerializedName("personalDetails")
+    private PersonalDetails personalDetails;
     @SerializedName("encryptedCardNumber")
     private String encryptedCardNumber;
     @SerializedName("encryptedExpiryMonth")
@@ -149,6 +151,19 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
 
     public DefaultPaymentMethodDetails installmentConfigurationKey(String installmentConfigurationKey) {
         this.installmentConfigurationKey = installmentConfigurationKey;
+        return this;
+    }
+
+    public PersonalDetails getPersonalDetails() {
+        return personalDetails;
+    }
+
+    public void setPersonalDetails(PersonalDetails personalDetails) {
+        this.personalDetails = personalDetails;
+    }
+
+    public DefaultPaymentMethodDetails personalDetails(PersonalDetails personalDetails) {
+        this.personalDetails = personalDetails;
         return this;
     }
 
@@ -275,6 +290,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(holderName, that.holderName)
                 && Objects.equals(cvc, that.cvc)
                 && Objects.equals(installmentConfigurationKey, that.installmentConfigurationKey)
+                && Objects.equals(personalDetails, that.personalDetails)
                 && Objects.equals(encryptedCardNumber, that.encryptedCardNumber)
                 && Objects.equals(encryptedExpiryMonth, that.encryptedExpiryMonth)
                 && Objects.equals(encryptedExpiryYear, that.encryptedExpiryYear)
@@ -289,19 +305,20 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     @Override
     public int hashCode() {
         return Objects.hash(type,
-                            number,
-                            expiryMonth,
-                            expiryYear,
-                            holderName,
-                            cvc,
-                            installmentConfigurationKey,
-                            encryptedCardNumber,
-                            encryptedExpiryMonth,
-                            encryptedExpiryYear,
-                            encryptedSecurityCode,
-                            recurringDetailReference,
-                            storeDetails,
-                            idealIssuer);
+                number,
+                expiryMonth,
+                expiryYear,
+                holderName,
+                cvc,
+                installmentConfigurationKey,
+                personalDetails,
+                encryptedCardNumber,
+                encryptedExpiryMonth,
+                encryptedExpiryYear,
+                encryptedSecurityCode,
+                recurringDetailReference,
+                storeDetails,
+                idealIssuer);
     }
 
     @Override
@@ -322,6 +339,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 + ", installmentConfigurationKey='"
                 + installmentConfigurationKey
                 + '\''
+                + ", personalDetails="
+                + personalDetails
                 + ", encryptedExpiryMonth='"
                 + encryptedExpiryMonth
                 + '\''
