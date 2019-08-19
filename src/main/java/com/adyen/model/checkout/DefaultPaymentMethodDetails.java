@@ -272,8 +272,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(number, that.number)
                 && Objects.equals(expiryMonth, that.expiryMonth)
                 && Objects.equals(expiryYear, that.expiryYear)
-                && Objects.equals(holderName,
-                                  that.holderName)
+                && Objects.equals(holderName, that.holderName)
                 && Objects.equals(cvc, that.cvc)
                 && Objects.equals(installmentConfigurationKey, that.installmentConfigurationKey)
                 && Objects.equals(encryptedCardNumber, that.encryptedCardNumber)
