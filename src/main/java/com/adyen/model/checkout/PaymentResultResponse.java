@@ -27,6 +27,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,18 +50,26 @@ public class PaymentResultResponse {
     @SerializedName("merchantReference")
     private String merchantReference = null;
 
+    @SerializedName("paymentMethod")
+    private String paymentMethod = null;
+
     @SerializedName("pspReference")
     private String pspReference = null;
 
     @SerializedName("refusalReason")
     private String refusalReason = null;
 
+    @SerializedName("refusalReasonCode")
+    private String refusalReasonCode = null;
+
     @SerializedName("resultCode")
     private ResultCodeEnum resultCode = null;
 
+    @SerializedName("serviceError")
+    private ServiceError serviceError = null;
 
-    @SerializedName("refusalReasonCode")
-    private String refusalReasonCode = null;
+    @SerializedName("shopperLocale")
+    private String shopperLocale = null;
 
     public String getRefusalReasonCode() {
         return refusalReasonCode;
@@ -148,6 +157,24 @@ public class PaymentResultResponse {
         this.merchantReference = merchantReference;
     }
 
+    public PaymentResultResponse paymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+        return this;
+    }
+
+    /**
+     * The payment method used in the transaction.
+     *
+     * @return paymentMethod
+     **/
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
     public PaymentResultResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
@@ -212,6 +239,42 @@ public class PaymentResultResponse {
         this.resultCode = resultCode;
     }
 
+    public PaymentResultResponse serviceError(ServiceError serviceError) {
+        this.serviceError = serviceError;
+        return this;
+    }
+
+    /**
+     * Get serviceError
+     *
+     * @return serviceError
+     **/
+    public ServiceError getServiceError() {
+        return serviceError;
+    }
+
+    public void setServiceError(ServiceError serviceError) {
+        this.serviceError = serviceError;
+    }
+
+    public PaymentResultResponse shopperLocale(String shopperLocale) {
+        this.shopperLocale = shopperLocale;
+        return this;
+    }
+
+    /**
+     * The shopperLocale value provided in the payment request.
+     *
+     * @return shopperLocale
+     **/
+    public String getShopperLocale() {
+        return shopperLocale;
+    }
+
+    public void setShopperLocale(String shopperLocale) {
+        this.shopperLocale = shopperLocale;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -220,34 +283,40 @@ public class PaymentResultResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PaymentResultResponse paymentVerificationResponse = (PaymentResultResponse) o;
-        return Objects.equals(this.additionalData, paymentVerificationResponse.additionalData)
-                && Objects.equals(this.authResponse, paymentVerificationResponse.authResponse)
-                && Objects.equals(this.fraudResult, paymentVerificationResponse.fraudResult)
-                && Objects.equals(this.merchantReference, paymentVerificationResponse.merchantReference)
-                && Objects.equals(this.pspReference, paymentVerificationResponse.pspReference)
-                && Objects.equals(this.refusalReason, paymentVerificationResponse.refusalReason)
-                && Objects.equals(this.refusalReasonCode, paymentVerificationResponse.refusalReasonCode)
-                && Objects.equals(this.resultCode, paymentVerificationResponse.resultCode);
+        PaymentResultResponse paymentResultResponse = (PaymentResultResponse) o;
+        return Objects.equals(this.additionalData, paymentResultResponse.additionalData) &&
+                Objects.equals(this.authResponse, paymentResultResponse.authResponse) &&
+                Objects.equals(this.fraudResult, paymentResultResponse.fraudResult) &&
+                Objects.equals(this.merchantReference, paymentResultResponse.merchantReference) &&
+                Objects.equals(this.paymentMethod, paymentResultResponse.paymentMethod) &&
+                Objects.equals(this.pspReference, paymentResultResponse.pspReference) &&
+                Objects.equals(this.refusalReason, paymentResultResponse.refusalReason) &&
+                Objects.equals(this.refusalReasonCode, paymentResultResponse.refusalReasonCode) &&
+                Objects.equals(this.resultCode, paymentResultResponse.resultCode) &&
+                Objects.equals(this.serviceError, paymentResultResponse.serviceError) &&
+                Objects.equals(this.shopperLocale, paymentResultResponse.shopperLocale);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, authResponse, fraudResult, merchantReference, pspReference, refusalReason, refusalReasonCode, resultCode);
+        return Objects.hash(additionalData, authResponse, fraudResult, merchantReference, paymentMethod, pspReference, refusalReason, refusalReasonCode, resultCode, serviceError, shopperLocale);
     }
 
     @Override
     public String toString() {
         return "class PaymentResultResponse {\n"
-            + "    additionalData: " + toIndentedString(additionalData) + "\n"
-            + "    authResponse: " + toIndentedString(authResponse) + "\n"
-            + "    fraudResult: " + toIndentedString(fraudResult) + "\n"
-            + "    merchantReference: " + toIndentedString(merchantReference) + "\n"
-            + "    pspReference: " + toIndentedString(pspReference) + "\n"
-            + "    refusalReason: " + toIndentedString(refusalReason) + "\n"
-            + "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + "\n"
-            + "    resultCode: " + toIndentedString(resultCode) + "\n"
-            + "}";
+                + "    additionalData: " + toIndentedString(additionalData) + "\n"
+                + "    authResponse: " + toIndentedString(authResponse) + "\n"
+                + "    fraudResult: " + toIndentedString(fraudResult) + "\n"
+                + "    merchantReference: " + toIndentedString(merchantReference) + "\n"
+                + "    paymentMethod: " + toIndentedString(paymentMethod) + "\n"
+                + "    pspReference: " + toIndentedString(pspReference) + "\n"
+                + "    refusalReason: " + toIndentedString(refusalReason) + "\n"
+                + "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + "\n"
+                + "    resultCode: " + toIndentedString(resultCode) + "\n"
+                + "    serviceError: " + toIndentedString(serviceError) + "\n"
+                + "    shopperLocale: " + toIndentedString(shopperLocale) + "\n"
+                + "}";
     }
 
     /**
@@ -324,9 +393,4 @@ public class PaymentResultResponse {
             }
         }
     }
-
-
 }
-
-
-
