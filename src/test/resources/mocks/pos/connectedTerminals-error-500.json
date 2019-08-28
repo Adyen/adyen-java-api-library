@@ -1,0 +1,6 @@
+{
+  "status": 500,
+  "errorCode": "702",
+  "message": "Required field 'merchantAccount' is null",
+  "errorType": "validation"
+}
