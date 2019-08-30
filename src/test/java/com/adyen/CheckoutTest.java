@@ -96,8 +96,10 @@ public class CheckoutTest extends BaseTest {
         PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
         paymentMethodsRequest.setMerchantAccount("MagentoMerchantTest");
         PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
-        assertEquals(65, paymentMethodsResponse.getPaymentMethods().size());
-        assertEquals("AliPay", paymentMethodsResponse.getPaymentMethods().get(0).getName());
+        assertEquals(26, paymentMethodsResponse.getPaymentMethods().size());
+        assertEquals("Credit Card", paymentMethodsResponse.getPaymentMethods().get(0).getName());
+        assertEquals(6, paymentMethodsResponse.getPaymentMethods().get(0).getBrands().size());
+        assertTrue(paymentMethodsResponse.getPaymentMethods().get(0).getSupportsRecurring());
     }
 
     /**
