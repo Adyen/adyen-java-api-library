@@ -462,6 +462,7 @@ public class PaymentsResponse {
     public enum ResultCodeEnum {
 
         AUTHENTICATIONFINISHED("AuthenticationFinished"),
+        AUTHENTICATIONNOTREQUIRED("AuthenticationNotRequired"),
         AUTHORISED("Authorised"),
         CANCELLED("Cancelled"),
         CHALLENGESHOPPER("ChallengeShopper"),
