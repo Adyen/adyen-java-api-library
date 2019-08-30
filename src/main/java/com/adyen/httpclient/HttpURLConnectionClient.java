@@ -22,12 +22,15 @@ package com.adyen.httpclient;
 
 import com.adyen.Client;
 import com.adyen.Config;
+import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
+import com.adyen.terminal.security.TerminalCommonNameValidator;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
@@ -84,7 +87,9 @@ public class HttpURLConnectionClient implements ClientInterface {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
 
         if (config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) {
+            Environment environment = getEnvironment(config);
             installCertificateVerifier(httpConnection, config.getTerminalCertificatePath());
+            installCertificateCommonNameValidator(httpConnection, environment);
         }
 
         String apiKey = config.getApiKey();
@@ -101,6 +106,11 @@ public class HttpURLConnectionClient implements ClientInterface {
         setContentType(httpConnection, APPLICATION_JSON_TYPE);
 
         return doPostRequest(httpConnection, requestBody);
+    }
+
+    private Environment getEnvironment(Config config) {
+        //Assume TEST if no environment was set
+        return config.getEnvironment() != null ? config.getEnvironment() : Environment.TEST;
     }
 
     private static String getResponseBody(InputStream responseStream) throws IOException {
@@ -281,14 +291,30 @@ public class HttpURLConnectionClient implements ClientInterface {
             } catch (GeneralSecurityException | IOException e) {
                 throw new HTTPClientException("Error loading certificate from path", e);
             }
+        }
+    }
 
-            // Skip host name verifier
+
+    private void installCertificateCommonNameValidator(HttpURLConnection connection, final Environment environment) {
+        if (connection instanceof HttpsURLConnection) {
+            HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
+
             HostnameVerifier terminalHostsValid = new HostnameVerifier() {
                 public boolean verify(String host, SSLSession session) {
-                    return true;
+                    try {
+                        if (session.getPeerCertificates() != null && session.getPeerCertificates().length > 0) {
+                            // Assume the first certificate is the leaf, since chain will be ordered, according to Java documentation:
+                            // https://docs.oracle.com/javase/7/docs/api/javax/net/ssl/SSLSession.html#getPeerCertificates()
+                            X509Certificate certificate = (X509Certificate) session.getPeerCertificates()[0];
+                            return TerminalCommonNameValidator.validateCertificate(certificate, environment);
+                        }
+                        return false;
+                    } catch (SSLPeerUnverifiedException e) {
+                        e.printStackTrace();
+                        return false;
+                    }
                 }
             };
-
             // Install the terminal-trusting host verifier
             httpsConnection.setHostnameVerifier(terminalHostsValid);
         }

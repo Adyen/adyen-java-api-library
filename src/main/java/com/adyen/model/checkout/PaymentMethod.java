@@ -20,16 +20,19 @@
  */
 package com.adyen.model.checkout;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * PaymentMethod
  */
 public class PaymentMethod {
+    @SerializedName("brands")
+    private List<String> brands = null;
 
     @SerializedName("configuration")
     private Map<String, String> configuration = null;
@@ -46,8 +49,37 @@ public class PaymentMethod {
     @SerializedName("paymentMethodData")
     private String paymentMethodData = null;
 
+    @SerializedName("supportsRecurring")
+    private Boolean supportsRecurring = null;
+
     @SerializedName("type")
     private String type = null;
+
+    public PaymentMethod brands(List<String> brands) {
+        this.brands = brands;
+        return this;
+    }
+
+    public PaymentMethod addBrandsItem(String brandsItem) {
+        if (this.brands == null) {
+            this.brands = new ArrayList<String>();
+        }
+        this.brands.add(brandsItem);
+        return this;
+    }
+
+    /**
+     * List of possible brands. For example: visa, mc.
+     *
+     * @return brands
+     **/
+    public List<String> getBrands() {
+        return brands;
+    }
+
+    public void setBrands(List<String> brands) {
+        this.brands = brands;
+    }
 
     public PaymentMethod configuration(Map<String, String> configuration) {
         this.configuration = configuration;
@@ -162,6 +194,24 @@ public class PaymentMethod {
         this.paymentMethodData = paymentMethodData;
     }
 
+    public PaymentMethod supportsRecurring(Boolean supportsRecurring) {
+        this.supportsRecurring = supportsRecurring;
+        return this;
+    }
+
+    /**
+     * Indicates whether this payment method supports tokenization or not.
+     *
+     * @return supportsRecurring
+     **/
+    public Boolean getSupportsRecurring() {
+        return supportsRecurring;
+    }
+
+    public void setSupportsRecurring(Boolean supportsRecurring) {
+        this.supportsRecurring = supportsRecurring;
+    }
+
     public PaymentMethod type(String type) {
         this.type = type;
         return this;
@@ -190,17 +240,19 @@ public class PaymentMethod {
             return false;
         }
         PaymentMethod paymentMethod = (PaymentMethod) o;
-        return Objects.equals(this.configuration, paymentMethod.configuration)
+        return Objects.equals(this.brands, paymentMethod.brands)
+                && Objects.equals(this.configuration, paymentMethod.configuration)
                 && Objects.equals(this.details, paymentMethod.details)
                 && Objects.equals(this.group, paymentMethod.group)
                 && Objects.equals(this.name, paymentMethod.name)
                 && Objects.equals(this.paymentMethodData, paymentMethod.paymentMethodData)
+                && Objects.equals(this.supportsRecurring, paymentMethod.supportsRecurring)
                 && Objects.equals(this.type, paymentMethod.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(configuration, details, group, name, paymentMethodData, type);
+        return Objects.hash(brands, configuration, details, group, name, paymentMethodData, supportsRecurring, type);
     }
 
     @Override
@@ -208,11 +260,13 @@ public class PaymentMethod {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentMethod {\n");
 
+        sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
         sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    paymentMethodData: ").append(toIndentedString(paymentMethodData)).append("\n");
+        sb.append("    supportsRecurring: ").append(toIndentedString(supportsRecurring)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
