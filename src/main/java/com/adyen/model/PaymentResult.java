@@ -96,7 +96,10 @@ public class PaymentResult {
         CHALLENGESHOPPER("ChallengeShopper"),
 
         @SerializedName("AuthenticationFinished")
-        AUTHENTICATIONFINISHED("AuthenticationFinished");
+        AUTHENTICATIONFINISHED("AuthenticationFinished"),
+
+        @SerializedName("AuthenticationNotRequired")
+        AUTHENTICATIONNOTREQUIRED("AuthenticationNotRequired");
 
         private String value;
 
