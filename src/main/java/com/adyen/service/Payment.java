@@ -79,9 +79,10 @@ public class Payment extends Service {
      *
      * @param paymentRequest3d authorise3D
      * @return PaymentResult
-     * @throws Exception Exception
+     * @throws ApiException ApiException
+     * @throws IOException IOException
      */
-    public PaymentResult authorise3D(PaymentRequest3d paymentRequest3d) throws Exception {
+    public PaymentResult authorise3D(PaymentRequest3d paymentRequest3d) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentRequest3d);
 
         String jsonResult = authorise3D.request(jsonRequest);
@@ -99,7 +100,7 @@ public class Payment extends Service {
      * @return PaymentResult
      * @throws Exception Exception
      */
-    public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws Exception {
+    public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentRequest3ds2);
 
         String jsonResult = authorise3DS.request(jsonRequest);
