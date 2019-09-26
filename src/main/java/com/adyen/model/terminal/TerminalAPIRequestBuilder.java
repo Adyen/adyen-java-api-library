@@ -59,8 +59,14 @@ import static com.adyen.constants.ApiConstants.TerminalAPI.PROTOCOL_VERSION;
 
 public final class TerminalAPIRequestBuilder {
 
-    private MessageHeader messageHeader;
+    // MessageHeader
+    private String saleId;
+    private String serviceId;
+    private String poiId;
+    private MessageClassType messageClass;
+    private MessageCategoryType messageCategory;
 
+    // SaleToPOIRequest
     private AbortRequest abortRequest;
     private BalanceInquiryRequest balanceInquiryRequest;
     private BatchRequest batchRequest;
@@ -91,218 +97,214 @@ public final class TerminalAPIRequestBuilder {
     private ContentInformation securityTrailer;
 
     public TerminalAPIRequestBuilder() {
-        this.messageHeader = new MessageHeader();
-        this.messageHeader.setProtocolVersion(PROTOCOL_VERSION);
-        this.messageHeader.setMessageType(MessageType.REQUEST);
     }
 
     public TerminalAPIRequestBuilder(String saleId, String serviceId, String poiId) {
-        this();
-        this.withSaleId(saleId);
-        this.withServiceId(serviceId);
-        this.withPoiId(poiId);
+        this.saleId = saleId;
+        this.serviceId = serviceId;
+        this.poiId = poiId;
     }
 
     public TerminalAPIRequestBuilder withSaleId(String saleId) {
-        this.messageHeader.setSaleID(saleId);
+        this.saleId = saleId;
         return this;
     }
 
     public TerminalAPIRequestBuilder withServiceId(String serviceId) {
-        this.messageHeader.setServiceID(serviceId);
+        this.serviceId = serviceId;
         return this;
     }
 
     public TerminalAPIRequestBuilder withPoiId(String poiId) {
-        this.messageHeader.setPOIID(poiId);
+        this.poiId = poiId;
         return this;
     }
 
     public TerminalAPIRequestBuilder withAbortRequest(AbortRequest abortRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.ABORT);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory =  MessageCategoryType.ABORT;
         this.abortRequest = abortRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withBalanceInquiryRequest(BalanceInquiryRequest balanceInquiryRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.BALANCE_INQUIRY);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.BALANCE_INQUIRY;
         this.balanceInquiryRequest = balanceInquiryRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withBatchRequest(BatchRequest batchRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.BATCH);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.BATCH;
         this.batchRequest = batchRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withCardAcquisitionRequest(CardAcquisitionRequest cardAcquisitionRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.CARD_ACQUISITION);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.CARD_ACQUISITION;
         this.cardAcquisitionRequest = cardAcquisitionRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withAdminRequest(AdminRequest adminRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.ADMIN);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.ADMIN;
         this.adminRequest = adminRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withDiagnosisRequest(DiagnosisRequest diagnosisRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.DIAGNOSIS);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.DIAGNOSIS;
         this.diagnosisRequest = diagnosisRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withDisplayRequest(DisplayRequest displayRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.DISPLAY);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.DISPLAY;
         this.displayRequest = displayRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withEnableServiceRequest(EnableServiceRequest enableServiceRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.ENABLE_SERVICE);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.ENABLE_SERVICE;
         this.enableServiceRequest = enableServiceRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withEventNotification(EventNotification eventNotification) {
-        this.messageHeader.setMessageClass(MessageClassType.EVENT);
-        this.messageHeader.setMessageCategory(MessageCategoryType.EVENT);
+        this.messageClass = MessageClassType.EVENT;
+        this.messageCategory = MessageCategoryType.EVENT;
         this.eventNotification = eventNotification;
         return this;
     }
 
     public TerminalAPIRequestBuilder withGetTotalsRequest(GetTotalsRequest getTotalsRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.GET_TOTALS);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.GET_TOTALS;
         this.getTotalsRequest = getTotalsRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withInputRequest(InputRequest inputRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.INPUT);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.INPUT;
         this.inputRequest = inputRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withInputUpdate(InputUpdate inputUpdate) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.INPUT_UPDATE);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.INPUT_UPDATE;
         this.inputUpdate = inputUpdate;
         return this;
     }
 
     public TerminalAPIRequestBuilder withLoginRequest(LoginRequest loginRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.LOGIN);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.LOGIN;
         this.loginRequest = loginRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withLogoutRequest(LogoutRequest logoutRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.LOGOUT);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.LOGOUT;
         this.logoutRequest = logoutRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withLoyaltyRequest(LoyaltyRequest loyaltyRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.LOYALTY);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.LOYALTY;
         this.loyaltyRequest = loyaltyRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withPaymentRequest(PaymentRequest paymentRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.PAYMENT);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.PAYMENT;
         this.paymentRequest = paymentRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withPinRequest(PINRequest pinRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.PIN);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.PIN;
         this.pinRequest = pinRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withPrintRequest(PrintRequest printRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.PRINT);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.PRINT;
         this.printRequest = printRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withCardReaderInitRequest(CardReaderInitRequest cardReaderInitRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.CARD_READER_INIT);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.CARD_READER_INIT;
         this.cardReaderInitRequest = cardReaderInitRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withCardReaderAPDURequest(CardReaderAPDURequest cardReaderAPDURequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.CARD_READER_APDU);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.CARD_READER_APDU;
         this.cardReaderAPDURequest = cardReaderAPDURequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withCardReaderPowerOffRequest(CardReaderPowerOffRequest cardReaderPowerOffRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.CARD_READER_POWER_OFF);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.CARD_READER_POWER_OFF;
         this.cardReaderPowerOffRequest = cardReaderPowerOffRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withReconciliationRequest(ReconciliationRequest reconciliationRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.RECONCILIATION);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.RECONCILIATION;
         this.reconciliationRequest = reconciliationRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withReversalRequest(ReversalRequest reversalRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.REVERSAL);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.REVERSAL;
         this.reversalRequest = reversalRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withSoundRequest(SoundRequest soundRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.SOUND);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.SOUND;
         this.soundRequest = soundRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withStoredValueRequest(StoredValueRequest storedValueRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.STORED_VALUE);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.STORED_VALUE;
         this.storedValueRequest = storedValueRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withTransactionStatusRequest(TransactionStatusRequest transactionStatusRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.SERVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.TRANSACTION_STATUS);
+        this.messageClass = MessageClassType.SERVICE;
+        this.messageCategory = MessageCategoryType.TRANSACTION_STATUS;
         this.transactionStatusRequest = transactionStatusRequest;
         return this;
     }
 
     public TerminalAPIRequestBuilder withTransmitRequest(TransmitRequest transmitRequest) {
-        this.messageHeader.setMessageClass(MessageClassType.DEVICE);
-        this.messageHeader.setMessageCategory(MessageCategoryType.TRANSMIT);
+        this.messageClass = MessageClassType.DEVICE;
+        this.messageCategory = MessageCategoryType.TRANSMIT;
         this.transmitRequest = transmitRequest;
         return this;
     }
@@ -313,6 +315,15 @@ public final class TerminalAPIRequestBuilder {
     }
 
     public TerminalAPIRequest build() {
+        MessageHeader messageHeader = new MessageHeader();
+        messageHeader.setProtocolVersion(PROTOCOL_VERSION);
+        messageHeader.setMessageType(MessageType.REQUEST);
+        messageHeader.setMessageClass(messageClass);
+        messageHeader.setMessageCategory(messageCategory);
+        messageHeader.setSaleID(saleId);
+        messageHeader.setServiceID(serviceId);
+        messageHeader.setPOIID(poiId);
+
         SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
         saleToPOIRequest.setMessageHeader(messageHeader);
         saleToPOIRequest.setAbortRequest(abortRequest);
