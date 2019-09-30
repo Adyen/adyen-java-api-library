@@ -122,7 +122,7 @@ public final class TerminalAPIRequestBuilder {
 
     public TerminalAPIRequestBuilder withAbortRequest(AbortRequest abortRequest) {
         this.messageClass = MessageClassType.SERVICE;
-        this.messageCategory =  MessageCategoryType.ABORT;
+        this.messageCategory = MessageCategoryType.ABORT;
         this.abortRequest = abortRequest;
         return this;
     }
@@ -326,34 +326,93 @@ public final class TerminalAPIRequestBuilder {
 
         SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
         saleToPOIRequest.setMessageHeader(messageHeader);
-        saleToPOIRequest.setAbortRequest(abortRequest);
-        saleToPOIRequest.setBalanceInquiryRequest(balanceInquiryRequest);
-        saleToPOIRequest.setBatchRequest(batchRequest);
-        saleToPOIRequest.setCardAcquisitionRequest(cardAcquisitionRequest);
-        saleToPOIRequest.setAdminRequest(adminRequest);
-        saleToPOIRequest.setDiagnosisRequest(diagnosisRequest);
-        saleToPOIRequest.setDisplayRequest(displayRequest);
-        saleToPOIRequest.setEnableServiceRequest(enableServiceRequest);
-        saleToPOIRequest.setEventNotification(eventNotification);
-        saleToPOIRequest.setGetTotalsRequest(getTotalsRequest);
-        saleToPOIRequest.setInputRequest(inputRequest);
-        saleToPOIRequest.setInputUpdate(inputUpdate);
-        saleToPOIRequest.setLoginRequest(loginRequest);
-        saleToPOIRequest.setLogoutRequest(logoutRequest);
-        saleToPOIRequest.setLoyaltyRequest(loyaltyRequest);
-        saleToPOIRequest.setPaymentRequest(paymentRequest);
-        saleToPOIRequest.setPINRequest(pinRequest);
-        saleToPOIRequest.setPrintRequest(printRequest);
-        saleToPOIRequest.setCardReaderInitRequest(cardReaderInitRequest);
-        saleToPOIRequest.setCardReaderAPDURequest(cardReaderAPDURequest);
-        saleToPOIRequest.setCardReaderPowerOffRequest(cardReaderPowerOffRequest);
-        saleToPOIRequest.setReconciliationRequest(reconciliationRequest);
-        saleToPOIRequest.setReversalRequest(reversalRequest);
-        saleToPOIRequest.setSoundRequest(soundRequest);
-        saleToPOIRequest.setStoredValueRequest(storedValueRequest);
-        saleToPOIRequest.setTransactionStatusRequest(transactionStatusRequest);
-        saleToPOIRequest.setTransmitRequest(transmitRequest);
         saleToPOIRequest.setSecurityTrailer(securityTrailer);
+
+        switch (messageCategory) {
+            case PAYMENT:
+                saleToPOIRequest.setPaymentRequest(paymentRequest);
+                break;
+            case TRANSACTION_STATUS:
+                saleToPOIRequest.setTransactionStatusRequest(transactionStatusRequest);
+                break;
+            case ABORT:
+                saleToPOIRequest.setAbortRequest(abortRequest);
+                break;
+            case REVERSAL:
+                saleToPOIRequest.setReversalRequest(reversalRequest);
+                break;
+            case CARD_ACQUISITION:
+                saleToPOIRequest.setCardAcquisitionRequest(cardAcquisitionRequest);
+                break;
+            case BALANCE_INQUIRY:
+                saleToPOIRequest.setBalanceInquiryRequest(balanceInquiryRequest);
+                break;
+            case BATCH:
+                saleToPOIRequest.setBatchRequest(batchRequest);
+                break;
+            case ADMIN:
+                saleToPOIRequest.setAdminRequest(adminRequest);
+                break;
+            case DIAGNOSIS:
+                saleToPOIRequest.setDiagnosisRequest(diagnosisRequest);
+                break;
+            case DISPLAY:
+                saleToPOIRequest.setDisplayRequest(displayRequest);
+                break;
+            case EVENT:
+                saleToPOIRequest.setEventNotification(eventNotification);
+                break;
+            case ENABLE_SERVICE:
+                saleToPOIRequest.setEnableServiceRequest(enableServiceRequest);
+                break;
+            case GET_TOTALS:
+                saleToPOIRequest.setGetTotalsRequest(getTotalsRequest);
+                break;
+            case INPUT:
+                saleToPOIRequest.setInputRequest(inputRequest);
+                break;
+            case INPUT_UPDATE:
+                saleToPOIRequest.setInputUpdate(inputUpdate);
+                break;
+            case LOGIN:
+                saleToPOIRequest.setLoginRequest(loginRequest);
+                break;
+            case LOGOUT:
+                saleToPOIRequest.setLogoutRequest(logoutRequest);
+                break;
+            case LOYALTY:
+                saleToPOIRequest.setLoyaltyRequest(loyaltyRequest);
+                break;
+            case PIN:
+                saleToPOIRequest.setPINRequest(pinRequest);
+                break;
+            case PRINT:
+                saleToPOIRequest.setPrintRequest(printRequest);
+                break;
+            case CARD_READER_INIT:
+                saleToPOIRequest.setCardReaderInitRequest(cardReaderInitRequest);
+                break;
+            case CARD_READER_APDU:
+                saleToPOIRequest.setCardReaderAPDURequest(cardReaderAPDURequest);
+                break;
+            case CARD_READER_POWER_OFF:
+                saleToPOIRequest.setCardReaderPowerOffRequest(cardReaderPowerOffRequest);
+                break;
+            case RECONCILIATION:
+                saleToPOIRequest.setReconciliationRequest(reconciliationRequest);
+                break;
+            case SOUND:
+                saleToPOIRequest.setSoundRequest(soundRequest);
+                break;
+            case STORED_VALUE:
+                saleToPOIRequest.setStoredValueRequest(storedValueRequest);
+                break;
+            case TRANSMIT:
+                saleToPOIRequest.setTransmitRequest(transmitRequest);
+                break;
+            default:
+                break;
+        }
 
         TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
         terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
