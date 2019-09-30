@@ -328,7 +328,7 @@ public final class TerminalAPIRequestBuilder {
         saleToPOIRequest.setMessageHeader(messageHeader);
         saleToPOIRequest.setSecurityTrailer(securityTrailer);
 
-        if(messageCategory != null) {
+        if (messageCategory != null) {
             switch (messageCategory) {
                 case PAYMENT:
                     saleToPOIRequest.setPaymentRequest(paymentRequest);
