@@ -19,7 +19,7 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.terminal;
+package com.adyen.builders.terminal;
 
 import com.adyen.model.nexo.AbortRequest;
 import com.adyen.model.nexo.AdminRequest;
@@ -54,6 +54,7 @@ import com.adyen.model.nexo.SoundRequest;
 import com.adyen.model.nexo.StoredValueRequest;
 import com.adyen.model.nexo.TransactionStatusRequest;
 import com.adyen.model.nexo.TransmitRequest;
+import com.adyen.model.terminal.TerminalAPIRequest;
 
 import static com.adyen.constants.ApiConstants.TerminalAPI.PROTOCOL_VERSION;
 

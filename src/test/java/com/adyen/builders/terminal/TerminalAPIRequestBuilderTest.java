@@ -19,14 +19,14 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.terminal.security;
+package com.adyen.builders.terminal;
 
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
 import com.adyen.model.nexo.PaymentRequest;
 import com.adyen.model.nexo.TransactionStatusRequest;
 import com.adyen.model.terminal.TerminalAPIRequest;
-import com.adyen.model.terminal.TerminalAPIRequestBuilder;
+import com.adyen.builders.terminal.TerminalAPIRequestBuilder;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
