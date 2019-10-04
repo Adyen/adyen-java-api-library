@@ -61,9 +61,7 @@ import static com.adyen.constants.ApiConstants.TerminalAPI.PROTOCOL_VERSION;
 public final class TerminalAPIRequestBuilder {
 
     // MessageHeader
-    private String saleId;
-    private String serviceId;
-    private String poiId;
+    private MessageHeader messageHeader;
     private MessageClassType messageClass;
     private MessageCategoryType messageCategory;
 
@@ -97,28 +95,13 @@ public final class TerminalAPIRequestBuilder {
     private TransmitRequest transmitRequest;
     private ContentInformation securityTrailer;
 
-    public TerminalAPIRequestBuilder() {
-    }
-
     public TerminalAPIRequestBuilder(String saleId, String serviceId, String poiId) {
-        this.saleId = saleId;
-        this.serviceId = serviceId;
-        this.poiId = poiId;
-    }
-
-    public TerminalAPIRequestBuilder withSaleId(String saleId) {
-        this.saleId = saleId;
-        return this;
-    }
-
-    public TerminalAPIRequestBuilder withServiceId(String serviceId) {
-        this.serviceId = serviceId;
-        return this;
-    }
-
-    public TerminalAPIRequestBuilder withPoiId(String poiId) {
-        this.poiId = poiId;
-        return this;
+        messageHeader = new MessageHeader();
+        messageHeader.setProtocolVersion(PROTOCOL_VERSION);
+        messageHeader.setMessageType(MessageType.REQUEST);
+        messageHeader.setSaleID(saleId);
+        messageHeader.setServiceID(serviceId);
+        messageHeader.setPOIID(poiId);
     }
 
     public TerminalAPIRequestBuilder withAbortRequest(AbortRequest abortRequest) {
@@ -316,14 +299,8 @@ public final class TerminalAPIRequestBuilder {
     }
 
     public TerminalAPIRequest build() {
-        MessageHeader messageHeader = new MessageHeader();
-        messageHeader.setProtocolVersion(PROTOCOL_VERSION);
-        messageHeader.setMessageType(MessageType.REQUEST);
         messageHeader.setMessageClass(messageClass);
         messageHeader.setMessageCategory(messageCategory);
-        messageHeader.setSaleID(saleId);
-        messageHeader.setServiceID(serviceId);
-        messageHeader.setPOIID(poiId);
 
         SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
         saleToPOIRequest.setMessageHeader(messageHeader);

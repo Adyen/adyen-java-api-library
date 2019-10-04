@@ -53,17 +53,12 @@ public class TerminalAPIRequestBuilderTest {
 
     @Before
     public void setUp() {
-        terminalAPIRequestBuilder = new TerminalAPIRequestBuilder();
+        terminalAPIRequestBuilder = new TerminalAPIRequestBuilder(SALE_ID, SERVICE_ID, POI_ID);
     }
 
     @Test
     public void testPaymentRequest() {
-        TerminalAPIRequest terminalAPIRequest = terminalAPIRequestBuilder
-                .withSaleId(SALE_ID)
-                .withServiceId(SERVICE_ID)
-                .withPoiId(POI_ID)
-                .withPaymentRequest(paymentRequest)
-                .build();
+        TerminalAPIRequest terminalAPIRequest = terminalAPIRequestBuilder.withPaymentRequest(paymentRequest).build();
 
         assertNotNull(terminalAPIRequest);
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest());
@@ -79,9 +74,6 @@ public class TerminalAPIRequestBuilderTest {
     @Test
     public void testMultipleRequestObjects() {
         TerminalAPIRequest terminalAPIRequest = terminalAPIRequestBuilder
-                .withSaleId(SALE_ID)
-                .withServiceId(SERVICE_ID)
-                .withPoiId(POI_ID)
                 .withTransactionStatusRequest(transactionStatusRequest)
                 .withPaymentRequest(paymentRequest)
                 .build();
@@ -100,11 +92,7 @@ public class TerminalAPIRequestBuilderTest {
 
     @Test
     public void testNoRequest() {
-        TerminalAPIRequest terminalAPIRequest = terminalAPIRequestBuilder
-                .withSaleId(SALE_ID)
-                .withServiceId(SERVICE_ID)
-                .withPoiId(POI_ID)
-                .build();
+        TerminalAPIRequest terminalAPIRequest = terminalAPIRequestBuilder.build();
 
         assertNotNull(terminalAPIRequest);
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest());
