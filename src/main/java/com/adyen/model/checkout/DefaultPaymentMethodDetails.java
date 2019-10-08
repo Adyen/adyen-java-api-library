@@ -60,6 +60,10 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String sepaOwnerName;
     @SerializedName("sepa.ibanNumber")
     private String sepaIbanNumber;
+    @SerializedName("additionalData.applepay.token")
+    private String applepayToken;
+    @SerializedName("paywithgoogle.token")
+    private String googlepayToken;
 
     @Override
     public String getType() {
@@ -272,6 +276,22 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
 
     public void setSepaIbanNumber(String sepaIbanNumber) {
         this.sepaIbanNumber = sepaIbanNumber;
+    }
+
+    public String getApplepayToken() {
+        return applepayToken;
+    }
+
+    public void setApplepayToken(String applepayToken) {
+        this.applepayToken = applepayToken;
+    }
+
+    public String getGooglepayToken() {
+        return googlepayToken;
+    }
+
+    public void setGooglepayToken(String googlepayToken) {
+        this.googlepayToken = googlepayToken;
     }
 
     @Override

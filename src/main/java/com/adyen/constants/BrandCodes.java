@@ -52,4 +52,6 @@ public interface BrandCodes {
     String KARENMILLEN = "karenmillen";
     String OASIS = "oasis";
     String WAREHOUSE = "warehouse";
+    String GOOGLEPAY = "paywithgoogle";
+    String APPLEPAY = "applepay";
 }
