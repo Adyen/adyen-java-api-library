@@ -1,7 +1,5 @@
 package com.adyen.model.terminal;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Base64;
 import java.util.Map;
 import java.util.Objects;
 import com.adyen.model.applicationinfo.ApplicationInfo;
