@@ -85,7 +85,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
     }
 
     /**
-     * Checks if SaleToAcquirerData is set. If it is not creates an encoded base 64 string with application info prefilled.
+     * Checks if SaleToAcquirerData is set. If it is not creates an encoded base 64 string with application info.
      *
      * @param terminalAPIRequest TerminalAPIRequest
      * @return TerminalAPIRequest

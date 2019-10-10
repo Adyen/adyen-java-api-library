@@ -41,7 +41,7 @@ public class ApplicationInfoTest {
                 + "    }\n"
                 + "  }\n"
                 + "}";
-        String applicationInfoJson = saleToAcquirerDataModel.toJson().trim();
+        String applicationInfoJson = saleToAcquirerDataModel.toJson();
         assertEquals(applicationInfoJson, applicationInfoExpected);
     }
 }

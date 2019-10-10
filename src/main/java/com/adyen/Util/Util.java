@@ -160,7 +160,7 @@ public final class Util {
 
     /**
      * Encode the given string to base 64 string
-     * @param o string
+     * @param input string
      * @return base 64 encoded string    "
      */
     public static String toBase64Encode(String input) {
