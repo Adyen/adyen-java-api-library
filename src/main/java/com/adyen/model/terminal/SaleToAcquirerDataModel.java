@@ -13,6 +13,7 @@ public class SaleToAcquirerDataModel {
     protected Map<String, String> additionalData;
     protected Map<String, String> keyValueData;
     protected Map<String, String> metaData;
+    protected String tenderOption;
 
     public SaleToAcquirerDataModel() {
         applicationInfo = new ApplicationInfo();
@@ -48,6 +49,14 @@ public class SaleToAcquirerDataModel {
 
     public void setMetaData(Map<String, String> metaData) {
         this.metaData = metaData;
+    }
+
+    public String getTenderOption() {
+        return tenderOption;
+    }
+
+    public void setTenderOption(String tenderOption) {
+        this.tenderOption = tenderOption;
     }
 
     public String toJson() {
