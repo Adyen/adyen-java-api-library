@@ -20,8 +20,11 @@
  */
 package com.adyen.service;
 
+import java.io.IOException;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.Util.Util;
+import com.adyen.model.terminal.SaleToAcquirerDataModel;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.service.exception.ApiException;
@@ -30,8 +33,6 @@ import com.adyen.service.resource.terminal.cloud.Sync;
 import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
 
 public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
 
@@ -56,8 +57,8 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public String async(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
+        terminalAPIRequest = this.checkSaleToAcquirerDataApplicationInfo(terminalAPIRequest);
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
-
         String response = terminalApiAsync.request(jsonRequest);
         return response;
     }
@@ -71,10 +72,9 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
+        terminalAPIRequest = this.checkSaleToAcquirerDataApplicationInfo(terminalAPIRequest);
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
-
         String jsonResponse = terminalApiSync.request(jsonRequest);
-
         if (jsonResponse == null || jsonResponse.isEmpty() || "ok".equals(jsonResponse)) {
             return null;
         }
@@ -82,5 +82,24 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
         TerminalAPIResponse terminalAPIResponse = terminalApiGson.fromJson(jsonResponse, new TypeToken<TerminalAPIResponse>() {
         }.getType());
         return terminalAPIResponse;
+    }
+
+    /**
+     * Checks if SaleToAcqurerData is set. If it is not creates an encoded base 64 string with application info prefilled.
+     *
+     * @param terminalAPIRequest TerminalAPIRequest
+     * @return TerminalAPIRequest
+     */
+    private static TerminalAPIRequest checkSaleToAcquirerDataApplicationInfo(TerminalAPIRequest terminalAPIRequest) {
+        if (terminalAPIRequest.getSaleToPOIRequest() != null
+                && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest() != null
+                && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData() != null
+                && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().getSaleToAcquirerData() == null) {
+            SaleToAcquirerDataModel saleToAcquirerDataModel = new SaleToAcquirerDataModel();
+            String saleToAcquirerDataJson = saleToAcquirerDataModel.toJson();
+            String saleToAcqurerDataJsonBase64 = Util.toBase64Encode(saleToAcquirerDataJson);
+            terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().setSaleToAcquirerData(saleToAcqurerDataJsonBase64);
+        }
+        return terminalAPIRequest;
     }
 }
