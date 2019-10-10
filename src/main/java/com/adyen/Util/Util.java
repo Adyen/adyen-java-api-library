@@ -20,17 +20,16 @@
  */
 package com.adyen.Util;
 
-import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+import org.apache.commons.codec.binary.Base64;
 import com.adyen.model.Amount;
 
 public final class Util {
@@ -165,11 +164,7 @@ public final class Util {
      */
     public static String toBase64Encode(String input) {
         if (input != null) {
-            try {
-                return Base64.getEncoder().encodeToString(input.getBytes("utf-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
+            return new String(Base64.encodeBase64(input.getBytes()));
         }
         return null;
     }
