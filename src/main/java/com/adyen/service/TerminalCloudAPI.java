@@ -97,9 +97,8 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
                 && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData() != null
                 && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().getSaleToAcquirerData() == null) {
             SaleToAcquirerDataModel saleToAcquirerDataModel = new SaleToAcquirerDataModel();
-            String saleToAcquirerDataJson = saleToAcquirerDataModel.toJson();
-            String saleToAcqurerDataJsonBase64 = Util.toBase64Encode(saleToAcquirerDataJson);
-            terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().setSaleToAcquirerData(saleToAcqurerDataJsonBase64);
+            String saleToAcquirerData = saleToAcquirerDataModel.toBase64();
+            terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().setSaleToAcquirerData(saleToAcquirerData);
         }
         return terminalAPIRequest;
     }

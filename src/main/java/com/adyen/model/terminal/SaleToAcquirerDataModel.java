@@ -2,6 +2,7 @@ package com.adyen.model.terminal;
 
 import java.util.Map;
 import java.util.Objects;
+import org.apache.commons.codec.binary.Base64;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,8 +60,9 @@ public class SaleToAcquirerDataModel {
         this.tenderOption = tenderOption;
     }
 
-    public String toJson() {
-        return PRETTY_PRINT_GSON.toJson(this);
+    public String toBase64() {
+        String json = PRETTY_PRINT_GSON.toJson(this);
+        return new String(Base64.encodeBase64(json.getBytes()));
     }
 
     @Override

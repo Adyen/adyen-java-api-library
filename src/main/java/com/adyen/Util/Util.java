@@ -156,16 +156,4 @@ public final class Util {
 
         return fmt.format(sessionDate);
     }
-
-    /**
-     * Encode the given string to base 64 string
-     * @param input string
-     * @return base 64 encoded string    "
-     */
-    public static String toBase64Encode(String input) {
-        if (input != null) {
-            return new String(Base64.encodeBase64(input.getBytes()));
-        }
-        return null;
-    }
 }

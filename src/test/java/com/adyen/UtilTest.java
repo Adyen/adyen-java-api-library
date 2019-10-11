@@ -118,12 +118,4 @@ public class UtilTest {
         additionalData.put(HMAC_SIGNATURE, "notValidSign");
         assertFalse(hmacValidator.validateHMAC(notificationRequestItem, key));
     }
-
-    @Test
-    public void testToBase64Encode(){
-        String input = "\"applicationInfo\": {\"adyenLibrary\": {\"name\": \"adyen-java-api-library\",\"version\": “x.x.x”}";
-        String inputEncodedBase64 = "ImFwcGxpY2F0aW9uSW5mbyI6IHsiYWR5ZW5MaWJyYXJ5IjogeyJuYW1lIjogImFkeWVuLWphdmEtYXBpLWxpYnJhcnkiLCJ2ZXJzaW9uIjog4oCceC54LnjigJ19";
-        String result =  Util.toBase64Encode(input);
-        assertEquals(result, inputEncodedBase64);
-    }
 }

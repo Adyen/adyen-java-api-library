@@ -2,7 +2,6 @@ package com.adyen;
 
 import org.junit.Test;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.terminal.SaleToAcquirerDataModel;
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.assertEquals;
@@ -27,21 +26,5 @@ public class ApplicationInfoTest {
         assertEquals(LIB_NAME, applicationInfo.getAdyenLibrary().getName());
         assertNotNull(applicationInfo.getAdyenLibrary().getVersion());
         assertEquals(LIB_VERSION, applicationInfo.getAdyenLibrary().getVersion());
-    }
-
-    @Test
-    public void TestApplicationInfoPrefilledSaleToAcquirerDataModel() {
-
-        SaleToAcquirerDataModel saleToAcquirerDataModel = new SaleToAcquirerDataModel();
-        String applicationInfoExpected = "{\n"
-                + "  \"applicationInfo\": {\n"
-                + "    \"adyenLibrary\": {\n"
-                + "      \"name\": \""+LIB_NAME+"\",\n"
-                + "      \"version\": \""+LIB_VERSION+"\"\n"
-                + "    }\n"
-                + "  }\n"
-                + "}";
-        String applicationInfoJson = saleToAcquirerDataModel.toJson();
-        assertEquals(applicationInfoJson, applicationInfoExpected);
     }
 }
