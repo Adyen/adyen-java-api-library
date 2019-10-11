@@ -23,7 +23,6 @@ package com.adyen.service;
 import java.io.IOException;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Util.Util;
 import com.adyen.model.terminal.SaleToAcquirerDataModel;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
@@ -97,8 +96,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
                 && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData() != null
                 && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().getSaleToAcquirerData() == null) {
             SaleToAcquirerDataModel saleToAcquirerDataModel = new SaleToAcquirerDataModel();
-            String saleToAcquirerData = saleToAcquirerDataModel.toBase64();
-            terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().setSaleToAcquirerData(saleToAcquirerData);
+            terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().setSaleToAcquirerData(saleToAcquirerDataModel.toBase64());
         }
         return terminalAPIRequest;
     }
