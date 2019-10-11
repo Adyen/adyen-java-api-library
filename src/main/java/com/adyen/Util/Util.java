@@ -29,7 +29,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-import org.apache.commons.codec.binary.Base64;
 import com.adyen.model.Amount;
 
 public final class Util {
