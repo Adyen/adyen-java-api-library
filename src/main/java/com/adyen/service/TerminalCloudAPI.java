@@ -56,7 +56,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public String async(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
-        terminalAPIRequest = this.checkSaleToAcquirerDataApplicationInfo(terminalAPIRequest);
+        terminalAPIRequest = this.getSaleToAcquirerDataApplicationInfo(terminalAPIRequest);
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
         String response = terminalApiAsync.request(jsonRequest);
         return response;
@@ -71,7 +71,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
-        terminalAPIRequest = this.checkSaleToAcquirerDataApplicationInfo(terminalAPIRequest);
+        terminalAPIRequest = this.getSaleToAcquirerDataApplicationInfo(terminalAPIRequest);
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
         String jsonResponse = terminalApiSync.request(jsonRequest);
         if (jsonResponse == null || jsonResponse.isEmpty() || "ok".equals(jsonResponse)) {
@@ -89,7 +89,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @param terminalAPIRequest TerminalAPIRequest
      * @return TerminalAPIRequest
      */
-    private static TerminalAPIRequest checkSaleToAcquirerDataApplicationInfo(TerminalAPIRequest terminalAPIRequest) {
+    private static TerminalAPIRequest getSaleToAcquirerDataApplicationInfo(TerminalAPIRequest terminalAPIRequest) {
         if (terminalAPIRequest != null
                 && terminalAPIRequest.getSaleToPOIRequest() != null
                 && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest() != null
