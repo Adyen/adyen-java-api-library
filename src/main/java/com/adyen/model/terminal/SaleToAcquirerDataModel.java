@@ -83,6 +83,6 @@ public class SaleToAcquirerDataModel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(applicationInfo, additionalData,keyValueData,metaData,tenderOption);
+        return Objects.hash(applicationInfo, additionalData, keyValueData, metaData, tenderOption);
     }
 }
