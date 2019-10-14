@@ -83,8 +83,8 @@ public class TerminalAPIRequest {
                 && this.getSaleToPOIRequest().getPaymentRequest() != null
                 && this.getSaleToPOIRequest().getPaymentRequest().getSaleData() != null
                 && this.getSaleToPOIRequest().getPaymentRequest().getSaleData().getSaleToAcquirerData() == null) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 }
