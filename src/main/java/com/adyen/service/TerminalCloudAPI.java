@@ -90,7 +90,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @return TerminalAPIRequest
      */
     private static TerminalAPIRequest setSaleToAcquirerDataModel(TerminalAPIRequest terminalAPIRequest) {
-        if (terminalAPIRequest.isSaleToAcquirerDataModelSet()) {
+        if (terminalAPIRequest != null && terminalAPIRequest.isSaleToAcquirerDataModelSet()) {
             SaleToAcquirerDataModel saleToAcquirerDataModel = new SaleToAcquirerDataModel();
             terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().setSaleToAcquirerData(saleToAcquirerDataModel.toBase64());
         }

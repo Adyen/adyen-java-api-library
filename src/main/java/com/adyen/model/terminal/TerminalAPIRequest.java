@@ -79,8 +79,7 @@ public class TerminalAPIRequest {
      * @return true if sale to acquirer data is null
      */
     public Boolean isSaleToAcquirerDataModelSet() {
-        if (this != null
-                && this.getSaleToPOIRequest() != null
+        if (this.getSaleToPOIRequest() != null
                 && this.getSaleToPOIRequest().getPaymentRequest() != null
                 && this.getSaleToPOIRequest().getPaymentRequest().getSaleData() != null
                 && this.getSaleToPOIRequest().getPaymentRequest().getSaleData().getSaleToAcquirerData() == null) {
