@@ -56,7 +56,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public String async(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
-        terminalAPIRequest = this.getApplicationInfo(terminalAPIRequest);
+        terminalAPIRequest = this.setSaleToAcquirerDataModel(terminalAPIRequest);
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
         String response = terminalApiAsync.request(jsonRequest);
         return response;
@@ -71,7 +71,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
-        terminalAPIRequest = this.getApplicationInfo(terminalAPIRequest);
+        terminalAPIRequest = this.setSaleToAcquirerDataModel(terminalAPIRequest);
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
         String jsonResponse = terminalApiSync.request(jsonRequest);
         if (jsonResponse == null || jsonResponse.isEmpty() || "ok".equals(jsonResponse)) {
@@ -89,12 +89,8 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
      * @param terminalAPIRequest TerminalAPIRequest
      * @return TerminalAPIRequest
      */
-    private static TerminalAPIRequest getApplicationInfo(TerminalAPIRequest terminalAPIRequest) {
-        if (terminalAPIRequest != null
-                && terminalAPIRequest.getSaleToPOIRequest() != null
-                && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest() != null
-                && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData() != null
-                && terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().getSaleToAcquirerData() == null) {
+    private static TerminalAPIRequest setSaleToAcquirerDataModel(TerminalAPIRequest terminalAPIRequest) {
+        if (terminalAPIRequest.isSaleToAcquirerDataModelSet()) {
             SaleToAcquirerDataModel saleToAcquirerDataModel = new SaleToAcquirerDataModel();
             terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest().getSaleData().setSaleToAcquirerData(saleToAcquirerDataModel.toBase64());
         }

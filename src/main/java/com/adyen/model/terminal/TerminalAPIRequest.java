@@ -20,10 +20,9 @@
  */
 package com.adyen.model.terminal;
 
+import java.util.Objects;
 import com.adyen.model.nexo.SaleToPOIRequest;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.Objects;
 
 /**
  * Terminal API Request
@@ -72,5 +71,21 @@ public class TerminalAPIRequest {
         return "TerminalAPIRequest{" +
                 "saleToPOIRequest=" + saleToPOIRequest +
                 '}';
+    }
+
+    /**
+     * Checks if SaleToAcquirerData is null
+     *
+     * @return true if sale to acquirer data is null
+     */
+    public Boolean isSaleToAcquirerDataModelSet() {
+        if (this != null
+                && this.getSaleToPOIRequest() != null
+                && this.getSaleToPOIRequest().getPaymentRequest() != null
+                && this.getSaleToPOIRequest().getPaymentRequest().getSaleData() != null
+                && this.getSaleToPOIRequest().getPaymentRequest().getSaleData().getSaleToAcquirerData() == null) {
+            return true;
+        }
+        return false;
     }
 }
