@@ -73,12 +73,16 @@ public class SaleToAcquirerDataModel {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        SaleToAcquirerDataModel that = (SaleToAcquirerDataModel) o;
-        return additionalData.equals(that.additionalData) && applicationInfo.equals(that.applicationInfo);
+        SaleToAcquirerDataModel saleToAcquirerDataModel = (SaleToAcquirerDataModel) o;
+        return Objects.equals(this.additionalData, saleToAcquirerDataModel.additionalData)
+                && Objects.equals(this.applicationInfo, saleToAcquirerDataModel.applicationInfo)
+                && Objects.equals(this.keyValueData, saleToAcquirerDataModel.keyValueData)
+                && Objects.equals(this.metaData, saleToAcquirerDataModel.metaData)
+                && Objects.equals(this.tenderOption, saleToAcquirerDataModel.tenderOption);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(applicationInfo, additionalData);
+        return Objects.hash(applicationInfo, additionalData,keyValueData,metaData,tenderOption);
     }
 }
