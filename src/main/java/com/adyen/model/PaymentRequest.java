@@ -362,9 +362,9 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
             return false;
         }
         PaymentRequest paymentRequest = (PaymentRequest) o;
-        return Objects.equals(this.accountInfo, paymentRequest.accountInfo)
-                && Objects.equals(this.bankAccount,
-                                  paymentRequest.bankAccount)
+        return super.equals(paymentRequest)
+                && Objects.equals(this.accountInfo, paymentRequest.accountInfo)
+                && Objects.equals(this.bankAccount, paymentRequest.bankAccount)
                 && Objects.equals(this.card, paymentRequest.card)
                 && Objects.equals(this.merchantRiskIndicator, paymentRequest.merchantRiskIndicator)
                 && Objects.equals(this.mpiData, paymentRequest.mpiData)
@@ -377,13 +377,14 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(card, mpiData, bankAccount, super.hashCode());
+        return Objects.hash(super.hashCode(), accountInfo, card, mpiData, bankAccount, store, merchantRiskIndicator, splits, trustedShopper, threeDS2RequestData, recurringProcessingModel);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentRequest {\n");
+        sb.append(super.toString());
         sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
         sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
         sb.append("    card: ").append(toIndentedString(card)).append("\n");

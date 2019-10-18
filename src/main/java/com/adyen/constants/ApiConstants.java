@@ -123,4 +123,8 @@ public interface ApiConstants {
         String FINGERPRINT_RESULT = "fingerprintResult";
         String CHALLENGE_RESULT = "challengeResult";
     }
+
+    interface TerminalAPI {
+        String PROTOCOL_VERSION = "3.0";
+    }
 }
