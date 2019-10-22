@@ -63,6 +63,11 @@ public class ReversalRequest {
      */
     @XmlAttribute(name = "ReversedAmount")
     protected BigDecimal reversedAmount;
+    /**
+     * The Sale data.
+     */
+    @XmlAttribute(name = "SaleData")
+    protected SaleData saleData;
 
     /**
      * Gets the value of the originalPOITransaction property.
@@ -154,4 +159,21 @@ public class ReversalRequest {
         this.reversedAmount = value;
     }
 
+    /**
+     * Gets the value of the saleData property.
+     *
+     * @return possible      object is     {@link SaleData }
+     */
+    public SaleData getSaleData() {
+        return saleData;
+    }
+
+    /**
+     * Sets the value of the saleData property.
+     *
+     * @param value allowed object is     {@link SaleData }
+     */
+    public void setSaleData(SaleData value) {
+        this.saleData = value;
+    }
 }
