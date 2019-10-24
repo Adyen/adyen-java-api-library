@@ -7,6 +7,7 @@ import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNot;
 
 public class ApplicationInfoTest {
 
@@ -19,7 +20,7 @@ public class ApplicationInfoTest {
     }
 
     @Test
-    public void TestApplicationInfoPrefilledLibraryFields() {
+    public string TestApplicationInfoPrefilledLibraryFields() {
         ApplicationInfo applicationInfo = new ApplicationInfo();
 
         assertNotNull(applicationInfo.getAdyenLibrary());
