@@ -1,0 +1,35 @@
+{
+  "resultCode": "ChallengeShopper",
+  "action": {
+    "data": {
+      "MD": "OEVudmZVMUlkWjd0MDNwUWs2bmhSdz09...",
+      "PaReq": "eNpVUttygjAQ/RXbDyAXBYRZ00HpTH3wUosPfe...",
+      "TermUrl": "https://your-company.com/checkout/"
+    },
+    "method": "POST",
+    "paymentData": "Ab02b4c0!BQABAgA4e3wGkhVah4CJL19qdegdmm9E...",
+    "paymentMethodType": "scheme",
+    "type": "redirect",
+    "url": "https://test.adyen.com/hpp/3d/validate.shtml"
+  },
+  "details": [
+    {
+      "key": "MD",
+      "type": "text"
+    },
+    {
+      "key": "PaRes",
+      "type": "text"
+    }
+  ],
+  "paymentData": "Ab02b4c0!BQABAgA4e3wGkhVah4CJL19qdegdmm9E...",
+  "redirect": {
+    "data": {
+      "PaReq": "eNpVUttygjAQ/RXbDyAXBYRZ00HpTH3wUosPfe...",
+      "TermUrl": "https://your-company.com/checkout/",
+      "MD": "OEVudmZVMUlkWjd0MDNwUWs2bmhSdz09..."
+    },
+    "method": "POST",
+    "url": "https://test.adyen.com/hpp/3d/validate.shtml"
+  }
+}
