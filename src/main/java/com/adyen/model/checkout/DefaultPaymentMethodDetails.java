@@ -54,8 +54,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String recurringDetailReference;
     @SerializedName("storeDetails")
     private Boolean storeDetails;
-    @SerializedName("idealIssuer")
-    private String idealIssuer;
+    @SerializedName("issuer")
+    private String issuer;
     @SerializedName("sepa.ownerName")
     private String sepaOwnerName;
     @SerializedName("sepa.ibanNumber")
@@ -245,16 +245,16 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return this;
     }
 
-    public String getIdealIssuer() {
-        return idealIssuer;
+    public String getIssuer() {
+        return issuer;
     }
 
-    public void setIdealIssuer(String idealIssuer) {
-        this.idealIssuer = idealIssuer;
+    public void setIssuer(String issuer) {
+        this.issuer = issuer;
     }
 
-    public DefaultPaymentMethodDetails idealIssuer(String idealIssuer) {
-        this.idealIssuer = idealIssuer;
+    public DefaultPaymentMethodDetails issuer(String issuer) {
+        this.issuer = issuer;
         return this;
     }
 
@@ -297,7 +297,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(encryptedSecurityCode, that.encryptedSecurityCode)
                 && Objects.equals(recurringDetailReference, that.recurringDetailReference)
                 && Objects.equals(storeDetails, that.storeDetails)
-                && Objects.equals(idealIssuer, that.idealIssuer)
+                && Objects.equals(issuer, that.issuer)
                 && Objects.equals(sepaIbanNumber, that.sepaIbanNumber)
                 && Objects.equals(sepaOwnerName, that.sepaOwnerName);
     }
@@ -318,7 +318,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 encryptedSecurityCode,
                 recurringDetailReference,
                 storeDetails,
-                idealIssuer);
+                issuer);
     }
 
     @Override
@@ -352,8 +352,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 + '\''
                 + ", storeDetails="
                 + storeDetails
-                + ", idealIssuer="
-                + idealIssuer
+                + ", issuer="
+                + issuer
                 + '}';
     }
 }
