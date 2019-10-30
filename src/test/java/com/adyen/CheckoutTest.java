@@ -26,6 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+
+import com.adyen.model.checkout.CheckoutPaymentsAction;
 import org.junit.Assert;
 import org.junit.Test;
 import com.adyen.model.Amount;
@@ -401,6 +403,31 @@ public class CheckoutTest extends BaseTest {
 
             Assert.fail("multibanco amount throw Exception");
         }
+    }
+
+    @Test
+    public void TestPaymentResponseChallengeShopper() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-3ds2-challenge-shopper.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals(PaymentsResponse.ResultCodeEnum.CHALLENGESHOPPER, paymentsResponse.getResultCode());
+        assertNotNull(paymentsResponse.getAction());
+        assertNotNull(paymentsResponse.getAction().getData());
+        assertEquals(3, paymentsResponse.getAction().getData().size());
+        assertEquals("POST", paymentsResponse.getAction().getMethod());
+        assertEquals("Ab02b4c0!BQABAgA4e3wGkhVah4CJL19qdegdmm9E...", paymentsResponse.getAction().getPaymentData());
+        assertEquals("scheme", paymentsResponse.getAction().getPaymentMethodType());
+        assertEquals("https://test.adyen.com/hpp/3d/validate.shtml", paymentsResponse.getAction().getUrl());
+        assertEquals(CheckoutPaymentsAction.CheckoutActionType.REDIRECT, paymentsResponse.getAction().getType());
+        assertEquals("Ab02b4c0!BQABAgA4e3wGkhVah4CJL19qdegdmm9E...", paymentsResponse.getPaymentData());
+        assertNotNull(paymentsResponse.getDetails());
+        assertEquals(1, paymentsResponse.getDetails().size());
+        assertEquals("threeds2.challengeResult", paymentsResponse.getDetails().get(0).getKey());
+        assertEquals("text", paymentsResponse.getDetails().get(0).getType());
+        assertNotNull(paymentsResponse.getAuthentication());
+        assertEquals(1, paymentsResponse.getAuthentication().size());
+        assertEquals("S0zYWQ0MGEwMjU2MjEifQ==", paymentsResponse.getAuthentication().get("threeds2.challengeToken"));
     }
 
     /**
