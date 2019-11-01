@@ -254,6 +254,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     /**
      * @deprecated This field is deprecated and new field added {@link DefaultPaymentMethodDetails#issuer } which is  more generic for other payment methods.
      */
+    @Deprecated
     public String getIdealIssuer() {
         return idealIssuer;
     }
@@ -261,10 +262,15 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     /**
      * @deprecated This field is deprecated and new field added {@link DefaultPaymentMethodDetails#issuer } which is  more generic for other payment methods.
      */
+    @Deprecated
     public void setIdealIssuer(String idealIssuer) {
         this.idealIssuer = idealIssuer;
     }
 
+    /**
+     * @deprecated This field is deprecated and new field added {@link DefaultPaymentMethodDetails#issuer } which is  more generic for other payment methods.
+     */
+    @Deprecated
     public DefaultPaymentMethodDetails idealIssuer(String idealIssuer) {
         this.idealIssuer = idealIssuer;
         return this;
@@ -324,6 +330,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(encryptedSecurityCode, that.encryptedSecurityCode)
                 && Objects.equals(recurringDetailReference, that.recurringDetailReference)
                 && Objects.equals(storeDetails, that.storeDetails)
+                && Objects.equals(idealIssuer, that.idealIssuer)
                 && Objects.equals(issuer, that.issuer)
                 && Objects.equals(sepaIbanNumber, that.sepaIbanNumber)
                 && Objects.equals(sepaOwnerName, that.sepaOwnerName);
