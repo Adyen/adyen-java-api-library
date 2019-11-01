@@ -54,8 +54,14 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String recurringDetailReference;
     @SerializedName("storeDetails")
     private Boolean storeDetails;
+    /**
+     * @deprecated This field is deprecated and new field added {@link DefaultPaymentMethodDetails#issuer } which is  more generic for other payment methods.
+     */
+    @Deprecated
     @SerializedName("idealIssuer")
     private String idealIssuer;
+    @SerializedName("issuer")
+    private String issuer;
     @SerializedName("sepa.ownerName")
     private String sepaOwnerName;
     @SerializedName("sepa.ibanNumber")
@@ -245,16 +251,41 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return this;
     }
 
+    /**
+     * @deprecated This field is deprecated and new field added {@link DefaultPaymentMethodDetails#issuer } which is  more generic for other payment methods.
+     */
+    @Deprecated
     public String getIdealIssuer() {
         return idealIssuer;
     }
 
+    /**
+     * @deprecated This field is deprecated and new field added {@link DefaultPaymentMethodDetails#issuer } which is  more generic for other payment methods.
+     */
+    @Deprecated
     public void setIdealIssuer(String idealIssuer) {
         this.idealIssuer = idealIssuer;
     }
 
+    /**
+     * @deprecated This field is deprecated and new field added {@link DefaultPaymentMethodDetails#issuer } which is  more generic for other payment methods.
+     */
+    @Deprecated
     public DefaultPaymentMethodDetails idealIssuer(String idealIssuer) {
         this.idealIssuer = idealIssuer;
+        return this;
+    }
+
+    public String getIssuer() {
+        return issuer;
+    }
+
+    public void setIssuer(String issuer) {
+        this.issuer = issuer;
+    }
+
+    public DefaultPaymentMethodDetails issuer(String issuer) {
+        this.issuer = issuer;
         return this;
     }
 
@@ -287,10 +318,12 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(number, that.number)
                 && Objects.equals(expiryMonth, that.expiryMonth)
                 && Objects.equals(expiryYear, that.expiryYear)
-                && Objects.equals(holderName, that.holderName)
+                && Objects.equals(holderName,
+                                  that.holderName)
                 && Objects.equals(cvc, that.cvc)
                 && Objects.equals(installmentConfigurationKey, that.installmentConfigurationKey)
-                && Objects.equals(personalDetails, that.personalDetails)
+                && Objects.equals(personalDetails,
+                                  that.personalDetails)
                 && Objects.equals(encryptedCardNumber, that.encryptedCardNumber)
                 && Objects.equals(encryptedExpiryMonth, that.encryptedExpiryMonth)
                 && Objects.equals(encryptedExpiryYear, that.encryptedExpiryYear)
@@ -298,6 +331,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(recurringDetailReference, that.recurringDetailReference)
                 && Objects.equals(storeDetails, that.storeDetails)
                 && Objects.equals(idealIssuer, that.idealIssuer)
+                && Objects.equals(issuer, that.issuer)
                 && Objects.equals(sepaIbanNumber, that.sepaIbanNumber)
                 && Objects.equals(sepaOwnerName, that.sepaOwnerName);
     }
@@ -305,20 +339,21 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     @Override
     public int hashCode() {
         return Objects.hash(type,
-                number,
-                expiryMonth,
-                expiryYear,
-                holderName,
-                cvc,
-                installmentConfigurationKey,
-                personalDetails,
-                encryptedCardNumber,
-                encryptedExpiryMonth,
-                encryptedExpiryYear,
-                encryptedSecurityCode,
-                recurringDetailReference,
-                storeDetails,
-                idealIssuer);
+                            number,
+                            expiryMonth,
+                            expiryYear,
+                            holderName,
+                            cvc,
+                            installmentConfigurationKey,
+                            personalDetails,
+                            encryptedCardNumber,
+                            encryptedExpiryMonth,
+                            encryptedExpiryYear,
+                            encryptedSecurityCode,
+                            recurringDetailReference,
+                            storeDetails,
+                            idealIssuer,
+                            issuer);
     }
 
     @Override
@@ -354,6 +389,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 + storeDetails
                 + ", idealIssuer="
                 + idealIssuer
+                + ", issuer="
+                + issuer
                 + '}';
     }
 }
