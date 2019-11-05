@@ -21,11 +21,12 @@
 package com.adyen;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class Service {
 
-    protected static final Gson GSON = new Gson();
-    protected boolean isApiKeyRequired = false;
+    protected static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
+    private boolean isApiKeyRequired = false;
     private Client client;
 
     protected Service(Client client) {
