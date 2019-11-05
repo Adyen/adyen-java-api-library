@@ -37,6 +37,9 @@ public class ThreeDSecureData {
      * the enrollment response from the 3D directory server
      */
     public enum DirectoryResponseEnum {
+        @SerializedName("A")
+        A("A"),
+
         @SerializedName("Y")
         Y("Y"),
 

@@ -265,11 +265,14 @@ public class ThreeDSecureData {
     }
 
     /**
-     * The enrollment response from the 3D directory server.
+     * In 3D Secure 1, this is the enrollment response from the 3D directory server.
+     * In 3D Secure 2, this is the `transStatus` from the `ARes`.
+     * The possible values are **A** or **Y** for a frictionless flow, or **C** for a challenge flow."
      */
     @JsonAdapter(DirectoryResponseEnum.Adapter.class)
     public enum DirectoryResponseEnum {
 
+        A("A"),
         Y("Y"),
         N("N"),
         U("U"),
