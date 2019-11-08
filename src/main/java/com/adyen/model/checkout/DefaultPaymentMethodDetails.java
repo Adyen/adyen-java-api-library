@@ -66,7 +66,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String sepaOwnerName;
     @SerializedName("sepa.ibanNumber")
     private String sepaIbanNumber;
-    @SerializedName("additionalData.applepay.token")
+    @SerializedName("applepay.token")
     private String applepayToken;
     @SerializedName("paywithgoogle.token")
     private String googlepayToken;
