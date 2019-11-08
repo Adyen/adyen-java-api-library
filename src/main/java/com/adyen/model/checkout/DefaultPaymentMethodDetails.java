@@ -66,6 +66,10 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String sepaOwnerName;
     @SerializedName("sepa.ibanNumber")
     private String sepaIbanNumber;
+    @SerializedName("additionalData.applepay.token")
+    private String applepayToken;
+    @SerializedName("paywithgoogle.token")
+    private String googlepayToken;
 
     @Override
     public String getType() {
@@ -305,6 +309,22 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         this.sepaIbanNumber = sepaIbanNumber;
     }
 
+    public String getApplepayToken() {
+        return applepayToken;
+    }
+
+    public void setApplepayToken(String applepayToken) {
+        this.applepayToken = applepayToken;
+    }
+
+    public String getGooglepayToken() {
+        return googlepayToken;
+    }
+
+    public void setGooglepayToken(String googlepayToken) {
+        this.googlepayToken = googlepayToken;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -318,12 +338,10 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(number, that.number)
                 && Objects.equals(expiryMonth, that.expiryMonth)
                 && Objects.equals(expiryYear, that.expiryYear)
-                && Objects.equals(holderName,
-                                  that.holderName)
+                && Objects.equals(holderName, that.holderName)
                 && Objects.equals(cvc, that.cvc)
                 && Objects.equals(installmentConfigurationKey, that.installmentConfigurationKey)
-                && Objects.equals(personalDetails,
-                                  that.personalDetails)
+                && Objects.equals(personalDetails, that.personalDetails)
                 && Objects.equals(encryptedCardNumber, that.encryptedCardNumber)
                 && Objects.equals(encryptedExpiryMonth, that.encryptedExpiryMonth)
                 && Objects.equals(encryptedExpiryYear, that.encryptedExpiryYear)
@@ -333,65 +351,43 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(idealIssuer, that.idealIssuer)
                 && Objects.equals(issuer, that.issuer)
                 && Objects.equals(sepaIbanNumber, that.sepaIbanNumber)
-                && Objects.equals(sepaOwnerName, that.sepaOwnerName);
+                && Objects.equals(sepaOwnerName, that.sepaOwnerName)
+                && Objects.equals(applepayToken, that.applepayToken)
+                && Objects.equals(googlepayToken, that.googlepayToken);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type,
-                            number,
-                            expiryMonth,
-                            expiryYear,
-                            holderName,
-                            cvc,
-                            installmentConfigurationKey,
-                            personalDetails,
-                            encryptedCardNumber,
-                            encryptedExpiryMonth,
-                            encryptedExpiryYear,
-                            encryptedSecurityCode,
-                            recurringDetailReference,
-                            storeDetails,
-                            idealIssuer,
-                            issuer);
+        return Objects.hash(type, number, expiryMonth, expiryYear, holderName, cvc, installmentConfigurationKey,
+                personalDetails, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode,
+                recurringDetailReference, storeDetails, idealIssuer, issuer, sepaOwnerName, sepaIbanNumber,
+                applepayToken, googlepayToken);
     }
 
     @Override
     public String toString() {
-        return "DefaultPaymentMethodDetails{"
-                + "type='"
-                + type
-                + '\''
-                + ", expiryMonth='"
-                + expiryMonth
-                + '\''
-                + ", expiryYear='"
-                + expiryYear
-                + '\''
-                + ", holderName='"
-                + holderName
-                + '\''
-                + ", installmentConfigurationKey='"
-                + installmentConfigurationKey
-                + '\''
-                + ", personalDetails="
-                + personalDetails
-                + ", encryptedExpiryMonth='"
-                + encryptedExpiryMonth
-                + '\''
-                + ", encryptedExpiryYear='"
-                + encryptedExpiryYear
-                + '\''
-                + ", recurringDetailReference='"
-                + recurringDetailReference
-                + '\''
-                + ", storeDetails="
-                + storeDetails
-                + ", idealIssuer="
-                + idealIssuer
-                + ", issuer="
-                + issuer
-                + '}';
+        return "DefaultPaymentMethodDetails{" +
+                "type='" + type + '\'' +
+                ", number='" + number + '\'' +
+                ", expiryMonth='" + expiryMonth + '\'' +
+                ", expiryYear='" + expiryYear + '\'' +
+                ", holderName='" + holderName + '\'' +
+                ", cvc='" + cvc + '\'' +
+                ", installmentConfigurationKey='" + installmentConfigurationKey + '\'' +
+                ", personalDetails=" + personalDetails +
+                ", encryptedCardNumber='" + encryptedCardNumber + '\'' +
+                ", encryptedExpiryMonth='" + encryptedExpiryMonth + '\'' +
+                ", encryptedExpiryYear='" + encryptedExpiryYear + '\'' +
+                ", encryptedSecurityCode='" + encryptedSecurityCode + '\'' +
+                ", recurringDetailReference='" + recurringDetailReference + '\'' +
+                ", storeDetails=" + storeDetails +
+                ", idealIssuer='" + idealIssuer + '\'' +
+                ", issuer='" + issuer + '\'' +
+                ", sepaOwnerName='" + sepaOwnerName + '\'' +
+                ", sepaIbanNumber='" + sepaIbanNumber + '\'' +
+                ", applepayToken='" + applepayToken + '\'' +
+                ", googlepayToken='" + googlepayToken + '\'' +
+                '}';
     }
 }
 
