@@ -20,8 +20,9 @@
  */
 package com.adyen.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * ThreeDSecureData
@@ -40,17 +41,29 @@ public class ThreeDSecureData {
         @SerializedName("Y")
         Y("Y"),
 
-        @SerializedName("N")
-        N("N"),
-
         @SerializedName("U")
         U("U"),
 
-        @SerializedName("E")
-        E("E"),
+        @SerializedName("N")
+        N("N"),
+
+        @SerializedName("A")
+        A("A"),
 
         @SerializedName("C")
-        C("C");
+        C("C"),
+
+        @SerializedName("D")
+        D("D"),
+
+        @SerializedName("R")
+        R("R"),
+
+        @SerializedName("I")
+        I("I"),
+
+        @SerializedName("E")
+        E("E");
 
         private String value;
 
@@ -117,6 +130,7 @@ public class ThreeDSecureData {
 
     /**
      * the CAVV algorithm used
+     *
      * @return cavvAlgorithm
      **/
     public String getCavvAlgorithm() {
@@ -134,6 +148,7 @@ public class ThreeDSecureData {
 
     /**
      * the enrollment response from the 3D directory server
+     *
      * @return directoryResponse
      **/
     public DirectoryResponseEnum getDirectoryResponse() {
@@ -159,6 +174,7 @@ public class ThreeDSecureData {
 
     /**
      * the authentication response if the shopper was redirected
+     *
      * @return authenticationResponse
      **/
     public AuthenticationResponseEnum getAuthenticationResponse() {
@@ -176,6 +192,7 @@ public class ThreeDSecureData {
 
     /**
      * the transaction identifier (base64 encoded, 20 bytes in decoded form)
+     *
      * @return xid
      **/
     public String getXid() {
@@ -193,6 +210,7 @@ public class ThreeDSecureData {
 
     /**
      * the cardholder authentication value (base64 encoded, 20 bytes in decoded form)
+     *
      * @return cavv
      **/
     public String getCavv() {
@@ -210,6 +228,7 @@ public class ThreeDSecureData {
 
     /**
      * the electronic commerce indicator
+     *
      * @return eci
      **/
     public String getEci() {
@@ -222,6 +241,7 @@ public class ThreeDSecureData {
 
     /**
      * Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.
+     *
      * @return dsTransID
      */
     public String getDsTransID() {

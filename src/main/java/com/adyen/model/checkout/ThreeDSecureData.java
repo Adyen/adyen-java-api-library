@@ -21,15 +21,15 @@
 
 package com.adyen.model.checkout;
 
-import java.io.IOException;
-import java.util.Objects;
-
 import com.adyen.serializer.ByteArrayToStringAdapter;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.Objects;
 
 /**
  * ThreeDSecureData
@@ -148,6 +148,7 @@ public class ThreeDSecureData {
 
     /**
      * Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.
+     *
      * @return dsTransID
      */
     public String getDsTransID() {
@@ -175,7 +176,7 @@ public class ThreeDSecureData {
         return Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse)
                 && Objects.equals(this.cavv, threeDSecureData.cavv)
                 && Objects.equals(this.cavvAlgorithm,
-                                  threeDSecureData.cavvAlgorithm)
+                threeDSecureData.cavvAlgorithm)
                 && Objects.equals(this.directoryResponse, threeDSecureData.directoryResponse)
                 && Objects.equals(this.eci, threeDSecureData.eci)
                 && Objects.equals(this.threeDSVersion, threeDSecureData.threeDSVersion)
@@ -265,16 +266,22 @@ public class ThreeDSecureData {
     }
 
     /**
-     * The enrollment response from the 3D directory server.
+     * In 3D Secure 1, this is the enrollment response from the 3D directory server.
+     * In 3D Secure 2, this is the `transStatus` from the `ARes`.
+     * The possible values are **A** or **Y** for a frictionless flow, or **C** for a challenge flow."
      */
     @JsonAdapter(DirectoryResponseEnum.Adapter.class)
     public enum DirectoryResponseEnum {
 
         Y("Y"),
-        N("N"),
         U("U"),
-        E("E"),
-        C("C");
+        N("N"),
+        A("A"),
+        C("C"),
+        D("D"),
+        R("R"),
+        I("I"),
+        E("E");
 
         private String value;
 
