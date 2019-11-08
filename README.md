@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>2.7.1</version>
+  <version>2.7.2</version>
 </dependency>
 ```
 
@@ -65,6 +65,14 @@ client.setHttpClient(httpURLConnectionClientWithProxy);
 ## Support
 
 If you have any problems, questions or suggestions, create an issue here or send your inquiry to support@adyen.com.
+
+## Contributing
+We strongly encourage you to join us in contributing to this repository so everyone can benefit from:
+* New features and functionality
+* Resolved bug fixes and issues
+* Any general improvements
+
+Read our [**contribution guidelines**](CONTRIBUTING.md) to find out how.
 
 ## Licence
 
