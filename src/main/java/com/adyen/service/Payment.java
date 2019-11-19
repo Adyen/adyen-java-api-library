@@ -23,6 +23,8 @@ package com.adyen.service;
 import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.model.AuthenticationResultRequest;
+import com.adyen.model.AuthenticationResultResponse;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.PaymentRequest3ds2;
@@ -34,6 +36,7 @@ import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.payment.Authorise;
 import com.adyen.service.resource.payment.Authorise3D;
 import com.adyen.service.resource.payment.Authorise3DS2;
+import com.adyen.service.resource.payment.GetAuthenticationResult;
 import com.adyen.service.resource.payment.Retrieve3DS2Result;
 import com.google.gson.reflect.TypeToken;
 
@@ -43,6 +46,7 @@ public class Payment extends Service {
     private Authorise3D authorise3D;
     private Authorise3DS2 authorise3DS;
     private Retrieve3DS2Result retrieve3DS2Result;
+    private GetAuthenticationResult getAuthenticationResult;
 
     public Payment(Client client) {
         super(client);
@@ -51,6 +55,7 @@ public class Payment extends Service {
         authorise3D = new Authorise3D(this);
         authorise3DS = new Authorise3DS2(this);
         retrieve3DS2Result = new Retrieve3DS2Result(this);
+        getAuthenticationResult = new GetAuthenticationResult(this);
     }
 
     /**
@@ -126,5 +131,24 @@ public class Payment extends Service {
         }.getType());
 
         return threeDS2ResultResponse;
+    }
+
+    /**
+     * POST /getAuthenticationResult API call
+     *
+     * @param authenticationResultRequest AuthenticationResultRequest
+     * @return AuthenticationResultResponse
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public AuthenticationResultResponse getAuthenticationResult(AuthenticationResultRequest authenticationResultRequest) throws IOException, ApiException {
+        String jsonRequest = GSON.toJson(authenticationResultRequest);
+
+        String jsonResult = getAuthenticationResult.request(jsonRequest);
+
+        AuthenticationResultResponse authenticationResultResponse = GSON.fromJson(jsonResult, new TypeToken<AuthenticationResultResponse>() {
+        }.getType());
+
+        return authenticationResultResponse;
     }
 }

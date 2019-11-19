@@ -161,6 +161,12 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     @SerializedName("applicationInfo")
     private ApplicationInfo applicationInfo;
 
+    @SerializedName("enableRealTimeUpdate")
+    private Boolean enableRealTimeUpdate = null;
+
+    @SerializedName("threeDSAuthenticationOnly")
+    private Boolean threeDSAuthenticationOnly = null;
+
     public AbstractPaymentRequest() {
         applicationInfo = new ApplicationInfo();
     }
@@ -768,6 +774,39 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         this.metadata = metadata;
     }
 
+    public T enableRealTimeUpdate(Boolean enableRealTimeUpdate) {
+        this.enableRealTimeUpdate = enableRealTimeUpdate;
+        return (T) this;
+    }
+
+    /**
+     * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
+     * @return enableRealTimeUpdate
+     **/
+    public Boolean isEnableRealTimeUpdate() {
+        return enableRealTimeUpdate;
+    }
+
+    public void setEnableRealTimeUpdate(Boolean enableRealTimeUpdate) {
+        this.enableRealTimeUpdate = enableRealTimeUpdate;
+    }
+
+    public T threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+        return (T) this;
+    }
+
+    /**
+     * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/native-3ds2/authentication-only), and not the payment authorisation.
+     * @return threeDSAuthenticationOnly
+     **/
+    public Boolean isThreeDSAuthenticationOnly() {
+        return threeDSAuthenticationOnly;
+    }
+
+    public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -810,7 +849,9 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
                 && Objects.equals(this.telephoneNumber, paymentRequest.telephoneNumber)
                 && Objects.equals(this.mcc, paymentRequest.mcc)
                 && Objects.equals(this.metadata, paymentRequest.metadata)
-                && Objects.equals(this.applicationInfo, paymentRequest.applicationInfo);
+                && Objects.equals(this.applicationInfo, paymentRequest.applicationInfo)
+                && Objects.equals(this.enableRealTimeUpdate, paymentRequest.enableRealTimeUpdate)
+                && Objects.equals(this.threeDSAuthenticationOnly, paymentRequest.threeDSAuthenticationOnly);
     }
 
     @Override
@@ -847,9 +888,10 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
                             telephoneNumber,
                             mcc,
                             metadata,
-                            applicationInfo);
+                            applicationInfo,
+                            enableRealTimeUpdate,
+                            threeDSAuthenticationOnly);
     }
-
 
     @Override
     public String toString() {
@@ -888,6 +930,8 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append("\n");
+        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
 
         return sb.toString();
     }

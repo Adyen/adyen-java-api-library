@@ -61,6 +61,15 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     @SerializedName("mpiData")
     private ThreeDSecureData mpiData = null;
 
+    @SerializedName("originalMerchantReference")
+    private String originalMerchantReference = null;
+
+    @SerializedName("tenderReference")
+    private String tenderReference = null;
+
+    @SerializedName("uniqueTerminalId")
+    private String uniqueTerminalId = null;
+
     public AbstractModificationRequest() {
         applicationInfo = new ApplicationInfo();
     }
@@ -170,6 +179,58 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         this.mpiData = mpiData;
     }
 
+    public T originalMerchantReference(String originalMerchantReference) {
+        this.originalMerchantReference = originalMerchantReference;
+        return (T) this;
+    }
+
+    /**
+     * The original merchant reference to cancel.
+     * @return originalMerchantReference
+     **/
+    public String getOriginalMerchantReference() {
+        return originalMerchantReference;
+    }
+
+    public void setOriginalMerchantReference(String originalMerchantReference) {
+        this.originalMerchantReference = originalMerchantReference;
+    }
+
+    public T tenderReference(String tenderReference) {
+        this.tenderReference = tenderReference;
+        return (T) this;
+    }
+
+    /**
+     * The transaction reference provided by the PED. For point-of-sale integrations only.
+     * @return tenderReference
+     **/
+    public String getTenderReference() {
+        return tenderReference;
+    }
+
+    public void setTenderReference(String tenderReference) {
+        this.tenderReference = tenderReference;
+    }
+
+    public T uniqueTerminalId(String uniqueTerminalId) {
+        this.uniqueTerminalId = uniqueTerminalId;
+        return (T) this;
+    }
+
+    /**
+     * Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
+     * @return uniqueTerminalId
+     **/
+    public String getUniqueTerminalId() {
+        return uniqueTerminalId;
+    }
+
+    public void setUniqueTerminalId(String uniqueTerminalId) {
+        this.uniqueTerminalId = uniqueTerminalId;
+    }
+
+
     /**
      * get additionalData map Create the map if doesn't exists
      *
@@ -249,7 +310,6 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         return (T) this;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -266,12 +326,15 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
                 && Objects.equals(this.merchantAccount, modificationRequest.merchantAccount)
                 && Objects.equals(this.applicationInfo, modificationRequest.applicationInfo)
                 && Objects.equals(this.additionalData, modificationRequest.additionalData)
-                && Objects.equals(this.mpiData, modificationRequest.mpiData);
+                && Objects.equals(this.mpiData, modificationRequest.mpiData)
+                && Objects.equals(this.originalMerchantReference, modificationRequest.originalMerchantReference)
+                && Objects.equals(this.tenderReference, modificationRequest.tenderReference)
+                && Objects.equals(this.uniqueTerminalId, modificationRequest.uniqueTerminalId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reference, authorisationCode, originalReference, merchantAccount, additionalData, applicationInfo, mpiData);
+        return Objects.hash(reference, authorisationCode, originalReference, merchantAccount, additionalData, applicationInfo, mpiData, originalMerchantReference, tenderReference, uniqueTerminalId);
     }
 
     @Override
@@ -285,6 +348,9 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
+        sb.append("    originalMerchantReference: ").append(toIndentedString(originalMerchantReference)).append("\n");
+        sb.append("    tenderReference: ").append(toIndentedString(tenderReference)).append("\n");
+        sb.append("    uniqueTerminalId: ").append(toIndentedString(uniqueTerminalId)).append("\n");
 
         return sb.toString();
     }
