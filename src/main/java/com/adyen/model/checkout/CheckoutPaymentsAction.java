@@ -28,6 +28,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 
 public class CheckoutPaymentsAction {
@@ -96,6 +97,12 @@ public class CheckoutPaymentsAction {
     //qrCode action specific fields
     @SerializedName("qrCodeData")
     private String qrCodeData;
+
+    @SerializedName("paymentData")
+    private String paymentData;
+
+    @SerializedName("data")
+    private Map<String, String> data;
 
     /**
      * Enum that specifies the action that needs to be taken by the client.
@@ -175,6 +182,32 @@ public class CheckoutPaymentsAction {
         this.qrCodeData = qrCodeData;
     }
 
+    /**
+     * When non-empty, contains a value that you must submit to the `/payments/details` endpoint. In some cases, required for polling.
+     *
+     * @return paymentData
+     **/
+    public String getPaymentData() {
+        return paymentData;
+    }
+
+    public void setPaymentData(String paymentData) {
+        this.paymentData = paymentData;
+    }
+
+    /**
+     * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
+     *
+     * @return data
+     **/
+    public Map<String, String> getData() {
+        return data;
+    }
+
+    public void setData(Map<String, String> data) {
+        this.data = data;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -189,12 +222,14 @@ public class CheckoutPaymentsAction {
                 Objects.equals(url, that.url) &&
                 Objects.equals(method, that.method) &&
                 Objects.equals(token, that.token) &&
-                Objects.equals(qrCodeData, that.qrCodeData);
+                Objects.equals(qrCodeData, that.qrCodeData) &&
+                Objects.equals(paymentData, that.paymentData) &&
+                Objects.equals(data, that.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, paymentMethodType, url, method, token, qrCodeData);
+        return Objects.hash(type, paymentMethodType, url, method, token, qrCodeData, paymentData, data);
     }
 
     @Override
@@ -207,6 +242,8 @@ public class CheckoutPaymentsAction {
         sb.append("    method: ").append(toIndentedString(method)).append("\n");
         sb.append("    token: ").append(toIndentedString(token)).append("\n");
         sb.append("    qrCodeData: ").append(toIndentedString(qrCodeData)).append("\n");
+        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
