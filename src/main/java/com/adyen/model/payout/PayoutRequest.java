@@ -21,6 +21,7 @@
 
 package com.adyen.model.payout;
 
+import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.BankAccount;
@@ -28,8 +29,12 @@ import com.adyen.model.BrowserInfo;
 import com.adyen.model.Card;
 import com.adyen.model.ForexQuote;
 import com.adyen.model.Installments;
+import com.adyen.model.MerchantRiskIndicator;
 import com.adyen.model.Name;
+import com.adyen.model.Split;
+import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.ThreeDSecureData;
+import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
@@ -40,7 +45,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -49,6 +56,9 @@ import java.util.Objects;
  */
 
 public class PayoutRequest {
+    @SerializedName("accountInfo")
+    private AccountInfo accountInfo = null;
+
     @SerializedName("additionalAmount")
     private Amount additionalAmount = null;
 
@@ -57,6 +67,9 @@ public class PayoutRequest {
 
     @SerializedName("amount")
     private Amount amount = null;
+
+    @SerializedName("applicationInfo")
+    private ApplicationInfo applicationInfo = null;
 
     @SerializedName("bankAccount")
     private BankAccount bankAccount = null;
@@ -89,6 +102,9 @@ public class PayoutRequest {
 
     @SerializedName("deviceFingerprint")
     private String deviceFingerprint = null;
+
+    @SerializedName("enableRealTimeUpdate")
+    private Boolean enableRealTimeUpdate = null;
 
     /**
      * The type of the entity the payment is processed for.
@@ -156,6 +172,9 @@ public class PayoutRequest {
 
     @SerializedName("merchantOrderReference")
     private String merchantOrderReference = null;
+
+    @SerializedName("merchantRiskIndicator")
+    private MerchantRiskIndicator merchantRiskIndicator = null;
 
     @SerializedName("metadata")
     private Map<String, String> metadata = null;
@@ -305,14 +324,43 @@ public class PayoutRequest {
     @SerializedName("socialSecurityNumber")
     private String socialSecurityNumber = null;
 
+    @SerializedName("splits")
+    private List<Split> splits = null;
+
     @SerializedName("store")
     private String store = null;
 
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 
+    @SerializedName("threeDS2RequestData")
+    private ThreeDS2RequestData threeDS2RequestData = null;
+
+    @SerializedName("threeDSAuthenticationOnly")
+    private Boolean threeDSAuthenticationOnly = null;
+
     @SerializedName("totalsGroup")
     private String totalsGroup = null;
+
+    @SerializedName("trustedShopper")
+    private Boolean trustedShopper = null;
+
+    public PayoutRequest accountInfo(AccountInfo accountInfo) {
+        this.accountInfo = accountInfo;
+        return this;
+    }
+
+    /**
+     * Get accountInfo
+     * @return accountInfo
+     **/
+    public AccountInfo getAccountInfo() {
+        return accountInfo;
+    }
+
+    public void setAccountInfo(AccountInfo accountInfo) {
+        this.accountInfo = accountInfo;
+    }
 
     public PayoutRequest additionalAmount(Amount additionalAmount) {
         this.additionalAmount = additionalAmount;
@@ -366,6 +414,23 @@ public class PayoutRequest {
 
     public void setAmount(Amount amount) {
         this.amount = amount;
+    }
+
+    public PayoutRequest applicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
+        return this;
+    }
+
+    /**
+     * Get applicationInfo
+     * @return applicationInfo
+     **/
+    public ApplicationInfo getApplicationInfo() {
+        return applicationInfo;
+    }
+
+    public void setApplicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
     }
 
     public PayoutRequest bankAccount(BankAccount bankAccount) {
@@ -548,6 +613,23 @@ public class PayoutRequest {
         this.deviceFingerprint = deviceFingerprint;
     }
 
+    public PayoutRequest enableRealTimeUpdate(Boolean enableRealTimeUpdate) {
+        this.enableRealTimeUpdate = enableRealTimeUpdate;
+        return this;
+    }
+
+    /**
+     * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
+     * @return enableRealTimeUpdate
+     **/
+    public Boolean isEnableRealTimeUpdate() {
+        return enableRealTimeUpdate;
+    }
+
+    public void setEnableRealTimeUpdate(Boolean enableRealTimeUpdate) {
+        this.enableRealTimeUpdate = enableRealTimeUpdate;
+    }
+
     public PayoutRequest entityType(EntityTypeEnum entityType) {
         this.entityType = entityType;
         return this;
@@ -672,6 +754,23 @@ public class PayoutRequest {
 
     public void setMerchantOrderReference(String merchantOrderReference) {
         this.merchantOrderReference = merchantOrderReference;
+    }
+
+    public PayoutRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+        this.merchantRiskIndicator = merchantRiskIndicator;
+        return this;
+    }
+
+    /**
+     * Get merchantRiskIndicator
+     * @return merchantRiskIndicator
+     **/
+    public MerchantRiskIndicator getMerchantRiskIndicator() {
+        return merchantRiskIndicator;
+    }
+
+    public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+        this.merchantRiskIndicator = merchantRiskIndicator;
     }
 
     public PayoutRequest metadata(Map<String, String> metadata) {
@@ -998,6 +1097,31 @@ public class PayoutRequest {
         this.socialSecurityNumber = socialSecurityNumber;
     }
 
+    public PayoutRequest splits(List<Split> splits) {
+        this.splits = splits;
+        return this;
+    }
+
+    public PayoutRequest addSplitsItem(Split splitsItem) {
+        if (this.splits == null) {
+            this.splits = new ArrayList<Split>();
+        }
+        this.splits.add(splitsItem);
+        return this;
+    }
+
+    /**
+     * The details of how the payment should be split when distributing a payment to a MarketPay Marketplace and its Accounts.
+     * @return splits
+     **/
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
+    }
+
     public PayoutRequest store(String store) {
         this.store = store;
         return this;
@@ -1034,6 +1158,40 @@ public class PayoutRequest {
         this.telephoneNumber = telephoneNumber;
     }
 
+    public PayoutRequest threeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
+        return this;
+    }
+
+    /**
+     * Get threeDS2RequestData
+     * @return threeDS2RequestData
+     **/
+    public ThreeDS2RequestData getThreeDS2RequestData() {
+        return threeDS2RequestData;
+    }
+
+    public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
+    }
+
+    public PayoutRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+        return this;
+    }
+
+    /**
+     * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/native-3ds2/authentication-only), and not the payment authorisation.
+     * @return threeDSAuthenticationOnly
+     **/
+    public Boolean isThreeDSAuthenticationOnly() {
+        return threeDSAuthenticationOnly;
+    }
+
+    public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    }
+
     public PayoutRequest totalsGroup(String totalsGroup) {
         this.totalsGroup = totalsGroup;
         return this;
@@ -1053,8 +1211,25 @@ public class PayoutRequest {
     }
 
 
+    public PayoutRequest trustedShopper(Boolean trustedShopper) {
+        this.trustedShopper = trustedShopper;
+        return this;
+    }
+
+    /**
+     * Set to true if the payment should be routed to a trusted MID.
+     * @return trustedShopper
+     **/
+    public Boolean isTrustedShopper() {
+        return trustedShopper;
+    }
+
+    public void setTrustedShopper(Boolean trustedShopper) {
+        this.trustedShopper = trustedShopper;
+    }
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -1062,9 +1237,11 @@ public class PayoutRequest {
             return false;
         }
         PayoutRequest payoutRequest = (PayoutRequest) o;
-        return Objects.equals(this.additionalAmount, payoutRequest.additionalAmount) &&
+        return Objects.equals(this.accountInfo, payoutRequest.accountInfo) &&
+                Objects.equals(this.additionalAmount, payoutRequest.additionalAmount) &&
                 Objects.equals(this.additionalData, payoutRequest.additionalData) &&
                 Objects.equals(this.amount, payoutRequest.amount) &&
+                Objects.equals(this.applicationInfo, payoutRequest.applicationInfo) &&
                 Objects.equals(this.bankAccount, payoutRequest.bankAccount) &&
                 Objects.equals(this.billingAddress, payoutRequest.billingAddress) &&
                 Objects.equals(this.browserInfo, payoutRequest.browserInfo) &&
@@ -1075,6 +1252,7 @@ public class PayoutRequest {
                 Objects.equals(this.deliveryAddress, payoutRequest.deliveryAddress) &&
                 Objects.equals(this.deliveryDate, payoutRequest.deliveryDate) &&
                 Objects.equals(this.deviceFingerprint, payoutRequest.deviceFingerprint) &&
+                Objects.equals(this.enableRealTimeUpdate, payoutRequest.enableRealTimeUpdate) &&
                 Objects.equals(this.entityType, payoutRequest.entityType) &&
                 Objects.equals(this.fraudOffset, payoutRequest.fraudOffset) &&
                 Objects.equals(this.fundSource, payoutRequest.fundSource) &&
@@ -1082,6 +1260,7 @@ public class PayoutRequest {
                 Objects.equals(this.mcc, payoutRequest.mcc) &&
                 Objects.equals(this.merchantAccount, payoutRequest.merchantAccount) &&
                 Objects.equals(this.merchantOrderReference, payoutRequest.merchantOrderReference) &&
+                Objects.equals(this.merchantRiskIndicator, payoutRequest.merchantRiskIndicator) &&
                 Objects.equals(this.metadata, payoutRequest.metadata) &&
                 Objects.equals(this.mpiData, payoutRequest.mpiData) &&
                 Objects.equals(this.nationality, payoutRequest.nationality) &&
@@ -1100,25 +1279,30 @@ public class PayoutRequest {
                 Objects.equals(this.shopperReference, payoutRequest.shopperReference) &&
                 Objects.equals(this.shopperStatement, payoutRequest.shopperStatement) &&
                 Objects.equals(this.socialSecurityNumber, payoutRequest.socialSecurityNumber) &&
+                Objects.equals(this.splits, payoutRequest.splits) &&
                 Objects.equals(this.store, payoutRequest.store) &&
                 Objects.equals(this.telephoneNumber, payoutRequest.telephoneNumber) &&
-                Objects.equals(this.totalsGroup, payoutRequest.totalsGroup);
+                Objects.equals(this.threeDS2RequestData, payoutRequest.threeDS2RequestData) &&
+                Objects.equals(this.threeDSAuthenticationOnly, payoutRequest.threeDSAuthenticationOnly) &&
+                Objects.equals(this.totalsGroup, payoutRequest.totalsGroup) &&
+                Objects.equals(this.trustedShopper, payoutRequest.trustedShopper);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalAmount, additionalData, amount, bankAccount, billingAddress, browserInfo, captureDelayHours, card, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, entityType, fraudOffset, fundSource, installments, mcc, merchantAccount, merchantOrderReference, metadata, mpiData, nationality, orderReference, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, store, telephoneNumber, totalsGroup);
+        return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, bankAccount, billingAddress, browserInfo, captureDelayHours, card, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, enableRealTimeUpdate, entityType, fraudOffset, fundSource, installments, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, nationality, orderReference, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
     }
-
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PayoutRequest {\n");
 
+        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
         sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
         sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
         sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
         sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
@@ -1129,6 +1313,7 @@ public class PayoutRequest {
         sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
         sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
         sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
+        sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append("\n");
         sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
         sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
         sb.append("    fundSource: ").append(toIndentedString(fundSource)).append("\n");
@@ -1136,6 +1321,7 @@ public class PayoutRequest {
         sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
+        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
         sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
@@ -1154,9 +1340,13 @@ public class PayoutRequest {
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
         sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
         sb.append("    store: ").append(toIndentedString(store)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
+        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
         sb.append("    totalsGroup: ").append(toIndentedString(totalsGroup)).append("\n");
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -1165,7 +1355,7 @@ public class PayoutRequest {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(java.lang.Object o) {
         if (o == null) {
             return "null";
         }

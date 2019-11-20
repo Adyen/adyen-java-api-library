@@ -26,6 +26,6 @@ import com.adyen.service.Resource;
 
 public class StoreDetailAndSubmitThirdParty extends Resource {
     public StoreDetailAndSubmitThirdParty(Service service) {
-        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.API_VERSION + "/storeDetailAndSubmitThirdParty", null);
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.PAYOUT_API_VERSION + "/storeDetailAndSubmitThirdParty", null);
     }
 }

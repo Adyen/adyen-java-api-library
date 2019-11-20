@@ -26,6 +26,6 @@ import com.adyen.service.Resource;
 
 public class StoreDetail extends Resource {
     public StoreDetail(Service service) {
-        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.API_VERSION + "/storeDetail", null);
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.PAYOUT_API_VERSION + "/storeDetail", null);
     }
 }
