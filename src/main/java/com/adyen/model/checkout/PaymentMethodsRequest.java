@@ -81,6 +81,12 @@ public class PaymentMethodsRequest {
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
 
+    @SerializedName("enableRealTimeUpdate")
+    private Boolean enableRealTimeUpdate = null;
+
+    @SerializedName("threeDSAuthenticationOnly")
+    private Boolean threeDSAuthenticationOnly = null;
+
     public Object getAdditionalData() {
         return additionalData;
     }
@@ -270,8 +276,42 @@ public class PaymentMethodsRequest {
         this.blockedPaymentMethods = blockedPaymentMethods;
     }
 
+    public PaymentMethodsRequest enableRealTimeUpdate(Boolean enableRealTimeUpdate) {
+        this.enableRealTimeUpdate = enableRealTimeUpdate;
+        return this;
+    }
+
+    /**
+     * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
+     * @return enableRealTimeUpdate
+     **/
+    public Boolean isEnableRealTimeUpdate() {
+        return enableRealTimeUpdate;
+    }
+
+    public void setEnableRealTimeUpdate(Boolean enableRealTimeUpdate) {
+        this.enableRealTimeUpdate = enableRealTimeUpdate;
+    }
+
+    public PaymentMethodsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+        return this;
+    }
+
+    /**
+     * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/native-3ds2/authentication-only), and not the payment authorisation.
+     * @return threeDSAuthenticationOnly
+     **/
+    public Boolean isThreeDSAuthenticationOnly() {
+        return threeDSAuthenticationOnly;
+    }
+
+    public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    }
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -279,28 +319,24 @@ public class PaymentMethodsRequest {
             return false;
         }
         PaymentMethodsRequest paymentMethodsRequest = (PaymentMethodsRequest) o;
-        return Objects.equals(this.amount, paymentMethodsRequest.amount)
-                && Objects.equals(this.channel, paymentMethodsRequest.channel)
-                && Objects.equals(this.countryCode,
-                                  paymentMethodsRequest.countryCode)
-                && Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount)
-                && Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale)
-                && Objects.equals(this.allowedPaymentMethods, paymentMethodsRequest.allowedPaymentMethods)
-                && Objects.equals(this.blockedPaymentMethods, paymentMethodsRequest.blockedPaymentMethods)
-                && Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference)
-                && Objects.equals(this.accountInfo, paymentMethodsRequest.accountInfo)
-                && Objects.equals(this.configId, paymentMethodsRequest.configId)
-                && Objects.equals(this.trustedShopper, paymentMethodsRequest.trustedShopper)
-                && Objects.equals(this.threeDS2RequestData, paymentMethodsRequest.threeDS2RequestData)
-                && Objects.equals(this.merchantRiskIndicator, paymentMethodsRequest.merchantRiskIndicator)
-                && Objects.equals(this.splits, paymentMethodsRequest.splits)
-                && Objects.equals(this.applicationInfo, paymentMethodsRequest.applicationInfo);
+        return Objects.equals(this.additionalData, paymentMethodsRequest.additionalData) &&
+                Objects.equals(this.allowedPaymentMethods, paymentMethodsRequest.allowedPaymentMethods) &&
+                Objects.equals(this.amount, paymentMethodsRequest.amount) &&
+                Objects.equals(this.blockedPaymentMethods, paymentMethodsRequest.blockedPaymentMethods) &&
+                Objects.equals(this.channel, paymentMethodsRequest.channel) &&
+                Objects.equals(this.countryCode, paymentMethodsRequest.countryCode) &&
+                Objects.equals(this.enableRealTimeUpdate, paymentMethodsRequest.enableRealTimeUpdate) &&
+                Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount) &&
+                Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
+                Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference) &&
+                Objects.equals(this.threeDSAuthenticationOnly, paymentMethodsRequest.threeDSAuthenticationOnly);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, channel, countryCode, merchantAccount, shopperLocale, shopperReference, allowedPaymentMethods, blockedPaymentMethods);
+        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, shopperLocale, shopperReference, threeDSAuthenticationOnly);
     }
+
 
     @Override
     public String toString() {
@@ -313,18 +349,11 @@ public class PaymentMethodsRequest {
         sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
         sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+        sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
-        sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
-        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
-        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
-        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-
-
+        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -333,7 +362,7 @@ public class PaymentMethodsRequest {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(java.lang.Object o) {
         if (o == null) {
             return "null";
         }

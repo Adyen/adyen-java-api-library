@@ -1,0 +1,162 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2019 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
+package com.adyen.model.checkout;
+
+import com.adyen.model.Amount;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+/**
+ * CreatePaymentLinkResponse
+ */
+public class CreatePaymentLinkResponse {
+    @SerializedName("amount")
+    private Amount amount = null;
+
+    @SerializedName("expiresAt")
+    private String expiresAt = null;
+
+    @SerializedName("reference")
+    private String reference = null;
+
+    @SerializedName("url")
+    private String url = null;
+
+    public CreatePaymentLinkResponse amount(Amount amount) {
+        this.amount = amount;
+        return this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return amount
+     **/
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Amount amount) {
+        this.amount = amount;
+    }
+
+    public CreatePaymentLinkResponse expiresAt(String expiresAt) {
+        this.expiresAt = expiresAt;
+        return this;
+    }
+
+    /**
+     * The date that the Pay By Link expires; e.g. 2019-03-23T12:25:28Z.
+     *
+     * @return expiresAt
+     **/
+    public String getExpiresAt() {
+        return expiresAt;
+    }
+
+    public void setExpiresAt(String expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    public CreatePaymentLinkResponse reference(String reference) {
+        this.reference = reference;
+        return this;
+    }
+
+    /**
+     * The reference that was specified when the Pay By Link URL was created.
+     *
+     * @return reference
+     **/
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public CreatePaymentLinkResponse url(String url) {
+        this.url = url;
+        return this;
+    }
+
+    /**
+     * The URL at which the shopper can complete the payment.
+     *
+     * @return url
+     **/
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CreatePaymentLinkResponse createPaymentLinkResponse = (CreatePaymentLinkResponse) o;
+        return Objects.equals(this.amount, createPaymentLinkResponse.amount) &&
+                Objects.equals(this.expiresAt, createPaymentLinkResponse.expiresAt) &&
+                Objects.equals(this.reference, createPaymentLinkResponse.reference) &&
+                Objects.equals(this.url, createPaymentLinkResponse.url);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount, expiresAt, reference, url);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CreatePaymentLinkResponse {\n");
+
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    url: ").append(toIndentedString(url)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
+}

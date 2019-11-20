@@ -45,7 +45,7 @@ public class Client {
     public static final String LIB_VERSION = "2.7.3";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
-    public static final String CHECKOUT_API_VERSION = "v49";
+    public static final String CHECKOUT_API_VERSION = "v51";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
     public static final String BIN_LOOKUP_API_VERSION = "v50";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
