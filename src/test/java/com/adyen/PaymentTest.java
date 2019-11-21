@@ -20,12 +20,16 @@
  */
 package com.adyen;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+
+import com.adyen.model.AuthenticationResultRequest;
+import com.adyen.model.AuthenticationResultResponse;
 import org.junit.Test;
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
@@ -320,5 +324,94 @@ public class PaymentTest extends BaseTest {
         assertEquals("2017-06-06", fmt.format(paymentResult.getBoletoExpirationDate()));
         assertEquals(RECEIVED, paymentResult.getResultCode());
         assertEquals("8814950120218231", paymentResult.getPspReference());
+    }
+
+    @Test
+    public void TestGetAuthenticationResult3ds1Success() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/authentication-result-success-3ds1.json");
+
+        Payment payment = new Payment(client);
+        AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
+        AuthenticationResultResponse authenticationResultResponse = payment.getAuthenticationResult(authenticationResultRequest);
+        assertNotNull(authenticationResultResponse);
+        assertNotNull(authenticationResultResponse.getThreeDS1Result());
+        assertNull(authenticationResultResponse.getThreeDS2Result());
+    }
+
+    @Test
+    public void TestGetAuthenticationResult3ds2Success() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/authentication-result-success-3ds2.json");
+
+        Payment payment = new Payment(client);
+        AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
+        AuthenticationResultResponse authenticationResultResponse = payment.getAuthenticationResult(authenticationResultRequest);
+        assertNotNull(authenticationResultResponse);
+        assertNull(authenticationResultResponse.getThreeDS1Result());
+        assertNotNull(authenticationResultResponse.getThreeDS2Result());
+    }
+
+    @Test
+    public void TestGetAuthenticationResultErrorOldAuthentication() throws IOException, ApiException {
+        Client client = createMockClientForErrors(422, "mocks/authentication-result-error-old-psp.json");
+
+        Payment payment = new Payment(client);
+        AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
+        try {
+            payment.getAuthenticationResult(authenticationResultRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("15_024", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+        }
+    }
+
+    @Test
+    public void TestGetAuthenticationResultErrorNotFound() throws IOException, ApiException {
+        Client client = createMockClientForErrors(422, "mocks/authentication-result-error-not-found.json");
+
+        Payment payment = new Payment(client);
+        AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
+        try {
+            payment.getAuthenticationResult(authenticationResultRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("15_012", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+        }
+    }
+
+    @Test
+    public void TestGetAuthenticationResultErrorInvalidPsp() throws IOException, ApiException {
+        Client client = createMockClientForErrors(422, "mocks/authentication-result-error-invalid-psp.json");
+
+        Payment payment = new Payment(client);
+        AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
+        authenticationResultRequest.setPspReference(null);
+        try {
+            payment.getAuthenticationResult(authenticationResultRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("15_011", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+        }
+    }
+
+    @Test
+    public void TestGetAuthenticationResultErrorNotAllowed() throws IOException, ApiException {
+        Client client = createMockClientForErrors(403, "mocks/authentication-result-error-not-allowed.json");
+
+        Payment payment = new Payment(client);
+        AuthenticationResultRequest authenticationResultRequest = createAuthenticationResultRequest();
+        try {
+            payment.getAuthenticationResult(authenticationResultRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("010", e.getError().getErrorCode());
+            assertEquals(403, e.getError().getStatus());
+        }
     }
 }

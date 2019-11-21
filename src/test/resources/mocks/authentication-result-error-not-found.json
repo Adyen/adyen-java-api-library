@@ -1,0 +1,6 @@
+{
+  "status": 422,
+  "errorCode": "15_012",
+  "message": "Result not present",
+  "errorType": "validation"
+}

@@ -40,6 +40,7 @@ import com.adyen.httpclient.HttpURLConnectionClient;
 import com.adyen.model.AbstractPaymentRequest;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
+import com.adyen.model.AuthenticationResultRequest;
 import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
@@ -366,5 +367,12 @@ public class BaseTest {
         terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
 
         return terminalAPIRequest;
+    }
+
+    protected AuthenticationResultRequest createAuthenticationResultRequest() {
+        AuthenticationResultRequest authenticationResultRequest = new AuthenticationResultRequest();
+        authenticationResultRequest.setMerchantAccount("AMerchant");
+        authenticationResultRequest.setPspReference("APspReference");
+        return authenticationResultRequest;
     }
 }
