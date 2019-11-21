@@ -1311,7 +1311,9 @@ public class PaymentsRequest {
                 && Objects.equals(this.redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod)
                 && Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod)
                 && Objects.equals(this.order, paymentsRequest.order)
-                && Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod);
+                && Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod)
+                && Objects.equals(this.enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
+                && Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly);
     }
 
     @Override
@@ -1370,7 +1372,9 @@ public class PaymentsRequest {
                             redirectFromIssuerMethod,
                             redirectToIssuerMethod,
                             order,
-                            storePaymentMethod);
+                            storePaymentMethod,
+                            enableRealTimeUpdate,
+                            threeDSAuthenticationOnly);
     }
 
     @Override
@@ -1433,6 +1437,8 @@ public class PaymentsRequest {
           + "    redirectToIssuerMethod: " + toIndentedString(redirectToIssuerMethod) + "\n"
           + "    order: " + toIndentedString(order) + "\n"
           + "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + "\n"
+          + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + "\n"
+          + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + "\n"
           + "}";
     }
 
