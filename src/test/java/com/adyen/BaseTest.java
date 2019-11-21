@@ -275,6 +275,10 @@ public class BaseTest {
         }
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);
+        Config config = new Config();
+        config.setCheckoutEndpoint(Client.CHECKOUT_ENDPOINT_TEST);
+        client.setConfig(config);
+
         return client;
     }
 
