@@ -51,6 +51,7 @@ import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.RefundRequest;
+import com.adyen.model.modification.VoidPendingRefundRequest;
 import com.adyen.model.nexo.AbortRequest;
 import com.adyen.model.nexo.AmountsReq;
 import com.adyen.model.nexo.MessageCategoryType;
@@ -300,6 +301,10 @@ public class BaseTest {
         Amount amount = Util.createAmount("15.00", "EUR");
 
         return createBaseModificationRequest(new RefundRequest()).modificationAmount(amount);
+    }
+
+    protected VoidPendingRefundRequest createVoidPendingRefundRequest() {
+        return createBaseModificationRequest(new VoidPendingRefundRequest()).tenderReference("tenderReference");
     }
 
     protected TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {
