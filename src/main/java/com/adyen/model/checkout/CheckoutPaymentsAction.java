@@ -35,7 +35,6 @@ import java.util.Objects;
  * CheckoutPaymentsAction
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2019-11-20T13:58:41.085Z[GMT]")
 public class CheckoutPaymentsAction {
     @SerializedName("alternativeReference")
     private String alternativeReference = null;
