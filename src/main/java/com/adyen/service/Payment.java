@@ -118,10 +118,12 @@ public class Payment extends Service {
     /**
      * POST /retrieve3ds2Result API call
      *
+     * @deprecated Use /getAuthenticationResult instead
      * @param threeDS2ResultRequest PaymentRequest3ds2
      * @return PaymentResult
      * @throws Exception Exception
      */
+    @Deprecated
     public ThreeDS2ResultResponse retrieve3ds2Result(ThreeDS2ResultRequest threeDS2ResultRequest) throws Exception {
         String jsonRequest = GSON.toJson(threeDS2ResultRequest);
 
