@@ -25,10 +25,12 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
+import java.util.Arrays;
+
 public class GetAuthenticationResult extends Resource {
 
     public GetAuthenticationResult(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/getAuthenticationResult", null);
+                service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payment/" + Client.API_VERSION + "/getAuthenticationResult", Arrays.asList("merchantAccount", "pspReference"));
     }
 }
