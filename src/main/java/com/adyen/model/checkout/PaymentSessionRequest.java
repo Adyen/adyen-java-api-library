@@ -814,6 +814,7 @@ public class PaymentSessionRequest {
 
     /**
      * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
+     *
      * @return enableRealTimeUpdate
      **/
     public Boolean isEnableRealTimeUpdate() {
@@ -1063,6 +1064,7 @@ public class PaymentSessionRequest {
 
     /**
      * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
+     *
      * @return recurringExpiry
      **/
     public String getRecurringExpiry() {
@@ -1080,6 +1082,7 @@ public class PaymentSessionRequest {
 
     /**
      * Minimum number of days between authorisations. Only for 3D Secure 2.
+     *
      * @return recurringFrequency
      **/
     public String getRecurringFrequency() {
@@ -1378,6 +1381,7 @@ public class PaymentSessionRequest {
 
     /**
      * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/native-3ds2/authentication-only), and not the payment authorisation.
+     *
      * @return threeDSAuthenticationOnly
      **/
     public Boolean isThreeDSAuthenticationOnly() {
@@ -1454,110 +1458,145 @@ public class PaymentSessionRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof PaymentSessionRequest)) {
             return false;
         }
-        PaymentSessionRequest paymentSessionRequest = (PaymentSessionRequest) o;
-        return Objects.equals(this.additionalData, paymentSessionRequest.additionalData) &&
-                Objects.equals(this.allowedPaymentMethods, paymentSessionRequest.allowedPaymentMethods) &&
-                Objects.equals(this.amount, paymentSessionRequest.amount) &&
-                Objects.equals(this.applicationInfo, paymentSessionRequest.applicationInfo) &&
-                Objects.equals(this.billingAddress, paymentSessionRequest.billingAddress) &&
-                Objects.equals(this.blockedPaymentMethods, paymentSessionRequest.blockedPaymentMethods) &&
-                Objects.equals(this.captureDelayHours, paymentSessionRequest.captureDelayHours) &&
-                Objects.equals(this.channel, paymentSessionRequest.channel) &&
-                Objects.equals(this.company, paymentSessionRequest.company) &&
-                Objects.equals(this.configuration, paymentSessionRequest.configuration) &&
-                Objects.equals(this.countryCode, paymentSessionRequest.countryCode) &&
-                Objects.equals(this.dateOfBirth, paymentSessionRequest.dateOfBirth) &&
-                Objects.equals(this.dccQuote, paymentSessionRequest.dccQuote) &&
-                Objects.equals(this.deliveryAddress, paymentSessionRequest.deliveryAddress) &&
-                Objects.equals(this.deliveryDate, paymentSessionRequest.deliveryDate) &&
-                Objects.equals(this.enableOneClick, paymentSessionRequest.enableOneClick) &&
-                Objects.equals(this.enablePayOut, paymentSessionRequest.enablePayOut) &&
-                Objects.equals(this.enableRealTimeUpdate, paymentSessionRequest.enableRealTimeUpdate) &&
-                Objects.equals(this.enableRecurring, paymentSessionRequest.enableRecurring) &&
-                Objects.equals(this.entityType, paymentSessionRequest.entityType) &&
-                Objects.equals(this.fraudOffset, paymentSessionRequest.fraudOffset) &&
-                Objects.equals(this.installments, paymentSessionRequest.installments) &&
-                Objects.equals(this.lineItems, paymentSessionRequest.lineItems) &&
-                Objects.equals(this.mcc, paymentSessionRequest.mcc) &&
-                Objects.equals(this.merchantAccount, paymentSessionRequest.merchantAccount) &&
-                Objects.equals(this.merchantOrderReference, paymentSessionRequest.merchantOrderReference) &&
-                Objects.equals(this.metadata, paymentSessionRequest.metadata) &&
-                Objects.equals(this.orderReference, paymentSessionRequest.orderReference) &&
-                Objects.equals(this.origin, paymentSessionRequest.origin) &&
-                Objects.equals(this.recurringExpiry, paymentSessionRequest.recurringExpiry) &&
-                Objects.equals(this.recurringFrequency, paymentSessionRequest.recurringFrequency) &&
-                Objects.equals(this.reference, paymentSessionRequest.reference) &&
-                Objects.equals(this.returnUrl, paymentSessionRequest.returnUrl) &&
-                Objects.equals(this.sdkVersion, paymentSessionRequest.sdkVersion) &&
-                Objects.equals(this.sessionValidity, paymentSessionRequest.sessionValidity) &&
-                Objects.equals(this.shopperEmail, paymentSessionRequest.shopperEmail) &&
-                Objects.equals(this.shopperIP, paymentSessionRequest.shopperIP) &&
-                Objects.equals(this.shopperInteraction, paymentSessionRequest.shopperInteraction) &&
-                Objects.equals(this.shopperLocale, paymentSessionRequest.shopperLocale) &&
-                Objects.equals(this.shopperName, paymentSessionRequest.shopperName) &&
-                Objects.equals(this.shopperReference, paymentSessionRequest.shopperReference) &&
-                Objects.equals(this.shopperStatement, paymentSessionRequest.shopperStatement) &&
-                Objects.equals(this.socialSecurityNumber, paymentSessionRequest.socialSecurityNumber) &&
-                Objects.equals(this.splits, paymentSessionRequest.splits) &&
-                Objects.equals(this.storePaymentMethod, paymentSessionRequest.storePaymentMethod) &&
-                Objects.equals(this.telephoneNumber, paymentSessionRequest.telephoneNumber) &&
-                Objects.equals(this.threeDSAuthenticationOnly, paymentSessionRequest.threeDSAuthenticationOnly) &&
-                Objects.equals(this.token, paymentSessionRequest.token) &&
-                Objects.equals(this.trustedShopper, paymentSessionRequest.trustedShopper);
+        PaymentSessionRequest that = (PaymentSessionRequest) o;
+        return Objects.equals(accountInfo, that.accountInfo)
+                && Objects.equals(additionalAmount, that.additionalAmount)
+                && Objects.equals(additionalData, that.additionalData)
+                && Objects.equals(allowedPaymentMethods, that.allowedPaymentMethods)
+                && Objects.equals(amount, that.amount)
+                && Objects.equals(applicationInfo, that.applicationInfo)
+                && Objects.equals(bankAccount, that.bankAccount)
+                && Objects.equals(billingAddress, that.billingAddress)
+                && Objects.equals(blockedPaymentMethods, that.blockedPaymentMethods)
+                && Objects.equals(browserInfo, that.browserInfo)
+                && Objects.equals(captureDelayHours, that.captureDelayHours)
+                && Objects.equals(card, that.card)
+                && Objects.equals(channel, that.channel)
+                && Objects.equals(company, that.company)
+                && Objects.equals(configId, that.configId)
+                && Objects.equals(configuration, that.configuration)
+                && Objects.equals(countryCode, that.countryCode)
+                && Objects.equals(dateOfBirth, that.dateOfBirth)
+                && Objects.equals(dccQuote, that.dccQuote)
+                && Objects.equals(deliveryAddress, that.deliveryAddress)
+                && Objects.equals(deliveryDate, that.deliveryDate)
+                && Objects.equals(deviceFingerprint, that.deviceFingerprint)
+                && Objects.equals(enableOneClick, that.enableOneClick)
+                && Objects.equals(enablePayOut, that.enablePayOut)
+                && Objects.equals(enableRealTimeUpdate, that.enableRealTimeUpdate)
+                && Objects.equals(enableRecurring, that.enableRecurring)
+                && Objects.equals(entityType, that.entityType)
+                && Objects.equals(fraudOffset, that.fraudOffset)
+                && Objects.equals(html, that.html)
+                && Objects.equals(installments, that.installments)
+                && Objects.equals(lineItems, that.lineItems)
+                && Objects.equals(mcc, that.mcc)
+                && Objects.equals(merchantAccount, that.merchantAccount)
+                && Objects.equals(merchantOrderReference, that.merchantOrderReference)
+                && Objects.equals(merchantRiskIndicator, that.merchantRiskIndicator)
+                && Objects.equals(metadata, that.metadata)
+                && Objects.equals(mpiData, that.mpiData)
+                && Objects.equals(nationality, that.nationality)
+                && Objects.equals(orderReference, that.orderReference)
+                && Objects.equals(origin, that.origin)
+                && Objects.equals(recurring, that.recurring)
+                && Objects.equals(recurringExpiry, that.recurringExpiry)
+                && Objects.equals(recurringFrequency, that.recurringFrequency)
+                && Objects.equals(recurringProcessingModel, that.recurringProcessingModel)
+                && Objects.equals(reference, that.reference)
+                && Objects.equals(returnUrl, that.returnUrl)
+                && Objects.equals(sdkVersion, that.sdkVersion)
+                && Objects.equals(selectedBrand, that.selectedBrand)
+                && Objects.equals(selectedRecurringDetailReference, that.selectedRecurringDetailReference)
+                && Objects.equals(sessionId, that.sessionId)
+                && Objects.equals(sessionValidity, that.sessionValidity)
+                && Objects.equals(shopperEmail, that.shopperEmail)
+                && Objects.equals(shopperIP, that.shopperIP)
+                && Objects.equals(shopperInteraction, that.shopperInteraction)
+                && Objects.equals(shopperLocale, that.shopperLocale)
+                && Objects.equals(shopperName, that.shopperName)
+                && Objects.equals(shopperReference, that.shopperReference)
+                && Objects.equals(shopperStatement, that.shopperStatement)
+                && Objects.equals(socialSecurityNumber, that.socialSecurityNumber)
+                && Objects.equals(splits, that.splits)
+                && Objects.equals(store, that.store)
+                && Objects.equals(storePaymentMethod, that.storePaymentMethod)
+                && Objects.equals(telephoneNumber, that.telephoneNumber)
+                && Objects.equals(threeDS2RequestData, that.threeDS2RequestData)
+                && Objects.equals(threeDSAuthenticationOnly, that.threeDSAuthenticationOnly)
+                && Objects.equals(token, that.token)
+                && Objects.equals(totalsGroup, that.totalsGroup)
+                && Objects.equals(trustedShopper, that.trustedShopper)
+                && Objects.equals(uniqueTerminalId, that.uniqueTerminalId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRealTimeUpdate, enableRecurring, entityType, fraudOffset, installments, lineItems, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, recurringExpiry, recurringFrequency, reference, returnUrl, sdkVersion, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, token, trustedShopper);
+        return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, bankAccount, billingAddress, blockedPaymentMethods, browserInfo, captureDelayHours, card, channel, company, configId, configuration, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRealTimeUpdate, enableRecurring, entityType, fraudOffset, html, installments, lineItems, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, nationality, orderReference, origin, recurring, recurringExpiry, recurringFrequency, recurringProcessingModel, reference, returnUrl, sdkVersion, selectedBrand, selectedRecurringDetailReference, sessionId, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, token, totalsGroup, trustedShopper, uniqueTerminalId);
     }
-
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentSessionRequest {\n");
 
+        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
+        sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
         sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
         sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
+        sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
         sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
+        sb.append("    card: ").append(toIndentedString(card)).append("\n");
         sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
         sb.append("    company: ").append(toIndentedString(company)).append("\n");
-        sb.append("    _configuration: ").append(toIndentedString(configuration)).append("\n");
+        sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
         sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
         sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");
         sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
         sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
+        sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
         sb.append("    enableOneClick: ").append(toIndentedString(enableOneClick)).append("\n");
         sb.append("    enablePayOut: ").append(toIndentedString(enablePayOut)).append("\n");
         sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append("\n");
         sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
         sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
         sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
+        sb.append("    html: ").append(toIndentedString(html)).append("\n");
         sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
         sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
         sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
+        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
+        sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
         sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
         sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
         sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
         sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
+        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
         sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
         sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
         sb.append("    sdkVersion: ").append(toIndentedString(sdkVersion)).append("\n");
+        sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append("\n");
+        sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
+        sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
         sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
         sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
         sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
@@ -1568,12 +1607,16 @@ public class PaymentSessionRequest {
         sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
         sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
         sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
         sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
         sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
         sb.append("    token: ").append(toIndentedString(token)).append("\n");
+        sb.append("    totalsGroup: ").append(toIndentedString(totalsGroup)).append("\n");
         sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
-        sb.append("}");
+        sb.append("    uniqueTerminalId: ").append(toIndentedString(uniqueTerminalId)).append("\n");
+        sb.append('}');
         return sb.toString();
     }
 
