@@ -44,7 +44,7 @@ public class Payment extends Service {
 
     private Authorise authorise;
     private Authorise3D authorise3D;
-    private Authorise3DS2 authorise3DS;
+    private Authorise3DS2 authorise3DS2;
     private Retrieve3DS2Result retrieve3DS2Result;
     private GetAuthenticationResult getAuthenticationResult;
 
@@ -53,7 +53,7 @@ public class Payment extends Service {
 
         authorise = new Authorise(this);
         authorise3D = new Authorise3D(this);
-        authorise3DS = new Authorise3DS2(this);
+        authorise3DS2 = new Authorise3DS2(this);
         retrieve3DS2Result = new Retrieve3DS2Result(this);
         getAuthenticationResult = new GetAuthenticationResult(this);
     }
@@ -107,7 +107,7 @@ public class Payment extends Service {
     public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws Exception {
         String jsonRequest = GSON.toJson(paymentRequest3ds2);
 
-        String jsonResult = authorise3DS.request(jsonRequest);
+        String jsonResult = authorise3DS2.request(jsonRequest);
 
         PaymentResult paymentResult = GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
