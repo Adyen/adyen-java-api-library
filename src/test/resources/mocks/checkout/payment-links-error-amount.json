@@ -1,0 +1,6 @@
+{
+  "status": 422,
+  "errorCode": "100",
+  "message": "No amount specified",
+  "errorType": "validation"
+}

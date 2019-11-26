@@ -26,6 +26,6 @@ import com.adyen.service.Resource;
 
 public class SubmitThirdParty extends Resource {
     public SubmitThirdParty(Service service) {
-        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.API_VERSION + "/submitThirdParty", null);
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.PAYOUT_API_VERSION + "/submitThirdParty", null);
     }
 }

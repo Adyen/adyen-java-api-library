@@ -28,7 +28,7 @@ import java.util.Arrays;
 
 public class Payout extends Resource {
     public Payout(Service service) {
-        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.API_VERSION + "/payout",
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.PAYOUT_API_VERSION + "/payout",
                 Arrays.asList("merchantAccount", "reference", "amount"));
     }
 }

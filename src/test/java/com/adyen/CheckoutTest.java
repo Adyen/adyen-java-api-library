@@ -20,17 +20,11 @@
  */
 package com.adyen;
 
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
-
-import com.adyen.model.checkout.CheckoutPaymentsAction;
-import org.junit.Assert;
-import org.junit.Test;
+import com.adyen.model.Address;
 import com.adyen.model.Amount;
+import com.adyen.model.checkout.CheckoutPaymentsAction;
+import com.adyen.model.checkout.CreatePaymentLinkRequest;
+import com.adyen.model.checkout.CreatePaymentLinkResponse;
 import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodsRequest;
@@ -43,7 +37,19 @@ import com.adyen.model.checkout.PaymentsDetailsRequest;
 import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PaymentsResponse;
 import com.adyen.service.Checkout;
+import com.adyen.service.exception.ApiException;
 import com.google.gson.annotations.SerializedName;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static com.adyen.enums.Environment.LIVE;
@@ -51,6 +57,7 @@ import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Tests for
@@ -430,6 +437,64 @@ public class CheckoutTest extends BaseTest {
         assertEquals("S0zYWQ0MGEwMjU2MjEifQ==", paymentsResponse.getAuthentication().get("threeds2.challengeToken"));
     }
 
+    @Test
+    public void TestPaymentLinksSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payment-links-success.json");
+        Checkout checkout = new Checkout(client);
+        CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
+        CreatePaymentLinkResponse createPaymentLinkResponse = checkout.paymentLinks(createPaymentLinkRequest);
+        assertNotNull(createPaymentLinkResponse);
+        assertNotNull(createPaymentLinkResponse.getUrl());
+        assertNotNull(createPaymentLinkResponse.getExpiresAt());
+        assertNotNull(createPaymentLinkResponse.getAmount());
+        assertNotNull(createPaymentLinkResponse.getReference());
+    }
+
+    @Test
+    public void TestPaymentLinksErrorMerchantMissing() throws IOException, ApiException {
+        Client client = createMockClientForErrors(403,"mocks/checkout/payment-links-error-merchant.json");
+        Checkout checkout = new Checkout(client);
+        CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
+        try {
+            checkout.paymentLinks(createPaymentLinkRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("901", e.getError().getErrorCode());
+            assertEquals(403, e.getError().getStatus());
+        }
+    }
+
+    @Test
+    public void TestPaymentLinksErrorAmountMissing() throws IOException, ApiException {
+        Client client = createMockClientForErrors(422,"mocks/checkout/payment-links-error-amount.json");
+        Checkout checkout = new Checkout(client);
+        CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
+        try {
+            checkout.paymentLinks(createPaymentLinkRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("100", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+        }
+    }
+
+    @Test
+    public void TestPaymentLinksErrorReferenceMissing() throws IOException, ApiException {
+        Client client = createMockClientForErrors(422,"mocks/checkout/payment-links-error-reference.json");
+        Checkout checkout = new Checkout(client);
+        CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
+        try {
+            checkout.paymentLinks(createPaymentLinkRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("130", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+        }
+    }
+
     /**
      * Returns a sample PaymentSessionRequest opbject with test data
      */
@@ -480,6 +545,33 @@ public class CheckoutTest extends BaseTest {
         amount.setCurrency(currency);
         amount.setValue(value);
         return amount;
+    }
+
+    /**
+     * Returns a sample PaymentsRequest opbject with test data
+     */
+    protected CreatePaymentLinkRequest createPaymentLinkRequest() {
+        CreatePaymentLinkRequest createPaymentLinkRequest = new CreatePaymentLinkRequest();
+
+        createPaymentLinkRequest.setReference("YOUR_ORDER_NUMBER");
+        createPaymentLinkRequest.setAmount(createAmountObject("BRL", 1000L));
+        createPaymentLinkRequest.setCountryCode("BR");
+        createPaymentLinkRequest.setMerchantAccount("MagentoMerchantTest");
+        createPaymentLinkRequest.setShopperReference("YOUR_UNIQUE_SHOPPER_ID");
+        createPaymentLinkRequest.setShopperEmail("test@email.com");
+        createPaymentLinkRequest.setShopperLocale("pt_BR");
+        createPaymentLinkRequest.setExpiresAt("2019-12-17T10:05:29Z");
+        Address address = new Address();
+        address.setStreet("Street");
+        address.setPostalCode("59000060");
+        address.setCity("City");
+        address.setHouseNumberOrName("999");
+        address.setCountry("BR");
+        address.setStateOrProvince("SP");
+        createPaymentLinkRequest.setBillingAddress(address);
+        createPaymentLinkRequest.setDeliveryAddress(address);
+
+        return createPaymentLinkRequest;
     }
 }
 

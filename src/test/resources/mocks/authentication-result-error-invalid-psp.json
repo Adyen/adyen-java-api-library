@@ -1,0 +1,6 @@
+{
+  "status": 422,
+  "errorCode": "15_011",
+  "message": "pspReference is not a valid pspReference",
+  "errorType": "validation"
+}

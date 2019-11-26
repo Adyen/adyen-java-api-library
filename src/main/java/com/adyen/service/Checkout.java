@@ -21,10 +21,11 @@
 
 package com.adyen.service;
 
-import java.io.IOException;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.model.RequestOptions;
+import com.adyen.model.checkout.CreatePaymentLinkRequest;
+import com.adyen.model.checkout.CreatePaymentLinkResponse;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
 import com.adyen.model.checkout.PaymentResultRequest;
@@ -35,6 +36,7 @@ import com.adyen.model.checkout.PaymentsDetailsRequest;
 import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PaymentsResponse;
 import com.adyen.service.exception.ApiException;
+import com.adyen.service.resource.checkout.PaymentLinks;
 import com.adyen.service.resource.checkout.PaymentMethods;
 import com.adyen.service.resource.checkout.PaymentSession;
 import com.adyen.service.resource.checkout.Payments;
@@ -42,6 +44,7 @@ import com.adyen.service.resource.checkout.PaymentsDetails;
 import com.adyen.service.resource.checkout.PaymentsResult;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
 
 public class Checkout extends ApiKeyAuthenticatedService {
 
@@ -50,6 +53,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
     private PaymentsDetails paymentsDetails;
     private PaymentSession paymentSession;
     private PaymentsResult paymentsResult;
+    private PaymentLinks paymentLinks;
 
     public Checkout(Client client) {
 
@@ -59,14 +63,15 @@ public class Checkout extends ApiKeyAuthenticatedService {
         paymentsDetails = new PaymentsDetails(this);
         paymentSession = new PaymentSession(this);
         paymentsResult = new PaymentsResult(this);
+        paymentLinks = new PaymentLinks(this);
     }
 
     /**
      * POST /payments API call
      *
-     * @param paymentsRequest  PaymentsRequest
+     * @param paymentsRequest PaymentsRequest
      * @return paymentsResponse
-     * @throws IOException IOException
+     * @throws IOException  IOException
      * @throws ApiException ApiException
      */
     public PaymentsResponse payments(PaymentsRequest paymentsRequest) throws ApiException, IOException {
@@ -86,8 +91,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentMethodsRequest PaymentMethodsRequest
      * @return paymentMethodsResponse PaymentMethodsResponse
-     * @throws IOException IOException
-     * @throws  ApiException ApiException
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
 
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest) throws ApiException, IOException {
@@ -103,8 +108,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentsDetailsRequest paymentsDetailsRequest
      * @return paymentsResponse paymentsResponse
-     * @throws IOException IOException
-     * @throws  ApiException ApiException
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
      */
     public PaymentsResponse paymentsDetails(PaymentsDetailsRequest paymentsDetailsRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentsDetailsRequest);
@@ -119,7 +124,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentSessionRequest paymentSessionRequest
      * @return paymentSessionResponse
-     * @throws IOException IOException
+     * @throws IOException  IOException
      * @throws ApiException ApiException
      */
 
@@ -139,7 +144,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentResultRequest paymentResultRequest
      * @return paymentResultResponse
-     * @throws IOException IOException
+     * @throws IOException  IOException
      * @throws ApiException ApiException
      */
     public PaymentResultResponse paymentResult(PaymentResultRequest paymentResultRequest) throws ApiException, IOException {
@@ -149,4 +154,18 @@ public class Checkout extends ApiKeyAuthenticatedService {
         }.getType());
     }
 
+    /**
+     * POST /paymentLinks API call
+     *
+     * @param createPaymentLinkRequest CreatePaymentLinkRequest
+     * @return createPaymentLinkResponse
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
+     */
+    public CreatePaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(createPaymentLinkRequest);
+        String jsonResult = paymentLinks.request(jsonRequest);
+        return GSON.fromJson(jsonResult, new TypeToken<CreatePaymentLinkResponse>() {
+        }.getType());
+    }
 }

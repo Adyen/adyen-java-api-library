@@ -14,16 +14,12 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2019 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen.model;
 
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.Objects;
 import com.adyen.serializer.DateTimeISO8601Serializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,6 +27,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import java.io.IOException;
+import java.util.Date;
+import java.util.Objects;
 
 /**
  * AccountInfo
@@ -38,16 +37,15 @@ import com.google.gson.stream.JsonWriter;
 public class AccountInfo {
 
     /**
-     * Gets or Sets accountAgeIndicator
+     * Indicator for the length of time since this shopper account was created in the merchant&#x27;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
      */
     @JsonAdapter(AccountAgeIndicatorEnum.Adapter.class)
     public enum AccountAgeIndicatorEnum {
-
-        FROM30TO60DAYS("from30To60Days"),
-        LESSTHAN30DAYS("lessThan30Days"),
-        MORETHAN60DAYS("moreThan60Days"),
         NOTAPPLICABLE("notApplicable"),
-        THISTRANSACTION("thisTransaction");
+        THISTRANSACTION("thisTransaction"),
+        LESSTHAN30DAYS("lessThan30Days"),
+        FROM30TO60DAYS("from30To60Days"),
+        MORETHAN60DAYS("moreThan60Days");
 
         private String value;
 
@@ -95,15 +93,14 @@ public class AccountInfo {
     private Date accountChangeDate = null;
 
     /**
-     * Gets or Sets accountChangeIndicator
+     * Indicator for the length of time since the shopper&#x27;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
      */
     @JsonAdapter(AccountChangeIndicatorEnum.Adapter.class)
     public enum AccountChangeIndicatorEnum {
-
-        FROM30TO60DAYS("from30To60Days"),
+        THISTRANSACTION("thisTransaction"),
         LESSTHAN30DAYS("lessThan30Days"),
-        MORETHAN60DAYS("moreThan60Days"),
-        THISTRANSACTION("thisTransaction");
+        FROM30TO60DAYS("from30To60Days"),
+        MORETHAN60DAYS("moreThan60Days");
 
         private String value;
 
@@ -150,6 +147,56 @@ public class AccountInfo {
     @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date accountCreationDate = null;
 
+    /**
+     * Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
+     */
+    @JsonAdapter(AccountTypeEnum.Adapter.class)
+    public enum AccountTypeEnum {
+        NOTAPPLICABLE("notApplicable"),
+        CREDIT("credit"),
+        DEBIT("debit");
+
+        private String value;
+
+        AccountTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AccountTypeEnum fromValue(String text) {
+            for (AccountTypeEnum b : AccountTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter<AccountTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AccountTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AccountTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return AccountTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    @SerializedName("accountType")
+    private AccountTypeEnum accountType = null;
+
     @SerializedName("addCardAttemptsDay")
     private Integer addCardAttemptsDay = null;
 
@@ -158,15 +205,14 @@ public class AccountInfo {
     private Date deliveryAddressUsageDate = null;
 
     /**
-     * Gets or Sets deliveryAddressUsageIndicator
+     * Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
      */
     @JsonAdapter(DeliveryAddressUsageIndicatorEnum.Adapter.class)
     public enum DeliveryAddressUsageIndicatorEnum {
-
-        FROM30TO60DAYS("from30To60Days"),
+        THISTRANSACTION("thisTransaction"),
         LESSTHAN30DAYS("lessThan30Days"),
-        MORETHAN60DAYS("moreThan60Days"),
-        THISTRANSACTION("thisTransaction");
+        FROM30TO60DAYS("from30To60Days"),
+        MORETHAN60DAYS("moreThan60Days");
 
         private String value;
 
@@ -220,16 +266,15 @@ public class AccountInfo {
     private Date passwordChangeDate = null;
 
     /**
-     * Gets or Sets passwordChangeIndicator
+     * Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
      */
     @JsonAdapter(PasswordChangeIndicatorEnum.Adapter.class)
     public enum PasswordChangeIndicatorEnum {
-
-        FROM30TO60DAYS("from30To60Days"),
-        LESSTHAN30DAYS("lessThan30Days"),
-        MORETHAN60DAYS("moreThan60Days"),
         NOTAPPLICABLE("notApplicable"),
-        THISTRANSACTION("thisTransaction");
+        THISTRANSACTION("thisTransaction"),
+        LESSTHAN30DAYS("lessThan30Days"),
+        FROM30TO60DAYS("from30To60Days"),
+        MORETHAN60DAYS("moreThan60Days");
 
         private String value;
 
@@ -283,16 +328,15 @@ public class AccountInfo {
     private Date paymentAccountAge = null;
 
     /**
-     * Gets or Sets paymentAccountIndicator
+     * Indicator for the length of time since this payment method was added to this shopper&#x27;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
      */
     @JsonAdapter(PaymentAccountIndicatorEnum.Adapter.class)
     public enum PaymentAccountIndicatorEnum {
-
-        FROM30TO60DAYS("from30To60Days"),
-        LESSTHAN30DAYS("lessThan30Days"),
-        MORETHAN60DAYS("moreThan60Days"),
         NOTAPPLICABLE("notApplicable"),
-        THISTRANSACTION("thisTransaction");
+        THISTRANSACTION("thisTransaction"),
+        LESSTHAN30DAYS("lessThan30Days"),
+        FROM30TO60DAYS("from30To60Days"),
+        MORETHAN60DAYS("moreThan60Days");
 
         private String value;
 
@@ -344,11 +388,17 @@ public class AccountInfo {
     @SerializedName("workPhone")
     private String workPhone = null;
 
+
     public AccountInfo accountAgeIndicator(AccountAgeIndicatorEnum accountAgeIndicator) {
         this.accountAgeIndicator = accountAgeIndicator;
         return this;
     }
 
+    /**
+     * Indicator for the length of time since this shopper account was created in the merchant&#x27;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+     *
+     * @return accountAgeIndicator
+     **/
     public AccountAgeIndicatorEnum getAccountAgeIndicator() {
         return accountAgeIndicator;
     }
@@ -362,6 +412,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Date when the shopper&#x27;s account was last changed.
+     *
+     * @return accountChangeDate
+     **/
     public Date getAccountChangeDate() {
         return accountChangeDate;
     }
@@ -375,6 +430,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Indicator for the length of time since the shopper&#x27;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+     *
+     * @return accountChangeIndicator
+     **/
     public AccountChangeIndicatorEnum getAccountChangeIndicator() {
         return accountChangeIndicator;
     }
@@ -388,6 +448,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Date when the shopper&#x27;s account was created.
+     *
+     * @return accountCreationDate
+     **/
     public Date getAccountCreationDate() {
         return accountCreationDate;
     }
@@ -396,11 +461,34 @@ public class AccountInfo {
         this.accountCreationDate = accountCreationDate;
     }
 
+    public AccountInfo accountType(AccountTypeEnum accountType) {
+        this.accountType = accountType;
+        return this;
+    }
+
+    /**
+     * Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
+     *
+     * @return accountType
+     **/
+    public AccountTypeEnum getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountTypeEnum accountType) {
+        this.accountType = accountType;
+    }
+
     public AccountInfo addCardAttemptsDay(Integer addCardAttemptsDay) {
         this.addCardAttemptsDay = addCardAttemptsDay;
         return this;
     }
 
+    /**
+     * Number of attempts the shopper tried to add a card to their account in the last day.
+     *
+     * @return addCardAttemptsDay
+     **/
     public Integer getAddCardAttemptsDay() {
         return addCardAttemptsDay;
     }
@@ -414,6 +502,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Date the selected delivery address was first used.
+     *
+     * @return deliveryAddressUsageDate
+     **/
     public Date getDeliveryAddressUsageDate() {
         return deliveryAddressUsageDate;
     }
@@ -427,6 +520,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+     *
+     * @return deliveryAddressUsageIndicator
+     **/
     public DeliveryAddressUsageIndicatorEnum getDeliveryAddressUsageIndicator() {
         return deliveryAddressUsageIndicator;
     }
@@ -440,6 +538,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Shopper&#x27;s home phone number (including the country code).
+     *
+     * @return homePhone
+     **/
     public String getHomePhone() {
         return homePhone;
     }
@@ -453,6 +556,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Shopper&#x27;s mobile phone number (including the country code).
+     *
+     * @return mobilePhone
+     **/
     public String getMobilePhone() {
         return mobilePhone;
     }
@@ -466,6 +574,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Date when the shopper last changed their password.
+     *
+     * @return passwordChangeDate
+     **/
     public Date getPasswordChangeDate() {
         return passwordChangeDate;
     }
@@ -479,6 +592,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+     *
+     * @return passwordChangeIndicator
+     **/
     public PasswordChangeIndicatorEnum getPasswordChangeIndicator() {
         return passwordChangeIndicator;
     }
@@ -492,6 +610,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
+     *
+     * @return pastTransactionsDay
+     **/
     public Integer getPastTransactionsDay() {
         return pastTransactionsDay;
     }
@@ -505,6 +628,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Number of all transactions (successful and abandoned) from this shopper in the past year.
+     *
+     * @return pastTransactionsYear
+     **/
     public Integer getPastTransactionsYear() {
         return pastTransactionsYear;
     }
@@ -518,6 +646,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Date this payment method was added to the shopper&#x27;s account.
+     *
+     * @return paymentAccountAge
+     **/
     public Date getPaymentAccountAge() {
         return paymentAccountAge;
     }
@@ -531,7 +664,11 @@ public class AccountInfo {
         return this;
     }
 
-
+    /**
+     * Indicator for the length of time since this payment method was added to this shopper&#x27;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
+     *
+     * @return paymentAccountIndicator
+     **/
     public PaymentAccountIndicatorEnum getPaymentAccountIndicator() {
         return paymentAccountIndicator;
     }
@@ -545,7 +682,11 @@ public class AccountInfo {
         return this;
     }
 
-
+    /**
+     * Number of successful purchases in the last six months.
+     *
+     * @return purchasesLast6Months
+     **/
     public Integer getPurchasesLast6Months() {
         return purchasesLast6Months;
     }
@@ -559,6 +700,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Whether suspicious activity was recorded on this account.
+     *
+     * @return suspiciousActivity
+     **/
     public Boolean isSuspiciousActivity() {
         return suspiciousActivity;
     }
@@ -572,6 +718,11 @@ public class AccountInfo {
         return this;
     }
 
+    /**
+     * Shopper&#x27;s work phone number (including the country code).
+     *
+     * @return workPhone
+     **/
     public String getWorkPhone() {
         return workPhone;
     }
@@ -579,6 +730,7 @@ public class AccountInfo {
     public void setWorkPhone(String workPhone) {
         this.workPhone = workPhone;
     }
+
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -593,6 +745,7 @@ public class AccountInfo {
                 Objects.equals(this.accountChangeDate, accountInfo.accountChangeDate) &&
                 Objects.equals(this.accountChangeIndicator, accountInfo.accountChangeIndicator) &&
                 Objects.equals(this.accountCreationDate, accountInfo.accountCreationDate) &&
+                Objects.equals(this.accountType, accountInfo.accountType) &&
                 Objects.equals(this.addCardAttemptsDay, accountInfo.addCardAttemptsDay) &&
                 Objects.equals(this.deliveryAddressUsageDate, accountInfo.deliveryAddressUsageDate) &&
                 Objects.equals(this.deliveryAddressUsageIndicator, accountInfo.deliveryAddressUsageIndicator) &&
@@ -611,8 +764,9 @@ public class AccountInfo {
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountAgeIndicator, accountChangeDate, accountChangeIndicator, accountCreationDate, addCardAttemptsDay, deliveryAddressUsageDate, deliveryAddressUsageIndicator, homePhone, mobilePhone, passwordChangeDate, passwordChangeIndicator, pastTransactionsDay, pastTransactionsYear, paymentAccountAge, paymentAccountIndicator, purchasesLast6Months, suspiciousActivity, workPhone);
+        return Objects.hash(accountAgeIndicator, accountChangeDate, accountChangeIndicator, accountCreationDate, accountType, addCardAttemptsDay, deliveryAddressUsageDate, deliveryAddressUsageIndicator, homePhone, mobilePhone, passwordChangeDate, passwordChangeIndicator, pastTransactionsDay, pastTransactionsYear, paymentAccountAge, paymentAccountIndicator, purchasesLast6Months, suspiciousActivity, workPhone);
     }
+
 
     @Override
     public String toString() {
@@ -623,6 +777,7 @@ public class AccountInfo {
         sb.append("    accountChangeDate: ").append(toIndentedString(accountChangeDate)).append("\n");
         sb.append("    accountChangeIndicator: ").append(toIndentedString(accountChangeIndicator)).append("\n");
         sb.append("    accountCreationDate: ").append(toIndentedString(accountCreationDate)).append("\n");
+        sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
         sb.append("    addCardAttemptsDay: ").append(toIndentedString(addCardAttemptsDay)).append("\n");
         sb.append("    deliveryAddressUsageDate: ").append(toIndentedString(deliveryAddressUsageDate)).append("\n");
         sb.append("    deliveryAddressUsageIndicator: ").append(toIndentedString(deliveryAddressUsageIndicator)).append("\n");
@@ -651,9 +806,4 @@ public class AccountInfo {
         }
         return o.toString().replace("\n", "\n    ");
     }
-
-
 }
-
-
-

@@ -26,6 +26,6 @@ import com.adyen.service.Resource;
 
 public class DeclineThirdParty extends Resource {
     public DeclineThirdParty(Service service) {
-        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.API_VERSION + "/declineThirdParty", null);
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.PAYOUT_API_VERSION + "/declineThirdParty", null);
     }
 }

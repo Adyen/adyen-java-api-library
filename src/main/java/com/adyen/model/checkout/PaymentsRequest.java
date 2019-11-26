@@ -183,6 +183,12 @@ public class PaymentsRequest {
     @SerializedName("storePaymentMethod")
     private Boolean storePaymentMethod = null;
 
+    @SerializedName("enableRealTimeUpdate")
+    private Boolean enableRealTimeUpdate = null;
+
+    @SerializedName("threeDSAuthenticationOnly")
+    private Boolean threeDSAuthenticationOnly = null;
+
     public PaymentsRequest() {
         if (this.applicationInfo == null) {
             this.applicationInfo = new ApplicationInfo();
@@ -1208,6 +1214,40 @@ public class PaymentsRequest {
         return this;
     }
 
+    public PaymentsRequest enableRealTimeUpdate(Boolean enableRealTimeUpdate) {
+        this.enableRealTimeUpdate = enableRealTimeUpdate;
+        return this;
+    }
+
+    /**
+     * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
+     * @return enableRealTimeUpdate
+     **/
+    public Boolean isEnableRealTimeUpdate() {
+        return enableRealTimeUpdate;
+    }
+
+    public void setEnableRealTimeUpdate(Boolean enableRealTimeUpdate) {
+        this.enableRealTimeUpdate = enableRealTimeUpdate;
+    }
+
+    public PaymentsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+        return this;
+    }
+
+    /**
+     * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/native-3ds2/authentication-only), and not the payment authorisation.
+     * @return threeDSAuthenticationOnly
+     **/
+    public Boolean isThreeDSAuthenticationOnly() {
+        return threeDSAuthenticationOnly;
+    }
+
+    public void setThreeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
+        this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1271,7 +1311,9 @@ public class PaymentsRequest {
                 && Objects.equals(this.redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod)
                 && Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod)
                 && Objects.equals(this.order, paymentsRequest.order)
-                && Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod);
+                && Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod)
+                && Objects.equals(this.enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
+                && Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly);
     }
 
     @Override
@@ -1330,7 +1372,9 @@ public class PaymentsRequest {
                             redirectFromIssuerMethod,
                             redirectToIssuerMethod,
                             order,
-                            storePaymentMethod);
+                            storePaymentMethod,
+                            enableRealTimeUpdate,
+                            threeDSAuthenticationOnly);
     }
 
     @Override
@@ -1393,6 +1437,8 @@ public class PaymentsRequest {
           + "    redirectToIssuerMethod: " + toIndentedString(redirectToIssuerMethod) + "\n"
           + "    order: " + toIndentedString(order) + "\n"
           + "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + "\n"
+          + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + "\n"
+          + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + "\n"
           + "}";
     }
 

@@ -60,7 +60,10 @@ public class ModificationResult {
         CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]"),
 
         @SerializedName("[adjustAuthorisation-received]")
-        ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]");
+        ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]"),
+
+        @SerializedName("[voidPendingRefund-received]")
+        VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]");
 
         private String value;
 

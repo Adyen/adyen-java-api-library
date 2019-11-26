@@ -40,6 +40,7 @@ import com.adyen.httpclient.HttpURLConnectionClient;
 import com.adyen.model.AbstractPaymentRequest;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
+import com.adyen.model.AuthenticationResultRequest;
 import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
@@ -50,6 +51,7 @@ import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.RefundRequest;
+import com.adyen.model.modification.VoidPendingRefundRequest;
 import com.adyen.model.nexo.AbortRequest;
 import com.adyen.model.nexo.AmountsReq;
 import com.adyen.model.nexo.MessageCategoryType;
@@ -274,6 +276,10 @@ public class BaseTest {
         }
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);
+        Config config = new Config();
+        config.setCheckoutEndpoint(Client.CHECKOUT_ENDPOINT_TEST);
+        client.setConfig(config);
+
         return client;
     }
 
@@ -295,6 +301,10 @@ public class BaseTest {
         Amount amount = Util.createAmount("15.00", "EUR");
 
         return createBaseModificationRequest(new RefundRequest()).modificationAmount(amount);
+    }
+
+    protected VoidPendingRefundRequest createVoidPendingRefundRequest() {
+        return createBaseModificationRequest(new VoidPendingRefundRequest()).tenderReference("tenderReference");
     }
 
     protected TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {
@@ -366,5 +376,12 @@ public class BaseTest {
         terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
 
         return terminalAPIRequest;
+    }
+
+    protected AuthenticationResultRequest createAuthenticationResultRequest() {
+        AuthenticationResultRequest authenticationResultRequest = new AuthenticationResultRequest();
+        authenticationResultRequest.setMerchantAccount("AMerchant");
+        authenticationResultRequest.setPspReference("APspReference");
+        return authenticationResultRequest;
     }
 }

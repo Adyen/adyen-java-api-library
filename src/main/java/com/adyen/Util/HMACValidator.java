@@ -27,10 +27,12 @@ import java.util.List;
 import java.util.SortedMap;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import com.adyen.model.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
+
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
 public class HMACValidator {
@@ -67,10 +69,12 @@ public class HMACValidator {
         return calculateHMAC(getDataToSign(notificationRequestItem), key);
     }
 
-    public boolean validateHMAC(NotificationRequestItem notificationRequestItem, String key) throws SignatureException {
-
-        final String expectedSign = calculateHMAC(notificationRequestItem, key);
+    public boolean validateHMAC(NotificationRequestItem notificationRequestItem, String key) throws IllegalArgumentException, SignatureException {
+        if (notificationRequestItem.getAdditionalData() == null || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE).isEmpty()) {
+            throw new IllegalArgumentException("Missing " + HMAC_SIGNATURE);
+        }
         final String merchantSign = notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE);
+        final String expectedSign = calculateHMAC(notificationRequestItem, key);
 
         return expectedSign.equals(merchantSign);
     }
