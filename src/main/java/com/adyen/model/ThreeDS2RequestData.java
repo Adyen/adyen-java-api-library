@@ -147,6 +147,56 @@ public class ThreeDS2RequestData {
     @SerializedName("merchantName")
     private String merchantName;
 
+    /**
+     * Identify the type of the transaction being authenticated.
+     */
+    @JsonAdapter(TransactionTypeEnum.Adapter.class)
+    public enum TransactionTypeEnum {
+        GOODSORSERVICEPURCHASE("goodsOrServicePurchase"),
+        CHECKACCEPTANCE("checkAcceptance"),
+        ACCOUNTFUNDING("accountFunding"),
+        QUASICASHTRANSACTION("quasiCashTransaction"),
+        PREPAIDACTIVATIONANDLOAD("prepaidActivationAndLoad");
+
+        private String value;
+
+        TransactionTypeEnum(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+        public static TransactionTypeEnum fromValue(String text) {
+            for (TransactionTypeEnum b : TransactionTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static class Adapter extends TypeAdapter<TransactionTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TransactionTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TransactionTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TransactionTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }  @SerializedName("transactionType")
+    private TransactionTypeEnum transactionType = null;
+
+    @SerializedName("whiteListStatus")
+    private String whiteListStatus = null;
+
     public ThreeDS2RequestData authenticationOnly(Boolean authenticationOnly) {
         this.authenticationOnly = authenticationOnly;
         return this;
@@ -464,6 +514,41 @@ public class ThreeDS2RequestData {
         return this;
     }
 
+    public ThreeDS2RequestData transactionType(TransactionTypeEnum transactionType) {
+        this.transactionType = transactionType;
+        return this;
+    }
+
+    /**
+     * Identify the type of the transaction being authenticated.
+     * @return transactionType
+     **/
+    public TransactionTypeEnum getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(TransactionTypeEnum transactionType) {
+        this.transactionType = transactionType;
+    }
+
+    public ThreeDS2RequestData whiteListStatus(String whiteListStatus) {
+        this.whiteListStatus = whiteListStatus;
+        return this;
+    }
+
+    /**
+     * The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
+     * @return whiteListStatus
+     **/
+    public String getWhiteListStatus() {
+        return whiteListStatus;
+    }
+
+    public void setWhiteListStatus(String whiteListStatus) {
+        this.whiteListStatus = whiteListStatus;
+    }
+
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -473,63 +558,50 @@ public class ThreeDS2RequestData {
             return false;
         }
         ThreeDS2RequestData threeDS2RequestData = (ThreeDS2RequestData) o;
-        return Objects.equals(this.authenticationOnly, threeDS2RequestData.authenticationOnly)
-                && Objects.equals(this.challengeIndicator, threeDS2RequestData.challengeIndicator)
-                && Objects.equals(this.deviceChannel, threeDS2RequestData.deviceChannel)
-                && Objects.equals(this.deviceRenderOptions, threeDS2RequestData.deviceRenderOptions)
-                && Objects.equals(this.notificationURL, threeDS2RequestData.notificationURL)
-                && Objects.equals(this.sdkAppID, threeDS2RequestData.sdkAppID)
-                && Objects.equals(this.sdkEncData, threeDS2RequestData.sdkEncData)
-                && Objects.equals(this.sdkEphemPubKey, threeDS2RequestData.sdkEphemPubKey)
-                && Objects.equals(this.sdkMaxTimeout, threeDS2RequestData.sdkMaxTimeout)
-                && Objects.equals(this.sdkReferenceNumber, threeDS2RequestData.sdkReferenceNumber)
-                && Objects.equals(this.sdkTransID, threeDS2RequestData.sdkTransID)
-                && Objects.equals(this.threeDSCompInd, threeDS2RequestData.threeDSCompInd)
-                && Objects.equals(this.threeDSRequestorURL, threeDS2RequestData.threeDSRequestorURL)
-                && Objects.equals(this.threeDSServerTransID, threeDS2RequestData.threeDSServerTransID)
-                && Objects.equals(this.messageVersion, threeDS2RequestData.messageVersion)
-                && Objects.equals(this.threeDSRequestorID, threeDS2RequestData.threeDSRequestorID)
-                && Objects.equals(this.threeDSRequestorName, threeDS2RequestData.threeDSRequestorName)
-                && Objects.equals(this.acquirerBIN, threeDS2RequestData.acquirerBIN)
-                && Objects.equals(this.acquirerMerchantID, threeDS2RequestData.acquirerMerchantID)
-                && Objects.equals(this.mcc, threeDS2RequestData.mcc)
-                && Objects.equals(this.merchantName, threeDS2RequestData.merchantName);
+        return Objects.equals(this.acquirerBIN, threeDS2RequestData.acquirerBIN) &&
+                Objects.equals(this.acquirerMerchantID, threeDS2RequestData.acquirerMerchantID) &&
+                Objects.equals(this.authenticationOnly, threeDS2RequestData.authenticationOnly) &&
+                Objects.equals(this.challengeIndicator, threeDS2RequestData.challengeIndicator) &&
+                Objects.equals(this.deviceChannel, threeDS2RequestData.deviceChannel) &&
+                Objects.equals(this.deviceRenderOptions, threeDS2RequestData.deviceRenderOptions) &&
+                Objects.equals(this.mcc, threeDS2RequestData.mcc) &&
+                Objects.equals(this.merchantName, threeDS2RequestData.merchantName) &&
+                Objects.equals(this.messageVersion, threeDS2RequestData.messageVersion) &&
+                Objects.equals(this.notificationURL, threeDS2RequestData.notificationURL) &&
+                Objects.equals(this.sdkAppID, threeDS2RequestData.sdkAppID) &&
+                Objects.equals(this.sdkEncData, threeDS2RequestData.sdkEncData) &&
+                Objects.equals(this.sdkEphemPubKey, threeDS2RequestData.sdkEphemPubKey) &&
+                Objects.equals(this.sdkMaxTimeout, threeDS2RequestData.sdkMaxTimeout) &&
+                Objects.equals(this.sdkReferenceNumber, threeDS2RequestData.sdkReferenceNumber) &&
+                Objects.equals(this.sdkTransID, threeDS2RequestData.sdkTransID) &&
+                Objects.equals(this.threeDSCompInd, threeDS2RequestData.threeDSCompInd) &&
+                Objects.equals(this.threeDSRequestorID, threeDS2RequestData.threeDSRequestorID) &&
+                Objects.equals(this.threeDSRequestorName, threeDS2RequestData.threeDSRequestorName) &&
+                Objects.equals(this.threeDSRequestorURL, threeDS2RequestData.threeDSRequestorURL) &&
+                Objects.equals(this.transactionType, threeDS2RequestData.transactionType) &&
+                Objects.equals(this.whiteListStatus, threeDS2RequestData.whiteListStatus);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authenticationOnly,
-                            challengeIndicator,
-                            deviceChannel,
-                            deviceRenderOptions,
-                            notificationURL,
-                            sdkAppID,
-                            sdkEncData,
-                            sdkEphemPubKey,
-                            sdkMaxTimeout,
-                            sdkReferenceNumber,
-                            sdkTransID,
-                            threeDSCompInd,
-                            threeDSRequestorURL,
-                            threeDSServerTransID,
-                            messageVersion,
-                            threeDSRequestorID,
-                            threeDSRequestorName,
-                            acquirerBIN,
-                            acquirerMerchantID,
-                            mcc,
-                            merchantName);
+        return Objects.hash(acquirerBIN, acquirerMerchantID, authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, mcc, merchantName, messageVersion, notificationURL, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, threeDSCompInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorURL, transactionType, whiteListStatus);
     }
+
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ThreeDS2RequestData {\n");
 
+        sb.append("    acquirerBIN: ").append(toIndentedString(acquirerBIN)).append("\n");
+        sb.append("    acquirerMerchantID: ").append(toIndentedString(acquirerMerchantID)).append("\n");
         sb.append("    authenticationOnly: ").append(toIndentedString(authenticationOnly)).append("\n");
         sb.append("    challengeIndicator: ").append(toIndentedString(challengeIndicator)).append("\n");
         sb.append("    deviceChannel: ").append(toIndentedString(deviceChannel)).append("\n");
         sb.append("    deviceRenderOptions: ").append(toIndentedString(deviceRenderOptions)).append("\n");
+        sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
+        sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
+        sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
         sb.append("    notificationURL: ").append(toIndentedString(notificationURL)).append("\n");
         sb.append("    sdkAppID: ").append(toIndentedString(sdkAppID)).append("\n");
         sb.append("    sdkEncData: ").append(toIndentedString(sdkEncData)).append("\n");
@@ -538,21 +610,18 @@ public class ThreeDS2RequestData {
         sb.append("    sdkReferenceNumber: ").append(toIndentedString(sdkReferenceNumber)).append("\n");
         sb.append("    sdkTransID: ").append(toIndentedString(sdkTransID)).append("\n");
         sb.append("    threeDSCompInd: ").append(toIndentedString(threeDSCompInd)).append("\n");
-        sb.append("    threeDSRequestorURL: ").append(toIndentedString(threeDSRequestorURL)).append("\n");
-        sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append("\n");
-        sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
         sb.append("    threeDSRequestorID: ").append(toIndentedString(threeDSRequestorID)).append("\n");
         sb.append("    threeDSRequestorName: ").append(toIndentedString(threeDSRequestorName)).append("\n");
-        sb.append("    acquirerBIN: ").append(toIndentedString(acquirerBIN)).append("\n");
-        sb.append("    acquirerMerchantID: ").append(toIndentedString(acquirerMerchantID)).append("\n");
-        sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-        sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
+        sb.append("    threeDSRequestorURL: ").append(toIndentedString(threeDSRequestorURL)).append("\n");
+        sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
+        sb.append("    whiteListStatus: ").append(toIndentedString(whiteListStatus)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {
@@ -561,8 +630,4 @@ public class ThreeDS2RequestData {
         return o.toString().replace("\n", "\n    ");
     }
 
-
 }
-
-
-

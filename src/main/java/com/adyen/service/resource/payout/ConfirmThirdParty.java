@@ -26,6 +26,6 @@ import com.adyen.service.Resource;
 
 public class ConfirmThirdParty extends Resource {
     public ConfirmThirdParty(Service service) {
-        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.API_VERSION + "/confirmThirdParty", null);
+        super(service, service.getClient().getConfig().getEndpoint() + "/pal/servlet/Payout/" + Client.PAYOUT_API_VERSION + "/confirmThirdParty", null);
     }
 }

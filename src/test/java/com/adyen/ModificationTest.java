@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import com.adyen.model.modification.VoidPendingRefundRequest;
 import org.junit.Test;
 import com.adyen.model.modification.CancelOrRefundRequest;
 import com.adyen.model.modification.CancelRequest;
@@ -119,5 +120,21 @@ public class ModificationTest extends BaseTest {
 
         ModificationResult modificationResult = modification.cancel(cancelRequest);
         assertEquals(ModificationResult.ResponseEnum.CANCEL_RECEIVED_, modificationResult.getResponse());
+    }
+
+    /**
+     * Test happy flow with voidPendingRefund-received response
+     *
+     * @throws Exception
+     */
+    @Test
+    public void TestVoidPendingRefundReceived() throws Exception {
+        Client client = createMockClientFromFile("mocks/voidPendingRefund-received.json");
+        Modification modification = new Modification(client);
+
+        VoidPendingRefundRequest voidPendingRefundRequest = createVoidPendingRefundRequest();
+
+        ModificationResult modificationResult = modification.voidPendingRefund(voidPendingRefundRequest);
+        assertEquals(ModificationResult.ResponseEnum.VOIDPENDINGREFUND_RECEIVED_, modificationResult.getResponse());
     }
 }

@@ -1,0 +1,6 @@
+{
+  "status": 422,
+  "errorCode": "15_024",
+  "message": "Result not present - Authentication older than 60 days",
+  "errorType": "validation"
+}

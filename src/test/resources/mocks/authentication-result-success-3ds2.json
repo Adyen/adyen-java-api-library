@@ -1,0 +1,10 @@
+{
+  "threeDS2Result": {
+    "authenticationValue": "QURZRU4gM0RTMiBURVNUIENBVlY=",
+    "dsTransID": "80a16fa0-4eea-43c9-8de5-b0470d09d14d",
+    "eci": "01",
+    "messageVersion": "2.1.0",
+    "threeDSServerTransID": "f04ec32b-f46b-46ef-9ccd-44be42fb0d7e",
+    "transStatus": "A"
+  }
+}

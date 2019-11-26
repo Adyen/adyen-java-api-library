@@ -32,6 +32,7 @@ import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.ModificationResult;
 import com.adyen.model.modification.RefundRequest;
 import com.adyen.model.modification.TechnicalCancelRequest;
+import com.adyen.model.modification.VoidPendingRefundRequest;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.modification.AdjustAuthorisation;
 import com.adyen.service.resource.modification.Cancel;
@@ -39,6 +40,7 @@ import com.adyen.service.resource.modification.CancelOrRefund;
 import com.adyen.service.resource.modification.Capture;
 import com.adyen.service.resource.modification.Refund;
 import com.adyen.service.resource.modification.TechnicalCancel;
+import com.adyen.service.resource.modification.VoidPendingRefund;
 import com.google.gson.reflect.TypeToken;
 
 public class Modification extends Service {
@@ -48,6 +50,7 @@ public class Modification extends Service {
     private Refund refund;
     private AdjustAuthorisation adjustAuthorisation;
     private TechnicalCancel technicalCancel;
+    private VoidPendingRefund voidPendingRefund;
 
     public Modification(Client client) {
         super(client);
@@ -58,6 +61,7 @@ public class Modification extends Service {
         refund = new Refund(this);
         adjustAuthorisation = new AdjustAuthorisation(this);
         technicalCancel = new TechnicalCancel(this);
+        voidPendingRefund = new VoidPendingRefund(this);
     }
 
     /**
@@ -173,6 +177,23 @@ public class Modification extends Service {
         return deserializeResponse(jsonResult);
     }
 
+    /**
+     * Issues /voidPendingRefund request
+     *
+     * @param voidPendingRefundRequest VoidPendingRefundRequest
+     * @return ModificationResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public ModificationResult voidPendingRefund(VoidPendingRefundRequest voidPendingRefundRequest) throws IOException, ApiException {
+        return voidPendingRefund(voidPendingRefundRequest, null);
+    }
+
+    public ModificationResult voidPendingRefund(VoidPendingRefundRequest voidPendingRefundRequest, RequestOptions requestOptions) throws IOException, ApiException {
+        String jsonRequest = serializeRequest(voidPendingRefundRequest);
+        String jsonResult = voidPendingRefund.request(jsonRequest, requestOptions);
+        return deserializeResponse(jsonResult);
+    }
 
     private String serializeRequest(AbstractModificationRequest modificationRequest) {
         String jsonRequest = GSON.toJson(modificationRequest);
