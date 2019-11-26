@@ -11,6 +11,7 @@ import com.adyen.Util.HMACValidator;
 import com.adyen.Util.Util;
 import com.adyen.model.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
+
 import java.math.BigDecimal;
 import java.security.SignatureException;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
+
 import org.junit.Test;
 
 /**
@@ -117,6 +119,28 @@ public class UtilTest {
 
         additionalData.put(HMAC_SIGNATURE, "notValidSign");
         assertFalse(hmacValidator.validateHMAC(notificationRequestItem, key));
+    }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testValidateHMACException() throws SignatureException {
+        NotificationRequestItem notificationRequestItem = new NotificationRequestItem();
+        HMACValidator hmacValidator = new HMACValidator();
+        String key = "DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00";
+        hmacValidator.validateHMAC(notificationRequestItem, key);
+    }
+
+    @Test
+    public void testValidateHMACWithEmptyHmacException() throws SignatureException {
+        NotificationRequestItem notificationRequestItem = new NotificationRequestItem();
+        Map<String, String> additionalData = new HashMap<>();
+        additionalData.put(HMAC_SIGNATURE, "");
+        notificationRequestItem.setAdditionalData(additionalData);
+        HMACValidator hmacValidator = new HMACValidator();
+        String key = "DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00";
+        try {
+            hmacValidator.validateHMAC(notificationRequestItem, key);
+        } catch (IllegalArgumentException e) {
+            assertEquals("Missing hmacSignature", e.getMessage());
+        }
     }
 }
