@@ -57,7 +57,7 @@ public class SaleToAcquirerDataModelAdapterSerializerTest {
 
         Map<String, String> additionalData = new HashMap<String, String>();
         additionalData.put("key.key", "value");
-        additionalData.put("key.key2", "value2");
+        additionalData.put("key.keyTwo", "value2");
         saleToAcquirerDataModel.setAdditionalData(additionalData);
         
         String json = "{\n" +
@@ -92,7 +92,7 @@ public class SaleToAcquirerDataModelAdapterSerializerTest {
                 "  \"tenderOption\": \"ReceiptHandler,AllowPartialAuthorisation,AskGratuity\",\n" +
                 "  \"additionalData\": {\n" +
                 "    \"key.key\": \"value\",\n" +
-                "    \"key.key2\": \"value2\"\n" +
+                "    \"key.keyTwo\": \"value2\"\n" +
                 "  }\n" +
                 "}";
 
