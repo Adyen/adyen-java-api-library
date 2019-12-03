@@ -34,8 +34,11 @@ import com.adyen.model.nexo.Response;
 import com.adyen.model.nexo.ResultType;
 import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIResponse;
+import com.adyen.model.nexo.SaleToPOIRequest;
+import com.adyen.model.nexo.PaymentRequest;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
+import com.adyen.model.terminal.SaleToAcquirerDataModel;
 import com.adyen.service.TerminalCloudAPI;
 import org.junit.Test;
 
@@ -78,7 +81,17 @@ public class TerminalCloudAPITest extends BaseTest {
         TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
 
         TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
-
+        
+        // add some data
+        SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
+        PaymentRequest paymentRequest = new PaymentRequest();
+        SaleData saleDataRequest = new SaleData();
+        SaleToAcquirerDataModel saleToAcquirerDataModel = new SaleToAcquirerDataModel();
+        saleDataRequest.setSaleToAcquirerData(saleToAcquirerDataModel);
+        paymentRequest.setSaleData(saleDataRequest);
+        saleToPOIRequest.setPaymentRequest(paymentRequest);
+        terminalAPIPaymentRequest.setSaleToPOIRequest(saleToPOIRequest);
+        
         TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIPaymentRequest);
 
         assertNotNull(terminalAPIResponse);
