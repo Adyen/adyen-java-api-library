@@ -1,3 +1,23 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2019 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen.model.terminal;
 
 import com.adyen.model.applicationinfo.ApplicationInfo;
@@ -10,20 +30,20 @@ import java.util.Objects;
 
 public class SaleToAcquirerDataModel {
 
-    protected Map<String, String> metadata;
-    protected String shopperEmail;
-    protected String shopperReference;
-    protected String recurringContract;
-    protected String shopperStatement;
-    protected String recurringDetailName;
-    protected String recurringTokenService;
-    protected String store;
-    protected String merchantAccount;
-    protected String currency;
-    protected ApplicationInfo applicationInfo;
-    protected String tenderOption;
-    protected Map<String, String> additionalData;
-    protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
+    private Map<String, String> metadata;
+    private String shopperEmail;
+    private String shopperReference;
+    private String recurringContract;
+    private String shopperStatement;
+    private String recurringDetailName;
+    private String recurringTokenService;
+    private String store;
+    private String merchantAccount;
+    private String currency;
+    private ApplicationInfo applicationInfo;
+    private String tenderOption;
+    private Map<String, String> additionalData;
+    private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public SaleToAcquirerDataModel() {
         if (this.applicationInfo == null) {
@@ -137,8 +157,12 @@ public class SaleToAcquirerDataModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         SaleToAcquirerDataModel that = (SaleToAcquirerDataModel) o;
         return Objects.equals(metadata, that.metadata) &&
                 Objects.equals(shopperEmail, that.shopperEmail) &&
