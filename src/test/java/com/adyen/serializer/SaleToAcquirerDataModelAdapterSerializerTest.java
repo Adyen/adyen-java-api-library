@@ -91,8 +91,8 @@ public class SaleToAcquirerDataModelAdapterSerializerTest {
                 "  },\n" +
                 "  \"tenderOption\": \"ReceiptHandler,AllowPartialAuthorisation,AskGratuity\",\n" +
                 "  \"additionalData\": {\n" +
-                "    \"key.key\": \"value\",\n" +
-                "    \"key.keyTwo\": \"value2\"\n" +
+                "    \"key.keyTwo\": \"value2\",\n" +
+                "    \"key.key\": \"value\"\n" +
                 "  }\n" +
                 "}";
 
