@@ -1,7 +1,7 @@
 package com.adyen.model.nexo;
 
-import com.adyen.model.terminal.SaleToAcquirerDataModel;
-import com.adyen.serializer.SaleToAcquirerDataModelAdapterSerializer;
+import com.adyen.model.terminal.SaleToAcquirerData;
+import com.adyen.serializer.SaleToAcquirerDataSerializer;
 import com.google.gson.annotations.JsonAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -79,8 +79,8 @@ public class SaleData {
      * The Sale to acquirer data.
      */
     @XmlElement(name = "SaleToAcquirerData")
-    @JsonAdapter(SaleToAcquirerDataModelAdapterSerializer.class)
-    protected SaleToAcquirerDataModel saleToAcquirerData;
+    @JsonAdapter(SaleToAcquirerDataSerializer.class)
+    protected SaleToAcquirerData saleToAcquirerData;
     /**
      * The Sale to issuer data.
      */
@@ -124,7 +124,7 @@ public class SaleData {
 
     public SaleData() {
         if (saleToAcquirerData == null) {
-            saleToAcquirerData = new SaleToAcquirerDataModel();
+            saleToAcquirerData = new SaleToAcquirerData();
         }
     }
 
@@ -216,7 +216,7 @@ public class SaleData {
      *
      * @return possible      object is     {@link String }
      */
-    public SaleToAcquirerDataModel getSaleToAcquirerData() {
+    public SaleToAcquirerData getSaleToAcquirerData() {
         return saleToAcquirerData;
     }
 
@@ -225,7 +225,7 @@ public class SaleData {
      *
      * @param value allowed object is     {@link String }
      */
-    public void setSaleToAcquirerData(SaleToAcquirerDataModel value) {
+    public void setSaleToAcquirerData(SaleToAcquirerData value) {
         this.saleToAcquirerData = value;
     }
 

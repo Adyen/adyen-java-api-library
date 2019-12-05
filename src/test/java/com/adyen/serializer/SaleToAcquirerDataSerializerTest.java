@@ -3,7 +3,7 @@ package com.adyen.serializer;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.ExternalPlatform;
 import com.adyen.model.applicationinfo.MerchantDevice;
-import com.adyen.model.terminal.SaleToAcquirerDataModel;
+import com.adyen.model.terminal.SaleToAcquirerData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.codec.binary.Base64;
@@ -16,27 +16,27 @@ import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.assertEquals;
 
-public class SaleToAcquirerDataModelAdapterSerializerTest {
+public class SaleToAcquirerDataSerializerTest {
 
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     @Test
     public void testSerialize()  {
-        SaleToAcquirerDataModelAdapterSerializer saleToAcquirerDataModelAdapter = new SaleToAcquirerDataModelAdapterSerializer();
-        SaleToAcquirerDataModel saleToAcquirerDataModel = new SaleToAcquirerDataModel();
+        SaleToAcquirerDataSerializer saleToAcquirerDataModelAdapter = new SaleToAcquirerDataSerializer();
+        SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
 
         Map<String, String> metadata = new HashMap<String, String>();
         metadata.put("key", "value");
-        saleToAcquirerDataModel.setMetadata(metadata);
-        saleToAcquirerDataModel.setShopperEmail("myemail@mail.com");
-        saleToAcquirerDataModel.setShopperReference("13164308");
-        saleToAcquirerDataModel.setRecurringContract("RECURRING,ONECLICK");
-        saleToAcquirerDataModel.setShopperStatement("YOUR SHOPPER STATEMENT");
-        saleToAcquirerDataModel.setRecurringDetailName("VALUE");
-        saleToAcquirerDataModel.setRecurringTokenService("VALUE");
-        saleToAcquirerDataModel.setStore("store value");
-        saleToAcquirerDataModel.setMerchantAccount("merchantAccount");
-        saleToAcquirerDataModel.setCurrency("EUR");
+        saleToAcquirerData.setMetadata(metadata);
+        saleToAcquirerData.setShopperEmail("myemail@mail.com");
+        saleToAcquirerData.setShopperReference("13164308");
+        saleToAcquirerData.setRecurringContract("RECURRING,ONECLICK");
+        saleToAcquirerData.setShopperStatement("YOUR SHOPPER STATEMENT");
+        saleToAcquirerData.setRecurringDetailName("VALUE");
+        saleToAcquirerData.setRecurringTokenService("VALUE");
+        saleToAcquirerData.setStore("store value");
+        saleToAcquirerData.setMerchantAccount("merchantAccount");
+        saleToAcquirerData.setCurrency("EUR");
 
         ApplicationInfo applicationInfo = new ApplicationInfo();
 
@@ -52,13 +52,13 @@ public class SaleToAcquirerDataModelAdapterSerializerTest {
         merchantDevice.setReference("4c32759faaa7");
         applicationInfo.setMerchantDevice(merchantDevice);
 
-        saleToAcquirerDataModel.setApplicationInfo(applicationInfo);
-        saleToAcquirerDataModel.setTenderOption("ReceiptHandler,AllowPartialAuthorisation,AskGratuity");
+        saleToAcquirerData.setApplicationInfo(applicationInfo);
+        saleToAcquirerData.setTenderOption("ReceiptHandler,AllowPartialAuthorisation,AskGratuity");
 
         Map<String, String> additionalData = new HashMap<String, String>();
         additionalData.put("key.key", "value");
         additionalData.put("key.keyTwo", "value2");
-        saleToAcquirerDataModel.setAdditionalData(additionalData);
+        saleToAcquirerData.setAdditionalData(additionalData);
         
         String json = "{\n" +
                 "  \"metadata\": {\n" +
@@ -97,11 +97,11 @@ public class SaleToAcquirerDataModelAdapterSerializerTest {
                 "}";
 
         // test if json string matches
-        String requestJson = PRETTY_PRINT_GSON.toJson(saleToAcquirerDataModel);
+        String requestJson = PRETTY_PRINT_GSON.toJson(saleToAcquirerData);
         assertEquals(requestJson, json);
         
         // test if base64 works
         String jsonBase64 = new String(Base64.encodeBase64(json.getBytes()));
-        assertEquals(jsonBase64, saleToAcquirerDataModelAdapter.serialize(saleToAcquirerDataModel, null, null).getAsString());
+        assertEquals(jsonBase64, saleToAcquirerDataModelAdapter.serialize(saleToAcquirerData, null, null).getAsString());
     }
 }

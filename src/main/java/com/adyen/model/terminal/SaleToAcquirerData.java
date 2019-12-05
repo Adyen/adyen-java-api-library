@@ -28,7 +28,7 @@ import org.apache.commons.codec.binary.Base64;
 import java.util.Map;
 import java.util.Objects;
 
-public class SaleToAcquirerDataModel {
+public class SaleToAcquirerData {
 
     private Map<String, String> metadata;
     private String shopperEmail;
@@ -45,7 +45,7 @@ public class SaleToAcquirerDataModel {
     private Map<String, String> additionalData;
     private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    public SaleToAcquirerDataModel() {
+    public SaleToAcquirerData() {
         if (this.applicationInfo == null) {
             this.applicationInfo = new ApplicationInfo();
         }
@@ -163,7 +163,7 @@ public class SaleToAcquirerDataModel {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        SaleToAcquirerDataModel that = (SaleToAcquirerDataModel) o;
+        SaleToAcquirerData that = (SaleToAcquirerData) o;
         return Objects.equals(metadata, that.metadata) &&
                 Objects.equals(shopperEmail, that.shopperEmail) &&
                 Objects.equals(shopperReference, that.shopperReference) &&
