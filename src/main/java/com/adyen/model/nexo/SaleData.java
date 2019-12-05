@@ -122,6 +122,12 @@ public class SaleData {
     @XmlAttribute(name = "CustomerOrderReq")
     protected List<CustomerOrderReqType> customerOrderReq;
 
+    public SaleData() {
+        if (saleToAcquirerData == null) {
+            saleToAcquirerData = new SaleToAcquirerDataModel();
+        }
+    }
+
     /**
      * Gets the value of the saleTransactionID property.
      *
@@ -160,21 +166,21 @@ public class SaleData {
 
     /**
      * Gets the value of the sponsoredMerchant property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the sponsoredMerchant property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSponsoredMerchant().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SponsoredMerchant }
      *
@@ -351,21 +357,21 @@ public class SaleData {
 
     /**
      * Gets the value of the customerOrderReq property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the customerOrderReq property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCustomerOrderReq().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CustomerOrderReqType }
      *
