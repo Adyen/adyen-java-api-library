@@ -1,5 +1,9 @@
 package com.adyen.model.nexo;
 
+import com.adyen.model.terminal.SaleToAcquirerData;
+import com.adyen.serializer.SaleToAcquirerDataSerializer;
+import com.google.gson.annotations.JsonAdapter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -75,7 +79,8 @@ public class SaleData {
      * The Sale to acquirer data.
      */
     @XmlElement(name = "SaleToAcquirerData")
-    protected String saleToAcquirerData;
+    @JsonAdapter(SaleToAcquirerDataSerializer.class)
+    protected SaleToAcquirerData saleToAcquirerData;
     /**
      * The Sale to issuer data.
      */
@@ -117,6 +122,12 @@ public class SaleData {
     @XmlAttribute(name = "CustomerOrderReq")
     protected List<CustomerOrderReqType> customerOrderReq;
 
+    public SaleData() {
+        if (saleToAcquirerData == null) {
+            saleToAcquirerData = new SaleToAcquirerData();
+        }
+    }
+
     /**
      * Gets the value of the saleTransactionID property.
      *
@@ -155,21 +166,21 @@ public class SaleData {
 
     /**
      * Gets the value of the sponsoredMerchant property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the sponsoredMerchant property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSponsoredMerchant().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SponsoredMerchant }
      *
@@ -205,7 +216,7 @@ public class SaleData {
      *
      * @return possible      object is     {@link String }
      */
-    public String getSaleToAcquirerData() {
+    public SaleToAcquirerData getSaleToAcquirerData() {
         return saleToAcquirerData;
     }
 
@@ -214,7 +225,7 @@ public class SaleData {
      *
      * @param value allowed object is     {@link String }
      */
-    public void setSaleToAcquirerData(String value) {
+    public void setSaleToAcquirerData(SaleToAcquirerData value) {
         this.saleToAcquirerData = value;
     }
 
@@ -346,21 +357,21 @@ public class SaleData {
 
     /**
      * Gets the value of the customerOrderReq property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the customerOrderReq property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCustomerOrderReq().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CustomerOrderReqType }
      *
