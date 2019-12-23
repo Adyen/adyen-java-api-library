@@ -6,7 +6,8 @@ jdk:
   - oraclejdk8
   - openjdk7
 
-install: mvn install -Dgpg.skip=true
+#travis_wait : avoid time out
+install: travis_wait mvn install -Dgpg.skip=true
 
 sudo: false
 
