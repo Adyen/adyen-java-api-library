@@ -59,6 +59,8 @@ public class PaymentsRequest {
     private AccountInfo accountInfo = null;
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+    @SerializedName("selectedBrand")
+    private String selectedBrand = null;
     /**
      * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
      */
@@ -1236,6 +1238,14 @@ public class PaymentsRequest {
         return this;
     }
 
+    public String getSelectedBrand() {
+        return selectedBrand;
+    }
+
+    public void setSelectedBrand(String selectedBrand) {
+        this.selectedBrand = selectedBrand;
+    }
+
     /**
      * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/native-3ds2/authentication-only), and not the payment authorisation.
      * @return threeDSAuthenticationOnly
@@ -1313,7 +1323,8 @@ public class PaymentsRequest {
                 && Objects.equals(this.order, paymentsRequest.order)
                 && Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod)
                 && Objects.equals(this.enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
-                && Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly);
+                && Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly)
+                && Objects.equals(this.selectedBrand, paymentsRequest.selectedBrand);
     }
 
     @Override
@@ -1374,7 +1385,8 @@ public class PaymentsRequest {
                             order,
                             storePaymentMethod,
                             enableRealTimeUpdate,
-                            threeDSAuthenticationOnly);
+                            threeDSAuthenticationOnly,
+                            selectedBrand);
     }
 
     @Override
@@ -1438,7 +1450,7 @@ public class PaymentsRequest {
           + "    order: " + toIndentedString(order) + "\n"
           + "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + "\n"
           + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + "\n"
-          + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + "\n"
+          + "    selectedBrand: " + toIndentedString(selectedBrand) + "\n"
           + "}";
     }
 
