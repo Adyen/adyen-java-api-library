@@ -1450,6 +1450,7 @@ public class PaymentsRequest {
           + "    order: " + toIndentedString(order) + "\n"
           + "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + "\n"
           + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + "\n"
+          + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + "\n"
           + "    selectedBrand: " + toIndentedString(selectedBrand) + "\n"
           + "}";
     }
