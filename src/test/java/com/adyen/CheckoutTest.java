@@ -308,10 +308,11 @@ public class CheckoutTest extends BaseTest {
         Checkout checkout = new Checkout(client);
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals("8111111111111111", paymentsResponse.getPspReference());
-        assertEquals(0, new BigDecimal("101.01").compareTo(paymentsResponse.getMultibancoAmount()));
-        assertEquals("3",paymentsResponse.getMultibancoDeadline());
-        assertEquals("12345",paymentsResponse.getMultibancoEntity());
+        assertEquals(0, new BigDecimal("1000.0").compareTo(BigDecimal.valueOf(paymentsResponse.getAction().getInitialAmount().getValue())));
+        assertEquals("2020-01-12T09:37:49",paymentsResponse.getAction().getExpiresAt());
+        assertEquals("12101",paymentsResponse.getAction().getEntity());
+        assertEquals("501 422 944",paymentsResponse.getAction().getReference());
+
     }
 
     @Test
@@ -397,18 +398,6 @@ public class CheckoutTest extends BaseTest {
         } catch (Exception ex) {
 
             Assert.fail("multibanco date throw Exception");
-        }
-    }
-
-    @Test
-    public void TestPaymentResponseMultibanco() {
-        PaymentsResponse paymentsResponse = new PaymentsResponse();
-        try {
-            BigDecimal multibancoAmount = paymentsResponse.getMultibancoAmount();
-            assertEquals(null, multibancoAmount);
-        } catch (Exception ex) {
-
-            Assert.fail("multibanco amount throw Exception");
         }
     }
 
