@@ -30,7 +30,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -49,10 +48,6 @@ import static com.adyen.constants.ApiConstants.AdditionalData.CARD_BIN;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_HOLDER_NAME;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_SUMMARY;
 import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
-import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_AMOUNT;
-import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_DEADLINE;
-import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_ENTITY;
-import static com.adyen.constants.ApiConstants.AdditionalData.MULTIBANCO_REFERENCE;
 import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
@@ -579,25 +574,6 @@ public class PaymentsResponse {
     public Date getExpiryDate() {
         String expiryDate = getAdditionalDataByKey(EXPIRY_DATE);
         return DateUtil.parseMYDate(expiryDate);
-    }
-
-    public String getMultibancoEntity() {
-        return getAdditionalDataByKey(MULTIBANCO_ENTITY);
-    }
-
-    public BigDecimal getMultibancoAmount() {
-        if (getAdditionalDataByKey(MULTIBANCO_AMOUNT) == null) {
-            return null;
-        }
-        return new BigDecimal(getAdditionalDataByKey(MULTIBANCO_AMOUNT));
-    }
-
-    public String getMultibancoDeadline() {
-        return getAdditionalDataByKey(MULTIBANCO_DEADLINE);
-    }
-
-    public String getMultibancoReference() {
-        return getAdditionalDataByKey(MULTIBANCO_REFERENCE);
     }
 }
 
