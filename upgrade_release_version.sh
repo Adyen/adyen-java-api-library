@@ -34,7 +34,7 @@ while getopts "ho:n:" o; do
 done
 
 echo "Old release version is" $OLDVERSION
-echo "New release version is"$NEWVERSION
+echo "New release version is" $NEWVERSION
 
 if [ -z "${OLDVERSION}" ]; then
     echo "Please specify the 'oldversion' argument";
