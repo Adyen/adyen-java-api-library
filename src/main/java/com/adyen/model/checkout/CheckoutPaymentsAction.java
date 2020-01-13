@@ -96,6 +96,9 @@ public class CheckoutPaymentsAction {
     @SerializedName("totalAmount")
     private Amount totalAmount = null;
 
+    @SerializedName("entity")
+    private String entity;
+
     /**
      * Enum that specifies the action that needs to be taken by the client.
      */
@@ -513,6 +516,19 @@ public class CheckoutPaymentsAction {
         this.totalAmount = totalAmount;
     }
 
+    public String getEntity() {
+        return entity;
+    }
+
+    public void setEntity(String entity) {
+        this.entity = entity;
+    }
+
+    public CheckoutPaymentsAction entity(String entity) {
+        this.entity = entity;
+        return this;
+    }
+
     public CheckoutPaymentsAction type(CheckoutActionType type) {
         this.type = type;
         return this;
@@ -580,12 +596,13 @@ public class CheckoutPaymentsAction {
                 Objects.equals(this.token, checkoutPaymentsAction.token) &&
                 Objects.equals(this.totalAmount, checkoutPaymentsAction.totalAmount) &&
                 Objects.equals(this.type, checkoutPaymentsAction.type) &&
+                Objects.equals(this.entity, checkoutPaymentsAction.entity) &&
                 Objects.equals(this.url, checkoutPaymentsAction.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, type, url);
+        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, type, url, entity);
     }
 
 
@@ -598,6 +615,7 @@ public class CheckoutPaymentsAction {
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
         sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
         sb.append("    instructionsUrl: ").append(toIndentedString(instructionsUrl)).append("\n");
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");

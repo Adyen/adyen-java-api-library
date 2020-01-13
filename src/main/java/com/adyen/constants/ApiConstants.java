@@ -53,11 +53,6 @@ public interface ApiConstants {
         String BOLETO_URL = "boletobancario.url";
         String BOLETO_EXPIRATION_DATE = "boletobancario.expirationDate";
 
-        String MULTIBANCO_ENTITY = "comprafacil.entity";
-        String MULTIBANCO_AMOUNT = "comprafacil.amount";
-        String MULTIBANCO_DEADLINE = "comprafacil.deadline";
-        String MULTIBANCO_REFERENCE = "comprafacil.reference";
-
         String ENCRYPTED_CARD_NUMBER = "encryptedCardNumber";
         String ENCRYPTED_EXPIRY_MONTH = "encryptedExpiryMonth";
         String ENCRYPTED_EXPIRY_YEAR = "encryptedExpiryYear";

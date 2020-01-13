@@ -1,14 +1,21 @@
 {
-    "additionalData": {
-        "cvcResult": "0",
-        "avsResult": "0",
-        "comprafacil.deadline": "3",
-        "comprafacil.reference": "123 123 123",
-        "paymentMethod": "multibanco",
-        "paymentMethodVariant": "multibanco",
-        "comprafacil.entity": "12345",
-        "comprafacil.amount": "101.01"
-    },
-    "pspReference": "8111111111111111",
-    "resultCode": "Received"
+    "resultCode": "PresentToShopper",
+    "action": {
+        "paymentMethodType": "multibanco",
+        "type": "voucher",
+        "entity": "12101",
+        "expiresAt": "2020-01-12T09:37:49",
+        "initialAmount": {
+            "currency": "EUR",
+            "value": 1000
+        },
+        "merchantName": "YOUR_MERCHANT",
+        "merchantReference": "YOUR_ORDER_NUMBER",
+        "reference": "501 422 944",
+        "totalAmount": {
+            "currency": "EUR",
+            "value": 1000
+        },
+        "action": "voucher"
+    }
 }
