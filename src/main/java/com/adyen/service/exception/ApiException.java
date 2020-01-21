@@ -68,6 +68,6 @@ public class ApiException extends Exception {
     }
     @Override
     public String toString() {
-        return "ApiException{" + "error=" + error + ", statusCode=" + statusCode + ", message=" + getMessage() + '}';
+        return "ApiException{" + "error=" + error + ", statusCode=" + statusCode + ", message=" + getMessage() + ", responseHeaders=" + getResponseHeaders() + "}";
     }
 }
