@@ -77,7 +77,7 @@ public class Resource {
             return clientInterface.request(this.endpoint, json, config, this.service.isApiKeyRequired(), requestOptions);
         } catch (HTTPClientException e) {
             responseBody = e.getResponseBody();
-            apiException = new ApiException(e.getMessage(), e.getCode());
+            apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
         }
 
         // Enhance ApiException with more info from JSON payload
