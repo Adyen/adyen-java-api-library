@@ -42,8 +42,7 @@ public class ApiException extends Exception {
     }
 
     public ApiException(String message, int statusCode, Map<String, List<String>> responseHeaders) {
-        super(message);
-        this.statusCode = statusCode;
+        this(message, statusCode);
         this.responseHeaders = responseHeaders;
     }
 
