@@ -20,6 +20,8 @@
  */
 package com.adyen.service.exception;
 
+import java.util.List;
+import java.util.Map;
 import com.adyen.model.ApiError;
 
 /**
@@ -32,9 +34,17 @@ public class ApiException extends Exception {
     //HTTP status code
     private int statusCode;
 
+    private Map<String, List<String>> responseHeaders;
+
     public ApiException(String message, int statusCode) {
         super(message);
         this.statusCode = statusCode;
+    }
+
+    public ApiException(String message, int statusCode, Map<String, List<String>> responseHeaders) {
+        super(message);
+        this.statusCode = statusCode;
+        this.responseHeaders = responseHeaders;
     }
 
     public ApiError getError() {
@@ -53,8 +63,11 @@ public class ApiException extends Exception {
         this.statusCode = statusCode;
     }
 
+    public Map<String, List<String>> getResponseHeaders() {
+        return responseHeaders;
+    }
     @Override
     public String toString() {
-        return "ApiException{" + "error=" + error + ", statusCode=" + statusCode + ", message=" + getMessage() + '}';
+        return "ApiException{" + "error=" + error + ", statusCode=" + statusCode + ", message=" + getMessage() + ", responseHeaders=" + getResponseHeaders() + "}";
     }
 }
