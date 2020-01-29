@@ -152,7 +152,6 @@ public class CheckoutTest extends BaseTest {
         Checkout checkout = new Checkout(client);
         PaymentsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
         assertEquals("Authorised", paymentsResponse.getResultCode().toString());
-
     }
 
     /**
@@ -481,6 +480,26 @@ public class CheckoutTest extends BaseTest {
             assertNotNull(e.getError());
             assertEquals("130", e.getError().getErrorCode());
             assertEquals(422, e.getError().getStatus());
+        }
+    }
+
+    /**
+     * Test ApiException flow for POST
+     */
+    @Test
+    public void TestApiExceptionErrorMocked() throws Exception {
+        Client client = createMockClientForErrors(422, "mocks/checkout/payments-error-invalid-data-422.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        try {
+            checkout.payments(paymentsRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("130", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+            assertEquals(e.getResponseHeaders().size(), 0);
+            assertNotNull(e.getResponseHeaders());
         }
     }
 

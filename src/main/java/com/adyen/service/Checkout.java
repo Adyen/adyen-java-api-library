@@ -112,11 +112,14 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public PaymentsResponse paymentsDetails(PaymentsDetailsRequest paymentsDetailsRequest) throws ApiException, IOException {
+        return paymentsDetails(paymentsDetailsRequest, null);
+    }
+
+    public PaymentsResponse paymentsDetails(PaymentsDetailsRequest paymentsDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentsDetailsRequest);
-        String jsonResult = paymentsDetails.request(jsonRequest);
+        String jsonResult = paymentsDetails.request(jsonRequest, requestOptions);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentsResponse>() {
         }.getType());
-
     }
 
     /**
