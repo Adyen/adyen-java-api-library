@@ -26,15 +26,15 @@ import javax.xml.bind.annotation.XmlValue;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OutputBarcode", propOrder = {
-        "value"
+        "barcodeValue"
 })
 public class OutputBarcode {
 
     /**
      * The Value.
      */
-    @XmlValue
-    protected String value;
+    @XmlAttribute(name = "BarcodeValue")
+    protected String barcodeValue;
     /**
      * The Barcode.
      */
@@ -47,16 +47,16 @@ public class OutputBarcode {
      * @return possible      object is     {@link String }
      */
     public String getValue() {
-        return value;
+        return barcodeValue;
     }
 
     /**
-     * Sets the value of the value property.
+     * Sets the value of the barcodeValue property.
      *
-     * @param value allowed object is     {@link String }
+     * @param barcodeValue allowed object is     {@link String }
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setBarcodeValue(String barcodeValue) {
+        this.barcodeValue = barcodeValue;
     }
 
     /**
