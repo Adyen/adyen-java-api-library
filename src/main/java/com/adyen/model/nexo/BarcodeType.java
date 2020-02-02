@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="Code25"/&gt;
  *     &lt;enumeration value="Code128"/&gt;
  *     &lt;enumeration value="PDF417"/&gt;
- *     &lt;enumeration value="QRCODE"/&gt;
+ *     &lt;enumeration value="QRCode"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -60,7 +60,8 @@ public enum BarcodeType {
     /**
      * Qrcode barcode type.
      */
-    QRCODE("QRCODE");
+    @XmlEnumValue("QRCode")
+    QRCODE("QRCode");
     private final String value;
 
     BarcodeType(String v) {
