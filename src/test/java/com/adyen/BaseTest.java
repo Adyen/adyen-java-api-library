@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 import com.adyen.Util.DateUtil;
 import com.adyen.Util.Util;
+import com.adyen.enums.Gender;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
@@ -48,6 +49,10 @@ import com.adyen.model.PaymentRequest3ds2;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.additionalData.InvoiceLine;
+import com.adyen.model.checkout.DefaultPaymentMethodDetails;
+import com.adyen.model.checkout.LineItem;
+import com.adyen.model.checkout.PaymentsRequest;
+import com.adyen.model.checkout.PersonalDetails;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.RefundRequest;
@@ -157,6 +162,79 @@ public class BaseTest {
                                                                                       .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
 
         return paymentRequest;
+    }
+
+    protected PaymentsRequest createAfterPayPaymentRequest() {
+
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+        paymentsRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
+        paymentsRequest.setCountryCode("NL");
+
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(1000L);
+
+        paymentsRequest.setAmount(amount);
+        paymentsRequest.setShopperReference("YOUR_UNIQUE_SHOPPER_ID");
+        paymentsRequest.setReference("YOUR_ORDER_NUMBER");
+        paymentsRequest.setChannel(PaymentsRequest.ChannelEnum.WEB);
+
+        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
+        defaultPaymentMethodDetails.setType("afterpay_default");
+
+        PersonalDetails personalDetails = new PersonalDetails();
+        personalDetails.setFirstName("EndToEnd");
+        personalDetails.setLastName("lastName");
+        personalDetails.setGender(Gender.MALE);
+        personalDetails.setDateOfBirth("2000-02-02");
+        personalDetails.setTelephoneNumber("+31612345678");
+        personalDetails.setShopperEmail("SHOPPER@EMAIL_ADDRESS.COM");
+
+        defaultPaymentMethodDetails.setPersonalDetails(personalDetails);
+        defaultPaymentMethodDetails.setSeparateDeliveryAddress(false);
+
+        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+
+        Address billingAddress = new Address();
+        billingAddress.setStreet("Simon Carmiggeltstraat");
+        billingAddress.setHouseNumberOrName("136");
+        billingAddress.setCity("Amsterdam");
+        billingAddress.setPostalCode("1011DJ");
+        billingAddress.setCountry("NL");
+
+        paymentsRequest.setBillingAddress(billingAddress);
+        paymentsRequest.setShopperIP("192.0.2.1");
+
+        List<LineItem> lineItems = new ArrayList<>();
+
+        lineItems.add(
+                new LineItem()
+                    .quantity(1L)
+                    .amountExcludingTax(331L)
+                    .taxPercentage(2100L)
+                    .description("Shoes")
+                    .id("Item #1")
+                    .taxAmount(69L)
+                    .amountIncludingTax(400L)
+                    .taxCategory(LineItem.TaxCategoryEnum.HIGH)
+        );
+
+        lineItems.add(
+                new LineItem()
+                .quantity(2L)
+                .amountExcludingTax(248L)
+                .taxPercentage(2100L)
+                .description("Socks")
+                .id("Item #2")
+                .taxAmount(52L)
+                .amountIncludingTax(300L)
+                .taxCategory(LineItem.TaxCategoryEnum.HIGH)
+        );
+
+        paymentsRequest.setLineItems(lineItems);
+
+        return paymentsRequest;
+
     }
 
     /**

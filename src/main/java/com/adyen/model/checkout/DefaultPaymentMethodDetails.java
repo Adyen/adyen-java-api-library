@@ -70,6 +70,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String applepayToken;
     @SerializedName("paywithgoogle.token")
     private String googlepayToken;
+    @SerializedName("separateDeliveryAddress")
+    private Boolean separateDeliveryAddress;
 
     @Override
     public String getType() {
@@ -325,6 +327,14 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         this.googlepayToken = googlepayToken;
     }
 
+    public Boolean getSeparateDeliveryAddress() {
+        return separateDeliveryAddress;
+    }
+
+    public void setSeparateDeliveryAddress(Boolean separateDeliveryAddress) {
+        this.separateDeliveryAddress = separateDeliveryAddress;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -353,7 +363,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(sepaIbanNumber, that.sepaIbanNumber)
                 && Objects.equals(sepaOwnerName, that.sepaOwnerName)
                 && Objects.equals(applepayToken, that.applepayToken)
-                && Objects.equals(googlepayToken, that.googlepayToken);
+                && Objects.equals(googlepayToken, that.googlepayToken)
+                && Objects.equals(separateDeliveryAddress, that.separateDeliveryAddress);
     }
 
     @Override
@@ -361,7 +372,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return Objects.hash(type, number, expiryMonth, expiryYear, holderName, cvc, installmentConfigurationKey,
                 personalDetails, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode,
                 recurringDetailReference, storeDetails, idealIssuer, issuer, sepaOwnerName, sepaIbanNumber,
-                applepayToken, googlepayToken);
+                applepayToken, googlepayToken, separateDeliveryAddress);
     }
 
     @Override
@@ -387,6 +398,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 ", sepaIbanNumber='" + sepaIbanNumber + '\'' +
                 ", applepayToken='" + applepayToken + '\'' +
                 ", googlepayToken='" + googlepayToken + '\'' +
+                ", separateDeliveryAddress='" + separateDeliveryAddress + '\'' +
                 '}';
     }
 }
