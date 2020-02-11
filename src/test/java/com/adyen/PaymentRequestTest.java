@@ -20,9 +20,14 @@
  */
 package com.adyen;
 
+import com.adyen.enums.Gender;
 import com.adyen.enums.VatCategory;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.applicationinfo.ExternalPlatform;
+import com.adyen.model.checkout.DefaultPaymentMethodDetails;
+import com.adyen.model.checkout.PaymentsRequest;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.junit.Test;
 
 import static com.adyen.Client.LIB_NAME;
@@ -91,5 +96,27 @@ public class PaymentRequestTest extends BaseTest {
         assertEquals(LIB_NAME, paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
         assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
         assertEquals(LIB_VERSION, paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+    }
+
+    @Test
+    public void TestAfterPayPaymentMethod() {
+
+        PaymentsRequest paymentsRequest = createAfterPayPaymentRequest();
+
+        DefaultPaymentMethodDetails paymentMethodDetails =
+                (DefaultPaymentMethodDetails) paymentsRequest.getPaymentMethod();
+
+        assertNotNull(paymentMethodDetails.getSeparateDeliveryAddress());
+        assertNotNull(paymentMethodDetails.getPersonalDetails().getGender());
+        assertEquals(paymentMethodDetails.getSeparateDeliveryAddress(), false);
+        assertEquals(paymentMethodDetails.getPersonalDetails().getGender(), Gender.MALE);
+
+        assertNotNull(paymentsRequest.getApplicationInfo());
+        assertNotNull(paymentsRequest.getApplicationInfo().getAdyenLibrary());
+        assertNotNull(paymentsRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertEquals(LIB_NAME, paymentsRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertNotNull(paymentsRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+        assertEquals(LIB_VERSION, paymentsRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+
     }
 }
