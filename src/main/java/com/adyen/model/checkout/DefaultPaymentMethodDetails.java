@@ -50,8 +50,14 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String encryptedExpiryYear;
     @SerializedName("encryptedSecurityCode")
     private String encryptedSecurityCode;
+    /**
+     * @deprecated This field is deprecated. Use {@link DefaultPaymentMethodDetails#storedPaymentMethodId } instead.
+     */
+    @Deprecated
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference;
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId;
     @SerializedName("storeDetails")
     private Boolean storeDetails;
     /**
@@ -231,16 +237,41 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return this;
     }
 
+    /**
+     * @deprecated This field is deprecated. Use {@link DefaultPaymentMethodDetails#storedPaymentMethodId } instead.
+     */
+    @Deprecated
     public String getRecurringDetailReference() {
         return recurringDetailReference;
     }
 
+    /**
+     * @deprecated This field is deprecated. Use {@link DefaultPaymentMethodDetails#storedPaymentMethodId } instead.
+     */
+    @Deprecated
     public void setRecurringDetailReference(String recurringDetailReference) {
         this.recurringDetailReference = recurringDetailReference;
     }
 
+    /**
+     * @deprecated This field is deprecated. Use {@link DefaultPaymentMethodDetails#storedPaymentMethodId } instead.
+     */
+    @Deprecated
     public DefaultPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
         this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
+
+    public DefaultPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
         return this;
     }
 
@@ -357,6 +388,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(encryptedExpiryYear, that.encryptedExpiryYear)
                 && Objects.equals(encryptedSecurityCode, that.encryptedSecurityCode)
                 && Objects.equals(recurringDetailReference, that.recurringDetailReference)
+                && Objects.equals(storedPaymentMethodId, that.storedPaymentMethodId)
                 && Objects.equals(storeDetails, that.storeDetails)
                 && Objects.equals(idealIssuer, that.idealIssuer)
                 && Objects.equals(issuer, that.issuer)
@@ -371,8 +403,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     public int hashCode() {
         return Objects.hash(type, number, expiryMonth, expiryYear, holderName, cvc, installmentConfigurationKey,
                 personalDetails, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode,
-                recurringDetailReference, storeDetails, idealIssuer, issuer, sepaOwnerName, sepaIbanNumber,
-                applepayToken, googlepayToken, separateDeliveryAddress);
+                recurringDetailReference, storedPaymentMethodId, storeDetails, idealIssuer, issuer, sepaOwnerName,
+                sepaIbanNumber, applepayToken, googlepayToken, separateDeliveryAddress);
     }
 
     @Override
@@ -391,6 +423,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 ", encryptedExpiryYear='" + encryptedExpiryYear + '\'' +
                 ", encryptedSecurityCode='" + encryptedSecurityCode + '\'' +
                 ", recurringDetailReference='" + recurringDetailReference + '\'' +
+                ", storedPaymentMethodId='" + storedPaymentMethodId + '\'' +
                 ", storeDetails=" + storeDetails +
                 ", idealIssuer='" + idealIssuer + '\'' +
                 ", issuer='" + issuer + '\'' +
