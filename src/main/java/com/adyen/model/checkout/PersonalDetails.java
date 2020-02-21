@@ -20,6 +20,7 @@
  */
 package com.adyen.model.checkout;
 
+import com.adyen.enums.Gender;
 import com.google.gson.annotations.SerializedName;
 
 public class PersonalDetails {
@@ -31,6 +32,8 @@ public class PersonalDetails {
     private String lastName;
     @SerializedName("dateOfBirth")
     private String dateOfBirth;
+    @SerializedName("gender")
+    private Gender gender;
     @SerializedName("telephoneNumber")
     private String telephoneNumber;
     @SerializedName("socialSecurityNumber")
@@ -68,6 +71,10 @@ public class PersonalDetails {
         return lastName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public PersonalDetails lastName(String lastName) {
         this.lastName = lastName;
         return this;
@@ -75,6 +82,10 @@ public class PersonalDetails {
 
     public String getDateOfBirth() {
         return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public PersonalDetails dateOfBirth(String dateOfBirth) {
@@ -86,6 +97,10 @@ public class PersonalDetails {
         return telephoneNumber;
     }
 
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
     public PersonalDetails telephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
         return this;
@@ -93,6 +108,10 @@ public class PersonalDetails {
 
     public String getSocialSecurityNumber() {
         return socialSecurityNumber;
+    }
+
+    public void setSocialSecurityNumber(String socialSecurityNumber) {
+        this.socialSecurityNumber = socialSecurityNumber;
     }
 
     public PersonalDetails socialSecurityNumber(String socialSecurityNumber) {
@@ -104,8 +123,25 @@ public class PersonalDetails {
         return shopperEmail;
     }
 
+    public void setShopperEmail(String shopperEmail) {
+        this.shopperEmail = shopperEmail;
+    }
+
     public PersonalDetails shopperEmail(String shopperEmail) {
         this.shopperEmail = shopperEmail;
+        return this;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public PersonalDetails gender(Gender gender) {
+        this.gender = gender;
         return this;
     }
 
@@ -132,6 +168,9 @@ public class PersonalDetails {
                 + '\''
                 + ", shopperEmail='"
                 + shopperEmail
+                + '\''
+                + ", gender='"
+                + gender
                 + '\''
                 + '}';
     }
