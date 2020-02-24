@@ -20,18 +20,50 @@
  */
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * GenericResponse
  */
 public class GenericResponse {
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
+
     @SerializedName("submittedAsync")
     private Boolean submittedAsync = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
+
+    public GenericResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public GenericResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
+        return this;
+    }
+
+    /**
+     * Contains field validation errors that would prevent requests from being processed.
+     *
+     * @return invalidFields
+     **/
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
 
     public GenericResponse submittedAsync(Boolean submittedAsync) {
         this.submittedAsync = submittedAsync;
@@ -79,12 +111,14 @@ public class GenericResponse {
             return false;
         }
         GenericResponse genericResponse = (GenericResponse) o;
-        return Objects.equals(this.submittedAsync, genericResponse.submittedAsync) && Objects.equals(this.pspReference, genericResponse.pspReference);
+        return Objects.equals(this.invalidFields, genericResponse.invalidFields)
+                && Objects.equals(this.submittedAsync, genericResponse.submittedAsync)
+                && Objects.equals(this.pspReference, genericResponse.pspReference);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, pspReference);
+        return Objects.hash(invalidFields, submittedAsync, pspReference);
     }
 
 
@@ -92,7 +126,7 @@ public class GenericResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class GenericResponse {\n");
-
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");

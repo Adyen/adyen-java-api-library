@@ -1,3 +1,4 @@
+
 /*
  *                       ######
  *                       ######
@@ -14,60 +15,55 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
+
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-
 /**
  * CreateAccountHolderResponse
  */
 public class CreateAccountHolderResponse {
-    @SerializedName("verification")
-    private KYCVerificationResult verification;
-
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync;
+    @SerializedName("accountCode")
+    private String accountCode = null;
 
     @SerializedName("accountHolderCode")
-    private String accountHolderCode;
-
-    @SerializedName("accountCode")
-    private String accountCode;
-
-    @SerializedName("invalidFields")
-    public List<ErrorFieldTypeContainer> invalidFieldsContainers;
-
-    private transient List<ErrorFieldType> invalidFields;
+    private String accountHolderCode = null;
 
     @SerializedName("accountHolderDetails")
-    private AccountHolderDetails accountHolderDetails;
+    private AccountHolderDetails accountHolderDetails = null;
 
     @SerializedName("accountHolderStatus")
-    private AccountHolderStatus accountHolderStatus;
+    private AccountHolderStatus accountHolderStatus = null;
 
     @SerializedName("description")
     private String description = null;
 
-    @SerializedName("pspReference")
-    private String pspReference;
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
+    /**
+     * The type of legal entity of the new account holder.
+     */
+    @JsonAdapter(LegalEntityEnum.Adapter.class)
     public enum LegalEntityEnum {
-
         BUSINESS("Business"),
         INDIVIDUAL("Individual"),
-        NONPROFIT("NonProfit");
+        NONPROFIT("NonProfit"),
+        PUBLICCOMPANY("PublicCompany");
 
         private String value;
 
@@ -110,41 +106,17 @@ public class CreateAccountHolderResponse {
     @SerializedName("legalEntity")
     private LegalEntityEnum legalEntity = null;
 
-    public CreateAccountHolderResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-        return this;
-    }
+    @SerializedName("primaryCurrency")
+    private String primaryCurrency = null;
 
-    /**
-     * Get submittedAsync
-     *
-     * @return submittedAsync
-     **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
-    }
+    @SerializedName("pspReference")
+    private String pspReference = null;
 
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
+    @SerializedName("resultCode")
+    private String resultCode = null;
 
-    public CreateAccountHolderResponse accountHolderCode(String accountHolderCode) {
-        this.accountHolderCode = accountHolderCode;
-        return this;
-    }
-
-    /**
-     * account holder code
-     *
-     * @return accountHolderCode
-     **/
-    public String getAccountHolderCode() {
-        return accountHolderCode;
-    }
-
-    public void setAccountHolderCode(String accountHolderCode) {
-        this.accountHolderCode = accountHolderCode;
-    }
+    @SerializedName("verification")
+    private KYCVerificationResult verification = null;
 
     public CreateAccountHolderResponse accountCode(String accountCode) {
         this.accountCode = accountCode;
@@ -152,7 +124,7 @@ public class CreateAccountHolderResponse {
     }
 
     /**
-     * account holder's account code (if an account has been created for the account holder)
+     * The code of a new account created for the account holder.
      *
      * @return accountCode
      **/
@@ -164,56 +136,22 @@ public class CreateAccountHolderResponse {
         this.accountCode = accountCode;
     }
 
-    /**
-     * Populate the virtual invalidFields to bypass the invalidFieldsContainers list
-     *
-     * @return invalidFields
-     **/
-    public List<ErrorFieldType> getInvalidFields() {
-        if (invalidFields == null) {
-            invalidFields = new ArrayList<ErrorFieldType>();
-
-            if (invalidFieldsContainers != null && !invalidFieldsContainers.isEmpty()) {
-                for (ErrorFieldTypeContainer invalidFieldsContainer : invalidFieldsContainers) {
-                    invalidFields.add(invalidFieldsContainer.getErrorFieldType());
-                }
-            }
-        }
-
-        return invalidFields;
-    }
-
-    /**
-     * Creating a new invalidFields list
-     *
-     * @param invalidFields invalidFields
-     */
-    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
-        this.invalidFields = invalidFields;
-
-        // set as well the container list this will be send in the API request
-        this.invalidFieldsContainers = new ArrayList<ErrorFieldTypeContainer>();
-        for (ErrorFieldType invalidField : invalidFields) {
-
-            ErrorFieldTypeContainer invalidFieldContainer = new ErrorFieldTypeContainer(invalidField);
-            this.invalidFieldsContainers.add(invalidFieldContainer);
-        }
-    }
-
-    public CreateAccountHolderResponse addInvalidField(ErrorFieldType invalidField) {
-        ErrorFieldTypeContainer invalidFieldContainer = new ErrorFieldTypeContainer(invalidField);
-
-        if (invalidFieldsContainers == null) {
-            invalidFieldsContainers = new ArrayList<ErrorFieldTypeContainer>();
-        }
-        this.invalidFieldsContainers.add(invalidFieldContainer);
-
-        if (invalidFields == null) {
-            invalidFields = new ArrayList<ErrorFieldType>();
-        }
-        this.invalidFields.add(invalidField);
-
+    public CreateAccountHolderResponse accountHolderCode(String accountHolderCode) {
+        this.accountHolderCode = accountHolderCode;
         return this;
+    }
+
+    /**
+     * The code of the new account holder.
+     *
+     * @return accountHolderCode
+     **/
+    public String getAccountHolderCode() {
+        return accountHolderCode;
+    }
+
+    public void setAccountHolderCode(String accountHolderCode) {
+        this.accountHolderCode = accountHolderCode;
     }
 
     public CreateAccountHolderResponse accountHolderDetails(AccountHolderDetails accountHolderDetails) {
@@ -221,6 +159,11 @@ public class CreateAccountHolderResponse {
         return this;
     }
 
+    /**
+     * Get accountHolderDetails
+     *
+     * @return accountHolderDetails
+     **/
     public AccountHolderDetails getAccountHolderDetails() {
         return accountHolderDetails;
     }
@@ -235,7 +178,7 @@ public class CreateAccountHolderResponse {
     }
 
     /**
-     * account holder status
+     * Get accountHolderStatus
      *
      * @return accountHolderStatus
      **/
@@ -247,11 +190,16 @@ public class CreateAccountHolderResponse {
         this.accountHolderStatus = accountHolderStatus;
     }
 
-    public CreateAccountHolderResponse pspReference(String pspReference) {
-        this.pspReference = pspReference;
+    public CreateAccountHolderResponse description(String description) {
+        this.description = description;
         return this;
     }
 
+    /**
+     * The description of the new account holder.
+     *
+     * @return description
+     **/
     public String getDescription() {
         return description;
     }
@@ -260,8 +208,75 @@ public class CreateAccountHolderResponse {
         this.description = description;
     }
 
+    public CreateAccountHolderResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public CreateAccountHolderResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
+        return this;
+    }
+
     /**
-     * psp reference
+     * A list of fields that caused the &#x60;/createAccountHolder&#x60; request to fail.
+     *
+     * @return invalidFields
+     **/
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
+    public CreateAccountHolderResponse legalEntity(LegalEntityEnum legalEntity) {
+        this.legalEntity = legalEntity;
+        return this;
+    }
+
+    /**
+     * The type of legal entity of the new account holder.
+     *
+     * @return legalEntity
+     **/
+    public LegalEntityEnum getLegalEntity() {
+        return legalEntity;
+    }
+
+    public void setLegalEntity(LegalEntityEnum legalEntity) {
+        this.legalEntity = legalEntity;
+    }
+
+    public CreateAccountHolderResponse primaryCurrency(String primaryCurrency) {
+        this.primaryCurrency = primaryCurrency;
+        return this;
+    }
+
+    /**
+     * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes), with which the prospective account holder primarily deals.
+     *
+     * @return primaryCurrency
+     **/
+    public String getPrimaryCurrency() {
+        return primaryCurrency;
+    }
+
+    public void setPrimaryCurrency(String primaryCurrency) {
+        this.primaryCurrency = primaryCurrency;
+    }
+
+    public CreateAccountHolderResponse pspReference(String pspReference) {
+        this.pspReference = pspReference;
+        return this;
+    }
+
+    /**
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -273,6 +288,34 @@ public class CreateAccountHolderResponse {
         this.pspReference = pspReference;
     }
 
+    public CreateAccountHolderResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
+        return this;
+    }
+
+    /**
+     * The result code.
+     *
+     * @return resultCode
+     **/
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
+    }
+
+    public CreateAccountHolderResponse verification(KYCVerificationResult verification) {
+        this.verification = verification;
+        return this;
+    }
+
+    /**
+     * Get verification
+     *
+     * @return verification
+     **/
     public KYCVerificationResult getVerification() {
         return verification;
     }
@@ -281,21 +324,6 @@ public class CreateAccountHolderResponse {
         this.verification = verification;
     }
 
-    public List<ErrorFieldTypeContainer> getInvalidFieldsContainers() {
-        return invalidFieldsContainers;
-    }
-
-    public void setInvalidFieldsContainers(List<ErrorFieldTypeContainer> invalidFieldsContainers) {
-        this.invalidFieldsContainers = invalidFieldsContainers;
-    }
-
-    public LegalEntityEnum getLegalEntity() {
-        return legalEntity;
-    }
-
-    public void setLegalEntity(LegalEntityEnum legalEntity) {
-        this.legalEntity = legalEntity;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -306,56 +334,48 @@ public class CreateAccountHolderResponse {
             return false;
         }
         CreateAccountHolderResponse createAccountHolderResponse = (CreateAccountHolderResponse) o;
-        return Objects.equals(this.verification, createAccountHolderResponse.verification)
-                && Objects.equals(this.submittedAsync, createAccountHolderResponse.submittedAsync)
-                && Objects.equals(this.accountHolderCode, createAccountHolderResponse.accountHolderCode)
-                && Objects.equals(this.accountCode, createAccountHolderResponse.accountCode)
-                && Objects.equals(this.invalidFieldsContainers, createAccountHolderResponse.invalidFieldsContainers)
-                && Objects.equals(this.accountHolderDetails, createAccountHolderResponse.accountHolderDetails)
-                && Objects.equals(this.accountHolderStatus, createAccountHolderResponse.accountHolderStatus)
-                && Objects.equals(this.description, createAccountHolderResponse.description)
-                && Objects.equals(this.pspReference, createAccountHolderResponse.pspReference)
-                && Objects.equals(this.legalEntity, createAccountHolderResponse.legalEntity);
+        return Objects.equals(this.accountCode, createAccountHolderResponse.accountCode) &&
+                Objects.equals(this.accountHolderCode, createAccountHolderResponse.accountHolderCode) &&
+                Objects.equals(this.accountHolderDetails, createAccountHolderResponse.accountHolderDetails) &&
+                Objects.equals(this.accountHolderStatus, createAccountHolderResponse.accountHolderStatus) &&
+                Objects.equals(this.description, createAccountHolderResponse.description) &&
+                Objects.equals(this.invalidFields, createAccountHolderResponse.invalidFields) &&
+                Objects.equals(this.legalEntity, createAccountHolderResponse.legalEntity) &&
+                Objects.equals(this.primaryCurrency, createAccountHolderResponse.primaryCurrency) &&
+                Objects.equals(this.pspReference, createAccountHolderResponse.pspReference) &&
+                Objects.equals(this.resultCode, createAccountHolderResponse.resultCode) &&
+                Objects.equals(this.verification, createAccountHolderResponse.verification);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(verification,
-                submittedAsync,
-                accountHolderCode,
-                accountCode,
-                invalidFieldsContainers,
-                accountHolderDetails,
-                accountHolderStatus,
-                description,
-                pspReference,
-                legalEntity);
+        return Objects.hash(accountCode, accountHolderCode, accountHolderDetails, accountHolderStatus, description, invalidFields, legalEntity, primaryCurrency, pspReference, resultCode, verification);
     }
 
 
     @Override
     public String toString() {
-        // Populate the invalidFields list to provide back in the toString() method
-        this.getInvalidFields();
-
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAccountHolderResponse {\n");
-        sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
@@ -365,4 +385,3 @@ public class CreateAccountHolderResponse {
     }
 
 }
-

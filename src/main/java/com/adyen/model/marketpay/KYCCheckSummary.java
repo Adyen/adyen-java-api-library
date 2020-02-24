@@ -14,59 +14,61 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * KYCCheckSummary
  */
 public class KYCCheckSummary {
-    @SerializedName("code")
-    private Integer code = null;
+    @SerializedName("kycCheckCode")
+    private Integer kycCheckCode = null;
 
-    @SerializedName("description")
-    private String description = null;
+    @SerializedName("kycCheckDescription")
+    private String kycCheckDescription = null;
 
-    public KYCCheckSummary code(Integer code) {
-        this.code = code;
+    public KYCCheckSummary kycCheckCode(Integer kycCheckCode) {
+        this.kycCheckCode = kycCheckCode;
         return this;
     }
 
     /**
-     * code
+     * The code of the check.
      *
-     * @return code
+     * @return kycCheckCode
      **/
-    public Integer getCode() {
-        return code;
+    public Integer getKycCheckCode() {
+        return kycCheckCode;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setKycCheckCode(Integer kycCheckCode) {
+        this.kycCheckCode = kycCheckCode;
     }
 
-    public KYCCheckSummary description(String description) {
-        this.description = description;
+    public KYCCheckSummary kycCheckDescription(String kycCheckDescription) {
+        this.kycCheckDescription = kycCheckDescription;
         return this;
     }
 
     /**
-     * description
+     * A description of the check.
      *
-     * @return description
+     * @return kycCheckDescription
      **/
-    public String getDescription() {
-        return description;
+    public String getKycCheckDescription() {
+        return kycCheckDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setKycCheckDescription(String kycCheckDescription) {
+        this.kycCheckDescription = kycCheckDescription;
     }
 
 
@@ -79,12 +81,13 @@ public class KYCCheckSummary {
             return false;
         }
         KYCCheckSummary kyCCheckSummary = (KYCCheckSummary) o;
-        return Objects.equals(this.code, kyCCheckSummary.code) && Objects.equals(this.description, kyCCheckSummary.description);
+        return Objects.equals(this.kycCheckCode, kyCCheckSummary.kycCheckCode) &&
+                Objects.equals(this.kycCheckDescription, kyCCheckSummary.kycCheckDescription);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, description);
+        return Objects.hash(kycCheckCode, kycCheckDescription);
     }
 
 
@@ -93,8 +96,8 @@ public class KYCCheckSummary {
         StringBuilder sb = new StringBuilder();
         sb.append("class KYCCheckSummary {\n");
 
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    kycCheckCode: ").append(toIndentedString(kycCheckCode)).append("\n");
+        sb.append("    kycCheckDescription: ").append(toIndentedString(kycCheckDescription)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -111,4 +114,3 @@ public class KYCCheckSummary {
     }
 
 }
-
