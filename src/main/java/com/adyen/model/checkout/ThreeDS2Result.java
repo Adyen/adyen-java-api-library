@@ -49,6 +49,9 @@ public class ThreeDS2Result {
     @SerializedName("dsTransID")
     private String dsTransID;
 
+    @SerializedName("messageVersion")
+    private String messageVersion;
+
     /**
      * The transStatusReason value as defined in the 3D Secure 2 specification.
      *
@@ -175,6 +178,19 @@ public class ThreeDS2Result {
         return this;
     }
 
+    public String getMessageVersion() {
+        return messageVersion;
+    }
+
+    public void setMessageVersion(String messageVersion) {
+        this.messageVersion = messageVersion;
+    }
+
+    public ThreeDS2Result messageVersion(String messageVersion) {
+        this.messageVersion = messageVersion;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -190,7 +206,8 @@ public class ThreeDS2Result {
                 Objects.equals(eci, that.eci) &&
                 Objects.equals(timestamp, that.timestamp) &&
                 Objects.equals(threeDSServerTransID, that.threeDSServerTransID) &&
-                Objects.equals(dsTransID, that.dsTransID);
+                Objects.equals(dsTransID, that.dsTransID) &&
+                Objects.equals(messageVersion, that.messageVersion);
     }
 
     @Override
@@ -209,6 +226,7 @@ public class ThreeDS2Result {
         sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append("\n");
         sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
+        sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
         sb.append("}");
         return sb.toString();
     }
