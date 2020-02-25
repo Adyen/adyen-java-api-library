@@ -212,7 +212,7 @@ public class ThreeDS2Result {
 
     @Override
     public int hashCode() {
-        return Objects.hash(transStatusReason, transStatus, authenticationValue, eci, timestamp, threeDSServerTransID, dsTransID);
+        return Objects.hash(transStatusReason, transStatus, authenticationValue, eci, timestamp, threeDSServerTransID, dsTransID, messageVersion);
     }
 
     @Override
