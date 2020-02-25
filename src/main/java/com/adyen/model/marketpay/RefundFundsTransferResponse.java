@@ -1,4 +1,3 @@
-
 /*
  *                       ######
  *                       ######
@@ -29,18 +28,21 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * PayoutAccountHolderResponse
+ * RefundFundsTransferResponse
  */
 
-public class PayoutAccountHolderResponse {
-    @SerializedName("bankAccountUUID")
-    private String bankAccountUUID = null;
-
+public class RefundFundsTransferResponse {
     @SerializedName("invalidFields")
     private List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("merchantReference")
     private String merchantReference = null;
+
+    @SerializedName("message")
+    private String message = null;
+
+    @SerializedName("originalReference")
+    private String originalReference = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -48,30 +50,12 @@ public class PayoutAccountHolderResponse {
     @SerializedName("resultCode")
     private String resultCode = null;
 
-    public PayoutAccountHolderResponse bankAccountUUID(String bankAccountUUID) {
-        this.bankAccountUUID = bankAccountUUID;
-        return this;
-    }
-
-    /**
-     * The unique ID of the Bank Account to which the payout was made.
-     *
-     * @return bankAccountUUID
-     **/
-    public String getBankAccountUUID() {
-        return bankAccountUUID;
-    }
-
-    public void setBankAccountUUID(String bankAccountUUID) {
-        this.bankAccountUUID = bankAccountUUID;
-    }
-
-    public PayoutAccountHolderResponse invalidFields(List<ErrorFieldType> invalidFields) {
+    public RefundFundsTransferResponse invalidFields(List<ErrorFieldType> invalidFields) {
         this.invalidFields = invalidFields;
         return this;
     }
 
-    public PayoutAccountHolderResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+    public RefundFundsTransferResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
             this.invalidFields = new ArrayList<ErrorFieldType>();
         }
@@ -92,13 +76,13 @@ public class PayoutAccountHolderResponse {
         this.invalidFields = invalidFields;
     }
 
-    public PayoutAccountHolderResponse merchantReference(String merchantReference) {
+    public RefundFundsTransferResponse merchantReference(String merchantReference) {
         this.merchantReference = merchantReference;
         return this;
     }
 
     /**
-     * The value supplied by the executing user when initiating the transfer; may be used to link multiple transactions.
+     * The value supplied by the executing user when initiating the transfer refund; may be used to link multiple transactions.
      *
      * @return merchantReference
      **/
@@ -110,7 +94,43 @@ public class PayoutAccountHolderResponse {
         this.merchantReference = merchantReference;
     }
 
-    public PayoutAccountHolderResponse pspReference(String pspReference) {
+    public RefundFundsTransferResponse message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return message
+     **/
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public RefundFundsTransferResponse originalReference(String originalReference) {
+        this.originalReference = originalReference;
+        return this;
+    }
+
+    /**
+     * A PSP reference of the original fund transfer.
+     *
+     * @return originalReference
+     **/
+    public String getOriginalReference() {
+        return originalReference;
+    }
+
+    public void setOriginalReference(String originalReference) {
+        this.originalReference = originalReference;
+    }
+
+    public RefundFundsTransferResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
     }
@@ -128,7 +148,7 @@ public class PayoutAccountHolderResponse {
         this.pspReference = pspReference;
     }
 
-    public PayoutAccountHolderResponse resultCode(String resultCode) {
+    public RefundFundsTransferResponse resultCode(String resultCode) {
         this.resultCode = resultCode;
         return this;
     }
@@ -155,28 +175,30 @@ public class PayoutAccountHolderResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PayoutAccountHolderResponse payoutAccountHolderResponse = (PayoutAccountHolderResponse) o;
-        return Objects.equals(this.bankAccountUUID, payoutAccountHolderResponse.bankAccountUUID) &&
-                Objects.equals(this.invalidFields, payoutAccountHolderResponse.invalidFields) &&
-                Objects.equals(this.merchantReference, payoutAccountHolderResponse.merchantReference) &&
-                Objects.equals(this.pspReference, payoutAccountHolderResponse.pspReference) &&
-                Objects.equals(this.resultCode, payoutAccountHolderResponse.resultCode);
+        RefundFundsTransferResponse refundFundsTransferResponse = (RefundFundsTransferResponse) o;
+        return Objects.equals(this.invalidFields, refundFundsTransferResponse.invalidFields) &&
+                Objects.equals(this.merchantReference, refundFundsTransferResponse.merchantReference) &&
+                Objects.equals(this.message, refundFundsTransferResponse.message) &&
+                Objects.equals(this.originalReference, refundFundsTransferResponse.originalReference) &&
+                Objects.equals(this.pspReference, refundFundsTransferResponse.pspReference) &&
+                Objects.equals(this.resultCode, refundFundsTransferResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bankAccountUUID, invalidFields, merchantReference, pspReference, resultCode);
+        return Objects.hash(invalidFields, merchantReference, message, originalReference, pspReference, resultCode);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayoutAccountHolderResponse {\n");
+        sb.append("class RefundFundsTransferResponse {\n");
 
-        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
         sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");

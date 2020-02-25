@@ -14,52 +14,36 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * AccountHolderTransactionListResponse
  */
 public class AccountHolderTransactionListResponse {
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
-
     @SerializedName("accountTransactionLists")
     private List<AccountTransactionListContainer> accountTransactionListContainers = null;
 
     private transient List<AccountTransactionList> accountTransactionLists = null;
 
-    @SerializedName("resultCode")
-    private String resultCode = null;
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
 
-    public AccountHolderTransactionListResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-        return this;
-    }
-
-    /**
-     * Get submittedAsync
-     *
-     * @return submittedAsync
-     **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
-    }
-
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
+    @SerializedName("resultCode")
+    private String resultCode = null;
 
     public AccountHolderTransactionListResponse accountTransactionListContainers(List<AccountTransactionListContainer> accountTransactionListContainers) {
         this.accountTransactionListContainers = accountTransactionListContainers;
@@ -79,7 +63,7 @@ public class AccountHolderTransactionListResponse {
     public List<AccountTransactionList> getAccountTransactionLists() {
         if (accountTransactionLists == null) {
             accountTransactionLists = new ArrayList<AccountTransactionList>();
-            if (accountTransactionListContainers != null && ! accountTransactionListContainers.isEmpty()) {
+            if (accountTransactionListContainers != null && !accountTransactionListContainers.isEmpty()) {
                 for (AccountTransactionListContainer accountTransactionListContainer : accountTransactionListContainers) {
                     accountTransactionLists.add(accountTransactionListContainer.getAccountTransactionList());
                 }
@@ -90,8 +74,8 @@ public class AccountHolderTransactionListResponse {
 
     /**
      * Creating a new accountTransactionLists list
-     * @param accountTransactionLists  AccountTransactionList
-
+     *
+     * @param accountTransactionLists AccountTransactionList
      */
     public void setAccountTransactionLists(List<AccountTransactionList> accountTransactionLists) {
 
@@ -129,22 +113,30 @@ public class AccountHolderTransactionListResponse {
         return this;
     }
 
-    public AccountHolderTransactionListResponse resultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public AccountHolderTransactionListResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public AccountHolderTransactionListResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
         return this;
     }
 
     /**
-     * The result code
+     * Contains field validation errors that would prevent requests from being processed.
      *
-     * @return resultCode
+     * @return invalidFields
      **/
-    public String getResultCode() {
-        return resultCode;
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
     }
 
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
     }
 
     public AccountHolderTransactionListResponse pspReference(String pspReference) {
@@ -153,7 +145,7 @@ public class AccountHolderTransactionListResponse {
     }
 
     /**
-     * psp reference
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -165,9 +157,27 @@ public class AccountHolderTransactionListResponse {
         this.pspReference = pspReference;
     }
 
+    public AccountHolderTransactionListResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
+        return this;
+    }
+
+    /**
+     * The result code.
+     *
+     * @return resultCode
+     **/
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
+    }
+
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -175,38 +185,36 @@ public class AccountHolderTransactionListResponse {
             return false;
         }
         AccountHolderTransactionListResponse accountHolderTransactionListResponse = (AccountHolderTransactionListResponse) o;
-        return Objects.equals(this.submittedAsync, accountHolderTransactionListResponse.submittedAsync)
-                && Objects.equals(this.accountTransactionListContainers,
-                                  accountHolderTransactionListResponse.accountTransactionListContainers)
-                && Objects.equals(this.resultCode, accountHolderTransactionListResponse.resultCode)
-                && Objects.equals(this.pspReference, accountHolderTransactionListResponse.pspReference);
+        return Objects.equals(this.accountTransactionLists, accountHolderTransactionListResponse.accountTransactionLists) &&
+                Objects.equals(this.invalidFields, accountHolderTransactionListResponse.invalidFields) &&
+                Objects.equals(this.pspReference, accountHolderTransactionListResponse.pspReference) &&
+                Objects.equals(this.resultCode, accountHolderTransactionListResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, accountTransactionListContainers, resultCode, pspReference);
+        return Objects.hash(accountTransactionLists, invalidFields, pspReference, resultCode);
     }
 
 
     @Override
     public String toString() {
-        // Populate the accountTransactionLists list to provide back in the toString() method
-        this.getAccountTransactionLists();
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountHolderTransactionListResponse {\n");
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    accountTransactionLists: ").append(toIndentedString(accountTransactionLists)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(java.lang.Object o) {
         if (o == null) {
             return "null";
         }
@@ -214,4 +222,3 @@ public class AccountHolderTransactionListResponse {
     }
 
 }
-
