@@ -18,6 +18,7 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
 import com.google.gson.annotations.SerializedName;
@@ -31,9 +32,7 @@ import java.util.Objects;
  */
 public class GetUploadedDocumentsResponse {
     @SerializedName("documentDetails")
-    private List<DocumentDetailContainer> documentDetailsContainers = null;
-
-    private transient List<DocumentDetail> documentDetails = null;
+    private List<DocumentDetail> documentDetails = null;
 
     @SerializedName("invalidFields")
     private List<ErrorFieldType> invalidFields = null;
@@ -44,63 +43,30 @@ public class GetUploadedDocumentsResponse {
     @SerializedName("resultCode")
     private String resultCode = null;
 
+    public GetUploadedDocumentsResponse documentDetails(List<DocumentDetail> documentDetails) {
+        this.documentDetails = documentDetails;
+        return this;
+    }
+
+    public GetUploadedDocumentsResponse addDocumentDetailsItem(DocumentDetail documentDetailsItem) {
+        if (this.documentDetails == null) {
+            this.documentDetails = new ArrayList<DocumentDetail>();
+        }
+        this.documentDetails.add(documentDetailsItem);
+        return this;
+    }
+
     /**
-     * Populate the virtual documentDetails to bypass the documentDetailsContainers list
+     * A list of the documents and their details.
      *
      * @return documentDetails
      **/
     public List<DocumentDetail> getDocumentDetails() {
-        if (documentDetails == null) {
-            documentDetails = new ArrayList<>();
-
-            if (documentDetailsContainers != null && !documentDetailsContainers.isEmpty()) {
-                for (DocumentDetailContainer documentDetailContainer : documentDetailsContainers) {
-                    documentDetails.add(documentDetailContainer.getDocumentDetail());
-                }
-            }
-        }
-
         return documentDetails;
     }
 
-    /**
-     * Creating a new documentDetails list
-     *
-     * @param documentDetails documentDetails
-     */
     public void setDocumentDetails(List<DocumentDetail> documentDetails) {
         this.documentDetails = documentDetails;
-
-        // set as well the container list this will be send in the API request
-        this.documentDetailsContainers = new ArrayList<>();
-        for (DocumentDetail documentDetail : documentDetails) {
-
-            DocumentDetailContainer documentDetailContainer = new DocumentDetailContainer(documentDetail);
-            this.documentDetailsContainers.add(documentDetailContainer);
-        }
-
-    }
-
-    /**
-     * Add documentDetail to the documentDetailsContainers and documentDetails list
-     *
-     * @param documentDetail documentDetail
-     * @return UploadedDocumentsResponse
-     */
-    public GetUploadedDocumentsResponse addDocumentDetail(DocumentDetail documentDetail) {
-        DocumentDetailContainer documentDetailContainer = new DocumentDetailContainer(documentDetail);
-
-        if (documentDetailsContainers == null) {
-            documentDetailsContainers = new ArrayList<>();
-        }
-        this.documentDetailsContainers.add(documentDetailContainer);
-
-        if (documentDetails == null) {
-            documentDetails = new ArrayList<>();
-        }
-        this.documentDetails.add(documentDetail);
-
-        return this;
     }
 
     public GetUploadedDocumentsResponse invalidFields(List<ErrorFieldType> invalidFields) {
@@ -167,7 +133,7 @@ public class GetUploadedDocumentsResponse {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -204,7 +170,7 @@ public class GetUploadedDocumentsResponse {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

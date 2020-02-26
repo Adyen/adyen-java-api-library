@@ -1,161 +1,195 @@
 {
-  "pspReference":"9914913132830226",
-  "submittedAsync":"false",
-  "accountHolderCode":"TestAccountHolder480834",
-  "accountHolderDetails":{
-    "address":{
-      "city":"PASSEDCITY",
-      "country":"GB",
-      "postalCode":"12345",
-      "stateOrProvince":"NH",
-      "street":"Teststreet 1"
-    },
-    "bankAccountDetails":[
+  "pspReference": "8515813355311349",
+  "accountHolderCode": "8515843355311359",
+  "accountHolderDetails": {
+    "bankAccountDetails": [
       {
-        "BankAccountDetail":{
-          "accountNumber":"12345678",
-          "bankAccountName":"baName",
-          "bankAccountUUID":"1abf8304-58c7-4a9e-8bd3-4d7eff9801e4",
-          "bankBicSwift":"BicSUSft",
-          "bankCity":"city",
-          "bankCode":"ULSB",
-          "bankName":"bankName",
-          "branchCode":"122105",
-          "countryCode":"NL",
-          "currencyCode":"EUR",
-          "ownerCity":"PASSEDCITY",
-          "ownerCountryCode":"BE",
-          "ownerDateOfBirth":"1980-01-01",
-          "ownerHouseNumberOrName":"houseNumberOrName",
-          "ownerName":"TestData",
-          "ownerNationality":"AD",
-          "ownerPostalCode":"ownerPostalCode",
-          "ownerState":"ownerState",
-          "ownerStreet":"ownerStreet",
-          "primaryAccount":"true",
-          "taxId":"bankTaxId"
-        }
+        "accountNumber": "12345678",
+        "bankAccountName": "baName",
+        "bankAccountUUID": "1abf8304-58c7-4a9e-8bd3-4d7eff9801e4",
+        "bankBicSwift": "BicSUSft",
+        "bankCity": "city",
+        "bankCode": "ULSB",
+        "bankName": "bankName",
+        "branchCode": "122105",
+        "countryCode": "NL",
+        "currencyCode": "EUR",
+        "ownerCity": "PASSEDCITY",
+        "ownerCountryCode": "BE",
+        "ownerDateOfBirth": "1980-01-01",
+        "ownerHouseNumberOrName": "houseNumberOrName",
+        "ownerName": "TestData",
+        "ownerNationality": "AD",
+        "ownerPostalCode": "ownerPostalCode",
+        "ownerState": "ownerState",
+        "ownerStreet": "ownerStreet",
+        "primaryAccount": "true",
+        "taxId": "bankTaxId"
+      },
+      {
+        "bankAccountName": "MarketPlace Account",
+        "bankAccountUUID": "ab3aeec6-a679-aaaa-dddd-88bd936a6a33",
+        "bankBicSwift": "TESTNL01",
+        "bankCity": "bankCity",
+        "bankName": "bankName",
+        "countryCode": "NL",
+        "currencyCode": "GBP",
+        "iban": "NL13TEST0123456789",
+        "ownerCity": "Amsterdam",
+        "ownerCountryCode": "NL",
+        "ownerName": "Adyen BV",
+        "primaryAccount": true
       }
     ],
-    "businessDetails":{
-      "doingBusinessAs":"Test company B.V.",
-      "legalBusinessName":"TestData",
-      "shareholders":[
+    "email": "test@test.com",
+    "businessDetails": {
+      "doingBusinessAs": "Test company B.V.",
+      "legalBusinessName": "TestData",
+      "shareholders": [
         {
-          "ShareholderContact":{
-            "address":{
-              "city":"INVALIDDATACITY",
-              "country":"GB",
-              "postalCode":"67890",
-              "stateOrProvince":"NH",
-              "street":"Teststreet 2"
-            },
-            "email":"testshareholder@somewebsite.com",
-            "name":{
-              "firstName":"TestFirstName",
-              "gender":"MALE",
-              "lastName":"TestData"
-            },
-            "personalData":{
-              "dateOfBirth":"1970-01-01",
-              "idNumber":"1234567890",
-              "nationality":"NL"
-            },
-            "phoneNumber":{
-              "phoneCountryCode":"NL",
-              "phoneNumber":"0612345678",
-              "phoneType":"Mobile"
-            },
-            "shareholderCode":"d8ce1979-8f2b-42b9-8b1f-359af2575f91"
-          }
+          "address": {
+            "city": "INVALIDDATACITY",
+            "country": "GB",
+            "postalCode": "67890",
+            "stateOrProvince": "NH",
+            "street": "Teststreet 2"
+          },
+          "email": "testshareholder@somewebsite.com",
+          "name": {
+            "firstName": "TestFirstName",
+            "gender": "MALE",
+            "lastName": "TestData"
+          },
+          "personalData": {
+            "dateOfBirth": "1970-01-01",
+            "idNumber": "1234567890",
+            "nationality": "NL"
+          },
+          "phoneNumber": {
+            "phoneCountryCode": "NL",
+            "phoneNumber": "0612345678",
+            "phoneType": "Mobile"
+          },
+          "shareholderCode": "d8ce1979-8f2b-42b9-8b1f-359af2575f91"
         }
       ],
-      "taxId":"BV123456789"
+      "taxId": "BV123456789"
     },
-    "email":"test@adyen.com",
-    "merchantCategoryCode":"1111",
-    "phoneNumber":{
-      "phoneCountryCode":"NL",
-      "phoneNumber":"0687654321",
-      "phoneType":"Mobile"
-    },
-    "webAddress":"http:\/\/www.adyen.com"
+    "merchantCategoryCode": "9999",
+    "payoutMethods": [],
+    "webAddress": null
   },
-  "accountHolderStatus":{
-    "status":"Active",
-    "processingState":{
-      "processedFrom":{
-        "currency":"GBP",
-        "value":0
+  "accountHolderStatus": {
+    "status": "Active",
+    "processingState": {
+      "disabled": false,
+      "processedFrom": {
+        "currency": "EUR",
+        "value": 1
       },
-      "processedTo":{
-        "currency":"GBP",
-        "value":9999
-      }
+      "processedTo": {
+        "currency": "EUR",
+        "value": 1
+      },
+      "tierNumber": 1
     },
-    "payoutState":{
-      "allowPayout":"true",
-      "payoutLimit":{
-        "currency":"GBP",
-        "value":49999
-      }
-    }
+    "payoutState": {
+      "allowPayout": true,
+      "disabled": false,
+      "tierNumber": 1
+    },
+    "events": []
   },
-  "accounts":[
+  "accounts": [
     {
-      "Account":{
-        "accountCode":"123370698",
-        "payoutSchedule":{
-          "schedule":"DEFAULT"
-        }
-      }
+      "accountCode": "115548513",
+      "description": "TransactionAccount",
+      "payoutSchedule": {
+        "nextScheduledPayout": "2020-02-11T00:00:00+01:00",
+        "schedule": "DEFAULT"
+      },
+      "status": "Active"
+    },
+    {
+      "accountCode": "158653516",
+      "description": "TransactionAccount",
+      "payoutSchedule": {
+        "schedule": "DEFAULT"
+      },
+      "status": "Active"
+    },
+    {
+      "accountCode": "162994490",
+      "description": "TransactionAccount",
+      "payoutSchedule": {
+        "schedule": "DEFAULT"
+      },
+      "status": "Active"
     }
   ],
-  "legalEntity":"Business",
-  "verification":{
-    "accountHolder":{
-      "checks":[
+  "legalEntity": "Individual",
+  "systemUpToDateTime": "2020-02-10T12:52:13+01:00",
+  "verification": {
+    "accountHolder": {
+      "checks": [
         {
-          "type":"COMPANY_VERIFICATION",
-          "status":"PASSED",
-          "summary":{
-            "code":1602,
-            "description":"Passed"
+          "type": "COMPANY_VERIFICATION",
+          "status": "PASSED",
+          "summary": {
+            "kycCheckCode": 1602,
+            "kycCheckDescription": "Passed"
           }
+        },
+        {
+          "type": "IDENTITY_VERIFICATION",
+          "status": "AWAITING_DATA",
+          "requiredFields": [
+            "AccountHolderDetails.Address.address",
+            "AccountHolderDetails.PhoneNumber.phoneNumber"
+          ]
+        },
+        {
+          "type": "PASSPORT_VERIFICATION",
+          "status": "AWAITING_DATA",
+          "requiredFields": [
+            "AccountHolderDetails.Document.document"
+          ]
         }
       ]
     },
-    "shareholders":[
+    "bankAccounts": [
       {
-        "shareholderCode":"d8ce1979-8f2b-42b9-8b1f-359af2575f91",
-        "checks":[
+        "checks": [
           {
-            "type":"PASSPORT_VERIFICATION",
-            "status":"AWAITING_DATA",
-            "requiredFields":[
-              "AccountHolderDetails.BusinessDetails.Shareholders.Document.passport"
+            "type": "BANK_ACCOUNT_VERIFICATION",
+            "status": "AWAITING_DATA",
+            "requiredFields": [
+              "AccountHolderDetails.BankAccountDetails.bankStatement"
             ]
-          },
-          {
-            "type":"IDENTITY_VERIFICATION",
-            "status":"PASSED",
-            "summary":{
-              "code":1602,
-              "description":"Passed"
-            }
           }
-        ]
-      }
-    ],
-    "bankAccounts":[
+        ],
+        "bankAccountUUID": "b301ca68-e227-aaaa-dddd-9bc1f94fc0f0"
+      },
       {
-        "bankAccountUUID":"1abf8304-58c7-4a9e-8bd3-4d7eff9801e4",
-        "checks":[
+        "checks": [
           {
-            "type":"BANK_ACCOUNT_VERIFICATION",
-            "status":"PASSED"
+            "type": "BANK_ACCOUNT_VERIFICATION",
+            "status": "PASSED"
           }
-        ]
+        ],
+        "bankAccountUUID": "6026a526-7863-aaaa-ffff-f8fadc47473e"
+      },
+      {
+        "checks": [
+          {
+            "type": "BANK_ACCOUNT_VERIFICATION",
+            "status": "AWAITING_DATA",
+            "requiredFields": [
+              "AccountHolderDetails.BankAccountDetails.bankStatement"
+            ]
+          }
+        ],
+        "bankAccountUUID": "ab3aeec6-a679-aaaa-dddd-88bd936a6a33"
       }
     ]
   }

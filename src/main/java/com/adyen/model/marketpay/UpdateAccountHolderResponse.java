@@ -113,7 +113,7 @@ public class UpdateAccountHolderResponse {
     private String resultCode = null;
 
     @SerializedName("verification")
-    private KYCVerificationResult verification = null;
+    private KYCVerificationResult verificationResult = null;
 
     public UpdateAccountHolderResponse accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
@@ -285,8 +285,8 @@ public class UpdateAccountHolderResponse {
         this.resultCode = resultCode;
     }
 
-    public UpdateAccountHolderResponse verification(KYCVerificationResult verification) {
-        this.verification = verification;
+    public UpdateAccountHolderResponse verificationResult(KYCVerificationResult verificationResult) {
+        this.verificationResult = verificationResult;
         return this;
     }
 
@@ -295,12 +295,12 @@ public class UpdateAccountHolderResponse {
      *
      * @return verification
      **/
-    public KYCVerificationResult getVerification() {
-        return verification;
+    public KYCVerificationResult getVerificationResult() {
+        return verificationResult;
     }
 
-    public void setVerification(KYCVerificationResult verification) {
-        this.verification = verification;
+    public void setVerificationResult(KYCVerificationResult verificationResult) {
+        this.verificationResult = verificationResult;
     }
 
 
@@ -322,12 +322,12 @@ public class UpdateAccountHolderResponse {
                 Objects.equals(this.primaryCurrency, updateAccountHolderResponse.primaryCurrency) &&
                 Objects.equals(this.pspReference, updateAccountHolderResponse.pspReference) &&
                 Objects.equals(this.resultCode, updateAccountHolderResponse.resultCode) &&
-                Objects.equals(this.verification, updateAccountHolderResponse.verification);
+                Objects.equals(this.verificationResult, updateAccountHolderResponse.verificationResult);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, accountHolderDetails, accountHolderStatus, description, invalidFields, legalEntity, primaryCurrency, pspReference, resultCode, verification);
+        return Objects.hash(accountHolderCode, accountHolderDetails, accountHolderStatus, description, invalidFields, legalEntity, primaryCurrency, pspReference, resultCode, verificationResult);
     }
 
 
@@ -345,7 +345,7 @@ public class UpdateAccountHolderResponse {
         sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
+        sb.append("    verificationResult: ").append(toIndentedString(verificationResult)).append("\n");
         sb.append("}");
         return sb.toString();
     }

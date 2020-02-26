@@ -14,10 +14,11 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
 import com.adyen.model.Address;
@@ -35,9 +36,7 @@ public class AccountHolderDetails {
     private Address address = null;
 
     @SerializedName("bankAccountDetails")
-    private List<BankAccountDetailContainer> bankAccountDetailContainers = null;
-
-    private transient List<BankAccountDetail> bankAccountDetails = null;
+    private List<BankAccountDetail> bankAccountDetails = null;
 
     @SerializedName("businessDetails")
     private BusinessDetails businessDetails = null;
@@ -81,60 +80,30 @@ public class AccountHolderDetails {
         this.address = address;
     }
 
-    /**
-     * Populate the virtual bankAccountDetails to bypass the bankAccountDetailsContainer list
-     *
-     * @return bank account details
-     */
-    public List<BankAccountDetail> getBankAccountDetails() {
-        if (bankAccountDetails == null) {
-            bankAccountDetails = new ArrayList<BankAccountDetail>();
+    public AccountHolderDetails bankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
+        this.bankAccountDetails = bankAccountDetails;
+        return this;
+    }
 
-            if (bankAccountDetailContainers != null && !bankAccountDetailContainers.isEmpty()) {
-                for (BankAccountDetailContainer bankAccountDetailContainer : bankAccountDetailContainers) {
-                    bankAccountDetails.add(bankAccountDetailContainer.getBankAccountDetail());
-                }
-            }
+    public AccountHolderDetails addBankAccountDetailsItem(BankAccountDetail bankAccountDetailsItem) {
+        if (this.bankAccountDetails == null) {
+            this.bankAccountDetails = new ArrayList<BankAccountDetail>();
         }
+        this.bankAccountDetails.add(bankAccountDetailsItem);
+        return this;
+    }
+
+    /**
+     * Each of the bank accounts associated with the account holder. &gt; Each array entry should represent one bank account. &gt; For comprehensive detail regarding the required &#x60;BankAccountDetail&#x60; fields, please refer to the [KYC Verification documentation](https://docs.adyen.com/marketpay/onboarding-and-verification/verification-checks).
+     *
+     * @return bankAccountDetails
+     **/
+    public List<BankAccountDetail> getBankAccountDetails() {
         return bankAccountDetails;
     }
 
-    /**
-     * Creating a new bankAccountDetails list
-     *
-     * @param bankAccountDetails bank account details
-     */
     public void setBankAccountDetails(List<BankAccountDetail> bankAccountDetails) {
         this.bankAccountDetails = bankAccountDetails;
-
-        // set as well the container list this will be send in the API request
-        this.bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
-        for (BankAccountDetail bankAccountDetail : bankAccountDetails) {
-            BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer(bankAccountDetail);
-            this.bankAccountDetailContainers.add(bankAccountDetailContainer);
-        }
-    }
-
-    /**
-     * Add bankAccountDetail to the bankAccountDetailContainers and bankAccountDetails list
-     *
-     * @param bankAccountDetail BankAccountDetail
-     * @return account holder details
-     */
-    public AccountHolderDetails addBankAccountDetail(BankAccountDetail bankAccountDetail) {
-        BankAccountDetailContainer bankAccountDetailContainer = new BankAccountDetailContainer(bankAccountDetail);
-
-        if (bankAccountDetailContainers == null) {
-            bankAccountDetailContainers = new ArrayList<BankAccountDetailContainer>();
-        }
-        this.bankAccountDetailContainers.add(bankAccountDetailContainer);
-
-        if (bankAccountDetails == null) {
-            bankAccountDetails = new ArrayList<BankAccountDetail>();
-        }
-        this.bankAccountDetails.add(bankAccountDetail);
-
-        return this;
     }
 
     public AccountHolderDetails businessDetails(BusinessDetails businessDetails) {
@@ -291,7 +260,7 @@ public class AccountHolderDetails {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -340,7 +309,7 @@ public class AccountHolderDetails {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

@@ -14,10 +14,11 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
 import com.google.gson.annotations.SerializedName;
@@ -33,11 +34,11 @@ public class GenericResponse {
     @SerializedName("invalidFields")
     private List<ErrorFieldType> invalidFields = null;
 
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
-
     @SerializedName("pspReference")
     private String pspReference = null;
+
+    @SerializedName("resultCode")
+    private String resultCode = null;
 
     public GenericResponse invalidFields(List<ErrorFieldType> invalidFields) {
         this.invalidFields = invalidFields;
@@ -46,7 +47,7 @@ public class GenericResponse {
 
     public GenericResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<>();
+            this.invalidFields = new ArrayList<ErrorFieldType>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;
@@ -65,31 +66,13 @@ public class GenericResponse {
         this.invalidFields = invalidFields;
     }
 
-    public GenericResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-        return this;
-    }
-
-    /**
-     * Get submittedAsync
-     *
-     * @return submittedAsync
-     **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
-    }
-
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
-
     public GenericResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
     }
 
     /**
-     * psp reference
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -99,6 +82,24 @@ public class GenericResponse {
 
     public void setPspReference(String pspReference) {
         this.pspReference = pspReference;
+    }
+
+    public GenericResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
+        return this;
+    }
+
+    /**
+     * The result code.
+     *
+     * @return resultCode
+     **/
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
     }
 
 
@@ -111,14 +112,14 @@ public class GenericResponse {
             return false;
         }
         GenericResponse genericResponse = (GenericResponse) o;
-        return Objects.equals(this.invalidFields, genericResponse.invalidFields)
-                && Objects.equals(this.submittedAsync, genericResponse.submittedAsync)
-                && Objects.equals(this.pspReference, genericResponse.pspReference);
+        return Objects.equals(this.invalidFields, genericResponse.invalidFields) &&
+                Objects.equals(this.pspReference, genericResponse.pspReference) &&
+                Objects.equals(this.resultCode, genericResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(invalidFields, submittedAsync, pspReference);
+        return Objects.hash(invalidFields, pspReference, resultCode);
     }
 
 
@@ -126,9 +127,10 @@ public class GenericResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class GenericResponse {\n");
+
         sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -145,4 +147,3 @@ public class GenericResponse {
     }
 
 }
-

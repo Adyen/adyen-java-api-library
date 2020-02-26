@@ -1,47 +1,43 @@
 {
-  "totalBalance":{
-    "pendingBalance":[
+  "balancePerAccount": [
+    {
+      "detailBalance": {
+        "pendingBalance": [
+          {
+            "value": 42058,
+            "currency": "EUR"
+          }
+        ],
+        "balance": [
+          {
+            "currency": "EUR",
+            "value": 99792
+          }
+        ]
+      },
+      "accountCode": "118731451"
+    }
+  ],
+  "totalBalance": {
+    "onHoldBalance": [
       {
-        "Amount":{
-          "value":42058,
-          "currency":"EUR"
-        }
+        "value": 77098,
+        "currency": "EUR"
       }
     ],
-    "balance":[
+    "pendingBalance": [
       {
-        "Amount":{
-          "currency":"EUR",
-          "value":99792
-        }
+        "value": 42058,
+        "currency": "EUR"
+      }
+    ],
+    "balance": [
+      {
+        "currency": "EUR",
+        "value": 99792
       }
     ]
   },
-  "pspReference":"9914719436100053",
-  "resultCode":"Success",
-  "balancePerAccount":[
-    {
-      "AccountDetailBalance":{
-        "detailBalance":{
-          "pendingBalance":[
-            {
-              "Amount":{
-                "value":42058,
-                "currency":"EUR"
-              }
-            }
-          ],
-          "balance":[
-            {
-              "Amount":{
-                "currency":"EUR",
-                "value":99792
-              }
-            }
-          ]
-        },
-        "accountCode":"118731451"
-      }
-    }
-  ]
+  "pspReference": "9914719436100053",
+  "resultCode": "Success"
 }
