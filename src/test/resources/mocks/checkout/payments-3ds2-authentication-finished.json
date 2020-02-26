@@ -1,0 +1,36 @@
+{
+  "pspReference": "882563360573365D",
+  "resultCode": "AuthenticationFinished",
+  "threeDS2Result": {
+    "authenticationValue": "QURZRU4gM0RTMiBURVNUIENBVlY=",
+    "dsTransID": "64f18dcc-ad7f-4879-b7b9-2c0e0e3b2a33",
+    "eci": "05",
+    "messageVersion": "2.1.0",
+    "threeDSServerTransID": "6e8833e6-d591-4f54-86f9-93755533e869",
+    "transStatus": "Y"
+  },
+  "additionalData": {
+    "fraudResultType": "GREEN",
+    "fraudManualReview": "false",
+    "issuerCountry": "unknown",
+    "cardBin": "421234",
+    "paymentMethod": "visa",
+    "paymentMethodVariant": "visa"
+  },
+  "fraudResult": {
+    "accountScore": 25,
+    "results": [{
+      "FraudCheckResult": {
+        "accountScore": 8,
+        "checkId": 2,
+        "name": "CardChunkUsage"
+      }
+    }, {
+      "FraudCheckResult": {
+        "accountScore": 5,
+        "checkId": 3,
+        "name": "PaymentDetailUsage"
+      }
+    }]
+  }
+}
