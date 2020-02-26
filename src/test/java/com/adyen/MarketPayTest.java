@@ -51,6 +51,7 @@ import com.adyen.model.marketpay.DeletePayoutMethodResponse;
 import com.adyen.model.marketpay.DeleteShareholderRequest;
 import com.adyen.model.marketpay.DeleteShareholderResponse;
 import com.adyen.model.marketpay.DocumentDetail;
+import com.adyen.model.marketpay.FieldType;
 import com.adyen.model.marketpay.GetAccountHolderRequest;
 import com.adyen.model.marketpay.GetAccountHolderResponse;
 import com.adyen.model.marketpay.GetUploadedDocumentsRequest;
@@ -468,7 +469,10 @@ public class MarketPayTest extends BaseTest {
 
         CreateAccountResponse createAccountResponse = account.createAccount(createAccountRequest);
         assertEquals("TestAccountHolder5691", createAccountResponse.getAccountHolderCode());
-
+        assertEquals("Success", createAccountResponse.getResultCode());
+        assertEquals("9914913130220156", createAccountResponse.getPspReference());
+        assertEquals("195920946", createAccountResponse.getAccountCode());
+        assertEquals(CreateAccountResponse.StatusEnum.ACTIVE, createAccountResponse.getStatus());
     }
 
     @Test
@@ -487,8 +491,7 @@ public class MarketPayTest extends BaseTest {
         DeleteBankAccountResponse deleteBankAccountResponse = account.deleteBankAccount(deleteBankAccountRequest);
 
         assertEquals("9914694372670551", deleteBankAccountResponse.getPspReference());
-
-
+        assertEquals("Success", deleteBankAccountResponse.getResultCode());
     }
 
     @Test
@@ -506,6 +509,7 @@ public class MarketPayTest extends BaseTest {
 
         DeleteShareholderResponse deleteShareholderResponse = account.deleteShareholder(deleteShareholderRequest);
         assertEquals("9914694372990637", deleteShareholderResponse.getPspReference());
+        assertEquals("Received", deleteShareholderResponse.getResultCode());
 
     }
 
@@ -574,6 +578,8 @@ public class MarketPayTest extends BaseTest {
         closeAccountRequest.setAccountCode("118731451");
 
         CloseAccountResponse closeAccountResponse = account.closeAccount(closeAccountRequest);
+        assertEquals("9914913129290137", closeAccountResponse.getPspReference());
+        assertEquals("Success", closeAccountResponse.getResultCode());
         assertEquals(CloseAccountResponse.StatusEnum.CLOSED, closeAccountResponse.getStatus());
     }
 
@@ -590,6 +596,8 @@ public class MarketPayTest extends BaseTest {
         closeAccountHolderRequest.setAccountHolderCode("TestAccountHolder1450");
 
         CloseAccountHolderResponse closeAccountHolderResponse = account.closeAccountHolder(closeAccountHolderRequest);
+        assertEquals("9914713476670992", closeAccountHolderResponse.getPspReference());
+        assertEquals("Success", closeAccountHolderResponse.getResultCode());
         assertEquals(AccountHolderStatus.StatusEnum.CLOSED, closeAccountHolderResponse.getAccountHolderStatus().getStatus());
     }
 
@@ -733,7 +741,13 @@ public class MarketPayTest extends BaseTest {
 
         CreateAccountHolderResponse createAccountHolderResponse = account.createAccountHolder(createAccountHolderRequest);
 
+        assertEquals("8815089411506100", createAccountHolderResponse.getPspReference());
+        assertEquals(1, createAccountHolderResponse.getInvalidFields().size());
         assertEquals(17, createAccountHolderResponse.getInvalidFields().get(0).getErrorCode().intValue());
+        assertEquals("IBAN and accountNumber/branchCode/bankCode specified, please provide one or the other", createAccountHolderResponse.getInvalidFields().get(0).getErrorDescription());
+        assertNotNull(createAccountHolderResponse.getInvalidFields().get(0).getFieldType());
+        assertEquals("AccountHolderDetails.BankAccountDetails.iban", createAccountHolderResponse.getInvalidFields().get(0).getFieldType().getField());
+        assertEquals(FieldType.FieldNameEnum.IBAN, createAccountHolderResponse.getInvalidFields().get(0).getFieldType().getFieldName());
     }
 
     @Test
@@ -757,6 +771,9 @@ public class MarketPayTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/marketpay/account/check-account-holder-success.json");
         Account account = new Account(client);
         PerformVerificationRequest performVerificationRequest = new PerformVerificationRequest();
+        performVerificationRequest.setAccountHolderCode("accountHolderCode");
+        performVerificationRequest.setAccountStateType(PerformVerificationRequest.AccountStateTypeEnum.PAYOUT);
+        performVerificationRequest.setTier(1);
         CheckAccountHolderResponse checkAccountHolderResponse = account.checkAccountHolder(performVerificationRequest);
 
         assertNotNull(checkAccountHolderResponse);
@@ -769,6 +786,8 @@ public class MarketPayTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/marketpay/account/delete-payout-methods-success.json");
         Account account = new Account(client);
         DeletePayoutMethodRequest deletePayoutMethodRequest = new DeletePayoutMethodRequest();
+        deletePayoutMethodRequest.setAccountHolderCode("accountHolderCode");
+        deletePayoutMethodRequest.addPayoutMethodCodesItem("payoutMethod");
         DeletePayoutMethodResponse deletePayoutMethodResponse = account.deletePayoutMethod(deletePayoutMethodRequest);
 
         assertNotNull(deletePayoutMethodResponse);
@@ -777,14 +796,54 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
+    public void TestDeletePayoutMethodsErrorInvalid() throws Exception {
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-payout-methods-error-invalid-fields.json");
+        Account account = new Account(client);
+        DeletePayoutMethodRequest deletePayoutMethodRequest = new DeletePayoutMethodRequest();
+        deletePayoutMethodRequest.setAccountHolderCode("accountHolderCode");
+        deletePayoutMethodRequest.addPayoutMethodCodesItem("payoutMethod");
+        DeletePayoutMethodResponse deletePayoutMethodResponse = account.deletePayoutMethod(deletePayoutMethodRequest);
+
+        assertNotNull(deletePayoutMethodResponse);
+        assertEquals("8834084311503499", deletePayoutMethodResponse.getPspReference());
+        assertEquals(1, deletePayoutMethodResponse.getInvalidFields().size());
+        assertEquals(17, deletePayoutMethodResponse.getInvalidFields().get(0).getErrorCode().intValue());
+        assertEquals("AccountHolderCode required", deletePayoutMethodResponse.getInvalidFields().get(0).getErrorDescription());
+        assertNotNull(deletePayoutMethodResponse.getInvalidFields().get(0).getFieldType());
+        assertEquals("accountHolderCode", deletePayoutMethodResponse.getInvalidFields().get(0).getFieldType().getField());
+    }
+
+    @Test
     public void TestRefundFundsTranferSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/marketpay/fund/refund-funds-transfer-success.json");
         Fund fund = new Fund(client);
         RefundFundsTransferRequest refundFundsTransferRequest = new RefundFundsTransferRequest();
+        refundFundsTransferRequest.setAmount(new Amount().value(1L).currency("EUR"));
+        refundFundsTransferRequest.setMerchantReference("merchantReference");
+        refundFundsTransferRequest.setOriginalReference("originalReference");
         RefundFundsTransferResponse refundFundsTransferResponse = fund.refundFundsTransfer(refundFundsTransferRequest);
 
         assertNotNull(refundFundsTransferResponse);
         assertEquals("Received", refundFundsTransferResponse.getResultCode());
         assertEquals("9115090773984130", refundFundsTransferResponse.getPspReference());
+    }
+
+    @Test
+    public void TestRefundFundsTranferErrorInvalid() throws Exception {
+        Client client = createMockClientFromFile("mocks/marketpay/fund/refund-fund-transfer-error-invalid-fields.json");
+        Fund fund = new Fund(client);
+        RefundFundsTransferRequest refundFundsTransferRequest = new RefundFundsTransferRequest();
+        refundFundsTransferRequest.setAmount(new Amount().value(1L).currency("EUR"));
+        refundFundsTransferRequest.setMerchantReference("merchantReference");
+        refundFundsTransferRequest.setOriginalReference("originalReference");
+        RefundFundsTransferResponse refundFundsTransferResponse = fund.refundFundsTransfer(refundFundsTransferRequest);
+
+        assertNotNull(refundFundsTransferResponse);
+        assertEquals("8934084311505501", refundFundsTransferResponse.getPspReference());
+        assertEquals(1, refundFundsTransferResponse.getInvalidFields().size());
+        assertEquals(17, refundFundsTransferResponse.getInvalidFields().get(0).getErrorCode().intValue());
+        assertEquals("MerchantReference required", refundFundsTransferResponse.getInvalidFields().get(0).getErrorDescription());
+        assertNotNull(refundFundsTransferResponse.getInvalidFields().get(0).getFieldType());
+        assertEquals("merchantReference", refundFundsTransferResponse.getInvalidFields().get(0).getFieldType().getField());
     }
 }
