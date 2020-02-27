@@ -1,4 +1,3 @@
-
 /*
  *                       ######
  *                       ######
@@ -24,6 +23,7 @@ package com.adyen.model.marketpay;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -37,7 +37,7 @@ public class UpdateAccountRequest {
     private String description = null;
 
     @SerializedName("metadata")
-    private Object metadata = null;
+    private Map<String, String> metadata = null;
 
     @SerializedName("payoutSchedule")
     private UpdatePayoutScheduleRequest payoutSchedule = null;
@@ -78,7 +78,7 @@ public class UpdateAccountRequest {
         this.description = description;
     }
 
-    public UpdateAccountRequest metadata(Object metadata) {
+    public UpdateAccountRequest metadata(Map<String, String> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -88,11 +88,11 @@ public class UpdateAccountRequest {
      *
      * @return metadata
      **/
-    public Object getMetadata() {
+    public Map<String, String> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Object metadata) {
+    public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
 

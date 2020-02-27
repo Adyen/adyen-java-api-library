@@ -28,6 +28,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -41,7 +42,7 @@ public class CreateAccountRequest {
     private String description = null;
 
     @SerializedName("metadata")
-    private Object metadata = null;
+    private Map<String, String> metadata = null;
 
     /**
      * The payout schedule of the prospective account. &gt;Permitted values: &#x60;DEFAULT&#x60;, &#x60;HOLD&#x60;, &#x60;DAILY&#x60;, &#x60;WEEKLY&#x60;, &#x60;MONTHLY&#x60;.
@@ -143,7 +144,7 @@ public class CreateAccountRequest {
         this.description = description;
     }
 
-    public CreateAccountRequest metadata(Object metadata) {
+    public CreateAccountRequest metadata(Map<String, String> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -153,11 +154,11 @@ public class CreateAccountRequest {
      *
      * @return metadata
      **/
-    public Object getMetadata() {
+    public Map<String, String> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Object metadata) {
+    public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
 

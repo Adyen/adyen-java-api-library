@@ -26,6 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -54,7 +55,7 @@ public class AccountHolderDetails {
     private String merchantCategoryCode = null;
 
     @SerializedName("metadata")
-    private Object metadata = null;
+    private Map<String, String> metadata = null;
 
     @SerializedName("payoutMethods")
     private List<PayoutMethod> payoutMethods = null;
@@ -196,7 +197,7 @@ public class AccountHolderDetails {
         this.merchantCategoryCode = merchantCategoryCode;
     }
 
-    public AccountHolderDetails metadata(Object metadata) {
+    public AccountHolderDetails metadata(Map<String, String> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -206,11 +207,11 @@ public class AccountHolderDetails {
      *
      * @return metadata
      **/
-    public Object getMetadata() {
+    public Map<String, String> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Object metadata) {
+    public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
 
