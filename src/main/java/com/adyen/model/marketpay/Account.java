@@ -14,15 +14,17 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Account
@@ -40,6 +42,9 @@ public class Account {
     @SerializedName("description")
     private String description = null;
 
+    @SerializedName("metadata")
+    private Map<String, String> metadata = null;
+
     @SerializedName("payoutSchedule")
     private PayoutScheduleResponse payoutSchedule = null;
 
@@ -52,7 +57,7 @@ public class Account {
     }
 
     /**
-     * account code
+     * The code of the account.
      *
      * @return accountCode
      **/
@@ -70,7 +75,7 @@ public class Account {
     }
 
     /**
-     * Account's beneficiary account
+     * The beneficiary of the account.
      *
      * @return beneficiaryAccount
      **/
@@ -88,7 +93,7 @@ public class Account {
     }
 
     /**
-     * Reason beneficiary was setup
+     * The reason that a beneficiary has been set up for this account. This may have been supplied during the setup of a beneficiary at the discretion of the executing user.
      *
      * @return beneficiaryMerchantReference
      **/
@@ -100,6 +105,16 @@ public class Account {
         this.beneficiaryMerchantReference = beneficiaryMerchantReference;
     }
 
+    public Account description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * A description of the account.
+     *
+     * @return description
+     **/
     public String getDescription() {
         return description;
     }
@@ -108,6 +123,23 @@ public class Account {
         this.description = description;
     }
 
+    public Account metadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    /**
+     * A set of key and value pairs for general use by the merchant. The keys do not have specific names and may be used for storing miscellaneous data as desired. &gt; Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.
+     *
+     * @return metadata
+     **/
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
 
     public Account payoutSchedule(PayoutScheduleResponse payoutSchedule) {
         this.payoutSchedule = payoutSchedule;
@@ -115,7 +147,7 @@ public class Account {
     }
 
     /**
-     * account's payout schedule
+     * Get payoutSchedule
      *
      * @return payoutSchedule
      **/
@@ -127,6 +159,16 @@ public class Account {
         this.payoutSchedule = payoutSchedule;
     }
 
+    public Account status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * The status of the account. Possible values: &#x60;Active&#x60;, &#x60;Inactive&#x60;, &#x60;Suspended&#x60;, &#x60;Closed&#x60;.
+     *
+     * @return status
+     **/
     public String getStatus() {
         return status;
     }
@@ -134,6 +176,7 @@ public class Account {
     public void setStatus(String status) {
         this.status = status;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -144,16 +187,18 @@ public class Account {
             return false;
         }
         Account account = (Account) o;
-        return Objects.equals(this.accountCode, account.accountCode)
-                && Objects.equals(this.beneficiaryAccount, account.beneficiaryAccount)
-                && Objects.equals(this.beneficiaryMerchantReference,
-                account.beneficiaryMerchantReference)
-                && Objects.equals(this.payoutSchedule, account.payoutSchedule);
+        return Objects.equals(this.accountCode, account.accountCode) &&
+                Objects.equals(this.beneficiaryAccount, account.beneficiaryAccount) &&
+                Objects.equals(this.beneficiaryMerchantReference, account.beneficiaryMerchantReference) &&
+                Objects.equals(this.description, account.description) &&
+                Objects.equals(this.metadata, account.metadata) &&
+                Objects.equals(this.payoutSchedule, account.payoutSchedule) &&
+                Objects.equals(this.status, account.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, beneficiaryAccount, beneficiaryMerchantReference, payoutSchedule);
+        return Objects.hash(accountCode, beneficiaryAccount, beneficiaryMerchantReference, description, metadata, payoutSchedule, status);
     }
 
 
@@ -166,6 +211,7 @@ public class Account {
         sb.append("    beneficiaryAccount: ").append(toIndentedString(beneficiaryAccount)).append("\n");
         sb.append("    beneficiaryMerchantReference: ").append(toIndentedString(beneficiaryMerchantReference)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
@@ -184,4 +230,3 @@ public class Account {
     }
 
 }
-

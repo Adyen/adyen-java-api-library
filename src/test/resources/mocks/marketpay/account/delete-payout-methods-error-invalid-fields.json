@@ -1,0 +1,12 @@
+{
+  "pspReference": "8834084311503499",
+  "invalidFields": [
+    {
+      "errorCode": 17,
+      "errorDescription": "AccountHolderCode required",
+      "fieldType": {
+        "field": "accountHolderCode"
+      }
+    }
+  ]
+}

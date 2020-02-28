@@ -20,12 +20,6 @@
  */
 package com.adyen;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
-import org.junit.Test;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.FraudCheckResult;
@@ -41,6 +35,7 @@ import com.adyen.model.marketpay.AccountHolderStatus;
 import com.adyen.model.marketpay.AccountHolderTransactionListRequest;
 import com.adyen.model.marketpay.AccountHolderTransactionListResponse;
 import com.adyen.model.marketpay.BankAccountDetail;
+import com.adyen.model.marketpay.CheckAccountHolderResponse;
 import com.adyen.model.marketpay.CloseAccountHolderRequest;
 import com.adyen.model.marketpay.CloseAccountHolderResponse;
 import com.adyen.model.marketpay.CloseAccountRequest;
@@ -51,26 +46,32 @@ import com.adyen.model.marketpay.CreateAccountRequest;
 import com.adyen.model.marketpay.CreateAccountResponse;
 import com.adyen.model.marketpay.DeleteBankAccountRequest;
 import com.adyen.model.marketpay.DeleteBankAccountResponse;
+import com.adyen.model.marketpay.DeletePayoutMethodRequest;
+import com.adyen.model.marketpay.DeletePayoutMethodResponse;
 import com.adyen.model.marketpay.DeleteShareholderRequest;
 import com.adyen.model.marketpay.DeleteShareholderResponse;
 import com.adyen.model.marketpay.DocumentDetail;
+import com.adyen.model.marketpay.FieldType;
 import com.adyen.model.marketpay.GetAccountHolderRequest;
 import com.adyen.model.marketpay.GetAccountHolderResponse;
-import com.adyen.model.marketpay.GetTierConfigurationResponse;
 import com.adyen.model.marketpay.GetUploadedDocumentsRequest;
 import com.adyen.model.marketpay.GetUploadedDocumentsResponse;
 import com.adyen.model.marketpay.IndividualDetails;
 import com.adyen.model.marketpay.PayoutAccountHolderRequest;
 import com.adyen.model.marketpay.PayoutAccountHolderResponse;
 import com.adyen.model.marketpay.PayoutScheduleResponse;
+import com.adyen.model.marketpay.PerformVerificationRequest;
 import com.adyen.model.marketpay.PersonalData;
-import com.adyen.model.marketpay.PhoneNumber;
+import com.adyen.model.marketpay.PersonalDocumentData;
+import com.adyen.model.marketpay.RefundFundsTransferRequest;
+import com.adyen.model.marketpay.RefundFundsTransferResponse;
 import com.adyen.model.marketpay.RefundNotPaidOutTransfersRequest;
 import com.adyen.model.marketpay.RefundNotPaidOutTransfersResponse;
 import com.adyen.model.marketpay.SetupBeneficiaryRequest;
 import com.adyen.model.marketpay.SetupBeneficiaryResponse;
 import com.adyen.model.marketpay.SuspendAccountHolderRequest;
 import com.adyen.model.marketpay.SuspendAccountHolderResponse;
+import com.adyen.model.marketpay.Transaction;
 import com.adyen.model.marketpay.TransactionListForAccount;
 import com.adyen.model.marketpay.TransferFundsRequest;
 import com.adyen.model.marketpay.TransferFundsResponse;
@@ -88,13 +89,23 @@ import com.adyen.model.marketpay.UploadDocumentResponse;
 import com.adyen.service.Account;
 import com.adyen.service.Fund;
 import com.adyen.service.Payment;
+import org.junit.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.AWAITING_DATA;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.PASSED;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.BANK_ACCOUNT_VERIFICATION;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.COMPANY_VERIFICATION;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.PASSPORT_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.IDENTITY_VERIFICATION;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -110,8 +121,8 @@ public class MarketPayTest extends BaseTest {
         Payment payment = new Payment(client);
 
         PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                                                                                      .setAmountData("6200", "EUR")
-                                                                                      .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
+                .setAmountData("6200", "EUR")
+                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
 
         // splitPayment
         SplitPayment splitPayment = new SplitPayment();
@@ -217,7 +228,7 @@ public class MarketPayTest extends BaseTest {
         bankAccountDetail.setOwnerStreet("ownerStreet");
         bankAccountDetail.setPrimaryAccount(true);
         bankAccountDetail.setTaxId("bankTaxId");
-        accountHolderDetails.addBankAccountDetail(bankAccountDetail);
+        accountHolderDetails.addBankAccountDetailsItem(bankAccountDetail);
         accountHolderDetails.setEmail("test@adyen.com");
 
         // set individualDetails
@@ -233,20 +244,18 @@ public class MarketPayTest extends BaseTest {
         // set personal data inside individualDetails
         PersonalData personalData = new PersonalData();
         personalData.dateOfBirth("1970-01-01");
-        personalData.setIdNumber("1234567890");
         personalData.setNationality("NL");
+        //set id
+        PersonalDocumentData personalDocumentData = new PersonalDocumentData();
+        personalDocumentData.setNumber("1234567890");
+        personalDocumentData.setType(PersonalDocumentData.TypeEnum.ID);
+        personalData.setDocumentData(Collections.singletonList(personalDocumentData));
         individualDetails.setPersonalData(personalData);
 
         // attach individualDetails into accountHolderDetails
         accountHolderDetails.setIndividualDetails(individualDetails);
         accountHolderDetails.setMerchantCategoryCode("7999");
-
-        // create phone number
-        PhoneNumber phoneNumber = new PhoneNumber();
-        phoneNumber.setPhoneCountryCode("NL");
-        phoneNumber.setPhoneNumber("0612345678");
-        phoneNumber.setPhoneType(PhoneNumber.PhoneTypeEnum.MOBILE);
-        accountHolderDetails.setPhoneNumber(phoneNumber);
+        accountHolderDetails.setFullPhoneNumber("+31 0612345678");
         accountHolderDetails.setWebAddress("http://www.adyen.com");
 
         // set accountHolderDetails
@@ -282,6 +291,8 @@ public class MarketPayTest extends BaseTest {
 
 
         assertEquals(42058L, accountHolderBalanceResponse.getTotalBalance().getPendingBalance().get(0).getValue().longValue());
+        assertEquals(77098L, accountHolderBalanceResponse.getTotalBalance().getOnHoldBalance().get(0).getValue().longValue());
+        assertEquals(99792L, accountHolderBalanceResponse.getTotalBalance().getBalance().get(0).getValue().longValue());
         assertEquals(99792L, accountHolderBalanceResponse.getBalancePerAccount().get(0).getDetailBalance().getBalance().get(0).getValue().longValue());
     }
 
@@ -324,20 +335,18 @@ public class MarketPayTest extends BaseTest {
         // update personal data inside individualDetails
         PersonalData personalData = new PersonalData();
         personalData.dateOfBirth("1970-01-01");
-        personalData.setIdNumber("1234567890");
         personalData.setNationality("NL");
+        //set id
+        PersonalDocumentData personalDocumentData = new PersonalDocumentData();
+        personalDocumentData.setNumber("1234567890");
+        personalDocumentData.setType(PersonalDocumentData.TypeEnum.ID);
+        personalData.setDocumentData(Collections.singletonList(personalDocumentData));
         individualDetails.setPersonalData(personalData);
 
         // attach individualDetails into accountHolderDetails
         accountHolderDetails.setIndividualDetails(individualDetails);
         accountHolderDetails.setMerchantCategoryCode("7999");
-
-        // create phone number and set Web Address
-        PhoneNumber phoneNumber = new PhoneNumber();
-        phoneNumber.setPhoneCountryCode("NL");
-        phoneNumber.setPhoneNumber("0612345678");
-        phoneNumber.setPhoneType(PhoneNumber.PhoneTypeEnum.MOBILE);
-        accountHolderDetails.setPhoneNumber(phoneNumber);
+        accountHolderDetails.setFullPhoneNumber("+31 0612345678");
         accountHolderDetails.setWebAddress("http://www.accountholderwebsite.com");
 
         // updateAccountHolder
@@ -361,10 +370,14 @@ public class MarketPayTest extends BaseTest {
 
         GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
 
-        assertEquals("681d5df6-cf38-4557-aecd-ac8ed0c04195", getAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
-        assertEquals("140922935", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
-        assertEquals(PASSPORT_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckType());
+        assertEquals("6026a526-7863-aaaa-dddd-f8fadc47473e", getAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
+        assertEquals("115548513", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
+        assertEquals(IDENTITY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckType());
         assertEquals(AWAITING_DATA, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckStatus());
+        assertNotNull(getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields());
+        assertEquals("AccountHolderDetails.Address.address", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields().get(0));
+        assertEquals("AccountHolderDetails.PhoneNumber.phoneNumber", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields().get(1));
+
     }
 
     @Test
@@ -383,10 +396,11 @@ public class MarketPayTest extends BaseTest {
 
         assertEquals("1abf8304-58c7-4a9e-8bd3-4d7eff9801e4", getAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
         assertEquals("67890", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getAddress().getPostalCode());
-        assertEquals("123370698", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
+        assertEquals("115548513", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
         assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckType());
         assertEquals(PASSED, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckStatus());
-        assertEquals(1602, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getSummary().getCode().intValue());
+        assertEquals(1602, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getSummary().getKycCheckCode().intValue());
+        assertEquals("Passed", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getSummary().getKycCheckDescription());
     }
 
     @Test
@@ -455,7 +469,10 @@ public class MarketPayTest extends BaseTest {
 
         CreateAccountResponse createAccountResponse = account.createAccount(createAccountRequest);
         assertEquals("TestAccountHolder5691", createAccountResponse.getAccountHolderCode());
-
+        assertEquals("Success", createAccountResponse.getResultCode());
+        assertEquals("9914913130220156", createAccountResponse.getPspReference());
+        assertEquals("195920946", createAccountResponse.getAccountCode());
+        assertEquals(CreateAccountResponse.StatusEnum.ACTIVE, createAccountResponse.getStatus());
     }
 
     @Test
@@ -474,8 +491,7 @@ public class MarketPayTest extends BaseTest {
         DeleteBankAccountResponse deleteBankAccountResponse = account.deleteBankAccount(deleteBankAccountRequest);
 
         assertEquals("9914694372670551", deleteBankAccountResponse.getPspReference());
-
-
+        assertEquals("Success", deleteBankAccountResponse.getResultCode());
     }
 
     @Test
@@ -493,6 +509,7 @@ public class MarketPayTest extends BaseTest {
 
         DeleteShareholderResponse deleteShareholderResponse = account.deleteShareholder(deleteShareholderRequest);
         assertEquals("9914694372990637", deleteShareholderResponse.getPspReference());
+        assertEquals("Received", deleteShareholderResponse.getResultCode());
 
     }
 
@@ -561,6 +578,8 @@ public class MarketPayTest extends BaseTest {
         closeAccountRequest.setAccountCode("118731451");
 
         CloseAccountResponse closeAccountResponse = account.closeAccount(closeAccountRequest);
+        assertEquals("9914913129290137", closeAccountResponse.getPspReference());
+        assertEquals("Success", closeAccountResponse.getResultCode());
         assertEquals(CloseAccountResponse.StatusEnum.CLOSED, closeAccountResponse.getStatus());
     }
 
@@ -577,6 +596,8 @@ public class MarketPayTest extends BaseTest {
         closeAccountHolderRequest.setAccountHolderCode("TestAccountHolder1450");
 
         CloseAccountHolderResponse closeAccountHolderResponse = account.closeAccountHolder(closeAccountHolderRequest);
+        assertEquals("9914713476670992", closeAccountHolderResponse.getPspReference());
+        assertEquals("Success", closeAccountHolderResponse.getResultCode());
         assertEquals(AccountHolderStatus.StatusEnum.CLOSED, closeAccountHolderResponse.getAccountHolderStatus().getStatus());
     }
 
@@ -648,7 +669,13 @@ public class MarketPayTest extends BaseTest {
         accountHolderTransactionListRequest.addTransactionListsPerAccountItem(transactionListForAccount);
         AccountHolderTransactionListResponse accountHolderTransactionListResponse = fund.accountHolderTransactionList(accountHolderTransactionListRequest);
 
+        assertEquals("118731451", accountHolderTransactionListResponse.getAccountTransactionLists().get(0).getAccountCode());
+        assertEquals(4, accountHolderTransactionListResponse.getAccountTransactionLists().get(0).getTransactions().size());
         assertEquals("12345 - Test", accountHolderTransactionListResponse.getAccountTransactionLists().get(0).getTransactions().get(0).getDescription());
+        assertEquals(Transaction.TransactionStatusEnum.PENDINGCREDIT, accountHolderTransactionListResponse.getAccountTransactionLists().get(0).getTransactions().get(0).getTransactionStatus());
+        assertEquals("9914716081770032", accountHolderTransactionListResponse.getAccountTransactionLists().get(0).getTransactions().get(0).getPspReference());
+        assertEquals(2300L, accountHolderTransactionListResponse.getAccountTransactionLists().get(0).getTransactions().get(0).getAmount().getValue().longValue());
+
     }
 
     @Test
@@ -702,19 +729,6 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
-    public void TestGetTierConfiguration() throws Exception {
-        // setup client
-        Client client = createMockClientFromFile("mocks/marketpay/account/get-tier-configuration-success.json");
-
-        // use Account service
-        Account account = new Account(client);
-
-        GetTierConfigurationResponse getTierConfigurationResponse = account.getTierConfiguration();
-
-        assertEquals(10000L, getTierConfigurationResponse.getTierConfiguration().get(0).getTiers().get(0).getToAmount().getValue().longValue());
-    }
-
-    @Test
     public void TestCreateAccountHolderInvalid() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/create-account-holder-error-invalid-fields.json");
@@ -727,13 +741,19 @@ public class MarketPayTest extends BaseTest {
 
         CreateAccountHolderResponse createAccountHolderResponse = account.createAccountHolder(createAccountHolderRequest);
 
+        assertEquals("8815089411506100", createAccountHolderResponse.getPspReference());
+        assertEquals(1, createAccountHolderResponse.getInvalidFields().size());
         assertEquals(17, createAccountHolderResponse.getInvalidFields().get(0).getErrorCode().intValue());
+        assertEquals("IBAN and accountNumber/branchCode/bankCode specified, please provide one or the other", createAccountHolderResponse.getInvalidFields().get(0).getErrorDescription());
+        assertNotNull(createAccountHolderResponse.getInvalidFields().get(0).getFieldType());
+        assertEquals("AccountHolderDetails.BankAccountDetails.iban", createAccountHolderResponse.getInvalidFields().get(0).getFieldType().getField());
+        assertEquals(FieldType.FieldNameEnum.IBAN, createAccountHolderResponse.getInvalidFields().get(0).getFieldType().getFieldName());
     }
 
     @Test
     public void TestUpdateAccountHolderInvalid() throws Exception {
         // setup client
-        Client client = createMockClientFromFile("mocks/marketpay/account/create-account-holder-error-invalid-fields.json");
+        Client client = createMockClientFromFile("mocks/marketpay/account/update-account-holder-error-invalid-fields.json");
 
         // use Account service
         Account account = new Account(client);
@@ -744,5 +764,86 @@ public class MarketPayTest extends BaseTest {
         UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
 
         assertEquals(17, updateAccountHolderResponse.getInvalidFields().get(0).getErrorCode().intValue());
+    }
+
+    @Test
+    public void TestCheckAccountHolderSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/marketpay/account/check-account-holder-success.json");
+        Account account = new Account(client);
+        PerformVerificationRequest performVerificationRequest = new PerformVerificationRequest();
+        performVerificationRequest.setAccountHolderCode("accountHolderCode");
+        performVerificationRequest.setAccountStateType(PerformVerificationRequest.AccountStateTypeEnum.PAYOUT);
+        performVerificationRequest.setTier(1);
+        CheckAccountHolderResponse checkAccountHolderResponse = account.checkAccountHolder(performVerificationRequest);
+
+        assertNotNull(checkAccountHolderResponse);
+        assertEquals("Success", checkAccountHolderResponse.getResultCode());
+        assertEquals("85158152328111154", checkAccountHolderResponse.getPspReference());
+    }
+
+    @Test
+    public void TestDeletePayoutMethodsSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-payout-methods-success.json");
+        Account account = new Account(client);
+        DeletePayoutMethodRequest deletePayoutMethodRequest = new DeletePayoutMethodRequest();
+        deletePayoutMethodRequest.setAccountHolderCode("accountHolderCode");
+        deletePayoutMethodRequest.addPayoutMethodCodesItem("payoutMethod");
+        DeletePayoutMethodResponse deletePayoutMethodResponse = account.deletePayoutMethod(deletePayoutMethodRequest);
+
+        assertNotNull(deletePayoutMethodResponse);
+        assertEquals("Success", deletePayoutMethodResponse.getResultCode());
+        assertEquals("85758192328222265", deletePayoutMethodResponse.getPspReference());
+    }
+
+    @Test
+    public void TestDeletePayoutMethodsErrorInvalid() throws Exception {
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-payout-methods-error-invalid-fields.json");
+        Account account = new Account(client);
+        DeletePayoutMethodRequest deletePayoutMethodRequest = new DeletePayoutMethodRequest();
+        deletePayoutMethodRequest.setAccountHolderCode("accountHolderCode");
+        deletePayoutMethodRequest.addPayoutMethodCodesItem("payoutMethod");
+        DeletePayoutMethodResponse deletePayoutMethodResponse = account.deletePayoutMethod(deletePayoutMethodRequest);
+
+        assertNotNull(deletePayoutMethodResponse);
+        assertEquals("8834084311503499", deletePayoutMethodResponse.getPspReference());
+        assertEquals(1, deletePayoutMethodResponse.getInvalidFields().size());
+        assertEquals(17, deletePayoutMethodResponse.getInvalidFields().get(0).getErrorCode().intValue());
+        assertEquals("AccountHolderCode required", deletePayoutMethodResponse.getInvalidFields().get(0).getErrorDescription());
+        assertNotNull(deletePayoutMethodResponse.getInvalidFields().get(0).getFieldType());
+        assertEquals("accountHolderCode", deletePayoutMethodResponse.getInvalidFields().get(0).getFieldType().getField());
+    }
+
+    @Test
+    public void TestRefundFundsTranferSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/marketpay/fund/refund-funds-transfer-success.json");
+        Fund fund = new Fund(client);
+        RefundFundsTransferRequest refundFundsTransferRequest = new RefundFundsTransferRequest();
+        refundFundsTransferRequest.setAmount(new Amount().value(1L).currency("EUR"));
+        refundFundsTransferRequest.setMerchantReference("merchantReference");
+        refundFundsTransferRequest.setOriginalReference("originalReference");
+        RefundFundsTransferResponse refundFundsTransferResponse = fund.refundFundsTransfer(refundFundsTransferRequest);
+
+        assertNotNull(refundFundsTransferResponse);
+        assertEquals("Received", refundFundsTransferResponse.getResultCode());
+        assertEquals("9115090773984130", refundFundsTransferResponse.getPspReference());
+    }
+
+    @Test
+    public void TestRefundFundsTranferErrorInvalid() throws Exception {
+        Client client = createMockClientFromFile("mocks/marketpay/fund/refund-fund-transfer-error-invalid-fields.json");
+        Fund fund = new Fund(client);
+        RefundFundsTransferRequest refundFundsTransferRequest = new RefundFundsTransferRequest();
+        refundFundsTransferRequest.setAmount(new Amount().value(1L).currency("EUR"));
+        refundFundsTransferRequest.setMerchantReference("merchantReference");
+        refundFundsTransferRequest.setOriginalReference("originalReference");
+        RefundFundsTransferResponse refundFundsTransferResponse = fund.refundFundsTransfer(refundFundsTransferRequest);
+
+        assertNotNull(refundFundsTransferResponse);
+        assertEquals("8934084311505501", refundFundsTransferResponse.getPspReference());
+        assertEquals(1, refundFundsTransferResponse.getInvalidFields().size());
+        assertEquals(17, refundFundsTransferResponse.getInvalidFields().get(0).getErrorCode().intValue());
+        assertEquals("MerchantReference required", refundFundsTransferResponse.getInvalidFields().get(0).getErrorDescription());
+        assertNotNull(refundFundsTransferResponse.getInvalidFields().get(0).getFieldType());
+        assertEquals("merchantReference", refundFundsTransferResponse.getInvalidFields().get(0).getFieldType().getField());
     }
 }

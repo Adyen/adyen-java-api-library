@@ -1,3 +1,4 @@
+
 /*
  *                       ######
  *                       ######
@@ -14,51 +15,37 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * GetAccountHolderStatusResponse
  */
 public class GetAccountHolderStatusResponse {
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
-
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
 
     @SerializedName("accountHolderStatus")
     private AccountHolderStatus accountHolderStatus = null;
 
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
+
     @SerializedName("pspReference")
     private String pspReference = null;
 
-    @SerializedName("status")
-    private AccountStatus status = null;
-
-    public GetAccountHolderStatusResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-        return this;
-    }
-
-    /**
-     * Get submittedAsync
-     *
-     * @return submittedAsync
-     **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
-    }
-
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
+    @SerializedName("resultCode")
+    private String resultCode = null;
 
     public GetAccountHolderStatusResponse accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
@@ -66,7 +53,7 @@ public class GetAccountHolderStatusResponse {
     }
 
     /**
-     * account holder code
+     * The code of the Account Holder.
      *
      * @return accountHolderCode
      **/
@@ -84,7 +71,7 @@ public class GetAccountHolderStatusResponse {
     }
 
     /**
-     * account holder status
+     * Get accountHolderStatus
      *
      * @return accountHolderStatus
      **/
@@ -96,13 +83,39 @@ public class GetAccountHolderStatusResponse {
         this.accountHolderStatus = accountHolderStatus;
     }
 
+    public GetAccountHolderStatusResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public GetAccountHolderStatusResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
+        return this;
+    }
+
+    /**
+     * Contains field validation errors that would prevent requests from being processed.
+     *
+     * @return invalidFields
+     **/
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
     public GetAccountHolderStatusResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
     }
 
     /**
-     * psp reference
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -114,22 +127,22 @@ public class GetAccountHolderStatusResponse {
         this.pspReference = pspReference;
     }
 
-    public GetAccountHolderStatusResponse status(AccountStatus status) {
-        this.status = status;
+    public GetAccountHolderStatusResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
         return this;
     }
 
     /**
-     * account holder status
+     * The result code.
      *
-     * @return status
+     * @return resultCode
      **/
-    public AccountStatus getStatus() {
-        return status;
+    public String getResultCode() {
+        return resultCode;
     }
 
-    public void setStatus(AccountStatus status) {
-        this.status = status;
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
     }
 
 
@@ -142,16 +155,16 @@ public class GetAccountHolderStatusResponse {
             return false;
         }
         GetAccountHolderStatusResponse getAccountHolderStatusResponse = (GetAccountHolderStatusResponse) o;
-        return Objects.equals(this.submittedAsync, getAccountHolderStatusResponse.submittedAsync)
-                && Objects.equals(this.accountHolderCode, getAccountHolderStatusResponse.accountHolderCode)
-                && Objects.equals(this.accountHolderStatus, getAccountHolderStatusResponse.accountHolderStatus)
-                && Objects.equals(this.pspReference, getAccountHolderStatusResponse.pspReference)
-                && Objects.equals(this.status, getAccountHolderStatusResponse.status);
+        return Objects.equals(this.accountHolderCode, getAccountHolderStatusResponse.accountHolderCode) &&
+                Objects.equals(this.accountHolderStatus, getAccountHolderStatusResponse.accountHolderStatus) &&
+                Objects.equals(this.invalidFields, getAccountHolderStatusResponse.invalidFields) &&
+                Objects.equals(this.pspReference, getAccountHolderStatusResponse.pspReference) &&
+                Objects.equals(this.resultCode, getAccountHolderStatusResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, accountHolderCode, accountHolderStatus, pspReference, status);
+        return Objects.hash(accountHolderCode, accountHolderStatus, invalidFields, pspReference, resultCode);
     }
 
 
@@ -160,11 +173,11 @@ public class GetAccountHolderStatusResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class GetAccountHolderStatusResponse {\n");
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -181,4 +194,3 @@ public class GetAccountHolderStatusResponse {
     }
 
 }
-

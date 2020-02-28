@@ -1,3 +1,4 @@
+
 /*
  *                       ######
  *                       ######
@@ -14,25 +15,27 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * PayoutAccountHolderRequest
  */
 public class PayoutAccountHolderRequest {
-    @SerializedName("accountHolderCode")
-    private String accountHolderCode = null;
-
     @SerializedName("accountCode")
     private String accountCode = null;
+
+    @SerializedName("accountHolderCode")
+    private String accountHolderCode = null;
 
     @SerializedName("amount")
     private Amount amount = null;
@@ -46,23 +49,8 @@ public class PayoutAccountHolderRequest {
     @SerializedName("merchantReference")
     private String merchantReference = null;
 
-    public PayoutAccountHolderRequest accountHolderCode(String accountHolderCode) {
-        this.accountHolderCode = accountHolderCode;
-        return this;
-    }
-
-    /**
-     * Get accountHolderCode
-     *
-     * @return accountHolderCode
-     **/
-    public String getAccountHolderCode() {
-        return accountHolderCode;
-    }
-
-    public void setAccountHolderCode(String accountHolderCode) {
-        this.accountHolderCode = accountHolderCode;
-    }
+    @SerializedName("payoutMethodCode")
+    private String payoutMethodCode = null;
 
     public PayoutAccountHolderRequest accountCode(String accountCode) {
         this.accountCode = accountCode;
@@ -70,7 +58,7 @@ public class PayoutAccountHolderRequest {
     }
 
     /**
-     * Get accountCode
+     * The code of the account from which the payout is to be made.
      *
      * @return accountCode
      **/
@@ -80,6 +68,24 @@ public class PayoutAccountHolderRequest {
 
     public void setAccountCode(String accountCode) {
         this.accountCode = accountCode;
+    }
+
+    public PayoutAccountHolderRequest accountHolderCode(String accountHolderCode) {
+        this.accountHolderCode = accountHolderCode;
+        return this;
+    }
+
+    /**
+     * The code of the Account Holder who owns the account from which the payout is to be made. The Account Holder is the party to which the payout will be made.
+     *
+     * @return accountHolderCode
+     **/
+    public String getAccountHolderCode() {
+        return accountHolderCode;
+    }
+
+    public void setAccountHolderCode(String accountHolderCode) {
+        this.accountHolderCode = accountHolderCode;
     }
 
     public PayoutAccountHolderRequest amount(Amount amount) {
@@ -106,7 +112,7 @@ public class PayoutAccountHolderRequest {
     }
 
     /**
-     * the bankAccountUUID of the Bank Account to use. If not set, a default is automatically selected.
+     * The unique ID of the Bank Account held by the Account Holder to which the payout is to be made. If left blank, a bank account is automatically selected.
      *
      * @return bankAccountUUID
      **/
@@ -124,7 +130,7 @@ public class PayoutAccountHolderRequest {
     }
 
     /**
-     * Get description
+     * A description of the payout. Maximum 35 characters. Allowed: **abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/?:().,&#x27;+ \&quot;;**
      *
      * @return description
      **/
@@ -136,11 +142,16 @@ public class PayoutAccountHolderRequest {
         this.description = description;
     }
 
+    public PayoutAccountHolderRequest merchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+        return this;
+    }
+
     /**
-     * get merchantReference
+     * A value that can be supplied at the discretion of the executing user in order to link multiple transactions to one another.
      *
      * @return merchantReference
-     */
+     **/
     public String getMerchantReference() {
         return merchantReference;
     }
@@ -148,6 +159,25 @@ public class PayoutAccountHolderRequest {
     public void setMerchantReference(String merchantReference) {
         this.merchantReference = merchantReference;
     }
+
+    public PayoutAccountHolderRequest payoutMethodCode(String payoutMethodCode) {
+        this.payoutMethodCode = payoutMethodCode;
+        return this;
+    }
+
+    /**
+     * The unique ID of the payout method held by the Account Holder to which the payout is to be made. If left blank, a payout instrument is automatically selected.
+     *
+     * @return payoutMethodCode
+     **/
+    public String getPayoutMethodCode() {
+        return payoutMethodCode;
+    }
+
+    public void setPayoutMethodCode(String payoutMethodCode) {
+        this.payoutMethodCode = payoutMethodCode;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -158,17 +188,18 @@ public class PayoutAccountHolderRequest {
             return false;
         }
         PayoutAccountHolderRequest payoutAccountHolderRequest = (PayoutAccountHolderRequest) o;
-        return Objects.equals(this.accountHolderCode, payoutAccountHolderRequest.accountHolderCode)
-                && Objects.equals(this.accountCode, payoutAccountHolderRequest.accountCode)
-                && Objects.equals(this.amount, payoutAccountHolderRequest.amount)
-                && Objects.equals(this.bankAccountUUID, payoutAccountHolderRequest.bankAccountUUID)
-                && Objects.equals(this.description, payoutAccountHolderRequest.description)
-                && Objects.equals(this.merchantReference, payoutAccountHolderRequest.merchantReference);
+        return Objects.equals(this.accountCode, payoutAccountHolderRequest.accountCode) &&
+                Objects.equals(this.accountHolderCode, payoutAccountHolderRequest.accountHolderCode) &&
+                Objects.equals(this.amount, payoutAccountHolderRequest.amount) &&
+                Objects.equals(this.bankAccountUUID, payoutAccountHolderRequest.bankAccountUUID) &&
+                Objects.equals(this.description, payoutAccountHolderRequest.description) &&
+                Objects.equals(this.merchantReference, payoutAccountHolderRequest.merchantReference) &&
+                Objects.equals(this.payoutMethodCode, payoutAccountHolderRequest.payoutMethodCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, accountCode, amount, bankAccountUUID, description, merchantReference);
+        return Objects.hash(accountCode, accountHolderCode, amount, bankAccountUUID, description, merchantReference, payoutMethodCode);
     }
 
 
@@ -177,12 +208,13 @@ public class PayoutAccountHolderRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class PayoutAccountHolderRequest {\n");
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -199,4 +231,3 @@ public class PayoutAccountHolderRequest {
     }
 
 }
-

@@ -1,0 +1,12 @@
+{
+  "pspReference": "8934084311505501",
+  "invalidFields": [
+    {
+      "errorCode": 17,
+      "errorDescription": "MerchantReference required",
+      "fieldType": {
+        "field": "merchantReference"
+      }
+    }
+  ]
+}

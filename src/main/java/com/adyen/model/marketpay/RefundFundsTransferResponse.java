@@ -28,11 +28,21 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * GenericResponse
+ * RefundFundsTransferResponse
  */
-public class GenericResponse {
+
+public class RefundFundsTransferResponse {
     @SerializedName("invalidFields")
     private List<ErrorFieldType> invalidFields = null;
+
+    @SerializedName("merchantReference")
+    private String merchantReference = null;
+
+    @SerializedName("message")
+    private String message = null;
+
+    @SerializedName("originalReference")
+    private String originalReference = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
@@ -40,12 +50,12 @@ public class GenericResponse {
     @SerializedName("resultCode")
     private String resultCode = null;
 
-    public GenericResponse invalidFields(List<ErrorFieldType> invalidFields) {
+    public RefundFundsTransferResponse invalidFields(List<ErrorFieldType> invalidFields) {
         this.invalidFields = invalidFields;
         return this;
     }
 
-    public GenericResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+    public RefundFundsTransferResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
             this.invalidFields = new ArrayList<ErrorFieldType>();
         }
@@ -66,7 +76,61 @@ public class GenericResponse {
         this.invalidFields = invalidFields;
     }
 
-    public GenericResponse pspReference(String pspReference) {
+    public RefundFundsTransferResponse merchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+        return this;
+    }
+
+    /**
+     * The value supplied by the executing user when initiating the transfer refund; may be used to link multiple transactions.
+     *
+     * @return merchantReference
+     **/
+    public String getMerchantReference() {
+        return merchantReference;
+    }
+
+    public void setMerchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+    }
+
+    public RefundFundsTransferResponse message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return message
+     **/
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public RefundFundsTransferResponse originalReference(String originalReference) {
+        this.originalReference = originalReference;
+        return this;
+    }
+
+    /**
+     * A PSP reference of the original fund transfer.
+     *
+     * @return originalReference
+     **/
+    public String getOriginalReference() {
+        return originalReference;
+    }
+
+    public void setOriginalReference(String originalReference) {
+        this.originalReference = originalReference;
+    }
+
+    public RefundFundsTransferResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
     }
@@ -84,7 +148,7 @@ public class GenericResponse {
         this.pspReference = pspReference;
     }
 
-    public GenericResponse resultCode(String resultCode) {
+    public RefundFundsTransferResponse resultCode(String resultCode) {
         this.resultCode = resultCode;
         return this;
     }
@@ -111,24 +175,30 @@ public class GenericResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GenericResponse genericResponse = (GenericResponse) o;
-        return Objects.equals(this.invalidFields, genericResponse.invalidFields) &&
-                Objects.equals(this.pspReference, genericResponse.pspReference) &&
-                Objects.equals(this.resultCode, genericResponse.resultCode);
+        RefundFundsTransferResponse refundFundsTransferResponse = (RefundFundsTransferResponse) o;
+        return Objects.equals(this.invalidFields, refundFundsTransferResponse.invalidFields) &&
+                Objects.equals(this.merchantReference, refundFundsTransferResponse.merchantReference) &&
+                Objects.equals(this.message, refundFundsTransferResponse.message) &&
+                Objects.equals(this.originalReference, refundFundsTransferResponse.originalReference) &&
+                Objects.equals(this.pspReference, refundFundsTransferResponse.pspReference) &&
+                Objects.equals(this.resultCode, refundFundsTransferResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(invalidFields, pspReference, resultCode);
+        return Objects.hash(invalidFields, merchantReference, message, originalReference, pspReference, resultCode);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GenericResponse {\n");
+        sb.append("class RefundFundsTransferResponse {\n");
 
         sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");

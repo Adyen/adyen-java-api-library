@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -25,9 +25,9 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
-public class GetTierConfiguration extends Resource {
+public class CheckAccountHolder extends Resource {
 
-    public GetTierConfiguration(Service service) {
-        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/getTierConfiguration", null);
+    public CheckAccountHolder(Service service) {
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/checkAccountHolder", null);
     }
 }

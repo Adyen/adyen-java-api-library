@@ -14,62 +14,57 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * SetupBeneficiaryResponse
  */
-public class SetupBeneficiaryResponse {
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
 
-    @SerializedName("resultCode")
-    private String resultCode = null;
+public class SetupBeneficiaryResponse {
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
 
-    public SetupBeneficiaryResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
+    @SerializedName("resultCode")
+    private String resultCode = null;
+
+    public SetupBeneficiaryResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public SetupBeneficiaryResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
         return this;
     }
 
     /**
-     * Get submittedAsync
+     * Contains field validation errors that would prevent requests from being processed.
      *
-     * @return submittedAsync
+     * @return invalidFields
      **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
     }
 
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
-
-    public SetupBeneficiaryResponse resultCode(String resultCode) {
-        this.resultCode = resultCode;
-        return this;
-    }
-
-    /**
-     * Get resultCode
-     *
-     * @return resultCode
-     **/
-    public String getResultCode() {
-        return resultCode;
-    }
-
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
     }
 
     public SetupBeneficiaryResponse pspReference(String pspReference) {
@@ -78,7 +73,7 @@ public class SetupBeneficiaryResponse {
     }
 
     /**
-     * psp reference
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -88,6 +83,24 @@ public class SetupBeneficiaryResponse {
 
     public void setPspReference(String pspReference) {
         this.pspReference = pspReference;
+    }
+
+    public SetupBeneficiaryResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
+        return this;
+    }
+
+    /**
+     * The result code.
+     *
+     * @return resultCode
+     **/
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
     }
 
 
@@ -100,13 +113,14 @@ public class SetupBeneficiaryResponse {
             return false;
         }
         SetupBeneficiaryResponse setupBeneficiaryResponse = (SetupBeneficiaryResponse) o;
-        return Objects.equals(this.submittedAsync, setupBeneficiaryResponse.submittedAsync) && Objects.equals(this.resultCode, setupBeneficiaryResponse.resultCode) && Objects.equals(this.pspReference,
-                                                                                                                                                                                      setupBeneficiaryResponse.pspReference);
+        return Objects.equals(this.invalidFields, setupBeneficiaryResponse.invalidFields) &&
+                Objects.equals(this.pspReference, setupBeneficiaryResponse.pspReference) &&
+                Objects.equals(this.resultCode, setupBeneficiaryResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, resultCode, pspReference);
+        return Objects.hash(invalidFields, pspReference, resultCode);
     }
 
 
@@ -115,9 +129,9 @@ public class SetupBeneficiaryResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class SetupBeneficiaryResponse {\n");
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -134,4 +148,3 @@ public class SetupBeneficiaryResponse {
     }
 
 }
-

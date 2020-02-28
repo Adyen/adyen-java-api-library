@@ -14,14 +14,16 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.model.marketpay.CheckAccountHolderResponse;
 import com.adyen.model.marketpay.CloseAccountHolderRequest;
 import com.adyen.model.marketpay.CloseAccountHolderResponse;
 import com.adyen.model.marketpay.CloseAccountRequest;
@@ -32,13 +34,15 @@ import com.adyen.model.marketpay.CreateAccountRequest;
 import com.adyen.model.marketpay.CreateAccountResponse;
 import com.adyen.model.marketpay.DeleteBankAccountRequest;
 import com.adyen.model.marketpay.DeleteBankAccountResponse;
+import com.adyen.model.marketpay.DeletePayoutMethodRequest;
+import com.adyen.model.marketpay.DeletePayoutMethodResponse;
 import com.adyen.model.marketpay.DeleteShareholderRequest;
 import com.adyen.model.marketpay.DeleteShareholderResponse;
 import com.adyen.model.marketpay.GetAccountHolderRequest;
 import com.adyen.model.marketpay.GetAccountHolderResponse;
-import com.adyen.model.marketpay.GetTierConfigurationResponse;
 import com.adyen.model.marketpay.GetUploadedDocumentsRequest;
 import com.adyen.model.marketpay.GetUploadedDocumentsResponse;
+import com.adyen.model.marketpay.PerformVerificationRequest;
 import com.adyen.model.marketpay.SuspendAccountHolderRequest;
 import com.adyen.model.marketpay.SuspendAccountHolderResponse;
 import com.adyen.model.marketpay.UnSuspendAccountHolderRequest;
@@ -51,14 +55,15 @@ import com.adyen.model.marketpay.UpdateAccountRequest;
 import com.adyen.model.marketpay.UpdateAccountResponse;
 import com.adyen.model.marketpay.UploadDocumentRequest;
 import com.adyen.model.marketpay.UploadDocumentResponse;
+import com.adyen.service.resource.account.CheckAccountHolder;
 import com.adyen.service.resource.account.CloseAccount;
 import com.adyen.service.resource.account.CloseAccountHolder;
 import com.adyen.service.resource.account.CreateAccount;
 import com.adyen.service.resource.account.CreateAccountHolder;
 import com.adyen.service.resource.account.DeleteBankAccount;
+import com.adyen.service.resource.account.DeletePayoutMethod;
 import com.adyen.service.resource.account.DeleteShareholder;
 import com.adyen.service.resource.account.GetAccountHolder;
-import com.adyen.service.resource.account.GetTierConfiguration;
 import com.adyen.service.resource.account.GetUploadedDocuments;
 import com.adyen.service.resource.account.SuspendAccountHolder;
 import com.adyen.service.resource.account.UnSuspendAccountHolder;
@@ -84,7 +89,8 @@ public class Account extends Service {
     private CloseAccountHolder closeAccountHolder;
     private UpdateAccount updateAccount;
     private GetUploadedDocuments getUploadedDocuments;
-    private GetTierConfiguration getTierConfiguration;
+    private CheckAccountHolder checkAccountHolder;
+    private DeletePayoutMethod deletePayoutMethod;
 
     public Account(Client client) {
         super(client);
@@ -103,8 +109,8 @@ public class Account extends Service {
         closeAccountHolder = new CloseAccountHolder(this);
         updateAccount = new UpdateAccount(this);
         getUploadedDocuments = new GetUploadedDocuments(this);
-        getTierConfiguration = new GetTierConfiguration(this);
-
+        checkAccountHolder = new CheckAccountHolder(this);
+        deletePayoutMethod = new DeletePayoutMethod(this);
     }
 
     public CreateAccountHolderResponse createAccountHolder(CreateAccountHolderRequest accountHolderRequest) throws Exception {
@@ -248,11 +254,23 @@ public class Account extends Service {
         return getUploadedDocumentsResponse;
     }
 
-    public GetTierConfigurationResponse getTierConfiguration() throws Exception {
-        String jsonResult = getTierConfiguration.request("{}");
-        GetTierConfigurationResponse getTierConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<GetTierConfigurationResponse>() {
+    public CheckAccountHolderResponse checkAccountHolder(PerformVerificationRequest performVerificationRequest) throws Exception {
+        String jsonRequest = GSON.toJson(performVerificationRequest);
+
+        String jsonResult = checkAccountHolder.request(jsonRequest);
+        CheckAccountHolderResponse checkAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<CheckAccountHolderResponse>() {
         }.getType());
 
-        return getTierConfigurationResponse;
+        return checkAccountHolderResponse;
+    }
+
+    public DeletePayoutMethodResponse deletePayoutMethod(DeletePayoutMethodRequest deletePayoutMethodRequest) throws Exception {
+        String jsonRequest = GSON.toJson(deletePayoutMethodRequest);
+
+        String jsonResult = deletePayoutMethod.request(jsonRequest);
+        DeletePayoutMethodResponse deletePayoutMethodResponse = GSON.fromJson(jsonResult, new TypeToken<DeletePayoutMethodResponse>() {
+        }.getType());
+
+        return deletePayoutMethodResponse;
     }
 }
