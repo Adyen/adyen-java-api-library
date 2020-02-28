@@ -1,3 +1,4 @@
+
 /*
  *                       ######
  *                       ######
@@ -14,45 +15,31 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * PersonalData
  */
 public class PersonalData {
-    @SerializedName("nationality")
-    private String nationality = null;
-
     @SerializedName("dateOfBirth")
     private String dateOfBirth = null;
 
-    @SerializedName("idNumber")
-    private String idNumber = null;
+    @SerializedName("documentData")
+    private List<PersonalDocumentData> documentData = null;
 
-    public PersonalData nationality(String nationality) {
-        this.nationality = nationality;
-        return this;
-    }
-
-    /**
-     * The person's nationality represented by an ISO two-character country code (e.g. \"NL\").
-     *
-     * @return nationality
-     **/
-    public String getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
+    @SerializedName("nationality")
+    private String nationality = null;
 
     public PersonalData dateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
@@ -60,7 +47,7 @@ public class PersonalData {
     }
 
     /**
-     * The person's date of birth. The date should be in ISO format yyyy-mm-dd (e.g. 2000-01-31).
+     * The date of birth of the person. The date should be in ISO-8601 format yyyy-mm-dd (e.g. 2000-01-31).
      *
      * @return dateOfBirth
      **/
@@ -72,22 +59,48 @@ public class PersonalData {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public PersonalData idNumber(String idNumber) {
-        this.idNumber = idNumber;
+    public PersonalData documentData(List<PersonalDocumentData> documentData) {
+        this.documentData = documentData;
+        return this;
+    }
+
+    public PersonalData addDocumentDataItem(PersonalDocumentData documentDataItem) {
+        if (this.documentData == null) {
+            this.documentData = new ArrayList<PersonalDocumentData>();
+        }
+        this.documentData.add(documentDataItem);
         return this;
     }
 
     /**
-     * The person's ID number.
+     * Key value pairs of document type and identify numbers
      *
-     * @return idNumber
+     * @return documentData
      **/
-    public String getIdNumber() {
-        return idNumber;
+    public List<PersonalDocumentData> getDocumentData() {
+        return documentData;
     }
 
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
+    public void setDocumentData(List<PersonalDocumentData> documentData) {
+        this.documentData = documentData;
+    }
+
+    public PersonalData nationality(String nationality) {
+        this.nationality = nationality;
+        return this;
+    }
+
+    /**
+     * The nationality of the person represented by a two-character country code. &gt;The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. &#x27;NL&#x27;).
+     *
+     * @return nationality
+     **/
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
 
@@ -100,12 +113,14 @@ public class PersonalData {
             return false;
         }
         PersonalData personalData = (PersonalData) o;
-        return Objects.equals(this.nationality, personalData.nationality) && Objects.equals(this.dateOfBirth, personalData.dateOfBirth) && Objects.equals(this.idNumber, personalData.idNumber);
+        return Objects.equals(this.dateOfBirth, personalData.dateOfBirth) &&
+                Objects.equals(this.documentData, personalData.documentData) &&
+                Objects.equals(this.nationality, personalData.nationality);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nationality, dateOfBirth, idNumber);
+        return Objects.hash(dateOfBirth, documentData, nationality);
     }
 
 
@@ -114,9 +129,9 @@ public class PersonalData {
         StringBuilder sb = new StringBuilder();
         sb.append("class PersonalData {\n");
 
-        sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
         sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-        sb.append("    idNumber: ").append(toIndentedString(idNumber)).append("\n");
+        sb.append("    documentData: ").append(toIndentedString(documentData)).append("\n");
+        sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -133,4 +148,3 @@ public class PersonalData {
     }
 
 }
-

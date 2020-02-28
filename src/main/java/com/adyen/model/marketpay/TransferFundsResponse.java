@@ -14,65 +14,78 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * TransferFundsResponse
  */
+
 public class TransferFundsResponse {
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
-
-    @SerializedName("resultCode")
-    private String resultCode = null;
-
-    @SerializedName("pspReference")
-    private String pspReference = null;
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("merchantReference")
     private String merchantReference = null;
 
-    public TransferFundsResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
+    @SerializedName("pspReference")
+    private String pspReference = null;
+
+    @SerializedName("resultCode")
+    private String resultCode = null;
+
+    public TransferFundsResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public TransferFundsResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
         return this;
     }
 
     /**
-     * Get submittedAsync
+     * Contains field validation errors that would prevent requests from being processed.
      *
-     * @return submittedAsync
+     * @return invalidFields
      **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
     }
 
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
     }
 
-    public TransferFundsResponse resultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public TransferFundsResponse merchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
         return this;
     }
 
     /**
-     * Get resultCode
+     * The value supplied by the executing user when initiating the transfer; may be used to link multiple transactions.
      *
-     * @return resultCode
+     * @return merchantReference
      **/
-    public String getResultCode() {
-        return resultCode;
+    public String getMerchantReference() {
+        return merchantReference;
     }
 
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public void setMerchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
     }
 
     public TransferFundsResponse pspReference(String pspReference) {
@@ -81,7 +94,7 @@ public class TransferFundsResponse {
     }
 
     /**
-     * psp reference
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -93,18 +106,24 @@ public class TransferFundsResponse {
         this.pspReference = pspReference;
     }
 
-    /**
-     * get merchantReference
-     *
-     * @return merchantReference
-     */
-    public String getMerchantReference() {
-        return merchantReference;
+    public TransferFundsResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
+        return this;
     }
 
-    public void setMerchantReference(String merchantReference) {
-        this.merchantReference = merchantReference;
+    /**
+     * The result code.
+     *
+     * @return resultCode
+     **/
+    public String getResultCode() {
+        return resultCode;
     }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -115,16 +134,15 @@ public class TransferFundsResponse {
             return false;
         }
         TransferFundsResponse transferFundsResponse = (TransferFundsResponse) o;
-        return Objects.equals(this.submittedAsync, transferFundsResponse.submittedAsync)
-                && Objects.equals(this.resultCode, transferFundsResponse.resultCode)
-                && Objects.equals(this.pspReference,
-                                  transferFundsResponse.pspReference)
-                && Objects.equals(this.merchantReference, transferFundsResponse.merchantReference);
+        return Objects.equals(this.invalidFields, transferFundsResponse.invalidFields) &&
+                Objects.equals(this.merchantReference, transferFundsResponse.merchantReference) &&
+                Objects.equals(this.pspReference, transferFundsResponse.pspReference) &&
+                Objects.equals(this.resultCode, transferFundsResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, resultCode, pspReference, merchantReference);
+        return Objects.hash(invalidFields, merchantReference, pspReference, resultCode);
     }
 
 
@@ -133,16 +151,17 @@ public class TransferFundsResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class TransferFundsResponse {\n");
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
@@ -152,4 +171,3 @@ public class TransferFundsResponse {
     }
 
 }
-

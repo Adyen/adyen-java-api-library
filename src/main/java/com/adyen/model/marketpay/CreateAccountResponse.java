@@ -14,24 +14,32 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * CreateAccountResponse
  */
 public class CreateAccountResponse {
-    @SerializedName("accountStatus")
-    private AccountStatus accountStatus = null;
-
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
+    @SerializedName("accountCode")
+    private String accountCode = null;
 
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
@@ -39,26 +47,29 @@ public class CreateAccountResponse {
     @SerializedName("description")
     private String description = null;
 
-    @SerializedName("accountCode")
-    private String accountCode = null;
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
+
+    @SerializedName("metadata")
+    private Map<String, String> metadata = null;
+
+    @SerializedName("payoutSchedule")
+    private PayoutScheduleResponse payoutSchedule = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
 
+    @SerializedName("resultCode")
+    private String resultCode = null;
+
     /**
-     * account status
+     * The status of the account. &gt;Permitted values: &#x60;Active&#x60;.
      */
+    @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
-        @SerializedName("Active")
         ACTIVE("Active"),
-
-        @SerializedName("Closed")
         CLOSED("Closed"),
-
-        @SerializedName("Inactive")
         INACTIVE("Inactive"),
-
-        @SerializedName("Suspended")
         SUSPENDED("Suspended");
 
         private String value;
@@ -67,79 +78,40 @@ public class CreateAccountResponse {
             this.value = value;
         }
 
+        public String getValue() {
+            return value;
+        }
+
         @Override
         public String toString() {
             return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String text) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(String.valueOf(value));
+            }
         }
     }
 
     @SerializedName("status")
     private StatusEnum status = null;
-
-    @SerializedName("payoutSchedule")
-    private PayoutScheduleResponse payoutSchedule = null;
-
-    public CreateAccountResponse accountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-        return this;
-    }
-
-    /**
-     * account status
-     *
-     * @return accountStatus
-     **/
-    public AccountStatus getAccountStatus() {
-        return accountStatus;
-    }
-
-    public void setAccountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-    }
-
-    public CreateAccountResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-        return this;
-    }
-
-    /**
-     * Get submittedAsync
-     *
-     * @return submittedAsync
-     **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
-    }
-
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
-
-    public CreateAccountResponse accountHolderCode(String accountHolderCode) {
-        this.accountHolderCode = accountHolderCode;
-        return this;
-    }
-
-    /**
-     * account holder code
-     *
-     * @return accountHolderCode
-     **/
-    public String getAccountHolderCode() {
-        return accountHolderCode;
-    }
-
-    public void setAccountHolderCode(String accountHolderCode) {
-        this.accountHolderCode = accountHolderCode;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public CreateAccountResponse accountCode(String accountCode) {
         this.accountCode = accountCode;
@@ -147,7 +119,7 @@ public class CreateAccountResponse {
     }
 
     /**
-     * generated account code
+     * The code of the new account.
      *
      * @return accountCode
      **/
@@ -159,13 +131,119 @@ public class CreateAccountResponse {
         this.accountCode = accountCode;
     }
 
+    public CreateAccountResponse accountHolderCode(String accountHolderCode) {
+        this.accountHolderCode = accountHolderCode;
+        return this;
+    }
+
+    /**
+     * The code of the account holder.
+     *
+     * @return accountHolderCode
+     **/
+    public String getAccountHolderCode() {
+        return accountHolderCode;
+    }
+
+    public void setAccountHolderCode(String accountHolderCode) {
+        this.accountHolderCode = accountHolderCode;
+    }
+
+    public CreateAccountResponse description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * The description of the account.
+     *
+     * @return description
+     **/
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public CreateAccountResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public CreateAccountResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
+        return this;
+    }
+
+    /**
+     * A list of fields that caused the &#x60;/createAccount&#x60; request to fail.
+     *
+     * @return invalidFields
+     **/
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
+    public CreateAccountResponse metadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public CreateAccountResponse putMetadataItem(String key, String metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<String, String>();
+        }
+        this.metadata.put(key, metadataItem);
+        return this;
+    }
+
+    /**
+     * Get metadata
+     *
+     * @return metadata
+     **/
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
+
+    public CreateAccountResponse payoutSchedule(PayoutScheduleResponse payoutSchedule) {
+        this.payoutSchedule = payoutSchedule;
+        return this;
+    }
+
+    /**
+     * Get payoutSchedule
+     *
+     * @return payoutSchedule
+     **/
+    public PayoutScheduleResponse getPayoutSchedule() {
+        return payoutSchedule;
+    }
+
+    public void setPayoutSchedule(PayoutScheduleResponse payoutSchedule) {
+        this.payoutSchedule = payoutSchedule;
+    }
+
     public CreateAccountResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
     }
 
     /**
-     * psp reference
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -177,13 +255,31 @@ public class CreateAccountResponse {
         this.pspReference = pspReference;
     }
 
+    public CreateAccountResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
+        return this;
+    }
+
+    /**
+     * The result code.
+     *
+     * @return resultCode
+     **/
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
+    }
+
     public CreateAccountResponse status(StatusEnum status) {
         this.status = status;
         return this;
     }
 
     /**
-     * account status
+     * The status of the account. &gt;Permitted values: &#x60;Active&#x60;.
      *
      * @return status
      **/
@@ -193,24 +289,6 @@ public class CreateAccountResponse {
 
     public void setStatus(StatusEnum status) {
         this.status = status;
-    }
-
-    public CreateAccountResponse payoutSchedule(PayoutScheduleResponse payoutSchedule) {
-        this.payoutSchedule = payoutSchedule;
-        return this;
-    }
-
-    /**
-     * parameters of the created payout schedule
-     *
-     * @return payoutSchedule
-     **/
-    public PayoutScheduleResponse getPayoutSchedule() {
-        return payoutSchedule;
-    }
-
-    public void setPayoutSchedule(PayoutScheduleResponse payoutSchedule) {
-        this.payoutSchedule = payoutSchedule;
     }
 
 
@@ -223,19 +301,20 @@ public class CreateAccountResponse {
             return false;
         }
         CreateAccountResponse createAccountResponse = (CreateAccountResponse) o;
-        return Objects.equals(this.accountStatus, createAccountResponse.accountStatus)
-                && Objects.equals(this.submittedAsync, createAccountResponse.submittedAsync)
-                && Objects.equals(this.accountHolderCode, createAccountResponse.accountHolderCode)
-                && Objects.equals(this.description, createAccountResponse.description)
-                && Objects.equals(this.accountCode, createAccountResponse.accountCode)
-                && Objects.equals(this.pspReference, createAccountResponse.pspReference)
-                && Objects.equals(this.status, createAccountResponse.status)
-                && Objects.equals(this.payoutSchedule, createAccountResponse.payoutSchedule);
+        return Objects.equals(this.accountCode, createAccountResponse.accountCode) &&
+                Objects.equals(this.accountHolderCode, createAccountResponse.accountHolderCode) &&
+                Objects.equals(this.description, createAccountResponse.description) &&
+                Objects.equals(this.invalidFields, createAccountResponse.invalidFields) &&
+                Objects.equals(this.metadata, createAccountResponse.metadata) &&
+                Objects.equals(this.payoutSchedule, createAccountResponse.payoutSchedule) &&
+                Objects.equals(this.pspReference, createAccountResponse.pspReference) &&
+                Objects.equals(this.resultCode, createAccountResponse.resultCode) &&
+                Objects.equals(this.status, createAccountResponse.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountStatus, submittedAsync, accountHolderCode, description, accountCode, pspReference, status, payoutSchedule);
+        return Objects.hash(accountCode, accountHolderCode, description, invalidFields, metadata, payoutSchedule, pspReference, resultCode, status);
     }
 
 
@@ -244,14 +323,15 @@ public class CreateAccountResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAccountResponse {\n");
 
-        sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -268,4 +348,3 @@ public class CreateAccountResponse {
     }
 
 }
-

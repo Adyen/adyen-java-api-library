@@ -1,3 +1,5 @@
+
+
 /*
  *                       ######
  *                       ######
@@ -14,66 +16,34 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * SuspendAccountHolderResponse
  */
 public class SuspendAccountHolderResponse {
-    @SerializedName("accountStatus")
-    private AccountStatus accountStatus = null;
-
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
-
     @SerializedName("accountHolderStatus")
     private AccountHolderStatus accountHolderStatus = null;
+
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
 
-    public SuspendAccountHolderResponse accountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-        return this;
-    }
-
-    /**
-     * account holder status after account holder suspension
-     *
-     * @return accountStatus
-     **/
-    public AccountStatus getAccountStatus() {
-        return accountStatus;
-    }
-
-    public void setAccountStatus(AccountStatus accountStatus) {
-        this.accountStatus = accountStatus;
-    }
-
-    public SuspendAccountHolderResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-        return this;
-    }
-
-    /**
-     * Get submittedAsync
-     *
-     * @return submittedAsync
-     **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
-    }
-
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
+    @SerializedName("resultCode")
+    private String resultCode = null;
 
     public SuspendAccountHolderResponse accountHolderStatus(AccountHolderStatus accountHolderStatus) {
         this.accountHolderStatus = accountHolderStatus;
@@ -81,7 +51,7 @@ public class SuspendAccountHolderResponse {
     }
 
     /**
-     * account holder status after account holder suspension
+     * Get accountHolderStatus
      *
      * @return accountHolderStatus
      **/
@@ -93,13 +63,39 @@ public class SuspendAccountHolderResponse {
         this.accountHolderStatus = accountHolderStatus;
     }
 
+    public SuspendAccountHolderResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public SuspendAccountHolderResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
+        return this;
+    }
+
+    /**
+     * Contains field validation errors that would prevent requests from being processed.
+     *
+     * @return invalidFields
+     **/
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
     public SuspendAccountHolderResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
     }
 
     /**
-     * psp reference
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -109,6 +105,24 @@ public class SuspendAccountHolderResponse {
 
     public void setPspReference(String pspReference) {
         this.pspReference = pspReference;
+    }
+
+    public SuspendAccountHolderResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
+        return this;
+    }
+
+    /**
+     * The result code.
+     *
+     * @return resultCode
+     **/
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
     }
 
 
@@ -121,15 +135,15 @@ public class SuspendAccountHolderResponse {
             return false;
         }
         SuspendAccountHolderResponse suspendAccountHolderResponse = (SuspendAccountHolderResponse) o;
-        return Objects.equals(this.accountStatus, suspendAccountHolderResponse.accountStatus)
-                && Objects.equals(this.submittedAsync, suspendAccountHolderResponse.submittedAsync)
-                && Objects.equals(this.accountHolderStatus, suspendAccountHolderResponse.accountHolderStatus)
-                && Objects.equals(this.pspReference, suspendAccountHolderResponse.pspReference);
+        return Objects.equals(this.accountHolderStatus, suspendAccountHolderResponse.accountHolderStatus) &&
+                Objects.equals(this.invalidFields, suspendAccountHolderResponse.invalidFields) &&
+                Objects.equals(this.pspReference, suspendAccountHolderResponse.pspReference) &&
+                Objects.equals(this.resultCode, suspendAccountHolderResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountStatus, submittedAsync, accountHolderStatus, pspReference);
+        return Objects.hash(accountHolderStatus, invalidFields, pspReference, resultCode);
     }
 
 
@@ -138,10 +152,10 @@ public class SuspendAccountHolderResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class SuspendAccountHolderResponse {\n");
 
-        sb.append("    accountStatus: ").append(toIndentedString(accountStatus)).append("\n");
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -158,4 +172,3 @@ public class SuspendAccountHolderResponse {
     }
 
 }
-

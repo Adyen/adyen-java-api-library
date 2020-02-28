@@ -14,32 +14,28 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * BusinessDetails
  */
 public class BusinessDetails {
-    @SerializedName("shareholders")
-    private List<ShareholderContactContainer> shareholderContactContainers = null;
-
-    private transient List<ShareholderContact> shareholders = null;
-
     @SerializedName("doingBusinessAs")
     private String doingBusinessAs = null;
 
-    @SerializedName("taxId")
-    private String taxId = null;
+    @SerializedName("incorporatedAt")
+    private String incorporatedAt = null;
 
     @SerializedName("legalBusinessName")
     private String legalBusinessName = null;
@@ -47,63 +43,11 @@ public class BusinessDetails {
     @SerializedName("registrationNumber")
     private String registrationNumber = null;
 
-    /**
-     * Populate the virtual shareholders to bypass the shareholderContactContainers list
-     *
-     * @return shareholders
-     **/
-    public List<ShareholderContact> getShareholders() {
-        if (shareholders == null) {
-            shareholders = new ArrayList<ShareholderContact>();
+    @SerializedName("shareholders")
+    private List<ShareholderContact> shareholders = null;
 
-            if (shareholderContactContainers != null && !shareholderContactContainers.isEmpty()) {
-                for (ShareholderContactContainer shareholderContactContainer : shareholderContactContainers) {
-                    shareholders.add((shareholderContactContainer.getShareholderContact()));
-                }
-            }
-        }
-        return shareholders;
-    }
-
-
-    /**
-     * Creating a new shareholders list
-     *
-     * @param shareholders shareholders
-     */
-    public void setShareholders(List<ShareholderContact> shareholders) {
-        this.shareholders = shareholders;
-
-        // set as well the container list this will be send in the API request
-        this.shareholderContactContainers = new ArrayList<ShareholderContactContainer>();
-        for (ShareholderContact shareholderContact : shareholders) {
-
-            ShareholderContactContainer shareholderContactContainer = new ShareholderContactContainer(shareholderContact);
-            this.shareholderContactContainers.add(shareholderContactContainer);
-        }
-    }
-
-    /**
-     * Add shareholderContact to the shareholderContactContainers and shareholders list
-     *
-     * @param shareholderContact shareholderContact
-     * @return BusinessDetails
-     */
-    public BusinessDetails addShareholderContact(ShareholderContact shareholderContact) {
-        ShareholderContactContainer shareholderContactContainer = new ShareholderContactContainer(shareholderContact);
-
-        if (shareholderContactContainers == null) {
-            shareholderContactContainers = new ArrayList<ShareholderContactContainer>();
-        }
-        this.shareholderContactContainers.add(shareholderContactContainer);
-
-        if (shareholders == null) {
-            shareholders = new ArrayList<ShareholderContact>();
-        }
-        this.shareholders.add(shareholderContact);
-
-        return this;
-    }
+    @SerializedName("taxId")
+    private String taxId = null;
 
     public BusinessDetails doingBusinessAs(String doingBusinessAs) {
         this.doingBusinessAs = doingBusinessAs;
@@ -111,7 +55,7 @@ public class BusinessDetails {
     }
 
     /**
-     * if the registered name of the business differs from the legal name
+     * The registered name of the company (if it differs from the legal name of the company).
      *
      * @return doingBusinessAs
      **/
@@ -123,22 +67,22 @@ public class BusinessDetails {
         this.doingBusinessAs = doingBusinessAs;
     }
 
-    public BusinessDetails taxId(String taxId) {
-        this.taxId = taxId;
+    public BusinessDetails incorporatedAt(String incorporatedAt) {
+        this.incorporatedAt = incorporatedAt;
         return this;
     }
 
     /**
-     * the account holder tax id
+     * The jurisdiction of incorporation of the company.  &gt;Two (2) characters for a business in the USA or Canada, or a maximum of three (3) characters for an address in all other countries, or &#x27;FEDERAL&#x27;
      *
-     * @return taxId
+     * @return incorporatedAt
      **/
-    public String getTaxId() {
-        return taxId;
+    public String getIncorporatedAt() {
+        return incorporatedAt;
     }
 
-    public void setTaxId(String taxId) {
-        this.taxId = taxId;
+    public void setIncorporatedAt(String incorporatedAt) {
+        this.incorporatedAt = incorporatedAt;
     }
 
     public BusinessDetails legalBusinessName(String legalBusinessName) {
@@ -147,7 +91,7 @@ public class BusinessDetails {
     }
 
     /**
-     * the legal name of the business
+     * The legal name of the company.
      *
      * @return legalBusinessName
      **/
@@ -159,6 +103,16 @@ public class BusinessDetails {
         this.legalBusinessName = legalBusinessName;
     }
 
+    public BusinessDetails registrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
+        return this;
+    }
+
+    /**
+     * The registration number of the company.
+     *
+     * @return registrationNumber
+     **/
     public String getRegistrationNumber() {
         return registrationNumber;
     }
@@ -166,6 +120,51 @@ public class BusinessDetails {
     public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
+
+    public BusinessDetails shareholders(List<ShareholderContact> shareholders) {
+        this.shareholders = shareholders;
+        return this;
+    }
+
+    public BusinessDetails addShareholdersItem(ShareholderContact shareholdersItem) {
+        if (this.shareholders == null) {
+            this.shareholders = new ArrayList<ShareholderContact>();
+        }
+        this.shareholders.add(shareholdersItem);
+        return this;
+    }
+
+    /**
+     * Each of the shareholders associated with the company. Each array entry should represent one shareholder.
+     *
+     * @return shareholders
+     **/
+    public List<ShareholderContact> getShareholders() {
+        return shareholders;
+    }
+
+    public void setShareholders(List<ShareholderContact> shareholders) {
+        this.shareholders = shareholders;
+    }
+
+    public BusinessDetails taxId(String taxId) {
+        this.taxId = taxId;
+        return this;
+    }
+
+    /**
+     * The tax ID of the company.
+     *
+     * @return taxId
+     **/
+    public String getTaxId() {
+        return taxId;
+    }
+
+    public void setTaxId(String taxId) {
+        this.taxId = taxId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -176,37 +175,38 @@ public class BusinessDetails {
             return false;
         }
         BusinessDetails businessDetails = (BusinessDetails) o;
-        return Objects.equals(this.shareholderContactContainers, businessDetails.shareholderContactContainers)
-                && Objects.equals(this.doingBusinessAs, businessDetails.doingBusinessAs)
-                && Objects.equals(this.taxId, businessDetails.taxId)
-                && Objects.equals(this.legalBusinessName, businessDetails.legalBusinessName);
+        return Objects.equals(this.doingBusinessAs, businessDetails.doingBusinessAs) &&
+                Objects.equals(this.incorporatedAt, businessDetails.incorporatedAt) &&
+                Objects.equals(this.legalBusinessName, businessDetails.legalBusinessName) &&
+                Objects.equals(this.registrationNumber, businessDetails.registrationNumber) &&
+                Objects.equals(this.shareholders, businessDetails.shareholders) &&
+                Objects.equals(this.taxId, businessDetails.taxId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shareholderContactContainers, doingBusinessAs, taxId, legalBusinessName);
+        return Objects.hash(doingBusinessAs, incorporatedAt, legalBusinessName, registrationNumber, shareholders, taxId);
     }
 
 
     @Override
     public String toString() {
-        // Populate the shareholders list to provide back in the toString() method
-        this.getShareholders();
-
         StringBuilder sb = new StringBuilder();
         sb.append("class BusinessDetails {\n");
 
-        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
         sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
-        sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+        sb.append("    incorporatedAt: ").append(toIndentedString(incorporatedAt)).append("\n");
         sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
         sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
@@ -214,4 +214,5 @@ public class BusinessDetails {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
 }

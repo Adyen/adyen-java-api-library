@@ -14,152 +14,109 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
+
+import com.adyen.model.Amount;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.adyen.model.Amount;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * DetailBalance
  */
 public class DetailBalance {
-    @SerializedName("pendingBalance")
-    private List<AmountContainer> pendingBalanceContainers = null;
-
-    private transient List<Amount> pendingBalance = null;
-
     @SerializedName("balance")
-    private List<AmountContainer> balanceContainers = null;
+    private List<Amount> balance = null;
 
-    private transient List<Amount> balance = null;
+    @SerializedName("onHoldBalance")
+    private List<Amount> onHoldBalance = null;
 
-    /**
-     * Populate the virtual pendingBalance to bypass the pendingBalanceContainers list
-     *
-     * @return pendingBalance
-     **/
-    public List<Amount> getPendingBalance() {
-        if (pendingBalance == null) {
-            pendingBalance = new ArrayList<Amount>();
-        }
+    @SerializedName("pendingBalance")
+    private List<Amount> pendingBalance = null;
 
-        if (pendingBalanceContainers != null && ! pendingBalanceContainers.isEmpty()) {
-            for (AmountContainer amountContainer : pendingBalanceContainers) {
-                pendingBalance.add(amountContainer.getAmount());
-            }
-        }
-        return pendingBalance;
-    }
-
-    /**
-     * Creating a new pendingBalance list
-     *
-     * @param pendingBalance pendingBalance
-     */
-    public void setPendingBalance(List<Amount> pendingBalance) {
-
-        this.pendingBalance = pendingBalance;
-
-        // set as well the container list this will be send in the API request
-        this.pendingBalanceContainers = new ArrayList<AmountContainer>();
-        for (Amount amount : pendingBalance) {
-
-            AmountContainer amountContainer = createAmountContainerFromAmount(amount);
-            this.pendingBalanceContainers.add(amountContainer);
-        }
-    }
-
-    /**
-     * Add amount to the pendingBalanceContainers and pendingBalance list
-     * @param amount amount
-     * @return DetailBalance
-     */
-    public DetailBalance addPendingBalanceItem(Amount amount) {
-        AmountContainer amountContainer = createAmountContainerFromAmount(amount);
-
-        if (pendingBalanceContainers == null) {
-            pendingBalanceContainers = new ArrayList<AmountContainer>();
-        }
-        this.pendingBalanceContainers.add(amountContainer);
-
-        if (pendingBalance == null) {
-            pendingBalance = new ArrayList<Amount>();
-        }
-        this.pendingBalance.add(amount);
-
+    public DetailBalance balance(List<Amount> balance) {
+        this.balance = balance;
         return this;
     }
 
-    private AmountContainer createAmountContainerFromAmount(Amount amount) {
-        AmountContainer amountContainer = new AmountContainer();
-        amountContainer.setAmount(amount);
-        return amountContainer;
+    public DetailBalance addBalanceItem(Amount balanceItem) {
+        if (this.balance == null) {
+            this.balance = new ArrayList<>();
+        }
+        this.balance.add(balanceItem);
+        return this;
     }
 
     /**
-     * Populate the virtual balance to bypass the balanceContainers list
+     * The list of balances held by the account.
      *
      * @return balance
      **/
     public List<Amount> getBalance() {
-
-        if (balance == null) {
-            balance = new ArrayList<Amount>();
-
-            if (balanceContainers != null && ! balanceContainers.isEmpty()) {
-                for (AmountContainer amountContainer : balanceContainers) {
-                    balance.add(amountContainer.getAmount());
-                }
-            }
-        }
         return balance;
     }
 
-    /**
-     * Creating a new balance list
-     *
-     * @param balance balance
-     */
     public void setBalance(List<Amount> balance) {
-
         this.balance = balance;
+    }
 
-        // set as well the container list this will be send in the API request
-        this.balanceContainers = new ArrayList<AmountContainer>();
-        for (Amount amount : balance) {
+    public DetailBalance onHoldBalance(List<Amount> onHoldBalance) {
+        this.onHoldBalance = onHoldBalance;
+        return this;
+    }
 
-            AmountContainer amountContainer = createAmountContainerFromAmount(amount);
-            this.balanceContainers.add(amountContainer);
+    public DetailBalance addOnHoldBalanceItem(Amount onHoldBalanceItem) {
+        if (this.onHoldBalance == null) {
+            this.onHoldBalance = new ArrayList<>();
         }
+        this.onHoldBalance.add(onHoldBalanceItem);
+        return this;
     }
 
     /**
-     * Add amount to the balanceContainers and balance list
+     * The list of on hold balances held by the account.
      *
-     * @param amount amount
-     * @return DetailBalance
-     */
-    public DetailBalance addBalanceItem(Amount amount) {
-        AmountContainer amountContainer = createAmountContainerFromAmount(amount);
+     * @return onHoldBalance
+     **/
+    public List<Amount> getOnHoldBalance() {
+        return onHoldBalance;
+    }
 
-        if (balanceContainers == null) {
-            balanceContainers = new ArrayList<AmountContainer>();
-        }
-        this.balanceContainers.add(amountContainer);
+    public void setOnHoldBalance(List<Amount> onHoldBalance) {
+        this.onHoldBalance = onHoldBalance;
+    }
 
-        if (balance == null) {
-            balance = new ArrayList<Amount>();
-        }
-        this.balance.add(amount);
-
+    public DetailBalance pendingBalance(List<Amount> pendingBalance) {
+        this.pendingBalance = pendingBalance;
         return this;
+    }
+
+    public DetailBalance addPendingBalanceItem(Amount pendingBalanceItem) {
+        if (this.pendingBalance == null) {
+            this.pendingBalance = new ArrayList<>();
+        }
+        this.pendingBalance.add(pendingBalanceItem);
+        return this;
+    }
+
+    /**
+     * The list of pending balances held by the account.
+     *
+     * @return pendingBalance
+     **/
+    public List<Amount> getPendingBalance() {
+        return pendingBalance;
+    }
+
+    public void setPendingBalance(List<Amount> pendingBalance) {
+        this.pendingBalance = pendingBalance;
     }
 
 
@@ -172,36 +129,32 @@ public class DetailBalance {
             return false;
         }
         DetailBalance detailBalance = (DetailBalance) o;
-        return Objects.equals(this.pendingBalanceContainers, detailBalance.pendingBalanceContainers) && Objects.equals(this.balanceContainers, detailBalance.balanceContainers);
+        return Objects.equals(this.balance, detailBalance.balance) &&
+                Objects.equals(this.onHoldBalance, detailBalance.onHoldBalance) &&
+                Objects.equals(this.pendingBalance, detailBalance.pendingBalance);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pendingBalanceContainers, balanceContainers);
+        return Objects.hash(balance, onHoldBalance, pendingBalance);
     }
 
 
     @Override
     public String toString() {
-        // Populate the pendingBalance list to provide back in the toString() method
-        this.getPendingBalance();
-
-        // Populate the balance list to provide back in the toString() method
-        this.getBalance();
-
         StringBuilder sb = new StringBuilder();
         sb.append("class DetailBalance {\n");
 
-        sb.append("    pendingBalance: ").append(toIndentedString(pendingBalance)).append("\n");
         sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+        sb.append("    onHoldBalance: ").append(toIndentedString(onHoldBalance)).append("\n");
+        sb.append("    pendingBalance: ").append(toIndentedString(pendingBalance)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     * @param o string
-     * @return indented string
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
@@ -211,4 +164,3 @@ public class DetailBalance {
     }
 
 }
-

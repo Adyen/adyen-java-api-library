@@ -1,3 +1,4 @@
+
 /*
  *                       ######
  *                       ######
@@ -14,10 +15,11 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.service;
 
 import com.adyen.Client;
@@ -28,6 +30,8 @@ import com.adyen.model.marketpay.AccountHolderTransactionListRequest;
 import com.adyen.model.marketpay.AccountHolderTransactionListResponse;
 import com.adyen.model.marketpay.PayoutAccountHolderRequest;
 import com.adyen.model.marketpay.PayoutAccountHolderResponse;
+import com.adyen.model.marketpay.RefundFundsTransferRequest;
+import com.adyen.model.marketpay.RefundFundsTransferResponse;
 import com.adyen.model.marketpay.RefundNotPaidOutTransfersRequest;
 import com.adyen.model.marketpay.RefundNotPaidOutTransfersResponse;
 import com.adyen.model.marketpay.SetupBeneficiaryRequest;
@@ -37,6 +41,7 @@ import com.adyen.model.marketpay.TransferFundsResponse;
 import com.adyen.service.resource.fund.AccountHolderBalance;
 import com.adyen.service.resource.fund.AccountHolderTransactionList;
 import com.adyen.service.resource.fund.PayoutAccountHolder;
+import com.adyen.service.resource.fund.RefundFundsTransfer;
 import com.adyen.service.resource.fund.RefundNotPaidOutTransfers;
 import com.adyen.service.resource.fund.SetupBeneficiary;
 import com.adyen.service.resource.fund.TransferFunds;
@@ -50,6 +55,7 @@ public class Fund extends Service {
     private AccountHolderTransactionList accountHolderTransactionList;
     private RefundNotPaidOutTransfers refundNotPaidOutTransfers;
     private SetupBeneficiary setupBeneficiary;
+    private RefundFundsTransfer refundFundsTransfer;
 
     public Fund(Client client) {
         super(client);
@@ -59,7 +65,7 @@ public class Fund extends Service {
         accountHolderTransactionList = new AccountHolderTransactionList(this);
         refundNotPaidOutTransfers = new RefundNotPaidOutTransfers(this);
         setupBeneficiary = new SetupBeneficiary(this);
-
+        refundFundsTransfer = new RefundFundsTransfer(this);
     }
 
     public AccountHolderBalanceResponse accountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws Exception {
@@ -130,5 +136,16 @@ public class Fund extends Service {
         }.getType());
 
         return setupBeneficiaryResponse;
+    }
+
+    public RefundFundsTransferResponse refundFundsTransfer(RefundFundsTransferRequest refundFundsTransferRequest) throws Exception {
+        String jsonRequest = GSON.toJson(refundFundsTransferRequest);
+
+        String jsonResult = refundFundsTransfer.request(jsonRequest);
+
+        RefundFundsTransferResponse refundFundsTransferResponse = GSON.fromJson(jsonResult, new TypeToken<RefundFundsTransferResponse>() {
+        }.getType());
+
+        return refundFundsTransferResponse;
     }
 }

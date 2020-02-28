@@ -14,20 +14,23 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * AccountTransactionList
  */
+
 public class AccountTransactionList {
     @SerializedName("accountCode")
     private String accountCode = null;
@@ -36,9 +39,7 @@ public class AccountTransactionList {
     private Boolean hasNextPage = null;
 
     @SerializedName("transactions")
-    private List<TransactionContainer> transactionContainers = null;
-
-    private transient List<Transaction> transactions = null;
+    private List<Transaction> transactions = null;
 
     public AccountTransactionList accountCode(String accountCode) {
         this.accountCode = accountCode;
@@ -46,7 +47,7 @@ public class AccountTransactionList {
     }
 
     /**
-     * The code of the account
+     * The code of the account.
      *
      * @return accountCode
      **/
@@ -64,11 +65,11 @@ public class AccountTransactionList {
     }
 
     /**
-     * Flag determines if there is next page available
+     * Indicates whether there is a next page of transactions available.
      *
      * @return hasNextPage
      **/
-    public Boolean getHasNextPage() {
+    public Boolean isHasNextPage() {
         return hasNextPage;
     }
 
@@ -76,64 +77,32 @@ public class AccountTransactionList {
         this.hasNextPage = hasNextPage;
     }
 
-    public AccountTransactionList transactionContainers(List<TransactionContainer> transactionContainers) {
-        this.transactionContainers = transactionContainers;
+    public AccountTransactionList transactions(List<Transaction> transactions) {
+        this.transactions = transactions;
         return this;
     }
 
-    public AccountTransactionList addTransactionContainerItem(TransactionContainer transactionContainerItem) {
-        this.transactionContainers.add(transactionContainerItem);
+    public AccountTransactionList addTransactionsItem(Transaction transactionsItem) {
+        if (this.transactions == null) {
+            this.transactions = new ArrayList<Transaction>();
+        }
+        this.transactions.add(transactionsItem);
         return this;
     }
 
     /**
-     * Populate the virtual transactions to bypass the transactionContainers list
+     * The list of transactions.
      *
      * @return transactions
      **/
     public List<Transaction> getTransactions() {
-        if (transactions == null) {
-            transactions = new ArrayList<Transaction>();
-            if (transactionContainers != null && ! transactionContainers.isEmpty()) {
-                for (TransactionContainer transactionContainer : transactionContainers) {
-                    transactions.add(transactionContainer.getTransaction());
-                }
-            }
-        }
         return transactions;
     }
 
-    /**
-     * Creating a new transactions list
-     * @param transactions transactions
-     */
     public void setTransactions(List<Transaction> transactions) {
-
         this.transactions = transactions;
-
-        // set as well the container list this will be send in the API request
-        this.transactionContainers = new ArrayList<TransactionContainer>();
-
-        for (Transaction transaction : transactions) {
-
-            TransactionContainer transactionContainer = new TransactionContainer(transaction);
-            this.transactionContainers.add(transactionContainer);
-        }
     }
 
-    public AccountTransactionList addTransaction(Transaction transaction) {
-        TransactionContainer transactionContainer = new TransactionContainer(transaction);
-
-        if (transactionContainers == null) {
-            transactionContainers = new ArrayList<TransactionContainer>();
-        }
-        this.transactionContainers.add(transactionContainer);
-
-        if (transactions == null) {
-            transactions = new ArrayList<Transaction>();
-        }
-        return this;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -144,21 +113,19 @@ public class AccountTransactionList {
             return false;
         }
         AccountTransactionList accountTransactionList = (AccountTransactionList) o;
-        return Objects.equals(this.accountCode, accountTransactionList.accountCode)
-                && Objects.equals(this.hasNextPage, accountTransactionList.hasNextPage)
-                && Objects.equals(this.transactionContainers, accountTransactionList.transactionContainers);
+        return Objects.equals(this.accountCode, accountTransactionList.accountCode) &&
+                Objects.equals(this.hasNextPage, accountTransactionList.hasNextPage) &&
+                Objects.equals(this.transactions, accountTransactionList.transactions);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, hasNextPage, transactionContainers);
+        return Objects.hash(accountCode, hasNextPage, transactions);
     }
 
 
     @Override
     public String toString() {
-        // Populate the accounts list to provide back in the toString() method
-        this.getTransactions();
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountTransactionList {\n");
 
@@ -170,7 +137,8 @@ public class AccountTransactionList {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
@@ -180,4 +148,3 @@ public class AccountTransactionList {
     }
 
 }
-

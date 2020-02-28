@@ -14,34 +14,57 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * AccountPayoutState
  */
 public class AccountPayoutState {
-    @SerializedName("disableReason")
-    private String disableReason = null;
-
     @SerializedName("allowPayout")
     private Boolean allowPayout = null;
 
-    @SerializedName("tierNumber")
-    private Integer tierNumber = null;
+    @SerializedName("disableReason")
+    private String disableReason = null;
 
     @SerializedName("disabled")
     private Boolean disabled = null;
 
+    @SerializedName("notAllowedReason")
+    private String notAllowedReason = null;
+
     @SerializedName("payoutLimit")
     private Amount payoutLimit = null;
+
+    @SerializedName("tierNumber")
+    private Integer tierNumber = null;
+
+    public AccountPayoutState allowPayout(Boolean allowPayout) {
+        this.allowPayout = allowPayout;
+        return this;
+    }
+
+    /**
+     * Indicates whether payouts are allowed. This field is the overarching payout status, and is the aggregate of multiple conditions (e.g., KYC status, disabled flag, etc). If this field is false, no payouts will be permitted for any of the account holder&#x27;s accounts. If this field is true, payouts will be permitted for any of the account holder&#x27;s accounts.
+     *
+     * @return allowPayout
+     **/
+    public Boolean isAllowPayout() {
+        return allowPayout;
+    }
+
+    public void setAllowPayout(Boolean allowPayout) {
+        this.allowPayout = allowPayout;
+    }
 
     public AccountPayoutState disableReason(String disableReason) {
         this.disableReason = disableReason;
@@ -49,7 +72,7 @@ public class AccountPayoutState {
     }
 
     /**
-     * if the payout has been disabled for all the virtual accounts, shows the disable reason
+     * The reason why payouts (to all of the account holder&#x27;s accounts) have been disabled (by the platform). If the &#x60;disabled&#x60; field is true, this field can be used to explain why.
      *
      * @return disableReason
      **/
@@ -61,58 +84,40 @@ public class AccountPayoutState {
         this.disableReason = disableReason;
     }
 
-    public AccountPayoutState allowPayout(Boolean allowPayout) {
-        this.allowPayout = allowPayout;
-        return this;
-    }
-
-    /**
-     * shows if the payout is allowed
-     *
-     * @return allowPayout
-     **/
-    public Boolean getAllowPayout() {
-        return allowPayout;
-    }
-
-    public void setAllowPayout(Boolean allowPayout) {
-        this.allowPayout = allowPayout;
-    }
-
-    public AccountPayoutState tierNumber(Integer tierNumber) {
-        this.tierNumber = tierNumber;
-        return this;
-    }
-
-    /**
-     * the tier in which the accountholder currently resides
-     *
-     * @return tierNumber
-     **/
-    public Integer getTierNumber() {
-        return tierNumber;
-    }
-
-    public void setTierNumber(Integer tierNumber) {
-        this.tierNumber = tierNumber;
-    }
-
     public AccountPayoutState disabled(Boolean disabled) {
         this.disabled = disabled;
         return this;
     }
 
     /**
-     * shows if the payout schedule has been disabled for all the virtual accounts
+     * Indicates whether payouts have been disabled (by the platform) for all of the account holder&#x27;s accounts. A platform may enable and disable this field at their discretion. If this field is true, &#x60;allowPayout&#x60; will be false and no payouts will be permitted for any of the account holder&#x27;s accounts. If this field is false, &#x60;allowPayout&#x60; may or may not be enabled, depending on other factors.
      *
      * @return disabled
      **/
-    public Boolean getDisabled() {
+    public Boolean isDisabled() {
         return disabled;
     }
 
     public void setDisabled(Boolean disabled) {
         this.disabled = disabled;
+    }
+
+    public AccountPayoutState notAllowedReason(String notAllowedReason) {
+        this.notAllowedReason = notAllowedReason;
+        return this;
+    }
+
+    /**
+     * The reason why payouts (to all of the account holder&#x27;s accounts) have been disabled (by Adyen). If payouts have been disabled by Adyen, this field will explain why. If this field is blank, payouts have not been disabled by Adyen.
+     *
+     * @return notAllowedReason
+     **/
+    public String getNotAllowedReason() {
+        return notAllowedReason;
+    }
+
+    public void setNotAllowedReason(String notAllowedReason) {
+        this.notAllowedReason = notAllowedReason;
     }
 
     public AccountPayoutState payoutLimit(Amount payoutLimit) {
@@ -121,7 +126,7 @@ public class AccountPayoutState {
     }
 
     /**
-     * payout limit (specified if the payout is allowed and the payout is limited)
+     * Get payoutLimit
      *
      * @return payoutLimit
      **/
@@ -131,6 +136,24 @@ public class AccountPayoutState {
 
     public void setPayoutLimit(Amount payoutLimit) {
         this.payoutLimit = payoutLimit;
+    }
+
+    public AccountPayoutState tierNumber(Integer tierNumber) {
+        this.tierNumber = tierNumber;
+        return this;
+    }
+
+    /**
+     * The payout tier that the account holder occupies.
+     *
+     * @return tierNumber
+     **/
+    public Integer getTierNumber() {
+        return tierNumber;
+    }
+
+    public void setTierNumber(Integer tierNumber) {
+        this.tierNumber = tierNumber;
     }
 
 
@@ -143,17 +166,17 @@ public class AccountPayoutState {
             return false;
         }
         AccountPayoutState accountPayoutState = (AccountPayoutState) o;
-        return Objects.equals(this.disableReason, accountPayoutState.disableReason)
-                && Objects.equals(this.allowPayout, accountPayoutState.allowPayout)
-                && Objects.equals(this.tierNumber,
-                                  accountPayoutState.tierNumber)
-                && Objects.equals(this.disabled, accountPayoutState.disabled)
-                && Objects.equals(this.payoutLimit, accountPayoutState.payoutLimit);
+        return Objects.equals(this.allowPayout, accountPayoutState.allowPayout) &&
+                Objects.equals(this.disableReason, accountPayoutState.disableReason) &&
+                Objects.equals(this.disabled, accountPayoutState.disabled) &&
+                Objects.equals(this.notAllowedReason, accountPayoutState.notAllowedReason) &&
+                Objects.equals(this.payoutLimit, accountPayoutState.payoutLimit) &&
+                Objects.equals(this.tierNumber, accountPayoutState.tierNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(disableReason, allowPayout, tierNumber, disabled, payoutLimit);
+        return Objects.hash(allowPayout, disableReason, disabled, notAllowedReason, payoutLimit, tierNumber);
     }
 
 
@@ -162,11 +185,12 @@ public class AccountPayoutState {
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountPayoutState {\n");
 
-        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
         sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append("\n");
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
+        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
         sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+        sb.append("    notAllowedReason: ").append(toIndentedString(notAllowedReason)).append("\n");
         sb.append("    payoutLimit: ").append(toIndentedString(payoutLimit)).append("\n");
+        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -183,4 +207,3 @@ public class AccountPayoutState {
     }
 
 }
-

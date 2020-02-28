@@ -14,62 +14,57 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
+
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * RefundNotPaidOutTransfersResponse
  */
-public class RefundNotPaidOutTransfersResponse {
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
 
-    @SerializedName("resultCode")
-    private String resultCode = null;
+public class RefundNotPaidOutTransfersResponse {
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("pspReference")
     private String pspReference = null;
 
-    public RefundNotPaidOutTransfersResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
+    @SerializedName("resultCode")
+    private String resultCode = null;
+
+    public RefundNotPaidOutTransfersResponse invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public RefundNotPaidOutTransfersResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
         return this;
     }
 
     /**
-     * Get submittedAsync
+     * Contains field validation errors that would prevent requests from being processed.
      *
-     * @return submittedAsync
+     * @return invalidFields
      **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
     }
 
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
-
-    public RefundNotPaidOutTransfersResponse resultCode(String resultCode) {
-        this.resultCode = resultCode;
-        return this;
-    }
-
-    /**
-     * The result code
-     *
-     * @return resultCode
-     **/
-    public String getResultCode() {
-        return resultCode;
-    }
-
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
     }
 
     public RefundNotPaidOutTransfersResponse pspReference(String pspReference) {
@@ -78,7 +73,7 @@ public class RefundNotPaidOutTransfersResponse {
     }
 
     /**
-     * psp reference
+     * The reference of a request.  Can be used to uniquely identify the request.
      *
      * @return pspReference
      **/
@@ -88,6 +83,24 @@ public class RefundNotPaidOutTransfersResponse {
 
     public void setPspReference(String pspReference) {
         this.pspReference = pspReference;
+    }
+
+    public RefundNotPaidOutTransfersResponse resultCode(String resultCode) {
+        this.resultCode = resultCode;
+        return this;
+    }
+
+    /**
+     * The result code.
+     *
+     * @return resultCode
+     **/
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
     }
 
 
@@ -100,14 +113,14 @@ public class RefundNotPaidOutTransfersResponse {
             return false;
         }
         RefundNotPaidOutTransfersResponse refundNotPaidOutTransfersResponse = (RefundNotPaidOutTransfersResponse) o;
-        return Objects.equals(this.submittedAsync, refundNotPaidOutTransfersResponse.submittedAsync) && Objects.equals(this.resultCode, refundNotPaidOutTransfersResponse.resultCode) && Objects.equals(
-                this.pspReference,
-                refundNotPaidOutTransfersResponse.pspReference);
+        return Objects.equals(this.invalidFields, refundNotPaidOutTransfersResponse.invalidFields) &&
+                Objects.equals(this.pspReference, refundNotPaidOutTransfersResponse.pspReference) &&
+                Objects.equals(this.resultCode, refundNotPaidOutTransfersResponse.resultCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, resultCode, pspReference);
+        return Objects.hash(invalidFields, pspReference, resultCode);
     }
 
 
@@ -116,9 +129,9 @@ public class RefundNotPaidOutTransfersResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class RefundNotPaidOutTransfersResponse {\n");
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -135,4 +148,3 @@ public class RefundNotPaidOutTransfersResponse {
     }
 
 }
-

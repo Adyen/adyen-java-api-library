@@ -1,16 +1,13 @@
 {
-  "pspReference":"9914694369860322",
-  "submittedAsync":"false",
-  "documentDetails":[
+  "pspReference": "9914694369860322",
+  "documentDetails": [
     {
-      "DocumentDetail":{
-        "accountHolderCode":"TestAccountHolder8031",
-        "bankAccountUUID": "EXAMPLE_UUID",
-        "countryCode":"NL",
-        "description":"description1",
-        "documentType":"BANK_STATEMENT",
-        "filename":"bankstatement.png"
-      }
+      "accountHolderCode": "TestAccountHolder8031",
+      "bankAccountUUID": "EXAMPLE_UUID",
+      "countryCode": "NL",
+      "description": "description1",
+      "documentType": "BANK_STATEMENT",
+      "filename": "bankstatement.png"
     }
   ]
 }
