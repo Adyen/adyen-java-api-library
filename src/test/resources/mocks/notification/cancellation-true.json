@@ -1,0 +1,21 @@
+{
+  "live":"false",
+  "notificationItems":[
+    {
+      "NotificationRequestItem":{
+        "amount":{
+          "currency":"EUR",
+          "value":500
+        },
+        "eventCode":"CANCELLATION",
+        "eventDate":"2018-03-05T09:08:05+01:00",
+        "merchantAccountCode":"YOUR_MERCHANT_ACCOUNT",
+        "originalReference":"8313547924770610",
+        "paymentMethod":"mc",
+        "pspReference":"8412534564722331",
+        "reason":"",
+        "success":"true"
+      }
+    }
+  ]
+}
