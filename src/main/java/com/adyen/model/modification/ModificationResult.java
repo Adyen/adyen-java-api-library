@@ -53,6 +53,9 @@ public class ModificationResult {
         @SerializedName("[cancel-received]")
         CANCEL_RECEIVED_("[cancel-received]"),
 
+        @SerializedName("[technical-cancel-received]")
+        TECHNICAL_CANCEL_RECEIVED_("[technical-cancel-received]"),
+
         @SerializedName("[refund-received]")
         REFUND_RECEIVED_("[refund-received]"),
 
