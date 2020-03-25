@@ -87,6 +87,9 @@ public class PaymentMethodsRequest {
     @SerializedName("threeDSAuthenticationOnly")
     private Boolean threeDSAuthenticationOnly = null;
 
+    @SerializedName("store")
+    private String store = null;
+
     public Object getAdditionalData() {
         return additionalData;
     }
@@ -278,6 +281,19 @@ public class PaymentMethodsRequest {
 
     public PaymentMethodsRequest enableRealTimeUpdate(Boolean enableRealTimeUpdate) {
         this.enableRealTimeUpdate = enableRealTimeUpdate;
+        return this;
+    }
+
+    public String getStore() {
+        return store;
+    }
+
+    public void setStore(String store) {
+        this.store = store;
+    }
+
+    public PaymentMethodsRequest store(String store) {
+        this.store = store;
         return this;
     }
 

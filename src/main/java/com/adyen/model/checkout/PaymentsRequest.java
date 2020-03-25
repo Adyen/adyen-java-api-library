@@ -185,6 +185,9 @@ public class PaymentsRequest {
     @SerializedName("storePaymentMethod")
     private Boolean storePaymentMethod = null;
 
+    @SerializedName("store")
+    private String store = null;
+
     @SerializedName("enableRealTimeUpdate")
     private Boolean enableRealTimeUpdate = null;
 
@@ -763,6 +766,19 @@ public class PaymentsRequest {
         return this;
     }
 
+    public String getStore() {
+        return store;
+    }
+
+    public void setStore(String store) {
+        this.store = store;
+    }
+
+    public PaymentsRequest store(String store) {
+        this.store = store;
+        return this;
+    }
+
     public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
         return addEncryptedCardData(encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, holderName, null);
     }
@@ -1322,6 +1338,7 @@ public class PaymentsRequest {
                 && Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod)
                 && Objects.equals(this.order, paymentsRequest.order)
                 && Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod)
+                && Objects.equals(this.store, paymentsRequest.store)
                 && Objects.equals(this.enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
                 && Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly)
                 && Objects.equals(this.selectedBrand, paymentsRequest.selectedBrand);
