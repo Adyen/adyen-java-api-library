@@ -1403,6 +1403,7 @@ public class PaymentsRequest {
                             storePaymentMethod,
                             enableRealTimeUpdate,
                             threeDSAuthenticationOnly,
+                            store,
                             selectedBrand);
     }
 
@@ -1469,6 +1470,7 @@ public class PaymentsRequest {
           + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + "\n"
           + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + "\n"
           + "    selectedBrand: " + toIndentedString(selectedBrand) + "\n"
+          + "    store: " + toIndentedString(store) + "\n"
           + "}";
     }
 

@@ -63,7 +63,7 @@ public class PaymentMethodsRequest {
     @SerializedName("accountInfo")
     private AccountInfo accountInfo = null;
 
-    @SerializedName("applciationInfo")
+    @SerializedName("applicationInfo")
     private ApplicationInfo applicationInfo = null;
 
     @SerializedName("configId")
@@ -345,12 +345,14 @@ public class PaymentMethodsRequest {
                 Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount) &&
                 Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
                 Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference) &&
+                Objects.equals(this.store, paymentMethodsRequest.store) &&
                 Objects.equals(this.threeDSAuthenticationOnly, paymentMethodsRequest.threeDSAuthenticationOnly);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, shopperLocale, shopperReference, threeDSAuthenticationOnly);
+        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, shopperLocale, shopperReference, threeDSAuthenticationOnly, store);
     }
 
 
@@ -370,6 +372,7 @@ public class PaymentMethodsRequest {
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
         sb.append("}");
         return sb.toString();
     }
