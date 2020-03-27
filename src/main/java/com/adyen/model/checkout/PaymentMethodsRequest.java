@@ -29,7 +29,6 @@ import com.adyen.model.Amount;
 import com.adyen.model.MerchantRiskIndicator;
 import com.adyen.model.Split;
 import com.adyen.model.ThreeDS2RequestData;
-import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
