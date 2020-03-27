@@ -63,9 +63,6 @@ public class PaymentMethodsRequest {
     @SerializedName("accountInfo")
     private AccountInfo accountInfo = null;
 
-    @SerializedName("applicationInfo")
-    private ApplicationInfo applicationInfo = null;
-
     @SerializedName("configId")
     private String configId = null;
 
