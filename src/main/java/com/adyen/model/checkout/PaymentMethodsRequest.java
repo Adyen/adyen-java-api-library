@@ -103,14 +103,6 @@ public class PaymentMethodsRequest {
         this.accountInfo = accountInfo;
     }
 
-    public ApplicationInfo getApplicationInfo() {
-        return applicationInfo;
-    }
-
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
-    }
-
     public PaymentMethodsRequest amount(Amount amount) {
         this.amount = amount;
         return this;
