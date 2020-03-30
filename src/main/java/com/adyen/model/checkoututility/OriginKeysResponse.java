@@ -41,12 +41,7 @@ public class OriginKeysResponse {
     }
 
     public OriginKeysResponse putOriginKeysItem(String key, String originKeysItem) {
-
-        if (this.originKeys == null) {
-            this.originKeys = null;
-        }
-
-        this.originKeys.put(key, originKeysItem);
+        originKeys.put(key, originKeysItem);
         return this;
     }
 
@@ -72,7 +67,7 @@ public class OriginKeysResponse {
             return false;
         }
         OriginKeysResponse originKeysResponse = (OriginKeysResponse) o;
-        return Objects.equals(this.originKeys, originKeysResponse.originKeys);
+        return Objects.equals(originKeys, originKeysResponse.originKeys);
     }
 
     @Override
@@ -94,7 +89,7 @@ public class OriginKeysResponse {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private static String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

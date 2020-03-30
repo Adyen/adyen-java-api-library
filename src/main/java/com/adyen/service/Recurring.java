@@ -20,7 +20,6 @@
  */
 package com.adyen.service;
 
-import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.recurring.DisableRequest;
@@ -34,6 +33,8 @@ import com.adyen.service.resource.recurring.Disable;
 import com.adyen.service.resource.recurring.ListRecurringDetails;
 import com.adyen.service.resource.recurring.StoreToken;
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
 
 public class Recurring extends Service {
     private ListRecurringDetails listRecurringDetails;
@@ -61,9 +62,8 @@ public class Recurring extends Service {
 
         String jsonResult = listRecurringDetails.request(jsonRequest);
 
-        RecurringDetailsResult result = GSON.fromJson(jsonResult, new TypeToken<RecurringDetailsResult>() {
+        return GSON.fromJson(jsonResult, new TypeToken<RecurringDetailsResult>() {
         }.getType());
-        return result;
     }
 
     /**
@@ -79,9 +79,8 @@ public class Recurring extends Service {
 
         String jsonResult = disable.request(jsonRequest);
 
-        DisableResult result = GSON.fromJson(jsonResult, new TypeToken<DisableResult>() {
+        return GSON.fromJson(jsonResult, new TypeToken<DisableResult>() {
         }.getType());
-        return result;
     }
 
     /**
@@ -97,9 +96,8 @@ public class Recurring extends Service {
 
         String jsonResult = storeToken.request(jsonRequest);
 
-        StoreTokenResult result = GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
+        return GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
         }.getType());
-        return result;
     }
 
 }

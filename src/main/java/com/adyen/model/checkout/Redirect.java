@@ -49,12 +49,7 @@ public class Redirect {
     }
 
     public Redirect putDataItem(String key, String dataItem) {
-
-        if (this.data == null) {
-            this.data = null;
-        }
-
-        this.data.put(key, dataItem);
+        data.put(key, dataItem);
         return this;
     }
 
@@ -116,9 +111,9 @@ public class Redirect {
             return false;
         }
         Redirect redirect = (Redirect) o;
-        return Objects.equals(this.data, redirect.data) &&
-                Objects.equals(this.method, redirect.method) &&
-                Objects.equals(this.url, redirect.url);
+        return Objects.equals(data, redirect.data) &&
+                Objects.equals(method, redirect.method) &&
+                Objects.equals(url, redirect.url);
     }
 
     @Override
@@ -142,7 +137,7 @@ public class Redirect {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private static String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }
@@ -158,7 +153,7 @@ public class Redirect {
         GET("GET"),
         POST("POST");
 
-        private String value;
+        private final String value;
 
         MethodEnum(String value) {
             this.value = value;
@@ -184,12 +179,12 @@ public class Redirect {
 
         public static class Adapter extends TypeAdapter<MethodEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final MethodEnum enumeration) throws IOException {
+            public void write(JsonWriter jsonWriter, MethodEnum enumeration) throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public MethodEnum read(final JsonReader jsonReader) throws IOException {
+            public MethodEnum read(JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
                 return MethodEnum.fromValue(String.valueOf(value));
             }
