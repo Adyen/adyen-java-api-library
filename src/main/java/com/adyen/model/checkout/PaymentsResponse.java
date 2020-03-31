@@ -23,6 +23,7 @@ package com.adyen.model.checkout;
 
 import com.adyen.Util.DateUtil;
 import com.adyen.model.FraudResult;
+import com.adyen.model.ThreeDS2Result;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
