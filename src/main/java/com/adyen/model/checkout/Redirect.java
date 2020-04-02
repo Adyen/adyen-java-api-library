@@ -28,6 +28,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -49,6 +50,11 @@ public class Redirect {
     }
 
     public Redirect putDataItem(String key, String dataItem) {
+
+        if (data == null) {
+            data = new HashMap<>();
+        }
+
         data.put(key, dataItem);
         return this;
     }

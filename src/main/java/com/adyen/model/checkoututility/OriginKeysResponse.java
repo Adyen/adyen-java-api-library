@@ -24,6 +24,7 @@ package com.adyen.model.checkoututility;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -41,6 +42,11 @@ public class OriginKeysResponse {
     }
 
     public OriginKeysResponse putOriginKeysItem(String key, String originKeysItem) {
+
+        if (originKeys == null) {
+            originKeys = new HashMap<>();
+        }
+
         originKeys.put(key, originKeysItem);
         return this;
     }

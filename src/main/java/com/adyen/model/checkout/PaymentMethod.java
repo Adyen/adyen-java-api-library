@@ -22,10 +22,7 @@ package com.adyen.model.checkout;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * PaymentMethod
@@ -87,6 +84,11 @@ public class PaymentMethod {
     }
 
     public PaymentMethod putConfigurationItem(String key, String configurationItem) {
+
+        if (configuration == null) {
+            configuration = new HashMap<>();
+        }
+
         configuration.put(key, configurationItem);
         return this;
     }
