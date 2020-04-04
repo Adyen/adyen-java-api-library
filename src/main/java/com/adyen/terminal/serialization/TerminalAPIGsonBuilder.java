@@ -38,21 +38,18 @@ public final class TerminalAPIGsonBuilder {
 
     public static Gson create() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        FieldNamingStrategy fieldNamingStrategy = new FieldNamingStrategy() {
-            @Override
-            public String translateName(Field field) {
-                if (field.getAnnotation(XmlElement.class) != null) {
-                    XmlElement xmlElement = field.getAnnotation(XmlElement.class);
-                    return xmlElement.name();
-                } else if (field.getAnnotation(XmlAttribute.class) != null) {
-                    XmlAttribute xmlAttribute = field.getAnnotation(XmlAttribute.class);
-                    return xmlAttribute.name();
-                } else if (field.getAnnotation(XmlRootElement.class) != null) {
-                    XmlRootElement xmlRootElement = field.getAnnotation(XmlRootElement.class);
-                    return xmlRootElement.name();
-                }
-                return field.getName();
+        FieldNamingStrategy fieldNamingStrategy = field -> {
+            if (field.getAnnotation(XmlElement.class) != null) {
+                XmlElement xmlElement = field.getAnnotation(XmlElement.class);
+                return xmlElement.name();
+            } else if (field.getAnnotation(XmlAttribute.class) != null) {
+                XmlAttribute xmlAttribute = field.getAnnotation(XmlAttribute.class);
+                return xmlAttribute.name();
+            } else if (field.getAnnotation(XmlRootElement.class) != null) {
+                XmlRootElement xmlRootElement = field.getAnnotation(XmlRootElement.class);
+                return xmlRootElement.name();
             }
+            return field.getName();
         };
         gsonBuilder.setFieldNamingStrategy(fieldNamingStrategy);
         gsonBuilder.registerTypeHierarchyAdapter(byte[].class, new ByteArrayToBase64TypeAdapter());
