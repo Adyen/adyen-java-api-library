@@ -20,6 +20,7 @@
  */
 package com.adyen.model.binlookup;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 import com.adyen.serializer.ByteArrayToStringAdapter;
@@ -108,8 +109,8 @@ public class DSPublicKeyDetail {
             return false;
         }
         DSPublicKeyDetail dsPublicKeyDetail = (DSPublicKeyDetail) o;
-        return Objects.equals(this.brand, dsPublicKeyDetail.brand) && Objects.equals(this.directoryServerId, dsPublicKeyDetail.directoryServerId) && Objects.equals(this.publicKey,
-                                                                                                                                                                    dsPublicKeyDetail.publicKey);
+        return Objects.equals(this.brand, dsPublicKeyDetail.brand) && Objects.equals(this.directoryServerId, dsPublicKeyDetail.directoryServerId) && Arrays.equals(this.publicKey,
+                dsPublicKeyDetail.publicKey);
     }
 
     @Override
