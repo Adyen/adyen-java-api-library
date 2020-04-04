@@ -92,7 +92,7 @@ public class TestNotificationConfigurationRequest {
     }
 
     @SerializedName("eventTypes")
-    private List<EventTypesEnum> eventTypes = new ArrayList<EventTypesEnum>();
+    private List<EventTypesEnum> eventTypes = new ArrayList<>();
 
     public TestNotificationConfigurationRequest notificationId(Long notificationId) {
         this.notificationId = notificationId;

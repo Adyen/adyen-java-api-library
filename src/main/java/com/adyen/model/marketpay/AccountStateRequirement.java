@@ -30,7 +30,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class AccountStateRequirement {
     @SerializedName("requiredFields")
-    private List<FieldType> requiredFields = new ArrayList<FieldType>();
+    private List<FieldType> requiredFields = new ArrayList<>();
 
     @SerializedName("state")
     private AccountState state = null;

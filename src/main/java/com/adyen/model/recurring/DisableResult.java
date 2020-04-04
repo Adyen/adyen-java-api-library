@@ -33,7 +33,7 @@ public class DisableResult {
     private String response = null;
 
     @SerializedName("details")
-    private List<RecurringDetail> details = new ArrayList<RecurringDetail>();
+    private List<RecurringDetail> details = new ArrayList<>();
 
     public DisableResult response(String response) {
         this.response = response;

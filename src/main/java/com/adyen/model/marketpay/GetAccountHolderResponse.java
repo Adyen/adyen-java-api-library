@@ -183,7 +183,7 @@ public class GetAccountHolderResponse {
 
     public GetAccountHolderResponse addAccountsItem(Account accountsItem) {
         if (this.accounts == null) {
-            this.accounts = new ArrayList<Account>();
+            this.accounts = new ArrayList<>();
         }
         this.accounts.add(accountsItem);
         return this;
@@ -227,7 +227,7 @@ public class GetAccountHolderResponse {
 
     public GetAccountHolderResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<ErrorFieldType>();
+            this.invalidFields = new ArrayList<>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;

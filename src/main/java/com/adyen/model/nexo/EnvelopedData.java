@@ -85,7 +85,7 @@ public class EnvelopedData {
      */
     public List<Object> getKeyTransportOrKEK() {
         if (keyTransportOrKEK == null) {
-            keyTransportOrKEK = new ArrayList<Object>();
+            keyTransportOrKEK = new ArrayList<>();
         }
         return this.keyTransportOrKEK;
     }

@@ -1104,7 +1104,7 @@ public class PayoutRequest {
 
     public PayoutRequest addSplitsItem(Split splitsItem) {
         if (this.splits == null) {
-            this.splits = new ArrayList<Split>();
+            this.splits = new ArrayList<>();
         }
         this.splits.add(splitsItem);
         return this;

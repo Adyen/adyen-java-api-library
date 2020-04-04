@@ -110,7 +110,7 @@ public class KYCCheckStatusData {
     private CheckStatusEnum checkStatus = null;
 
     @SerializedName("requiredFields")
-    private List<String> requiredFields = new ArrayList<String>();
+    private List<String> requiredFields = new ArrayList<>();
 
     public KYCCheckStatusData checkType(CheckTypeEnum checkType) {
         this.checkType = checkType;

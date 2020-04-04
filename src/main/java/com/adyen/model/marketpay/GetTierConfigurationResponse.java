@@ -33,7 +33,7 @@ public class GetTierConfigurationResponse {
     private Boolean submittedAsync = null;
 
     @SerializedName("tierConfiguration")
-    private List<TierConfiguration> tierConfiguration = new ArrayList<TierConfiguration>();
+    private List<TierConfiguration> tierConfiguration = new ArrayList<>();
 
     @SerializedName("pspReference")
     private String pspReference = null;

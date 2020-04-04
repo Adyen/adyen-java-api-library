@@ -117,7 +117,7 @@ public class TestNotificationConfigurationResponse {
 
     public TestNotificationConfigurationResponse addErrorMessagesItem(String errorMessagesItem) {
         if (this.errorMessages == null) {
-            this.errorMessages = new ArrayList<String>();
+            this.errorMessages = new ArrayList<>();
         }
         this.errorMessages.add(errorMessagesItem);
         return this;
@@ -161,7 +161,7 @@ public class TestNotificationConfigurationResponse {
 
     public TestNotificationConfigurationResponse addOkMessagesItem(String okMessagesItem) {
         if (this.okMessages == null) {
-            this.okMessages = new ArrayList<String>();
+            this.okMessages = new ArrayList<>();
         }
         this.okMessages.add(okMessagesItem);
         return this;
@@ -189,7 +189,7 @@ public class TestNotificationConfigurationResponse {
     public List<ExchangeMessage> getExchangeMessages() {
 
         if (exchangeMessages == null) {
-            exchangeMessages = new ArrayList<ExchangeMessage>();
+            exchangeMessages = new ArrayList<>();
 
             if (exchangeMessageContainers != null && ! exchangeMessageContainers.isEmpty()) {
                 for (ExchangeMessageContainer exchangeMessageContainer : exchangeMessageContainers) {
@@ -204,7 +204,7 @@ public class TestNotificationConfigurationResponse {
         this.exchangeMessages = exchangeMessages;
 
         // set as well the container list this will be send in the API request
-        this.exchangeMessageContainers = new ArrayList<ExchangeMessageContainer>();
+        this.exchangeMessageContainers = new ArrayList<>();
         for (ExchangeMessage exchangeMessage : exchangeMessages) {
             ExchangeMessageContainer exchangeMessageContainer = createExchangeMessageContainerFromExchangeMessage(exchangeMessage);
             this.exchangeMessageContainers.add(exchangeMessageContainer);
@@ -243,7 +243,7 @@ public class TestNotificationConfigurationResponse {
 
     public TestNotificationConfigurationResponse addEventTypesItem(EventTypesEnum eventTypesItem) {
         if (this.eventTypes == null) {
-            this.eventTypes = new ArrayList<EventTypesEnum>();
+            this.eventTypes = new ArrayList<>();
         }
         this.eventTypes.add(eventTypesItem);
         return this;

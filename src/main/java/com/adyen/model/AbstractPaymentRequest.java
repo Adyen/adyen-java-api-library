@@ -193,7 +193,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      */
     public Map<String, String> getOrCreateAdditionalData() {
         if (this.getAdditionalData() == null) {
-            this.setAdditionalData(new HashMap<String, String>());
+            this.setAdditionalData(new HashMap<>());
         }
 
         return this.getAdditionalData();
@@ -941,7 +941,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
             return null;
         }
 
-        Map<String, String> nonSensitiveAdditionalData = new HashMap<String, String>(additionalData);
+        Map<String, String> nonSensitiveAdditionalData = new HashMap<>(additionalData);
         List<String> keys = Arrays.asList(ApiConstants.AdditionalData.Card.Encrypted.JSON,
                                           ApiConstants.AdditionalData.ENCRYPTED_CARD_NUMBER,
                                           ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_MONTH,

@@ -188,7 +188,7 @@ public class SaleData {
      */
     public List<SponsoredMerchant> getSponsoredMerchant() {
         if (sponsoredMerchant == null) {
-            sponsoredMerchant = new ArrayList<SponsoredMerchant>();
+            sponsoredMerchant = new ArrayList<>();
         }
         return this.sponsoredMerchant;
     }
@@ -379,7 +379,7 @@ public class SaleData {
      */
     public List<CustomerOrderReqType> getCustomerOrderReq() {
         if (customerOrderReq == null) {
-            customerOrderReq = new ArrayList<CustomerOrderReqType>();
+            customerOrderReq = new ArrayList<>();
         }
         return this.customerOrderReq;
     }

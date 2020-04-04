@@ -30,7 +30,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class AccountHolderTransactionListRequest {
     @SerializedName("transactionListsPerAccount")
-    private List<TransactionListForAccount> transactionListsPerAccount = new ArrayList<TransactionListForAccount>();
+    private List<TransactionListForAccount> transactionListsPerAccount = new ArrayList<>();
 
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
@@ -100,7 +100,7 @@ public class AccountHolderTransactionListRequest {
     }
 
     @SerializedName("transactionStatuses")
-    private List<TransactionStatusesEnum> transactionStatuses = new ArrayList<TransactionStatusesEnum>();
+    private List<TransactionStatusesEnum> transactionStatuses = new ArrayList<>();
 
     public AccountHolderTransactionListRequest transactionListsPerAccount(List<TransactionListForAccount> transactionListsPerAccount) {
         this.transactionListsPerAccount = transactionListsPerAccount;

@@ -271,7 +271,7 @@ public class LoginRequest {
      */
     public List<CustomerOrderReqType> getCustomerOrderReq() {
         if (customerOrderReq == null) {
-            customerOrderReq = new ArrayList<CustomerOrderReqType>();
+            customerOrderReq = new ArrayList<>();
         }
         return this.customerOrderReq;
     }

@@ -109,7 +109,7 @@ public class OutputContent {
      */
     public List<OutputText> getOutputText() {
         if (outputText == null) {
-            outputText = new ArrayList<OutputText>();
+            outputText = new ArrayList<>();
         }
         return this.outputText;
     }

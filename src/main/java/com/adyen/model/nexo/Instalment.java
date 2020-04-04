@@ -122,7 +122,7 @@ public class Instalment {
      */
     public List<InstalmentType> getInstalmentType() {
         if (instalmentType == null) {
-            instalmentType = new ArrayList<InstalmentType>();
+            instalmentType = new ArrayList<>();
         }
         return this.instalmentType;
     }

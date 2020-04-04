@@ -102,7 +102,7 @@ public class StoredValueRequest {
      */
     public List<StoredValueData> getStoredValueData() {
         if (storedValueData == null) {
-            storedValueData = new ArrayList<StoredValueData>();
+            storedValueData = new ArrayList<>();
         }
         return this.storedValueData;
     }

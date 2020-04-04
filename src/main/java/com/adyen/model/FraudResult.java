@@ -33,7 +33,7 @@ public class FraudResult {
     private Integer accountScore = null;
 
     @SerializedName("results")
-    private List<FraudCheckResultContainer> results = new ArrayList<FraudCheckResultContainer>();
+    private List<FraudCheckResultContainer> results = new ArrayList<>();
 
     public FraudResult accountScore(Integer accountScore) {
         this.accountScore = accountScore;

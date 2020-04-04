@@ -113,7 +113,7 @@ public class LoyaltyRequest {
      */
     public List<LoyaltyData> getLoyaltyData() {
         if (loyaltyData == null) {
-            loyaltyData = new ArrayList<LoyaltyData>();
+            loyaltyData = new ArrayList<>();
         }
         return this.loyaltyData;
     }

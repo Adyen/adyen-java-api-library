@@ -92,7 +92,7 @@ public class POITerminalData {
      */
     public List<POICapabilitiesType> getPOICapabilities() {
         if (poiCapabilities == null) {
-            poiCapabilities = new ArrayList<POICapabilitiesType>();
+            poiCapabilities = new ArrayList<>();
         }
         return this.poiCapabilities;
     }

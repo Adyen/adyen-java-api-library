@@ -71,7 +71,7 @@ public class ThreeDSAvailabilityResponse {
 
     public ThreeDSAvailabilityResponse addDsPublicKeysItem(DSPublicKeyDetail dsPublicKeysItem) {
         if (this.dsPublicKeys == null) {
-            this.dsPublicKeys = new ArrayList<DSPublicKeyDetail>();
+            this.dsPublicKeys = new ArrayList<>();
         }
         this.dsPublicKeys.add(dsPublicKeysItem);
         return this;
@@ -115,7 +115,7 @@ public class ThreeDSAvailabilityResponse {
 
     public ThreeDSAvailabilityResponse addThreeDS2CardRangeDetailsItem(ThreeDS2CardRangeDetail threeDS2CardRangeDetailsItem) {
         if (this.threeDS2CardRangeDetails == null) {
-            this.threeDS2CardRangeDetails = new ArrayList<ThreeDS2CardRangeDetail>();
+            this.threeDS2CardRangeDetails = new ArrayList<>();
         }
         this.threeDS2CardRangeDetails.add(threeDS2CardRangeDetailsItem);
         return this;

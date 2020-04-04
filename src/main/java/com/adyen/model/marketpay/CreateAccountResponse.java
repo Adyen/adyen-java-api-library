@@ -174,7 +174,7 @@ public class CreateAccountResponse {
 
     public CreateAccountResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<ErrorFieldType>();
+            this.invalidFields = new ArrayList<>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;
@@ -200,7 +200,7 @@ public class CreateAccountResponse {
 
     public CreateAccountResponse putMetadataItem(String key, String metadataItem) {
         if (this.metadata == null) {
-            this.metadata = new HashMap<String, String>();
+            this.metadata = new HashMap<>();
         }
         this.metadata.put(key, metadataItem);
         return this;

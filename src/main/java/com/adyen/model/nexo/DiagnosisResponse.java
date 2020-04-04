@@ -102,7 +102,7 @@ public class DiagnosisResponse {
      */
     public List<String> getLoggedSaleID() {
         if (loggedSaleID == null) {
-            loggedSaleID = new ArrayList<String>();
+            loggedSaleID = new ArrayList<>();
         }
         return this.loggedSaleID;
     }
@@ -149,7 +149,7 @@ public class DiagnosisResponse {
      */
     public List<HostStatus> getHostStatus() {
         if (hostStatus == null) {
-            hostStatus = new ArrayList<HostStatus>();
+            hostStatus = new ArrayList<>();
         }
         return this.hostStatus;
     }

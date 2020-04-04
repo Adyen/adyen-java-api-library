@@ -94,7 +94,7 @@ public class InputDetail {
     public InputDetail addDetailsItem(SubInputDetail detailsItem) {
 
         if (this.details == null) {
-            this.details = new ArrayList<SubInputDetail>();
+            this.details = new ArrayList<>();
         }
 
         this.details.add(detailsItem);
@@ -141,7 +141,7 @@ public class InputDetail {
     public InputDetail addItemsItem(Item itemsItem) {
 
         if (this.items == null) {
-            this.items = new ArrayList<Item>();
+            this.items = new ArrayList<>();
         }
 
         this.items.add(itemsItem);

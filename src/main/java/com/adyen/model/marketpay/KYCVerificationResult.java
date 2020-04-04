@@ -29,13 +29,13 @@ import com.google.gson.annotations.SerializedName;
  */
 public class KYCVerificationResult {
     @SerializedName("shareholders")
-    private List<KYCShareholderCheckResult> shareholders = new ArrayList<KYCShareholderCheckResult>();
+    private List<KYCShareholderCheckResult> shareholders = new ArrayList<>();
 
     @SerializedName("accountHolder")
     private KYCCheckResult accountHolder;
 
     @SerializedName("bankAccounts")
-    private List<KYCBankAccountCheckResult> bankAccounts = new ArrayList<KYCBankAccountCheckResult>();
+    private List<KYCBankAccountCheckResult> bankAccounts = new ArrayList<>();
 
     public List<KYCShareholderCheckResult> getShareholders() {
         return shareholders;

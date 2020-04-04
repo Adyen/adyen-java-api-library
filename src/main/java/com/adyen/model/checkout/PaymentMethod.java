@@ -62,7 +62,7 @@ public class PaymentMethod {
 
     public PaymentMethod addBrandsItem(String brandsItem) {
         if (this.brands == null) {
-            this.brands = new ArrayList<String>();
+            this.brands = new ArrayList<>();
         }
         this.brands.add(brandsItem);
         return this;
@@ -117,7 +117,7 @@ public class PaymentMethod {
     public PaymentMethod addDetailsItem(InputDetail detailsItem) {
 
         if (this.details == null) {
-            this.details = new ArrayList<InputDetail>();
+            this.details = new ArrayList<>();
         }
 
         this.details.add(detailsItem);

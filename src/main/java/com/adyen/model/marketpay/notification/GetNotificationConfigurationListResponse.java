@@ -67,7 +67,7 @@ public class GetNotificationConfigurationListResponse {
      **/
     public List<NotificationConfigurationDetails> getConfigurations() {
         if (configurations == null) {
-            configurations = new ArrayList<NotificationConfigurationDetails>();
+            configurations = new ArrayList<>();
 
             if (configurationsContainers != null && ! configurationsContainers.isEmpty()) {
                 for (NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer : configurationsContainers) {
@@ -83,7 +83,7 @@ public class GetNotificationConfigurationListResponse {
         this.configurations = configurations;
 
         // set as well the container list this will be send in the API request
-        this.configurationsContainers = new ArrayList<NotificationConfigurationDetailsContainer>();
+        this.configurationsContainers = new ArrayList<>();
         for (NotificationConfigurationDetails notificationConfigurationDetails : configurations) {
             NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer = createNotificationConfigurationDetailsContainerFromConfiguration(notificationConfigurationDetails);
             this.configurationsContainers.add(notificationConfigurationDetailsContainer);

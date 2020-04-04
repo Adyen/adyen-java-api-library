@@ -70,7 +70,7 @@ public class BatchRequest {
      */
     public List<TransactionToPerform> getTransactionToPerform() {
         if (transactionToPerform == null) {
-            transactionToPerform = new ArrayList<TransactionToPerform>();
+            transactionToPerform = new ArrayList<>();
         }
         return this.transactionToPerform;
     }

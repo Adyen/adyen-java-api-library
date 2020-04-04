@@ -133,7 +133,7 @@ public class LoyaltyTransaction {
      */
     public List<SaleItem> getSaleItem() {
         if (saleItem == null) {
-            saleItem = new ArrayList<SaleItem>();
+            saleItem = new ArrayList<>();
         }
         return this.saleItem;
     }

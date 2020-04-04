@@ -72,7 +72,7 @@ public class GetTotalsRequest {
      */
     public List<TotalDetailsType> getTotalDetails() {
         if (totalDetails == null) {
-            totalDetails = new ArrayList<TotalDetailsType>();
+            totalDetails = new ArrayList<>();
         }
         return this.totalDetails;
     }

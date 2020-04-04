@@ -76,7 +76,7 @@ public class ReconciliationRequest {
      */
     public List<String> getAcquirerID() {
         if (acquirerID == null) {
-            acquirerID = new ArrayList<String>();
+            acquirerID = new ArrayList<>();
         }
         return this.acquirerID;
     }

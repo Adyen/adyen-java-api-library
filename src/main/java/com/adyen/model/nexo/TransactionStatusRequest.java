@@ -97,7 +97,7 @@ public class TransactionStatusRequest {
      */
     public List<DocumentQualifierType> getDocumentQualifier() {
         if (documentQualifier == null) {
-            documentQualifier = new ArrayList<DocumentQualifierType>();
+            documentQualifier = new ArrayList<>();
         }
         return this.documentQualifier;
     }

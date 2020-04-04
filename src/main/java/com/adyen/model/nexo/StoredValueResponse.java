@@ -138,7 +138,7 @@ public class StoredValueResponse {
      */
     public List<StoredValueResult> getStoredValueResult() {
         if (storedValueResult == null) {
-            storedValueResult = new ArrayList<StoredValueResult>();
+            storedValueResult = new ArrayList<>();
         }
         return this.storedValueResult;
     }

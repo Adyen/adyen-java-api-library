@@ -54,7 +54,7 @@ public class AccountHolderBalanceResponse {
 
     public AccountHolderBalanceResponse addBalancePerAccountItem(AccountDetailBalance balancePerAccountItem) {
         if (this.balancePerAccount == null) {
-            this.balancePerAccount = new ArrayList<AccountDetailBalance>();
+            this.balancePerAccount = new ArrayList<>();
         }
         this.balancePerAccount.add(balancePerAccountItem);
         return this;
@@ -80,7 +80,7 @@ public class AccountHolderBalanceResponse {
 
     public AccountHolderBalanceResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<ErrorFieldType>();
+            this.invalidFields = new ArrayList<>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;

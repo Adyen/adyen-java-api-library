@@ -512,7 +512,7 @@ public class PaymentSessionRequest {
     public PaymentSessionRequest addAllowedPaymentMethodsItem(String allowedPaymentMethodsItem) {
 
         if (this.allowedPaymentMethods == null) {
-            this.allowedPaymentMethods = new ArrayList<String>();
+            this.allowedPaymentMethods = new ArrayList<>();
         }
 
         this.allowedPaymentMethods.add(allowedPaymentMethodsItem);
@@ -591,7 +591,7 @@ public class PaymentSessionRequest {
     public PaymentSessionRequest addBlockedPaymentMethodsItem(String blockedPaymentMethodsItem) {
 
         if (this.blockedPaymentMethods == null) {
-            this.blockedPaymentMethods = new ArrayList<String>();
+            this.blockedPaymentMethods = new ArrayList<>();
         }
 
         this.blockedPaymentMethods.add(blockedPaymentMethodsItem);
@@ -901,7 +901,7 @@ public class PaymentSessionRequest {
     public PaymentSessionRequest addLineItemsItem(LineItem lineItemsItem) {
 
         if (this.lineItems == null) {
-            this.lineItems = new ArrayList<LineItem>();
+            this.lineItems = new ArrayList<>();
         }
 
         this.lineItems.add(lineItemsItem);
@@ -1319,7 +1319,7 @@ public class PaymentSessionRequest {
     public PaymentSessionRequest addSplitsItem(Split splitsItem) {
 
         if (this.splits == null) {
-            this.splits = new ArrayList<Split>();
+            this.splits = new ArrayList<>();
         }
 
         this.splits.add(splitsItem);

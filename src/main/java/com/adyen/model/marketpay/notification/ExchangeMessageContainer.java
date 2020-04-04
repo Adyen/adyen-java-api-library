@@ -22,6 +22,8 @@ package com.adyen.model.marketpay.notification;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class ExchangeMessageContainer {
 
     @SerializedName("ExchangeMessage")
@@ -62,7 +64,7 @@ public class ExchangeMessageContainer {
 
         ExchangeMessageContainer that = (ExchangeMessageContainer) o;
 
-        return exchangeMessage != null ? exchangeMessage.equals(that.exchangeMessage) : that.exchangeMessage == null;
+        return Objects.equals(exchangeMessage, that.exchangeMessage);
     }
 
     @Override

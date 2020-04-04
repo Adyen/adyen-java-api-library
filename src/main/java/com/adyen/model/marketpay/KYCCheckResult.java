@@ -30,7 +30,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class KYCCheckResult {
     @SerializedName("checks")
-    private List<KYCCheckStatusData> checks = new ArrayList<KYCCheckStatusData>();
+    private List<KYCCheckStatusData> checks = new ArrayList<>();
 
     public KYCCheckResult checkStatusData(List<KYCCheckStatusData> checkStatusData) {
         this.checks = checkStatusData;

@@ -177,7 +177,7 @@ public class PaymentResponse {
      */
     public List<LoyaltyResult> getLoyaltyResult() {
         if (loyaltyResult == null) {
-            loyaltyResult = new ArrayList<LoyaltyResult>();
+            loyaltyResult = new ArrayList<>();
         }
         return this.loyaltyResult;
     }
@@ -206,7 +206,7 @@ public class PaymentResponse {
      */
     public List<PaymentReceipt> getPaymentReceipt() {
         if (paymentReceipt == null) {
-            paymentReceipt = new ArrayList<PaymentReceipt>();
+            paymentReceipt = new ArrayList<>();
         }
         return this.paymentReceipt;
     }
@@ -235,7 +235,7 @@ public class PaymentResponse {
      */
     public List<CustomerOrder> getCustomerOrder() {
         if (customerOrder == null) {
-            customerOrder = new ArrayList<CustomerOrder>();
+            customerOrder = new ArrayList<>();
         }
         return this.customerOrder;
     }
