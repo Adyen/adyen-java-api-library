@@ -22,7 +22,7 @@
 
 package com.adyen.model.modification;
 
-public class TechnicalCancelRequest extends AbstractModificationRequest<CancelOrRefundRequest> {
+public class TechnicalCancelRequest extends AbstractModificationRequest<TechnicalCancelRequest> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

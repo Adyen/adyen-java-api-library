@@ -456,6 +456,22 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
+    public void TestPaymentResponseAuthenticationFinished() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-3ds2-authentication-finished.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals(PaymentsResponse.ResultCodeEnum.AUTHENTICATIONFINISHED, paymentsResponse.getResultCode());
+        assertNotNull(paymentsResponse.getThreeDS2Result());
+        assertNotNull(paymentsResponse.getThreeDS2Result().getAuthenticationValue());
+        assertNotNull(paymentsResponse.getThreeDS2Result().getDsTransID());
+        assertNotNull(paymentsResponse.getThreeDS2Result().getEci());
+        assertNotNull(paymentsResponse.getThreeDS2Result().getMessageVersion());
+        assertNotNull(paymentsResponse.getThreeDS2Result().getThreeDSServerTransID());
+        assertNotNull(paymentsResponse.getThreeDS2Result().getTransStatus());
+    }
+
+    @Test
     public void TestPaymentLinksSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payment-links-success.json");
         Checkout checkout = new Checkout(client);
