@@ -20,19 +20,18 @@
  */
 package com.adyen.Util;
 
-import java.nio.charset.Charset;
+import com.adyen.model.Amount;
+import com.adyen.model.notification.NotificationRequestItem;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
-import com.adyen.model.Amount;
-import com.adyen.model.notification.NotificationRequestItem;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
