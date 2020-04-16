@@ -63,6 +63,9 @@ public class AccountHolderDetails {
     @SerializedName("webAddress")
     private String webAddress = null;
 
+    @SerializedName("phoneNumber")
+    private PhoneNumber phoneNumber = null;
+
     public AccountHolderDetails address(Address address) {
         this.address = address;
         return this;
@@ -259,6 +262,17 @@ public class AccountHolderDetails {
         this.webAddress = webAddress;
     }
 
+    /**
+     * The phone number of the account holder.
+     * @return phoneNumber
+     */
+    public PhoneNumber getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(PhoneNumber phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -278,12 +292,13 @@ public class AccountHolderDetails {
                 Objects.equals(this.merchantCategoryCode, accountHolderDetails.merchantCategoryCode) &&
                 Objects.equals(this.metadata, accountHolderDetails.metadata) &&
                 Objects.equals(this.payoutMethods, accountHolderDetails.payoutMethods) &&
-                Objects.equals(this.webAddress, accountHolderDetails.webAddress);
+                Objects.equals(this.webAddress, accountHolderDetails.webAddress) &&
+                Objects.equals(this.phoneNumber, accountHolderDetails.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(address, bankAccountDetails, businessDetails, email, fullPhoneNumber, individualDetails, merchantCategoryCode, metadata, payoutMethods, webAddress);
+        return Objects.hash(address, bankAccountDetails, businessDetails, email, fullPhoneNumber, individualDetails, merchantCategoryCode, metadata, payoutMethods, webAddress, phoneNumber);
     }
 
 
@@ -302,6 +317,7 @@ public class AccountHolderDetails {
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    payoutMethods: ").append(toIndentedString(payoutMethods)).append("\n");
         sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
+        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
         sb.append("}");
         return sb.toString();
     }
