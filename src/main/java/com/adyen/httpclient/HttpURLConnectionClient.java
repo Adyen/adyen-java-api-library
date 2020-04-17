@@ -48,6 +48,7 @@ import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -236,7 +237,8 @@ public class HttpURLConnectionClient implements ClientInterface {
         outputStream.flush();
 
         int responseCode = httpConnection.getResponseCode();
-        if (responseCode != HttpURLConnection.HTTP_OK || responseCode != HttpURLConnection.HTTP_CREATED || responseCode != HttpURLConnection.HTTP_ACCEPTED || responseCode != HttpURLConnection.HTTP_NO_CONTENT) {
+        int[] resultOKHttpStatusCodes = {httpConnection.HTTP_OK, httpConnection.HTTP_ACCEPTED, httpConnection.HTTP_NO_CONTENT, HttpURLConnection.HTTP_CREATED};
+        if (!Arrays.asList(resultOKHttpStatusCodes).contains(responseCode)) {
             //Read the response from the error stream
             if (httpConnection.getErrorStream() != null) {
                 response = getResponseBody(httpConnection.getErrorStream());
