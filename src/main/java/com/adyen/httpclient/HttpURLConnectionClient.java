@@ -236,7 +236,7 @@ public class HttpURLConnectionClient implements ClientInterface {
         outputStream.flush();
 
         int responseCode = httpConnection.getResponseCode();
-        if (responseCode != HttpURLConnection.HTTP_OK) {
+        if (responseCode != HttpURLConnection.HTTP_OK || responseCode != HttpURLConnection.HTTP_CREATED || responseCode != HttpURLConnection.HTTP_ACCEPTED || responseCode != HttpURLConnection.HTTP_NO_CONTENT) {
             //Read the response from the error stream
             if (httpConnection.getErrorStream() != null) {
                 response = getResponseBody(httpConnection.getErrorStream());
