@@ -237,7 +237,7 @@ public class HttpURLConnectionClient implements ClientInterface {
         outputStream.flush();
 
         int responseCode = httpConnection.getResponseCode();
-        int[] resultOKHttpStatusCodes = {HttpURLConnection.HTTP_OK, HttpURLConnection.HTTP_ACCEPTED, HttpURLConnection.HTTP_NO_CONTENT, HttpURLConnection.HTTP_CREATED};
+        Integer[] resultOKHttpStatusCodes = {HttpURLConnection.HTTP_OK, HttpURLConnection.HTTP_ACCEPTED, HttpURLConnection.HTTP_NO_CONTENT, HttpURLConnection.HTTP_CREATED};
         if (!Arrays.asList(resultOKHttpStatusCodes).contains(responseCode)) {
             //Read the response from the error stream
             if (httpConnection.getErrorStream() != null) {
