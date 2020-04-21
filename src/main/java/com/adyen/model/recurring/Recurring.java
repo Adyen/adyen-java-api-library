@@ -58,6 +58,9 @@ public class Recurring {
 
         @SerializedName("RECURRING,PAYOUT")
         RECURRING_PAYOUT("RECURRING,PAYOUT");
+        
+        @SerializedName("EXTERNAL")
+        RECURRING_PAYOUT("EXTERNAL");
 
         private String value;
 
