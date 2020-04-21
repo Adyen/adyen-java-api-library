@@ -14,23 +14,23 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="OutputText">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="Text" use="required" type="{}Text" />
- *       &lt;attribute name="CharacterSet" type="{}CharacterSet" />
- *       &lt;attribute name="Font" type="{}Font" />
- *       &lt;attribute name="StartRow" type="{}StartRow" />
- *       &lt;attribute name="StartColumn" type="{}StartColumn" />
- *       &lt;attribute name="Color" type="{}ColorType" />
- *       &lt;attribute name="CharacterWidth" type="{}CharacterWidthType" />
- *       &lt;attribute name="CharacterHeight" type="{}CharacterHeightType" />
- *       &lt;attribute name="CharacterStyle" type="{}CharacterStyleType" />
- *       &lt;attribute name="Alignment" type="{}AlignmentType" />
- *       &lt;attribute name="EndOfLineFlag" type="{}EndOfLineFlag" default="true" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="OutputText"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="Text" use="required" type="{}Text" /&gt;
+ *       &lt;attribute name="CharacterSet" type="{}CharacterSet" /&gt;
+ *       &lt;attribute name="Font" type="{}Font" /&gt;
+ *       &lt;attribute name="StartRow" type="{}StartRow" /&gt;
+ *       &lt;attribute name="StartColumn" type="{}StartColumn" /&gt;
+ *       &lt;attribute name="Color" type="{}ColorType" /&gt;
+ *       &lt;attribute name="CharacterWidth" type="{}CharacterWidthType" /&gt;
+ *       &lt;attribute name="CharacterHeight" type="{}CharacterHeightType" /&gt;
+ *       &lt;attribute name="CharacterStyle" type="{}CharacterStyleType" /&gt;
+ *       &lt;attribute name="Alignment" type="{}AlignmentType" /&gt;
+ *       &lt;attribute name="EndOfLineFlag" type="{}EndOfLineFlag" default="true" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)

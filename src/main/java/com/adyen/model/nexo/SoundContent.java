@@ -14,16 +14,16 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="SoundContent">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="SoundFormat" type="{}SoundFormatType" />
- *       &lt;attribute name="Language" type="{}ISOLanguage2A" />
- *       &lt;attribute name="ReferenceID" type="{}ReferenceID" />
- *       &lt;attribute name="Text" type="{}Text" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="SoundContent"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="SoundFormat" type="{}SoundFormatType" /&gt;
+ *       &lt;attribute name="Language" type="{}ISOLanguage2A" /&gt;
+ *       &lt;attribute name="ReferenceID" type="{}ReferenceID" /&gt;
+ *       &lt;attribute name="Text" type="{}Text" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)

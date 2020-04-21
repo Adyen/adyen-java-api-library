@@ -16,19 +16,19 @@ import java.util.List;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="StoredValueAccountID">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="StoredValueAccountType" use="required" type="{}StoredValueAccountType" />
- *       &lt;attribute name="StoredValueProvider" type="{}StoredValueProvider" />
- *       &lt;attribute name="OwnerName" type="{}OwnerName" />
- *       &lt;attribute name="ExpiryDate" type="{}ExpiryDate" />
- *       &lt;attribute name="EntryMode" use="required" type="{}EntryMode" />
- *       &lt;attribute name="IdentificationType" use="required" type="{}IdentificationType" />
- *       &lt;attribute name="StoredValueID" use="required" type="{}StoredValueID" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="StoredValueAccountID"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="StoredValueAccountType" use="required" type="{}StoredValueAccountType" /&gt;
+ *       &lt;attribute name="StoredValueProvider" type="{}StoredValueProvider" /&gt;
+ *       &lt;attribute name="OwnerName" type="{}OwnerName" /&gt;
+ *       &lt;attribute name="ExpiryDate" type="{}ExpiryDate" /&gt;
+ *       &lt;attribute name="EntryMode" use="required" type="{}EntryMode" /&gt;
+ *       &lt;attribute name="IdentificationType" use="required" type="{}IdentificationType" /&gt;
+ *       &lt;attribute name="StoredValueID" use="required" type="{}StoredValueID" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)

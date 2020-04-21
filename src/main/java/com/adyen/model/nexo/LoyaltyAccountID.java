@@ -16,16 +16,16 @@ import java.util.List;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="LoyaltyAccountID">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="LoyaltyID" use="required" type="{}LoyaltyID" />
- *       &lt;attribute name="EntryMode" use="required" type="{}EntryMode" />
- *       &lt;attribute name="IdentificationType" use="required" type="{}IdentificationType" />
- *       &lt;attribute name="IdentificationSupport" type="{}IdentificationSupportType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="LoyaltyAccountID"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="LoyaltyID" use="required" type="{}LoyaltyID" /&gt;
+ *       &lt;attribute name="EntryMode" use="required" type="{}EntryMode" /&gt;
+ *       &lt;attribute name="IdentificationType" use="required" type="{}IdentificationType" /&gt;
+ *       &lt;attribute name="IdentificationSupport" type="{}IdentificationSupportType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
