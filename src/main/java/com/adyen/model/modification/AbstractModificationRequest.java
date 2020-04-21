@@ -53,7 +53,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     private Map<String, String> additionalData = null;
 
     @SerializedName("applicationInfo")
-    private ApplicationInfo applicationInfo;
+    private final ApplicationInfo applicationInfo;
 
     @SerializedName("splits")
     private List<Split> splits = null;
@@ -237,11 +237,11 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
      * @return additional data
      */
     public Map<String, String> getOrCreateAdditionalData() {
-        if (this.getAdditionalData() == null) {
-            this.setAdditionalData(new HashMap<String, String>());
+        if (getAdditionalData() == null) {
+            setAdditionalData(new HashMap<String, String>());
         }
 
-        return this.getAdditionalData();
+        return getAdditionalData();
     }
 
     /**
@@ -251,61 +251,55 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
      */
     public T setInvoiceLines(List<InvoiceLine> invoiceLines) {
 
-        Integer count = 1;
+        int count = 1;
         for (InvoiceLine invoiceLine : invoiceLines) {
 
-            StringBuilder sb = new StringBuilder();
-            sb.append("openinvoicedata.line");
-            sb.append(Integer.toString(count));
-            String lineNumber = sb.toString();
+            String lineNumber = "openinvoicedata.line" + count;
 
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".currencyCode").toString(), invoiceLine.getCurrencyCode());
+            getOrCreateAdditionalData().put(lineNumber + ".currencyCode", invoiceLine.getCurrencyCode());
 
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".description").toString(), invoiceLine.getDescription());
+            getOrCreateAdditionalData().put(lineNumber + ".description", invoiceLine.getDescription());
 
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemAmount").toString(), invoiceLine.getItemAmount().toString());
+            getOrCreateAdditionalData().put(lineNumber + ".itemAmount", invoiceLine.getItemAmount().toString());
 
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemVatAmount").toString(), invoiceLine.getItemVATAmount().toString());
+            getOrCreateAdditionalData().put(lineNumber + ".itemVatAmount", invoiceLine.getItemVATAmount().toString());
 
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemVatPercentage").toString(), invoiceLine.getItemVatPercentage().toString());
+            getOrCreateAdditionalData().put(lineNumber + ".itemVatPercentage", invoiceLine.getItemVatPercentage().toString());
 
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".numberOfItems").toString(), Integer.toString(invoiceLine.getNumberOfItems()));
+            getOrCreateAdditionalData().put(lineNumber + ".numberOfItems", Integer.toString(invoiceLine.getNumberOfItems()));
 
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".vatCategory").toString(), invoiceLine.getVatCategory().toString());
+            getOrCreateAdditionalData().put(lineNumber + ".vatCategory", invoiceLine.getVatCategory().toString());
 
             // Addional field only for RatePay
             if (invoiceLine.getItemId() != null && ! invoiceLine.getItemId().isEmpty()) {
-                this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemId").toString(), invoiceLine.getItemId());
+                getOrCreateAdditionalData().put(lineNumber + ".itemId", invoiceLine.getItemId());
             }
 
             count++;
         }
 
-        this.getOrCreateAdditionalData().put("openinvoicedata.numberOfLines", Integer.toString(invoiceLines.size()));
+        getOrCreateAdditionalData().put("openinvoicedata.numberOfLines", Integer.toString(invoiceLines.size()));
         return (T) this;
     }
 
     public T setSplitPayment(SplitPayment splitPayment) {
-        this.getOrCreateAdditionalData().put("split.api", splitPayment.getApi().toString());
-        this.getOrCreateAdditionalData().put("split.totalAmount", splitPayment.getTotalAmount().toString());
-        this.getOrCreateAdditionalData().put("split.currencyCode", splitPayment.getCurrencyCode());
+        getOrCreateAdditionalData().put("split.api", splitPayment.getApi().toString());
+        getOrCreateAdditionalData().put("split.totalAmount", splitPayment.getTotalAmount().toString());
+        getOrCreateAdditionalData().put("split.currencyCode", splitPayment.getCurrencyCode());
 
-        Integer count = 1;
+        int count = 1;
         for (SplitPaymentItem splitPaymentItem : splitPayment.getSplitPaymentItems()) {
 
-            StringBuilder sb = new StringBuilder();
-            sb.append("split.item");
-            sb.append(Integer.toString(count));
-            String lineNumber = sb.toString();
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".amount").toString(), splitPaymentItem.getAmount().toString());
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".type").toString(), splitPaymentItem.getType());
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".account").toString(), splitPaymentItem.getAccount());
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".reference").toString(), splitPaymentItem.getReference());
-            this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".description").toString(), splitPaymentItem.getDescription());
+            String lineNumber = "split.item" + count;
+            getOrCreateAdditionalData().put(lineNumber + ".amount", splitPaymentItem.getAmount().toString());
+            getOrCreateAdditionalData().put(lineNumber + ".type", splitPaymentItem.getType());
+            getOrCreateAdditionalData().put(lineNumber + ".account", splitPaymentItem.getAccount());
+            getOrCreateAdditionalData().put(lineNumber + ".reference", splitPaymentItem.getReference());
+            getOrCreateAdditionalData().put(lineNumber + ".description", splitPaymentItem.getDescription());
 
             count++;
         }
-        this.getOrCreateAdditionalData().put("split.nrOfItems", Integer.toString(splitPayment.getSplitPaymentItems().size()));
+        getOrCreateAdditionalData().put("split.nrOfItems", Integer.toString(splitPayment.getSplitPaymentItems().size()));
 
         return (T) this;
     }
@@ -319,17 +313,17 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
             return false;
         }
         AbstractModificationRequest modificationRequest = (AbstractModificationRequest) o;
-        return Objects.equals(this.reference, modificationRequest.reference)
-                && Objects.equals(this.authorisationCode, modificationRequest.authorisationCode)
-                && Objects.equals(this.originalReference,
+        return Objects.equals(reference, modificationRequest.reference)
+                && Objects.equals(authorisationCode, modificationRequest.authorisationCode)
+                && Objects.equals(originalReference,
                                   modificationRequest.originalReference)
-                && Objects.equals(this.merchantAccount, modificationRequest.merchantAccount)
-                && Objects.equals(this.applicationInfo, modificationRequest.applicationInfo)
-                && Objects.equals(this.additionalData, modificationRequest.additionalData)
-                && Objects.equals(this.mpiData, modificationRequest.mpiData)
-                && Objects.equals(this.originalMerchantReference, modificationRequest.originalMerchantReference)
-                && Objects.equals(this.tenderReference, modificationRequest.tenderReference)
-                && Objects.equals(this.uniqueTerminalId, modificationRequest.uniqueTerminalId);
+                && Objects.equals(merchantAccount, modificationRequest.merchantAccount)
+                && Objects.equals(applicationInfo, modificationRequest.applicationInfo)
+                && Objects.equals(additionalData, modificationRequest.additionalData)
+                && Objects.equals(mpiData, modificationRequest.mpiData)
+                && Objects.equals(originalMerchantReference, modificationRequest.originalMerchantReference)
+                && Objects.equals(tenderReference, modificationRequest.tenderReference)
+                && Objects.equals(uniqueTerminalId, modificationRequest.uniqueTerminalId);
     }
 
     @Override
@@ -361,7 +355,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
      * @param o string
      * @return Indented string
      */
-    private String toIndentedString(Object o) {
+    private static String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

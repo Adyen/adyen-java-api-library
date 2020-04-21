@@ -123,9 +123,7 @@ public class SaleData {
     protected List<CustomerOrderReqType> customerOrderReq;
 
     public SaleData() {
-        if (saleToAcquirerData == null) {
-            saleToAcquirerData = new SaleToAcquirerData();
-        }
+        saleToAcquirerData = new SaleToAcquirerData();
     }
 
     /**
@@ -143,7 +141,7 @@ public class SaleData {
      * @param value allowed object is     {@link TransactionIdentification }
      */
     public void setSaleTransactionID(TransactionIdentification value) {
-        this.saleTransactionID = value;
+        saleTransactionID = value;
     }
 
     /**
@@ -161,7 +159,7 @@ public class SaleData {
      * @param value allowed object is     {@link SaleTerminalData }
      */
     public void setSaleTerminalData(SaleTerminalData value) {
-        this.saleTerminalData = value;
+        saleTerminalData = value;
     }
 
     /**
@@ -188,9 +186,9 @@ public class SaleData {
      */
     public List<SponsoredMerchant> getSponsoredMerchant() {
         if (sponsoredMerchant == null) {
-            sponsoredMerchant = new ArrayList<SponsoredMerchant>();
+            sponsoredMerchant = new ArrayList<>();
         }
-        return this.sponsoredMerchant;
+        return sponsoredMerchant;
     }
 
     /**
@@ -208,7 +206,7 @@ public class SaleData {
      * @param value allowed object is     {@link String }
      */
     public void setSaleToPOIData(String value) {
-        this.saleToPOIData = value;
+        saleToPOIData = value;
     }
 
     /**
@@ -226,7 +224,7 @@ public class SaleData {
      * @param value allowed object is     {@link String }
      */
     public void setSaleToAcquirerData(SaleToAcquirerData value) {
-        this.saleToAcquirerData = value;
+        saleToAcquirerData = value;
     }
 
     /**
@@ -244,7 +242,7 @@ public class SaleData {
      * @param value allowed object is     {@link SaleToIssuerData }
      */
     public void setSaleToIssuerData(SaleToIssuerData value) {
-        this.saleToIssuerData = value;
+        saleToIssuerData = value;
     }
 
     /**
@@ -262,7 +260,7 @@ public class SaleData {
      * @param value allowed object is     {@link String }
      */
     public void setOperatorID(String value) {
-        this.operatorID = value;
+        operatorID = value;
     }
 
     /**
@@ -280,7 +278,7 @@ public class SaleData {
      * @param value allowed object is     {@link String }
      */
     public void setOperatorLanguage(String value) {
-        this.operatorLanguage = value;
+        operatorLanguage = value;
     }
 
     /**
@@ -298,7 +296,7 @@ public class SaleData {
      * @param value allowed object is     {@link String }
      */
     public void setShiftNumber(String value) {
-        this.shiftNumber = value;
+        shiftNumber = value;
     }
 
     /**
@@ -316,7 +314,7 @@ public class SaleData {
      * @param value allowed object is     {@link String }
      */
     public void setSaleReferenceID(String value) {
-        this.saleReferenceID = value;
+        saleReferenceID = value;
     }
 
     /**
@@ -334,7 +332,7 @@ public class SaleData {
      * @param value allowed object is     {@link TokenRequestedType }
      */
     public void setTokenRequestedType(TokenRequestedType value) {
-        this.tokenRequestedType = value;
+        tokenRequestedType = value;
     }
 
     /**
@@ -352,7 +350,7 @@ public class SaleData {
      * @param value allowed object is     {@link String }
      */
     public void setCustomerOrderID(String value) {
-        this.customerOrderID = value;
+        customerOrderID = value;
     }
 
     /**
@@ -379,9 +377,9 @@ public class SaleData {
      */
     public List<CustomerOrderReqType> getCustomerOrderReq() {
         if (customerOrderReq == null) {
-            customerOrderReq = new ArrayList<CustomerOrderReqType>();
+            customerOrderReq = new ArrayList<>();
         }
-        return this.customerOrderReq;
+        return customerOrderReq;
     }
 
 }

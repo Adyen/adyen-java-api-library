@@ -23,6 +23,7 @@ package com.adyen.model.checkout;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -61,10 +62,10 @@ public class PaymentMethod {
     }
 
     public PaymentMethod addBrandsItem(String brandsItem) {
-        if (this.brands == null) {
-            this.brands = new ArrayList<String>();
+        if (brands == null) {
+            brands = new ArrayList<>();
         }
-        this.brands.add(brandsItem);
+        brands.add(brandsItem);
         return this;
     }
 
@@ -88,11 +89,11 @@ public class PaymentMethod {
 
     public PaymentMethod putConfigurationItem(String key, String configurationItem) {
 
-        if (this.configuration == null) {
-            this.configuration = null;
+        if (configuration == null) {
+            configuration = new HashMap<>();
         }
 
-        this.configuration.put(key, configurationItem);
+        configuration.put(key, configurationItem);
         return this;
     }
 
@@ -116,11 +117,11 @@ public class PaymentMethod {
 
     public PaymentMethod addDetailsItem(InputDetail detailsItem) {
 
-        if (this.details == null) {
-            this.details = new ArrayList<InputDetail>();
+        if (details == null) {
+            details = new ArrayList<>();
         }
 
-        this.details.add(detailsItem);
+        details.add(detailsItem);
         return this;
     }
 
@@ -240,14 +241,14 @@ public class PaymentMethod {
             return false;
         }
         PaymentMethod paymentMethod = (PaymentMethod) o;
-        return Objects.equals(this.brands, paymentMethod.brands)
-                && Objects.equals(this.configuration, paymentMethod.configuration)
-                && Objects.equals(this.details, paymentMethod.details)
-                && Objects.equals(this.group, paymentMethod.group)
-                && Objects.equals(this.name, paymentMethod.name)
-                && Objects.equals(this.paymentMethodData, paymentMethod.paymentMethodData)
-                && Objects.equals(this.supportsRecurring, paymentMethod.supportsRecurring)
-                && Objects.equals(this.type, paymentMethod.type);
+        return Objects.equals(brands, paymentMethod.brands)
+                && Objects.equals(configuration, paymentMethod.configuration)
+                && Objects.equals(details, paymentMethod.details)
+                && Objects.equals(group, paymentMethod.group)
+                && Objects.equals(name, paymentMethod.name)
+                && Objects.equals(paymentMethodData, paymentMethod.paymentMethodData)
+                && Objects.equals(supportsRecurring, paymentMethod.supportsRecurring)
+                && Objects.equals(type, paymentMethod.type);
     }
 
     @Override
@@ -276,7 +277,7 @@ public class PaymentMethod {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private static String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

@@ -20,7 +20,6 @@
  */
 package com.adyen.service;
 
-import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.payout.ConfirmThirdPartyRequest;
@@ -43,13 +42,15 @@ import com.adyen.service.resource.payout.StoreDetailAndSubmitThirdParty;
 import com.adyen.service.resource.payout.SubmitThirdParty;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+
 public class Payout extends Service {
-    private StoreDetailAndSubmitThirdParty storeDetailAndSubmitThirdParty;
-    private ConfirmThirdParty confirmThirdParty;
-    private DeclineThirdParty declineThirdParty;
-    private StoreDetail storeDetail;
-    private SubmitThirdParty submitThirdparty;
-    private com.adyen.service.resource.payout.Payout payout;
+    private final StoreDetailAndSubmitThirdParty storeDetailAndSubmitThirdParty;
+    private final ConfirmThirdParty confirmThirdParty;
+    private final DeclineThirdParty declineThirdParty;
+    private final StoreDetail storeDetail;
+    private final SubmitThirdParty submitThirdparty;
+    private final com.adyen.service.resource.payout.Payout payout;
 
     public Payout(Client client) {
         super(client);
@@ -75,9 +76,8 @@ public class Payout extends Service {
 
         String jsonResult = storeDetailAndSubmitThirdParty.request(jsonRequest);
 
-        StoreDetailAndSubmitResponse result = GSON.fromJson(jsonResult, new TypeToken<StoreDetailAndSubmitResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<StoreDetailAndSubmitResponse>() {
         }.getType());
-        return result;
     }
 
     /**
@@ -93,9 +93,8 @@ public class Payout extends Service {
 
         String jsonResult = confirmThirdParty.request(jsonRequest);
 
-        ConfirmThirdPartyResponse result = GSON.fromJson(jsonResult, new TypeToken<ConfirmThirdPartyResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<ConfirmThirdPartyResponse>() {
         }.getType());
-        return result;
     }
 
     /**
@@ -111,9 +110,8 @@ public class Payout extends Service {
 
         String jsonResult = declineThirdParty.request(jsonRequest);
 
-        DeclineThirdPartyResponse result = GSON.fromJson(jsonResult, new TypeToken<DeclineThirdPartyResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<DeclineThirdPartyResponse>() {
         }.getType());
-        return result;
     }
 
     /**
@@ -129,9 +127,8 @@ public class Payout extends Service {
 
         String jsonResult = storeDetail.request(jsonRequest);
 
-        StoreDetailResponse result = GSON.fromJson(jsonResult, new TypeToken<StoreDetailResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<StoreDetailResponse>() {
         }.getType());
-        return result;
     }
 
     /**
@@ -147,9 +144,8 @@ public class Payout extends Service {
 
         String jsonResult = submitThirdparty.request(jsonRequest);
 
-        SubmitResponse result = GSON.fromJson(jsonResult, new TypeToken<SubmitResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<SubmitResponse>() {
         }.getType());
-        return result;
     }
 
     /**
@@ -165,8 +161,7 @@ public class Payout extends Service {
 
         String jsonResult = payout.request(jsonRequest);
 
-        PayoutResponse result = GSON.fromJson(jsonResult, new TypeToken<PayoutResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PayoutResponse>() {
         }.getType());
-        return result;
     }
 }

@@ -24,6 +24,7 @@ package com.adyen.model.checkout;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -69,10 +70,10 @@ public class RecurringDetail {
     }
 
     public RecurringDetail addBrandsItem(String brandsItem) {
-        if (this.brands == null) {
-            this.brands = new ArrayList<String>();
+        if (brands == null) {
+            brands = new ArrayList<>();
         }
-        this.brands.add(brandsItem);
+        brands.add(brandsItem);
         return this;
     }
 
@@ -96,11 +97,11 @@ public class RecurringDetail {
 
     public RecurringDetail putConfigurationItem(String key, String configurationItem) {
 
-        if (this.configuration == null) {
-            this.configuration = null;
+        if (configuration == null) {
+            configuration = new HashMap<>();
         }
 
-        this.configuration.put(key, configurationItem);
+        configuration.put(key, configurationItem);
         return this;
     }
 
@@ -123,10 +124,10 @@ public class RecurringDetail {
     }
 
     public RecurringDetail addDetailsItem(InputDetail detailsItem) {
-        if (this.details == null) {
-            this.details = new ArrayList<InputDetail>();
+        if (details == null) {
+            details = new ArrayList<>();
         }
-        this.details.add(detailsItem);
+        details.add(detailsItem);
         return this;
     }
 
@@ -279,16 +280,16 @@ public class RecurringDetail {
             return false;
         }
         RecurringDetail recurringDetail = (RecurringDetail) o;
-        return Objects.equals(this.brands, recurringDetail.brands) &&
-                Objects.equals(this.configuration, recurringDetail.configuration) &&
-                Objects.equals(this.details, recurringDetail.details) &&
-                Objects.equals(this.group, recurringDetail.group) &&
-                Objects.equals(this.name, recurringDetail.name) &&
-                Objects.equals(this.paymentMethodData, recurringDetail.paymentMethodData) &&
-                Objects.equals(this.recurringDetailReference, recurringDetail.recurringDetailReference) &&
-                Objects.equals(this.storedDetails, recurringDetail.storedDetails) &&
-                Objects.equals(this.supportsRecurring, recurringDetail.supportsRecurring) &&
-                Objects.equals(this.type, recurringDetail.type);
+        return Objects.equals(brands, recurringDetail.brands) &&
+                Objects.equals(configuration, recurringDetail.configuration) &&
+                Objects.equals(details, recurringDetail.details) &&
+                Objects.equals(group, recurringDetail.group) &&
+                Objects.equals(name, recurringDetail.name) &&
+                Objects.equals(paymentMethodData, recurringDetail.paymentMethodData) &&
+                Objects.equals(recurringDetailReference, recurringDetail.recurringDetailReference) &&
+                Objects.equals(storedDetails, recurringDetail.storedDetails) &&
+                Objects.equals(supportsRecurring, recurringDetail.supportsRecurring) &&
+                Objects.equals(type, recurringDetail.type);
     }
 
     @Override
@@ -320,7 +321,7 @@ public class RecurringDetail {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private static String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }
