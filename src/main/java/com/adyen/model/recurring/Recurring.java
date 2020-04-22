@@ -60,7 +60,7 @@ public class Recurring {
         RECURRING_PAYOUT("RECURRING,PAYOUT"),
         
         @SerializedName("EXTERNAL")
-        RECURRING_PAYOUT("EXTERNAL");
+        EXTERNAL("EXTERNAL");
 
         private String value;
 
