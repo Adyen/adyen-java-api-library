@@ -82,6 +82,19 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test success flow for
+     * POST /payments
+     */
+    @Test
+    public void TestEncryptedPaymentsSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-encrypted-success.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createEncryptedPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("883586864229293H", paymentsResponse.getPspReference());
+    }
+
+    /**
      * Test error flow for
      * POST /payments
      */
@@ -259,6 +272,62 @@ public class CheckoutTest extends BaseTest {
                 + "    \"expiryYear\": \"2018\",\n"
                 + "    \"holderName\": \"John Smith\",\n"
                 + "    \"cvc\": \"737\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}", jsonRequest);
+
+        TestPaymentMethodDetails testPaymentMethodDetails = new TestPaymentMethodDetails();
+        testPaymentMethodDetails.setType("testType");
+        testPaymentMethodDetails.setTestValue("testValue");
+        paymentsRequest.setPaymentMethod(testPaymentMethodDetails);
+
+        jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"testKey\": \"testValue\",\n"
+                + "    \"type\": \"testType\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}", jsonRequest);
+    }
+
+    @Test
+    public void TestEncryptedPaymentMethodDetails() {
+        PaymentsRequest paymentsRequest = createEncryptedPaymentsCheckoutRequest();
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"type\": \"scheme\",\n"
+                + "    \"holderName\": \"John Smith\",\n"
+                + "    \"encryptedCardNumber\": \"test_4111111111111111\",\n"
+                + "    \"encryptedExpiryMonth\": \"test_03\",\n"
+                + "    \"encryptedExpiryYear\": \"test_2030\",\n"
+                + "    \"encryptedSecurityCode\": \"test_737\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
@@ -550,7 +619,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
-     * Returns a sample PaymentSessionRequest opbject with test data
+     * Returns a sample PaymentSessionRequest object with test data
      */
 
     protected PaymentSessionRequest createPaymentSessionRequest() {
@@ -565,7 +634,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
-     * Returns a sample PaymentsRequest opbject with test data
+     * Returns a sample PaymentsRequest object with test data
      */
     protected PaymentsRequest createPaymentsCheckoutRequest() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
@@ -579,6 +648,23 @@ public class CheckoutTest extends BaseTest {
 
         return paymentsRequest;
     }
+
+    /**
+     * Returns a sample Encrypted PaymentsRequest opbject with test data
+     */
+    protected PaymentsRequest createEncryptedPaymentsCheckoutRequest() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+
+        paymentsRequest.setReference("Your order number");
+        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737", "John Smith");
+
+        paymentsRequest.setReturnUrl("https://your-company.com/...");
+        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+
+        return paymentsRequest;
+    }
+
 
     /**
      * Returns a sample PaymentsDetailsRequest opbject with test data

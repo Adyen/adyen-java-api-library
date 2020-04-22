@@ -46,9 +46,7 @@ public class SaleToAcquirerData {
     private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public SaleToAcquirerData() {
-        if (this.applicationInfo == null) {
-            this.applicationInfo = new ApplicationInfo();
-        }
+        applicationInfo = new ApplicationInfo();
     }
 
     public Map<String, String> getMetadata() {

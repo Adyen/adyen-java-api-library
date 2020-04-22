@@ -51,7 +51,7 @@ public class HTTPClientException extends Exception {
     }
 
     public HTTPClientException(String message, int code, Map<String, List<String>> responseHeaders, String responseBody) {
-        this(message, (Throwable) null, code, responseHeaders, responseBody);
+        this(message, null, code, responseHeaders, responseBody);
     }
 
     public HTTPClientException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders) {
@@ -59,7 +59,7 @@ public class HTTPClientException extends Exception {
     }
 
     public HTTPClientException(int code, Map<String, List<String>> responseHeaders, String responseBody) {
-        this((String) null, (Throwable) null, code, responseHeaders, responseBody);
+        this(null, null, code, responseHeaders, responseBody);
     }
 
     public HTTPClientException(int code, String message) {
