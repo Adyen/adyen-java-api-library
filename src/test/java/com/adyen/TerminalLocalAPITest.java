@@ -37,7 +37,6 @@ import com.adyen.model.nexo.SaleToPOIResponse;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.model.terminal.security.SecurityKey;
-import com.adyen.service.TerminalCloudAPI;
 import com.adyen.service.TerminalLocalAPI;
 import org.junit.Test;
 

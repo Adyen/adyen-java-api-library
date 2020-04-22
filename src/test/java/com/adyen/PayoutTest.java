@@ -20,14 +20,12 @@
  */
 package com.adyen;
 
-import com.adyen.model.payout.PayoutRequest;
-import com.adyen.model.payout.PayoutResponse;
-import com.adyen.service.exception.ApiException;
-import org.junit.Test;
 import com.adyen.model.payout.ConfirmThirdPartyRequest;
 import com.adyen.model.payout.ConfirmThirdPartyResponse;
 import com.adyen.model.payout.DeclineThirdPartyRequest;
 import com.adyen.model.payout.DeclineThirdPartyResponse;
+import com.adyen.model.payout.PayoutRequest;
+import com.adyen.model.payout.PayoutResponse;
 import com.adyen.model.payout.StoreDetailAndSubmitRequest;
 import com.adyen.model.payout.StoreDetailAndSubmitResponse;
 import com.adyen.model.payout.StoreDetailRequest;
@@ -35,11 +33,13 @@ import com.adyen.model.payout.StoreDetailResponse;
 import com.adyen.model.payout.SubmitRequest;
 import com.adyen.model.payout.SubmitResponse;
 import com.adyen.service.Payout;
+import com.adyen.service.exception.ApiException;
+import org.junit.Test;
+
 import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_MANUAL_REVIEW;
 import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_RESULT_TYPE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 public class PayoutTest extends BaseTest {
