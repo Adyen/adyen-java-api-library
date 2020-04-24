@@ -9,59 +9,56 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * Definition: BarCode content to display or print. -- Usage: Various usage of barcode
  *
+ *
  * <p>Java class for OutputBarcode complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
  * &lt;complexType name="OutputBarcode"&gt;
- *   &lt;simpleContent&gt;
- *     &lt;extension base="TextString"&gt;
- *       &lt;attribute name="Barcode" type="{}BarcodeType" default="EAN13" /&gt;
- *     &lt;/extension&gt;
- *   &lt;/simpleContent&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="BarcodeValue" use="required" type="{}BarcodeValue" /&gt;
+ *       &lt;attribute name="BarcodeType" type="{}BarcodeType" default="EAN13" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "OutputBarcode", propOrder = {
-        "barcodeValue"
-})
+@XmlType(name = "OutputBarcode")
 public class OutputBarcode {
 
-    /**
-     * The Value.
-     */
-    @XmlAttribute(name = "BarcodeValue")
+    @XmlAttribute(name = "BarcodeValue", required = true)
     protected String barcodeValue;
-    /**
-     * The Barcode.
-     */
     @XmlAttribute(name = "BarcodeType")
     protected BarcodeType barcodeType;
 
     /**
-     * Gets the value of the value property.
+     * Gets the value of the barcodeValue property.
      *
-     * @return possible      object is     {@link String }
+     * @return possible object is
+     * {@link String }
      */
-    public String getValue() {
+    public String getBarcodeValue() {
         return barcodeValue;
     }
 
     /**
      * Sets the value of the barcodeValue property.
      *
-     * @param barcodeValue allowed object is     {@link String }
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setBarcodeValue(String barcodeValue) {
-        this.barcodeValue = barcodeValue;
+    public void setBarcodeValue(String value) {
+        this.barcodeValue = value;
     }
 
     /**
      * Gets the value of the barcodeType property.
      *
-     * @return possible      object is     {@link BarcodeType }
+     * @return possible object is
+     * {@link BarcodeType }
      */
     public BarcodeType getBarcodeType() {
         if (barcodeType == null) {
@@ -74,7 +71,8 @@ public class OutputBarcode {
     /**
      * Sets the value of the barcodeType property.
      *
-     * @param value allowed object is     {@link BarcodeType }
+     * @param value allowed object is
+     *              {@link BarcodeType }
      */
     public void setBarcodeType(BarcodeType value) {
         this.barcodeType = value;
