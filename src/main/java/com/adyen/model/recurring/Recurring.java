@@ -57,7 +57,10 @@ public class Recurring {
         ONECLICK_PAYOUT("ONECLICK,PAYOUT"),
 
         @SerializedName("RECURRING,PAYOUT")
-        RECURRING_PAYOUT("RECURRING,PAYOUT");
+        RECURRING_PAYOUT("RECURRING,PAYOUT"),
+
+        @SerializedName("EXTERNAL")
+        EXTERNAL("EXTERNAL");
 
         private String value;
 

@@ -29,7 +29,6 @@ import com.adyen.model.Amount;
 import com.adyen.model.MerchantRiskIndicator;
 import com.adyen.model.Split;
 import com.adyen.model.ThreeDS2RequestData;
-import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -63,9 +62,6 @@ public class PaymentMethodsRequest {
     @SerializedName("accountInfo")
     private AccountInfo accountInfo = null;
 
-    @SerializedName("applciationInfo")
-    private ApplicationInfo applicationInfo = null;
-
     @SerializedName("configId")
     private String configId = null;
 
@@ -87,6 +83,9 @@ public class PaymentMethodsRequest {
     @SerializedName("threeDSAuthenticationOnly")
     private Boolean threeDSAuthenticationOnly = null;
 
+    @SerializedName("store")
+    private String store = null;
+
     public Object getAdditionalData() {
         return additionalData;
     }
@@ -101,14 +100,6 @@ public class PaymentMethodsRequest {
 
     public void setAccountInfo(AccountInfo accountInfo) {
         this.accountInfo = accountInfo;
-    }
-
-    public ApplicationInfo getApplicationInfo() {
-        return applicationInfo;
-    }
-
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
     }
 
     public PaymentMethodsRequest amount(Amount amount) {
@@ -281,6 +272,19 @@ public class PaymentMethodsRequest {
         return this;
     }
 
+    public String getStore() {
+        return store;
+    }
+
+    public void setStore(String store) {
+        this.store = store;
+    }
+
+    public PaymentMethodsRequest store(String store) {
+        this.store = store;
+        return this;
+    }
+
     /**
      * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
      * @return enableRealTimeUpdate
@@ -329,12 +333,14 @@ public class PaymentMethodsRequest {
                 Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount) &&
                 Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
                 Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference) &&
+                Objects.equals(this.store, paymentMethodsRequest.store) &&
                 Objects.equals(this.threeDSAuthenticationOnly, paymentMethodsRequest.threeDSAuthenticationOnly);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, shopperLocale, shopperReference, threeDSAuthenticationOnly);
+        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, shopperLocale, shopperReference, threeDSAuthenticationOnly, store);
     }
 
 
@@ -354,6 +360,7 @@ public class PaymentMethodsRequest {
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
         sb.append("}");
         return sb.toString();
     }

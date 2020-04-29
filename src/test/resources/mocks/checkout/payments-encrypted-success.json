@@ -1,0 +1,79 @@
+{
+  "additionalData": {
+    "fraudResultType": "GREEN",
+    "cardHolderName": "Checkout Shopper PlaceHolder",
+    "cardSummary": "1111",
+    "fraudManualReview": "false",
+    "shopperEmail": "testmail@mail.com",
+    "expiryDate": "3/2030",
+    "shopperDetails": "retrieved",
+    "cardBin": "411111",
+    "aliasType": "Default",
+    "alias": "H167852639363479",
+    "paymentMethod": "visa",
+    "paymentMethodVariant": "visa",
+    "merchantReference": "Your order number",
+    "shopperReference": "1"
+  },
+  "fraudResult": {
+    "accountScore": 0,
+    "results": [
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 2,
+          "name": "CardChunkUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 3,
+          "name": "PaymentDetailUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 1,
+          "name": "PaymentDetailRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 13,
+          "name": "IssuerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 15,
+          "name": "IssuingCountryReferral"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 82,
+          "name": "CustomFieldCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 25,
+          "name": "CVCAuthResultCheck"
+        }
+      }
+    ]
+  },
+  "pspReference": "883586864229293H",
+  "resultCode": "Authorised",
+  "amount": {
+    "currency": "USD",
+    "value": 1000
+  },
+  "merchantReference": "Your order number"
+}

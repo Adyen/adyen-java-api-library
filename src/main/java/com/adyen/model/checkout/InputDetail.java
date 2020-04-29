@@ -25,6 +25,7 @@ package com.adyen.model.checkout;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -65,11 +66,11 @@ public class InputDetail {
 
     public InputDetail putConfigurationItem(String key, String configurationItem) {
 
-        if (this.configuration == null) {
-            this.configuration = null;
+        if (configuration == null) {
+            configuration = new HashMap<>();
         }
 
-        this.configuration.put(key, configurationItem);
+        configuration.put(key, configurationItem);
         return this;
     }
 
@@ -93,11 +94,11 @@ public class InputDetail {
 
     public InputDetail addDetailsItem(SubInputDetail detailsItem) {
 
-        if (this.details == null) {
-            this.details = new ArrayList<SubInputDetail>();
+        if (details == null) {
+            details = new ArrayList<>();
         }
 
-        this.details.add(detailsItem);
+        details.add(detailsItem);
         return this;
     }
 
@@ -140,11 +141,11 @@ public class InputDetail {
 
     public InputDetail addItemsItem(Item itemsItem) {
 
-        if (this.items == null) {
-            this.items = new ArrayList<Item>();
+        if (items == null) {
+            items = new ArrayList<>();
         }
 
-        this.items.add(itemsItem);
+        items.add(itemsItem);
         return this;
     }
 
@@ -246,14 +247,14 @@ public class InputDetail {
             return false;
         }
         InputDetail inputDetail = (InputDetail) o;
-        return Objects.equals(this.configuration, inputDetail.configuration) &&
-                Objects.equals(this.details, inputDetail.details) &&
-                Objects.equals(this.itemSearchUrl, inputDetail.itemSearchUrl) &&
-                Objects.equals(this.items, inputDetail.items) &&
-                Objects.equals(this.key, inputDetail.key) &&
-                Objects.equals(this.optional, inputDetail.optional) &&
-                Objects.equals(this.type, inputDetail.type) &&
-                Objects.equals(this.value, inputDetail.value);
+        return Objects.equals(configuration, inputDetail.configuration) &&
+                Objects.equals(details, inputDetail.details) &&
+                Objects.equals(itemSearchUrl, inputDetail.itemSearchUrl) &&
+                Objects.equals(items, inputDetail.items) &&
+                Objects.equals(key, inputDetail.key) &&
+                Objects.equals(optional, inputDetail.optional) &&
+                Objects.equals(type, inputDetail.type) &&
+                Objects.equals(value, inputDetail.value);
     }
 
     @Override
@@ -282,7 +283,7 @@ public class InputDetail {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private static String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

@@ -68,38 +68,28 @@ public class PaymentResult {
      * the result of the payment
      */
     public enum ResultCodeEnum {
-        @SerializedName("Authorised")
-        AUTHORISED("Authorised"),
-
-        @SerializedName("PartiallyAuthorised")
-        PARTIALLYAUTHORISED("PartiallyAuthorised"),
-
-        @SerializedName("Refused")
-        REFUSED("Refused"),
-
-        @SerializedName("Error")
-        ERROR("Error"),
-
-        @SerializedName("Cancelled")
-        CANCELLED("Cancelled"),
-
-        @SerializedName("Received")
-        RECEIVED("Received"),
-
-        @SerializedName("RedirectShopper")
-        REDIRECTSHOPPER("RedirectShopper"),
-
-        @SerializedName("IdentifyShopper")
-        IDENTIFYSHOPPER("IdentifyShopper"),
-
-        @SerializedName("ChallengeShopper")
-        CHALLENGESHOPPER("ChallengeShopper"),
-
         @SerializedName("AuthenticationFinished")
         AUTHENTICATIONFINISHED("AuthenticationFinished"),
-
-        @SerializedName("AuthenticationNotRequired")
-        AUTHENTICATIONNOTREQUIRED("AuthenticationNotRequired");
+        @SerializedName("Authorised")
+        AUTHORISED("Authorised"),
+        @SerializedName("Cancelled")
+        CANCELLED("Cancelled"),
+        @SerializedName("ChallengeShopper")
+        CHALLENGESHOPPER("ChallengeShopper"),
+        @SerializedName("Error")
+        ERROR("Error"),
+        @SerializedName("IdentifyShopper")
+        IDENTIFYSHOPPER("IdentifyShopper"),
+        @SerializedName("Pending")
+        PENDING("Pending"),
+        @SerializedName("PresentToShopper")
+        PRESENTTOSHOPPER("PresentToShopper"),
+        @SerializedName("Received")
+        RECEIVED("Received"),
+        @SerializedName("RedirectShopper")
+        REDIRECTSHOPPER("RedirectShopper"),
+        @SerializedName("Refused")
+        REFUSED("Refused");
 
         private String value;
 

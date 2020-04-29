@@ -20,10 +20,12 @@
  */
 package com.adyen;
 
+import org.junit.Before;
 import org.junit.Test;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.notification.NotificationHandler;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -33,12 +35,17 @@ import static org.junit.Assert.assertTrue;
  * Tests notification messages
  */
 public class NotificationTest extends BaseTest {
+
+    private NotificationHandler notificationHandler;
+
+    @Before
+    public void init() {
+        notificationHandler = new NotificationHandler();
+    }
+
     @Test
     public void testAuthorisationSuccess() throws Exception {
-        String json = getFileContents("mocks/notification/authorisation-true.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
-
-        NotificationRequest notificationRequest = notificationHandler.handleNotificationJson(json);
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/authorisation-true.json");
 
         assertEquals(1, notificationRequest.getNotificationItems().size());
 
@@ -50,10 +57,7 @@ public class NotificationTest extends BaseTest {
 
     @Test
     public void testCaptureSuccess() throws Exception {
-        String json = getFileContents("mocks/notification/capture-true.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
-
-        NotificationRequest notificationRequest = notificationHandler.handleNotificationJson(json);
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/capture-true.json");
 
         assertEquals(1, notificationRequest.getNotificationItems().size());
 
@@ -66,10 +70,7 @@ public class NotificationTest extends BaseTest {
 
     @Test
     public void testCaptureFail() throws Exception {
-        String json = getFileContents("mocks/notification/capture-false.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
-
-        NotificationRequest notificationRequest = notificationHandler.handleNotificationJson(json);
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/capture-false.json");
 
         assertEquals(1, notificationRequest.getNotificationItems().size());
 
@@ -82,10 +83,7 @@ public class NotificationTest extends BaseTest {
 
     @Test
     public void testRefundSuccess() throws Exception {
-        String json = getFileContents("mocks/notification/refund-true.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
-
-        NotificationRequest notificationRequest = notificationHandler.handleNotificationJson(json);
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/refund-true.json");
 
         assertEquals(1, notificationRequest.getNotificationItems().size());
 
@@ -99,10 +97,7 @@ public class NotificationTest extends BaseTest {
 
     @Test
     public void testRefundFail() throws Exception {
-        String json = getFileContents("mocks/notification/refund-false.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
-
-        NotificationRequest notificationRequest = notificationHandler.handleNotificationJson(json);
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/refund-false.json");
 
         assertEquals(1, notificationRequest.getNotificationItems().size());
 
@@ -112,5 +107,64 @@ public class NotificationTest extends BaseTest {
         assertEquals("PSP_REFERENCE", notificationRequestItem.getPspReference());
         assertEquals("ORIGINAL_PSP", notificationRequestItem.getOriginalReference());
         assertNotNull(notificationRequestItem.getEventDate());
+    }
+
+    @Test
+    public void testChargeback() throws Exception {
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/chargeback.json");
+
+        assertEquals(1, notificationRequest.getNotificationItems().size());
+
+        NotificationRequestItem notificationRequestItem = notificationRequest.getNotificationItems().get(0);
+        assertEquals(NotificationRequestItem.EVENT_CODE_CHARGEBACK, notificationRequestItem.getEventCode());
+        assertTrue(notificationRequestItem.isSuccess());
+        assertEquals("9915555555555555", notificationRequestItem.getPspReference());
+        assertEquals("9913333333333333", notificationRequestItem.getOriginalReference());
+        assertNotNull(notificationRequestItem.getAmount());
+        assertEquals("EUR", notificationRequestItem.getAmount().getCurrency());
+        assertEquals(new Long(1000), notificationRequestItem.getAmount().getValue());
+
+        assertNotNull(notificationRequestItem.getEventDate());
+    }
+
+    @Test
+    public void testAuthorisationAdjustmentTrue() throws Exception {
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/chargeback.json");
+
+        assertEquals(1, notificationRequest.getNotificationItems().size());
+
+        NotificationRequestItem notificationRequestItem = notificationRequest.getNotificationItems().get(0);
+        assertEquals(NotificationRequestItem.EVENT_CODE_CHARGEBACK, notificationRequestItem.getEventCode());
+        assertTrue(notificationRequestItem.isSuccess());
+        assertEquals("9915555555555555", notificationRequestItem.getPspReference());
+        assertEquals("9913333333333333", notificationRequestItem.getOriginalReference());
+        assertNotNull(notificationRequestItem.getAmount());
+        assertEquals("EUR", notificationRequestItem.getAmount().getCurrency());
+        assertEquals(new Long(1000), notificationRequestItem.getAmount().getValue());
+
+        assertNotNull(notificationRequestItem.getEventDate());
+    }
+
+    @Test
+    public void testCancellationTrue() throws Exception {
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/cancellation-true.json");
+
+        assertEquals(1, notificationRequest.getNotificationItems().size());
+
+        NotificationRequestItem notificationRequestItem = notificationRequest.getNotificationItems().get(0);
+        assertEquals(NotificationRequestItem.EVENT_CODE_CANCELLATION, notificationRequestItem.getEventCode());
+        assertTrue(notificationRequestItem.isSuccess());
+        assertEquals("8412534564722331", notificationRequestItem.getPspReference());
+        assertEquals("8313547924770610", notificationRequestItem.getOriginalReference());
+        assertNotNull(notificationRequestItem.getAmount());
+        assertEquals("EUR", notificationRequestItem.getAmount().getCurrency());
+        assertEquals(new Long(500), notificationRequestItem.getAmount().getValue());
+
+        assertNotNull(notificationRequestItem.getEventDate());
+    }
+
+    private NotificationRequest readNotificationRequestFromFile(String resourcePath) {
+        String json = getFileContents(resourcePath);
+        return notificationHandler.handleNotificationJson(json);
     }
 }

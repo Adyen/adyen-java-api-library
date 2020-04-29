@@ -185,6 +185,9 @@ public class PaymentsRequest {
     @SerializedName("storePaymentMethod")
     private Boolean storePaymentMethod = null;
 
+    @SerializedName("store")
+    private String store = null;
+
     @SerializedName("enableRealTimeUpdate")
     private Boolean enableRealTimeUpdate = null;
 
@@ -192,9 +195,7 @@ public class PaymentsRequest {
     private Boolean threeDSAuthenticationOnly = null;
 
     public PaymentsRequest() {
-        if (this.applicationInfo == null) {
-            this.applicationInfo = new ApplicationInfo();
-        }
+        applicationInfo = new ApplicationInfo();
     }
 
     public RecurringProcessingModelEnum getRecurringProcessingModel() {
@@ -285,11 +286,11 @@ public class PaymentsRequest {
 
     public PaymentsRequest putAdditionalDataItem(String key, String additionalDataItem) {
 
-        if (this.additionalData == null) {
-            this.additionalData = new HashMap<>();
+        if (additionalData == null) {
+            additionalData = new HashMap<>();
         }
 
-        this.additionalData.put(key, additionalDataItem);
+        additionalData.put(key, additionalDataItem);
         return this;
     }
 
@@ -343,7 +344,7 @@ public class PaymentsRequest {
 
     public PaymentsRequest setAmountData(String amount, String currency) {
         Amount amountData = Util.createAmount(amount, currency);
-        this.setAmount(amountData);
+        setAmount(amountData);
         return this;
     }
 
@@ -627,11 +628,11 @@ public class PaymentsRequest {
 
     public PaymentsRequest addLineItemsItem(LineItem lineItemsItem) {
 
-        if (this.lineItems == null) {
-            this.lineItems = new ArrayList<>();
+        if (lineItems == null) {
+            lineItems = new ArrayList<>();
         }
 
-        this.lineItems.add(lineItemsItem);
+        lineItems.add(lineItemsItem);
         return this;
     }
 
@@ -711,11 +712,11 @@ public class PaymentsRequest {
 
     public PaymentsRequest putMetadataItem(String key, String metadataItem) {
 
-        if (this.metadata == null) {
-            this.metadata = new HashMap<>();
+        if (metadata == null) {
+            metadata = new HashMap<>();
         }
 
-        this.metadata.put(key, metadataItem);
+        metadata.put(key, metadataItem);
         return this;
     }
 
@@ -763,6 +764,19 @@ public class PaymentsRequest {
         return this;
     }
 
+    public String getStore() {
+        return store;
+    }
+
+    public void setStore(String store) {
+        this.store = store;
+    }
+
+    public PaymentsRequest store(String store) {
+        this.store = store;
+        return this;
+    }
+
     public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
         return addEncryptedCardData(encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, holderName, null);
     }
@@ -781,7 +795,7 @@ public class PaymentsRequest {
             paymentMethodDetails.setStoreDetails(storeDetails);
         }
 
-        this.paymentMethod = paymentMethodDetails;
+        paymentMethod = paymentMethodDetails;
         return this;
     }
 
@@ -812,7 +826,7 @@ public class PaymentsRequest {
             paymentMethodDetails.setStoreDetails(storeDetails);
         }
 
-        this.paymentMethod = paymentMethodDetails;
+        paymentMethod = paymentMethodDetails;
         return this;
     }
 
@@ -820,7 +834,7 @@ public class PaymentsRequest {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
         paymentMethodDetails.type(TYPE_SCHEME).recurringDetailReference(recurringDetailReference).encryptedSecurityCode(encryptedSecurityCode);
 
-        this.paymentMethod = paymentMethodDetails;
+        paymentMethod = paymentMethodDetails;
         return this;
     }
 
@@ -1065,7 +1079,7 @@ public class PaymentsRequest {
         browserInfo.setAcceptHeader(acceptHeader);
         browserInfo.setUserAgent(userAgent);
 
-        this.setBrowserInfo(browserInfo);
+        setBrowserInfo(browserInfo);
         return this;
     }
 
@@ -1267,126 +1281,128 @@ public class PaymentsRequest {
             return false;
         }
         PaymentsRequest paymentsRequest = (PaymentsRequest) o;
-        return Objects.equals(this.accountInfo, paymentsRequest.accountInfo)
-                && Objects.equals(this.additionalData, paymentsRequest.additionalData)
-                && Objects.equals(this.allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
-                && Objects.equals(this.amount, paymentsRequest.amount)
-                && Objects.equals(this.billingAddress, paymentsRequest.billingAddress)
-                && Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours)
-                && Objects.equals(this.channel, paymentsRequest.channel)
-                && Objects.equals(this.company, paymentsRequest.company)
-                && Objects.equals(this.countryCode, paymentsRequest.countryCode)
-                && Objects.equals(this.dateOfBirth, paymentsRequest.dateOfBirth)
-                && Objects.equals(this.dccQuote, paymentsRequest.dccQuote)
-                && Objects.equals(this.deliveryAddress, paymentsRequest.deliveryAddress)
-                && Objects.equals(this.deliveryDate, paymentsRequest.deliveryDate)
-                && Objects.equals(this.enableOneClick, paymentsRequest.enableOneClick)
-                && Objects.equals(this.enablePayOut, paymentsRequest.enablePayOut)
-                && Objects.equals(this.enableRecurring, paymentsRequest.enableRecurring)
-                && Objects.equals(this.entityType, paymentsRequest.entityType)
-                && Objects.equals(this.fraudOffset, paymentsRequest.fraudOffset)
-                && Objects.equals(this.installments, paymentsRequest.installments)
-                && Objects.equals(this.lineItems, paymentsRequest.lineItems)
-                && Objects.equals(this.mcc, paymentsRequest.mcc)
-                && Objects.equals(this.merchantAccount, paymentsRequest.merchantAccount)
-                && Objects.equals(this.merchantOrderReference, paymentsRequest.merchantOrderReference)
-                && Objects.equals(this.metadata, paymentsRequest.metadata)
-                && Objects.equals(this.orderReference, paymentsRequest.orderReference)
-                && Objects.equals(this.paymentMethod, paymentsRequest.paymentMethod)
-                && Objects.equals(this.reference, paymentsRequest.reference)
-                && Objects.equals(this.returnUrl, paymentsRequest.returnUrl)
-                && Objects.equals(this.sessionValidity, paymentsRequest.sessionValidity)
-                && Objects.equals(this.shopperEmail, paymentsRequest.shopperEmail)
-                && Objects.equals(this.shopperIP, paymentsRequest.shopperIP)
-                && Objects.equals(this.shopperInteraction, paymentsRequest.shopperInteraction)
-                && Objects.equals(this.shopperLocale, paymentsRequest.shopperLocale)
-                && Objects.equals(this.shopperName, paymentsRequest.shopperName)
-                && Objects.equals(this.shopperReference, paymentsRequest.shopperReference)
-                && Objects.equals(this.shopperStatement, paymentsRequest.shopperStatement)
-                && Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber)
-                && Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber)
-                && Objects.equals(this.browserInfo, paymentsRequest.browserInfo)
-                && Objects.equals(this.deviceFingerprint, paymentsRequest.deviceFingerprint)
-                && Objects.equals(this.applicationInfo, paymentsRequest.applicationInfo)
-                && Objects.equals(this.splits, paymentsRequest.splits)
-                && Objects.equals(this.merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
-                && Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData)
-                && Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper)
-                && Objects.equals(this.origin, paymentsRequest.origin)
-                && Objects.equals(this.configId, paymentsRequest.configId)
-                && Objects.equals(this.blockedPaymentMethods, paymentsRequest.blockedPaymentMethods)
-                && Objects.equals(this.recurringProcessingModel, paymentsRequest.recurringProcessingModel)
-                && Objects.equals(this.merchantData, paymentsRequest.merchantData)
-                && Objects.equals(this.mpiData, paymentsRequest.mpiData)
-                && Objects.equals(this.redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod)
-                && Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod)
-                && Objects.equals(this.order, paymentsRequest.order)
-                && Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod)
-                && Objects.equals(this.enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
-                && Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly)
-                && Objects.equals(this.selectedBrand, paymentsRequest.selectedBrand);
+        return Objects.equals(accountInfo, paymentsRequest.accountInfo)
+                && Objects.equals(additionalData, paymentsRequest.additionalData)
+                && Objects.equals(allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
+                && Objects.equals(amount, paymentsRequest.amount)
+                && Objects.equals(billingAddress, paymentsRequest.billingAddress)
+                && Objects.equals(captureDelayHours, paymentsRequest.captureDelayHours)
+                && Objects.equals(channel, paymentsRequest.channel)
+                && Objects.equals(company, paymentsRequest.company)
+                && Objects.equals(countryCode, paymentsRequest.countryCode)
+                && Objects.equals(dateOfBirth, paymentsRequest.dateOfBirth)
+                && Objects.equals(dccQuote, paymentsRequest.dccQuote)
+                && Objects.equals(deliveryAddress, paymentsRequest.deliveryAddress)
+                && Objects.equals(deliveryDate, paymentsRequest.deliveryDate)
+                && Objects.equals(enableOneClick, paymentsRequest.enableOneClick)
+                && Objects.equals(enablePayOut, paymentsRequest.enablePayOut)
+                && Objects.equals(enableRecurring, paymentsRequest.enableRecurring)
+                && Objects.equals(entityType, paymentsRequest.entityType)
+                && Objects.equals(fraudOffset, paymentsRequest.fraudOffset)
+                && Objects.equals(installments, paymentsRequest.installments)
+                && Objects.equals(lineItems, paymentsRequest.lineItems)
+                && Objects.equals(mcc, paymentsRequest.mcc)
+                && Objects.equals(merchantAccount, paymentsRequest.merchantAccount)
+                && Objects.equals(merchantOrderReference, paymentsRequest.merchantOrderReference)
+                && Objects.equals(metadata, paymentsRequest.metadata)
+                && Objects.equals(orderReference, paymentsRequest.orderReference)
+                && Objects.equals(paymentMethod, paymentsRequest.paymentMethod)
+                && Objects.equals(reference, paymentsRequest.reference)
+                && Objects.equals(returnUrl, paymentsRequest.returnUrl)
+                && Objects.equals(sessionValidity, paymentsRequest.sessionValidity)
+                && Objects.equals(shopperEmail, paymentsRequest.shopperEmail)
+                && Objects.equals(shopperIP, paymentsRequest.shopperIP)
+                && Objects.equals(shopperInteraction, paymentsRequest.shopperInteraction)
+                && Objects.equals(shopperLocale, paymentsRequest.shopperLocale)
+                && Objects.equals(shopperName, paymentsRequest.shopperName)
+                && Objects.equals(shopperReference, paymentsRequest.shopperReference)
+                && Objects.equals(shopperStatement, paymentsRequest.shopperStatement)
+                && Objects.equals(socialSecurityNumber, paymentsRequest.socialSecurityNumber)
+                && Objects.equals(telephoneNumber, paymentsRequest.telephoneNumber)
+                && Objects.equals(browserInfo, paymentsRequest.browserInfo)
+                && Objects.equals(deviceFingerprint, paymentsRequest.deviceFingerprint)
+                && Objects.equals(applicationInfo, paymentsRequest.applicationInfo)
+                && Objects.equals(splits, paymentsRequest.splits)
+                && Objects.equals(merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
+                && Objects.equals(threeDS2RequestData, paymentsRequest.threeDS2RequestData)
+                && Objects.equals(trustedShopper, paymentsRequest.trustedShopper)
+                && Objects.equals(origin, paymentsRequest.origin)
+                && Objects.equals(configId, paymentsRequest.configId)
+                && Objects.equals(blockedPaymentMethods, paymentsRequest.blockedPaymentMethods)
+                && Objects.equals(recurringProcessingModel, paymentsRequest.recurringProcessingModel)
+                && Objects.equals(merchantData, paymentsRequest.merchantData)
+                && Objects.equals(mpiData, paymentsRequest.mpiData)
+                && Objects.equals(redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod)
+                && Objects.equals(redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod)
+                && Objects.equals(order, paymentsRequest.order)
+                && Objects.equals(storePaymentMethod, paymentsRequest.storePaymentMethod)
+                && Objects.equals(store, paymentsRequest.store)
+                && Objects.equals(enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
+                && Objects.equals(threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly)
+                && Objects.equals(selectedBrand, paymentsRequest.selectedBrand);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(accountInfo,
-                            additionalData,
-                            allowedPaymentMethods,
-                            amount,
-                            billingAddress,
-                            captureDelayHours,
-                            channel,
-                            company,
-                            countryCode,
-                            dateOfBirth,
-                            dccQuote,
-                            deliveryAddress,
-                            deliveryDate,
-                            enableOneClick,
-                            enablePayOut,
-                            enableRecurring,
-                            entityType,
-                            fraudOffset,
-                            installments,
-                            lineItems,
-                            mcc,
-                            merchantAccount,
-                            merchantOrderReference,
-                            metadata,
-                            orderReference,
-                            paymentMethod,
-                            reference,
-                            returnUrl,
-                            sessionValidity,
-                            shopperEmail,
-                            shopperIP,
-                            shopperInteraction,
-                            shopperLocale,
-                            shopperName,
-                            shopperReference,
-                            shopperStatement,
-                            socialSecurityNumber,
-                            telephoneNumber,
-                            browserInfo,
-                            deviceFingerprint,
-                            applicationInfo,
-                            splits,
-                            merchantRiskIndicator,
-                            threeDS2RequestData,
-                            trustedShopper,
-                            origin,
-                            configId,
-                            blockedPaymentMethods,
-                            recurringProcessingModel,
-                            merchantData,
-                            mpiData,
-                            redirectFromIssuerMethod,
-                            redirectToIssuerMethod,
-                            order,
-                            storePaymentMethod,
-                            enableRealTimeUpdate,
-                            threeDSAuthenticationOnly,
-                            selectedBrand);
+                additionalData,
+                allowedPaymentMethods,
+                amount,
+                billingAddress,
+                captureDelayHours,
+                channel,
+                company,
+                countryCode,
+                dateOfBirth,
+                dccQuote,
+                deliveryAddress,
+                deliveryDate,
+                enableOneClick,
+                enablePayOut,
+                enableRecurring,
+                entityType,
+                fraudOffset,
+                installments,
+                lineItems,
+                mcc,
+                merchantAccount,
+                merchantOrderReference,
+                metadata,
+                orderReference,
+                paymentMethod,
+                reference,
+                returnUrl,
+                sessionValidity,
+                shopperEmail,
+                shopperIP,
+                shopperInteraction,
+                shopperLocale,
+                shopperName,
+                shopperReference,
+                shopperStatement,
+                socialSecurityNumber,
+                telephoneNumber,
+                browserInfo,
+                deviceFingerprint,
+                applicationInfo,
+                splits,
+                merchantRiskIndicator,
+                threeDS2RequestData,
+                trustedShopper,
+                origin,
+                configId,
+                blockedPaymentMethods,
+                recurringProcessingModel,
+                merchantData,
+                mpiData,
+                redirectFromIssuerMethod,
+                redirectToIssuerMethod,
+                order,
+                storePaymentMethod,
+                enableRealTimeUpdate,
+                threeDSAuthenticationOnly,
+                store,
+                selectedBrand);
     }
 
     @Override
@@ -1452,13 +1468,14 @@ public class PaymentsRequest {
           + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + "\n"
           + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + "\n"
           + "    selectedBrand: " + toIndentedString(selectedBrand) + "\n"
+          + "    store: " + toIndentedString(store) + "\n"
           + "}";
     }
 
     /**
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private static String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }
@@ -1476,7 +1493,7 @@ public class PaymentsRequest {
         ANDROID("Android"),
         WEB("Web");
 
-        private String value;
+        private final String value;
 
         ChannelEnum(String value) {
             this.value = value;
@@ -1502,12 +1519,12 @@ public class PaymentsRequest {
 
         public static class Adapter extends TypeAdapter<ChannelEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final ChannelEnum enumeration) throws IOException {
+            public void write(JsonWriter jsonWriter, ChannelEnum enumeration) throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public ChannelEnum read(final JsonReader jsonReader) throws IOException {
+            public ChannelEnum read(JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
                 return ChannelEnum.fromValue(String.valueOf(value));
             }
@@ -1523,7 +1540,7 @@ public class PaymentsRequest {
         NATURALPERSON("NaturalPerson"),
         COMPANYNAME("CompanyName");
 
-        private String value;
+        private final String value;
 
         EntityTypeEnum(String value) {
             this.value = value;
@@ -1549,12 +1566,12 @@ public class PaymentsRequest {
 
         public static class Adapter extends TypeAdapter<EntityTypeEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final EntityTypeEnum enumeration) throws IOException {
+            public void write(JsonWriter jsonWriter, EntityTypeEnum enumeration) throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public EntityTypeEnum read(final JsonReader jsonReader) throws IOException {
+            public EntityTypeEnum read(JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
                 return EntityTypeEnum.fromValue(String.valueOf(value));
             }
@@ -1584,7 +1601,7 @@ public class PaymentsRequest {
         @SerializedName("UnscheduledCardOnFile") UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
 
 
-        private String value;
+        private final String value;
 
         RecurringProcessingModelEnum(String value) {
             this.value = value;
@@ -1612,7 +1629,7 @@ public class PaymentsRequest {
         MOTO("Moto"),
         POS("POS");
 
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;
@@ -1638,12 +1655,12 @@ public class PaymentsRequest {
 
         public static class Adapter extends TypeAdapter<ShopperInteractionEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final ShopperInteractionEnum enumeration) throws IOException {
+            public void write(JsonWriter jsonWriter, ShopperInteractionEnum enumeration) throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public ShopperInteractionEnum read(final JsonReader jsonReader) throws IOException {
+            public ShopperInteractionEnum read(JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
                 return ShopperInteractionEnum.fromValue(String.valueOf(value));
             }
