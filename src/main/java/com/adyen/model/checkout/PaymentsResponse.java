@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.Util.DateUtil;
+import com.adyen.model.Amount;
 import com.adyen.model.FraudResult;
 import com.adyen.model.ThreeDS2Result;
 import com.google.gson.TypeAdapter;
@@ -105,6 +106,9 @@ public class PaymentsResponse {
 
     @SerializedName("action")
     private CheckoutPaymentsAction action;
+
+    @SerializedName("amount")
+    private Amount amount = null;
 
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -372,6 +376,24 @@ public class PaymentsResponse {
         return this;
     }
 
+    public PaymentsResponse amount(Amount amount) {
+        this.amount = amount;
+        return this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return amount
+     **/
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Amount amount) {
+        this.amount = amount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -397,13 +419,15 @@ public class PaymentsResponse {
                 && Objects.equals(this.outputDetails, paymentsResponse.outputDetails)
                 && Objects.equals(this.authentication, paymentsResponse.authentication)
                 && Objects.equals(this.threeDS2Result, paymentsResponse.threeDS2Result)
-                && Objects.equals(this.action, paymentsResponse.action);
+                && Objects.equals(this.action, paymentsResponse.action)
+                && Objects.equals(this.amount, paymentsResponse.amount);
+
 
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode, serviceError, authResponse, merchantReference, outputDetails, authentication, threeDS2Result, action);
+        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode, serviceError, authResponse, merchantReference, outputDetails, authentication, threeDS2Result, action, amount);
     }
 
     @Override
@@ -426,6 +450,7 @@ public class PaymentsResponse {
         sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
         sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
         sb.append("    action: ").append(toIndentedString(action)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("}");
         return sb.toString();
     }
