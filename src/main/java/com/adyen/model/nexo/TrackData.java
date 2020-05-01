@@ -4,7 +4,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -16,59 +15,52 @@ import javax.xml.bind.annotation.XmlValue;
  *
  * <pre>
  * &lt;complexType name="TrackData"&gt;
- *   &lt;simpleContent&gt;
- *     &lt;extension base="TextString"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="TrackValue" type="{}TrackValue" /&gt;
  *       &lt;attribute name="TrackNumb" type="{}TrackNumb" default="2" /&gt;
  *       &lt;attribute name="TrackFormat" type="{}TrackFormatType" default="ISO" /&gt;
- *     &lt;/extension&gt;
- *   &lt;/simpleContent&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TrackData", propOrder = {
-        "value"
-})
+@XmlType(name = "TrackData")
 public class TrackData {
 
-    /**
-     * The Value.
-     */
-    @XmlValue
-    protected String value;
-    /**
-     * The Track numb.
-     */
+    @XmlAttribute(name = "TrackValue")
+    protected String trackValue;
     @XmlAttribute(name = "TrackNumb")
     protected Integer trackNumb;
-    /**
-     * The Track format.
-     */
     @XmlAttribute(name = "TrackFormat")
     protected TrackFormatType trackFormat;
 
     /**
-     * Gets the value of the value property.
+     * Gets the value of the trackValue property.
      *
-     * @return possible      object is     {@link String }
+     * @return possible object is
+     * {@link String }
      */
-    public String getValue() {
-        return value;
+    public String getTrackValue() {
+        return trackValue;
     }
 
     /**
-     * Sets the value of the value property.
+     * Sets the value of the trackValue property.
      *
-     * @param value allowed object is     {@link String }
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setTrackValue(String value) {
+        this.trackValue = value;
     }
 
     /**
      * Gets the value of the trackNumb property.
      *
-     * @return possible      object is     {@link Integer }
+     * @return possible object is
+     * {@link Integer }
      */
     public int getTrackNumb() {
         if (trackNumb == null) {
@@ -81,7 +73,8 @@ public class TrackData {
     /**
      * Sets the value of the trackNumb property.
      *
-     * @param value allowed object is     {@link Integer }
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setTrackNumb(Integer value) {
         this.trackNumb = value;
@@ -90,7 +83,8 @@ public class TrackData {
     /**
      * Gets the value of the trackFormat property.
      *
-     * @return possible      object is     {@link TrackFormatType }
+     * @return possible object is
+     * {@link TrackFormatType }
      */
     public TrackFormatType getTrackFormat() {
         if (trackFormat == null) {
@@ -103,7 +97,8 @@ public class TrackData {
     /**
      * Sets the value of the trackFormat property.
      *
-     * @param value allowed object is     {@link TrackFormatType }
+     * @param value allowed object is
+     *              {@link TrackFormatType }
      */
     public void setTrackFormat(TrackFormatType value) {
         this.trackFormat = value;

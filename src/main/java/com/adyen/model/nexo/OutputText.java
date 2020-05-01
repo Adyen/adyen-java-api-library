@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Definition: Content of text messageType to display or print. -- Usage: It conveys Information related to the content of the text messageType and its format. All the data elements related to the format of the text to display or print are parameters valid for the whole Text content.
+ * Definition: Content of text message to display or print. -- Usage: It conveys Information related to the content of the text message and its format. All the data elements related to the format of the text to display or print are parameters valid for the whole Text content.
  *
  * <p>Java class for OutputText complex type.
  *
@@ -15,8 +15,9 @@ import javax.xml.bind.annotation.XmlType;
  *
  * <pre>
  * &lt;complexType name="OutputText"&gt;
- *   &lt;simpleContent&gt;
- *     &lt;extension base="TextString"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;attribute name="Text" use="required" type="{}Text" /&gt;
  *       &lt;attribute name="CharacterSet" type="{}CharacterSet" /&gt;
  *       &lt;attribute name="Font" type="{}Font" /&gt;
  *       &lt;attribute name="StartRow" type="{}StartRow" /&gt;
@@ -27,77 +28,43 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;attribute name="CharacterStyle" type="{}CharacterStyleType" /&gt;
  *       &lt;attribute name="Alignment" type="{}AlignmentType" /&gt;
  *       &lt;attribute name="EndOfLineFlag" type="{}EndOfLineFlag" default="true" /&gt;
- *     &lt;/extension&gt;
- *   &lt;/simpleContent&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "OutputText", propOrder = {
-        "text"
-})
+@XmlType(name = "OutputText")
 public class OutputText {
 
-    /**
-     * The Text.
-     */
-    @XmlAttribute(name = "Text")
+    @XmlAttribute(name = "Text", required = true)
     protected String text;
-    /**
-     * The Character set.
-     */
     @XmlAttribute(name = "CharacterSet")
     protected Integer characterSet;
-    /**
-     * The Font.
-     */
     @XmlAttribute(name = "Font")
     protected String font;
-    /**
-     * The Start row.
-     */
     @XmlAttribute(name = "StartRow")
     protected Integer startRow;
-    /**
-     * The Start column.
-     */
     @XmlAttribute(name = "StartColumn")
     protected Integer startColumn;
-    /**
-     * The Color.
-     */
     @XmlAttribute(name = "Color")
     protected ColorType color;
-    /**
-     * The Character width.
-     */
     @XmlAttribute(name = "CharacterWidth")
     protected CharacterWidthType characterWidth;
-    /**
-     * The Character height.
-     */
     @XmlAttribute(name = "CharacterHeight")
     protected CharacterHeightType characterHeight;
-    /**
-     * The Character style.
-     */
     @XmlAttribute(name = "CharacterStyle")
     protected CharacterStyleType characterStyle;
-    /**
-     * The Alignment.
-     */
     @XmlAttribute(name = "Alignment")
     protected AlignmentType alignment;
-    /**
-     * The End of line flag.
-     */
     @XmlAttribute(name = "EndOfLineFlag")
     protected Boolean endOfLineFlag;
 
     /**
      * Gets the value of the text property.
      *
-     * @return possible      object is     {@link String }
+     * @return possible object is
+     * {@link String }
      */
     public String getText() {
         return text;
@@ -106,16 +73,18 @@ public class OutputText {
     /**
      * Sets the value of the text property.
      *
-     * @param text allowed object is     {@link String }
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setText(String text) {
-        this.text = text;
+    public void setText(String value) {
+        this.text = value;
     }
 
     /**
      * Gets the value of the characterSet property.
      *
-     * @return possible      object is     {@link Integer }
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getCharacterSet() {
         return characterSet;
@@ -124,7 +93,8 @@ public class OutputText {
     /**
      * Sets the value of the characterSet property.
      *
-     * @param value allowed object is     {@link Integer }
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setCharacterSet(Integer value) {
         this.characterSet = value;
@@ -133,7 +103,8 @@ public class OutputText {
     /**
      * Gets the value of the font property.
      *
-     * @return possible      object is     {@link String }
+     * @return possible object is
+     * {@link String }
      */
     public String getFont() {
         return font;
@@ -142,7 +113,8 @@ public class OutputText {
     /**
      * Sets the value of the font property.
      *
-     * @param value allowed object is     {@link String }
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFont(String value) {
         this.font = value;
@@ -151,7 +123,8 @@ public class OutputText {
     /**
      * Gets the value of the startRow property.
      *
-     * @return possible      object is     {@link Integer }
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getStartRow() {
         return startRow;
@@ -160,7 +133,8 @@ public class OutputText {
     /**
      * Sets the value of the startRow property.
      *
-     * @param value allowed object is     {@link Integer }
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setStartRow(Integer value) {
         this.startRow = value;
@@ -169,7 +143,8 @@ public class OutputText {
     /**
      * Gets the value of the startColumn property.
      *
-     * @return possible      object is     {@link Integer }
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getStartColumn() {
         return startColumn;
@@ -178,7 +153,8 @@ public class OutputText {
     /**
      * Sets the value of the startColumn property.
      *
-     * @param value allowed object is     {@link Integer }
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setStartColumn(Integer value) {
         this.startColumn = value;
@@ -187,7 +163,8 @@ public class OutputText {
     /**
      * Gets the value of the color property.
      *
-     * @return possible      object is     {@link ColorType }
+     * @return possible object is
+     * {@link ColorType }
      */
     public ColorType getColor() {
         return color;
@@ -196,7 +173,8 @@ public class OutputText {
     /**
      * Sets the value of the color property.
      *
-     * @param value allowed object is     {@link ColorType }
+     * @param value allowed object is
+     *              {@link ColorType }
      */
     public void setColor(ColorType value) {
         this.color = value;
@@ -205,7 +183,8 @@ public class OutputText {
     /**
      * Gets the value of the characterWidth property.
      *
-     * @return possible      object is     {@link CharacterWidthType }
+     * @return possible object is
+     * {@link CharacterWidthType }
      */
     public CharacterWidthType getCharacterWidth() {
         return characterWidth;
@@ -214,7 +193,8 @@ public class OutputText {
     /**
      * Sets the value of the characterWidth property.
      *
-     * @param value allowed object is     {@link CharacterWidthType }
+     * @param value allowed object is
+     *              {@link CharacterWidthType }
      */
     public void setCharacterWidth(CharacterWidthType value) {
         this.characterWidth = value;
@@ -223,7 +203,8 @@ public class OutputText {
     /**
      * Gets the value of the characterHeight property.
      *
-     * @return possible      object is     {@link CharacterHeightType }
+     * @return possible object is
+     * {@link CharacterHeightType }
      */
     public CharacterHeightType getCharacterHeight() {
         return characterHeight;
@@ -232,7 +213,8 @@ public class OutputText {
     /**
      * Sets the value of the characterHeight property.
      *
-     * @param value allowed object is     {@link CharacterHeightType }
+     * @param value allowed object is
+     *              {@link CharacterHeightType }
      */
     public void setCharacterHeight(CharacterHeightType value) {
         this.characterHeight = value;
@@ -241,7 +223,8 @@ public class OutputText {
     /**
      * Gets the value of the characterStyle property.
      *
-     * @return possible      object is     {@link CharacterStyleType }
+     * @return possible object is
+     * {@link CharacterStyleType }
      */
     public CharacterStyleType getCharacterStyle() {
         return characterStyle;
@@ -250,7 +233,8 @@ public class OutputText {
     /**
      * Sets the value of the characterStyle property.
      *
-     * @param value allowed object is     {@link CharacterStyleType }
+     * @param value allowed object is
+     *              {@link CharacterStyleType }
      */
     public void setCharacterStyle(CharacterStyleType value) {
         this.characterStyle = value;
@@ -259,7 +243,8 @@ public class OutputText {
     /**
      * Gets the value of the alignment property.
      *
-     * @return possible      object is     {@link AlignmentType }
+     * @return possible object is
+     * {@link AlignmentType }
      */
     public AlignmentType getAlignment() {
         return alignment;
@@ -268,7 +253,8 @@ public class OutputText {
     /**
      * Sets the value of the alignment property.
      *
-     * @param value allowed object is     {@link AlignmentType }
+     * @param value allowed object is
+     *              {@link AlignmentType }
      */
     public void setAlignment(AlignmentType value) {
         this.alignment = value;
@@ -277,7 +263,8 @@ public class OutputText {
     /**
      * Gets the value of the endOfLineFlag property.
      *
-     * @return possible      object is     {@link Boolean }
+     * @return possible object is
+     * {@link Boolean }
      */
     public boolean isEndOfLineFlag() {
         if (endOfLineFlag == null) {
@@ -290,7 +277,8 @@ public class OutputText {
     /**
      * Sets the value of the endOfLineFlag property.
      *
-     * @param value allowed object is     {@link Boolean }
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setEndOfLineFlag(Boolean value) {
         this.endOfLineFlag = value;
