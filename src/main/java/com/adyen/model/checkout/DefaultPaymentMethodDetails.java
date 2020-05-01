@@ -241,6 +241,22 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
      * @deprecated This field is deprecated. Use {@link DefaultPaymentMethodDetails#storedPaymentMethodId } instead.
      */
     @Deprecated
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    /**
+     * @deprecated This field is deprecated. Use {@link DefaultPaymentMethodDetails#storedPaymentMethodId } instead.
+     */
+    @Deprecated
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
+
+    /**
+     * @deprecated This field is deprecated. Use {@link DefaultPaymentMethodDetails#storedPaymentMethodId } instead.
+     */
+    @Deprecated
     public DefaultPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
         this.recurringDetailReference = recurringDetailReference;
         return this;
