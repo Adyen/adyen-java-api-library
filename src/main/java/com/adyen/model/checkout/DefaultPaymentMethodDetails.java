@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
+public class DefaultPaymentMethodDetails implements PaymentMethodDetails, OneOfPaymentRequestPaymentMethod {
     @SerializedName("type")
     private String type;
     @SerializedName("number")
