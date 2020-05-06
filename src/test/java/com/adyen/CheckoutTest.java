@@ -22,21 +22,9 @@ package com.adyen;
 
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
-import com.adyen.model.checkout.CheckoutPaymentsAction;
-import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.CreatePaymentLinkResponse;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
-import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.model.checkout.PaymentMethodsRequest;
-import com.adyen.model.checkout.PaymentMethodsResponse;
-import com.adyen.model.checkout.PaymentResultRequest;
-import com.adyen.model.checkout.PaymentResultResponse;
-import com.adyen.model.checkout.PaymentSessionRequest;
-import com.adyen.model.checkout.PaymentSessionResponse;
-import com.adyen.model.checkout.PaymentsDetailsRequest;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.PaymentsResponse;
+import com.adyen.model.checkout.*;
 import com.adyen.service.Checkout;
+import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import com.google.gson.annotations.SerializedName;
 import org.junit.Assert;
@@ -418,6 +406,176 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
+    public void TestSepaDirectDebitDetails() {
+        SepaDirectDebitDetails sepaDirectDebitDetails = new SepaDirectDebitDetails();
+        sepaDirectDebitDetails.setOwnerName("A. Schneider");
+        sepaDirectDebitDetails.setIban("DE87123456781234567890");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(sepaDirectDebitDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"iban\": \"DE87123456781234567890\",\n"
+                + "    \"ownerName\": \"A. Schneider\",\n"
+                + "    \"type\": \"sepadirectdebit\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestAchDetails(){
+        AchDetails achDetails = new AchDetails();
+        achDetails.setBankAccountNumber("1234567");
+        achDetails.setBankLocationId("1234567");
+        achDetails.setEncryptedBankAccountNumber("1234asdfg");
+        achDetails.setOwnerName("John Smith");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(achDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"bankAccountNumber\": \"1234567\",\n"
+                + "    \"bankLocationId\": \"1234567\",\n"
+                + "    \"encryptedBankAccountNumber\": \"1234asdfg\",\n"
+                + "    \"ownerName\": \"John Smith\",\n"
+                + "    \"type\": \"ach\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestEcontextVoucherDetails(){
+        EcontextVoucherDetails econtextVoucherDetails = new EcontextVoucherDetails();
+        econtextVoucherDetails.setFirstName("John");
+        econtextVoucherDetails.setLastName("Smith");
+        econtextVoucherDetails.setShopperEmail("test@email.com");
+        econtextVoucherDetails.setTelephoneNumber("0123456789");
+        econtextVoucherDetails.setType(EcontextVoucherDetails.TypeEnum.SEVENELEVEN);
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(econtextVoucherDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"firstName\": \"John\",\n"
+                + "    \"lastName\": \"Smith\",\n"
+                + "    \"shopperEmail\": \"test@email.com\",\n"
+                + "    \"telephoneNumber\": \"0123456789\",\n"
+                + "    \"type\": \"econtext_seveneleven\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestIdealDetails(){
+        IdealDetails idealDetails = new IdealDetails();
+        idealDetails.setIssuer("1121");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(idealDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"issuer\": \"1121\",\n"
+                + "    \"type\": \"ideal\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestGooglePayDetails(){
+        GooglePayDetails googlePayDetails = new GooglePayDetails();
+        googlePayDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
+        googlePayDetails.setFundingSource(GooglePayDetails.FundingSourceEnum.CREDIT);
+        googlePayDetails.setGooglePayCardNetwork("googlepaycardnetwork");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(googlePayDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"fundingSource\": \"credit\",\n"
+                + "    \"googlePayCardNetwork\": \"googlepaycardnetwork\",\n"
+                + "    \"googlePayToken\": \"Payload as retrieved from Google Pay response\",\n"
+                + "    \"type\": \"paywithgoogle\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
     public void TestRecurringPaymentMethodDetails() {
         DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
         defaultPaymentMethodDetails.setStoredPaymentMethodId("testStoredPaymentMethodId");
@@ -715,19 +873,17 @@ public class CheckoutTest extends BaseTest {
     }
 }
 
-class TestPaymentMethodDetails implements PaymentMethodDetails {
+class TestPaymentMethodDetails implements OneOfPaymentRequestPaymentMethod {
     @SerializedName("testKey")
     private String testValue;
 
     @SerializedName("type")
     private String type;
 
-    @Override
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
     }
