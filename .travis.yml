@@ -4,7 +4,7 @@ dist: trusty
 
 jdk:
   - oraclejdk8
-  - openjdk7
+  - openjdk11
 
 install: mvn install -Dgpg.skip=true
 
