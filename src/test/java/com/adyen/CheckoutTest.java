@@ -576,6 +576,71 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
+    public void TestPayPalDetails(){
+        PayPalDetails payPalDetails = new PayPalDetails();
+        payPalDetails.setSubtype(PayPalDetails.SubtypeEnum.SDK);
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(payPalDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"type\": \"paypal\",\n"
+                + "    \"subtype\": \"sdk\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestDokuDetails(){
+        DokuDetails dokuDetails = new DokuDetails();
+        dokuDetails.setFirstName("John");
+        dokuDetails.setLastName("Smith");
+        dokuDetails.setShopperEmail("test@email.com");
+        dokuDetails.setType(DokuDetails.TypeEnum.INDOMARET);
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(dokuDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"firstName\": \"John\",\n"
+                + "    \"lastName\": \"Smith\",\n"
+                + "    \"shopperEmail\": \"test@email.com\",\n"
+                + "    \"type\": \"doku_indomaret\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
     public void TestRecurringPaymentMethodDetails() {
         DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
         defaultPaymentMethodDetails.setStoredPaymentMethodId("testStoredPaymentMethodId");
@@ -873,7 +938,7 @@ public class CheckoutTest extends BaseTest {
     }
 }
 
-class TestPaymentMethodDetails implements OneOfPaymentRequestPaymentMethod {
+class TestPaymentMethodDetails implements PaymentMethodDetails {
     @SerializedName("testKey")
     private String testValue;
 

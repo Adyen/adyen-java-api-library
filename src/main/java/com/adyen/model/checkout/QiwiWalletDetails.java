@@ -29,7 +29,7 @@ import java.util.Objects;
  * QiwiWalletDetails
  */
 
-public class QiwiWalletDetails implements OneOfPaymentRequestPaymentMethod {
+public class QiwiWalletDetails implements PaymentMethodDetails {
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 

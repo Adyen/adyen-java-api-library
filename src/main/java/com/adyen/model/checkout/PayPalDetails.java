@@ -35,7 +35,7 @@ import java.io.IOException;
  * PaypalDetails
  */
 
-public class PaypalDetails implements OneOfPaymentRequestPaymentMethod {
+public class PayPalDetails implements PaymentMethodDetails {
 
     @SerializedName("type")
     private String type = "paypal";
@@ -86,7 +86,7 @@ public class PaypalDetails implements OneOfPaymentRequestPaymentMethod {
     @SerializedName("subtype")
     private SubtypeEnum subtype = null;
 
-    public PaypalDetails type(String type) {
+    public PayPalDetails type(String type) {
         this.type = type;
         return this;
     }
@@ -104,7 +104,7 @@ public class PaypalDetails implements OneOfPaymentRequestPaymentMethod {
         this.type = type;
     }
 
-    public PaypalDetails subtype(SubtypeEnum subtype) {
+    public PayPalDetails subtype(SubtypeEnum subtype) {
         this.subtype = subtype;
         return this;
     }
@@ -126,7 +126,7 @@ public class PaypalDetails implements OneOfPaymentRequestPaymentMethod {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PaypalDetails paypalDetails = (PaypalDetails) o;
+        PayPalDetails paypalDetails = (PayPalDetails) o;
         return Objects.equals(this.subtype, paypalDetails.subtype) &&
                 Objects.equals(this.type, paypalDetails.type);
     }
@@ -140,7 +140,7 @@ public class PaypalDetails implements OneOfPaymentRequestPaymentMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaypalDetails {\n");
+        sb.append("class PayPalDetails {\n");
 
         sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");

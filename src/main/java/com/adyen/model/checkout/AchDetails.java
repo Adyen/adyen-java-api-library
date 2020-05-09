@@ -29,7 +29,7 @@ import java.util.Objects;
  * AchDetails
  */
 
-public class AchDetails implements OneOfPaymentRequestPaymentMethod {
+public class AchDetails implements PaymentMethodDetails {
     @SerializedName("bankAccountNumber")
     private String bankAccountNumber = null;
 

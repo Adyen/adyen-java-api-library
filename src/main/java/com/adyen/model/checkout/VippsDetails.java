@@ -29,7 +29,7 @@ import java.util.Objects;
  * VippsDetails
  */
 
-public class VippsDetails implements OneOfPaymentRequestPaymentMethod {
+public class VippsDetails implements PaymentMethodDetails {
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 

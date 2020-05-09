@@ -29,7 +29,7 @@ import java.util.Objects;
  * LianLianPayDetails
  */
 
-public class LianLianPayDetails implements OneOfPaymentRequestPaymentMethod {
+public class LianLianPayDetails implements PaymentMethodDetails {
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 

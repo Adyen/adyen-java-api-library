@@ -34,7 +34,7 @@ import java.util.Objects;
  * VisaCheckoutDetails
  */
 
-public class VisaCheckoutDetails implements OneOfPaymentRequestPaymentMethod {
+public class VisaCheckoutDetails implements PaymentMethodDetails {
     /**
      * Gets or Sets fundingSource
      */

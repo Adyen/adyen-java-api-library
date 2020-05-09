@@ -29,7 +29,7 @@ import java.util.Objects;
  * EntercashDetails
  */
 
-public class EntercashDetails implements OneOfPaymentRequestPaymentMethod {
+public class EntercashDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 

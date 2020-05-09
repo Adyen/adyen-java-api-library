@@ -35,7 +35,7 @@ import java.io.IOException;
  * GooglePayDetails
  */
 
-public class GooglePayDetails implements OneOfPaymentRequestPaymentMethod {
+public class GooglePayDetails implements PaymentMethodDetails {
     /**
      * Gets or Sets fundingSource
      */

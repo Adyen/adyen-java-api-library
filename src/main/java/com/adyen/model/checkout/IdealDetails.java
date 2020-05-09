@@ -29,7 +29,7 @@ import java.util.Objects;
  * IdealDetails
  */
 
-public class IdealDetails implements OneOfPaymentRequestPaymentMethod {
+public class IdealDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 

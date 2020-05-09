@@ -35,7 +35,7 @@ import java.io.IOException;
  * AmazonPayDetails
  */
 
-public class AmazonPayDetails implements OneOfPaymentRequestPaymentMethod {
+public class AmazonPayDetails implements PaymentMethodDetails {
     @SerializedName("amazonPayToken")
     private String amazonPayToken = null;
 

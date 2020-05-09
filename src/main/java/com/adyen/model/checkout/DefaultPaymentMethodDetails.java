@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-public class DefaultPaymentMethodDetails implements PaymentMethodDetails, OneOfPaymentRequestPaymentMethod {
+public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     @SerializedName("type")
     private String type;
     @SerializedName("number")
@@ -79,12 +79,10 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails, OneOfP
     @SerializedName("separateDeliveryAddress")
     private Boolean separateDeliveryAddress;
 
-    @Override
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
     }

@@ -35,7 +35,7 @@ import java.io.IOException;
  * ApplePayDetails
  */
 
-public class ApplePayDetails implements OneOfPaymentRequestPaymentMethod {
+public class ApplePayDetails implements PaymentMethodDetails {
     @SerializedName("applePayToken")
     private String applePayToken = null;
 

@@ -29,7 +29,7 @@ import java.util.Objects;
  * MolPayDetails
  */
 
-public class MolPayDetails implements OneOfPaymentRequestPaymentMethod {
+public class MolPayDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 

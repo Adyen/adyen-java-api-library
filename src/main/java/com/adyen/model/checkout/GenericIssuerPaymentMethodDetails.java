@@ -29,7 +29,7 @@ import java.util.Objects;
  * GenericIssuerPaymentMethodDetails
  */
 
-public class GenericIssuerPaymentMethodDetails implements OneOfPaymentRequestPaymentMethod {
+public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 

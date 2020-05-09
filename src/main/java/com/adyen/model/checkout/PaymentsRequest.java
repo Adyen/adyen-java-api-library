@@ -114,7 +114,7 @@ public class PaymentsRequest {
     @SerializedName("orderReference")
     private String orderReference = null;
     @SerializedName("paymentMethod")
-    private OneOfPaymentRequestPaymentMethod paymentMethod = null;
+    private PaymentMethodDetails paymentMethod = null;
     @SerializedName("reference")
     private String reference = null;
     @SerializedName("returnUrl")
@@ -751,15 +751,15 @@ public class PaymentsRequest {
         this.orderReference = orderReference;
     }
 
-    public OneOfPaymentRequestPaymentMethod getPaymentMethod() {
+    public PaymentMethodDetails getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(OneOfPaymentRequestPaymentMethod paymentMethod) {
+    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
-    public PaymentsRequest paymentMethod(OneOfPaymentRequestPaymentMethod paymentMethod) {
+    public PaymentsRequest paymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
         return this;
     }

@@ -35,7 +35,7 @@ import java.io.IOException;
  * DokuDetails
  */
 
-public class DokuDetails implements OneOfPaymentRequestPaymentMethod {
+public class DokuDetails implements PaymentMethodDetails {
     @SerializedName("firstName")
     private String firstName = null;
 

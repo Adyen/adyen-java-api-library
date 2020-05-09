@@ -35,7 +35,7 @@ import java.io.IOException;
  * SamsungPayDetails
  */
 
-public class SamsungPayDetails implements OneOfPaymentRequestPaymentMethod {
+public class SamsungPayDetails implements PaymentMethodDetails {
     /**
      * Gets or Sets fundingSource
      */

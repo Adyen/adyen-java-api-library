@@ -29,7 +29,7 @@ import java.util.Objects;
  * SepaDirectDebitDetails
  */
 
-public class SepaDirectDebitDetails implements OneOfPaymentRequestPaymentMethod {
+public class SepaDirectDebitDetails implements PaymentMethodDetails {
     @SerializedName("iban")
     private String iban = null;
 

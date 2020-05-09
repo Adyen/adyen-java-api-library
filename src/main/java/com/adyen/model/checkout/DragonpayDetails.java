@@ -29,7 +29,7 @@ import java.util.Objects;
  * DragonpayDetails
  */
 
-public class DragonpayDetails implements OneOfPaymentRequestPaymentMethod {
+public class DragonpayDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 

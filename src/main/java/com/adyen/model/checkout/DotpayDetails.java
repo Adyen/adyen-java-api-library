@@ -29,7 +29,7 @@ import java.util.Objects;
  * DotpayDetails
  */
 
-public class DotpayDetails implements OneOfPaymentRequestPaymentMethod {
+public class DotpayDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 

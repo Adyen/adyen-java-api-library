@@ -35,7 +35,7 @@ import java.io.IOException;
  * EcontextVoucherDetails
  */
 
-public class EcontextVoucherDetails implements OneOfPaymentRequestPaymentMethod {
+public class EcontextVoucherDetails implements PaymentMethodDetails {
     @SerializedName("firstName")
     private String firstName = null;
 

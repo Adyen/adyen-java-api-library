@@ -29,7 +29,7 @@ import java.util.Objects;
  * MbwayDetails
  */
 
-public class MbwayDetails implements OneOfPaymentRequestPaymentMethod {
+public class MbwayDetails implements PaymentMethodDetails {
     @SerializedName("shopperEmail")
     private String shopperEmail = null;
 

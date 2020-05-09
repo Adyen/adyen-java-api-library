@@ -29,7 +29,7 @@ import java.util.Objects;
  * GiropayDetails
  */
 
-public class GiropayDetails implements OneOfPaymentRequestPaymentMethod {
+public class GiropayDetails implements PaymentMethodDetails {
     @SerializedName("type")
     private String type = "giropay";
 
