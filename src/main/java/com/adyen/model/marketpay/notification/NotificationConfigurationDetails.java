@@ -33,7 +33,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class NotificationConfigurationDetails {
     @SerializedName("settings")
-    private Map<String, String> settings = new HashMap<String, String>();
+    private Map<String, String> settings = new HashMap<>();
 
     @SerializedName("apiVersion")
     private Integer apiVersion = null;
@@ -179,12 +179,12 @@ public class NotificationConfigurationDetails {
 
         NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(eventConfigsItem);
         if (eventConfigsContainer == null) {
-            eventConfigsContainer = new ArrayList<NotificationEventConfigurationContainer>();
+            eventConfigsContainer = new ArrayList<>();
         }
         this.eventConfigsContainer.add(notificationEventConfigurationContainer);
 
         if (eventConfigs == null) {
-            eventConfigs = new ArrayList<NotificationEventConfiguration>();
+            eventConfigs = new ArrayList<>();
         }
 
         this.eventConfigs.add(eventConfigsItem);
@@ -198,7 +198,7 @@ public class NotificationConfigurationDetails {
      **/
     public List<NotificationEventConfiguration> getEventConfigs() {
         if (eventConfigs == null) {
-            eventConfigs = new ArrayList<NotificationEventConfiguration>();
+            eventConfigs = new ArrayList<>();
 
             if (eventConfigsContainer != null && ! eventConfigsContainer.isEmpty()) {
                 for (NotificationEventConfigurationContainer notificationEventConfigurationContainer : eventConfigsContainer) {
@@ -213,7 +213,7 @@ public class NotificationConfigurationDetails {
         this.eventConfigs = eventConfigs;
 
         // set as well the container list this will be send in the API request
-        this.eventConfigsContainer = new ArrayList<NotificationEventConfigurationContainer>();
+        this.eventConfigsContainer = new ArrayList<>();
         for (NotificationEventConfiguration notificationConfigurationDetails : eventConfigs) {
             NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(notificationConfigurationDetails);
             this.eventConfigsContainer.add(notificationEventConfigurationContainer);

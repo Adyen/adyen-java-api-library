@@ -20,18 +20,6 @@
  */
 package com.adyen;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import com.adyen.Util.DateUtil;
 import com.adyen.Util.Util;
 import com.adyen.enums.Gender;
@@ -75,6 +63,17 @@ import com.google.gson.GsonBuilder;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
@@ -94,7 +93,7 @@ public class BaseTest {
         try {
             when(httpURLConnectionClient.post(any(String.class), any(Map.class), any(Config.class))).thenReturn(response);
             when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenReturn(response);
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), (RequestOptions) isNull())).thenReturn(response);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), isNull())).thenReturn(response);
 
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
@@ -277,7 +276,7 @@ public class BaseTest {
         Long itemVatAmount = new Long("1000");
         Long itemVatPercentage = new Long("1000");
 
-        List<InvoiceLine> invoiceLines = new ArrayList<InvoiceLine>();
+        List<InvoiceLine> invoiceLines = new ArrayList<>();
 
         // invoiceLine1
         InvoiceLine invoiceLine = new InvoiceLine();
@@ -346,9 +345,9 @@ public class BaseTest {
         String response = getFileContents(fileName);
 
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
-        HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<String, List<String>>(), response);
+        HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<>(), response);
         try {
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), (RequestOptions) isNull())).thenThrow(httpClientException);
+            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), isNull())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }

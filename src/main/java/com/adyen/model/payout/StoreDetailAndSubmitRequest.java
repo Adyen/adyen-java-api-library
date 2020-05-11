@@ -20,8 +20,6 @@
  */
 package com.adyen.model.payout;
 
-import java.util.Date;
-import java.util.Map;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.BankAccount;
@@ -31,6 +29,9 @@ import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Date;
+import java.util.Map;
 
 /**
  * StoreDetailsAndSubmitRequest
@@ -68,7 +69,7 @@ public class StoreDetailAndSubmitRequest {
     private String nationality = null;
 
     @SerializedName("recurring")
-    private Recurring recurring = null;
+    private Recurring recurring;
 
     @SerializedName("selectedBrand")
     private String selectedBrand = null;

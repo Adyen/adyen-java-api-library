@@ -171,7 +171,7 @@ public class PerformedTransaction {
      */
     public List<LoyaltyResult> getLoyaltyResult() {
         if (loyaltyResult == null) {
-            loyaltyResult = new ArrayList<LoyaltyResult>();
+            loyaltyResult = new ArrayList<>();
         }
         return this.loyaltyResult;
     }

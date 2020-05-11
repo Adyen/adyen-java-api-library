@@ -73,7 +73,7 @@ public class MarketPayTest extends BaseTest {
         splitPayment.setTotalAmount(6200L);
         splitPayment.setCurrencyCode("EUR");
 
-        List<SplitPaymentItem> splitPaymentItems = new ArrayList<SplitPaymentItem>();
+        List<SplitPaymentItem> splitPaymentItems = new ArrayList<>();
 
         // first split payment item
         SplitPaymentItem splitPaymentItem = new SplitPaymentItem();

@@ -91,7 +91,7 @@ public class SignedData {
      */
     public List<AlgorithmIdentifier> getDigestAlgorithm() {
         if (digestAlgorithm == null) {
-            digestAlgorithm = new ArrayList<AlgorithmIdentifier>();
+            digestAlgorithm = new ArrayList<>();
         }
         return this.digestAlgorithm;
     }
@@ -138,7 +138,7 @@ public class SignedData {
      */
     public List<byte[]> getCertificate() {
         if (certificate == null) {
-            certificate = new ArrayList<byte[]>();
+            certificate = new ArrayList<>();
         }
         return this.certificate;
     }
@@ -167,7 +167,7 @@ public class SignedData {
      */
     public List<Signer> getSigner() {
         if (signer == null) {
-            signer = new ArrayList<Signer>();
+            signer = new ArrayList<>();
         }
         return this.signer;
     }

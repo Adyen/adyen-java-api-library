@@ -30,7 +30,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class TierConfiguration {
     @SerializedName("tiers")
-    private List<Tier> tiers = new ArrayList<Tier>();
+    private List<Tier> tiers = new ArrayList<>();
 
     @SerializedName("countryCode")
     private String countryCode = null;

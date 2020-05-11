@@ -35,7 +35,7 @@ public class ThreeDSAvailabilityRequest {
     private Object additionalData = null;
 
     @SerializedName("brands")
-    private List<String> brands = new ArrayList<String>();
+    private List<String> brands = new ArrayList<>();
 
     @SerializedName("cardNumber")
     private String cardNumber = null;

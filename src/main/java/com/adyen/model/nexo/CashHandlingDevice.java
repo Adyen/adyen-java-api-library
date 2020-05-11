@@ -76,7 +76,7 @@ public class CashHandlingDevice {
      */
     public List<CoinsOrBills> getCoinsOrBills() {
         if (coinsOrBills == null) {
-            coinsOrBills = new ArrayList<CoinsOrBills>();
+            coinsOrBills = new ArrayList<>();
         }
         return this.coinsOrBills;
     }

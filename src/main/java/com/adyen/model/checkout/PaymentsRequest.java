@@ -832,7 +832,8 @@ public class PaymentsRequest {
 
     public PaymentsRequest addOneClickData(String recurringDetailReference, String encryptedSecurityCode) {
         DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
-        paymentMethodDetails.type(TYPE_SCHEME).recurringDetailReference(recurringDetailReference).encryptedSecurityCode(encryptedSecurityCode);
+        paymentMethodDetails.type(TYPE_SCHEME).setStoredPaymentMethodId(recurringDetailReference);
+        paymentMethodDetails.type(TYPE_SCHEME).encryptedSecurityCode(encryptedSecurityCode);
 
         paymentMethod = paymentMethodDetails;
         return this;

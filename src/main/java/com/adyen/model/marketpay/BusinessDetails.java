@@ -128,7 +128,7 @@ public class BusinessDetails {
 
     public BusinessDetails addShareholdersItem(ShareholderContact shareholdersItem) {
         if (this.shareholders == null) {
-            this.shareholders = new ArrayList<ShareholderContact>();
+            this.shareholders = new ArrayList<>();
         }
         this.shareholders.add(shareholdersItem);
         return this;

@@ -29,6 +29,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -174,13 +175,13 @@ public class ThreeDSecureData {
         }
         ThreeDSecureData threeDSecureData = (ThreeDSecureData) o;
         return Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse)
-                && Objects.equals(this.cavv, threeDSecureData.cavv)
+                && Arrays.equals(this.cavv, threeDSecureData.cavv)
                 && Objects.equals(this.cavvAlgorithm,
                 threeDSecureData.cavvAlgorithm)
                 && Objects.equals(this.directoryResponse, threeDSecureData.directoryResponse)
                 && Objects.equals(this.eci, threeDSecureData.eci)
                 && Objects.equals(this.threeDSVersion, threeDSecureData.threeDSVersion)
-                && Objects.equals(this.xid, threeDSecureData.xid)
+                && Arrays.equals(this.xid, threeDSecureData.xid)
                 && Objects.equals(this.dsTransID, threeDSecureData.dsTransID);
     }
 

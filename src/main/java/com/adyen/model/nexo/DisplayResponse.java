@@ -63,7 +63,7 @@ public class DisplayResponse {
      */
     public List<OutputResult> getOutputResult() {
         if (outputResult == null) {
-            outputResult = new ArrayList<OutputResult>();
+            outputResult = new ArrayList<>();
         }
         return this.outputResult;
     }

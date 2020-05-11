@@ -162,7 +162,7 @@ public class DeviceRenderOptions {
     public DeviceRenderOptions addSdkUiTypeItem(SdkUiTypeEnum sdkUiTypeItem) {
 
         if (this.sdkUiType == null) {
-            this.sdkUiType = new ArrayList<SdkUiTypeEnum>();
+            this.sdkUiType = new ArrayList<>();
         }
 
         this.sdkUiType.add(sdkUiTypeItem);

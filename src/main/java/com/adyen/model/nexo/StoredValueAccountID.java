@@ -152,7 +152,7 @@ public class StoredValueAccountID {
      */
     public List<EntryModeType> getEntryMode() {
         if (entryMode == null) {
-            entryMode = new ArrayList<EntryModeType>();
+            entryMode = new ArrayList<>();
         }
         return this.entryMode;
     }

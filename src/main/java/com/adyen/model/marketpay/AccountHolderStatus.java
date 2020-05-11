@@ -70,7 +70,7 @@ public class AccountHolderStatus {
     private StatusEnum status = null;
 
     @SerializedName("accountEvents")
-    private List<AccountEvent> accountEvents = new ArrayList<AccountEvent>();
+    private List<AccountEvent> accountEvents = new ArrayList<>();
 
     public AccountHolderStatus processingState(AccountProcessingState processingState) {
         this.processingState = processingState;

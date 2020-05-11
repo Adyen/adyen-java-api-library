@@ -106,7 +106,7 @@ public class POIStatus {
      */
     public List<CashHandlingDevice> getCashHandlingDevice() {
         if (cashHandlingDevice == null) {
-            cashHandlingDevice = new ArrayList<CashHandlingDevice>();
+            cashHandlingDevice = new ArrayList<>();
         }
         return this.cashHandlingDevice;
     }

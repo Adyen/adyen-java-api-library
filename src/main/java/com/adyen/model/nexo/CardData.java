@@ -165,7 +165,7 @@ public class CardData {
      */
     public List<String> getAllowedProductCode() {
         if (allowedProductCode == null) {
-            allowedProductCode = new ArrayList<String>();
+            allowedProductCode = new ArrayList<>();
         }
         return this.allowedProductCode;
     }
@@ -194,7 +194,7 @@ public class CardData {
      */
     public List<AllowedProduct> getAllowedProduct() {
         if (allowedProduct == null) {
-            allowedProduct = new ArrayList<AllowedProduct>();
+            allowedProduct = new ArrayList<>();
         }
         return this.allowedProduct;
     }
@@ -241,7 +241,7 @@ public class CardData {
      */
     public List<CustomerOrder> getCustomerOrder() {
         if (customerOrder == null) {
-            customerOrder = new ArrayList<CustomerOrder>();
+            customerOrder = new ArrayList<>();
         }
         return this.customerOrder;
     }
@@ -324,7 +324,7 @@ public class CardData {
      */
     public List<EntryModeType> getEntryMode() {
         if (entryMode == null) {
-            entryMode = new ArrayList<EntryModeType>();
+            entryMode = new ArrayList<>();
         }
         return this.entryMode;
     }

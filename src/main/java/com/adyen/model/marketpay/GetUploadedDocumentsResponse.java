@@ -50,7 +50,7 @@ public class GetUploadedDocumentsResponse {
 
     public GetUploadedDocumentsResponse addDocumentDetailsItem(DocumentDetail documentDetailsItem) {
         if (this.documentDetails == null) {
-            this.documentDetails = new ArrayList<DocumentDetail>();
+            this.documentDetails = new ArrayList<>();
         }
         this.documentDetails.add(documentDetailsItem);
         return this;
@@ -76,7 +76,7 @@ public class GetUploadedDocumentsResponse {
 
     public GetUploadedDocumentsResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<ErrorFieldType>();
+            this.invalidFields = new ArrayList<>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;

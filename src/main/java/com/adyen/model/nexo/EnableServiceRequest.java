@@ -86,7 +86,7 @@ public class EnableServiceRequest {
      */
     public List<ServicesEnabledType> getServicesEnabled() {
         if (servicesEnabled == null) {
-            servicesEnabled = new ArrayList<ServicesEnabledType>();
+            servicesEnabled = new ArrayList<>();
         }
         return this.servicesEnabled;
     }

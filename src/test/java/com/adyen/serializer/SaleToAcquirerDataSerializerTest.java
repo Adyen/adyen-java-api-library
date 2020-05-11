@@ -25,7 +25,7 @@ public class SaleToAcquirerDataSerializerTest {
         SaleToAcquirerDataSerializer saleToAcquirerDataModelAdapter = new SaleToAcquirerDataSerializer();
         SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
 
-        Map<String, String> metadata = new HashMap<String, String>();
+        Map<String, String> metadata = new HashMap<>();
         metadata.put("key", "value");
         saleToAcquirerData.setMetadata(metadata);
         saleToAcquirerData.setShopperEmail("myemail@mail.com");
@@ -55,7 +55,7 @@ public class SaleToAcquirerDataSerializerTest {
         saleToAcquirerData.setApplicationInfo(applicationInfo);
         saleToAcquirerData.setTenderOption("ReceiptHandler,AllowPartialAuthorisation,AskGratuity");
 
-        Map<String, String> additionalData = new HashMap<String, String>();
+        Map<String, String> additionalData = new HashMap<>();
         additionalData.put("key.key", "value");
         additionalData.put("key.keyTwo", "value2");
         saleToAcquirerData.setAdditionalData(additionalData);

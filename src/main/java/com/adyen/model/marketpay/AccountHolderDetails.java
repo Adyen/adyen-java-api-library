@@ -91,7 +91,7 @@ public class AccountHolderDetails {
 
     public AccountHolderDetails addBankAccountDetailsItem(BankAccountDetail bankAccountDetailsItem) {
         if (this.bankAccountDetails == null) {
-            this.bankAccountDetails = new ArrayList<BankAccountDetail>();
+            this.bankAccountDetails = new ArrayList<>();
         }
         this.bankAccountDetails.add(bankAccountDetailsItem);
         return this;
@@ -225,7 +225,7 @@ public class AccountHolderDetails {
 
     public AccountHolderDetails addPayoutMethodsItem(PayoutMethod payoutMethodsItem) {
         if (this.payoutMethods == null) {
-            this.payoutMethods = new ArrayList<PayoutMethod>();
+            this.payoutMethods = new ArrayList<>();
         }
         this.payoutMethods.add(payoutMethodsItem);
         return this;

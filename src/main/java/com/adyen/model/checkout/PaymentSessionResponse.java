@@ -186,7 +186,7 @@ public class PaymentSessionResponse {
     public PaymentSessionResponse addLineItemsItem(LineItem lineItemsItem) {
 
         if (this.lineItems == null) {
-            this.lineItems = new ArrayList<LineItem>();
+            this.lineItems = new ArrayList<>();
         }
 
         this.lineItems.add(lineItemsItem);
@@ -233,7 +233,7 @@ public class PaymentSessionResponse {
     public PaymentSessionResponse addOneClickPaymentMethodsItem(RecurringDetail oneClickPaymentMethodsItem) {
 
         if (this.oneClickPaymentMethods == null) {
-            this.oneClickPaymentMethods = new ArrayList<RecurringDetail>();
+            this.oneClickPaymentMethods = new ArrayList<>();
         }
 
         this.oneClickPaymentMethods.add(oneClickPaymentMethodsItem);
@@ -337,7 +337,7 @@ public class PaymentSessionResponse {
     public PaymentSessionResponse addPaymentMethodsItem(PaymentMethod paymentMethodsItem) {
 
         if (this.paymentMethods == null) {
-            this.paymentMethods = new ArrayList<PaymentMethod>();
+            this.paymentMethods = new ArrayList<>();
         }
 
         this.paymentMethods.add(paymentMethodsItem);

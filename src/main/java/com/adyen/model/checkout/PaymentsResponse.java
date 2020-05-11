@@ -155,7 +155,7 @@ public class PaymentsResponse {
     public PaymentsResponse addDetailsItem(InputDetail detailsItem) {
 
         if (this.details == null) {
-            this.details = new ArrayList<InputDetail>();
+            this.details = new ArrayList<>();
         }
 
         this.details.add(detailsItem);

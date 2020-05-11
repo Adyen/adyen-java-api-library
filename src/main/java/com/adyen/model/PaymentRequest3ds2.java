@@ -198,7 +198,7 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
     public PaymentRequest3ds2 addSplitsItem(Split splitsItem) {
 
         if (this.splits == null) {
-            this.splits = new ArrayList<Split>();
+            this.splits = new ArrayList<>();
         }
 
         this.splits.add(splitsItem);

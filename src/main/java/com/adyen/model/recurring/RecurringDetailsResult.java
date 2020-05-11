@@ -37,7 +37,7 @@ public class RecurringDetailsResult {
     private String shopperReference = null;
 
     @SerializedName("details")
-    private List<RecurringDetailContainer> details = new ArrayList<RecurringDetailContainer>();
+    private List<RecurringDetailContainer> details = new ArrayList<>();
 
     @SerializedName("lastKnownShopperEmail")
     private String lastKnownShopperEmail = null;

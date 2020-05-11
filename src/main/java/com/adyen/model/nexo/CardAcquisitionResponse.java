@@ -159,7 +159,7 @@ public class CardAcquisitionResponse {
      */
     public List<String> getPaymentBrand() {
         if (paymentBrand == null) {
-            paymentBrand = new ArrayList<String>();
+            paymentBrand = new ArrayList<>();
         }
         return this.paymentBrand;
     }
@@ -206,7 +206,7 @@ public class CardAcquisitionResponse {
      */
     public List<LoyaltyAccount> getLoyaltyAccount() {
         if (loyaltyAccount == null) {
-            loyaltyAccount = new ArrayList<LoyaltyAccount>();
+            loyaltyAccount = new ArrayList<>();
         }
         return this.loyaltyAccount;
     }
@@ -235,7 +235,7 @@ public class CardAcquisitionResponse {
      */
     public List<CustomerOrder> getCustomerOrder() {
         if (customerOrder == null) {
-            customerOrder = new ArrayList<CustomerOrder>();
+            customerOrder = new ArrayList<>();
         }
         return this.customerOrder;
     }

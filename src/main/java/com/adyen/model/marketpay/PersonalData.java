@@ -66,7 +66,7 @@ public class PersonalData {
 
     public PersonalData addDocumentDataItem(PersonalDocumentData documentDataItem) {
         if (this.documentData == null) {
-            this.documentData = new ArrayList<PersonalDocumentData>();
+            this.documentData = new ArrayList<>();
         }
         this.documentData.add(documentDataItem);
         return this;

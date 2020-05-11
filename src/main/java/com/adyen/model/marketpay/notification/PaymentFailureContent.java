@@ -36,7 +36,7 @@ public class PaymentFailureContent {
     public Message errorMessage;
 
     public List<ErrorFieldType> getErrorFieldList() {
-        List<ErrorFieldType> errorFieldTypeList = new ArrayList<ErrorFieldType>();
+        List<ErrorFieldType> errorFieldTypeList = new ArrayList<>();
 
         if (errorFieldTypeContainers == null) {
             return errorFieldTypeList;

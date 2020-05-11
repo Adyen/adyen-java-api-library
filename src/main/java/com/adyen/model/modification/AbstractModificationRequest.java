@@ -238,7 +238,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
      */
     public Map<String, String> getOrCreateAdditionalData() {
         if (getAdditionalData() == null) {
-            setAdditionalData(new HashMap<String, String>());
+            setAdditionalData(new HashMap<>());
         }
 
         return getAdditionalData();
