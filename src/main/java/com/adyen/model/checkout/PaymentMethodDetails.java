@@ -20,6 +20,11 @@
  */
 package com.adyen.model.checkout;
 
+/**
+ *  PaymentMethodDetails is implemented in all other Details classes
+ *  Each class implementing this interface needs to implement an attribute Type,
+ *  which is a String or an enum with String values.
+ */
 public interface PaymentMethodDetails {
 
 }

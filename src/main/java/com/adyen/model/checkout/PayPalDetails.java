@@ -84,7 +84,7 @@ public class PayPalDetails implements PaymentMethodDetails {
     }
 
     @SerializedName("subtype")
-    private SubtypeEnum subtype = null;
+    private SubtypeEnum subtype = SubtypeEnum.REDIRECT;
 
     public PayPalDetails type(String type) {
         this.type = type;
