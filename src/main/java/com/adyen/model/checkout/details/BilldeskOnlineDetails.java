@@ -31,11 +31,16 @@ import java.util.Objects;
  */
 
 public class BilldeskOnlineDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String BILLDESK_ONLINE = "billdesk_online";
+
     @SerializedName("issuer")
     private String issuer = null;
 
     @SerializedName("type")
-    private String type = "billdesk_online";
+    private String type = BILLDESK_ONLINE;
 
     public BilldeskOnlineDetails issuer(String issuer) {
         this.issuer = issuer;

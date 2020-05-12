@@ -38,6 +38,11 @@ import java.io.IOException;
 
 public class GooglePayDetails implements PaymentMethodDetails {
     /**
+     * Possible types
+     */
+    public static final String GOOGLE_PAY = "paywithgoogle";
+
+    /**
      * Gets or Sets fundingSource
      */
     @JsonAdapter(FundingSourceEnum.Adapter.class)
@@ -93,7 +98,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
     private String googlePayToken = null;
 
     @SerializedName("type")
-    private String type = "paywithgoogle";
+    private String type = GOOGLE_PAY;
 
     public GooglePayDetails fundingSource(FundingSourceEnum fundingSource) {
         this.fundingSource = fundingSource;

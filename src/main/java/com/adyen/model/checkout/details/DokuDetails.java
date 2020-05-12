@@ -24,19 +24,27 @@ package com.adyen.model.checkout.details;
 import java.util.Objects;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 
-import java.io.IOException;
 
 /**
  * DokuDetails
  */
 
 public class DokuDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String MANDIRI_VA = "doku_mandiri_va";
+    public static final String CIMB_VA = "doku_cimb_va";
+    public static final String DANAMON_VA = "doku_danamon_va";
+    public static final String BNI_VA = "doku_bni_va";
+    public static final String PERMATA_LITE_ATM = "doku_permata_lite_atm";
+    public static final String BRI_VA = "doku_bri_va";
+    public static final String BCA_VA = "doku_bca_va";
+    public static final String ALFAMART = "doku_alfamart";
+    public static final String INDOMARET = "doku_indomaret";
+
     @SerializedName("firstName")
     private String firstName = null;
 
@@ -46,61 +54,8 @@ public class DokuDetails implements PaymentMethodDetails {
     @SerializedName("shopperEmail")
     private String shopperEmail = null;
 
-    /**
-     * **doku**
-     */
-    @JsonAdapter(TypeEnum.Adapter.class)
-    public enum TypeEnum {
-        MANDIRI_VA("doku_mandiri_va"),
-        CIMB_VA("doku_cimb_va"),
-        DANAMON_VA("doku_danamon_va"),
-        BNI_VA("doku_bni_va"),
-        PERMATA_LITE_ATM("doku_permata_lite_atm"),
-        BRI_VA("doku_bri_va"),
-        BCA_VA("doku_bca_va"),
-        ALFAMART("doku_alfamart"),
-        INDOMARET("doku_indomaret");
-
-        private String value;
-
-        TypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static TypeEnum fromValue(String text) {
-            for (TypeEnum b : TypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<TypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public TypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return TypeEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
     @SerializedName("type")
-    private TypeEnum type = null;
+    private String type = null;
 
     public DokuDetails firstName(String firstName) {
         this.firstName = firstName;
@@ -156,7 +111,7 @@ public class DokuDetails implements PaymentMethodDetails {
         this.shopperEmail = shopperEmail;
     }
 
-    public DokuDetails type(TypeEnum type) {
+    public DokuDetails type(String type) {
         this.type = type;
         return this;
     }
@@ -166,11 +121,11 @@ public class DokuDetails implements PaymentMethodDetails {
      *
      * @return type
      **/
-    public TypeEnum getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(TypeEnum type) {
+    public void setType(String type) {
         this.type = type;
     }
 

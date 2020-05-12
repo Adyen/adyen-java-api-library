@@ -31,6 +31,11 @@ import java.util.Objects;
  */
 
 public class AchDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String ACH = "ach";
+
     @SerializedName("bankAccountNumber")
     private String bankAccountNumber = null;
 
@@ -47,7 +52,7 @@ public class AchDetails implements PaymentMethodDetails {
     private String ownerName = null;
 
     @SerializedName("type")
-    private String type = "ach";
+    private String type = ACH;
 
     public AchDetails bankAccountNumber(String bankAccountNumber) {
         this.bankAccountNumber = bankAccountNumber;

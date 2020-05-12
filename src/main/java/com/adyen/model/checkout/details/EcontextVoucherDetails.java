@@ -37,6 +37,12 @@ import java.io.IOException;
  */
 
 public class EcontextVoucherDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String SEVENELEVEN = "econtext_seveneleven";
+    public static final String STORES = "econtext_stores";
+
     @SerializedName("firstName")
     private String firstName = null;
 
@@ -49,54 +55,8 @@ public class EcontextVoucherDetails implements PaymentMethodDetails {
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 
-    /**
-     * **econtextvoucher**
-     */
-    @JsonAdapter(TypeEnum.Adapter.class)
-    public enum TypeEnum {
-        SEVENELEVEN("econtext_seveneleven"),
-        STORES("econtext_stores");
-
-        private String value;
-
-        TypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static TypeEnum fromValue(String text) {
-            for (TypeEnum b : TypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<TypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public TypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return TypeEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
     @SerializedName("type")
-    private TypeEnum type = null;
+    private String type = null;
 
     public EcontextVoucherDetails firstName(String firstName) {
         this.firstName = firstName;
@@ -170,21 +130,21 @@ public class EcontextVoucherDetails implements PaymentMethodDetails {
         this.telephoneNumber = telephoneNumber;
     }
 
-    public EcontextVoucherDetails type(TypeEnum type) {
+    public EcontextVoucherDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
      * **econtextvoucher**
-     *
+     *  One of
      * @return type
      **/
-    public TypeEnum getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(TypeEnum type) {
+    public void setType(String type) {
         this.type = type;
     }
 

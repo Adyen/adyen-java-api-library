@@ -37,6 +37,11 @@ import java.io.IOException;
  */
 
 public class ApplePayDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String APPLE_PAY = "applepay";
+
     @SerializedName("applePayToken")
     private String applePayToken = null;
 
@@ -90,7 +95,7 @@ public class ApplePayDetails implements PaymentMethodDetails {
     private FundingSourceEnum fundingSource = null;
 
     @SerializedName("type")
-    private String type = "applepay";
+    private String type = APPLE_PAY;
 
     public ApplePayDetails applePayToken(String applePayToken) {
         this.applePayToken = applePayToken;

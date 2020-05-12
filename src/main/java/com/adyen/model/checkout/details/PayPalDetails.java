@@ -37,9 +37,13 @@ import java.io.IOException;
  */
 
 public class PayPalDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String PAYPAL = "paypal";
 
     @SerializedName("type")
-    private String type = "paypal";
+    private String type = PAYPAL;
 
     @JsonAdapter(SubtypeEnum.Adapter.class)
     public enum SubtypeEnum {

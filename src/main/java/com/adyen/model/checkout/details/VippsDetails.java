@@ -31,11 +31,16 @@ import java.util.Objects;
  */
 
 public class VippsDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String VIPPS = "vipps";
+
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 
     @SerializedName("type")
-    private String type = "vipps";
+    private String type = VIPPS;
 
     public VippsDetails telephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;

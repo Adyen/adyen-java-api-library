@@ -31,11 +31,16 @@ import java.util.Objects;
  */
 
 public class EntercashDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String ENTERCASH = "entercash";
+
     @SerializedName("issuer")
     private String issuer = null;
 
     @SerializedName("type")
-    private String type = "entercash";
+    private String type = ENTERCASH;
 
     public EntercashDetails issuer(String issuer) {
         this.issuer = issuer;

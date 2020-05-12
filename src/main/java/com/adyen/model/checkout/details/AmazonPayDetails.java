@@ -37,6 +37,11 @@ import java.io.IOException;
  */
 
 public class AmazonPayDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String AMAZON_PAY = "amazonpay";
+
     @SerializedName("amazonPayToken")
     private String amazonPayToken = null;
 
@@ -90,7 +95,7 @@ public class AmazonPayDetails implements PaymentMethodDetails {
     private FundingSourceEnum fundingSource = null;
 
     @SerializedName("type")
-    private String type = "amazonpay";
+    private String type = AMAZON_PAY;
 
     public AmazonPayDetails amazonPayToken(String amazonPayToken) {
         this.amazonPayToken = amazonPayToken;

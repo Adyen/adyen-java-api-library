@@ -31,11 +31,16 @@ import java.util.Objects;
  */
 
 public class QiwiWalletDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String QIWIWALLET = "qiwiwallet";
+
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 
     @SerializedName("type")
-    private String type = "qiwiwallet";
+    private String type = QIWIWALLET;
 
     public QiwiWalletDetails telephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;

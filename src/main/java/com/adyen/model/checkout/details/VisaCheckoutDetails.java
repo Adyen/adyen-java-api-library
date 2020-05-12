@@ -37,6 +37,11 @@ import java.util.Objects;
 
 public class VisaCheckoutDetails implements PaymentMethodDetails {
     /**
+     * Possible types
+     */
+    public static final String VISA_CHECKOUT = "visacheckout";
+
+    /**
      * Gets or Sets fundingSource
      */
     @JsonAdapter(FundingSourceEnum.Adapter.class)
@@ -86,7 +91,7 @@ public class VisaCheckoutDetails implements PaymentMethodDetails {
     private FundingSourceEnum fundingSource = null;
 
     @SerializedName("type")
-    private String type = "visacheckout";
+    private String type = VISA_CHECKOUT;
 
     @SerializedName("visaCheckoutCallId")
     private String visaCheckoutCallId = null;

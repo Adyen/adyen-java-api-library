@@ -23,8 +23,8 @@ package com.adyen;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.*;
+import com.adyen.model.checkout.details.*;
 import com.adyen.service.Checkout;
-import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import com.google.gson.annotations.SerializedName;
 import org.junit.Assert;
@@ -481,7 +481,7 @@ public class CheckoutTest extends BaseTest {
         econtextVoucherDetails.setLastName("Smith");
         econtextVoucherDetails.setShopperEmail("test@email.com");
         econtextVoucherDetails.setTelephoneNumber("0123456789");
-        econtextVoucherDetails.setType(EcontextVoucherDetails.TypeEnum.SEVENELEVEN);
+        econtextVoucherDetails.setType(EcontextVoucherDetails.SEVENELEVEN);
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(econtextVoucherDetails);
@@ -611,7 +611,7 @@ public class CheckoutTest extends BaseTest {
         dokuDetails.setFirstName("John");
         dokuDetails.setLastName("Smith");
         dokuDetails.setShopperEmail("test@email.com");
-        dokuDetails.setType(DokuDetails.TypeEnum.INDOMARET);
+        dokuDetails.setType(DokuDetails.INDOMARET);
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(dokuDetails);

@@ -31,11 +31,16 @@ import java.util.Objects;
  */
 
 public class DotpayDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String DOTPAY = "dotpay";
+
     @SerializedName("issuer")
     private String issuer = null;
 
     @SerializedName("type")
-    private String type = "dotpay";
+    private String type = DOTPAY;
 
     public DotpayDetails issuer(String issuer) {
         this.issuer = issuer;

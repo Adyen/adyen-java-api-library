@@ -31,6 +31,11 @@ import java.util.Objects;
  */
 
 public class SepaDirectDebitDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String SEPA_DIRECT_DEBIT = "sepadirectdebit";
+
     @SerializedName("iban")
     private String iban = null;
 
@@ -38,7 +43,7 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
     private String ownerName = null;
 
     @SerializedName("type")
-    private String type = "sepadirectdebit";
+    private String type = SEPA_DIRECT_DEBIT;
 
     public SepaDirectDebitDetails iban(String iban) {
         this.iban = iban;

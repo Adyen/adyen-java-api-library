@@ -38,6 +38,11 @@ import java.io.IOException;
 
 public class SamsungPayDetails implements PaymentMethodDetails {
     /**
+     * Possible types
+     */
+    public static final String SAMSUNG_PAY = "samsungpay";
+
+    /**
      * Gets or Sets fundingSource
      */
     @JsonAdapter(FundingSourceEnum.Adapter.class)
@@ -90,7 +95,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     private String samsungPayToken = null;
 
     @SerializedName("type")
-    private String type = "samsungpay";
+    private String type = SAMSUNG_PAY;
 
     public SamsungPayDetails fundingSource(FundingSourceEnum fundingSource) {
         this.fundingSource = fundingSource;

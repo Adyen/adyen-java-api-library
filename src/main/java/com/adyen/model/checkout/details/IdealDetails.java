@@ -31,11 +31,16 @@ import java.util.Objects;
  */
 
 public class IdealDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String IDEAL = "ideal";
+
     @SerializedName("issuer")
     private String issuer = null;
 
     @SerializedName("type")
-    private String type = "ideal";
+    private String type = IDEAL;
 
     public IdealDetails issuer(String issuer) {
         this.issuer = issuer;

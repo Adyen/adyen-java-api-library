@@ -31,8 +31,13 @@ import java.util.Objects;
  */
 
 public class GiropayDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String GIROPAY = "giropay";
+
     @SerializedName("type")
-    private String type = "giropay";
+    private String type = GIROPAY;
 
     public GiropayDetails type(String type) {
         this.type = type;
