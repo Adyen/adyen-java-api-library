@@ -19,10 +19,11 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,10 +33,13 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * GooglePayDetails
+ * ApplePayDetails
  */
 
-public class GooglePayDetails implements PaymentMethodDetails {
+public class ApplePayDetails implements PaymentMethodDetails {
+    @SerializedName("applePayToken")
+    private String applePayToken = null;
+
     /**
      * Gets or Sets fundingSource
      */
@@ -85,16 +89,28 @@ public class GooglePayDetails implements PaymentMethodDetails {
     @SerializedName("fundingSource")
     private FundingSourceEnum fundingSource = null;
 
-    @SerializedName("googlePayCardNetwork")
-    private String googlePayCardNetwork = null;
-
-    @SerializedName("googlePayToken")
-    private String googlePayToken = null;
-
     @SerializedName("type")
-    private String type = "paywithgoogle";
+    private String type = "applepay";
 
-    public GooglePayDetails fundingSource(FundingSourceEnum fundingSource) {
+    public ApplePayDetails applePayToken(String applePayToken) {
+        this.applePayToken = applePayToken;
+        return this;
+    }
+
+    /**
+     * Get applePayToken
+     *
+     * @return applePayToken
+     **/
+    public String getApplePayToken() {
+        return applePayToken;
+    }
+
+    public void setApplePayToken(String applePayToken) {
+        this.applePayToken = applePayToken;
+    }
+
+    public ApplePayDetails fundingSource(FundingSourceEnum fundingSource) {
         this.fundingSource = fundingSource;
         return this;
     }
@@ -112,49 +128,13 @@ public class GooglePayDetails implements PaymentMethodDetails {
         this.fundingSource = fundingSource;
     }
 
-    public GooglePayDetails googlePayCardNetwork(String googlePayCardNetwork) {
-        this.googlePayCardNetwork = googlePayCardNetwork;
-        return this;
-    }
-
-    /**
-     * Get googlePayCardNetwork
-     *
-     * @return googlePayCardNetwork
-     **/
-    public String getGooglePayCardNetwork() {
-        return googlePayCardNetwork;
-    }
-
-    public void setGooglePayCardNetwork(String googlePayCardNetwork) {
-        this.googlePayCardNetwork = googlePayCardNetwork;
-    }
-
-    public GooglePayDetails googlePayToken(String googlePayToken) {
-        this.googlePayToken = googlePayToken;
-        return this;
-    }
-
-    /**
-     * Get googlePayToken
-     *
-     * @return googlePayToken
-     **/
-    public String getGooglePayToken() {
-        return googlePayToken;
-    }
-
-    public void setGooglePayToken(String googlePayToken) {
-        this.googlePayToken = googlePayToken;
-    }
-
-    public GooglePayDetails type(String type) {
+    public ApplePayDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **paywithgoogle**
+     * **applepay**
      *
      * @return type
      **/
@@ -175,27 +155,25 @@ public class GooglePayDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GooglePayDetails googlePayDetails = (GooglePayDetails) o;
-        return Objects.equals(this.fundingSource, googlePayDetails.fundingSource) &&
-                Objects.equals(this.googlePayCardNetwork, googlePayDetails.googlePayCardNetwork) &&
-                Objects.equals(this.googlePayToken, googlePayDetails.googlePayToken) &&
-                Objects.equals(this.type, googlePayDetails.type);
+        ApplePayDetails applePayDetails = (ApplePayDetails) o;
+        return Objects.equals(this.applePayToken, applePayDetails.applePayToken) &&
+                Objects.equals(this.fundingSource, applePayDetails.fundingSource) &&
+                Objects.equals(this.type, applePayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fundingSource, googlePayCardNetwork, googlePayToken, type);
+        return Objects.hash(applePayToken, fundingSource, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GooglePayDetails {\n");
+        sb.append("class ApplePayDetails {\n");
 
+        sb.append("    applePayToken: ").append(toIndentedString(applePayToken)).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
-        sb.append("    googlePayCardNetwork: ").append(toIndentedString(googlePayCardNetwork)).append("\n");
-        sb.append("    googlePayToken: ").append(toIndentedString(googlePayToken)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

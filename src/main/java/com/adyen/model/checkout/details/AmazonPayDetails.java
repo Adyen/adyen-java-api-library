@@ -19,10 +19,11 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,12 +33,12 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * ApplePayDetails
+ * AmazonPayDetails
  */
 
-public class ApplePayDetails implements PaymentMethodDetails {
-    @SerializedName("applePayToken")
-    private String applePayToken = null;
+public class AmazonPayDetails implements PaymentMethodDetails {
+    @SerializedName("amazonPayToken")
+    private String amazonPayToken = null;
 
     /**
      * Gets or Sets fundingSource
@@ -89,27 +90,27 @@ public class ApplePayDetails implements PaymentMethodDetails {
     private FundingSourceEnum fundingSource = null;
 
     @SerializedName("type")
-    private String type = "applepay";
+    private String type = "amazonpay";
 
-    public ApplePayDetails applePayToken(String applePayToken) {
-        this.applePayToken = applePayToken;
+    public AmazonPayDetails amazonPayToken(String amazonPayToken) {
+        this.amazonPayToken = amazonPayToken;
         return this;
     }
 
     /**
-     * Get applePayToken
+     * Get amazonPayToken
      *
-     * @return applePayToken
+     * @return amazonPayToken
      **/
-    public String getApplePayToken() {
-        return applePayToken;
+    public String getAmazonPayToken() {
+        return amazonPayToken;
     }
 
-    public void setApplePayToken(String applePayToken) {
-        this.applePayToken = applePayToken;
+    public void setAmazonPayToken(String amazonPayToken) {
+        this.amazonPayToken = amazonPayToken;
     }
 
-    public ApplePayDetails fundingSource(FundingSourceEnum fundingSource) {
+    public AmazonPayDetails fundingSource(FundingSourceEnum fundingSource) {
         this.fundingSource = fundingSource;
         return this;
     }
@@ -127,13 +128,13 @@ public class ApplePayDetails implements PaymentMethodDetails {
         this.fundingSource = fundingSource;
     }
 
-    public ApplePayDetails type(String type) {
+    public AmazonPayDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **applepay**
+     * **amazonpay**
      *
      * @return type
      **/
@@ -154,24 +155,24 @@ public class ApplePayDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ApplePayDetails applePayDetails = (ApplePayDetails) o;
-        return Objects.equals(this.applePayToken, applePayDetails.applePayToken) &&
-                Objects.equals(this.fundingSource, applePayDetails.fundingSource) &&
-                Objects.equals(this.type, applePayDetails.type);
+        AmazonPayDetails amazonPayDetails = (AmazonPayDetails) o;
+        return Objects.equals(this.amazonPayToken, amazonPayDetails.amazonPayToken) &&
+                Objects.equals(this.fundingSource, amazonPayDetails.fundingSource) &&
+                Objects.equals(this.type, amazonPayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(applePayToken, fundingSource, type);
+        return Objects.hash(amazonPayToken, fundingSource, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ApplePayDetails {\n");
+        sb.append("class AmazonPayDetails {\n");
 
-        sb.append("    applePayToken: ").append(toIndentedString(applePayToken)).append("\n");
+        sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

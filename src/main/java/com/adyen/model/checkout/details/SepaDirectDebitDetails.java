@@ -19,69 +19,70 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * GenericIssuerPaymentMethodDetails
+ * SepaDirectDebitDetails
  */
 
-public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
-    @SerializedName("issuer")
-    private String issuer = null;
+public class SepaDirectDebitDetails implements PaymentMethodDetails {
+    @SerializedName("iban")
+    private String iban = null;
 
-    @SerializedName("storedPaymentMethodId")
-    private String storedPaymentMethodId = null;
+    @SerializedName("ownerName")
+    private String ownerName = null;
 
     @SerializedName("type")
-    private String type = null;
+    private String type = "sepadirectdebit";
 
-    public GenericIssuerPaymentMethodDetails issuer(String issuer) {
-        this.issuer = issuer;
+    public SepaDirectDebitDetails iban(String iban) {
+        this.iban = iban;
         return this;
     }
 
     /**
-     * The issuer id of the shopper&#x27;s selected bank.
+     * The International Bank Account Number (IBAN).
      *
-     * @return issuer
+     * @return iban
      **/
-    public String getIssuer() {
-        return issuer;
+    public String getIban() {
+        return iban;
     }
 
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
+    public void setIban(String iban) {
+        this.iban = iban;
     }
 
-    public GenericIssuerPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
-        this.storedPaymentMethodId = storedPaymentMethodId;
+    public SepaDirectDebitDetails ownerName(String ownerName) {
+        this.ownerName = ownerName;
         return this;
     }
 
     /**
-     * This is the recurringDetailReference returned in the response when you created the token.
+     * The name of the bank account holder.
      *
-     * @return storedPaymentMethodId
+     * @return ownerName
      **/
-    public String getStoredPaymentMethodId() {
-        return storedPaymentMethodId;
+    public String getOwnerName() {
+        return ownerName;
     }
 
-    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
-        this.storedPaymentMethodId = storedPaymentMethodId;
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
-    public GenericIssuerPaymentMethodDetails type(String type) {
+    public SepaDirectDebitDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **genericissuer**
+     * **sepadirectdebit**
      *
      * @return type
      **/
@@ -102,25 +103,25 @@ public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GenericIssuerPaymentMethodDetails genericIssuerPaymentMethodDetails = (GenericIssuerPaymentMethodDetails) o;
-        return Objects.equals(this.issuer, genericIssuerPaymentMethodDetails.issuer) &&
-                Objects.equals(this.storedPaymentMethodId, genericIssuerPaymentMethodDetails.storedPaymentMethodId) &&
-                Objects.equals(this.type, genericIssuerPaymentMethodDetails.type);
+        SepaDirectDebitDetails sepaDirectDebitDetails = (SepaDirectDebitDetails) o;
+        return Objects.equals(this.iban, sepaDirectDebitDetails.iban) &&
+                Objects.equals(this.ownerName, sepaDirectDebitDetails.ownerName) &&
+                Objects.equals(this.type, sepaDirectDebitDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, storedPaymentMethodId, type);
+        return Objects.hash(iban, ownerName, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GenericIssuerPaymentMethodDetails {\n");
+        sb.append("class SepaDirectDebitDetails {\n");
 
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
-        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+        sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

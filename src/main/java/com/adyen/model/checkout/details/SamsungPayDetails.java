@@ -19,10 +19,11 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

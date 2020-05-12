@@ -19,30 +19,31 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * MolPayDetails
+ * BilldeskOnlineDetails
  */
 
-public class MolPayDetails implements PaymentMethodDetails {
+public class BilldeskOnlineDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 
     @SerializedName("type")
-    private String type = null;
+    private String type = "billdesk_online";
 
-    public MolPayDetails issuer(String issuer) {
+    public BilldeskOnlineDetails issuer(String issuer) {
         this.issuer = issuer;
         return this;
     }
 
     /**
-     * Get issuer
+     * The issuer id of the shopper&#x27;s selected bank.
      *
      * @return issuer
      **/
@@ -54,13 +55,13 @@ public class MolPayDetails implements PaymentMethodDetails {
         this.issuer = issuer;
     }
 
-    public MolPayDetails type(String type) {
+    public BilldeskOnlineDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * Get type
+     * **billdesk_online**
      *
      * @return type
      **/
@@ -81,9 +82,9 @@ public class MolPayDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        MolPayDetails molPayDetails = (MolPayDetails) o;
-        return Objects.equals(this.issuer, molPayDetails.issuer) &&
-                Objects.equals(this.type, molPayDetails.type);
+        BilldeskOnlineDetails billdeskOnlineDetails = (BilldeskOnlineDetails) o;
+        return Objects.equals(this.issuer, billdeskOnlineDetails.issuer) &&
+                Objects.equals(this.type, billdeskOnlineDetails.type);
     }
 
     @Override
@@ -95,7 +96,7 @@ public class MolPayDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MolPayDetails {\n");
+        sb.append("class BilldeskOnlineDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");

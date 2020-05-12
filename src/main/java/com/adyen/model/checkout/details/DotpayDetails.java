@@ -19,30 +19,31 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * EntercashDetails
+ * DotpayDetails
  */
 
-public class EntercashDetails implements PaymentMethodDetails {
+public class DotpayDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 
     @SerializedName("type")
-    private String type = "entercash";
+    private String type = "dotpay";
 
-    public EntercashDetails issuer(String issuer) {
+    public DotpayDetails issuer(String issuer) {
         this.issuer = issuer;
         return this;
     }
 
     /**
-     * The issuer id of the shopper&#x27;s selected bank.
+     * The Dotpay issuer value of the shopper&#x27;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
      *
      * @return issuer
      **/
@@ -54,13 +55,13 @@ public class EntercashDetails implements PaymentMethodDetails {
         this.issuer = issuer;
     }
 
-    public EntercashDetails type(String type) {
+    public DotpayDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **entercash**
+     * **dotpay**
      *
      * @return type
      **/
@@ -81,9 +82,9 @@ public class EntercashDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        EntercashDetails entercashDetails = (EntercashDetails) o;
-        return Objects.equals(this.issuer, entercashDetails.issuer) &&
-                Objects.equals(this.type, entercashDetails.type);
+        DotpayDetails dotpayDetails = (DotpayDetails) o;
+        return Objects.equals(this.issuer, dotpayDetails.issuer) &&
+                Objects.equals(this.type, dotpayDetails.type);
     }
 
     @Override
@@ -95,7 +96,7 @@ public class EntercashDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class EntercashDetails {\n");
+        sb.append("class DotpayDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");

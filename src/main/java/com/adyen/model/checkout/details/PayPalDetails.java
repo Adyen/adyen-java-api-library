@@ -19,8 +19,11 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import java.util.Objects;
+
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,24 +31,24 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.util.Objects;
 
 /**
- * VisaCheckoutDetails
+ * PaypalDetails
  */
 
-public class VisaCheckoutDetails implements PaymentMethodDetails {
-    /**
-     * Gets or Sets fundingSource
-     */
-    @JsonAdapter(FundingSourceEnum.Adapter.class)
-    public enum FundingSourceEnum {
-        CREDIT("credit"),
-        DEBIT("debit");
+public class PayPalDetails implements PaymentMethodDetails {
+
+    @SerializedName("type")
+    private String type = "paypal";
+
+    @JsonAdapter(SubtypeEnum.Adapter.class)
+    public enum SubtypeEnum {
+        SDK("sdk"),
+        REDIRECT("redirect");
 
         private String value;
 
-        FundingSourceEnum(String value) {
+        SubtypeEnum(String value) {
             this.value = value;
         }
 
@@ -58,8 +61,8 @@ public class VisaCheckoutDetails implements PaymentMethodDetails {
             return String.valueOf(value);
         }
 
-        public static FundingSourceEnum fromValue(String text) {
-            for (FundingSourceEnum b : FundingSourceEnum.values()) {
+        public static SubtypeEnum fromValue(String text) {
+            for (SubtypeEnum b : SubtypeEnum.values()) {
                 if (String.valueOf(b.value).equals(text)) {
                     return b;
                 }
@@ -67,54 +70,30 @@ public class VisaCheckoutDetails implements PaymentMethodDetails {
             return null;
         }
 
-        public static class Adapter extends TypeAdapter<FundingSourceEnum> {
+        public static class Adapter extends TypeAdapter<SubtypeEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
+            public void write(final JsonWriter jsonWriter, final SubtypeEnum enumeration) throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
+            public SubtypeEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return FundingSourceEnum.fromValue(String.valueOf(value));
+                return SubtypeEnum.fromValue(String.valueOf(value));
             }
         }
     }
 
-    @SerializedName("fundingSource")
-    private FundingSourceEnum fundingSource = null;
+    @SerializedName("subtype")
+    private SubtypeEnum subtype = null;
 
-    @SerializedName("type")
-    private String type = "visacheckout";
-
-    @SerializedName("visaCheckoutCallId")
-    private String visaCheckoutCallId = null;
-
-    public VisaCheckoutDetails fundingSource(FundingSourceEnum fundingSource) {
-        this.fundingSource = fundingSource;
-        return this;
-    }
-
-    /**
-     * Get fundingSource
-     *
-     * @return fundingSource
-     **/
-    public FundingSourceEnum getFundingSource() {
-        return fundingSource;
-    }
-
-    public void setFundingSource(FundingSourceEnum fundingSource) {
-        this.fundingSource = fundingSource;
-    }
-
-    public VisaCheckoutDetails type(String type) {
+    public PayPalDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **visacheckout**
+     * **paypal**
      *
      * @return type
      **/
@@ -126,22 +105,17 @@ public class VisaCheckoutDetails implements PaymentMethodDetails {
         this.type = type;
     }
 
-    public VisaCheckoutDetails visaCheckoutCallId(String visaCheckoutCallId) {
-        this.visaCheckoutCallId = visaCheckoutCallId;
+    public PayPalDetails subtype(SubtypeEnum subtype) {
+        this.subtype = subtype;
         return this;
     }
 
-    /**
-     * Get visaCheckoutCallId
-     *
-     * @return visaCheckoutCallId
-     **/
-    public String getVisaCheckoutCallId() {
-        return visaCheckoutCallId;
+    public SubtypeEnum getSubtype() {
+        return subtype;
     }
 
-    public void setVisaCheckoutCallId(String visaCheckoutCallId) {
-        this.visaCheckoutCallId = visaCheckoutCallId;
+    public void setSubtype(SubtypeEnum subtype) {
+        this.subtype = subtype;
     }
 
 
@@ -153,26 +127,24 @@ public class VisaCheckoutDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        VisaCheckoutDetails visaCheckoutDetails = (VisaCheckoutDetails) o;
-        return Objects.equals(this.fundingSource, visaCheckoutDetails.fundingSource) &&
-                Objects.equals(this.type, visaCheckoutDetails.type) &&
-                Objects.equals(this.visaCheckoutCallId, visaCheckoutDetails.visaCheckoutCallId);
+        PayPalDetails paypalDetails = (PayPalDetails) o;
+        return Objects.equals(this.subtype, paypalDetails.subtype) &&
+                Objects.equals(this.type, paypalDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fundingSource, type, visaCheckoutCallId);
+        return Objects.hash(subtype, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class VisaCheckoutDetails {\n");
+        sb.append("class PayPalDetails {\n");
 
-        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+        sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    visaCheckoutCallId: ").append(toIndentedString(visaCheckoutCallId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

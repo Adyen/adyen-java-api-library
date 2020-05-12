@@ -19,30 +19,34 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * DotpayDetails
+ * GenericIssuerPaymentMethodDetails
  */
 
-public class DotpayDetails implements PaymentMethodDetails {
+public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 
-    @SerializedName("type")
-    private String type = "dotpay";
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
 
-    public DotpayDetails issuer(String issuer) {
+    @SerializedName("type")
+    private String type = null;
+
+    public GenericIssuerPaymentMethodDetails issuer(String issuer) {
         this.issuer = issuer;
         return this;
     }
 
     /**
-     * The Dotpay issuer value of the shopper&#x27;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
+     * The issuer id of the shopper&#x27;s selected bank.
      *
      * @return issuer
      **/
@@ -54,13 +58,31 @@ public class DotpayDetails implements PaymentMethodDetails {
         this.issuer = issuer;
     }
 
-    public DotpayDetails type(String type) {
+    public GenericIssuerPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the recurringDetailReference returned in the response when you created the token.
+     *
+     * @return storedPaymentMethodId
+     **/
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
+
+    public GenericIssuerPaymentMethodDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **dotpay**
+     * **genericissuer**
      *
      * @return type
      **/
@@ -81,23 +103,25 @@ public class DotpayDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DotpayDetails dotpayDetails = (DotpayDetails) o;
-        return Objects.equals(this.issuer, dotpayDetails.issuer) &&
-                Objects.equals(this.type, dotpayDetails.type);
+        GenericIssuerPaymentMethodDetails genericIssuerPaymentMethodDetails = (GenericIssuerPaymentMethodDetails) o;
+        return Objects.equals(this.issuer, genericIssuerPaymentMethodDetails.issuer) &&
+                Objects.equals(this.storedPaymentMethodId, genericIssuerPaymentMethodDetails.storedPaymentMethodId) &&
+                Objects.equals(this.type, genericIssuerPaymentMethodDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, type);
+        return Objects.hash(issuer, storedPaymentMethodId, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DotpayDetails {\n");
+        sb.append("class GenericIssuerPaymentMethodDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

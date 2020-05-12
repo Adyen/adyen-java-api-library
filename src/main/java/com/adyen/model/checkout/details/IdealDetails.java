@@ -19,48 +19,49 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * VippsDetails
+ * IdealDetails
  */
 
-public class VippsDetails implements PaymentMethodDetails {
-    @SerializedName("telephoneNumber")
-    private String telephoneNumber = null;
+public class IdealDetails implements PaymentMethodDetails {
+    @SerializedName("issuer")
+    private String issuer = null;
 
     @SerializedName("type")
-    private String type = "vipps";
+    private String type = "ideal";
 
-    public VippsDetails telephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
+    public IdealDetails issuer(String issuer) {
+        this.issuer = issuer;
         return this;
     }
 
     /**
-     * Get telephoneNumber
+     * The iDEAL issuer value of the shopper&#x27;s selected bank. Set this to an **id** of an iDEAL issuer to preselect it.
      *
-     * @return telephoneNumber
+     * @return issuer
      **/
-    public String getTelephoneNumber() {
-        return telephoneNumber;
+    public String getIssuer() {
+        return issuer;
     }
 
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
+    public void setIssuer(String issuer) {
+        this.issuer = issuer;
     }
 
-    public VippsDetails type(String type) {
+    public IdealDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **vipps**
+     * **ideal**
      *
      * @return type
      **/
@@ -81,23 +82,23 @@ public class VippsDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        VippsDetails vippsDetails = (VippsDetails) o;
-        return Objects.equals(this.telephoneNumber, vippsDetails.telephoneNumber) &&
-                Objects.equals(this.type, vippsDetails.type);
+        IdealDetails idealDetails = (IdealDetails) o;
+        return Objects.equals(this.issuer, idealDetails.issuer) &&
+                Objects.equals(this.type, idealDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(telephoneNumber, type);
+        return Objects.hash(issuer, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class VippsDetails {\n");
+        sb.append("class IdealDetails {\n");
 
-        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

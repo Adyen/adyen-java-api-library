@@ -19,10 +19,11 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,13 +33,10 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * AmazonPayDetails
+ * GooglePayDetails
  */
 
-public class AmazonPayDetails implements PaymentMethodDetails {
-    @SerializedName("amazonPayToken")
-    private String amazonPayToken = null;
-
+public class GooglePayDetails implements PaymentMethodDetails {
     /**
      * Gets or Sets fundingSource
      */
@@ -88,28 +86,16 @@ public class AmazonPayDetails implements PaymentMethodDetails {
     @SerializedName("fundingSource")
     private FundingSourceEnum fundingSource = null;
 
+    @SerializedName("googlePayCardNetwork")
+    private String googlePayCardNetwork = null;
+
+    @SerializedName("googlePayToken")
+    private String googlePayToken = null;
+
     @SerializedName("type")
-    private String type = "amazonpay";
+    private String type = "paywithgoogle";
 
-    public AmazonPayDetails amazonPayToken(String amazonPayToken) {
-        this.amazonPayToken = amazonPayToken;
-        return this;
-    }
-
-    /**
-     * Get amazonPayToken
-     *
-     * @return amazonPayToken
-     **/
-    public String getAmazonPayToken() {
-        return amazonPayToken;
-    }
-
-    public void setAmazonPayToken(String amazonPayToken) {
-        this.amazonPayToken = amazonPayToken;
-    }
-
-    public AmazonPayDetails fundingSource(FundingSourceEnum fundingSource) {
+    public GooglePayDetails fundingSource(FundingSourceEnum fundingSource) {
         this.fundingSource = fundingSource;
         return this;
     }
@@ -127,13 +113,49 @@ public class AmazonPayDetails implements PaymentMethodDetails {
         this.fundingSource = fundingSource;
     }
 
-    public AmazonPayDetails type(String type) {
+    public GooglePayDetails googlePayCardNetwork(String googlePayCardNetwork) {
+        this.googlePayCardNetwork = googlePayCardNetwork;
+        return this;
+    }
+
+    /**
+     * Get googlePayCardNetwork
+     *
+     * @return googlePayCardNetwork
+     **/
+    public String getGooglePayCardNetwork() {
+        return googlePayCardNetwork;
+    }
+
+    public void setGooglePayCardNetwork(String googlePayCardNetwork) {
+        this.googlePayCardNetwork = googlePayCardNetwork;
+    }
+
+    public GooglePayDetails googlePayToken(String googlePayToken) {
+        this.googlePayToken = googlePayToken;
+        return this;
+    }
+
+    /**
+     * Get googlePayToken
+     *
+     * @return googlePayToken
+     **/
+    public String getGooglePayToken() {
+        return googlePayToken;
+    }
+
+    public void setGooglePayToken(String googlePayToken) {
+        this.googlePayToken = googlePayToken;
+    }
+
+    public GooglePayDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **amazonpay**
+     * **paywithgoogle**
      *
      * @return type
      **/
@@ -154,25 +176,27 @@ public class AmazonPayDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AmazonPayDetails amazonPayDetails = (AmazonPayDetails) o;
-        return Objects.equals(this.amazonPayToken, amazonPayDetails.amazonPayToken) &&
-                Objects.equals(this.fundingSource, amazonPayDetails.fundingSource) &&
-                Objects.equals(this.type, amazonPayDetails.type);
+        GooglePayDetails googlePayDetails = (GooglePayDetails) o;
+        return Objects.equals(this.fundingSource, googlePayDetails.fundingSource) &&
+                Objects.equals(this.googlePayCardNetwork, googlePayDetails.googlePayCardNetwork) &&
+                Objects.equals(this.googlePayToken, googlePayDetails.googlePayToken) &&
+                Objects.equals(this.type, googlePayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amazonPayToken, fundingSource, type);
+        return Objects.hash(fundingSource, googlePayCardNetwork, googlePayToken, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AmazonPayDetails {\n");
+        sb.append("class GooglePayDetails {\n");
 
-        sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+        sb.append("    googlePayCardNetwork: ").append(toIndentedString(googlePayCardNetwork)).append("\n");
+        sb.append("    googlePayToken: ").append(toIndentedString(googlePayToken)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

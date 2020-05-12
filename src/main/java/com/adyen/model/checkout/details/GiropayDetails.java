@@ -19,48 +19,28 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * BilldeskWalletDetails
+ * GiropayDetails
  */
 
-public class BilldeskWalletDetails implements PaymentMethodDetails {
-    @SerializedName("issuer")
-    private String issuer = null;
-
+public class GiropayDetails implements PaymentMethodDetails {
     @SerializedName("type")
-    private String type = "billdesk_wallet";
+    private String type = "giropay";
 
-    public BilldeskWalletDetails issuer(String issuer) {
-        this.issuer = issuer;
-        return this;
-    }
-
-    /**
-     * The issuer id of the shopper&#x27;s selected bank.
-     *
-     * @return issuer
-     **/
-    public String getIssuer() {
-        return issuer;
-    }
-
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
-    }
-
-    public BilldeskWalletDetails type(String type) {
+    public GiropayDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **billdesk_wallet**
+     * **giropay**
      *
      * @return type
      **/
@@ -81,23 +61,21 @@ public class BilldeskWalletDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BilldeskWalletDetails billdeskWalletDetails = (BilldeskWalletDetails) o;
-        return Objects.equals(this.issuer, billdeskWalletDetails.issuer) &&
-                Objects.equals(this.type, billdeskWalletDetails.type);
+        GiropayDetails giropayDetails = (GiropayDetails) o;
+        return Objects.equals(this.type, giropayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, type);
+        return Objects.hash(type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BilldeskWalletDetails {\n");
+        sb.append("class GiropayDetails {\n");
 
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

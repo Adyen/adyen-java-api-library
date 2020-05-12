@@ -19,45 +19,25 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * MbwayDetails
+ * LianLianPayDetails
  */
 
-public class MbwayDetails implements PaymentMethodDetails {
-    @SerializedName("shopperEmail")
-    private String shopperEmail = null;
-
+public class LianLianPayDetails implements PaymentMethodDetails {
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 
     @SerializedName("type")
     private String type = null;
 
-    public MbwayDetails shopperEmail(String shopperEmail) {
-        this.shopperEmail = shopperEmail;
-        return this;
-    }
-
-    /**
-     * Get shopperEmail
-     *
-     * @return shopperEmail
-     **/
-    public String getShopperEmail() {
-        return shopperEmail;
-    }
-
-    public void setShopperEmail(String shopperEmail) {
-        this.shopperEmail = shopperEmail;
-    }
-
-    public MbwayDetails telephoneNumber(String telephoneNumber) {
+    public LianLianPayDetails telephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
         return this;
     }
@@ -75,7 +55,7 @@ public class MbwayDetails implements PaymentMethodDetails {
         this.telephoneNumber = telephoneNumber;
     }
 
-    public MbwayDetails type(String type) {
+    public LianLianPayDetails type(String type) {
         this.type = type;
         return this;
     }
@@ -102,24 +82,22 @@ public class MbwayDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        MbwayDetails mbwayDetails = (MbwayDetails) o;
-        return Objects.equals(this.shopperEmail, mbwayDetails.shopperEmail) &&
-                Objects.equals(this.telephoneNumber, mbwayDetails.telephoneNumber) &&
-                Objects.equals(this.type, mbwayDetails.type);
+        LianLianPayDetails lianLianPayDetails = (LianLianPayDetails) o;
+        return Objects.equals(this.telephoneNumber, lianLianPayDetails.telephoneNumber) &&
+                Objects.equals(this.type, lianLianPayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shopperEmail, telephoneNumber, type);
+        return Objects.hash(telephoneNumber, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MbwayDetails {\n");
+        sb.append("class LianLianPayDetails {\n");
 
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

@@ -19,10 +19,11 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,10 +33,10 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * DokuDetails
+ * EcontextVoucherDetails
  */
 
-public class DokuDetails implements PaymentMethodDetails {
+public class EcontextVoucherDetails implements PaymentMethodDetails {
     @SerializedName("firstName")
     private String firstName = null;
 
@@ -45,20 +46,16 @@ public class DokuDetails implements PaymentMethodDetails {
     @SerializedName("shopperEmail")
     private String shopperEmail = null;
 
+    @SerializedName("telephoneNumber")
+    private String telephoneNumber = null;
+
     /**
-     * **doku**
+     * **econtextvoucher**
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
-        MANDIRI_VA("doku_mandiri_va"),
-        CIMB_VA("doku_cimb_va"),
-        DANAMON_VA("doku_danamon_va"),
-        BNI_VA("doku_bni_va"),
-        PERMATA_LITE_ATM("doku_permata_lite_atm"),
-        BRI_VA("doku_bri_va"),
-        BCA_VA("doku_bca_va"),
-        ALFAMART("doku_alfamart"),
-        INDOMARET("doku_indomaret");
+        SEVENELEVEN("econtext_seveneleven"),
+        STORES("econtext_stores");
 
         private String value;
 
@@ -101,7 +98,7 @@ public class DokuDetails implements PaymentMethodDetails {
     @SerializedName("type")
     private TypeEnum type = null;
 
-    public DokuDetails firstName(String firstName) {
+    public EcontextVoucherDetails firstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -119,7 +116,7 @@ public class DokuDetails implements PaymentMethodDetails {
         this.firstName = firstName;
     }
 
-    public DokuDetails lastName(String lastName) {
+    public EcontextVoucherDetails lastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -137,7 +134,7 @@ public class DokuDetails implements PaymentMethodDetails {
         this.lastName = lastName;
     }
 
-    public DokuDetails shopperEmail(String shopperEmail) {
+    public EcontextVoucherDetails shopperEmail(String shopperEmail) {
         this.shopperEmail = shopperEmail;
         return this;
     }
@@ -155,13 +152,31 @@ public class DokuDetails implements PaymentMethodDetails {
         this.shopperEmail = shopperEmail;
     }
 
-    public DokuDetails type(TypeEnum type) {
+    public EcontextVoucherDetails telephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+        return this;
+    }
+
+    /**
+     * The shopper&#x27;s contact number.
+     *
+     * @return telephoneNumber
+     **/
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public EcontextVoucherDetails type(TypeEnum type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **doku**
+     * **econtextvoucher**
      *
      * @return type
      **/
@@ -182,27 +197,29 @@ public class DokuDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DokuDetails dokuDetails = (DokuDetails) o;
-        return Objects.equals(this.firstName, dokuDetails.firstName) &&
-                Objects.equals(this.lastName, dokuDetails.lastName) &&
-                Objects.equals(this.shopperEmail, dokuDetails.shopperEmail) &&
-                Objects.equals(this.type, dokuDetails.type);
+        EcontextVoucherDetails econtextVoucherDetails = (EcontextVoucherDetails) o;
+        return Objects.equals(this.firstName, econtextVoucherDetails.firstName) &&
+                Objects.equals(this.lastName, econtextVoucherDetails.lastName) &&
+                Objects.equals(this.shopperEmail, econtextVoucherDetails.shopperEmail) &&
+                Objects.equals(this.telephoneNumber, econtextVoucherDetails.telephoneNumber) &&
+                Objects.equals(this.type, econtextVoucherDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, shopperEmail, type);
+        return Objects.hash(firstName, lastName, shopperEmail, telephoneNumber, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DokuDetails {\n");
+        sb.append("class EcontextVoucherDetails {\n");
 
         sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
         sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
         sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

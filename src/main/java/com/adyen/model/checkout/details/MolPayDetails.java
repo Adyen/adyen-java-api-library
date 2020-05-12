@@ -19,33 +19,31 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.checkout;
+package com.adyen.model.checkout.details;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 /**
- * DragonpayDetails
+ * MolPayDetails
  */
 
-public class DragonpayDetails implements PaymentMethodDetails {
+public class MolPayDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
-
-    @SerializedName("shopperEmail")
-    private String shopperEmail = null;
 
     @SerializedName("type")
     private String type = null;
 
-    public DragonpayDetails issuer(String issuer) {
+    public MolPayDetails issuer(String issuer) {
         this.issuer = issuer;
         return this;
     }
 
     /**
-     * The Dragonpay issuer value of the shopper&#x27;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
+     * Get issuer
      *
      * @return issuer
      **/
@@ -57,25 +55,7 @@ public class DragonpayDetails implements PaymentMethodDetails {
         this.issuer = issuer;
     }
 
-    public DragonpayDetails shopperEmail(String shopperEmail) {
-        this.shopperEmail = shopperEmail;
-        return this;
-    }
-
-    /**
-     * The shopper’s email address.
-     *
-     * @return shopperEmail
-     **/
-    public String getShopperEmail() {
-        return shopperEmail;
-    }
-
-    public void setShopperEmail(String shopperEmail) {
-        this.shopperEmail = shopperEmail;
-    }
-
-    public DragonpayDetails type(String type) {
+    public MolPayDetails type(String type) {
         this.type = type;
         return this;
     }
@@ -102,25 +82,23 @@ public class DragonpayDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DragonpayDetails dragonpayDetails = (DragonpayDetails) o;
-        return Objects.equals(this.issuer, dragonpayDetails.issuer) &&
-                Objects.equals(this.shopperEmail, dragonpayDetails.shopperEmail) &&
-                Objects.equals(this.type, dragonpayDetails.type);
+        MolPayDetails molPayDetails = (MolPayDetails) o;
+        return Objects.equals(this.issuer, molPayDetails.issuer) &&
+                Objects.equals(this.type, molPayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, shopperEmail, type);
+        return Objects.hash(issuer, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DragonpayDetails {\n");
+        sb.append("class MolPayDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
