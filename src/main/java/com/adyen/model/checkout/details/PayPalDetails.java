@@ -33,7 +33,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * PaypalDetails
+ * PayPalDetails
  */
 
 public class PayPalDetails implements PaymentMethodDetails {
