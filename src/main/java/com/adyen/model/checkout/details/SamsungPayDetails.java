@@ -40,7 +40,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String SAMSUNG_PAY = "samsungpay";
+    public static final String SAMSUNGPAY = "samsungpay";
 
     /**
      * Gets or Sets fundingSource
@@ -95,7 +95,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     private String samsungPayToken = null;
 
     @SerializedName("type")
-    private String type = SAMSUNG_PAY;
+    private String type = SAMSUNGPAY;
 
     public SamsungPayDetails fundingSource(FundingSourceEnum fundingSource) {
         this.fundingSource = fundingSource;
@@ -143,10 +143,12 @@ public class SamsungPayDetails implements PaymentMethodDetails {
      *
      * @return type
      **/
+    @Override
     public String getType() {
         return type;
     }
 
+    @Override
     public void setType(String type) {
         this.type = type;
     }

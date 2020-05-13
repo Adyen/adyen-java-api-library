@@ -40,7 +40,7 @@ public class AmazonPayDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String AMAZON_PAY = "amazonpay";
+    public static final String AMAZONPAY = "amazonpay";
 
     @SerializedName("amazonPayToken")
     private String amazonPayToken = null;
@@ -95,7 +95,7 @@ public class AmazonPayDetails implements PaymentMethodDetails {
     private FundingSourceEnum fundingSource = null;
 
     @SerializedName("type")
-    private String type = AMAZON_PAY;
+    private String type = AMAZONPAY;
 
     public AmazonPayDetails amazonPayToken(String amazonPayToken) {
         this.amazonPayToken = amazonPayToken;
@@ -143,10 +143,12 @@ public class AmazonPayDetails implements PaymentMethodDetails {
      *
      * @return type
      **/
+    @Override
     public String getType() {
         return type;
     }
 
+    @Override
     public void setType(String type) {
         this.type = type;
     }

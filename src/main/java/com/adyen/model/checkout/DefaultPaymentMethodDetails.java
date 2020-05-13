@@ -79,10 +79,12 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     @SerializedName("separateDeliveryAddress")
     private Boolean separateDeliveryAddress;
 
+    @Override
     public String getType() {
         return type;
     }
 
+    @Override
     public void setType(String type) {
         this.type = type;
     }

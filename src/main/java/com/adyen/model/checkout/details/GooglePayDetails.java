@@ -40,7 +40,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String GOOGLE_PAY = "paywithgoogle";
+    public static final String GOOGLEPAY = "paywithgoogle";
 
     /**
      * Gets or Sets fundingSource
@@ -98,7 +98,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
     private String googlePayToken = null;
 
     @SerializedName("type")
-    private String type = GOOGLE_PAY;
+    private String type = GOOGLEPAY;
 
     public GooglePayDetails fundingSource(FundingSourceEnum fundingSource) {
         this.fundingSource = fundingSource;
@@ -164,10 +164,12 @@ public class GooglePayDetails implements PaymentMethodDetails {
      *
      * @return type
      **/
+    @Override
     public String getType() {
         return type;
     }
 
+    @Override
     public void setType(String type) {
         this.type = type;
     }
