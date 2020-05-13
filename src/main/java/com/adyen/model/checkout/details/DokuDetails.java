@@ -40,10 +40,12 @@ public class DokuDetails implements PaymentMethodDetails {
     public static final String DANAMON_VA = "doku_danamon_va";
     public static final String BNI_VA = "doku_bni_va";
     public static final String PERMATA_LITE_ATM = "doku_permata_lite_atm";
+    public static final String PERMATA_ATM = "doku_permata_atm";
     public static final String BRI_VA = "doku_bri_va";
     public static final String BCA_VA = "doku_bca_va";
     public static final String ALFAMART = "doku_alfamart";
     public static final String INDOMARET = "doku_indomaret";
+    public static final String SINARMAS_VA = "doku_sinarmas_va";
 
     @SerializedName("firstName")
     private String firstName = null;

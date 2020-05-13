@@ -31,6 +31,14 @@ import java.util.Objects;
  */
 
 public class DragonpayDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String EBANKING = "dragonpay_ebanking";
+    public static final String OTC_BANKING = "dragonpay_otc_banking";
+    public static final String OTC_NON_BANKING = "dragonpay_otc_non_banking";
+    public static final String OTC_PHILIPPINES = "dragonpay_otc_philippines";
+
     @SerializedName("issuer")
     private String issuer = null;
 

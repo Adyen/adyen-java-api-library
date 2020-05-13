@@ -21,74 +21,50 @@
 
 package com.adyen.model.checkout.details;
 
-import com.adyen.model.checkout.PaymentMethodDetails;
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
+import com.google.gson.annotations.SerializedName;
 /**
- * MbwayDetails
+ * BlikDetails
  */
 
-public class MbwayDetails implements PaymentMethodDetails {
+public class BlikDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String MBWAY = "mbway";
+    public static final String BLIK = "blik";
 
-    @SerializedName("shopperEmail")
-    private String shopperEmail = null;
-
-    @SerializedName("telephoneNumber")
-    private String telephoneNumber = null;
+    @SerializedName("blikCode")
+    private String blikCode = null;
 
     @SerializedName("type")
-    private String type = MBWAY;
+    private String type = BLIK;
 
-    public MbwayDetails shopperEmail(String shopperEmail) {
-        this.shopperEmail = shopperEmail;
+    public BlikDetails blikCode(String blikCode) {
+        this.blikCode = blikCode;
         return this;
     }
 
     /**
-     * Get shopperEmail
-     *
-     * @return shopperEmail
+     * BLIK code consisting of 6 digits.
+     * @return blikCode
      **/
-    public String getShopperEmail() {
-        return shopperEmail;
+    public String getBlikCode() {
+        return blikCode;
     }
 
-    public void setShopperEmail(String shopperEmail) {
-        this.shopperEmail = shopperEmail;
+    public void setBlikCode(String blikCode) {
+        this.blikCode = blikCode;
     }
 
-    public MbwayDetails telephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-        return this;
-    }
-
-    /**
-     * Get telephoneNumber
-     *
-     * @return telephoneNumber
-     **/
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-
-    public MbwayDetails type(String type) {
+    public BlikDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * Get type
-     *
+     * **blik**
      * @return type
      **/
     @Override
@@ -103,32 +79,30 @@ public class MbwayDetails implements PaymentMethodDetails {
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        MbwayDetails mbwayDetails = (MbwayDetails) o;
-        return Objects.equals(this.shopperEmail, mbwayDetails.shopperEmail) &&
-                Objects.equals(this.telephoneNumber, mbwayDetails.telephoneNumber) &&
-                Objects.equals(this.type, mbwayDetails.type);
+        BlikDetails blikDetails = (BlikDetails) o;
+        return Objects.equals(this.blikCode, blikDetails.blikCode) &&
+                Objects.equals(this.type, blikDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shopperEmail, telephoneNumber, type);
+        return Objects.hash(blikCode, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MbwayDetails {\n");
+        sb.append("class BlikDetails {\n");
 
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    blikCode: ").append(toIndentedString(blikCode)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -138,7 +112,7 @@ public class MbwayDetails implements PaymentMethodDetails {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(java.lang.Object o) {
         if (o == null) {
             return "null";
         }

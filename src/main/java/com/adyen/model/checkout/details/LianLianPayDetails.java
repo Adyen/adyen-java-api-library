@@ -31,6 +31,13 @@ import java.util.Objects;
  */
 
 public class LianLianPayDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String EBANKING_ENTERPRISE = "lianlianpay_ebanking_enterprise";
+    public static final String EBANKING_CREDIT = "lianlianpay_ebanking_credit";
+    public static final String EBANKING_DEBIT = "lianlianpay_ebanking_debit";
+
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 

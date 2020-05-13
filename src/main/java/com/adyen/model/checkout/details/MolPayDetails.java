@@ -31,6 +31,16 @@ import java.util.Objects;
  */
 
 public class MolPayDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String EBANKING_FPX_MY = "molpay_ebanking_fpx_MY";
+    public static final String EBANKING_TH = "molpay_ebanking_TH";
+    public static final String EBANKING_VN = "molpay_ebanking_VN";
+    public static final String EBANKING_MY = "molpay_ebanking_MY";
+    public static final String EBANKING_DIRECT_MY = "molpay_ebanking_direct_MY";
+    public static final String FPX = "molpay_fpx";
+
     @SerializedName("issuer")
     private String issuer = null;
 
