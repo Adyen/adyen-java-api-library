@@ -1,0 +1,37 @@
+{
+  "SaleToPOIResponse": {
+    "InputResponse": {
+      "InputResult": {
+        "Device": "CustomerInput",
+        "InfoQualify": "Input",
+        "Response": {
+          "Result": "Success",
+          "AdditionalResponse": "responseData=%7b%20%20%7d"
+        },
+        "Input": {
+          "MenuEntryNumber": [
+            0,
+            1
+          ],
+          "InputCommand": "GetMenuEntry"
+        }
+      },
+      "OutputResult": {
+        "Device": "CustomerDisplay",
+        "InfoQualify": "Display",
+        "Response": {
+          "Result": "Success"
+        }
+      }
+    },
+    "MessageHeader": {
+      "ProtocolVersion": "3.0",
+      "SaleID": "sanderr-4c32759faaa7",
+      "MessageClass": "Device",
+      "MessageCategory": "Input",
+      "ServiceID": "04151914",
+      "POIID": "V400m-346114957",
+      "MessageType": "Response"
+    }
+  }
+}
