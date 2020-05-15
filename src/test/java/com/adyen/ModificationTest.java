@@ -25,6 +25,7 @@ import org.junit.Test;
 import com.adyen.model.modification.CancelOrRefundRequest;
 import com.adyen.model.modification.CancelRequest;
 import com.adyen.model.modification.CaptureRequest;
+import com.adyen.model.modification.DonationRequest;
 import com.adyen.model.modification.ModificationResult;
 import com.adyen.model.modification.RefundRequest;
 import com.adyen.service.Modification;
@@ -136,5 +137,21 @@ public class ModificationTest extends BaseTest {
 
         ModificationResult modificationResult = modification.voidPendingRefund(voidPendingRefundRequest);
         assertEquals(ModificationResult.ResponseEnum.VOIDPENDINGREFUND_RECEIVED_, modificationResult.getResponse());
+    }
+
+    /**
+     * Test happy flow with donation-received response
+     *
+     * @throws Exception
+     */
+    @Test
+    public void TestDonateSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/donate-success.json");
+        Modification modification = new Modification(client);
+
+        DonationRequest donationRequest = createDonationRequest();
+
+        ModificationResult modificationResult = modification.donate(donationRequest);
+        assertEquals(ModificationResult.ResponseEnum.DONATION_RECEIVED_, modificationResult.getResponse());
     }
 }

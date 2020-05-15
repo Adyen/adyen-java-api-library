@@ -29,6 +29,7 @@ import com.adyen.model.modification.AdjustAuthorisationRequest;
 import com.adyen.model.modification.CancelOrRefundRequest;
 import com.adyen.model.modification.CancelRequest;
 import com.adyen.model.modification.CaptureRequest;
+import com.adyen.model.modification.DonationRequest;
 import com.adyen.model.modification.ModificationResult;
 import com.adyen.model.modification.RefundRequest;
 import com.adyen.model.modification.TechnicalCancelRequest;
@@ -38,6 +39,7 @@ import com.adyen.service.resource.modification.AdjustAuthorisation;
 import com.adyen.service.resource.modification.Cancel;
 import com.adyen.service.resource.modification.CancelOrRefund;
 import com.adyen.service.resource.modification.Capture;
+import com.adyen.service.resource.modification.Donate;
 import com.adyen.service.resource.modification.Refund;
 import com.adyen.service.resource.modification.TechnicalCancel;
 import com.adyen.service.resource.modification.VoidPendingRefund;
@@ -51,6 +53,7 @@ public class Modification extends Service {
     private AdjustAuthorisation adjustAuthorisation;
     private TechnicalCancel technicalCancel;
     private VoidPendingRefund voidPendingRefund;
+    private Donate donate;
 
     public Modification(Client client) {
         super(client);
@@ -62,6 +65,7 @@ public class Modification extends Service {
         adjustAuthorisation = new AdjustAuthorisation(this);
         technicalCancel = new TechnicalCancel(this);
         voidPendingRefund = new VoidPendingRefund(this);
+        donate = new Donate(this);
     }
 
     /**
@@ -195,8 +199,32 @@ public class Modification extends Service {
         return deserializeResponse(jsonResult);
     }
 
+    /**
+     * Issues /donate request
+     *
+     * @param donationRequest DonationRequest
+     * @return ModificationResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public ModificationResult donate(DonationRequest donationRequest) throws IOException, ApiException {
+        return donate(donationRequest, null);
+    }
+
+    public ModificationResult donate(DonationRequest donationRequest, RequestOptions requestOptions) throws IOException, ApiException {
+        String jsonRequest = serializeDonationRequest(donationRequest);
+        String jsonResult = donate.request(jsonRequest, requestOptions);
+        return deserializeResponse(jsonResult);
+    }
+
     private String serializeRequest(AbstractModificationRequest modificationRequest) {
         String jsonRequest = GSON.toJson(modificationRequest);
+
+        return jsonRequest;
+    }
+
+    private String serializeDonationRequest(DonationRequest donationRequest) {
+        String jsonRequest = GSON.toJson(donationRequest);
 
         return jsonRequest;
     }
