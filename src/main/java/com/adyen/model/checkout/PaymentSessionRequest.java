@@ -43,6 +43,7 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -118,12 +119,9 @@ public class PaymentSessionRequest {
         }
 
         public static ChannelEnum fromValue(String text) {
-            for (ChannelEnum b : ChannelEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<ChannelEnum> {
@@ -208,12 +206,9 @@ public class PaymentSessionRequest {
         }
 
         public static EntityTypeEnum fromValue(String text) {
-            for (EntityTypeEnum b : EntityTypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<EntityTypeEnum> {
@@ -302,12 +297,9 @@ public class PaymentSessionRequest {
         }
 
         public static RecurringProcessingModelEnum fromValue(String text) {
-            for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
@@ -392,12 +384,9 @@ public class PaymentSessionRequest {
         }
 
         public static ShopperInteractionEnum fromValue(String text) {
-            for (ShopperInteractionEnum b : ShopperInteractionEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<ShopperInteractionEnum> {

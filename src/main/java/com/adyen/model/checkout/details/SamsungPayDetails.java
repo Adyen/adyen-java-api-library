@@ -21,8 +21,6 @@
 
 package com.adyen.model.checkout.details;
 
-import java.util.Objects;
-
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -31,6 +29,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * SamsungPayDetails
@@ -66,12 +66,9 @@ public class SamsungPayDetails implements PaymentMethodDetails {
         }
 
         public static FundingSourceEnum fromValue(String text) {
-            for (FundingSourceEnum b : FundingSourceEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<FundingSourceEnum> {

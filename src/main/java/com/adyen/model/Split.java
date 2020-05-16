@@ -25,7 +25,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -74,12 +76,9 @@ public class Split {
         }
 
         public static TypeEnum fromValue(String text) {
-            for (TypeEnum b : TypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<TypeEnum> {

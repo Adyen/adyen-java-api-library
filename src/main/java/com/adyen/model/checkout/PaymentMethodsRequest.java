@@ -21,9 +21,6 @@
 
 package com.adyen.model.checkout;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Amount;
 import com.adyen.model.MerchantRiskIndicator;
@@ -34,6 +31,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * PaymentMethodsRequest
@@ -394,12 +396,9 @@ public class PaymentMethodsRequest {
         }
 
         public static ChannelEnum fromValue(String text) {
-            for (ChannelEnum b : ChannelEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public String getValue() {

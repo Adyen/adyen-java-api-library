@@ -29,6 +29,7 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,12 +89,9 @@ public class CreateAccountResponse {
         }
 
         public static StatusEnum fromValue(String text) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<StatusEnum> {

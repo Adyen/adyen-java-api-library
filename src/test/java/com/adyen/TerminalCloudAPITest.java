@@ -29,16 +29,16 @@ import com.adyen.model.nexo.OutputText;
 import com.adyen.model.nexo.POIData;
 import com.adyen.model.nexo.PaymentInstrumentType;
 import com.adyen.model.nexo.PaymentReceipt;
+import com.adyen.model.nexo.PaymentRequest;
 import com.adyen.model.nexo.PaymentResult;
 import com.adyen.model.nexo.Response;
 import com.adyen.model.nexo.ResultType;
 import com.adyen.model.nexo.SaleData;
-import com.adyen.model.nexo.SaleToPOIResponse;
 import com.adyen.model.nexo.SaleToPOIRequest;
-import com.adyen.model.nexo.PaymentRequest;
+import com.adyen.model.nexo.SaleToPOIResponse;
+import com.adyen.model.terminal.SaleToAcquirerData;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
-import com.adyen.model.terminal.SaleToAcquirerData;
 import com.adyen.service.TerminalCloudAPI;
 import org.junit.Test;
 
@@ -138,9 +138,8 @@ public class TerminalCloudAPITest extends BaseTest {
             assertNotNull(paymentReceipt.getOutputContent().getOutputText());
             assertFalse(paymentReceipt.getOutputContent().getOutputText().isEmpty());
             List<OutputText> outputTextList = paymentReceipt.getOutputContent().getOutputText();
-            for (OutputText outputText : outputTextList) {
-                assertNotNull(outputText.getText());
-            }
+
+            outputTextList.forEach(outputText -> assertNotNull(outputText.getText()));
         }
 
         assertNotNull(saleToPoiResponse.getPaymentResponse().getPaymentResult());
