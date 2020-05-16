@@ -2,7 +2,6 @@ package com.adyen;
 
 import com.adyen.Util.HMACValidator;
 import com.adyen.Util.Util;
-import com.adyen.model.AccountInfo;
 import com.adyen.model.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
 import org.junit.Test;
@@ -27,30 +26,6 @@ import static org.junit.Assert.assertTrue;
  * Tests for Util class
  */
 public class UtilTest {
-
-    @Test
-    public void test1(){
-        System.out.println(AccountInfo.AccountAgeIndicatorEnum.fromValue("1"));
-        System.out.println(AccountInfo.AccountAgeIndicatorEnum.fromValue("notApplicable1"));
-        assertEquals(AccountInfo.AccountAgeIndicatorEnum.NOTAPPLICABLE, AccountInfo.AccountAgeIndicatorEnum.fromValue("notApplicable"));
-    }
-
-    @Test
-    public void test(){
-        List<String> keys = new ArrayList<>();
-        keys.add("1");
-        keys.add("2");
-        keys.add("3");
-        keys.add("4");
-
-        HashMap<String, String> nonSensitiveAdditionalData = new HashMap<>();
-        nonSensitiveAdditionalData.put("1", "OOOO");
-
-        keys.stream().forEach(s -> nonSensitiveAdditionalData.computeIfPresent(s, (s1, s2) -> "***"));
-
-        assertEquals("***", nonSensitiveAdditionalData.get("1"));
-    }
-
 
     @Test
     public void testAmountDecimals() {
