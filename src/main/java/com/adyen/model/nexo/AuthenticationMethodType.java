@@ -123,7 +123,7 @@ public enum AuthenticationMethodType {
      */
     public static AuthenticationMethodType fromValue(String v) {
         return Arrays.stream(values()).
-                filter(s -> s.value.equals(v)).
+                filter(s -> Arrays.asList(s.value).contains(v)).
                 findFirst().orElseThrow(() -> new IllegalArgumentException(v));
     }
 
