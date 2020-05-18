@@ -65,7 +65,7 @@ public class AccountInfo {
 
         public static AccountAgeIndicatorEnum fromValue(String text) {
            return Arrays.stream(values()).
-                    filter(s -> String.valueOf(s.value).equals(text)).
+                    filter(s -> s.value.equals(text)).
                     findFirst().orElse(null);
         }
 
@@ -117,7 +117,7 @@ public class AccountInfo {
 
         public static AccountChangeIndicatorEnum fromValue(String text) {
             return Arrays.stream(values()).
-                    filter(s -> String.valueOf(s.value).equals(text)).
+                    filter(s -> s.value.equals(text)).
                     findFirst().orElse(null);
         }
 
@@ -168,7 +168,7 @@ public class AccountInfo {
 
         public static AccountTypeEnum fromValue(String text) {
             return Arrays.stream(values()).
-                    filter(s -> String.valueOf(s.value).equals(text)).
+                    filter(s -> s.value.equals(text)).
                     findFirst().orElse(null);
         }
 
@@ -282,7 +282,7 @@ public class AccountInfo {
 
         public static PasswordChangeIndicatorEnum fromValue(String text) {
             return Arrays.stream(values()).
-                    filter(s -> String.valueOf(s.value).equals(text)).
+                    filter(s -> s.value.equals(text)).
                     findFirst().orElse(null);
         }
 
