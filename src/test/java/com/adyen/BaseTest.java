@@ -388,7 +388,11 @@ public class BaseTest {
     protected DonationRequest createDonationRequest() {
         Amount amount = Util.createAmount("15.00", "EUR");
 
-        DonationRequest donationRequest = new DonationRequest().merchantAccount("AMerchant").donationAccount("donationAccount").modificationAmount(amount).originalReference("originalReference");
+        DonationRequest donationRequest = new DonationRequest();
+        donationRequest.setMerchantAccount("AMerchant");
+        donationRequest.setDonationAccount("donationAccount");
+        donationRequest.setModificationAmount(amount);
+        donationRequest.setOriginalReference("originalReference");
 
         return donationRequest;
     }
