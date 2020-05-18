@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>6.1.0</version>
+  <version>7.0.0</version>
 </dependency>
 ```
 
