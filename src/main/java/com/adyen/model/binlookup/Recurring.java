@@ -65,7 +65,7 @@ public class Recurring {
 
         public static ContractEnum fromValue(String text) {
             return Arrays.stream(values()).
-                    filter(s -> String.valueOf(s.value).equals(text)).
+                    filter(s -> s.value.equals(text)).
                     findFirst().orElse(null);
         }
 

@@ -100,7 +100,7 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
 
         public static RecurringProcessingModelEnum fromValue(String text) {
             return Arrays.stream(values()).
-                    filter(s -> String.valueOf(s.value).equals(text)).
+                    filter(s -> s.value.equals(text)).
                     findFirst().orElse(null);
         }
 
