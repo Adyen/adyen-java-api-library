@@ -43,6 +43,7 @@ import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PersonalDetails;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
+import com.adyen.model.modification.DonationRequest;
 import com.adyen.model.modification.RefundRequest;
 import com.adyen.model.modification.VoidPendingRefundRequest;
 import com.adyen.model.nexo.AbortRequest;
@@ -382,6 +383,18 @@ public class BaseTest {
 
     protected VoidPendingRefundRequest createVoidPendingRefundRequest() {
         return createBaseModificationRequest(new VoidPendingRefundRequest()).tenderReference("tenderReference");
+    }
+
+    protected DonationRequest createDonationRequest() {
+        Amount amount = Util.createAmount("15.00", "EUR");
+
+        DonationRequest donationRequest = new DonationRequest();
+        donationRequest.setMerchantAccount("AMerchant");
+        donationRequest.setDonationAccount("donationAccount");
+        donationRequest.setModificationAmount(amount);
+        donationRequest.setOriginalReference("originalReference");
+
+        return donationRequest;
     }
 
     protected TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {

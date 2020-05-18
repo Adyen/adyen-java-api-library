@@ -66,7 +66,10 @@ public class ModificationResult {
         ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]"),
 
         @SerializedName("[voidPendingRefund-received]")
-        VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]");
+        VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]"),
+
+        @SerializedName("[donation-received]")
+        DONATION_RECEIVED_("[donation-received]");
 
         private String value;
 
