@@ -21,12 +21,13 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.adyen.model.marketpay.ErrorFieldType;
 import com.adyen.model.marketpay.ErrorFieldTypeContainer;
 import com.adyen.model.marketpay.Message;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaymentFailureContent {
     @SerializedName("errorFields")
@@ -42,9 +43,7 @@ public class PaymentFailureContent {
             return errorFieldTypeList;
         }
 
-        for (ErrorFieldTypeContainer errorFieldTypeContainer : errorFieldTypeContainers) {
-            errorFieldTypeList.add(errorFieldTypeContainer.getErrorFieldType());
-        }
+        errorFieldTypeContainers.stream().forEach(s -> errorFieldTypeList.add(s.getErrorFieldType()));
 
         return errorFieldTypeList;
     }

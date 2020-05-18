@@ -20,10 +20,12 @@
  */
 package com.adyen.model.marketpay.notification;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.stream.Collectors;
 
 /**
  * TestNotificationConfigurationResponse
@@ -189,12 +191,9 @@ public class TestNotificationConfigurationResponse {
     public List<ExchangeMessage> getExchangeMessages() {
 
         if (exchangeMessages == null) {
-            exchangeMessages = new ArrayList<>();
 
             if (exchangeMessageContainers != null && ! exchangeMessageContainers.isEmpty()) {
-                for (ExchangeMessageContainer exchangeMessageContainer : exchangeMessageContainers) {
-                    exchangeMessages.add(exchangeMessageContainer.getExchangeMessage());
-                }
+                exchangeMessages = exchangeMessageContainers.stream().map(s -> s.getExchangeMessage()).collect(Collectors.toList());
             }
         }
         return exchangeMessages;
@@ -204,12 +203,7 @@ public class TestNotificationConfigurationResponse {
         this.exchangeMessages = exchangeMessages;
 
         // set as well the container list this will be send in the API request
-        this.exchangeMessageContainers = new ArrayList<>();
-        for (ExchangeMessage exchangeMessage : exchangeMessages) {
-            ExchangeMessageContainer exchangeMessageContainer = createExchangeMessageContainerFromExchangeMessage(exchangeMessage);
-            this.exchangeMessageContainers.add(exchangeMessageContainer);
-        }
-
+        this.exchangeMessageContainers = exchangeMessages.stream().map(s -> createExchangeMessageContainerFromExchangeMessage(s)).collect(Collectors.toList());
     }
 
     private ExchangeMessageContainer createExchangeMessageContainerFromExchangeMessage(ExchangeMessage exchangeMessage) {

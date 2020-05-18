@@ -98,13 +98,8 @@ public class HMACValidator {
     public String getDataToSign(SortedMap<String, String> postParameters) {
         List<String> parts = new ArrayList<>();
 
-        for (String key : postParameters.keySet()) {
-            parts.add(escapeVal(key));
-        }
-
-        for (String value : postParameters.values()) {
-            parts.add(escapeVal(value));
-        }
+        postParameters.keySet().stream().forEach(s -> parts.add(escapeVal(s)));
+        postParameters.values().stream().forEach(s -> parts.add(escapeVal(s)));
 
         return Util.implode(DATA_SEPARATOR, parts);
     }

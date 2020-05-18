@@ -20,9 +20,10 @@
  */
 package com.adyen.model.notification;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * NotificationRequest model class
@@ -55,12 +56,7 @@ public class NotificationRequest {
         if (this.notificationItemContainers == null) {
             return null;
         }
-        List<NotificationRequestItem> notificationRequestItems = new ArrayList<>();
-        for (NotificationRequestItemContainer container : this.notificationItemContainers) {
-            notificationRequestItems.add(container.getNotificationItem());
-        }
-
-        return notificationRequestItems;
+        return notificationItemContainers.stream().map(s -> s.getNotificationItem()).collect(Collectors.toList());
     }
 
     @Override
