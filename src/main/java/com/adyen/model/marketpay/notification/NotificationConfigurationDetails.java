@@ -21,12 +21,14 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.stream.Collectors;
 
 /**
  * NotificationConfigurationDetails
@@ -198,12 +200,9 @@ public class NotificationConfigurationDetails {
      **/
     public List<NotificationEventConfiguration> getEventConfigs() {
         if (eventConfigs == null) {
-            eventConfigs = new ArrayList<>();
 
             if (eventConfigsContainer != null && ! eventConfigsContainer.isEmpty()) {
-                for (NotificationEventConfigurationContainer notificationEventConfigurationContainer : eventConfigsContainer) {
-                    eventConfigs.add(notificationEventConfigurationContainer.getNotificationEventConfiguration());
-                }
+                eventConfigs = eventConfigsContainer.stream().map(s -> s.getNotificationEventConfiguration()).collect(Collectors.toList());
             }
         }
         return eventConfigs;
@@ -213,12 +212,8 @@ public class NotificationConfigurationDetails {
         this.eventConfigs = eventConfigs;
 
         // set as well the container list this will be send in the API request
-        this.eventConfigsContainer = new ArrayList<>();
-        for (NotificationEventConfiguration notificationConfigurationDetails : eventConfigs) {
-            NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(notificationConfigurationDetails);
-            this.eventConfigsContainer.add(notificationEventConfigurationContainer);
-        }
-
+        this.eventConfigsContainer = eventConfigs.stream().
+                map(s -> createEventConfigsContainerForEventConfig(s)).collect(Collectors.toList());
     }
 
     private NotificationEventConfigurationContainer createEventConfigsContainerForEventConfig(NotificationEventConfiguration notificationConfigurationDetails) {

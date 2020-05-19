@@ -20,14 +20,15 @@
  */
 package com.adyen.model;
 
-import java.util.List;
-import java.util.Objects;
 import com.adyen.Util.Util;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+import java.util.Objects;
 
 /**
  * PaymentRequest
@@ -196,17 +197,11 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
             String lineNumber = sb.toString();
 
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".currencyCode").toString(), invoiceLine.getCurrencyCode());
-
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".description").toString(), invoiceLine.getDescription());
-
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemAmount").toString(), invoiceLine.getItemAmount().toString());
-
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemVatAmount").toString(), invoiceLine.getItemVATAmount().toString());
-
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".itemVatPercentage").toString(), invoiceLine.getItemVatPercentage().toString());
-
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".numberOfItems").toString(), Integer.toString(invoiceLine.getNumberOfItems()));
-
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".vatCategory").toString(), invoiceLine.getVatCategory().toString());
 
             // Addional field only for RatePay

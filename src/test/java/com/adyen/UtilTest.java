@@ -1,16 +1,10 @@
 package com.adyen;
 
-import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
-import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
-import static com.adyen.constants.HPPConstants.Fields.MERCHANT_ACCOUNT;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import com.adyen.Util.HMACValidator;
 import com.adyen.Util.Util;
 import com.adyen.model.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.security.SignatureException;
@@ -21,12 +15,18 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.junit.Test;
+import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
+import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
+import static com.adyen.constants.HPPConstants.Fields.MERCHANT_ACCOUNT;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for Util class
  */
 public class UtilTest {
+
     @Test
     public void testAmountDecimals() {
         Amount amount = new Amount();

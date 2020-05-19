@@ -122,12 +122,9 @@ public enum AuthenticationMethodType {
      * @return the authentication method type
      */
     public static AuthenticationMethodType fromValue(String v) {
-        for (AuthenticationMethodType c : AuthenticationMethodType.values()) {
-            if (Arrays.asList(c.value).contains(v)) {
-                return c;
-            }
-        }
-        throw new IllegalArgumentException(v);
+        return Arrays.stream(values()).
+                filter(s -> Arrays.asList(s.value).contains(v)).
+                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
     }
 
 }

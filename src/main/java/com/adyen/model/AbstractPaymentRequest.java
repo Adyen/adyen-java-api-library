@@ -20,12 +20,6 @@
  */
 package com.adyen.model;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
@@ -33,6 +27,13 @@ import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 
 /**
@@ -1001,11 +1002,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
                 ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_YEAR,
                 ApiConstants.AdditionalData.ENCRYPTED_SECURITY_CODE);
 
-        for (String key : keys) {
-            if (nonSensitiveAdditionalData.containsKey(key)) {
-                nonSensitiveAdditionalData.put(key, "***");
-            }
-        }
+        keys.stream().forEach(s -> nonSensitiveAdditionalData.computeIfPresent(s, (s1, s2) -> "***"));
 
         return nonSensitiveAdditionalData.toString();
     }

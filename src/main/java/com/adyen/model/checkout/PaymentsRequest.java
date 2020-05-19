@@ -42,6 +42,7 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -1501,12 +1502,9 @@ public class PaymentsRequest {
         }
 
         public static ChannelEnum fromValue(String text) {
-            for (ChannelEnum b : ChannelEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public String getValue() {
@@ -1548,12 +1546,9 @@ public class PaymentsRequest {
         }
 
         public static EntityTypeEnum fromValue(String text) {
-            for (EntityTypeEnum b : EntityTypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public String getValue() {
@@ -1637,12 +1632,9 @@ public class PaymentsRequest {
         }
 
         public static ShopperInteractionEnum fromValue(String text) {
-            for (ShopperInteractionEnum b : ShopperInteractionEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public String getValue() {

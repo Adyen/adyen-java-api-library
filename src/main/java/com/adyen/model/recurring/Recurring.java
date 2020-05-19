@@ -20,15 +20,17 @@
  */
 package com.adyen.model.recurring;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.Objects;
 import com.adyen.serializer.DateSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Objects;
 
 /**
  * Recurring
@@ -109,12 +111,9 @@ public class Recurring {
             return String.valueOf(value);
         }
         public static TokenServiceEnum fromValue(String text) {
-            for (TokenServiceEnum b : TokenServiceEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
         public static class Adapter extends TypeAdapter<TokenServiceEnum> {
             @Override

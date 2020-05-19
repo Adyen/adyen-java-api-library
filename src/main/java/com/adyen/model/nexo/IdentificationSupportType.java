@@ -3,6 +3,7 @@ package com.adyen.model.nexo;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Arrays;
 
 
 /**
@@ -71,12 +72,9 @@ public enum IdentificationSupportType {
      * @return the identification support type
      */
     public static IdentificationSupportType fromValue(String v) {
-        for (IdentificationSupportType c : IdentificationSupportType.values()) {
-            if (c.value.equals(v)) {
-                return c;
-            }
-        }
-        throw new IllegalArgumentException(v);
+        return Arrays.stream(values()).
+                filter(s -> s.value.equals(v)).
+                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
     }
 
 }

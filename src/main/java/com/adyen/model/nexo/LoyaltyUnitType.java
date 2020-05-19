@@ -3,6 +3,7 @@ package com.adyen.model.nexo;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Arrays;
 
 
 /**
@@ -57,12 +58,9 @@ public enum LoyaltyUnitType {
      * @return the loyalty unit type
      */
     public static LoyaltyUnitType fromValue(String v) {
-        for (LoyaltyUnitType c : LoyaltyUnitType.values()) {
-            if (c.value.equals(v)) {
-                return c;
-            }
-        }
-        throw new IllegalArgumentException(v);
+        return Arrays.stream(values()).
+                filter(s -> s.value.equals(v)).
+                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
     }
 
 }

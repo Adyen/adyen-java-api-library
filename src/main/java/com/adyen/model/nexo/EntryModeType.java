@@ -3,6 +3,7 @@ package com.adyen.model.nexo;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Arrays;
 
 
 /**
@@ -118,12 +119,9 @@ public enum EntryModeType {
      * @return the entry mode type
      */
     public static EntryModeType fromValue(String v) {
-        for (EntryModeType c : EntryModeType.values()) {
-            if (c.value.equals(v)) {
-                return c;
-            }
-        }
-        throw new IllegalArgumentException(v);
+        return Arrays.stream(values()).
+                filter(s -> s.value.equals(v)).
+                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
     }
 
 }

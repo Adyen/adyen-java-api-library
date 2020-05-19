@@ -3,6 +3,7 @@ package com.adyen.model.nexo;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Arrays;
 
 
 /**
@@ -85,12 +86,9 @@ public enum DocumentQualifierType {
      * @return the document qualifier type
      */
     public static DocumentQualifierType fromValue(String v) {
-        for (DocumentQualifierType c : DocumentQualifierType.values()) {
-            if (c.value.equals(v)) {
-                return c;
-            }
-        }
-        throw new IllegalArgumentException(v);
+        return Arrays.stream(values()).
+                filter(s -> s.value.equals(v)).
+                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
     }
 
 }

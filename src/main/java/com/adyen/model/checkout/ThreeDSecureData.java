@@ -235,12 +235,9 @@ public class ThreeDSecureData {
         }
 
         public static AuthenticationResponseEnum fromValue(String text) {
-            for (AuthenticationResponseEnum b : AuthenticationResponseEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public String getValue() {
@@ -291,12 +288,9 @@ public class ThreeDSecureData {
         }
 
         public static DirectoryResponseEnum fromValue(String text) {
-            for (DirectoryResponseEnum b : DirectoryResponseEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(DirectoryResponseEnum .values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public String getValue() {

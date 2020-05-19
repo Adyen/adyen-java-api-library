@@ -3,6 +3,7 @@ package com.adyen.model.nexo;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Arrays;
 
 
 /**
@@ -67,12 +68,9 @@ public enum AlignmentType {
      * @return the alignment type
      */
     public static AlignmentType fromValue(String v) {
-        for (AlignmentType c : AlignmentType.values()) {
-            if (c.value.equals(v)) {
-                return c;
-            }
-        }
-        throw new IllegalArgumentException(v);
+        return Arrays.stream(values()).
+                filter(s -> s.value.equals(v)).
+                findFirst().orElseThrow(() -> new IllegalArgumentException(v));
     }
 
 }
