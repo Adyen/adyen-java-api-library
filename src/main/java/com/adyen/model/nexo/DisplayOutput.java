@@ -120,7 +120,7 @@ public class DisplayOutput {
      */
     public List<MenuEntry> getMenuEntry() {
         if (menuEntry == null) {
-            menuEntry = new ArrayList<MenuEntry>();
+            menuEntry = new ArrayList<>();
         }
         return this.menuEntry;
     }

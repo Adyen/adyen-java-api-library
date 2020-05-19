@@ -21,12 +21,14 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.adyen.model.Amount;
 import com.adyen.model.marketpay.AmountContainer;
 import com.adyen.model.marketpay.BankAccountDetail;
 import com.adyen.model.marketpay.OperationStatus;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AccountHolderPayoutContent {
     private String accountHolderCode;
@@ -94,11 +96,7 @@ public class AccountHolderPayoutContent {
     }
 
     public List<Amount> getAmountList() {
-        List<Amount> amountList = new ArrayList<>();
-        for (AmountContainer amount : amounts) {
-            amountList.add(amount.getAmount());
-        }
-        return amountList;
+        return amounts.stream().map(amount -> amount.getAmount()).collect(Collectors.toList());
     }
 
     @Override

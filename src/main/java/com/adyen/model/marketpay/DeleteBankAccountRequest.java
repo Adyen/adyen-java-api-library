@@ -33,7 +33,7 @@ public class DeleteBankAccountRequest {
     private String accountHolderCode = null;
 
     @SerializedName("bankAccountUUIDs")
-    private List<String> bankAccountUUIDs = new ArrayList<String>();
+    private List<String> bankAccountUUIDs = new ArrayList<>();
 
     public DeleteBankAccountRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;

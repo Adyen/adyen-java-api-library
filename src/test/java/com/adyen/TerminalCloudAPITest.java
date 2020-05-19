@@ -29,16 +29,16 @@ import com.adyen.model.nexo.OutputText;
 import com.adyen.model.nexo.POIData;
 import com.adyen.model.nexo.PaymentInstrumentType;
 import com.adyen.model.nexo.PaymentReceipt;
+import com.adyen.model.nexo.PaymentRequest;
 import com.adyen.model.nexo.PaymentResult;
 import com.adyen.model.nexo.Response;
 import com.adyen.model.nexo.ResultType;
 import com.adyen.model.nexo.SaleData;
-import com.adyen.model.nexo.SaleToPOIResponse;
 import com.adyen.model.nexo.SaleToPOIRequest;
-import com.adyen.model.nexo.PaymentRequest;
+import com.adyen.model.nexo.SaleToPOIResponse;
+import com.adyen.model.terminal.SaleToAcquirerData;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
-import com.adyen.model.terminal.SaleToAcquirerData;
 import com.adyen.service.TerminalCloudAPI;
 import org.junit.Test;
 
@@ -81,7 +81,7 @@ public class TerminalCloudAPITest extends BaseTest {
         TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
 
         TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
-        
+
         // add some data
         SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
         PaymentRequest paymentRequest = new PaymentRequest();
@@ -91,7 +91,7 @@ public class TerminalCloudAPITest extends BaseTest {
         paymentRequest.setSaleData(saleDataRequest);
         saleToPOIRequest.setPaymentRequest(paymentRequest);
         terminalAPIPaymentRequest.setSaleToPOIRequest(saleToPOIRequest);
-        
+
         TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIPaymentRequest);
 
         assertNotNull(terminalAPIResponse);
@@ -138,9 +138,8 @@ public class TerminalCloudAPITest extends BaseTest {
             assertNotNull(paymentReceipt.getOutputContent().getOutputText());
             assertFalse(paymentReceipt.getOutputContent().getOutputText().isEmpty());
             List<OutputText> outputTextList = paymentReceipt.getOutputContent().getOutputText();
-            for (OutputText outputText : outputTextList) {
-                assertNotNull(outputText.getText());
-            }
+
+            outputTextList.forEach(outputText -> assertNotNull(outputText.getText()));
         }
 
         assertNotNull(saleToPoiResponse.getPaymentResponse().getPaymentResult());
@@ -188,5 +187,24 @@ public class TerminalCloudAPITest extends BaseTest {
         TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIAbortRequest);
 
         assertNull(terminalAPIResponse);
+    }
+
+    /**
+     * Test success flow for Input Request on POST /sync
+     */
+    @Test
+    public void syncInputRequestSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/terminal-api/input-request-success.json");
+        TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
+
+        TerminalAPIResponse requestResponse = terminalCloudApi.sync(new TerminalAPIRequest());
+
+        assertNotNull(requestResponse);
+        assertNotNull(requestResponse.getSaleToPOIResponse());
+        assertNotNull(requestResponse.getSaleToPOIResponse().getInputResponse());
+        assertNotNull(requestResponse.getSaleToPOIResponse().getInputResponse().getInputResult());
+        assertNotNull(requestResponse.getSaleToPOIResponse().getInputResponse().getInputResult().getInput());
+        assertNotNull(requestResponse.getSaleToPOIResponse().getInputResponse().getInputResult().getInput().getMenuEntryNumber());
+        assertEquals(2, requestResponse.getSaleToPOIResponse().getInputResponse().getInputResult().getInput().getMenuEntryNumber().length);
     }
 }

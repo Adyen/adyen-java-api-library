@@ -26,8 +26,6 @@ import com.adyen.model.PaymentRequest;
 import com.adyen.model.applicationinfo.ExternalPlatform;
 import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentsRequest;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.junit.Test;
 
 import static com.adyen.Client.LIB_NAME;

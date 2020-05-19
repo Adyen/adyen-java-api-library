@@ -29,6 +29,7 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,12 +89,9 @@ public class CreateAccountResponse {
         }
 
         public static StatusEnum fromValue(String text) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<StatusEnum> {
@@ -174,7 +172,7 @@ public class CreateAccountResponse {
 
     public CreateAccountResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<ErrorFieldType>();
+            this.invalidFields = new ArrayList<>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;
@@ -200,7 +198,7 @@ public class CreateAccountResponse {
 
     public CreateAccountResponse putMetadataItem(String key, String metadataItem) {
         if (this.metadata == null) {
-            this.metadata = new HashMap<String, String>();
+            this.metadata = new HashMap<>();
         }
         this.metadata.put(key, metadataItem);
         return this;

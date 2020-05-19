@@ -33,7 +33,7 @@ public class DeleteShareholderRequest {
     private String accountHolderCode = null;
 
     @SerializedName("shareholderCodes")
-    private List<String> shareholderCodes = new ArrayList<String>();
+    private List<String> shareholderCodes = new ArrayList<>();
 
     public DeleteShareholderRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;

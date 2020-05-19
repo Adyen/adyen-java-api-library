@@ -138,7 +138,7 @@ public class PaymentRequest {
      */
     public List<LoyaltyData> getLoyaltyData() {
         if (loyaltyData == null) {
-            loyaltyData = new ArrayList<LoyaltyData>();
+            loyaltyData = new ArrayList<>();
         }
         return this.loyaltyData;
     }

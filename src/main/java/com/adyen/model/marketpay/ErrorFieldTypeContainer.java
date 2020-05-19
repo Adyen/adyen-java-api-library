@@ -20,12 +20,13 @@
  */
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 public class ErrorFieldTypeContainer {
     @SerializedName("ErrorFieldType")
-    private ErrorFieldType errorFieldType = null;
+    private ErrorFieldType errorFieldType;
 
     public ErrorFieldTypeContainer(ErrorFieldType errorFieldType) {
         this.errorFieldType = errorFieldType;

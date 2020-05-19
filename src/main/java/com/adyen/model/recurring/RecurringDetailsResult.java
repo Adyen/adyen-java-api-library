@@ -20,11 +20,13 @@
  */
 package com.adyen.model.recurring;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.stream.Collectors;
 
 /**
  * RecurringDetailsResult
@@ -37,7 +39,7 @@ public class RecurringDetailsResult {
     private String shopperReference = null;
 
     @SerializedName("details")
-    private List<RecurringDetailContainer> details = new ArrayList<RecurringDetailContainer>();
+    private List<RecurringDetailContainer> details = new ArrayList<>();
 
     @SerializedName("lastKnownShopperEmail")
     private String lastKnownShopperEmail = null;
@@ -141,11 +143,7 @@ public class RecurringDetailsResult {
      * @return RecurringDetails
      */
     public List<RecurringDetail> getRecurringDetails() {
-        List<RecurringDetail> recurringDetails = new ArrayList<>();
-        for (RecurringDetailContainer recurringDetailContainer : details) {
-            recurringDetails.add(recurringDetailContainer.getRecurringDetail());
-        }
-        return recurringDetails;
+        return details.stream().map(s -> s.getRecurringDetail()).collect(Collectors.toList());
     }
 
     @Override

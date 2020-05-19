@@ -63,7 +63,7 @@ public class DisplayRequest {
      */
     public List<DisplayOutput> getDisplayOutput() {
         if (displayOutput == null) {
-            displayOutput = new ArrayList<DisplayOutput>();
+            displayOutput = new ArrayList<>();
         }
         return this.displayOutput;
     }

@@ -152,7 +152,7 @@ public class ReversalResponse {
      */
     public List<PaymentReceipt> getPaymentReceipt() {
         if (paymentReceipt == null) {
-            paymentReceipt = new ArrayList<PaymentReceipt>();
+            paymentReceipt = new ArrayList<>();
         }
         return this.paymentReceipt;
     }

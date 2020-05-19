@@ -20,12 +20,6 @@
  */
 package com.adyen.model;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
@@ -33,6 +27,13 @@ import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 
 /**
@@ -222,7 +223,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      */
     public Map<String, String> getOrCreateAdditionalData() {
         if (this.getAdditionalData() == null) {
-            this.setAdditionalData(new HashMap<String, String>());
+            this.setAdditionalData(new HashMap<>());
         }
 
         return this.getAdditionalData();
@@ -994,18 +995,14 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
             return null;
         }
 
-        Map<String, String> nonSensitiveAdditionalData = new HashMap<String, String>(additionalData);
+        Map<String, String> nonSensitiveAdditionalData = new HashMap<>(additionalData);
         List<String> keys = Arrays.asList(ApiConstants.AdditionalData.Card.Encrypted.JSON,
                 ApiConstants.AdditionalData.ENCRYPTED_CARD_NUMBER,
                 ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_MONTH,
                 ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_YEAR,
                 ApiConstants.AdditionalData.ENCRYPTED_SECURITY_CODE);
 
-        for (String key : keys) {
-            if (nonSensitiveAdditionalData.containsKey(key)) {
-                nonSensitiveAdditionalData.put(key, "***");
-            }
-        }
+        keys.stream().forEach(s -> nonSensitiveAdditionalData.computeIfPresent(s, (s1, s2) -> "***"));
 
         return nonSensitiveAdditionalData.toString();
     }

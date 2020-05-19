@@ -31,7 +31,6 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import java.io.FileInputStream;
@@ -301,20 +300,18 @@ public class HttpURLConnectionClient implements ClientInterface {
         if (connection instanceof HttpsURLConnection) {
             HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
 
-            HostnameVerifier terminalHostsValid = new HostnameVerifier() {
-                public boolean verify(String host, SSLSession session) {
-                    try {
-                        if (session.getPeerCertificates() != null && session.getPeerCertificates().length > 0) {
-                            // Assume the first certificate is the leaf, since chain will be ordered, according to Java documentation:
-                            // https://docs.oracle.com/javase/7/docs/api/javax/net/ssl/SSLSession.html#getPeerCertificates()
-                            X509Certificate certificate = (X509Certificate) session.getPeerCertificates()[0];
-                            return TerminalCommonNameValidator.validateCertificate(certificate, environment);
-                        }
-                        return false;
-                    } catch (SSLPeerUnverifiedException e) {
-                        e.printStackTrace();
-                        return false;
+            HostnameVerifier terminalHostsValid = (host, session) -> {
+                try {
+                    if (session.getPeerCertificates() != null && session.getPeerCertificates().length > 0) {
+                        // Assume the first certificate is the leaf, since chain will be ordered, according to Java documentation:
+                        // https://docs.oracle.com/javase/7/docs/api/javax/net/ssl/SSLSession.html#getPeerCertificates()
+                        X509Certificate certificate = (X509Certificate) session.getPeerCertificates()[0];
+                        return TerminalCommonNameValidator.validateCertificate(certificate, environment);
                     }
+                    return false;
+                } catch (SSLPeerUnverifiedException e) {
+                    e.printStackTrace();
+                    return false;
                 }
             };
             // Install the terminal-trusting host verifier

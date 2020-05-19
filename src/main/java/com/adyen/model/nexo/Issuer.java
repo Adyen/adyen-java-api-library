@@ -63,7 +63,7 @@ public class Issuer {
      */
     public List<RelativeDistinguishedName> getRelativeDistinguishedName() {
         if (relativeDistinguishedName == null) {
-            relativeDistinguishedName = new ArrayList<RelativeDistinguishedName>();
+            relativeDistinguishedName = new ArrayList<>();
         }
         return this.relativeDistinguishedName;
     }

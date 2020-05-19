@@ -196,7 +196,7 @@ public class PaymentResult {
      */
     public List<CurrencyConversion> getCurrencyConversion() {
         if (currencyConversion == null) {
-            currencyConversion = new ArrayList<CurrencyConversion>();
+            currencyConversion = new ArrayList<>();
         }
         return this.currencyConversion;
     }
@@ -363,7 +363,7 @@ public class PaymentResult {
      */
     public List<AuthenticationMethodType> getAuthenticationMethod() {
         if (authenticationMethod == null) {
-            authenticationMethod = new ArrayList<AuthenticationMethodType>();
+            authenticationMethod = new ArrayList<>();
         }
         return this.authenticationMethod;
     }

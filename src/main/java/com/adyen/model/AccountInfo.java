@@ -28,6 +28,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
@@ -63,12 +64,9 @@ public class AccountInfo {
         }
 
         public static AccountAgeIndicatorEnum fromValue(String text) {
-            for (AccountAgeIndicatorEnum b : AccountAgeIndicatorEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+           return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<AccountAgeIndicatorEnum> {
@@ -118,12 +116,9 @@ public class AccountInfo {
         }
 
         public static AccountChangeIndicatorEnum fromValue(String text) {
-            for (AccountChangeIndicatorEnum b : AccountChangeIndicatorEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<AccountChangeIndicatorEnum> {
@@ -172,12 +167,9 @@ public class AccountInfo {
         }
 
         public static AccountTypeEnum fromValue(String text) {
-            for (AccountTypeEnum b : AccountTypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<AccountTypeEnum> {
@@ -230,12 +222,9 @@ public class AccountInfo {
         }
 
         public static DeliveryAddressUsageIndicatorEnum fromValue(String text) {
-            for (DeliveryAddressUsageIndicatorEnum b : DeliveryAddressUsageIndicatorEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<DeliveryAddressUsageIndicatorEnum> {
@@ -292,12 +281,9 @@ public class AccountInfo {
         }
 
         public static PasswordChangeIndicatorEnum fromValue(String text) {
-            for (PasswordChangeIndicatorEnum b : PasswordChangeIndicatorEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<PasswordChangeIndicatorEnum> {
@@ -354,12 +340,9 @@ public class AccountInfo {
         }
 
         public static PaymentAccountIndicatorEnum fromValue(String text) {
-            for (PaymentAccountIndicatorEnum b : PaymentAccountIndicatorEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<PaymentAccountIndicatorEnum> {

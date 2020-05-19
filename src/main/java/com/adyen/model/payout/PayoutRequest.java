@@ -46,6 +46,7 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -130,12 +131,9 @@ public class PayoutRequest {
         }
 
         public static EntityTypeEnum fromValue(String text) {
-            for (EntityTypeEnum b : EntityTypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<EntityTypeEnum> {
@@ -215,12 +213,9 @@ public class PayoutRequest {
         }
 
         public static RecurringProcessingModelEnum fromValue(String text) {
-            for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
@@ -284,12 +279,9 @@ public class PayoutRequest {
         }
 
         public static ShopperInteractionEnum fromValue(String text) {
-            for (ShopperInteractionEnum b : ShopperInteractionEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<ShopperInteractionEnum> {
@@ -1104,7 +1096,7 @@ public class PayoutRequest {
 
     public PayoutRequest addSplitsItem(Split splitsItem) {
         if (this.splits == null) {
-            this.splits = new ArrayList<Split>();
+            this.splits = new ArrayList<>();
         }
         this.splits.add(splitsItem);
         return this;

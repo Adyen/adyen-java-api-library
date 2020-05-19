@@ -20,8 +20,6 @@
  */
 package com.adyen;
 
-import java.io.IOException;
-import org.junit.Test;
 import com.adyen.model.recurring.DisableRequest;
 import com.adyen.model.recurring.DisableResult;
 import com.adyen.model.recurring.RecurringDetail;
@@ -31,6 +29,10 @@ import com.adyen.model.recurring.StoreTokenRequest;
 import com.adyen.model.recurring.StoreTokenResult;
 import com.adyen.service.Recurring;
 import com.adyen.service.exception.ApiException;
+import org.junit.Test;
+
+import java.io.IOException;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
@@ -106,9 +108,8 @@ public class RecurringTest extends BaseTest {
 
         DisableRequest request = createDisableRequest();
 
-        DisableResult result = null;
         try {
-            result = recurring.disable(request);
+            recurring.disable(request);
             fail("Exception expected!");
         } catch (ApiException e) {
             assertNotEquals(200, e.getStatusCode());
@@ -138,10 +139,8 @@ public class RecurringTest extends BaseTest {
 
 		StoreTokenRequest request = createStoreTokenRequest();
 
-		@SuppressWarnings("unused")
-		StoreTokenResult result = null;
 		try {
-			result = recurring.storeToken(request);
+			recurring.storeToken(request);
 			fail("Exception expected!");
 		} catch (ApiException e) {
 			assertNotEquals(200, e.getStatusCode());

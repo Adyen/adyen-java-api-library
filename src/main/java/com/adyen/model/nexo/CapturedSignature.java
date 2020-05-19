@@ -88,7 +88,7 @@ public class CapturedSignature {
      */
     public List<SignaturePoint> getSignaturePoint() {
         if (signaturePoint == null) {
-            signaturePoint = new ArrayList<SignaturePoint>();
+            signaturePoint = new ArrayList<>();
         }
         return this.signaturePoint;
     }

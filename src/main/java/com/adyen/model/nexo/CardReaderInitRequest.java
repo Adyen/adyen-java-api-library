@@ -90,7 +90,7 @@ public class CardReaderInitRequest {
      */
     public List<ForceEntryModeType> getForceEntryMode() {
         if (forceEntryMode == null) {
-            forceEntryMode = new ArrayList<ForceEntryModeType>();
+            forceEntryMode = new ArrayList<>();
         }
         return this.forceEntryMode;
     }

@@ -84,7 +84,7 @@ public class CreatePaymentLinkRequest {
 
     public CreatePaymentLinkRequest addAllowedPaymentMethodsItem(String allowedPaymentMethodsItem) {
         if (this.allowedPaymentMethods == null) {
-            this.allowedPaymentMethods = new ArrayList<String>();
+            this.allowedPaymentMethods = new ArrayList<>();
         }
         this.allowedPaymentMethods.add(allowedPaymentMethodsItem);
         return this;
@@ -146,7 +146,7 @@ public class CreatePaymentLinkRequest {
 
     public CreatePaymentLinkRequest addBlockedPaymentMethodsItem(String blockedPaymentMethodsItem) {
         if (this.blockedPaymentMethods == null) {
-            this.blockedPaymentMethods = new ArrayList<String>();
+            this.blockedPaymentMethods = new ArrayList<>();
         }
         this.blockedPaymentMethods.add(blockedPaymentMethodsItem);
         return this;

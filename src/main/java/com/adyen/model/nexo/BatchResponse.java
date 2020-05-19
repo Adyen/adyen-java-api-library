@@ -88,7 +88,7 @@ public class BatchResponse {
      */
     public List<PerformedTransaction> getPerformedTransaction() {
         if (performedTransaction == null) {
-            performedTransaction = new ArrayList<PerformedTransaction>();
+            performedTransaction = new ArrayList<>();
         }
         return this.performedTransaction;
     }

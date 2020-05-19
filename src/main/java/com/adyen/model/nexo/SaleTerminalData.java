@@ -85,7 +85,7 @@ public class SaleTerminalData {
      */
     public List<SaleCapabilitiesType> getSaleCapabilities() {
         if (saleCapabilities == null) {
-            saleCapabilities = new ArrayList<SaleCapabilitiesType>();
+            saleCapabilities = new ArrayList<>();
         }
         return this.saleCapabilities;
     }

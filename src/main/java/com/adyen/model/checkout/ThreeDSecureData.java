@@ -29,6 +29,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -174,13 +175,13 @@ public class ThreeDSecureData {
         }
         ThreeDSecureData threeDSecureData = (ThreeDSecureData) o;
         return Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse)
-                && Objects.equals(this.cavv, threeDSecureData.cavv)
+                && Arrays.equals(this.cavv, threeDSecureData.cavv)
                 && Objects.equals(this.cavvAlgorithm,
                 threeDSecureData.cavvAlgorithm)
                 && Objects.equals(this.directoryResponse, threeDSecureData.directoryResponse)
                 && Objects.equals(this.eci, threeDSecureData.eci)
                 && Objects.equals(this.threeDSVersion, threeDSecureData.threeDSVersion)
-                && Objects.equals(this.xid, threeDSecureData.xid)
+                && Arrays.equals(this.xid, threeDSecureData.xid)
                 && Objects.equals(this.dsTransID, threeDSecureData.dsTransID);
     }
 
@@ -234,12 +235,9 @@ public class ThreeDSecureData {
         }
 
         public static AuthenticationResponseEnum fromValue(String text) {
-            for (AuthenticationResponseEnum b : AuthenticationResponseEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public String getValue() {
@@ -290,12 +288,9 @@ public class ThreeDSecureData {
         }
 
         public static DirectoryResponseEnum fromValue(String text) {
-            for (DirectoryResponseEnum b : DirectoryResponseEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(DirectoryResponseEnum .values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public String getValue() {

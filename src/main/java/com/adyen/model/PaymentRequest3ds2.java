@@ -21,15 +21,17 @@
  */
 package com.adyen.model;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -97,12 +99,9 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
         }
 
         public static RecurringProcessingModelEnum fromValue(String text) {
-            for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
@@ -154,12 +153,9 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
         }
 
         public static ShopperInteractionEnum fromValue(String text) {
-            for (ShopperInteractionEnum b : ShopperInteractionEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<ShopperInteractionEnum> {
@@ -198,7 +194,7 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
     public PaymentRequest3ds2 addSplitsItem(Split splitsItem) {
 
         if (this.splits == null) {
-            this.splits = new ArrayList<Split>();
+            this.splits = new ArrayList<>();
         }
 
         this.splits.add(splitsItem);

@@ -33,7 +33,7 @@ public class KYCBankAccountCheckResult {
     private String bankAccountUUID = null;
 
     @SerializedName("checks")
-    private List<KYCCheckStatusData> checks = new ArrayList<KYCCheckStatusData>();
+    private List<KYCCheckStatusData> checks = new ArrayList<>();
 
     public KYCBankAccountCheckResult bankAccountUUID(String bankAccountUUID) {
         this.bankAccountUUID = bankAccountUUID;

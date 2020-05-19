@@ -149,7 +149,7 @@ public class TransactionTotals {
      */
     public List<PaymentTotals> getPaymentTotals() {
         if (paymentTotals == null) {
-            paymentTotals = new ArrayList<PaymentTotals>();
+            paymentTotals = new ArrayList<>();
         }
         return this.paymentTotals;
     }
@@ -178,7 +178,7 @@ public class TransactionTotals {
      */
     public List<LoyaltyTotals> getLoyaltyTotals() {
         if (loyaltyTotals == null) {
-            loyaltyTotals = new ArrayList<LoyaltyTotals>();
+            loyaltyTotals = new ArrayList<>();
         }
         return this.loyaltyTotals;
     }

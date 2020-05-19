@@ -20,20 +20,21 @@
  */
 package com.adyen.service;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import com.adyen.BaseTest;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.service.exception.ApiException;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import java.io.IOException;
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -71,7 +72,7 @@ public class ResourceTest extends BaseTest {
     public void testRequestExceptionEmpty() throws IOException, HTTPClientException {
         try {
             when(clientInterfaceMock.request("", "request", null, false, null))
-                    .thenThrow(new HTTPClientException("message", 403, new HashMap<String, List<String>>(), null));
+                    .thenThrow(new HTTPClientException("message", 403, new HashMap<>(), null));
 
             Resource resource = new Resource(serviceMock, "", null);
             String response = resource.request("request");

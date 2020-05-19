@@ -30,6 +30,7 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -82,12 +83,9 @@ public class GetAccountHolderResponse {
         }
 
         public static LegalEntityEnum fromValue(String text) {
-            for (LegalEntityEnum b : LegalEntityEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<LegalEntityEnum> {
@@ -183,7 +181,7 @@ public class GetAccountHolderResponse {
 
     public GetAccountHolderResponse addAccountsItem(Account accountsItem) {
         if (this.accounts == null) {
-            this.accounts = new ArrayList<Account>();
+            this.accounts = new ArrayList<>();
         }
         this.accounts.add(accountsItem);
         return this;
@@ -227,7 +225,7 @@ public class GetAccountHolderResponse {
 
     public GetAccountHolderResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<ErrorFieldType>();
+            this.invalidFields = new ArrayList<>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;

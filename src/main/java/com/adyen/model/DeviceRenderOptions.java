@@ -22,15 +22,17 @@
 
 package com.adyen.model;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * DeviceRenderOptions
@@ -63,12 +65,9 @@ public class DeviceRenderOptions {
         }
 
         public static SdkInterfaceEnum fromValue(String text) {
-            for (SdkInterfaceEnum b : SdkInterfaceEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<SdkInterfaceEnum> {
@@ -116,12 +115,9 @@ public class DeviceRenderOptions {
         }
 
         public static SdkUiTypeEnum fromValue(String text) {
-            for (SdkUiTypeEnum b : SdkUiTypeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<SdkUiTypeEnum> {
@@ -162,7 +158,7 @@ public class DeviceRenderOptions {
     public DeviceRenderOptions addSdkUiTypeItem(SdkUiTypeEnum sdkUiTypeItem) {
 
         if (this.sdkUiType == null) {
-            this.sdkUiType = new ArrayList<SdkUiTypeEnum>();
+            this.sdkUiType = new ArrayList<>();
         }
 
         this.sdkUiType.add(sdkUiTypeItem);

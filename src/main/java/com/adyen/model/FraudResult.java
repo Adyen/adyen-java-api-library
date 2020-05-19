@@ -20,10 +20,12 @@
  */
 package com.adyen.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.stream.Collectors;
 
 /**
  * FraudResult
@@ -33,7 +35,7 @@ public class FraudResult {
     private Integer accountScore = null;
 
     @SerializedName("results")
-    private List<FraudCheckResultContainer> results = new ArrayList<FraudCheckResultContainer>();
+    private List<FraudCheckResultContainer> results = new ArrayList<>();
 
     public FraudResult accountScore(Integer accountScore) {
         this.accountScore = accountScore;
@@ -72,11 +74,7 @@ public class FraudResult {
      * @return results
      **/
     public List<FraudCheckResult> getFraudCheckResults() {
-        List<FraudCheckResult> fraudCheckResults = new ArrayList<>();
-        for (FraudCheckResultContainer fraudCheckResultContainer : results) {
-            fraudCheckResults.add(fraudCheckResultContainer.getFraudCheckResult());
-        }
-        return fraudCheckResults;
+        return results.stream().map(s -> s.getFraudCheckResult()).collect(Collectors.toList());
     }
 
     @Override

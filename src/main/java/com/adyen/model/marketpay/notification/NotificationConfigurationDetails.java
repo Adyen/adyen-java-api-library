@@ -21,19 +21,21 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.stream.Collectors;
 
 /**
  * NotificationConfigurationDetails
  */
 public class NotificationConfigurationDetails {
     @SerializedName("settings")
-    private Map<String, String> settings = new HashMap<String, String>();
+    private Map<String, String> settings = new HashMap<>();
 
     @SerializedName("apiVersion")
     private Integer apiVersion = null;
@@ -179,12 +181,12 @@ public class NotificationConfigurationDetails {
 
         NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(eventConfigsItem);
         if (eventConfigsContainer == null) {
-            eventConfigsContainer = new ArrayList<NotificationEventConfigurationContainer>();
+            eventConfigsContainer = new ArrayList<>();
         }
         this.eventConfigsContainer.add(notificationEventConfigurationContainer);
 
         if (eventConfigs == null) {
-            eventConfigs = new ArrayList<NotificationEventConfiguration>();
+            eventConfigs = new ArrayList<>();
         }
 
         this.eventConfigs.add(eventConfigsItem);
@@ -198,12 +200,9 @@ public class NotificationConfigurationDetails {
      **/
     public List<NotificationEventConfiguration> getEventConfigs() {
         if (eventConfigs == null) {
-            eventConfigs = new ArrayList<NotificationEventConfiguration>();
 
             if (eventConfigsContainer != null && ! eventConfigsContainer.isEmpty()) {
-                for (NotificationEventConfigurationContainer notificationEventConfigurationContainer : eventConfigsContainer) {
-                    eventConfigs.add(notificationEventConfigurationContainer.getNotificationEventConfiguration());
-                }
+                eventConfigs = eventConfigsContainer.stream().map(s -> s.getNotificationEventConfiguration()).collect(Collectors.toList());
             }
         }
         return eventConfigs;
@@ -213,12 +212,8 @@ public class NotificationConfigurationDetails {
         this.eventConfigs = eventConfigs;
 
         // set as well the container list this will be send in the API request
-        this.eventConfigsContainer = new ArrayList<NotificationEventConfigurationContainer>();
-        for (NotificationEventConfiguration notificationConfigurationDetails : eventConfigs) {
-            NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(notificationConfigurationDetails);
-            this.eventConfigsContainer.add(notificationEventConfigurationContainer);
-        }
-
+        this.eventConfigsContainer = eventConfigs.stream().
+                map(s -> createEventConfigsContainerForEventConfig(s)).collect(Collectors.toList());
     }
 
     private NotificationEventConfigurationContainer createEventConfigsContainerForEventConfig(NotificationEventConfiguration notificationConfigurationDetails) {

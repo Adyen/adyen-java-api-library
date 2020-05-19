@@ -89,7 +89,7 @@ public class SensitiveCardData {
      */
     public List<TrackData> getTrackData() {
         if (trackData == null) {
-            trackData = new ArrayList<TrackData>();
+            trackData = new ArrayList<>();
         }
         return this.trackData;
     }

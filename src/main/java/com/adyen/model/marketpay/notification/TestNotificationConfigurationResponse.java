@@ -20,10 +20,12 @@
  */
 package com.adyen.model.marketpay.notification;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.stream.Collectors;
 
 /**
  * TestNotificationConfigurationResponse
@@ -117,7 +119,7 @@ public class TestNotificationConfigurationResponse {
 
     public TestNotificationConfigurationResponse addErrorMessagesItem(String errorMessagesItem) {
         if (this.errorMessages == null) {
-            this.errorMessages = new ArrayList<String>();
+            this.errorMessages = new ArrayList<>();
         }
         this.errorMessages.add(errorMessagesItem);
         return this;
@@ -161,7 +163,7 @@ public class TestNotificationConfigurationResponse {
 
     public TestNotificationConfigurationResponse addOkMessagesItem(String okMessagesItem) {
         if (this.okMessages == null) {
-            this.okMessages = new ArrayList<String>();
+            this.okMessages = new ArrayList<>();
         }
         this.okMessages.add(okMessagesItem);
         return this;
@@ -189,12 +191,9 @@ public class TestNotificationConfigurationResponse {
     public List<ExchangeMessage> getExchangeMessages() {
 
         if (exchangeMessages == null) {
-            exchangeMessages = new ArrayList<ExchangeMessage>();
 
             if (exchangeMessageContainers != null && ! exchangeMessageContainers.isEmpty()) {
-                for (ExchangeMessageContainer exchangeMessageContainer : exchangeMessageContainers) {
-                    exchangeMessages.add(exchangeMessageContainer.getExchangeMessage());
-                }
+                exchangeMessages = exchangeMessageContainers.stream().map(s -> s.getExchangeMessage()).collect(Collectors.toList());
             }
         }
         return exchangeMessages;
@@ -204,12 +203,7 @@ public class TestNotificationConfigurationResponse {
         this.exchangeMessages = exchangeMessages;
 
         // set as well the container list this will be send in the API request
-        this.exchangeMessageContainers = new ArrayList<ExchangeMessageContainer>();
-        for (ExchangeMessage exchangeMessage : exchangeMessages) {
-            ExchangeMessageContainer exchangeMessageContainer = createExchangeMessageContainerFromExchangeMessage(exchangeMessage);
-            this.exchangeMessageContainers.add(exchangeMessageContainer);
-        }
-
+        this.exchangeMessageContainers = exchangeMessages.stream().map(s -> createExchangeMessageContainerFromExchangeMessage(s)).collect(Collectors.toList());
     }
 
     private ExchangeMessageContainer createExchangeMessageContainerFromExchangeMessage(ExchangeMessage exchangeMessage) {
@@ -243,7 +237,7 @@ public class TestNotificationConfigurationResponse {
 
     public TestNotificationConfigurationResponse addEventTypesItem(EventTypesEnum eventTypesItem) {
         if (this.eventTypes == null) {
-            this.eventTypes = new ArrayList<EventTypesEnum>();
+            this.eventTypes = new ArrayList<>();
         }
         this.eventTypes.add(eventTypesItem);
         return this;

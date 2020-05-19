@@ -140,7 +140,7 @@ public class InputUpdate {
      */
     public List<MenuEntry> getMenuEntry() {
         if (menuEntry == null) {
-            menuEntry = new ArrayList<MenuEntry>();
+            menuEntry = new ArrayList<>();
         }
         return this.menuEntry;
     }

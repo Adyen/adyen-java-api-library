@@ -51,7 +51,7 @@ public class AccountHolderTransactionListResponse {
 
     public AccountHolderTransactionListResponse addAccountTransactionListsItem(AccountTransactionList accountTransactionListsItem) {
         if (this.accountTransactionLists == null) {
-            this.accountTransactionLists = new ArrayList<AccountTransactionList>();
+            this.accountTransactionLists = new ArrayList<>();
         }
         this.accountTransactionLists.add(accountTransactionListsItem);
         return this;
@@ -77,7 +77,7 @@ public class AccountHolderTransactionListResponse {
 
     public AccountHolderTransactionListResponse addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<ErrorFieldType>();
+            this.invalidFields = new ArrayList<>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;

@@ -20,24 +20,23 @@
  */
 package com.adyen.Util;
 
-import java.nio.charset.Charset;
+import com.adyen.model.Amount;
+import com.adyen.model.notification.NotificationRequestItem;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
-import com.adyen.model.Amount;
-import com.adyen.model.notification.NotificationRequestItem;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
 public class HMACValidator {
     public static final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
-    public static final Charset C_UTF8 = Charset.forName("UTF8");
     public static final String DATA_SEPARATOR = ":";
 
     // To calculate the HMAC SHA-256
@@ -54,7 +53,7 @@ public class HMACValidator {
             mac.init(signingKey);
 
             // Compute the hmac on input data bytes
-            byte[] rawHmac = mac.doFinal(data.getBytes(C_UTF8));
+            byte[] rawHmac = mac.doFinal(data.getBytes(StandardCharsets.UTF_8));
 
             // Base64-encode the hmac
             return new String(Base64.encodeBase64(rawHmac));
@@ -99,13 +98,8 @@ public class HMACValidator {
     public String getDataToSign(SortedMap<String, String> postParameters) {
         List<String> parts = new ArrayList<>();
 
-        for (String key : postParameters.keySet()) {
-            parts.add(escapeVal(key));
-        }
-
-        for (String value : postParameters.values()) {
-            parts.add(escapeVal(value));
-        }
+        postParameters.keySet().stream().forEach(s -> parts.add(escapeVal(s)));
+        postParameters.values().stream().forEach(s -> parts.add(escapeVal(s)));
 
         return Util.implode(DATA_SEPARATOR, parts);
     }

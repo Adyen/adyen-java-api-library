@@ -24,7 +24,7 @@ The Library supports all APIs under the following services:
 
 ## Requirements
 
-* Java 7 or higher
+* Java 8 or higher
 
 ## Installation
 
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>6.1.0</version>
+  <version>7.0.0</version>
 </dependency>
 ```
 
@@ -64,7 +64,7 @@ client.setHttpClient(httpURLConnectionClientWithProxy);
 
 ## Support
 
-If you have any problems, questions or suggestions, create an issue here or send your inquiry to support@adyen.com.
+If you have a feature request, or spotted a bug or a technical problem, create a GitHub issue. For other questions, contact our [support team](https://support.adyen.com/hc/en-us/requests/new?ticket_form_id=360000705420).
 
 ## Contributing
 We strongly encourage you to join us in contributing to this repository so everyone can benefit from:

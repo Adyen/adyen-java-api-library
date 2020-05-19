@@ -32,6 +32,6 @@ public class GetNotificationConfigurationList extends Resource {
     public GetNotificationConfigurationList(Service service) {
         super(service,
               service.getClient().getConfig().getMarketPayEndpoint() + "/Notification/" + Client.MARKETPAY_NOTIFICATION_API_VERSION + "/getNotificationConfigurationList",
-              new ArrayList<String>());
+                new ArrayList<>());
     }
 }

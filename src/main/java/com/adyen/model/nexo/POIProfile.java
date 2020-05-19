@@ -72,7 +72,7 @@ public class POIProfile {
      */
     public List<ServiceProfilesType> getServiceProfiles() {
         if (serviceProfiles == null) {
-            serviceProfiles = new ArrayList<ServiceProfilesType>();
+            serviceProfiles = new ArrayList<>();
         }
         return this.serviceProfiles;
     }

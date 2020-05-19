@@ -31,7 +31,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class DeleteNotificationConfigurationRequest {
     @SerializedName("notificationIds")
-    private List<Long> notificationIds = new ArrayList<Long>();
+    private List<Long> notificationIds = new ArrayList<>();
 
     public DeleteNotificationConfigurationRequest notificationIds(List<Long> notificationIds) {
         this.notificationIds = notificationIds;

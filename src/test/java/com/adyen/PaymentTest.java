@@ -20,22 +20,13 @@
  */
 package com.adyen;
 
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
-
-import com.adyen.model.AuthenticationResultRequest;
-import com.adyen.model.AuthenticationResultResponse;
-import org.junit.Test;
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.httpclient.HttpURLConnectionClient;
 import com.adyen.model.Address;
+import com.adyen.model.AuthenticationResultRequest;
+import com.adyen.model.AuthenticationResultResponse;
 import com.adyen.model.FraudCheckResult;
 import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
@@ -47,6 +38,15 @@ import com.adyen.model.ThreeDS2ResultRequest;
 import com.adyen.model.ThreeDS2ResultResponse;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
 import static com.adyen.model.PaymentResult.ResultCodeEnum.RECEIVED;
 import static org.junit.Assert.assertEquals;
@@ -245,10 +245,10 @@ public class PaymentTest extends BaseTest {
     @Test
     public void TestError401Mocked() throws Exception {
         HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
-        HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<String, List<String>>(), null);
+        HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<>(), null);
 
         when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
-        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), (RequestOptions) isNull())).thenThrow(httpClientException);
+        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), isNull())).thenThrow(httpClientException);
 
         Client client = new Client();
         client.setHttpClient(httpURLConnectionClient);

@@ -84,7 +84,7 @@ public class AccountTransactionList {
 
     public AccountTransactionList addTransactionsItem(Transaction transactionsItem) {
         if (this.transactions == null) {
-            this.transactions = new ArrayList<Transaction>();
+            this.transactions = new ArrayList<>();
         }
         this.transactions.add(transactionsItem);
         return this;

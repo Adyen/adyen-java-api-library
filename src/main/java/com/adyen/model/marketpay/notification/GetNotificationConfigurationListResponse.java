@@ -21,10 +21,11 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.ArrayList;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.stream.Collectors;
 
 /**
  * GetNotificationConfigurationListResponse
@@ -67,12 +68,8 @@ public class GetNotificationConfigurationListResponse {
      **/
     public List<NotificationConfigurationDetails> getConfigurations() {
         if (configurations == null) {
-            configurations = new ArrayList<NotificationConfigurationDetails>();
-
-            if (configurationsContainers != null && ! configurationsContainers.isEmpty()) {
-                for (NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer : configurationsContainers) {
-                    configurations.add(notificationConfigurationDetailsContainer.getNotificationConfigurationDetails());
-                }
+            if (configurationsContainers != null && !configurationsContainers.isEmpty()) {
+                configurations = configurationsContainers.stream().map(s -> s.getNotificationConfigurationDetails()).collect(Collectors.toList());
             }
         }
         return configurations;
@@ -81,13 +78,10 @@ public class GetNotificationConfigurationListResponse {
     public void setConfigurations(List<NotificationConfigurationDetails> configurations) {
 
         this.configurations = configurations;
-
         // set as well the container list this will be send in the API request
-        this.configurationsContainers = new ArrayList<NotificationConfigurationDetailsContainer>();
-        for (NotificationConfigurationDetails notificationConfigurationDetails : configurations) {
-            NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer = createNotificationConfigurationDetailsContainerFromConfiguration(notificationConfigurationDetails);
-            this.configurationsContainers.add(notificationConfigurationDetailsContainer);
-        }
+        this.configurationsContainers = configurations.stream().
+                map(s -> createNotificationConfigurationDetailsContainerFromConfiguration(s)).
+                collect(Collectors.toList());
     }
 
     private NotificationConfigurationDetailsContainer createNotificationConfigurationDetailsContainerFromConfiguration(NotificationConfigurationDetails configuration) {

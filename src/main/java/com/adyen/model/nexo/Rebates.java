@@ -114,7 +114,7 @@ public class Rebates {
      */
     public List<SaleItemRebate> getSaleItemRebate() {
         if (saleItemRebate == null) {
-            saleItemRebate = new ArrayList<SaleItemRebate>();
+            saleItemRebate = new ArrayList<>();
         }
         return this.saleItemRebate;
     }

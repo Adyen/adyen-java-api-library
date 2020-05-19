@@ -5,7 +5,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.math.BigInteger;
 
 
 /**
@@ -73,7 +72,7 @@ public class Input {
      * The Menu entry number.
      */
     @XmlElement(name = "MenuEntryNumber")
-    protected BigInteger menuEntryNumber;
+    protected Integer[] menuEntryNumber;
     /**
      * The Input command.
      */
@@ -173,18 +172,18 @@ public class Input {
     /**
      * Gets the value of the menuEntryNumber property.
      *
-     * @return possible      object is     {@link BigInteger }
+     * @return possible      object is     {@link Integer[] }
      */
-    public BigInteger getMenuEntryNumber() {
+    public Integer[] getMenuEntryNumber() {
         return menuEntryNumber;
     }
 
     /**
      * Sets the value of the menuEntryNumber property.
      *
-     * @param value allowed object is     {@link BigInteger }
+     * @param value allowed object is     {@link Integer[] }
      */
-    public void setMenuEntryNumber(BigInteger value) {
+    public void setMenuEntryNumber(Integer[] value) {
         this.menuEntryNumber = value;
     }
 

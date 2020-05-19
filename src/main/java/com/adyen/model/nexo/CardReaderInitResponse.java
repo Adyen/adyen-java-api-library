@@ -109,7 +109,7 @@ public class CardReaderInitResponse {
      */
     public List<TrackData> getTrackData() {
         if (trackData == null) {
-            trackData = new ArrayList<TrackData>();
+            trackData = new ArrayList<>();
         }
         return this.trackData;
     }
@@ -156,7 +156,7 @@ public class CardReaderInitResponse {
      */
     public List<EntryModeType> getEntryMode() {
         if (entryMode == null) {
-            entryMode = new ArrayList<EntryModeType>();
+            entryMode = new ArrayList<>();
         }
         return this.entryMode;
     }

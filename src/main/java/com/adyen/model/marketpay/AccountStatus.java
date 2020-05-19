@@ -33,10 +33,10 @@ public class AccountStatus {
     private String status = null;
 
     @SerializedName("states")
-    private List<AccountState> states = new ArrayList<AccountState>();
+    private List<AccountState> states = new ArrayList<>();
 
     @SerializedName("accountEvents")
-    private List<AccountEvent> accountEvents = new ArrayList<AccountEvent>();
+    private List<AccountEvent> accountEvents = new ArrayList<>();
 
     public AccountStatus status(String status) {
         this.status = status;

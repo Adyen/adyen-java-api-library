@@ -35,7 +35,7 @@ public class DeletePayoutMethodRequest {
     private String accountHolderCode = null;
 
     @SerializedName("payoutMethodCodes")
-    private List<String> payoutMethodCodes = new ArrayList<String>();
+    private List<String> payoutMethodCodes = new ArrayList<>();
 
     public DeletePayoutMethodRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;

@@ -85,7 +85,7 @@ public class RecurringDetail {
     private String firstPspReference = null;
 
     @SerializedName("contractTypes")
-    private List<String> contractTypes = new ArrayList<String>();
+    private List<String> contractTypes = new ArrayList<>();
 
     @SerializedName("acquirer")
     private String acquirer = null;

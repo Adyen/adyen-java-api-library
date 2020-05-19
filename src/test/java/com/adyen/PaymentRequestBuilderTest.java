@@ -23,7 +23,6 @@ package com.adyen;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
-import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.ExternalPlatform;
 import org.junit.Test;
 
@@ -46,7 +45,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
 
 
         // Test metadata
-        paymentRequest.setMetadata(new HashMap<String, String>());
+        paymentRequest.setMetadata(new HashMap<>());
         paymentRequest.getMetadata().put("key", "value");
 
         // Test recurring processing model

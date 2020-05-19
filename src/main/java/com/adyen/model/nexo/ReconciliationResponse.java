@@ -101,7 +101,7 @@ public class ReconciliationResponse {
      */
     public List<TransactionTotals> getTransactionTotals() {
         if (transactionTotals == null) {
-            transactionTotals = new ArrayList<TransactionTotals>();
+            transactionTotals = new ArrayList<>();
         }
         return this.transactionTotals;
     }

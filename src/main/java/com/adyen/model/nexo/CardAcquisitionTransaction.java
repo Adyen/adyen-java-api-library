@@ -115,7 +115,7 @@ public class CardAcquisitionTransaction {
      */
     public List<String> getAllowedPaymentBrand() {
         if (allowedPaymentBrand == null) {
-            allowedPaymentBrand = new ArrayList<String>();
+            allowedPaymentBrand = new ArrayList<>();
         }
         return this.allowedPaymentBrand;
     }
@@ -144,7 +144,7 @@ public class CardAcquisitionTransaction {
      */
     public List<String> getAllowedLoyaltyBrand() {
         if (allowedLoyaltyBrand == null) {
-            allowedLoyaltyBrand = new ArrayList<String>();
+            allowedLoyaltyBrand = new ArrayList<>();
         }
         return this.allowedLoyaltyBrand;
     }
@@ -173,7 +173,7 @@ public class CardAcquisitionTransaction {
      */
     public List<ForceEntryModeType> getForceEntryMode() {
         if (forceEntryMode == null) {
-            forceEntryMode = new ArrayList<ForceEntryModeType>();
+            forceEntryMode = new ArrayList<>();
         }
         return this.forceEntryMode;
     }

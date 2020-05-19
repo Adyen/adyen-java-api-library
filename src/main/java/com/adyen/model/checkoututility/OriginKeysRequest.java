@@ -33,7 +33,7 @@ import java.util.Objects;
 public class OriginKeysRequest {
 
     @SerializedName("originDomains")
-    private List<String> originDomains = new ArrayList<String>();
+    private List<String> originDomains = new ArrayList<>();
 
     public OriginKeysRequest originDomains(List<String> originDomains) {
         this.originDomains = originDomains;

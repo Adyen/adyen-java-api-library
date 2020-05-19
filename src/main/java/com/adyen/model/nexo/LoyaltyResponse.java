@@ -145,7 +145,7 @@ public class LoyaltyResponse {
      */
     public List<LoyaltyResult> getLoyaltyResult() {
         if (loyaltyResult == null) {
-            loyaltyResult = new ArrayList<LoyaltyResult>();
+            loyaltyResult = new ArrayList<>();
         }
         return this.loyaltyResult;
     }
@@ -174,7 +174,7 @@ public class LoyaltyResponse {
      */
     public List<PaymentReceipt> getPaymentReceipt() {
         if (paymentReceipt == null) {
-            paymentReceipt = new ArrayList<PaymentReceipt>();
+            paymentReceipt = new ArrayList<>();
         }
         return this.paymentReceipt;
     }

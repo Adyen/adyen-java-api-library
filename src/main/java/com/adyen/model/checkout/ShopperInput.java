@@ -20,8 +20,6 @@
  */
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,6 +27,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * ShopperInput
@@ -61,12 +61,9 @@ public class ShopperInput {
         }
 
         public static BillingAddressEnum fromValue(String text) {
-            for (BillingAddressEnum b : BillingAddressEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<BillingAddressEnum> {
@@ -112,12 +109,9 @@ public class ShopperInput {
         }
 
         public static DeliveryAddressEnum fromValue(String text) {
-            for (DeliveryAddressEnum b : DeliveryAddressEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(DeliveryAddressEnum.values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<DeliveryAddressEnum> {
@@ -163,12 +157,9 @@ public class ShopperInput {
         }
 
         public static PersonalDetailsEnum fromValue(String text) {
-            for (PersonalDetailsEnum b : PersonalDetailsEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
+            return Arrays.stream(PersonalDetailsEnum.values()).
+                    filter(s -> s.value.equals(text)).
+                    findFirst().orElse(null);
         }
 
         public static class Adapter extends TypeAdapter<PersonalDetailsEnum> {

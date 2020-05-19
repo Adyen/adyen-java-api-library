@@ -238,7 +238,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
      */
     public Map<String, String> getOrCreateAdditionalData() {
         if (getAdditionalData() == null) {
-            setAdditionalData(new HashMap<String, String>());
+            setAdditionalData(new HashMap<>());
         }
 
         return getAdditionalData();
@@ -257,17 +257,11 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
             String lineNumber = "openinvoicedata.line" + count;
 
             getOrCreateAdditionalData().put(lineNumber + ".currencyCode", invoiceLine.getCurrencyCode());
-
             getOrCreateAdditionalData().put(lineNumber + ".description", invoiceLine.getDescription());
-
             getOrCreateAdditionalData().put(lineNumber + ".itemAmount", invoiceLine.getItemAmount().toString());
-
             getOrCreateAdditionalData().put(lineNumber + ".itemVatAmount", invoiceLine.getItemVATAmount().toString());
-
             getOrCreateAdditionalData().put(lineNumber + ".itemVatPercentage", invoiceLine.getItemVatPercentage().toString());
-
             getOrCreateAdditionalData().put(lineNumber + ".numberOfItems", Integer.toString(invoiceLine.getNumberOfItems()));
-
             getOrCreateAdditionalData().put(lineNumber + ".vatCategory", invoiceLine.getVatCategory().toString());
 
             // Addional field only for RatePay
