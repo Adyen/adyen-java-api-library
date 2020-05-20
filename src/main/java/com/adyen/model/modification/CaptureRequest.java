@@ -20,10 +20,11 @@
  */
 package com.adyen.model.modification;
 
-import java.util.Objects;
-import com.adyen.Util.Util;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * CaptureRequests class

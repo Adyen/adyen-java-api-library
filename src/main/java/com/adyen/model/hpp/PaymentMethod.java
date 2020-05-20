@@ -20,11 +20,12 @@
  */
 package com.adyen.model.hpp;
 
+import com.adyen.constants.BrandCodes;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Arrays;
 import java.util.List;
-import com.adyen.Util.Util;
-import com.adyen.constants.BrandCodes;
-import com.google.gson.annotations.SerializedName;
 
 public class PaymentMethod {
     @SerializedName("brandCode")

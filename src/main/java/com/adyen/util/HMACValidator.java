@@ -18,7 +18,7 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.Util;
+package com.adyen.util;
 
 import com.adyen.model.Amount;
 import com.adyen.model.notification.NotificationRequestItem;

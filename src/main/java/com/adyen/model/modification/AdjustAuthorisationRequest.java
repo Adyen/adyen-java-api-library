@@ -22,8 +22,8 @@
 
 package com.adyen.model.modification;
 
-import com.adyen.Util.Util;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;

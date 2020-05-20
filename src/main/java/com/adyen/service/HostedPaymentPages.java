@@ -23,12 +23,12 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.Service;
-import com.adyen.Util.HMACValidator;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.hpp.DirectoryLookupRequest;
 import com.adyen.model.hpp.DirectoryLookupResult;
 import com.adyen.model.hpp.PaymentMethod;
+import com.adyen.util.HMACValidator;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 

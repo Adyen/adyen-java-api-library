@@ -20,7 +20,7 @@
  */
 package com.adyen.model.hpp;
 
-import com.adyen.Util.Util;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 public class Issuer {

@@ -20,7 +20,7 @@
  */
 package com.adyen.model;
 
-import com.adyen.Util.Util;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.math.BigDecimal;

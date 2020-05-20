@@ -20,7 +20,7 @@
  */
 package com.adyen.model;
 
-import com.adyen.Util.DateUtil;
+import com.adyen.util.DateUtil;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;

@@ -21,7 +21,6 @@
 
 package com.adyen.util;
 
-import com.adyen.Util.HMACValidator;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.google.gson.Gson;
 import org.junit.Test;

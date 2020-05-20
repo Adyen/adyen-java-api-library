@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.Util.Util;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
