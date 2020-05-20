@@ -73,9 +73,7 @@ public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
         }.getType());
         SaleToPOISecuredMessage saleToPOISecuredResponse = securedPaymentResponse.getSaleToPOIResponse();
         String jsonDecryptedResponse = nexoCrypto.decrypt(saleToPOISecuredResponse, securityKey);
-        TerminalAPIResponse response = terminalApiGson.fromJson(jsonDecryptedResponse, new TypeToken<TerminalAPIResponse>() {
+        return terminalApiGson.fromJson(jsonDecryptedResponse, new TypeToken<TerminalAPIResponse>() {
         }.getType());
-
-        return response;
     }
 }

@@ -64,55 +64,43 @@ public class Notification extends Service {
     public CreateNotificationConfigurationResponse createNotificationConfiguration(CreateNotificationConfigurationRequest createNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(createNotificationConfigurationRequest);
         String jsonResult = createNotificationConfiguration.request(jsonRequest);
-        CreateNotificationConfigurationResponse createNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<CreateNotificationConfigurationResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<CreateNotificationConfigurationResponse>() {
         }.getType());
-
-        return createNotificationConfigurationResponse;
     }
 
     public UpdateNotificationConfigurationResponse updateNotificationConfiguration(UpdateNotificationConfigurationRequest updateNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(updateNotificationConfigurationRequest);
         String jsonResult = updateNotificationConfiguration.request(jsonRequest);
-        UpdateNotificationConfigurationResponse updateNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<UpdateNotificationConfigurationResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<UpdateNotificationConfigurationResponse>() {
         }.getType());
-
-        return updateNotificationConfigurationResponse;
     }
 
     public GetNotificationConfigurationResponse getNotificationConfiguration(GetNotificationConfigurationRequest getNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(getNotificationConfigurationRequest);
         String jsonResult = getNotificationConfiguration.request(jsonRequest);
-        GetNotificationConfigurationResponse getNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationResponse>() {
         }.getType());
-
-        return getNotificationConfigurationResponse;
     }
 
     public DeleteNotificationConfigurationResponse deleteNotificationConfiguration(DeleteNotificationConfigurationRequest deleteNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(deleteNotificationConfigurationRequest);
         String jsonResult = deleteNotificationConfiguration.request(jsonRequest);
-        DeleteNotificationConfigurationResponse deleteNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<DeleteNotificationConfigurationResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<DeleteNotificationConfigurationResponse>() {
         }.getType());
-
-        return deleteNotificationConfigurationResponse;
     }
 
     public TestNotificationConfigurationResponse testNotificationConfiguration(TestNotificationConfigurationRequest testNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(testNotificationConfigurationRequest);
         String jsonResult = testNotificationConfiguration.request(jsonRequest);
 
-        TestNotificationConfigurationResponse testNotificationConfigurationResponse = GSON.fromJson(jsonResult, new TypeToken<TestNotificationConfigurationResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<TestNotificationConfigurationResponse>() {
         }.getType());
-
-        return testNotificationConfigurationResponse;
     }
 
     public GetNotificationConfigurationListResponse getNotificationConfigurationList() throws Exception {
         String jsonResult = getNotificationConfigurationList.request("{}");
-        GetNotificationConfigurationListResponse getNotificationConfigurationListResponse = GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationListResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationListResponse>() {
         }.getType());
-
-        return getNotificationConfigurationListResponse;
     }
 
 

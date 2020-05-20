@@ -20,10 +20,11 @@
  */
 package com.adyen.model;
 
-import java.math.BigDecimal;
-import java.util.Objects;
 import com.adyen.Util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * Amount
@@ -36,8 +37,7 @@ public class Amount {
     private String currency = null;
 
     public BigDecimal getDecimalValue() {
-        BigDecimal amountValue =  BigDecimal.valueOf(getValue(), Util.getDecimalPlaces(getCurrency()));
-        return amountValue;
+        return BigDecimal.valueOf(getValue(), Util.getDecimalPlaces(getCurrency()));
     }
 
     public Amount value(Long value) {

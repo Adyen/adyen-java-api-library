@@ -119,8 +119,7 @@ public class HostedPaymentPages extends Service {
 
             return directoryLookupResult.getPaymentMethods();
         } catch (JsonSyntaxException e) {
-            HTTPClientException httpClientException = new HTTPClientException(200, "Invalid response or invalid skin code/HMAC key", null, jsonResult);
-            throw httpClientException;
+            throw new HTTPClientException(200, "Invalid response or invalid skin code/HMAC key", null, jsonResult);
         }
     }
 }

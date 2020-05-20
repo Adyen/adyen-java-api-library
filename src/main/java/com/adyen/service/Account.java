@@ -118,159 +118,127 @@ public class Account extends Service {
 
         String jsonResult = createAccountHolder.request(jsonRequest);
 
-        CreateAccountHolderResponse createAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<CreateAccountHolderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<CreateAccountHolderResponse>() {
         }.getType());
-
-        return createAccountHolderResponse;
-
     }
 
     public UpdateAccountHolderResponse updateAccountHolder(UpdateAccountHolderRequest updateAccountHolderRequest) throws Exception {
         String jsonRequest = GSON.toJson(updateAccountHolderRequest);
 
         String jsonResult = updateAccountHolder.request(jsonRequest);
-        UpdateAccountHolderResponse updateAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<UpdateAccountHolderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<UpdateAccountHolderResponse>() {
         }.getType());
-
-        return updateAccountHolderResponse;
     }
 
     public GetAccountHolderResponse getAccountHolder(GetAccountHolderRequest getAccountHolderRequest) throws Exception {
         String jsonRequest = GSON.toJson(getAccountHolderRequest);
 
         String jsonResult = getAccountHolder.request(jsonRequest);
-        GetAccountHolderResponse getAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<GetAccountHolderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<GetAccountHolderResponse>() {
         }.getType());
-
-        return getAccountHolderResponse;
     }
 
     public UploadDocumentResponse uploadDocument(UploadDocumentRequest uploadDocumentRequest) throws Exception {
         String jsonRequest = GSON.toJson(uploadDocumentRequest);
 
         String jsonResult = uploadDocument.request(jsonRequest);
-        UploadDocumentResponse uploadDocumentResponse = GSON.fromJson(jsonResult, new TypeToken<UploadDocumentResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<UploadDocumentResponse>() {
         }.getType());
-        return uploadDocumentResponse;
     }
 
     public CreateAccountResponse createAccount(CreateAccountRequest createAccountRequest) throws Exception {
         String jsonRequest = GSON.toJson(createAccountRequest);
 
         String jsonResult = createAccount.request(jsonRequest);
-        CreateAccountResponse createAccountResponse = GSON.fromJson(jsonResult, new TypeToken<CreateAccountResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<CreateAccountResponse>() {
         }.getType());
-
-        return createAccountResponse;
     }
 
     public DeleteBankAccountResponse deleteBankAccount(DeleteBankAccountRequest deleteBankAccountRequest) throws Exception {
         String jsonRequest = GSON.toJson(deleteBankAccountRequest);
 
         String jsonResult = deleteBankAccount.request(jsonRequest);
-        DeleteBankAccountResponse deleteBankAccountResponse = GSON.fromJson(jsonResult, new TypeToken<DeleteBankAccountResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<DeleteBankAccountResponse>() {
         }.getType());
-
-        return deleteBankAccountResponse;
     }
 
     public DeleteShareholderResponse deleteShareholder(DeleteShareholderRequest deleteShareholderRequest) throws Exception {
         String jsonRequest = GSON.toJson(deleteShareholderRequest);
 
         String jsonResult = deleteShareholder.request(jsonRequest);
-        DeleteShareholderResponse deleteShareholderResponse = GSON.fromJson(jsonResult, new TypeToken<DeleteShareholderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<DeleteShareholderResponse>() {
         }.getType());
-
-        return deleteShareholderResponse;
     }
 
     public SuspendAccountHolderResponse suspendAccountHolder(SuspendAccountHolderRequest suspendAccountHolderRequest) throws Exception {
         String jsonRequest = GSON.toJson(suspendAccountHolderRequest);
 
         String jsonResult = suspendAccountHolder.request(jsonRequest);
-        SuspendAccountHolderResponse suspendAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<SuspendAccountHolderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<SuspendAccountHolderResponse>() {
         }.getType());
-
-        return suspendAccountHolderResponse;
     }
 
     public UnSuspendAccountHolderResponse unSuspendAccountHolder(UnSuspendAccountHolderRequest unSuspendAccountHolderRequest) throws Exception {
         String jsonRequest = GSON.toJson(unSuspendAccountHolderRequest);
 
         String jsonResult = unSuspendAccountHolder.request(jsonRequest);
-        UnSuspendAccountHolderResponse unSuspendAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<UnSuspendAccountHolderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<UnSuspendAccountHolderResponse>() {
         }.getType());
-
-        return unSuspendAccountHolderResponse;
     }
 
     public UpdateAccountHolderStateResponse updateAccountHolderState(UpdateAccountHolderStateRequest updateAccountHolderStateRequest) throws Exception {
         String jsonRequest = GSON.toJson(updateAccountHolderStateRequest);
 
         String jsonResult = updateAccountHolderState.request(jsonRequest);
-        UpdateAccountHolderStateResponse updateAccountHolderStateResponse = GSON.fromJson(jsonResult, new TypeToken<UpdateAccountHolderStateResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<UpdateAccountHolderStateResponse>() {
         }.getType());
-
-        return updateAccountHolderStateResponse;
     }
 
     public CloseAccountResponse closeAccount(CloseAccountRequest closeAccountRequest) throws Exception {
         String jsonRequest = GSON.toJson(closeAccountRequest);
 
         String jsonResult = closeAccount.request(jsonRequest);
-        CloseAccountResponse closeAccountResponse = GSON.fromJson(jsonResult, new TypeToken<CloseAccountResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<CloseAccountResponse>() {
         }.getType());
-
-        return closeAccountResponse;
     }
 
     public CloseAccountHolderResponse closeAccountHolder(CloseAccountHolderRequest closeAccountHolderRequest) throws Exception {
         String jsonRequest = GSON.toJson(closeAccountHolderRequest);
 
         String jsonResult = closeAccountHolder.request(jsonRequest);
-        CloseAccountHolderResponse closeAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<CloseAccountHolderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<CloseAccountHolderResponse>() {
         }.getType());
-
-        return closeAccountHolderResponse;
     }
 
     public UpdateAccountResponse updateAccount(UpdateAccountRequest updateAccountRequest) throws Exception {
         String jsonRequest = GSON.toJson(updateAccountRequest);
 
         String jsonResult = updateAccount.request(jsonRequest);
-        UpdateAccountResponse updateAccountResponse = GSON.fromJson(jsonResult, new TypeToken<UpdateAccountResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<UpdateAccountResponse>() {
         }.getType());
-
-        return updateAccountResponse;
     }
 
     public GetUploadedDocumentsResponse getUploadedDocuments(GetUploadedDocumentsRequest getUploadedDocumentsRequest) throws Exception {
         String jsonRequest = GSON.toJson(getUploadedDocumentsRequest);
 
         String jsonResult = getUploadedDocuments.request(jsonRequest);
-        GetUploadedDocumentsResponse getUploadedDocumentsResponse = GSON.fromJson(jsonResult, new TypeToken<GetUploadedDocumentsResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<GetUploadedDocumentsResponse>() {
         }.getType());
-
-        return getUploadedDocumentsResponse;
     }
 
     public CheckAccountHolderResponse checkAccountHolder(PerformVerificationRequest performVerificationRequest) throws Exception {
         String jsonRequest = GSON.toJson(performVerificationRequest);
 
         String jsonResult = checkAccountHolder.request(jsonRequest);
-        CheckAccountHolderResponse checkAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<CheckAccountHolderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<CheckAccountHolderResponse>() {
         }.getType());
-
-        return checkAccountHolderResponse;
     }
 
     public DeletePayoutMethodResponse deletePayoutMethod(DeletePayoutMethodRequest deletePayoutMethodRequest) throws Exception {
         String jsonRequest = GSON.toJson(deletePayoutMethodRequest);
 
         String jsonResult = deletePayoutMethod.request(jsonRequest);
-        DeletePayoutMethodResponse deletePayoutMethodResponse = GSON.fromJson(jsonResult, new TypeToken<DeletePayoutMethodResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<DeletePayoutMethodResponse>() {
         }.getType());
-
-        return deletePayoutMethodResponse;
     }
 }

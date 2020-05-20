@@ -135,9 +135,7 @@ public class HttpURLConnectionClient implements ClientInterface {
     public String post(String requestUrl, Map<String, String> params, Config config) throws IOException, HTTPClientException {
         String postQuery = getQuery(params);
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName());
-        String response = doPostRequest(httpConnection, postQuery);
-
-        return response;
+        return doPostRequest(httpConnection, postQuery);
     }
 
     /**
@@ -243,9 +241,7 @@ public class HttpURLConnectionClient implements ClientInterface {
                 response = getResponseBody(httpConnection.getErrorStream());
             }
 
-            HTTPClientException httpClientException = new HTTPClientException(responseCode, "HTTP Exception", httpConnection.getHeaderFields(), response);
-
-            throw httpClientException;
+            throw new HTTPClientException(responseCode, "HTTP Exception", httpConnection.getHeaderFields(), response);
         }
 
         //InputStream is only available on successful requests >= 200 <400
