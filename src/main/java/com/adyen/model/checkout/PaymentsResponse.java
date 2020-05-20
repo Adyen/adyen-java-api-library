@@ -554,11 +554,11 @@ public class PaymentsResponse {
     }
 
     public boolean get3DOffered() {
-        return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_OFFERERED));
+        return "true".equals(getAdditionalDataByKey(THREE_D_OFFERERED));
     }
 
     public boolean get3DAuthenticated() {
-        return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
+        return "true".equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
     }
 
     public String getBoletoBarCodeReference() {

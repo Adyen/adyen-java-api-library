@@ -193,7 +193,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         for (InvoiceLine invoiceLine : invoiceLines) {
             StringBuilder sb = new StringBuilder();
             sb.append("openinvoicedata.line");
-            sb.append(Integer.toString(count));
+            sb.append(count);
             String lineNumber = sb.toString();
 
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".currencyCode").toString(), invoiceLine.getCurrencyCode());
@@ -226,7 +226,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
             StringBuilder sb = new StringBuilder();
             sb.append("split.item");
-            sb.append(Integer.toString(count));
+            sb.append(count);
             String lineNumber = sb.toString();
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".amount").toString(), splitPaymentItem.getAmount().toString());
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".type").toString(), splitPaymentItem.getType());

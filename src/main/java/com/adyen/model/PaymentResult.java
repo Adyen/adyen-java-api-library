@@ -20,11 +20,13 @@
  */
 package com.adyen.model;
 
+import com.adyen.Util.DateUtil;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
-import com.adyen.Util.DateUtil;
-import com.google.gson.annotations.SerializedName;
+
 import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
 import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_BARCODE_REFERENCE;
 import static com.adyen.constants.ApiConstants.AdditionalData.BOLETO_DATA;
@@ -422,11 +424,11 @@ public class PaymentResult {
     }
 
     public boolean get3DOffered() {
-        return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_OFFERERED));
+        return "true".equals(getAdditionalDataByKey(THREE_D_OFFERERED));
     }
 
     public boolean get3DAuthenticated() {
-        return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
+        return "true".equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
     }
 
     public String getBoletoBarCodeReference() {
