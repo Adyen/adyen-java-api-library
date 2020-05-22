@@ -20,7 +20,10 @@
  */
 package com.adyen.model;
 
+import com.adyen.model.marketpay.ErrorFieldType;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 /**
  * Represents the API error responses
@@ -40,6 +43,9 @@ public class ApiError {
 
     @SerializedName("pspReference")
     private String pspReference = null;
+
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     public int getStatus() {
         return status;
@@ -81,6 +87,14 @@ public class ApiError {
         this.pspReference = pspReference;
     }
 
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -91,6 +105,7 @@ public class ApiError {
         sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("    errorType: ").append(toIndentedString(errorType)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("}");
         return sb.toString();
     }

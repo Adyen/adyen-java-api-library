@@ -1,0 +1,22 @@
+{
+  "invalidFields" : [
+    {
+      "errorCode" : 29,
+      "errorDescription" : "Account code does not exist or invalid",
+      "fieldType" : {
+        "field" : "sourceAccountCode",
+        "fieldName" : "sourceAccountCode"
+      }
+    },
+    {
+      "errorCode" : 29,
+      "errorDescription" : "Account code does not exist or invalid",
+      "fieldType" : {
+        "field" : "destinationAccountCode",
+        "fieldName" : "destinationAccountCode"
+      }
+    }
+  ],
+  "pspReference" : "8515898092864171",
+  "resultCode" : "Failed"
+}
