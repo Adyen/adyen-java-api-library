@@ -22,12 +22,13 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * GetUploadedDocumentsResponse
@@ -160,10 +161,10 @@ public class GetUploadedDocumentsResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class GetUploadedDocumentsResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    documentDetails: ").append(Util.toIndentedString(documentDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    invalidFields: ").append(Util.toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(Util.toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    documentDetails: ").append(toIndentedString(documentDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

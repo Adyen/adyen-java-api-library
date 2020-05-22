@@ -23,10 +23,11 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * BankAccountDetail
@@ -627,32 +628,32 @@ public class BankAccountDetail {
         StringBuilder sb = new StringBuilder();
         sb.append("class BankAccountDetail {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountNumber: ").append(Util.toIndentedString(accountNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountType: ").append(Util.toIndentedString(accountType)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountName: ").append(Util.toIndentedString(bankAccountName)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountReference: ").append(Util.toIndentedString(bankAccountReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountUUID: ").append(Util.toIndentedString(bankAccountUUID)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankBicSwift: ").append(Util.toIndentedString(bankBicSwift)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankCity: ").append(Util.toIndentedString(bankCity)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankCode: ").append(Util.toIndentedString(bankCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankName: ").append(Util.toIndentedString(bankName)).append(TextConstants.LINE_BREAK);
-        sb.append("    branchCode: ").append(Util.toIndentedString(branchCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    checkCode: ").append(Util.toIndentedString(checkCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    countryCode: ").append(Util.toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    currencyCode: ").append(Util.toIndentedString(currencyCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    iban: ").append(Util.toIndentedString(iban)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerCity: ").append(Util.toIndentedString(ownerCity)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerCountryCode: ").append(Util.toIndentedString(ownerCountryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerDateOfBirth: ").append(Util.toIndentedString(ownerDateOfBirth)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerHouseNumberOrName: ").append(Util.toIndentedString(ownerHouseNumberOrName)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerName: ").append(Util.toIndentedString(ownerName)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerNationality: ").append(Util.toIndentedString(ownerNationality)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerPostalCode: ").append(Util.toIndentedString(ownerPostalCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerState: ").append(Util.toIndentedString(ownerState)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerStreet: ").append(Util.toIndentedString(ownerStreet)).append(TextConstants.LINE_BREAK);
-        sb.append("    primaryAccount: ").append(Util.toIndentedString(primaryAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    taxId: ").append(Util.toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
-        sb.append("    urlForVerification: ").append(Util.toIndentedString(urlForVerification)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountType: ").append(toIndentedString(accountType)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountName: ").append(toIndentedString(bankAccountName)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountReference: ").append(toIndentedString(bankAccountReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankBicSwift: ").append(toIndentedString(bankBicSwift)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankCity: ").append(toIndentedString(bankCity)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankCode: ").append(toIndentedString(bankCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankName: ").append(toIndentedString(bankName)).append(TextConstants.LINE_BREAK);
+        sb.append("    branchCode: ").append(toIndentedString(branchCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    checkCode: ").append(toIndentedString(checkCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    iban: ").append(toIndentedString(iban)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerCity: ").append(toIndentedString(ownerCity)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerCountryCode: ").append(toIndentedString(ownerCountryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerDateOfBirth: ").append(toIndentedString(ownerDateOfBirth)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerHouseNumberOrName: ").append(toIndentedString(ownerHouseNumberOrName)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerNationality: ").append(toIndentedString(ownerNationality)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerPostalCode: ").append(toIndentedString(ownerPostalCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerState: ").append(toIndentedString(ownerState)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerStreet: ").append(toIndentedString(ownerStreet)).append(TextConstants.LINE_BREAK);
+        sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
+        sb.append("    urlForVerification: ").append(toIndentedString(urlForVerification)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

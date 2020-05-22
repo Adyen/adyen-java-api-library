@@ -21,10 +21,11 @@
 package com.adyen.model.applicationinfo;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class ExternalPlatform extends CommonField {
 
@@ -61,7 +62,7 @@ public class ExternalPlatform extends CommonField {
         StringBuilder sb = new StringBuilder();
         sb.append("class ExternalPlatform {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    integrator: ").append(Util.toIndentedString(integrator)).append(TextConstants.LINE_BREAK);
+        sb.append("    integrator: ").append(toIndentedString(integrator)).append(TextConstants.LINE_BREAK);
 
         sb.append("}");
         return sb.toString();

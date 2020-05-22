@@ -21,12 +21,13 @@
 package com.adyen.model.recurring;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * DisableResult
@@ -103,8 +104,8 @@ public class DisableResult {
         StringBuilder sb = new StringBuilder();
         sb.append("class DisableResult {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    response: ").append(Util.toIndentedString(response)).append(TextConstants.LINE_BREAK);
-        sb.append("    details: ").append(Util.toIndentedString(details)).append(TextConstants.LINE_BREAK);
+        sb.append("    response: ").append(toIndentedString(response)).append(TextConstants.LINE_BREAK);
+        sb.append("    details: ").append(toIndentedString(details)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

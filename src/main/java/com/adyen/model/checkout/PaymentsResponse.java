@@ -26,7 +26,6 @@ import com.adyen.model.Amount;
 import com.adyen.model.FraudResult;
 import com.adyen.model.ThreeDS2Result;
 import com.adyen.util.DateUtil;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -56,6 +55,7 @@ import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
 import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentsResponse
@@ -437,23 +437,23 @@ public class PaymentsResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentsResponse {").append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
-        sb.append("    details: ").append(Util.toIndentedString(details)).append(TextConstants.LINE_BREAK);
-        sb.append("    fraudResult: ").append(Util.toIndentedString(fraudResult)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentData: ").append(Util.toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    redirect: ").append(Util.toIndentedString(redirect)).append(TextConstants.LINE_BREAK);
-        sb.append("    refusalReason: ").append(Util.toIndentedString(refusalReason)).append(TextConstants.LINE_BREAK);
-        sb.append("    refusalReasonCode: ").append(Util.toIndentedString(refusalReasonCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(Util.toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    serviceError: ").append(Util.toIndentedString(serviceError)).append(TextConstants.LINE_BREAK);
-        sb.append("    authResponse: ").append(Util.toIndentedString(authResponse)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantReference: ").append(Util.toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    outputDetails: ").append(Util.toIndentedString(outputDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    authentication: ").append(Util.toIndentedString(authentication)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDS2Result: ").append(Util.toIndentedString(threeDS2Result)).append(TextConstants.LINE_BREAK);
-        sb.append("    action: ").append(Util.toIndentedString(action)).append(TextConstants.LINE_BREAK);
-        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    details: ").append(toIndentedString(details)).append(TextConstants.LINE_BREAK);
+        sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    redirect: ").append(toIndentedString(redirect)).append(TextConstants.LINE_BREAK);
+        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    serviceError: ").append(toIndentedString(serviceError)).append(TextConstants.LINE_BREAK);
+        sb.append("    authResponse: ").append(toIndentedString(authResponse)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    authentication: ").append(toIndentedString(authentication)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append(TextConstants.LINE_BREAK);
+        sb.append("    action: ").append(toIndentedString(action)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -21,7 +21,6 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,6 +30,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ShopperInput
@@ -247,9 +248,9 @@ public class ShopperInput {
         StringBuilder sb = new StringBuilder();
         sb.append("class ShopperInput {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    billingAddress: ").append(Util.toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
-        sb.append("    deliveryAddress: ").append(Util.toIndentedString(deliveryAddress)).append(TextConstants.LINE_BREAK);
-        sb.append("    personalDetails: ").append(Util.toIndentedString(personalDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -31,6 +31,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * PaymentRequest
  */
@@ -381,16 +383,16 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentRequest {").append(TextConstants.LINE_BREAK);
         sb.append(super.toString());
-        sb.append("    accountInfo: ").append(Util.toIndentedString(accountInfo)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccount: ").append(Util.toIndentedString(bankAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    card: ").append(Util.toIndentedString(card)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantRiskIndicator: ").append(Util.toIndentedString(merchantRiskIndicator)).append(TextConstants.LINE_BREAK);
-        sb.append("    mpiData: ").append(Util.toIndentedString(mpiData)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurringProcessingModel: ").append(Util.toIndentedString(recurringProcessingModel)).append(TextConstants.LINE_BREAK);
-        sb.append("    splits: ").append(Util.toIndentedString(splits)).append(TextConstants.LINE_BREAK);
-        sb.append("    store: ").append(Util.toIndentedString(store)).append(TextConstants.LINE_BREAK);
-        sb.append("    trustedShopper: ").append(Util.toIndentedString(trustedShopper)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDS2RequestData: ").append(Util.toIndentedString(threeDS2RequestData)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    card: ").append(toIndentedString(card)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append(TextConstants.LINE_BREAK);
+        sb.append("    splits: ").append(toIndentedString(splits)).append(TextConstants.LINE_BREAK);
+        sb.append("    store: ").append(toIndentedString(store)).append(TextConstants.LINE_BREAK);
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append(TextConstants.LINE_BREAK);
         sb.append("}");
 
         return sb.toString();

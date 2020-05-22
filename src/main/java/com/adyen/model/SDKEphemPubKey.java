@@ -21,10 +21,11 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * SDKEphemPubKey
@@ -120,10 +121,10 @@ public class SDKEphemPubKey {
         StringBuilder sb = new StringBuilder();
         sb.append("class SDKEphemPubKey {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    crv: ").append(Util.toIndentedString(crv)).append(TextConstants.LINE_BREAK);
-        sb.append("    kty: ").append(Util.toIndentedString(kty)).append(TextConstants.LINE_BREAK);
-        sb.append("    x: ").append(Util.toIndentedString(x)).append(TextConstants.LINE_BREAK);
-        sb.append("    y: ").append(Util.toIndentedString(y)).append(TextConstants.LINE_BREAK);
+        sb.append("    crv: ").append(toIndentedString(crv)).append(TextConstants.LINE_BREAK);
+        sb.append("    kty: ").append(toIndentedString(kty)).append(TextConstants.LINE_BREAK);
+        sb.append("    x: ").append(toIndentedString(x)).append(TextConstants.LINE_BREAK);
+        sb.append("    y: ").append(toIndentedString(y)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

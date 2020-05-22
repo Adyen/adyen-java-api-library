@@ -23,7 +23,6 @@ package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Installments;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,6 +32,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class ModelConfiguration {
 
@@ -170,10 +171,10 @@ public class ModelConfiguration {
         StringBuilder sb = new StringBuilder();
         sb.append("class ModelConfiguration {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    avs: ").append(Util.toIndentedString(avs)).append(TextConstants.LINE_BREAK);
-        sb.append("    cardHolderName: ").append(Util.toIndentedString(cardHolderName)).append(TextConstants.LINE_BREAK);
-        sb.append("    installments: ").append(Util.toIndentedString(installments)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperInput: ").append(Util.toIndentedString(shopperInput)).append(TextConstants.LINE_BREAK);
+        sb.append("    avs: ").append(toIndentedString(avs)).append(TextConstants.LINE_BREAK);
+        sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append(TextConstants.LINE_BREAK);
+        sb.append("    installments: ").append(toIndentedString(installments)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperInput: ").append(toIndentedString(shopperInput)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

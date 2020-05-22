@@ -23,7 +23,6 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,6 +32,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * VisaCheckoutDetails
@@ -178,9 +179,9 @@ public class VisaCheckoutDetails implements PaymentMethodDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class VisaCheckoutDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    fundingSource: ").append(Util.toIndentedString(fundingSource)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
-        sb.append("    visaCheckoutCallId: ").append(Util.toIndentedString(visaCheckoutCallId)).append(TextConstants.LINE_BREAK);
+        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    visaCheckoutCallId: ").append(toIndentedString(visaCheckoutCallId)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

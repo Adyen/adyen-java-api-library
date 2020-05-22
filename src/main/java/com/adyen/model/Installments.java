@@ -21,10 +21,11 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Installments
@@ -75,7 +76,7 @@ public class Installments {
         StringBuilder sb = new StringBuilder();
         sb.append("class Installments {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    value: ").append(Util.toIndentedString(value)).append(TextConstants.LINE_BREAK);
+        sb.append("    value: ").append(toIndentedString(value)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

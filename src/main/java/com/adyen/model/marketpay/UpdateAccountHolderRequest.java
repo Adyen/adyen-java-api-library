@@ -23,7 +23,6 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,6 +32,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * UpdateAccountHolderRequest
@@ -238,12 +239,12 @@ public class UpdateAccountHolderRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateAccountHolderRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountHolderCode: ").append(Util.toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderDetails: ").append(Util.toIndentedString(accountHolderDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    legalEntity: ").append(Util.toIndentedString(legalEntity)).append(TextConstants.LINE_BREAK);
-        sb.append("    primaryCurrency: ").append(Util.toIndentedString(primaryCurrency)).append(TextConstants.LINE_BREAK);
-        sb.append("    processingTier: ").append(Util.toIndentedString(processingTier)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append(TextConstants.LINE_BREAK);
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append(TextConstants.LINE_BREAK);
+        sb.append("    processingTier: ").append(toIndentedString(processingTier)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

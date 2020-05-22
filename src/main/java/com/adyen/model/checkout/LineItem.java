@@ -22,7 +22,6 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,6 +31,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * LineItem
@@ -233,14 +234,14 @@ public class LineItem {
         StringBuilder sb = new StringBuilder();
         sb.append("class LineItem {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    amountExcludingTax: ").append(Util.toIndentedString(amountExcludingTax)).append(TextConstants.LINE_BREAK);
-        sb.append("    amountIncludingTax: ").append(Util.toIndentedString(amountIncludingTax)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    id: ").append(Util.toIndentedString(id)).append(TextConstants.LINE_BREAK);
-        sb.append("    quantity: ").append(Util.toIndentedString(quantity)).append(TextConstants.LINE_BREAK);
-        sb.append("    taxAmount: ").append(Util.toIndentedString(taxAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    taxCategory: ").append(Util.toIndentedString(taxCategory)).append(TextConstants.LINE_BREAK);
-        sb.append("    taxPercentage: ").append(Util.toIndentedString(taxPercentage)).append(TextConstants.LINE_BREAK);
+        sb.append("    amountExcludingTax: ").append(toIndentedString(amountExcludingTax)).append(TextConstants.LINE_BREAK);
+        sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    id: ").append(toIndentedString(id)).append(TextConstants.LINE_BREAK);
+        sb.append("    quantity: ").append(toIndentedString(quantity)).append(TextConstants.LINE_BREAK);
+        sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    taxCategory: ").append(toIndentedString(taxCategory)).append(TextConstants.LINE_BREAK);
+        sb.append("    taxPercentage: ").append(toIndentedString(taxPercentage)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

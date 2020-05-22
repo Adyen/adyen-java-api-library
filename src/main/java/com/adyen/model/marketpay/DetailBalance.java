@@ -23,12 +23,13 @@ package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * DetailBalance
@@ -147,9 +148,9 @@ public class DetailBalance {
         StringBuilder sb = new StringBuilder();
         sb.append("class DetailBalance {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    balance: ").append(Util.toIndentedString(balance)).append(TextConstants.LINE_BREAK);
-        sb.append("    onHoldBalance: ").append(Util.toIndentedString(onHoldBalance)).append(TextConstants.LINE_BREAK);
-        sb.append("    pendingBalance: ").append(Util.toIndentedString(pendingBalance)).append(TextConstants.LINE_BREAK);
+        sb.append("    balance: ").append(toIndentedString(balance)).append(TextConstants.LINE_BREAK);
+        sb.append("    onHoldBalance: ").append(toIndentedString(onHoldBalance)).append(TextConstants.LINE_BREAK);
+        sb.append("    pendingBalance: ").append(toIndentedString(pendingBalance)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

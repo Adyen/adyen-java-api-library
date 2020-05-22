@@ -23,12 +23,13 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PersonalData
@@ -131,9 +132,9 @@ public class PersonalData {
         StringBuilder sb = new StringBuilder();
         sb.append("class PersonalData {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    dateOfBirth: ").append(Util.toIndentedString(dateOfBirth)).append(TextConstants.LINE_BREAK);
-        sb.append("    documentData: ").append(Util.toIndentedString(documentData)).append(TextConstants.LINE_BREAK);
-        sb.append("    nationality: ").append(Util.toIndentedString(nationality)).append(TextConstants.LINE_BREAK);
+        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append(TextConstants.LINE_BREAK);
+        sb.append("    documentData: ").append(toIndentedString(documentData)).append(TextConstants.LINE_BREAK);
+        sb.append("    nationality: ").append(toIndentedString(nationality)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

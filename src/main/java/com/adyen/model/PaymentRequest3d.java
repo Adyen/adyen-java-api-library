@@ -22,11 +22,12 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentRequest3d
@@ -157,8 +158,8 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
         sb.append("class PaymentRequest3d {").append(TextConstants.LINE_BREAK);
 
         sb.append(super.toString());
-        sb.append("    md: ").append(Util.toIndentedString(md)).append(TextConstants.LINE_BREAK);
-        sb.append("    paResponse: ").append(Util.toIndentedString(paResponse)).append(TextConstants.LINE_BREAK);
+        sb.append("    md: ").append(toIndentedString(md)).append(TextConstants.LINE_BREAK);
+        sb.append("    paResponse: ").append(toIndentedString(paResponse)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

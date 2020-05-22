@@ -21,10 +21,11 @@
 package com.adyen.model.applicationinfo;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class MerchantDevice {
 
@@ -101,9 +102,9 @@ public class MerchantDevice {
         StringBuilder sb = new StringBuilder();
         sb.append("class MerchantDevice {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    os: ").append(Util.toIndentedString(os)).append(TextConstants.LINE_BREAK);
-        sb.append("    osVersion: ").append(Util.toIndentedString(osVersion)).append(TextConstants.LINE_BREAK);
-        sb.append("    reference: ").append(Util.toIndentedString(reference)).append(TextConstants.LINE_BREAK);
+        sb.append("    os: ").append(toIndentedString(os)).append(TextConstants.LINE_BREAK);
+        sb.append("    osVersion: ").append(toIndentedString(osVersion)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

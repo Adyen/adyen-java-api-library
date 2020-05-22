@@ -23,10 +23,11 @@ package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * RefundFundsTransferRequest
@@ -122,9 +123,9 @@ public class RefundFundsTransferRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class RefundFundsTransferRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantReference: ").append(Util.toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    originalReference: ").append(Util.toIndentedString(originalReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

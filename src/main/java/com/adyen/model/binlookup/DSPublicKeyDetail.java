@@ -22,12 +22,13 @@ package com.adyen.model.binlookup;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.serializer.ByteArrayToStringAdapter;
-import com.adyen.util.Util;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * DSPublicKeyDetail
@@ -125,9 +126,9 @@ public class DSPublicKeyDetail {
         StringBuilder sb = new StringBuilder();
         sb.append("class DSPublicKeyDetail {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    brand: ").append(Util.toIndentedString(brand)).append(TextConstants.LINE_BREAK);
-        sb.append("    directoryServerId: ").append(Util.toIndentedString(directoryServerId)).append(TextConstants.LINE_BREAK);
-        sb.append("    publicKey: ").append(Util.toIndentedString(publicKey)).append(TextConstants.LINE_BREAK);
+        sb.append("    brand: ").append(toIndentedString(brand)).append(TextConstants.LINE_BREAK);
+        sb.append("    directoryServerId: ").append(toIndentedString(directoryServerId)).append(TextConstants.LINE_BREAK);
+        sb.append("    publicKey: ").append(toIndentedString(publicKey)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

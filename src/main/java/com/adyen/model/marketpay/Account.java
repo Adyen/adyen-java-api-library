@@ -22,11 +22,12 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Account
@@ -209,13 +210,13 @@ public class Account {
         StringBuilder sb = new StringBuilder();
         sb.append("class Account {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountCode: ").append(Util.toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    beneficiaryAccount: ").append(Util.toIndentedString(beneficiaryAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    beneficiaryMerchantReference: ").append(Util.toIndentedString(beneficiaryMerchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    metadata: ").append(Util.toIndentedString(metadata)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutSchedule: ").append(Util.toIndentedString(payoutSchedule)).append(TextConstants.LINE_BREAK);
-        sb.append("    status: ").append(Util.toIndentedString(status)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    beneficiaryAccount: ").append(toIndentedString(beneficiaryAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    beneficiaryMerchantReference: ").append(toIndentedString(beneficiaryMerchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append(TextConstants.LINE_BREAK);
+        sb.append("    status: ").append(toIndentedString(status)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

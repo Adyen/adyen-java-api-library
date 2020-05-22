@@ -21,10 +21,11 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * UpdatePayoutScheduleRequest
@@ -174,9 +175,9 @@ public class UpdatePayoutScheduleRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdatePayoutScheduleRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    schedule: ").append(Util.toIndentedString(schedule)).append(TextConstants.LINE_BREAK);
-        sb.append("    reason: ").append(Util.toIndentedString(reason)).append(TextConstants.LINE_BREAK);
-        sb.append("    action: ").append(Util.toIndentedString(action)).append(TextConstants.LINE_BREAK);
+        sb.append("    schedule: ").append(toIndentedString(schedule)).append(TextConstants.LINE_BREAK);
+        sb.append("    reason: ").append(toIndentedString(reason)).append(TextConstants.LINE_BREAK);
+        sb.append("    action: ").append(toIndentedString(action)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

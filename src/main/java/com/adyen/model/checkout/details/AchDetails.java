@@ -23,10 +23,11 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AchDetails
@@ -195,12 +196,12 @@ public class AchDetails implements PaymentMethodDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class AchDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    bankAccountNumber: ").append(Util.toIndentedString(bankAccountNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankLocationId: ").append(Util.toIndentedString(bankLocationId)).append(TextConstants.LINE_BREAK);
-        sb.append("    encryptedBankAccountNumber: ").append(Util.toIndentedString(encryptedBankAccountNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    encryptedBankLocationId: ").append(Util.toIndentedString(encryptedBankLocationId)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerName: ").append(Util.toIndentedString(ownerName)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append(TextConstants.LINE_BREAK);
+        sb.append("    encryptedBankAccountNumber: ").append(toIndentedString(encryptedBankAccountNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    encryptedBankLocationId: ").append(toIndentedString(encryptedBankLocationId)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

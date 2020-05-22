@@ -22,10 +22,11 @@ package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Tier
@@ -140,10 +141,10 @@ public class Tier {
         StringBuilder sb = new StringBuilder();
         sb.append("class Tier {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    deadlineConfiguration: ").append(Util.toIndentedString(deadlineConfiguration)).append(TextConstants.LINE_BREAK);
-        sb.append("    fromAmount: ").append(Util.toIndentedString(fromAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    tierNumber: ").append(Util.toIndentedString(tierNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    toAmount: ").append(Util.toIndentedString(toAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    deadlineConfiguration: ").append(toIndentedString(deadlineConfiguration)).append(TextConstants.LINE_BREAK);
+        sb.append("    fromAmount: ").append(toIndentedString(fromAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    toAmount: ").append(toIndentedString(toAmount)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

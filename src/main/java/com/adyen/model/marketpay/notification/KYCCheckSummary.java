@@ -22,10 +22,11 @@
 package com.adyen.model.marketpay.notification;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class KYCCheckSummary {
 
@@ -94,8 +95,8 @@ public class KYCCheckSummary {
         StringBuilder sb = new StringBuilder();
         sb.append("class KYCCheckSummary {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    code: ").append(Util.toIndentedString(code)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    code: ").append(toIndentedString(code)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

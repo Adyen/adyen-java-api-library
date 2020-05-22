@@ -23,10 +23,11 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentResultRequest
@@ -77,7 +78,7 @@ public class PaymentResultRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentResultRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    payload: ").append(Util.toIndentedString(payload)).append(TextConstants.LINE_BREAK);
+        sb.append("    payload: ").append(toIndentedString(payload)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

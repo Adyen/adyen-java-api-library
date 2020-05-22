@@ -21,10 +21,11 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ThreeDS1Result
@@ -179,12 +180,12 @@ public class ThreeDS1Result {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThreeDS1Result {").append(TextConstants.LINE_BREAK);
 
-    sb.append("    cavv: ").append(Util.toIndentedString(cavv)).append(TextConstants.LINE_BREAK);
-    sb.append("    cavvAlgorithm: ").append(Util.toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
-    sb.append("    eci: ").append(Util.toIndentedString(eci)).append(TextConstants.LINE_BREAK);
-    sb.append("    threeDAuthenticatedResponse: ").append(Util.toIndentedString(threeDAuthenticatedResponse)).append(TextConstants.LINE_BREAK);
-    sb.append("    threeDOfferedResponse: ").append(Util.toIndentedString(threeDOfferedResponse)).append(TextConstants.LINE_BREAK);
-    sb.append("    xid: ").append(Util.toIndentedString(xid)).append(TextConstants.LINE_BREAK);
+    sb.append("    cavv: ").append(toIndentedString(cavv)).append(TextConstants.LINE_BREAK);
+    sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
+    sb.append("    eci: ").append(toIndentedString(eci)).append(TextConstants.LINE_BREAK);
+    sb.append("    threeDAuthenticatedResponse: ").append(toIndentedString(threeDAuthenticatedResponse)).append(TextConstants.LINE_BREAK);
+    sb.append("    threeDOfferedResponse: ").append(toIndentedString(threeDOfferedResponse)).append(TextConstants.LINE_BREAK);
+    sb.append("    xid: ").append(toIndentedString(xid)).append(TextConstants.LINE_BREAK);
     sb.append("}");
     return sb.toString();
   }

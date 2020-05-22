@@ -25,11 +25,12 @@ import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
 import com.adyen.model.Card;
 import com.adyen.model.Name;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * FundSource
@@ -191,12 +192,12 @@ public class FundSource {
         StringBuilder sb = new StringBuilder();
         sb.append("class FundSource {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
-        sb.append("    billingAddress: ").append(Util.toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
-        sb.append("    card: ").append(Util.toIndentedString(card)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperEmail: ").append(Util.toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperName: ").append(Util.toIndentedString(shopperName)).append(TextConstants.LINE_BREAK);
-        sb.append("    telephoneNumber: ").append(Util.toIndentedString(telephoneNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    card: ").append(toIndentedString(card)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append(TextConstants.LINE_BREAK);
+        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

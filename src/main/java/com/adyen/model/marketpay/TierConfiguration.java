@@ -21,12 +21,13 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * TierConfiguration
@@ -103,8 +104,8 @@ public class TierConfiguration {
         StringBuilder sb = new StringBuilder();
         sb.append("class TierConfiguration {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    tiers: ").append(Util.toIndentedString(tiers)).append(TextConstants.LINE_BREAK);
-        sb.append("    countryCode: ").append(Util.toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    tiers: ").append(toIndentedString(tiers)).append(TextConstants.LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

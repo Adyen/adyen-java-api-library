@@ -24,10 +24,11 @@ package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PayoutAccountHolderRequest
@@ -210,13 +211,13 @@ public class PayoutAccountHolderRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class PayoutAccountHolderRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountCode: ").append(Util.toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderCode: ").append(Util.toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountUUID: ").append(Util.toIndentedString(bankAccountUUID)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantReference: ").append(Util.toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutMethodCode: ").append(Util.toIndentedString(payoutMethodCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

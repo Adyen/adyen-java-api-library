@@ -22,10 +22,11 @@ package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * CreatePaymentLinkResponse
@@ -142,10 +143,10 @@ public class CreatePaymentLinkResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreatePaymentLinkResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    expiresAt: ").append(Util.toIndentedString(expiresAt)).append(TextConstants.LINE_BREAK);
-        sb.append("    reference: ").append(Util.toIndentedString(reference)).append(TextConstants.LINE_BREAK);
-        sb.append("    url: ").append(Util.toIndentedString(url)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(TextConstants.LINE_BREAK);
+        sb.append("    url: ").append(toIndentedString(url)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

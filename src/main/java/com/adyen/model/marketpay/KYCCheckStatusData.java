@@ -21,12 +21,13 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * KYCCheckStatusData
@@ -220,10 +221,10 @@ public class KYCCheckStatusData {
         StringBuilder sb = new StringBuilder();
         sb.append("class KYCCheckStatusData {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    checkType: ").append(Util.toIndentedString(checkType)).append(TextConstants.LINE_BREAK);
-        sb.append("    summary: ").append(Util.toIndentedString(summary)).append(TextConstants.LINE_BREAK);
-        sb.append("    checkStatus: ").append(Util.toIndentedString(checkStatus)).append(TextConstants.LINE_BREAK);
-        sb.append("    requiredFields: ").append(Util.toIndentedString(requiredFields)).append(TextConstants.LINE_BREAK);
+        sb.append("    checkType: ").append(toIndentedString(checkType)).append(TextConstants.LINE_BREAK);
+        sb.append("    summary: ").append(toIndentedString(summary)).append(TextConstants.LINE_BREAK);
+        sb.append("    checkStatus: ").append(toIndentedString(checkStatus)).append(TextConstants.LINE_BREAK);
+        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

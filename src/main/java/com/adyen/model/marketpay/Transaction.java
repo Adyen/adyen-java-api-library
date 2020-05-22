@@ -23,7 +23,6 @@ package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -34,6 +33,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Transaction
@@ -480,22 +481,22 @@ public class Transaction {
         StringBuilder sb = new StringBuilder();
         sb.append("class Transaction {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountDetail: ").append(Util.toIndentedString(bankAccountDetail)).append(TextConstants.LINE_BREAK);
-        sb.append("    captureMerchantReference: ").append(Util.toIndentedString(captureMerchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    capturePspReference: ").append(Util.toIndentedString(capturePspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    creationDate: ").append(Util.toIndentedString(creationDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    destinationAccountCode: ").append(Util.toIndentedString(destinationAccountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    disputePspReference: ").append(Util.toIndentedString(disputePspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    disputeReasonCode: ").append(Util.toIndentedString(disputeReasonCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantReference: ").append(Util.toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentPspReference: ").append(Util.toIndentedString(paymentPspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutPspReference: ").append(Util.toIndentedString(payoutPspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    sourceAccountCode: ").append(Util.toIndentedString(sourceAccountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    transactionStatus: ").append(Util.toIndentedString(transactionStatus)).append(TextConstants.LINE_BREAK);
-        sb.append("    transferCode: ").append(Util.toIndentedString(transferCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountDetail: ").append(toIndentedString(bankAccountDetail)).append(TextConstants.LINE_BREAK);
+        sb.append("    captureMerchantReference: ").append(toIndentedString(captureMerchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    capturePspReference: ").append(toIndentedString(capturePspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    disputePspReference: ").append(toIndentedString(disputePspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    disputeReasonCode: ").append(toIndentedString(disputeReasonCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutPspReference: ").append(toIndentedString(payoutPspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append(TextConstants.LINE_BREAK);
+        sb.append("    transferCode: ").append(toIndentedString(transferCode)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

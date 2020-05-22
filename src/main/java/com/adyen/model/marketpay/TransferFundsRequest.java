@@ -22,10 +22,11 @@ package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * TransferFundsRequest
@@ -159,11 +160,11 @@ public class TransferFundsRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class TransferFundsRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    sourceAccountCode: ").append(Util.toIndentedString(sourceAccountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    destinationAccountCode: ").append(Util.toIndentedString(destinationAccountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    transferCode: ").append(Util.toIndentedString(transferCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantReference: ").append(Util.toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    transferCode: ").append(toIndentedString(transferCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

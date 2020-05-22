@@ -22,7 +22,6 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -30,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * RecurringDetail
@@ -305,16 +306,16 @@ public class RecurringDetail {
         StringBuilder sb = new StringBuilder();
         sb.append("class RecurringDetail {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    brands: ").append(Util.toIndentedString(brands)).append(TextConstants.LINE_BREAK);
-        sb.append("    configuration: ").append(Util.toIndentedString(configuration)).append(TextConstants.LINE_BREAK);
-        sb.append("    details: ").append(Util.toIndentedString(details)).append(TextConstants.LINE_BREAK);
-        sb.append("    group: ").append(Util.toIndentedString(group)).append(TextConstants.LINE_BREAK);
-        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentMethodData: ").append(Util.toIndentedString(paymentMethodData)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurringDetailReference: ").append(Util.toIndentedString(recurringDetailReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    storedDetails: ").append(Util.toIndentedString(storedDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    supportsRecurring: ").append(Util.toIndentedString(supportsRecurring)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    brands: ").append(toIndentedString(brands)).append(TextConstants.LINE_BREAK);
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append(TextConstants.LINE_BREAK);
+        sb.append("    details: ").append(toIndentedString(details)).append(TextConstants.LINE_BREAK);
+        sb.append("    group: ").append(toIndentedString(group)).append(TextConstants.LINE_BREAK);
+        sb.append("    name: ").append(toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentMethodData: ").append(toIndentedString(paymentMethodData)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    storedDetails: ").append(toIndentedString(storedDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    supportsRecurring: ").append(toIndentedString(supportsRecurring)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

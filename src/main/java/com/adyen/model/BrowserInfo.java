@@ -22,10 +22,11 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * BrowserInfo
@@ -208,15 +209,15 @@ public class BrowserInfo {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class BrowserInfo {").append(TextConstants.LINE_BREAK);
-        sb.append("    userAgent: ").append(Util.toIndentedString(userAgent)).append(TextConstants.LINE_BREAK);
-        sb.append("    colorDepth: ").append(Util.toIndentedString(colorDepth)).append(TextConstants.LINE_BREAK);
-        sb.append("    javaEnabled: ").append(Util.toIndentedString(javaEnabled)).append(TextConstants.LINE_BREAK);
-        sb.append("    language: ").append(Util.toIndentedString(language)).append(TextConstants.LINE_BREAK);
-        sb.append("    screenHeight: ").append(Util.toIndentedString(screenHeight)).append(TextConstants.LINE_BREAK);
-        sb.append("    screenWidth: ").append(Util.toIndentedString(screenWidth)).append(TextConstants.LINE_BREAK);
-        sb.append("    timeZoneOffset: ").append(Util.toIndentedString(timeZoneOffset)).append(TextConstants.LINE_BREAK);
-        sb.append("    acceptHeader: ").append(Util.toIndentedString(acceptHeader)).append(TextConstants.LINE_BREAK);
-        sb.append("    javaScriptEnabled: ").append(Util.toIndentedString(javaScriptEnabled)).append(TextConstants.LINE_BREAK);
+        sb.append("    userAgent: ").append(toIndentedString(userAgent)).append(TextConstants.LINE_BREAK);
+        sb.append("    colorDepth: ").append(toIndentedString(colorDepth)).append(TextConstants.LINE_BREAK);
+        sb.append("    javaEnabled: ").append(toIndentedString(javaEnabled)).append(TextConstants.LINE_BREAK);
+        sb.append("    language: ").append(toIndentedString(language)).append(TextConstants.LINE_BREAK);
+        sb.append("    screenHeight: ").append(toIndentedString(screenHeight)).append(TextConstants.LINE_BREAK);
+        sb.append("    screenWidth: ").append(toIndentedString(screenWidth)).append(TextConstants.LINE_BREAK);
+        sb.append("    timeZoneOffset: ").append(toIndentedString(timeZoneOffset)).append(TextConstants.LINE_BREAK);
+        sb.append("    acceptHeader: ").append(toIndentedString(acceptHeader)).append(TextConstants.LINE_BREAK);
+        sb.append("    javaScriptEnabled: ").append(toIndentedString(javaScriptEnabled)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

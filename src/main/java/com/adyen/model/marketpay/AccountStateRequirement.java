@@ -21,12 +21,13 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AccountStateRequirement
@@ -103,8 +104,8 @@ public class AccountStateRequirement {
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountStateRequirement {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    requiredFields: ").append(Util.toIndentedString(requiredFields)).append(TextConstants.LINE_BREAK);
-        sb.append("    state: ").append(Util.toIndentedString(state)).append(TextConstants.LINE_BREAK);
+        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append(TextConstants.LINE_BREAK);
+        sb.append("    state: ").append(toIndentedString(state)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

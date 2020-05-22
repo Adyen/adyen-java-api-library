@@ -21,10 +21,11 @@
 package com.adyen.model.hpp;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class DirectoryLookupResult {
     @SerializedName("paymentMethods")
@@ -43,7 +44,7 @@ public class DirectoryLookupResult {
         StringBuilder sb = new StringBuilder();
         sb.append("class DirectoryLookupResult {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    paymentMethods: ").append(Util.toIndentedString(paymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

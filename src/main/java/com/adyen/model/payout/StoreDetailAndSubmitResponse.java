@@ -21,10 +21,11 @@
 package com.adyen.model.payout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentResult
@@ -78,10 +79,10 @@ public class StoreDetailAndSubmitResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class StoreDetailAndSubmitResponse {").append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(Util.toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    refusalReason: ").append(Util.toIndentedString(refusalReason)).append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

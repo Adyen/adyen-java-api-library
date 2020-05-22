@@ -23,10 +23,11 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * LianLianPayDetails
@@ -109,8 +110,8 @@ public class LianLianPayDetails implements PaymentMethodDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class LianLianPayDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    telephoneNumber: ").append(Util.toIndentedString(telephoneNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

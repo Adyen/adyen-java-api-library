@@ -22,12 +22,13 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentMethodsResponse
@@ -179,10 +180,10 @@ public class PaymentMethodsResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentMethodsResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    oneClickPaymentMethods: ").append(Util.toIndentedString(oneClickPaymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentMethods: ").append(Util.toIndentedString(paymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    storedPaymentMethods: ").append(Util.toIndentedString(storedPaymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    groups: ").append(Util.toIndentedString(groups)).append(TextConstants.LINE_BREAK);
+        sb.append("    oneClickPaymentMethods: ").append(toIndentedString(oneClickPaymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    storedPaymentMethods: ").append(toIndentedString(storedPaymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    groups: ").append(toIndentedString(groups)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

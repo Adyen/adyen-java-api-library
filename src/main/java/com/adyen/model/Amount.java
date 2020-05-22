@@ -27,6 +27,8 @@ import com.google.gson.annotations.SerializedName;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * Amount
  */
@@ -102,8 +104,8 @@ public class Amount {
         StringBuilder sb = new StringBuilder();
         sb.append("class Amount {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    value: ").append(Util.toIndentedString(value)).append(TextConstants.LINE_BREAK);
-        sb.append("    currency: ").append(Util.toIndentedString(currency)).append(TextConstants.LINE_BREAK);
+        sb.append("    value: ").append(toIndentedString(value)).append(TextConstants.LINE_BREAK);
+        sb.append("    currency: ").append(toIndentedString(currency)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

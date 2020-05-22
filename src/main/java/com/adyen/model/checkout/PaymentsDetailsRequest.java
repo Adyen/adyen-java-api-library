@@ -22,12 +22,13 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentsDetailsRequest
@@ -159,9 +160,9 @@ public class PaymentsDetailsRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentsDetailsRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    details: ").append(Util.toIndentedString(details)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentData: ").append(Util.toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDSAuthenticationOnly: ").append(Util.toIndentedString(threeDSAuthenticationOnly)).append(TextConstants.LINE_BREAK);
+        sb.append("    details: ").append(toIndentedString(details)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

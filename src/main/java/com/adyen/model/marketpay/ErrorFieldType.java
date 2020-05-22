@@ -21,10 +21,11 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ErrorFieldType
@@ -118,9 +119,9 @@ public class ErrorFieldType {
         StringBuilder sb = new StringBuilder();
         sb.append("class ErrorFieldType {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    errorDescription: ").append(Util.toIndentedString(errorDescription)).append(TextConstants.LINE_BREAK);
-        sb.append("    errorCode: ").append(Util.toIndentedString(errorCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    fieldType: ").append(Util.toIndentedString(fieldType)).append(TextConstants.LINE_BREAK);
+        sb.append("    errorDescription: ").append(toIndentedString(errorDescription)).append(TextConstants.LINE_BREAK);
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    fieldType: ").append(toIndentedString(fieldType)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

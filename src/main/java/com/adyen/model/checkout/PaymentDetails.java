@@ -24,10 +24,11 @@ package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentDetails
@@ -216,13 +217,13 @@ public class PaymentDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    additionalAmount: ").append(Util.toIndentedString(additionalAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    countryCode: ").append(Util.toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    reference: ").append(Util.toIndentedString(reference)).append(TextConstants.LINE_BREAK);
-        sb.append("    sessionValidity: ").append(Util.toIndentedString(sessionValidity)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperLocale: ").append(Util.toIndentedString(shopperLocale)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(Util.toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(TextConstants.LINE_BREAK);
+        sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

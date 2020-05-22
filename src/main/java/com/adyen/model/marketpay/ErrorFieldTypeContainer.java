@@ -21,10 +21,11 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class ErrorFieldTypeContainer {
     @SerializedName("ErrorFieldType")
@@ -70,7 +71,7 @@ public class ErrorFieldTypeContainer {
         StringBuilder sb = new StringBuilder();
         sb.append("class ErrorFieldTypeContainer {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    errorFieldType: ").append(Util.toIndentedString(errorFieldType)).append(TextConstants.LINE_BREAK);
+        sb.append("    errorFieldType: ").append(toIndentedString(errorFieldType)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

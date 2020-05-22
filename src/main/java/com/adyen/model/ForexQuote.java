@@ -21,11 +21,12 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ForexQuote
@@ -319,18 +320,18 @@ public class ForexQuote {
         StringBuilder sb = new StringBuilder();
         sb.append("class ForexQuote {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    reference: ").append(Util.toIndentedString(reference)).append(TextConstants.LINE_BREAK);
-        sb.append("    interbank: ").append(Util.toIndentedString(interbank)).append(TextConstants.LINE_BREAK);
-        sb.append("    sell: ").append(Util.toIndentedString(sell)).append(TextConstants.LINE_BREAK);
-        sb.append("    buy: ").append(Util.toIndentedString(buy)).append(TextConstants.LINE_BREAK);
-        sb.append("    validTill: ").append(Util.toIndentedString(validTill)).append(TextConstants.LINE_BREAK);
-        sb.append("    basePoints: ").append(Util.toIndentedString(basePoints)).append(TextConstants.LINE_BREAK);
-        sb.append("    source: ").append(Util.toIndentedString(source)).append(TextConstants.LINE_BREAK);
-        sb.append("    signature: ").append(Util.toIndentedString(signature)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
-        sb.append("    baseAmount: ").append(Util.toIndentedString(baseAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    account: ").append(Util.toIndentedString(account)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountType: ").append(Util.toIndentedString(accountType)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(TextConstants.LINE_BREAK);
+        sb.append("    interbank: ").append(toIndentedString(interbank)).append(TextConstants.LINE_BREAK);
+        sb.append("    sell: ").append(toIndentedString(sell)).append(TextConstants.LINE_BREAK);
+        sb.append("    buy: ").append(toIndentedString(buy)).append(TextConstants.LINE_BREAK);
+        sb.append("    validTill: ").append(toIndentedString(validTill)).append(TextConstants.LINE_BREAK);
+        sb.append("    basePoints: ").append(toIndentedString(basePoints)).append(TextConstants.LINE_BREAK);
+        sb.append("    source: ").append(toIndentedString(source)).append(TextConstants.LINE_BREAK);
+        sb.append("    signature: ").append(toIndentedString(signature)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    baseAmount: ").append(toIndentedString(baseAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    account: ").append(toIndentedString(account)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountType: ").append(toIndentedString(accountType)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

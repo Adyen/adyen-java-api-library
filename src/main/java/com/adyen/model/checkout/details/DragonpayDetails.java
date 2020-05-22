@@ -23,10 +23,11 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * DragonpayDetails
@@ -132,9 +133,9 @@ public class DragonpayDetails implements PaymentMethodDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class DragonpayDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    issuer: ").append(Util.toIndentedString(issuer)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperEmail: ").append(Util.toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuer: ").append(toIndentedString(issuer)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

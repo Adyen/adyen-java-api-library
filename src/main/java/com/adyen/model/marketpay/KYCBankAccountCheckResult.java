@@ -21,12 +21,13 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * KYCBankAccountCheckResult
@@ -103,8 +104,8 @@ public class KYCBankAccountCheckResult {
         StringBuilder sb = new StringBuilder();
         sb.append("class KYCBankAccountCheckResult {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    bankAccountUUID: ").append(Util.toIndentedString(bankAccountUUID)).append(TextConstants.LINE_BREAK);
-        sb.append("    checks: ").append(Util.toIndentedString(checks)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append(TextConstants.LINE_BREAK);
+        sb.append("    checks: ").append(toIndentedString(checks)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

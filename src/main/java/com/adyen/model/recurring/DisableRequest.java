@@ -21,10 +21,11 @@
 package com.adyen.model.recurring;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * DisableRequest
@@ -141,10 +142,10 @@ public class DisableRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class DisableRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    merchantAccount: ").append(Util.toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(Util.toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurringDetailReference: ").append(Util.toIndentedString(recurringDetailReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    contract: ").append(Util.toIndentedString(contract)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    contract: ").append(toIndentedString(contract)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

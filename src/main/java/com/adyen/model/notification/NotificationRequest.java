@@ -21,11 +21,12 @@
 package com.adyen.model.notification;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * NotificationRequest model class
@@ -66,8 +67,8 @@ public class NotificationRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class NotificationRequestItem {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    live: ").append(Util.toIndentedString(live)).append(TextConstants.LINE_BREAK);
-        sb.append("    notificationItems: ").append(Util.toIndentedString(notificationItemContainers)).append(TextConstants.LINE_BREAK);
+        sb.append("    live: ").append(toIndentedString(live)).append(TextConstants.LINE_BREAK);
+        sb.append("    notificationItems: ").append(toIndentedString(notificationItemContainers)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

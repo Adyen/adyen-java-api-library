@@ -21,10 +21,11 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AccountHolderBalanceRequest
@@ -75,7 +76,7 @@ public class AccountHolderBalanceRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountHolderBalanceRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountHolderCode: ").append(Util.toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

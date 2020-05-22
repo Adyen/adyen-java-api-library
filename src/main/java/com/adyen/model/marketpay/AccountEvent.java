@@ -21,11 +21,12 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AccountEvent
@@ -165,10 +166,10 @@ public class AccountEvent {
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountEvent {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    reason: ").append(Util.toIndentedString(reason)).append(TextConstants.LINE_BREAK);
-        sb.append("    resolvedByStateType: ").append(Util.toIndentedString(resolvedByStateType)).append(TextConstants.LINE_BREAK);
-        sb.append("    executionDate: ").append(Util.toIndentedString(executionDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    event: ").append(Util.toIndentedString(event)).append(TextConstants.LINE_BREAK);
+        sb.append("    reason: ").append(toIndentedString(reason)).append(TextConstants.LINE_BREAK);
+        sb.append("    resolvedByStateType: ").append(toIndentedString(resolvedByStateType)).append(TextConstants.LINE_BREAK);
+        sb.append("    executionDate: ").append(toIndentedString(executionDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    event: ").append(toIndentedString(event)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

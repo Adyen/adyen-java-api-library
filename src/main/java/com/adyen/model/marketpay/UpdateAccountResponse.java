@@ -23,7 +23,6 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -31,6 +30,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * UpdateAccountResponse
@@ -229,13 +230,13 @@ public class UpdateAccountResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateAccountResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountCode: ").append(Util.toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    invalidFields: ").append(Util.toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
-        sb.append("    metadata: ").append(Util.toIndentedString(metadata)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutSchedule: ").append(Util.toIndentedString(payoutSchedule)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(Util.toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

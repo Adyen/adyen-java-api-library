@@ -23,10 +23,11 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Item
@@ -100,8 +101,8 @@ public class Item {
         StringBuilder sb = new StringBuilder();
         sb.append("class Item {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    id: ").append(Util.toIndentedString(id)).append(TextConstants.LINE_BREAK);
-        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    id: ").append(toIndentedString(id)).append(TextConstants.LINE_BREAK);
+        sb.append("    name: ").append(toIndentedString(name)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

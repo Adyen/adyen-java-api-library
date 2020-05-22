@@ -21,10 +21,11 @@
 package com.adyen.model.binlookup;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * CardBin
@@ -287,16 +288,16 @@ public class CardBin {
         StringBuilder sb = new StringBuilder();
         sb.append("class CardBin {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    bin: ").append(Util.toIndentedString(bin)).append(TextConstants.LINE_BREAK);
-        sb.append("    commercial: ").append(Util.toIndentedString(commercial)).append(TextConstants.LINE_BREAK);
-        sb.append("    fundingSource: ").append(Util.toIndentedString(fundingSource)).append(TextConstants.LINE_BREAK);
-        sb.append("    fundsAvailability: ").append(Util.toIndentedString(fundsAvailability)).append(TextConstants.LINE_BREAK);
-        sb.append("    issuingBank: ").append(Util.toIndentedString(issuingBank)).append(TextConstants.LINE_BREAK);
-        sb.append("    issuingCountry: ").append(Util.toIndentedString(issuingCountry)).append(TextConstants.LINE_BREAK);
-        sb.append("    issuingCurrency: ").append(Util.toIndentedString(issuingCurrency)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentMethod: ").append(Util.toIndentedString(paymentMethod)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutEligible: ").append(Util.toIndentedString(payoutEligible)).append(TextConstants.LINE_BREAK);
-        sb.append("    summary: ").append(Util.toIndentedString(summary)).append(TextConstants.LINE_BREAK);
+        sb.append("    bin: ").append(toIndentedString(bin)).append(TextConstants.LINE_BREAK);
+        sb.append("    commercial: ").append(toIndentedString(commercial)).append(TextConstants.LINE_BREAK);
+        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append(TextConstants.LINE_BREAK);
+        sb.append("    fundsAvailability: ").append(toIndentedString(fundsAvailability)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuingBank: ").append(toIndentedString(issuingBank)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuingCountry: ").append(toIndentedString(issuingCountry)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuingCurrency: ").append(toIndentedString(issuingCurrency)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutEligible: ").append(toIndentedString(payoutEligible)).append(TextConstants.LINE_BREAK);
+        sb.append("    summary: ").append(toIndentedString(summary)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

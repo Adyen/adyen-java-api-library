@@ -21,12 +21,13 @@
 package com.adyen.model.binlookup;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ThreeDSAvailabilityResponse
@@ -179,11 +180,11 @@ public class ThreeDSAvailabilityResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ThreeDSAvailabilityResponse {").append(TextConstants.LINE_BREAK);
-        sb.append("    binDetails: ").append(Util.toIndentedString(binDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    dsPublicKeys: ").append(Util.toIndentedString(dsPublicKeys)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDS1Supported: ").append(Util.toIndentedString(threeDS1Supported)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDS2CardRangeDetails: ").append(Util.toIndentedString(threeDS2CardRangeDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDS2supported: ").append(Util.toIndentedString(threeDS2supported)).append(TextConstants.LINE_BREAK);
+        sb.append("    binDetails: ").append(toIndentedString(binDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    dsPublicKeys: ").append(toIndentedString(dsPublicKeys)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS1Supported: ").append(toIndentedString(threeDS1Supported)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2CardRangeDetails: ").append(toIndentedString(threeDS2CardRangeDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2supported: ").append(toIndentedString(threeDS2supported)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

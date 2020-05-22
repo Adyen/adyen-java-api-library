@@ -21,8 +21,9 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Container for FraudCheckResult
@@ -45,7 +46,7 @@ public class FraudCheckResultContainer {
         StringBuilder sb = new StringBuilder();
         sb.append("class FraudCheckResultContainer {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    fraudCheckResult: ").append(Util.toIndentedString(fraudCheckResult)).append(TextConstants.LINE_BREAK);
+        sb.append("    fraudCheckResult: ").append(toIndentedString(fraudCheckResult)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -21,13 +21,14 @@
 package com.adyen.model.marketpay.notification;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * TestNotificationConfigurationResponse
@@ -309,13 +310,13 @@ public class TestNotificationConfigurationResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class TestNotificationConfigurationResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    errorMessages: ").append(Util.toIndentedString(errorMessages)).append(TextConstants.LINE_BREAK);
-        sb.append("    submittedAsync: ").append(Util.toIndentedString(submittedAsync)).append(TextConstants.LINE_BREAK);
-        sb.append("    okMessages: ").append(Util.toIndentedString(okMessages)).append(TextConstants.LINE_BREAK);
-        sb.append("    exchangeMessages: ").append(Util.toIndentedString(exchangeMessages)).append(TextConstants.LINE_BREAK);
-        sb.append("    notificationId: ").append(Util.toIndentedString(notificationId)).append(TextConstants.LINE_BREAK);
-        sb.append("    eventTypes: ").append(Util.toIndentedString(eventTypes)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    errorMessages: ").append(toIndentedString(errorMessages)).append(TextConstants.LINE_BREAK);
+        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append(TextConstants.LINE_BREAK);
+        sb.append("    okMessages: ").append(toIndentedString(okMessages)).append(TextConstants.LINE_BREAK);
+        sb.append("    exchangeMessages: ").append(toIndentedString(exchangeMessages)).append(TextConstants.LINE_BREAK);
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append(TextConstants.LINE_BREAK);
+        sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

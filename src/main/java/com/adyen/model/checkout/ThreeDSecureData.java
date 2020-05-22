@@ -23,7 +23,6 @@ package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.serializer.ByteArrayToStringAdapter;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,6 +32,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ThreeDSecureData
@@ -197,14 +198,14 @@ public class ThreeDSecureData {
         StringBuilder sb = new StringBuilder();
         sb.append("class ThreeDSecureData {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    authenticationResponse: ").append(Util.toIndentedString(authenticationResponse)).append(TextConstants.LINE_BREAK);
-        sb.append("    cavv: ").append(Util.toIndentedString(cavv)).append(TextConstants.LINE_BREAK);
-        sb.append("    cavvAlgorithm: ").append(Util.toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
-        sb.append("    directoryResponse: ").append(Util.toIndentedString(directoryResponse)).append(TextConstants.LINE_BREAK);
-        sb.append("    eci: ").append(Util.toIndentedString(eci)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDSVersion: ").append(Util.toIndentedString(threeDSVersion)).append(TextConstants.LINE_BREAK);
-        sb.append("    xid: ").append(Util.toIndentedString(xid)).append(TextConstants.LINE_BREAK);
-        sb.append("    dsTransID: ").append(Util.toIndentedString(dsTransID)).append(TextConstants.LINE_BREAK);
+        sb.append("    authenticationResponse: ").append(toIndentedString(authenticationResponse)).append(TextConstants.LINE_BREAK);
+        sb.append("    cavv: ").append(toIndentedString(cavv)).append(TextConstants.LINE_BREAK);
+        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
+        sb.append("    directoryResponse: ").append(toIndentedString(directoryResponse)).append(TextConstants.LINE_BREAK);
+        sb.append("    eci: ").append(toIndentedString(eci)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSVersion: ").append(toIndentedString(threeDSVersion)).append(TextConstants.LINE_BREAK);
+        sb.append("    xid: ").append(toIndentedString(xid)).append(TextConstants.LINE_BREAK);
+        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

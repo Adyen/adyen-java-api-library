@@ -22,7 +22,6 @@ package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.util.DateUtil;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -42,6 +41,7 @@ import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
 import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentResult
@@ -350,17 +350,17 @@ public class PaymentResult {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentResult {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    authCode: ").append(Util.toIndentedString(authCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    paRequest: ").append(Util.toIndentedString(paRequest)).append(TextConstants.LINE_BREAK);
-        sb.append("    issuerUrl: ").append(Util.toIndentedString(issuerUrl)).append(TextConstants.LINE_BREAK);
-        sb.append("    md: ").append(Util.toIndentedString(md)).append(TextConstants.LINE_BREAK);
-        sb.append("    dccAmount: ").append(Util.toIndentedString(dccAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    dccSignature: ").append(Util.toIndentedString(dccSignature)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(Util.toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
-        sb.append("    refusalReason: ").append(Util.toIndentedString(refusalReason)).append(TextConstants.LINE_BREAK);
-        sb.append("    fraudResult: ").append(Util.toIndentedString(fraudResult)).append(TextConstants.LINE_BREAK);
+        sb.append("    authCode: ").append(toIndentedString(authCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    paRequest: ").append(toIndentedString(paRequest)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuerUrl: ").append(toIndentedString(issuerUrl)).append(TextConstants.LINE_BREAK);
+        sb.append("    md: ").append(toIndentedString(md)).append(TextConstants.LINE_BREAK);
+        sb.append("    dccAmount: ").append(toIndentedString(dccAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    dccSignature: ").append(toIndentedString(dccSignature)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

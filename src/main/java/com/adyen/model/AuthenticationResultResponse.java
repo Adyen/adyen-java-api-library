@@ -21,10 +21,11 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AuthenticationResultResponse
@@ -95,8 +96,8 @@ public class AuthenticationResultResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthenticationResultResponse {").append(TextConstants.LINE_BREAK);
 
-    sb.append("    threeDS1Result: ").append(Util.toIndentedString(threeDS1Result)).append(TextConstants.LINE_BREAK);
-    sb.append("    threeDS2Result: ").append(Util.toIndentedString(threeDS2Result)).append(TextConstants.LINE_BREAK);
+    sb.append("    threeDS1Result: ").append(toIndentedString(threeDS1Result)).append(TextConstants.LINE_BREAK);
+    sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append(TextConstants.LINE_BREAK);
     sb.append("}");
     return sb.toString();
   }

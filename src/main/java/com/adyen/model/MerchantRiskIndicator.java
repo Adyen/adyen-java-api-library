@@ -22,7 +22,6 @@ package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.serializer.DateSerializer;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,6 +32,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * MerchantRiskIndicator
@@ -318,15 +319,15 @@ public class MerchantRiskIndicator {
         StringBuilder sb = new StringBuilder();
         sb.append("class MerchantRiskIndicator {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    addressMatch: ").append(Util.toIndentedString(addressMatch)).append(TextConstants.LINE_BREAK);
-        sb.append("    deliveryAddressIndicator: ").append(Util.toIndentedString(deliveryAddressIndicator)).append(TextConstants.LINE_BREAK);
-        sb.append("    deliveryEmail: ").append(Util.toIndentedString(deliveryEmail)).append(TextConstants.LINE_BREAK);
-        sb.append("    deliveryTimeframe: ").append(Util.toIndentedString(deliveryTimeframe)).append(TextConstants.LINE_BREAK);
-        sb.append("    giftCardAmount: ").append(Util.toIndentedString(giftCardAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    giftCardCount: ").append(Util.toIndentedString(giftCardCount)).append(TextConstants.LINE_BREAK);
-        sb.append("    preOrderDate: ").append(Util.toIndentedString(preOrderDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    preOrderPurchase: ").append(Util.toIndentedString(preOrderPurchase)).append(TextConstants.LINE_BREAK);
-        sb.append("    reorderItems: ").append(Util.toIndentedString(reorderItems)).append(TextConstants.LINE_BREAK);
+        sb.append("    addressMatch: ").append(toIndentedString(addressMatch)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryAddressIndicator: ").append(toIndentedString(deliveryAddressIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryEmail: ").append(toIndentedString(deliveryEmail)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryTimeframe: ").append(toIndentedString(deliveryTimeframe)).append(TextConstants.LINE_BREAK);
+        sb.append("    giftCardAmount: ").append(toIndentedString(giftCardAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    giftCardCount: ").append(toIndentedString(giftCardCount)).append(TextConstants.LINE_BREAK);
+        sb.append("    preOrderDate: ").append(toIndentedString(preOrderDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    preOrderPurchase: ").append(toIndentedString(preOrderPurchase)).append(TextConstants.LINE_BREAK);
+        sb.append("    reorderItems: ").append(toIndentedString(reorderItems)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

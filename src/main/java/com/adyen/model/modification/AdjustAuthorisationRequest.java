@@ -29,6 +29,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.util.Util.toIndentedString;
+
 public class AdjustAuthorisationRequest extends AbstractModificationRequest<AdjustAuthorisationRequest> {
     @SerializedName("modificationAmount")
     private Amount modificationAmount = null;
@@ -77,7 +79,7 @@ public class AdjustAuthorisationRequest extends AbstractModificationRequest<Adju
         sb.append("class AdjustAuthorisationRequest {").append(TextConstants.LINE_BREAK);
 
         sb.append(super.toString());
-        sb.append("    modificationAmount: ").append(Util.toIndentedString(modificationAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

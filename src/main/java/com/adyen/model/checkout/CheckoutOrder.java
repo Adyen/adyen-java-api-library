@@ -21,10 +21,11 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * CheckoutOrder
@@ -97,8 +98,8 @@ public class CheckoutOrder {
         StringBuilder sb = new StringBuilder();
         sb.append("class CheckoutOrder {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    orderData: ").append(Util.toIndentedString(orderData)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    orderData: ").append(toIndentedString(orderData)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

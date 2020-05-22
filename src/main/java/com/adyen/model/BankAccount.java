@@ -21,10 +21,11 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * BankAccount
@@ -252,15 +253,15 @@ public class BankAccount {
         StringBuilder sb = new StringBuilder();
         sb.append("class BankAccount {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    iban: ").append(Util.toIndentedString(iban)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerName: ").append(Util.toIndentedString(ownerName)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankName: ").append(Util.toIndentedString(bankName)).append(TextConstants.LINE_BREAK);
-        sb.append("    taxId: ").append(Util.toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankCity: ").append(Util.toIndentedString(bankCity)).append(TextConstants.LINE_BREAK);
-        sb.append("    countryCode: ").append(Util.toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountNumber: ").append(Util.toIndentedString(bankAccountNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankLocationId: ").append(Util.toIndentedString(bankLocationId)).append(TextConstants.LINE_BREAK);
-        sb.append("    bic: ").append(Util.toIndentedString(bic)).append(TextConstants.LINE_BREAK);
+        sb.append("    iban: ").append(toIndentedString(iban)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankName: ").append(toIndentedString(bankName)).append(TextConstants.LINE_BREAK);
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankCity: ").append(toIndentedString(bankCity)).append(TextConstants.LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append(TextConstants.LINE_BREAK);
+        sb.append("    bic: ").append(toIndentedString(bic)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

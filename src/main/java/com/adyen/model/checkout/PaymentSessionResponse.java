@@ -22,12 +22,13 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentSessionResponse
@@ -473,23 +474,23 @@ public class PaymentSessionResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentSessionResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    company: ").append(Util.toIndentedString(company)).append(TextConstants.LINE_BREAK);
-        sb.append("    disableRecurringDetailUrl: ").append(Util.toIndentedString(disableRecurringDetailUrl)).append(TextConstants.LINE_BREAK);
-        sb.append("    generationtime: ").append(Util.toIndentedString(generationtime)).append(TextConstants.LINE_BREAK);
-        sb.append("    html: ").append(Util.toIndentedString(html)).append(TextConstants.LINE_BREAK);
-        sb.append("    initiationUrl: ").append(Util.toIndentedString(initiationUrl)).append(TextConstants.LINE_BREAK);
-        sb.append("    lineItems: ").append(Util.toIndentedString(lineItems)).append(TextConstants.LINE_BREAK);
-        sb.append("    logoBaseUrl: ").append(Util.toIndentedString(logoBaseUrl)).append(TextConstants.LINE_BREAK);
-        sb.append("    oneClickPaymentMethods: ").append(Util.toIndentedString(oneClickPaymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    origin: ").append(Util.toIndentedString(origin)).append(TextConstants.LINE_BREAK);
-        sb.append("    originKey: ").append(Util.toIndentedString(originKey)).append(TextConstants.LINE_BREAK);
-        sb.append("    payment: ").append(Util.toIndentedString(payment)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentData: ").append(Util.toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentMethods: ").append(Util.toIndentedString(paymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentSession: ").append(Util.toIndentedString(paymentSession)).append(TextConstants.LINE_BREAK);
-        sb.append("    publicKey: ").append(Util.toIndentedString(publicKey)).append(TextConstants.LINE_BREAK);
-        sb.append("    publicKeyToken: ").append(Util.toIndentedString(publicKeyToken)).append(TextConstants.LINE_BREAK);
-        sb.append("    sdkVersion: ").append(Util.toIndentedString(sdkVersion)).append(TextConstants.LINE_BREAK);
+        sb.append("    company: ").append(toIndentedString(company)).append(TextConstants.LINE_BREAK);
+        sb.append("    disableRecurringDetailUrl: ").append(toIndentedString(disableRecurringDetailUrl)).append(TextConstants.LINE_BREAK);
+        sb.append("    generationtime: ").append(toIndentedString(generationtime)).append(TextConstants.LINE_BREAK);
+        sb.append("    html: ").append(toIndentedString(html)).append(TextConstants.LINE_BREAK);
+        sb.append("    initiationUrl: ").append(toIndentedString(initiationUrl)).append(TextConstants.LINE_BREAK);
+        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append(TextConstants.LINE_BREAK);
+        sb.append("    logoBaseUrl: ").append(toIndentedString(logoBaseUrl)).append(TextConstants.LINE_BREAK);
+        sb.append("    oneClickPaymentMethods: ").append(toIndentedString(oneClickPaymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    origin: ").append(toIndentedString(origin)).append(TextConstants.LINE_BREAK);
+        sb.append("    originKey: ").append(toIndentedString(originKey)).append(TextConstants.LINE_BREAK);
+        sb.append("    payment: ").append(toIndentedString(payment)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentSession: ").append(toIndentedString(paymentSession)).append(TextConstants.LINE_BREAK);
+        sb.append("    publicKey: ").append(toIndentedString(publicKey)).append(TextConstants.LINE_BREAK);
+        sb.append("    publicKeyToken: ").append(toIndentedString(publicKeyToken)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkVersion: ").append(toIndentedString(sdkVersion)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

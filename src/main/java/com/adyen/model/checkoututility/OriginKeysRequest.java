@@ -22,12 +22,13 @@
 package com.adyen.model.checkoututility;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * OriginKeysRequest
@@ -83,7 +84,7 @@ public class OriginKeysRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class OriginKeysRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    originDomains: ").append(Util.toIndentedString(originDomains)).append(TextConstants.LINE_BREAK);
+        sb.append("    originDomains: ").append(toIndentedString(originDomains)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

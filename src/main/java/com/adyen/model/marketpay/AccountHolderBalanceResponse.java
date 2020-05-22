@@ -23,12 +23,13 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AccountHolderBalanceResponse
@@ -183,11 +184,11 @@ public class AccountHolderBalanceResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class AccountHolderBalanceResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    balancePerAccount: ").append(Util.toIndentedString(balancePerAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    invalidFields: ").append(Util.toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(Util.toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    totalBalance: ").append(Util.toIndentedString(totalBalance)).append(TextConstants.LINE_BREAK);
+        sb.append("    balancePerAccount: ").append(toIndentedString(balancePerAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    totalBalance: ").append(toIndentedString(totalBalance)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

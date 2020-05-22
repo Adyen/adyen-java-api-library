@@ -21,10 +21,11 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PhoneNumber
@@ -146,9 +147,9 @@ public class PhoneNumber {
         StringBuilder sb = new StringBuilder();
         sb.append("class PhoneNumber {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    phoneType: ").append(Util.toIndentedString(phoneType)).append(TextConstants.LINE_BREAK);
-        sb.append("    phoneNumber: ").append(Util.toIndentedString(phoneNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    phoneCountryCode: ").append(Util.toIndentedString(phoneCountryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    phoneType: ").append(toIndentedString(phoneType)).append(TextConstants.LINE_BREAK);
+        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    phoneCountryCode: ").append(toIndentedString(phoneCountryCode)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

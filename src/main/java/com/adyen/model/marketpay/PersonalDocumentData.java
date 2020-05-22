@@ -23,7 +23,6 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,6 +32,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PersonalDocumentData
@@ -217,11 +218,11 @@ public class PersonalDocumentData {
         StringBuilder sb = new StringBuilder();
         sb.append("class PersonalDocumentData {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    expirationDate: ").append(Util.toIndentedString(expirationDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    issuerCountry: ").append(Util.toIndentedString(issuerCountry)).append(TextConstants.LINE_BREAK);
-        sb.append("    issuerState: ").append(Util.toIndentedString(issuerState)).append(TextConstants.LINE_BREAK);
-        sb.append("    number: ").append(Util.toIndentedString(number)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuerState: ").append(toIndentedString(issuerState)).append(TextConstants.LINE_BREAK);
+        sb.append("    number: ").append(toIndentedString(number)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

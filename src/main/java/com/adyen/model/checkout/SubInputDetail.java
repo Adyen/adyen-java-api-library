@@ -22,13 +22,14 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * SubInputDetail
@@ -198,12 +199,12 @@ public class SubInputDetail {
         StringBuilder sb = new StringBuilder();
         sb.append("class SubInputDetail {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    items: ").append(Util.toIndentedString(items)).append(TextConstants.LINE_BREAK);
-        sb.append("    key: ").append(Util.toIndentedString(key)).append(TextConstants.LINE_BREAK);
-        sb.append("    optional: ").append(Util.toIndentedString(optional)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
-        sb.append("    value: ").append(Util.toIndentedString(value)).append(TextConstants.LINE_BREAK);
-        sb.append("    configuration: ").append(Util.toIndentedString(configuration)).append(TextConstants.LINE_BREAK);
+        sb.append("    items: ").append(toIndentedString(items)).append(TextConstants.LINE_BREAK);
+        sb.append("    key: ").append(toIndentedString(key)).append(TextConstants.LINE_BREAK);
+        sb.append("    optional: ").append(toIndentedString(optional)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    value: ").append(toIndentedString(value)).append(TextConstants.LINE_BREAK);
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -23,10 +23,11 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * EcontextVoucherDetails
@@ -175,11 +176,11 @@ public class EcontextVoucherDetails implements PaymentMethodDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class EcontextVoucherDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    firstName: ").append(Util.toIndentedString(firstName)).append(TextConstants.LINE_BREAK);
-        sb.append("    lastName: ").append(Util.toIndentedString(lastName)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperEmail: ").append(Util.toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
-        sb.append("    telephoneNumber: ").append(Util.toIndentedString(telephoneNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    firstName: ").append(toIndentedString(firstName)).append(TextConstants.LINE_BREAK);
+        sb.append("    lastName: ").append(toIndentedString(lastName)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
+        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

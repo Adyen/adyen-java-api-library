@@ -21,8 +21,9 @@
 package com.adyen.model.recurring;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * RecurringDetailsRequest
@@ -112,9 +113,9 @@ public class RecurringDetailsRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class RecurringDetailsRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    merchantAccount: ").append(Util.toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(Util.toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurring: ").append(Util.toIndentedString(recurring)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

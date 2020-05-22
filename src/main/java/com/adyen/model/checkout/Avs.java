@@ -22,7 +22,6 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,6 +31,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Avs
@@ -102,8 +103,8 @@ public class Avs {
         StringBuilder sb = new StringBuilder();
         sb.append("class Avs {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    addressEditable: ").append(Util.toIndentedString(addressEditable)).append(TextConstants.LINE_BREAK);
-        sb.append("    enabled: ").append(Util.toIndentedString(enabled)).append(TextConstants.LINE_BREAK);
+        sb.append("    addressEditable: ").append(toIndentedString(addressEditable)).append(TextConstants.LINE_BREAK);
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -21,10 +21,11 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * CreateAccountHolderRequest
@@ -206,13 +207,13 @@ public class CreateAccountHolderRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAccountHolderRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    createDefaultAccount: ").append(Util.toIndentedString(createDefaultAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderCode: ").append(Util.toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderDetails: ").append(Util.toIndentedString(accountHolderDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    processingTier: ").append(Util.toIndentedString(processingTier)).append(TextConstants.LINE_BREAK);
-        sb.append("    legalEntity: ").append(Util.toIndentedString(legalEntity)).append(TextConstants.LINE_BREAK);
-        sb.append("    primaryCurrency: ").append(Util.toIndentedString(primaryCurrency)).append(TextConstants.LINE_BREAK);
+        sb.append("    createDefaultAccount: ").append(toIndentedString(createDefaultAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    processingTier: ").append(toIndentedString(processingTier)).append(TextConstants.LINE_BREAK);
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append(TextConstants.LINE_BREAK);
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

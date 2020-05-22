@@ -21,8 +21,9 @@
 package com.adyen.model.recurring;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Container for RecurringDetail
@@ -44,7 +45,7 @@ public class RecurringDetailContainer {
         StringBuilder sb = new StringBuilder();
         sb.append("class RecurringDetailContainer {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    recurringDetail: ").append(Util.toIndentedString(recurringDetail)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringDetail: ").append(toIndentedString(recurringDetail)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

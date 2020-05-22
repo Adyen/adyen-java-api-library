@@ -22,10 +22,11 @@
 package com.adyen.model.marketpay.notification;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * GetNotificationConfigurationResponse
@@ -121,9 +122,9 @@ public class GetNotificationConfigurationResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class GetNotificationConfigurationResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    submittedAsync: ").append(Util.toIndentedString(submittedAsync)).append(TextConstants.LINE_BREAK);
-        sb.append("    configurationDetails: ").append(Util.toIndentedString(configurationDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append(TextConstants.LINE_BREAK);
+        sb.append("    configurationDetails: ").append(toIndentedString(configurationDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

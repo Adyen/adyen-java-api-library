@@ -21,10 +21,11 @@
 package com.adyen.model;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Name
@@ -163,10 +164,10 @@ public class Name {
         StringBuilder sb = new StringBuilder();
         sb.append("class Name {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    infix: ").append(Util.toIndentedString(infix)).append(TextConstants.LINE_BREAK);
-        sb.append("    gender: ").append(Util.toIndentedString(gender)).append(TextConstants.LINE_BREAK);
-        sb.append("    lastName: ").append(Util.toIndentedString(lastName)).append(TextConstants.LINE_BREAK);
-        sb.append("    firstName: ").append(Util.toIndentedString(firstName)).append(TextConstants.LINE_BREAK);
+        sb.append("    infix: ").append(toIndentedString(infix)).append(TextConstants.LINE_BREAK);
+        sb.append("    gender: ").append(toIndentedString(gender)).append(TextConstants.LINE_BREAK);
+        sb.append("    lastName: ").append(toIndentedString(lastName)).append(TextConstants.LINE_BREAK);
+        sb.append("    firstName: ").append(toIndentedString(firstName)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

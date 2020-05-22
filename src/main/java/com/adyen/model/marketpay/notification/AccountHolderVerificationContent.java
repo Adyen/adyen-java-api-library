@@ -23,8 +23,9 @@ package com.adyen.model.marketpay.notification;
 
 
 import com.adyen.model.marketpay.KYCCheckStatusData;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class AccountHolderVerificationContent {
     private String accountHolderCode;
@@ -92,7 +93,7 @@ public class AccountHolderVerificationContent {
                 + ", verificationStatus="
                 + verificationStatus
                 + ", statusSummary="
-                + Util.toIndentedString(statusSummary)
+                + toIndentedString(statusSummary)
                 + '}';
     }
 }

@@ -22,12 +22,13 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.constants.TextConstants;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * BusinessDetails
@@ -196,12 +197,12 @@ public class BusinessDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class BusinessDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    doingBusinessAs: ").append(Util.toIndentedString(doingBusinessAs)).append(TextConstants.LINE_BREAK);
-        sb.append("    incorporatedAt: ").append(Util.toIndentedString(incorporatedAt)).append(TextConstants.LINE_BREAK);
-        sb.append("    legalBusinessName: ").append(Util.toIndentedString(legalBusinessName)).append(TextConstants.LINE_BREAK);
-        sb.append("    registrationNumber: ").append(Util.toIndentedString(registrationNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    shareholders: ").append(Util.toIndentedString(shareholders)).append(TextConstants.LINE_BREAK);
-        sb.append("    taxId: ").append(Util.toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
+        sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append(TextConstants.LINE_BREAK);
+        sb.append("    incorporatedAt: ").append(toIndentedString(incorporatedAt)).append(TextConstants.LINE_BREAK);
+        sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append(TextConstants.LINE_BREAK);
+        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append(TextConstants.LINE_BREAK);
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
