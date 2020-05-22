@@ -100,6 +100,21 @@ public class CheckoutPaymentsAction {
     @SerializedName("entity")
     private String entity;
 
+    @SerializedName("sdkData")
+    private Map<String, String> sdkData;
+
+    @SerializedName("resendInterval")
+    private int resendInterval;
+
+    @SerializedName("resendMaxAttempts")
+    private int resendMaxAttempts;
+
+    @SerializedName("resendUrl")
+    private String resendUrl;
+
+    @SerializedName("redirect")
+    private Redirect redirect;
+
     /**
      * Enum that specifies the action that needs to be taken by the client.
      */
@@ -563,6 +578,34 @@ public class CheckoutPaymentsAction {
         this.url = url;
     }
 
+    /**
+     * Returns SDK data.
+     *
+     * @return sdkData
+     */
+    public Map<String, String> getSdkData() {
+        return sdkData;
+    }
+
+    public void setSdkData(Map<String, String> sdkData) {
+        this.sdkData = sdkData;
+    }
+
+    public int getResendInterval() {
+        return resendInterval;
+    }
+
+    public int getResendMaxAttempts() {
+        return resendMaxAttempts;
+    }
+
+    public String getResendUrl() {
+        return resendUrl;
+    }
+
+    public Redirect getRedirect() {
+        return redirect;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -595,12 +638,17 @@ public class CheckoutPaymentsAction {
                 Objects.equals(this.totalAmount, checkoutPaymentsAction.totalAmount) &&
                 Objects.equals(this.type, checkoutPaymentsAction.type) &&
                 Objects.equals(this.entity, checkoutPaymentsAction.entity) &&
+                Objects.equals(this.sdkData, checkoutPaymentsAction.sdkData) &&
+                Objects.equals(this.resendInterval, checkoutPaymentsAction.resendInterval) &&
+                Objects.equals(this.resendMaxAttempts, checkoutPaymentsAction.resendMaxAttempts) &&
+                Objects.equals(this.resendUrl, checkoutPaymentsAction.resendUrl) &&
+                Objects.equals(this.redirect, checkoutPaymentsAction.redirect) &&
                 Objects.equals(this.url, checkoutPaymentsAction.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, type, url, entity);
+        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, type, url, entity, sdkData);
     }
 
 
@@ -632,6 +680,11 @@ public class CheckoutPaymentsAction {
         sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    url: ").append(toIndentedString(url)).append("\n");
+        sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
+        sb.append("    resendInterval: ").append(toIndentedString(resendInterval)).append("\n");
+        sb.append("    resendMaxAttempts: ").append(toIndentedString(resendMaxAttempts)).append("\n");
+        sb.append("    resendUrl: ").append(toIndentedString(resendUrl)).append("\n");
+        sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
         sb.append("}");
         return sb.toString();
     }
