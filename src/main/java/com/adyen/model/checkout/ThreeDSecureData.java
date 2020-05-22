@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.serializer.ByteArrayToStringAdapter;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -212,7 +213,7 @@ public class ThreeDSecureData {
      */
     private String toIndentedString(java.lang.Object o) {
         if (Objects.isNull(o)) {
-            return "null";
+            return TextConstants.NULL;
         }
         return o.toString().replace("\n", "\n    ");
     }

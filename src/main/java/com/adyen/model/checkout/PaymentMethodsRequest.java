@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Amount;
 import com.adyen.model.MerchantRiskIndicator;
@@ -373,7 +374,7 @@ public class PaymentMethodsRequest {
      */
     private String toIndentedString(java.lang.Object o) {
         if (Objects.isNull(o)) {
-            return "null";
+            return TextConstants.NULL;
         }
         return o.toString().replace("\n", "\n    ");
     }

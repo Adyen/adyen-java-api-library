@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.BankAccount;
 import com.adyen.model.Card;
 import com.google.gson.annotations.SerializedName;
@@ -135,7 +136,7 @@ public class StoredDetails {
      */
     private String toIndentedString(Object o) {
         if (Objects.isNull(o)) {
-            return "null";
+            return TextConstants.NULL;
         }
         return o.toString().replace("\n", "\n    ");
     }

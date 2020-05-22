@@ -21,10 +21,11 @@
 
 package com.adyen.model.checkout.details;
 
-import java.util.Objects;
-
+import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 
 /**
@@ -174,7 +175,7 @@ public class DokuDetails implements PaymentMethodDetails {
      */
     private String toIndentedString(Object o) {
         if (Objects.isNull(o)) {
-            return "null";
+            return TextConstants.NULL;
         }
         return o.toString().replace("\n", "\n    ");
     }

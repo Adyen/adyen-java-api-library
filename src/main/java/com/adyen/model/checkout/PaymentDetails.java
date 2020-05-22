@@ -22,6 +22,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
@@ -231,7 +232,7 @@ public class PaymentDetails {
      */
     private String toIndentedString(Object o) {
         if (Objects.isNull(o)) {
-            return "null";
+            return TextConstants.NULL;
         }
         return o.toString().replace("\n", "\n    ");
     }

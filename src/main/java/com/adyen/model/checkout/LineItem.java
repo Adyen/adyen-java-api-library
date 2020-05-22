@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.constants.TextConstants;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -249,7 +250,7 @@ public class LineItem {
      */
     private String toIndentedString(Object o) {
         if (Objects.isNull(o)) {
-            return "null";
+            return TextConstants.NULL;
         }
         return o.toString().replace("\n", "\n    ");
     }

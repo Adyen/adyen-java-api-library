@@ -22,8 +22,10 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * PaymentResultRequest
@@ -84,7 +86,7 @@ public class PaymentResultRequest {
      */
     private String toIndentedString(Object o) {
         if (Objects.isNull(o)) {
-            return "null";
+            return TextConstants.NULL;
         }
         return o.toString().replace("\n", "\n    ");
     }
