@@ -47,10 +47,7 @@ import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.PASSE
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.BANK_ACCOUNT_VERIFICATION;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.COMPANY_VERIFICATION;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.IDENTITY_VERIFICATION;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Tests for /authorise and /authorise3d
