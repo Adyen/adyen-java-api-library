@@ -55,6 +55,7 @@ import com.adyen.model.marketpay.UpdateAccountRequest;
 import com.adyen.model.marketpay.UpdateAccountResponse;
 import com.adyen.model.marketpay.UploadDocumentRequest;
 import com.adyen.model.marketpay.UploadDocumentResponse;
+import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.account.CheckAccountHolder;
 import com.adyen.service.resource.account.CloseAccount;
 import com.adyen.service.resource.account.CloseAccountHolder;
@@ -72,6 +73,8 @@ import com.adyen.service.resource.account.UpdateAccountHolder;
 import com.adyen.service.resource.account.UpdateAccountHolderState;
 import com.adyen.service.resource.account.UploadDocument;
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
 
 public class Account extends Service {
 
@@ -113,7 +116,7 @@ public class Account extends Service {
         deletePayoutMethod = new DeletePayoutMethod(this);
     }
 
-    public CreateAccountHolderResponse createAccountHolder(CreateAccountHolderRequest accountHolderRequest) throws Exception {
+    public CreateAccountHolderResponse createAccountHolder(CreateAccountHolderRequest accountHolderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(accountHolderRequest);
 
         String jsonResult = createAccountHolder.request(jsonRequest);
@@ -122,7 +125,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public UpdateAccountHolderResponse updateAccountHolder(UpdateAccountHolderRequest updateAccountHolderRequest) throws Exception {
+    public UpdateAccountHolderResponse updateAccountHolder(UpdateAccountHolderRequest updateAccountHolderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(updateAccountHolderRequest);
 
         String jsonResult = updateAccountHolder.request(jsonRequest);
@@ -130,7 +133,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public GetAccountHolderResponse getAccountHolder(GetAccountHolderRequest getAccountHolderRequest) throws Exception {
+    public GetAccountHolderResponse getAccountHolder(GetAccountHolderRequest getAccountHolderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(getAccountHolderRequest);
 
         String jsonResult = getAccountHolder.request(jsonRequest);
@@ -138,7 +141,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public UploadDocumentResponse uploadDocument(UploadDocumentRequest uploadDocumentRequest) throws Exception {
+    public UploadDocumentResponse uploadDocument(UploadDocumentRequest uploadDocumentRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(uploadDocumentRequest);
 
         String jsonResult = uploadDocument.request(jsonRequest);
@@ -146,7 +149,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public CreateAccountResponse createAccount(CreateAccountRequest createAccountRequest) throws Exception {
+    public CreateAccountResponse createAccount(CreateAccountRequest createAccountRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(createAccountRequest);
 
         String jsonResult = createAccount.request(jsonRequest);
@@ -154,7 +157,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public DeleteBankAccountResponse deleteBankAccount(DeleteBankAccountRequest deleteBankAccountRequest) throws Exception {
+    public DeleteBankAccountResponse deleteBankAccount(DeleteBankAccountRequest deleteBankAccountRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(deleteBankAccountRequest);
 
         String jsonResult = deleteBankAccount.request(jsonRequest);
@@ -162,7 +165,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public DeleteShareholderResponse deleteShareholder(DeleteShareholderRequest deleteShareholderRequest) throws Exception {
+    public DeleteShareholderResponse deleteShareholder(DeleteShareholderRequest deleteShareholderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(deleteShareholderRequest);
 
         String jsonResult = deleteShareholder.request(jsonRequest);
@@ -170,7 +173,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public SuspendAccountHolderResponse suspendAccountHolder(SuspendAccountHolderRequest suspendAccountHolderRequest) throws Exception {
+    public SuspendAccountHolderResponse suspendAccountHolder(SuspendAccountHolderRequest suspendAccountHolderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(suspendAccountHolderRequest);
 
         String jsonResult = suspendAccountHolder.request(jsonRequest);
@@ -178,7 +181,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public UnSuspendAccountHolderResponse unSuspendAccountHolder(UnSuspendAccountHolderRequest unSuspendAccountHolderRequest) throws Exception {
+    public UnSuspendAccountHolderResponse unSuspendAccountHolder(UnSuspendAccountHolderRequest unSuspendAccountHolderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(unSuspendAccountHolderRequest);
 
         String jsonResult = unSuspendAccountHolder.request(jsonRequest);
@@ -186,7 +189,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public UpdateAccountHolderStateResponse updateAccountHolderState(UpdateAccountHolderStateRequest updateAccountHolderStateRequest) throws Exception {
+    public UpdateAccountHolderStateResponse updateAccountHolderState(UpdateAccountHolderStateRequest updateAccountHolderStateRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(updateAccountHolderStateRequest);
 
         String jsonResult = updateAccountHolderState.request(jsonRequest);
@@ -194,7 +197,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public CloseAccountResponse closeAccount(CloseAccountRequest closeAccountRequest) throws Exception {
+    public CloseAccountResponse closeAccount(CloseAccountRequest closeAccountRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(closeAccountRequest);
 
         String jsonResult = closeAccount.request(jsonRequest);
@@ -202,7 +205,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public CloseAccountHolderResponse closeAccountHolder(CloseAccountHolderRequest closeAccountHolderRequest) throws Exception {
+    public CloseAccountHolderResponse closeAccountHolder(CloseAccountHolderRequest closeAccountHolderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(closeAccountHolderRequest);
 
         String jsonResult = closeAccountHolder.request(jsonRequest);
@@ -210,7 +213,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public UpdateAccountResponse updateAccount(UpdateAccountRequest updateAccountRequest) throws Exception {
+    public UpdateAccountResponse updateAccount(UpdateAccountRequest updateAccountRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(updateAccountRequest);
 
         String jsonResult = updateAccount.request(jsonRequest);
@@ -218,7 +221,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public GetUploadedDocumentsResponse getUploadedDocuments(GetUploadedDocumentsRequest getUploadedDocumentsRequest) throws Exception {
+    public GetUploadedDocumentsResponse getUploadedDocuments(GetUploadedDocumentsRequest getUploadedDocumentsRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(getUploadedDocumentsRequest);
 
         String jsonResult = getUploadedDocuments.request(jsonRequest);
@@ -226,7 +229,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public CheckAccountHolderResponse checkAccountHolder(PerformVerificationRequest performVerificationRequest) throws Exception {
+    public CheckAccountHolderResponse checkAccountHolder(PerformVerificationRequest performVerificationRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(performVerificationRequest);
 
         String jsonResult = checkAccountHolder.request(jsonRequest);
@@ -234,7 +237,7 @@ public class Account extends Service {
         }.getType());
     }
 
-    public DeletePayoutMethodResponse deletePayoutMethod(DeletePayoutMethodRequest deletePayoutMethodRequest) throws Exception {
+    public DeletePayoutMethodResponse deletePayoutMethod(DeletePayoutMethodRequest deletePayoutMethodRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(deletePayoutMethodRequest);
 
         String jsonResult = deletePayoutMethod.request(jsonRequest);
