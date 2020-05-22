@@ -20,11 +20,11 @@
  */
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 public class ExchangeMessageContainer {
@@ -42,9 +42,9 @@ public class ExchangeMessageContainer {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ExchangeMessageContainer {").append(TextConstants.LINE_BREAK);
+        sb.append("class ExchangeMessageContainer {").append(LINE_BREAK);
 
-        sb.append("    exchangeMessage: ").append(toIndentedString(exchangeMessage)).append(TextConstants.LINE_BREAK);
+        sb.append("    exchangeMessage: ").append(toIndentedString(exchangeMessage)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

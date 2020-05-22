@@ -20,7 +20,6 @@
  */
 package com.adyen.model.recurring;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -29,6 +28,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -175,13 +175,13 @@ public class RecurringDetailsResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RecurringDetailsResult {").append(TextConstants.LINE_BREAK);
+        sb.append("class RecurringDetailsResult {").append(LINE_BREAK);
 
-        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    details: ").append(toIndentedString(details)).append(TextConstants.LINE_BREAK);
-        sb.append("    lastKnownShopperEmail: ").append(toIndentedString(lastKnownShopperEmail)).append(TextConstants.LINE_BREAK);
-        sb.append("    invalidOneClickContracts: ").append(toIndentedString(invalidOneClickContracts)).append(TextConstants.LINE_BREAK);
+        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    details: ").append(toIndentedString(details)).append(LINE_BREAK);
+        sb.append("    lastKnownShopperEmail: ").append(toIndentedString(lastKnownShopperEmail)).append(LINE_BREAK);
+        sb.append("    invalidOneClickContracts: ").append(toIndentedString(invalidOneClickContracts)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

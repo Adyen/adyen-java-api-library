@@ -20,12 +20,12 @@
  */
 package com.adyen.model.binlookup;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -147,12 +147,12 @@ public class CostEstimateResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CostEstimateResponse {").append(TextConstants.LINE_BREAK);
+        sb.append("class CostEstimateResponse {").append(LINE_BREAK);
 
-        sb.append("    cardBin: ").append(toIndentedString(cardBin)).append(TextConstants.LINE_BREAK);
-        sb.append("    costEstimateAmount: ").append(toIndentedString(costEstimateAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    surchargeType: ").append(toIndentedString(surchargeType)).append(TextConstants.LINE_BREAK);
+        sb.append("    cardBin: ").append(toIndentedString(cardBin)).append(LINE_BREAK);
+        sb.append("    costEstimateAmount: ").append(toIndentedString(costEstimateAmount)).append(LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
+        sb.append("    surchargeType: ").append(toIndentedString(surchargeType)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

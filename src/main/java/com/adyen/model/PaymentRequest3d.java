@@ -21,12 +21,12 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -155,11 +155,11 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentRequest3d {").append(TextConstants.LINE_BREAK);
+        sb.append("class PaymentRequest3d {").append(LINE_BREAK);
 
         sb.append(super.toString());
-        sb.append("    md: ").append(toIndentedString(md)).append(TextConstants.LINE_BREAK);
-        sb.append("    paResponse: ").append(toIndentedString(paResponse)).append(TextConstants.LINE_BREAK);
+        sb.append("    md: ").append(toIndentedString(md)).append(LINE_BREAK);
+        sb.append("    paResponse: ").append(toIndentedString(paResponse)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -20,11 +20,11 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -234,14 +234,14 @@ public class DocumentDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DocumentDetail {").append(TextConstants.LINE_BREAK);
+        sb.append("class DocumentDetail {").append(LINE_BREAK);
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append(TextConstants.LINE_BREAK);
-        sb.append("    filename: ").append(toIndentedString(filename)).append(TextConstants.LINE_BREAK);
-        sb.append("    documentType: ").append(toIndentedString(documentType)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(LINE_BREAK);
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append(LINE_BREAK);
+        sb.append("    filename: ").append(toIndentedString(filename)).append(LINE_BREAK);
+        sb.append("    documentType: ").append(toIndentedString(documentType)).append(LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -21,13 +21,13 @@
 
 package com.adyen.model.checkout;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.BankAccount;
 import com.adyen.model.Card;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -123,11 +123,11 @@ public class StoredDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoredDetails {").append(TextConstants.LINE_BREAK);
+        sb.append("class StoredDetails {").append(LINE_BREAK);
 
-        sb.append("    bank: ").append(toIndentedString(bank)).append(TextConstants.LINE_BREAK);
-        sb.append("    card: ").append(toIndentedString(card)).append(TextConstants.LINE_BREAK);
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    bank: ").append(toIndentedString(bank)).append(LINE_BREAK);
+        sb.append("    card: ").append(toIndentedString(card)).append(LINE_BREAK);
+        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

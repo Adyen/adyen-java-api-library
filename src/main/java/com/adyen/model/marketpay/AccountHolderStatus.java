@@ -20,13 +20,13 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -198,13 +198,13 @@ public class AccountHolderStatus {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderStatus {").append(TextConstants.LINE_BREAK);
+        sb.append("class AccountHolderStatus {").append(LINE_BREAK);
 
-        sb.append("    processingState: ").append(toIndentedString(processingState)).append(TextConstants.LINE_BREAK);
-        sb.append("    statusReason: ").append(toIndentedString(statusReason)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutState: ").append(toIndentedString(payoutState)).append(TextConstants.LINE_BREAK);
-        sb.append("    status: ").append(toIndentedString(status)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountEvents: ").append(toIndentedString(accountEvents)).append(TextConstants.LINE_BREAK);
+        sb.append("    processingState: ").append(toIndentedString(processingState)).append(LINE_BREAK);
+        sb.append("    statusReason: ").append(toIndentedString(statusReason)).append(LINE_BREAK);
+        sb.append("    payoutState: ").append(toIndentedString(payoutState)).append(LINE_BREAK);
+        sb.append("    status: ").append(toIndentedString(status)).append(LINE_BREAK);
+        sb.append("    accountEvents: ").append(toIndentedString(accountEvents)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

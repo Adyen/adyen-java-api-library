@@ -21,7 +21,6 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,6 +31,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -211,13 +211,13 @@ public class PayoutMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayoutMethod {").append(TextConstants.LINE_BREAK);
+        sb.append("class PayoutMethod {").append(LINE_BREAK);
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutMethodType: ").append(toIndentedString(payoutMethodType)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append(LINE_BREAK);
+        sb.append("    payoutMethodType: ").append(toIndentedString(payoutMethodType)).append(LINE_BREAK);
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

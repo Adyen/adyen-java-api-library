@@ -22,11 +22,11 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -626,34 +626,34 @@ public class BankAccountDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BankAccountDetail {").append(TextConstants.LINE_BREAK);
+        sb.append("class BankAccountDetail {").append(LINE_BREAK);
 
-        sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountType: ").append(toIndentedString(accountType)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountName: ").append(toIndentedString(bankAccountName)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountReference: ").append(toIndentedString(bankAccountReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankBicSwift: ").append(toIndentedString(bankBicSwift)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankCity: ").append(toIndentedString(bankCity)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankCode: ").append(toIndentedString(bankCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankName: ").append(toIndentedString(bankName)).append(TextConstants.LINE_BREAK);
-        sb.append("    branchCode: ").append(toIndentedString(branchCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    checkCode: ").append(toIndentedString(checkCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    iban: ").append(toIndentedString(iban)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerCity: ").append(toIndentedString(ownerCity)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerCountryCode: ").append(toIndentedString(ownerCountryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerDateOfBirth: ").append(toIndentedString(ownerDateOfBirth)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerHouseNumberOrName: ").append(toIndentedString(ownerHouseNumberOrName)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerNationality: ").append(toIndentedString(ownerNationality)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerPostalCode: ").append(toIndentedString(ownerPostalCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerState: ").append(toIndentedString(ownerState)).append(TextConstants.LINE_BREAK);
-        sb.append("    ownerStreet: ").append(toIndentedString(ownerStreet)).append(TextConstants.LINE_BREAK);
-        sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    taxId: ").append(toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
-        sb.append("    urlForVerification: ").append(toIndentedString(urlForVerification)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append(LINE_BREAK);
+        sb.append("    accountType: ").append(toIndentedString(accountType)).append(LINE_BREAK);
+        sb.append("    bankAccountName: ").append(toIndentedString(bankAccountName)).append(LINE_BREAK);
+        sb.append("    bankAccountReference: ").append(toIndentedString(bankAccountReference)).append(LINE_BREAK);
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append(LINE_BREAK);
+        sb.append("    bankBicSwift: ").append(toIndentedString(bankBicSwift)).append(LINE_BREAK);
+        sb.append("    bankCity: ").append(toIndentedString(bankCity)).append(LINE_BREAK);
+        sb.append("    bankCode: ").append(toIndentedString(bankCode)).append(LINE_BREAK);
+        sb.append("    bankName: ").append(toIndentedString(bankName)).append(LINE_BREAK);
+        sb.append("    branchCode: ").append(toIndentedString(branchCode)).append(LINE_BREAK);
+        sb.append("    checkCode: ").append(toIndentedString(checkCode)).append(LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(LINE_BREAK);
+        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append(LINE_BREAK);
+        sb.append("    iban: ").append(toIndentedString(iban)).append(LINE_BREAK);
+        sb.append("    ownerCity: ").append(toIndentedString(ownerCity)).append(LINE_BREAK);
+        sb.append("    ownerCountryCode: ").append(toIndentedString(ownerCountryCode)).append(LINE_BREAK);
+        sb.append("    ownerDateOfBirth: ").append(toIndentedString(ownerDateOfBirth)).append(LINE_BREAK);
+        sb.append("    ownerHouseNumberOrName: ").append(toIndentedString(ownerHouseNumberOrName)).append(LINE_BREAK);
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append(LINE_BREAK);
+        sb.append("    ownerNationality: ").append(toIndentedString(ownerNationality)).append(LINE_BREAK);
+        sb.append("    ownerPostalCode: ").append(toIndentedString(ownerPostalCode)).append(LINE_BREAK);
+        sb.append("    ownerState: ").append(toIndentedString(ownerState)).append(LINE_BREAK);
+        sb.append("    ownerStreet: ").append(toIndentedString(ownerStreet)).append(LINE_BREAK);
+        sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append(LINE_BREAK);
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append(LINE_BREAK);
+        sb.append("    urlForVerification: ").append(toIndentedString(urlForVerification)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

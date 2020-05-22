@@ -20,13 +20,13 @@
  */
 package com.adyen.model.modification;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
@@ -74,10 +74,10 @@ public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RefundRequest {").append(TextConstants.LINE_BREAK);
+        sb.append("class RefundRequest {").append(LINE_BREAK);
 
         sb.append(super.toString());
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

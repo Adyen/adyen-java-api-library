@@ -21,7 +21,6 @@
 
 package com.adyen.model.checkout;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Amount;
 import com.adyen.model.MerchantRiskIndicator;
@@ -38,6 +37,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -352,20 +352,20 @@ public class PaymentMethodsRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethodsRequest {").append(TextConstants.LINE_BREAK);
+        sb.append("class PaymentMethodsRequest {").append(LINE_BREAK);
 
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
-        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    channel: ").append(toIndentedString(channel)).append(TextConstants.LINE_BREAK);
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append(TextConstants.LINE_BREAK);
-        sb.append("    store: ").append(toIndentedString(store)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append(LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append(LINE_BREAK);
+        sb.append("    channel: ").append(toIndentedString(channel)).append(LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(LINE_BREAK);
+        sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append(LINE_BREAK);
+        sb.append("    store: ").append(toIndentedString(store)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

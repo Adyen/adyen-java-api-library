@@ -20,7 +20,6 @@
  */
 package com.adyen.model.notification;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
@@ -28,6 +27,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -222,20 +222,20 @@ public class NotificationRequestItem {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationRequestItem {").append(TextConstants.LINE_BREAK);
+        sb.append("class NotificationRequestItem {").append(LINE_BREAK);
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    eventCode: ").append(toIndentedString(eventCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    eventDate: ").append(toIndentedString(eventDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    reason: ").append(toIndentedString(reason)).append(TextConstants.LINE_BREAK);
-        sb.append("    success: ").append(toIndentedString(success)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append(TextConstants.LINE_BREAK);
-        sb.append("    operations: ").append(toIndentedString(operations)).append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("    eventCode: ").append(toIndentedString(eventCode)).append(LINE_BREAK);
+        sb.append("    eventDate: ").append(toIndentedString(eventDate)).append(LINE_BREAK);
+        sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append(LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(LINE_BREAK);
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    reason: ").append(toIndentedString(reason)).append(LINE_BREAK);
+        sb.append("    success: ").append(toIndentedString(success)).append(LINE_BREAK);
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append(LINE_BREAK);
+        sb.append("    operations: ").append(toIndentedString(operations)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

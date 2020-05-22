@@ -20,7 +20,6 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.serializer.DateTimeISO8601Serializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,6 +32,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -757,27 +757,27 @@ public class AccountInfo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountInfo {").append(TextConstants.LINE_BREAK);
+        sb.append("class AccountInfo {").append(LINE_BREAK);
 
-        sb.append("    accountAgeIndicator: ").append(toIndentedString(accountAgeIndicator)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountChangeDate: ").append(toIndentedString(accountChangeDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountChangeIndicator: ").append(toIndentedString(accountChangeIndicator)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountCreationDate: ").append(toIndentedString(accountCreationDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountType: ").append(toIndentedString(accountType)).append(TextConstants.LINE_BREAK);
-        sb.append("    addCardAttemptsDay: ").append(toIndentedString(addCardAttemptsDay)).append(TextConstants.LINE_BREAK);
-        sb.append("    deliveryAddressUsageDate: ").append(toIndentedString(deliveryAddressUsageDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    deliveryAddressUsageIndicator: ").append(toIndentedString(deliveryAddressUsageIndicator)).append(TextConstants.LINE_BREAK);
-        sb.append("    homePhone: ").append(toIndentedString(homePhone)).append(TextConstants.LINE_BREAK);
-        sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append(TextConstants.LINE_BREAK);
-        sb.append("    passwordChangeDate: ").append(toIndentedString(passwordChangeDate)).append(TextConstants.LINE_BREAK);
-        sb.append("    passwordChangeIndicator: ").append(toIndentedString(passwordChangeIndicator)).append(TextConstants.LINE_BREAK);
-        sb.append("    pastTransactionsDay: ").append(toIndentedString(pastTransactionsDay)).append(TextConstants.LINE_BREAK);
-        sb.append("    pastTransactionsYear: ").append(toIndentedString(pastTransactionsYear)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentAccountAge: ").append(toIndentedString(paymentAccountAge)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentAccountIndicator: ").append(toIndentedString(paymentAccountIndicator)).append(TextConstants.LINE_BREAK);
-        sb.append("    purchasesLast6Months: ").append(toIndentedString(purchasesLast6Months)).append(TextConstants.LINE_BREAK);
-        sb.append("    suspiciousActivity: ").append(toIndentedString(suspiciousActivity)).append(TextConstants.LINE_BREAK);
-        sb.append("    workPhone: ").append(toIndentedString(workPhone)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountAgeIndicator: ").append(toIndentedString(accountAgeIndicator)).append(LINE_BREAK);
+        sb.append("    accountChangeDate: ").append(toIndentedString(accountChangeDate)).append(LINE_BREAK);
+        sb.append("    accountChangeIndicator: ").append(toIndentedString(accountChangeIndicator)).append(LINE_BREAK);
+        sb.append("    accountCreationDate: ").append(toIndentedString(accountCreationDate)).append(LINE_BREAK);
+        sb.append("    accountType: ").append(toIndentedString(accountType)).append(LINE_BREAK);
+        sb.append("    addCardAttemptsDay: ").append(toIndentedString(addCardAttemptsDay)).append(LINE_BREAK);
+        sb.append("    deliveryAddressUsageDate: ").append(toIndentedString(deliveryAddressUsageDate)).append(LINE_BREAK);
+        sb.append("    deliveryAddressUsageIndicator: ").append(toIndentedString(deliveryAddressUsageIndicator)).append(LINE_BREAK);
+        sb.append("    homePhone: ").append(toIndentedString(homePhone)).append(LINE_BREAK);
+        sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append(LINE_BREAK);
+        sb.append("    passwordChangeDate: ").append(toIndentedString(passwordChangeDate)).append(LINE_BREAK);
+        sb.append("    passwordChangeIndicator: ").append(toIndentedString(passwordChangeIndicator)).append(LINE_BREAK);
+        sb.append("    pastTransactionsDay: ").append(toIndentedString(pastTransactionsDay)).append(LINE_BREAK);
+        sb.append("    pastTransactionsYear: ").append(toIndentedString(pastTransactionsYear)).append(LINE_BREAK);
+        sb.append("    paymentAccountAge: ").append(toIndentedString(paymentAccountAge)).append(LINE_BREAK);
+        sb.append("    paymentAccountIndicator: ").append(toIndentedString(paymentAccountIndicator)).append(LINE_BREAK);
+        sb.append("    purchasesLast6Months: ").append(toIndentedString(purchasesLast6Months)).append(LINE_BREAK);
+        sb.append("    suspiciousActivity: ").append(toIndentedString(suspiciousActivity)).append(LINE_BREAK);
+        sb.append("    workPhone: ").append(toIndentedString(workPhone)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
 import com.google.gson.annotations.SerializedName;
 
@@ -30,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -308,19 +308,19 @@ public class AccountHolderDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderDetails {").append(TextConstants.LINE_BREAK);
+        sb.append("class AccountHolderDetails {").append(LINE_BREAK);
 
-        sb.append("    address: ").append(toIndentedString(address)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    email: ").append(toIndentedString(email)).append(TextConstants.LINE_BREAK);
-        sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutMethods: ").append(toIndentedString(payoutMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    webAddress: ").append(toIndentedString(webAddress)).append(TextConstants.LINE_BREAK);
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    address: ").append(toIndentedString(address)).append(LINE_BREAK);
+        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetails)).append(LINE_BREAK);
+        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append(LINE_BREAK);
+        sb.append("    email: ").append(toIndentedString(email)).append(LINE_BREAK);
+        sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append(LINE_BREAK);
+        sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append(LINE_BREAK);
+        sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append(LINE_BREAK);
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append(LINE_BREAK);
+        sb.append("    payoutMethods: ").append(toIndentedString(payoutMethods)).append(LINE_BREAK);
+        sb.append("    webAddress: ").append(toIndentedString(webAddress)).append(LINE_BREAK);
+        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -21,7 +21,6 @@
 
 package com.adyen.model.checkout.details;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,6 +32,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -177,11 +177,11 @@ public class AmazonPayDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AmazonPayDetails {").append(TextConstants.LINE_BREAK);
+        sb.append("class AmazonPayDetails {").append(LINE_BREAK);
 
-        sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append(TextConstants.LINE_BREAK);
-        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append(LINE_BREAK);
+        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -20,11 +20,11 @@
  */
 package com.adyen.model.payout;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 public class ModifyRequest {
@@ -64,10 +64,10 @@ public class ModifyRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ModifyRequest {").append(TextConstants.LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("class ModifyRequest {").append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

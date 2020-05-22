@@ -20,7 +20,6 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -28,6 +27,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -102,10 +102,10 @@ public class FraudResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FraudResult {").append(TextConstants.LINE_BREAK);
+        sb.append("class FraudResult {").append(LINE_BREAK);
 
-        sb.append("    accountScore: ").append(toIndentedString(accountScore)).append(TextConstants.LINE_BREAK);
-        sb.append("    results: ").append(toIndentedString(results)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountScore: ").append(toIndentedString(accountScore)).append(LINE_BREAK);
+        sb.append("    results: ").append(toIndentedString(results)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -21,7 +21,6 @@
 
 package com.adyen.model.checkout;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -34,6 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -134,11 +134,11 @@ public class Redirect {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Redirect {").append(TextConstants.LINE_BREAK);
+        sb.append("class Redirect {").append(LINE_BREAK);
 
-        sb.append("    data: ").append(toIndentedString(data)).append(TextConstants.LINE_BREAK);
-        sb.append("    method: ").append(toIndentedString(method)).append(TextConstants.LINE_BREAK);
-        sb.append("    url: ").append(toIndentedString(url)).append(TextConstants.LINE_BREAK);
+        sb.append("    data: ").append(toIndentedString(data)).append(LINE_BREAK);
+        sb.append("    method: ").append(toIndentedString(method)).append(LINE_BREAK);
+        sb.append("    url: ").append(toIndentedString(url)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

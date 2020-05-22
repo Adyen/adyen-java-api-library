@@ -20,11 +20,11 @@
  */
 package com.adyen.model.binlookup;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -73,8 +73,8 @@ public class BinDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BinDetail {").append(TextConstants.LINE_BREAK);
-        sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append(TextConstants.LINE_BREAK);
+        sb.append("class BinDetail {").append(LINE_BREAK);
+        sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

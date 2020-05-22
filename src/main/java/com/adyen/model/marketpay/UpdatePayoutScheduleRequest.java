@@ -20,11 +20,11 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -173,11 +173,11 @@ public class UpdatePayoutScheduleRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdatePayoutScheduleRequest {").append(TextConstants.LINE_BREAK);
+        sb.append("class UpdatePayoutScheduleRequest {").append(LINE_BREAK);
 
-        sb.append("    schedule: ").append(toIndentedString(schedule)).append(TextConstants.LINE_BREAK);
-        sb.append("    reason: ").append(toIndentedString(reason)).append(TextConstants.LINE_BREAK);
-        sb.append("    action: ").append(toIndentedString(action)).append(TextConstants.LINE_BREAK);
+        sb.append("    schedule: ").append(toIndentedString(schedule)).append(LINE_BREAK);
+        sb.append("    reason: ").append(toIndentedString(reason)).append(LINE_BREAK);
+        sb.append("    action: ").append(toIndentedString(action)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

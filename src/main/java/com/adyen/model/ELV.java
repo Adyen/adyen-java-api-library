@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -162,13 +162,13 @@ public class ELV {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ELV {").append(TextConstants.LINE_BREAK);
+        sb.append("class ELV {").append(LINE_BREAK);
 
-        sb.append("    bankName: ").append(toIndentedString(bankName)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append(TextConstants.LINE_BREAK);
-        sb.append("    bankLocation: ").append(toIndentedString(bankLocation)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderName: ").append(toIndentedString(accountHolderName)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankName: ").append(toIndentedString(bankName)).append(LINE_BREAK);
+        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append(LINE_BREAK);
+        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append(LINE_BREAK);
+        sb.append("    bankLocation: ").append(toIndentedString(bankLocation)).append(LINE_BREAK);
+        sb.append("    accountHolderName: ").append(toIndentedString(accountHolderName)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

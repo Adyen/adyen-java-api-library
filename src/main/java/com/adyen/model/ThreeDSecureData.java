@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -287,15 +287,15 @@ public class ThreeDSecureData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDSecureData {").append(TextConstants.LINE_BREAK);
+        sb.append("class ThreeDSecureData {").append(LINE_BREAK);
 
-        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
-        sb.append("    directoryResponse: ").append(toIndentedString(directoryResponse)).append(TextConstants.LINE_BREAK);
-        sb.append("    authenticationResponse: ").append(toIndentedString(authenticationResponse)).append(TextConstants.LINE_BREAK);
-        sb.append("    xid: ").append(toIndentedString(xid)).append(TextConstants.LINE_BREAK);
-        sb.append("    cavv: ").append(toIndentedString(cavv)).append(TextConstants.LINE_BREAK);
-        sb.append("    eci: ").append(toIndentedString(eci)).append(TextConstants.LINE_BREAK);
-        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append(TextConstants.LINE_BREAK);
+        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append(LINE_BREAK);
+        sb.append("    directoryResponse: ").append(toIndentedString(directoryResponse)).append(LINE_BREAK);
+        sb.append("    authenticationResponse: ").append(toIndentedString(authenticationResponse)).append(LINE_BREAK);
+        sb.append("    xid: ").append(toIndentedString(xid)).append(LINE_BREAK);
+        sb.append("    cavv: ").append(toIndentedString(cavv)).append(LINE_BREAK);
+        sb.append("    eci: ").append(toIndentedString(eci)).append(LINE_BREAK);
+        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

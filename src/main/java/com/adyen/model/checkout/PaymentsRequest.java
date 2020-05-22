@@ -20,7 +20,6 @@
  */
 package com.adyen.model.checkout;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -51,6 +50,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -1413,67 +1413,67 @@ public class PaymentsRequest {
     public String toString() {
 
       return "class PaymentsRequest {"
-          + TextConstants.LINE_BREAK
-          + "    additionalData: " + toIndentedString(additionalData) + TextConstants.LINE_BREAK
-          + "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + TextConstants.LINE_BREAK
-          + "    amount: " + toIndentedString(amount) + TextConstants.LINE_BREAK
-          + "    billingAddress: " + toIndentedString(billingAddress) + TextConstants.LINE_BREAK
-          + "    captureDelayHours: " + toIndentedString(captureDelayHours) + TextConstants.LINE_BREAK
-          + "    channel: " + toIndentedString(channel) + TextConstants.LINE_BREAK
-          + "    company: " + toIndentedString(company) + TextConstants.LINE_BREAK
-          + "    countryCode: " + toIndentedString(countryCode) + TextConstants.LINE_BREAK
-          + "    dateOfBirth: " + toIndentedString(dateOfBirth) + TextConstants.LINE_BREAK
-          + "    dccQuote: " + toIndentedString(dccQuote) + TextConstants.LINE_BREAK
-          + "    deliveryAddress: " + toIndentedString(deliveryAddress) + TextConstants.LINE_BREAK
-          + "    deliveryDate: " + toIndentedString(deliveryDate) + TextConstants.LINE_BREAK
-          + "    enableOneClick: " + toIndentedString(enableOneClick) + TextConstants.LINE_BREAK
-          + "    enablePayOut: " + toIndentedString(enablePayOut) + TextConstants.LINE_BREAK
-          + "    enableRecurring: " + toIndentedString(enableRecurring) + TextConstants.LINE_BREAK
-          + "    entityType: " + toIndentedString(entityType) + TextConstants.LINE_BREAK
-          + "    fraudOffset: " + toIndentedString(fraudOffset) + TextConstants.LINE_BREAK
-          + "    installments: " + toIndentedString(installments) + TextConstants.LINE_BREAK
-          + "    lineItems: " + toIndentedString(lineItems) + TextConstants.LINE_BREAK
-          + "    mcc: " + toIndentedString(mcc) + TextConstants.LINE_BREAK
-          + "    merchantAccount: " + toIndentedString(merchantAccount) + TextConstants.LINE_BREAK
-          + "    merchantOrderReference: " + toIndentedString(merchantOrderReference) + TextConstants.LINE_BREAK
-          + "    metadata: " + toIndentedString(metadata) + TextConstants.LINE_BREAK
-          + "    browserInfo: " + toIndentedString(browserInfo) + TextConstants.LINE_BREAK
-          + "    orderReference: " + toIndentedString(orderReference) + TextConstants.LINE_BREAK
-          + "    paymentMethod: " + toIndentedString(paymentMethod) + TextConstants.LINE_BREAK
-          + "    reference: " + toIndentedString(reference) + TextConstants.LINE_BREAK
-          + "    recurringProcessingModel: " + toIndentedString(recurringProcessingModel) + TextConstants.LINE_BREAK + "  "
-          + "    returnUrl: " + toIndentedString(returnUrl) + TextConstants.LINE_BREAK
-          + "    sessionValidity: " + toIndentedString(sessionValidity) + TextConstants.LINE_BREAK
-          + "    shopperEmail: " + toIndentedString(shopperEmail) + TextConstants.LINE_BREAK
-          + "    shopperIP: " + toIndentedString(shopperIP) + TextConstants.LINE_BREAK
-          + "    shopperInteraction: " + toIndentedString(shopperInteraction) + TextConstants.LINE_BREAK
-          + "    shopperLocale: " + toIndentedString(shopperLocale) + TextConstants.LINE_BREAK
-          + "    shopperName: " + toIndentedString(shopperName) + TextConstants.LINE_BREAK
-          + "    shopperReference: " + toIndentedString(shopperReference) + TextConstants.LINE_BREAK
-          + "    shopperStatement: " + toIndentedString(shopperStatement) + TextConstants.LINE_BREAK
-          + "    socialSecurityNumber: " + toIndentedString(socialSecurityNumber) + TextConstants.LINE_BREAK
-          + "    deviceFingerprint: " + toIndentedString(deviceFingerprint) + TextConstants.LINE_BREAK
-          + "    applicationInfo: " + toIndentedString(applicationInfo) + TextConstants.LINE_BREAK
-          + "    telephoneNumber: " + toIndentedString(telephoneNumber) + TextConstants.LINE_BREAK
-          + "    accountInfo: " + toIndentedString(accountInfo) + TextConstants.LINE_BREAK
-          + "    trustedShopper: " + toIndentedString(trustedShopper) + TextConstants.LINE_BREAK
-          + "    splits: " + toIndentedString(splits) + TextConstants.LINE_BREAK
-          + "    merchantRiskIndicator: " + toIndentedString(merchantRiskIndicator) + TextConstants.LINE_BREAK
-          + "    threeDS2RequestData: " + toIndentedString(threeDS2RequestData) + TextConstants.LINE_BREAK
-          + "    trustedShopper: " + toIndentedString(trustedShopper) + TextConstants.LINE_BREAK
-          + "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + TextConstants.LINE_BREAK
-          + "    configId: " + toIndentedString(configId) + TextConstants.LINE_BREAK
-          + "    origin: " + toIndentedString(origin) + TextConstants.LINE_BREAK
-          + "    metadata: " + toIndentedString(metadata) + TextConstants.LINE_BREAK
-          + "    mpiData: " + toIndentedString(mpiData) + TextConstants.LINE_BREAK
-          + "    redirectFromIssuerMethod: " + toIndentedString(redirectFromIssuerMethod) + TextConstants.LINE_BREAK
-          + "    redirectToIssuerMethod: " + toIndentedString(redirectToIssuerMethod) + TextConstants.LINE_BREAK
-          + "    order: " + toIndentedString(order) + TextConstants.LINE_BREAK
-          + "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + TextConstants.LINE_BREAK
-          + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + TextConstants.LINE_BREAK
-          + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + TextConstants.LINE_BREAK
-          + "    selectedBrand: " + toIndentedString(selectedBrand) + TextConstants.LINE_BREAK
-          + "    store: " + toIndentedString(store) + TextConstants.LINE_BREAK
+          + LINE_BREAK
+          + "    additionalData: " + toIndentedString(additionalData) + LINE_BREAK
+          + "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + LINE_BREAK
+          + "    amount: " + toIndentedString(amount) + LINE_BREAK
+          + "    billingAddress: " + toIndentedString(billingAddress) + LINE_BREAK
+          + "    captureDelayHours: " + toIndentedString(captureDelayHours) + LINE_BREAK
+          + "    channel: " + toIndentedString(channel) + LINE_BREAK
+          + "    company: " + toIndentedString(company) + LINE_BREAK
+          + "    countryCode: " + toIndentedString(countryCode) + LINE_BREAK
+          + "    dateOfBirth: " + toIndentedString(dateOfBirth) + LINE_BREAK
+          + "    dccQuote: " + toIndentedString(dccQuote) + LINE_BREAK
+          + "    deliveryAddress: " + toIndentedString(deliveryAddress) + LINE_BREAK
+          + "    deliveryDate: " + toIndentedString(deliveryDate) + LINE_BREAK
+          + "    enableOneClick: " + toIndentedString(enableOneClick) + LINE_BREAK
+          + "    enablePayOut: " + toIndentedString(enablePayOut) + LINE_BREAK
+          + "    enableRecurring: " + toIndentedString(enableRecurring) + LINE_BREAK
+          + "    entityType: " + toIndentedString(entityType) + LINE_BREAK
+          + "    fraudOffset: " + toIndentedString(fraudOffset) + LINE_BREAK
+          + "    installments: " + toIndentedString(installments) + LINE_BREAK
+          + "    lineItems: " + toIndentedString(lineItems) + LINE_BREAK
+          + "    mcc: " + toIndentedString(mcc) + LINE_BREAK
+          + "    merchantAccount: " + toIndentedString(merchantAccount) + LINE_BREAK
+          + "    merchantOrderReference: " + toIndentedString(merchantOrderReference) + LINE_BREAK
+          + "    metadata: " + toIndentedString(metadata) + LINE_BREAK
+          + "    browserInfo: " + toIndentedString(browserInfo) + LINE_BREAK
+          + "    orderReference: " + toIndentedString(orderReference) + LINE_BREAK
+          + "    paymentMethod: " + toIndentedString(paymentMethod) + LINE_BREAK
+          + "    reference: " + toIndentedString(reference) + LINE_BREAK
+          + "    recurringProcessingModel: " + toIndentedString(recurringProcessingModel) + LINE_BREAK + "  "
+          + "    returnUrl: " + toIndentedString(returnUrl) + LINE_BREAK
+          + "    sessionValidity: " + toIndentedString(sessionValidity) + LINE_BREAK
+          + "    shopperEmail: " + toIndentedString(shopperEmail) + LINE_BREAK
+          + "    shopperIP: " + toIndentedString(shopperIP) + LINE_BREAK
+          + "    shopperInteraction: " + toIndentedString(shopperInteraction) + LINE_BREAK
+          + "    shopperLocale: " + toIndentedString(shopperLocale) + LINE_BREAK
+          + "    shopperName: " + toIndentedString(shopperName) + LINE_BREAK
+          + "    shopperReference: " + toIndentedString(shopperReference) + LINE_BREAK
+          + "    shopperStatement: " + toIndentedString(shopperStatement) + LINE_BREAK
+          + "    socialSecurityNumber: " + toIndentedString(socialSecurityNumber) + LINE_BREAK
+          + "    deviceFingerprint: " + toIndentedString(deviceFingerprint) + LINE_BREAK
+          + "    applicationInfo: " + toIndentedString(applicationInfo) + LINE_BREAK
+          + "    telephoneNumber: " + toIndentedString(telephoneNumber) + LINE_BREAK
+          + "    accountInfo: " + toIndentedString(accountInfo) + LINE_BREAK
+          + "    trustedShopper: " + toIndentedString(trustedShopper) + LINE_BREAK
+          + "    splits: " + toIndentedString(splits) + LINE_BREAK
+          + "    merchantRiskIndicator: " + toIndentedString(merchantRiskIndicator) + LINE_BREAK
+          + "    threeDS2RequestData: " + toIndentedString(threeDS2RequestData) + LINE_BREAK
+          + "    trustedShopper: " + toIndentedString(trustedShopper) + LINE_BREAK
+          + "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + LINE_BREAK
+          + "    configId: " + toIndentedString(configId) + LINE_BREAK
+          + "    origin: " + toIndentedString(origin) + LINE_BREAK
+          + "    metadata: " + toIndentedString(metadata) + LINE_BREAK
+          + "    mpiData: " + toIndentedString(mpiData) + LINE_BREAK
+          + "    redirectFromIssuerMethod: " + toIndentedString(redirectFromIssuerMethod) + LINE_BREAK
+          + "    redirectToIssuerMethod: " + toIndentedString(redirectToIssuerMethod) + LINE_BREAK
+          + "    order: " + toIndentedString(order) + LINE_BREAK
+          + "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + LINE_BREAK
+          + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + LINE_BREAK
+          + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + LINE_BREAK
+          + "    selectedBrand: " + toIndentedString(selectedBrand) + LINE_BREAK
+          + "    store: " + toIndentedString(store) + LINE_BREAK
           + "}";
     }
 

@@ -21,12 +21,12 @@
 
 package com.adyen.model.checkout.details;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -106,10 +106,10 @@ public class EntercashDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class EntercashDetails {").append(TextConstants.LINE_BREAK);
+        sb.append("class EntercashDetails {").append(LINE_BREAK);
 
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuer: ").append(toIndentedString(issuer)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

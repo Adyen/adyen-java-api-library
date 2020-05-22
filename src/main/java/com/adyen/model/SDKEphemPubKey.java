@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -119,12 +119,12 @@ public class SDKEphemPubKey {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SDKEphemPubKey {").append(TextConstants.LINE_BREAK);
+        sb.append("class SDKEphemPubKey {").append(LINE_BREAK);
 
-        sb.append("    crv: ").append(toIndentedString(crv)).append(TextConstants.LINE_BREAK);
-        sb.append("    kty: ").append(toIndentedString(kty)).append(TextConstants.LINE_BREAK);
-        sb.append("    x: ").append(toIndentedString(x)).append(TextConstants.LINE_BREAK);
-        sb.append("    y: ").append(toIndentedString(y)).append(TextConstants.LINE_BREAK);
+        sb.append("    crv: ").append(toIndentedString(crv)).append(LINE_BREAK);
+        sb.append("    kty: ").append(toIndentedString(kty)).append(LINE_BREAK);
+        sb.append("    x: ").append(toIndentedString(x)).append(LINE_BREAK);
+        sb.append("    y: ").append(toIndentedString(y)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

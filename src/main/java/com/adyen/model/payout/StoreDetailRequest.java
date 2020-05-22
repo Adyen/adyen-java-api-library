@@ -20,7 +20,6 @@
  */
 package com.adyen.model.payout;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
 import com.adyen.model.BankAccount;
 import com.adyen.model.Card;
@@ -33,6 +32,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Map;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -244,21 +244,21 @@ public class StoreDetailRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoreDetailRequest {").append(TextConstants.LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
-        sb.append("    card: ").append(toIndentedString(card)).append(TextConstants.LINE_BREAK);
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
-        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append(TextConstants.LINE_BREAK);
-        sb.append("    entityType: ").append(toIndentedString(entityType)).append(TextConstants.LINE_BREAK);
-        sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append(TextConstants.LINE_BREAK);
-        sb.append("    nationality: ").append(toIndentedString(nationality)).append(TextConstants.LINE_BREAK);
-        sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append(TextConstants.LINE_BREAK);
-        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("class StoreDetailRequest {").append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("    card: ").append(toIndentedString(card)).append(LINE_BREAK);
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(LINE_BREAK);
+        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append(LINE_BREAK);
+        sb.append("    entityType: ").append(toIndentedString(entityType)).append(LINE_BREAK);
+        sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append(LINE_BREAK);
+        sb.append("    nationality: ").append(toIndentedString(nationality)).append(LINE_BREAK);
+        sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append(LINE_BREAK);
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(LINE_BREAK);
+        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append(LINE_BREAK);
+        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

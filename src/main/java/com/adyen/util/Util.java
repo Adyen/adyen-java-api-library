@@ -34,6 +34,9 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.TimeZone;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.constants.TextConstants.LINE_BREAK_WITH_WHITESPACE;
+
 public final class Util {
     private Util() {
     }
@@ -144,7 +147,7 @@ public final class Util {
         if (Objects.isNull(o)) {
             return TextConstants.NULL;
         }
-        return o.toString().replace(TextConstants.LINE_BREAK, TextConstants.LINE_BREAK_WITH_WHITESPACE);
+        return o.toString().replace(LINE_BREAK, LINE_BREAK_WITH_WHITESPACE);
     }
 
     public static String calculateSessionValidity() {

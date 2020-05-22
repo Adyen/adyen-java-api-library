@@ -21,7 +21,6 @@
 
 package com.adyen.model.checkout.details;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,6 +32,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -147,10 +147,10 @@ public class PayPalDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayPalDetails {").append(TextConstants.LINE_BREAK);
+        sb.append("class PayPalDetails {").append(LINE_BREAK);
 
-        sb.append("    subtype: ").append(toIndentedString(subtype)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    subtype: ").append(toIndentedString(subtype)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

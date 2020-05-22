@@ -20,7 +20,6 @@
  */
 package com.adyen.model.modification;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Split;
 import com.adyen.model.ThreeDSecureData;
 import com.adyen.model.additionalData.InvoiceLine;
@@ -34,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -332,16 +332,16 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("    reference: ").append(toIndentedString(reference)).append(TextConstants.LINE_BREAK);
-        sb.append("    authorisationCode: ").append(toIndentedString(authorisationCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
-        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append(TextConstants.LINE_BREAK);
-        sb.append("    originalMerchantReference: ").append(toIndentedString(originalMerchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    tenderReference: ").append(toIndentedString(tenderReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    uniqueTerminalId: ").append(toIndentedString(uniqueTerminalId)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(LINE_BREAK);
+        sb.append("    authorisationCode: ").append(toIndentedString(authorisationCode)).append(LINE_BREAK);
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append(LINE_BREAK);
+        sb.append("    originalMerchantReference: ").append(toIndentedString(originalMerchantReference)).append(LINE_BREAK);
+        sb.append("    tenderReference: ").append(toIndentedString(tenderReference)).append(LINE_BREAK);
+        sb.append("    uniqueTerminalId: ").append(toIndentedString(uniqueTerminalId)).append(LINE_BREAK);
 
         return sb.toString();
     }

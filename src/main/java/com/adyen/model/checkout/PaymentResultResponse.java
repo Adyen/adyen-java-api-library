@@ -21,7 +21,6 @@
 
 package com.adyen.model.checkout;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.FraudResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -35,6 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -309,18 +309,18 @@ public class PaymentResultResponse {
     @Override
     public String toString() {
         return "class PaymentResultResponse {"
-                + TextConstants.LINE_BREAK
-                + "    additionalData: " + toIndentedString(additionalData) + TextConstants.LINE_BREAK
-                + "    authResponse: " + toIndentedString(authResponse) + TextConstants.LINE_BREAK
-                + "    fraudResult: " + toIndentedString(fraudResult) + TextConstants.LINE_BREAK
-                + "    merchantReference: " + toIndentedString(merchantReference) + TextConstants.LINE_BREAK
-                + "    paymentMethod: " + toIndentedString(paymentMethod) + TextConstants.LINE_BREAK
-                + "    pspReference: " + toIndentedString(pspReference) + TextConstants.LINE_BREAK
-                + "    refusalReason: " + toIndentedString(refusalReason) + TextConstants.LINE_BREAK
-                + "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + TextConstants.LINE_BREAK
-                + "    resultCode: " + toIndentedString(resultCode) + TextConstants.LINE_BREAK
-                + "    serviceError: " + toIndentedString(serviceError) + TextConstants.LINE_BREAK
-                + "    shopperLocale: " + toIndentedString(shopperLocale) + TextConstants.LINE_BREAK
+                + LINE_BREAK
+                + "    additionalData: " + toIndentedString(additionalData) + LINE_BREAK
+                + "    authResponse: " + toIndentedString(authResponse) + LINE_BREAK
+                + "    fraudResult: " + toIndentedString(fraudResult) + LINE_BREAK
+                + "    merchantReference: " + toIndentedString(merchantReference) + LINE_BREAK
+                + "    paymentMethod: " + toIndentedString(paymentMethod) + LINE_BREAK
+                + "    pspReference: " + toIndentedString(pspReference) + LINE_BREAK
+                + "    refusalReason: " + toIndentedString(refusalReason) + LINE_BREAK
+                + "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + LINE_BREAK
+                + "    resultCode: " + toIndentedString(resultCode) + LINE_BREAK
+                + "    serviceError: " + toIndentedString(serviceError) + LINE_BREAK
+                + "    shopperLocale: " + toIndentedString(shopperLocale) + LINE_BREAK
                 + "}";
     }
 

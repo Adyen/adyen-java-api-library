@@ -21,13 +21,13 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
 import com.adyen.model.Name;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -244,17 +244,17 @@ public class ShareholderContact {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShareholderContact {").append(TextConstants.LINE_BREAK);
+    sb.append("class ShareholderContact {").append(LINE_BREAK);
 
-    sb.append("    address: ").append(toIndentedString(address)).append(TextConstants.LINE_BREAK);
-    sb.append("    email: ").append(toIndentedString(email)).append(TextConstants.LINE_BREAK);
-    sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append(TextConstants.LINE_BREAK);
-    sb.append("    name: ").append(toIndentedString(name)).append(TextConstants.LINE_BREAK);
-    sb.append("    personalData: ").append(toIndentedString(personalData)).append(TextConstants.LINE_BREAK);
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(TextConstants.LINE_BREAK);
-    sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append(TextConstants.LINE_BREAK);
-    sb.append("    shareholderReference: ").append(toIndentedString(shareholderReference)).append(TextConstants.LINE_BREAK);
-    sb.append("    webAddress: ").append(toIndentedString(webAddress)).append(TextConstants.LINE_BREAK);
+    sb.append("    address: ").append(toIndentedString(address)).append(LINE_BREAK);
+    sb.append("    email: ").append(toIndentedString(email)).append(LINE_BREAK);
+    sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append(LINE_BREAK);
+    sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
+    sb.append("    personalData: ").append(toIndentedString(personalData)).append(LINE_BREAK);
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(LINE_BREAK);
+    sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append(LINE_BREAK);
+    sb.append("    shareholderReference: ").append(toIndentedString(shareholderReference)).append(LINE_BREAK);
+    sb.append("    webAddress: ").append(toIndentedString(webAddress)).append(LINE_BREAK);
     sb.append("}");
     return sb.toString();
   }

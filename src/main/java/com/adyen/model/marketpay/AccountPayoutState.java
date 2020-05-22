@@ -21,12 +21,12 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -186,14 +186,14 @@ public class AccountPayoutState {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountPayoutState {").append(TextConstants.LINE_BREAK);
+        sb.append("class AccountPayoutState {").append(LINE_BREAK);
 
-        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append(TextConstants.LINE_BREAK);
-        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append(TextConstants.LINE_BREAK);
-        sb.append("    disabled: ").append(toIndentedString(disabled)).append(TextConstants.LINE_BREAK);
-        sb.append("    notAllowedReason: ").append(toIndentedString(notAllowedReason)).append(TextConstants.LINE_BREAK);
-        sb.append("    payoutLimit: ").append(toIndentedString(payoutLimit)).append(TextConstants.LINE_BREAK);
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append(LINE_BREAK);
+        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append(LINE_BREAK);
+        sb.append("    disabled: ").append(toIndentedString(disabled)).append(LINE_BREAK);
+        sb.append("    notAllowedReason: ").append(toIndentedString(notAllowedReason)).append(LINE_BREAK);
+        sb.append("    payoutLimit: ").append(toIndentedString(payoutLimit)).append(LINE_BREAK);
+        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

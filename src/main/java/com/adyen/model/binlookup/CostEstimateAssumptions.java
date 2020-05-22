@@ -20,11 +20,11 @@
  */
 package com.adyen.model.binlookup;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -121,11 +121,11 @@ public class CostEstimateAssumptions {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CostEstimateAssumptions {").append(TextConstants.LINE_BREAK);
+        sb.append("class CostEstimateAssumptions {").append(LINE_BREAK);
 
-        sb.append("    assume3DSecureAuthenticated: ").append(toIndentedString(assume3DSecureAuthenticated)).append(TextConstants.LINE_BREAK);
-        sb.append("    assumeLevel3Data: ").append(toIndentedString(assumeLevel3Data)).append(TextConstants.LINE_BREAK);
-        sb.append("    installments: ").append(toIndentedString(installments)).append(TextConstants.LINE_BREAK);
+        sb.append("    assume3DSecureAuthenticated: ").append(toIndentedString(assume3DSecureAuthenticated)).append(LINE_BREAK);
+        sb.append("    assumeLevel3Data: ").append(toIndentedString(assumeLevel3Data)).append(LINE_BREAK);
+        sb.append("    installments: ").append(toIndentedString(installments)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -20,7 +20,6 @@
  */
 package com.adyen.model.recurring;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.serializer.DateSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,6 +32,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -228,12 +228,12 @@ public class Recurring {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Recurring {").append(TextConstants.LINE_BREAK);
-        sb.append("    contract: ").append(toIndentedString(contract)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurringDetailName: ").append(toIndentedString(recurringDetailName)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append(TextConstants.LINE_BREAK);
-        sb.append("    tokenService: ").append(toIndentedString(tokenService)).append(TextConstants.LINE_BREAK);
+        sb.append("class Recurring {").append(LINE_BREAK);
+        sb.append("    contract: ").append(toIndentedString(contract)).append(LINE_BREAK);
+        sb.append("    recurringDetailName: ").append(toIndentedString(recurringDetailName)).append(LINE_BREAK);
+        sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append(LINE_BREAK);
+        sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append(LINE_BREAK);
+        sb.append("    tokenService: ").append(toIndentedString(tokenService)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

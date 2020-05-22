@@ -20,11 +20,11 @@
  */
 package com.adyen.model.payout;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 public class SubmitResponse {
@@ -75,11 +75,11 @@ public class SubmitResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SubmitResponse {").append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append(TextConstants.LINE_BREAK);
+        sb.append("class SubmitResponse {").append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
+        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

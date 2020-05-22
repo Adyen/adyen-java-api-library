@@ -20,11 +20,11 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -118,11 +118,11 @@ public class SetupBeneficiaryRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SetupBeneficiaryRequest {").append(TextConstants.LINE_BREAK);
+        sb.append("class SetupBeneficiaryRequest {").append(LINE_BREAK);
 
-        sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append(LINE_BREAK);
+        sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append(LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

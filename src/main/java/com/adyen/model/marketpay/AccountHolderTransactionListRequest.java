@@ -20,13 +20,13 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -195,11 +195,11 @@ public class AccountHolderTransactionListRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderTransactionListRequest {").append(TextConstants.LINE_BREAK);
+        sb.append("class AccountHolderTransactionListRequest {").append(LINE_BREAK);
 
-        sb.append("    transactionListsPerAccount: ").append(toIndentedString(transactionListsPerAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    transactionStatuses: ").append(toIndentedString(transactionStatuses)).append(TextConstants.LINE_BREAK);
+        sb.append("    transactionListsPerAccount: ").append(toIndentedString(transactionListsPerAccount)).append(LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(LINE_BREAK);
+        sb.append("    transactionStatuses: ").append(toIndentedString(transactionStatuses)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

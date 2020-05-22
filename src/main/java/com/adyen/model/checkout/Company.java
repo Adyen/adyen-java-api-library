@@ -21,11 +21,11 @@
 
 package com.adyen.model.checkout;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -190,14 +190,14 @@ public class Company {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Company {").append(TextConstants.LINE_BREAK);
+        sb.append("class Company {").append(LINE_BREAK);
 
-        sb.append("    homepage: ").append(toIndentedString(homepage)).append(TextConstants.LINE_BREAK);
-        sb.append("    name: ").append(toIndentedString(name)).append(TextConstants.LINE_BREAK);
-        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    registryLocation: ").append(toIndentedString(registryLocation)).append(TextConstants.LINE_BREAK);
-        sb.append("    taxId: ").append(toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    homepage: ").append(toIndentedString(homepage)).append(LINE_BREAK);
+        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
+        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append(LINE_BREAK);
+        sb.append("    registryLocation: ").append(toIndentedString(registryLocation)).append(LINE_BREAK);
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

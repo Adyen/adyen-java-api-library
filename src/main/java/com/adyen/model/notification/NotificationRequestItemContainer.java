@@ -20,9 +20,9 @@
  */
 package com.adyen.model.notification;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -43,9 +43,9 @@ public class NotificationRequestItemContainer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationRequestItemContainer {").append(TextConstants.LINE_BREAK);
+        sb.append("class NotificationRequestItemContainer {").append(LINE_BREAK);
 
-        sb.append("    notificationItem: ").append(toIndentedString(notificationItem)).append(TextConstants.LINE_BREAK);
+        sb.append("    notificationItem: ").append(toIndentedString(notificationItem)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

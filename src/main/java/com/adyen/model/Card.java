@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -228,16 +228,16 @@ public class Card {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Card {").append(TextConstants.LINE_BREAK);
+        sb.append("class Card {").append(LINE_BREAK);
 
-        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append(TextConstants.LINE_BREAK);
-        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append(TextConstants.LINE_BREAK);
-        sb.append("    cvc: ").append(toIndentedString(cvc)).append(TextConstants.LINE_BREAK);
-        sb.append("    holderName: ").append(toIndentedString(holderName)).append(TextConstants.LINE_BREAK);
-        sb.append("    issueNumber: ").append(toIndentedString(issueNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    number: ").append(toIndentedString(number)).append(TextConstants.LINE_BREAK);
-        sb.append("    startMonth: ").append(toIndentedString(startMonth)).append(TextConstants.LINE_BREAK);
-        sb.append("    startYear: ").append(toIndentedString(startYear)).append(TextConstants.LINE_BREAK);
+        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append(LINE_BREAK);
+        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append(LINE_BREAK);
+        sb.append("    cvc: ").append(toIndentedString(cvc)).append(LINE_BREAK);
+        sb.append("    holderName: ").append(toIndentedString(holderName)).append(LINE_BREAK);
+        sb.append("    issueNumber: ").append(toIndentedString(issueNumber)).append(LINE_BREAK);
+        sb.append("    number: ").append(toIndentedString(number)).append(LINE_BREAK);
+        sb.append("    startMonth: ").append(toIndentedString(startMonth)).append(LINE_BREAK);
+        sb.append("    startYear: ").append(toIndentedString(startYear)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

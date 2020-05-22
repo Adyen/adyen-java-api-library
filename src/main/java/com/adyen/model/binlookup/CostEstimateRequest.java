@@ -20,7 +20,6 @@
  */
 package com.adyen.model.binlookup;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -32,6 +31,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -348,18 +348,18 @@ public class CostEstimateRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CostEstimateRequest {").append(TextConstants.LINE_BREAK);
+        sb.append("class CostEstimateRequest {").append(LINE_BREAK);
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    assumptions: ").append(toIndentedString(assumptions)).append(TextConstants.LINE_BREAK);
-        sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    encryptedCard: ").append(toIndentedString(encryptedCard)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantDetails: ").append(toIndentedString(merchantDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append(TextConstants.LINE_BREAK);
-        sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("    assumptions: ").append(toIndentedString(assumptions)).append(LINE_BREAK);
+        sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append(LINE_BREAK);
+        sb.append("    encryptedCard: ").append(toIndentedString(encryptedCard)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    merchantDetails: ").append(toIndentedString(merchantDetails)).append(LINE_BREAK);
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append(LINE_BREAK);
+        sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append(LINE_BREAK);
+        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

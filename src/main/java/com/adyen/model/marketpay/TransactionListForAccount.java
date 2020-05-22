@@ -20,11 +20,11 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -95,10 +95,10 @@ public class TransactionListForAccount {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionListForAccount {").append(TextConstants.LINE_BREAK);
+        sb.append("class TransactionListForAccount {").append(LINE_BREAK);
 
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    page: ").append(toIndentedString(page)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append(LINE_BREAK);
+        sb.append("    page: ").append(toIndentedString(page)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

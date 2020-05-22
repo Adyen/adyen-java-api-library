@@ -20,7 +20,6 @@
  */
 package com.adyen.model.checkout;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -33,6 +32,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -610,31 +610,31 @@ public class CheckoutPaymentsAction {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CheckoutPaymentsAction {").append(TextConstants.LINE_BREAK);
+        sb.append("class CheckoutPaymentsAction {").append(LINE_BREAK);
 
-        sb.append("    alternativeReference: ").append(toIndentedString(alternativeReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    data: ").append(toIndentedString(data)).append(TextConstants.LINE_BREAK);
-        sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append(TextConstants.LINE_BREAK);
-        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append(TextConstants.LINE_BREAK);
-        sb.append("    entity: ").append(toIndentedString(entity)).append(TextConstants.LINE_BREAK);
-        sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    instructionsUrl: ").append(toIndentedString(instructionsUrl)).append(TextConstants.LINE_BREAK);
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append(TextConstants.LINE_BREAK);
-        sb.append("    maskedTelephoneNumber: ").append(toIndentedString(maskedTelephoneNumber)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantName: ").append(toIndentedString(merchantName)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    method: ").append(toIndentedString(method)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
-        sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append(TextConstants.LINE_BREAK);
-        sb.append("    qrCodeData: ").append(toIndentedString(qrCodeData)).append(TextConstants.LINE_BREAK);
-        sb.append("    reference: ").append(toIndentedString(reference)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append(TextConstants.LINE_BREAK);
-        sb.append("    surcharge: ").append(toIndentedString(surcharge)).append(TextConstants.LINE_BREAK);
-        sb.append("    token: ").append(toIndentedString(token)).append(TextConstants.LINE_BREAK);
-        sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(TextConstants.LINE_BREAK);
-        sb.append("    url: ").append(toIndentedString(url)).append(TextConstants.LINE_BREAK);
+        sb.append("    alternativeReference: ").append(toIndentedString(alternativeReference)).append(LINE_BREAK);
+        sb.append("    data: ").append(toIndentedString(data)).append(LINE_BREAK);
+        sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append(LINE_BREAK);
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append(LINE_BREAK);
+        sb.append("    entity: ").append(toIndentedString(entity)).append(LINE_BREAK);
+        sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append(LINE_BREAK);
+        sb.append("    instructionsUrl: ").append(toIndentedString(instructionsUrl)).append(LINE_BREAK);
+        sb.append("    issuer: ").append(toIndentedString(issuer)).append(LINE_BREAK);
+        sb.append("    maskedTelephoneNumber: ").append(toIndentedString(maskedTelephoneNumber)).append(LINE_BREAK);
+        sb.append("    merchantName: ").append(toIndentedString(merchantName)).append(LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(LINE_BREAK);
+        sb.append("    method: ").append(toIndentedString(method)).append(LINE_BREAK);
+        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append(LINE_BREAK);
+        sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append(LINE_BREAK);
+        sb.append("    qrCodeData: ").append(toIndentedString(qrCodeData)).append(LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(LINE_BREAK);
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(LINE_BREAK);
+        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append(LINE_BREAK);
+        sb.append("    surcharge: ").append(toIndentedString(surcharge)).append(LINE_BREAK);
+        sb.append("    token: ").append(toIndentedString(token)).append(LINE_BREAK);
+        sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
+        sb.append("    url: ").append(toIndentedString(url)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

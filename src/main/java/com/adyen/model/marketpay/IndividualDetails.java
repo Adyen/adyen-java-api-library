@@ -20,12 +20,12 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Name;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -96,10 +96,10 @@ public class IndividualDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class IndividualDetails {").append(TextConstants.LINE_BREAK);
+        sb.append("class IndividualDetails {").append(LINE_BREAK);
 
-        sb.append("    personalData: ").append(toIndentedString(personalData)).append(TextConstants.LINE_BREAK);
-        sb.append("    name: ").append(toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    personalData: ").append(toIndentedString(personalData)).append(LINE_BREAK);
+        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

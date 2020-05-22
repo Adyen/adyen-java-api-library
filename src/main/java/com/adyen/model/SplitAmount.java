@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -84,10 +84,10 @@ public class SplitAmount {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SplitAmount {").append(TextConstants.LINE_BREAK);
+        sb.append("class SplitAmount {").append(LINE_BREAK);
 
-        sb.append("    currency: ").append(toIndentedString(currency)).append(TextConstants.LINE_BREAK);
-        sb.append("    value: ").append(toIndentedString(value)).append(TextConstants.LINE_BREAK);
+        sb.append("    currency: ").append(toIndentedString(currency)).append(LINE_BREAK);
+        sb.append("    value: ").append(toIndentedString(value)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

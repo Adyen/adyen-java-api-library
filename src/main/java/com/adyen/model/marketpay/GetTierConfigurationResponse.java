@@ -20,13 +20,13 @@
  */
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -125,11 +125,11 @@ public class GetTierConfigurationResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetTierConfigurationResponse {").append(TextConstants.LINE_BREAK);
+        sb.append("class GetTierConfigurationResponse {").append(LINE_BREAK);
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append(TextConstants.LINE_BREAK);
-        sb.append("    tierConfiguration: ").append(toIndentedString(tierConfiguration)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append(LINE_BREAK);
+        sb.append("    tierConfiguration: ").append(toIndentedString(tierConfiguration)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

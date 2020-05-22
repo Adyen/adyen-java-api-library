@@ -20,11 +20,11 @@
  */
 package com.adyen.model.binlookup;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -121,11 +121,11 @@ public class MerchantDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MerchantDetails {").append(TextConstants.LINE_BREAK);
+        sb.append("class MerchantDetails {").append(LINE_BREAK);
 
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    enrolledIn3DSecure: ").append(toIndentedString(enrolledIn3DSecure)).append(TextConstants.LINE_BREAK);
-        sb.append("    mcc: ").append(toIndentedString(mcc)).append(TextConstants.LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(LINE_BREAK);
+        sb.append("    enrolledIn3DSecure: ").append(toIndentedString(enrolledIn3DSecure)).append(LINE_BREAK);
+        sb.append("    mcc: ").append(toIndentedString(mcc)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

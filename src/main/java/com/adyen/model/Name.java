@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -162,12 +162,12 @@ public class Name {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Name {").append(TextConstants.LINE_BREAK);
+        sb.append("class Name {").append(LINE_BREAK);
 
-        sb.append("    infix: ").append(toIndentedString(infix)).append(TextConstants.LINE_BREAK);
-        sb.append("    gender: ").append(toIndentedString(gender)).append(TextConstants.LINE_BREAK);
-        sb.append("    lastName: ").append(toIndentedString(lastName)).append(TextConstants.LINE_BREAK);
-        sb.append("    firstName: ").append(toIndentedString(firstName)).append(TextConstants.LINE_BREAK);
+        sb.append("    infix: ").append(toIndentedString(infix)).append(LINE_BREAK);
+        sb.append("    gender: ").append(toIndentedString(gender)).append(LINE_BREAK);
+        sb.append("    lastName: ").append(toIndentedString(lastName)).append(LINE_BREAK);
+        sb.append("    firstName: ").append(toIndentedString(firstName)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

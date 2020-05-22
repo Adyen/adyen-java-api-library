@@ -20,7 +20,6 @@
  */
 package com.adyen.model.modification;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Split;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.google.gson.annotations.SerializedName;
@@ -29,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -163,12 +163,12 @@ public class ModificationResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ModificationResult {").append(TextConstants.LINE_BREAK);
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append(TextConstants.LINE_BREAK);
-        sb.append("    splits: ").append(toIndentedString(splits)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    response: ").append(toIndentedString(response)).append(TextConstants.LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("class ModificationResult {").append(LINE_BREAK);
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append(LINE_BREAK);
+        sb.append("    splits: ").append(toIndentedString(splits)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    response: ").append(toIndentedString(response)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -22,7 +22,6 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -35,6 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -357,19 +357,19 @@ public class CreateAccountHolderResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateAccountHolderResponse {").append(TextConstants.LINE_BREAK);
+        sb.append("class CreateAccountHolderResponse {").append(LINE_BREAK);
 
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append(TextConstants.LINE_BREAK);
-        sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
-        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append(TextConstants.LINE_BREAK);
-        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    verification: ").append(toIndentedString(verification)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append(LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(LINE_BREAK);
+        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append(LINE_BREAK);
+        sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append(LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(LINE_BREAK);
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append(LINE_BREAK);
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
+        sb.append("    verification: ").append(toIndentedString(verification)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

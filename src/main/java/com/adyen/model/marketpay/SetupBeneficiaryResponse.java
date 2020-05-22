@@ -21,13 +21,13 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -130,11 +130,11 @@ public class SetupBeneficiaryResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SetupBeneficiaryResponse {").append(TextConstants.LINE_BREAK);
+        sb.append("class SetupBeneficiaryResponse {").append(LINE_BREAK);
 
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

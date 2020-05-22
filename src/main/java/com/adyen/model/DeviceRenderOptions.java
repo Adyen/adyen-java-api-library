@@ -22,7 +22,6 @@
 
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -35,6 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -196,10 +196,10 @@ public class DeviceRenderOptions {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeviceRenderOptions {").append(TextConstants.LINE_BREAK);
+        sb.append("class DeviceRenderOptions {").append(LINE_BREAK);
 
-        sb.append("    sdkInterface: ").append(toIndentedString(sdkInterface)).append(TextConstants.LINE_BREAK);
-        sb.append("    sdkUiType: ").append(toIndentedString(sdkUiType)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkInterface: ").append(toIndentedString(sdkInterface)).append(LINE_BREAK);
+        sb.append("    sdkUiType: ").append(toIndentedString(sdkUiType)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -20,7 +20,6 @@
  */
 package com.adyen.model.checkout;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
@@ -29,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -402,23 +402,23 @@ public class CreatePaymentLinkRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreatePaymentLinkRequest {").append(TextConstants.LINE_BREAK);
+        sb.append("class CreatePaymentLinkRequest {").append(LINE_BREAK);
 
-        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    amount: ").append(toIndentedString(amount)).append(TextConstants.LINE_BREAK);
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
-        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append(TextConstants.LINE_BREAK);
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append(TextConstants.LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
-        sb.append("    reference: ").append(toIndentedString(reference)).append(TextConstants.LINE_BREAK);
-        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append(TextConstants.LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
-        sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append(TextConstants.LINE_BREAK);
+        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append(LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(LINE_BREAK);
+        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append(LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(LINE_BREAK);
+        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append(LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(LINE_BREAK);
+        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append(LINE_BREAK);
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(LINE_BREAK);
+        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

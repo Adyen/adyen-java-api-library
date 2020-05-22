@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -423,20 +423,20 @@ public class NotificationConfigurationDetails {
         // Populate the eventConfigs list to provide back in the toString() method
         this.getEventConfigs();
         StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationConfigurationDetails {").append(TextConstants.LINE_BREAK);
+        sb.append("class NotificationConfigurationDetails {").append(LINE_BREAK);
 
-        sb.append("    settings: ").append(toIndentedString(settings)).append(TextConstants.LINE_BREAK);
-        sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append(TextConstants.LINE_BREAK);
-        sb.append("    eventConfigs: ").append(toIndentedString(eventConfigs)).append(TextConstants.LINE_BREAK);
-        sb.append("    messageFormat: ").append(toIndentedString(messageFormat)).append(TextConstants.LINE_BREAK);
-        sb.append("    notifyUsername: ").append(toIndentedString(notifyUsername)).append(TextConstants.LINE_BREAK);
-        sb.append("    sslProtocol: ").append(toIndentedString(sslProtocol)).append(TextConstants.LINE_BREAK);
-        sb.append("    notifyURL: ").append(toIndentedString(notifyURL)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    active: ").append(toIndentedString(active)).append(TextConstants.LINE_BREAK);
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append(TextConstants.LINE_BREAK);
-        sb.append("    sendActionHeader: ").append(toIndentedString(sendActionHeader)).append(TextConstants.LINE_BREAK);
-        sb.append("    notifyPassword: ").append(toIndentedString(notifyPassword)).append(TextConstants.LINE_BREAK);
+        sb.append("    settings: ").append(toIndentedString(settings)).append(LINE_BREAK);
+        sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append(LINE_BREAK);
+        sb.append("    eventConfigs: ").append(toIndentedString(eventConfigs)).append(LINE_BREAK);
+        sb.append("    messageFormat: ").append(toIndentedString(messageFormat)).append(LINE_BREAK);
+        sb.append("    notifyUsername: ").append(toIndentedString(notifyUsername)).append(LINE_BREAK);
+        sb.append("    sslProtocol: ").append(toIndentedString(sslProtocol)).append(LINE_BREAK);
+        sb.append("    notifyURL: ").append(toIndentedString(notifyURL)).append(LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    active: ").append(toIndentedString(active)).append(LINE_BREAK);
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append(LINE_BREAK);
+        sb.append("    sendActionHeader: ").append(toIndentedString(sendActionHeader)).append(LINE_BREAK);
+        sb.append("    notifyPassword: ").append(toIndentedString(notifyPassword)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

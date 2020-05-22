@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -262,18 +262,18 @@ public class ThreeDS2Result {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDS2Result {").append(TextConstants.LINE_BREAK);
+        sb.append("class ThreeDS2Result {").append(LINE_BREAK);
 
-        sb.append("    authenticationValue: ").append(toIndentedString(authenticationValue)).append(TextConstants.LINE_BREAK);
-        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
-        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append(TextConstants.LINE_BREAK);
-        sb.append("    eci: ").append(toIndentedString(eci)).append(TextConstants.LINE_BREAK);
-        sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append(TextConstants.LINE_BREAK);
-        sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append(TextConstants.LINE_BREAK);
-        sb.append("    timestamp: ").append(toIndentedString(timestamp)).append(TextConstants.LINE_BREAK);
-        sb.append("    transStatus: ").append(toIndentedString(transStatus)).append(TextConstants.LINE_BREAK);
-        sb.append("    transStatusReason: ").append(toIndentedString(transStatusReason)).append(TextConstants.LINE_BREAK);
-        sb.append("    whiteListStatus: ").append(toIndentedString(whiteListStatus)).append(TextConstants.LINE_BREAK);
+        sb.append("    authenticationValue: ").append(toIndentedString(authenticationValue)).append(LINE_BREAK);
+        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append(LINE_BREAK);
+        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append(LINE_BREAK);
+        sb.append("    eci: ").append(toIndentedString(eci)).append(LINE_BREAK);
+        sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append(LINE_BREAK);
+        sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append(LINE_BREAK);
+        sb.append("    timestamp: ").append(toIndentedString(timestamp)).append(LINE_BREAK);
+        sb.append("    transStatus: ").append(toIndentedString(transStatus)).append(LINE_BREAK);
+        sb.append("    transStatusReason: ").append(toIndentedString(transStatusReason)).append(LINE_BREAK);
+        sb.append("    whiteListStatus: ").append(toIndentedString(whiteListStatus)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -20,11 +20,11 @@
  */
 package com.adyen.model;
 
-import com.adyen.constants.TextConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -184,14 +184,14 @@ public class Address {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Address {").append(TextConstants.LINE_BREAK);
+        sb.append("class Address {").append(LINE_BREAK);
 
-        sb.append("    city: ").append(toIndentedString(city)).append(TextConstants.LINE_BREAK);
-        sb.append("    country: ").append(toIndentedString(country)).append(TextConstants.LINE_BREAK);
-        sb.append("    houseNumberOrName: ").append(toIndentedString(houseNumberOrName)).append(TextConstants.LINE_BREAK);
-        sb.append("    postalCode: ").append(toIndentedString(postalCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append(TextConstants.LINE_BREAK);
-        sb.append("    street: ").append(toIndentedString(street)).append(TextConstants.LINE_BREAK);
+        sb.append("    city: ").append(toIndentedString(city)).append(LINE_BREAK);
+        sb.append("    country: ").append(toIndentedString(country)).append(LINE_BREAK);
+        sb.append("    houseNumberOrName: ").append(toIndentedString(houseNumberOrName)).append(LINE_BREAK);
+        sb.append("    postalCode: ").append(toIndentedString(postalCode)).append(LINE_BREAK);
+        sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append(LINE_BREAK);
+        sb.append("    street: ").append(toIndentedString(street)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

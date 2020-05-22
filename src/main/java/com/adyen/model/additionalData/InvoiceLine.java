@@ -20,9 +20,9 @@
  */
 package com.adyen.model.additionalData;
 
-import com.adyen.constants.TextConstants;
 import com.adyen.enums.VatCategory;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
 import static com.adyen.util.Util.toIndentedString;
 
 
@@ -104,15 +104,15 @@ public class InvoiceLine {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InvoiceLine {").append(TextConstants.LINE_BREAK);
-        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append(TextConstants.LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(TextConstants.LINE_BREAK);
-        sb.append("    itemAmount: ").append(toIndentedString(itemAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    itemVATAmount: ").append(toIndentedString(itemVATAmount)).append(TextConstants.LINE_BREAK);
-        sb.append("    itemVatPercentage: ").append(toIndentedString(itemVatPercentage)).append(TextConstants.LINE_BREAK);
-        sb.append("    numberOfItems: ").append(toIndentedString(numberOfItems)).append(TextConstants.LINE_BREAK);
-        sb.append("    vatCategory: ").append(toIndentedString(vatCategory)).append(TextConstants.LINE_BREAK);
-        sb.append("    itemId: ").append(toIndentedString(itemId)).append(TextConstants.LINE_BREAK);
+        sb.append("class InvoiceLine {").append(LINE_BREAK);
+        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append(LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    itemAmount: ").append(toIndentedString(itemAmount)).append(LINE_BREAK);
+        sb.append("    itemVATAmount: ").append(toIndentedString(itemVATAmount)).append(LINE_BREAK);
+        sb.append("    itemVatPercentage: ").append(toIndentedString(itemVatPercentage)).append(LINE_BREAK);
+        sb.append("    numberOfItems: ").append(toIndentedString(numberOfItems)).append(LINE_BREAK);
+        sb.append("    vatCategory: ").append(toIndentedString(vatCategory)).append(LINE_BREAK);
+        sb.append("    itemId: ").append(toIndentedString(itemId)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
