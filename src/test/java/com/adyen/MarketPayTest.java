@@ -32,6 +32,7 @@ import com.adyen.model.marketpay.*;
 import com.adyen.service.Account;
 import com.adyen.service.Fund;
 import com.adyen.service.Payment;
+import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -794,5 +795,39 @@ public class MarketPayTest extends BaseTest {
         assertEquals("MerchantReference required", refundFundsTransferResponse.getInvalidFields().get(0).getErrorDescription());
         assertNotNull(refundFundsTransferResponse.getInvalidFields().get(0).getFieldType());
         assertEquals("merchantReference", refundFundsTransferResponse.getInvalidFields().get(0).getFieldType().getField());
+    }
+
+    @Test
+    public void TestTransferFundsErrorInvalid() throws Exception {
+        // setup client
+        Client client = createMockClientForErrors(400, "mocks/marketpay/fund/transfer-funds-error-invalid-fields.json");
+
+        // use Fund service
+        Fund fund = new Fund(client);
+
+        // create TransferFunds Request
+        TransferFundsRequest transferFundsRequest = new TransferFundsRequest();
+        transferFundsRequest.setSourceAccountCode("invalidSourceAccount");
+        transferFundsRequest.setDestinationAccountCode("invalidDestinationAccount");
+
+        // create Amount
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(2000L);
+        transferFundsRequest.setAmount(amount);
+
+        transferFundsRequest.setTransferCode("CODE_A");
+
+        try {
+            fund.transferFunds(transferFundsRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertEquals("8515898092864171", e.getError().getPspReference());
+            List<ErrorFieldType> invalidFieldsList = e.getError().getInvalidFields();
+            assertEquals(2, invalidFieldsList.size());
+            assertEquals(new Integer(29), invalidFieldsList.get(0).getErrorCode());
+            assertEquals("Account code does not exist or invalid", invalidFieldsList.get(0).getErrorDescription());
+        }
+
     }
 }
