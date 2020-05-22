@@ -54,7 +54,7 @@ public class CloseAccountHolderRequest {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         CloseAccountHolderRequest closeAccountHolderRequest = (CloseAccountHolderRequest) o;
@@ -82,7 +82,7 @@ public class CloseAccountHolderRequest {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

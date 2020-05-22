@@ -237,7 +237,7 @@ public class PaymentMethod {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         PaymentMethod paymentMethod = (PaymentMethod) o;
@@ -278,7 +278,7 @@ public class PaymentMethod {
      * (except the first line).
      */
     private static String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

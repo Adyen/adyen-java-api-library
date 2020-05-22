@@ -69,7 +69,7 @@ public class OriginKeysResponse {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         OriginKeysResponse originKeysResponse = (OriginKeysResponse) o;
@@ -96,7 +96,7 @@ public class OriginKeysResponse {
      * (except the first line).
      */
     private static String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

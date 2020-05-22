@@ -353,7 +353,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         PaymentRequest paymentRequest = (PaymentRequest) o;
@@ -399,7 +399,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

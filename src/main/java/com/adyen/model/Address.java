@@ -20,8 +20,9 @@
  */
 package com.adyen.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * Address
@@ -159,7 +160,7 @@ public class Address {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         Address address = (Address) o;
@@ -197,7 +198,7 @@ public class Address {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

@@ -320,7 +320,7 @@ public class PaymentResult {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         PaymentResult paymentResult = (PaymentResult) o;
@@ -368,7 +368,7 @@ public class PaymentResult {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
@@ -391,7 +391,7 @@ public class PaymentResult {
     }
 
     public String getAdditionalDataByKey(String key) {
-        if (additionalData == null) {
+        if (Objects.isNull(additionalData)) {
             return null;
         }
 

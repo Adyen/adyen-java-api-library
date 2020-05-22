@@ -154,7 +154,7 @@ public class ThreeDS1Result {
     if (this == o) {
       return true;
     }
-    if (o == null || getClass() != o.getClass()) {
+    if (Objects.isNull(o) || getClass() != o.getClass()) {
       return false;
     }
     ThreeDS1Result threeDS1Result = (ThreeDS1Result) o;
@@ -192,7 +192,7 @@ public class ThreeDS1Result {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
+    if (Objects.isNull(o)) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");

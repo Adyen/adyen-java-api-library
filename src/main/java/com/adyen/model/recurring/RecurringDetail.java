@@ -20,10 +20,6 @@
  */
 package com.adyen.model.recurring;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 import com.adyen.model.Address;
 import com.adyen.model.BankAccount;
 import com.adyen.model.Card;
@@ -31,6 +27,12 @@ import com.adyen.model.ELV;
 import com.adyen.model.Name;
 import com.adyen.model.TokenDetails;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * RecurringDetail
@@ -463,7 +465,7 @@ public class RecurringDetail {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

@@ -50,7 +50,7 @@ public class AmountContainer {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         AmountContainer amountContainer = (AmountContainer) o;
@@ -74,7 +74,7 @@ public class AmountContainer {
     }
 
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

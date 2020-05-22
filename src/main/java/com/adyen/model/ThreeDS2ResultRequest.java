@@ -45,7 +45,7 @@ public class ThreeDS2ResultRequest {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         ThreeDS2ResultRequest threeDS2ResultRequest = (ThreeDS2ResultRequest) o;
@@ -74,7 +74,7 @@ public class ThreeDS2ResultRequest {
      * (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

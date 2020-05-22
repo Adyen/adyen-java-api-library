@@ -22,6 +22,8 @@ package com.adyen;
 
 import com.adyen.enums.Environment;
 
+import java.util.Objects;
+
 public class Config {
     protected String username;
     protected String password;
@@ -143,7 +145,7 @@ public class Config {
     }
 
     public String getCheckoutEndpoint() {
-        if (checkoutEndpoint == null || checkoutEndpoint.isEmpty()) {
+        if (Objects.isNull(checkoutEndpoint) || checkoutEndpoint.isEmpty()) {
             String message = "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide checkoutEndpoint in your config object.";
             throw new IllegalArgumentException(message);
         }

@@ -22,6 +22,8 @@ package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 /**
  * Represents the API error responses
  */
@@ -100,7 +102,7 @@ public class ApiError {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

@@ -243,7 +243,7 @@ public class InputDetail {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         InputDetail inputDetail = (InputDetail) o;
@@ -284,7 +284,7 @@ public class InputDetail {
      * (except the first line).
      */
     private static String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

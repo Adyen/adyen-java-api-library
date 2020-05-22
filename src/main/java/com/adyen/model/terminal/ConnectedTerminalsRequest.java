@@ -69,7 +69,7 @@ public class ConnectedTerminalsRequest {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         ConnectedTerminalsRequest that = (ConnectedTerminalsRequest) o;

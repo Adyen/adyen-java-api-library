@@ -22,6 +22,8 @@ package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 /**
  * Container for FraudCheckResult
  */
@@ -53,7 +55,7 @@ public class FraudCheckResultContainer {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

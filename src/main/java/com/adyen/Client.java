@@ -24,6 +24,8 @@ import com.adyen.enums.Environment;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HttpURLConnectionClient;
 
+import java.util.Optional;
+
 public class Client {
     private ClientInterface httpClient;
     private Config config;
@@ -181,10 +183,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        if (this.httpClient == null) {
-            this.httpClient = new HttpURLConnectionClient();
-        }
-        return this.httpClient;
+        return Optional.ofNullable(this.httpClient).orElse(this.httpClient = new HttpURLConnectionClient());
     }
 
     public void setHttpClient(ClientInterface httpClient) {

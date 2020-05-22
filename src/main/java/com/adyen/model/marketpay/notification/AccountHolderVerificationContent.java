@@ -24,6 +24,8 @@ package com.adyen.model.marketpay.notification;
 import com.adyen.model.marketpay.KYCCheckStatusData;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class AccountHolderVerificationContent {
     private String accountHolderCode;
     private String shareholderCode;
@@ -99,7 +101,7 @@ public class AccountHolderVerificationContent {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

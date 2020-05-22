@@ -151,7 +151,7 @@ public class EcontextVoucherDetails implements PaymentMethodDetails {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         EcontextVoucherDetails econtextVoucherDetails = (EcontextVoucherDetails) o;
@@ -187,7 +187,7 @@ public class EcontextVoucherDetails implements PaymentMethodDetails {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

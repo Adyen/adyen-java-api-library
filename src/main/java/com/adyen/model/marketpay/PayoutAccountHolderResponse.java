@@ -152,7 +152,7 @@ public class PayoutAccountHolderResponse {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         PayoutAccountHolderResponse payoutAccountHolderResponse = (PayoutAccountHolderResponse) o;
@@ -188,7 +188,7 @@ public class PayoutAccountHolderResponse {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

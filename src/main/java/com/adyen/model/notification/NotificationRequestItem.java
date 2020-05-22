@@ -20,11 +20,13 @@
  */
 package com.adyen.model.notification;
 
+import com.adyen.model.Amount;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import com.adyen.model.Amount;
-import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
 
 /**
  * NotificationRequestItem model class
@@ -241,7 +243,7 @@ public class NotificationRequestItem {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

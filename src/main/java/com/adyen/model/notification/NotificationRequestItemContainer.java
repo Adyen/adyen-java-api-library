@@ -22,6 +22,8 @@ package com.adyen.model.notification;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 /**
  * Container for NotificationRequestItem
  */
@@ -52,7 +54,7 @@ public class NotificationRequestItemContainer {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

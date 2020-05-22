@@ -108,7 +108,7 @@ public class PaymentMethodsGroup {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         PaymentMethodsGroup paymentMethodsGroup = (PaymentMethodsGroup) o;
@@ -139,7 +139,7 @@ public class PaymentMethodsGroup {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

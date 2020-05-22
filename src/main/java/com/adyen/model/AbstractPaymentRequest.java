@@ -222,7 +222,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      * @return additional data
      */
     public Map<String, String> getOrCreateAdditionalData() {
-        if (this.getAdditionalData() == null) {
+        if (Objects.isNull(this.getAdditionalData())) {
             this.setAdditionalData(new HashMap<>());
         }
 
@@ -864,7 +864,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         AbstractPaymentRequest paymentRequest = (AbstractPaymentRequest) o;
@@ -991,7 +991,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     }
 
     private String stringifyAdditionalData() {
-        if (additionalData == null) {
+        if (Objects.isNull(additionalData)) {
             return null;
         }
 
@@ -1011,7 +1011,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

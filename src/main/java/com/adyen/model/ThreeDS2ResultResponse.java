@@ -29,7 +29,7 @@ public class ThreeDS2ResultResponse {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         ThreeDS2ResultResponse threeDS2ResultResponse = (ThreeDS2ResultResponse) o;
@@ -55,7 +55,7 @@ public class ThreeDS2ResultResponse {
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

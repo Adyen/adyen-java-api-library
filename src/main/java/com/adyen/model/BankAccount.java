@@ -20,8 +20,9 @@
  */
 package com.adyen.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * BankAccount
@@ -222,7 +223,7 @@ public class BankAccount {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         BankAccount bankAccount = (BankAccount) o;
@@ -267,7 +268,7 @@ public class BankAccount {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

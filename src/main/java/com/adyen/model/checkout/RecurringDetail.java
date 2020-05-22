@@ -276,7 +276,7 @@ public class RecurringDetail {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         RecurringDetail recurringDetail = (RecurringDetail) o;
@@ -322,7 +322,7 @@ public class RecurringDetail {
      * (except the first line).
      */
     private static String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

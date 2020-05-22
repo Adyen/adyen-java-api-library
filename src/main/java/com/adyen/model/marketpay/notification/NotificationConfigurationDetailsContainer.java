@@ -44,7 +44,7 @@ public class NotificationConfigurationDetailsContainer {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         NotificationConfigurationDetailsContainer notificationConfigurationDetailsContainer = (NotificationConfigurationDetailsContainer) o;
@@ -68,7 +68,7 @@ public class NotificationConfigurationDetailsContainer {
     }
 
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

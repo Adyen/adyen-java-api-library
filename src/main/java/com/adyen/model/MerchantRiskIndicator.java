@@ -289,7 +289,7 @@ public class MerchantRiskIndicator {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         MerchantRiskIndicator merchantRiskIndicator = (MerchantRiskIndicator) o;
@@ -333,7 +333,7 @@ public class MerchantRiskIndicator {
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

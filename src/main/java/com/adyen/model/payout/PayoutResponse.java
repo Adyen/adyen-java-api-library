@@ -319,7 +319,7 @@ public class PayoutResponse {
     if (this == o) {
       return true;
     }
-    if (o == null || getClass() != o.getClass()) {
+    if (Objects.isNull(o) || getClass() != o.getClass()) {
       return false;
     }
     PayoutResponse payoutResponse = (PayoutResponse) o;
@@ -367,7 +367,7 @@ public class PayoutResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
+    if (Objects.isNull(o)) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");

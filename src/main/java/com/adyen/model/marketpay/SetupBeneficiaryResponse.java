@@ -109,7 +109,7 @@ public class SetupBeneficiaryResponse {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         SetupBeneficiaryResponse setupBeneficiaryResponse = (SetupBeneficiaryResponse) o;
@@ -141,7 +141,7 @@ public class SetupBeneficiaryResponse {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

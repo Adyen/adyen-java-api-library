@@ -20,8 +20,10 @@
  */
 package com.adyen.model.payout;
 
-import java.util.Map;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Map;
+import java.util.Objects;
 
 public class StoreDetailResponse {
 
@@ -85,7 +87,7 @@ public class StoreDetailResponse {
      * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

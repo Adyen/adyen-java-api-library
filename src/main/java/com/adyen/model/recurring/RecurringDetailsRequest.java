@@ -22,6 +22,8 @@ package com.adyen.model.recurring;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 /**
  * RecurringDetailsRequest
  */
@@ -122,7 +124,7 @@ public class RecurringDetailsRequest {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

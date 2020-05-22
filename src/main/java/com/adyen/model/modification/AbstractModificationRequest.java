@@ -303,7 +303,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         AbstractModificationRequest modificationRequest = (AbstractModificationRequest) o;
@@ -350,7 +350,7 @@ public class AbstractModificationRequest<T extends AbstractModificationRequest<T
      * @return Indented string
      */
     private static String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

@@ -55,7 +55,7 @@ public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         RefundRequest refundRequest = (RefundRequest) o;
@@ -84,7 +84,7 @@ public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

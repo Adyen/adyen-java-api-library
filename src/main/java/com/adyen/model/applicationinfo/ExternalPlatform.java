@@ -42,7 +42,7 @@ public class ExternalPlatform extends CommonField {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         ExternalPlatform externalPlatform = (ExternalPlatform) o;
@@ -70,7 +70,7 @@ public class ExternalPlatform extends CommonField {
      * (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");

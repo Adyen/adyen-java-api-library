@@ -151,7 +151,7 @@ public class UpdateAccountHolderStateRequest {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (Objects.isNull(o) || getClass() != o.getClass()) {
             return false;
         }
         UpdateAccountHolderStateRequest updateAccountHolderStateRequest = (UpdateAccountHolderStateRequest) o;
@@ -185,7 +185,7 @@ public class UpdateAccountHolderStateRequest {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
+        if (Objects.isNull(o)) {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
