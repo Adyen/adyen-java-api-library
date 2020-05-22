@@ -126,6 +126,7 @@ public class CheckoutPaymentsAction {
         THREEDS2CHALLENGE("threeDS2Challenge"),
         THREEDS2FINGERPRINT("threeDS2Fingerprint"),
         VOUCHER("voucher"),
+        SDK("sdk"),
         WECHATPAYSDK("wechatpaySDK");
 
         private String value;
