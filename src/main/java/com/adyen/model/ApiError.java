@@ -20,11 +20,12 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.marketpay.ErrorFieldType;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Represents the API error responses
@@ -99,26 +100,17 @@ public class ApiError {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ApiError {\n");
+        sb.append("class ApiError {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("    errorType: ").append(toIndentedString(errorType)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    status: ").append(Util.toIndentedString(status)).append(TextConstants.LINE_BREAK);
+        sb.append("    errorCode: ").append(Util.toIndentedString(errorCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    message: ").append(Util.toIndentedString(message)).append(TextConstants.LINE_BREAK);
+        sb.append("    errorType: ").append(Util.toIndentedString(errorType)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    invalidFields: ").append(Util.toIndentedString(invalidFields)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }

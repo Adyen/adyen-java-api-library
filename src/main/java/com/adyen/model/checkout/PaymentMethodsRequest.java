@@ -27,6 +27,7 @@ import com.adyen.model.Amount;
 import com.adyen.model.MerchantRiskIndicator;
 import com.adyen.model.Split;
 import com.adyen.model.ThreeDS2RequestData;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -350,34 +351,25 @@ public class PaymentMethodsRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethodsRequest {\n");
+        sb.append("class PaymentMethodsRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
-        sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
-        sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    allowedPaymentMethods: ").append(Util.toIndentedString(allowedPaymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    blockedPaymentMethods: ").append(Util.toIndentedString(blockedPaymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    channel: ").append(Util.toIndentedString(channel)).append(TextConstants.LINE_BREAK);
+        sb.append("    countryCode: ").append(Util.toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    enableRealTimeUpdate: ").append(Util.toIndentedString(enableRealTimeUpdate)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantAccount: ").append(Util.toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperLocale: ").append(Util.toIndentedString(shopperLocale)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperReference: ").append(Util.toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSAuthenticationOnly: ").append(Util.toIndentedString(threeDSAuthenticationOnly)).append(TextConstants.LINE_BREAK);
+        sb.append("    store: ").append(Util.toIndentedString(store)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
     /**
      * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android *

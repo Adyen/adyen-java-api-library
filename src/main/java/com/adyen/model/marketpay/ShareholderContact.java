@@ -21,8 +21,10 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
 import com.adyen.model.Name;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -241,30 +243,18 @@ public class ShareholderContact {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShareholderContact {\n");
+    sb.append("class ShareholderContact {").append(TextConstants.LINE_BREAK);
 
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    personalData: ").append(toIndentedString(personalData)).append("\n");
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
-    sb.append("    shareholderReference: ").append(toIndentedString(shareholderReference)).append("\n");
-    sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
+    sb.append("    address: ").append(Util.toIndentedString(address)).append(TextConstants.LINE_BREAK);
+    sb.append("    email: ").append(Util.toIndentedString(email)).append(TextConstants.LINE_BREAK);
+    sb.append("    fullPhoneNumber: ").append(Util.toIndentedString(fullPhoneNumber)).append(TextConstants.LINE_BREAK);
+    sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
+    sb.append("    personalData: ").append(Util.toIndentedString(personalData)).append(TextConstants.LINE_BREAK);
+    sb.append("    phoneNumber: ").append(Util.toIndentedString(phoneNumber)).append(TextConstants.LINE_BREAK);
+    sb.append("    shareholderCode: ").append(Util.toIndentedString(shareholderCode)).append(TextConstants.LINE_BREAK);
+    sb.append("    shareholderReference: ").append(Util.toIndentedString(shareholderReference)).append(TextConstants.LINE_BREAK);
+    sb.append("    webAddress: ").append(Util.toIndentedString(webAddress)).append(TextConstants.LINE_BREAK);
     sb.append("}");
     return sb.toString();
   }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (Objects.isNull(o)) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }

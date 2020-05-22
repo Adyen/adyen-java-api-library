@@ -23,6 +23,7 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -159,25 +160,14 @@ public class DokuDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DokuDetails {\n");
+        sb.append("class DokuDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-        sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    firstName: ").append(Util.toIndentedString(firstName)).append(TextConstants.LINE_BREAK);
+        sb.append("    lastName: ").append(Util.toIndentedString(lastName)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperEmail: ").append(Util.toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -23,6 +23,7 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -126,24 +127,13 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SepaDirectDebitDetails {\n");
+        sb.append("class SepaDirectDebitDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    iban: ").append(Util.toIndentedString(iban)).append(TextConstants.LINE_BREAK);
+        sb.append("    ownerName: ").append(Util.toIndentedString(ownerName)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

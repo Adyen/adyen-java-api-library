@@ -21,8 +21,11 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * CreateNotificationConfigurationRequest
@@ -71,23 +74,11 @@ public class CreateNotificationConfigurationRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateNotificationConfigurationRequest {\n");
+        sb.append("class CreateNotificationConfigurationRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    configurationDetails: ").append(toIndentedString(configurationDetails)).append("\n");
+        sb.append("    configurationDetails: ").append(Util.toIndentedString(configurationDetails)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
 }
 

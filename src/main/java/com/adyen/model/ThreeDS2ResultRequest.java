@@ -1,7 +1,10 @@
 package com.adyen.model;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * ThreeDS2ResultRequest
@@ -61,24 +64,15 @@ public class ThreeDS2ResultRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDS2ResultRequest {\n");
+        sb.append("class ThreeDS2ResultRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    merchantAccount: ").append(Util.toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

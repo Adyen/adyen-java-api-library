@@ -21,6 +21,8 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -101,23 +103,12 @@ public class DeletePayoutMethodRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeletePayoutMethodRequest {\n");
+        sb.append("class DeletePayoutMethodRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    payoutMethodCodes: ").append(toIndentedString(payoutMethodCodes)).append("\n");
+        sb.append("    accountHolderCode: ").append(Util.toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutMethodCodes: ").append(Util.toIndentedString(payoutMethodCodes)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

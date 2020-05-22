@@ -23,6 +23,7 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.checkout.PaymentMethodDetails;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -106,23 +107,14 @@ public class LianLianPayDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class LianLianPayDetails {\n");
+        sb.append("class LianLianPayDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    telephoneNumber: ").append(Util.toIndentedString(telephoneNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

@@ -24,6 +24,7 @@ package com.adyen.model.checkout;
 import com.adyen.constants.TextConstants;
 import com.adyen.model.BankAccount;
 import com.adyen.model.Card;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -121,25 +122,16 @@ public class StoredDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoredDetails {\n");
+        sb.append("class StoredDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    bank: ").append(toIndentedString(bank)).append("\n");
-        sb.append("    card: ").append(toIndentedString(card)).append("\n");
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+        sb.append("    bank: ").append(Util.toIndentedString(bank)).append(TextConstants.LINE_BREAK);
+        sb.append("    card: ").append(Util.toIndentedString(card)).append(TextConstants.LINE_BREAK);
+        sb.append("    emailAddress: ").append(Util.toIndentedString(emailAddress)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

@@ -21,9 +21,12 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * PaymentRequest3d
@@ -151,23 +154,13 @@ public class PaymentRequest3d extends AbstractPaymentRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentRequest3d {\n");
+        sb.append("class PaymentRequest3d {").append(TextConstants.LINE_BREAK);
 
         sb.append(super.toString());
-        sb.append("    md: ").append(toIndentedString(md)).append("\n");
-        sb.append("    paResponse: ").append(toIndentedString(paResponse)).append("\n");
+        sb.append("    md: ").append(Util.toIndentedString(md)).append(TextConstants.LINE_BREAK);
+        sb.append("    paResponse: ").append(Util.toIndentedString(paResponse)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

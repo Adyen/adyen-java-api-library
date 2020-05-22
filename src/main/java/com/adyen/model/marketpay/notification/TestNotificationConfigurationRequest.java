@@ -21,10 +21,13 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * TestNotificationConfigurationRequest
@@ -157,23 +160,12 @@ public class TestNotificationConfigurationRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class TestNotificationConfigurationRequest {\n");
+        sb.append("class TestNotificationConfigurationRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
-        sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
+        sb.append("    notificationId: ").append(Util.toIndentedString(notificationId)).append(TextConstants.LINE_BREAK);
+        sb.append("    eventTypes: ").append(Util.toIndentedString(eventTypes)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

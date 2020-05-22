@@ -23,6 +23,7 @@ package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.FraudResult;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -306,29 +307,20 @@ public class PaymentResultResponse {
 
     @Override
     public String toString() {
-        return "class PaymentResultResponse {\n"
-                + "    additionalData: " + toIndentedString(additionalData) + "\n"
-                + "    authResponse: " + toIndentedString(authResponse) + "\n"
-                + "    fraudResult: " + toIndentedString(fraudResult) + "\n"
-                + "    merchantReference: " + toIndentedString(merchantReference) + "\n"
-                + "    paymentMethod: " + toIndentedString(paymentMethod) + "\n"
-                + "    pspReference: " + toIndentedString(pspReference) + "\n"
-                + "    refusalReason: " + toIndentedString(refusalReason) + "\n"
-                + "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + "\n"
-                + "    resultCode: " + toIndentedString(resultCode) + "\n"
-                + "    serviceError: " + toIndentedString(serviceError) + "\n"
-                + "    shopperLocale: " + toIndentedString(shopperLocale) + "\n"
+        return "class PaymentResultResponse {"
+                + TextConstants.LINE_BREAK
+                + "    additionalData: " + Util.toIndentedString(additionalData) + TextConstants.LINE_BREAK
+                + "    authResponse: " + Util.toIndentedString(authResponse) + TextConstants.LINE_BREAK
+                + "    fraudResult: " + Util.toIndentedString(fraudResult) + TextConstants.LINE_BREAK
+                + "    merchantReference: " + Util.toIndentedString(merchantReference) + TextConstants.LINE_BREAK
+                + "    paymentMethod: " + Util.toIndentedString(paymentMethod) + TextConstants.LINE_BREAK
+                + "    pspReference: " + Util.toIndentedString(pspReference) + TextConstants.LINE_BREAK
+                + "    refusalReason: " + Util.toIndentedString(refusalReason) + TextConstants.LINE_BREAK
+                + "    refusalReasonCode: " + Util.toIndentedString(refusalReasonCode) + TextConstants.LINE_BREAK
+                + "    resultCode: " + Util.toIndentedString(resultCode) + TextConstants.LINE_BREAK
+                + "    serviceError: " + Util.toIndentedString(serviceError) + TextConstants.LINE_BREAK
+                + "    shopperLocale: " + Util.toIndentedString(shopperLocale) + TextConstants.LINE_BREAK
                 + "}";
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
     /**

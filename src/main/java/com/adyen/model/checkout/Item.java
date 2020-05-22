@@ -23,6 +23,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -97,24 +98,15 @@ public class Item {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Item {\n");
+        sb.append("class Item {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    id: ").append(Util.toIndentedString(id)).append(TextConstants.LINE_BREAK);
+        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

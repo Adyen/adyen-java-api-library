@@ -20,8 +20,11 @@
  */
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * CreateAccountHolderRequest
@@ -201,29 +204,20 @@ public class CreateAccountHolderRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateAccountHolderRequest {\n");
+        sb.append("class CreateAccountHolderRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    createDefaultAccount: ").append(toIndentedString(createDefaultAccount)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
-        sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
-        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
-        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
+        sb.append("    createDefaultAccount: ").append(Util.toIndentedString(createDefaultAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(Util.toIndentedString(accountHolderCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderDetails: ").append(Util.toIndentedString(accountHolderDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    processingTier: ").append(Util.toIndentedString(processingTier)).append(TextConstants.LINE_BREAK);
+        sb.append("    legalEntity: ").append(Util.toIndentedString(legalEntity)).append(TextConstants.LINE_BREAK);
+        sb.append("    primaryCurrency: ").append(Util.toIndentedString(primaryCurrency)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

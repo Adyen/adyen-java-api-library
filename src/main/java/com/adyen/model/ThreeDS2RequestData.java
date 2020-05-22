@@ -20,7 +20,8 @@
  */
 package com.adyen.model;
 
-
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -587,43 +588,34 @@ public class ThreeDS2RequestData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDS2RequestData {\n");
+        sb.append("class ThreeDS2RequestData {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    acquirerBIN: ").append(toIndentedString(acquirerBIN)).append("\n");
-        sb.append("    acquirerMerchantID: ").append(toIndentedString(acquirerMerchantID)).append("\n");
-        sb.append("    authenticationOnly: ").append(toIndentedString(authenticationOnly)).append("\n");
-        sb.append("    challengeIndicator: ").append(toIndentedString(challengeIndicator)).append("\n");
-        sb.append("    deviceChannel: ").append(toIndentedString(deviceChannel)).append("\n");
-        sb.append("    deviceRenderOptions: ").append(toIndentedString(deviceRenderOptions)).append("\n");
-        sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-        sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
-        sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
-        sb.append("    notificationURL: ").append(toIndentedString(notificationURL)).append("\n");
-        sb.append("    sdkAppID: ").append(toIndentedString(sdkAppID)).append("\n");
-        sb.append("    sdkEncData: ").append(toIndentedString(sdkEncData)).append("\n");
-        sb.append("    sdkEphemPubKey: ").append(toIndentedString(sdkEphemPubKey)).append("\n");
-        sb.append("    sdkMaxTimeout: ").append(toIndentedString(sdkMaxTimeout)).append("\n");
-        sb.append("    sdkReferenceNumber: ").append(toIndentedString(sdkReferenceNumber)).append("\n");
-        sb.append("    sdkTransID: ").append(toIndentedString(sdkTransID)).append("\n");
-        sb.append("    threeDSCompInd: ").append(toIndentedString(threeDSCompInd)).append("\n");
-        sb.append("    threeDSRequestorID: ").append(toIndentedString(threeDSRequestorID)).append("\n");
-        sb.append("    threeDSRequestorName: ").append(toIndentedString(threeDSRequestorName)).append("\n");
-        sb.append("    threeDSRequestorURL: ").append(toIndentedString(threeDSRequestorURL)).append("\n");
-        sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
-        sb.append("    whiteListStatus: ").append(toIndentedString(whiteListStatus)).append("\n");
+        sb.append("    acquirerBIN: ").append(Util.toIndentedString(acquirerBIN)).append(TextConstants.LINE_BREAK);
+        sb.append("    acquirerMerchantID: ").append(Util.toIndentedString(acquirerMerchantID)).append(TextConstants.LINE_BREAK);
+        sb.append("    authenticationOnly: ").append(Util.toIndentedString(authenticationOnly)).append(TextConstants.LINE_BREAK);
+        sb.append("    challengeIndicator: ").append(Util.toIndentedString(challengeIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    deviceChannel: ").append(Util.toIndentedString(deviceChannel)).append(TextConstants.LINE_BREAK);
+        sb.append("    deviceRenderOptions: ").append(Util.toIndentedString(deviceRenderOptions)).append(TextConstants.LINE_BREAK);
+        sb.append("    mcc: ").append(Util.toIndentedString(mcc)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantName: ").append(Util.toIndentedString(merchantName)).append(TextConstants.LINE_BREAK);
+        sb.append("    messageVersion: ").append(Util.toIndentedString(messageVersion)).append(TextConstants.LINE_BREAK);
+        sb.append("    notificationURL: ").append(Util.toIndentedString(notificationURL)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkAppID: ").append(Util.toIndentedString(sdkAppID)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkEncData: ").append(Util.toIndentedString(sdkEncData)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkEphemPubKey: ").append(Util.toIndentedString(sdkEphemPubKey)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkMaxTimeout: ").append(Util.toIndentedString(sdkMaxTimeout)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkReferenceNumber: ").append(Util.toIndentedString(sdkReferenceNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkTransID: ").append(Util.toIndentedString(sdkTransID)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSCompInd: ").append(Util.toIndentedString(threeDSCompInd)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSRequestorID: ").append(Util.toIndentedString(threeDSRequestorID)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSRequestorName: ").append(Util.toIndentedString(threeDSRequestorName)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSRequestorURL: ").append(Util.toIndentedString(threeDSRequestorURL)).append(TextConstants.LINE_BREAK);
+        sb.append("    transactionType: ").append(Util.toIndentedString(transactionType)).append(TextConstants.LINE_BREAK);
+        sb.append("    whiteListStatus: ").append(Util.toIndentedString(whiteListStatus)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

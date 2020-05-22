@@ -20,6 +20,8 @@
  */
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -66,17 +68,10 @@ public class ErrorFieldTypeContainer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ErrorFieldTypeContainer {\n");
+        sb.append("class ErrorFieldTypeContainer {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    errorFieldType: ").append(toIndentedString(errorFieldType)).append("\n");
+        sb.append("    errorFieldType: ").append(Util.toIndentedString(errorFieldType)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

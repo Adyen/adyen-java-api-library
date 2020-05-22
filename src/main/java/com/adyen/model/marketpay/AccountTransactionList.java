@@ -21,6 +21,8 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -127,24 +129,15 @@ public class AccountTransactionList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountTransactionList {\n");
+        sb.append("class AccountTransactionList {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
-        sb.append("    hasNextPage: ").append(toIndentedString(hasNextPage)).append("\n");
-        sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+        sb.append("    accountCode: ").append(Util.toIndentedString(accountCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    hasNextPage: ").append(Util.toIndentedString(hasNextPage)).append(TextConstants.LINE_BREAK);
+        sb.append("    transactions: ").append(Util.toIndentedString(transactions)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

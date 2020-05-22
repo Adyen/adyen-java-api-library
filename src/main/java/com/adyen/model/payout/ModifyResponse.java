@@ -20,9 +20,9 @@
  */
 package com.adyen.model.payout;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.Objects;
 
 public class ModifyResponse {
     @SerializedName("pspReference")
@@ -50,20 +50,10 @@ public class ModifyResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ModifyResponse {\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    response: ").append(toIndentedString(response)).append("\n");
+        sb.append("class ModifyResponse {").append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    response: ").append(Util.toIndentedString(response)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

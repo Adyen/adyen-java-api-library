@@ -20,6 +20,8 @@
  */
 package com.adyen.model.marketpay.notification;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -305,29 +307,20 @@ public class TestNotificationConfigurationResponse {
         this.getExchangeMessages();
 
         StringBuilder sb = new StringBuilder();
-        sb.append("class TestNotificationConfigurationResponse {\n");
+        sb.append("class TestNotificationConfigurationResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    errorMessages: ").append(toIndentedString(errorMessages)).append("\n");
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    okMessages: ").append(toIndentedString(okMessages)).append("\n");
-        sb.append("    exchangeMessages: ").append(toIndentedString(exchangeMessages)).append("\n");
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
-        sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    errorMessages: ").append(Util.toIndentedString(errorMessages)).append(TextConstants.LINE_BREAK);
+        sb.append("    submittedAsync: ").append(Util.toIndentedString(submittedAsync)).append(TextConstants.LINE_BREAK);
+        sb.append("    okMessages: ").append(Util.toIndentedString(okMessages)).append(TextConstants.LINE_BREAK);
+        sb.append("    exchangeMessages: ").append(Util.toIndentedString(exchangeMessages)).append(TextConstants.LINE_BREAK);
+        sb.append("    notificationId: ").append(Util.toIndentedString(notificationId)).append(TextConstants.LINE_BREAK);
+        sb.append("    eventTypes: ").append(Util.toIndentedString(eventTypes)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

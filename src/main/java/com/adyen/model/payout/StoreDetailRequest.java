@@ -20,18 +20,19 @@
  */
 package com.adyen.model.payout;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
 import com.adyen.model.BankAccount;
 import com.adyen.model.Card;
 import com.adyen.model.Name;
 import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
+import com.adyen.util.Util;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * StoreDetailsAndSubmitRequest
@@ -242,32 +243,22 @@ public class StoreDetailRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoreDetailRequest {\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    card: ").append(toIndentedString(card)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-        sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
-        sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
-        sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
-        sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
+        sb.append("class StoreDetailRequest {").append(TextConstants.LINE_BREAK);
+        sb.append("    merchantAccount: ").append(Util.toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperReference: ").append(Util.toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurring: ").append(Util.toIndentedString(recurring)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    card: ").append(Util.toIndentedString(card)).append(TextConstants.LINE_BREAK);
+        sb.append("    billingAddress: ").append(Util.toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    dateOfBirth: ").append(Util.toIndentedString(dateOfBirth)).append(TextConstants.LINE_BREAK);
+        sb.append("    entityType: ").append(Util.toIndentedString(entityType)).append(TextConstants.LINE_BREAK);
+        sb.append("    fraudOffset: ").append(Util.toIndentedString(fraudOffset)).append(TextConstants.LINE_BREAK);
+        sb.append("    nationality: ").append(Util.toIndentedString(nationality)).append(TextConstants.LINE_BREAK);
+        sb.append("    selectedBrand: ").append(Util.toIndentedString(selectedBrand)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperEmail: ").append(Util.toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperName: ").append(Util.toIndentedString(shopperName)).append(TextConstants.LINE_BREAK);
+        sb.append("    socialSecurityNumber: ").append(Util.toIndentedString(socialSecurityNumber)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

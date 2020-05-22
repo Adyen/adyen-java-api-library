@@ -21,9 +21,12 @@
 
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * AmountContainer
@@ -66,17 +69,10 @@ public class AmountContainer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AmountContainer {\n");
+        sb.append("class AmountContainer {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

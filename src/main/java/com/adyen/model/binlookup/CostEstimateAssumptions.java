@@ -20,8 +20,11 @@
  */
 package com.adyen.model.binlookup;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * CostEstimateAssumptions
@@ -117,24 +120,13 @@ public class CostEstimateAssumptions {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CostEstimateAssumptions {\n");
+        sb.append("class CostEstimateAssumptions {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    assume3DSecureAuthenticated: ").append(toIndentedString(assume3DSecureAuthenticated)).append("\n");
-        sb.append("    assumeLevel3Data: ").append(toIndentedString(assumeLevel3Data)).append("\n");
-        sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
+        sb.append("    assume3DSecureAuthenticated: ").append(Util.toIndentedString(assume3DSecureAuthenticated)).append(TextConstants.LINE_BREAK);
+        sb.append("    assumeLevel3Data: ").append(Util.toIndentedString(assumeLevel3Data)).append(TextConstants.LINE_BREAK);
+        sb.append("    installments: ").append(Util.toIndentedString(installments)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

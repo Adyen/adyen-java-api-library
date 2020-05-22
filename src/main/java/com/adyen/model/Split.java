@@ -20,6 +20,8 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -190,27 +192,18 @@ public class Split {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Split {\n");
+        sb.append("class Split {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    account: ").append(toIndentedString(account)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    account: ").append(Util.toIndentedString(account)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    description: ").append(Util.toIndentedString(description)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(Util.toIndentedString(reference)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

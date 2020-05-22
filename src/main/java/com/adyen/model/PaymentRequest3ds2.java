@@ -21,6 +21,8 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -322,27 +324,17 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentRequest3ds2 {\n");
-        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
-        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
-        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
-        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
-        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
-        sb.append("    threeDS2Token: ").append(toIndentedString(threeDS2Token)).append("\n");
-        sb.append("    totalsGroup: ").append(toIndentedString(totalsGroup)).append("\n");
-        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+        sb.append("class PaymentRequest3ds2 {").append(TextConstants.LINE_BREAK);
+        sb.append("    accountInfo: ").append(Util.toIndentedString(accountInfo)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantRiskIndicator: ").append(Util.toIndentedString(merchantRiskIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringProcessingModel: ").append(Util.toIndentedString(recurringProcessingModel)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2RequestData: ").append(Util.toIndentedString(threeDS2RequestData)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2Result: ").append(Util.toIndentedString(threeDS2Result)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2Token: ").append(Util.toIndentedString(threeDS2Token)).append(TextConstants.LINE_BREAK);
+        sb.append("    totalsGroup: ").append(Util.toIndentedString(totalsGroup)).append(TextConstants.LINE_BREAK);
+        sb.append("    trustedShopper: ").append(Util.toIndentedString(trustedShopper)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 

@@ -21,7 +21,9 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -118,24 +120,13 @@ public class RefundFundsTransferRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RefundFundsTransferRequest {\n");
+        sb.append("class RefundFundsTransferRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
+        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantReference: ").append(Util.toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    originalReference: ").append(Util.toIndentedString(originalReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

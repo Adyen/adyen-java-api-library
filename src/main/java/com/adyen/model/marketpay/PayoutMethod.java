@@ -21,6 +21,8 @@
  */
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -208,26 +210,17 @@ public class PayoutMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayoutMethod {\n");
+        sb.append("class PayoutMethod {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
-        sb.append("    payoutMethodType: ").append(toIndentedString(payoutMethodType)).append("\n");
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+        sb.append("    merchantAccount: ").append(Util.toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutMethodCode: ").append(Util.toIndentedString(payoutMethodCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutMethodType: ").append(Util.toIndentedString(payoutMethodType)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringDetailReference: ").append(Util.toIndentedString(recurringDetailReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperReference: ").append(Util.toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

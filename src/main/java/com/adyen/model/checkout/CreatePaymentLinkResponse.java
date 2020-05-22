@@ -22,6 +22,7 @@ package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -139,25 +140,16 @@ public class CreatePaymentLinkResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreatePaymentLinkResponse {\n");
+        sb.append("class CreatePaymentLinkResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
+        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    expiresAt: ").append(Util.toIndentedString(expiresAt)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(Util.toIndentedString(reference)).append(TextConstants.LINE_BREAK);
+        sb.append("    url: ").append(Util.toIndentedString(url)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

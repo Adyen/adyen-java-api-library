@@ -20,8 +20,11 @@
  */
 package com.adyen.model;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * ELV
@@ -158,27 +161,18 @@ public class ELV {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ELV {\n");
+        sb.append("class ELV {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
-        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
-        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
-        sb.append("    bankLocation: ").append(toIndentedString(bankLocation)).append("\n");
-        sb.append("    accountHolderName: ").append(toIndentedString(accountHolderName)).append("\n");
+        sb.append("    bankName: ").append(Util.toIndentedString(bankName)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountNumber: ").append(Util.toIndentedString(bankAccountNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankLocationId: ").append(Util.toIndentedString(bankLocationId)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankLocation: ").append(Util.toIndentedString(bankLocation)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountHolderName: ").append(Util.toIndentedString(accountHolderName)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

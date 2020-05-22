@@ -20,8 +20,11 @@
  */
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * UpdatePayoutScheduleRequest
@@ -169,24 +172,13 @@ public class UpdatePayoutScheduleRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdatePayoutScheduleRequest {\n");
+        sb.append("class UpdatePayoutScheduleRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
-        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-        sb.append("    action: ").append(toIndentedString(action)).append("\n");
+        sb.append("    schedule: ").append(Util.toIndentedString(schedule)).append(TextConstants.LINE_BREAK);
+        sb.append("    reason: ").append(Util.toIndentedString(reason)).append(TextConstants.LINE_BREAK);
+        sb.append("    action: ").append(Util.toIndentedString(action)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -21,6 +21,8 @@
 
 package com.adyen.model.checkoututility;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -79,23 +81,14 @@ public class OriginKeysRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OriginKeysRequest {\n");
+        sb.append("class OriginKeysRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    originDomains: ").append(toIndentedString(originDomains)).append("\n");
+        sb.append("    originDomains: ").append(Util.toIndentedString(originDomains)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

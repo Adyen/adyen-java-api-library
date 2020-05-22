@@ -20,9 +20,12 @@
  */
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * AccountState
@@ -260,29 +263,18 @@ public class AccountState {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountState {\n");
+        sb.append("class AccountState {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
-        sb.append("    allowProcessing: ").append(toIndentedString(allowProcessing)).append("\n");
-        sb.append("    stateDeadline: ").append(toIndentedString(stateDeadline)).append("\n");
-        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append("\n");
-        sb.append("    stateLimit: ").append(toIndentedString(stateLimit)).append("\n");
-        sb.append("    stateType: ").append(toIndentedString(stateType)).append("\n");
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
-        sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+        sb.append("    disableReason: ").append(Util.toIndentedString(disableReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    allowProcessing: ").append(Util.toIndentedString(allowProcessing)).append(TextConstants.LINE_BREAK);
+        sb.append("    stateDeadline: ").append(Util.toIndentedString(stateDeadline)).append(TextConstants.LINE_BREAK);
+        sb.append("    allowPayout: ").append(Util.toIndentedString(allowPayout)).append(TextConstants.LINE_BREAK);
+        sb.append("    stateLimit: ").append(Util.toIndentedString(stateLimit)).append(TextConstants.LINE_BREAK);
+        sb.append("    stateType: ").append(Util.toIndentedString(stateType)).append(TextConstants.LINE_BREAK);
+        sb.append("    tierNumber: ").append(Util.toIndentedString(tierNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    disabled: ").append(Util.toIndentedString(disabled)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

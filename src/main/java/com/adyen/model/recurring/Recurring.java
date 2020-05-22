@@ -20,7 +20,9 @@
  */
 package com.adyen.model.recurring;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.serializer.DateSerializer;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -225,25 +227,14 @@ public class Recurring {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Recurring {\n");
-        sb.append("    contract: ").append(toIndentedString(contract)).append("\n");
-        sb.append("    recurringDetailName: ").append(toIndentedString(recurringDetailName)).append("\n");
-        sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
-        sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
-        sb.append("    tokenService: ").append(toIndentedString(tokenService)).append("\n");
+        sb.append("class Recurring {").append(TextConstants.LINE_BREAK);
+        sb.append("    contract: ").append(Util.toIndentedString(contract)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringDetailName: ").append(Util.toIndentedString(recurringDetailName)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringExpiry: ").append(Util.toIndentedString(recurringExpiry)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringFrequency: ").append(Util.toIndentedString(recurringFrequency)).append(TextConstants.LINE_BREAK);
+        sb.append("    tokenService: ").append(Util.toIndentedString(tokenService)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -20,10 +20,13 @@
  */
 package com.adyen.model.recurring;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * DisableResult
@@ -98,24 +101,15 @@ public class DisableResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DisableResult {\n");
+        sb.append("class DisableResult {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    response: ").append(toIndentedString(response)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
+        sb.append("    response: ").append(Util.toIndentedString(response)).append(TextConstants.LINE_BREAK);
+        sb.append("    details: ").append(Util.toIndentedString(details)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

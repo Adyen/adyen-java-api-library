@@ -20,6 +20,7 @@
  */
 package com.adyen.model.modification;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
@@ -71,22 +72,13 @@ public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RefundRequest {\n");
+        sb.append("class RefundRequest {").append(TextConstants.LINE_BREAK);
 
         sb.append(super.toString());
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
+        sb.append("    modificationAmount: ").append(Util.toIndentedString(modificationAmount)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }

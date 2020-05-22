@@ -20,9 +20,12 @@
  */
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * PayoutScheduleResponse
@@ -123,24 +126,15 @@ public class PayoutScheduleResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayoutScheduleResponse {\n");
+        sb.append("class PayoutScheduleResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
-        sb.append("    nextScheduledPayout: ").append(toIndentedString(nextScheduledPayout)).append("\n");
+        sb.append("    schedule: ").append(Util.toIndentedString(schedule)).append(TextConstants.LINE_BREAK);
+        sb.append("    nextScheduledPayout: ").append(Util.toIndentedString(nextScheduledPayout)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -126,24 +127,13 @@ public class PaymentMethodsGroup {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethodsGroup {\n");
+        sb.append("class PaymentMethodsGroup {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    groupType: ").append(toIndentedString(groupType)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    types: ").append(toIndentedString(types)).append("\n");
+        sb.append("    groupType: ").append(Util.toIndentedString(groupType)).append(TextConstants.LINE_BREAK);
+        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    types: ").append(Util.toIndentedString(types)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

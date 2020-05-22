@@ -21,6 +21,8 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -94,23 +96,12 @@ public class KYCCheckSummary {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class KYCCheckSummary {\n");
+        sb.append("class KYCCheckSummary {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    kycCheckCode: ").append(toIndentedString(kycCheckCode)).append("\n");
-        sb.append("    kycCheckDescription: ").append(toIndentedString(kycCheckDescription)).append("\n");
+        sb.append("    kycCheckCode: ").append(Util.toIndentedString(kycCheckCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    kycCheckDescription: ").append(Util.toIndentedString(kycCheckDescription)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

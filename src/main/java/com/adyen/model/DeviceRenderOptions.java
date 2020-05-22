@@ -22,6 +22,8 @@
 
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -193,25 +195,13 @@ public class DeviceRenderOptions {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeviceRenderOptions {\n");
+        sb.append("class DeviceRenderOptions {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    sdkInterface: ").append(toIndentedString(sdkInterface)).append("\n");
-        sb.append("    sdkUiType: ").append(toIndentedString(sdkUiType)).append("\n");
+        sb.append("    sdkInterface: ").append(Util.toIndentedString(sdkInterface)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkUiType: ").append(Util.toIndentedString(sdkUiType)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
-
 }
 
 

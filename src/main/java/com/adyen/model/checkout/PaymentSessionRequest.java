@@ -36,6 +36,7 @@ import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -1535,90 +1536,81 @@ public class PaymentSessionRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentSessionRequest {\n");
+        sb.append("class PaymentSessionRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
-        sb.append("    additionalAmount: ").append(toIndentedString(additionalAmount)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
-        sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
-        sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
-        sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
-        sb.append("    card: ").append(toIndentedString(card)).append("\n");
-        sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-        sb.append("    company: ").append(toIndentedString(company)).append("\n");
-        sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
-        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-        sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");
-        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-        sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
-        sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
-        sb.append("    enableOneClick: ").append(toIndentedString(enableOneClick)).append("\n");
-        sb.append("    enablePayOut: ").append(toIndentedString(enablePayOut)).append("\n");
-        sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append("\n");
-        sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
-        sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
-        sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
-        sb.append("    html: ").append(toIndentedString(html)).append("\n");
-        sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
-        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
-        sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
-        sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
-        sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
-        sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
-        sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
-        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
-        sb.append("    sdkVersion: ").append(toIndentedString(sdkVersion)).append("\n");
-        sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append("\n");
-        sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
-        sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
-        sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
-        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
-        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
-        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-        sb.append("    store: ").append(toIndentedString(store)).append("\n");
-        sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
-        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
-        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
-        sb.append("    totalsGroup: ").append(toIndentedString(totalsGroup)).append("\n");
-        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
-        sb.append("    uniqueTerminalId: ").append(toIndentedString(uniqueTerminalId)).append("\n");
+        sb.append("    accountInfo: ").append(Util.toIndentedString(accountInfo)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalAmount: ").append(Util.toIndentedString(additionalAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    allowedPaymentMethods: ").append(Util.toIndentedString(allowedPaymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
+        sb.append("    applicationInfo: ").append(Util.toIndentedString(applicationInfo)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccount: ").append(Util.toIndentedString(bankAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    billingAddress: ").append(Util.toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    blockedPaymentMethods: ").append(Util.toIndentedString(blockedPaymentMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    browserInfo: ").append(Util.toIndentedString(browserInfo)).append(TextConstants.LINE_BREAK);
+        sb.append("    captureDelayHours: ").append(Util.toIndentedString(captureDelayHours)).append(TextConstants.LINE_BREAK);
+        sb.append("    card: ").append(Util.toIndentedString(card)).append(TextConstants.LINE_BREAK);
+        sb.append("    channel: ").append(Util.toIndentedString(channel)).append(TextConstants.LINE_BREAK);
+        sb.append("    company: ").append(Util.toIndentedString(company)).append(TextConstants.LINE_BREAK);
+        sb.append("    configId: ").append(Util.toIndentedString(configId)).append(TextConstants.LINE_BREAK);
+        sb.append("    configuration: ").append(Util.toIndentedString(configuration)).append(TextConstants.LINE_BREAK);
+        sb.append("    countryCode: ").append(Util.toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    dateOfBirth: ").append(Util.toIndentedString(dateOfBirth)).append(TextConstants.LINE_BREAK);
+        sb.append("    dccQuote: ").append(Util.toIndentedString(dccQuote)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryAddress: ").append(Util.toIndentedString(deliveryAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryDate: ").append(Util.toIndentedString(deliveryDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    deviceFingerprint: ").append(Util.toIndentedString(deviceFingerprint)).append(TextConstants.LINE_BREAK);
+        sb.append("    enableOneClick: ").append(Util.toIndentedString(enableOneClick)).append(TextConstants.LINE_BREAK);
+        sb.append("    enablePayOut: ").append(Util.toIndentedString(enablePayOut)).append(TextConstants.LINE_BREAK);
+        sb.append("    enableRealTimeUpdate: ").append(Util.toIndentedString(enableRealTimeUpdate)).append(TextConstants.LINE_BREAK);
+        sb.append("    enableRecurring: ").append(Util.toIndentedString(enableRecurring)).append(TextConstants.LINE_BREAK);
+        sb.append("    entityType: ").append(Util.toIndentedString(entityType)).append(TextConstants.LINE_BREAK);
+        sb.append("    fraudOffset: ").append(Util.toIndentedString(fraudOffset)).append(TextConstants.LINE_BREAK);
+        sb.append("    html: ").append(Util.toIndentedString(html)).append(TextConstants.LINE_BREAK);
+        sb.append("    installments: ").append(Util.toIndentedString(installments)).append(TextConstants.LINE_BREAK);
+        sb.append("    lineItems: ").append(Util.toIndentedString(lineItems)).append(TextConstants.LINE_BREAK);
+        sb.append("    mcc: ").append(Util.toIndentedString(mcc)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantAccount: ").append(Util.toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantOrderReference: ").append(Util.toIndentedString(merchantOrderReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantRiskIndicator: ").append(Util.toIndentedString(merchantRiskIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    metadata: ").append(Util.toIndentedString(metadata)).append(TextConstants.LINE_BREAK);
+        sb.append("    mpiData: ").append(Util.toIndentedString(mpiData)).append(TextConstants.LINE_BREAK);
+        sb.append("    nationality: ").append(Util.toIndentedString(nationality)).append(TextConstants.LINE_BREAK);
+        sb.append("    orderReference: ").append(Util.toIndentedString(orderReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    origin: ").append(Util.toIndentedString(origin)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurring: ").append(Util.toIndentedString(recurring)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringExpiry: ").append(Util.toIndentedString(recurringExpiry)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringFrequency: ").append(Util.toIndentedString(recurringFrequency)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringProcessingModel: ").append(Util.toIndentedString(recurringProcessingModel)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(Util.toIndentedString(reference)).append(TextConstants.LINE_BREAK);
+        sb.append("    returnUrl: ").append(Util.toIndentedString(returnUrl)).append(TextConstants.LINE_BREAK);
+        sb.append("    sdkVersion: ").append(Util.toIndentedString(sdkVersion)).append(TextConstants.LINE_BREAK);
+        sb.append("    selectedBrand: ").append(Util.toIndentedString(selectedBrand)).append(TextConstants.LINE_BREAK);
+        sb.append("    selectedRecurringDetailReference: ").append(Util.toIndentedString(selectedRecurringDetailReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    sessionId: ").append(Util.toIndentedString(sessionId)).append(TextConstants.LINE_BREAK);
+        sb.append("    sessionValidity: ").append(Util.toIndentedString(sessionValidity)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperEmail: ").append(Util.toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperIP: ").append(Util.toIndentedString(shopperIP)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperInteraction: ").append(Util.toIndentedString(shopperInteraction)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperLocale: ").append(Util.toIndentedString(shopperLocale)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperName: ").append(Util.toIndentedString(shopperName)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperReference: ").append(Util.toIndentedString(shopperReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperStatement: ").append(Util.toIndentedString(shopperStatement)).append(TextConstants.LINE_BREAK);
+        sb.append("    socialSecurityNumber: ").append(Util.toIndentedString(socialSecurityNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    splits: ").append(Util.toIndentedString(splits)).append(TextConstants.LINE_BREAK);
+        sb.append("    store: ").append(Util.toIndentedString(store)).append(TextConstants.LINE_BREAK);
+        sb.append("    storePaymentMethod: ").append(Util.toIndentedString(storePaymentMethod)).append(TextConstants.LINE_BREAK);
+        sb.append("    telephoneNumber: ").append(Util.toIndentedString(telephoneNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2RequestData: ").append(Util.toIndentedString(threeDS2RequestData)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSAuthenticationOnly: ").append(Util.toIndentedString(threeDSAuthenticationOnly)).append(TextConstants.LINE_BREAK);
+        sb.append("    token: ").append(Util.toIndentedString(token)).append(TextConstants.LINE_BREAK);
+        sb.append("    totalsGroup: ").append(Util.toIndentedString(totalsGroup)).append(TextConstants.LINE_BREAK);
+        sb.append("    trustedShopper: ").append(Util.toIndentedString(trustedShopper)).append(TextConstants.LINE_BREAK);
+        sb.append("    uniqueTerminalId: ").append(Util.toIndentedString(uniqueTerminalId)).append(TextConstants.LINE_BREAK);
         sb.append('}');
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

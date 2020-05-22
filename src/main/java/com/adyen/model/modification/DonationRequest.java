@@ -21,9 +21,12 @@
 
 package com.adyen.model.modification;
 
-import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 /**
  * DonationRequest
  */
@@ -155,26 +158,17 @@ public class DonationRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DonationRequest {\n");
+        sb.append("class DonationRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    donationAccount: ").append(toIndentedString(donationAccount)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    donationAccount: ").append(Util.toIndentedString(donationAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantAccount: ").append(Util.toIndentedString(merchantAccount)).append(TextConstants.LINE_BREAK);
+        sb.append("    modificationAmount: ").append(Util.toIndentedString(modificationAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    originalReference: ").append(Util.toIndentedString(originalReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    reference: ").append(Util.toIndentedString(reference)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

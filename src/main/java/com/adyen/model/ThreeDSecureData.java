@@ -20,6 +20,8 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -284,29 +286,20 @@ public class ThreeDSecureData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDSecureData {\n");
+        sb.append("class ThreeDSecureData {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append("\n");
-        sb.append("    directoryResponse: ").append(toIndentedString(directoryResponse)).append("\n");
-        sb.append("    authenticationResponse: ").append(toIndentedString(authenticationResponse)).append("\n");
-        sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
-        sb.append("    cavv: ").append(toIndentedString(cavv)).append("\n");
-        sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
-        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
+        sb.append("    cavvAlgorithm: ").append(Util.toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
+        sb.append("    directoryResponse: ").append(Util.toIndentedString(directoryResponse)).append(TextConstants.LINE_BREAK);
+        sb.append("    authenticationResponse: ").append(Util.toIndentedString(authenticationResponse)).append(TextConstants.LINE_BREAK);
+        sb.append("    xid: ").append(Util.toIndentedString(xid)).append(TextConstants.LINE_BREAK);
+        sb.append("    cavv: ").append(Util.toIndentedString(cavv)).append(TextConstants.LINE_BREAK);
+        sb.append("    eci: ").append(Util.toIndentedString(eci)).append(TextConstants.LINE_BREAK);
+        sb.append("    dsTransID: ").append(Util.toIndentedString(dsTransID)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

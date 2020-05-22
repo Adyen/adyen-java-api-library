@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -269,31 +270,20 @@ public class StoredPaymentMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoredPaymentMethod {\n");
+        sb.append("class StoredPaymentMethod {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
-        sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
-        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
-        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
-        sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
-        sb.append("    supportedShopperInteractions: ").append(toIndentedString(supportedShopperInteractions)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+        sb.append("    id: ").append(Util.toIndentedString(id)).append(TextConstants.LINE_BREAK);
+        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
+        sb.append("    brand: ").append(Util.toIndentedString(brand)).append(TextConstants.LINE_BREAK);
+        sb.append("    lastFour: ").append(Util.toIndentedString(lastFour)).append(TextConstants.LINE_BREAK);
+        sb.append("    expiryMonth: ").append(Util.toIndentedString(expiryMonth)).append(TextConstants.LINE_BREAK);
+        sb.append("    expiryYear: ").append(Util.toIndentedString(expiryYear)).append(TextConstants.LINE_BREAK);
+        sb.append("    holderName: ").append(Util.toIndentedString(holderName)).append(TextConstants.LINE_BREAK);
+        sb.append("    supportedShopperInteractions: ").append(Util.toIndentedString(supportedShopperInteractions)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperEmail: ").append(Util.toIndentedString(shopperEmail)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

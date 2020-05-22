@@ -20,19 +20,20 @@
  */
 package com.adyen.model.recurring;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
 import com.adyen.model.BankAccount;
 import com.adyen.model.Card;
 import com.adyen.model.ELV;
 import com.adyen.model.Name;
 import com.adyen.model.TokenDetails;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * RecurringDetail
@@ -435,40 +436,31 @@ public class RecurringDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RecurringDetail {\n");
+        sb.append("class RecurringDetail {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
-        sb.append("    card: ").append(toIndentedString(card)).append("\n");
-        sb.append("    elv: ").append(toIndentedString(elv)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-        sb.append("    bank: ").append(toIndentedString(bank)).append("\n");
-        sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
-        sb.append("    aliasType: ").append(toIndentedString(aliasType)).append("\n");
-        sb.append("    tokenDetails: ").append(toIndentedString(tokenDetails)).append("\n");
-        sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
-        sb.append("    paymentMethodVariant: ").append(toIndentedString(paymentMethodVariant)).append("\n");
-        sb.append("    firstPspReference: ").append(toIndentedString(firstPspReference)).append("\n");
-        sb.append("    contractTypes: ").append(toIndentedString(contractTypes)).append("\n");
-        sb.append("    acquirer: ").append(toIndentedString(acquirer)).append("\n");
-        sb.append("    acquirerAccount: ").append(toIndentedString(acquirerAccount)).append("\n");
+        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    creationDate: ").append(Util.toIndentedString(creationDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    card: ").append(Util.toIndentedString(card)).append(TextConstants.LINE_BREAK);
+        sb.append("    elv: ").append(Util.toIndentedString(elv)).append(TextConstants.LINE_BREAK);
+        sb.append("    billingAddress: ").append(Util.toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    shopperName: ").append(Util.toIndentedString(shopperName)).append(TextConstants.LINE_BREAK);
+        sb.append("    socialSecurityNumber: ").append(Util.toIndentedString(socialSecurityNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringDetailReference: ").append(Util.toIndentedString(recurringDetailReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    bank: ").append(Util.toIndentedString(bank)).append(TextConstants.LINE_BREAK);
+        sb.append("    alias: ").append(Util.toIndentedString(alias)).append(TextConstants.LINE_BREAK);
+        sb.append("    aliasType: ").append(Util.toIndentedString(aliasType)).append(TextConstants.LINE_BREAK);
+        sb.append("    tokenDetails: ").append(Util.toIndentedString(tokenDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    variant: ").append(Util.toIndentedString(variant)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentMethodVariant: ").append(Util.toIndentedString(paymentMethodVariant)).append(TextConstants.LINE_BREAK);
+        sb.append("    firstPspReference: ").append(Util.toIndentedString(firstPspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    contractTypes: ").append(Util.toIndentedString(contractTypes)).append(TextConstants.LINE_BREAK);
+        sb.append("    acquirer: ").append(Util.toIndentedString(acquirer)).append(TextConstants.LINE_BREAK);
+        sb.append("    acquirerAccount: ").append(Util.toIndentedString(acquirerAccount)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }
 

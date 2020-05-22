@@ -21,6 +21,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -244,25 +245,16 @@ public class ShopperInput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ShopperInput {\n");
+        sb.append("class ShopperInput {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-        sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
+        sb.append("    billingAddress: ").append(Util.toIndentedString(billingAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryAddress: ").append(Util.toIndentedString(deliveryAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    personalDetails: ").append(Util.toIndentedString(personalDetails)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

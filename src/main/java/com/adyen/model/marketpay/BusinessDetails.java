@@ -21,6 +21,8 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -192,27 +194,18 @@ public class BusinessDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BusinessDetails {\n");
+        sb.append("class BusinessDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
-        sb.append("    incorporatedAt: ").append(toIndentedString(incorporatedAt)).append("\n");
-        sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
-        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
-        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
-        sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+        sb.append("    doingBusinessAs: ").append(Util.toIndentedString(doingBusinessAs)).append(TextConstants.LINE_BREAK);
+        sb.append("    incorporatedAt: ").append(Util.toIndentedString(incorporatedAt)).append(TextConstants.LINE_BREAK);
+        sb.append("    legalBusinessName: ").append(Util.toIndentedString(legalBusinessName)).append(TextConstants.LINE_BREAK);
+        sb.append("    registrationNumber: ").append(Util.toIndentedString(registrationNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    shareholders: ").append(Util.toIndentedString(shareholders)).append(TextConstants.LINE_BREAK);
+        sb.append("    taxId: ").append(Util.toIndentedString(taxId)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

@@ -20,10 +20,13 @@
  */
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * TierConfiguration
@@ -98,24 +101,15 @@ public class TierConfiguration {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class TierConfiguration {\n");
+        sb.append("class TierConfiguration {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+        sb.append("    tiers: ").append(Util.toIndentedString(tiers)).append(TextConstants.LINE_BREAK);
+        sb.append("    countryCode: ").append(Util.toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

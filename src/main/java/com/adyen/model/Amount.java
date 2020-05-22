@@ -20,6 +20,7 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
@@ -99,24 +100,15 @@ public class Amount {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Amount {\n");
+        sb.append("class Amount {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("    value: ").append(Util.toIndentedString(value)).append(TextConstants.LINE_BREAK);
+        sb.append("    currency: ").append(Util.toIndentedString(currency)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

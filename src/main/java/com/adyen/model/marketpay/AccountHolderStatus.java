@@ -20,10 +20,13 @@
  */
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * AccountHolderStatus
@@ -194,27 +197,18 @@ public class AccountHolderStatus {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderStatus {\n");
+        sb.append("class AccountHolderStatus {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    processingState: ").append(toIndentedString(processingState)).append("\n");
-        sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
-        sb.append("    payoutState: ").append(toIndentedString(payoutState)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    accountEvents: ").append(toIndentedString(accountEvents)).append("\n");
+        sb.append("    processingState: ").append(Util.toIndentedString(processingState)).append(TextConstants.LINE_BREAK);
+        sb.append("    statusReason: ").append(Util.toIndentedString(statusReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutState: ").append(Util.toIndentedString(payoutState)).append(TextConstants.LINE_BREAK);
+        sb.append("    status: ").append(Util.toIndentedString(status)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountEvents: ").append(Util.toIndentedString(accountEvents)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

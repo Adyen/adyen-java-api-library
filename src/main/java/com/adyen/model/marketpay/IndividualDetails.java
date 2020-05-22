@@ -20,9 +20,12 @@
  */
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Name;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * IndividualDetails
@@ -92,23 +95,12 @@ public class IndividualDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class IndividualDetails {\n");
+        sb.append("class IndividualDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    personalData: ").append(toIndentedString(personalData)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    personalData: ").append(Util.toIndentedString(personalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

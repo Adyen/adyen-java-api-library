@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;
@@ -156,24 +157,13 @@ public class PaymentsDetailsRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentsDetailsRequest {\n");
+        sb.append("class PaymentsDetailsRequest {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
-        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
-        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
+        sb.append("    details: ").append(Util.toIndentedString(details)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentData: ").append(Util.toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSAuthenticationOnly: ").append(Util.toIndentedString(threeDSAuthenticationOnly)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 

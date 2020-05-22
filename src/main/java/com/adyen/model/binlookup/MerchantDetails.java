@@ -20,8 +20,11 @@
  */
 package com.adyen.model.binlookup;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * MerchantDetails
@@ -117,24 +120,13 @@ public class MerchantDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MerchantDetails {\n");
+        sb.append("class MerchantDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    enrolledIn3DSecure: ").append(toIndentedString(enrolledIn3DSecure)).append("\n");
-        sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
+        sb.append("    countryCode: ").append(Util.toIndentedString(countryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    enrolledIn3DSecure: ").append(Util.toIndentedString(enrolledIn3DSecure)).append(TextConstants.LINE_BREAK);
+        sb.append("    mcc: ").append(Util.toIndentedString(mcc)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

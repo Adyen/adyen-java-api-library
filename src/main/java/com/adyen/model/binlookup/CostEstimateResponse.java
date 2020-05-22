@@ -20,9 +20,12 @@
  */
 package com.adyen.model.binlookup;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * CostEstimateResponse
@@ -143,25 +146,16 @@ public class CostEstimateResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CostEstimateResponse {\n");
+        sb.append("class CostEstimateResponse {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    cardBin: ").append(toIndentedString(cardBin)).append("\n");
-        sb.append("    costEstimateAmount: ").append(toIndentedString(costEstimateAmount)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    surchargeType: ").append(toIndentedString(surchargeType)).append("\n");
+        sb.append("    cardBin: ").append(Util.toIndentedString(cardBin)).append(TextConstants.LINE_BREAK);
+        sb.append("    costEstimateAmount: ").append(Util.toIndentedString(costEstimateAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    resultCode: ").append(Util.toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    surchargeType: ").append(Util.toIndentedString(surchargeType)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

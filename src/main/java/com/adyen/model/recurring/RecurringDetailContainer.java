@@ -20,9 +20,9 @@
  */
 package com.adyen.model.recurring;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.Objects;
 
 /**
  * Container for RecurringDetail
@@ -42,21 +42,12 @@ public class RecurringDetailContainer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RecurringDetailContainer {\n");
+        sb.append("class RecurringDetailContainer {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    recurringDetail: ").append(toIndentedString(recurringDetail)).append("\n");
+        sb.append("    recurringDetail: ").append(Util.toIndentedString(recurringDetail)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }

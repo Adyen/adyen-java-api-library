@@ -20,9 +20,11 @@
  */
 package com.adyen.model.applicationinfo;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 public class CommonField {
     @SerializedName("name")
@@ -78,21 +80,11 @@ public class CommonField {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CommonField {\n");
+        sb.append("class CommonField {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    version: ").append(Util.toIndentedString(version)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

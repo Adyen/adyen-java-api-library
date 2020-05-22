@@ -20,7 +20,9 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.serializer.DateTimeISO8601Serializer;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -754,39 +756,30 @@ public class AccountInfo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountInfo {\n");
+        sb.append("class AccountInfo {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    accountAgeIndicator: ").append(toIndentedString(accountAgeIndicator)).append("\n");
-        sb.append("    accountChangeDate: ").append(toIndentedString(accountChangeDate)).append("\n");
-        sb.append("    accountChangeIndicator: ").append(toIndentedString(accountChangeIndicator)).append("\n");
-        sb.append("    accountCreationDate: ").append(toIndentedString(accountCreationDate)).append("\n");
-        sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-        sb.append("    addCardAttemptsDay: ").append(toIndentedString(addCardAttemptsDay)).append("\n");
-        sb.append("    deliveryAddressUsageDate: ").append(toIndentedString(deliveryAddressUsageDate)).append("\n");
-        sb.append("    deliveryAddressUsageIndicator: ").append(toIndentedString(deliveryAddressUsageIndicator)).append("\n");
-        sb.append("    homePhone: ").append(toIndentedString(homePhone)).append("\n");
-        sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append("\n");
-        sb.append("    passwordChangeDate: ").append(toIndentedString(passwordChangeDate)).append("\n");
-        sb.append("    passwordChangeIndicator: ").append(toIndentedString(passwordChangeIndicator)).append("\n");
-        sb.append("    pastTransactionsDay: ").append(toIndentedString(pastTransactionsDay)).append("\n");
-        sb.append("    pastTransactionsYear: ").append(toIndentedString(pastTransactionsYear)).append("\n");
-        sb.append("    paymentAccountAge: ").append(toIndentedString(paymentAccountAge)).append("\n");
-        sb.append("    paymentAccountIndicator: ").append(toIndentedString(paymentAccountIndicator)).append("\n");
-        sb.append("    purchasesLast6Months: ").append(toIndentedString(purchasesLast6Months)).append("\n");
-        sb.append("    suspiciousActivity: ").append(toIndentedString(suspiciousActivity)).append("\n");
-        sb.append("    workPhone: ").append(toIndentedString(workPhone)).append("\n");
+        sb.append("    accountAgeIndicator: ").append(Util.toIndentedString(accountAgeIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountChangeDate: ").append(Util.toIndentedString(accountChangeDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountChangeIndicator: ").append(Util.toIndentedString(accountChangeIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountCreationDate: ").append(Util.toIndentedString(accountCreationDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    accountType: ").append(Util.toIndentedString(accountType)).append(TextConstants.LINE_BREAK);
+        sb.append("    addCardAttemptsDay: ").append(Util.toIndentedString(addCardAttemptsDay)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryAddressUsageDate: ").append(Util.toIndentedString(deliveryAddressUsageDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryAddressUsageIndicator: ").append(Util.toIndentedString(deliveryAddressUsageIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    homePhone: ").append(Util.toIndentedString(homePhone)).append(TextConstants.LINE_BREAK);
+        sb.append("    mobilePhone: ").append(Util.toIndentedString(mobilePhone)).append(TextConstants.LINE_BREAK);
+        sb.append("    passwordChangeDate: ").append(Util.toIndentedString(passwordChangeDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    passwordChangeIndicator: ").append(Util.toIndentedString(passwordChangeIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    pastTransactionsDay: ").append(Util.toIndentedString(pastTransactionsDay)).append(TextConstants.LINE_BREAK);
+        sb.append("    pastTransactionsYear: ").append(Util.toIndentedString(pastTransactionsYear)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentAccountAge: ").append(Util.toIndentedString(paymentAccountAge)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentAccountIndicator: ").append(Util.toIndentedString(paymentAccountIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    purchasesLast6Months: ").append(Util.toIndentedString(purchasesLast6Months)).append(TextConstants.LINE_BREAK);
+        sb.append("    suspiciousActivity: ").append(Util.toIndentedString(suspiciousActivity)).append(TextConstants.LINE_BREAK);
+        sb.append("    workPhone: ").append(Util.toIndentedString(workPhone)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }

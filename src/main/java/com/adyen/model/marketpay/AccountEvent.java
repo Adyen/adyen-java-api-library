@@ -20,9 +20,12 @@
  */
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * AccountEvent
@@ -160,26 +163,17 @@ public class AccountEvent {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountEvent {\n");
+        sb.append("class AccountEvent {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-        sb.append("    resolvedByStateType: ").append(toIndentedString(resolvedByStateType)).append("\n");
-        sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
-        sb.append("    event: ").append(toIndentedString(event)).append("\n");
+        sb.append("    reason: ").append(Util.toIndentedString(reason)).append(TextConstants.LINE_BREAK);
+        sb.append("    resolvedByStateType: ").append(Util.toIndentedString(resolvedByStateType)).append(TextConstants.LINE_BREAK);
+        sb.append("    executionDate: ").append(Util.toIndentedString(executionDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    event: ").append(Util.toIndentedString(event)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

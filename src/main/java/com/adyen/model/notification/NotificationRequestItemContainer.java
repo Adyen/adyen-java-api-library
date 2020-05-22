@@ -20,9 +20,9 @@
  */
 package com.adyen.model.notification;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.Objects;
 
 /**
  * Container for NotificationRequestItem
@@ -42,21 +42,12 @@ public class NotificationRequestItemContainer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationRequestItemContainer {\n");
+        sb.append("class NotificationRequestItemContainer {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    notificationItem: ").append(toIndentedString(notificationItem)).append("\n");
+        sb.append("    notificationItem: ").append(Util.toIndentedString(notificationItem)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }

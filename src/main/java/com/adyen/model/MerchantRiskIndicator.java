@@ -20,7 +20,9 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.serializer.DateSerializer;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -314,29 +316,19 @@ public class MerchantRiskIndicator {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MerchantRiskIndicator {\n");
+        sb.append("class MerchantRiskIndicator {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    addressMatch: ").append(toIndentedString(addressMatch)).append("\n");
-        sb.append("    deliveryAddressIndicator: ").append(toIndentedString(deliveryAddressIndicator)).append("\n");
-        sb.append("    deliveryEmail: ").append(toIndentedString(deliveryEmail)).append("\n");
-        sb.append("    deliveryTimeframe: ").append(toIndentedString(deliveryTimeframe)).append("\n");
-        sb.append("    giftCardAmount: ").append(toIndentedString(giftCardAmount)).append("\n");
-        sb.append("    giftCardCount: ").append(toIndentedString(giftCardCount)).append("\n");
-        sb.append("    preOrderDate: ").append(toIndentedString(preOrderDate)).append("\n");
-        sb.append("    preOrderPurchase: ").append(toIndentedString(preOrderPurchase)).append("\n");
-        sb.append("    reorderItems: ").append(toIndentedString(reorderItems)).append("\n");
+        sb.append("    addressMatch: ").append(Util.toIndentedString(addressMatch)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryAddressIndicator: ").append(Util.toIndentedString(deliveryAddressIndicator)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryEmail: ").append(Util.toIndentedString(deliveryEmail)).append(TextConstants.LINE_BREAK);
+        sb.append("    deliveryTimeframe: ").append(Util.toIndentedString(deliveryTimeframe)).append(TextConstants.LINE_BREAK);
+        sb.append("    giftCardAmount: ").append(Util.toIndentedString(giftCardAmount)).append(TextConstants.LINE_BREAK);
+        sb.append("    giftCardCount: ").append(Util.toIndentedString(giftCardCount)).append(TextConstants.LINE_BREAK);
+        sb.append("    preOrderDate: ").append(Util.toIndentedString(preOrderDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    preOrderPurchase: ").append(Util.toIndentedString(preOrderPurchase)).append(TextConstants.LINE_BREAK);
+        sb.append("    reorderItems: ").append(Util.toIndentedString(reorderItems)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }
 

@@ -20,6 +20,8 @@
  */
 package com.adyen.model.applicationinfo;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -57,24 +59,15 @@ public class ExternalPlatform extends CommonField {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ExternalPlatform {\n");
+        sb.append("class ExternalPlatform {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    integrator: ").append(toIndentedString(integrator)).append("\n");
+        sb.append("    integrator: ").append(Util.toIndentedString(integrator)).append(TextConstants.LINE_BREAK);
 
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

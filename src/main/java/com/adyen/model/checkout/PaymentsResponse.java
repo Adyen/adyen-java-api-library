@@ -26,6 +26,7 @@ import com.adyen.model.Amount;
 import com.adyen.model.FraudResult;
 import com.adyen.model.ThreeDS2Result;
 import com.adyen.util.DateUtil;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -435,37 +436,26 @@ public class PaymentsResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentsResponse {\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
-        sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
-        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
-        sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
-        sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
-        sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
-        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
-        sb.append("    action: ").append(toIndentedString(action)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("class PaymentsResponse {").append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
+        sb.append("    details: ").append(Util.toIndentedString(details)).append(TextConstants.LINE_BREAK);
+        sb.append("    fraudResult: ").append(Util.toIndentedString(fraudResult)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentData: ").append(Util.toIndentedString(paymentData)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    redirect: ").append(Util.toIndentedString(redirect)).append(TextConstants.LINE_BREAK);
+        sb.append("    refusalReason: ").append(Util.toIndentedString(refusalReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    refusalReasonCode: ").append(Util.toIndentedString(refusalReasonCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    resultCode: ").append(Util.toIndentedString(resultCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    serviceError: ").append(Util.toIndentedString(serviceError)).append(TextConstants.LINE_BREAK);
+        sb.append("    authResponse: ").append(Util.toIndentedString(authResponse)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantReference: ").append(Util.toIndentedString(merchantReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    outputDetails: ").append(Util.toIndentedString(outputDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    authentication: ").append(Util.toIndentedString(authentication)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDS2Result: ").append(Util.toIndentedString(threeDS2Result)).append(TextConstants.LINE_BREAK);
+        sb.append("    action: ").append(Util.toIndentedString(action)).append(TextConstants.LINE_BREAK);
+        sb.append("    amount: ").append(Util.toIndentedString(amount)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
     /**

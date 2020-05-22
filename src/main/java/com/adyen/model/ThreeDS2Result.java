@@ -20,6 +20,8 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -259,31 +261,22 @@ public class ThreeDS2Result {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDS2Result {\n");
+        sb.append("class ThreeDS2Result {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    authenticationValue: ").append(toIndentedString(authenticationValue)).append("\n");
-        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append("\n");
-        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
-        sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
-        sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
-        sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append("\n");
-        sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-        sb.append("    transStatus: ").append(toIndentedString(transStatus)).append("\n");
-        sb.append("    transStatusReason: ").append(toIndentedString(transStatusReason)).append("\n");
-        sb.append("    whiteListStatus: ").append(toIndentedString(whiteListStatus)).append("\n");
+        sb.append("    authenticationValue: ").append(Util.toIndentedString(authenticationValue)).append(TextConstants.LINE_BREAK);
+        sb.append("    cavvAlgorithm: ").append(Util.toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
+        sb.append("    dsTransID: ").append(Util.toIndentedString(dsTransID)).append(TextConstants.LINE_BREAK);
+        sb.append("    eci: ").append(Util.toIndentedString(eci)).append(TextConstants.LINE_BREAK);
+        sb.append("    messageVersion: ").append(Util.toIndentedString(messageVersion)).append(TextConstants.LINE_BREAK);
+        sb.append("    threeDSServerTransID: ").append(Util.toIndentedString(threeDSServerTransID)).append(TextConstants.LINE_BREAK);
+        sb.append("    timestamp: ").append(Util.toIndentedString(timestamp)).append(TextConstants.LINE_BREAK);
+        sb.append("    transStatus: ").append(Util.toIndentedString(transStatus)).append(TextConstants.LINE_BREAK);
+        sb.append("    transStatusReason: ").append(Util.toIndentedString(transStatusReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    whiteListStatus: ").append(Util.toIndentedString(whiteListStatus)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

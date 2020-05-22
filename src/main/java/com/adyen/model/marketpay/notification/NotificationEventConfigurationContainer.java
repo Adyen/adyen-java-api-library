@@ -21,8 +21,11 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.Objects;
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * NotificationEventConfiguration
@@ -61,18 +64,11 @@ public class NotificationEventConfigurationContainer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationEventConfigurationContainer {\n");
+        sb.append("class NotificationEventConfigurationContainer {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    notificationEventConfiguration: ").append(toIndentedString(notificationEventConfiguration)).append("\n");
+        sb.append("    notificationEventConfiguration: ").append(Util.toIndentedString(notificationEventConfiguration)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

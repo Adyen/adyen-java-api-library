@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -99,24 +100,15 @@ public class Avs {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Avs {\n");
+        sb.append("class Avs {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    addressEditable: ").append(toIndentedString(addressEditable)).append("\n");
-        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("    addressEditable: ").append(Util.toIndentedString(addressEditable)).append(TextConstants.LINE_BREAK);
+        sb.append("    enabled: ").append(Util.toIndentedString(enabled)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
     /**
      * Specifies whether the shopper should enter their billing address during checkout.  Allowed values: * yes — Perform AVS checks for every card payment. * automatic — Perform AVS checks only when required to optimize the conversion rate. * no — Do not perform AVS checks.

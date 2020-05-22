@@ -21,6 +21,7 @@
 package com.adyen.model.hpp;
 
 import com.adyen.constants.BrandCodes;
+import com.adyen.constants.TextConstants;
 import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
@@ -94,10 +95,10 @@ public class PaymentMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethod {\n");
-        sb.append("    brandCode: ").append(Util.toIndentedString(brandCode)).append("\n");
-        sb.append("    name: ").append(Util.toIndentedString(name)).append("\n");
-        sb.append("    issuers: ").append(Util.toIndentedString(issuers)).append("\n");
+        sb.append("class PaymentMethod {").append(TextConstants.LINE_BREAK);
+        sb.append("    brandCode: ").append(Util.toIndentedString(brandCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuers: ").append(Util.toIndentedString(issuers)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

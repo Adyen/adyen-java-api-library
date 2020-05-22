@@ -20,6 +20,7 @@
  */
 package com.adyen.util;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
 
 import java.math.BigDecimal;
@@ -141,9 +142,9 @@ public final class Util {
      */
     public static String toIndentedString(Object o) {
         if (Objects.isNull(o)) {
-            return "null";
+            return TextConstants.NULL;
         }
-        return o.toString().replace("\n", "\n    ");
+        return o.toString().replace(TextConstants.LINE_BREAK, TextConstants.LINE_BREAK_WITH_WHITESPACE);
     }
 
     public static String calculateSessionValidity() {

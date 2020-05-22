@@ -21,7 +21,9 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Address;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -305,32 +307,21 @@ public class AccountHolderDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderDetails {\n");
+        sb.append("class AccountHolderDetails {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetails)).append("\n");
-        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append("\n");
-        sb.append("    email: ").append(toIndentedString(email)).append("\n");
-        sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
-        sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
-        sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    payoutMethods: ").append(toIndentedString(payoutMethods)).append("\n");
-        sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+        sb.append("    address: ").append(Util.toIndentedString(address)).append(TextConstants.LINE_BREAK);
+        sb.append("    bankAccountDetails: ").append(Util.toIndentedString(bankAccountDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    businessDetails: ").append(Util.toIndentedString(businessDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    email: ").append(Util.toIndentedString(email)).append(TextConstants.LINE_BREAK);
+        sb.append("    fullPhoneNumber: ").append(Util.toIndentedString(fullPhoneNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    individualDetails: ").append(Util.toIndentedString(individualDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    merchantCategoryCode: ").append(Util.toIndentedString(merchantCategoryCode)).append(TextConstants.LINE_BREAK);
+        sb.append("    metadata: ").append(Util.toIndentedString(metadata)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutMethods: ").append(Util.toIndentedString(payoutMethods)).append(TextConstants.LINE_BREAK);
+        sb.append("    webAddress: ").append(Util.toIndentedString(webAddress)).append(TextConstants.LINE_BREAK);
+        sb.append("    phoneNumber: ").append(Util.toIndentedString(phoneNumber)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

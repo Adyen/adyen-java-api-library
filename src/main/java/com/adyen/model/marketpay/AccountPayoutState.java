@@ -21,7 +21,9 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -183,27 +185,16 @@ public class AccountPayoutState {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountPayoutState {\n");
+        sb.append("class AccountPayoutState {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append("\n");
-        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
-        sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-        sb.append("    notAllowedReason: ").append(toIndentedString(notAllowedReason)).append("\n");
-        sb.append("    payoutLimit: ").append(toIndentedString(payoutLimit)).append("\n");
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
+        sb.append("    allowPayout: ").append(Util.toIndentedString(allowPayout)).append(TextConstants.LINE_BREAK);
+        sb.append("    disableReason: ").append(Util.toIndentedString(disableReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    disabled: ").append(Util.toIndentedString(disabled)).append(TextConstants.LINE_BREAK);
+        sb.append("    notAllowedReason: ").append(Util.toIndentedString(notAllowedReason)).append(TextConstants.LINE_BREAK);
+        sb.append("    payoutLimit: ").append(Util.toIndentedString(payoutLimit)).append(TextConstants.LINE_BREAK);
+        sb.append("    tierNumber: ").append(Util.toIndentedString(tierNumber)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

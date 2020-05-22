@@ -20,6 +20,8 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -225,30 +227,21 @@ public class Card {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Card {\n");
+        sb.append("class Card {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
-        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
-        sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
-        sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
-        sb.append("    issueNumber: ").append(toIndentedString(issueNumber)).append("\n");
-        sb.append("    number: ").append(toIndentedString(number)).append("\n");
-        sb.append("    startMonth: ").append(toIndentedString(startMonth)).append("\n");
-        sb.append("    startYear: ").append(toIndentedString(startYear)).append("\n");
+        sb.append("    expiryMonth: ").append(Util.toIndentedString(expiryMonth)).append(TextConstants.LINE_BREAK);
+        sb.append("    expiryYear: ").append(Util.toIndentedString(expiryYear)).append(TextConstants.LINE_BREAK);
+        sb.append("    cvc: ").append(Util.toIndentedString(cvc)).append(TextConstants.LINE_BREAK);
+        sb.append("    holderName: ").append(Util.toIndentedString(holderName)).append(TextConstants.LINE_BREAK);
+        sb.append("    issueNumber: ").append(Util.toIndentedString(issueNumber)).append(TextConstants.LINE_BREAK);
+        sb.append("    number: ").append(Util.toIndentedString(number)).append(TextConstants.LINE_BREAK);
+        sb.append("    startMonth: ").append(Util.toIndentedString(startMonth)).append(TextConstants.LINE_BREAK);
+        sb.append("    startYear: ").append(Util.toIndentedString(startYear)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -132,24 +133,13 @@ public class Redirect {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Redirect {\n");
+        sb.append("class Redirect {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    method: ").append(toIndentedString(method)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
+        sb.append("    data: ").append(Util.toIndentedString(data)).append(TextConstants.LINE_BREAK);
+        sb.append("    method: ").append(Util.toIndentedString(method)).append(TextConstants.LINE_BREAK);
+        sb.append("    url: ").append(Util.toIndentedString(url)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
     /**

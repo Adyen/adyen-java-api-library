@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -302,31 +303,19 @@ public class RecurringDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RecurringDetail {\n");
+        sb.append("class RecurringDetail {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
-        sb.append("    group: ").append(toIndentedString(group)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    paymentMethodData: ").append(toIndentedString(paymentMethodData)).append("\n");
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-        sb.append("    storedDetails: ").append(toIndentedString(storedDetails)).append("\n");
-        sb.append("    supportsRecurring: ").append(toIndentedString(supportsRecurring)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    brands: ").append(Util.toIndentedString(brands)).append(TextConstants.LINE_BREAK);
+        sb.append("    configuration: ").append(Util.toIndentedString(configuration)).append(TextConstants.LINE_BREAK);
+        sb.append("    details: ").append(Util.toIndentedString(details)).append(TextConstants.LINE_BREAK);
+        sb.append("    group: ").append(Util.toIndentedString(group)).append(TextConstants.LINE_BREAK);
+        sb.append("    name: ").append(Util.toIndentedString(name)).append(TextConstants.LINE_BREAK);
+        sb.append("    paymentMethodData: ").append(Util.toIndentedString(paymentMethodData)).append(TextConstants.LINE_BREAK);
+        sb.append("    recurringDetailReference: ").append(Util.toIndentedString(recurringDetailReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    storedDetails: ").append(Util.toIndentedString(storedDetails)).append(TextConstants.LINE_BREAK);
+        sb.append("    supportsRecurring: ").append(Util.toIndentedString(supportsRecurring)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return TextConstants.NULL;
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
 }

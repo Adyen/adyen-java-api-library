@@ -22,6 +22,8 @@
 
 package com.adyen.model.marketpay;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -213,26 +215,17 @@ public class PersonalDocumentData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PersonalDocumentData {\n");
+        sb.append("class PersonalDocumentData {").append(TextConstants.LINE_BREAK);
 
-        sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
-        sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append("\n");
-        sb.append("    issuerState: ").append(toIndentedString(issuerState)).append("\n");
-        sb.append("    number: ").append(toIndentedString(number)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    expirationDate: ").append(Util.toIndentedString(expirationDate)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuerCountry: ").append(Util.toIndentedString(issuerCountry)).append(TextConstants.LINE_BREAK);
+        sb.append("    issuerState: ").append(Util.toIndentedString(issuerState)).append(TextConstants.LINE_BREAK);
+        sb.append("    number: ").append(Util.toIndentedString(number)).append(TextConstants.LINE_BREAK);
+        sb.append("    type: ").append(Util.toIndentedString(type)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

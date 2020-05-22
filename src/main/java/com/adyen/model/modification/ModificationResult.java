@@ -20,13 +20,15 @@
  */
 package com.adyen.model.modification;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.model.Split;
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-
-import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.Split;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * ModificationResult
@@ -160,25 +162,14 @@ public class ModificationResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ModificationResult {\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    response: ").append(toIndentedString(response)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("class ModificationResult {").append(TextConstants.LINE_BREAK);
+        sb.append("    applicationInfo: ").append(Util.toIndentedString(applicationInfo)).append(TextConstants.LINE_BREAK);
+        sb.append("    splits: ").append(Util.toIndentedString(splits)).append(TextConstants.LINE_BREAK);
+        sb.append("    pspReference: ").append(Util.toIndentedString(pspReference)).append(TextConstants.LINE_BREAK);
+        sb.append("    response: ").append(Util.toIndentedString(response)).append(TextConstants.LINE_BREAK);
+        sb.append("    additionalData: ").append(Util.toIndentedString(additionalData)).append(TextConstants.LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

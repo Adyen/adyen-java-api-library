@@ -20,6 +20,8 @@
  */
 package com.adyen.model;
 
+import com.adyen.constants.TextConstants;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -175,27 +177,15 @@ public class ThreeDS1Result {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ThreeDS1Result {\n");
+    sb.append("class ThreeDS1Result {").append(TextConstants.LINE_BREAK);
 
-    sb.append("    cavv: ").append(toIndentedString(cavv)).append("\n");
-    sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append("\n");
-    sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
-    sb.append("    threeDAuthenticatedResponse: ").append(toIndentedString(threeDAuthenticatedResponse)).append("\n");
-    sb.append("    threeDOfferedResponse: ").append(toIndentedString(threeDOfferedResponse)).append("\n");
-    sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
+    sb.append("    cavv: ").append(Util.toIndentedString(cavv)).append(TextConstants.LINE_BREAK);
+    sb.append("    cavvAlgorithm: ").append(Util.toIndentedString(cavvAlgorithm)).append(TextConstants.LINE_BREAK);
+    sb.append("    eci: ").append(Util.toIndentedString(eci)).append(TextConstants.LINE_BREAK);
+    sb.append("    threeDAuthenticatedResponse: ").append(Util.toIndentedString(threeDAuthenticatedResponse)).append(TextConstants.LINE_BREAK);
+    sb.append("    threeDOfferedResponse: ").append(Util.toIndentedString(threeDOfferedResponse)).append(TextConstants.LINE_BREAK);
+    sb.append("    xid: ").append(Util.toIndentedString(xid)).append(TextConstants.LINE_BREAK);
     sb.append("}");
     return sb.toString();
   }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (Objects.isNull(o)) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
