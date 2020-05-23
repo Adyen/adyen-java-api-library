@@ -183,7 +183,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        this.httpClient = Optional.ofNullable(this.httpClient).orElse(new HttpURLConnectionClient());
+        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(() -> new HttpURLConnectionClient());
         return this.httpClient;
     }
 
