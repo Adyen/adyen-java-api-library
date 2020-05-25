@@ -181,7 +181,7 @@ public class DeviceRenderOptions {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         DeviceRenderOptions deviceRenderOptions = (DeviceRenderOptions) o;

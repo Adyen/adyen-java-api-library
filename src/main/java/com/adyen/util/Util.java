@@ -31,7 +31,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.TimeZone;
 
 import static com.adyen.constants.TextConstants.LINE_BREAK;
@@ -144,7 +143,7 @@ public final class Util {
      * @return string target "\n" replacement with "\n    "
      */
     public static String toIndentedString(Object o) {
-        if (Objects.isNull(o)) {
+        if (o == null) {
             return TextConstants.NULL;
         }
         return o.toString().replace(LINE_BREAK, LINE_BREAK_WITH_WHITESPACE);

@@ -133,7 +133,7 @@ public class UnSuspendAccountHolderResponse {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         UnSuspendAccountHolderResponse unSuspendAccountHolderResponse = (UnSuspendAccountHolderResponse) o;

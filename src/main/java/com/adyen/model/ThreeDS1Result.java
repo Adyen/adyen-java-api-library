@@ -157,7 +157,7 @@ public class ThreeDS1Result {
     if (this == o) {
       return true;
     }
-    if (Objects.isNull(o) || getClass() != o.getClass()) {
+    if (o == null || getClass() != o.getClass()) {
       return false;
     }
     ThreeDS1Result threeDS1Result = (ThreeDS1Result) o;

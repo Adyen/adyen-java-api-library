@@ -49,7 +49,7 @@ public class ThreeDS2ResultRequest {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         ThreeDS2ResultRequest threeDS2ResultRequest = (ThreeDS2ResultRequest) o;

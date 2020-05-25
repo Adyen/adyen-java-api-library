@@ -33,7 +33,7 @@ public class ThreeDS2ResultResponse {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         ThreeDS2ResultResponse threeDS2ResultResponse = (ThreeDS2ResultResponse) o;

@@ -552,7 +552,7 @@ public class ThreeDS2RequestData {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         ThreeDS2RequestData threeDS2RequestData = (ThreeDS2RequestData) o;

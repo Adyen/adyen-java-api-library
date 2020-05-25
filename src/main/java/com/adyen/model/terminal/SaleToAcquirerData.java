@@ -158,7 +158,7 @@ public class SaleToAcquirerData {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         SaleToAcquirerData that = (SaleToAcquirerData) o;

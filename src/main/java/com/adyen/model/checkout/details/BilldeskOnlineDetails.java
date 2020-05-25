@@ -89,7 +89,7 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         BilldeskOnlineDetails billdeskOnlineDetails = (BilldeskOnlineDetails) o;

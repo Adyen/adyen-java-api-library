@@ -60,7 +60,7 @@ public class AdjustAuthorisationRequest extends AbstractModificationRequest<Adju
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         AdjustAuthorisationRequest adjustAuthorisationRequest = (AdjustAuthorisationRequest) o;

@@ -89,7 +89,7 @@ public class VippsDetails implements PaymentMethodDetails {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         VippsDetails vippsDetails = (VippsDetails) o;

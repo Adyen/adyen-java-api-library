@@ -20,8 +20,10 @@
  */
 package com.adyen.model.applicationinfo;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 
@@ -128,7 +130,7 @@ public class ApplicationInfo {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         ApplicationInfo applicationInfo = (ApplicationInfo) o;

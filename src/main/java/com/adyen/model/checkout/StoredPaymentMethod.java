@@ -247,7 +247,7 @@ public class StoredPaymentMethod {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         StoredPaymentMethod that = (StoredPaymentMethod) o;

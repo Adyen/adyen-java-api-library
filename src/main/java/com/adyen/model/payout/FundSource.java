@@ -169,7 +169,7 @@ public class FundSource {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         FundSource fundSource = (FundSource) o;

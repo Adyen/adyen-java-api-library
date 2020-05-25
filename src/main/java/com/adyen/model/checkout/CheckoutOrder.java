@@ -80,7 +80,7 @@ public class CheckoutOrder {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         CheckoutOrder checkoutOrder = (CheckoutOrder) o;

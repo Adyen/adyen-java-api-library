@@ -112,7 +112,7 @@ public class RefundNotPaidOutTransfersResponse {
         if (this == o) {
             return true;
         }
-        if (Objects.isNull(o) || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         RefundNotPaidOutTransfersResponse refundNotPaidOutTransfersResponse = (RefundNotPaidOutTransfersResponse) o;
