@@ -1,0 +1,14 @@
+{
+  "resultCode": "Pending",
+  "action": {
+    "type": "sdk",
+    "resendInterval": "1",
+    "resendMaxAttempts": "3",
+    "resendUrl": "https://localhost:8080",
+    "redirect": {
+      "method": "GET",
+      "url": "https://localhost:8080",
+      "data": null
+    }
+  }
+}

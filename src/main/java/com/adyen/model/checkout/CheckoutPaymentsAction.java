@@ -103,6 +103,21 @@ public class CheckoutPaymentsAction {
     @SerializedName("entity")
     private String entity;
 
+    @SerializedName("sdkData")
+    private Map<String, String> sdkData;
+
+    @SerializedName("resendInterval")
+    private int resendInterval;
+
+    @SerializedName("resendMaxAttempts")
+    private int resendMaxAttempts;
+
+    @SerializedName("resendUrl")
+    private String resendUrl;
+
+    @SerializedName("redirect")
+    private Redirect redirect;
+
     /**
      * Enum that specifies the action that needs to be taken by the client.
      */
@@ -114,6 +129,7 @@ public class CheckoutPaymentsAction {
         THREEDS2CHALLENGE("threeDS2Challenge"),
         THREEDS2FINGERPRINT("threeDS2Fingerprint"),
         VOUCHER("voucher"),
+        SDK("sdk"),
         WECHATPAYSDK("wechatpaySDK");
 
         private String value;
@@ -566,6 +582,34 @@ public class CheckoutPaymentsAction {
         this.url = url;
     }
 
+    /**
+     * Returns SDK data.
+     *
+     * @return sdkData
+     */
+    public Map<String, String> getSdkData() {
+        return sdkData;
+    }
+
+    public void setSdkData(Map<String, String> sdkData) {
+        this.sdkData = sdkData;
+    }
+
+    public int getResendInterval() {
+        return resendInterval;
+    }
+
+    public int getResendMaxAttempts() {
+        return resendMaxAttempts;
+    }
+
+    public String getResendUrl() {
+        return resendUrl;
+    }
+
+    public Redirect getRedirect() {
+        return redirect;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -598,19 +642,25 @@ public class CheckoutPaymentsAction {
                 Objects.equals(this.totalAmount, checkoutPaymentsAction.totalAmount) &&
                 Objects.equals(this.type, checkoutPaymentsAction.type) &&
                 Objects.equals(this.entity, checkoutPaymentsAction.entity) &&
+                Objects.equals(this.sdkData, checkoutPaymentsAction.sdkData) &&
+                Objects.equals(this.resendInterval, checkoutPaymentsAction.resendInterval) &&
+                Objects.equals(this.resendMaxAttempts, checkoutPaymentsAction.resendMaxAttempts) &&
+                Objects.equals(this.resendUrl, checkoutPaymentsAction.resendUrl) &&
+                Objects.equals(this.redirect, checkoutPaymentsAction.redirect) &&
                 Objects.equals(this.url, checkoutPaymentsAction.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, type, url, entity);
+        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, type, url, entity, sdkData, resendInterval, resendMaxAttempts, resendUrl, redirect);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CheckoutPaymentsAction {").append(LINE_BREAK);
+
+        sb.append("class CheckoutPaymentsAction {\n");
 
         sb.append("    alternativeReference: ").append(toIndentedString(alternativeReference)).append(LINE_BREAK);
         sb.append("    data: ").append(toIndentedString(data)).append(LINE_BREAK);
@@ -635,6 +685,11 @@ public class CheckoutPaymentsAction {
         sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append(LINE_BREAK);
         sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("    url: ").append(toIndentedString(url)).append(LINE_BREAK);
+        sb.append("    sdkData: ").append(toIndentedString(sdkData)).append(LINE_BREAK);
+        sb.append("    resendInterval: ").append(toIndentedString(resendInterval)).append(LINE_BREAK);
+        sb.append("    resendMaxAttempts: ").append(toIndentedString(resendMaxAttempts)).append(LINE_BREAK);
+        sb.append("    resendUrl: ").append(toIndentedString(resendUrl)).append(LINE_BREAK);
+        sb.append("    redirect: ").append(toIndentedString(redirect)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
