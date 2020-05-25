@@ -1,0 +1,11 @@
+{
+  "resultCode": "Pending",
+  "action": {
+    "type": "sdk",
+    "paymentMethodType": "paypal",
+    "paymentData": "Ab02b4c0!BQABAgARb1TvUJa4nwS0Z1nOmxoYfD9+z...",
+    "sdkData": {
+      "orderID": "EC-42N19135GM6949000"
+    }
+  }
+}
