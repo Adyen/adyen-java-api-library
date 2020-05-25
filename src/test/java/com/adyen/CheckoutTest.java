@@ -70,6 +70,39 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test success flow for PayPal SDK type
+     * POST /payments
+     */
+    @Test
+    public void TestPaypalPaymentSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-success-paypal.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("EC-42N19135GM6949000", paymentsResponse.getAction().getSdkData().get("orderID"));
+    }
+
+    /**
+     * Test success flow for OneTimePass type
+     * POST /payments
+     */
+    @Test
+    public void TestOneTimePassPaymentSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-success-onetimepass.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals(1, paymentsResponse.getAction().getResendInterval());
+        assertEquals(3, paymentsResponse.getAction().getResendMaxAttempts());
+        assertEquals("https://localhost:8080", paymentsResponse.getAction().getResendUrl());
+        assertNotNull(paymentsResponse.getAction());
+        assertEquals(Redirect.MethodEnum.GET, paymentsResponse.getAction().getRedirect().getMethod());
+        assertEquals("https://localhost:8080", paymentsResponse.getAction().getRedirect().getUrl());
+        assertNull(paymentsResponse.getAction().getRedirect().getData());
+
+    }
+
+    /**
      * Test success flow for
      * POST /payments
      */
