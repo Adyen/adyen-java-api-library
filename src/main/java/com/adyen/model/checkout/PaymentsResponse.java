@@ -166,7 +166,7 @@ public class PaymentsResponse {
     }
 
     public String getOutputDetailDataByKey(String key) {
-        if (Objects.isNull(outputDetails)) {
+        if (outputDetails == null) {
             return null;
         }
         return outputDetails.get(key);

@@ -225,7 +225,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
      * @return additional data
      */
     public Map<String, String> getOrCreateAdditionalData() {
-        if (Objects.isNull(this.getAdditionalData())) {
+        if (this.getAdditionalData() == null) {
             this.setAdditionalData(new HashMap<>());
         }
 
@@ -994,7 +994,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     }
 
     private String stringifyAdditionalData() {
-        if (Objects.isNull(additionalData)) {
+        if (additionalData == null) {
             return null;
         }
 

@@ -384,7 +384,7 @@ public class PaymentResult {
     }
 
     public String getAdditionalDataByKey(String key) {
-        if (Objects.isNull(additionalData)) {
+        if (additionalData == null) {
             return null;
         }
 
