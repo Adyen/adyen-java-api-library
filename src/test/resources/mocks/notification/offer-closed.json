@@ -1,0 +1,21 @@
+{
+  "live" : "false",
+  "notificationItems" : [
+    {
+      "NotificationRequestItem" : {
+        "amount" : {
+          "currency" : "EUR",
+          "value" : 27211
+        },
+        "eventCode" : "OFFER_CLOSED",
+        "eventDate" : "2019-04-29T14:17:30+02:12",
+        "merchantAccountCode" : "TestMerchant",
+        "merchantReference" : "000000275",
+        "paymentMethod" : "ideal",
+        "pspReference" : "8532565401975321",
+        "reason" : "",
+        "success" : "true"
+      }
+    }
+  ]
+}

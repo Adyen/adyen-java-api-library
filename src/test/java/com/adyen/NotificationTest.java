@@ -163,6 +163,24 @@ public class NotificationTest extends BaseTest {
         assertNotNull(notificationRequestItem.getEventDate());
     }
 
+    @Test
+    public void testOfferClosed() throws Exception {
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/offer-closed.json");
+
+        assertEquals(1, notificationRequest.getNotificationItems().size());
+
+        NotificationRequestItem notificationRequestItem = notificationRequest.getNotificationItems().get(0);
+        assertEquals(NotificationRequestItem.EVENT_CODE_OFFER_CLOSED, notificationRequestItem.getEventCode());
+        assertTrue(notificationRequestItem.isSuccess());
+        assertEquals("8532565401975321", notificationRequestItem.getPspReference());
+        assertEquals("ideal", notificationRequestItem.getPaymentMethod());
+        assertNotNull(notificationRequestItem.getAmount());
+        assertEquals("EUR", notificationRequestItem.getAmount().getCurrency());
+        assertEquals(new Long(27211), notificationRequestItem.getAmount().getValue());
+
+        assertNotNull(notificationRequestItem.getEventDate());
+    }
+
     private NotificationRequest readNotificationRequestFromFile(String resourcePath) {
         String json = getFileContents(resourcePath);
         return notificationHandler.handleNotificationJson(json);
