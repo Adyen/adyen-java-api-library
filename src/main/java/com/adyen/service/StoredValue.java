@@ -110,7 +110,7 @@ public class StoredValue extends ApiKeyAuthenticatedService {
     public StoredValueVoidResponse voidTransaction(StoredValueVoidRequest storedValueVoidRequest) throws Exception {
         String jsonRequest = GSON.toJson(storedValueVoidRequest);
 
-        String jsonResult = changeStatus.request(jsonRequest);
+        String jsonResult = voidTransaction.request(jsonRequest);
 
         StoredValueVoidResponse storedValueVoidResponse = GSON.fromJson(jsonResult, new TypeToken<StoredValueVoidResponse>() {
         }.getType());
