@@ -51,6 +51,8 @@ public class Client {
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
+    public static final String STORED_VALUE_PAL_SUFFIX = "/pal/servlet/StoredValue/";
+    public static final String STORED_VALUE_PAL_VERSION = "v46";
     public static final String ENDPOINT_PROTOCOL = "https://";
 
     public Client() {
