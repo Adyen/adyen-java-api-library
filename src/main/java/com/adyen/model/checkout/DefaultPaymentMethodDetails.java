@@ -78,6 +78,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String googlepayToken;
     @SerializedName("separateDeliveryAddress")
     private Boolean separateDeliveryAddress;
+    @SerializedName("securityCode")
+    private String securityCode;
     @SerializedName("brand")
     private String brand;
     @SerializedName("networkPaymentReference")
@@ -370,6 +372,19 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         this.separateDeliveryAddress = separateDeliveryAddress;
     }
 
+    public String getSecurityCode() {
+        return securityCode;
+    }
+
+    public void setSecurityCode(String securityCode) {
+        this.securityCode = securityCode;
+    }
+
+    public DefaultPaymentMethodDetails securityCode(String securityCode) {
+        this.securityCode = securityCode;
+        return this;
+    }
+
     public DefaultPaymentMethodDetails brand(String brand) {
         this.brand = brand;
         return this;
@@ -438,7 +453,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(googlepayToken, that.googlepayToken)
                 && Objects.equals(separateDeliveryAddress, that.separateDeliveryAddress)
                 && Objects.equals(brand, that.brand)
-                && Objects.equals(networkPaymentReference, that.networkPaymentReference);
+                && Objects.equals(networkPaymentReference, that.networkPaymentReference)
+                && Objects.equals(securityCode, that.securityCode);
     }
 
     @Override
@@ -446,7 +462,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return Objects.hash(type, number, expiryMonth, expiryYear, holderName, cvc, installmentConfigurationKey,
                 personalDetails, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode,
                 recurringDetailReference, storedPaymentMethodId, storeDetails, idealIssuer, issuer, sepaOwnerName,
-                sepaIbanNumber, applepayToken, googlepayToken, separateDeliveryAddress, brand, networkPaymentReference);
+                sepaIbanNumber, applepayToken, googlepayToken, separateDeliveryAddress, brand, networkPaymentReference, securityCode);
     }
 
     @Override
@@ -474,6 +490,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 ", applepayToken='" + applepayToken + '\'' +
                 ", googlepayToken='" + googlepayToken + '\'' +
                 ", separateDeliveryAddress='" + separateDeliveryAddress + '\'' +
+                ", securityCode='" + securityCode + '\'' +
                 ", brand='" + brand + '\'' +
                 ", networkPaymentReference='" + networkPaymentReference + '\'' +
                 '}';

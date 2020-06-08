@@ -22,6 +22,7 @@ package com.adyen.model.storedvalue;
 
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,8 +30,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.adyen.model.Amount;
 
@@ -46,13 +45,14 @@ public class StoredValueBalanceCheckRequest {
     private String merchantAccount = null;
 
     @SerializedName("paymentMethod")
-    private Map<String, String> paymentMethod = new HashMap<String, String>();
+    private PaymentMethodDetails paymentMethod = null;
 
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
 
     @SerializedName("reference")
     private String reference = null;
+
 
     /**
      * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
@@ -147,13 +147,8 @@ public class StoredValueBalanceCheckRequest {
         this.merchantAccount = merchantAccount;
     }
 
-    public StoredValueBalanceCheckRequest paymentMethod(Map<String, String> paymentMethod) {
+    public StoredValueBalanceCheckRequest paymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
-        return this;
-    }
-
-    public StoredValueBalanceCheckRequest putPaymentMethodItem(String key, String paymentMethodItem) {
-        this.paymentMethod.put(key, paymentMethodItem);
         return this;
     }
 
@@ -162,11 +157,11 @@ public class StoredValueBalanceCheckRequest {
      *
      * @return paymentMethod
      **/
-    public Map<String, String> getPaymentMethod() {
+    public PaymentMethodDetails getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(Map<String, String> paymentMethod) {
+    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 

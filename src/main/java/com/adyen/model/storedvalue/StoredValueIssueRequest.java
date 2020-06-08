@@ -22,6 +22,7 @@ package com.adyen.model.storedvalue;
 
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,8 +30,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.adyen.model.Amount;
 
@@ -46,7 +45,7 @@ public class StoredValueIssueRequest {
     private String merchantAccount = null;
 
     @SerializedName("paymentMethod")
-    private Map<String, String> paymentMethod = new HashMap<String, String>();
+    private PaymentMethodDetails paymentMethod = null;
 
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
@@ -147,13 +146,8 @@ public class StoredValueIssueRequest {
         this.merchantAccount = merchantAccount;
     }
 
-    public StoredValueIssueRequest paymentMethod(Map<String, String> paymentMethod) {
+    public StoredValueIssueRequest paymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
-        return this;
-    }
-
-    public StoredValueIssueRequest putPaymentMethodItem(String key, String paymentMethodItem) {
-        this.paymentMethod.put(key, paymentMethodItem);
         return this;
     }
 
@@ -162,11 +156,11 @@ public class StoredValueIssueRequest {
      *
      * @return paymentMethod
      **/
-    public Map<String, String> getPaymentMethod() {
+    public PaymentMethodDetails getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(Map<String, String> paymentMethod) {
+    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 

@@ -22,6 +22,7 @@ package com.adyen.model.storedvalue;
 
 import java.util.Objects;
 
+import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -29,8 +30,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.adyen.model.Amount;
 
@@ -46,7 +45,7 @@ public class StoredValueBalanceMergeRequest {
     private String merchantAccount = null;
 
     @SerializedName("paymentMethod")
-    private Map<String, String> paymentMethod = new HashMap<String, String>();
+    private PaymentMethodDetails paymentMethod = null;
 
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
@@ -109,7 +108,7 @@ public class StoredValueBalanceMergeRequest {
     private String shopperReference = null;
 
     @SerializedName("sourcePaymentMethod")
-    private Map<String, String> sourcePaymentMethod = new HashMap<String, String>();
+    private PaymentMethodDetails sourcePaymentMethod = null;
 
     @SerializedName("store")
     private String store = null;
@@ -150,13 +149,8 @@ public class StoredValueBalanceMergeRequest {
         this.merchantAccount = merchantAccount;
     }
 
-    public StoredValueBalanceMergeRequest paymentMethod(Map<String, String> paymentMethod) {
+    public StoredValueBalanceMergeRequest paymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
-        return this;
-    }
-
-    public StoredValueBalanceMergeRequest putPaymentMethodItem(String key, String paymentMethodItem) {
-        this.paymentMethod.put(key, paymentMethodItem);
         return this;
     }
 
@@ -165,11 +159,11 @@ public class StoredValueBalanceMergeRequest {
      *
      * @return paymentMethod
      **/
-    public Map<String, String> getPaymentMethod() {
+    public PaymentMethodDetails getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(Map<String, String> paymentMethod) {
+    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
@@ -245,13 +239,8 @@ public class StoredValueBalanceMergeRequest {
         this.shopperReference = shopperReference;
     }
 
-    public StoredValueBalanceMergeRequest sourcePaymentMethod(Map<String, String> sourcePaymentMethod) {
+    public StoredValueBalanceMergeRequest sourcePaymentMethod(PaymentMethodDetails sourcePaymentMethod) {
         this.sourcePaymentMethod = sourcePaymentMethod;
-        return this;
-    }
-
-    public StoredValueBalanceMergeRequest putSourcePaymentMethodItem(String key, String sourcePaymentMethodItem) {
-        this.sourcePaymentMethod.put(key, sourcePaymentMethodItem);
         return this;
     }
 
@@ -260,11 +249,11 @@ public class StoredValueBalanceMergeRequest {
      *
      * @return sourcePaymentMethod
      **/
-    public Map<String, String> getSourcePaymentMethod() {
+    public PaymentMethodDetails getSourcePaymentMethod() {
         return sourcePaymentMethod;
     }
 
-    public void setSourcePaymentMethod(Map<String, String> sourcePaymentMethod) {
+    public void setSourcePaymentMethod(PaymentMethodDetails sourcePaymentMethod) {
         this.sourcePaymentMethod = sourcePaymentMethod;
     }
 
