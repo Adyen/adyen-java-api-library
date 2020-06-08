@@ -31,7 +31,7 @@ public class Issue extends Resource {
 
     public Issue(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_PAL_VERSION + "/issue",
+                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_API_VERSION + "/issue",
                 Arrays.asList("merchantAccount", "reference", "paymentMethod"));
     }
 

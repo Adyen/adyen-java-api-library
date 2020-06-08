@@ -31,7 +31,7 @@ public class VoidTransaction extends Resource {
 
     public VoidTransaction(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_PAL_VERSION + "/voidTransaction",
+                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_API_VERSION + "/voidTransaction",
                 Arrays.asList("merchantAccount", "originalReference"));
     }
 

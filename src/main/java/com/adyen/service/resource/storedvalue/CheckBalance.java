@@ -31,7 +31,7 @@ public class CheckBalance extends Resource {
 
     public CheckBalance(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_PAL_VERSION + "/checkBalance",
+                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_API_VERSION + "/checkBalance",
                 Arrays.asList("merchantAccount", "reference", "paymentMethod"));
     }
 

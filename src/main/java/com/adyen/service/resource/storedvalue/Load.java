@@ -31,7 +31,7 @@ public class Load extends Resource {
 
     public Load(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_PAL_VERSION + "/load",
+                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_API_VERSION + "/load",
                 Arrays.asList("merchantAccount", "reference", "paymentMethod", "amount"));
     }
 

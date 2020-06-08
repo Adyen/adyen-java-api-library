@@ -31,7 +31,7 @@ public class ChangeStatus extends Resource {
 
     public ChangeStatus(Service service) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_PAL_VERSION + "/changeStatus",
+                service.getClient().getConfig().getEndpoint() + Client.STORED_VALUE_PAL_SUFFIX + Client.STORED_VALUE_API_VERSION + "/changeStatus",
                 Arrays.asList("merchantAccount", "reference", "paymentMethod", "status"));
     }
 
