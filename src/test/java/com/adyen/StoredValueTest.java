@@ -41,7 +41,12 @@ import static org.junit.Assert.*;
 
 /**
  * Tests for
- * todo
+ * /issue
+ * /changeStatus
+ * /load
+ * /checkBalance
+ * /mergeBalance
+ * /voidTransaction
  */
 public class StoredValueTest extends BaseTest {
 
