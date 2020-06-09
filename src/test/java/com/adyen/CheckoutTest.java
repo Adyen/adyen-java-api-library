@@ -1254,7 +1254,6 @@ public class CheckoutTest extends BaseTest {
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
         assertTrue(jsonRequest.contains("riskData"));
         assertTrue(jsonRequest.contains("clientData\": \"IOfW3k9G2PvXFu2j\"\n"));
-        System.out.println(jsonRequest);
     }
 
     /**
