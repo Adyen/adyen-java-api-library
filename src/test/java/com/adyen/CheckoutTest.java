@@ -1242,6 +1242,22 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test ApiException flow for POST
+     */
+    @Test
+    public void TestRiskDataInRequest() {
+        RiskData riskData = new RiskData();
+        riskData.setClientData("IOfW3k9G2PvXFu2j");
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setRiskData(riskData);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertTrue(jsonRequest.contains("riskData"));
+        assertTrue(jsonRequest.contains("clientData\": \"IOfW3k9G2PvXFu2j\"\n"));
+        System.out.println(jsonRequest);
+    }
+
+    /**
      * Returns a sample PaymentSessionRequest object with test data
      */
 
