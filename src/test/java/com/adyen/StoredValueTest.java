@@ -14,22 +14,27 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2019 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen;
 
 import com.adyen.model.Amount;
-import com.adyen.model.binlookup.*;
 import com.adyen.model.checkout.DefaultPaymentMethodDetails;
+import com.adyen.model.storedvalue.StoredValueBalanceCheckRequest;
+import com.adyen.model.storedvalue.StoredValueBalanceCheckResponse;
+import com.adyen.model.storedvalue.StoredValueBalanceMergeRequest;
+import com.adyen.model.storedvalue.StoredValueBalanceMergeResponse;
 import com.adyen.model.storedvalue.StoredValueIssueRequest;
 import com.adyen.model.storedvalue.StoredValueIssueResponse;
+import com.adyen.model.storedvalue.StoredValueLoadRequest;
+import com.adyen.model.storedvalue.StoredValueLoadResponse;
 import com.adyen.model.storedvalue.StoredValueStatusChangeRequest;
 import com.adyen.model.storedvalue.StoredValueStatusChangeResponse;
-import com.adyen.service.BinLookup;
+import com.adyen.model.storedvalue.StoredValueVoidRequest;
+import com.adyen.model.storedvalue.StoredValueVoidResponse;
 import com.adyen.service.StoredValue;
-import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -42,7 +47,7 @@ public class StoredValueTest extends BaseTest {
 
 
     @Test
-    public void TestIssueSuccessMocked() throws Exception {
+    public void testIssueSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/storedvalue/issue-success.json");
         StoredValue storedValue = new StoredValue(client);
 
@@ -67,7 +72,7 @@ public class StoredValueTest extends BaseTest {
     }
 
     @Test
-    public void TestChangeStatusActiveSuccessMocked() throws Exception {
+    public void testChangeStatusActiveSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/storedvalue/change-status-active-success.json");
         StoredValue storedValue = new StoredValue(client);
 
@@ -91,6 +96,82 @@ public class StoredValueTest extends BaseTest {
         assertEquals("123456", storedValueStatusChangeResponse.getAuthCode());
     }
 
+    @Test
+    public void testLoadSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/storedvalue/load-success.json");
+        StoredValue storedValue = new StoredValue(client);
 
+        StoredValueLoadRequest storedValueLoadRequest = new StoredValueLoadRequest();
 
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(2000L);
+
+        storedValueLoadRequest.setAmount(amount);
+        storedValueLoadRequest.setLoadType(StoredValueLoadRequest.LoadTypeEnum.MERCHANDISERETURN);
+        storedValueLoadRequest.setMerchantAccount("merchantAccount");
+        storedValueLoadRequest.setPaymentMethod(new DefaultPaymentMethodDetails().type("givex").number("603628672882001915092").securityCode("5754"));
+        storedValueLoadRequest.setReference("loadReference");
+
+        StoredValueLoadResponse storedValueLoadResponse = storedValue.load(storedValueLoadRequest);
+        assertEquals("EUR", storedValueLoadResponse.getCurrentBalance().getCurrency());
+        assertEquals(new Long(1001999), storedValueLoadResponse.getCurrentBalance().getValue());
+        assertEquals("881591686892740H", storedValueLoadResponse.getPspReference());
+        assertEquals(StoredValueLoadResponse.ResultCodeEnum.SUCCESS, storedValueLoadResponse.getResultCode());
+        assertEquals("123456", storedValueLoadResponse.getAuthCode());
     }
+
+    @Test
+    public void testCheckBalanceSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/storedvalue/check-balance-success.json");
+        StoredValue storedValue = new StoredValue(client);
+
+        StoredValueBalanceCheckRequest storedValueBalanceCheckRequest = new StoredValueBalanceCheckRequest();
+        storedValueBalanceCheckRequest.setMerchantAccount("merchantAccount");
+        storedValueBalanceCheckRequest.setPaymentMethod(new DefaultPaymentMethodDetails().type("givex").number("603628672882001915092").securityCode("5754"));
+        storedValueBalanceCheckRequest.setReference("checkBalanceReference");
+
+        StoredValueBalanceCheckResponse storedValueBalanceCheckResponse = storedValue.checkBalance(storedValueBalanceCheckRequest);
+        assertEquals("EUR", storedValueBalanceCheckResponse.getCurrentBalance().getCurrency());
+        assertEquals(new Long(999999), storedValueBalanceCheckResponse.getCurrentBalance().getValue());
+        assertEquals("851591688783359H", storedValueBalanceCheckResponse.getPspReference());
+        assertEquals(StoredValueBalanceCheckResponse.ResultCodeEnum.SUCCESS, storedValueBalanceCheckResponse.getResultCode());
+    }
+
+    @Test
+    public void testMergeBalanceSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/storedvalue/merge-balance-success.json");
+        StoredValue storedValue = new StoredValue(client);
+
+        StoredValueBalanceMergeRequest storedValueBalanceMergeRequest = new StoredValueBalanceMergeRequest();
+        storedValueBalanceMergeRequest.setMerchantAccount("merchantAccount");
+        storedValueBalanceMergeRequest.setSourcePaymentMethod(new DefaultPaymentMethodDetails().number("7777182708544835").securityCode("2329"));
+        storedValueBalanceMergeRequest.setPaymentMethod(new DefaultPaymentMethodDetails().type("valuelink").number("8888182708544836").securityCode("2330"));
+        storedValueBalanceMergeRequest.setReference("mergeBalanceReference");
+
+        StoredValueBalanceMergeResponse storedValueBalanceMergeResponse = storedValue.mergeBalance(storedValueBalanceMergeRequest);
+        assertEquals("EUR", storedValueBalanceMergeResponse.getCurrentBalance().getCurrency());
+        assertEquals(new Long(5600), storedValueBalanceMergeResponse.getCurrentBalance().getValue());
+        assertEquals("881564657480267D", storedValueBalanceMergeResponse.getPspReference());
+        assertEquals(StoredValueBalanceMergeResponse.ResultCodeEnum.SUCCESS, storedValueBalanceMergeResponse.getResultCode());
+    }
+
+    @Test
+    public void testVoidTransactionSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/storedvalue/void-transaction-success.json");
+        StoredValue storedValue = new StoredValue(client);
+
+        StoredValueVoidRequest storedValueVoidRequest = new StoredValueVoidRequest();
+        storedValueVoidRequest.setMerchantAccount("merchantAccount");
+        storedValueVoidRequest.setOriginalReference("originalReference");
+        storedValueVoidRequest.setReference("mergeBalanceReference");
+
+        StoredValueVoidResponse storedValueVoidResponse = storedValue.voidTransaction(storedValueVoidRequest);
+        assertEquals("EUR", storedValueVoidResponse.getCurrentBalance().getCurrency());
+        assertEquals(new Long(999999), storedValueVoidResponse.getCurrentBalance().getValue());
+        assertEquals("851591692895398C", storedValueVoidResponse.getPspReference());
+        assertEquals(StoredValueVoidResponse.ResultCodeEnum.SUCCESS, storedValueVoidResponse.getResultCode());
+    }
+
+
+}
