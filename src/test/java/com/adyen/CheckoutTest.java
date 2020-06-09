@@ -1242,6 +1242,19 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test Payments flow for with Network tokenization
+     */
+    @Test
+    public void TestPaymentsNetworkSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-network-success.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsNetworkCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("MCC123456789012", paymentsResponse.getAdditionalData().get("networkTxReference"));
+        assertEquals("8535296650153317", paymentsResponse.getPspReference());
+    }
+
+    /**
      * Test RiskData inside /payments
      */
     @Test
@@ -1299,6 +1312,33 @@ public class CheckoutTest extends BaseTest {
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+
+        return paymentsRequest;
+    }
+
+    /**
+     * Returns a sample PaymentsRequest object with type networkToken and brand visa
+     */
+    protected PaymentsRequest createPaymentsNetworkCheckoutRequest() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+
+        paymentsRequest.setReference("Your order number");
+        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
+        defaultPaymentMethodDetails.setType("networkToken");
+        defaultPaymentMethodDetails.setBrand("visa");
+        defaultPaymentMethodDetails.setExpiryMonth("08");
+        defaultPaymentMethodDetails.setExpiryYear("2020");
+        defaultPaymentMethodDetails.setHolderName("CARDHOLDER_NAME");
+        defaultPaymentMethodDetails.setNumber("666666xxxxxx6666");
+        defaultPaymentMethodDetails.setNetworkPaymentReference("MCC123456789012");
+
+        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+
+        paymentsRequest.setReturnUrl("https://your-company.com/...");
+        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+        paymentsRequest.setShopperReference("YOUR_SHOPPER_REFERENCE");
+        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARD_ON_FILE);
 
         return paymentsRequest;
     }

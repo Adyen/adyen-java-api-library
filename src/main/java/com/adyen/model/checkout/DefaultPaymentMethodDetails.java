@@ -78,6 +78,10 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String googlepayToken;
     @SerializedName("separateDeliveryAddress")
     private Boolean separateDeliveryAddress;
+    @SerializedName("brand")
+    private String brand;
+    @SerializedName("networkPaymentReference")
+    private String networkPaymentReference;
 
     @Override
     public String getType() {
@@ -366,6 +370,42 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         this.separateDeliveryAddress = separateDeliveryAddress;
     }
 
+    public DefaultPaymentMethodDetails brand(String brand) {
+        this.brand = brand;
+        return this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return brand
+     **/
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public DefaultPaymentMethodDetails networkPaymentReference(String networkPaymentReference) {
+        this.networkPaymentReference = networkPaymentReference;
+        return this;
+    }
+
+    /**
+     * Get networkPaymentReference
+     *
+     * @return networkPaymentReference
+     **/
+    public String getNetworkPaymentReference() {
+        return networkPaymentReference;
+    }
+
+    public void setNetworkPaymentReference(String networkPaymentReference) {
+        this.networkPaymentReference = networkPaymentReference;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -396,7 +436,9 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(sepaOwnerName, that.sepaOwnerName)
                 && Objects.equals(applepayToken, that.applepayToken)
                 && Objects.equals(googlepayToken, that.googlepayToken)
-                && Objects.equals(separateDeliveryAddress, that.separateDeliveryAddress);
+                && Objects.equals(separateDeliveryAddress, that.separateDeliveryAddress)
+                && Objects.equals(brand, that.brand)
+                && Objects.equals(networkPaymentReference, that.networkPaymentReference);
     }
 
     @Override
@@ -404,7 +446,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return Objects.hash(type, number, expiryMonth, expiryYear, holderName, cvc, installmentConfigurationKey,
                 personalDetails, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode,
                 recurringDetailReference, storedPaymentMethodId, storeDetails, idealIssuer, issuer, sepaOwnerName,
-                sepaIbanNumber, applepayToken, googlepayToken, separateDeliveryAddress);
+                sepaIbanNumber, applepayToken, googlepayToken, separateDeliveryAddress, brand, networkPaymentReference);
     }
 
     @Override
@@ -432,6 +474,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 ", applepayToken='" + applepayToken + '\'' +
                 ", googlepayToken='" + googlepayToken + '\'' +
                 ", separateDeliveryAddress='" + separateDeliveryAddress + '\'' +
+                ", brand='" + brand + '\'' +
+                ", networkPaymentReference='" + networkPaymentReference + '\'' +
                 '}';
     }
 }

@@ -1,0 +1,94 @@
+{
+  "additionalData": {
+    "expiryDate": "8/2020",
+    "fraudResultType": "GREEN",
+    "cardBin":"541333",
+    "cardSummary":"1111",
+    "networkTxReference":"MCC123456789012",
+    "fraudManualReview": "false"
+  },
+  "fraudResult": {
+    "accountScore": 0,
+    "results": [
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 2,
+          "name": "CardChunkUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 3,
+          "name": "PaymentDetailUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 4,
+          "name": "HolderNameUsage"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 1,
+          "name": "PaymentDetailRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 13,
+          "name": "IssuerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 15,
+          "name": "IssuingCountryReferral"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 27,
+          "name": "PmOwnerRefCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 10,
+          "name": "HolderNameContainsNumber"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 11,
+          "name": "HolderNameIsOneWord"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 82,
+          "name": "CustomFieldCheck"
+        }
+      },
+      {
+        "FraudCheckResult": {
+          "accountScore": 0,
+          "checkId": 25,
+          "name": "CVCAuthResultCheck"
+        }
+      }
+    ]
+  },
+  "pspReference": "8535296650153317",
+  "resultCode": "Authorised"
+}
