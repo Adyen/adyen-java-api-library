@@ -1242,7 +1242,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
-     * Test ApiException flow for POST
+     * Test RiskData inside /payments
      */
     @Test
     public void TestRiskDataInRequest() {
