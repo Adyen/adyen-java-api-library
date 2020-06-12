@@ -2,7 +2,7 @@
   "additionalData": {
     "expiryDate": "8/2020",
     "fraudResultType": "GREEN",
-    "cardBin":"541333",
+    "cardBin":"555544",
     "cardSummary":"1111",
     "networkTxReference":"MCC123456789012",
     "fraudManualReview": "false"

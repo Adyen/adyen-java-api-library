@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import com.adyen.constants.BrandCodes;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.*;
@@ -1326,11 +1327,11 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
         DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
         defaultPaymentMethodDetails.setType("networkToken");
-        defaultPaymentMethodDetails.setBrand("visa");
+        defaultPaymentMethodDetails.setBrand(BrandCodes.MASTERCARD);
         defaultPaymentMethodDetails.setExpiryMonth("08");
         defaultPaymentMethodDetails.setExpiryYear("2020");
         defaultPaymentMethodDetails.setHolderName("CARDHOLDER_NAME");
-        defaultPaymentMethodDetails.setNumber("666666xxxxxx6666");
+        defaultPaymentMethodDetails.setNumber("5555444433331111");
         defaultPaymentMethodDetails.setNetworkPaymentReference("MCC123456789012");
 
         paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
