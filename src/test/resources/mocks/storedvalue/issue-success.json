@@ -1,0 +1,13 @@
+{
+  "currentBalance": {
+    "currency": "EUR",
+    "value": 1000
+  },
+  "pspReference": "851591622730873A",
+  "resultCode": "Success",
+  "authCode": "123456",
+  "paymentMethod": {
+    "number": "6036280000000000000",
+    "type": "givex"
+  }
+}
