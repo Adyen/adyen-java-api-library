@@ -74,6 +74,14 @@ public class NotificationRequestItem {
     public static final String ADDITIONAL_DATA_TOTAL_FRAUD_SCORE = "totalFraudScore";
     public static final String ADDITIONAL_DATA_FRAUD_CHECK_PATTERN = "fraudCheck-(\\d+)-([A-Za-z0-9]+)";
 
+    //Additional Configuration
+    public static final String EVENT_CODE_AUTORESCUE = "AUTORESCUE";
+    public static final String EVENT_CODE_CANCEL_AUTORESCUE = "CANCEL_AUTORESCUE";
+    public static final String EVENT_CODE_RECURRING_CONTRACT = "RECURRING_CONTRACT";
+    public static final String EVENT_CODE_OFFER_CLOSED = "OFFER_CLOSED";
+    public static final String EVENT_CODE_MANUAL_REVIEW_ACCEPT = "MANUAL_REVIEW_ACCEPT";
+    public static final String EVENT_CODE_MANUAL_REVIEW_REJECT = "MANUAL_REVIEW_REJECT";
+
     @SerializedName("amount")
     private Amount amount = null;
 

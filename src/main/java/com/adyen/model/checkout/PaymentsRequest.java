@@ -197,6 +197,9 @@ public class PaymentsRequest {
     @SerializedName("threeDSAuthenticationOnly")
     private Boolean threeDSAuthenticationOnly = null;
 
+    @SerializedName("riskData")
+    private RiskData riskData = null;
+
     public PaymentsRequest() {
         applicationInfo = new ApplicationInfo();
     }
@@ -1276,6 +1279,24 @@ public class PaymentsRequest {
         this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     }
 
+    public PaymentsRequest riskData(RiskData riskData) {
+        this.riskData = riskData;
+        return this;
+    }
+
+    /**
+     * Get riskData
+     *
+     * @return riskData
+     **/
+    public RiskData getRiskData() {
+        return riskData;
+    }
+
+    public void setRiskData(RiskData riskData) {
+        this.riskData = riskData;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1343,7 +1364,8 @@ public class PaymentsRequest {
                 && Objects.equals(store, paymentsRequest.store)
                 && Objects.equals(enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
                 && Objects.equals(threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly)
-                && Objects.equals(selectedBrand, paymentsRequest.selectedBrand);
+                && Objects.equals(selectedBrand, paymentsRequest.selectedBrand)
+                && Objects.equals(riskData, paymentsRequest.riskData);
     }
 
     @Override
@@ -1406,7 +1428,8 @@ public class PaymentsRequest {
                 enableRealTimeUpdate,
                 threeDSAuthenticationOnly,
                 store,
-                selectedBrand);
+                selectedBrand,
+                riskData);
     }
 
     @Override
@@ -1474,6 +1497,7 @@ public class PaymentsRequest {
           + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + LINE_BREAK
           + "    selectedBrand: " + toIndentedString(selectedBrand) + LINE_BREAK
           + "    store: " + toIndentedString(store) + LINE_BREAK
+          + "    riskData: " + toIndentedString(riskData) + LINE_BREAK
           + "}";
     }
 
