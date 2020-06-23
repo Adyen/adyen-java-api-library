@@ -21,6 +21,7 @@ The Library supports all APIs under the following services:
 * notifications
 * BIN lookup
 * terminal API
+* stored value
 
 ## Requirements
 
@@ -38,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>7.0.1</version>
+  <version>7.1.0</version>
 </dependency>
 ```
 
