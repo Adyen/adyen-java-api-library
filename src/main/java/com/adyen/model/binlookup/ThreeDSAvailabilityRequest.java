@@ -20,10 +20,14 @@
  */
 package com.adyen.model.binlookup;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ThreeDSAvailabilityRequest
@@ -194,27 +198,18 @@ public class ThreeDSAvailabilityRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDSAvailabilityRequest {\n");
+        sb.append("class ThreeDSAvailabilityRequest {").append(LINE_BREAK);
 
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-        sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("    brands: ").append(toIndentedString(brands)).append(LINE_BREAK);
+        sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

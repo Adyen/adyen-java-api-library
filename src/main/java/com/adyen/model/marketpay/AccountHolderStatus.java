@@ -20,10 +20,14 @@
  */
 package com.adyen.model.marketpay;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AccountHolderStatus
@@ -194,27 +198,18 @@ public class AccountHolderStatus {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderStatus {\n");
+        sb.append("class AccountHolderStatus {").append(LINE_BREAK);
 
-        sb.append("    processingState: ").append(toIndentedString(processingState)).append("\n");
-        sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
-        sb.append("    payoutState: ").append(toIndentedString(payoutState)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    accountEvents: ").append(toIndentedString(accountEvents)).append("\n");
+        sb.append("    processingState: ").append(toIndentedString(processingState)).append(LINE_BREAK);
+        sb.append("    statusReason: ").append(toIndentedString(statusReason)).append(LINE_BREAK);
+        sb.append("    payoutState: ").append(toIndentedString(payoutState)).append(LINE_BREAK);
+        sb.append("    status: ").append(toIndentedString(status)).append(LINE_BREAK);
+        sb.append("    accountEvents: ").append(toIndentedString(accountEvents)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

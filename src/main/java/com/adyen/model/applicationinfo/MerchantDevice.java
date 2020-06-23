@@ -20,8 +20,12 @@
  */
 package com.adyen.model.applicationinfo;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 public class MerchantDevice {
 
@@ -96,23 +100,13 @@ public class MerchantDevice {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MerchantDevice {\n");
+        sb.append("class MerchantDevice {").append(LINE_BREAK);
 
-        sb.append("    os: ").append(toIndentedString(os)).append("\n");
-        sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    os: ").append(toIndentedString(os)).append(LINE_BREAK);
+        sb.append("    osVersion: ").append(toIndentedString(osVersion)).append(LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 

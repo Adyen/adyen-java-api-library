@@ -20,10 +20,14 @@
  */
 package com.adyen.model.modification;
 
-import java.util.Objects;
-import com.adyen.Util.Util;
 import com.adyen.model.Amount;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * CaptureRequests class
@@ -74,22 +78,13 @@ public class CaptureRequest extends AbstractModificationRequest<CaptureRequest> 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CaptureRequest {\n");
+        sb.append("class CaptureRequest {").append(LINE_BREAK);
 
         sb.append(super.toString());
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
+        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }

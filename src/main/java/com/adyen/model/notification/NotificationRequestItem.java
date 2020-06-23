@@ -20,11 +20,15 @@
  */
 package com.adyen.model.notification;
 
+import com.adyen.model.Amount;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import com.adyen.model.Amount;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * NotificationRequestItem model class
@@ -226,32 +230,21 @@ public class NotificationRequestItem {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationRequestItem {\n");
+        sb.append("class NotificationRequestItem {").append(LINE_BREAK);
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    eventCode: ").append(toIndentedString(eventCode)).append("\n");
-        sb.append("    eventDate: ").append(toIndentedString(eventDate)).append("\n");
-        sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-        sb.append("    success: ").append(toIndentedString(success)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("    operations: ").append(toIndentedString(operations)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("    eventCode: ").append(toIndentedString(eventCode)).append(LINE_BREAK);
+        sb.append("    eventDate: ").append(toIndentedString(eventDate)).append(LINE_BREAK);
+        sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append(LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(LINE_BREAK);
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    reason: ").append(toIndentedString(reason)).append(LINE_BREAK);
+        sb.append("    success: ").append(toIndentedString(success)).append(LINE_BREAK);
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append(LINE_BREAK);
+        sb.append("    operations: ").append(toIndentedString(operations)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

@@ -20,10 +20,14 @@
  */
 package com.adyen.model;
 
+import com.adyen.util.Util;
+import com.google.gson.annotations.SerializedName;
+
 import java.math.BigDecimal;
 import java.util.Objects;
-import com.adyen.Util.Util;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Amount
@@ -36,8 +40,7 @@ public class Amount {
     private String currency = null;
 
     public BigDecimal getDecimalValue() {
-        BigDecimal amountValue =  BigDecimal.valueOf(getValue(), Util.getDecimalPlaces(getCurrency()));
-        return amountValue;
+        return BigDecimal.valueOf(getValue(), Util.getDecimalPlaces(getCurrency()));
     }
 
     public Amount value(Long value) {
@@ -99,24 +102,15 @@ public class Amount {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Amount {\n");
+        sb.append("class Amount {").append(LINE_BREAK);
 
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append(LINE_BREAK);
+        sb.append("    currency: ").append(toIndentedString(currency)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

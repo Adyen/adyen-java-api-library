@@ -21,10 +21,13 @@
 
 package com.adyen.model.checkout.details;
 
-import java.util.Objects;
-
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 /**
  * BlikDetails
  */
@@ -100,23 +103,14 @@ public class BlikDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BlikDetails {\n");
+        sb.append("class BlikDetails {").append(LINE_BREAK);
 
-        sb.append("    blikCode: ").append(toIndentedString(blikCode)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    blikCode: ").append(toIndentedString(blikCode)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

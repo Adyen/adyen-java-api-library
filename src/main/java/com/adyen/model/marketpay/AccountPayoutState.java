@@ -26,6 +26,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * AccountPayoutState
  */
@@ -183,27 +186,16 @@ public class AccountPayoutState {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountPayoutState {\n");
+        sb.append("class AccountPayoutState {").append(LINE_BREAK);
 
-        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append("\n");
-        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
-        sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-        sb.append("    notAllowedReason: ").append(toIndentedString(notAllowedReason)).append("\n");
-        sb.append("    payoutLimit: ").append(toIndentedString(payoutLimit)).append("\n");
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
+        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append(LINE_BREAK);
+        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append(LINE_BREAK);
+        sb.append("    disabled: ").append(toIndentedString(disabled)).append(LINE_BREAK);
+        sb.append("    notAllowedReason: ").append(toIndentedString(notAllowedReason)).append(LINE_BREAK);
+        sb.append("    payoutLimit: ").append(toIndentedString(payoutLimit)).append(LINE_BREAK);
+        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

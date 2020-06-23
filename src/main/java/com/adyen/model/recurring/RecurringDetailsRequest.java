@@ -22,6 +22,9 @@ package com.adyen.model.recurring;
 
 import com.google.gson.annotations.SerializedName;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * RecurringDetailsRequest
  */
@@ -108,24 +111,15 @@ public class RecurringDetailsRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RecurringDetailsRequest {\n");
+        sb.append("class RecurringDetailsRequest {").append(LINE_BREAK);
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }
 

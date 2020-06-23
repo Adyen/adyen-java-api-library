@@ -20,7 +20,6 @@
  */
 package com.adyen.service;
 
-import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.AuthenticationResultRequest;
@@ -39,6 +38,8 @@ import com.adyen.service.resource.payment.Authorise3DS2;
 import com.adyen.service.resource.payment.GetAuthenticationResult;
 import com.adyen.service.resource.payment.Retrieve3DS2Result;
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
 
 public class Payment extends Service {
 
@@ -73,10 +74,8 @@ public class Payment extends Service {
     public PaymentResult authorise(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(paymentRequest);
         String jsonResult = authorise.request(jsonRequest, requestOptions);
-        PaymentResult paymentResult = GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
-
-        return paymentResult;
     }
 
     /**
@@ -91,10 +90,8 @@ public class Payment extends Service {
 
         String jsonResult = authorise3D.request(jsonRequest);
 
-        PaymentResult paymentResult = GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
-
-        return paymentResult;
     }
 
     /**
@@ -109,10 +106,8 @@ public class Payment extends Service {
 
         String jsonResult = authorise3DS2.request(jsonRequest);
 
-        PaymentResult paymentResult = GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
-
-        return paymentResult;
     }
 
     /**
@@ -129,10 +124,8 @@ public class Payment extends Service {
 
         String jsonResult = retrieve3DS2Result.request(jsonRequest);
 
-        ThreeDS2ResultResponse threeDS2ResultResponse = GSON.fromJson(jsonResult, new TypeToken<ThreeDS2ResultResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<ThreeDS2ResultResponse>() {
         }.getType());
-
-        return threeDS2ResultResponse;
     }
 
     /**
@@ -148,9 +141,7 @@ public class Payment extends Service {
 
         String jsonResult = getAuthenticationResult.request(jsonRequest);
 
-        AuthenticationResultResponse authenticationResultResponse = GSON.fromJson(jsonResult, new TypeToken<AuthenticationResultResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<AuthenticationResultResponse>() {
         }.getType());
-
-        return authenticationResultResponse;
     }
 }

@@ -34,6 +34,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * PaymentResultResponse
  */
@@ -305,29 +308,20 @@ public class PaymentResultResponse {
 
     @Override
     public String toString() {
-        return "class PaymentResultResponse {\n"
-                + "    additionalData: " + toIndentedString(additionalData) + "\n"
-                + "    authResponse: " + toIndentedString(authResponse) + "\n"
-                + "    fraudResult: " + toIndentedString(fraudResult) + "\n"
-                + "    merchantReference: " + toIndentedString(merchantReference) + "\n"
-                + "    paymentMethod: " + toIndentedString(paymentMethod) + "\n"
-                + "    pspReference: " + toIndentedString(pspReference) + "\n"
-                + "    refusalReason: " + toIndentedString(refusalReason) + "\n"
-                + "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + "\n"
-                + "    resultCode: " + toIndentedString(resultCode) + "\n"
-                + "    serviceError: " + toIndentedString(serviceError) + "\n"
-                + "    shopperLocale: " + toIndentedString(shopperLocale) + "\n"
+        return "class PaymentResultResponse {"
+                + LINE_BREAK
+                + "    additionalData: " + toIndentedString(additionalData) + LINE_BREAK
+                + "    authResponse: " + toIndentedString(authResponse) + LINE_BREAK
+                + "    fraudResult: " + toIndentedString(fraudResult) + LINE_BREAK
+                + "    merchantReference: " + toIndentedString(merchantReference) + LINE_BREAK
+                + "    paymentMethod: " + toIndentedString(paymentMethod) + LINE_BREAK
+                + "    pspReference: " + toIndentedString(pspReference) + LINE_BREAK
+                + "    refusalReason: " + toIndentedString(refusalReason) + LINE_BREAK
+                + "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + LINE_BREAK
+                + "    resultCode: " + toIndentedString(resultCode) + LINE_BREAK
+                + "    serviceError: " + toIndentedString(serviceError) + LINE_BREAK
+                + "    shopperLocale: " + toIndentedString(shopperLocale) + LINE_BREAK
                 + "}";
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
     /**

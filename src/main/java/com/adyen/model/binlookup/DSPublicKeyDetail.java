@@ -20,12 +20,15 @@
  */
 package com.adyen.model.binlookup;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 import com.adyen.serializer.ByteArrayToStringAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * DSPublicKeyDetail
@@ -121,24 +124,13 @@ public class DSPublicKeyDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DSPublicKeyDetail {\n");
+        sb.append("class DSPublicKeyDetail {").append(LINE_BREAK);
 
-        sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
-        sb.append("    directoryServerId: ").append(toIndentedString(directoryServerId)).append("\n");
-        sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+        sb.append("    brand: ").append(toIndentedString(brand)).append(LINE_BREAK);
+        sb.append("    directoryServerId: ").append(toIndentedString(directoryServerId)).append(LINE_BREAK);
+        sb.append("    publicKey: ").append(toIndentedString(publicKey)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

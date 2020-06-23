@@ -29,6 +29,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * FundSource
  */
@@ -187,27 +190,18 @@ public class FundSource {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FundSource {\n");
+        sb.append("class FundSource {").append(LINE_BREAK);
 
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    card: ").append(toIndentedString(card)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(LINE_BREAK);
+        sb.append("    card: ").append(toIndentedString(card)).append(LINE_BREAK);
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(LINE_BREAK);
+        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append(LINE_BREAK);
+        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

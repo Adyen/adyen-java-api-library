@@ -21,8 +21,12 @@
  */
 package com.adyen.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * BrowserInfo
@@ -204,28 +208,18 @@ public class BrowserInfo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BrowserInfo {\n");
-        sb.append("    userAgent: ").append(toIndentedString(userAgent)).append("\n");
-        sb.append("    colorDepth: ").append(toIndentedString(colorDepth)).append("\n");
-        sb.append("    javaEnabled: ").append(toIndentedString(javaEnabled)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    screenHeight: ").append(toIndentedString(screenHeight)).append("\n");
-        sb.append("    screenWidth: ").append(toIndentedString(screenWidth)).append("\n");
-        sb.append("    timeZoneOffset: ").append(toIndentedString(timeZoneOffset)).append("\n");
-        sb.append("    acceptHeader: ").append(toIndentedString(acceptHeader)).append("\n");
-        sb.append("    javaScriptEnabled: ").append(toIndentedString(javaScriptEnabled)).append("\n");
+        sb.append("class BrowserInfo {").append(LINE_BREAK);
+        sb.append("    userAgent: ").append(toIndentedString(userAgent)).append(LINE_BREAK);
+        sb.append("    colorDepth: ").append(toIndentedString(colorDepth)).append(LINE_BREAK);
+        sb.append("    javaEnabled: ").append(toIndentedString(javaEnabled)).append(LINE_BREAK);
+        sb.append("    language: ").append(toIndentedString(language)).append(LINE_BREAK);
+        sb.append("    screenHeight: ").append(toIndentedString(screenHeight)).append(LINE_BREAK);
+        sb.append("    screenWidth: ").append(toIndentedString(screenWidth)).append(LINE_BREAK);
+        sb.append("    timeZoneOffset: ").append(toIndentedString(timeZoneOffset)).append(LINE_BREAK);
+        sb.append("    acceptHeader: ").append(toIndentedString(acceptHeader)).append(LINE_BREAK);
+        sb.append("    javaScriptEnabled: ").append(toIndentedString(javaScriptEnabled)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }
 

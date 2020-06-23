@@ -33,6 +33,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * Transaction
  */
@@ -476,37 +479,26 @@ public class Transaction {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Transaction {\n");
+        sb.append("class Transaction {").append(LINE_BREAK);
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    bankAccountDetail: ").append(toIndentedString(bankAccountDetail)).append("\n");
-        sb.append("    captureMerchantReference: ").append(toIndentedString(captureMerchantReference)).append("\n");
-        sb.append("    capturePspReference: ").append(toIndentedString(capturePspReference)).append("\n");
-        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append("\n");
-        sb.append("    disputePspReference: ").append(toIndentedString(disputePspReference)).append("\n");
-        sb.append("    disputeReasonCode: ").append(toIndentedString(disputeReasonCode)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
-        sb.append("    payoutPspReference: ").append(toIndentedString(payoutPspReference)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append("\n");
-        sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append("\n");
-        sb.append("    transferCode: ").append(toIndentedString(transferCode)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("    bankAccountDetail: ").append(toIndentedString(bankAccountDetail)).append(LINE_BREAK);
+        sb.append("    captureMerchantReference: ").append(toIndentedString(captureMerchantReference)).append(LINE_BREAK);
+        sb.append("    capturePspReference: ").append(toIndentedString(capturePspReference)).append(LINE_BREAK);
+        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append(LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    destinationAccountCode: ").append(toIndentedString(destinationAccountCode)).append(LINE_BREAK);
+        sb.append("    disputePspReference: ").append(toIndentedString(disputePspReference)).append(LINE_BREAK);
+        sb.append("    disputeReasonCode: ").append(toIndentedString(disputeReasonCode)).append(LINE_BREAK);
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(LINE_BREAK);
+        sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append(LINE_BREAK);
+        sb.append("    payoutPspReference: ").append(toIndentedString(payoutPspReference)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    sourceAccountCode: ").append(toIndentedString(sourceAccountCode)).append(LINE_BREAK);
+        sb.append("    transactionStatus: ").append(toIndentedString(transactionStatus)).append(LINE_BREAK);
+        sb.append("    transferCode: ").append(toIndentedString(transferCode)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

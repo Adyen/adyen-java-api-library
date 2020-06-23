@@ -30,6 +30,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * InputDetail
  */
@@ -265,32 +268,19 @@ public class InputDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InputDetail {\n");
+        sb.append("class InputDetail {").append(LINE_BREAK);
 
-        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
-        sb.append("    itemSearchUrl: ").append(toIndentedString(itemSearchUrl)).append("\n");
-        sb.append("    items: ").append(toIndentedString(items)).append("\n");
-        sb.append("    key: ").append(toIndentedString(key)).append("\n");
-        sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append(LINE_BREAK);
+        sb.append("    details: ").append(toIndentedString(details)).append(LINE_BREAK);
+        sb.append("    itemSearchUrl: ").append(toIndentedString(itemSearchUrl)).append(LINE_BREAK);
+        sb.append("    items: ").append(toIndentedString(items)).append(LINE_BREAK);
+        sb.append("    key: ").append(toIndentedString(key)).append(LINE_BREAK);
+        sb.append("    optional: ").append(toIndentedString(optional)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
+        sb.append("    value: ").append(toIndentedString(value)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
-
 }
 
 

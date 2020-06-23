@@ -76,11 +76,8 @@ public class Fund extends Service {
 
         String jsonResult = accountHolderBalance.request(jsonRequest);
 
-        AccountHolderBalanceResponse accountHolderBalanceResponse = GSON.fromJson(jsonResult, new TypeToken<AccountHolderBalanceResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<AccountHolderBalanceResponse>() {
         }.getType());
-
-
-        return accountHolderBalanceResponse;
     }
 
     public TransferFundsResponse transferFunds(TransferFundsRequest transferFundsRequest) throws ApiException, IOException {
@@ -88,11 +85,8 @@ public class Fund extends Service {
 
         String jsonResult = transferFunds.request(jsonRequest);
 
-        TransferFundsResponse transferFundsResponse = GSON.fromJson(jsonResult, new TypeToken<TransferFundsResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<TransferFundsResponse>() {
         }.getType());
-
-
-        return transferFundsResponse;
     }
 
     public PayoutAccountHolderResponse payoutAccountHolder(PayoutAccountHolderRequest payoutAccountHolderRequest) throws ApiException, IOException {
@@ -100,11 +94,8 @@ public class Fund extends Service {
 
         String jsonResult = payoutAccountHolder.request(jsonRequest);
 
-        PayoutAccountHolderResponse payoutAccountHolderResponse = GSON.fromJson(jsonResult, new TypeToken<PayoutAccountHolderResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PayoutAccountHolderResponse>() {
         }.getType());
-
-
-        return payoutAccountHolderResponse;
     }
 
     public AccountHolderTransactionListResponse accountHolderTransactionList(AccountHolderTransactionListRequest accountHolderTransactionListRequest) throws ApiException, IOException {
@@ -112,11 +103,8 @@ public class Fund extends Service {
 
         String jsonResult = accountHolderTransactionList.request(jsonRequest);
 
-        AccountHolderTransactionListResponse accountHolderTransactionListResponse = GSON.fromJson(jsonResult, new TypeToken<AccountHolderTransactionListResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<AccountHolderTransactionListResponse>() {
         }.getType());
-
-
-        return accountHolderTransactionListResponse;
     }
 
     public RefundNotPaidOutTransfersResponse refundNotPaidOutTransfers(RefundNotPaidOutTransfersRequest refundNotPaidOutTransfersRequest) throws ApiException, IOException {
@@ -124,10 +112,8 @@ public class Fund extends Service {
 
         String jsonResult = refundNotPaidOutTransfers.request(jsonRequest);
 
-        RefundNotPaidOutTransfersResponse refundNotPaidOutTransfersResponse = GSON.fromJson(jsonResult, new TypeToken<RefundNotPaidOutTransfersResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<RefundNotPaidOutTransfersResponse>() {
         }.getType());
-
-        return refundNotPaidOutTransfersResponse;
     }
 
     public SetupBeneficiaryResponse setupBeneficiary(SetupBeneficiaryRequest setupBeneficiaryRequest) throws ApiException, IOException {
@@ -135,10 +121,8 @@ public class Fund extends Service {
 
         String jsonResult = setupBeneficiary.request(jsonRequest);
 
-        SetupBeneficiaryResponse setupBeneficiaryResponse = GSON.fromJson(jsonResult, new TypeToken<SetupBeneficiaryResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<SetupBeneficiaryResponse>() {
         }.getType());
-
-        return setupBeneficiaryResponse;
     }
 
     public RefundFundsTransferResponse refundFundsTransfer(RefundFundsTransferRequest refundFundsTransferRequest) throws ApiException, IOException {
@@ -146,9 +130,7 @@ public class Fund extends Service {
 
         String jsonResult = refundFundsTransfer.request(jsonRequest);
 
-        RefundFundsTransferResponse refundFundsTransferResponse = GSON.fromJson(jsonResult, new TypeToken<RefundFundsTransferResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<RefundFundsTransferResponse>() {
         }.getType());
-
-        return refundFundsTransferResponse;
     }
 }

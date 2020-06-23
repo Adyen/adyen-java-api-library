@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * UnSuspendAccountHolderResponse
  */
@@ -149,25 +152,16 @@ public class UnSuspendAccountHolderResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UnSuspendAccountHolderResponse {\n");
+        sb.append("class UnSuspendAccountHolderResponse {").append(LINE_BREAK);
 
-        sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append(LINE_BREAK);
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

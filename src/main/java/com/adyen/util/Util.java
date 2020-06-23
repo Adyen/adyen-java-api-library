@@ -18,9 +18,11 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.Util;
+package com.adyen.util;
 
+import com.adyen.constants.TextConstants;
 import com.adyen.model.Amount;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DateFormat;
@@ -30,6 +32,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.constants.TextConstants.LINE_BREAK_WITH_WHITESPACE;
 
 public final class Util {
     private Util() {
@@ -139,9 +144,9 @@ public final class Util {
      */
     public static String toIndentedString(Object o) {
         if (o == null) {
-            return "null";
+            return TextConstants.NULL;
         }
-        return o.toString().replace("\n", "\n    ");
+        return o.toString().replace(LINE_BREAK, LINE_BREAK_WITH_WHITESPACE);
     }
 
     public static String calculateSessionValidity() {

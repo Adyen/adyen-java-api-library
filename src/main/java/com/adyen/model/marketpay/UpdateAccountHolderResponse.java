@@ -34,6 +34,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * UpdateAccountHolderResponse
  */
@@ -332,31 +335,22 @@ public class UpdateAccountHolderResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateAccountHolderResponse {\n");
+        sb.append("class UpdateAccountHolderResponse {").append(LINE_BREAK);
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
-        sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
-        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    verificationResult: ").append(toIndentedString(verificationResult)).append("\n");
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(LINE_BREAK);
+        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append(LINE_BREAK);
+        sb.append("    accountHolderStatus: ").append(toIndentedString(accountHolderStatus)).append(LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(LINE_BREAK);
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append(LINE_BREAK);
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
+        sb.append("    verificationResult: ").append(toIndentedString(verificationResult)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

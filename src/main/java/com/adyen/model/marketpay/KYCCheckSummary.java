@@ -25,6 +25,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * KYCCheckSummary
  */
@@ -94,23 +97,12 @@ public class KYCCheckSummary {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class KYCCheckSummary {\n");
+        sb.append("class KYCCheckSummary {").append(LINE_BREAK);
 
-        sb.append("    kycCheckCode: ").append(toIndentedString(kycCheckCode)).append("\n");
-        sb.append("    kycCheckDescription: ").append(toIndentedString(kycCheckDescription)).append("\n");
+        sb.append("    kycCheckCode: ").append(toIndentedString(kycCheckCode)).append(LINE_BREAK);
+        sb.append("    kycCheckDescription: ").append(toIndentedString(kycCheckDescription)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

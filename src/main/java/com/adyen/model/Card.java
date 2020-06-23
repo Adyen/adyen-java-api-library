@@ -20,8 +20,12 @@
  */
 package com.adyen.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Card
@@ -224,30 +228,21 @@ public class Card {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Card {\n");
+        sb.append("class Card {").append(LINE_BREAK);
 
-        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
-        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
-        sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
-        sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
-        sb.append("    issueNumber: ").append(toIndentedString(issueNumber)).append("\n");
-        sb.append("    number: ").append(toIndentedString(number)).append("\n");
-        sb.append("    startMonth: ").append(toIndentedString(startMonth)).append("\n");
-        sb.append("    startYear: ").append(toIndentedString(startYear)).append("\n");
+        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append(LINE_BREAK);
+        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append(LINE_BREAK);
+        sb.append("    cvc: ").append(toIndentedString(cvc)).append(LINE_BREAK);
+        sb.append("    holderName: ").append(toIndentedString(holderName)).append(LINE_BREAK);
+        sb.append("    issueNumber: ").append(toIndentedString(issueNumber)).append(LINE_BREAK);
+        sb.append("    number: ").append(toIndentedString(number)).append(LINE_BREAK);
+        sb.append("    startMonth: ").append(toIndentedString(startMonth)).append(LINE_BREAK);
+        sb.append("    startYear: ").append(toIndentedString(startYear)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

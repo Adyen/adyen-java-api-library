@@ -20,10 +20,14 @@
  */
 package com.adyen.model.marketpay;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * KYCCheckStatusData
@@ -215,26 +219,17 @@ public class KYCCheckStatusData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class KYCCheckStatusData {\n");
+        sb.append("class KYCCheckStatusData {").append(LINE_BREAK);
 
-        sb.append("    checkType: ").append(toIndentedString(checkType)).append("\n");
-        sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
-        sb.append("    checkStatus: ").append(toIndentedString(checkStatus)).append("\n");
-        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append("\n");
+        sb.append("    checkType: ").append(toIndentedString(checkType)).append(LINE_BREAK);
+        sb.append("    summary: ").append(toIndentedString(summary)).append(LINE_BREAK);
+        sb.append("    checkStatus: ").append(toIndentedString(checkStatus)).append(LINE_BREAK);
+        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

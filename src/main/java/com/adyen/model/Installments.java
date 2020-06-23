@@ -20,8 +20,12 @@
  */
 package com.adyen.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Installments
@@ -70,23 +74,11 @@ public class Installments {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Installments {\n");
+        sb.append("class Installments {").append(LINE_BREAK);
 
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
 }
 

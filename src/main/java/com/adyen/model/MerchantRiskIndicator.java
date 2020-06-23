@@ -32,6 +32,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * MerchantRiskIndicator
  */
@@ -314,29 +317,19 @@ public class MerchantRiskIndicator {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class MerchantRiskIndicator {\n");
+        sb.append("class MerchantRiskIndicator {").append(LINE_BREAK);
 
-        sb.append("    addressMatch: ").append(toIndentedString(addressMatch)).append("\n");
-        sb.append("    deliveryAddressIndicator: ").append(toIndentedString(deliveryAddressIndicator)).append("\n");
-        sb.append("    deliveryEmail: ").append(toIndentedString(deliveryEmail)).append("\n");
-        sb.append("    deliveryTimeframe: ").append(toIndentedString(deliveryTimeframe)).append("\n");
-        sb.append("    giftCardAmount: ").append(toIndentedString(giftCardAmount)).append("\n");
-        sb.append("    giftCardCount: ").append(toIndentedString(giftCardCount)).append("\n");
-        sb.append("    preOrderDate: ").append(toIndentedString(preOrderDate)).append("\n");
-        sb.append("    preOrderPurchase: ").append(toIndentedString(preOrderPurchase)).append("\n");
-        sb.append("    reorderItems: ").append(toIndentedString(reorderItems)).append("\n");
+        sb.append("    addressMatch: ").append(toIndentedString(addressMatch)).append(LINE_BREAK);
+        sb.append("    deliveryAddressIndicator: ").append(toIndentedString(deliveryAddressIndicator)).append(LINE_BREAK);
+        sb.append("    deliveryEmail: ").append(toIndentedString(deliveryEmail)).append(LINE_BREAK);
+        sb.append("    deliveryTimeframe: ").append(toIndentedString(deliveryTimeframe)).append(LINE_BREAK);
+        sb.append("    giftCardAmount: ").append(toIndentedString(giftCardAmount)).append(LINE_BREAK);
+        sb.append("    giftCardCount: ").append(toIndentedString(giftCardCount)).append(LINE_BREAK);
+        sb.append("    preOrderDate: ").append(toIndentedString(preOrderDate)).append(LINE_BREAK);
+        sb.append("    preOrderPurchase: ").append(toIndentedString(preOrderPurchase)).append(LINE_BREAK);
+        sb.append("    reorderItems: ").append(toIndentedString(reorderItems)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }
 

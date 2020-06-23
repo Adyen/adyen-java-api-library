@@ -20,10 +20,14 @@
  */
 package com.adyen.model.marketpay;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * KYCShareholderCheckResult
@@ -98,24 +102,15 @@ public class KYCShareholderCheckResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class KYCShareholderCheckResult {\n");
+        sb.append("class KYCShareholderCheckResult {").append(LINE_BREAK);
 
-        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
-        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
+        sb.append("    checks: ").append(toIndentedString(checks)).append(LINE_BREAK);
+        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

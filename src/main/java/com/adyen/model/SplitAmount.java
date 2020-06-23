@@ -20,9 +20,12 @@
  */
 package com.adyen.model;
 
+import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * SplitAmount
@@ -81,22 +84,12 @@ public class SplitAmount {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SplitAmount {\n");
+        sb.append("class SplitAmount {").append(LINE_BREAK);
 
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    currency: ").append(toIndentedString(currency)).append(LINE_BREAK);
+        sb.append("    value: ").append(toIndentedString(value)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 

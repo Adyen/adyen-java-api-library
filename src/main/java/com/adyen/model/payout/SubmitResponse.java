@@ -20,8 +20,12 @@
  */
 package com.adyen.model.payout;
 
-import java.util.Map;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Map;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 public class SubmitResponse {
     @SerializedName("additionalData")
@@ -71,22 +75,12 @@ public class SubmitResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SubmitResponse {\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
+        sb.append("class SubmitResponse {").append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
+        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

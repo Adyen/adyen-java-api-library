@@ -20,8 +20,12 @@
  */
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ErrorFieldType
@@ -113,24 +117,13 @@ public class ErrorFieldType {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ErrorFieldType {\n");
+        sb.append("class ErrorFieldType {").append(LINE_BREAK);
 
-        sb.append("    errorDescription: ").append(toIndentedString(errorDescription)).append("\n");
-        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
-        sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
+        sb.append("    errorDescription: ").append(toIndentedString(errorDescription)).append(LINE_BREAK);
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append(LINE_BREAK);
+        sb.append("    fieldType: ").append(toIndentedString(fieldType)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

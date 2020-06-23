@@ -30,6 +30,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Map;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 public class SubmitRequest {
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
@@ -206,33 +209,23 @@ public class SubmitRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SubmitRequest {\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-        sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
-        sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
-        sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
-        sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
+        sb.append("class SubmitRequest {").append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append(LINE_BREAK);
+        sb.append("    entityType: ").append(toIndentedString(entityType)).append(LINE_BREAK);
+        sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append(LINE_BREAK);
+        sb.append("    nationality: ").append(toIndentedString(nationality)).append(LINE_BREAK);
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(LINE_BREAK);
+        sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append(LINE_BREAK);
+        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append(LINE_BREAK);
+        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append(LINE_BREAK);
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append(LINE_BREAK);
+        sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

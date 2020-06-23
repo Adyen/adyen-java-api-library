@@ -24,6 +24,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * AuthenticationResultResponse
  */
@@ -91,23 +94,12 @@ public class AuthenticationResultResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AuthenticationResultResponse {\n");
+    sb.append("class AuthenticationResultResponse {").append(LINE_BREAK);
 
-    sb.append("    threeDS1Result: ").append(toIndentedString(threeDS1Result)).append("\n");
-    sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
+    sb.append("    threeDS1Result: ").append(toIndentedString(threeDS1Result)).append(LINE_BREAK);
+    sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append(LINE_BREAK);
     sb.append("}");
     return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
   }
 
 }

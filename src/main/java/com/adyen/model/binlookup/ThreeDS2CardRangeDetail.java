@@ -20,8 +20,12 @@
  */
 package com.adyen.model.binlookup;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ThreeDS2CardRangeDetail
@@ -164,26 +168,15 @@ public class ThreeDS2CardRangeDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDS2CardRangeDetail {\n");
+        sb.append("class ThreeDS2CardRangeDetail {").append(LINE_BREAK);
 
-        sb.append("    brandCode: ").append(toIndentedString(brandCode)).append("\n");
-        sb.append("    endRange: ").append(toIndentedString(endRange)).append("\n");
-        sb.append("    startRange: ").append(toIndentedString(startRange)).append("\n");
-        sb.append("    threeDS2Version: ").append(toIndentedString(threeDS2Version)).append("\n");
-        sb.append("    threeDSMethodURL: ").append(toIndentedString(threeDSMethodURL)).append("\n");
+        sb.append("    brandCode: ").append(toIndentedString(brandCode)).append(LINE_BREAK);
+        sb.append("    endRange: ").append(toIndentedString(endRange)).append(LINE_BREAK);
+        sb.append("    startRange: ").append(toIndentedString(startRange)).append(LINE_BREAK);
+        sb.append("    threeDS2Version: ").append(toIndentedString(threeDS2Version)).append(LINE_BREAK);
+        sb.append("    threeDSMethodURL: ").append(toIndentedString(threeDSMethodURL)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

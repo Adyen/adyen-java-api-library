@@ -32,6 +32,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * Recurring
  */
@@ -225,25 +228,14 @@ public class Recurring {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Recurring {\n");
-        sb.append("    contract: ").append(toIndentedString(contract)).append("\n");
-        sb.append("    recurringDetailName: ").append(toIndentedString(recurringDetailName)).append("\n");
-        sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
-        sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
-        sb.append("    tokenService: ").append(toIndentedString(tokenService)).append("\n");
+        sb.append("class Recurring {").append(LINE_BREAK);
+        sb.append("    contract: ").append(toIndentedString(contract)).append(LINE_BREAK);
+        sb.append("    recurringDetailName: ").append(toIndentedString(recurringDetailName)).append(LINE_BREAK);
+        sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append(LINE_BREAK);
+        sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append(LINE_BREAK);
+        sb.append("    tokenService: ").append(toIndentedString(tokenService)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

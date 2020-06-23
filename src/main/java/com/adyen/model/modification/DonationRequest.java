@@ -21,9 +21,13 @@
 
 package com.adyen.model.modification;
 
-import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 import com.adyen.model.Amount;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 /**
  * DonationRequest
  */
@@ -155,26 +159,17 @@ public class DonationRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DonationRequest {\n");
+        sb.append("class DonationRequest {").append(LINE_BREAK);
 
-        sb.append("    donationAccount: ").append(toIndentedString(donationAccount)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    donationAccount: ").append(toIndentedString(donationAccount)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
+        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append(LINE_BREAK);
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

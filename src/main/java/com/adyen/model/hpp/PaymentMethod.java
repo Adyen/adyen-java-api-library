@@ -20,11 +20,14 @@
  */
 package com.adyen.model.hpp;
 
-import java.util.Arrays;
-import java.util.List;
-import com.adyen.Util.Util;
 import com.adyen.constants.BrandCodes;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 public class PaymentMethod {
     @SerializedName("brandCode")
@@ -93,10 +96,10 @@ public class PaymentMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethod {\n");
-        sb.append("    brandCode: ").append(Util.toIndentedString(brandCode)).append("\n");
-        sb.append("    name: ").append(Util.toIndentedString(name)).append("\n");
-        sb.append("    issuers: ").append(Util.toIndentedString(issuers)).append("\n");
+        sb.append("class PaymentMethod {").append(LINE_BREAK);
+        sb.append("    brandCode: ").append(toIndentedString(brandCode)).append(LINE_BREAK);
+        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
+        sb.append("    issuers: ").append(toIndentedString(issuers)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }

@@ -27,6 +27,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * FraudResult
  */
@@ -99,22 +102,11 @@ public class FraudResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FraudResult {\n");
+        sb.append("class FraudResult {").append(LINE_BREAK);
 
-        sb.append("    accountScore: ").append(toIndentedString(accountScore)).append("\n");
-        sb.append("    results: ").append(toIndentedString(results)).append("\n");
+        sb.append("    accountScore: ").append(toIndentedString(accountScore)).append(LINE_BREAK);
+        sb.append("    results: ").append(toIndentedString(results)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

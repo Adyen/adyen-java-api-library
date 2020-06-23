@@ -21,8 +21,12 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * GetNotificationConfigurationResponse
@@ -116,25 +120,16 @@ public class GetNotificationConfigurationResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetNotificationConfigurationResponse {\n");
+        sb.append("class GetNotificationConfigurationResponse {").append(LINE_BREAK);
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    configurationDetails: ").append(toIndentedString(configurationDetails)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append(LINE_BREAK);
+        sb.append("    configurationDetails: ").append(toIndentedString(configurationDetails)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

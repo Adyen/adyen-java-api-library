@@ -28,6 +28,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * OriginKeysResponse
  */
@@ -84,25 +87,12 @@ public class OriginKeysResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OriginKeysResponse {\n");
+        sb.append("class OriginKeysResponse {").append(LINE_BREAK);
 
-        sb.append("    originKeys: ").append(toIndentedString(originKeys)).append("\n");
+        sb.append("    originKeys: ").append(toIndentedString(originKeys)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
-
 }
 
 

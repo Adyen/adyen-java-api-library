@@ -20,8 +20,6 @@
  */
 package com.adyen;
 
-import com.adyen.Util.DateUtil;
-import com.adyen.Util.Util;
 import com.adyen.enums.Gender;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.HTTPClientException;
@@ -58,6 +56,8 @@ import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.TransactionIdentification;
 import com.adyen.model.terminal.TerminalAPIRequest;
+import com.adyen.util.DateUtil;
+import com.adyen.util.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

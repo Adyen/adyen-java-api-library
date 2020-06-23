@@ -30,6 +30,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * NotificationConfigurationDetails
  */
@@ -420,34 +423,25 @@ public class NotificationConfigurationDetails {
         // Populate the eventConfigs list to provide back in the toString() method
         this.getEventConfigs();
         StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationConfigurationDetails {\n");
+        sb.append("class NotificationConfigurationDetails {").append(LINE_BREAK);
 
-        sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
-        sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
-        sb.append("    eventConfigs: ").append(toIndentedString(eventConfigs)).append("\n");
-        sb.append("    messageFormat: ").append(toIndentedString(messageFormat)).append("\n");
-        sb.append("    notifyUsername: ").append(toIndentedString(notifyUsername)).append("\n");
-        sb.append("    sslProtocol: ").append(toIndentedString(sslProtocol)).append("\n");
-        sb.append("    notifyURL: ").append(toIndentedString(notifyURL)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    active: ").append(toIndentedString(active)).append("\n");
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
-        sb.append("    sendActionHeader: ").append(toIndentedString(sendActionHeader)).append("\n");
-        sb.append("    notifyPassword: ").append(toIndentedString(notifyPassword)).append("\n");
+        sb.append("    settings: ").append(toIndentedString(settings)).append(LINE_BREAK);
+        sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append(LINE_BREAK);
+        sb.append("    eventConfigs: ").append(toIndentedString(eventConfigs)).append(LINE_BREAK);
+        sb.append("    messageFormat: ").append(toIndentedString(messageFormat)).append(LINE_BREAK);
+        sb.append("    notifyUsername: ").append(toIndentedString(notifyUsername)).append(LINE_BREAK);
+        sb.append("    sslProtocol: ").append(toIndentedString(sslProtocol)).append(LINE_BREAK);
+        sb.append("    notifyURL: ").append(toIndentedString(notifyURL)).append(LINE_BREAK);
+        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    active: ").append(toIndentedString(active)).append(LINE_BREAK);
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append(LINE_BREAK);
+        sb.append("    sendActionHeader: ").append(toIndentedString(sendActionHeader)).append(LINE_BREAK);
+        sb.append("    notifyPassword: ").append(toIndentedString(notifyPassword)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

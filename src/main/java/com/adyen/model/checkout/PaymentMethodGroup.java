@@ -25,6 +25,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * PaymentMethodGroup
  */
@@ -118,25 +121,16 @@ public class PaymentMethodGroup {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethodGroup {\n");
+        sb.append("class PaymentMethodGroup {").append(LINE_BREAK);
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    paymentMethodData: ").append(toIndentedString(paymentMethodData)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
+        sb.append("    paymentMethodData: ").append(toIndentedString(paymentMethodData)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

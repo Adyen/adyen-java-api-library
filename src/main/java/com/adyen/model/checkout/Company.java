@@ -25,6 +25,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * Company
  */
@@ -187,28 +190,19 @@ public class Company {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Company {\n");
+        sb.append("class Company {").append(LINE_BREAK);
 
-        sb.append("    homepage: ").append(toIndentedString(homepage)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
-        sb.append("    registryLocation: ").append(toIndentedString(registryLocation)).append("\n");
-        sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    homepage: ").append(toIndentedString(homepage)).append(LINE_BREAK);
+        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
+        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append(LINE_BREAK);
+        sb.append("    registryLocation: ").append(toIndentedString(registryLocation)).append(LINE_BREAK);
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 
 }

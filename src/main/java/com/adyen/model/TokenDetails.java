@@ -20,9 +20,13 @@
  */
 package com.adyen.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Map;
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * TokenDetails
@@ -91,24 +95,12 @@ public class TokenDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class TokenDetails {\n");
+        sb.append("class TokenDetails {").append(LINE_BREAK);
 
-        sb.append("    tokenDataType: ").append(toIndentedString(tokenDataType)).append("\n");
-        sb.append("    tokenData: ").append(toIndentedString(tokenData)).append("\n");
+        sb.append("    tokenDataType: ").append(toIndentedString(tokenDataType)).append(LINE_BREAK);
+        sb.append("    tokenData: ").append(toIndentedString(tokenData)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
 }
 

@@ -20,8 +20,12 @@
  */
 package com.adyen.model.binlookup;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * CardBin
@@ -282,31 +286,22 @@ public class CardBin {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CardBin {\n");
+        sb.append("class CardBin {").append(LINE_BREAK);
 
-        sb.append("    bin: ").append(toIndentedString(bin)).append("\n");
-        sb.append("    commercial: ").append(toIndentedString(commercial)).append("\n");
-        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
-        sb.append("    fundsAvailability: ").append(toIndentedString(fundsAvailability)).append("\n");
-        sb.append("    issuingBank: ").append(toIndentedString(issuingBank)).append("\n");
-        sb.append("    issuingCountry: ").append(toIndentedString(issuingCountry)).append("\n");
-        sb.append("    issuingCurrency: ").append(toIndentedString(issuingCurrency)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("    payoutEligible: ").append(toIndentedString(payoutEligible)).append("\n");
-        sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+        sb.append("    bin: ").append(toIndentedString(bin)).append(LINE_BREAK);
+        sb.append("    commercial: ").append(toIndentedString(commercial)).append(LINE_BREAK);
+        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append(LINE_BREAK);
+        sb.append("    fundsAvailability: ").append(toIndentedString(fundsAvailability)).append(LINE_BREAK);
+        sb.append("    issuingBank: ").append(toIndentedString(issuingBank)).append(LINE_BREAK);
+        sb.append("    issuingCountry: ").append(toIndentedString(issuingCountry)).append(LINE_BREAK);
+        sb.append("    issuingCurrency: ").append(toIndentedString(issuingCurrency)).append(LINE_BREAK);
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append(LINE_BREAK);
+        sb.append("    payoutEligible: ").append(toIndentedString(payoutEligible)).append(LINE_BREAK);
+        sb.append("    summary: ").append(toIndentedString(summary)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

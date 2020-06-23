@@ -26,6 +26,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * SepaDirectDebitDetails
  */
@@ -125,24 +128,13 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SepaDirectDebitDetails {\n");
+        sb.append("class SepaDirectDebitDetails {").append(LINE_BREAK);
 
-        sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    iban: ").append(toIndentedString(iban)).append(LINE_BREAK);
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append(LINE_BREAK);
+        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

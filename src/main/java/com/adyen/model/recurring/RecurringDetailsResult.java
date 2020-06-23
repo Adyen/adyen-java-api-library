@@ -28,6 +28,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * RecurringDetailsResult
  */
@@ -172,26 +175,15 @@ public class RecurringDetailsResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RecurringDetailsResult {\n");
+        sb.append("class RecurringDetailsResult {").append(LINE_BREAK);
 
-        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
-        sb.append("    lastKnownShopperEmail: ").append(toIndentedString(lastKnownShopperEmail)).append("\n");
-        sb.append("    invalidOneClickContracts: ").append(toIndentedString(invalidOneClickContracts)).append("\n");
+        sb.append("    creationDate: ").append(toIndentedString(creationDate)).append(LINE_BREAK);
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    details: ").append(toIndentedString(details)).append(LINE_BREAK);
+        sb.append("    lastKnownShopperEmail: ").append(toIndentedString(lastKnownShopperEmail)).append(LINE_BREAK);
+        sb.append("    invalidOneClickContracts: ").append(toIndentedString(invalidOneClickContracts)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

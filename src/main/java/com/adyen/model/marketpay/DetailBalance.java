@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * DetailBalance
  */
@@ -143,24 +146,15 @@ public class DetailBalance {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DetailBalance {\n");
+        sb.append("class DetailBalance {").append(LINE_BREAK);
 
-        sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
-        sb.append("    onHoldBalance: ").append(toIndentedString(onHoldBalance)).append("\n");
-        sb.append("    pendingBalance: ").append(toIndentedString(pendingBalance)).append("\n");
+        sb.append("    balance: ").append(toIndentedString(balance)).append(LINE_BREAK);
+        sb.append("    onHoldBalance: ").append(toIndentedString(onHoldBalance)).append(LINE_BREAK);
+        sb.append("    pendingBalance: ").append(toIndentedString(pendingBalance)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

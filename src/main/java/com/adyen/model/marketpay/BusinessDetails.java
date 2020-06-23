@@ -27,6 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * BusinessDetails
  */
@@ -192,27 +195,18 @@ public class BusinessDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BusinessDetails {\n");
+        sb.append("class BusinessDetails {").append(LINE_BREAK);
 
-        sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
-        sb.append("    incorporatedAt: ").append(toIndentedString(incorporatedAt)).append("\n");
-        sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
-        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
-        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
-        sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+        sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append(LINE_BREAK);
+        sb.append("    incorporatedAt: ").append(toIndentedString(incorporatedAt)).append(LINE_BREAK);
+        sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append(LINE_BREAK);
+        sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append(LINE_BREAK);
+        sb.append("    shareholders: ").append(toIndentedString(shareholders)).append(LINE_BREAK);
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

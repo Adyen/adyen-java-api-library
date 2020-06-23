@@ -20,13 +20,16 @@
  */
 package com.adyen.model.modification;
 
+import com.adyen.model.Split;
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.Split;
-import com.google.gson.annotations.SerializedName;
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ModificationResult
@@ -160,25 +163,14 @@ public class ModificationResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ModificationResult {\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    response: ").append(toIndentedString(response)).append("\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("class ModificationResult {").append(LINE_BREAK);
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append(LINE_BREAK);
+        sb.append("    splits: ").append(toIndentedString(splits)).append(LINE_BREAK);
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    response: ").append(toIndentedString(response)).append(LINE_BREAK);
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

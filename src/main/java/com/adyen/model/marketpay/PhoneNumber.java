@@ -20,8 +20,12 @@
  */
 package com.adyen.model.marketpay;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PhoneNumber
@@ -141,25 +145,16 @@ public class PhoneNumber {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PhoneNumber {\n");
+        sb.append("class PhoneNumber {").append(LINE_BREAK);
 
-        sb.append("    phoneType: ").append(toIndentedString(phoneType)).append("\n");
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    phoneCountryCode: ").append(toIndentedString(phoneCountryCode)).append("\n");
+        sb.append("    phoneType: ").append(toIndentedString(phoneType)).append(LINE_BREAK);
+        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(LINE_BREAK);
+        sb.append("    phoneCountryCode: ").append(toIndentedString(phoneCountryCode)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
 

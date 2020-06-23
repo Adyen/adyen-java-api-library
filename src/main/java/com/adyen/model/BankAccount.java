@@ -20,8 +20,12 @@
  */
 package com.adyen.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * BankAccount
@@ -247,30 +251,19 @@ public class BankAccount {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BankAccount {\n");
+        sb.append("class BankAccount {").append(LINE_BREAK);
 
-        sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
-        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
-        sb.append("    bankName: ").append(toIndentedString(bankName)).append("\n");
-        sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
-        sb.append("    bankCity: ").append(toIndentedString(bankCity)).append("\n");
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
-        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
-        sb.append("    bic: ").append(toIndentedString(bic)).append("\n");
+        sb.append("    iban: ").append(toIndentedString(iban)).append(LINE_BREAK);
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append(LINE_BREAK);
+        sb.append("    bankName: ").append(toIndentedString(bankName)).append(LINE_BREAK);
+        sb.append("    taxId: ").append(toIndentedString(taxId)).append(LINE_BREAK);
+        sb.append("    bankCity: ").append(toIndentedString(bankCity)).append(LINE_BREAK);
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(LINE_BREAK);
+        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append(LINE_BREAK);
+        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append(LINE_BREAK);
+        sb.append("    bic: ").append(toIndentedString(bic)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -31,6 +31,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static com.adyen.constants.TextConstants.LINE_BREAK;
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * PerformVerificationRequest
  */
@@ -169,24 +172,15 @@ public class PerformVerificationRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PerformVerificationRequest {\n");
+        sb.append("class PerformVerificationRequest {").append(LINE_BREAK);
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    accountStateType: ").append(toIndentedString(accountStateType)).append("\n");
-        sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(LINE_BREAK);
+        sb.append("    accountStateType: ").append(toIndentedString(accountStateType)).append(LINE_BREAK);
+        sb.append("    tier: ").append(toIndentedString(tier)).append(LINE_BREAK);
         sb.append("}");
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
