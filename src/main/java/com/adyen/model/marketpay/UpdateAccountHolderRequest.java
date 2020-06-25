@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -237,14 +237,14 @@ public class UpdateAccountHolderRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateAccountHolderRequest {").append(LINE_BREAK);
+        sb.append("class UpdateAccountHolderRequest {\n");
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append(LINE_BREAK);
-        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append(LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
-        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append(LINE_BREAK);
-        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append(LINE_BREAK);
-        sb.append("    processingTier: ").append(toIndentedString(processingTier)).append(LINE_BREAK);
+        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
+        sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
+        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
+        sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -179,12 +179,12 @@ public class ThreeDSAvailabilityResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDSAvailabilityResponse {").append(LINE_BREAK);
-        sb.append("    binDetails: ").append(toIndentedString(binDetails)).append(LINE_BREAK);
-        sb.append("    dsPublicKeys: ").append(toIndentedString(dsPublicKeys)).append(LINE_BREAK);
-        sb.append("    threeDS1Supported: ").append(toIndentedString(threeDS1Supported)).append(LINE_BREAK);
-        sb.append("    threeDS2CardRangeDetails: ").append(toIndentedString(threeDS2CardRangeDetails)).append(LINE_BREAK);
-        sb.append("    threeDS2supported: ").append(toIndentedString(threeDS2supported)).append(LINE_BREAK);
+        sb.append("class ThreeDSAvailabilityResponse {\n");
+        sb.append("    binDetails: ").append(toIndentedString(binDetails)).append("\n");
+        sb.append("    dsPublicKeys: ").append(toIndentedString(dsPublicKeys)).append("\n");
+        sb.append("    threeDS1Supported: ").append(toIndentedString(threeDS1Supported)).append("\n");
+        sb.append("    threeDS2CardRangeDetails: ").append(toIndentedString(threeDS2CardRangeDetails)).append("\n");
+        sb.append("    threeDS2supported: ").append(toIndentedString(threeDS2supported)).append("\n");
         sb.append("}");
         return sb.toString();
     }

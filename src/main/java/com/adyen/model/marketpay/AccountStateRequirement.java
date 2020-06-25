@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -102,10 +102,10 @@ public class AccountStateRequirement {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountStateRequirement {").append(LINE_BREAK);
+        sb.append("class AccountStateRequirement {\n");
 
-        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append(LINE_BREAK);
-        sb.append("    state: ").append(toIndentedString(state)).append(LINE_BREAK);
+        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append("\n");
+        sb.append("    state: ").append(toIndentedString(state)).append("\n");
         sb.append("}");
         return sb.toString();
     }

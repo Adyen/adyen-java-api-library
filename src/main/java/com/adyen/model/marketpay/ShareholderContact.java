@@ -27,7 +27,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -244,17 +244,17 @@ public class ShareholderContact {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShareholderContact {").append(LINE_BREAK);
+    sb.append("class ShareholderContact {\n");
 
-    sb.append("    address: ").append(toIndentedString(address)).append(LINE_BREAK);
-    sb.append("    email: ").append(toIndentedString(email)).append(LINE_BREAK);
-    sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append(LINE_BREAK);
-    sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
-    sb.append("    personalData: ").append(toIndentedString(personalData)).append(LINE_BREAK);
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(LINE_BREAK);
-    sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append(LINE_BREAK);
-    sb.append("    shareholderReference: ").append(toIndentedString(shareholderReference)).append(LINE_BREAK);
-    sb.append("    webAddress: ").append(toIndentedString(webAddress)).append(LINE_BREAK);
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    personalData: ").append(toIndentedString(personalData)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
+    sb.append("    shareholderReference: ").append(toIndentedString(shareholderReference)).append("\n");
+    sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }

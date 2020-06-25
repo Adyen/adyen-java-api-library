@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -101,14 +101,14 @@ public class ApiError {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ApiError {").append(LINE_BREAK);
+        sb.append("class ApiError {\n");
 
-        sb.append("    status: ").append(toIndentedString(status)).append(LINE_BREAK);
-        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append(LINE_BREAK);
-        sb.append("    message: ").append(toIndentedString(message)).append(LINE_BREAK);
-        sb.append("    errorType: ").append(toIndentedString(errorType)).append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(LINE_BREAK);
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    errorType: ").append(toIndentedString(errorType)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -96,10 +96,10 @@ public class CheckoutOrder {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CheckoutOrder {").append(LINE_BREAK);
+        sb.append("class CheckoutOrder {\n");
 
-        sb.append("    orderData: ").append(toIndentedString(orderData)).append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    orderData: ").append(toIndentedString(orderData)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }

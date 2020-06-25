@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class ModifyRequest {
@@ -64,10 +64,10 @@ public class ModifyRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ModifyRequest {").append(LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("class ModifyRequest {\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("}");
         return sb.toString();
     }

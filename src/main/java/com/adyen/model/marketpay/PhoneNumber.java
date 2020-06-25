@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -145,11 +145,11 @@ public class PhoneNumber {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PhoneNumber {").append(LINE_BREAK);
+        sb.append("class PhoneNumber {\n");
 
-        sb.append("    phoneType: ").append(toIndentedString(phoneType)).append(LINE_BREAK);
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(LINE_BREAK);
-        sb.append("    phoneCountryCode: ").append(toIndentedString(phoneCountryCode)).append(LINE_BREAK);
+        sb.append("    phoneType: ").append(toIndentedString(phoneType)).append("\n");
+        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+        sb.append("    phoneCountryCode: ").append(toIndentedString(phoneCountryCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

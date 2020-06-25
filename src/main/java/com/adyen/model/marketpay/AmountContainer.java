@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -70,9 +70,9 @@ public class AmountContainer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AmountContainer {").append(LINE_BREAK);
+        sb.append("class AmountContainer {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("}");
         return sb.toString();
     }

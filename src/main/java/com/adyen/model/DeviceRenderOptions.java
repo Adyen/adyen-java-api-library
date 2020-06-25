@@ -34,7 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -196,10 +196,10 @@ public class DeviceRenderOptions {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeviceRenderOptions {").append(LINE_BREAK);
+        sb.append("class DeviceRenderOptions {\n");
 
-        sb.append("    sdkInterface: ").append(toIndentedString(sdkInterface)).append(LINE_BREAK);
-        sb.append("    sdkUiType: ").append(toIndentedString(sdkUiType)).append(LINE_BREAK);
+        sb.append("    sdkInterface: ").append(toIndentedString(sdkInterface)).append("\n");
+        sb.append("    sdkUiType: ").append(toIndentedString(sdkUiType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

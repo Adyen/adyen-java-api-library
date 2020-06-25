@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -178,12 +178,12 @@ public class PaymentMethodsResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethodsResponse {").append(LINE_BREAK);
+        sb.append("class PaymentMethodsResponse {\n");
 
-        sb.append("    oneClickPaymentMethods: ").append(toIndentedString(oneClickPaymentMethods)).append(LINE_BREAK);
-        sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append(LINE_BREAK);
-        sb.append("    storedPaymentMethods: ").append(toIndentedString(storedPaymentMethods)).append(LINE_BREAK);
-        sb.append("    groups: ").append(toIndentedString(groups)).append(LINE_BREAK);
+        sb.append("    oneClickPaymentMethods: ").append(toIndentedString(oneClickPaymentMethods)).append("\n");
+        sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
+        sb.append("    storedPaymentMethods: ").append(toIndentedString(storedPaymentMethods)).append("\n");
+        sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
         sb.append("}");
         return sb.toString();
     }

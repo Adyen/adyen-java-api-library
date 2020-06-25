@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -106,10 +106,10 @@ public class QiwiWalletDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class QiwiWalletDetails {").append(LINE_BREAK);
+        sb.append("class QiwiWalletDetails {\n");
 
-        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append(LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
+        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

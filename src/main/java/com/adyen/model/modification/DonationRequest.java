@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 /**
  * DonationRequest
@@ -159,13 +159,13 @@ public class DonationRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DonationRequest {").append(LINE_BREAK);
+        sb.append("class DonationRequest {\n");
 
-        sb.append("    donationAccount: ").append(toIndentedString(donationAccount)).append(LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append(LINE_BREAK);
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append(LINE_BREAK);
-        sb.append("    reference: ").append(toIndentedString(reference)).append(LINE_BREAK);
+        sb.append("    donationAccount: ").append(toIndentedString(donationAccount)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
+        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
         sb.append("}");
         return sb.toString();
     }

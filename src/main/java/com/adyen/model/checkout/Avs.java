@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -101,10 +101,10 @@ public class Avs {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Avs {").append(LINE_BREAK);
+        sb.append("class Avs {\n");
 
-        sb.append("    addressEditable: ").append(toIndentedString(addressEditable)).append(LINE_BREAK);
-        sb.append("    enabled: ").append(toIndentedString(enabled)).append(LINE_BREAK);
+        sb.append("    addressEditable: ").append(toIndentedString(addressEditable)).append("\n");
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("}");
         return sb.toString();
     }

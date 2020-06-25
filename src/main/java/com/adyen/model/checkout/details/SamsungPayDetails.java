@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -177,11 +177,11 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SamsungPayDetails {").append(LINE_BREAK);
+        sb.append("class SamsungPayDetails {\n");
 
-        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append(LINE_BREAK);
-        sb.append("    samsungPayToken: ").append(toIndentedString(samsungPayToken)).append(LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
+        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+        sb.append("    samsungPayToken: ").append(toIndentedString(samsungPayToken)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

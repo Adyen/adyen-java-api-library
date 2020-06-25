@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -130,11 +130,11 @@ public class PersonalData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PersonalData {").append(LINE_BREAK);
+        sb.append("class PersonalData {\n");
 
-        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append(LINE_BREAK);
-        sb.append("    documentData: ").append(toIndentedString(documentData)).append(LINE_BREAK);
-        sb.append("    nationality: ").append(toIndentedString(nationality)).append(LINE_BREAK);
+        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
+        sb.append("    documentData: ").append(toIndentedString(documentData)).append("\n");
+        sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
         sb.append("}");
         return sb.toString();
     }

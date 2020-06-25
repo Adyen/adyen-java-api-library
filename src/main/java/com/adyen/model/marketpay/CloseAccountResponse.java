@@ -34,7 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -203,12 +203,12 @@ public class CloseAccountResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CloseAccountResponse {").append(LINE_BREAK);
+        sb.append("class CloseAccountResponse {\n");
 
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
-        sb.append("    status: ").append(toIndentedString(status)).append(LINE_BREAK);
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }

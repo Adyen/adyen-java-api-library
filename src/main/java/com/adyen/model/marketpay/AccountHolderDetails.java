@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -308,19 +308,19 @@ public class AccountHolderDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderDetails {").append(LINE_BREAK);
+        sb.append("class AccountHolderDetails {\n");
 
-        sb.append("    address: ").append(toIndentedString(address)).append(LINE_BREAK);
-        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetails)).append(LINE_BREAK);
-        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append(LINE_BREAK);
-        sb.append("    email: ").append(toIndentedString(email)).append(LINE_BREAK);
-        sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append(LINE_BREAK);
-        sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append(LINE_BREAK);
-        sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append(LINE_BREAK);
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append(LINE_BREAK);
-        sb.append("    payoutMethods: ").append(toIndentedString(payoutMethods)).append(LINE_BREAK);
-        sb.append("    webAddress: ").append(toIndentedString(webAddress)).append(LINE_BREAK);
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append(LINE_BREAK);
+        sb.append("    address: ").append(toIndentedString(address)).append("\n");
+        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetails)).append("\n");
+        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append("\n");
+        sb.append("    email: ").append(toIndentedString(email)).append("\n");
+        sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
+        sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
+        sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    payoutMethods: ").append(toIndentedString(payoutMethods)).append("\n");
+        sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
+        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
         sb.append("}");
         return sb.toString();
     }

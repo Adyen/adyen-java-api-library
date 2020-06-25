@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -232,16 +232,16 @@ public class LineItem {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class LineItem {").append(LINE_BREAK);
+        sb.append("class LineItem {\n");
 
-        sb.append("    amountExcludingTax: ").append(toIndentedString(amountExcludingTax)).append(LINE_BREAK);
-        sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append(LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
-        sb.append("    id: ").append(toIndentedString(id)).append(LINE_BREAK);
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append(LINE_BREAK);
-        sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append(LINE_BREAK);
-        sb.append("    taxCategory: ").append(toIndentedString(taxCategory)).append(LINE_BREAK);
-        sb.append("    taxPercentage: ").append(toIndentedString(taxPercentage)).append(LINE_BREAK);
+        sb.append("    amountExcludingTax: ").append(toIndentedString(amountExcludingTax)).append("\n");
+        sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
+        sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
+        sb.append("    taxCategory: ").append(toIndentedString(taxCategory)).append("\n");
+        sb.append("    taxPercentage: ").append(toIndentedString(taxPercentage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

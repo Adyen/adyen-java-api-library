@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -194,14 +194,14 @@ public class AchDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AchDetails {").append(LINE_BREAK);
+        sb.append("class AchDetails {\n");
 
-        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append(LINE_BREAK);
-        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append(LINE_BREAK);
-        sb.append("    encryptedBankAccountNumber: ").append(toIndentedString(encryptedBankAccountNumber)).append(LINE_BREAK);
-        sb.append("    encryptedBankLocationId: ").append(toIndentedString(encryptedBankLocationId)).append(LINE_BREAK);
-        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append(LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
+        sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
+        sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
+        sb.append("    encryptedBankAccountNumber: ").append(toIndentedString(encryptedBankAccountNumber)).append("\n");
+        sb.append("    encryptedBankLocationId: ").append(toIndentedString(encryptedBankLocationId)).append("\n");
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

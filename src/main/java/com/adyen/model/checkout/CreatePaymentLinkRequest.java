@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -402,23 +402,23 @@ public class CreatePaymentLinkRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreatePaymentLinkRequest {").append(LINE_BREAK);
+        sb.append("class CreatePaymentLinkRequest {\n");
 
-        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append(LINE_BREAK);
-        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(LINE_BREAK);
-        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append(LINE_BREAK);
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append(LINE_BREAK);
-        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append(LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
-        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append(LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
-        sb.append("    reference: ").append(toIndentedString(reference)).append(LINE_BREAK);
-        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append(LINE_BREAK);
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(LINE_BREAK);
-        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append(LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
-        sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append(LINE_BREAK);
+        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+        sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -102,10 +102,10 @@ public class DisableResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DisableResult {").append(LINE_BREAK);
+        sb.append("class DisableResult {\n");
 
-        sb.append("    response: ").append(toIndentedString(response)).append(LINE_BREAK);
-        sb.append("    details: ").append(toIndentedString(details)).append(LINE_BREAK);
+        sb.append("    response: ").append(toIndentedString(response)).append("\n");
+        sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("}");
         return sb.toString();
     }

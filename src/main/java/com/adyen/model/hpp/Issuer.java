@@ -22,7 +22,7 @@ package com.adyen.model.hpp;
 
 import com.google.gson.annotations.SerializedName;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class Issuer {
@@ -51,10 +51,10 @@ public class Issuer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Issuer {").append(LINE_BREAK);
+        sb.append("class Issuer {\n");
 
-        sb.append("    issuerId: ").append(toIndentedString(issuerId)).append(LINE_BREAK);
-        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
+        sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class ExternalPlatform extends CommonField {
@@ -60,9 +60,9 @@ public class ExternalPlatform extends CommonField {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ExternalPlatform {").append(LINE_BREAK);
+        sb.append("class ExternalPlatform {\n");
 
-        sb.append("    integrator: ").append(toIndentedString(integrator)).append(LINE_BREAK);
+        sb.append("    integrator: ").append(toIndentedString(integrator)).append("\n");
 
         sb.append("}");
         return sb.toString();

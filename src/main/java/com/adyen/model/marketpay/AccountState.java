@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -264,16 +264,16 @@ public class AccountState {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountState {").append(LINE_BREAK);
+        sb.append("class AccountState {\n");
 
-        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append(LINE_BREAK);
-        sb.append("    allowProcessing: ").append(toIndentedString(allowProcessing)).append(LINE_BREAK);
-        sb.append("    stateDeadline: ").append(toIndentedString(stateDeadline)).append(LINE_BREAK);
-        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append(LINE_BREAK);
-        sb.append("    stateLimit: ").append(toIndentedString(stateLimit)).append(LINE_BREAK);
-        sb.append("    stateType: ").append(toIndentedString(stateType)).append(LINE_BREAK);
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append(LINE_BREAK);
-        sb.append("    disabled: ").append(toIndentedString(disabled)).append(LINE_BREAK);
+        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
+        sb.append("    allowProcessing: ").append(toIndentedString(allowProcessing)).append("\n");
+        sb.append("    stateDeadline: ").append(toIndentedString(stateDeadline)).append("\n");
+        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append("\n");
+        sb.append("    stateLimit: ").append(toIndentedString(stateLimit)).append("\n");
+        sb.append("    stateType: ").append(toIndentedString(stateType)).append("\n");
+        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
+        sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
         sb.append("}");
         return sb.toString();
     }

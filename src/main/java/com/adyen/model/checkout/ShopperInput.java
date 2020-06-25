@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -246,11 +246,11 @@ public class ShopperInput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ShopperInput {").append(LINE_BREAK);
+        sb.append("class ShopperInput {\n");
 
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append(LINE_BREAK);
-        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append(LINE_BREAK);
-        sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append(LINE_BREAK);
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
+        sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
         sb.append("}");
         return sb.toString();
     }
