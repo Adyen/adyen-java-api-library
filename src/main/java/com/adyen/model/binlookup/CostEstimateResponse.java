@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -147,12 +147,12 @@ public class CostEstimateResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CostEstimateResponse {").append(LINE_BREAK);
+        sb.append("class CostEstimateResponse {\n");
 
-        sb.append("    cardBin: ").append(toIndentedString(cardBin)).append(LINE_BREAK);
-        sb.append("    costEstimateAmount: ").append(toIndentedString(costEstimateAmount)).append(LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
-        sb.append("    surchargeType: ").append(toIndentedString(surchargeType)).append(LINE_BREAK);
+        sb.append("    cardBin: ").append(toIndentedString(cardBin)).append("\n");
+        sb.append("    costEstimateAmount: ").append(toIndentedString(costEstimateAmount)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    surchargeType: ").append(toIndentedString(surchargeType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

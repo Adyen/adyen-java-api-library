@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -175,13 +175,13 @@ public class PayoutAccountHolderResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayoutAccountHolderResponse {").append(LINE_BREAK);
+        sb.append("class PayoutAccountHolderResponse {\n");
 
-        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append(LINE_BREAK);
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append(LINE_BREAK);
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
+        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

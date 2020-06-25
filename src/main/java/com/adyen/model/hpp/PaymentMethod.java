@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class PaymentMethod {
@@ -96,10 +96,10 @@ public class PaymentMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethod {").append(LINE_BREAK);
-        sb.append("    brandCode: ").append(toIndentedString(brandCode)).append(LINE_BREAK);
-        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
-        sb.append("    issuers: ").append(toIndentedString(issuers)).append(LINE_BREAK);
+        sb.append("class PaymentMethod {\n");
+        sb.append("    brandCode: ").append(toIndentedString(brandCode)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    issuers: ").append(toIndentedString(issuers)).append("\n");
         sb.append("}");
         return sb.toString();
     }

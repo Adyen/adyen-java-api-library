@@ -22,7 +22,7 @@ package com.adyen.model.recurring;
 
 import com.google.gson.annotations.SerializedName;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -111,11 +111,11 @@ public class RecurringDetailsRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RecurringDetailsRequest {").append(LINE_BREAK);
+        sb.append("class RecurringDetailsRequest {\n");
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class StoredPaymentMethod {
@@ -271,18 +271,18 @@ public class StoredPaymentMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoredPaymentMethod {").append(LINE_BREAK);
+        sb.append("class StoredPaymentMethod {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append(LINE_BREAK);
-        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
-        sb.append("    brand: ").append(toIndentedString(brand)).append(LINE_BREAK);
-        sb.append("    lastFour: ").append(toIndentedString(lastFour)).append(LINE_BREAK);
-        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append(LINE_BREAK);
-        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append(LINE_BREAK);
-        sb.append("    holderName: ").append(toIndentedString(holderName)).append(LINE_BREAK);
-        sb.append("    supportedShopperInteractions: ").append(toIndentedString(supportedShopperInteractions)).append(LINE_BREAK);
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append(LINE_BREAK);
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
+        sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
+        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
+        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
+        sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
+        sb.append("    supportedShopperInteractions: ").append(toIndentedString(supportedShopperInteractions)).append("\n");
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
         sb.append("}");
         return sb.toString();
     }

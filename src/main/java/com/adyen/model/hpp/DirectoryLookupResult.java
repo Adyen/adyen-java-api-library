@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class DirectoryLookupResult {
@@ -42,9 +42,9 @@ public class DirectoryLookupResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DirectoryLookupResult {").append(LINE_BREAK);
+        sb.append("class DirectoryLookupResult {\n");
 
-        sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append(LINE_BREAK);
+        sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
         sb.append("}");
         return sb.toString();
     }

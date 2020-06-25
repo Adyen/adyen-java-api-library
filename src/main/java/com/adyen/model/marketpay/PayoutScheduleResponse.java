@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -127,10 +127,10 @@ public class PayoutScheduleResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayoutScheduleResponse {").append(LINE_BREAK);
+        sb.append("class PayoutScheduleResponse {\n");
 
-        sb.append("    schedule: ").append(toIndentedString(schedule)).append(LINE_BREAK);
-        sb.append("    nextScheduledPayout: ").append(toIndentedString(nextScheduledPayout)).append(LINE_BREAK);
+        sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
+        sb.append("    nextScheduledPayout: ").append(toIndentedString(nextScheduledPayout)).append("\n");
         sb.append("}");
         return sb.toString();
     }

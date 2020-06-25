@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -164,12 +164,12 @@ public class AccountEvent {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountEvent {").append(LINE_BREAK);
+        sb.append("class AccountEvent {\n");
 
-        sb.append("    reason: ").append(toIndentedString(reason)).append(LINE_BREAK);
-        sb.append("    resolvedByStateType: ").append(toIndentedString(resolvedByStateType)).append(LINE_BREAK);
-        sb.append("    executionDate: ").append(toIndentedString(executionDate)).append(LINE_BREAK);
-        sb.append("    event: ").append(toIndentedString(event)).append(LINE_BREAK);
+        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+        sb.append("    resolvedByStateType: ").append(toIndentedString(resolvedByStateType)).append("\n");
+        sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
+        sb.append("    event: ").append(toIndentedString(event)).append("\n");
         sb.append("}");
         return sb.toString();
     }

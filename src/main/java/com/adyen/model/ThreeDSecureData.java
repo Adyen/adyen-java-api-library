@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -287,15 +287,15 @@ public class ThreeDSecureData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDSecureData {").append(LINE_BREAK);
+        sb.append("class ThreeDSecureData {\n");
 
-        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append(LINE_BREAK);
-        sb.append("    directoryResponse: ").append(toIndentedString(directoryResponse)).append(LINE_BREAK);
-        sb.append("    authenticationResponse: ").append(toIndentedString(authenticationResponse)).append(LINE_BREAK);
-        sb.append("    xid: ").append(toIndentedString(xid)).append(LINE_BREAK);
-        sb.append("    cavv: ").append(toIndentedString(cavv)).append(LINE_BREAK);
-        sb.append("    eci: ").append(toIndentedString(eci)).append(LINE_BREAK);
-        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append(LINE_BREAK);
+        sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append("\n");
+        sb.append("    directoryResponse: ").append(toIndentedString(directoryResponse)).append("\n");
+        sb.append("    authenticationResponse: ").append(toIndentedString(authenticationResponse)).append("\n");
+        sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
+        sb.append("    cavv: ").append(toIndentedString(cavv)).append("\n");
+        sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
+        sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
         sb.append("}");
         return sb.toString();
     }

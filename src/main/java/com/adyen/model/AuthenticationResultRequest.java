@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -94,10 +94,10 @@ public class AuthenticationResultRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AuthenticationResultRequest {").append(LINE_BREAK);
+    sb.append("class AuthenticationResultRequest {\n");
 
-    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
-    sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }

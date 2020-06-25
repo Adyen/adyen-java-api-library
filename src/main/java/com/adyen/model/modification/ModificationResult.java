@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -163,12 +163,12 @@ public class ModificationResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ModificationResult {").append(LINE_BREAK);
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append(LINE_BREAK);
-        sb.append("    splits: ").append(toIndentedString(splits)).append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
-        sb.append("    response: ").append(toIndentedString(response)).append(LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
+        sb.append("class ModificationResult {\n");
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    response: ").append(toIndentedString(response)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("}");
         return sb.toString();
     }

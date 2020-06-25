@@ -54,7 +54,7 @@ import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
 import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -436,24 +436,24 @@ public class PaymentsResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentsResponse {").append(LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
-        sb.append("    details: ").append(toIndentedString(details)).append(LINE_BREAK);
-        sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append(LINE_BREAK);
-        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
-        sb.append("    redirect: ").append(toIndentedString(redirect)).append(LINE_BREAK);
-        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append(LINE_BREAK);
-        sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append(LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
-        sb.append("    serviceError: ").append(toIndentedString(serviceError)).append(LINE_BREAK);
-        sb.append("    authResponse: ").append(toIndentedString(authResponse)).append(LINE_BREAK);
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append(LINE_BREAK);
-        sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append(LINE_BREAK);
-        sb.append("    authentication: ").append(toIndentedString(authentication)).append(LINE_BREAK);
-        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append(LINE_BREAK);
-        sb.append("    action: ").append(toIndentedString(action)).append(LINE_BREAK);
-        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
+        sb.append("class PaymentsResponse {\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    details: ").append(toIndentedString(details)).append("\n");
+        sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
+        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
+        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
+        sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
+        sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
+        sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
+        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
+        sb.append("    action: ").append(toIndentedString(action)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("}");
         return sb.toString();
     }

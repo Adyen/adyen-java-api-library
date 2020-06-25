@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class CommonField {
@@ -81,10 +81,10 @@ public class CommonField {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CommonField {").append(LINE_BREAK);
+        sb.append("class CommonField {\n");
 
-        sb.append("    name: ").append(toIndentedString(name)).append(LINE_BREAK);
-        sb.append("    version: ").append(toIndentedString(version)).append(LINE_BREAK);
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }

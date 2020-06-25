@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -308,15 +308,15 @@ public class TestNotificationConfigurationResponse {
         this.getExchangeMessages();
 
         StringBuilder sb = new StringBuilder();
-        sb.append("class TestNotificationConfigurationResponse {").append(LINE_BREAK);
+        sb.append("class TestNotificationConfigurationResponse {\n");
 
-        sb.append("    errorMessages: ").append(toIndentedString(errorMessages)).append(LINE_BREAK);
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append(LINE_BREAK);
-        sb.append("    okMessages: ").append(toIndentedString(okMessages)).append(LINE_BREAK);
-        sb.append("    exchangeMessages: ").append(toIndentedString(exchangeMessages)).append(LINE_BREAK);
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append(LINE_BREAK);
-        sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    errorMessages: ").append(toIndentedString(errorMessages)).append("\n");
+        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
+        sb.append("    okMessages: ").append(toIndentedString(okMessages)).append("\n");
+        sb.append("    exchangeMessages: ").append(toIndentedString(exchangeMessages)).append("\n");
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+        sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }

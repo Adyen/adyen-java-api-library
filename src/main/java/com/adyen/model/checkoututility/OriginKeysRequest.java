@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -82,9 +82,9 @@ public class OriginKeysRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OriginKeysRequest {").append(LINE_BREAK);
+        sb.append("class OriginKeysRequest {\n");
 
-        sb.append("    originDomains: ").append(toIndentedString(originDomains)).append(LINE_BREAK);
+        sb.append("    originDomains: ").append(toIndentedString(originDomains)).append("\n");
         sb.append("}");
         return sb.toString();
     }

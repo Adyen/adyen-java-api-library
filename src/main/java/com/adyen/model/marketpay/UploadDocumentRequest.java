@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -98,10 +98,10 @@ public class UploadDocumentRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UploadDocumentRequest {").append(LINE_BREAK);
+        sb.append("class UploadDocumentRequest {\n");
 
-        sb.append("    documentContent: ").append(toIndentedString(documentContent)).append(LINE_BREAK);
-        sb.append("    documentDetail: ").append(toIndentedString(documentDetail)).append(LINE_BREAK);
+        sb.append("    documentContent: ").append(toIndentedString(documentContent)).append("\n");
+        sb.append("    documentDetail: ").append(toIndentedString(documentDetail)).append("\n");
         sb.append("}");
         return sb.toString();
     }

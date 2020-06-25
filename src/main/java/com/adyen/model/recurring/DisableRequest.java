@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -140,12 +140,12 @@ public class DisableRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DisableRequest {").append(LINE_BREAK);
+        sb.append("class DisableRequest {\n");
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append(LINE_BREAK);
-        sb.append("    contract: ").append(toIndentedString(contract)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+        sb.append("    contract: ").append(toIndentedString(contract)).append("\n");
         sb.append("}");
         return sb.toString();
     }

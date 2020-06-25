@@ -22,7 +22,7 @@ package com.adyen.model.additionalData;
 
 import com.adyen.enums.VatCategory;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 
@@ -104,15 +104,15 @@ public class InvoiceLine {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InvoiceLine {").append(LINE_BREAK);
-        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append(LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
-        sb.append("    itemAmount: ").append(toIndentedString(itemAmount)).append(LINE_BREAK);
-        sb.append("    itemVATAmount: ").append(toIndentedString(itemVATAmount)).append(LINE_BREAK);
-        sb.append("    itemVatPercentage: ").append(toIndentedString(itemVatPercentage)).append(LINE_BREAK);
-        sb.append("    numberOfItems: ").append(toIndentedString(numberOfItems)).append(LINE_BREAK);
-        sb.append("    vatCategory: ").append(toIndentedString(vatCategory)).append(LINE_BREAK);
-        sb.append("    itemId: ").append(toIndentedString(itemId)).append(LINE_BREAK);
+        sb.append("class InvoiceLine {\n");
+        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    itemAmount: ").append(toIndentedString(itemAmount)).append("\n");
+        sb.append("    itemVATAmount: ").append(toIndentedString(itemVATAmount)).append("\n");
+        sb.append("    itemVatPercentage: ").append(toIndentedString(itemVatPercentage)).append("\n");
+        sb.append("    numberOfItems: ").append(toIndentedString(numberOfItems)).append("\n");
+        sb.append("    vatCategory: ").append(toIndentedString(vatCategory)).append("\n");
+        sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

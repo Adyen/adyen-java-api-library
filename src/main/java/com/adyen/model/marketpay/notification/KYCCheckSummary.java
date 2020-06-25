@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class KYCCheckSummary {
@@ -93,10 +93,10 @@ public class KYCCheckSummary {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class KYCCheckSummary {").append(LINE_BREAK);
+        sb.append("class KYCCheckSummary {\n");
 
-        sb.append("    code: ").append(toIndentedString(code)).append(LINE_BREAK);
-        sb.append("    description: ").append(toIndentedString(description)).append(LINE_BREAK);
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("}");
         return sb.toString();
     }

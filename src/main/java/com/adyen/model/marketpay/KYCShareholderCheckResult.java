@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -102,10 +102,10 @@ public class KYCShareholderCheckResult {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class KYCShareholderCheckResult {").append(LINE_BREAK);
+        sb.append("class KYCShareholderCheckResult {\n");
 
-        sb.append("    checks: ").append(toIndentedString(checks)).append(LINE_BREAK);
-        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append(LINE_BREAK);
+        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
+        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

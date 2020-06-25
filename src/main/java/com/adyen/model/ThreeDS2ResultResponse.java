@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -48,9 +48,9 @@ public class ThreeDS2ResultResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ThreeDS2ResultResponse {").append(LINE_BREAK);
+        sb.append("class ThreeDS2ResultResponse {\n");
 
-        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append(LINE_BREAK);
+        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
         sb.append("}");
         return sb.toString();
     }

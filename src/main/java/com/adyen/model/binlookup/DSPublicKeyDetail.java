@@ -27,7 +27,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -124,11 +124,11 @@ public class DSPublicKeyDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DSPublicKeyDetail {").append(LINE_BREAK);
+        sb.append("class DSPublicKeyDetail {\n");
 
-        sb.append("    brand: ").append(toIndentedString(brand)).append(LINE_BREAK);
-        sb.append("    directoryServerId: ").append(toIndentedString(directoryServerId)).append(LINE_BREAK);
-        sb.append("    publicKey: ").append(toIndentedString(publicKey)).append(LINE_BREAK);
+        sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
+        sb.append("    directoryServerId: ").append(toIndentedString(directoryServerId)).append("\n");
+        sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }

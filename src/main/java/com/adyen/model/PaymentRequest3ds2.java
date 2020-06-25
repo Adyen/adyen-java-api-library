@@ -33,7 +33,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 
@@ -325,15 +325,15 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentRequest3ds2 {").append(LINE_BREAK);
-        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append(LINE_BREAK);
-        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append(LINE_BREAK);
-        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append(LINE_BREAK);
-        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append(LINE_BREAK);
-        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append(LINE_BREAK);
-        sb.append("    threeDS2Token: ").append(toIndentedString(threeDS2Token)).append(LINE_BREAK);
-        sb.append("    totalsGroup: ").append(toIndentedString(totalsGroup)).append(LINE_BREAK);
-        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append(LINE_BREAK);
+        sb.append("class PaymentRequest3ds2 {\n");
+        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
+        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
+        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
+        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
+        sb.append("    threeDS2Token: ").append(toIndentedString(threeDS2Token)).append("\n");
+        sb.append("    totalsGroup: ").append(toIndentedString(totalsGroup)).append("\n");
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
         sb.append("}");
         return sb.toString();
     }

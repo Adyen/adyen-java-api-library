@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -318,20 +318,20 @@ public class ForexQuote {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ForexQuote {").append(LINE_BREAK);
+        sb.append("class ForexQuote {\n");
 
-        sb.append("    reference: ").append(toIndentedString(reference)).append(LINE_BREAK);
-        sb.append("    interbank: ").append(toIndentedString(interbank)).append(LINE_BREAK);
-        sb.append("    sell: ").append(toIndentedString(sell)).append(LINE_BREAK);
-        sb.append("    buy: ").append(toIndentedString(buy)).append(LINE_BREAK);
-        sb.append("    validTill: ").append(toIndentedString(validTill)).append(LINE_BREAK);
-        sb.append("    basePoints: ").append(toIndentedString(basePoints)).append(LINE_BREAK);
-        sb.append("    source: ").append(toIndentedString(source)).append(LINE_BREAK);
-        sb.append("    signature: ").append(toIndentedString(signature)).append(LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
-        sb.append("    baseAmount: ").append(toIndentedString(baseAmount)).append(LINE_BREAK);
-        sb.append("    account: ").append(toIndentedString(account)).append(LINE_BREAK);
-        sb.append("    accountType: ").append(toIndentedString(accountType)).append(LINE_BREAK);
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    interbank: ").append(toIndentedString(interbank)).append("\n");
+        sb.append("    sell: ").append(toIndentedString(sell)).append("\n");
+        sb.append("    buy: ").append(toIndentedString(buy)).append("\n");
+        sb.append("    validTill: ").append(toIndentedString(validTill)).append("\n");
+        sb.append("    basePoints: ").append(toIndentedString(basePoints)).append("\n");
+        sb.append("    source: ").append(toIndentedString(source)).append("\n");
+        sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    baseAmount: ").append(toIndentedString(baseAmount)).append("\n");
+        sb.append("    account: ").append(toIndentedString(account)).append("\n");
+        sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

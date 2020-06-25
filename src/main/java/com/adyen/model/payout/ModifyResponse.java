@@ -22,7 +22,7 @@ package com.adyen.model.payout;
 
 import com.google.gson.annotations.SerializedName;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class ModifyResponse {
@@ -51,9 +51,9 @@ public class ModifyResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ModifyResponse {").append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
-        sb.append("    response: ").append(toIndentedString(response)).append(LINE_BREAK);
+        sb.append("class ModifyResponse {\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    response: ").append(toIndentedString(response)).append("\n");
         sb.append("}");
         return sb.toString();
     }

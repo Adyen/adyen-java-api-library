@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -219,12 +219,12 @@ public class KYCCheckStatusData {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class KYCCheckStatusData {").append(LINE_BREAK);
+        sb.append("class KYCCheckStatusData {\n");
 
-        sb.append("    checkType: ").append(toIndentedString(checkType)).append(LINE_BREAK);
-        sb.append("    summary: ").append(toIndentedString(summary)).append(LINE_BREAK);
-        sb.append("    checkStatus: ").append(toIndentedString(checkStatus)).append(LINE_BREAK);
-        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append(LINE_BREAK);
+        sb.append("    checkType: ").append(toIndentedString(checkType)).append("\n");
+        sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+        sb.append("    checkStatus: ").append(toIndentedString(checkStatus)).append("\n");
+        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append("\n");
         sb.append("}");
         return sb.toString();
     }

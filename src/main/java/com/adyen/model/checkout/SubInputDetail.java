@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -197,14 +197,14 @@ public class SubInputDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SubInputDetail {").append(LINE_BREAK);
+        sb.append("class SubInputDetail {\n");
 
-        sb.append("    items: ").append(toIndentedString(items)).append(LINE_BREAK);
-        sb.append("    key: ").append(toIndentedString(key)).append(LINE_BREAK);
-        sb.append("    optional: ").append(toIndentedString(optional)).append(LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
-        sb.append("    value: ").append(toIndentedString(value)).append(LINE_BREAK);
-        sb.append("    configuration: ").append(toIndentedString(configuration)).append(LINE_BREAK);
+        sb.append("    items: ").append(toIndentedString(items)).append("\n");
+        sb.append("    key: ").append(toIndentedString(key)).append("\n");
+        sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("}");
         return sb.toString();
     }

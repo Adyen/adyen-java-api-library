@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -95,10 +95,10 @@ public class ExchangeMessage {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ExchangeMessage {").append(LINE_BREAK);
+        sb.append("class ExchangeMessage {\n");
 
-        sb.append("    messageCode: ").append(toIndentedString(messageCode)).append(LINE_BREAK);
-        sb.append("    messageDescription: ").append(toIndentedString(messageDescription)).append(LINE_BREAK);
+        sb.append("    messageCode: ").append(toIndentedString(messageCode)).append("\n");
+        sb.append("    messageDescription: ").append(toIndentedString(messageDescription)).append("\n");
         sb.append("}");
         return sb.toString();
     }

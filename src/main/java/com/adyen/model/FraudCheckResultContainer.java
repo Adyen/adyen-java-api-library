@@ -22,7 +22,7 @@ package com.adyen.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -44,9 +44,9 @@ public class FraudCheckResultContainer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class FraudCheckResultContainer {").append(LINE_BREAK);
+        sb.append("class FraudCheckResultContainer {\n");
 
-        sb.append("    fraudCheckResult: ").append(toIndentedString(fraudCheckResult)).append(LINE_BREAK);
+        sb.append("    fraudCheckResult: ").append(toIndentedString(fraudCheckResult)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -138,11 +138,11 @@ public class GetNotificationConfigurationListResponse {
         // Populate the configurations list to provide back in the toString() method
         this.getConfigurations();
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetNotificationConfigurationListResponse {").append(LINE_BREAK);
+        sb.append("class GetNotificationConfigurationListResponse {\n");
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append(LINE_BREAK);
-        sb.append("    configurations: ").append(toIndentedString(configurations)).append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
+        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
+        sb.append("    configurations: ").append(toIndentedString(configurations)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }

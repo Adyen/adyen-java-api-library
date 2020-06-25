@@ -25,7 +25,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -75,9 +75,9 @@ public class GetNotificationConfigurationRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetNotificationConfigurationRequest {").append(LINE_BREAK);
+        sb.append("class GetNotificationConfigurationRequest {\n");
 
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append(LINE_BREAK);
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

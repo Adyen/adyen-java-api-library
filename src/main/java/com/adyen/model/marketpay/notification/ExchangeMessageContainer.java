@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class ExchangeMessageContainer {
@@ -42,9 +42,9 @@ public class ExchangeMessageContainer {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ExchangeMessageContainer {").append(LINE_BREAK);
+        sb.append("class ExchangeMessageContainer {\n");
 
-        sb.append("    exchangeMessage: ").append(toIndentedString(exchangeMessage)).append(LINE_BREAK);
+        sb.append("    exchangeMessage: ").append(toIndentedString(exchangeMessage)).append("\n");
         sb.append("}");
         return sb.toString();
     }

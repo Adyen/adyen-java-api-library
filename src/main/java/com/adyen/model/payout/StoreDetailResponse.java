@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 public class StoreDetailResponse {
@@ -76,11 +76,11 @@ public class StoreDetailResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class StoreDetailResponse {").append(LINE_BREAK);
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append(LINE_BREAK);
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append(LINE_BREAK);
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append(LINE_BREAK);
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append(LINE_BREAK);
+        sb.append("class StoreDetailResponse {\n");
+        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

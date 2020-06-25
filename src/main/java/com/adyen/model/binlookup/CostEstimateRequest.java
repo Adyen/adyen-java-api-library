@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -348,18 +348,18 @@ public class CostEstimateRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CostEstimateRequest {").append(LINE_BREAK);
+        sb.append("class CostEstimateRequest {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append(LINE_BREAK);
-        sb.append("    assumptions: ").append(toIndentedString(assumptions)).append(LINE_BREAK);
-        sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append(LINE_BREAK);
-        sb.append("    encryptedCard: ").append(toIndentedString(encryptedCard)).append(LINE_BREAK);
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
-        sb.append("    merchantDetails: ").append(toIndentedString(merchantDetails)).append(LINE_BREAK);
-        sb.append("    recurring: ").append(toIndentedString(recurring)).append(LINE_BREAK);
-        sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append(LINE_BREAK);
-        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append(LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    assumptions: ").append(toIndentedString(assumptions)).append("\n");
+        sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
+        sb.append("    encryptedCard: ").append(toIndentedString(encryptedCard)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    merchantDetails: ").append(toIndentedString(merchantDetails)).append("\n");
+        sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
+        sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
+        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -106,10 +106,10 @@ public class BilldeskWalletDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BilldeskWalletDetails {").append(LINE_BREAK);
+        sb.append("class BilldeskWalletDetails {\n");
 
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append(LINE_BREAK);
-        sb.append("    type: ").append(toIndentedString(type)).append(LINE_BREAK);
+        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }

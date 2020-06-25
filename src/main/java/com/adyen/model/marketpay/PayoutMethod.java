@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static com.adyen.constants.TextConstants.LINE_BREAK;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -211,13 +211,13 @@ public class PayoutMethod {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayoutMethod {").append(LINE_BREAK);
+        sb.append("class PayoutMethod {\n");
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append(LINE_BREAK);
-        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append(LINE_BREAK);
-        sb.append("    payoutMethodType: ").append(toIndentedString(payoutMethodType)).append(LINE_BREAK);
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append(LINE_BREAK);
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append(LINE_BREAK);
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("    payoutMethodType: ").append(toIndentedString(payoutMethodType)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("}");
         return sb.toString();
     }
