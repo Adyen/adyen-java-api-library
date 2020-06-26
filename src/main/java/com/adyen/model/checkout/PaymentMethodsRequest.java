@@ -37,6 +37,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * PaymentMethodsRequest
  */
@@ -367,16 +370,7 @@ public class PaymentMethodsRequest {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
     /**
      * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android *

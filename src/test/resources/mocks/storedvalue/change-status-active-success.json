@@ -1,0 +1,9 @@
+{
+  "currentBalance": {
+    "currency": "EUR",
+    "value": 1000
+  },
+  "pspReference": "851591629631298F",
+  "resultCode": "Success",
+  "authCode": "123456"
+}

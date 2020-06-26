@@ -21,10 +21,13 @@
 
 package com.adyen.model.checkout.details;
 
-import java.util.Objects;
-
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+
+import static com.adyen.util.Util.toIndentedString;
 
 
 /**
@@ -166,17 +169,6 @@ public class DokuDetails implements PaymentMethodDetails {
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

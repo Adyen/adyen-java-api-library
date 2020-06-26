@@ -24,6 +24,8 @@ import com.adyen.enums.Environment;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HttpURLConnectionClient;
 
+import java.util.Optional;
+
 public class Client {
     private ClientInterface httpClient;
     private Config config;
@@ -42,7 +44,7 @@ public class Client {
     public static final String MARKETPAY_FUND_API_VERSION = "v5";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "7.0.1";
+    public static final String LIB_VERSION = "7.1.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v52";
@@ -51,6 +53,8 @@ public class Client {
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
+    public static final String STORED_VALUE_PAL_SUFFIX = "/pal/servlet/StoredValue/";
+    public static final String STORED_VALUE_API_VERSION = "v46";
     public static final String ENDPOINT_PROTOCOL = "https://";
 
     public Client() {
@@ -181,9 +185,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        if (this.httpClient == null) {
-            this.httpClient = new HttpURLConnectionClient();
-        }
+        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(() -> new HttpURLConnectionClient());
         return this.httpClient;
     }
 

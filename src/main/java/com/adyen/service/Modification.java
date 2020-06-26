@@ -20,7 +20,6 @@
  */
 package com.adyen.service;
 
-import java.io.IOException;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.RequestOptions;
@@ -44,6 +43,8 @@ import com.adyen.service.resource.modification.Refund;
 import com.adyen.service.resource.modification.TechnicalCancel;
 import com.adyen.service.resource.modification.VoidPendingRefund;
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
 
 public class Modification extends Service {
     private CancelOrRefund cancelOrRefund;
@@ -218,21 +219,15 @@ public class Modification extends Service {
     }
 
     private String serializeRequest(AbstractModificationRequest modificationRequest) {
-        String jsonRequest = GSON.toJson(modificationRequest);
-
-        return jsonRequest;
+        return GSON.toJson(modificationRequest);
     }
 
     private String serializeDonationRequest(DonationRequest donationRequest) {
-        String jsonRequest = GSON.toJson(donationRequest);
-
-        return jsonRequest;
+        return GSON.toJson(donationRequest);
     }
 
     private ModificationResult deserializeResponse(String jsonResult) {
-        ModificationResult modificationResult = GSON.fromJson(jsonResult, new TypeToken<ModificationResult>() {
+        return GSON.fromJson(jsonResult, new TypeToken<ModificationResult>() {
         }.getType());
-
-        return modificationResult;
     }
 }

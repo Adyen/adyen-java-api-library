@@ -41,15 +41,11 @@ public class NotificationHandler {
     }
 
     public NotificationRequest handleNotificationJson(String json) {
-        NotificationRequest notificationRequest = GSON.fromJson(json, new TypeToken<NotificationRequest>() {
+        return GSON.fromJson(json, new TypeToken<NotificationRequest>() {
         }.getType());
-
-        return notificationRequest;
     }
 
     public GenericNotification handleMarketpayNotificationJson(String json) {
-        GenericNotification notificationMessage = marketPayGson.fromJson(json, GenericNotification.class);
-
-        return notificationMessage;
+        return marketPayGson.fromJson(json, GenericNotification.class);
     }
 }

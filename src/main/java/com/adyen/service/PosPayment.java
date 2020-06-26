@@ -50,9 +50,7 @@ public class PosPayment extends ApiKeyAuthenticatedService {
     public ConnectedTerminalsResponse connectedTerminals(ConnectedTerminalsRequest connectedTerminalsRequest) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(connectedTerminalsRequest);
         String jsonResult = connectedTerminals.request(jsonRequest);
-        ConnectedTerminalsResponse connectedTerminalsResponse = GSON.fromJson(jsonResult, new TypeToken<ConnectedTerminalsResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<ConnectedTerminalsResponse>() {
         }.getType());
-
-        return connectedTerminalsResponse;
     }
 }

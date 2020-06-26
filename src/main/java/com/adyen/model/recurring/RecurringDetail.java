@@ -20,10 +20,6 @@
  */
 package com.adyen.model.recurring;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 import com.adyen.model.Address;
 import com.adyen.model.BankAccount;
 import com.adyen.model.Card;
@@ -31,6 +27,14 @@ import com.adyen.model.ELV;
 import com.adyen.model.Name;
 import com.adyen.model.TokenDetails;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * RecurringDetail
@@ -458,15 +462,6 @@ public class RecurringDetail {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 }
 

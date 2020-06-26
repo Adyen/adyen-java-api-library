@@ -24,6 +24,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 public class ErrorFieldTypeContainer {
     @SerializedName("ErrorFieldType")
     private ErrorFieldType errorFieldType;
@@ -71,12 +74,5 @@ public class ErrorFieldTypeContainer {
         sb.append("    errorFieldType: ").append(toIndentedString(errorFieldType)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

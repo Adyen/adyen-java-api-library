@@ -20,15 +20,18 @@
  */
 package com.adyen.model;
 
-import com.adyen.Util.Util;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
+import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 import java.util.Objects;
+
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentRequest
@@ -193,7 +196,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         for (InvoiceLine invoiceLine : invoiceLines) {
             StringBuilder sb = new StringBuilder();
             sb.append("openinvoicedata.line");
-            sb.append(Integer.toString(count));
+            sb.append(count);
             String lineNumber = sb.toString();
 
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".currencyCode").toString(), invoiceLine.getCurrencyCode());
@@ -226,7 +229,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
             StringBuilder sb = new StringBuilder();
             sb.append("split.item");
-            sb.append(Integer.toString(count));
+            sb.append(count);
             String lineNumber = sb.toString();
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".amount").toString(), splitPaymentItem.getAmount().toString());
             this.getOrCreateAdditionalData().put(new StringBuilder().append(lineNumber).append(".type").toString(), splitPaymentItem.getType());
@@ -393,16 +396,6 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         sb.append("}");
 
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

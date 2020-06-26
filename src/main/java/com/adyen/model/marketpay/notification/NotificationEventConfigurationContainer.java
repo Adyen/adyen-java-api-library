@@ -21,8 +21,12 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * NotificationEventConfiguration
@@ -66,13 +70,6 @@ public class NotificationEventConfigurationContainer {
         sb.append("    notificationEventConfiguration: ").append(toIndentedString(notificationEventConfiguration)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

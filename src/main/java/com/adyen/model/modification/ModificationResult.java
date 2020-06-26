@@ -20,13 +20,16 @@
  */
 package com.adyen.model.modification;
 
+import com.adyen.model.Split;
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.Split;
-import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * ModificationResult
@@ -168,17 +171,6 @@ public class ModificationResult {
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

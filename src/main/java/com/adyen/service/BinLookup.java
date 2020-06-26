@@ -27,10 +27,8 @@ public class BinLookup extends ApiKeyAuthenticatedService {
 
         String jsonResult = get3dsAvailability.request(jsonRequest);
 
-        ThreeDSAvailabilityResponse threeDSAvailabilityResponse = GSON.fromJson(jsonResult, new TypeToken<ThreeDSAvailabilityResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<ThreeDSAvailabilityResponse>() {
         }.getType());
-
-        return threeDSAvailabilityResponse;
     }
 
     public CostEstimateResponse getCostEstimate(CostEstimateRequest costEstimateRequest) throws Exception {
@@ -38,10 +36,8 @@ public class BinLookup extends ApiKeyAuthenticatedService {
 
         String jsonResult = getCostEstimate.request(jsonRequest);
 
-        CostEstimateResponse costEstimateResponse = GSON.fromJson(jsonResult, new TypeToken<CostEstimateResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<CostEstimateResponse>() {
         }.getType());
-
-        return costEstimateResponse;
     }
 
 }

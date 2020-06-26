@@ -24,6 +24,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 public class ExchangeMessageContainer {
 
     @SerializedName("ExchangeMessage")
@@ -44,13 +47,6 @@ public class ExchangeMessageContainer {
         sb.append("    exchangeMessage: ").append(toIndentedString(exchangeMessage)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
     @Override

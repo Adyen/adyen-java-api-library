@@ -30,6 +30,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Map;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 public class SubmitRequest {
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
@@ -224,15 +227,5 @@ public class SubmitRequest {
         sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

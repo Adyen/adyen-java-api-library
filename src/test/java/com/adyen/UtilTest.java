@@ -1,9 +1,9 @@
 package com.adyen;
 
-import com.adyen.Util.HMACValidator;
-import com.adyen.Util.Util;
 import com.adyen.model.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
+import com.adyen.util.HMACValidator;
+import com.adyen.util.Util;
 import org.junit.Test;
 
 import java.math.BigDecimal;

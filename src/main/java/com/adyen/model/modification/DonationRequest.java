@@ -21,9 +21,13 @@
 
 package com.adyen.model.modification;
 
-import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
 import com.adyen.model.Amount;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
+
+
+import static com.adyen.util.Util.toIndentedString;
 /**
  * DonationRequest
  */
@@ -166,15 +170,6 @@ public class DonationRequest {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

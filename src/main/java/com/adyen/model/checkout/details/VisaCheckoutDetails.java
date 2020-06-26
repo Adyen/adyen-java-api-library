@@ -32,6 +32,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * VisaCheckoutDetails
  */
@@ -183,15 +186,6 @@ public class VisaCheckoutDetails implements PaymentMethodDetails {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }

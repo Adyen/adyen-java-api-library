@@ -20,8 +20,10 @@
  */
 package com.adyen.model.hpp;
 
-import com.adyen.Util.Util;
 import com.google.gson.annotations.SerializedName;
+
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class Issuer {
     @SerializedName("issuerId")
@@ -51,8 +53,8 @@ public class Issuer {
         StringBuilder sb = new StringBuilder();
         sb.append("class Issuer {\n");
 
-        sb.append("    issuerId: ").append(Util.toIndentedString(issuerId)).append("\n");
-        sb.append("    name: ").append(Util.toIndentedString(name)).append("\n");
+        sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("}");
         return sb.toString();
     }

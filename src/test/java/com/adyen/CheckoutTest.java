@@ -20,6 +20,7 @@
  */
 package com.adyen;
 
+import com.adyen.constants.BrandCodes;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.*;
@@ -1242,6 +1243,34 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test Payments flow for with Network tokenization
+     */
+    @Test
+    public void TestPaymentsNetworkSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-network-success.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsNetworkCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("MCC123456789012", paymentsResponse.getAdditionalData().get("networkTxReference"));
+        assertEquals("8535296650153317", paymentsResponse.getPspReference());
+    }
+
+    /**
+     * Test RiskData inside /payments
+     */
+    @Test
+    public void TestRiskDataInRequest() {
+        RiskData riskData = new RiskData();
+        riskData.setClientData("IOfW3k9G2PvXFu2j");
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setRiskData(riskData);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        assertTrue(jsonRequest.contains("riskData"));
+        assertTrue(jsonRequest.contains("clientData\": \"IOfW3k9G2PvXFu2j\"\n"));
+    }
+
+    /**
      * Returns a sample PaymentSessionRequest object with test data
      */
 
@@ -1284,6 +1313,33 @@ public class CheckoutTest extends BaseTest {
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+
+        return paymentsRequest;
+    }
+
+    /**
+     * Returns a sample PaymentsRequest object with type networkToken and brand visa
+     */
+    protected PaymentsRequest createPaymentsNetworkCheckoutRequest() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+
+        paymentsRequest.setReference("Your order number");
+        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
+        defaultPaymentMethodDetails.setType("networkToken");
+        defaultPaymentMethodDetails.setBrand(BrandCodes.MASTERCARD);
+        defaultPaymentMethodDetails.setExpiryMonth("08");
+        defaultPaymentMethodDetails.setExpiryYear("2020");
+        defaultPaymentMethodDetails.setHolderName("CARDHOLDER_NAME");
+        defaultPaymentMethodDetails.setNumber("5555444433331111");
+        defaultPaymentMethodDetails.setNetworkPaymentReference("MCC123456789012");
+
+        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+
+        paymentsRequest.setReturnUrl("https://your-company.com/...");
+        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+        paymentsRequest.setShopperReference("YOUR_SHOPPER_REFERENCE");
+        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARD_ON_FILE);
 
         return paymentsRequest;
     }

@@ -36,6 +36,9 @@ import java.util.Map;
 import java.util.Objects;
 
 
+import static com.adyen.util.Util.toIndentedString;
+
+
 /**
  * AbstractPaymentRequest Base for PaymentRequest and PaymentRequest3D
  */
@@ -1005,16 +1008,6 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         keys.stream().forEach(s -> nonSensitiveAdditionalData.computeIfPresent(s, (s1, s2) -> "***"));
 
         return nonSensitiveAdditionalData.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

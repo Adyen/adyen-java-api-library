@@ -21,10 +21,10 @@
 
 package com.adyen.model.checkout;
 
-import com.adyen.Util.DateUtil;
 import com.adyen.model.Amount;
 import com.adyen.model.FraudResult;
 import com.adyen.model.ThreeDS2Result;
+import com.adyen.util.DateUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,6 +54,8 @@ import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
 import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentsResponse
@@ -457,17 +459,6 @@ public class PaymentsResponse {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
-    /**
      * The result of the payment. Possible values:
      * * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions.
      * * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state.
@@ -554,11 +545,11 @@ public class PaymentsResponse {
     }
 
     public boolean get3DOffered() {
-        return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_OFFERERED));
+        return "true".equals(getAdditionalDataByKey(THREE_D_OFFERERED));
     }
 
     public boolean get3DAuthenticated() {
-        return String.valueOf("true").equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
+        return "true".equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
     }
 
     public String getBoletoBarCodeReference() {

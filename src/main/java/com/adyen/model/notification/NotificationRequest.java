@@ -25,6 +25,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * NotificationRequest model class
  */
@@ -68,16 +71,5 @@ public class NotificationRequest {
         sb.append("    notificationItems: ").append(toIndentedString(notificationItemContainers)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 }

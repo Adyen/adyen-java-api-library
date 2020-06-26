@@ -20,7 +20,6 @@
  */
 package com.adyen.model.checkout;
 
-import com.adyen.Util.Util;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -34,6 +33,7 @@ import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
+import com.adyen.util.Util;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,6 +50,8 @@ import java.util.Map;
 import java.util.Objects;
 
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
+
+import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentsRequest
@@ -194,6 +196,9 @@ public class PaymentsRequest {
 
     @SerializedName("threeDSAuthenticationOnly")
     private Boolean threeDSAuthenticationOnly = null;
+
+    @SerializedName("riskData")
+    private RiskData riskData = null;
 
     public PaymentsRequest() {
         applicationInfo = new ApplicationInfo();
@@ -1274,6 +1279,24 @@ public class PaymentsRequest {
         this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     }
 
+    public PaymentsRequest riskData(RiskData riskData) {
+        this.riskData = riskData;
+        return this;
+    }
+
+    /**
+     * Get riskData
+     *
+     * @return riskData
+     **/
+    public RiskData getRiskData() {
+        return riskData;
+    }
+
+    public void setRiskData(RiskData riskData) {
+        this.riskData = riskData;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1341,7 +1364,8 @@ public class PaymentsRequest {
                 && Objects.equals(store, paymentsRequest.store)
                 && Objects.equals(enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
                 && Objects.equals(threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly)
-                && Objects.equals(selectedBrand, paymentsRequest.selectedBrand);
+                && Objects.equals(selectedBrand, paymentsRequest.selectedBrand)
+                && Objects.equals(riskData, paymentsRequest.riskData);
     }
 
     @Override
@@ -1404,7 +1428,8 @@ public class PaymentsRequest {
                 enableRealTimeUpdate,
                 threeDSAuthenticationOnly,
                 store,
-                selectedBrand);
+                selectedBrand,
+                riskData);
     }
 
     @Override
@@ -1471,17 +1496,8 @@ public class PaymentsRequest {
           + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + "\n"
           + "    selectedBrand: " + toIndentedString(selectedBrand) + "\n"
           + "    store: " + toIndentedString(store) + "\n"
+          + "    riskData: " + toIndentedString(riskData) + "\n"
           + "}";
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
-     */
-    private static String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
     /**

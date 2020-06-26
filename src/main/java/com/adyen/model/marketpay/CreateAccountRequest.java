@@ -32,6 +32,9 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * CreateAccountRequest
  */
@@ -233,15 +236,6 @@ public class CreateAccountRequest {
         return sb.toString();
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+
 
 }
