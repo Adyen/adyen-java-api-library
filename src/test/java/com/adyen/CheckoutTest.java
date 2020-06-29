@@ -1275,7 +1275,7 @@ public class CheckoutTest extends BaseTest {
     public void TestOrdersSuccess() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/checkout/orders-success.json");
         Checkout checkout = new Checkout(client);
-        CheckoutCreateOrderRequest checkoutCreateOrderRequest = checkoutCreateOrderRequest();
+        CheckoutCreateOrderRequest checkoutCreateOrderRequest = createCheckoutCreateOrderRequest();
         CheckoutCreateOrderResponse checkoutCreateOrderResponse = checkout.orders(checkoutCreateOrderRequest);
         assertEquals("2020-06-25T20:01:07Z", checkoutCreateOrderResponse.getExpiresAt());
         assertEquals("8515930288670953", checkoutCreateOrderResponse.getPspReference());
@@ -1309,7 +1309,7 @@ public class CheckoutTest extends BaseTest {
     public void TestOrdersCancelSuccess() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/checkout/orders-cancel-success.json");
         Checkout checkout = new Checkout(client);
-        CheckoutCancelOrderRequest checkoutCancelOrderRequest = checkoutCancelOrderRequest();
+        CheckoutCancelOrderRequest checkoutCancelOrderRequest = createCheckoutCancelOrderRequest();
         CheckoutCancelOrderResponse checkoutCancelOrderResponse = checkout.ordersCancel(checkoutCancelOrderRequest);
         assertEquals("8515931182066678", checkoutCancelOrderResponse.getPspReference());
         assertEquals("Received", checkoutCancelOrderResponse.getResultCode());
