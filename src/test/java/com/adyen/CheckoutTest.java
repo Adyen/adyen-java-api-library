@@ -1438,7 +1438,7 @@ public class CheckoutTest extends BaseTest {
         return createPaymentLinkRequest;
     }
 
-    protected CheckoutCreateOrderRequest checkoutCreateOrderRequest() {
+    protected CheckoutCreateOrderRequest createCheckoutCreateOrderRequest() {
         CheckoutCreateOrderRequest checkoutCreateOrderRequest = new CheckoutCreateOrderRequest();
         checkoutCreateOrderRequest.setAmount(createAmountObject("EUR", 2500L));
         checkoutCreateOrderRequest.setMerchantAccount("TestMerchant");
