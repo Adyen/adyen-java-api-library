@@ -1461,7 +1461,7 @@ public class CheckoutTest extends BaseTest {
         return paymentsRequest;
     }
 
-    protected CheckoutCancelOrderRequest checkoutCancelOrderRequest() {
+    protected CheckoutCancelOrderRequest createCheckoutCancelOrderRequest() {
         CheckoutCancelOrderRequest checkoutCancelOrderRequest = new CheckoutCancelOrderRequest();
         checkoutCancelOrderRequest.setMerchantAccount("TestMerchant");
         CheckoutOrder checkoutOrder = new CheckoutOrder();
