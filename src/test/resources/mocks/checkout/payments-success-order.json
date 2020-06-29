@@ -1,0 +1,19 @@
+{
+  "pspReference": "881593078164515C",
+  "resultCode": "Authorised",
+  "order": {
+    "expiresAt": "2020-06-25T20:01:07Z",
+    "orderData": "Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...",
+    "pspReference": "8515930288670953",
+    "reference": "order reference",
+    "remainingAmount": {
+      "currency": "EUR",
+      "value": 1500
+    }
+  },
+  "amount": {
+    "currency": "EUR",
+    "value": 1000
+  },
+  "merchantReference": "payment reference"
+}
