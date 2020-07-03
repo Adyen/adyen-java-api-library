@@ -45,49 +45,8 @@ public class ModificationResult {
     @SerializedName("splits")
     private List<Split> splits = null;
 
-
-    /**
-     * the response which indicates if the modification request has been received for processing.
-     */
-    public enum ResponseEnum {
-        @SerializedName("[capture-received]")
-        CAPTURE_RECEIVED_("[capture-received]"),
-
-        @SerializedName("[cancel-received]")
-        CANCEL_RECEIVED_("[cancel-received]"),
-
-        @SerializedName("[technical-cancel-received]")
-        TECHNICAL_CANCEL_RECEIVED_("[technical-cancel-received]"),
-
-        @SerializedName("[refund-received]")
-        REFUND_RECEIVED_("[refund-received]"),
-
-        @SerializedName("[cancelOrRefund-received]")
-        CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]"),
-
-        @SerializedName("[adjustAuthorisation-received]")
-        ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]"),
-
-        @SerializedName("[voidPendingRefund-received]")
-        VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]"),
-
-        @SerializedName("[donation-received]")
-        DONATION_RECEIVED_("[donation-received]");
-
-        private String value;
-
-        ResponseEnum(String value) {
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-    }
-
     @SerializedName("response")
-    private ResponseEnum response = null;
+    private String response = null;
 
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
@@ -110,7 +69,7 @@ public class ModificationResult {
         this.pspReference = pspReference;
     }
 
-    public ModificationResult response(ResponseEnum response) {
+    public ModificationResult response(String response) {
         this.response = response;
         return this;
     }
@@ -120,11 +79,11 @@ public class ModificationResult {
      *
      * @return response
      **/
-    public ResponseEnum getResponse() {
+    public String getResponse() {
         return response;
     }
 
-    public void setResponse(ResponseEnum response) {
+    public void setResponse(String response) {
         this.response = response;
     }
 
