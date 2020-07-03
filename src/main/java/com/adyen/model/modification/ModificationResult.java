@@ -45,48 +45,6 @@ public class ModificationResult {
     @SerializedName("splits")
     private List<Split> splits = null;
 
-
-    /**
-     * @deprecated As of library version 8.0.0, the response type for ModificationResult is a String
-     */
-    @Deprecated
-    public enum ResponseEnum {
-        @SerializedName("[capture-received]")
-        CAPTURE_RECEIVED_("[capture-received]"),
-
-        @SerializedName("[cancel-received]")
-        CANCEL_RECEIVED_("[cancel-received]"),
-
-        @SerializedName("[technical-cancel-received]")
-        TECHNICAL_CANCEL_RECEIVED_("[technical-cancel-received]"),
-
-        @SerializedName("[refund-received]")
-        REFUND_RECEIVED_("[refund-received]"),
-
-        @SerializedName("[cancelOrRefund-received]")
-        CANCELORREFUND_RECEIVED_("[cancelOrRefund-received]"),
-
-        @SerializedName("[adjustAuthorisation-received]")
-        ADJUSTAUTHORISATION_RECEIVED_("[adjustAuthorisation-received]"),
-
-        @SerializedName("[voidPendingRefund-received]")
-        VOIDPENDINGREFUND_RECEIVED_("[voidPendingRefund-received]"),
-
-        @SerializedName("[donation-received]")
-        DONATION_RECEIVED_("[donation-received]");
-
-        private String value;
-
-        ResponseEnum(String value) {
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-    }
-
     @SerializedName("response")
     private String response = null;
 
