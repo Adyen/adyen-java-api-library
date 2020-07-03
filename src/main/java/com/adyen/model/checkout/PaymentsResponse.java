@@ -113,6 +113,9 @@ public class PaymentsResponse {
     @SerializedName("amount")
     private Amount amount = null;
 
+    @SerializedName("order")
+    private CheckoutOrderResponse order = null;
+
     public PaymentsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
         return this;
@@ -397,6 +400,24 @@ public class PaymentsResponse {
         this.amount = amount;
     }
 
+    public PaymentsResponse order(CheckoutOrderResponse order) {
+        this.order = order;
+        return this;
+    }
+
+    /**
+     * Get order
+     * @return order
+     **/
+    public CheckoutOrderResponse getOrder() {
+        return order;
+    }
+
+    public void setOrder(CheckoutOrderResponse order) {
+        this.order = order;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -423,14 +444,15 @@ public class PaymentsResponse {
                 && Objects.equals(this.authentication, paymentsResponse.authentication)
                 && Objects.equals(this.threeDS2Result, paymentsResponse.threeDS2Result)
                 && Objects.equals(this.action, paymentsResponse.action)
-                && Objects.equals(this.amount, paymentsResponse.amount);
+                && Objects.equals(this.amount, paymentsResponse.amount)
+                && Objects.equals(this.order, paymentsResponse.order);
 
 
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode, serviceError, authResponse, merchantReference, outputDetails, authentication, threeDS2Result, action, amount);
+        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode, serviceError, authResponse, merchantReference, outputDetails, authentication, threeDS2Result, action, amount, order);
     }
 
     @Override
@@ -454,6 +476,7 @@ public class PaymentsResponse {
         sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
         sb.append("    action: ").append(toIndentedString(action)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    order: ").append(toIndentedString(order)).append("\n");
         sb.append("}");
         return sb.toString();
     }

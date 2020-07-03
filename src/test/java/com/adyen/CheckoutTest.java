@@ -25,6 +25,7 @@ import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.*;
 import com.adyen.model.checkout.details.*;
+import com.adyen.model.storedvalue.StoredValueLoadResponse;
 import com.adyen.service.Checkout;
 import com.adyen.service.exception.ApiException;
 import com.google.gson.annotations.SerializedName;
@@ -1270,6 +1271,50 @@ public class CheckoutTest extends BaseTest {
         assertTrue(jsonRequest.contains("clientData\": \"IOfW3k9G2PvXFu2j\"\n"));
     }
 
+    @Test
+    public void TestOrdersSuccess() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/orders-success.json");
+        Checkout checkout = new Checkout(client);
+        CheckoutCreateOrderRequest checkoutCreateOrderRequest = createCheckoutCreateOrderRequest();
+        CheckoutCreateOrderResponse checkoutCreateOrderResponse = checkout.orders(checkoutCreateOrderRequest);
+        assertEquals("2020-06-25T20:01:07Z", checkoutCreateOrderResponse.getExpiresAt());
+        assertEquals("8515930288670953", checkoutCreateOrderResponse.getPspReference());
+        assertEquals(CheckoutCreateOrderResponse.ResultCodeEnum.SUCCESS, checkoutCreateOrderResponse.getResultCode());
+        assertEquals("Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...", checkoutCreateOrderResponse.getOrderData());
+        assertEquals("order reference", checkoutCreateOrderResponse.getReference());
+        assertEquals("EUR", checkoutCreateOrderResponse.getRemainingAmount().getCurrency());
+        assertEquals((Long)2500L, checkoutCreateOrderResponse.getRemainingAmount().getValue());
+    }
+
+    @Test
+    public void TestPaymentsWithOrderSuccess() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/payments-success-order.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsRequestWithOrder();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("payment reference", paymentsResponse.getMerchantReference());
+        assertEquals("881593078164515C", paymentsResponse.getPspReference());
+        assertEquals(PaymentsResponse.ResultCodeEnum.AUTHORISED, paymentsResponse.getResultCode());
+        assertEquals("EUR", paymentsResponse.getAmount().getCurrency());
+        assertEquals((Long)1000L, paymentsResponse.getAmount().getValue());
+        assertEquals("Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...", paymentsResponse.getOrder().getOrderData());
+        assertEquals("order reference", paymentsResponse.getOrder().getReference());
+        assertEquals("8515930288670953", paymentsResponse.getOrder().getPspReference());
+        assertEquals("2020-06-25T20:01:07Z", paymentsResponse.getOrder().getExpiresAt());
+        assertEquals("EUR", paymentsResponse.getOrder().getRemainingAmount().getCurrency());
+        assertEquals((Long)1500L, paymentsResponse.getOrder().getRemainingAmount().getValue());
+    }
+
+    @Test
+    public void TestOrdersCancelSuccess() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/orders-cancel-success.json");
+        Checkout checkout = new Checkout(client);
+        CheckoutCancelOrderRequest checkoutCancelOrderRequest = createCheckoutCancelOrderRequest();
+        CheckoutCancelOrderResponse checkoutCancelOrderResponse = checkout.ordersCancel(checkoutCancelOrderRequest);
+        assertEquals("8515931182066678", checkoutCancelOrderResponse.getPspReference());
+        assertEquals("Received", checkoutCancelOrderResponse.getResultCode());
+    }
+
     /**
      * Returns a sample PaymentSessionRequest object with test data
      */
@@ -1391,6 +1436,39 @@ public class CheckoutTest extends BaseTest {
         createPaymentLinkRequest.setDeliveryAddress(address);
 
         return createPaymentLinkRequest;
+    }
+
+    protected CheckoutCreateOrderRequest createCheckoutCreateOrderRequest() {
+        CheckoutCreateOrderRequest checkoutCreateOrderRequest = new CheckoutCreateOrderRequest();
+        checkoutCreateOrderRequest.setAmount(createAmountObject("EUR", 2500L));
+        checkoutCreateOrderRequest.setMerchantAccount("TestMerchant");
+        checkoutCreateOrderRequest.setReference("order reference");
+        return checkoutCreateOrderRequest;
+    }
+
+    protected PaymentsRequest createPaymentsRequestWithOrder() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+        paymentsRequest.setReference("payment reference");
+        paymentsRequest.setAmount(createAmountObject("EUR", 1000L));
+        paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737", "holderName");
+
+        CheckoutOrder checkoutOrder = new CheckoutOrder();
+        checkoutOrder.setOrderData("Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...");
+        checkoutOrder.setPspReference("8515930288670953");
+        paymentsRequest.setOrder(checkoutOrder);
+
+        paymentsRequest.setMerchantAccount("TestMerchant");
+        return paymentsRequest;
+    }
+
+    protected CheckoutCancelOrderRequest createCheckoutCancelOrderRequest() {
+        CheckoutCancelOrderRequest checkoutCancelOrderRequest = new CheckoutCancelOrderRequest();
+        checkoutCancelOrderRequest.setMerchantAccount("TestMerchant");
+        CheckoutOrder checkoutOrder = new CheckoutOrder();
+        checkoutOrder.setPspReference("8515930288670953");
+        checkoutOrder.setOrderData("Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...");
+        checkoutCancelOrderRequest.setOrder(checkoutOrder);
+        return checkoutCancelOrderRequest;
     }
 }
 
