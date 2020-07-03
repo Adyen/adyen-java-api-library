@@ -47,8 +47,9 @@ public class ModificationResult {
 
 
     /**
-     * the response which indicates if the modification request has been received for processing.
+     * @deprecated As of library version 8.0.0, the response type for ModificationResult is a String
      */
+    @Deprecated
     public enum ResponseEnum {
         @SerializedName("[capture-received]")
         CAPTURE_RECEIVED_("[capture-received]"),
@@ -87,7 +88,7 @@ public class ModificationResult {
     }
 
     @SerializedName("response")
-    private ResponseEnum response = null;
+    private String response = null;
 
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
@@ -110,7 +111,7 @@ public class ModificationResult {
         this.pspReference = pspReference;
     }
 
-    public ModificationResult response(ResponseEnum response) {
+    public ModificationResult response(String response) {
         this.response = response;
         return this;
     }
@@ -120,11 +121,11 @@ public class ModificationResult {
      *
      * @return response
      **/
-    public ResponseEnum getResponse() {
+    public String getResponse() {
         return response;
     }
 
-    public void setResponse(ResponseEnum response) {
+    public void setResponse(String response) {
         this.response = response;
     }
 
