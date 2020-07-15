@@ -65,7 +65,7 @@ public class NexoCrypto {
 
         SaleToPOISecuredMessage saleToPoiSecuredMessage = new SaleToPOISecuredMessage();
         saleToPoiSecuredMessage.setMessageHeader(messageHeader);
-        saleToPoiSecuredMessage.setNexoBlob(Base64.encodeBase64String(encryptedSaleToPoiMessage));
+        saleToPoiSecuredMessage.setNexoBlob(new String(Base64.encodeBase64(encryptedSaleToPoiMessage)));
         saleToPoiSecuredMessage.setSecurityTrailer(securityTrailer);
 
         return saleToPoiSecuredMessage;
@@ -74,7 +74,7 @@ public class NexoCrypto {
     public String decrypt(SaleToPOISecuredMessage saleToPoiSecuredMessage, SecurityKey securityKey) throws Exception {
         validateSecurityKey(securityKey);
 
-        byte[] encryptedSaleToPoiMessageByteArray = Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob());
+        byte[] encryptedSaleToPoiMessageByteArray = Base64.decodeBase64(saleToPoiSecuredMessage.getNexoBlob().getBytes());
         NexoDerivedKey derivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
         byte[] ivNonce = saleToPoiSecuredMessage.getSecurityTrailer().getNonce();
         byte[] decryptedSaleToPoiMessageByteArray = crypt(encryptedSaleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.DECRYPT_MODE);
