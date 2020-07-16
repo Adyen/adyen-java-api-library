@@ -20,6 +20,8 @@
  */
 package com.adyen;
 
+import java.io.InputStream;
+
 import com.adyen.enums.Environment;
 
 public class Config {
@@ -49,6 +51,7 @@ public class Config {
     protected String terminalApiCloudEndpoint;
     protected String terminalApiLocalEndpoint;
     protected String terminalCertificatePath;
+    protected InputStream terminalCertificateStream;
 
     public Config() {
         // do nothing
@@ -176,6 +179,14 @@ public class Config {
 
     public void setTerminalCertificatePath(String terminalCertificatePath) {
         this.terminalCertificatePath = terminalCertificatePath;
+    }
+
+    public InputStream getTerminalCertificateStream() {
+        return terminalCertificateStream;
+    }
+
+    public void setTerminalCertificateStream(InputStream terminalCertificateStream) {
+        this.terminalCertificateStream = terminalCertificateStream;
     }
 
     public int getConnectionTimeoutMillis() {
