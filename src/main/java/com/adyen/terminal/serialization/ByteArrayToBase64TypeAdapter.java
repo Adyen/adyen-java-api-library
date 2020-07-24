@@ -34,10 +34,10 @@ import java.lang.reflect.Type;
 
 public class ByteArrayToBase64TypeAdapter implements JsonSerializer<byte[]>, JsonDeserializer<byte[]> {
     public byte[] deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        return Base64.decodeBase64(json.getAsString());
+        return Base64.decodeBase64(json.getAsString().getBytes());
     }
 
     public JsonElement serialize(byte[] src, Type typeOfSrc, JsonSerializationContext context) {
-        return new JsonPrimitive(Base64.encodeBase64String(src));
+        return new JsonPrimitive(new String(Base64.encodeBase64(src)));
     }
 }
