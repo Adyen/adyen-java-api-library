@@ -1,0 +1,37 @@
+{
+  "companyAccount": "DemoCompany",
+  "merchantAccounts": [
+    {
+      "merchantAccount": "TestMerchant",
+      "stores": [
+        {
+          "store": "MyStore",
+          "inStoreTerminals": [
+            "P400Plus-375039202"
+          ]
+        }
+      ]
+    },
+    {
+      "merchantAccount": "TestMerchant2",
+      "inStoreTerminals": [
+        "P400Plus-375039302"
+      ],
+      "stores": [
+        {
+          "store": "MyStore",
+          "inStoreTerminals": [
+            "V400m-446489245",
+            "V400m-446489310"
+          ]
+        }
+      ]
+    },
+    {
+      "merchantAccount": "TestMerchant3",
+      "inStoreTerminals": [
+        "VX690-421415605"
+      ]
+    }
+  ]
+}

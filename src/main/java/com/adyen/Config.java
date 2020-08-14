@@ -50,6 +50,10 @@ public class Config {
     protected String terminalApiLocalEndpoint;
     protected String terminalCertificatePath;
 
+    //Terminal Management API specific
+    protected String posTerminalManagementApiEndpoint;
+
+
     public Config() {
         // do nothing
     }
@@ -192,6 +196,14 @@ public class Config {
 
     public void setReadTimeoutMillis(int readTimeoutMillis) {
         this.readTimeoutMillis = readTimeoutMillis;
+    }
+
+    public String getPosTerminalManagementApiEndpoint() {
+        return posTerminalManagementApiEndpoint;
+    }
+
+    public void setPosTerminalManagementApiEndpoint(String posTerminalManagementApiEndpoint) {
+        this.posTerminalManagementApiEndpoint = posTerminalManagementApiEndpoint;
     }
 
 }
