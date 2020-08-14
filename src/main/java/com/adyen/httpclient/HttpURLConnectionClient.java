@@ -271,7 +271,7 @@ public class HttpURLConnectionClient implements ClientInterface {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(certificateInput);
 
-                KeyStore keyStore = KeyStore.getInstance("JKS");
+                KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
                 keyStore.load(null, null);
                 keyStore.setCertificateEntry("TerminalCertificate", cert);
 
