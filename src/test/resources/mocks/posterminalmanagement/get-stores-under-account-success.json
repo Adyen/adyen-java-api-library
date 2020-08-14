@@ -1,0 +1,64 @@
+{
+  "stores": [
+    {
+      "store": "DemoStore",
+      "description": "DemoStore",
+      "address": {
+        "city": "Amsterdam",
+        "countryCode": "NL",
+        "postalCode": "1011",
+        "streetAddress": "test street"
+      },
+      "status": "Active",
+      "merchantAccountCode": "TestMerchant"
+    },
+    {
+      "store": "DemoStore1",
+      "description": "DemoStore1",
+      "address": {
+        "city": "Amsterdam",
+        "countryCode": "NL",
+        "postalCode": "1011",
+        "streetAddress": "test street"
+      },
+      "status": "Active",
+      "merchantAccountCode": "TestMerchant1"
+    },
+    {
+      "store": "DemoStore2",
+      "description": "DemoStore2",
+      "address": {
+        "city": "Amsterdam",
+        "countryCode": "NL",
+        "postalCode": "1011",
+        "streetAddress": "test street"
+      },
+      "status": "Active",
+      "merchantAccountCode": "TestMerchant2"
+    },
+    {
+      "store": "MyStore",
+      "description": "MyStore",
+      "address": {
+        "city": "Amsterdam",
+        "countryCode": "NL",
+        "postalCode": "1011",
+        "streetAddress": "test street"
+      },
+      "status": "Active",
+      "merchantAccountCode": "TestMerchant3"
+    },
+    {
+      "store": "MyStore",
+      "description": "MyStore",
+      "address": {
+        "city": "Amsterdam",
+        "countryCode": "NL",
+        "postalCode": "1011",
+        "streetAddress": "test street"
+      },
+      "status": "Active",
+      "merchantAccountCode": "TestMerchant4"
+    }
+  ]
+}

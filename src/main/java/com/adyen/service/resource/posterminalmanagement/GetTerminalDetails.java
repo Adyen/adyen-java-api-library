@@ -30,6 +30,6 @@ import java.util.Arrays;
 public class GetTerminalDetails extends Resource {
 
     public GetTerminalDetails(Service service) {
-        super(service, service.getClient().getConfig().getPosTerminalManagementApiEndpoint() + "/" + Client.POS_TERMINAL_MANAGEMENT_VERSION + "/getTerminalDetails", Arrays.asList("companyAccount"));
+        super(service, service.getClient().getConfig().getPosTerminalManagementApiEndpoint() + "/" + Client.POS_TERMINAL_MANAGEMENT_VERSION + "/getTerminalDetails", Arrays.asList("terminal"));
     }
 }

@@ -1,0 +1,29 @@
+{
+  "companyAccount": "DemoCompany",
+  "merchantAccount": "TestMerchant",
+  "merchantInventory": false,
+  "store": "MyStore",
+  "terminal": "P400Plus-375039202",
+  "deviceModel": "P400Plus",
+  "serialNumber": "375-039-202",
+  "permanentTerminalId": "12345678",
+  "terminalStatus": "OnlineLast1Day",
+  "firmwareVersion": "Verifone_VOS 1.54.4",
+  "country": "NETHERLANDS",
+  "storeDetails": {
+    "store": "MyStore",
+    "description": "MyStore",
+    "address": {
+      "city": "Amsterdam",
+      "countryCode": "NL",
+      "postalCode": "1011",
+      "streetAddress": "test street"
+    }
+  },
+  "lastTransactionDateTime": "2020-08-13T16:33:11+02:00",
+  "lastActivityDateTime": "2020-08-13T16:33:17+02:00",
+  "ethernetMac": "61:c7:98:a6:55:7a",
+  "wifiMac": "a4:08:ea:cf:fc:3c",
+  "wifiIp": "192.168.12.12",
+  "dhcpEnabled": false
+}
