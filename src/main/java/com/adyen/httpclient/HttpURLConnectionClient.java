@@ -86,9 +86,10 @@ public class HttpURLConnectionClient implements ClientInterface {
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
 
-        if (config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) {
+        if ((config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) || (config.getTerminalCertificateStream() != null)) {
             Environment environment = getEnvironment(config);
-            installCertificateVerifier(httpConnection, config.getTerminalCertificatePath());
+            InputStream terminalCertificateStream = config.getTerminalCertificateStream() != null ? config.getTerminalCertificateStream() : this.loadCertificateInputStream(config.getTerminalCertificatePath());
+            installCertificateVerifier(httpConnection, terminalCertificateStream);
             installCertificateCommonNameValidator(httpConnection, environment);
         }
 
@@ -261,17 +262,17 @@ public class HttpURLConnectionClient implements ClientInterface {
         this.proxy = proxy;
     }
 
-    private void installCertificateVerifier(URLConnection connection, String terminalCertificatePath) throws HTTPClientException {
+    private void installCertificateVerifier(URLConnection connection, InputStream terminalCertificateStream) throws HTTPClientException {
         if (connection instanceof HttpsURLConnection) {
             HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
 
             try {
                 // Create new KeyStore for the terminal certificate
-                InputStream certificateInput = new FileInputStream(terminalCertificatePath);
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-                X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(certificateInput);
+                terminalCertificateStream.reset();
+                X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(terminalCertificateStream);
 
-                KeyStore keyStore = KeyStore.getInstance("JKS");
+                KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
                 keyStore.load(null, null);
                 keyStore.setCertificateEntry("TerminalCertificate", cert);
 
@@ -286,8 +287,17 @@ public class HttpURLConnectionClient implements ClientInterface {
                 sc.init(null, trustManagers, new java.security.SecureRandom());
                 httpsConnection.setSSLSocketFactory(sc.getSocketFactory());
             } catch (GeneralSecurityException | IOException e) {
-                throw new HTTPClientException("Error loading certificate from path", e);
+                throw new HTTPClientException("Error installing certificate verifier", e);
             }
+        }
+    }
+
+    private InputStream loadCertificateInputStream(String terminalCertificatePath) throws HTTPClientException {
+        try {
+            InputStream certificateInput = new FileInputStream(terminalCertificatePath);
+            return certificateInput;
+        } catch (IOException e) {
+            throw new HTTPClientException("Error loading certificate from path", e);
         }
     }
 

@@ -44,7 +44,7 @@ public class Client {
     public static final String MARKETPAY_FUND_API_VERSION = "v5";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "8.0.0";
+    public static final String LIB_VERSION = "8.1.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v52";
@@ -56,6 +56,9 @@ public class Client {
     public static final String STORED_VALUE_PAL_SUFFIX = "/pal/servlet/StoredValue/";
     public static final String STORED_VALUE_API_VERSION = "v46";
     public static final String ENDPOINT_PROTOCOL = "https://";
+    public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST = "https://postfmapi-test.adyen.com/postfmapi/terminal";
+    public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE = "https://postfmapi-live.adyen.com/postfmapi/terminal";
+    public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
 
     public Client() {
         this.config = new Config();
@@ -164,6 +167,7 @@ public class Client {
             this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
+            this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
@@ -176,6 +180,7 @@ public class Client {
                 this.config.setCheckoutEndpoint(null);
             }
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
+            this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE);
         }
     }
 

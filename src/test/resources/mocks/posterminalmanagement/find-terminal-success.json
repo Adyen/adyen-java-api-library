@@ -1,0 +1,7 @@
+{
+  "companyAccount": "DemoCompany",
+  "merchantAccount": "TestMerchant",
+  "merchantInventory": false,
+  "store": "MyStore",
+  "terminal": "P400Plus-375039202"
+}
