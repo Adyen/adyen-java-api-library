@@ -28,9 +28,12 @@ import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentResult;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
+import com.adyen.model.hop.GetOnboardingUrlRequest;
+import com.adyen.model.hop.GetOnboardingUrlResponse;
 import com.adyen.model.marketpay.*;
 import com.adyen.service.Account;
 import com.adyen.service.Fund;
+import com.adyen.service.Hop;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
@@ -826,5 +829,19 @@ public class MarketPayTest extends BaseTest {
             assertEquals("Account code does not exist or invalid", invalidFieldsList.get(0).getErrorDescription());
         }
 
+    }
+
+    @Test
+    public void TestGetOnboardingUrlSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/marketpay/hop/get-onboarding-url-success.json");
+        Hop hop = new Hop(client);
+        GetOnboardingUrlRequest getOnboardingUrlRequest = new GetOnboardingUrlRequest();
+        getOnboardingUrlRequest.setAccountHolderCode("accountHolderCode");
+        getOnboardingUrlRequest.setReturnUrl("myReturnUrl");
+        GetOnboardingUrlResponse getOnboardingUrlResponse = hop.getOnboardingUrl(getOnboardingUrlRequest);
+
+        assertEquals("8115977378312467", getOnboardingUrlResponse.getPspReference());
+        assertEquals("Success", getOnboardingUrlResponse.getResultCode());
+        assertEquals("https://hop-test.adyen.com/hop/view/?token=4RM8ODUVTPR9qvpICDgShWhmB...", getOnboardingUrlResponse.getRedirectUrl());
     }
 }
