@@ -55,7 +55,8 @@ public class TestCardRanges extends ApiKeyAuthenticatedService {
         String jsonRequest = GSON.toJson(request);
         String jsonResult = testCard.request(jsonRequest, requestOptions);
 
-        return GSON.fromJson(jsonResult, new TypeToken<CreateTestCardRangesResult>() {}.getType());
+        return GSON.fromJson(jsonResult, new TypeToken<CreateTestCardRangesResult>() {
+        }.getType());
     }
 
 }

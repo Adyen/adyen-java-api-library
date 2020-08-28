@@ -27,6 +27,6 @@ import com.adyen.service.Resource;
 public class TestCard extends Resource {
 
     public TestCard(Service service) {
-        super(service,service.getClient().getConfig().getEndpoint() + Client.TEST_CARD_API_PAL_SUFFIX + Client.TEST_CARD_API_VERSION + "/createTestCardRanges", null);
+        super(service, service.getClient().getConfig().getEndpoint() + Client.TEST_CARD_API_PAL_SUFFIX + Client.TEST_CARD_API_VERSION + "/createTestCardRanges", null);
     }
 }
