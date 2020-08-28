@@ -60,6 +60,8 @@ public class Client {
     public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST = "https://postfmapi-test.adyen.com/postfmapi/terminal";
     public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE = "https://postfmapi-live.adyen.com/postfmapi/terminal";
     public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
+    public static final String TEST_CARD_API_PAL_SUFFIX = "/pal/services/TestCard/";
+    public static final String TEST_CARD_API_VERSION = "v30";
 
     public Client() {
         this.config = new Config();

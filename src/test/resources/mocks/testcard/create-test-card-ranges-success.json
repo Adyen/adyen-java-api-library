@@ -1,0 +1,11 @@
+{
+  "rangeCreationResults":[
+    {
+      "TestCardRangeCreationResult":{
+        "cardNumberRangeStart":"5232492669190772",
+        "cardNumberRangeEnd":"5232492670020681",
+        "creationResultCode":"ALREADY_EXISTS"
+      }
+    }
+  ]
+}
