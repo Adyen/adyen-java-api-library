@@ -22,6 +22,7 @@ The Library supports all APIs under the following services:
 * BIN lookup
 * terminal API
 * stored value
+* test cards
 
 ## Requirements
 
