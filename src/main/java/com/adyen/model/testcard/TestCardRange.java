@@ -130,12 +130,12 @@ public class TestCardRange {
         return "TestCardRange{" +
                 "address=" + address +
                 ", cardHolderName='" + cardHolderName + '\'' +
-                ", cvc='***'" +
+                ", cvc='" + cvc + '\'' +
                 ", expiryDates=" + expiryDates +
                 ", rangeEnd='" + rangeEnd + '\'' +
                 ", rangeStart='" + rangeStart + '\'' +
                 ", threeDUserName='" + threeDUserName + '\'' +
-                ", threeDPassword='******'" +
+                ", threeDPassword='" + threeDPassword + '\'' +
                 ", threeDDirectoryServerResponse=" + threeDDirectoryServerResponse +
                 '}';
     }

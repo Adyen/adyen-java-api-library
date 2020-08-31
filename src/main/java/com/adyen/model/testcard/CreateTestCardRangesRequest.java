@@ -29,12 +29,12 @@ public class CreateTestCardRangesRequest {
     private String accountCode = null;
 
     @SerializedName("accountTypeCode")
-    private AccountCodeType accountTypeCode = null;
+    private AccountTypeCode accountTypeCode = null;
 
     @SerializedName("testCardRanges")
     private List<TestCardRange> testCardRanges = null;
 
-    public enum AccountCodeType {
+    public enum AccountTypeCode {
         Company,
         MerchantAccount
     }
@@ -47,11 +47,11 @@ public class CreateTestCardRangesRequest {
         this.accountCode = accountCode;
     }
 
-    public AccountCodeType getAccountTypeCode() {
+    public AccountTypeCode getAccountTypeCode() {
         return accountTypeCode;
     }
 
-    public void setAccountTypeCode(AccountCodeType accountTypeCode) {
+    public void setAccountTypeCode(AccountTypeCode accountTypeCode) {
         this.accountTypeCode = accountTypeCode;
     }
 
