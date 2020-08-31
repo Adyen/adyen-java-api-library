@@ -26,18 +26,18 @@ import com.adyen.model.RequestOptions;
 import com.adyen.model.testcard.CreateTestCardRangesRequest;
 import com.adyen.model.testcard.CreateTestCardRangesResult;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.testcard.TestCard;
+import com.adyen.service.resource.testcard.CreateTestCardRanges;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
 public class TestCardRanges extends ApiKeyAuthenticatedService {
 
-    private final TestCard testCard;
+    private final CreateTestCardRanges createTestCardRanges;
 
     public TestCardRanges(Client client) {
         super(client);
-        testCard = new TestCard(this);
+        createTestCardRanges = new CreateTestCardRanges(this);
     }
 
     /**
@@ -53,7 +53,7 @@ public class TestCardRanges extends ApiKeyAuthenticatedService {
 
     public CreateTestCardRangesResult createTestCardRanges(CreateTestCardRangesRequest request, RequestOptions requestOptions) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-        String jsonResult = testCard.request(jsonRequest, requestOptions);
+        String jsonResult = createTestCardRanges.request(jsonRequest, requestOptions);
 
         return GSON.fromJson(jsonResult, new TypeToken<CreateTestCardRangesResult>() {
         }.getType());

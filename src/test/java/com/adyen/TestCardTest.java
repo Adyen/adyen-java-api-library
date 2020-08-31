@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -69,7 +69,7 @@ public class TestCardTest extends BaseTest {
     private CreateTestCardRangesRequest createTestCardRangesRequest() {
         CreateTestCardRangesRequest request = new CreateTestCardRangesRequest();
         request.setAccountCode("TestMerchant");
-        request.setAccountTypeCode(CreateTestCardRangesRequest.AccountCodeType.MerchantAccount);
+        request.setAccountTypeCode(CreateTestCardRangesRequest.AccountTypeCode.MerchantAccount);
 
         TestCardRange range = new TestCardRange();
         range.setRangeStart("5232492669190772");

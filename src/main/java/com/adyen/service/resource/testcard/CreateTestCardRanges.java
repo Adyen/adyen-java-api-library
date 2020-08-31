@@ -24,9 +24,12 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
-public class TestCard extends Resource {
+import java.util.Arrays;
 
-    public TestCard(Service service) {
-        super(service, service.getClient().getConfig().getEndpoint() + Client.TEST_CARD_API_PAL_SUFFIX + Client.TEST_CARD_API_VERSION + "/createTestCardRanges", null);
+public class CreateTestCardRanges extends Resource {
+
+    public CreateTestCardRanges(Service service) {
+        super(service, service.getClient().getConfig().getEndpoint() + Client.TEST_CARD_API_PAL_SUFFIX + Client.TEST_CARD_API_VERSION + "/createTestCardRanges",
+                Arrays.asList("accountCode", "accountTypeCode", "testCardRanges"));
     }
 }
