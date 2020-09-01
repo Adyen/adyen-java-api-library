@@ -30,10 +30,10 @@ import static com.adyen.util.Util.toIndentedString;
 
 public class KYCCheckSummary {
 
-    @SerializedName("code")
+    @SerializedName("kycCheckCode")
     private Integer code = null;
 
-    @SerializedName("description")
+    @SerializedName("kycCheckDescription")
     private String description = null;
 
     public KYCCheckSummary code(Integer code) {

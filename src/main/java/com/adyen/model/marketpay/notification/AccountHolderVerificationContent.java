@@ -33,8 +33,8 @@ public class AccountHolderVerificationContent {
     private String bankAccountUUID;
     KYCCheckStatusData.CheckTypeEnum verificationType;
     KYCCheckStatusData.CheckStatusEnum verificationStatus;
-    @SerializedName("statusSummary")
-    private KYCCheckSummary statusSummary = null;
+    @SerializedName("kycCheckStatusData")
+    private KYCCheckStatusData kycCheckStatusData = null;
 
     public String getAccountHolderCode() {
         return accountHolderCode;
@@ -76,6 +76,14 @@ public class AccountHolderVerificationContent {
         this.verificationStatus = verificationStatus;
     }
 
+    public KYCCheckStatusData getKycCheckStatusData() {
+        return kycCheckStatusData;
+    }
+
+    public void setKycCheckStatusData(KYCCheckStatusData kycCheckStatusData) {
+        this.kycCheckStatusData = kycCheckStatusData;
+    }
+
     @Override
     public String toString() {
         return "AccountHolderVerificationContent{"
@@ -93,7 +101,7 @@ public class AccountHolderVerificationContent {
                 + ", verificationStatus="
                 + verificationStatus
                 + ", statusSummary="
-                + toIndentedString(statusSummary)
+                + toIndentedString(kycCheckStatusData)
                 + '}';
     }
 }
