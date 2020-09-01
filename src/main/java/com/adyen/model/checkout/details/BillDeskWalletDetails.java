@@ -30,22 +30,22 @@ import java.util.Objects;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * BilldeskOnlineDetails
+ * BilldeskWalletDetails
  */
 
-public class BilldeskOnlineDetails implements PaymentMethodDetails {
+public class BillDeskWalletDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String BILLDESK_ONLINE = "billdesk_online";
+    public static final String BILLDESK_WALLET = "billdesk_wallet";
 
     @SerializedName("issuer")
     private String issuer = null;
 
     @SerializedName("type")
-    private String type = BILLDESK_ONLINE;
+    private String type = BILLDESK_WALLET;
 
-    public BilldeskOnlineDetails issuer(String issuer) {
+    public BillDeskWalletDetails issuer(String issuer) {
         this.issuer = issuer;
         return this;
     }
@@ -63,13 +63,13 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         this.issuer = issuer;
     }
 
-    public BilldeskOnlineDetails type(String type) {
+    public BillDeskWalletDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **billdesk_online**
+     * **billdesk_wallet**
      *
      * @return type
      **/
@@ -92,9 +92,9 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BilldeskOnlineDetails billdeskOnlineDetails = (BilldeskOnlineDetails) o;
-        return Objects.equals(this.issuer, billdeskOnlineDetails.issuer) &&
-                Objects.equals(this.type, billdeskOnlineDetails.type);
+        BillDeskWalletDetails billdeskWalletDetails = (BillDeskWalletDetails) o;
+        return Objects.equals(this.issuer, billdeskWalletDetails.issuer) &&
+                Objects.equals(this.type, billdeskWalletDetails.type);
     }
 
     @Override
@@ -106,14 +106,12 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BilldeskOnlineDetails {\n");
+        sb.append("class BilldeskWalletDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
-
-
 
 }

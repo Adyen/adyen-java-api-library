@@ -22,16 +22,9 @@
 package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
-
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -48,51 +41,8 @@ public class AmazonPayDetails implements PaymentMethodDetails {
     @SerializedName("amazonPayToken")
     private String amazonPayToken = null;
 
-    /**
-     * Gets or Sets fundingSource
-     */
-    @JsonAdapter(FundingSourceEnum.Adapter.class)
-    public enum FundingSourceEnum {
-        CREDIT("credit"),
-        DEBIT("debit");
-
-        private String value;
-
-        FundingSourceEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static FundingSourceEnum fromValue(String text) {
-            return Arrays.stream(values()).
-                    filter(s -> s.value.equals(text)).
-                    findFirst().orElse(null);
-        }
-
-        public static class Adapter extends TypeAdapter<FundingSourceEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return FundingSourceEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
-    @SerializedName("fundingSource")
-    private FundingSourceEnum fundingSource = null;
+    @SerializedName("checkoutSessionId")
+    private String checkoutSessionId = null;
 
     @SerializedName("type")
     private String type = AMAZONPAY;
@@ -115,22 +65,21 @@ public class AmazonPayDetails implements PaymentMethodDetails {
         this.amazonPayToken = amazonPayToken;
     }
 
-    public AmazonPayDetails fundingSource(FundingSourceEnum fundingSource) {
-        this.fundingSource = fundingSource;
+    public AmazonPayDetails checkoutSessionId(String checkoutSessionId) {
+        this.checkoutSessionId = checkoutSessionId;
         return this;
     }
 
     /**
-     * Get fundingSource
-     *
-     * @return fundingSource
+     * Get checkoutSessionId
+     * @return checkoutSessionId
      **/
-    public FundingSourceEnum getFundingSource() {
-        return fundingSource;
+    public String getCheckoutSessionId() {
+        return checkoutSessionId;
     }
 
-    public void setFundingSource(FundingSourceEnum fundingSource) {
-        this.fundingSource = fundingSource;
+    public void setCheckoutSessionId(String checkoutSessionId) {
+        this.checkoutSessionId = checkoutSessionId;
     }
 
     public AmazonPayDetails type(String type) {
@@ -155,7 +104,7 @@ public class AmazonPayDetails implements PaymentMethodDetails {
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -164,15 +113,14 @@ public class AmazonPayDetails implements PaymentMethodDetails {
         }
         AmazonPayDetails amazonPayDetails = (AmazonPayDetails) o;
         return Objects.equals(this.amazonPayToken, amazonPayDetails.amazonPayToken) &&
-                Objects.equals(this.fundingSource, amazonPayDetails.fundingSource) &&
+                Objects.equals(this.checkoutSessionId, amazonPayDetails.checkoutSessionId) &&
                 Objects.equals(this.type, amazonPayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amazonPayToken, fundingSource, type);
+        return Objects.hash(amazonPayToken, checkoutSessionId, type);
     }
-
 
     @Override
     public String toString() {
@@ -180,7 +128,7 @@ public class AmazonPayDetails implements PaymentMethodDetails {
         sb.append("class AmazonPayDetails {\n");
 
         sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append("\n");
-        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+        sb.append("    checkoutSessionId: ").append(toIndentedString(checkoutSessionId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
