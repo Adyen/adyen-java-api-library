@@ -26,11 +26,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * BilldeskOnlineDetails
+ * BillDeskOnlineDetails
  */
 
 public class BillDeskOnlineDetails implements PaymentMethodDetails {

@@ -1162,7 +1162,6 @@ public class CheckoutTest extends BaseTest {
         MasterpassDetails masterpassDetails = new MasterpassDetails();
         masterpassDetails.setFundingSource(MasterpassDetails.FundingSourceEnum.CREDIT);
         masterpassDetails.setMasterpassTransactionId("transactionId");
-        masterpassDetails.setType("masterPass");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(masterpassDetails);
@@ -1178,7 +1177,7 @@ public class CheckoutTest extends BaseTest {
                 + "  \"paymentMethod\": {\n"
                 + "    \"fundingSource\": \"credit\",\n"
                 + "    \"masterpassTransactionId\": \"transactionId\",\n"
-                + "    \"type\": \"masterPass\"\n"
+                + "    \"type\": \"masterpass\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
@@ -1194,7 +1193,6 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestMobilePayDetails() {
         MobilePayDetails mobilePayDetails = new MobilePayDetails();
-        mobilePayDetails.setType("mobilePay");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(mobilePayDetails);
@@ -1208,7 +1206,7 @@ public class CheckoutTest extends BaseTest {
                 + "  },\n"
                 + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
                 + "  \"paymentMethod\": {\n"
-                + "    \"type\": \"mobilePay\"\n"
+                + "    \"type\": \"mobilepay\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
@@ -1225,7 +1223,6 @@ public class CheckoutTest extends BaseTest {
     public void TestPayUUpiDetails() {
         PayUUpiDetails payUUpiDetails = new PayUUpiDetails();
         payUUpiDetails.setVpa("vpa");
-        payUUpiDetails.setType("payuupi");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(payUUpiDetails);
@@ -1239,7 +1236,7 @@ public class CheckoutTest extends BaseTest {
                 + "  },\n"
                 + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
                 + "  \"paymentMethod\": {\n"
-                + "    \"type\": \"payuupi\",\n"
+                + "    \"type\": \"payu_IN_upi\",\n"
                 + "    \"vpa\": \"vpa\"\n" + ""
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
