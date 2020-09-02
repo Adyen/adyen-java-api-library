@@ -38,6 +38,9 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class MasterpassDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
     private static final String MASTERPASS = "masterpass";
 
     /**

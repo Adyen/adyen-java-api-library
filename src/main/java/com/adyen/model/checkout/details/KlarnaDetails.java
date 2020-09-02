@@ -33,6 +33,18 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class KlarnaDetails implements PaymentMethodDetails {
+
+    /**
+     * Possible types
+     */
+    public static String KLARNA = "klarna";
+    public static String KLARNA_PAYMENTS = "klarnapayments";
+    public static String KLARNA_PAYMENTS_ACCOUNT = "klarnapayments_account";
+    public static String KLARNA_PAYMENTS_B2B = "klarnapayments_b2b";
+    public static String KLARNA_PAY_NOW = "klarna_paynow";
+    public static String KLARNA_ACCOUNT = "klarna_account";
+    public static String KLARNA_B2B = "klarna_b2b";
+
     @SerializedName("bankAccount")
     private String bankAccount = null;
 

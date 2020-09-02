@@ -33,6 +33,11 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class WeChatPayMiniProgramDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    private static final String WECHATPAYMINIPROGRAM = "wechatpayMiniProgram";
+
     @SerializedName("appId")
     private String appId = null;
 
@@ -40,7 +45,7 @@ public class WeChatPayMiniProgramDetails implements PaymentMethodDetails {
     private String openid = null;
 
     @SerializedName("type")
-    private String type = null;
+    private String type = WECHATPAYMINIPROGRAM;
 
     public WeChatPayMiniProgramDetails appId(String appId) {
         this.appId = appId;

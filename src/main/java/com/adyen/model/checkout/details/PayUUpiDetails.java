@@ -33,7 +33,11 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class PayUUpiDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
     private static final String PAYUINUPI = "payu_IN_upi";
+
     @SerializedName("type")
     private String type = PAYUINUPI;
 

@@ -1083,7 +1083,6 @@ public class CheckoutTest extends BaseTest {
     public void TestAndroidPayDetails() {
         AndroidPayDetails androidPayDetails = new AndroidPayDetails();
         androidPayDetails.setAndroidPayToken("androidpaytoken");
-        androidPayDetails.setType("androidpay");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(androidPayDetails);
@@ -1122,7 +1121,7 @@ public class CheckoutTest extends BaseTest {
         klarnaDetails.setSeparateDeliveryAddress("separatedeliveryaddress");
         klarnaDetails.setStoredPaymentMethodId("storedpaymentmethodid");
         klarnaDetails.setToken("token");
-        klarnaDetails.setType("klarna");
+        klarnaDetails.setType(KlarnaDetails.KLARNA);
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(klarnaDetails);
@@ -1255,7 +1254,6 @@ public class CheckoutTest extends BaseTest {
         WeChatPayDetails weChatPayDetails = new WeChatPayDetails();
         weChatPayDetails.setAppId("appId");
         weChatPayDetails.setOpenid("openId");
-        weChatPayDetails.setType("wechatpay");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(weChatPayDetails);
@@ -1289,7 +1287,6 @@ public class CheckoutTest extends BaseTest {
         WeChatPayMiniProgramDetails weChatPayMiniProgramDetails = new WeChatPayMiniProgramDetails();
         weChatPayMiniProgramDetails.setAppId("appId");
         weChatPayMiniProgramDetails.setOpenid("openId");
-        weChatPayMiniProgramDetails.setType("wechatpay");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(weChatPayMiniProgramDetails);
@@ -1305,7 +1302,7 @@ public class CheckoutTest extends BaseTest {
                 + "  \"paymentMethod\": {\n"
                 + "    \"appId\": \"appId\",\n" + ""
                 + "    \"openid\": \"openId\",\n" + ""
-                + "    \"type\": \"wechatpay\"\n"
+                + "    \"type\": \"wechatpayMiniProgram\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"

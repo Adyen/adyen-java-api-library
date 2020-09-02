@@ -33,8 +33,13 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class MobilePayDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    private static final String MOBILEPAY = "mobilepay";
+
     @SerializedName("type")
-    private String type = "mobilepay";
+    private String type = MOBILEPAY;
 
     public MobilePayDetails type(String type) {
         this.type = type;

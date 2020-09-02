@@ -33,11 +33,12 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class AndroidPayDetails implements PaymentMethodDetails {
+    private static final String ANDROIDPAY = "androidpay";
     @SerializedName("androidPayToken")
     private String androidPayToken = null;
 
     @SerializedName("type")
-    private String type = null;
+    private String type = ANDROIDPAY;
 
     public AndroidPayDetails androidPayToken(String androidPayToken) {
         this.androidPayToken = androidPayToken;
