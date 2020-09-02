@@ -26,61 +26,70 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
-import static com.adyen.util.Util.toIndentedString;
-
 /**
- * BilldeskOnlineDetails
- * @deprecated Use {@link com.adyen.model.checkout.details.BillDeskOnlineDetails} instead
+ * WeChatPayDetails
  */
 
-@Deprecated
-public class BilldeskOnlineDetails implements PaymentMethodDetails {
-    /**
-     * Possible types
-     */
-    public static final String BILLDESK_ONLINE = "billdesk_online";
+public class WeChatPayDetails implements PaymentMethodDetails {
+    @SerializedName("appId")
+    private String appId = null;
 
-    @SerializedName("issuer")
-    private String issuer = null;
+    @SerializedName("openid")
+    private String openid = null;
 
     @SerializedName("type")
-    private String type = BILLDESK_ONLINE;
+    private String type = null;
 
-    public BilldeskOnlineDetails issuer(String issuer) {
-        this.issuer = issuer;
+    public WeChatPayDetails appId(String appId) {
+        this.appId = appId;
         return this;
     }
 
     /**
-     * The issuer id of the shopper&#x27;s selected bank.
+     * Get appId
      *
-     * @return issuer
+     * @return appId
      **/
-    public String getIssuer() {
-        return issuer;
+    public String getAppId() {
+        return appId;
     }
 
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public BilldeskOnlineDetails type(String type) {
+    public WeChatPayDetails openid(String openid) {
+        this.openid = openid;
+        return this;
+    }
+
+    /**
+     * Get openid
+     *
+     * @return openid
+     **/
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public WeChatPayDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **billdesk_online**
+     * The payment method type.
      *
      * @return type
      **/
-    @Override
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
     }
@@ -94,28 +103,39 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BilldeskOnlineDetails billdeskOnlineDetails = (BilldeskOnlineDetails) o;
-        return Objects.equals(this.issuer, billdeskOnlineDetails.issuer) &&
-                Objects.equals(this.type, billdeskOnlineDetails.type);
+        WeChatPayDetails weChatPayDetails = (WeChatPayDetails) o;
+        return Objects.equals(this.appId, weChatPayDetails.appId) &&
+                Objects.equals(this.openid, weChatPayDetails.openid) &&
+                Objects.equals(this.type, weChatPayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, type);
+        return Objects.hash(appId, openid, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BilldeskOnlineDetails {\n");
+        sb.append("class WeChatPayDetails {\n");
 
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
+        sb.append("    openid: ").append(toIndentedString(openid)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
-
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

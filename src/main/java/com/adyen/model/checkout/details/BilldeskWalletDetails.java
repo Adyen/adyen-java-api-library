@@ -31,8 +31,10 @@ import static com.adyen.util.Util.toIndentedString;
 
 /**
  * BilldeskWalletDetails
+ * @deprecated Use {@link com.adyen.model.checkout.details.BillDeskWalletDetails} instead
  */
 
+@Deprecated
 public class BilldeskWalletDetails implements PaymentMethodDetails {
     /**
      * Possible types

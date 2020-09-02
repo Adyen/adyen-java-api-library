@@ -26,7 +26,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 
@@ -53,8 +52,14 @@ public class DokuDetails implements PaymentMethodDetails {
     @SerializedName("firstName")
     private String firstName = null;
 
+    @SerializedName("infix")
+    private String infix = null;
+
     @SerializedName("lastName")
     private String lastName = null;
+
+    @SerializedName("ovoId")
+    private String ovoId = null;
 
     @SerializedName("shopperEmail")
     private String shopperEmail = null;
@@ -80,6 +85,24 @@ public class DokuDetails implements PaymentMethodDetails {
         this.firstName = firstName;
     }
 
+    public DokuDetails infix(String infix) {
+        this.infix = infix;
+        return this;
+    }
+
+    /**
+     * Get infix
+     *
+     * @return infix
+     **/
+    public String getInfix() {
+        return infix;
+    }
+
+    public void setInfix(String infix) {
+        this.infix = infix;
+    }
+
     public DokuDetails lastName(String lastName) {
         this.lastName = lastName;
         return this;
@@ -96,6 +119,24 @@ public class DokuDetails implements PaymentMethodDetails {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public DokuDetails ovoId(String ovoId) {
+        this.ovoId = ovoId;
+        return this;
+    }
+
+    /**
+     * Get ovoId
+     *
+     * @return ovoId
+     **/
+    public String getOvoId() {
+        return ovoId;
+    }
+
+    public void setOvoId(String ovoId) {
+        this.ovoId = ovoId;
     }
 
     public DokuDetails shopperEmail(String shopperEmail) {
@@ -138,7 +179,7 @@ public class DokuDetails implements PaymentMethodDetails {
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -147,14 +188,16 @@ public class DokuDetails implements PaymentMethodDetails {
         }
         DokuDetails dokuDetails = (DokuDetails) o;
         return Objects.equals(this.firstName, dokuDetails.firstName) &&
+                Objects.equals(this.infix, dokuDetails.infix) &&
                 Objects.equals(this.lastName, dokuDetails.lastName) &&
+                Objects.equals(this.ovoId, dokuDetails.ovoId) &&
                 Objects.equals(this.shopperEmail, dokuDetails.shopperEmail) &&
                 Objects.equals(this.type, dokuDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, shopperEmail, type);
+        return Objects.hash(firstName, infix, lastName, ovoId, shopperEmail, type);
     }
 
 
@@ -164,7 +207,9 @@ public class DokuDetails implements PaymentMethodDetails {
         sb.append("class DokuDetails {\n");
 
         sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+        sb.append("    infix: ").append(toIndentedString(infix)).append("\n");
         sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+        sb.append("    ovoId: ").append(toIndentedString(ovoId)).append("\n");
         sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

@@ -45,6 +45,12 @@ public class PayPalDetails implements PaymentMethodDetails {
      */
     public static final String PAYPAL = "paypal";
 
+    @SerializedName("orderID")
+    private String orderID = null;
+
+    @SerializedName("payerID")
+    private String payerID = null;
+
     @SerializedName("type")
     private String type = PAYPAL;
 
@@ -91,6 +97,42 @@ public class PayPalDetails implements PaymentMethodDetails {
     @SerializedName("subtype")
     private SubtypeEnum subtype = null;
 
+    public PayPalDetails orderID(String orderID) {
+        this.orderID = orderID;
+        return this;
+    }
+
+    /**
+     * Get orderID
+     *
+     * @return orderID
+     **/
+    public String getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
+
+    public PayPalDetails payerID(String payerID) {
+        this.payerID = payerID;
+        return this;
+    }
+
+    /**
+     * Get payerID
+     *
+     * @return payerID
+     **/
+    public String getPayerID() {
+        return payerID;
+    }
+
+    public void setPayerID(String payerID) {
+        this.payerID = payerID;
+    }
+
     public PayPalDetails type(String type) {
         this.type = type;
         return this;
@@ -126,29 +168,32 @@ public class PayPalDetails implements PaymentMethodDetails {
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PayPalDetails paypalDetails = (PayPalDetails) o;
-        return Objects.equals(this.subtype, paypalDetails.subtype) &&
-                Objects.equals(this.type, paypalDetails.type);
+        PayPalDetails payPalDetails = (PayPalDetails) o;
+        return Objects.equals(this.orderID, payPalDetails.orderID) &&
+                Objects.equals(this.payerID, payPalDetails.payerID) &&
+                Objects.equals(this.subtype, payPalDetails.subtype) &&
+                Objects.equals(this.type, payPalDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subtype, type);
+        return Objects.hash(orderID, payerID, subtype, type);
     }
-
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PayPalDetails {\n");
 
+        sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
+        sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
         sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

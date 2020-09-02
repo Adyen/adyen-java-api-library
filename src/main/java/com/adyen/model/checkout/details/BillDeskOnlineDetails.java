@@ -26,16 +26,13 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
  * BilldeskOnlineDetails
- * @deprecated Use {@link com.adyen.model.checkout.details.BillDeskOnlineDetails} instead
  */
 
-@Deprecated
-public class BilldeskOnlineDetails implements PaymentMethodDetails {
+public class BillDeskOnlineDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
@@ -47,7 +44,7 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
     @SerializedName("type")
     private String type = BILLDESK_ONLINE;
 
-    public BilldeskOnlineDetails issuer(String issuer) {
+    public BillDeskOnlineDetails issuer(String issuer) {
         this.issuer = issuer;
         return this;
     }
@@ -65,7 +62,7 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         this.issuer = issuer;
     }
 
-    public BilldeskOnlineDetails type(String type) {
+    public BillDeskOnlineDetails type(String type) {
         this.type = type;
         return this;
     }
@@ -94,7 +91,7 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BilldeskOnlineDetails billdeskOnlineDetails = (BilldeskOnlineDetails) o;
+        BillDeskOnlineDetails billdeskOnlineDetails = (BillDeskOnlineDetails) o;
         return Objects.equals(this.issuer, billdeskOnlineDetails.issuer) &&
                 Objects.equals(this.type, billdeskOnlineDetails.type);
     }
@@ -115,7 +112,6 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         sb.append("}");
         return sb.toString();
     }
-
 
 
 }

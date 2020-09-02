@@ -25,7 +25,6 @@ import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.*;
 import com.adyen.model.checkout.details.*;
-import com.adyen.model.storedvalue.StoredValueLoadResponse;
 import com.adyen.service.Checkout;
 import com.adyen.service.exception.ApiException;
 import com.google.gson.annotations.SerializedName;
@@ -266,7 +265,7 @@ public class CheckoutTest extends BaseTest {
      * Test error flow on Checkout creation
      */
     @Test
-    public void TestPaymentMethodsFailureMissingIdentifierOnLive() throws Exception {
+    public void TestPaymentMethodsFailureMissingIdentifierOnLive() {
         Client client = createMockClientFromFile("mocks/checkout/paymentsresult-error-invalid-data-payload-422.json");
         client.setEnvironment(LIVE, null);
         try {
@@ -613,6 +612,8 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPayPalDetails(){
         PayPalDetails payPalDetails = new PayPalDetails();
+        payPalDetails.setOrderID("orderId");
+        payPalDetails.setPayerID("payerId");
         payPalDetails.setSubtype(PayPalDetails.SubtypeEnum.SDK);
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
@@ -626,6 +627,8 @@ public class CheckoutTest extends BaseTest {
                 + "  },\n"
                 + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
                 + "  \"paymentMethod\": {\n"
+                + "    \"orderID\": \"orderId\",\n"
+                + "    \"payerID\": \"payerId\",\n"
                 + "    \"type\": \"paypal\",\n"
                 + "    \"subtype\": \"sdk\"\n"
                 + "  },\n"
@@ -644,7 +647,9 @@ public class CheckoutTest extends BaseTest {
     public void TestDokuDetails(){
         DokuDetails dokuDetails = new DokuDetails();
         dokuDetails.setFirstName("John");
+        dokuDetails.setInfix("infix");
         dokuDetails.setLastName("Smith");
+        dokuDetails.setOvoId("ovoid");
         dokuDetails.setShopperEmail("test@email.com");
         dokuDetails.setType(DokuDetails.INDOMARET);
 
@@ -660,7 +665,9 @@ public class CheckoutTest extends BaseTest {
                 + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
                 + "  \"paymentMethod\": {\n"
                 + "    \"firstName\": \"John\",\n"
+                + "    \"infix\": \"infix\",\n"
                 + "    \"lastName\": \"Smith\",\n"
+                + "    \"ovoId\": \"ovoid\",\n"
                 + "    \"shopperEmail\": \"test@email.com\",\n"
                 + "    \"type\": \"doku_indomaret\"\n"
                 + "  },\n"
@@ -679,7 +686,7 @@ public class CheckoutTest extends BaseTest {
     public void TestAmazonPayDetails(){
         AmazonPayDetails amazonPayDetails = new AmazonPayDetails();
         amazonPayDetails.setAmazonPayToken("amazonpaytoken");
-        amazonPayDetails.setFundingSource(AmazonPayDetails.FundingSourceEnum.CREDIT);
+        amazonPayDetails.setCheckoutSessionId("checkoutsessionid");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(amazonPayDetails);
@@ -693,7 +700,7 @@ public class CheckoutTest extends BaseTest {
                 + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
                 + "  \"paymentMethod\": {\n"
                 + "    \"amazonPayToken\": \"amazonpaytoken\",\n"
-                + "    \"fundingSource\": \"credit\",\n"
+                + "    \"checkoutSessionId\": \"checkoutsessionid\",\n"
                 + "    \"type\": \"amazonpay\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
@@ -741,7 +748,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestBilldeskOnlineDetails(){
-        BilldeskOnlineDetails billdeskOnlineDetails = new BilldeskOnlineDetails();
+        BillDeskOnlineDetails billdeskOnlineDetails = new BillDeskOnlineDetails();
         billdeskOnlineDetails.setIssuer("111");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
@@ -771,7 +778,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestBilldeskWalletDetails(){
-        BilldeskWalletDetails billdeskWalletDetails = new BilldeskWalletDetails();
+        BillDeskWalletDetails billdeskWalletDetails = new BillDeskWalletDetails();
         billdeskWalletDetails.setIssuer("111");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
@@ -1073,6 +1080,245 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
+    public void TestAndroidPayDetails() {
+        AndroidPayDetails androidPayDetails = new AndroidPayDetails();
+        androidPayDetails.setAndroidPayToken("androidpaytoken");
+        androidPayDetails.setType("androidpay");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(androidPayDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"androidPayToken\": \"androidpaytoken\",\n"
+                + "    \"type\": \"androidpay\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestKlarnaDetails() {
+        KlarnaDetails klarnaDetails = new KlarnaDetails();
+        klarnaDetails.setBankAccount("bankaccount");
+        klarnaDetails.setBillingAddress("billingaddress");
+        klarnaDetails.setDeliveryAddress("deliveryaddress");
+        klarnaDetails.setInstallmentConfigurationKey("installmentconfigurationkey");
+        klarnaDetails.setPersonalDetails("personaldetails");
+        klarnaDetails.setSeparateDeliveryAddress("separatedeliveryaddress");
+        klarnaDetails.setStoredPaymentMethodId("storedpaymentmethodid");
+        klarnaDetails.setToken("token");
+        klarnaDetails.setType("klarna");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(klarnaDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"bankAccount\": \"bankaccount\",\n"
+                + "    \"billingAddress\": \"billingaddress\",\n"
+                + "    \"deliveryAddress\": \"deliveryaddress\",\n"
+                + "    \"installmentConfigurationKey\": \"installmentconfigurationkey\",\n"
+                + "    \"personalDetails\": \"personaldetails\",\n"
+                + "    \"separateDeliveryAddress\": \"separatedeliveryaddress\",\n"
+                + "    \"storedPaymentMethodId\": \"storedpaymentmethodid\",\n"
+                + "    \"token\": \"token\",\n"
+                + "    \"type\": \"klarna\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestMasterPassDetails() {
+        MasterpassDetails masterpassDetails = new MasterpassDetails();
+        masterpassDetails.setFundingSource(MasterpassDetails.FundingSourceEnum.CREDIT);
+        masterpassDetails.setMasterpassTransactionId("transactionId");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(masterpassDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"fundingSource\": \"credit\",\n"
+                + "    \"masterpassTransactionId\": \"transactionId\",\n"
+                + "    \"type\": \"masterpass\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestMobilePayDetails() {
+        MobilePayDetails mobilePayDetails = new MobilePayDetails();
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(mobilePayDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"type\": \"mobilepay\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestPayUUpiDetails() {
+        PayUUpiDetails payUUpiDetails = new PayUUpiDetails();
+        payUUpiDetails.setVpa("vpa");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(payUUpiDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"type\": \"payu_IN_upi\",\n"
+                + "    \"vpa\": \"vpa\"\n" + ""
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestWeChatPayDetails() {
+        WeChatPayDetails weChatPayDetails = new WeChatPayDetails();
+        weChatPayDetails.setAppId("appId");
+        weChatPayDetails.setOpenid("openId");
+        weChatPayDetails.setType("wechatpay");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(weChatPayDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"appId\": \"appId\",\n" + ""
+                + "    \"openid\": \"openId\",\n" + ""
+                + "    \"type\": \"wechatpay\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
+    public void TestWeChatPayMiniProgramDetails() {
+        WeChatPayMiniProgramDetails weChatPayMiniProgramDetails = new WeChatPayMiniProgramDetails();
+        weChatPayMiniProgramDetails.setAppId("appId");
+        weChatPayMiniProgramDetails.setOpenid("openId");
+        weChatPayMiniProgramDetails.setType("wechatpay");
+
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(weChatPayMiniProgramDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"USD\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"appId\": \"appId\",\n" + ""
+                + "    \"openid\": \"openId\",\n" + ""
+                + "    \"type\": \"wechatpay\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION + "\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest );
+    }
+
+    @Test
     public void TestDateSerializers() throws ParseException {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
 
@@ -1117,7 +1363,7 @@ public class CheckoutTest extends BaseTest {
         PaymentsResponse paymentsResponse = new PaymentsResponse();
         try {
             Date expiryDate = paymentsResponse.getExpiryDate();
-            assertEquals(null, expiryDate);
+            Assert.assertNull(expiryDate);
         } catch (Exception ex) {
 
             Assert.fail("multibanco date throw Exception");
@@ -1179,7 +1425,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void TestPaymentLinksErrorMerchantMissing() throws IOException, ApiException {
+    public void TestPaymentLinksErrorMerchantMissing() throws IOException {
         Client client = createMockClientForErrors(403,"mocks/checkout/payment-links-error-merchant.json");
         Checkout checkout = new Checkout(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
@@ -1194,7 +1440,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void TestPaymentLinksErrorAmountMissing() throws IOException, ApiException {
+    public void TestPaymentLinksErrorAmountMissing() throws IOException {
         Client client = createMockClientForErrors(422,"mocks/checkout/payment-links-error-amount.json");
         Checkout checkout = new Checkout(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
@@ -1209,7 +1455,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void TestPaymentLinksErrorReferenceMissing() throws IOException, ApiException {
+    public void TestPaymentLinksErrorReferenceMissing() throws IOException {
         Client client = createMockClientForErrors(422,"mocks/checkout/payment-links-error-reference.json");
         Checkout checkout = new Checkout(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
