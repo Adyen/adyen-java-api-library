@@ -26,70 +26,61 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
+
+import static com.adyen.util.Util.toIndentedString;
+
 /**
- * WeChatPayMiniProgramDetails
+ * BilldeskWalletDetails
+ * @deprecated Use {@link com.adyen.model.checkout.details.BillDeskWalletDetails} instead
  */
 
-public class WeChatPayMiniProgramDetails implements PaymentMethodDetails {
-    @SerializedName("appId")
-    private String appId = null;
+@Deprecated
+public class BilldeskWalletDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String BILLDESK_WALLET = "billdesk_wallet";
 
-    @SerializedName("openid")
-    private String openid = null;
+    @SerializedName("issuer")
+    private String issuer = null;
 
     @SerializedName("type")
-    private String type = null;
+    private String type = BILLDESK_WALLET;
 
-    public WeChatPayMiniProgramDetails appId(String appId) {
-        this.appId = appId;
+    public BilldeskWalletDetails issuer(String issuer) {
+        this.issuer = issuer;
         return this;
     }
 
     /**
-     * Get appId
+     * The issuer id of the shopper&#x27;s selected bank.
      *
-     * @return appId
+     * @return issuer
      **/
-    public String getAppId() {
-        return appId;
+    public String getIssuer() {
+        return issuer;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    public void setIssuer(String issuer) {
+        this.issuer = issuer;
     }
 
-    public WeChatPayMiniProgramDetails openid(String openid) {
-        this.openid = openid;
-        return this;
-    }
-
-    /**
-     * Get openid
-     *
-     * @return openid
-     **/
-    public String getOpenid() {
-        return openid;
-    }
-
-    public void setOpenid(String openid) {
-        this.openid = openid;
-    }
-
-    public WeChatPayMiniProgramDetails type(String type) {
+    public BilldeskWalletDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * The payment method type.
+     * **billdesk_wallet**
      *
      * @return type
      **/
+    @Override
     public String getType() {
         return type;
     }
 
+    @Override
     public void setType(String type) {
         this.type = type;
     }
@@ -103,39 +94,26 @@ public class WeChatPayMiniProgramDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        WeChatPayMiniProgramDetails weChatPayMiniProgramDetails = (WeChatPayMiniProgramDetails) o;
-        return Objects.equals(this.appId, weChatPayMiniProgramDetails.appId) &&
-                Objects.equals(this.openid, weChatPayMiniProgramDetails.openid) &&
-                Objects.equals(this.type, weChatPayMiniProgramDetails.type);
+        BilldeskWalletDetails billdeskWalletDetails = (BilldeskWalletDetails) o;
+        return Objects.equals(this.issuer, billdeskWalletDetails.issuer) &&
+                Objects.equals(this.type, billdeskWalletDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appId, openid, type);
+        return Objects.hash(issuer, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class WeChatPayMiniProgramDetails {\n");
+        sb.append("class BilldeskWalletDetails {\n");
 
-        sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
-        sb.append("    openid: ").append(toIndentedString(openid)).append("\n");
+        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -30,154 +30,165 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.Objects;
+
 /**
  * MasterpassDetails
  */
 
 public class MasterpassDetails implements PaymentMethodDetails {
-  /**
-   * Gets or Sets fundingSource
-   */
-  @JsonAdapter(FundingSourceEnum.Adapter.class)
-  public enum FundingSourceEnum {
-    CREDIT("credit"),
-    DEBIT("debit");
+    private static final String MASTERPASS = "masterpass";
 
-    private String value;
+    /**
+     * Gets or Sets fundingSource
+     */
+    @JsonAdapter(FundingSourceEnum.Adapter.class)
+    public enum FundingSourceEnum {
+        CREDIT("credit"),
+        DEBIT("debit");
 
-    FundingSourceEnum(String value) {
-      this.value = value;
+        private String value;
+
+        FundingSourceEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static FundingSourceEnum fromValue(String text) {
+            for (FundingSourceEnum b : FundingSourceEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter<FundingSourceEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return FundingSourceEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
-    public String getValue() {
-      return value;
+
+    @SerializedName("fundingSource")
+    private FundingSourceEnum fundingSource = null;
+
+    @SerializedName("masterpassTransactionId")
+    private String masterpassTransactionId = null;
+
+    @SerializedName("type")
+    private String type = MASTERPASS;
+
+    public MasterpassDetails fundingSource(FundingSourceEnum fundingSource) {
+        this.fundingSource = fundingSource;
+        return this;
+    }
+
+    /**
+     * Get fundingSource
+     *
+     * @return fundingSource
+     **/
+    public FundingSourceEnum getFundingSource() {
+        return fundingSource;
+    }
+
+    public void setFundingSource(FundingSourceEnum fundingSource) {
+        this.fundingSource = fundingSource;
+    }
+
+    public MasterpassDetails masterpassTransactionId(String masterpassTransactionId) {
+        this.masterpassTransactionId = masterpassTransactionId;
+        return this;
+    }
+
+    /**
+     * The Masterpass transaction ID.
+     *
+     * @return masterpassTransactionId
+     **/
+    public String getMasterpassTransactionId() {
+        return masterpassTransactionId;
+    }
+
+    public void setMasterpassTransactionId(String masterpassTransactionId) {
+        this.masterpassTransactionId = masterpassTransactionId;
+    }
+
+    public MasterpassDetails type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * **masterpass**
+     *
+     * @return type
+     **/
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MasterpassDetails masterpassDetails = (MasterpassDetails) o;
+        return Objects.equals(this.fundingSource, masterpassDetails.fundingSource) &&
+                Objects.equals(this.masterpassTransactionId, masterpassDetails.masterpassTransactionId) &&
+                Objects.equals(this.type, masterpassDetails.type);
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(fundingSource, masterpassTransactionId, type);
+    }
+
+
+    @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MasterpassDetails {\n");
+
+        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+        sb.append("    masterpassTransactionId: ").append(toIndentedString(masterpassTransactionId)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
-    public static FundingSourceEnum fromValue(String text) {
-      for (FundingSourceEnum b : FundingSourceEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
-      }
-      return null;
+        return o.toString().replace("\n", "\n    ");
     }
-    public static class Adapter extends TypeAdapter<FundingSourceEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return FundingSourceEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }  @SerializedName("fundingSource")
-  private FundingSourceEnum fundingSource = null;
-
-  @SerializedName("masterpassTransactionId")
-  private String masterpassTransactionId = null;
-
-  @SerializedName("type")
-  private String type = "masterpass";
-
-  public MasterpassDetails fundingSource(FundingSourceEnum fundingSource) {
-    this.fundingSource = fundingSource;
-    return this;
-  }
-
-   /**
-   * Get fundingSource
-   * @return fundingSource
-  **/
-  public FundingSourceEnum getFundingSource() {
-    return fundingSource;
-  }
-
-  public void setFundingSource(FundingSourceEnum fundingSource) {
-    this.fundingSource = fundingSource;
-  }
-
-  public MasterpassDetails masterpassTransactionId(String masterpassTransactionId) {
-    this.masterpassTransactionId = masterpassTransactionId;
-    return this;
-  }
-
-   /**
-   * The Masterpass transaction ID.
-   * @return masterpassTransactionId
-  **/
-  public String getMasterpassTransactionId() {
-    return masterpassTransactionId;
-  }
-
-  public void setMasterpassTransactionId(String masterpassTransactionId) {
-    this.masterpassTransactionId = masterpassTransactionId;
-  }
-
-  public MasterpassDetails type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * **masterpass**
-   * @return type
-  **/
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    MasterpassDetails masterpassDetails = (MasterpassDetails) o;
-    return Objects.equals(this.fundingSource, masterpassDetails.fundingSource) &&
-        Objects.equals(this.masterpassTransactionId, masterpassDetails.masterpassTransactionId) &&
-        Objects.equals(this.type, masterpassDetails.type);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(fundingSource, masterpassTransactionId, type);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MasterpassDetails {\n");
-
-    sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
-    sb.append("    masterpassTransactionId: ").append(toIndentedString(masterpassTransactionId)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 
 }
