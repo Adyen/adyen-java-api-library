@@ -105,7 +105,7 @@ public class BillDeskWalletDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BilldeskWalletDetails {\n");
+        sb.append("class BillDeskWalletDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
