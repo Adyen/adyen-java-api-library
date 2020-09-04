@@ -26,61 +26,52 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * BilldeskOnlineDetails
- * @deprecated Use {@link com.adyen.model.checkout.details.BillDeskOnlineDetails} instead
+ * AndroidPayDetails
  */
 
-@Deprecated
-public class BilldeskOnlineDetails implements PaymentMethodDetails {
-    /**
-     * Possible types
-     */
-    public static final String BILLDESK_ONLINE = "billdesk_online";
-
-    @SerializedName("issuer")
-    private String issuer = null;
+public class AndroidPayDetails implements PaymentMethodDetails {
+    private static final String ANDROIDPAY = "androidpay";
+    @SerializedName("androidPayToken")
+    private String androidPayToken = null;
 
     @SerializedName("type")
-    private String type = BILLDESK_ONLINE;
+    private String type = ANDROIDPAY;
 
-    public BilldeskOnlineDetails issuer(String issuer) {
-        this.issuer = issuer;
+    public AndroidPayDetails androidPayToken(String androidPayToken) {
+        this.androidPayToken = androidPayToken;
         return this;
     }
 
     /**
-     * The issuer id of the shopper&#x27;s selected bank.
+     * Get androidPayToken
      *
-     * @return issuer
+     * @return androidPayToken
      **/
-    public String getIssuer() {
-        return issuer;
+    public String getAndroidPayToken() {
+        return androidPayToken;
     }
 
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
+    public void setAndroidPayToken(String androidPayToken) {
+        this.androidPayToken = androidPayToken;
     }
 
-    public BilldeskOnlineDetails type(String type) {
+    public AndroidPayDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **billdesk_online**
+     * The payment method type.
      *
      * @return type
      **/
-    @Override
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
     }
@@ -94,28 +85,26 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BilldeskOnlineDetails billdeskOnlineDetails = (BilldeskOnlineDetails) o;
-        return Objects.equals(this.issuer, billdeskOnlineDetails.issuer) &&
-                Objects.equals(this.type, billdeskOnlineDetails.type);
+        AndroidPayDetails androidPayDetails = (AndroidPayDetails) o;
+        return Objects.equals(this.androidPayToken, androidPayDetails.androidPayToken) &&
+                Objects.equals(this.type, androidPayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, type);
+        return Objects.hash(androidPayToken, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BilldeskOnlineDetails {\n");
+        sb.append("class AndroidPayDetails {\n");
 
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("    androidPayToken: ").append(toIndentedString(androidPayToken)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
-
-
 
 }

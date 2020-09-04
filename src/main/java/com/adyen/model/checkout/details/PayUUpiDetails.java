@@ -26,63 +26,58 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * BilldeskOnlineDetails
- * @deprecated Use {@link com.adyen.model.checkout.details.BillDeskOnlineDetails} instead
+ * PayUUpiDetails
  */
 
-@Deprecated
-public class BilldeskOnlineDetails implements PaymentMethodDetails {
+public class PayUUpiDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String BILLDESK_ONLINE = "billdesk_online";
-
-    @SerializedName("issuer")
-    private String issuer = null;
+    private static final String PAYUINUPI = "payu_IN_upi";
 
     @SerializedName("type")
-    private String type = BILLDESK_ONLINE;
+    private String type = PAYUINUPI;
 
-    public BilldeskOnlineDetails issuer(String issuer) {
-        this.issuer = issuer;
-        return this;
-    }
+    @SerializedName("vpa")
+    private String vpa = null;
 
-    /**
-     * The issuer id of the shopper&#x27;s selected bank.
-     *
-     * @return issuer
-     **/
-    public String getIssuer() {
-        return issuer;
-    }
-
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
-    }
-
-    public BilldeskOnlineDetails type(String type) {
+    public PayUUpiDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **billdesk_online**
+     * **payu_IN_upi**
      *
      * @return type
      **/
-    @Override
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
+    }
+
+    public PayUUpiDetails vpa(String vpa) {
+        this.vpa = vpa;
+        return this;
+    }
+
+    /**
+     * The VPA (Virtual Payment Address) for UPI.
+     *
+     * @return vpa
+     **/
+    public String getVpa() {
+        return vpa;
+    }
+
+    public void setVpa(String vpa) {
+        this.vpa = vpa;
     }
 
 
@@ -94,28 +89,26 @@ public class BilldeskOnlineDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BilldeskOnlineDetails billdeskOnlineDetails = (BilldeskOnlineDetails) o;
-        return Objects.equals(this.issuer, billdeskOnlineDetails.issuer) &&
-                Objects.equals(this.type, billdeskOnlineDetails.type);
+        PayUUpiDetails payUUpiDetails = (PayUUpiDetails) o;
+        return Objects.equals(this.type, payUUpiDetails.type) &&
+                Objects.equals(this.vpa, payUUpiDetails.vpa);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, type);
+        return Objects.hash(type, vpa);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BilldeskOnlineDetails {\n");
+        sb.append("class PayUUpiDetails {\n");
 
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    vpa: ").append(toIndentedString(vpa)).append("\n");
         sb.append("}");
         return sb.toString();
     }
-
-
 
 }
