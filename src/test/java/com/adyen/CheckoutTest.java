@@ -164,6 +164,26 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test success flow for
+     * POST /paymentMethods
+     * including storing methods
+     */
+    @Test
+    public void TestPaymentMethodsStoringMethodsMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentmethods-storingmethods-success.json");
+        Checkout checkout = new Checkout(client);
+        PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
+        paymentMethodsRequest.setMerchantAccount("TestMerchant");
+        PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
+        assertNotNull(paymentMethodsResponse.getStoringMethods());
+        assertEquals(1, paymentMethodsResponse.getStoringMethods().size());
+        assertEquals(1, paymentMethodsResponse.getStoringMethods().get(0).getIssuers().size());
+        assertEquals("rabobank", paymentMethodsResponse.getStoringMethods().get(0).getIssuers().get(0).getId());
+        assertEquals("Rabobank", paymentMethodsResponse.getStoringMethods().get(0).getIssuers().get(0).getName());
+        assertNotNull(paymentMethodsResponse.getStoringMethods().get(0).getIssuers().get(0).getRedirectUrls());
+    }
+
+    /**
      * Test error flow for
      * POST /paymentMethods
      */
