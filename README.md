@@ -25,7 +25,7 @@ The Library supports all APIs under the following services:
 
 ## Requirements
 
-* Java 8 or higher
+* Java 8 or higher. Java 11 is not yet supported.
 
 ## Installation
 
