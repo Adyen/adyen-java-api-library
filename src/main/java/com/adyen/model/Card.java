@@ -20,6 +20,7 @@
  */
 package com.adyen.model;
 
+import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -230,12 +231,12 @@ public class Card {
         StringBuilder sb = new StringBuilder();
         sb.append("class Card {\n");
 
-        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
-        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
-        sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
+        sb.append("    expiryMonth: ").append(toIndentedString(MaskUtil.mask(expiryMonth))).append("\n");
+        sb.append("    expiryYear: ").append(toIndentedString(MaskUtil.mask(expiryYear))).append("\n");
+        sb.append("    cvc: ").append(toIndentedString(MaskUtil.mask(cvc))).append("\n");
         sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
         sb.append("    issueNumber: ").append(toIndentedString(issueNumber)).append("\n");
-        sb.append("    number: ").append(toIndentedString(number)).append("\n");
+        sb.append("    number: ").append(toIndentedString(MaskUtil.maskCardNumber(number))).append("\n");
         sb.append("    startMonth: ").append(toIndentedString(startMonth)).append("\n");
         sb.append("    startYear: ").append(toIndentedString(startYear)).append("\n");
         sb.append("}");

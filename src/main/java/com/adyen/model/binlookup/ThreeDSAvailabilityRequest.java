@@ -20,6 +20,7 @@
  */
 package com.adyen.model.binlookup;
 
+import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -202,7 +203,7 @@ public class ThreeDSAvailabilityRequest {
 
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-        sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
+        sb.append("    cardNumber: ").append(toIndentedString(MaskUtil.maskCardNumber(cardNumber))).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");

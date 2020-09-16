@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;
@@ -161,7 +162,7 @@ public class PaymentsDetailsRequest {
         sb.append("class PaymentsDetailsRequest {\n");
 
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
-        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+        sb.append("    paymentData: ").append(toIndentedString(MaskUtil.mask(paymentData))).append("\n");
         sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
         sb.append("}");
         return sb.toString();
