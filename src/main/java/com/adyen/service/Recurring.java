@@ -28,9 +28,12 @@ import com.adyen.model.recurring.RecurringDetailsRequest;
 import com.adyen.model.recurring.RecurringDetailsResult;
 import com.adyen.model.recurring.StoreTokenRequest;
 import com.adyen.model.recurring.StoreTokenResult;
+import com.adyen.model.recurring.ScheduleAccountUpdaterRequest;
+import com.adyen.model.recurring.ScheduleAccountUpdaterResult;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.recurring.Disable;
 import com.adyen.service.resource.recurring.ListRecurringDetails;
+import com.adyen.service.resource.recurring.ScheduleAccountUpdater;
 import com.adyen.service.resource.recurring.StoreToken;
 import com.google.gson.reflect.TypeToken;
 
@@ -40,6 +43,7 @@ public class Recurring extends Service {
     private ListRecurringDetails listRecurringDetails;
     private Disable disable;
     private StoreToken storeToken;
+    private ScheduleAccountUpdater scheduleAccountUpdater;
 
     public Recurring(Client client) {
         super(client);
@@ -47,6 +51,7 @@ public class Recurring extends Service {
         listRecurringDetails = new ListRecurringDetails(this);
         disable = new Disable(this);
         storeToken = new StoreToken(this);
+        scheduleAccountUpdater = new ScheduleAccountUpdater(this);
     }
 
     /**
@@ -97,6 +102,23 @@ public class Recurring extends Service {
         String jsonResult = storeToken.request(jsonRequest);
 
         return GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
+        }.getType());
+    }
+
+    /**
+     * Issues a scheduleAccountUpdate API call
+     *
+     * @param request ScheduleAccountUpdaterRequest
+     * @return ScheduleAccountUpdaterResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest request) throws IOException, ApiException {
+        String jsonRequest = GSON.toJson(request);
+
+        String jsonResult = scheduleAccountUpdater.request(jsonRequest);
+
+        return GSON.fromJson(jsonResult, new TypeToken<ScheduleAccountUpdaterResult>() {
         }.getType());
     }
 
