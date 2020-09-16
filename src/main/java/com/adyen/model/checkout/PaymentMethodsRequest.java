@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -90,6 +90,12 @@ public class PaymentMethodsRequest {
 
     @SerializedName("store")
     private String store = null;
+
+    @SerializedName("splitCardFundingSources")
+    private Boolean splitCardFundingSources = false;
+
+    @SerializedName("order")
+    private CheckoutOrder order = null;
 
     public Object getAdditionalData() {
         return additionalData;
@@ -319,6 +325,34 @@ public class PaymentMethodsRequest {
         this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     }
 
+    public PaymentMethodsRequest order(CheckoutOrder order) {
+        this.order = order;
+        return this;
+    }
+
+
+    public CheckoutOrder getOrder() {
+        return order;
+    }
+
+    public void setOrder(CheckoutOrder order) {
+        this.order = order;
+    }
+
+    public PaymentMethodsRequest splitCardFundingSources(Boolean splitCardFundingSources) {
+        this.splitCardFundingSources = splitCardFundingSources;
+        return this;
+    }
+
+
+    public Boolean isSplitCardFundingSources() {
+        return splitCardFundingSources;
+    }
+
+    public void setSplitCardFundingSources(Boolean splitCardFundingSources) {
+        this.splitCardFundingSources = splitCardFundingSources;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -336,16 +370,17 @@ public class PaymentMethodsRequest {
                 Objects.equals(this.countryCode, paymentMethodsRequest.countryCode) &&
                 Objects.equals(this.enableRealTimeUpdate, paymentMethodsRequest.enableRealTimeUpdate) &&
                 Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount) &&
+                Objects.equals(this.order, paymentMethodsRequest.order) &&
                 Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
                 Objects.equals(this.shopperReference, paymentMethodsRequest.shopperReference) &&
-                Objects.equals(this.store, paymentMethodsRequest.store) &&
-                Objects.equals(this.threeDSAuthenticationOnly, paymentMethodsRequest.threeDSAuthenticationOnly);
-
+                Objects.equals(this.splitCardFundingSources, paymentMethodsRequest.splitCardFundingSources) &&
+                Objects.equals(this.store, paymentMethodsRequest.store);
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, shopperLocale, shopperReference, threeDSAuthenticationOnly, store);
+        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, order, shopperLocale, shopperReference, splitCardFundingSources, store);
     }
 
 
@@ -362,9 +397,10 @@ public class PaymentMethodsRequest {
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
         sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    order: ").append(toIndentedString(order)).append("\n");
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
+        sb.append("    splitCardFundingSources: ").append(toIndentedString(splitCardFundingSources)).append("\n");
         sb.append("    store: ").append(toIndentedString(store)).append("\n");
         sb.append("}");
         return sb.toString();
