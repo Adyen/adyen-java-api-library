@@ -21,6 +21,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.model.Amount;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -132,6 +133,7 @@ public class CheckoutPaymentsAction {
         SDK("sdk"),
         WECHATPAYSDK("wechatpaySDK");
 
+        @JsonValue
         private String value;
 
         CheckoutActionType(String value) {

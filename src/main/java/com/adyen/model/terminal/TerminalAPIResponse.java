@@ -22,6 +22,7 @@ package com.adyen.model.terminal;
 
 import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.SaleToPOIResponse;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -31,9 +32,11 @@ import java.util.Objects;
  */
 public class TerminalAPIResponse {
     @SerializedName("SaleToPOIResponse")
+    @JsonProperty("SaleToPOIResponse")
     private SaleToPOIResponse saleToPOIResponse;
 
     @SerializedName("SaleToPOIRequest")
+    @JsonProperty("SaleToPOIRequest")
     private SaleToPOIRequest saleToPOIRequest;
 
     /**

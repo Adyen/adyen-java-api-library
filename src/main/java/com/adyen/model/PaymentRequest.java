@@ -25,6 +25,7 @@ import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.util.Util;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -78,6 +79,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
         @SerializedName("UnscheduledCardOnFile") UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
 
+        @JsonValue
         private String value;
 
         RecurringProcessingModelEnum(String value) {

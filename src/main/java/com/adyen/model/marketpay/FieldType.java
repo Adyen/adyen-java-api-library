@@ -20,6 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -203,6 +204,7 @@ public class FieldType {
         @SerializedName("webAddress")
         WEBADDRESS("webAddress");
 
+        @JsonValue
         private String value;
 
         FieldNameEnum(String value) {

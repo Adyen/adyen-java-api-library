@@ -22,18 +22,22 @@
 package com.adyen.model.terminal.security;
 
 import com.adyen.model.nexo.MessageHeader;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
 public class SaleToPOISecuredMessage {
     @SerializedName("MessageHeader")
+    @JsonProperty("MessageHeader")
     private MessageHeader messageHeader;
 
     @SerializedName("NexoBlob")
+    @JsonProperty("NexoBlob")
     private String nexoBlob;
 
     @SerializedName("SecurityTrailer")
+    @JsonProperty("SecurityTrailer")
     private SecurityTrailer securityTrailer;
 
     public MessageHeader getMessageHeader() {

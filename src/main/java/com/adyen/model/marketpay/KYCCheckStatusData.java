@@ -20,6 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -62,6 +63,7 @@ public class KYCCheckStatusData {
     }
 
     @SerializedName("type")
+    @JsonProperty("type")
     private CheckTypeEnum checkType = null;
 
     @SerializedName("summary")
@@ -111,6 +113,7 @@ public class KYCCheckStatusData {
     }
 
     @SerializedName("status")
+    @JsonProperty("status")
     private CheckStatusEnum checkStatus = null;
 
     @SerializedName("requiredFields")

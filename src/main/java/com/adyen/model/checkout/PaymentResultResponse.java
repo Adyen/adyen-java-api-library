@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.model.FraudResult;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -351,6 +352,7 @@ public class PaymentResultResponse {
         REDIRECTSHOPPER("RedirectShopper"),
         REFUSED("Refused");
 
+        @JsonValue
         private String value;
 
         ResultCodeEnum(String value) {

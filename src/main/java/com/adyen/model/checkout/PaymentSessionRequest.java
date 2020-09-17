@@ -35,6 +35,7 @@ import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -106,6 +107,7 @@ public class PaymentSessionRequest {
         ANDROID("Android"),
         WEB("Web");
 
+        @JsonValue
         private String value;
 
         ChannelEnum(String value) {
@@ -193,6 +195,7 @@ public class PaymentSessionRequest {
         NATURALPERSON("NaturalPerson"),
         COMPANYNAME("CompanyName");
 
+        @JsonValue
         private String value;
 
         EntityTypeEnum(String value) {
@@ -284,6 +287,7 @@ public class PaymentSessionRequest {
         CARDONFILE("CardOnFile"),
         SUBSCRIPTION("Subscription");
 
+        @JsonValue
         private String value;
 
         RecurringProcessingModelEnum(String value) {
@@ -371,6 +375,7 @@ public class PaymentSessionRequest {
         MOTO("Moto"),
         POS("POS");
 
+        @JsonValue
         private String value;
 
         ShopperInteractionEnum(String value) {

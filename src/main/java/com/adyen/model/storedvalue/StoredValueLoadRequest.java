@@ -23,6 +23,7 @@ package com.adyen.model.storedvalue;
 import java.util.Objects;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,6 +50,7 @@ public class StoredValueLoadRequest {
         MERCHANDISERETURN("merchandiseReturn"),
         LOAD("load");
 
+        @JsonValue
         private String value;
 
         LoadTypeEnum(String value) {
@@ -112,6 +114,7 @@ public class StoredValueLoadRequest {
         MOTO("Moto"),
         POS("POS");
 
+        @JsonValue
         private String value;
 
         ShopperInteractionEnum(String value) {

@@ -38,6 +38,7 @@ import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -118,6 +119,7 @@ public class PayoutRequest {
         NATURALPERSON("NaturalPerson"),
         COMPANYNAME("CompanyName");
 
+        @JsonValue
         private String value;
 
         EntityTypeEnum(String value) {
@@ -200,6 +202,7 @@ public class PayoutRequest {
         CARDONFILE("CardOnFile"),
         SUBSCRIPTION("Subscription");
 
+        @JsonValue
         private String value;
 
         RecurringProcessingModelEnum(String value) {
@@ -266,6 +269,7 @@ public class PayoutRequest {
         MOTO("Moto"),
         POS("POS");
 
+        @JsonValue
         private String value;
 
         ShopperInteractionEnum(String value) {

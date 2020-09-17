@@ -21,6 +21,7 @@
 package com.adyen.model.binlookup;
 
 import com.adyen.model.Amount;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -79,6 +80,7 @@ public class CostEstimateRequest {
         MOTO("Moto"),
         POS("POS");
 
+        @JsonValue
         private String value;
 
         ShopperInteractionEnum(String value) {

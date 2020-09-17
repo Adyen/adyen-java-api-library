@@ -21,10 +21,12 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 public class CompensateNegativeBalanceNotificationRecordContainer {
     @SerializedName("CompensateNegativeBalanceNotificationRecord")
+    @JsonProperty("CompensateNegativeBalanceNotificationRecord")
     private CompensateNegativeBalanceNotificationRecord compensateNegativeBalanceNotificationRecord;
 
     public CompensateNegativeBalanceNotificationRecord getCompensateNegativeBalanceNotificationRecord() {

@@ -20,6 +20,7 @@
  */
 package com.adyen.model.recurring;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 
@@ -30,6 +31,7 @@ import static com.adyen.util.Util.toIndentedString;
  */
 public class RecurringDetailContainer {
     @SerializedName("RecurringDetail")
+    @JsonProperty("RecurringDetail")
     private RecurringDetail recurringDetail = null;
 
     public RecurringDetail getRecurringDetail() {
