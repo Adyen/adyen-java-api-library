@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -278,8 +279,8 @@ public class StoredPaymentMethod {
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
         sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
-        sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
-        sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
+        sb.append("    expiryMonth: ").append(toIndentedString(MaskUtil.mask(expiryMonth))).append("\n");
+        sb.append("    expiryYear: ").append(toIndentedString(MaskUtil.mask(expiryYear))).append("\n");
         sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
         sb.append("    supportedShopperInteractions: ").append(toIndentedString(supportedShopperInteractions)).append("\n");
         sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");

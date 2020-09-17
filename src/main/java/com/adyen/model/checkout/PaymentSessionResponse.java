@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -485,7 +486,7 @@ public class PaymentSessionResponse {
         sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
         sb.append("    originKey: ").append(toIndentedString(originKey)).append("\n");
         sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
-        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+        sb.append("    paymentData: ").append(toIndentedString(MaskUtil.mask(paymentData))).append("\n");
         sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
         sb.append("    paymentSession: ").append(toIndentedString(paymentSession)).append("\n");
         sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");

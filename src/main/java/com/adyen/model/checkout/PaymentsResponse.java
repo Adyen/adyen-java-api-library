@@ -26,6 +26,7 @@ import com.adyen.model.FraudResult;
 import com.adyen.model.ThreeDS2Result;
 import com.adyen.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.adyen.util.MaskUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -463,7 +464,7 @@ public class PaymentsResponse {
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+        sb.append("    paymentData: ").append(toIndentedString(MaskUtil.mask(paymentData))).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
         sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");

@@ -22,6 +22,7 @@ package com.adyen.model.binlookup;
 
 import com.adyen.model.Amount;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.adyen.util.MaskUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -354,8 +355,8 @@ public class CostEstimateRequest {
 
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    assumptions: ").append(toIndentedString(assumptions)).append("\n");
-        sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
-        sb.append("    encryptedCard: ").append(toIndentedString(encryptedCard)).append("\n");
+        sb.append("    cardNumber: ").append(toIndentedString(MaskUtil.maskCardNumber(cardNumber))).append("\n");
+        sb.append("    encryptedCard: ").append(toIndentedString(MaskUtil.mask(encryptedCard))).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    merchantDetails: ").append(toIndentedString(merchantDetails)).append("\n");
         sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");

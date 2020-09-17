@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -474,17 +475,17 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     public String toString() {
         return "DefaultPaymentMethodDetails{" +
                 "type='" + type + '\'' +
-                ", number='" + number + '\'' +
-                ", expiryMonth='" + expiryMonth + '\'' +
-                ", expiryYear='" + expiryYear + '\'' +
+                ", number='" + MaskUtil.maskCardNumber(number) + '\'' +
+                ", expiryMonth='" + MaskUtil.mask(expiryMonth) + '\'' +
+                ", expiryYear='" + MaskUtil.mask(expiryYear) + '\'' +
                 ", holderName='" + holderName + '\'' +
-                ", cvc='" + cvc + '\'' +
+                ", cvc='" + MaskUtil.mask(cvc) + '\'' +
                 ", installmentConfigurationKey='" + installmentConfigurationKey + '\'' +
                 ", personalDetails=" + personalDetails +
-                ", encryptedCardNumber='" + encryptedCardNumber + '\'' +
-                ", encryptedExpiryMonth='" + encryptedExpiryMonth + '\'' +
-                ", encryptedExpiryYear='" + encryptedExpiryYear + '\'' +
-                ", encryptedSecurityCode='" + encryptedSecurityCode + '\'' +
+                ", encryptedCardNumber='" + MaskUtil.mask(encryptedCardNumber) + '\'' +
+                ", encryptedExpiryMonth='" + MaskUtil.mask(encryptedExpiryMonth) + '\'' +
+                ", encryptedExpiryYear='" + MaskUtil.mask(encryptedExpiryYear) + '\'' +
+                ", encryptedSecurityCode='" + MaskUtil.mask(encryptedSecurityCode) + '\'' +
                 ", recurringDetailReference='" + recurringDetailReference + '\'' +
                 ", storedPaymentMethodId='" + storedPaymentMethodId + '\'' +
                 ", storeDetails=" + storeDetails +
@@ -492,10 +493,10 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 ", issuer='" + issuer + '\'' +
                 ", sepaOwnerName='" + sepaOwnerName + '\'' +
                 ", sepaIbanNumber='" + sepaIbanNumber + '\'' +
-                ", applepayToken='" + applepayToken + '\'' +
-                ", googlepayToken='" + googlepayToken + '\'' +
+                ", applepayToken='" + MaskUtil.mask(applepayToken) + '\'' +
+                ", googlepayToken='" + MaskUtil.mask(googlepayToken) + '\'' +
                 ", separateDeliveryAddress='" + separateDeliveryAddress + '\'' +
-                ", securityCode='" + securityCode + '\'' +
+                ", securityCode='" + MaskUtil.mask(securityCode) + '\'' +
                 ", brand='" + brand + '\'' +
                 ", networkPaymentReference='" + networkPaymentReference + '\'' +
                 '}';
