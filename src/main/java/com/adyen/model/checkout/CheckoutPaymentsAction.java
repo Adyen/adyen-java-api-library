@@ -21,6 +21,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.model.Amount;
+import com.adyen.util.MaskUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -674,7 +675,7 @@ public class CheckoutPaymentsAction {
         sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    method: ").append(toIndentedString(method)).append("\n");
-        sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+        sb.append("    paymentData: ").append(toIndentedString(MaskUtil.mask(paymentData))).append("\n");
         sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append("\n");
         sb.append("    qrCodeData: ").append(toIndentedString(qrCodeData)).append("\n");
         sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
