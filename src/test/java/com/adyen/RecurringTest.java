@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -27,7 +27,7 @@ import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -177,12 +177,11 @@ public class RecurringTest extends BaseTest {
         assertEquals("09", result.getNewExpiryMonth());
         assertEquals("2020", result.getNewExpiryYear());
         assertEquals("accountUpdaterAction", result.getAccountUpdaterAction());
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
-        String dateInString = "15-Sep-2020 13:43:35";
-        Date expectedDate = formatter.parse(dateInString);
+
+        OffsetDateTime offsetDateTime = OffsetDateTime.parse("2020-09-15T13:43:35+02:00");
+        Date expectedDate = Date.from(offsetDateTime.toInstant());
         assertEquals(expectedDate, result.getProcessedDate());
     }
-
 
     @Test
     public void testScheduleAccountUpdater130() throws IOException {

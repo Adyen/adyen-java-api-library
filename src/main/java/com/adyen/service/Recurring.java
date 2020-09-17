@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -64,9 +64,7 @@ public class Recurring extends Service {
      */
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-
         String jsonResult = listRecurringDetails.request(jsonRequest);
-
         return GSON.fromJson(jsonResult, new TypeToken<RecurringDetailsResult>() {
         }.getType());
     }
@@ -81,9 +79,7 @@ public class Recurring extends Service {
      */
     public DisableResult disable(DisableRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-
         String jsonResult = disable.request(jsonRequest);
-
         return GSON.fromJson(jsonResult, new TypeToken<DisableResult>() {
         }.getType());
     }
@@ -98,9 +94,7 @@ public class Recurring extends Service {
      */
     public StoreTokenResult storeToken(StoreTokenRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-
         String jsonResult = storeToken.request(jsonRequest);
-
         return GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
         }.getType());
     }
@@ -115,9 +109,7 @@ public class Recurring extends Service {
      */
     public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-
         String jsonResult = scheduleAccountUpdater.request(jsonRequest);
-
         return GSON.fromJson(jsonResult, new TypeToken<ScheduleAccountUpdaterResult>() {
         }.getType());
     }

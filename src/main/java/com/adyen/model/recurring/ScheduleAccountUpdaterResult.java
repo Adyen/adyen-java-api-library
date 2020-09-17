@@ -14,7 +14,7 @@
  * <p>
  * Adyen Java API Library
  * <p>
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 q Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -22,7 +22,7 @@ package com.adyen.model.recurring;
 
 import java.util.Date;
 import java.util.Objects;
-
+import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
 import static com.adyen.util.Util.toIndentedString;
@@ -122,7 +122,6 @@ public class ScheduleAccountUpdaterResult {
         return this;
     }
 
-
     public Date getProcessedDate() {
         return processedDate;
     }
@@ -157,7 +156,6 @@ public class ScheduleAccountUpdaterResult {
         this.result = result;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -182,7 +180,6 @@ public class ScheduleAccountUpdaterResult {
         return Objects.hash(accountUpdaterAction, error, newAlias, newExpiryMonth, newExpiryYear, processedDate, pspReference, result);
     }
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -191,8 +188,8 @@ public class ScheduleAccountUpdaterResult {
         sb.append("    accountUpdaterAction: ").append(toIndentedString(accountUpdaterAction)).append("\n");
         sb.append("    error: ").append(toIndentedString(error)).append("\n");
         sb.append("    newAlias: ").append(toIndentedString(newAlias)).append("\n");
-        sb.append("    newExpiryMonth: ").append(toIndentedString(newExpiryMonth)).append("\n");
-        sb.append("    newExpiryYear: ").append(toIndentedString(newExpiryYear)).append("\n");
+        sb.append("    newExpiryMonth: ").append(MaskUtil.mask(newExpiryMonth)).append("\n");
+        sb.append("    newExpiryYear: ").append(MaskUtil.mask(newExpiryYear)).append("\n");
         sb.append("    processedDate: ").append(toIndentedString(processedDate)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    result: ").append(toIndentedString(result)).append("\n");
