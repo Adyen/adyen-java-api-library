@@ -298,6 +298,7 @@ public class PaymentMethodsRequest {
 
     /**
      * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
+     *
      * @return enableRealTimeUpdate
      **/
     public Boolean isEnableRealTimeUpdate() {
@@ -330,7 +331,6 @@ public class PaymentMethodsRequest {
         return this;
     }
 
-
     public CheckoutOrder getOrder() {
         return order;
     }
@@ -343,7 +343,6 @@ public class PaymentMethodsRequest {
         this.splitCardFundingSources = splitCardFundingSources;
         return this;
     }
-
 
     public Boolean isSplitCardFundingSources() {
         return splitCardFundingSources;
@@ -377,12 +376,10 @@ public class PaymentMethodsRequest {
                 Objects.equals(this.store, paymentMethodsRequest.store);
     }
 
-
     @Override
     public int hashCode() {
         return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, order, shopperLocale, shopperReference, splitCardFundingSources, store);
     }
-
 
     @Override
     public String toString() {
@@ -405,8 +402,6 @@ public class PaymentMethodsRequest {
         sb.append("}");
         return sb.toString();
     }
-
-
 
     /**
      * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android *
@@ -453,7 +448,6 @@ public class PaymentMethodsRequest {
             }
         }
     }
-
 
 }
 
