@@ -20,8 +20,16 @@
  */
 package com.adyen;
 
+import com.adyen.model.recurring.DisableRequest;
+import com.adyen.model.recurring.DisableResult;
+import com.adyen.model.recurring.RecurringDetail;
+import com.adyen.model.recurring.RecurringDetailsRequest;
+import com.adyen.model.recurring.RecurringDetailsResult;
+import com.adyen.model.recurring.StoreTokenRequest;
+import com.adyen.model.recurring.StoreTokenResult;
+import com.adyen.model.recurring.ScheduleAccountUpdaterRequest;
+import com.adyen.model.recurring.ScheduleAccountUpdaterResult;
 import com.adyen.model.Card;
-import com.adyen.model.recurring.*;
 import com.adyen.service.Recurring;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
@@ -32,7 +40,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class RecurringTest extends BaseTest {
     private RecurringDetailsRequest createRecurringDetailsRequest() {
@@ -188,10 +200,10 @@ public class RecurringTest extends BaseTest {
         Client client = createMockClientForErrors(422, "mocks/recurring/scheduleAccountUpdater-error-130.json");
         Recurring recurring = new Recurring(client);
 
-        StoreTokenRequest request = createStoreTokenRequest();
+        ScheduleAccountUpdaterRequest request = createScheduleAccountUpdaterRequest();
 
         try {
-            recurring.storeToken(request);
+            recurring.scheduleAccountUpdater(request);
             fail("Exception expected!");
         } catch (ApiException e) {
             assertNotEquals(200, e.getStatusCode());
