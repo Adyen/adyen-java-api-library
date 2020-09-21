@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class ValidateModelSerialization {
+public class ModelSerializationTest {
 
     Gson gson = new Gson();
     ObjectMapper objectMapper = new ObjectMapper();
