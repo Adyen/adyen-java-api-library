@@ -7,9 +7,8 @@ import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 import org.junit.Assert;
 import org.junit.Test;
-import org.reflections.Reflections;
-import org.reflections.scanners.FieldAnnotationsScanner;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
@@ -25,12 +24,11 @@ public class ModelSerializationTest {
      * Validate that all the enum fields get serialized to same value using GSON and Jackson
      */
     @Test
-    public void testEnumSerializationInGsonAndJacksonShouldBeSame() {
-        Reflections reflections = new Reflections("com.adyen.model");
-        List<? extends Class<? extends Enum>> enums = reflections.getSubTypesOf(Enum.class).stream()
+    public void testEnumSerializationInGsonAndJacksonShouldBeSame() throws IOException, ClassNotFoundException {
+        List<Class<?>> enums = ReflectionUtil.getEnumClasses("com.adyen.model").stream()
                 .flatMap(aClass -> Arrays.stream(aClass.getEnumConstants()))
                 .filter(anEnum -> !isValidSerialization(anEnum))
-                .map(anEnum -> anEnum.getClass())
+                .map(Object::getClass)
                 .distinct()
                 .peek(anEnum -> System.out.println(anEnum + " has difference between GSON and Jackson serialization"))
                 .collect(Collectors.toList());
@@ -38,9 +36,9 @@ public class ModelSerializationTest {
         Assert.assertTrue("Differences found between GSON and Jackson serialization", enums.isEmpty());
     }
 
-    private boolean isValidSerialization(Enum anEnum) {
+    private boolean isValidSerialization(Object object) {
         try {
-            return gson.toJson(anEnum).equals(objectMapper.writeValueAsString(anEnum));
+            return gson.toJson(object).equals(objectMapper.writeValueAsString(object));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return false;
@@ -51,9 +49,8 @@ public class ModelSerializationTest {
      * Validate that all the class fields (except enums) which have @SerializedName annotation and different names must have @JsonProperty annotation as well
      */
     @Test
-    public void testFieldNameShouldBeSameForGSONAndJackson() {
-        Reflections reflections = new Reflections("com.adyen.model", new FieldAnnotationsScanner());
-        Set<Field> fieldsWithoutAnnotation = reflections.getFieldsAnnotatedWith(SerializedName.class).stream()
+    public void testFieldNameShouldBeSameForGSONAndJackson() throws IOException, ClassNotFoundException {
+        Set<Field> fieldsWithoutAnnotation = ReflectionUtil.getFieldsWithAnnotation("com.adyen.model", SerializedName.class).stream()
                 .filter(field -> !field.isEnumConstant())
                 .filter(this::hasDifferentNameInAnnotation)
                 .filter(field -> !hasValidSerializationConfig(field))
