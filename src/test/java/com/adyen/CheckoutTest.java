@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -36,6 +36,7 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -55,6 +56,7 @@ import static org.junit.Assert.fail;
  * /paymentMethods
  * /payments
  * /payments/details
+ * /payments/storedPaymentMethods
  */
 public class CheckoutTest extends BaseTest {
     /**
@@ -1442,6 +1444,44 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
+    public void TestStoredPaymentMethodsSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/storedpaymentmethods-success.json");
+        Checkout checkout = new Checkout(client);
+        CreateStoredPaymentMethodRequest createStoredPaymentMethodRequest = createStoredPaymentMethodsRequest();
+        StoredPaymentMethodResource storedPaymentMethodResource = checkout.storedPaymentMethods(createStoredPaymentMethodRequest);
+
+        assertNotNull(createStoredPaymentMethodRequest);
+        assertEquals("128472894248249", storedPaymentMethodResource.getId());
+        assertEquals("scheme", storedPaymentMethodResource.getType());
+        assertEquals("sh123412341234", storedPaymentMethodResource.getShopperReference());
+        assertEquals("mc", storedPaymentMethodResource.getBrand());
+        assertEquals("1111", storedPaymentMethodResource.getLastFour());
+        assertEquals("04", storedPaymentMethodResource.getExpiryMonth());
+        assertEquals("2020", storedPaymentMethodResource.getExpiryYear());
+        assertNotNull(storedPaymentMethodResource.getSupportedShopperInteractions());
+        List<String> supportedShopperInteraction = storedPaymentMethodResource.getSupportedShopperInteractions();
+        assertTrue(supportedShopperInteraction.contains("Ecommerce"));
+        assertTrue(supportedShopperInteraction.contains("ContAuth"));
+    }
+
+    @Test
+    public void TestStoredPaymentMethodsErrorMocked() throws Exception {
+        Client client = createMockClientForErrors(422, "mocks/checkout/storedpaymentmethods-error-invalid-data-422.json");
+        Checkout checkout = new Checkout(client);
+        CreateStoredPaymentMethodRequest createStoredPaymentMethodRequest = createStoredPaymentMethodsRequest();
+        try {
+            checkout.storedPaymentMethods(createStoredPaymentMethodRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("121", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+            assertEquals(e.getResponseHeaders().size(), 0);
+            assertNotNull(e.getResponseHeaders());
+        }
+    }
+
+    @Test
     public void TestPaymentLinksErrorMerchantMissing() throws IOException {
         Client client = createMockClientForErrors(403,"mocks/checkout/payment-links-error-merchant.json");
         Checkout checkout = new Checkout(client);
@@ -1699,6 +1739,20 @@ public class CheckoutTest extends BaseTest {
         createPaymentLinkRequest.setDeliveryAddress(address);
 
         return createPaymentLinkRequest;
+    }
+
+    protected CreateStoredPaymentMethodRequest createStoredPaymentMethodsRequest() {
+        StoringMethod storingMethod = new StoringMethod();
+        storingMethod.setType("tokenconnect");
+        storingMethod.setPushAccountReceipt("abc12391401941");
+        storingMethod.setShopperIP("123");
+
+        CreateStoredPaymentMethodRequest createStoredPaymentMethodRequest = new CreateStoredPaymentMethodRequest();
+        createStoredPaymentMethodRequest.setMerchantAccount("TestMerchant");
+        createStoredPaymentMethodRequest.setShopperReference("sh123412341234");
+        createStoredPaymentMethodRequest.setStoringMethod(storingMethod);
+
+        return createStoredPaymentMethodRequest;
     }
 
     protected CheckoutCreateOrderRequest createCheckoutCreateOrderRequest() {

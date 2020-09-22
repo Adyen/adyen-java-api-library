@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -39,6 +39,9 @@ import com.adyen.model.checkout.CheckoutCreateOrderRequest;
 import com.adyen.model.checkout.CheckoutCreateOrderResponse;
 import com.adyen.model.checkout.CheckoutCancelOrderRequest;
 import com.adyen.model.checkout.CheckoutCancelOrderResponse;
+import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
+import com.adyen.model.checkout.StoredPaymentMethodResource;
+
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.checkout.PaymentLinks;
 import com.adyen.service.resource.checkout.PaymentMethods;
@@ -48,6 +51,7 @@ import com.adyen.service.resource.checkout.PaymentsDetails;
 import com.adyen.service.resource.checkout.PaymentsResult;
 import com.adyen.service.resource.checkout.Orders;
 import com.adyen.service.resource.checkout.OrdersCancel;
+import com.adyen.service.resource.checkout.StoredPaymentsMethods;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -62,6 +66,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
     private PaymentLinks paymentLinks;
     private Orders orders;
     private OrdersCancel ordersCancel;
+    private StoredPaymentsMethods storedPaymentsMethods;
 
     public Checkout(Client client) {
 
@@ -74,6 +79,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
         paymentLinks = new PaymentLinks(this);
         orders = new Orders(this);
         ordersCancel = new OrdersCancel(this);
+        storedPaymentsMethods = new StoredPaymentsMethods(this);
+
     }
 
     /**
@@ -179,6 +186,21 @@ public class Checkout extends ApiKeyAuthenticatedService {
         String jsonRequest = GSON.toJson(createPaymentLinkRequest);
         String jsonResult = paymentLinks.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<CreatePaymentLinkResponse>() {
+        }.getType());
+    }
+
+    /**
+     * POST /storedPaymentMethods API call
+     *
+     * @param createStoredPaymentMethodRequest StoredPaymentMethodsRequest
+     * @return storedPaymentMethod
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
+     */
+    public StoredPaymentMethodResource storedPaymentMethods(CreateStoredPaymentMethodRequest createStoredPaymentMethodRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(createStoredPaymentMethodRequest);
+        String jsonResult = storedPaymentsMethods.request(jsonRequest);
+        return GSON.fromJson(jsonResult, new TypeToken<StoredPaymentMethodResource>() {
         }.getType());
     }
 
