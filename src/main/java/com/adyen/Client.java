@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -39,7 +39,7 @@ public class Client {
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
     public static final String API_VERSION = "v52";
     public static final String PAYOUT_API_VERSION = "v51";
-    public static final String RECURRING_API_VERSION = "v25";
+    public static final String RECURRING_API_VERSION = "v49";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v5";
     public static final String MARKETPAY_FUND_API_VERSION = "v5";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
