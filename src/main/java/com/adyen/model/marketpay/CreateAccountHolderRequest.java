@@ -20,6 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -56,6 +57,7 @@ public class CreateAccountHolderRequest {
         @SerializedName("Individual")
         INDIVIDUAL("Individual");
 
+        @JsonValue
         private String value;
 
         LegalEntityEnum(String value) {

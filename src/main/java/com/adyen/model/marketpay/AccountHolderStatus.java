@@ -20,6 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -58,6 +59,7 @@ public class AccountHolderStatus {
         @SerializedName("Suspended")
         SUSPENDED("Suspended");
 
+        @JsonValue
         private String value;
 
         StatusEnum(String value) {

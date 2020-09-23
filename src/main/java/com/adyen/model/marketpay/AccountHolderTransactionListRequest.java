@@ -20,6 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -91,6 +92,7 @@ public class AccountHolderTransactionListRequest {
         @SerializedName("PendingFundTransfer")
         PENDINGFUNDTRANSFER("PendingFundTransfer");
 
+        @JsonValue
         private String value;
 
         TransactionStatusesEnum(String value) {

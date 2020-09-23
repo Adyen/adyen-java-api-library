@@ -21,6 +21,7 @@
 package com.adyen.model;
 
 import com.adyen.serializer.DateSerializer;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,6 +58,7 @@ public class MerchantRiskIndicator {
         SHIPTOSTORE("shipToStore"),
         SHIPTOVERIFIEDADDRESS("shipToVerifiedAddress");
 
+        @JsonValue
         private String value;
 
         DeliveryAddressIndicatorEnum(String value) {
@@ -109,6 +111,7 @@ public class MerchantRiskIndicator {
         SAMEDAYSHIPPING("sameDayShipping"),
         TWOORMOREDAYSSHIPPING("twoOrMoreDaysShipping");
 
+        @JsonValue
         private String value;
 
         DeliveryTimeframeEnum(String value) {

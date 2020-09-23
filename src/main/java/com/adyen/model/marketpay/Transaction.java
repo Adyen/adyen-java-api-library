@@ -22,6 +22,7 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.model.Amount;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -113,6 +114,7 @@ public class Transaction {
         SECONDCHARGEBACK("SecondChargeback"),
         SECONDCHARGEBACKRECEIVED("SecondChargebackReceived");
 
+        @JsonValue
         private String value;
 
         TransactionStatusEnum(String value) {

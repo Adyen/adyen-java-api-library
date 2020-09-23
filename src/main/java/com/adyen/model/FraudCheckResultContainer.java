@@ -20,6 +20,7 @@
  */
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 
@@ -31,6 +32,7 @@ import static com.adyen.util.Util.toIndentedString;
 public class FraudCheckResultContainer {
 
     @SerializedName("FraudCheckResult")
+    @JsonProperty("FraudCheckResult")
     private FraudCheckResult fraudCheckResult;
 
     public FraudCheckResult getFraudCheckResult() {

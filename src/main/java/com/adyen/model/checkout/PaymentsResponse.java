@@ -25,6 +25,7 @@ import com.adyen.model.Amount;
 import com.adyen.model.FraudResult;
 import com.adyen.model.ThreeDS2Result;
 import com.adyen.util.DateUtil;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.adyen.util.MaskUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -513,6 +514,7 @@ public class PaymentsResponse {
         PRESENTTOSHOPPER("PresentToShopper"),
         UNKNOWN("Unknown"); //applicable for payments/details
 
+        @JsonValue
         private String value;
 
         ResultCodeEnum(String value) {

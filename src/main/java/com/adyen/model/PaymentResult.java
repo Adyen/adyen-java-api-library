@@ -21,6 +21,7 @@
 package com.adyen.model;
 
 import com.adyen.util.DateUtil;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -95,6 +96,7 @@ public class PaymentResult {
         @SerializedName("Refused")
         REFUSED("Refused");
 
+        @JsonValue
         private String value;
 
         ResultCodeEnum(String value) {

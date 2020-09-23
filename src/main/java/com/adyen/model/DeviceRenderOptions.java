@@ -22,6 +22,7 @@
 
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,6 +53,7 @@ public class DeviceRenderOptions {
         NATIVE("Native"),
         BOTH("both");
 
+        @JsonValue
         private String value;
 
         SdkInterfaceEnum(String value) {
@@ -102,6 +104,7 @@ public class DeviceRenderOptions {
         SINGLESELECT("singleSelect"),
         TEXT("text");
 
+        @JsonValue
         private String value;
 
         SdkUiTypeEnum(String value) {

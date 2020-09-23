@@ -20,6 +20,7 @@
  */
 package com.adyen.model.recurring;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ public class RecurringDetailsResult {
     private String lastKnownShopperEmail = null;
 
     @SerializedName("invalidOneclickContracts")
+    @JsonProperty("invalidOneclickContracts")
     private String invalidOneClickContracts = null;
 
     public RecurringDetailsResult creationDate(Date creationDate) {

@@ -20,6 +20,7 @@
  */
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -63,6 +64,7 @@ public class Split {
         VAT("VAT"),
         VERIFICATION("Verification");
 
+        @JsonValue
         private String value;
 
         TypeEnum(String value) {

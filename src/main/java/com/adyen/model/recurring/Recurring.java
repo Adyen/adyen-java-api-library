@@ -21,6 +21,7 @@
 package com.adyen.model.recurring;
 
 import com.adyen.serializer.DateSerializer;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -67,6 +68,7 @@ public class Recurring {
         @SerializedName("EXTERNAL")
         EXTERNAL("EXTERNAL");
 
+        @JsonValue
         private String value;
 
         ContractEnum(String value) {

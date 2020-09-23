@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -121,6 +122,7 @@ public class Avs {
         NO("no"),
         AUTOMATIC("automatic");
 
+        @JsonValue
         private String value;
 
         EnabledEnum(String value) {

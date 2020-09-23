@@ -26,6 +26,7 @@ import com.adyen.model.Amount;
 import com.adyen.model.MerchantRiskIndicator;
 import com.adyen.model.Split;
 import com.adyen.model.ThreeDS2RequestData;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -414,6 +415,7 @@ public class PaymentMethodsRequest {
         ANDROID("Android"),
         WEB("Web");
 
+        @JsonValue
         private String value;
 
         ChannelEnum(String value) {

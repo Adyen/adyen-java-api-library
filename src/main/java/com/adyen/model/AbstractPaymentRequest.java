@@ -25,6 +25,7 @@ import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.recurring.Recurring;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
@@ -71,6 +72,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
 
         @SerializedName("Moto") MOTO("Moto");
 
+        @JsonValue
         private String value;
 
         ShopperInteractionEnum(String value) {
@@ -109,6 +111,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         @SerializedName("debit") DEBIT("debit"),
         @SerializedName("credit") CREDIT("credit");
 
+        @JsonValue
         private String value;
 
         FundingSourceEnum(String value) {

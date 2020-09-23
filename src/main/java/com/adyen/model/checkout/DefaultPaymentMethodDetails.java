@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
@@ -70,12 +71,16 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer;
     @SerializedName("sepa.ownerName")
+    @JsonProperty("sepa.ownerName")
     private String sepaOwnerName;
     @SerializedName("sepa.ibanNumber")
+    @JsonProperty("sepa.ibanNumber")
     private String sepaIbanNumber;
     @SerializedName("applepay.token")
+    @JsonProperty("applepay.token")
     private String applepayToken;
     @SerializedName("paywithgoogle.token")
+    @JsonProperty("paywithgoogle.token")
     private String googlepayToken;
     @SerializedName("separateDeliveryAddress")
     private Boolean separateDeliveryAddress;

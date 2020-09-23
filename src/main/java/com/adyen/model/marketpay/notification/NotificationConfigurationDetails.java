@@ -21,6 +21,8 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -44,6 +46,7 @@ public class NotificationConfigurationDetails {
     private Integer apiVersion = null;
 
     @SerializedName("eventConfigs")
+    @JsonProperty("eventConfigs")
     private List<NotificationEventConfigurationContainer> eventConfigsContainer = null;
 
     private transient List<NotificationEventConfiguration> eventConfigs = null;
@@ -104,6 +107,7 @@ public class NotificationConfigurationDetails {
         @SerializedName("TLSv12")
         TLSV12("TLSv12");
 
+        @JsonValue
         private String value;
 
         SslProtocolEnum(String value) {
