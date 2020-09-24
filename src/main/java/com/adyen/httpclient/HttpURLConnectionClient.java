@@ -269,7 +269,7 @@ public class HttpURLConnectionClient implements ClientInterface {
             try {
                 // Create new KeyStore for the terminal certificate
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-                terminalCertificateStream.reset();
+
                 X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(terminalCertificateStream);
 
                 KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
