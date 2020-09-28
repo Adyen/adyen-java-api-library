@@ -20,9 +20,13 @@
  */
 package com.adyen;
 
-import java.io.InputStream;
-
 import com.adyen.enums.Environment;
+import com.adyen.util.CertificateUtil;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
 
 public class Config {
     protected String username;
@@ -50,8 +54,7 @@ public class Config {
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
     protected String terminalApiLocalEndpoint;
-    protected String terminalCertificatePath;
-    protected InputStream terminalCertificateStream;
+    protected Certificate terminalCertificate;
 
     //Terminal Management API specific
     protected String posTerminalManagementApiEndpoint;
@@ -177,22 +180,6 @@ public class Config {
         this.terminalApiLocalEndpoint = terminalApiLocalEndpoint;
     }
 
-    public String getTerminalCertificatePath() {
-        return terminalCertificatePath;
-    }
-
-    public void setTerminalCertificatePath(String terminalCertificatePath) {
-        this.terminalCertificatePath = terminalCertificatePath;
-    }
-
-    public InputStream getTerminalCertificateStream() {
-        return terminalCertificateStream;
-    }
-
-    public void setTerminalCertificateStream(InputStream terminalCertificateStream) {
-        this.terminalCertificateStream = terminalCertificateStream;
-    }
-
     public int getConnectionTimeoutMillis() {
         return connectionTimeoutMillis;
     }
@@ -217,4 +204,19 @@ public class Config {
         this.posTerminalManagementApiEndpoint = posTerminalManagementApiEndpoint;
     }
 
+    public Certificate getTerminalCertificate() {
+        return terminalCertificate;
+    }
+
+    public void setTerminalCertificate(Certificate terminalCertificate) {
+        this.terminalCertificate = terminalCertificate;
+    }
+
+    public void setTerminalCertificate(String terminalCertificatePath) throws FileNotFoundException, CertificateException {
+        this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificatePath);
+    }
+
+    public void setTerminalCertificate(InputStream terminalCertificateStream) throws CertificateException {
+        this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificateStream);
+    }
 }

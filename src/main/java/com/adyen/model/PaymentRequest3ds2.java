@@ -21,6 +21,7 @@
  */
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -86,6 +87,7 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
         CARDONFILE("CardOnFile"),
         SUBSCRIPTION("Subscription");
 
+        @JsonValue
         private String value;
 
         RecurringProcessingModelEnum(String value) {
@@ -140,6 +142,7 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
         MOTO("Moto"),
         POS("POS");
 
+        @JsonValue
         private String value;
 
         ShopperInteractionEnum(String value) {

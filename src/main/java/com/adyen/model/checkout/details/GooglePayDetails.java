@@ -22,6 +22,8 @@
 package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.adyen.util.MaskUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -53,6 +55,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
         CREDIT("credit"),
         DEBIT("debit");
 
+        @JsonValue
         private String value;
 
         FundingSourceEnum(String value) {
@@ -203,7 +206,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
 
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    googlePayCardNetwork: ").append(toIndentedString(googlePayCardNetwork)).append("\n");
-        sb.append("    googlePayToken: ").append(toIndentedString(googlePayToken)).append("\n");
+        sb.append("    googlePayToken: ").append(toIndentedString(MaskUtil.mask(googlePayToken))).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

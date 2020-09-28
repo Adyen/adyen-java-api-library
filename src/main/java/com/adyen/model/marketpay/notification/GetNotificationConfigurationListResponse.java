@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class GetNotificationConfigurationListResponse {
     private Boolean submittedAsync = null;
 
     @SerializedName("configurations")
+    @JsonProperty("configurations")
     private List<NotificationConfigurationDetailsContainer> configurationsContainers = null;
 
     private transient List<NotificationConfigurationDetails> configurations = null;

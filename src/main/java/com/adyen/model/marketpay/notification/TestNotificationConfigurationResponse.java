@@ -20,6 +20,7 @@
  */
 package com.adyen.model.marketpay.notification;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class TestNotificationConfigurationResponse {
     private List<String> okMessages = null;
 
     @SerializedName("exchangeMessages")
+    @JsonProperty("exchangeMessages")
     private List<ExchangeMessageContainer> exchangeMessageContainers = null;
 
     private transient List<ExchangeMessage> exchangeMessages = null;

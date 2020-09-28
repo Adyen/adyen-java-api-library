@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -39,16 +39,16 @@ public class Client {
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
     public static final String API_VERSION = "v52";
     public static final String PAYOUT_API_VERSION = "v51";
-    public static final String RECURRING_API_VERSION = "v25";
+    public static final String RECURRING_API_VERSION = "v49";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v5";
     public static final String MARKETPAY_FUND_API_VERSION = "v5";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "8.2.0";
+    public static final String LIB_VERSION = "9.0.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
-    public static final String CHECKOUT_API_VERSION = "v52";
+    public static final String CHECKOUT_API_VERSION = "v64";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
     public static final String BIN_LOOKUP_API_VERSION = "v50";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
@@ -191,7 +191,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(() -> new HttpURLConnectionClient());
+        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(HttpURLConnectionClient::new);
         return this.httpClient;
     }
 

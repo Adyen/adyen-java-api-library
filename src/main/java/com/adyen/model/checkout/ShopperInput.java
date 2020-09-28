@@ -20,6 +20,7 @@
  */
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,6 +49,7 @@ public class ShopperInput {
         HIDDEN("hidden"),
         READONLY("readOnly");
 
+        @JsonValue
         private String value;
 
         BillingAddressEnum(String value) {
@@ -96,6 +98,7 @@ public class ShopperInput {
         HIDDEN("hidden"),
         READONLY("readOnly");
 
+        @JsonValue
         private String value;
 
         DeliveryAddressEnum(String value) {
@@ -144,6 +147,7 @@ public class ShopperInput {
         HIDDEN("hidden"),
         READONLY("readOnly");
 
+        @JsonValue
         private String value;
 
         PersonalDetailsEnum(String value) {

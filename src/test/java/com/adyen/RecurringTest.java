@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -27,13 +27,21 @@ import com.adyen.model.recurring.RecurringDetailsRequest;
 import com.adyen.model.recurring.RecurringDetailsResult;
 import com.adyen.model.recurring.StoreTokenRequest;
 import com.adyen.model.recurring.StoreTokenResult;
+import com.adyen.model.recurring.ScheduleAccountUpdaterRequest;
+import com.adyen.model.recurring.ScheduleAccountUpdaterResult;
+import com.adyen.model.Card;
 import com.adyen.service.Recurring;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
@@ -68,6 +76,22 @@ public class RecurringTest extends BaseTest {
     			.setCardData("5136333333333335", "John Doe", "08", "2018", "737");
 
     	return request;
+    }
+
+    private ScheduleAccountUpdaterRequest createScheduleAccountUpdaterRequest() {
+        Map<String, String> additionalData = new HashMap<>();
+        additionalData.put("key", "value");
+
+        ScheduleAccountUpdaterRequest request = new ScheduleAccountUpdaterRequest()
+                .additionalData(additionalData)
+                .card(new Card().cvc("123").expiryMonth("09").expiryYear("2020").holderName("johndoe").number("123"))
+                .merchantAccount("MerchantAccount")
+                .reference("reference")
+                .shopperReference("shopperReference")
+                .selectedRecurringDetailReference("selectedRecurringDetailReference");
+
+
+        return request;
     }
 
     @Test
@@ -148,4 +172,42 @@ public class RecurringTest extends BaseTest {
 		}
 	}
 
+    @Test
+    public void testScheduleAccountUpdater() throws Exception {
+        Client client = createMockClientFromFile("mocks/recurring/scheduleAccountUpdater-success.json");
+        Recurring recurring = new Recurring(client);
+
+        ScheduleAccountUpdaterRequest request = createScheduleAccountUpdaterRequest();
+
+        ScheduleAccountUpdaterResult result = recurring.scheduleAccountUpdater(request);
+
+        assertNotNull(result);
+        assertEquals("Success", result.getResult());
+        assertEquals("8815398995557524", result.getPspReference());
+        assertFalse(result.isError());
+        assertEquals("newAlias", result.getNewAlias());
+        assertEquals("09", result.getNewExpiryMonth());
+        assertEquals("2020", result.getNewExpiryYear());
+        assertEquals("accountUpdaterAction", result.getAccountUpdaterAction());
+
+        OffsetDateTime offsetDateTime = OffsetDateTime.parse("2020-09-15T13:43:35+02:00");
+        Date expectedDate = Date.from(offsetDateTime.toInstant());
+        assertEquals(expectedDate, result.getProcessedDate());
+    }
+
+    @Test
+    public void testScheduleAccountUpdater130() throws IOException {
+        Client client = createMockClientForErrors(422, "mocks/recurring/scheduleAccountUpdater-error-130.json");
+        Recurring recurring = new Recurring(client);
+
+        ScheduleAccountUpdaterRequest request = createScheduleAccountUpdaterRequest();
+
+        try {
+            recurring.scheduleAccountUpdater(request);
+            fail("Exception expected!");
+        } catch (ApiException e) {
+            assertNotEquals(200, e.getStatusCode());
+            assertEquals("130", e.getError().getErrorCode());
+        }
+    }
 }

@@ -1,0 +1,60 @@
+{
+  "groups": [
+    {
+      "name": "Credit Card",
+      "types": [
+        "mc",
+        "visa"
+      ]
+    }
+  ],
+  "paymentMethods": [
+    {
+      "brands": [
+        "mc",
+        "visa"
+      ],
+      "details": [
+        {
+          "key": "number",
+          "type": "text"
+        },
+        {
+          "key": "expiryMonth",
+          "type": "text"
+        },
+        {
+          "key": "expiryYear",
+          "type": "text"
+        },
+        {
+          "key": "cvc",
+          "type": "text"
+        },
+        {
+          "key": "holderName",
+          "optional": true,
+          "type": "text"
+        }
+      ],
+      "name": "Credit Card",
+      "type": "scheme"
+    }
+  ],
+  "storingMethods": [
+    {
+      "type": "tokenconnect",
+      "issuers": [
+        {
+          "id": "rabobank",
+          "name": "Rabobank",
+          "redirectUrls": {
+            "ios": "https://rabobank.nl",
+            "android": "https://rabobank.nl",
+            "web": "https://rabobank.nl"
+          }
+        }
+      ]
+    }
+  ]
+}

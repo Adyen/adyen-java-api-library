@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -52,6 +53,7 @@ public class SubInputDetail {
     private String value = null;
 
     @SerializedName("Configuration")
+    @JsonProperty("Configuration")
     private Map<String, String> configuration;
 
     public SubInputDetail items(List<Item> items) {

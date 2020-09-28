@@ -35,6 +35,7 @@ package com.adyen.model.payout;
 
 import com.adyen.model.Amount;
 import com.adyen.model.FraudResult;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -96,6 +97,7 @@ public class PayoutResponse {
     RECEIVED("Received"),
     REDIRECTSHOPPER("RedirectShopper");
 
+    @JsonValue
     private String value;
 
     ResultCodeEnum(String value) {

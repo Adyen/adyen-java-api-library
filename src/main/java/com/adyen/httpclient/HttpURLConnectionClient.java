@@ -33,7 +33,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -45,7 +44,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
-import java.security.cert.CertificateFactory;
+import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.Map;
@@ -68,10 +67,6 @@ public class HttpURLConnectionClient implements ClientInterface {
      * Does a POST request.
      * config is used to obtain basic auth username, password and User-Agent
      */
-    /**
-     * Does a POST request.
-     * config is used to obtain basic auth username, password and User-Agent
-     */
     @Override
     public String request(String requestUrl, String requestBody, Config config) throws IOException, HTTPClientException {
         return request(requestUrl, requestBody, config, false);
@@ -86,10 +81,9 @@ public class HttpURLConnectionClient implements ClientInterface {
     public String request(String requestUrl, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
         HttpURLConnection httpConnection = createRequest(requestUrl, config.getApplicationName(), requestOptions);
 
-        if ((config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) || (config.getTerminalCertificateStream() != null)) {
+        if (config.getTerminalCertificate() != null) {
             Environment environment = getEnvironment(config);
-            InputStream terminalCertificateStream = config.getTerminalCertificateStream() != null ? config.getTerminalCertificateStream() : this.loadCertificateInputStream(config.getTerminalCertificatePath());
-            installCertificateVerifier(httpConnection, terminalCertificateStream);
+            installCertificateVerifier(httpConnection, config.getTerminalCertificate());
             installCertificateCommonNameValidator(httpConnection, environment);
         }
 
@@ -262,16 +256,12 @@ public class HttpURLConnectionClient implements ClientInterface {
         this.proxy = proxy;
     }
 
-    private void installCertificateVerifier(URLConnection connection, InputStream terminalCertificateStream) throws HTTPClientException {
+    private void installCertificateVerifier(URLConnection connection, Certificate cert) throws HTTPClientException {
         if (connection instanceof HttpsURLConnection) {
             HttpsURLConnection httpsConnection = (HttpsURLConnection) connection;
 
             try {
                 // Create new KeyStore for the terminal certificate
-                CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-                terminalCertificateStream.reset();
-                X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(terminalCertificateStream);
-
                 KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
                 keyStore.load(null, null);
                 keyStore.setCertificateEntry("TerminalCertificate", cert);
@@ -291,16 +281,6 @@ public class HttpURLConnectionClient implements ClientInterface {
             }
         }
     }
-
-    private InputStream loadCertificateInputStream(String terminalCertificatePath) throws HTTPClientException {
-        try {
-            InputStream certificateInput = new FileInputStream(terminalCertificatePath);
-            return certificateInput;
-        } catch (IOException e) {
-            throw new HTTPClientException("Error loading certificate from path", e);
-        }
-    }
-
 
     private void installCertificateCommonNameValidator(HttpURLConnection connection, final Environment environment) {
         if (connection instanceof HttpsURLConnection) {

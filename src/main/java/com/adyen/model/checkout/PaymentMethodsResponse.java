@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -27,13 +27,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentMethodsResponse
  */
 public class PaymentMethodsResponse {
+    @SerializedName("groups")
+    private List<PaymentMethodsGroup> groups = null;
 
     @SerializedName("oneClickPaymentMethods")
     private List<RecurringDetail> oneClickPaymentMethods = null;
@@ -42,10 +43,36 @@ public class PaymentMethodsResponse {
     private List<PaymentMethod> paymentMethods = null;
 
     @SerializedName("storedPaymentMethods")
-    private List<StoredPaymentMethod> storedPaymentMethods;
+    private List<StoredPaymentMethod> storedPaymentMethods = null;
 
-    @SerializedName("groups")
-    private List<PaymentMethodsGroup> groups;
+    @SerializedName("storingMethods")
+    private List<TokenConnectStoringMethod> storingMethods = null;
+
+    public PaymentMethodsResponse groups(List<PaymentMethodsGroup> groups) {
+        this.groups = groups;
+        return this;
+    }
+
+    public PaymentMethodsResponse addGroupsItem(PaymentMethodsGroup groupsItem) {
+        if (this.groups == null) {
+            this.groups = new ArrayList<>();
+        }
+        this.groups.add(groupsItem);
+        return this;
+    }
+
+    /**
+     * Groups of payment methods.
+     *
+     * @return groups
+     **/
+    public List<PaymentMethodsGroup> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<PaymentMethodsGroup> groups) {
+        this.groups = groups;
+    }
 
     public PaymentMethodsResponse oneClickPaymentMethods(List<RecurringDetail> oneClickPaymentMethods) {
         this.oneClickPaymentMethods = oneClickPaymentMethods;
@@ -53,11 +80,9 @@ public class PaymentMethodsResponse {
     }
 
     public PaymentMethodsResponse addOneClickPaymentMethodsItem(RecurringDetail oneClickPaymentMethodsItem) {
-
         if (this.oneClickPaymentMethods == null) {
             this.oneClickPaymentMethods = new ArrayList<>();
         }
-
         this.oneClickPaymentMethods.add(oneClickPaymentMethodsItem);
         return this;
     }
@@ -81,11 +106,9 @@ public class PaymentMethodsResponse {
     }
 
     public PaymentMethodsResponse addPaymentMethodsItem(PaymentMethod paymentMethodsItem) {
-
         if (this.paymentMethods == null) {
             this.paymentMethods = new ArrayList<>();
         }
-
         this.paymentMethods.add(paymentMethodsItem);
         return this;
     }
@@ -103,6 +126,19 @@ public class PaymentMethodsResponse {
         this.paymentMethods = paymentMethods;
     }
 
+    public PaymentMethodsResponse storedPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
+        this.storedPaymentMethods = storedPaymentMethods;
+        return this;
+    }
+
+    public PaymentMethodsResponse addStoredPaymentMethodsItem(StoredPaymentMethod storedPaymentMethodsItem) {
+        if (this.storedPaymentMethods == null) {
+            this.storedPaymentMethods = new ArrayList<>();
+        }
+        this.storedPaymentMethods.add(storedPaymentMethodsItem);
+        return this;
+    }
+
     /**
      * List of all stored payment methods.
      *
@@ -116,47 +152,35 @@ public class PaymentMethodsResponse {
         this.storedPaymentMethods = storedPaymentMethods;
     }
 
-    public PaymentMethodsResponse storedPaymentMethods(List<StoredPaymentMethod> storedPaymentMethods) {
-        this.storedPaymentMethods = storedPaymentMethods;
+    public PaymentMethodsResponse storingMethods(List<TokenConnectStoringMethod> storingMethods) {
+        this.storingMethods = storingMethods;
         return this;
     }
 
-    public PaymentMethodsResponse addStoredPaymentMethodItem(StoredPaymentMethod storedPaymentMethodItem) {
-        if (this.storedPaymentMethods == null) {
-            this.storedPaymentMethods = new ArrayList<>();
+    public PaymentMethodsResponse addStoringMethodsItem(TokenConnectStoringMethod storingMethodsItem) {
+        if (this.storingMethods == null) {
+            this.storingMethods = new ArrayList<>();
         }
-        this.storedPaymentMethods.add(storedPaymentMethodItem);
+        this.storingMethods.add(storingMethodsItem);
         return this;
     }
 
     /**
-     * Groups of payment methods.
+     * List of all storing methods.
      *
-     * @return groups
+     * @return storingMethods
      **/
-    public List<PaymentMethodsGroup> getGroups() {
-        return groups;
+    public List<TokenConnectStoringMethod> getStoringMethods() {
+        return storingMethods;
     }
 
-    public void setGroups(List<PaymentMethodsGroup> groups) {
-        this.groups = groups;
+    public void setStoringMethods(List<TokenConnectStoringMethod> storingMethods) {
+        this.storingMethods = storingMethods;
     }
 
-    public PaymentMethodsResponse groups(List<PaymentMethodsGroup> groups) {
-        this.groups = groups;
-        return this;
-    }
-
-    public PaymentMethodsResponse addGroupsItem(PaymentMethodsGroup groupsItem) {
-        if (this.groups == null) {
-            this.groups = new ArrayList<>();
-        }
-        this.groups.add(groupsItem);
-        return this;
-    }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -164,32 +188,31 @@ public class PaymentMethodsResponse {
             return false;
         }
         PaymentMethodsResponse paymentMethodsResponse = (PaymentMethodsResponse) o;
-        return Objects.equals(this.oneClickPaymentMethods, paymentMethodsResponse.oneClickPaymentMethods)
-                && Objects.equals(this.paymentMethods, paymentMethodsResponse.paymentMethods)
-                && Objects.equals(this.storedPaymentMethods, paymentMethodsResponse.storedPaymentMethods)
-                && Objects.equals(this.groups, paymentMethodsResponse.groups);
+        return Objects.equals(this.groups, paymentMethodsResponse.groups) &&
+                Objects.equals(this.oneClickPaymentMethods, paymentMethodsResponse.oneClickPaymentMethods) &&
+                Objects.equals(this.paymentMethods, paymentMethodsResponse.paymentMethods) &&
+                Objects.equals(this.storedPaymentMethods, paymentMethodsResponse.storedPaymentMethods) &&
+                Objects.equals(this.storingMethods, paymentMethodsResponse.storingMethods);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(oneClickPaymentMethods, paymentMethods, storedPaymentMethods, groups);
+        return Objects.hash(groups, oneClickPaymentMethods, paymentMethods, storedPaymentMethods, storingMethods);
     }
+
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentMethodsResponse {\n");
 
+        sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
         sb.append("    oneClickPaymentMethods: ").append(toIndentedString(oneClickPaymentMethods)).append("\n");
         sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
         sb.append("    storedPaymentMethods: ").append(toIndentedString(storedPaymentMethods)).append("\n");
-        sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
+        sb.append("    storingMethods: ").append(toIndentedString(storingMethods)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
-
 }
-
-
-

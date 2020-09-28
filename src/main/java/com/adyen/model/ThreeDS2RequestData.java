@@ -20,6 +20,7 @@
  */
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,6 +53,7 @@ public class ThreeDS2RequestData {
         REQUESTCHALLENGE("requestChallenge"),
         REQUESTNOCHALLENGE("requestNoChallenge");
 
+        @JsonValue
         private String value;
 
         ChallengeIndicatorEnum(String value) {
@@ -159,6 +161,7 @@ public class ThreeDS2RequestData {
         QUASICASHTRANSACTION("quasiCashTransaction"),
         PREPAIDACTIVATIONANDLOAD("prepaidActivationAndLoad");
 
+        @JsonValue
         private String value;
 
         TransactionTypeEnum(String value) {

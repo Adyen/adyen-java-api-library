@@ -21,6 +21,7 @@
 package com.adyen.model;
 
 import com.adyen.serializer.DateTimeISO8601Serializer;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,6 +52,7 @@ public class AccountInfo {
         FROM30TO60DAYS("from30To60Days"),
         MORETHAN60DAYS("moreThan60Days");
 
+        @JsonValue
         private String value;
 
         AccountAgeIndicatorEnum(String value) {
@@ -103,6 +105,7 @@ public class AccountInfo {
         FROM30TO60DAYS("from30To60Days"),
         MORETHAN60DAYS("moreThan60Days");
 
+        @JsonValue
         private String value;
 
         AccountChangeIndicatorEnum(String value) {
@@ -154,6 +157,7 @@ public class AccountInfo {
         CREDIT("credit"),
         DEBIT("debit");
 
+        @JsonValue
         private String value;
 
         AccountTypeEnum(String value) {
@@ -209,6 +213,7 @@ public class AccountInfo {
         FROM30TO60DAYS("from30To60Days"),
         MORETHAN60DAYS("moreThan60Days");
 
+        @JsonValue
         private String value;
 
         DeliveryAddressUsageIndicatorEnum(String value) {
@@ -268,6 +273,7 @@ public class AccountInfo {
         FROM30TO60DAYS("from30To60Days"),
         MORETHAN60DAYS("moreThan60Days");
 
+        @JsonValue
         private String value;
 
         PasswordChangeIndicatorEnum(String value) {
@@ -327,6 +333,7 @@ public class AccountInfo {
         FROM30TO60DAYS("from30To60Days"),
         MORETHAN60DAYS("moreThan60Days");
 
+        @JsonValue
         private String value;
 
         PaymentAccountIndicatorEnum(String value) {

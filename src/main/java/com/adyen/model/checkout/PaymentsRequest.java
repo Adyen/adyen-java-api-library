@@ -34,6 +34,7 @@ import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
 import com.adyen.util.Util;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -1511,6 +1512,7 @@ public class PaymentsRequest {
         ANDROID("Android"),
         WEB("Web");
 
+        @JsonValue
         private final String value;
 
         ChannelEnum(String value) {
@@ -1555,6 +1557,7 @@ public class PaymentsRequest {
         NATURALPERSON("NaturalPerson"),
         COMPANYNAME("CompanyName");
 
+        @JsonValue
         private final String value;
 
         EntityTypeEnum(String value) {
@@ -1613,6 +1616,7 @@ public class PaymentsRequest {
         @SerializedName("UnscheduledCardOnFile") UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
 
 
+        @JsonValue
         private final String value;
 
         RecurringProcessingModelEnum(String value) {
@@ -1641,6 +1645,7 @@ public class PaymentsRequest {
         MOTO("Moto"),
         POS("POS");
 
+        @JsonValue
         private final String value;
 
         ShopperInteractionEnum(String value) {
