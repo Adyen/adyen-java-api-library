@@ -68,8 +68,8 @@ public class CheckoutTest extends BaseTest {
 
         PaymentsRequest request = new PaymentsRequest();
         ThreeDSecureData mpiData = new ThreeDSecureData();
-        mpiData.setXid("AQIDBAUGBwgJCgsMDQ4PEBESExQ=".getBytes());
-        mpiData.setCavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ=".getBytes());
+        mpiData.setXid("AQIDBAUGBwgJCgsMDQ4PEBESExQ=");
+        mpiData.setCavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ=");
         request.setMpiData(mpiData);
         PaymentsResponse response = new Checkout(client).payments(request);
 

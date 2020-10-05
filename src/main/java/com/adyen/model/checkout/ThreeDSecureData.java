@@ -21,7 +21,6 @@
 
 package com.adyen.model.checkout;
 
-import com.adyen.serializer.ByteArrayToStringAdapter;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,8 +42,7 @@ public class ThreeDSecureData {
     @SerializedName("authenticationResponse")
     private AuthenticationResponseEnum authenticationResponse = null;
     @SerializedName("cavv")
-    @JsonAdapter(ByteArrayToStringAdapter.class)
-    private byte[] cavv = null;
+    private String cavv = null;
     @SerializedName("cavvAlgorithm")
     private String cavvAlgorithm = null;
     @SerializedName("directoryResponse")
@@ -54,8 +52,7 @@ public class ThreeDSecureData {
     @SerializedName("threeDSVersion")
     private String threeDSVersion = null;
     @SerializedName("xid")
-    @JsonAdapter(ByteArrayToStringAdapter.class)
-    private byte[] xid = null;
+    private String xid = null;
     @SerializedName("dsTransID")
     private String dsTransID = null;
 
@@ -72,16 +69,16 @@ public class ThreeDSecureData {
         this.authenticationResponse = authenticationResponse;
     }
 
-    public ThreeDSecureData cavv(byte[] cavv) {
+    public ThreeDSecureData cavv(String cavv) {
         this.cavv = cavv;
         return this;
     }
 
-    public byte[] getCavv() {
+    public String getCavv() {
         return cavv;
     }
 
-    public void setCavv(byte[] cavv) {
+    public void setCavv(String cavv) {
         this.cavv = cavv;
     }
 
@@ -137,16 +134,16 @@ public class ThreeDSecureData {
         this.threeDSVersion = threeDSVersion;
     }
 
-    public ThreeDSecureData xid(byte[] xid) {
+    public ThreeDSecureData xid(String xid) {
         this.xid = xid;
         return this;
     }
 
-    public byte[] getXid() {
+    public String getXid() {
         return xid;
     }
 
-    public void setXid(byte[] xid) {
+    public void setXid(String xid) {
         this.xid = xid;
     }
 
@@ -178,13 +175,13 @@ public class ThreeDSecureData {
         }
         ThreeDSecureData threeDSecureData = (ThreeDSecureData) o;
         return Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse)
-                && Arrays.equals(this.cavv, threeDSecureData.cavv)
+                && Objects.equals(this.cavv, threeDSecureData.cavv)
                 && Objects.equals(this.cavvAlgorithm,
                 threeDSecureData.cavvAlgorithm)
                 && Objects.equals(this.directoryResponse, threeDSecureData.directoryResponse)
                 && Objects.equals(this.eci, threeDSecureData.eci)
                 && Objects.equals(this.threeDSVersion, threeDSecureData.threeDSVersion)
-                && Arrays.equals(this.xid, threeDSecureData.xid)
+                && Objects.equals(this.xid, threeDSecureData.xid)
                 && Objects.equals(this.dsTransID, threeDSecureData.dsTransID);
     }
 
@@ -281,7 +278,7 @@ public class ThreeDSecureData {
         }
 
         public static DirectoryResponseEnum fromValue(String text) {
-            return Arrays.stream(DirectoryResponseEnum .values()).
+            return Arrays.stream(DirectoryResponseEnum.values()).
                     filter(s -> s.value.equals(text)).
                     findFirst().orElse(null);
         }
