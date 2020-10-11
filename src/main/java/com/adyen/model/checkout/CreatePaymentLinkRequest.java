@@ -26,8 +26,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Objects;
-
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -79,6 +80,10 @@ public class CreatePaymentLinkRequest {
 
     @SerializedName("storePaymentMethod")
     private Boolean storePaymentMethod = null;
+
+    @SerializedName("metadata")
+    private Map<String, String> metadata = null;
+
 
     public CreatePaymentLinkRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
         this.allowedPaymentMethods = allowedPaymentMethods;
@@ -366,6 +371,33 @@ public class CreatePaymentLinkRequest {
         this.storePaymentMethod = storePaymentMethod;
     }
 
+    public CreatePaymentLinkRequest metadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public CreatePaymentLinkRequest putMetadataItem(String key, String metadataItem) {
+
+        if (metadata == null) {
+            metadata = new HashMap<>();
+        }
+
+        metadata.put(key, metadataItem);
+        return this;
+    }
+
+    /**
+     * Metadata consists of entries, each of which includes a key and a value. Limitations: Error \&quot;177\&quot;, \&quot;Metadata size exceeds limit\&quot;
+     *
+     * @return metadata
+     **/
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -390,12 +422,13 @@ public class CreatePaymentLinkRequest {
                 Objects.equals(this.shopperEmail, createPaymentLinkRequest.shopperEmail) &&
                 Objects.equals(this.shopperLocale, createPaymentLinkRequest.shopperLocale) &&
                 Objects.equals(this.shopperReference, createPaymentLinkRequest.shopperReference) &&
-                Objects.equals(this.storePaymentMethod, createPaymentLinkRequest.storePaymentMethod);
+                Objects.equals(this.storePaymentMethod, createPaymentLinkRequest.storePaymentMethod) &&
+                Objects.equals(this.metadata, createPaymentLinkRequest.metadata);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(allowedPaymentMethods, amount, billingAddress, blockedPaymentMethods, countryCode, deliveryAddress, description, expiresAt, merchantAccount, reference, returnUrl, shopperEmail, shopperLocale, shopperReference, storePaymentMethod);
+        return Objects.hash(allowedPaymentMethods, amount, billingAddress, blockedPaymentMethods, countryCode, deliveryAddress, description, expiresAt, merchantAccount, reference, returnUrl, shopperEmail, shopperLocale, shopperReference, storePaymentMethod, metadata);
     }
 
 
@@ -419,6 +452,7 @@ public class CreatePaymentLinkRequest {
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
         sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("}");
         return sb.toString();
     }
