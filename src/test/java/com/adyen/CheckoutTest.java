@@ -814,7 +814,7 @@ public class CheckoutTest extends BaseTest {
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"GBP\"\n"
                 + "  },\n"
-                + "  \"merchantAccount\": \"MagentoMerchantTest2\",\n"
+                + "  \"merchantAccount\": \"TestMerchant\",\n"
                 + "  \"paymentMethod\": {\n"
                 + "    \"type\": \"directdebit_GB\"\n"
                 + "  },\n"
