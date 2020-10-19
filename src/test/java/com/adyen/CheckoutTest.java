@@ -1690,7 +1690,7 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setAmount(createAmountObject("GBP", 1000L));
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
-        paymentsRequest.setMerchantAccount("MagentoMerchantTest2");
+        paymentsRequest.setMerchantAccount("TestMerchant");
 
         return paymentsRequest;
     }
