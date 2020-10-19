@@ -807,8 +807,6 @@ public class CheckoutTest extends BaseTest {
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
-        jsonRequest += "";
-
         assertEquals("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
