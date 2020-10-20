@@ -799,6 +799,35 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
+    public void TestBacsDirectDebitDetails() {
+        BacsDirectDebitDetails bacsDirectDebitDetails = new BacsDirectDebitDetails();
+
+        PaymentsRequest paymentsRequest = createBacsDirectDebitDetails();
+        paymentsRequest.setPaymentMethod(bacsDirectDebitDetails);
+
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+
+        assertEquals("{\n"
+                + "  \"amount\": {\n"
+                + "    \"value\": 1000,\n"
+                + "    \"currency\": \"GBP\"\n"
+                + "  },\n"
+                + "  \"merchantAccount\": \"TestMerchant\",\n"
+                + "  \"paymentMethod\": {\n"
+                + "    \"type\": \"directdebit_GB\"\n"
+                + "  },\n"
+                + "  \"reference\": \"Your order number\",\n"
+                + "  \"returnUrl\": \"https://your-company.com/...\",\n"
+                + "  \"applicationInfo\": {\n"
+                + "    \"adyenLibrary\": {\n"
+                + "      \"name\": \"adyen-java-api-library\",\n"
+                + "      \"version\": \"9.0.0\"\n"
+                + "    }\n"
+                + "  }\n"
+                + "}",jsonRequest);
+    }
+
+    @Test
     public void TestBilldeskWalletDetails(){
         BillDeskWalletDetails billdeskWalletDetails = new BillDeskWalletDetails();
         billdeskWalletDetails.setIssuer("111");
@@ -1645,6 +1674,21 @@ public class CheckoutTest extends BaseTest {
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+
+        return paymentsRequest;
+    }
+
+    /**
+     * Returns a sample PaymentsRequest object with test data
+     */
+    protected PaymentsRequest createBacsDirectDebitDetails() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+
+        paymentsRequest.setReference("Your order number");
+        paymentsRequest.setAmount(createAmountObject("GBP", 1000L));
+
+        paymentsRequest.setReturnUrl("https://your-company.com/...");
+        paymentsRequest.setMerchantAccount("TestMerchant");
 
         return paymentsRequest;
     }
