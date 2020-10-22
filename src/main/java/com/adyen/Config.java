@@ -59,6 +59,7 @@ public class Config {
     //Terminal Management API specific
     protected String posTerminalManagementApiEndpoint;
 
+    protected String dpEndpoint;
 
     public Config() {
         // do nothing
@@ -219,4 +220,13 @@ public class Config {
     public void setTerminalCertificate(InputStream terminalCertificateStream) throws CertificateException {
         this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificateStream);
     }
+
+    public String getDpEndpoint() {
+        return dpEndpoint;
+    }
+
+    public void setDpEndpoint(String dpEndpoint) {
+        this.dpEndpoint = dpEndpoint;
+    }
+
 }

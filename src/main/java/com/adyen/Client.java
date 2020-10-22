@@ -59,7 +59,10 @@ public class Client {
     public static final String ENDPOINT_PROTOCOL = "https://";
     public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST = "https://postfmapi-test.adyen.com/postfmapi/terminal";
     public static final String POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE = "https://postfmapi-live.adyen.com/postfmapi/terminal";
+    public static final String DP_ENDPOINT_TEST = "https://ca-test.adyen.com/ca/services/DataProtectionService";
+    public static final String DP_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DataProtectionService";
     public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
+    public static final String DP_VERSION = "v1";
 
     public Client() {
         this.config = new Config();
@@ -169,6 +172,7 @@ public class Client {
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
+            this.config.setDpEndpoint(DP_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
@@ -182,6 +186,7 @@ public class Client {
             }
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE);
+            this.config.setDpEndpoint(DP_ENDPOINT_LIVE);
         }
     }
 
