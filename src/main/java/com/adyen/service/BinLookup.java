@@ -22,8 +22,8 @@ public class BinLookup extends ApiKeyAuthenticatedService {
     }
 
 
-    public ThreeDSAvailabilityResponse get3dsAvailability(ThreeDSAvailabilityRequest accountHolderRequest) throws Exception {
-        String jsonRequest = GSON.toJson(accountHolderRequest);
+    public ThreeDSAvailabilityResponse get3dsAvailability(ThreeDSAvailabilityRequest threeDSAvailabilityRequest) throws Exception {
+        String jsonRequest = GSON.toJson(threeDSAvailabilityRequest);
 
         String jsonResult = get3dsAvailability.request(jsonRequest);
 
