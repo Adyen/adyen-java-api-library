@@ -177,7 +177,7 @@ public class Client {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
             this.config.setHppEndpoint(HPP_LIVE);
-            if (liveEndpointUrlPrefix != null && ! liveEndpointUrlPrefix.isEmpty()) {
+            if (liveEndpointUrlPrefix != null && !liveEndpointUrlPrefix.isEmpty()) {
                 this.config.setEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + ENDPOINT_LIVE_SUFFIX);
                 this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);
             } else {

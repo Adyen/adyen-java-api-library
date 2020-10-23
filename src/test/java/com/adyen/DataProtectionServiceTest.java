@@ -30,14 +30,12 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- */
 public class DataProtectionServiceTest extends BaseTest {
     /**
      * Test success flow for POST /requestSubjectErasure
      */
     @Test
-    public  void TestRequestSubjectErasureSuccessMocked() throws Exception {
+    public void TestRequestSubjectErasureSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/request-subject-erasure-success.json");
         DataProtection dataProtection = new DataProtection(client);
         SubjectErasureRequest subjectErasureRequest = createSubjectErasureRequest();
