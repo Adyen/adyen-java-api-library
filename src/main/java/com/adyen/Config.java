@@ -59,7 +59,7 @@ public class Config {
     //Terminal Management API specific
     protected String posTerminalManagementApiEndpoint;
 
-    protected String dpEndpoint;
+    protected String dataProtectionEndpoint;
 
     public Config() {
         // do nothing
@@ -221,12 +221,12 @@ public class Config {
         this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificateStream);
     }
 
-    public String getDpEndpoint() {
-        return dpEndpoint;
+    public String getDataProtectionEndpoint() {
+        return dataProtectionEndpoint;
     }
 
-    public void setDpEndpoint(String dpEndpoint) {
-        this.dpEndpoint = dpEndpoint;
+    public void setDataProtectionEndpoint(String dataProtectionEndpoint) {
+        this.dataProtectionEndpoint = dataProtectionEndpoint;
     }
 
 }
