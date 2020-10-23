@@ -37,7 +37,7 @@ public class DataProtectionServiceTest extends BaseTest {
      * Test success flow for POST /requestSubjectErasure
      */
     @Test
-    public void TestRequestSubjectErasureSuccessMocked() throws Exception {
+    public  void TestRequestSubjectErasureSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/request-subject-erasure-success.json");
         DataProtection dataProtection = new DataProtection(client);
         SubjectErasureRequest subjectErasureRequest = createSubjectErasureRequest();
@@ -58,7 +58,7 @@ public class DataProtectionServiceTest extends BaseTest {
 
     @Test
     public void TestGetAuthenticationResultErrorNotFound() throws IOException {
-        Client client = createMockClientForErrors(404, "mocks/request-subject-erasure-not-found.json");
+        Client client = createMockClientForErrors(200, "mocks/request-subject-erasure-not-found.json");
 
         DataProtection dataProtection = new DataProtection(client);
         SubjectErasureRequest subjectErasureRequest = createSubjectErasureRequest();
@@ -68,7 +68,7 @@ public class DataProtectionServiceTest extends BaseTest {
             fail("Exception expected");
         } catch (ApiException e) {
             assertNotNull(e.getError());
-            assertEquals(404, e.getStatusCode());
+            assertEquals(200, e.getStatusCode());
         }
     }
 
