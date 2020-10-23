@@ -820,8 +820,8 @@ public class CheckoutTest extends BaseTest {
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
                 + "  \"applicationInfo\": {\n"
                 + "    \"adyenLibrary\": {\n"
-                + "      \"name\": \"adyen-java-api-library\",\n"
-                + "      \"version\": \"9.0.0\"\n"
+                + "      \"name\": \"" + LIB_NAME + "\",\n"
+                + "      \"version\": \"" + LIB_VERSION +"\"\n"
                 + "    }\n"
                 + "  }\n"
                 + "}",jsonRequest);
