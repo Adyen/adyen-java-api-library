@@ -28,7 +28,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  */
@@ -57,19 +57,13 @@ public class DataProtectionServiceTest extends BaseTest {
     }
 
     @Test
-    public void TestGetAuthenticationResultErrorNotFound() throws IOException {
-        Client client = createMockClientForErrors(200, "mocks/request-subject-erasure-not-found.json");
-
+    public void TestGetAuthenticationResultErrorNotFound() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/request-subject-erasure-not-found.json");
         DataProtection dataProtection = new DataProtection(client);
         SubjectErasureRequest subjectErasureRequest = createSubjectErasureRequest();
 
-        try {
-            dataProtection.requestSubjectErasure(subjectErasureRequest);
-            fail("Exception expected");
-        } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals(200, e.getStatusCode());
-        }
-    }
+        SubjectErasureResponse subjectErasureResponse = dataProtection.requestSubjectErasure(subjectErasureRequest);
 
+        assertEquals(SubjectErasureResponse.ResultEnum.PAYMENT_NOT_FOUND, subjectErasureResponse.getResult());
+    }
 }
