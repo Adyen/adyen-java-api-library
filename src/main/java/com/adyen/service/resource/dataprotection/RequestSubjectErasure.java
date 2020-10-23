@@ -28,7 +28,7 @@ import com.adyen.service.Resource;
 public class RequestSubjectErasure extends Resource {
     public RequestSubjectErasure(Service service) {
         super(service,
-                service.getClient().getConfig().getDataProtectionEndpoint() + "/" + Client.DP_VERSION + "/requestSubjectErasure",
+                service.getClient().getConfig().getDataProtectionEndpoint() + "/" + Client.DATA_PROTECTION_VERSION + "/requestSubjectErasure",
                 null);
     }
 }
