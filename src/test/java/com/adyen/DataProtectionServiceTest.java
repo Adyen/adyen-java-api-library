@@ -31,7 +31,6 @@ import java.io.IOException;
 import static org.junit.Assert.*;
 
 /**
- * Tests for /authorise and /authorise3d
  */
 public class DataProtectionServiceTest extends BaseTest {
     /**
