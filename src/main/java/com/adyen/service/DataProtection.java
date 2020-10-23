@@ -41,7 +41,7 @@ public class DataProtection extends Service {
     }
 
     /**
-     * POST /erase API call
+     * POST /requestSubjectErasure API call
      *
      * @param subjectErasureRequest subjectErasureRequest
      * @return subjectErasureResponse
