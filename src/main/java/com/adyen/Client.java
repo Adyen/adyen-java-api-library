@@ -62,7 +62,7 @@ public class Client {
     public static final String DATA_PROTECTION_ENDPOINT_TEST = "https://ca-test.adyen.com/ca/services/DataProtectionService";
     public static final String DATA_PROTECTION_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DataProtectionService";
     public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
-    public static final String DP_VERSION = "v1";
+    public static final String DATA_PROTECTION_VERSION = "v1";
 
     public Client() {
         this.config = new Config();
