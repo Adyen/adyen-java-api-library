@@ -233,8 +233,8 @@ public class BaseTest {
                 .taxAmount(52L)
                 .amountIncludingTax(300L)
                 .taxCategory(LineItem.TaxCategoryEnum.HIGH)
-                .imageUrl("dummy_protocol/image_url/")
-                .productUrl("dummy_protocol/product_url/")
+                .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
+                .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
         );
 
         paymentsRequest.setLineItems(lineItems);
