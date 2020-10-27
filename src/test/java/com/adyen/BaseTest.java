@@ -85,6 +85,8 @@ import static org.mockito.Mockito.when;
 
 public class BaseTest {
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
+    public static final String DUMMY_PROTOCOL_IMAGE_URL = "dummy_protocol/image_url/";
+    public static final String DUMMY_PROTOCOL_PRODUCT_URL = "dummy_protocol/product_url/";
 
     /**
      * Returns a Client object that has a mocked response
@@ -217,6 +219,8 @@ public class BaseTest {
                     .taxAmount(69L)
                     .amountIncludingTax(400L)
                     .taxCategory(LineItem.TaxCategoryEnum.HIGH)
+                    .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
+                    .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
         );
 
         lineItems.add(
@@ -229,6 +233,8 @@ public class BaseTest {
                 .taxAmount(52L)
                 .amountIncludingTax(300L)
                 .taxCategory(LineItem.TaxCategoryEnum.HIGH)
+                .imageUrl("dummy_protocol/image_url/")
+                .productUrl("dummy_protocol/product_url/")
         );
 
         paymentsRequest.setLineItems(lineItems);
