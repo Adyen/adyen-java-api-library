@@ -1,0 +1,17 @@
+{
+  "eventType": "ACCOUNT_FUNDS_BELOW_THRESHOLD",
+  "executingUserKey": "ws",
+  "live": "true",
+  "pspReference": "Test_ACCOUNT_CREATED",
+  "content": {
+    "accountCode": "TestAccountHolder",
+    "currentFunds": {
+      "currency": "USD",
+      "value": 96
+    },
+    "fundThreshold": {
+      "currency": "USD",
+      "value": 100
+    }
+  }
+}
