@@ -25,7 +25,6 @@ import com.adyen.model.Amount;
 import com.adyen.model.Name;
 import com.adyen.model.Split;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.serializer.DateTimeGMTSerializer;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -67,7 +66,6 @@ public class CreatePaymentLinkRequest {
     private String countryCode = null;
 
     @SerializedName("deliverAt")
-    @JsonAdapter(DateTimeGMTSerializer.class)
     private Date deliverAt = null;
 
     @SerializedName("deliveryAddress")
