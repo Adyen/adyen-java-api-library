@@ -24,7 +24,7 @@ package com.adyen.model.marketpay.notification;
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
@@ -38,7 +38,7 @@ public class AccountFundsBelowThresholdNotificationContent {
     private String accountCode = null;
 
     @SerializedName("balanceDate")
-    private LocalDate balanceDate = null;
+    private Date balanceDate = null;
 
     @SerializedName("currentFunds")
     private Amount currentFunds = null;
@@ -67,7 +67,7 @@ public class AccountFundsBelowThresholdNotificationContent {
         this.accountCode = accountCode;
     }
 
-    public AccountFundsBelowThresholdNotificationContent balanceDate(LocalDate balanceDate) {
+    public AccountFundsBelowThresholdNotificationContent balanceDate(Date balanceDate) {
         this.balanceDate = balanceDate;
         return this;
     }
@@ -77,11 +77,11 @@ public class AccountFundsBelowThresholdNotificationContent {
      *
      * @return balanceDate
      **/
-    public LocalDate getBalanceDate() {
+    public Date getBalanceDate() {
         return balanceDate;
     }
 
-    public void setBalanceDate(LocalDate balanceDate) {
+    public void setBalanceDate(Date balanceDate) {
         this.balanceDate = balanceDate;
     }
 

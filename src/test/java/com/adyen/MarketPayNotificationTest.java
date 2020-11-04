@@ -40,13 +40,11 @@ import com.adyen.model.marketpay.notification.CreateNotificationConfigurationRes
 import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationResponse;
 import com.adyen.model.marketpay.notification.DirectDebitInitiatedNotification;
-import com.adyen.model.marketpay.notification.DirectDebitInitiatedNotificationContent;
 import com.adyen.model.marketpay.notification.GenericNotification;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationListResponse;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationResponse;
 import com.adyen.model.marketpay.notification.NotificationEventConfiguration;
-import com.adyen.model.marketpay.notification.OperationStatus;
 import com.adyen.model.marketpay.notification.PaymentFailureNotification;
 import com.adyen.model.marketpay.notification.RefundFundsTransferNotification;
 import com.adyen.model.marketpay.notification.ReportAvailableNotification;
