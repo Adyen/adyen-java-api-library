@@ -62,6 +62,12 @@ public class LineItem {
     @SerializedName("taxPercentage")
     private Long taxPercentage = null;
 
+    @SerializedName("productUrl")
+    private String productUrl;
+
+    @SerializedName("imageUrl")
+    private String imageUrl;
+
     public LineItem amountExcludingTax(Long amountExcludingTax) {
         this.amountExcludingTax = amountExcludingTax;
         return this;
@@ -206,6 +212,32 @@ public class LineItem {
         this.taxPercentage = taxPercentage;
     }
 
+    public LineItem productUrl(String productUrl) {
+        this.productUrl = productUrl;
+        return this;
+    }
+
+    public String getProductUrl() {
+        return productUrl;
+    }
+
+    public void setProductUrl(String productUrl) {
+        this.productUrl = productUrl;
+    }
+
+    public LineItem imageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -222,12 +254,14 @@ public class LineItem {
                 Objects.equals(this.quantity, lineItem.quantity) &&
                 Objects.equals(this.taxAmount, lineItem.taxAmount) &&
                 Objects.equals(this.taxCategory, lineItem.taxCategory) &&
-                Objects.equals(this.taxPercentage, lineItem.taxPercentage);
+                Objects.equals(this.taxPercentage, lineItem.taxPercentage) &&
+                Objects.equals(this.imageUrl, lineItem.imageUrl) &&
+                Objects.equals(this.productUrl, lineItem.productUrl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amountExcludingTax, amountIncludingTax, description, id, quantity, taxAmount, taxCategory, taxPercentage);
+        return Objects.hash(amountExcludingTax, amountIncludingTax, description, id, quantity, taxAmount, taxCategory, taxPercentage, imageUrl, productUrl);
     }
 
     @Override
@@ -243,6 +277,8 @@ public class LineItem {
         sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
         sb.append("    taxCategory: ").append(toIndentedString(taxCategory)).append("\n");
         sb.append("    taxPercentage: ").append(toIndentedString(taxPercentage)).append("\n");
+        sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
+        sb.append("    productUrl: ").append(toIndentedString(productUrl)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -294,8 +330,4 @@ public class LineItem {
         }
     }
 
-
 }
-
-
-
