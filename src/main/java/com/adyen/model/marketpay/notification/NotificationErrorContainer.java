@@ -32,72 +32,74 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class NotificationErrorContainer {
-  @SerializedName("errorCode")
-  private String errorCode = null;
+    @SerializedName("errorCode")
+    private String errorCode = null;
 
-  @SerializedName("message")
-  private String message = null;
+    @SerializedName("message")
+    private String message = null;
 
-  public NotificationErrorContainer errorCode(String errorCode) {
-    this.errorCode = errorCode;
-    return this;
-  }
-
-   /**
-   * The Adyen code that is mapped to the error message.
-   * @return errorCode
-  **/
-  public String getErrorCode() {
-    return errorCode;
-  }
-
-  public void setErrorCode(String errorCode) {
-    this.errorCode = errorCode;
-  }
-
-  public NotificationErrorContainer message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * A short explanation of the issue.
-   * @return message
-  **/
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public NotificationErrorContainer errorCode(String errorCode) {
+        this.errorCode = errorCode;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The Adyen code that is mapped to the error message.
+     *
+     * @return errorCode
+     **/
+    public String getErrorCode() {
+        return errorCode;
     }
-    NotificationErrorContainer notificationErrorContainer = (NotificationErrorContainer) o;
-    return Objects.equals(this.errorCode, notificationErrorContainer.errorCode) &&
-        Objects.equals(this.message, notificationErrorContainer.message);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(errorCode, message);
-  }
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class NotificationErrorContainer {\n");
+    public NotificationErrorContainer message(String message) {
+        this.message = message;
+        return this;
+    }
 
-    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    /**
+     * A short explanation of the issue.
+     *
+     * @return message
+     **/
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        NotificationErrorContainer notificationErrorContainer = (NotificationErrorContainer) o;
+        return Objects.equals(this.errorCode, notificationErrorContainer.errorCode) &&
+                Objects.equals(this.message, notificationErrorContainer.message);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(errorCode, message);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class NotificationErrorContainer {\n");
+
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 }
