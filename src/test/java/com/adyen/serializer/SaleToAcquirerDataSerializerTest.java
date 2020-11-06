@@ -59,6 +59,7 @@ public class SaleToAcquirerDataSerializerTest {
         additionalData.put("key.key", "value");
         additionalData.put("key.keyTwo", "value2");
         saleToAcquirerData.setAdditionalData(additionalData);
+        saleToAcquirerData.setAuthorisationType("authorisationType");
         
         String json = "{\n" +
                 "  \"metadata\": {\n" +
@@ -93,7 +94,8 @@ public class SaleToAcquirerDataSerializerTest {
                 "  \"additionalData\": {\n" +
                 "    \"key.keyTwo\": \"value2\",\n" +
                 "    \"key.key\": \"value\"\n" +
-                "  }\n" +
+                "  },\n" +
+                "  \"authorisationType\": \"authorisationType\"\n" +
                 "}";
 
         // test if json string matches
