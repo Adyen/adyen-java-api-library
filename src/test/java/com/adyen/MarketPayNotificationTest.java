@@ -14,34 +14,39 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen;
 
-import org.junit.Assert;
-import org.junit.Test;
 import com.adyen.model.marketpay.AccountHolderStatus;
+import com.adyen.model.marketpay.notification.AccountCloseNotification;
 import com.adyen.model.marketpay.notification.AccountCreatedNotification;
+import com.adyen.model.marketpay.notification.AccountFundsBelowThresholdNotification;
 import com.adyen.model.marketpay.notification.AccountHolderCreatedNotification;
-import com.adyen.model.marketpay.notification.AccountHolderLimitReachedNotification;
 import com.adyen.model.marketpay.notification.AccountHolderPayoutNotification;
 import com.adyen.model.marketpay.notification.AccountHolderStatusChangeNotification;
+import com.adyen.model.marketpay.notification.AccountHolderStoreStatusChangeNotification;
+import com.adyen.model.marketpay.notification.AccountHolderUpcomingDeadlineNotification;
+import com.adyen.model.marketpay.notification.AccountHolderUpcomingDeadlineNotificationContent;
 import com.adyen.model.marketpay.notification.AccountHolderUpdatedNotification;
 import com.adyen.model.marketpay.notification.AccountHolderVerificationNotification;
+import com.adyen.model.marketpay.notification.AccountUpdateNotification;
 import com.adyen.model.marketpay.notification.BeneficiarySetupNotification;
 import com.adyen.model.marketpay.notification.CompensateNegativeBalanceNotification;
 import com.adyen.model.marketpay.notification.CreateNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.CreateNotificationConfigurationResponse;
 import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.DirectDebitInitiatedNotification;
 import com.adyen.model.marketpay.notification.GenericNotification;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationListResponse;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.GetNotificationConfigurationResponse;
 import com.adyen.model.marketpay.notification.NotificationEventConfiguration;
 import com.adyen.model.marketpay.notification.PaymentFailureNotification;
+import com.adyen.model.marketpay.notification.RefundFundsTransferNotification;
 import com.adyen.model.marketpay.notification.ReportAvailableNotification;
 import com.adyen.model.marketpay.notification.ScheduledRefundsNotification;
 import com.adyen.model.marketpay.notification.TestNotificationConfigurationRequest;
@@ -51,6 +56,9 @@ import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationReq
 import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationResponse;
 import com.adyen.notification.NotificationHandler;
 import com.adyen.service.Notification;
+import org.junit.Assert;
+import org.junit.Test;
+
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.DATA_PROVIDED;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.COMPANY_VERIFICATION;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.IDENTITY_VERIFICATION;
@@ -58,6 +66,7 @@ import static com.adyen.model.marketpay.Transaction.TransactionStatusEnum.PENDIN
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_STATUS_CHANGE;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.IncludeModeEnum.INCLUDE;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -148,7 +157,7 @@ public class MarketPayNotificationTest extends BaseTest {
     }
 
     @Test
-    public void testMarketPayAccountCreatedNotification() throws Exception {
+    public void testMarketPayAccountCreatedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-created-success.json");
         NotificationHandler notificationHandler = new NotificationHandler();
 
@@ -161,7 +170,7 @@ public class MarketPayNotificationTest extends BaseTest {
     }
 
     @Test
-    public void testMarketPayAccountHolderCreatedNotification() throws Exception {
+    public void testMarketPayAccountHolderCreatedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-created-success.json");
         NotificationHandler notificationHandler = new NotificationHandler();
 
@@ -171,23 +180,6 @@ public class MarketPayNotificationTest extends BaseTest {
         AccountHolderCreatedNotification accountHolderCreatedNotificationMessage = (AccountHolderCreatedNotification) notificationMessage;
         assertNotNull(accountHolderCreatedNotificationMessage.getContent());
         assertEquals("TestAccountHolder", accountHolderCreatedNotificationMessage.getContent().getAccountHolderCode());
-    }
-
-    @Test
-    public void testMarketPayAccountHolderLimitReachedNotification() {
-        String json = getFileContents("mocks/marketpay/notification/account-holder-limit-reached-success.json");
-        NotificationHandler notificationHandler = new NotificationHandler();
-
-        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
-
-        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_LIMIT_REACHED, notificationMessage.getEventType());
-        AccountHolderLimitReachedNotification notification = (AccountHolderLimitReachedNotification) notificationMessage;
-        assertNotNull(notification.getContent());
-        assertEquals("TestAccountHolder", notification.getContent().getAccountHolderCode());
-
-        assertEquals(123L, notification.getContent().getTotalAmountBeforeLimit().getValue().longValue());
-        assertEquals(123L, notification.getContent().getAmount().getValue().longValue());
-        assertEquals(1, notification.getContent().getAccountState().getTierNumber().intValue());
     }
 
     @Test
@@ -232,10 +224,10 @@ public class MarketPayNotificationTest extends BaseTest {
         AccountHolderPayoutNotification notification = (AccountHolderPayoutNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
-        assertEquals("accountCode", notification.getContent().getAccountCode());
-        assertEquals(1, notification.getContent().getAmountList().size());
-        assertEquals(1000L, notification.getContent().getAmountList().get(0).getValue().longValue());
-        assertEquals("10_066", notification.getContent().getStatus().getMessage().getCode());
+        assertEquals("AC00000001", notification.getContent().getAccountCode());
+        assertEquals(1, notification.getContent().getAmounts().size());
+        assertEquals(10L, notification.getContent().getAmounts().get(0).getValue().longValue());
+        assertEquals("10_069", notification.getContent().getStatus().getMessage().getCode());
     }
 
     @Test
@@ -346,4 +338,118 @@ public class MarketPayNotificationTest extends BaseTest {
         assertEquals(1000L, notification.getContent().getAmount().getValue().longValue());
         assertEquals("testTransferCode", notification.getContent().getTransferCode());
     }
+
+    @Test
+    public void testMarketPayAccountClosedNotification() {
+        String json = getFileContents("mocks/marketpay/notification/account-closed-test.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_CLOSED, notificationMessage.getEventType());
+        AccountCloseNotification notification = (AccountCloseNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+        assertEquals(1, notification.getContent().getInvalidFields().size());
+    }
+
+    @Test
+    public void testMarketPayAccountUpdatedNotification() {
+        String json = getFileContents("mocks/marketpay/notification/account-updated-test.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_UPDATED, notificationMessage.getEventType());
+        AccountUpdateNotification notification = (AccountUpdateNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+        assertEquals(1, notification.getContent().getInvalidFields().size());
+    }
+
+    @Test
+    public void testMarketPayAccountFundsBelowThreshold() {
+        String json = getFileContents("mocks/marketpay/notification/account-funds-below-thresold-test.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_FUNDS_BELOW_THRESHOLD, notificationMessage.getEventType());
+        AccountFundsBelowThresholdNotification notification = (AccountFundsBelowThresholdNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+        assertEquals("TestAccountHolder", notification.getContent().getAccountCode());
+        assertEquals(Long.valueOf(100), notification.getContent().getFundThreshold().getValue());
+        assertEquals(Long.valueOf(96), notification.getContent().getCurrentFunds().getValue());
+    }
+
+    @Test
+    public void testMarketPayAccountHolderStoreStatusChange() {
+        String json = getFileContents("mocks/marketpay/notification/account-holder-store-status-change-test.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_STORE_STATUS_CHANGE, notificationMessage.getEventType());
+        AccountHolderStoreStatusChangeNotification notification = (AccountHolderStoreStatusChangeNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+        assertEquals("AH000001", notification.getContent().getAccountHolderCode());
+        assertEquals("x00x00x00-xx00-0xx0-x000-00xx00xx000000", notification.getContent().getStore());
+    }
+
+    @Test
+    public void testMarketPayAccountHolderUpcomingDeadline() {
+        String json = getFileContents("mocks/marketpay/notification/account-holder-upcoming-deadline-test.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_UPCOMING_DEADLINE, notificationMessage.getEventType());
+        AccountHolderUpcomingDeadlineNotification notification = (AccountHolderUpcomingDeadlineNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+        assertEquals("testD47", notification.getContent().getAccountHolderCode());
+        assertEquals(AccountHolderUpcomingDeadlineNotificationContent.EventEnum.INACTIVATEACCOUNT, notification.getContent().getEvent());
+    }
+
+    @Test
+    public void testMarketPayDirectDebitInitiated() {
+        String json = getFileContents("mocks/marketpay/notification/direct-debit-initiated-test.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.DIRECT_DEBIT_INITIATED, notificationMessage.getEventType());
+        DirectDebitInitiatedNotification notification = (DirectDebitInitiatedNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+        assertEquals("100000000", notification.getContent().getAccountCode());
+        assertEquals("TestMarketPlaceMerchant", notification.getContent().getMerchantAccountCode());
+    }
+
+    @Test
+    public void testMarketPayPayoutConfirmed() {
+        String json = getFileContents("mocks/marketpay/notification/payout-confirmed-test.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.PAYOUT_CONFIRMED, notificationMessage.getEventType());
+        AccountHolderPayoutNotification notification = (AccountHolderPayoutNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+        assertEquals("100000000", notification.getContent().getAccountCode());
+        assertEquals("TestMarketPlaceMerchant", notification.getContent().getMerchantReference());
+        assertFalse(notification.getContent().getAmounts().isEmpty());
+    }
+
+    @Test
+    public void testMarketPayRefundFundsTransfer() {
+        String json = getFileContents("mocks/marketpay/notification/refund-funds-transfer-test.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.REFUND_FUNDS_TRANSFER, notificationMessage.getEventType());
+        RefundFundsTransferNotification notification = (RefundFundsTransferNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+        assertEquals("MRef#000001", notification.getContent().getMerchantReference());
+        assertEquals("TSTPSPR0000000PT", notification.getContent().getOriginalReference());
+        assertFalse(notification.getContent().getInvalidFields().isEmpty());
+    }
+
 }

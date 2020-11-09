@@ -28,17 +28,17 @@ import java.util.Objects;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * AccountHolderPayoutNotification
+ * AccountCloseNotification
  */
 
-public class AccountHolderPayoutNotification extends GenericNotification {
+public class AccountCloseNotification extends GenericNotification {
     @SerializedName("content")
-    private AccountHolderPayoutNotificationContent content = null;
+    private CloseAccountResponse content = null;
 
     @SerializedName("error")
     private NotificationErrorContainer error = null;
 
-    public AccountHolderPayoutNotification content(AccountHolderPayoutNotificationContent content) {
+    public AccountCloseNotification content(CloseAccountResponse content) {
         this.content = content;
         return this;
     }
@@ -48,15 +48,15 @@ public class AccountHolderPayoutNotification extends GenericNotification {
      *
      * @return content
      **/
-    public AccountHolderPayoutNotificationContent getContent() {
+    public CloseAccountResponse getContent() {
         return content;
     }
 
-    public void setContent(AccountHolderPayoutNotificationContent content) {
+    public void setContent(CloseAccountResponse content) {
         this.content = content;
     }
 
-    public AccountHolderPayoutNotification error(NotificationErrorContainer error) {
+    public AccountCloseNotification error(NotificationErrorContainer error) {
         this.error = error;
         return this;
     }
@@ -74,6 +74,7 @@ public class AccountHolderPayoutNotification extends GenericNotification {
         this.error = error;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -82,9 +83,9 @@ public class AccountHolderPayoutNotification extends GenericNotification {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AccountHolderPayoutNotification accountHolderPayoutNotification = (AccountHolderPayoutNotification) o;
-        return Objects.equals(this.content, accountHolderPayoutNotification.content) &&
-                Objects.equals(this.error, accountHolderPayoutNotification.error);
+        AccountCloseNotification accountCloseNotification = (AccountCloseNotification) o;
+        return Objects.equals(this.content, accountCloseNotification.content) &&
+                Objects.equals(this.error, accountCloseNotification.error);
     }
 
     @Override
@@ -95,11 +96,12 @@ public class AccountHolderPayoutNotification extends GenericNotification {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderPayoutNotification {\n");
+        sb.append("class AccountCloseNotification {\n");
 
         sb.append("    content: ").append(toIndentedString(content)).append("\n");
         sb.append("    error: ").append(toIndentedString(error)).append("\n");
         sb.append("}");
         return sb.toString();
     }
+
 }

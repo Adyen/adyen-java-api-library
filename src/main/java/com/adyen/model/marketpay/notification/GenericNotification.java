@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -30,11 +30,17 @@ public class GenericNotification {
         @SerializedName("ACCOUNT_CREATED")
         ACCOUNT_CREATED("ACCOUNT_CREATED"),
 
+        @SerializedName("ACCOUNT_CLOSED")
+        ACCOUNT_CLOSED("ACCOUNT_CLOSED"),
+
+        @SerializedName("ACCOUNT_UPDATED")
+        ACCOUNT_UPDATED("ACCOUNT_UPDATED"),
+
+        @SerializedName("ACCOUNT_FUNDS_BELOW_THRESHOLD")
+        ACCOUNT_FUNDS_BELOW_THRESHOLD("ACCOUNT_FUNDS_BELOW_THRESHOLD"),
+
         @SerializedName("ACCOUNT_HOLDER_CREATED")
         ACCOUNT_HOLDER_CREATED("ACCOUNT_HOLDER_CREATED"),
-
-        @SerializedName("ACCOUNT_HOLDER_LIMIT_REACHED")
-        ACCOUNT_HOLDER_LIMIT_REACHED("ACCOUNT_HOLDER_LIMIT_REACHED"),
 
         @SerializedName("ACCOUNT_HOLDER_PAYOUT")
         ACCOUNT_HOLDER_PAYOUT("ACCOUNT_HOLDER_PAYOUT"),
@@ -47,6 +53,12 @@ public class GenericNotification {
 
         @SerializedName("ACCOUNT_HOLDER_VERIFICATION")
         ACCOUNT_HOLDER_VERIFICATION("ACCOUNT_HOLDER_VERIFICATION"),
+
+        @SerializedName("ACCOUNT_HOLDER_STORE_STATUS_CHANGE")
+        ACCOUNT_HOLDER_STORE_STATUS_CHANGE("ACCOUNT_HOLDER_STORE_STATUS_CHANGE"),
+
+        @SerializedName("ACCOUNT_HOLDER_UPCOMING_DEADLINE")
+        ACCOUNT_HOLDER_UPCOMING_DEADLINE("ACCOUNT_HOLDER_UPCOMING_DEADLINE"),
 
         @SerializedName("BENEFICIARY_SETUP")
         BENEFICIARY_SETUP("BENEFICIARY_SETUP"),
@@ -64,7 +76,16 @@ public class GenericNotification {
         SCHEDULED_REFUNDS("SCHEDULED_REFUNDS"),
 
         @SerializedName("TRANSFER_FUNDS")
-        TRANSFER_FUNDS("TRANSFER_FUNDS");
+        TRANSFER_FUNDS("TRANSFER_FUNDS"),
+
+        @SerializedName("DIRECT_DEBIT_INITIATED")
+        DIRECT_DEBIT_INITIATED("DIRECT_DEBIT_INITIATED"),
+
+        @SerializedName("PAYOUT_CONFIRMED")
+        PAYOUT_CONFIRMED("PAYOUT_CONFIRMED"),
+
+        @SerializedName("REFUND_FUNDS_TRANSFER")
+        REFUND_FUNDS_TRANSFER("REFUND_FUNDS_TRANSFER");
 
         private final String value;
 

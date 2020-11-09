@@ -1,0 +1,27 @@
+{
+  "error": {
+    "errorCode": "000",
+    "message": "test error message"
+  },
+  "eventDate": "2019-01-01T01:00:00+01:00",
+  "eventType": "ACCOUNT_CLOSED",
+  "executingUserKey": "executing-user-key",
+  "live": false,
+  "pspReference": "TSTPSPR0001",
+  "content": {
+    "invalidFields": [
+      {
+        "errorCode": 1,
+        "errorDescription": "Field is missing",
+        "fieldType": {
+          "field": "AccountHolderDetails.BusinessDetails.Shareholders.unknown",
+          "fieldName": "unknown",
+          "shareholderCode": "SH00001"
+        }
+      }
+    ],
+    "pspReference": "TSTPSPR0001",
+    "resultCode": "Success",
+    "status": "Closed"
+  }
+}

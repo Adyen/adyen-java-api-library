@@ -1,0 +1,15 @@
+{
+  "eventDate": "2019-12-16T10:38:15+01:00",
+  "eventType": "ACCOUNT_HOLDER_STORE_STATUS_CHANGE",
+  "executingUserKey": "Store Status Update",
+  "live": false,
+  "pspReference": "TSTPSPR0001",
+  "content": {
+    "accountHolderCode": "AH000001",
+    "store": "x00x00x00-xx00-0xx0-x000-00xx00xx000000",
+    "storeReference": "Ref#000001",
+    "oldStatus": "Pending",
+    "newStatus": "Active",
+    "reason": "Store was successfully set up"
+  }
+}

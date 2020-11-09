@@ -28,17 +28,17 @@ import java.util.Objects;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * AccountHolderPayoutNotification
+ * DirectDebitInitiatedNotification
  */
 
-public class AccountHolderPayoutNotification extends GenericNotification {
+public class DirectDebitInitiatedNotification extends GenericNotification {
     @SerializedName("content")
-    private AccountHolderPayoutNotificationContent content = null;
+    private DirectDebitInitiatedNotificationContent content = null;
 
     @SerializedName("error")
     private NotificationErrorContainer error = null;
 
-    public AccountHolderPayoutNotification content(AccountHolderPayoutNotificationContent content) {
+    public DirectDebitInitiatedNotification content(DirectDebitInitiatedNotificationContent content) {
         this.content = content;
         return this;
     }
@@ -48,15 +48,15 @@ public class AccountHolderPayoutNotification extends GenericNotification {
      *
      * @return content
      **/
-    public AccountHolderPayoutNotificationContent getContent() {
+    public DirectDebitInitiatedNotificationContent getContent() {
         return content;
     }
 
-    public void setContent(AccountHolderPayoutNotificationContent content) {
+    public void setContent(DirectDebitInitiatedNotificationContent content) {
         this.content = content;
     }
 
-    public AccountHolderPayoutNotification error(NotificationErrorContainer error) {
+    public DirectDebitInitiatedNotification error(NotificationErrorContainer error) {
         this.error = error;
         return this;
     }
@@ -82,9 +82,9 @@ public class AccountHolderPayoutNotification extends GenericNotification {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AccountHolderPayoutNotification accountHolderPayoutNotification = (AccountHolderPayoutNotification) o;
-        return Objects.equals(this.content, accountHolderPayoutNotification.content) &&
-                Objects.equals(this.error, accountHolderPayoutNotification.error);
+        DirectDebitInitiatedNotification directDebitInitiatedNotification = (DirectDebitInitiatedNotification) o;
+        return Objects.equals(this.content, directDebitInitiatedNotification.content) &&
+                Objects.equals(this.error, directDebitInitiatedNotification.error);
     }
 
     @Override
@@ -95,7 +95,7 @@ public class AccountHolderPayoutNotification extends GenericNotification {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderPayoutNotification {\n");
+        sb.append("class DirectDebitInitiatedNotification {\n");
 
         sb.append("    content: ").append(toIndentedString(content)).append("\n");
         sb.append("    error: ").append(toIndentedString(error)).append("\n");
