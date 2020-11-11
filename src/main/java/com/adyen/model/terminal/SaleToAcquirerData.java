@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2019 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -43,6 +43,7 @@ public class SaleToAcquirerData {
     private ApplicationInfo applicationInfo;
     private String tenderOption;
     private Map<String, String> additionalData;
+    private String authorisationType;
     private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public SaleToAcquirerData() {
@@ -153,6 +154,18 @@ public class SaleToAcquirerData {
         this.additionalData = additionalData;
     }
 
+    public String getAuthorisationType() {
+        return authorisationType;
+    }
+
+    public void setAuthorisationType(String authorisationType) {
+        this.authorisationType = authorisationType;
+    }
+
+    public static Gson getPrettyPrintGson() {
+        return PRETTY_PRINT_GSON;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -174,12 +187,13 @@ public class SaleToAcquirerData {
                 Objects.equals(currency, that.currency) &&
                 Objects.equals(applicationInfo, that.applicationInfo) &&
                 Objects.equals(tenderOption, that.tenderOption) &&
-                Objects.equals(additionalData, that.additionalData);
+                Objects.equals(additionalData, that.additionalData) &&
+                Objects.equals(authorisationType, that.authorisationType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(metadata, shopperEmail, shopperReference, recurringContract, shopperStatement, recurringDetailName, recurringTokenService, store, merchantAccount, currency, applicationInfo, tenderOption, additionalData);
+        return Objects.hash(metadata, shopperEmail, shopperReference, recurringContract, shopperStatement, recurringDetailName, recurringTokenService, store, merchantAccount, currency, applicationInfo, tenderOption, additionalData, authorisationType);
     }
 
     @Override
@@ -198,6 +212,7 @@ public class SaleToAcquirerData {
                 ", applicationInfo=" + applicationInfo +
                 ", tenderOption='" + tenderOption + '\'' +
                 ", additionalData=" + additionalData +
+                ", authorisationType=" + authorisationType +
                 '}';
     }
 

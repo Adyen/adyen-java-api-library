@@ -28,50 +28,50 @@ import java.util.Objects;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * AccountHolderPayoutNotification
+ * Message
  */
 
-public class AccountHolderPayoutNotification extends GenericNotification {
-    @SerializedName("content")
-    private AccountHolderPayoutNotificationContent content = null;
+public class Message {
+    @SerializedName("code")
+    private String code = null;
 
-    @SerializedName("error")
-    private NotificationErrorContainer error = null;
+    @SerializedName("text")
+    private String text = null;
 
-    public AccountHolderPayoutNotification content(AccountHolderPayoutNotificationContent content) {
-        this.content = content;
+    public Message code(String code) {
+        this.code = code;
         return this;
     }
 
     /**
-     * Get content
+     * The message code.
      *
-     * @return content
+     * @return code
      **/
-    public AccountHolderPayoutNotificationContent getContent() {
-        return content;
+    public String getCode() {
+        return code;
     }
 
-    public void setContent(AccountHolderPayoutNotificationContent content) {
-        this.content = content;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public AccountHolderPayoutNotification error(NotificationErrorContainer error) {
-        this.error = error;
+    public Message text(String text) {
+        this.text = text;
         return this;
     }
 
     /**
-     * Get error
+     * The message text.
      *
-     * @return error
+     * @return text
      **/
-    public NotificationErrorContainer getError() {
-        return error;
+    public String getText() {
+        return text;
     }
 
-    public void setError(NotificationErrorContainer error) {
-        this.error = error;
+    public void setText(String text) {
+        this.text = text;
     }
 
     @Override
@@ -82,23 +82,23 @@ public class AccountHolderPayoutNotification extends GenericNotification {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AccountHolderPayoutNotification accountHolderPayoutNotification = (AccountHolderPayoutNotification) o;
-        return Objects.equals(this.content, accountHolderPayoutNotification.content) &&
-                Objects.equals(this.error, accountHolderPayoutNotification.error);
+        Message message = (Message) o;
+        return Objects.equals(this.code, message.code) &&
+                Objects.equals(this.text, message.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(content, error);
+        return Objects.hash(code, text);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderPayoutNotification {\n");
+        sb.append("class Message {\n");
 
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    error: ").append(toIndentedString(error)).append("\n");
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    text: ").append(toIndentedString(text)).append("\n");
         sb.append("}");
         return sb.toString();
     }

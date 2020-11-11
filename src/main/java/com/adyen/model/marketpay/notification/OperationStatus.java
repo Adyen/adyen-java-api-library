@@ -28,50 +28,50 @@ import java.util.Objects;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * AccountHolderPayoutNotification
+ * OperationStatus
  */
 
-public class AccountHolderPayoutNotification extends GenericNotification {
-    @SerializedName("content")
-    private AccountHolderPayoutNotificationContent content = null;
+public class OperationStatus {
+    @SerializedName("message")
+    private Message message = null;
 
-    @SerializedName("error")
-    private NotificationErrorContainer error = null;
+    @SerializedName("statusCode")
+    private String statusCode = null;
 
-    public AccountHolderPayoutNotification content(AccountHolderPayoutNotificationContent content) {
-        this.content = content;
+    public OperationStatus message(Message message) {
+        this.message = message;
         return this;
     }
 
     /**
-     * Get content
+     * Get message
      *
-     * @return content
+     * @return message
      **/
-    public AccountHolderPayoutNotificationContent getContent() {
-        return content;
+    public Message getMessage() {
+        return message;
     }
 
-    public void setContent(AccountHolderPayoutNotificationContent content) {
-        this.content = content;
+    public void setMessage(Message message) {
+        this.message = message;
     }
 
-    public AccountHolderPayoutNotification error(NotificationErrorContainer error) {
-        this.error = error;
+    public OperationStatus statusCode(String statusCode) {
+        this.statusCode = statusCode;
         return this;
     }
 
     /**
-     * Get error
+     * The status code.
      *
-     * @return error
+     * @return statusCode
      **/
-    public NotificationErrorContainer getError() {
-        return error;
+    public String getStatusCode() {
+        return statusCode;
     }
 
-    public void setError(NotificationErrorContainer error) {
-        this.error = error;
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
     }
 
     @Override
@@ -82,23 +82,23 @@ public class AccountHolderPayoutNotification extends GenericNotification {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AccountHolderPayoutNotification accountHolderPayoutNotification = (AccountHolderPayoutNotification) o;
-        return Objects.equals(this.content, accountHolderPayoutNotification.content) &&
-                Objects.equals(this.error, accountHolderPayoutNotification.error);
+        OperationStatus operationStatus = (OperationStatus) o;
+        return Objects.equals(this.message, operationStatus.message) &&
+                Objects.equals(this.statusCode, operationStatus.statusCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(content, error);
+        return Objects.hash(message, statusCode);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderPayoutNotification {\n");
+        sb.append("class OperationStatus {\n");
 
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    error: ").append(toIndentedString(error)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

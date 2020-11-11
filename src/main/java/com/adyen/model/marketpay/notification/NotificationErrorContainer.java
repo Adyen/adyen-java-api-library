@@ -28,50 +28,50 @@ import java.util.Objects;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * AccountHolderPayoutNotification
+ * NotificationErrorContainer
  */
 
-public class AccountHolderPayoutNotification extends GenericNotification {
-    @SerializedName("content")
-    private AccountHolderPayoutNotificationContent content = null;
+public class NotificationErrorContainer {
+    @SerializedName("errorCode")
+    private String errorCode = null;
 
-    @SerializedName("error")
-    private NotificationErrorContainer error = null;
+    @SerializedName("message")
+    private String message = null;
 
-    public AccountHolderPayoutNotification content(AccountHolderPayoutNotificationContent content) {
-        this.content = content;
+    public NotificationErrorContainer errorCode(String errorCode) {
+        this.errorCode = errorCode;
         return this;
     }
 
     /**
-     * Get content
+     * The Adyen code that is mapped to the error message.
      *
-     * @return content
+     * @return errorCode
      **/
-    public AccountHolderPayoutNotificationContent getContent() {
-        return content;
+    public String getErrorCode() {
+        return errorCode;
     }
 
-    public void setContent(AccountHolderPayoutNotificationContent content) {
-        this.content = content;
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
     }
 
-    public AccountHolderPayoutNotification error(NotificationErrorContainer error) {
-        this.error = error;
+    public NotificationErrorContainer message(String message) {
+        this.message = message;
         return this;
     }
 
     /**
-     * Get error
+     * A short explanation of the issue.
      *
-     * @return error
+     * @return message
      **/
-    public NotificationErrorContainer getError() {
-        return error;
+    public String getMessage() {
+        return message;
     }
 
-    public void setError(NotificationErrorContainer error) {
-        this.error = error;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
@@ -82,23 +82,23 @@ public class AccountHolderPayoutNotification extends GenericNotification {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AccountHolderPayoutNotification accountHolderPayoutNotification = (AccountHolderPayoutNotification) o;
-        return Objects.equals(this.content, accountHolderPayoutNotification.content) &&
-                Objects.equals(this.error, accountHolderPayoutNotification.error);
+        NotificationErrorContainer notificationErrorContainer = (NotificationErrorContainer) o;
+        return Objects.equals(this.errorCode, notificationErrorContainer.errorCode) &&
+                Objects.equals(this.message, notificationErrorContainer.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(content, error);
+        return Objects.hash(errorCode, message);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderPayoutNotification {\n");
+        sb.append("class NotificationErrorContainer {\n");
 
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    error: ").append(toIndentedString(error)).append("\n");
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -28,17 +28,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
-
 
 import static com.adyen.util.Util.toIndentedString;
 
 /**
  * Split
  */
-public class Split {
 
+public class Split {
     @SerializedName("account")
     private String account = null;
 
@@ -52,11 +50,11 @@ public class Split {
     private String reference = null;
 
     /**
-     * The type of this split.  &gt;Permitted values: &#x60;Default&#x60;, &#x60;PaymentFee&#x60;, &#x60;VAT&#x60;, &#x60;Commission&#x60;, &#x60;MarketPlace&#x60;, &#x60;Verification&#x60;.
+     * The type of this split.  &gt;Permitted values: &#x60;Default&#x60;, &#x60;PaymentFee&#x60;, &#x60;VAT&#x60;, &#x60;Commission&#x60;, &#x60;MarketPlace&#x60;, &#x60;BalanceAccount&#x60;.
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
-
+        BALANCEACCOUNT("BalanceAccount"),
         COMMISSION("Commission"),
         DEFAULT("Default"),
         MARKETPLACE("MarketPlace"),
@@ -81,9 +79,12 @@ public class Split {
         }
 
         public static TypeEnum fromValue(String text) {
-            return Arrays.stream(values()).
-                    filter(s -> s.value.equals(text)).
-                    findFirst().orElse(null);
+            for (TypeEnum b : TypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
         }
 
         public static class Adapter extends TypeAdapter<TypeEnum> {
@@ -108,7 +109,11 @@ public class Split {
         return this;
     }
 
-
+    /**
+     * The account to which this split applies.  &gt;Required if the type is &#x60;MarketPlace&#x60;.
+     *
+     * @return account
+     **/
     public String getAccount() {
         return account;
     }
@@ -122,6 +127,11 @@ public class Split {
         return this;
     }
 
+    /**
+     * Get amount
+     *
+     * @return amount
+     **/
     public SplitAmount getAmount() {
         return amount;
     }
@@ -135,6 +145,11 @@ public class Split {
         return this;
     }
 
+    /**
+     * A description of this split.
+     *
+     * @return description
+     **/
     public String getDescription() {
         return description;
     }
@@ -148,7 +163,11 @@ public class Split {
         return this;
     }
 
-
+    /**
+     * The reference of this split. Used to link other operations (e.g. captures and refunds) to this split.  &gt;Required if the type is &#x60;MarketPlace&#x60;.
+     *
+     * @return reference
+     **/
     public String getReference() {
         return reference;
     }
@@ -162,7 +181,11 @@ public class Split {
         return this;
     }
 
-
+    /**
+     * The type of this split.  &gt;Permitted values: &#x60;Default&#x60;, &#x60;PaymentFee&#x60;, &#x60;VAT&#x60;, &#x60;Commission&#x60;, &#x60;MarketPlace&#x60;, &#x60;BalanceAccount&#x60;.
+     *
+     * @return type
+     **/
     public TypeEnum getType() {
         return type;
     }
@@ -205,11 +228,4 @@ public class Split {
         sb.append("}");
         return sb.toString();
     }
-
-
-
-
 }
-
-
-

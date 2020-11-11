@@ -1,30 +1,71 @@
 {
-  "eventDate": "2018-02-01T06:22:20+01:00",
+  "error": {
+    "errorCode": "000",
+    "message": "test error message"
+  },
+  "eventDate": "2019-01-01T01:00:00+01:00",
   "eventType": "ACCOUNT_HOLDER_PAYOUT",
-  "executingUserKey": "Payout",
-  "live": "false",
-  "pspReference": "pspReference",
+  "executingUserKey": "executing-user-key",
+  "live": false,
+  "pspReference": "TSTPSPR0001",
   "content": {
-    "accountCode": "accountCode",
-    "accountHolderCode": "accountHolderCode",
+    "accountCode": "AC00000001",
+    "accountHolderCode": "AH00000001",
     "amount": {
-      "currency": "USD",
-      "value": 1000
+      "currency": "EUR",
+      "value": 100
     },
     "amounts": [
       {
-        "Amount": {
-          "currency": "USD",
-          "value": 1000
+        "currency": "EUR",
+        "value": 10
+      }
+    ],
+    "bankAccountDetail": {
+      "accountNumber": "00000000",
+      "accountType": "checking",
+      "bankAccountName": "Account name",
+      "bankAccountReference": "Ref#000001",
+      "bankAccountUUID": "00000000-0000-0000-0000-000000000000",
+      "bankBicSwift": "BSWFT",
+      "bankCity": "Amsterdam",
+      "bankCode": "00000000",
+      "bankName": "Bank Name Co",
+      "branchCode": "00000000",
+      "checkCode": "1234",
+      "countryCode": "NL",
+      "currencyCode": "EUR",
+      "iban": "NL00NONE1234123412",
+      "ownerCity": "Amsterdam",
+      "ownerCountryCode": "NL",
+      "ownerDateOfBirth": "1981-02-27",
+      "ownerHouseNumberOrName": "32/B",
+      "ownerName": "Owner Name",
+      "ownerNationality": "NL",
+      "ownerPostalCode": "1000AA",
+      "ownerState": "Nord Holland",
+      "ownerStreet": "Owner Street",
+      "primaryAccount": false,
+      "taxId": "OT#12345",
+      "urlForVerification": "http://adyen.com"
+    },
+    "description": "description of payout",
+    "invalidFields": [
+      {
+        "errorCode": 1,
+        "errorDescription": "Field is missing",
+        "fieldType": {
+          "field": "AccountHolderDetails.BusinessDetails.Shareholders.unknown",
+          "fieldName": "unknown",
+          "shareholderCode": "SH00001"
         }
       }
     ],
-    "description": "description",
-    "merchantReference": "merchantReference",
+    "merchantReference": "MRef#00000001",
     "status": {
       "message": {
-        "code": "10_066",
-        "text": "There is not enough balance available for account accountCode. Available balance: USD 0.00; Requested amount: USD 10.00"
+        "code": "10_069",
+        "text": "Payout has been failed for  account seller1. Details: Payout has been rejected by the beneficiary bank."
       },
       "statusCode": "Failed"
     }

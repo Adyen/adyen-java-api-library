@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -115,6 +115,16 @@ public class PaymentRequestTest extends BaseTest {
         assertEquals(LIB_NAME, paymentsRequest.getApplicationInfo().getAdyenLibrary().getName());
         assertNotNull(paymentsRequest.getApplicationInfo().getAdyenLibrary().getVersion());
         assertEquals(LIB_VERSION, paymentsRequest.getApplicationInfo().getAdyenLibrary().getVersion());
+
+    }
+
+    @Test
+    public void TestPaymentsRequestForPresenceOfItemURLs() {
+
+        PaymentsRequest paymentsRequest = createAfterPayPaymentRequest();
+
+        assertEquals(BaseTest.DUMMY_PROTOCOL_IMAGE_URL, paymentsRequest.getLineItems().get(0).getImageUrl());
+        assertEquals(BaseTest.DUMMY_PROTOCOL_PRODUCT_URL, paymentsRequest.getLineItems().get(0).getProductUrl());
 
     }
 }

@@ -53,7 +53,7 @@ public class ModelSerializationTest {
                 .peek(anEnum -> System.out.println(anEnum + " has difference between GSON and Jackson serialization"))
                 .collect(Collectors.toList());
 
-        Assert.assertTrue("Differences found between GSON and Jackson serialization", enums.isEmpty());
+        Assert.assertTrue("Differences found between GSON and Jackson serialization(maybe @JsonValue missing on enums value", enums.isEmpty());
     }
 
     private boolean isValidSerialization(Object object) {

@@ -1,0 +1,37 @@
+{
+  "error": {
+    "errorCode": "000",
+    "message": "test error message"
+  },
+  "eventDate": "1970-01-01T01:00:00+01:00",
+  "eventType": "REFUND_FUNDS_TRANSFER",
+  "executingUserKey": "executing-user-key",
+  "live": false,
+  "pspReference": "TSTPSPR0001",
+  "content": {
+    "amount": {
+      "currency": "EUR",
+      "value": 10
+    },
+    "invalidFields": [
+      {
+        "errorCode": 1,
+        "errorDescription": "Field is missing",
+        "fieldType": {
+          "field": "AccountHolderDetails.BusinessDetails.Shareholders.unknown",
+          "fieldName": "unknown",
+          "shareholderCode": "SH00001"
+        }
+      }
+    ],
+    "merchantReference": "MRef#000001",
+    "originalReference": "TSTPSPR0000000PT",
+    "status": {
+      "message": {
+        "code": "100",
+        "text": "test message"
+      },
+      "statusCode": "Success"
+    }
+  }
+}
