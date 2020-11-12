@@ -42,6 +42,9 @@ public class GetOnboardingUrlRequest {
     @SerializedName("returnUrl")
     private String returnUrl = null;
 
+    @SerializedName("shopperLocale")
+    private String shopperLocale = null;
+
     public GetOnboardingUrlRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
@@ -114,6 +117,18 @@ public class GetOnboardingUrlRequest {
         this.returnUrl = returnUrl;
     }
 
+    /**
+     * The language to be used in the page, specified by a combination of a language and country code. For example, **pt-BR**. \n\nIf not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.\n\nFor a list supported languages, refer to [Change the page language](https://docs.adyen.com/platforms/onboarding-and-verification/hosted-onboarding-page#change-page-language).
+     *
+     * @return accountHolderCode
+     **/
+    public String getShopperLocale() {
+        return shopperLocale;
+    }
+
+    public void setShopperLocale(String shopperLocale) {
+        this.shopperLocale = shopperLocale;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -127,12 +142,13 @@ public class GetOnboardingUrlRequest {
         return Objects.equals(this.accountHolderCode, getOnboardingUrlRequest.accountHolderCode) &&
                 Objects.equals(this.editMode, getOnboardingUrlRequest.editMode) &&
                 Objects.equals(this.platformName, getOnboardingUrlRequest.platformName) &&
-                Objects.equals(this.returnUrl, getOnboardingUrlRequest.returnUrl);
+                Objects.equals(this.returnUrl, getOnboardingUrlRequest.returnUrl) &&
+                Objects.equals(this.shopperLocale, getOnboardingUrlRequest.shopperLocale);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, editMode, platformName, returnUrl);
+        return Objects.hash(accountHolderCode, editMode, platformName, returnUrl, shopperLocale);
     }
 
 
@@ -145,6 +161,7 @@ public class GetOnboardingUrlRequest {
         sb.append("    editMode: ").append(toIndentedString(editMode)).append("\n");
         sb.append("    platformName: ").append(toIndentedString(platformName)).append("\n");
         sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
+        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
         sb.append("}");
         return sb.toString();
     }

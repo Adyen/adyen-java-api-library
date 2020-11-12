@@ -838,6 +838,7 @@ public class MarketPayTest extends BaseTest {
         GetOnboardingUrlRequest getOnboardingUrlRequest = new GetOnboardingUrlRequest();
         getOnboardingUrlRequest.setAccountHolderCode("accountHolderCode");
         getOnboardingUrlRequest.setReturnUrl("myReturnUrl");
+        getOnboardingUrlRequest.setShopperLocale("en_GB");
         GetOnboardingUrlResponse getOnboardingUrlResponse = hop.getOnboardingUrl(getOnboardingUrlRequest);
 
         assertEquals("8115977378312467", getOnboardingUrlResponse.getPspReference());
