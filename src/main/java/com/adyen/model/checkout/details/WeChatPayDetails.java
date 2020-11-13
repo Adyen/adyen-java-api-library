@@ -36,7 +36,7 @@ public class WeChatPayDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    private static final String WECHATPAY = "wechatpay";
+    public static final String WECHATPAY = "wechatpay";
 
     @SerializedName("appId")
     private String appId = null;

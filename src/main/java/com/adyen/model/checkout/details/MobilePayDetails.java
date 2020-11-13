@@ -36,7 +36,7 @@ public class MobilePayDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    private static final String MOBILEPAY = "mobilepay";
+    public static final String MOBILEPAY = "mobilepay";
 
     @SerializedName("type")
     private String type = MOBILEPAY;

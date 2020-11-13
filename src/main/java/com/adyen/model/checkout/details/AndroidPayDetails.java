@@ -33,7 +33,7 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class AndroidPayDetails implements PaymentMethodDetails {
-    private static final String ANDROIDPAY = "androidpay";
+    public static final String ANDROIDPAY = "androidpay";
     @SerializedName("androidPayToken")
     private String androidPayToken = null;
 

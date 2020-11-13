@@ -36,7 +36,7 @@ public class WeChatPayMiniProgramDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    private static final String WECHATPAYMINIPROGRAM = "wechatpayMiniProgram";
+    public static final String WECHATPAYMINIPROGRAM = "wechatpayMiniProgram";
 
     @SerializedName("appId")
     private String appId = null;
