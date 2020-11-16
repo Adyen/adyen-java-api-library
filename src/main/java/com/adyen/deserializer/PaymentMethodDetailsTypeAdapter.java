@@ -69,7 +69,7 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
     @Override
     public TypeAdapter<PaymentMethodDetails> create(Gson gson, TypeToken type) {
 
-        if(type.getRawType() != PaymentMethodDetails.class) {
+        if (type.getRawType() != PaymentMethodDetails.class) {
             return null;
         }
 
