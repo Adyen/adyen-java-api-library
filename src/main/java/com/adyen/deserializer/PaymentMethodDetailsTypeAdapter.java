@@ -69,6 +69,10 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
     @Override
     public TypeAdapter<PaymentMethodDetails> create(Gson gson, TypeToken type) {
 
+        if(type.getRawType() != PaymentMethodDetails.class) {
+            return null;
+        }
+
         return new TypeAdapter<PaymentMethodDetails>() {
 
             @Override
@@ -78,7 +82,7 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
             }
 
             @Override
-            public PaymentMethodDetails read(JsonReader in) throws IOException {
+            public PaymentMethodDetails read(JsonReader in) {
                 JsonElement jsonElement = Streams.parse(in);
                 String paymentMethodType = jsonElement.getAsJsonObject().get("type").getAsString();
 
