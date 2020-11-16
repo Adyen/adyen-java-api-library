@@ -21,6 +21,7 @@
 package com.adyen;
 
 import com.adyen.constants.BrandCodes;
+import com.adyen.deserializer.PaymentMethodDetailsDeserializerJackson;
 import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -83,6 +84,8 @@ import com.adyen.model.checkout.details.WeChatPayMiniProgramDetails;
 import com.adyen.service.Checkout;
 import com.adyen.service.exception.ApiException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
@@ -2108,15 +2111,21 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void TestPaymentMethodDetailsDirectDeserialization() {
+    public void TestPaymentMethodDetailsDirectDeserialization() throws JsonProcessingException {
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(new PaymentMethodDetailsTypeAdapter()).create();
 
         String json = "{\"type\": \"applepay\",\"applePayToken\": \"VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...\"}";
-        PaymentMethodDetails paymentMethodDetails = gson.fromJson(json, PaymentMethodDetails.class);
 
-        assertNotNull(paymentMethodDetails);
-        assertTrue(paymentMethodDetails instanceof ApplePayDetails);
-        assertEquals("VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", ((ApplePayDetails) paymentMethodDetails).getApplePayToken());
+        PaymentMethodDetails gsonObject = gson.fromJson(json, PaymentMethodDetails.class);
+        assertNotNull(gsonObject);
+        assertTrue(gsonObject instanceof ApplePayDetails);
+        assertEquals("VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", ((ApplePayDetails) gsonObject).getApplePayToken());
+
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new SimpleModule().addDeserializer(PaymentMethodDetails.class, new PaymentMethodDetailsDeserializerJackson()));
+        PaymentMethodDetails jacksonObject = objectMapper.readValue(json, PaymentMethodDetails.class);
+        assertNotNull(jacksonObject);
+        assertTrue(jacksonObject instanceof ApplePayDetails);
+        assertEquals("VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", ((ApplePayDetails) jacksonObject).getApplePayToken());
     }
 }
 
