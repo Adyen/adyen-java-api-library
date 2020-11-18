@@ -14,18 +14,18 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen.model;
 
 import com.adyen.util.Util;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.SerializedName;
 
 import java.math.BigDecimal;
 import java.util.Objects;
-
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -39,6 +39,7 @@ public class Amount {
     @SerializedName("currency")
     private String currency = null;
 
+    @JsonIgnore
     public BigDecimal getDecimalValue() {
         return BigDecimal.valueOf(getValue(), Util.getDecimalPlaces(getCurrency()));
     }

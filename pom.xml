@@ -177,6 +177,11 @@
             <version>${jackson.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
             <groupId>javax.xml.crypto</groupId>
             <artifactId>jsr105-api</artifactId>
             <version>1.0.1</version>

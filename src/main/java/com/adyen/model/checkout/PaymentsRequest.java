@@ -14,12 +14,14 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen.model.checkout;
 
+import com.adyen.deserializer.PaymentMethodDetailsDeserializerJackson;
+import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -35,6 +37,7 @@ import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
 import com.adyen.util.Util;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,7 +54,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -118,6 +120,8 @@ public class PaymentsRequest {
     @SerializedName("orderReference")
     private String orderReference = null;
     @SerializedName("paymentMethod")
+    @JsonAdapter(PaymentMethodDetailsTypeAdapter.class)
+    @JsonDeserialize(using = PaymentMethodDetailsDeserializerJackson.class)
     private PaymentMethodDetails paymentMethod = null;
     @SerializedName("reference")
     private String reference = null;
