@@ -47,7 +47,7 @@ public class ModificationTest extends BaseTest {
         CaptureRequest captureRequest = createCaptureRequest();
 
         ModificationResult modificationResult = modification.capture(captureRequest);
-        assertEquals("[capture-received]", modificationResult.getResponse());
+        assertEquals(ModificationResult.ModificationResponse.CAPTURE_RECEIVED, modificationResult.getResponse());
         assertEquals("test", modificationResult.getAdditionalData().get("merchantReference"));
     }
 
@@ -88,7 +88,7 @@ public class ModificationTest extends BaseTest {
         CancelOrRefundRequest cancelOrRefundRequest = createBaseModificationRequest(new CancelOrRefundRequest());
 
         ModificationResult modificationResult = modification.cancelOrRefund(cancelOrRefundRequest);
-        assertEquals("[cancelOrRefund-received]", modificationResult.getResponse());
+        assertEquals(ModificationResult.ModificationResponse.CANCELORREFUND_RECEIVED, modificationResult.getResponse());
     }
 
     /**
@@ -104,7 +104,7 @@ public class ModificationTest extends BaseTest {
         RefundRequest refundRequest = createRefundRequest();
 
         ModificationResult modificationResult = modification.refund(refundRequest);
-        assertEquals("[refund-received]", modificationResult.getResponse());
+        assertEquals(ModificationResult.ModificationResponse.REFUND_RECEIVED, modificationResult.getResponse());
     }
 
     /**
@@ -120,7 +120,7 @@ public class ModificationTest extends BaseTest {
         CancelRequest cancelRequest = createBaseModificationRequest(new CancelRequest());
 
         ModificationResult modificationResult = modification.cancel(cancelRequest);
-        assertEquals("[cancel-received]", modificationResult.getResponse());
+        assertEquals(ModificationResult.ModificationResponse.CANCEL_RECEIVED, modificationResult.getResponse());
     }
 
     /**
@@ -136,7 +136,7 @@ public class ModificationTest extends BaseTest {
         VoidPendingRefundRequest voidPendingRefundRequest = createVoidPendingRefundRequest();
 
         ModificationResult modificationResult = modification.voidPendingRefund(voidPendingRefundRequest);
-        assertEquals("[voidPendingRefund-received]", modificationResult.getResponse());
+        assertEquals(ModificationResult.ModificationResponse.VOIDPENDINGREFUND_RECEIVED, modificationResult.getResponse());
     }
 
     /**
@@ -152,6 +152,6 @@ public class ModificationTest extends BaseTest {
         DonationRequest donationRequest = createDonationRequest();
 
         ModificationResult modificationResult = modification.donate(donationRequest);
-        assertEquals("[donation-received]", modificationResult.getResponse());
+        assertEquals(ModificationResult.ModificationResponse.DONATION_RECEIVED, modificationResult.getResponse());
     }
 }
