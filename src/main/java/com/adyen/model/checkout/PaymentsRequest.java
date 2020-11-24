@@ -65,14 +65,6 @@ public class PaymentsRequest {
     private AccountInfo accountInfo = null;
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
-    @SerializedName("selectedBrand")
-    private String selectedBrand = null;
-    /**
-     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
-     */
-    @Deprecated
-    @SerializedName("allowedPaymentMethods")
-    private List<String> allowedPaymentMethods = null;
     @SerializedName("amount")
     private Amount amount = null;
     @SerializedName("billingAddress")
@@ -166,17 +158,8 @@ public class PaymentsRequest {
     @SerializedName("origin")
     private String origin;
 
-    @SerializedName("configId")
-    private String configId = null;
-
-    @SerializedName("blockedPaymentMethods")
-    private List<String> blockedPaymentMethods = null;
-
     @SerializedName("recurringProcessingModel")
     private RecurringProcessingModelEnum recurringProcessingModel = null;
-
-    @SerializedName("merchantData")
-    private String merchantData = null;
 
     @SerializedName("mpiData")
     private ThreeDSecureData mpiData = null;
@@ -196,14 +179,20 @@ public class PaymentsRequest {
     @SerializedName("store")
     private String store = null;
 
-    @SerializedName("enableRealTimeUpdate")
-    private Boolean enableRealTimeUpdate = null;
-
     @SerializedName("threeDSAuthenticationOnly")
     private Boolean threeDSAuthenticationOnly = null;
 
     @SerializedName("riskData")
     private RiskData riskData = null;
+
+    @SerializedName("conversionId")
+    private String conversionId = null;
+
+    @SerializedName("recurringExpiry")
+    private String recurringExpiry = null;
+
+    @SerializedName("recurringFrequency")
+    private String recurringFrequency = null;
 
     public PaymentsRequest() {
         applicationInfo = new ApplicationInfo();
@@ -236,22 +225,6 @@ public class PaymentsRequest {
 
     public void setAccountInfo(AccountInfo accountInfo) {
         this.accountInfo = accountInfo;
-    }
-
-    /**
-     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
-     */
-    @Deprecated
-    public List<String> getAllowedPaymentMethods() {
-        return allowedPaymentMethods;
-    }
-
-    /**
-     * @deprecated As of Checkout API version 41, this field is not used on the &#x60;/payments&#x60; request anymore.
-     */
-    @Deprecated
-    public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
-        this.allowedPaymentMethods = allowedPaymentMethods;
     }
 
     public Boolean getEnableOneClick() {
@@ -322,22 +295,6 @@ public class PaymentsRequest {
     public PaymentsRequest amount(Amount amount) {
         this.amount = amount;
         return this;
-    }
-
-    public String getConfigId() {
-        return configId;
-    }
-
-    public void setConfigId(String configId) {
-        this.configId = configId;
-    }
-
-    public List<String> getBlockedPaymentMethods() {
-        return blockedPaymentMethods;
-    }
-
-    public void setBlockedPaymentMethods(List<String> blockedPaymentMethods) {
-        this.blockedPaymentMethods = blockedPaymentMethods;
     }
 
     /**
@@ -812,11 +769,12 @@ public class PaymentsRequest {
 
     /**
      * Add raw card data into the payment request. You need to be PCI compliant!
-     * @param cardNumber card number
-     * @param expiryMonth expiry month
-     * @param expiryYear expiry year
-     * @param holderName holder name
-     * @param securityCode  security code
+     *
+     * @param cardNumber   card number
+     * @param expiryMonth  expiry month
+     * @param expiryYear   expiry year
+     * @param holderName   holder name
+     * @param securityCode security code
      * @return paymentMethod payment method
      */
     public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
@@ -1135,24 +1093,6 @@ public class PaymentsRequest {
     }
 
     /**
-     * Holds different merchant data points like product, purchase, customer, and so on. It takes data in a JSON string.
-     *
-     * @return the merchant data
-     */
-    public String getMerchantData() {
-        return merchantData;
-    }
-
-    public void setMerchantData(String merchantData) {
-        this.merchantData = merchantData;
-    }
-
-    public PaymentsRequest merchantData(String merchantData) {
-        this.merchantData = merchantData;
-        return this;
-    }
-
-    /**
      * Authentication data produced by an MPI (Mastercard SecureCode or Verified By Visa).
      *
      * @return the mpi data
@@ -1242,38 +1182,14 @@ public class PaymentsRequest {
         return this;
     }
 
-    public PaymentsRequest enableRealTimeUpdate(Boolean enableRealTimeUpdate) {
-        this.enableRealTimeUpdate = enableRealTimeUpdate;
-        return this;
-    }
-
-    /**
-     * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
-     * @return enableRealTimeUpdate
-     **/
-    public Boolean isEnableRealTimeUpdate() {
-        return enableRealTimeUpdate;
-    }
-
-    public void setEnableRealTimeUpdate(Boolean enableRealTimeUpdate) {
-        this.enableRealTimeUpdate = enableRealTimeUpdate;
-    }
-
     public PaymentsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
         this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
         return this;
     }
 
-    public String getSelectedBrand() {
-        return selectedBrand;
-    }
-
-    public void setSelectedBrand(String selectedBrand) {
-        this.selectedBrand = selectedBrand;
-    }
-
     /**
      * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/native-3ds2/authentication-only), and not the payment authorisation.
+     *
      * @return threeDSAuthenticationOnly
      **/
     public Boolean isThreeDSAuthenticationOnly() {
@@ -1302,6 +1218,24 @@ public class PaymentsRequest {
         this.riskData = riskData;
     }
 
+    public PaymentsRequest conversionId(String conversionId) {
+        this.conversionId = conversionId;
+        return this;
+    }
+
+    /**
+     * Conversion ID that corresponds to the Id generated for tracking user payment journey.
+     *
+     * @return conversionId
+     **/
+    public String getConversionId() {
+        return conversionId;
+    }
+
+    public void setConversionId(String conversionId) {
+        this.conversionId = conversionId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -1311,198 +1245,143 @@ public class PaymentsRequest {
             return false;
         }
         PaymentsRequest paymentsRequest = (PaymentsRequest) o;
-        return Objects.equals(accountInfo, paymentsRequest.accountInfo)
-                && Objects.equals(additionalData, paymentsRequest.additionalData)
-                && Objects.equals(allowedPaymentMethods, paymentsRequest.allowedPaymentMethods)
-                && Objects.equals(amount, paymentsRequest.amount)
-                && Objects.equals(billingAddress, paymentsRequest.billingAddress)
-                && Objects.equals(captureDelayHours, paymentsRequest.captureDelayHours)
-                && Objects.equals(channel, paymentsRequest.channel)
-                && Objects.equals(company, paymentsRequest.company)
-                && Objects.equals(countryCode, paymentsRequest.countryCode)
-                && Objects.equals(dateOfBirth, paymentsRequest.dateOfBirth)
-                && Objects.equals(dccQuote, paymentsRequest.dccQuote)
-                && Objects.equals(deliveryAddress, paymentsRequest.deliveryAddress)
-                && Objects.equals(deliveryDate, paymentsRequest.deliveryDate)
-                && Objects.equals(enableOneClick, paymentsRequest.enableOneClick)
-                && Objects.equals(enablePayOut, paymentsRequest.enablePayOut)
-                && Objects.equals(enableRecurring, paymentsRequest.enableRecurring)
-                && Objects.equals(entityType, paymentsRequest.entityType)
-                && Objects.equals(fraudOffset, paymentsRequest.fraudOffset)
-                && Objects.equals(installments, paymentsRequest.installments)
-                && Objects.equals(lineItems, paymentsRequest.lineItems)
-                && Objects.equals(mcc, paymentsRequest.mcc)
-                && Objects.equals(merchantAccount, paymentsRequest.merchantAccount)
-                && Objects.equals(merchantOrderReference, paymentsRequest.merchantOrderReference)
-                && Objects.equals(metadata, paymentsRequest.metadata)
-                && Objects.equals(orderReference, paymentsRequest.orderReference)
-                && Objects.equals(paymentMethod, paymentsRequest.paymentMethod)
-                && Objects.equals(reference, paymentsRequest.reference)
-                && Objects.equals(returnUrl, paymentsRequest.returnUrl)
-                && Objects.equals(sessionValidity, paymentsRequest.sessionValidity)
-                && Objects.equals(shopperEmail, paymentsRequest.shopperEmail)
-                && Objects.equals(shopperIP, paymentsRequest.shopperIP)
-                && Objects.equals(shopperInteraction, paymentsRequest.shopperInteraction)
-                && Objects.equals(shopperLocale, paymentsRequest.shopperLocale)
-                && Objects.equals(shopperName, paymentsRequest.shopperName)
-                && Objects.equals(shopperReference, paymentsRequest.shopperReference)
-                && Objects.equals(shopperStatement, paymentsRequest.shopperStatement)
-                && Objects.equals(socialSecurityNumber, paymentsRequest.socialSecurityNumber)
-                && Objects.equals(telephoneNumber, paymentsRequest.telephoneNumber)
-                && Objects.equals(browserInfo, paymentsRequest.browserInfo)
-                && Objects.equals(deviceFingerprint, paymentsRequest.deviceFingerprint)
-                && Objects.equals(applicationInfo, paymentsRequest.applicationInfo)
-                && Objects.equals(splits, paymentsRequest.splits)
-                && Objects.equals(merchantRiskIndicator, paymentsRequest.merchantRiskIndicator)
-                && Objects.equals(threeDS2RequestData, paymentsRequest.threeDS2RequestData)
-                && Objects.equals(trustedShopper, paymentsRequest.trustedShopper)
-                && Objects.equals(origin, paymentsRequest.origin)
-                && Objects.equals(configId, paymentsRequest.configId)
-                && Objects.equals(blockedPaymentMethods, paymentsRequest.blockedPaymentMethods)
-                && Objects.equals(recurringProcessingModel, paymentsRequest.recurringProcessingModel)
-                && Objects.equals(merchantData, paymentsRequest.merchantData)
-                && Objects.equals(mpiData, paymentsRequest.mpiData)
-                && Objects.equals(redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod)
-                && Objects.equals(redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod)
-                && Objects.equals(order, paymentsRequest.order)
-                && Objects.equals(storePaymentMethod, paymentsRequest.storePaymentMethod)
-                && Objects.equals(store, paymentsRequest.store)
-                && Objects.equals(enableRealTimeUpdate, paymentsRequest.enableRealTimeUpdate)
-                && Objects.equals(threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly)
-                && Objects.equals(selectedBrand, paymentsRequest.selectedBrand)
-                && Objects.equals(riskData, paymentsRequest.riskData);
+        return Objects.equals(this.accountInfo, paymentsRequest.accountInfo) &&
+                Objects.equals(this.additionalData, paymentsRequest.additionalData) &&
+                Objects.equals(this.amount, paymentsRequest.amount) &&
+                Objects.equals(this.applicationInfo, paymentsRequest.applicationInfo) &&
+                Objects.equals(this.billingAddress, paymentsRequest.billingAddress) &&
+                Objects.equals(this.browserInfo, paymentsRequest.browserInfo) &&
+                Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours) &&
+                Objects.equals(this.channel, paymentsRequest.channel) &&
+                Objects.equals(this.company, paymentsRequest.company) &&
+                Objects.equals(this.conversionId, paymentsRequest.conversionId) &&
+                Objects.equals(this.countryCode, paymentsRequest.countryCode) &&
+                Objects.equals(this.dateOfBirth, paymentsRequest.dateOfBirth) &&
+                Objects.equals(this.dccQuote, paymentsRequest.dccQuote) &&
+                Objects.equals(this.deliveryAddress, paymentsRequest.deliveryAddress) &&
+                Objects.equals(this.deliveryDate, paymentsRequest.deliveryDate) &&
+                Objects.equals(this.deviceFingerprint, paymentsRequest.deviceFingerprint) &&
+                Objects.equals(this.enableOneClick, paymentsRequest.enableOneClick) &&
+                Objects.equals(this.enablePayOut, paymentsRequest.enablePayOut) &&
+                Objects.equals(this.enableRecurring, paymentsRequest.enableRecurring) &&
+                Objects.equals(this.entityType, paymentsRequest.entityType) &&
+                Objects.equals(this.fraudOffset, paymentsRequest.fraudOffset) &&
+                Objects.equals(this.installments, paymentsRequest.installments) &&
+                Objects.equals(this.lineItems, paymentsRequest.lineItems) &&
+                Objects.equals(this.mcc, paymentsRequest.mcc) &&
+                Objects.equals(this.merchantAccount, paymentsRequest.merchantAccount) &&
+                Objects.equals(this.merchantOrderReference, paymentsRequest.merchantOrderReference) &&
+                Objects.equals(this.merchantRiskIndicator, paymentsRequest.merchantRiskIndicator) &&
+                Objects.equals(this.metadata, paymentsRequest.metadata) &&
+                Objects.equals(this.mpiData, paymentsRequest.mpiData) &&
+                Objects.equals(this.order, paymentsRequest.order) &&
+                Objects.equals(this.orderReference, paymentsRequest.orderReference) &&
+                Objects.equals(this.origin, paymentsRequest.origin) &&
+                Objects.equals(this.paymentMethod, paymentsRequest.paymentMethod) &&
+                Objects.equals(this.recurringExpiry, paymentsRequest.recurringExpiry) &&
+                Objects.equals(this.recurringFrequency, paymentsRequest.recurringFrequency) &&
+                Objects.equals(this.recurringProcessingModel, paymentsRequest.recurringProcessingModel) &&
+                Objects.equals(this.redirectFromIssuerMethod, paymentsRequest.redirectFromIssuerMethod) &&
+                Objects.equals(this.redirectToIssuerMethod, paymentsRequest.redirectToIssuerMethod) &&
+                Objects.equals(this.reference, paymentsRequest.reference) &&
+                Objects.equals(this.returnUrl, paymentsRequest.returnUrl) &&
+                Objects.equals(this.riskData, paymentsRequest.riskData) &&
+                Objects.equals(this.sessionValidity, paymentsRequest.sessionValidity) &&
+                Objects.equals(this.shopperEmail, paymentsRequest.shopperEmail) &&
+                Objects.equals(this.shopperIP, paymentsRequest.shopperIP) &&
+                Objects.equals(this.shopperInteraction, paymentsRequest.shopperInteraction) &&
+                Objects.equals(this.shopperLocale, paymentsRequest.shopperLocale) &&
+                Objects.equals(this.shopperName, paymentsRequest.shopperName) &&
+                Objects.equals(this.shopperReference, paymentsRequest.shopperReference) &&
+                Objects.equals(this.shopperStatement, paymentsRequest.shopperStatement) &&
+                Objects.equals(this.socialSecurityNumber, paymentsRequest.socialSecurityNumber) &&
+                Objects.equals(this.splits, paymentsRequest.splits) &&
+                Objects.equals(this.store, paymentsRequest.store) &&
+                Objects.equals(this.storePaymentMethod, paymentsRequest.storePaymentMethod) &&
+                Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber) &&
+                Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData) &&
+                Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly) &&
+                Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountInfo,
-                additionalData,
-                allowedPaymentMethods,
-                amount,
-                billingAddress,
-                captureDelayHours,
-                channel,
-                company,
-                countryCode,
-                dateOfBirth,
-                dccQuote,
-                deliveryAddress,
-                deliveryDate,
-                enableOneClick,
-                enablePayOut,
-                enableRecurring,
-                entityType,
-                fraudOffset,
-                installments,
-                lineItems,
-                mcc,
-                merchantAccount,
-                merchantOrderReference,
-                metadata,
-                orderReference,
-                paymentMethod,
-                reference,
-                returnUrl,
-                sessionValidity,
-                shopperEmail,
-                shopperIP,
-                shopperInteraction,
-                shopperLocale,
-                shopperName,
-                shopperReference,
-                shopperStatement,
-                socialSecurityNumber,
-                telephoneNumber,
-                browserInfo,
-                deviceFingerprint,
-                applicationInfo,
-                splits,
-                merchantRiskIndicator,
-                threeDS2RequestData,
-                trustedShopper,
-                origin,
-                configId,
-                blockedPaymentMethods,
-                recurringProcessingModel,
-                merchantData,
-                mpiData,
-                redirectFromIssuerMethod,
-                redirectToIssuerMethod,
-                order,
-                storePaymentMethod,
-                enableRealTimeUpdate,
-                threeDSAuthenticationOnly,
-                store,
-                selectedBrand,
-                riskData);
+        return Objects.hash(accountInfo, additionalData, amount, applicationInfo, billingAddress, browserInfo,
+                captureDelayHours, channel, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress,
+                deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset,
+                installments, lineItems, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata,
+                mpiData, order, orderReference, origin, paymentMethod, recurringExpiry, recurringFrequency,
+                recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl,
+                riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName,
+                shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod,
+                telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+
     }
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PaymentsRequest {\n");
 
-      return "class PaymentsRequest {\n"
-          + "    additionalData: " + toIndentedString(additionalData) + "\n"
-          + "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + "\n"
-          + "    amount: " + toIndentedString(amount) + "\n"
-          + "    billingAddress: " + toIndentedString(billingAddress) + "\n"
-          + "    captureDelayHours: " + toIndentedString(captureDelayHours) + "\n"
-          + "    channel: " + toIndentedString(channel) + "\n"
-          + "    company: " + toIndentedString(company) + "\n"
-          + "    countryCode: " + toIndentedString(countryCode) + "\n"
-          + "    dateOfBirth: " + toIndentedString(dateOfBirth) + "\n"
-          + "    dccQuote: " + toIndentedString(dccQuote) + "\n"
-          + "    deliveryAddress: " + toIndentedString(deliveryAddress) + "\n"
-          + "    deliveryDate: " + toIndentedString(deliveryDate) + "\n"
-          + "    enableOneClick: " + toIndentedString(enableOneClick) + "\n"
-          + "    enablePayOut: " + toIndentedString(enablePayOut) + "\n"
-          + "    enableRecurring: " + toIndentedString(enableRecurring) + "\n"
-          + "    entityType: " + toIndentedString(entityType) + "\n"
-          + "    fraudOffset: " + toIndentedString(fraudOffset) + "\n"
-          + "    installments: " + toIndentedString(installments) + "\n"
-          + "    lineItems: " + toIndentedString(lineItems) + "\n"
-          + "    mcc: " + toIndentedString(mcc) + "\n"
-          + "    merchantAccount: " + toIndentedString(merchantAccount) + "\n"
-          + "    merchantOrderReference: " + toIndentedString(merchantOrderReference) + "\n"
-          + "    metadata: " + toIndentedString(metadata) + "\n"
-          + "    browserInfo: " + toIndentedString(browserInfo) + "\n"
-          + "    orderReference: " + toIndentedString(orderReference) + "\n"
-          + "    paymentMethod: " + toIndentedString(paymentMethod) + "\n"
-          + "    reference: " + toIndentedString(reference) + "\n"
-          + "    recurringProcessingModel: " + toIndentedString(recurringProcessingModel) + "\n" + "  "
-          + "    returnUrl: " + toIndentedString(returnUrl) + "\n"
-          + "    sessionValidity: " + toIndentedString(sessionValidity) + "\n"
-          + "    shopperEmail: " + toIndentedString(shopperEmail) + "\n"
-          + "    shopperIP: " + toIndentedString(shopperIP) + "\n"
-          + "    shopperInteraction: " + toIndentedString(shopperInteraction) + "\n"
-          + "    shopperLocale: " + toIndentedString(shopperLocale) + "\n"
-          + "    shopperName: " + toIndentedString(shopperName) + "\n"
-          + "    shopperReference: " + toIndentedString(shopperReference) + "\n"
-          + "    shopperStatement: " + toIndentedString(shopperStatement) + "\n"
-          + "    socialSecurityNumber: " + toIndentedString(socialSecurityNumber) + "\n"
-          + "    deviceFingerprint: " + toIndentedString(deviceFingerprint) + "\n"
-          + "    applicationInfo: " + toIndentedString(applicationInfo) + "\n"
-          + "    telephoneNumber: " + toIndentedString(telephoneNumber) + "\n"
-          + "    accountInfo: " + toIndentedString(accountInfo) + "\n"
-          + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
-          + "    splits: " + toIndentedString(splits) + "\n"
-          + "    merchantRiskIndicator: " + toIndentedString(merchantRiskIndicator) + "\n"
-          + "    threeDS2RequestData: " + toIndentedString(threeDS2RequestData) + "\n"
-          + "    trustedShopper: " + toIndentedString(trustedShopper) + "\n"
-          + "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + "\n"
-          + "    configId: " + toIndentedString(configId) + "\n"
-          + "    origin: " + toIndentedString(origin) + "\n"
-          + "    metadata: " + toIndentedString(metadata) + "\n"
-          + "    mpiData: " + toIndentedString(mpiData) + "\n"
-          + "    redirectFromIssuerMethod: " + toIndentedString(redirectFromIssuerMethod) + "\n"
-          + "    redirectToIssuerMethod: " + toIndentedString(redirectToIssuerMethod) + "\n"
-          + "    order: " + toIndentedString(order) + "\n"
-          + "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + "\n"
-          + "    enableRealTimeUpdate: " + toIndentedString(enableRealTimeUpdate) + "\n"
-          + "    threeDSAuthenticationOnly: " + toIndentedString(threeDSAuthenticationOnly) + "\n"
-          + "    selectedBrand: " + toIndentedString(selectedBrand) + "\n"
-          + "    store: " + toIndentedString(store) + "\n"
-          + "    riskData: " + toIndentedString(riskData) + "\n"
-          + "}";
+        sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
+        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+        sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
+        sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
+        sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
+        sb.append("    company: ").append(toIndentedString(company)).append("\n");
+        sb.append("    conversionId: ").append(toIndentedString(conversionId)).append("\n");
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
+        sb.append("    dccQuote: ").append(toIndentedString(dccQuote)).append("\n");
+        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
+        sb.append("    deliveryDate: ").append(toIndentedString(deliveryDate)).append("\n");
+        sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
+        sb.append("    enableOneClick: ").append(toIndentedString(enableOneClick)).append("\n");
+        sb.append("    enablePayOut: ").append(toIndentedString(enablePayOut)).append("\n");
+        sb.append("    enableRecurring: ").append(toIndentedString(enableRecurring)).append("\n");
+        sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
+        sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
+        sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
+        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+        sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
+        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+        sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
+        sb.append("    merchantRiskIndicator: ").append(toIndentedString(merchantRiskIndicator)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
+        sb.append("    order: ").append(toIndentedString(order)).append("\n");
+        sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
+        sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+        sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
+        sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
+        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
+        sb.append("    redirectFromIssuerMethod: ").append(toIndentedString(redirectFromIssuerMethod)).append("\n");
+        sb.append("    redirectToIssuerMethod: ").append(toIndentedString(redirectToIssuerMethod)).append("\n");
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
+        sb.append("    riskData: ").append(toIndentedString(riskData)).append("\n");
+        sb.append("    sessionValidity: ").append(toIndentedString(sessionValidity)).append("\n");
+        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+        sb.append("    shopperIP: ").append(toIndentedString(shopperIP)).append("\n");
+        sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
+        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
+        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
+        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+        sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
+        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
+        sb.append("    store: ").append(toIndentedString(store)).append("\n");
+        sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
+        sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
+        sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
+        sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
+        sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**

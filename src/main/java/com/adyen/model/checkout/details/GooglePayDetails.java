@@ -23,7 +23,6 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.adyen.util.MaskUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -99,6 +98,9 @@ public class GooglePayDetails implements PaymentMethodDetails {
 
     @SerializedName("googlePayToken")
     private String googlePayToken = null;
+
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
 
     @SerializedName("type")
     private String type = GOOGLEPAY;
@@ -190,12 +192,13 @@ public class GooglePayDetails implements PaymentMethodDetails {
         return Objects.equals(this.fundingSource, googlePayDetails.fundingSource) &&
                 Objects.equals(this.googlePayCardNetwork, googlePayDetails.googlePayCardNetwork) &&
                 Objects.equals(this.googlePayToken, googlePayDetails.googlePayToken) &&
+                Objects.equals(this.storedPaymentMethodId, googlePayDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, googlePayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fundingSource, googlePayCardNetwork, googlePayToken, type);
+        return Objects.hash(fundingSource, googlePayCardNetwork, googlePayToken, storedPaymentMethodId, type);
     }
 
 
@@ -206,12 +209,12 @@ public class GooglePayDetails implements PaymentMethodDetails {
 
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    googlePayCardNetwork: ").append(toIndentedString(googlePayCardNetwork)).append("\n");
-        sb.append("    googlePayToken: ").append(toIndentedString(MaskUtil.mask(googlePayToken))).append("\n");
+        sb.append("    googlePayToken: ").append(toIndentedString(googlePayToken)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
-
 
 
 }

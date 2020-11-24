@@ -21,21 +21,21 @@
 
 package com.adyen.model.checkout.details;
 
-import java.util.Objects;
-
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.SubscriptionDetails;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 /**
- * PayUUpiDetails
+ * UpiDetails
  */
 
-public class PayUUpiDetails implements PaymentMethodDetails {
+public class UpiDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String PAYUINUPI = "payu_IN_upi";
+    public static final String UPI = "upi";
 
     @SerializedName("shopperNotificationReference")
     private String shopperNotificationReference = null;
@@ -47,12 +47,12 @@ public class PayUUpiDetails implements PaymentMethodDetails {
     private SubscriptionDetails subscriptionDetails = null;
 
     @SerializedName("type")
-    private String type = PAYUINUPI;
+    private String type = UPI;
 
     @SerializedName("virtualPaymentAddress")
     private String virtualPaymentAddress = null;
 
-    public PayUUpiDetails shopperNotificationReference(String shopperNotificationReference) {
+    public UpiDetails shopperNotificationReference(String shopperNotificationReference) {
         this.shopperNotificationReference = shopperNotificationReference;
         return this;
     }
@@ -70,7 +70,7 @@ public class PayUUpiDetails implements PaymentMethodDetails {
         this.shopperNotificationReference = shopperNotificationReference;
     }
 
-    public PayUUpiDetails storedPaymentMethodId(String storedPaymentMethodId) {
+    public UpiDetails storedPaymentMethodId(String storedPaymentMethodId) {
         this.storedPaymentMethodId = storedPaymentMethodId;
         return this;
     }
@@ -88,7 +88,7 @@ public class PayUUpiDetails implements PaymentMethodDetails {
         this.storedPaymentMethodId = storedPaymentMethodId;
     }
 
-    public PayUUpiDetails subscriptionDetails(SubscriptionDetails subscriptionDetails) {
+    public UpiDetails subscriptionDetails(SubscriptionDetails subscriptionDetails) {
         this.subscriptionDetails = subscriptionDetails;
         return this;
     }
@@ -106,13 +106,13 @@ public class PayUUpiDetails implements PaymentMethodDetails {
         this.subscriptionDetails = subscriptionDetails;
     }
 
-    public PayUUpiDetails type(String type) {
+    public UpiDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **payu_IN_upi**
+     * **upi**
      *
      * @return type
      **/
@@ -124,7 +124,7 @@ public class PayUUpiDetails implements PaymentMethodDetails {
         this.type = type;
     }
 
-    public PayUUpiDetails virtualPaymentAddress(String virtualPaymentAddress) {
+    public UpiDetails virtualPaymentAddress(String virtualPaymentAddress) {
         this.virtualPaymentAddress = virtualPaymentAddress;
         return this;
     }
@@ -144,19 +144,19 @@ public class PayUUpiDetails implements PaymentMethodDetails {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PayUUpiDetails payUUpiDetails = (PayUUpiDetails) o;
-        return Objects.equals(this.shopperNotificationReference, payUUpiDetails.shopperNotificationReference) &&
-                Objects.equals(this.storedPaymentMethodId, payUUpiDetails.storedPaymentMethodId) &&
-                Objects.equals(this.subscriptionDetails, payUUpiDetails.subscriptionDetails) &&
-                Objects.equals(this.type, payUUpiDetails.type) &&
-                Objects.equals(this.virtualPaymentAddress, payUUpiDetails.virtualPaymentAddress);
+        UpiDetails upiDetails = (UpiDetails) o;
+        return Objects.equals(this.shopperNotificationReference, upiDetails.shopperNotificationReference) &&
+                Objects.equals(this.storedPaymentMethodId, upiDetails.storedPaymentMethodId) &&
+                Objects.equals(this.subscriptionDetails, upiDetails.subscriptionDetails) &&
+                Objects.equals(this.type, upiDetails.type) &&
+                Objects.equals(this.virtualPaymentAddress, upiDetails.virtualPaymentAddress);
     }
 
     @Override
@@ -168,7 +168,7 @@ public class PayUUpiDetails implements PaymentMethodDetails {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayUUpiDetails {\n");
+        sb.append("class UpiDetails {\n");
 
         sb.append("    shopperNotificationReference: ").append(toIndentedString(shopperNotificationReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
@@ -183,7 +183,7 @@ public class PayUUpiDetails implements PaymentMethodDetails {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

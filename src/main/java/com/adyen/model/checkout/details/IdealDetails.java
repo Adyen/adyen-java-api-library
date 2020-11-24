@@ -42,6 +42,9 @@ public class IdealDetails implements PaymentMethodDetails {
     @SerializedName("issuer")
     private String issuer = null;
 
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
+
     @SerializedName("type")
     private String type = IDEAL;
 
@@ -61,6 +64,24 @@ public class IdealDetails implements PaymentMethodDetails {
 
     public void setIssuer(String issuer) {
         this.issuer = issuer;
+    }
+
+    public IdealDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     *
+     * @return storedPaymentMethodId
+     **/
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
     }
 
     public IdealDetails type(String type) {
@@ -94,12 +115,13 @@ public class IdealDetails implements PaymentMethodDetails {
         }
         IdealDetails idealDetails = (IdealDetails) o;
         return Objects.equals(this.issuer, idealDetails.issuer) &&
+                Objects.equals(this.storedPaymentMethodId, idealDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, idealDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, type);
+        return Objects.hash(issuer, storedPaymentMethodId, type);
     }
 
 
@@ -109,11 +131,11 @@ public class IdealDetails implements PaymentMethodDetails {
         sb.append("class IdealDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
-
 
 
 }

@@ -97,6 +97,9 @@ public class ApplePayDetails implements PaymentMethodDetails {
     @SerializedName("fundingSource")
     private FundingSourceEnum fundingSource = null;
 
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
+
     @SerializedName("type")
     private String type = APPLEPAY;
 
@@ -141,6 +144,24 @@ public class ApplePayDetails implements PaymentMethodDetails {
         return this;
     }
 
+    public ApplePayDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     *
+     * @return storedPaymentMethodId
+     **/
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
+
     /**
      * **applepay**
      *
@@ -168,12 +189,13 @@ public class ApplePayDetails implements PaymentMethodDetails {
         ApplePayDetails applePayDetails = (ApplePayDetails) o;
         return Objects.equals(this.applePayToken, applePayDetails.applePayToken) &&
                 Objects.equals(this.fundingSource, applePayDetails.fundingSource) &&
+                Objects.equals(this.storedPaymentMethodId, applePayDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, applePayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(applePayToken, fundingSource, type);
+        return Objects.hash(applePayToken, fundingSource, storedPaymentMethodId, type);
     }
 
 
@@ -184,6 +206,7 @@ public class ApplePayDetails implements PaymentMethodDetails {
 
         sb.append("    applePayToken: ").append(toIndentedString(MaskUtil.mask(applePayToken))).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

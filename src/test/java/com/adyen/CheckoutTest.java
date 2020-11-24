@@ -206,7 +206,6 @@ public class CheckoutTest extends BaseTest {
         assertEquals(26, paymentMethodsResponse.getPaymentMethods().size());
         assertEquals("Credit Card", paymentMethodsResponse.getPaymentMethods().get(0).getName());
         assertEquals(6, paymentMethodsResponse.getPaymentMethods().get(0).getBrands().size());
-        assertTrue(paymentMethodsResponse.getPaymentMethods().get(0).getSupportsRecurring());
     }
 
     /**
@@ -1374,10 +1373,9 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestPayUUpiDetailsSerialization() throws JsonProcessingException {
-        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"payu_IN_upi\",\"vpa\":\"vpa\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"10.1.0\"}}}";
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"payu_IN_upi\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"10.1.0\"}}}";
 
         PayUUpiDetails payUUpiDetails = new PayUUpiDetails();
-        payUUpiDetails.setVpa("vpa");
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(payUUpiDetails);
 
@@ -1390,10 +1388,9 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestPayUUpiDetailsDeserialization() throws JsonProcessingException {
-        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"payu_IN_upi\",\"vpa\":\"vpa\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"10.1.0\"}}}";
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"payu_IN_upi\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"10.1.0\"}}}";
 
         PayUUpiDetails payUUpiDetails = new PayUUpiDetails();
-        payUUpiDetails.setVpa("vpa");
         PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(payUUpiDetails);
 

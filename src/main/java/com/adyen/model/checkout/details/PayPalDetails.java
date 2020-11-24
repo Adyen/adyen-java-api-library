@@ -55,6 +55,9 @@ public class PayPalDetails implements PaymentMethodDetails {
     @SerializedName("type")
     private String type = PAYPAL;
 
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
+
     @JsonAdapter(SubtypeEnum.Adapter.class)
     public enum SubtypeEnum {
         SDK("sdk"),
@@ -180,13 +183,14 @@ public class PayPalDetails implements PaymentMethodDetails {
         PayPalDetails payPalDetails = (PayPalDetails) o;
         return Objects.equals(this.orderID, payPalDetails.orderID) &&
                 Objects.equals(this.payerID, payPalDetails.payerID) &&
+                Objects.equals(this.storedPaymentMethodId, payPalDetails.storedPaymentMethodId) &&
                 Objects.equals(this.subtype, payPalDetails.subtype) &&
                 Objects.equals(this.type, payPalDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderID, payerID, subtype, type);
+        return Objects.hash(orderID, payerID, storedPaymentMethodId, subtype, type);
     }
 
     @Override
@@ -196,6 +200,7 @@ public class PayPalDetails implements PaymentMethodDetails {
 
         sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
         sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

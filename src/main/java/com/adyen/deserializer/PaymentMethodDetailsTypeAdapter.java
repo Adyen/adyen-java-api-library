@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -30,6 +30,7 @@ import com.adyen.model.checkout.details.BacsDirectDebitDetails;
 import com.adyen.model.checkout.details.BillDeskOnlineDetails;
 import com.adyen.model.checkout.details.BillDeskWalletDetails;
 import com.adyen.model.checkout.details.BlikDetails;
+import com.adyen.model.checkout.details.CellulantDetails;
 import com.adyen.model.checkout.details.DokuDetails;
 import com.adyen.model.checkout.details.DotpayDetails;
 import com.adyen.model.checkout.details.DragonpayDetails;
@@ -49,6 +50,7 @@ import com.adyen.model.checkout.details.PayUUpiDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
+import com.adyen.model.checkout.details.UpiDetails;
 import com.adyen.model.checkout.details.VippsDetails;
 import com.adyen.model.checkout.details.VisaCheckoutDetails;
 import com.adyen.model.checkout.details.WeChatPayDetails;
@@ -103,6 +105,8 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(BillDeskWalletDetails.class).fromJsonTree(jsonElement);
                     case BlikDetails.BLIK:
                         return gson.getAdapter(BlikDetails.class).fromJsonTree(jsonElement);
+                    case CellulantDetails.CELLULANT:
+                        return gson.getAdapter(CellulantDetails.class).fromJsonTree(jsonElement);
                     case DokuDetails.ALFAMART:
                     case DokuDetails.BCA_VA:
                     case DokuDetails.BNI_VA:
@@ -168,6 +172,8 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(SamsungPayDetails.class).fromJsonTree(jsonElement);
                     case SepaDirectDebitDetails.SEPA_DIRECT_DEBIT:
                         return gson.getAdapter(SepaDirectDebitDetails.class).fromJsonTree(jsonElement);
+                    case UpiDetails.UPI:
+                        return gson.getAdapter(UpiDetails.class).fromJsonTree(jsonElement);
                     case VippsDetails.VIPPS:
                         return gson.getAdapter(VippsDetails.class).fromJsonTree(jsonElement);
                     case VisaCheckoutDetails.VISA_CHECKOUT:
