@@ -54,6 +54,9 @@ public class AchDetails implements PaymentMethodDetails {
     @SerializedName("ownerName")
     private String ownerName = null;
 
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
+
     @SerializedName("type")
     private String type = ACH;
 
@@ -147,6 +150,24 @@ public class AchDetails implements PaymentMethodDetails {
         this.ownerName = ownerName;
     }
 
+    public AchDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     *
+     * @return storedPaymentMethodId
+     **/
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
+
     public AchDetails type(String type) {
         this.type = type;
         return this;
@@ -182,12 +203,14 @@ public class AchDetails implements PaymentMethodDetails {
                 Objects.equals(this.encryptedBankAccountNumber, achDetails.encryptedBankAccountNumber) &&
                 Objects.equals(this.encryptedBankLocationId, achDetails.encryptedBankLocationId) &&
                 Objects.equals(this.ownerName, achDetails.ownerName) &&
+                Objects.equals(this.storedPaymentMethodId, achDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, achDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bankAccountNumber, bankLocationId, encryptedBankAccountNumber, encryptedBankLocationId, ownerName, type);
+        return Objects.hash(bankAccountNumber, bankLocationId, encryptedBankAccountNumber, encryptedBankLocationId,
+                ownerName, storedPaymentMethodId, type);
     }
 
 
@@ -201,6 +224,7 @@ public class AchDetails implements PaymentMethodDetails {
         sb.append("    encryptedBankAccountNumber: ").append(toIndentedString(encryptedBankAccountNumber)).append("\n");
         sb.append("    encryptedBankLocationId: ").append(toIndentedString(encryptedBankLocationId)).append("\n");
         sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

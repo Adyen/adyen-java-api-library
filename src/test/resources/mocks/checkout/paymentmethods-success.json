@@ -567,6 +567,11 @@
       "type": "svs"
     },
     {
+      "name": "VVV Giftcard",
+      "brand": "vvvgiftcard",
+      "type": "giftcard"
+    },
+    {
       "name": "UnionPay",
       "supportsRecurring": true,
       "type": "unionpay"

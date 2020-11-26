@@ -26,59 +26,54 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
-import static com.adyen.util.Util.toIndentedString;
-
 /**
- * GiropayDetails
+ * CellulantDetails
  */
 
-public class GiropayDetails implements PaymentMethodDetails {
+public class CellulantDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String GIROPAY = "giropay";
+    public static final String CELLULANT = "cellulant";
+
+    @SerializedName("issuerId")
+    private String issuerId = null;
 
     @SerializedName("type")
-    private String type = GIROPAY;
+    private String type = CELLULANT;
 
-    @SerializedName("storedPaymentMethodId")
-    private String storedPaymentMethodId = null;
-
-    public GiropayDetails storedPaymentMethodId(String storedPaymentMethodId) {
-        this.storedPaymentMethodId = storedPaymentMethodId;
+    public CellulantDetails issuerId(String issuerId) {
+        this.issuerId = issuerId;
         return this;
     }
 
     /**
-     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * The issuer&#x27;s ID
      *
-     * @return storedPaymentMethodId
+     * @return issuerId
      **/
-    public String getStoredPaymentMethodId() {
-        return storedPaymentMethodId;
+    public String getIssuerId() {
+        return issuerId;
     }
 
-    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
-        this.storedPaymentMethodId = storedPaymentMethodId;
+    public void setIssuerId(String issuerId) {
+        this.issuerId = issuerId;
     }
 
-    public GiropayDetails type(String type) {
+    public CellulantDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **giropay**
+     * **Cellulant**
      *
      * @return type
      **/
-    @Override
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
     }
@@ -92,27 +87,37 @@ public class GiropayDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GiropayDetails giropayDetails = (GiropayDetails) o;
-        return Objects.equals(this.storedPaymentMethodId, giropayDetails.storedPaymentMethodId) &&
-                Objects.equals(this.type, giropayDetails.type);
+        CellulantDetails cellulantDetails = (CellulantDetails) o;
+        return Objects.equals(this.issuerId, cellulantDetails.issuerId) &&
+                Objects.equals(this.type, cellulantDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(storedPaymentMethodId, type);
+        return Objects.hash(issuerId, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GiropayDetails {\n");
+        sb.append("class CellulantDetails {\n");
 
-        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
+        sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
