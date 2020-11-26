@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -30,6 +30,7 @@ import com.adyen.model.checkout.details.BacsDirectDebitDetails;
 import com.adyen.model.checkout.details.BillDeskOnlineDetails;
 import com.adyen.model.checkout.details.BillDeskWalletDetails;
 import com.adyen.model.checkout.details.BlikDetails;
+import com.adyen.model.checkout.details.CellulantDetails;
 import com.adyen.model.checkout.details.DokuDetails;
 import com.adyen.model.checkout.details.DotpayDetails;
 import com.adyen.model.checkout.details.DragonpayDetails;
@@ -49,6 +50,7 @@ import com.adyen.model.checkout.details.PayUUpiDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
+import com.adyen.model.checkout.details.UpiDetails;
 import com.adyen.model.checkout.details.VippsDetails;
 import com.adyen.model.checkout.details.VisaCheckoutDetails;
 import com.adyen.model.checkout.details.WeChatPayDetails;
@@ -86,6 +88,8 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
                 return codec.treeToValue(node, BillDeskWalletDetails.class);
             case BlikDetails.BLIK:
                 return codec.treeToValue(node, BlikDetails.class);
+            case CellulantDetails.CELLULANT:
+                return codec.treeToValue(node, CellulantDetails.class);
             case DokuDetails.ALFAMART:
             case DokuDetails.BCA_VA:
             case DokuDetails.BNI_VA:
@@ -151,6 +155,8 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
                 return codec.treeToValue(node, SamsungPayDetails.class);
             case SepaDirectDebitDetails.SEPA_DIRECT_DEBIT:
                 return codec.treeToValue(node, SepaDirectDebitDetails.class);
+            case UpiDetails.UPI:
+                return codec.treeToValue(node, UpiDetails.class);
             case VippsDetails.VIPPS:
                 return codec.treeToValue(node, VippsDetails.class);
             case VisaCheckoutDetails.VISA_CHECKOUT:
