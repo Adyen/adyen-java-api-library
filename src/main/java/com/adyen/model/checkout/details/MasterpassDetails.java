@@ -42,7 +42,7 @@ public class MasterpassDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    private static final String MASTERPASS = "masterpass";
+    public static final String MASTERPASS = "masterpass";
 
     /**
      * Gets or Sets fundingSource

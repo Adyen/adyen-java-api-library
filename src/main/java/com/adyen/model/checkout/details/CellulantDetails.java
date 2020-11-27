@@ -26,70 +26,47 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-import static com.adyen.util.Util.toIndentedString;
-
 /**
- * WeChatPayMiniProgramDetails
+ * CellulantDetails
  */
 
-public class WeChatPayMiniProgramDetails implements PaymentMethodDetails {
+public class CellulantDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String WECHATPAYMINIPROGRAM = "wechatpayMiniProgram";
+    public static final String CELLULANT = "cellulant";
 
-    @SerializedName("appId")
-    private String appId = null;
-
-    @SerializedName("openid")
-    private String openid = null;
+    @SerializedName("issuerId")
+    private String issuerId = null;
 
     @SerializedName("type")
-    private String type = WECHATPAYMINIPROGRAM;
+    private String type = CELLULANT;
 
-    public WeChatPayMiniProgramDetails appId(String appId) {
-        this.appId = appId;
+    public CellulantDetails issuerId(String issuerId) {
+        this.issuerId = issuerId;
         return this;
     }
 
     /**
-     * Get appId
+     * The issuer&#x27;s ID
      *
-     * @return appId
+     * @return issuerId
      **/
-    public String getAppId() {
-        return appId;
+    public String getIssuerId() {
+        return issuerId;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    public void setIssuerId(String issuerId) {
+        this.issuerId = issuerId;
     }
 
-    public WeChatPayMiniProgramDetails openid(String openid) {
-        this.openid = openid;
-        return this;
-    }
-
-    /**
-     * Get openid
-     *
-     * @return openid
-     **/
-    public String getOpenid() {
-        return openid;
-    }
-
-    public void setOpenid(String openid) {
-        this.openid = openid;
-    }
-
-    public WeChatPayMiniProgramDetails type(String type) {
+    public CellulantDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * The payment method type.
+     * **Cellulant**
      *
      * @return type
      **/
@@ -110,27 +87,37 @@ public class WeChatPayMiniProgramDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        WeChatPayMiniProgramDetails weChatPayMiniProgramDetails = (WeChatPayMiniProgramDetails) o;
-        return Objects.equals(this.appId, weChatPayMiniProgramDetails.appId) &&
-                Objects.equals(this.openid, weChatPayMiniProgramDetails.openid) &&
-                Objects.equals(this.type, weChatPayMiniProgramDetails.type);
+        CellulantDetails cellulantDetails = (CellulantDetails) o;
+        return Objects.equals(this.issuerId, cellulantDetails.issuerId) &&
+                Objects.equals(this.type, cellulantDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appId, openid, type);
+        return Objects.hash(issuerId, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class WeChatPayMiniProgramDetails {\n");
+        sb.append("class CellulantDetails {\n");
 
-        sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
-        sb.append("    openid: ").append(toIndentedString(openid)).append("\n");
+        sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }

@@ -96,6 +96,9 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     @SerializedName("samsungPayToken")
     private String samsungPayToken = null;
 
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
+
     @SerializedName("type")
     private String type = SAMSUNGPAY;
 
@@ -135,6 +138,24 @@ public class SamsungPayDetails implements PaymentMethodDetails {
         this.samsungPayToken = samsungPayToken;
     }
 
+    public SamsungPayDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     *
+     * @return storedPaymentMethodId
+     **/
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
+
     public SamsungPayDetails type(String type) {
         this.type = type;
         return this;
@@ -167,6 +188,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
         SamsungPayDetails samsungPayDetails = (SamsungPayDetails) o;
         return Objects.equals(this.fundingSource, samsungPayDetails.fundingSource) &&
                 Objects.equals(this.samsungPayToken, samsungPayDetails.samsungPayToken) &&
+                Objects.equals(this.storedPaymentMethodId, samsungPayDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, samsungPayDetails.type);
     }
 
@@ -183,6 +205,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
 
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    samsungPayToken: ").append(toIndentedString(samsungPayToken)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

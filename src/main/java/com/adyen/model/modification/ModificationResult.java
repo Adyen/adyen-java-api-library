@@ -36,6 +36,20 @@ import static com.adyen.util.Util.toIndentedString;
  */
 public class ModificationResult {
 
+    /**
+     * Response constants
+     */
+    public static class ModificationResponse {
+        public static final String CAPTURE_RECEIVED = "[capture-received]";
+        public static final String CANCEL_RECEIVED = "[cancel-received]";
+        public static final String TECHNICAL_CANCEL_RECEIVED = "[technical-cancel-received]";
+        public static final String REFUND_RECEIVED = "[refund-received]";
+        public static final String CANCELORREFUND_RECEIVED = "[cancelOrRefund-received]";
+        public static final String ADJUST_AUTHORISATION_RECEIVED = "[adjustAuthorisation-received]";
+        public static final String VOIDPENDINGREFUND_RECEIVED = "[voidPendingRefund-received]";
+        public static final String DONATION_RECEIVED = "[donation-received]";
+    }
+
     @SerializedName("pspReference")
     private String pspReference = null;
 

@@ -39,11 +39,32 @@ public class VippsDetails implements PaymentMethodDetails {
      */
     public static final String VIPPS = "vipps";
 
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
+
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 
     @SerializedName("type")
     private String type = VIPPS;
+
+    public VippsDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     *
+     * @return storedPaymentMethodId
+     **/
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
 
     public VippsDetails telephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
@@ -93,21 +114,22 @@ public class VippsDetails implements PaymentMethodDetails {
             return false;
         }
         VippsDetails vippsDetails = (VippsDetails) o;
-        return Objects.equals(this.telephoneNumber, vippsDetails.telephoneNumber) &&
+        return Objects.equals(this.storedPaymentMethodId, vippsDetails.storedPaymentMethodId) &&
+                Objects.equals(this.telephoneNumber, vippsDetails.telephoneNumber) &&
                 Objects.equals(this.type, vippsDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(telephoneNumber, type);
+        return Objects.hash(storedPaymentMethodId, telephoneNumber, type);
     }
-
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class VippsDetails {\n");
 
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

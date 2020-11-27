@@ -45,6 +45,9 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
     @SerializedName("ownerName")
     private String ownerName = null;
 
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
+
     @SerializedName("type")
     private String type = SEPA_DIRECT_DEBIT;
 
@@ -116,12 +119,13 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
         SepaDirectDebitDetails sepaDirectDebitDetails = (SepaDirectDebitDetails) o;
         return Objects.equals(this.iban, sepaDirectDebitDetails.iban) &&
                 Objects.equals(this.ownerName, sepaDirectDebitDetails.ownerName) &&
+                Objects.equals(this.storedPaymentMethodId, sepaDirectDebitDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, sepaDirectDebitDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(iban, ownerName, type);
+        return Objects.hash(iban, ownerName, storedPaymentMethodId, type);
     }
 
 
@@ -132,6 +136,7 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
 
         sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
         sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

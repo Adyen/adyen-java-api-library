@@ -21,8 +21,14 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +43,9 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class RecurringDetail {
+    @SerializedName("brand")
+    private String brand = null;
+
     @SerializedName("brands")
     private List<String> brands = null;
 
@@ -46,8 +55,60 @@ public class RecurringDetail {
     @SerializedName("details")
     private List<InputDetail> details = null;
 
+    /**
+     * The funding source of the payment method.
+     */
+    @JsonAdapter(FundingSourceEnum.Adapter.class)
+    public enum FundingSourceEnum {
+        DEBIT("debit");
+
+        @JsonValue
+        private String value;
+
+        FundingSourceEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static FundingSourceEnum fromValue(String text) {
+            for (FundingSourceEnum b : FundingSourceEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter<FundingSourceEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return FundingSourceEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    @SerializedName("fundingSource")
+    private FundingSourceEnum fundingSource = null;
+
     @SerializedName("group")
     private PaymentMethodGroup group = null;
+
+    @SerializedName("inputDetails")
+    private List<InputDetail> inputDetails = null;
 
     @SerializedName("name")
     private String name = null;
@@ -66,6 +127,24 @@ public class RecurringDetail {
 
     @SerializedName("type")
     private String type = null;
+
+    public RecurringDetail brand(String brand) {
+        this.brand = brand;
+        return this;
+    }
+
+    /**
+     * Brand for the selected gift card. For example: plastix, hmclub.
+     *
+     * @return brand
+     **/
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 
     public RecurringDetail brands(List<String> brands) {
         this.brands = brands;
@@ -147,6 +226,24 @@ public class RecurringDetail {
         this.details = details;
     }
 
+    public RecurringDetail fundingSource(FundingSourceEnum fundingSource) {
+        this.fundingSource = fundingSource;
+        return this;
+    }
+
+    /**
+     * The funding source of the payment method.
+     *
+     * @return fundingSource
+     **/
+    public FundingSourceEnum getFundingSource() {
+        return fundingSource;
+    }
+
+    public void setFundingSource(FundingSourceEnum fundingSource) {
+        this.fundingSource = fundingSource;
+    }
+
     public RecurringDetail group(PaymentMethodGroup group) {
         this.group = group;
         return this;
@@ -164,6 +261,33 @@ public class RecurringDetail {
     public void setGroup(PaymentMethodGroup group) {
         this.group = group;
     }
+
+    public RecurringDetail inputDetails(List<InputDetail> inputDetails) {
+        this.inputDetails = inputDetails;
+        return this;
+    }
+
+    public RecurringDetail addInputDetailsItem(InputDetail inputDetailsItem) {
+        if (this.inputDetails == null) {
+            this.inputDetails = new ArrayList<InputDetail>();
+        }
+        this.inputDetails.add(inputDetailsItem);
+        return this;
+    }
+
+    /**
+     * All input details to be provided to complete the payment with this payment method.
+     *
+     * @return inputDetails
+     **/
+    public List<InputDetail> getInputDetails() {
+        return inputDetails;
+    }
+
+    public void setInputDetails(List<InputDetail> inputDetails) {
+        this.inputDetails = inputDetails;
+    }
+
 
     public RecurringDetail name(String name) {
         this.name = name;
@@ -283,21 +407,23 @@ public class RecurringDetail {
             return false;
         }
         RecurringDetail recurringDetail = (RecurringDetail) o;
-        return Objects.equals(brands, recurringDetail.brands) &&
-                Objects.equals(configuration, recurringDetail.configuration) &&
-                Objects.equals(details, recurringDetail.details) &&
-                Objects.equals(group, recurringDetail.group) &&
-                Objects.equals(name, recurringDetail.name) &&
-                Objects.equals(paymentMethodData, recurringDetail.paymentMethodData) &&
-                Objects.equals(recurringDetailReference, recurringDetail.recurringDetailReference) &&
-                Objects.equals(storedDetails, recurringDetail.storedDetails) &&
-                Objects.equals(supportsRecurring, recurringDetail.supportsRecurring) &&
-                Objects.equals(type, recurringDetail.type);
+        return Objects.equals(this.brand, recurringDetail.brand) &&
+                Objects.equals(this.brands, recurringDetail.brands) &&
+                Objects.equals(this.configuration, recurringDetail.configuration) &&
+                Objects.equals(this.details, recurringDetail.details) &&
+                Objects.equals(this.fundingSource, recurringDetail.fundingSource) &&
+                Objects.equals(this.group, recurringDetail.group) &&
+                Objects.equals(this.inputDetails, recurringDetail.inputDetails) &&
+                Objects.equals(this.name, recurringDetail.name) &&
+                Objects.equals(this.recurringDetailReference, recurringDetail.recurringDetailReference) &&
+                Objects.equals(this.storedDetails, recurringDetail.storedDetails) &&
+                Objects.equals(this.type, recurringDetail.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brands, configuration, details, group, name, paymentMethodData, recurringDetailReference, storedDetails, supportsRecurring, type);
+        return Objects.hash(brand, brands, configuration, details, fundingSource, group, inputDetails, name,
+                recurringDetailReference, storedDetails, type);
     }
 
 
@@ -306,15 +432,16 @@ public class RecurringDetail {
         StringBuilder sb = new StringBuilder();
         sb.append("class RecurringDetail {\n");
 
+        sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
         sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
         sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
+        sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
+        sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    paymentMethodData: ").append(toIndentedString(paymentMethodData)).append("\n");
         sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedDetails: ").append(toIndentedString(storedDetails)).append("\n");
-        sb.append("    supportsRecurring: ").append(toIndentedString(supportsRecurring)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

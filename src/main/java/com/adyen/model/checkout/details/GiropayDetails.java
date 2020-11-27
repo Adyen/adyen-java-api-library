@@ -42,6 +42,27 @@ public class GiropayDetails implements PaymentMethodDetails {
     @SerializedName("type")
     private String type = GIROPAY;
 
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
+
+    public GiropayDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     *
+     * @return storedPaymentMethodId
+     **/
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
+
     public GiropayDetails type(String type) {
         this.type = type;
         return this;
@@ -72,12 +93,13 @@ public class GiropayDetails implements PaymentMethodDetails {
             return false;
         }
         GiropayDetails giropayDetails = (GiropayDetails) o;
-        return Objects.equals(this.type, giropayDetails.type);
+        return Objects.equals(this.storedPaymentMethodId, giropayDetails.storedPaymentMethodId) &&
+                Objects.equals(this.type, giropayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type);
+        return Objects.hash(storedPaymentMethodId, type);
     }
 
 
@@ -86,11 +108,11 @@ public class GiropayDetails implements PaymentMethodDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class GiropayDetails {\n");
 
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
-
 
 
 }
