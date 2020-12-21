@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>11.0.0</version>
+  <version>11.0.1</version>
 </dependency>
 ```
 

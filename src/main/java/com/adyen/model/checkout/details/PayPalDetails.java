@@ -171,6 +171,13 @@ public class PayPalDetails implements PaymentMethodDetails {
         this.subtype = subtype;
     }
 
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
 
     @Override
     public boolean equals(java.lang.Object o) {
