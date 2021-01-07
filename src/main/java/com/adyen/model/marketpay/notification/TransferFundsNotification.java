@@ -37,6 +37,9 @@ public class TransferFundsNotification extends GenericNotification {
 
     @Override
     public String toString() {
-        return "TransferFundsNotification{" + "content=" + content + '}';
+        final StringBuilder sb = new StringBuilder("TransferFundsNotification{");
+        sb.append("content=").append(content);
+        sb.append('}');
+        return sb.toString();
     }
 }

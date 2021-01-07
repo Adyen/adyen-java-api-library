@@ -37,6 +37,9 @@ public class AccountHolderStatusChangeNotification extends GenericNotification {
 
     @Override
     public String toString() {
-        return "AccountHolderStatusChangeNotification{" + "content=" + content + '}';
+        final StringBuilder sb = new StringBuilder("AccountHolderStatusChangeNotification{");
+        sb.append("content=").append(content);
+        sb.append('}');
+        return sb.toString();
     }
 }

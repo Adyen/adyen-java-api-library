@@ -334,9 +334,12 @@ public class MarketPayNotificationTest extends BaseTest {
         assertEquals(GenericNotification.EventTypeEnum.TRANSFER_FUNDS, notificationMessage.getEventType());
         TransferFundsNotification notification = (TransferFundsNotification) notificationMessage;
         assertNotNull(notification.getContent());
-
         assertEquals(1000L, notification.getContent().getAmount().getValue().longValue());
         assertEquals("testTransferCode", notification.getContent().getTransferCode());
+
+        assertNotNull(notification.getError());
+        assertEquals("000", notification.getError().getErrorCode());
+        assertEquals("test error message", notification.getError().getMessage());
     }
 
     @Test

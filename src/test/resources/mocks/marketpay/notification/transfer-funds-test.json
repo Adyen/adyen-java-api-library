@@ -1,4 +1,8 @@
 {
+  "error": {
+    "errorCode": "000",
+    "message": "test error message"
+  },
   "eventDate": "2018-03-07T13:44:34+01:00",
   "eventType": "TRANSFER_FUNDS",
   "executingUserKey": "ws_957630",

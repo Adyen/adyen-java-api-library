@@ -38,6 +38,9 @@ public class AccountHolderCreatedNotification extends GenericNotification {
 
     @Override
     public String toString() {
-        return "AccountHolderCreatedNotification{" + "content=" + content + '}';
+        final StringBuilder sb = new StringBuilder("AccountHolderCreatedNotification{");
+        sb.append("content=").append(content);
+        sb.append('}');
+        return sb.toString();
     }
 }

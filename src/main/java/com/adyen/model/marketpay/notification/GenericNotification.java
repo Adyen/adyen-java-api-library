@@ -99,6 +99,9 @@ public class GenericNotification {
         }
     }
 
+    @SerializedName("error")
+    private NotificationErrorContainer error = null;
+
     @SerializedName("eventType")
     private EventTypeEnum eventType;
 
@@ -154,8 +157,24 @@ public class GenericNotification {
         this.pspReference = pspReference;
     }
 
+    public NotificationErrorContainer getError() {
+        return error;
+    }
+
+    public void setError(NotificationErrorContainer error) {
+        this.error = error;
+    }
+
     @Override
     public String toString() {
-        return "GenericNotification{" + "eventType=" + eventType + "eventDate=" + eventDate + ", executingUserKey='" + executingUserKey + '\'' + ", live='" + live + '\'' + ", pspReference='" + pspReference + '\'' + '}';
+        final StringBuilder sb = new StringBuilder("GenericNotification{");
+        sb.append("error=").append(error);
+        sb.append(", eventType=").append(eventType);
+        sb.append(", eventDate=").append(eventDate);
+        sb.append(", executingUserKey='").append(executingUserKey).append('\'');
+        sb.append(", live='").append(live).append('\'');
+        sb.append(", pspReference='").append(pspReference).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
