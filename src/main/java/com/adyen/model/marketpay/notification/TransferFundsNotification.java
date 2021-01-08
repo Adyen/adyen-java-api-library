@@ -25,13 +25,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class TransferFundsNotification extends GenericNotification {
     @SerializedName("content")
-    private TransferFundsContent content;
+    private TransferFundsNotificationContent content;
 
-    public TransferFundsContent getContent() {
+    public TransferFundsNotificationContent getContent() {
         return content;
     }
 
-    public void setContent(TransferFundsContent content) {
+    public void setContent(TransferFundsNotificationContent content) {
         this.content = content;
     }
 

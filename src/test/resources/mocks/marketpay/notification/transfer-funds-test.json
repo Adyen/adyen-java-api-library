@@ -9,6 +9,17 @@
   "live": "false",
   "pspReference": "Test_TRANSFER_FUNDS",
   "content": {
+    "invalidFields": [
+      {
+        "errorCode": 1,
+        "errorDescription": "Field is missing",
+        "fieldType": {
+          "field": "AccountHolderDetails.BusinessDetails.Shareholders.unknown",
+          "fieldName": "unknown",
+          "shareholderCode": "SH00001"
+        }
+      }
+    ],
     "amount": {
       "currency": "EUR",
       "value": 1000

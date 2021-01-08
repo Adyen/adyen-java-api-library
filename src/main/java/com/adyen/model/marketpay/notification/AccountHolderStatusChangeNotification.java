@@ -25,13 +25,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class AccountHolderStatusChangeNotification extends GenericNotification {
     @SerializedName("content")
-    private AccountHolderStatusChangeContent content;
+    private AccountHolderStatusChangeNotificationContent content;
 
-    public AccountHolderStatusChangeContent getContent() {
+    public AccountHolderStatusChangeNotificationContent getContent() {
         return content;
     }
 
-    public void setContent(AccountHolderStatusChangeContent content) {
+    public void setContent(AccountHolderStatusChangeNotificationContent content) {
         this.content = content;
     }
 

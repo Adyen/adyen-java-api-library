@@ -25,13 +25,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class ScheduledRefundsNotification extends GenericNotification {
     @SerializedName("content")
-    private ScheduledRefundsContent content;
+    private ScheduledRefundsNotificationContent content;
 
-    public ScheduledRefundsContent getContent() {
+    public ScheduledRefundsNotificationContent getContent() {
         return content;
     }
 
-    public void setContent(ScheduledRefundsContent content) {
+    public void setContent(ScheduledRefundsNotificationContent content) {
         this.content = content;
     }
 

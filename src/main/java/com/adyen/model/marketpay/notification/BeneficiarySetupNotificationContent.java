@@ -22,9 +22,11 @@
 package com.adyen.model.marketpay.notification;
 
 import java.util.Date;
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
-public class BeneficiarySetupContent {
+public class BeneficiarySetupNotificationContent {
     @SerializedName("sourceAccountHolderCode")
     private String sourceAccountHolderCode;
 
@@ -45,6 +47,9 @@ public class BeneficiarySetupContent {
 
     @SerializedName("transferredTransactionCount")
     private int transferredTransactionCount;
+
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     public String getSourceAccountHolderCode() {
         return sourceAccountHolderCode;
@@ -102,28 +107,26 @@ public class BeneficiarySetupContent {
         this.transferredTransactionCount = transferredTransactionCount;
     }
 
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
     @Override
     public String toString() {
-        return "BeneficiarySetupContent{"
-                + "sourceAccountHolderCode='"
-                + sourceAccountHolderCode
-                + '\''
-                + ", sourceAccountCode='"
-                + sourceAccountCode
-                + '\''
-                + ", destinationAccountHolderCode='"
-                + destinationAccountHolderCode
-                + '\''
-                + ", destinationAccountCode='"
-                + destinationAccountCode
-                + '\''
-                + ", merchantReference='"
-                + merchantReference
-                + '\''
-                + ", transferDate="
-                + transferDate
-                + ", transferredTransactionCount="
-                + transferredTransactionCount
-                + '}';
+        final StringBuilder sb = new StringBuilder("BeneficiarySetupNotificationContent{");
+        sb.append("sourceAccountHolderCode='").append(sourceAccountHolderCode).append('\'');
+        sb.append(", sourceAccountCode='").append(sourceAccountCode).append('\'');
+        sb.append(", destinationAccountHolderCode='").append(destinationAccountHolderCode).append('\'');
+        sb.append(", destinationAccountCode='").append(destinationAccountCode).append('\'');
+        sb.append(", merchantReference='").append(merchantReference).append('\'');
+        sb.append(", transferDate=").append(transferDate);
+        sb.append(", transferredTransactionCount=").append(transferredTransactionCount);
+        sb.append(", invalidFields=").append(invalidFields);
+        sb.append('}');
+        return sb.toString();
     }
 }

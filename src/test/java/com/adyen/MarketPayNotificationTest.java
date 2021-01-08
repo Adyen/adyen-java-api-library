@@ -340,6 +340,9 @@ public class MarketPayNotificationTest extends BaseTest {
         assertNotNull(notification.getError());
         assertEquals("000", notification.getError().getErrorCode());
         assertEquals("test error message", notification.getError().getMessage());
+
+        assertNotNull(notification.getContent().getInvalidFields());
+        assertEquals(1, notification.getContent().getInvalidFields().size());
     }
 
     @Test
