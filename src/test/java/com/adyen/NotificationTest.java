@@ -26,13 +26,15 @@ import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.notification.NotificationRequestItemContainer;
 import com.adyen.notification.NotificationHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests notification messages
@@ -198,7 +200,7 @@ public class NotificationTest extends BaseTest {
         String gson = GSON.toJson(notificationRequest);
         String jackson = OBJECT_MAPPER.writeValueAsString(notificationRequest);
 
-        Assert.assertEquals(jackson, gson);
+        assertEquals(jackson, gson);
     }
 
     private NotificationRequest readNotificationRequestFromFile(String resourcePath) {
