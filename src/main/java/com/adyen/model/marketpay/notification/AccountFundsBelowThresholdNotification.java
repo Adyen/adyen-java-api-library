@@ -35,9 +35,6 @@ public class AccountFundsBelowThresholdNotification extends GenericNotification 
     @SerializedName("content")
     private AccountFundsBelowThresholdNotificationContent content = null;
 
-    @SerializedName("error")
-    private NotificationErrorContainer error = null;
-
     public AccountFundsBelowThresholdNotification content(AccountFundsBelowThresholdNotificationContent content) {
         this.content = content;
         return this;
@@ -56,24 +53,6 @@ public class AccountFundsBelowThresholdNotification extends GenericNotification 
         this.content = content;
     }
 
-    public AccountFundsBelowThresholdNotification error(NotificationErrorContainer error) {
-        this.error = error;
-        return this;
-    }
-
-    /**
-     * Get error
-     *
-     * @return error
-     **/
-    public NotificationErrorContainer getError() {
-        return error;
-    }
-
-    public void setError(NotificationErrorContainer error) {
-        this.error = error;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -83,13 +62,12 @@ public class AccountFundsBelowThresholdNotification extends GenericNotification 
             return false;
         }
         AccountFundsBelowThresholdNotification accountFundsBelowThresholdNotification = (AccountFundsBelowThresholdNotification) o;
-        return Objects.equals(this.content, accountFundsBelowThresholdNotification.content) &&
-                Objects.equals(this.error, accountFundsBelowThresholdNotification.error);
+        return Objects.equals(this.content, accountFundsBelowThresholdNotification.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(content, error);
+        return Objects.hash(content);
     }
 
     @Override
@@ -98,7 +76,6 @@ public class AccountFundsBelowThresholdNotification extends GenericNotification 
         sb.append("class AccountFundsBelowThresholdNotification {\n");
 
         sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    error: ").append(toIndentedString(error)).append("\n");
         sb.append("}");
         return sb.toString();
     }

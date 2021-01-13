@@ -25,7 +25,9 @@ import com.adyen.model.Amount;
 import com.adyen.model.marketpay.OperationStatus;
 import com.google.gson.annotations.SerializedName;
 
-public class TransferFundsContent {
+import java.util.List;
+
+public class TransferFundsNotificationContent {
     @SerializedName("sourceAccountCode")
     private String sourceAccountCode;
 
@@ -43,6 +45,9 @@ public class TransferFundsContent {
 
     @SerializedName("merchantReference")
     private String merchantReference;
+
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     public String getSourceAccountCode() {
         return sourceAccountCode;
@@ -92,25 +97,25 @@ public class TransferFundsContent {
         this.merchantReference = merchantReference;
     }
 
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
     @Override
     public String toString() {
-        return "TransferFundsContent{"
-                + "sourceAccountCode='"
-                + sourceAccountCode
-                + '\''
-                + ", destinationAccountCode='"
-                + destinationAccountCode
-                + '\''
-                + ", amount="
-                + amount
-                + ", transferCode='"
-                + transferCode
-                + '\''
-                + ", status="
-                + status
-                + ", merchantReference='"
-                + merchantReference
-                + '\''
-                + '}';
+        final StringBuilder sb = new StringBuilder("TransferFundsNotificationContent{");
+        sb.append("sourceAccountCode='").append(sourceAccountCode).append('\'');
+        sb.append(", destinationAccountCode='").append(destinationAccountCode).append('\'');
+        sb.append(", amount=").append(amount);
+        sb.append(", transferCode='").append(transferCode).append('\'');
+        sb.append(", status=").append(status);
+        sb.append(", merchantReference='").append(merchantReference).append('\'');
+        sb.append(", invalidFields=").append(invalidFields);
+        sb.append('}');
+        return sb.toString();
     }
 }

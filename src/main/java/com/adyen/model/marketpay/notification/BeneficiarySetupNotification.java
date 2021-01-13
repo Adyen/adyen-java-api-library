@@ -25,13 +25,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class BeneficiarySetupNotification extends GenericNotification {
     @SerializedName("content")
-    private BeneficiarySetupContent content;
+    private BeneficiarySetupNotificationContent content;
 
-    public BeneficiarySetupContent getContent() {
+    public BeneficiarySetupNotificationContent getContent() {
         return content;
     }
 
-    public void setContent(BeneficiarySetupContent content) {
+    public void setContent(BeneficiarySetupNotificationContent content) {
         this.content = content;
     }
 

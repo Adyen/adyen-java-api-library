@@ -25,7 +25,7 @@ import java.util.List;
 import com.adyen.model.marketpay.Transaction;
 import com.google.gson.annotations.SerializedName;
 
-public class ScheduledRefundsContent {
+public class ScheduledRefundsNotificationContent {
     @SerializedName("accountHolderCode")
     private String accountHolderCode;
 
@@ -37,6 +37,9 @@ public class ScheduledRefundsContent {
 
     @SerializedName("lastPayout")
     private Transaction lastPayout;
+
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
 
     public String getAccountHolderCode() {
         return accountHolderCode;
@@ -70,19 +73,23 @@ public class ScheduledRefundsContent {
         this.lastPayout = lastPayout;
     }
 
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
     @Override
     public String toString() {
-        return "ScheduledRefundsContent{"
-                + "accountHolderCode='"
-                + accountHolderCode
-                + '\''
-                + ", accountCode='"
-                + accountCode
-                + '\''
-                + ", refundResults="
-                + refundResults
-                + ", lastPayout="
-                + lastPayout
-                + '}';
+        final StringBuilder sb = new StringBuilder("ScheduledRefundsContent{");
+        sb.append("accountHolderCode='").append(accountHolderCode).append('\'');
+        sb.append(", accountCode='").append(accountCode).append('\'');
+        sb.append(", refundResults=").append(refundResults);
+        sb.append(", lastPayout=").append(lastPayout);
+        sb.append(", invalidFields=").append(invalidFields);
+        sb.append('}');
+        return sb.toString();
     }
 }
