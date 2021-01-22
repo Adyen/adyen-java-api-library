@@ -131,6 +131,7 @@ public class CheckoutTest extends BaseTest {
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
         assertEquals("8535296650153317", paymentsResponse.getPspReference());
+        assertNotNull(paymentsResponse.getDonationToken());
     }
 
     /**
