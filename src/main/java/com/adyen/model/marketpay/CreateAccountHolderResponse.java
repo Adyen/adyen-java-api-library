@@ -68,6 +68,7 @@ public class CreateAccountHolderResponse {
         BUSINESS("Business"),
         INDIVIDUAL("Individual"),
         NONPROFIT("NonProfit"),
+        PARTNERSHIP("Partnership"),
         PUBLICCOMPANY("PublicCompany");
 
         @JsonValue
@@ -120,6 +121,9 @@ public class CreateAccountHolderResponse {
 
     @SerializedName("verification")
     private KYCVerificationResult verification = null;
+
+    @SerializedName("verificationProfile")
+    private String verificationProfile = null;
 
     public CreateAccountHolderResponse accountCode(String accountCode) {
         this.accountCode = accountCode;
@@ -327,6 +331,18 @@ public class CreateAccountHolderResponse {
         this.verification = verification;
     }
 
+    /**
+     * The identifier of the profile that applies to this entity.
+     *
+     * @return verification
+     **/
+    public String getVerificationProfile() {
+        return verificationProfile;
+    }
+
+    public void setVerificationProfile(String verificationProfile) {
+        this.verificationProfile = verificationProfile;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -347,12 +363,14 @@ public class CreateAccountHolderResponse {
                 Objects.equals(this.primaryCurrency, createAccountHolderResponse.primaryCurrency) &&
                 Objects.equals(this.pspReference, createAccountHolderResponse.pspReference) &&
                 Objects.equals(this.resultCode, createAccountHolderResponse.resultCode) &&
-                Objects.equals(this.verification, createAccountHolderResponse.verification);
+                Objects.equals(this.verification, createAccountHolderResponse.verification) &&
+                Objects.equals(this.verificationProfile, createAccountHolderResponse.verificationProfile);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, accountHolderCode, accountHolderDetails, accountHolderStatus, description, invalidFields, legalEntity, primaryCurrency, pspReference, resultCode, verification);
+        return Objects.hash(accountCode, accountHolderCode, accountHolderDetails, accountHolderStatus, description, invalidFields, legalEntity, primaryCurrency, pspReference, resultCode, verification, verificationProfile);
     }
 
 
@@ -372,6 +390,7 @@ public class CreateAccountHolderResponse {
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
+        sb.append("    verificationProfile: ").append(toIndentedString(verificationProfile)).append("\n");
         sb.append("}");
         return sb.toString();
     }

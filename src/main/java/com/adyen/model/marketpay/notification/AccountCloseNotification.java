@@ -35,9 +35,6 @@ public class AccountCloseNotification extends GenericNotification {
     @SerializedName("content")
     private CloseAccountResponse content = null;
 
-    @SerializedName("error")
-    private NotificationErrorContainer error = null;
-
     public AccountCloseNotification content(CloseAccountResponse content) {
         this.content = content;
         return this;
@@ -56,25 +53,6 @@ public class AccountCloseNotification extends GenericNotification {
         this.content = content;
     }
 
-    public AccountCloseNotification error(NotificationErrorContainer error) {
-        this.error = error;
-        return this;
-    }
-
-    /**
-     * Get error
-     *
-     * @return error
-     **/
-    public NotificationErrorContainer getError() {
-        return error;
-    }
-
-    public void setError(NotificationErrorContainer error) {
-        this.error = error;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -84,13 +62,12 @@ public class AccountCloseNotification extends GenericNotification {
             return false;
         }
         AccountCloseNotification accountCloseNotification = (AccountCloseNotification) o;
-        return Objects.equals(this.content, accountCloseNotification.content) &&
-                Objects.equals(this.error, accountCloseNotification.error);
+        return Objects.equals(this.content, accountCloseNotification.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(content, error);
+        return Objects.hash(content);
     }
 
     @Override
@@ -99,7 +76,6 @@ public class AccountCloseNotification extends GenericNotification {
         sb.append("class AccountCloseNotification {\n");
 
         sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    error: ").append(toIndentedString(error)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -35,9 +35,6 @@ public class RefundFundsTransferNotification extends GenericNotification {
     @SerializedName("content")
     private RefundFundsTransferNotificationContent content = null;
 
-    @SerializedName("error")
-    private NotificationErrorContainer error = null;
-
     public RefundFundsTransferNotification content(RefundFundsTransferNotificationContent content) {
         this.content = content;
         return this;
@@ -56,24 +53,6 @@ public class RefundFundsTransferNotification extends GenericNotification {
         this.content = content;
     }
 
-    public RefundFundsTransferNotification error(NotificationErrorContainer error) {
-        this.error = error;
-        return this;
-    }
-
-    /**
-     * Get error
-     *
-     * @return error
-     **/
-    public NotificationErrorContainer getError() {
-        return error;
-    }
-
-    public void setError(NotificationErrorContainer error) {
-        this.error = error;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -83,13 +62,12 @@ public class RefundFundsTransferNotification extends GenericNotification {
             return false;
         }
         RefundFundsTransferNotification refundFundsTransferNotification = (RefundFundsTransferNotification) o;
-        return Objects.equals(this.content, refundFundsTransferNotification.content) &&
-                Objects.equals(this.error, refundFundsTransferNotification.error);
+        return Objects.equals(this.content, refundFundsTransferNotification.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(content, error);
+        return Objects.hash(content);
     }
 
     @Override
@@ -98,7 +76,6 @@ public class RefundFundsTransferNotification extends GenericNotification {
         sb.append("class RefundFundsTransferNotification {\n");
 
         sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    error: ").append(toIndentedString(error)).append("\n");
         sb.append("}");
         return sb.toString();
     }
