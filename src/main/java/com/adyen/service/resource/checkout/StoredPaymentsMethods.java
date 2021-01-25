@@ -29,7 +29,7 @@ import java.util.Collections;
 
 public class StoredPaymentsMethods extends Resource {
     public StoredPaymentsMethods(Service service) {
-        super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.CHECKOUT_API_VERSION +
+        super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.CHECKOUT_STORED_PAYMENT_METHODS_VERSION +
                 "/storedPaymentMethods", Collections.singletonList("merchantAccount"));
     }
 
