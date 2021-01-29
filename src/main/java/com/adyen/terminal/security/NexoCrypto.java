@@ -51,7 +51,7 @@ public class NexoCrypto {
         validateSecurityKey(securityKey);
 
         NexoDerivedKey derivedKey = NexoDerivedKeyGenerator.deriveKeyMaterial(securityKey.getPassphrase());
-        byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.US_ASCII);
+        byte[] saleToPoiMessageByteArray = saleToPoiMessageJson.getBytes(StandardCharsets.UTF_8);
         byte[] ivNonce = generateRandomIvNonce();
         byte[] encryptedSaleToPoiMessage = crypt(saleToPoiMessageByteArray, derivedKey, ivNonce, Cipher.ENCRYPT_MODE);
         byte[] encryptedSaleToPoiMessageHmac = hmac(saleToPoiMessageByteArray, derivedKey);
