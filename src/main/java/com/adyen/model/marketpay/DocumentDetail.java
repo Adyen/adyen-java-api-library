@@ -50,6 +50,12 @@ public class DocumentDetail {
         @SerializedName("BSN")
         BSN("BSN"),
 
+        @SerializedName("COMPANY_REGISTRATION_SCREENING")
+        COMPANY_REGISTRATION_SCREENING("COMPANY_REGISTRATION_SCREENING"),
+
+        @SerializedName("CONSTITUTIONAL_DOCUMENT")
+        CONSTITUTIONAL_DOCUMENT("CONSTITUTIONAL_DOCUMENT"),
+
         @SerializedName("DRIVING_LICENCE")
         DRIVING_LICENCE("DRIVING_LICENCE"),
 
@@ -75,7 +81,10 @@ public class DocumentDetail {
         PASSPORT("PASSPORT"),
 
         @SerializedName("SSN")
-        SSN("SSN");
+        SSN("SSN"),
+
+        @SerializedName("SUPPORTING_DOCUMENTS")
+        SUPPORTING_DOCUMENTS("SUPPORTING_DOCUMENTS");
 
         private String value;
 
