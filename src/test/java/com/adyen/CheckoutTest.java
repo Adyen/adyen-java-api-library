@@ -181,6 +181,19 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test success flow for
+     * POST /payments
+     */
+    @Test
+    public void TestEncryptedPaymentsWithoutHoldernameSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-encrypted-without-holdername-success.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createEncryptedPaymentsCheckoutRequestWithoutHoldername();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("853613724697009G", paymentsResponse.getPspReference());
+    }
+
+    /**
      * Test error flow for
      * POST /payments
      */
@@ -1981,6 +1994,19 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
         paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737", "John Smith");
+
+        paymentsRequest.setReturnUrl("https://your-company.com/...");
+        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+
+        return paymentsRequest;
+    }
+
+    protected PaymentsRequest createEncryptedPaymentsCheckoutRequestWithoutHoldername() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+
+        paymentsRequest.setReference("Your order number");
+        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737");
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
