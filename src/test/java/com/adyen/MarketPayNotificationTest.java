@@ -20,55 +20,26 @@
  */
 package com.adyen;
 
-import com.adyen.model.marketpay.AccountHolderStatus;
-import com.adyen.model.marketpay.notification.AccountCloseNotification;
-import com.adyen.model.marketpay.notification.AccountCreatedNotification;
-import com.adyen.model.marketpay.notification.AccountFundsBelowThresholdNotification;
-import com.adyen.model.marketpay.notification.AccountHolderCreatedNotification;
-import com.adyen.model.marketpay.notification.AccountHolderPayoutNotification;
-import com.adyen.model.marketpay.notification.AccountHolderStatusChangeNotification;
-import com.adyen.model.marketpay.notification.AccountHolderStoreStatusChangeNotification;
-import com.adyen.model.marketpay.notification.AccountHolderUpcomingDeadlineNotification;
-import com.adyen.model.marketpay.notification.AccountHolderUpcomingDeadlineNotificationContent;
-import com.adyen.model.marketpay.notification.AccountHolderUpdatedNotification;
-import com.adyen.model.marketpay.notification.AccountHolderVerificationNotification;
-import com.adyen.model.marketpay.notification.AccountUpdateNotification;
-import com.adyen.model.marketpay.notification.BeneficiarySetupNotification;
-import com.adyen.model.marketpay.notification.CompensateNegativeBalanceNotification;
-import com.adyen.model.marketpay.notification.CreateNotificationConfigurationRequest;
-import com.adyen.model.marketpay.notification.CreateNotificationConfigurationResponse;
-import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationRequest;
-import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationResponse;
-import com.adyen.model.marketpay.notification.DirectDebitInitiatedNotification;
-import com.adyen.model.marketpay.notification.GenericNotification;
-import com.adyen.model.marketpay.notification.GetNotificationConfigurationListResponse;
-import com.adyen.model.marketpay.notification.GetNotificationConfigurationRequest;
-import com.adyen.model.marketpay.notification.GetNotificationConfigurationResponse;
-import com.adyen.model.marketpay.notification.NotificationEventConfiguration;
-import com.adyen.model.marketpay.notification.PaymentFailureNotification;
-import com.adyen.model.marketpay.notification.RefundFundsTransferNotification;
-import com.adyen.model.marketpay.notification.ReportAvailableNotification;
-import com.adyen.model.marketpay.notification.ScheduledRefundsNotification;
-import com.adyen.model.marketpay.notification.TestNotificationConfigurationRequest;
-import com.adyen.model.marketpay.notification.TestNotificationConfigurationResponse;
-import com.adyen.model.marketpay.notification.TransferFundsNotification;
-import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationRequest;
-import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationResponse;
+import com.adyen.model.marketpay.ErrorFieldType;
+import com.adyen.model.marketpay.FieldType;
+import com.adyen.model.marketpay.PayoutScheduleResponse;
+import com.adyen.model.marketpay.*;
+import com.adyen.model.marketpay.notification.*;
 import com.adyen.notification.NotificationHandler;
 import com.adyen.service.Notification;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static com.adyen.model.marketpay.CreateAccountResponse.StatusEnum.ACTIVE;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.DATA_PROVIDED;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.COMPANY_VERIFICATION;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.IDENTITY_VERIFICATION;
+import static com.adyen.model.marketpay.PayoutScheduleResponse.ScheduleEnum.DAILY;
 import static com.adyen.model.marketpay.Transaction.TransactionStatusEnum.PENDINGCREDIT;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_STATUS_CHANGE;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.IncludeModeEnum.INCLUDE;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static java.time.ZonedDateTime.parse;
+import static org.junit.Assert.*;
 
 public class MarketPayNotificationTest extends BaseTest {
 
@@ -165,8 +136,29 @@ public class MarketPayNotificationTest extends BaseTest {
 
         assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_CREATED, notificationMessage.getEventType());
         AccountCreatedNotification accountCreatedNotificationMessage = (AccountCreatedNotification) notificationMessage;
+
+        assertEquals("000", accountCreatedNotificationMessage.getError().getErrorCode());
+        assertEquals("test error message", accountCreatedNotificationMessage.getError().getMessage());
         assertNotNull(accountCreatedNotificationMessage.getContent());
-        assertEquals("TestAccountHolder", accountCreatedNotificationMessage.getContent().getAccountHolderCode());
+
+        final CreateAccountResponse content = accountCreatedNotificationMessage.getContent();
+        assertEquals("TestAccountHolder", content.getAccountHolderCode());
+        assertEquals("AC0000000001", content.getAccountCode());
+        assertEquals("account description", content.getDescription());
+        assertEquals("MetaValue", content.getMetadata().get("MetaKey"));
+        assertEquals(ACTIVE, content.getStatus());
+        
+        final PayoutScheduleResponse payoutSchedule = content.getPayoutSchedule();
+        assertEquals(DAILY, payoutSchedule.getSchedule());
+        assertEquals(parse("1970-01-02T01:00:00+01:00").toInstant(), payoutSchedule.getNextScheduledPayout().toInstant());
+        
+        assertEquals(1, content.getInvalidFields().size());
+        final ErrorFieldType errorFieldType = content.getInvalidFields().get(0);
+        assertEquals(1, (long) errorFieldType.getErrorCode());
+        assertEquals("Field is missing", errorFieldType.getErrorDescription());
+        assertEquals("AccountHolderDetails.BusinessDetails.Shareholders.unknown", errorFieldType.getFieldType().getField());
+        assertEquals(FieldType.FieldNameEnum.UNKNOWN, errorFieldType.getFieldType().getFieldName());
+        assertEquals("SH00001", errorFieldType.getFieldType().getShareholderCode());
     }
 
     @Test

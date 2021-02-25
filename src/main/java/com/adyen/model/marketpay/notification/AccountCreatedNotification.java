@@ -21,18 +21,18 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.marketpay.CreateAccountHolderResponse;
+import com.adyen.model.marketpay.CreateAccountResponse;
 import com.google.gson.annotations.SerializedName;
 
 public class AccountCreatedNotification extends GenericNotification {
     @SerializedName("content")
-    private CreateAccountHolderResponse content;
+    private CreateAccountResponse content;
 
-    public CreateAccountHolderResponse getContent() {
+    public CreateAccountResponse getContent() {
         return content;
     }
 
-    public void setContent(CreateAccountHolderResponse content) {
+    public void setContent(CreateAccountResponse content) {
         this.content = content;
     }
 
