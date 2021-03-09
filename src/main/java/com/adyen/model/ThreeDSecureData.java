@@ -126,6 +126,15 @@ public class ThreeDSecureData {
     @SerializedName("dsTransID")
     private String dsTransID = null;
 
+    @SerializedName("challengeCancel")
+    private String challengeCancel = null;
+
+    @SerializedName("riskScore")
+    private String riskScore = null;
+
+    @SerializedName("transStatusReason")
+    private String transStatusReason = null;
+
     public ThreeDSecureData cavvAlgorithm(String cavvAlgorithm) {
         this.cavvAlgorithm = cavvAlgorithm;
         return this;
@@ -260,6 +269,51 @@ public class ThreeDSecureData {
         return this;
     }
 
+    /**
+     * Get challengeCancel
+     *
+     * @return challengeCancel
+     */
+    public String getChallengeCancel() { return challengeCancel; }
+
+    public void setChallengeCancel(String challengeCancel) { this.challengeCancel = challengeCancel; }
+
+    public ThreeDSecureData challengeCancel(String challengeCancel) {
+        this.challengeCancel = challengeCancel;
+        return this;
+    }
+
+    /**
+     * Get riskScore
+     *
+     * @return riskScore
+     */
+    public String getRiskScore() { return riskScore; }
+
+    public void setRiskScore(String riskScore) { this.riskScore = riskScore; }
+
+    public ThreeDSecureData riskScore(String riskScore) {
+        this.riskScore = riskScore;
+        return this;
+    }
+
+    /**
+     * Get transStatusReason
+     * @return transStatusReason
+     **/
+    public String getTransStatusReason() {
+        return transStatusReason;
+    }
+
+    public void setTransStatusReason(String transStatusReason) {
+        this.transStatusReason = transStatusReason;
+    }
+
+    public ThreeDSecureData transStatusReason(String transStatusReason) {
+        this.transStatusReason = transStatusReason;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -275,12 +329,15 @@ public class ThreeDSecureData {
                 && Objects.equals(this.xid, threeDSecureData.xid)
                 && Objects.equals(this.cavv, threeDSecureData.cavv)
                 && Objects.equals(this.eci, threeDSecureData.eci)
-                && Objects.equals(this.dsTransID, threeDSecureData.dsTransID);
+                && Objects.equals(this.dsTransID, threeDSecureData.dsTransID)
+                && Objects.equals(this.challengeCancel, threeDSecureData.challengeCancel)
+                && Objects.equals(this.riskScore, threeDSecureData.riskScore)
+                && Objects.equals(this.transStatusReason, threeDSecureData.transStatusReason);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cavvAlgorithm, directoryResponse, authenticationResponse, xid, cavv, eci, dsTransID);
+        return Objects.hash(cavvAlgorithm, directoryResponse, authenticationResponse, xid, cavv, eci, dsTransID, challengeCancel, riskScore, transStatusReason);
     }
 
 
@@ -296,6 +353,9 @@ public class ThreeDSecureData {
         sb.append("    cavv: ").append(toIndentedString(cavv)).append("\n");
         sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
         sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
+        sb.append("    challengeCancel").append(toIndentedString(challengeCancel)).append("\n");
+        sb.append("    riskScore").append(toIndentedString(riskScore)).append("\n");
+        sb.append("    transStatusReason").append(toIndentedString(transStatusReason)).append("\n");
         sb.append("}");
         return sb.toString();
     }

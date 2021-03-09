@@ -67,20 +67,11 @@ public class PaymentsResponse {
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
 
-    @SerializedName("details")
-    private List<InputDetail> details = null;
-
     @SerializedName("fraudResult")
     private FraudResult fraudResult = null;
 
-    @SerializedName("paymentData")
-    private String paymentData = null;
-
     @SerializedName("pspReference")
     private String pspReference = null;
-
-    @SerializedName("redirect")
-    private Redirect redirect = null;
 
     @SerializedName("refusalReason")
     private String refusalReason = null;
@@ -99,12 +90,6 @@ public class PaymentsResponse {
 
     @SerializedName("merchantReference")
     private String merchantReference;
-
-    @SerializedName("outputDetails")
-    private Map<String, String> outputDetails;
-
-    @SerializedName("authentication")
-    private Map<String, String> authentication;
 
     @SerializedName("threeDS2Result")
     private ThreeDS2Result threeDS2Result;
@@ -158,41 +143,6 @@ public class PaymentsResponse {
         return additionalData.get(key);
     }
 
-    public PaymentsResponse details(List<InputDetail> details) {
-        this.details = details;
-        return this;
-    }
-
-    public PaymentsResponse addDetailsItem(InputDetail detailsItem) {
-
-        if (this.details == null) {
-            this.details = new ArrayList<>();
-        }
-
-        this.details.add(detailsItem);
-        return this;
-    }
-
-    public String getOutputDetailDataByKey(String key) {
-        if (outputDetails == null) {
-            return null;
-        }
-        return outputDetails.get(key);
-    }
-
-    /**
-     * When non-empty, contains all the fields that you must submit to the &#x60;/payments/details&#x60; endpoint.
-     *
-     * @return details
-     **/
-    public List<InputDetail> getDetails() {
-        return details;
-    }
-
-    public void setDetails(List<InputDetail> details) {
-        this.details = details;
-    }
-
     public PaymentsResponse fraudResult(FraudResult fraudResult) {
         this.fraudResult = fraudResult;
         return this;
@@ -209,24 +159,6 @@ public class PaymentsResponse {
 
     public void setFraudResult(FraudResult fraudResult) {
         this.fraudResult = fraudResult;
-    }
-
-    public PaymentsResponse paymentData(String paymentData) {
-        this.paymentData = paymentData;
-        return this;
-    }
-
-    /**
-     * When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint.
-     *
-     * @return paymentData
-     **/
-    public String getPaymentData() {
-        return paymentData;
-    }
-
-    public void setPaymentData(String paymentData) {
-        this.paymentData = paymentData;
     }
 
     public PaymentsResponse pspReference(String pspReference) {
@@ -246,24 +178,6 @@ public class PaymentsResponse {
 
     public void setPspReference(String pspReference) {
         this.pspReference = pspReference;
-    }
-
-    public PaymentsResponse redirect(Redirect redirect) {
-        this.redirect = redirect;
-        return this;
-    }
-
-    /**
-     * Get redirect
-     *
-     * @return redirect
-     **/
-    public Redirect getRedirect() {
-        return redirect;
-    }
-
-    public void setRedirect(Redirect redirect) {
-        this.redirect = redirect;
     }
 
     public PaymentsResponse refusalReason(String refusalReason) {
@@ -341,14 +255,6 @@ public class PaymentsResponse {
 
     public void setMerchantReference(String merchantReference) {
         this.merchantReference = merchantReference;
-    }
-
-    public Map<String, String> getOutputDetails() {
-        return outputDetails;
-    }
-
-    public void setOutputDetails(Map<String, String> outputDetails) {
-        this.outputDetails = outputDetails;
     }
 
     /**
@@ -444,20 +350,15 @@ public class PaymentsResponse {
         }
         PaymentsResponse paymentsResponse = (PaymentsResponse) o;
         return Objects.equals(this.additionalData, paymentsResponse.additionalData)
-                && Objects.equals(this.details, paymentsResponse.details)
                 && Objects.equals(this.fraudResult,
                 paymentsResponse.fraudResult)
-                && Objects.equals(this.paymentData, paymentsResponse.paymentData)
                 && Objects.equals(this.pspReference, paymentsResponse.pspReference)
-                && Objects.equals(this.redirect, paymentsResponse.redirect)
                 && Objects.equals(this.refusalReason, paymentsResponse.refusalReason)
                 && Objects.equals(this.refusalReasonCode, paymentsResponse.refusalReasonCode)
                 && Objects.equals(this.resultCode, paymentsResponse.resultCode)
                 && Objects.equals(this.serviceError, paymentsResponse.serviceError)
                 && Objects.equals(this.authResponse, paymentsResponse.authResponse)
                 && Objects.equals(this.merchantReference, paymentsResponse.merchantReference)
-                && Objects.equals(this.outputDetails, paymentsResponse.outputDetails)
-                && Objects.equals(this.authentication, paymentsResponse.authentication)
                 && Objects.equals(this.threeDS2Result, paymentsResponse.threeDS2Result)
                 && Objects.equals(this.action, paymentsResponse.action)
                 && Objects.equals(this.amount, paymentsResponse.amount)
@@ -469,7 +370,7 @@ public class PaymentsResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, details, fraudResult, paymentData, pspReference, redirect, refusalReason, resultCode, serviceError, authResponse, merchantReference, outputDetails, authentication, threeDS2Result, action, amount, order, donationToken);
+        return Objects.hash(additionalData, fraudResult, pspReference, refusalReason, resultCode, serviceError, authResponse, merchantReference, threeDS2Result, action, amount, order, donationToken);
     }
 
     @Override
@@ -477,19 +378,14 @@ public class PaymentsResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentsResponse {\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-        sb.append("    paymentData: ").append(toIndentedString(MaskUtil.mask(paymentData))).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
         sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
         sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
         sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    outputDetails: ").append(toIndentedString(outputDetails)).append("\n");
-        sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
         sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
         sb.append("    action: ").append(toIndentedString(action)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
@@ -594,38 +490,8 @@ public class PaymentsResponse {
         return "true".equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
     }
 
-    public String getBoletoBarCodeReference() {
-        return getOutputDetailDataByKey(BOLETO_BARCODE_REFERENCE);
-    }
-
-    public String getBoletoData() {
-        return getOutputDetailDataByKey(BOLETO_DATA);
-    }
-
     public String getAuthCode() {
         return getAdditionalDataByKey(AUTH_CODE);
-    }
-
-    public Map<String, String> getAuthentication() {
-        return authentication;
-    }
-
-    public void setAuthentication(Map<String, String> authentication) {
-        this.authentication = authentication;
-    }
-
-    public Date getBoletoDueDate() {
-        String date = getOutputDetailDataByKey(BOLETO_DUE_DATE);
-        return DateUtil.parseYmdDate(date);
-    }
-
-    public Date getBoletoExpirationDate() {
-        String date = getOutputDetailDataByKey(BOLETO_EXPIRATION_DATE);
-        return DateUtil.parseYmdDate(date);
-    }
-
-    public String getBoletoUrl() {
-        return getOutputDetailDataByKey(BOLETO_URL);
     }
 
     public Date getExpiryDate() {
