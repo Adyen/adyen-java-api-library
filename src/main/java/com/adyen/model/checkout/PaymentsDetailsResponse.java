@@ -12,9 +12,21 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import static com.adyen.constants.ApiConstants.AdditionalData.*;
+import static com.adyen.constants.ApiConstants.AdditionalData.AUTH_CODE;
+import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
+import static com.adyen.constants.ApiConstants.AdditionalData.CARD_BIN;
+import static com.adyen.constants.ApiConstants.AdditionalData.CARD_HOLDER_NAME;
+import static com.adyen.constants.ApiConstants.AdditionalData.CARD_SUMMARY;
+import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
+import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
+import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
+import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
 import static com.adyen.util.Util.toIndentedString;
 
 public class PaymentsDetailsResponse {
