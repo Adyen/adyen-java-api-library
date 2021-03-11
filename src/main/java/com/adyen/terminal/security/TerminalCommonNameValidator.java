@@ -44,9 +44,9 @@ public final class TerminalCommonNameValidator {
         Matcher matcher = pattern.matcher(name);
         boolean valid = false;
         while (matcher.find() && !valid) {
-            String groupName = matcher.group("name");
+            String groupName = matcher.group(1);
             if ("CN".equals(groupName)) {
-                String commonName = matcher.group("val");
+                String commonName = matcher.group(2);
                 valid = commonName.matches(TERMINAL_API_CN_REGEX.replace(ENVIRONMENT_WILDCARD, environmentName))
                         || commonName.equals(TERMINAL_API_LEGACY_CN.replace(ENVIRONMENT_WILDCARD, environmentName));
             }
