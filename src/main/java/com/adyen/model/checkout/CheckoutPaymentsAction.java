@@ -120,6 +120,12 @@ public class CheckoutPaymentsAction {
     @SerializedName("redirect")
     private Redirect redirect;
 
+    @SerializedName("authorisationToken")
+    private String authorisationToken;
+
+    @SerializedName("subtype")
+    private String subtype;
+
     /**
      * Enum that specifies the action that needs to be taken by the client.
      */
@@ -130,6 +136,7 @@ public class CheckoutPaymentsAction {
         REDIRECT("redirect"),
         THREEDS2CHALLENGE("threeDS2Challenge"),
         THREEDS2FINGERPRINT("threeDS2Fingerprint"),
+        THREEDS2("threeDS2"),
         VOUCHER("voucher"),
         SDK("sdk"),
         WECHATPAYSDK("wechatpaySDK");
@@ -612,6 +619,32 @@ public class CheckoutPaymentsAction {
 
     public Redirect getRedirect() {
         return redirect;
+    }
+
+    public String getAuthorisationToken() {
+        return authorisationToken;
+    }
+
+    public void setAuthorisationToken(String authorisationToken) {
+        this.authorisationToken = authorisationToken;
+    }
+
+    public CheckoutPaymentsAction authorisationToken(String authorisationToken) {
+        this.authorisationToken = authorisationToken;
+        return this;
+    }
+
+    public String getSubtype() {
+        return subtype;
+    }
+
+    public void setSubtype(String subtype) {
+        this.subtype = subtype;
+    }
+
+    public CheckoutPaymentsAction subtype(String subtype) {
+        this.subtype = subtype;
+        return this;
     }
 
     @Override

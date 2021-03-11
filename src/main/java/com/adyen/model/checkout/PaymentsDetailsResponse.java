@@ -1,24 +1,3 @@
-/*
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
- * Adyen Java API Library
- *
- * Copyright (c) 2018 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
- */
-
 package com.adyen.model.checkout;
 
 import com.adyen.model.Amount;
@@ -33,29 +12,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
-import static com.adyen.constants.ApiConstants.AdditionalData.AUTH_CODE;
-import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
-import static com.adyen.constants.ApiConstants.AdditionalData.CARD_BIN;
-import static com.adyen.constants.ApiConstants.AdditionalData.CARD_HOLDER_NAME;
-import static com.adyen.constants.ApiConstants.AdditionalData.CARD_SUMMARY;
-import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
-import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
-import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
-import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
-
+import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.util.Util.toIndentedString;
 
-/**
- * PaymentsResponse
- */
-public class PaymentsResponse {
-
+public class PaymentsDetailsResponse {
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
 
@@ -86,9 +48,6 @@ public class PaymentsResponse {
     @SerializedName("threeDS2Result")
     private ThreeDS2Result threeDS2Result;
 
-    @SerializedName("action")
-    private CheckoutPaymentsAction action;
-
     @SerializedName("amount")
     private Amount amount = null;
 
@@ -98,12 +57,12 @@ public class PaymentsResponse {
     @SerializedName("donationToken")
     private String donationToken;
 
-    public PaymentsResponse additionalData(Map<String, String> additionalData) {
+    public PaymentsDetailsResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
         return this;
     }
 
-    public PaymentsResponse putAdditionalDataItem(String key, String additionalDataItem) {
+    public PaymentsDetailsResponse putAdditionalDataItem(String key, String additionalDataItem) {
 
         if (this.additionalData == null) {
             this.additionalData = new HashMap<>();
@@ -135,7 +94,7 @@ public class PaymentsResponse {
         return additionalData.get(key);
     }
 
-    public PaymentsResponse fraudResult(FraudResult fraudResult) {
+    public PaymentsDetailsResponse fraudResult(FraudResult fraudResult) {
         this.fraudResult = fraudResult;
         return this;
     }
@@ -153,7 +112,7 @@ public class PaymentsResponse {
         this.fraudResult = fraudResult;
     }
 
-    public PaymentsResponse pspReference(String pspReference) {
+    public PaymentsDetailsResponse pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
     }
@@ -172,7 +131,7 @@ public class PaymentsResponse {
         this.pspReference = pspReference;
     }
 
-    public PaymentsResponse refusalReason(String refusalReason) {
+    public PaymentsDetailsResponse refusalReason(String refusalReason) {
         this.refusalReason = refusalReason;
         return this;
     }
@@ -191,8 +150,8 @@ public class PaymentsResponse {
         this.refusalReason = refusalReason;
     }
 
-    public PaymentsResponse resultCode(ResultCodeEnum resultCode) {
-        this.resultCode = resultCode;
+    public PaymentsDetailsResponse refusalReasonCode(String refusalReasonCode) {
+        this.refusalReasonCode = refusalReasonCode;
         return this;
     }
 
@@ -202,6 +161,11 @@ public class PaymentsResponse {
 
     public void setRefusalReasonCode(String refusalReasonCode) {
         this.refusalReasonCode = refusalReasonCode;
+    }
+
+    public PaymentsDetailsResponse resultCode(ResultCodeEnum resultCode) {
+        this.resultCode = resultCode;
+        return this;
     }
 
     /**
@@ -262,30 +226,12 @@ public class PaymentsResponse {
         this.threeDS2Result = threeDS2Result;
     }
 
-    public PaymentsResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
+    public PaymentsDetailsResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
         this.threeDS2Result = threeDS2Result;
         return this;
     }
 
-    /**
-     * Action to be taken for completing the payment.
-     *
-     * @return action
-     **/
-    public CheckoutPaymentsAction getAction() {
-        return action;
-    }
-
-    public void setAction(CheckoutPaymentsAction action) {
-        this.action = action;
-    }
-
-    public PaymentsResponse action(CheckoutPaymentsAction action) {
-        this.action = action;
-        return this;
-    }
-
-    public PaymentsResponse amount(Amount amount) {
+    public PaymentsDetailsResponse amount(Amount amount) {
         this.amount = amount;
         return this;
     }
@@ -303,7 +249,7 @@ public class PaymentsResponse {
         this.amount = amount;
     }
 
-    public PaymentsResponse order(CheckoutOrderResponse order) {
+    public PaymentsDetailsResponse order(CheckoutOrderResponse order) {
         this.order = order;
         return this;
     }
@@ -340,33 +286,32 @@ public class PaymentsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PaymentsResponse paymentsResponse = (PaymentsResponse) o;
-        return Objects.equals(this.additionalData, paymentsResponse.additionalData)
+        PaymentsDetailsResponse paymentsDetailsResponse = (PaymentsDetailsResponse) o;
+        return Objects.equals(this.additionalData, paymentsDetailsResponse.additionalData)
                 && Objects.equals(this.fraudResult,
-                paymentsResponse.fraudResult)
-                && Objects.equals(this.pspReference, paymentsResponse.pspReference)
-                && Objects.equals(this.refusalReason, paymentsResponse.refusalReason)
-                && Objects.equals(this.refusalReasonCode, paymentsResponse.refusalReasonCode)
-                && Objects.equals(this.resultCode, paymentsResponse.resultCode)
-                && Objects.equals(this.serviceError, paymentsResponse.serviceError)
-                && Objects.equals(this.authResponse, paymentsResponse.authResponse)
-                && Objects.equals(this.merchantReference, paymentsResponse.merchantReference)
-                && Objects.equals(this.threeDS2Result, paymentsResponse.threeDS2Result)
-                && Objects.equals(this.action, paymentsResponse.action)
-                && Objects.equals(this.amount, paymentsResponse.amount)
-                && Objects.equals(this.order, paymentsResponse.order)
-                && Objects.equals(this.donationToken, paymentsResponse.donationToken);
+                paymentsDetailsResponse.fraudResult)
+                && Objects.equals(this.pspReference, paymentsDetailsResponse.pspReference)
+                && Objects.equals(this.refusalReason, paymentsDetailsResponse.refusalReason)
+                && Objects.equals(this.refusalReasonCode, paymentsDetailsResponse.refusalReasonCode)
+                && Objects.equals(this.resultCode, paymentsDetailsResponse.resultCode)
+                && Objects.equals(this.serviceError, paymentsDetailsResponse.serviceError)
+                && Objects.equals(this.authResponse, paymentsDetailsResponse.authResponse)
+                && Objects.equals(this.merchantReference, paymentsDetailsResponse.merchantReference)
+                && Objects.equals(this.threeDS2Result, paymentsDetailsResponse.threeDS2Result)
+                && Objects.equals(this.amount, paymentsDetailsResponse.amount)
+                && Objects.equals(this.order, paymentsDetailsResponse.order)
+                && Objects.equals(this.donationToken, paymentsDetailsResponse.donationToken);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, fraudResult, pspReference, refusalReason, resultCode, serviceError, authResponse, merchantReference, threeDS2Result, action, amount, order, donationToken);
+        return Objects.hash(additionalData, fraudResult, pspReference, refusalReason, resultCode, serviceError, authResponse, merchantReference, threeDS2Result, amount, order, donationToken);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentsResponse {\n");
+        sb.append("class PaymentDetailsResponse {\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
@@ -377,7 +322,6 @@ public class PaymentsResponse {
         sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
-        sb.append("    action: ").append(toIndentedString(action)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    order: ").append(toIndentedString(order)).append("\n");
         sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");
@@ -489,6 +433,3 @@ public class PaymentsResponse {
         return DateUtil.parseMYDate(expiryDate);
     }
 }
-
-
-

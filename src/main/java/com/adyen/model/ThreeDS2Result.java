@@ -248,9 +248,13 @@ public class ThreeDS2Result {
      *
      * @return challengeCancel
      */
-    public String getChallengeCancel() { return challengeCancel; }
+    public String getChallengeCancel() {
+        return challengeCancel;
+    }
 
-    public void setChallengeCancel(String challengeCancel) { this.challengeCancel = challengeCancel; }
+    public void setChallengeCancel(String challengeCancel) {
+        this.challengeCancel = challengeCancel;
+    }
 
     public ThreeDS2Result challengeCancel(String challengeCancel) {
         this.challengeCancel = challengeCancel;
@@ -262,9 +266,13 @@ public class ThreeDS2Result {
      *
      * @return challenegeIndicator
      */
-    public String getChallengeIndicator() { return challengeIndicator; }
+    public String getChallengeIndicator() {
+        return challengeIndicator;
+    }
 
-    public void setChallengeIndicator(String challengeIndicator) { this.challengeIndicator = challengeIndicator; }
+    public void setChallengeIndicator(String challengeIndicator) {
+        this.challengeIndicator = challengeIndicator;
+    }
 
     public ThreeDS2Result challengeIndicator(String challengeIndicator) {
         this.challengeIndicator = challengeIndicator;
@@ -276,9 +284,13 @@ public class ThreeDS2Result {
      *
      * @return exemptionIndicator
      */
-    public String getExemptionIndicator() { return exemptionIndicator; }
+    public String getExemptionIndicator() {
+        return exemptionIndicator;
+    }
 
-    public void setExemptionIndicator(String exemptionIndicator) { this.exemptionIndicator = exemptionIndicator; }
+    public void setExemptionIndicator(String exemptionIndicator) {
+        this.exemptionIndicator = exemptionIndicator;
+    }
 
     public ThreeDS2Result exemptionIndicator(String exemptionIndicator) {
         this.exemptionIndicator = exemptionIndicator;
@@ -290,9 +302,13 @@ public class ThreeDS2Result {
      *
      * @return riskScore
      */
-    public String getRiskScore() { return riskScore; }
+    public String getRiskScore() {
+        return riskScore;
+    }
 
-    public void setRiskScore(String riskScore) { this.riskScore = riskScore; }
+    public void setRiskScore(String riskScore) {
+        this.riskScore = riskScore;
+    }
 
     public ThreeDS2Result riskScore(String riskScore) {
         this.riskScore = riskScore;

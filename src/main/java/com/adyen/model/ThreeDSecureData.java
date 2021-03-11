@@ -274,9 +274,13 @@ public class ThreeDSecureData {
      *
      * @return challengeCancel
      */
-    public String getChallengeCancel() { return challengeCancel; }
+    public String getChallengeCancel() {
+        return challengeCancel;
+    }
 
-    public void setChallengeCancel(String challengeCancel) { this.challengeCancel = challengeCancel; }
+    public void setChallengeCancel(String challengeCancel) {
+        this.challengeCancel = challengeCancel;
+    }
 
     public ThreeDSecureData challengeCancel(String challengeCancel) {
         this.challengeCancel = challengeCancel;
@@ -288,9 +292,13 @@ public class ThreeDSecureData {
      *
      * @return riskScore
      */
-    public String getRiskScore() { return riskScore; }
+    public String getRiskScore() {
+        return riskScore;
+    }
 
-    public void setRiskScore(String riskScore) { this.riskScore = riskScore; }
+    public void setRiskScore(String riskScore) {
+        this.riskScore = riskScore;
+    }
 
     public ThreeDSecureData riskScore(String riskScore) {
         this.riskScore = riskScore;
