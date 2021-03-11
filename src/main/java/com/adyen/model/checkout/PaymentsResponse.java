@@ -20,11 +20,6 @@
  */
 
 package com.adyen.model.checkout;
-
-import com.adyen.model.Amount;
-import com.adyen.model.FraudResult;
-import com.adyen.model.ThreeDS2Result;
-import com.adyen.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -34,238 +29,16 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
-
-import static com.adyen.constants.ApiConstants.AdditionalData.AUTH_CODE;
-import static com.adyen.constants.ApiConstants.AdditionalData.AVS_RESULT;
-import static com.adyen.constants.ApiConstants.AdditionalData.CARD_BIN;
-import static com.adyen.constants.ApiConstants.AdditionalData.CARD_HOLDER_NAME;
-import static com.adyen.constants.ApiConstants.AdditionalData.CARD_SUMMARY;
-import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
-import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
-import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
-import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentsResponse
  */
-public class PaymentsResponse {
-
-    @SerializedName("additionalData")
-    private Map<String, String> additionalData = null;
-
-    @SerializedName("fraudResult")
-    private FraudResult fraudResult = null;
-
-    @SerializedName("pspReference")
-    private String pspReference = null;
-
-    @SerializedName("refusalReason")
-    private String refusalReason = null;
-
-    @SerializedName("refusalReasonCode")
-    private String refusalReasonCode = null;
-
-    @SerializedName("resultCode")
-    private ResultCodeEnum resultCode = null;
-
-    @SerializedName("serviceError")
-    private ServiceError serviceError;
-
-    @SerializedName("authResponse")
-    private ResultCodeEnum authResponse;
-
-    @SerializedName("merchantReference")
-    private String merchantReference;
-
-    @SerializedName("threeDS2Result")
-    private ThreeDS2Result threeDS2Result;
+public class PaymentsResponse extends AbstractPaymentsResponse<PaymentsResponse> {
 
     @SerializedName("action")
     private CheckoutPaymentsAction action;
-
-    @SerializedName("amount")
-    private Amount amount = null;
-
-    @SerializedName("order")
-    private CheckoutOrderResponse order = null;
-
-    @SerializedName("donationToken")
-    private String donationToken;
-
-    public PaymentsResponse additionalData(Map<String, String> additionalData) {
-        this.additionalData = additionalData;
-        return this;
-    }
-
-    public PaymentsResponse putAdditionalDataItem(String key, String additionalDataItem) {
-
-        if (this.additionalData == null) {
-            this.additionalData = new HashMap<>();
-        }
-
-        this.additionalData.put(key, additionalDataItem);
-        return this;
-    }
-
-    /**
-     * This field contains additional data, which may be required to return in a particular payment response. To choose data fields to be returned, go to **Customer Area** &gt; **Settings** &gt; **API
-     * and Response**.
-     *
-     * @return additionalData
-     **/
-    public Map<String, String> getAdditionalData() {
-        return additionalData;
-    }
-
-    public void setAdditionalData(Map<String, String> additionalData) {
-        this.additionalData = additionalData;
-    }
-
-    public String getAdditionalDataByKey(String key) {
-        if (additionalData == null) {
-            return null;
-        }
-
-        return additionalData.get(key);
-    }
-
-    public PaymentsResponse fraudResult(FraudResult fraudResult) {
-        this.fraudResult = fraudResult;
-        return this;
-    }
-
-    /**
-     * Get fraudResult
-     *
-     * @return fraudResult
-     **/
-    public FraudResult getFraudResult() {
-        return fraudResult;
-    }
-
-    public void setFraudResult(FraudResult fraudResult) {
-        this.fraudResult = fraudResult;
-    }
-
-    public PaymentsResponse pspReference(String pspReference) {
-        this.pspReference = pspReference;
-        return this;
-    }
-
-    /**
-     * Adyen&#x27;s 16-digit unique reference associated with the transaction/the request. This value is globally unique; quote it when communicating with us about this request.  &gt;
-     * &#x60;pspReference&#x60; is returned only for non-redirect payment methods.
-     *
-     * @return pspReference
-     **/
-    public String getPspReference() {
-        return pspReference;
-    }
-
-    public void setPspReference(String pspReference) {
-        this.pspReference = pspReference;
-    }
-
-    public PaymentsResponse refusalReason(String refusalReason) {
-        this.refusalReason = refusalReason;
-        return this;
-    }
-
-    /**
-     * If the payment&#x27;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#x27;s mapped reason for the refusal or a description of the error.  When a
-     * transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.
-     *
-     * @return refusalReason
-     **/
-    public String getRefusalReason() {
-        return refusalReason;
-    }
-
-    public void setRefusalReason(String refusalReason) {
-        this.refusalReason = refusalReason;
-    }
-
-    public PaymentsResponse resultCode(ResultCodeEnum resultCode) {
-        this.resultCode = resultCode;
-        return this;
-    }
-
-    public String getRefusalReasonCode() {
-        return refusalReasonCode;
-    }
-
-    public void setRefusalReasonCode(String refusalReasonCode) {
-        this.refusalReasonCode = refusalReasonCode;
-    }
-
-    /**
-     * The result of the payment. Possible values:  * **Authorised** – Indicates the payment authorisation was successfully completed. This state serves as an indicator to proceed with the delivery of
-     * goods and services. This is a final state. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. *
-     * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. For more information on handling a redirect, refer to [Handling a
-     * redirect](https://docs.adyen.com/developers/checkout/api-integration/payments#handlingaredirect). * **Received** – Indicates the payment has successfully been received by Adyen, and will be
-     * processed. This is the initial state for all payments. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This
-     * is a final state. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment
-     * are unavailable, or if the shopper needs to take further action to complete the payment. For more information on handling a pending payment, refer to [Payments with pending
-     * status](https://docs.adyen.com/developers/development-resources/payments-with-pending-status). * **Error** – Indicates an error occurred during processing of the payment. The reason is given in
-     * the &#x60;refusalReason&#x60; field. This is a final state.
-     *
-     * @return resultCode
-     **/
-    public ResultCodeEnum getResultCode() {
-        return resultCode;
-    }
-
-    public void setResultCode(ResultCodeEnum resultCode) {
-        this.resultCode = resultCode;
-    }
-
-    public ServiceError getServiceError() {
-        return serviceError;
-    }
-
-    public void setServiceError(ServiceError serviceError) {
-        this.serviceError = serviceError;
-    }
-
-    public ResultCodeEnum getAuthResponse() {
-        return authResponse;
-    }
-
-    public void setAuthResponse(ResultCodeEnum authResponse) {
-        this.authResponse = authResponse;
-    }
-
-    public String getMerchantReference() {
-        return merchantReference;
-    }
-
-    public void setMerchantReference(String merchantReference) {
-        this.merchantReference = merchantReference;
-    }
-
-    /**
-     * Result of the 3D Secure 2 authentication.
-     *
-     * @return threeDS2Result
-     **/
-    public ThreeDS2Result getThreeDS2Result() {
-        return threeDS2Result;
-    }
-
-    public void setThreeDS2Result(ThreeDS2Result threeDS2Result) {
-        this.threeDS2Result = threeDS2Result;
-    }
-
-    public PaymentsResponse threeDS2Result(ThreeDS2Result threeDS2Result) {
-        this.threeDS2Result = threeDS2Result;
-        return this;
-    }
 
     /**
      * Action to be taken for completing the payment.
@@ -285,53 +58,6 @@ public class PaymentsResponse {
         return this;
     }
 
-    public PaymentsResponse amount(Amount amount) {
-        this.amount = amount;
-        return this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return amount
-     **/
-    public Amount getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Amount amount) {
-        this.amount = amount;
-    }
-
-    public PaymentsResponse order(CheckoutOrderResponse order) {
-        this.order = order;
-        return this;
-    }
-
-    /**
-     * Get order
-     * @return order
-     **/
-    public CheckoutOrderResponse getOrder() {
-        return order;
-    }
-
-    public void setOrder(CheckoutOrderResponse order) {
-        this.order = order;
-    }
-
-    /**
-     * Donation Token containing payment details for Adyen Giving.
-     * @return donationToken
-     **/
-    public String getDonationToken() {
-        return donationToken;
-    }
-
-    public void setDonationToken(String donationToken) {
-        this.donationToken = donationToken;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -341,46 +67,20 @@ public class PaymentsResponse {
             return false;
         }
         PaymentsResponse paymentsResponse = (PaymentsResponse) o;
-        return Objects.equals(this.additionalData, paymentsResponse.additionalData)
-                && Objects.equals(this.fraudResult,
-                paymentsResponse.fraudResult)
-                && Objects.equals(this.pspReference, paymentsResponse.pspReference)
-                && Objects.equals(this.refusalReason, paymentsResponse.refusalReason)
-                && Objects.equals(this.refusalReasonCode, paymentsResponse.refusalReasonCode)
-                && Objects.equals(this.resultCode, paymentsResponse.resultCode)
-                && Objects.equals(this.serviceError, paymentsResponse.serviceError)
-                && Objects.equals(this.authResponse, paymentsResponse.authResponse)
-                && Objects.equals(this.merchantReference, paymentsResponse.merchantReference)
-                && Objects.equals(this.threeDS2Result, paymentsResponse.threeDS2Result)
-                && Objects.equals(this.action, paymentsResponse.action)
-                && Objects.equals(this.amount, paymentsResponse.amount)
-                && Objects.equals(this.order, paymentsResponse.order)
-                && Objects.equals(this.donationToken, paymentsResponse.donationToken);
+        return super.equals(paymentsResponse) && Objects.equals(this.action, paymentsResponse.action);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, fraudResult, pspReference, refusalReason, resultCode, serviceError, authResponse, merchantReference, threeDS2Result, action, amount, order, donationToken);
+        return Objects.hash(action, super.hashCode());
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentsResponse {\n");
-        sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-        sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
-        sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
-        sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
+        sb.append(super.hashCode());
         sb.append("    action: ").append(toIndentedString(action)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    order: ").append(toIndentedString(order)).append("\n");
-        sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -450,43 +150,6 @@ public class PaymentsResponse {
                 return ResultCodeEnum.fromValue(String.valueOf(value));
             }
         }
-    }
-
-    public String getCardBin() {
-        return getAdditionalDataByKey(CARD_BIN);
-    }
-
-    public String getCardHolderName() {
-        return getAdditionalDataByKey(CARD_HOLDER_NAME);
-    }
-
-    public String getCardSummary() {
-        return getAdditionalDataByKey(CARD_SUMMARY);
-    }
-
-    public String getPaymentMethod() {
-        return getAdditionalDataByKey(PAYMENT_METHOD);
-    }
-
-    public String getAvsResult() {
-        return getAdditionalDataByKey(AVS_RESULT);
-    }
-
-    public boolean get3DOffered() {
-        return "true".equals(getAdditionalDataByKey(THREE_D_OFFERERED));
-    }
-
-    public boolean get3DAuthenticated() {
-        return "true".equals(getAdditionalDataByKey(THREE_D_AUTHENTICATED));
-    }
-
-    public String getAuthCode() {
-        return getAdditionalDataByKey(AUTH_CODE);
-    }
-
-    public Date getExpiryDate() {
-        String expiryDate = getAdditionalDataByKey(EXPIRY_DATE);
-        return DateUtil.parseMYDate(expiryDate);
     }
 }
 
