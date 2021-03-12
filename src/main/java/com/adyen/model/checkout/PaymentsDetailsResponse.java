@@ -1,3 +1,24 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2021 Adyen B.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ *
+ */
 package com.adyen.model.checkout;
 
 public class PaymentsDetailsResponse extends AbstractPaymentsResponse<PaymentsDetailsResponse> {
@@ -22,7 +43,7 @@ public class PaymentsDetailsResponse extends AbstractPaymentsResponse<PaymentsDe
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentDetailsResponse {\n");
+        sb.append("class PaymentsDetailsResponse {\n");
         sb.append(super.toString());
         sb.append("}");
         return sb.toString();
