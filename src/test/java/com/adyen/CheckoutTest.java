@@ -25,30 +25,7 @@ import com.adyen.deserializer.PaymentMethodDetailsDeserializerJackson;
 import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
-import com.adyen.model.checkout.CheckoutCancelOrderRequest;
-import com.adyen.model.checkout.CheckoutCancelOrderResponse;
-import com.adyen.model.checkout.CheckoutCreateOrderRequest;
-import com.adyen.model.checkout.CheckoutCreateOrderResponse;
-import com.adyen.model.checkout.CheckoutOrder;
-import com.adyen.model.checkout.CheckoutPaymentsAction;
-import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.CreatePaymentLinkResponse;
-import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
-import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.model.checkout.PaymentMethodsRequest;
-import com.adyen.model.checkout.PaymentMethodsResponse;
-import com.adyen.model.checkout.PaymentResultRequest;
-import com.adyen.model.checkout.PaymentResultResponse;
-import com.adyen.model.checkout.PaymentSessionRequest;
-import com.adyen.model.checkout.PaymentSessionResponse;
-import com.adyen.model.checkout.PaymentsDetailsRequest;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.PaymentsResponse;
-import com.adyen.model.checkout.Redirect;
-import com.adyen.model.checkout.RiskData;
-import com.adyen.model.checkout.StoredPaymentMethodResource;
-import com.adyen.model.checkout.StoringMethod;
+import com.adyen.model.checkout.*;
 import com.adyen.model.checkout.details.AchDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
 import com.adyen.model.checkout.details.AndroidPayDetails;
@@ -181,6 +158,19 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test success flow for
+     * POST /payments
+     */
+    @Test
+    public void TestEncryptedPaymentsWithoutHoldernameSuccessMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/payments-encrypted-without-holdername-success.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createEncryptedPaymentsCheckoutRequestWithoutHoldername();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals("853613724697009G", paymentsResponse.getPspReference());
+    }
+
+    /**
      * Test error flow for
      * POST /payments
      */
@@ -270,7 +260,7 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsDetailsSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-sucess.json");
         Checkout checkout = new Checkout(client);
-        PaymentsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
+        PaymentsDetailsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
         assertEquals("Authorised", paymentsResponse.getResultCode().toString());
     }
 
@@ -283,7 +273,7 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsDetailsErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-error-invalid-data-422.json");
         Checkout checkout = new Checkout(client);
-        PaymentsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
+        PaymentsDetailsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
         assertNull(paymentsResponse.getResultCode());
 
     }
@@ -1712,14 +1702,6 @@ public class CheckoutTest extends BaseTest {
         assertEquals("scheme", paymentsResponse.getAction().getPaymentMethodType());
         assertEquals("https://test.adyen.com/hpp/3d/validate.shtml", paymentsResponse.getAction().getUrl());
         assertEquals(CheckoutPaymentsAction.CheckoutActionType.REDIRECT, paymentsResponse.getAction().getType());
-        assertEquals("Ab02b4c0!BQABAgA4e3wGkhVah4CJL19qdegdmm9E...", paymentsResponse.getPaymentData());
-        assertNotNull(paymentsResponse.getDetails());
-        assertEquals(1, paymentsResponse.getDetails().size());
-        assertEquals("threeds2.challengeResult", paymentsResponse.getDetails().get(0).getKey());
-        assertEquals("text", paymentsResponse.getDetails().get(0).getType());
-        assertNotNull(paymentsResponse.getAuthentication());
-        assertEquals(1, paymentsResponse.getAuthentication().size());
-        assertEquals("S0zYWQ0MGEwMjU2MjEifQ==", paymentsResponse.getAuthentication().get("threeds2.challengeToken"));
     }
 
     @Test
@@ -1926,6 +1908,32 @@ public class CheckoutTest extends BaseTest {
         assertEquals("Received", checkoutCancelOrderResponse.getResultCode());
     }
 
+    @Test
+    public void TestStoredPaymentMethods() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/paymentmethods-storedpaymentmethods.json");
+        Checkout checkout = new Checkout(client);
+        PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
+        paymentMethodsRequest.setMerchantAccount("MagentoMerchantTest");
+        PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
+
+        assertEquals(4, paymentMethodsResponse.getStoredPaymentMethods().size());
+        assertEquals("NL32ABNA0515071439", paymentMethodsResponse.getStoredPaymentMethods().get(0).getIban());
+        assertEquals("Adyen", paymentMethodsResponse.getStoredPaymentMethods().get(0).getOwnerName());
+        assertEquals("sepadirectdebit", paymentMethodsResponse.getStoredPaymentMethods().get(0).getType());
+    }
+
+    @Test
+    public void TestPaymentsResponseIdentifyShopper() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/payments-3ds2-identify-shopper.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals(PaymentsResponse.ResultCodeEnum.IDENTIFYSHOPPER, paymentsResponse.getResultCode());
+        assertEquals(CheckoutPaymentsAction.CheckoutActionType.THREEDS2, paymentsResponse.getAction().getType());
+        assertEquals("fingerprint", paymentsResponse.getAction().getSubtype());
+        assertEquals("scheme", paymentsResponse.getAction().getPaymentMethodType());
+    }
+
     /**
      * Returns a sample PaymentSessionRequest object with test data
      */
@@ -1981,6 +1989,19 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
         paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737", "John Smith");
+
+        paymentsRequest.setReturnUrl("https://your-company.com/...");
+        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+
+        return paymentsRequest;
+    }
+
+    protected PaymentsRequest createEncryptedPaymentsCheckoutRequestWithoutHoldername() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+
+        paymentsRequest.setReference("Your order number");
+        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737");
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");

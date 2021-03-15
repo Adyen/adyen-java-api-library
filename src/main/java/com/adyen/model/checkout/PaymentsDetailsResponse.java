@@ -14,33 +14,38 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
+ *
  */
+package com.adyen.model.checkout;
 
-package com.adyen.model.marketpay.notification;
+public class PaymentsDetailsResponse extends AbstractPaymentsResponse<PaymentsDetailsResponse> {
 
-import com.adyen.model.marketpay.CreateAccountResponse;
-import com.google.gson.annotations.SerializedName;
-
-public class AccountCreatedNotification extends GenericNotification {
-    @SerializedName("content")
-    private CreateAccountResponse content;
-
-    public CreateAccountResponse getContent() {
-        return content;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PaymentsDetailsResponse paymentsDetailsResponse = (PaymentsDetailsResponse) o;
+        return super.equals(paymentsDetailsResponse);
     }
 
-    public void setContent(CreateAccountResponse content) {
-        this.content = content;
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("AccountCreatedNotification{");
-        sb.append("content=").append(content);
-        sb.append('}');
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PaymentsDetailsResponse {\n");
+        sb.append(super.toString());
+        sb.append("}");
         return sb.toString();
     }
 }
