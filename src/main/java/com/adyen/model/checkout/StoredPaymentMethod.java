@@ -63,6 +63,12 @@ public class StoredPaymentMethod {
     @SerializedName("shopperEmail")
     private String shopperEmail;
 
+    @SerializedName("iban")
+    private String iban;
+
+    @SerializedName("ownerName")
+    private String ownerName;
+
     /**
      * A unique identifier of this stored payment method.
      *
@@ -243,6 +249,42 @@ public class StoredPaymentMethod {
         return this;
     }
 
+    /**
+     * The IBAN of the bank account.
+     *
+     * @return iban
+     */
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public StoredPaymentMethod iban(String iban) {
+        this.iban = iban;
+        return this;
+    }
+
+    /**
+     * The name of the bank account holder.
+     *
+     * @return ownerName
+     */
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public StoredPaymentMethod ownerName(String ownerName) {
+        this.ownerName = ownerName;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -261,12 +303,15 @@ public class StoredPaymentMethod {
                 Objects.equals(expiryYear, that.expiryYear) &&
                 Objects.equals(holderName, that.holderName) &&
                 Objects.equals(supportedShopperInteractions, that.supportedShopperInteractions) &&
-                Objects.equals(shopperEmail, that.shopperEmail);
+                Objects.equals(shopperEmail, that.shopperEmail) &&
+                Objects.equals(iban, that.iban) &&
+                Objects.equals(ownerName, that.ownerName);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, type, brand, lastFour, expiryMonth, expiryYear, holderName, supportedShopperInteractions, shopperEmail);
+        return Objects.hash(id, name, type, brand, lastFour, expiryMonth, expiryYear, holderName, supportedShopperInteractions, shopperEmail, iban, ownerName);
     }
 
     @Override
@@ -284,6 +329,8 @@ public class StoredPaymentMethod {
         sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
         sb.append("    supportedShopperInteractions: ").append(toIndentedString(supportedShopperInteractions)).append("\n");
         sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+        sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+        sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
         sb.append("}");
         return sb.toString();
     }

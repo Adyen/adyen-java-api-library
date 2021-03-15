@@ -46,6 +46,7 @@ public interface ApiConstants {
         String FRAUD_RESULT_TYPE = "fraudResultType";
         String FRAUD_MANUAL_REVIEW = "fraudManualReview";
         String AUTH_CODE = "authCode";
+        String ALLOW_THREE_DS2 = "allow3DS2";
 
         String BOLETO_BARCODE_REFERENCE = "boletobancario.barCodeReference";
         String BOLETO_DATA = "boletobancario.data";

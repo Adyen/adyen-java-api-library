@@ -61,6 +61,18 @@ public class ThreeDS2Result {
     @SerializedName("whiteListStatus")
     private String whiteListStatus = null;
 
+    @SerializedName("challengeCancel")
+    private String challengeCancel;
+
+    @SerializedName("challengeIndicator")
+    private String challengeIndicator;
+
+    @SerializedName("exemptionIndicator")
+    private String exemptionIndicator;
+
+    @SerializedName("riskScore")
+    private String riskScore;
+
     public ThreeDS2Result authenticationValue(String authenticationValue) {
         this.authenticationValue = authenticationValue;
         return this;
@@ -231,6 +243,77 @@ public class ThreeDS2Result {
         this.whiteListStatus = whiteListStatus;
     }
 
+    /**
+     * Indicator informing the ACS and the DS that the authentication has been canceled
+     *
+     * @return challengeCancel
+     */
+    public String getChallengeCancel() {
+        return challengeCancel;
+    }
+
+    public void setChallengeCancel(String challengeCancel) {
+        this.challengeCancel = challengeCancel;
+    }
+
+    public ThreeDS2Result challengeCancel(String challengeCancel) {
+        this.challengeCancel = challengeCancel;
+        return this;
+    }
+
+    /**
+     * Get challengeIndicator
+     *
+     * @return challenegeIndicator
+     */
+    public String getChallengeIndicator() {
+        return challengeIndicator;
+    }
+
+    public void setChallengeIndicator(String challengeIndicator) {
+        this.challengeIndicator = challengeIndicator;
+    }
+
+    public ThreeDS2Result challengeIndicator(String challengeIndicator) {
+        this.challengeIndicator = challengeIndicator;
+        return this;
+    }
+
+    /**
+     * Get exemptionIndicator
+     *
+     * @return exemptionIndicator
+     */
+    public String getExemptionIndicator() {
+        return exemptionIndicator;
+    }
+
+    public void setExemptionIndicator(String exemptionIndicator) {
+        this.exemptionIndicator = exemptionIndicator;
+    }
+
+    public ThreeDS2Result exemptionIndicator(String exemptionIndicator) {
+        this.exemptionIndicator = exemptionIndicator;
+        return this;
+    }
+
+    /**
+     * Get riskScore
+     *
+     * @return riskScore
+     */
+    public String getRiskScore() {
+        return riskScore;
+    }
+
+    public void setRiskScore(String riskScore) {
+        this.riskScore = riskScore;
+    }
+
+    public ThreeDS2Result riskScore(String riskScore) {
+        this.riskScore = riskScore;
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -250,12 +333,16 @@ public class ThreeDS2Result {
                 Objects.equals(this.timestamp, threeDS2Result.timestamp) &&
                 Objects.equals(this.transStatus, threeDS2Result.transStatus) &&
                 Objects.equals(this.transStatusReason, threeDS2Result.transStatusReason) &&
-                Objects.equals(this.whiteListStatus, threeDS2Result.whiteListStatus);
+                Objects.equals(this.whiteListStatus, threeDS2Result.whiteListStatus) &&
+                Objects.equals(this.challengeCancel, threeDS2Result.challengeCancel) &&
+                Objects.equals(this.challengeIndicator, threeDS2Result.challengeIndicator) &&
+                Objects.equals(this.exemptionIndicator, threeDS2Result.exemptionIndicator) &&
+                Objects.equals(this.riskScore, threeDS2Result.riskScore);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authenticationValue, cavvAlgorithm, dsTransID, eci, messageVersion, threeDSServerTransID, timestamp, transStatus, transStatusReason, whiteListStatus);
+        return Objects.hash(authenticationValue, cavvAlgorithm, dsTransID, eci, messageVersion, threeDSServerTransID, timestamp, transStatus, transStatusReason, whiteListStatus, challengeCancel, challengeIndicator, exemptionIndicator, riskScore);
     }
 
 
@@ -274,6 +361,10 @@ public class ThreeDS2Result {
         sb.append("    transStatus: ").append(toIndentedString(transStatus)).append("\n");
         sb.append("    transStatusReason: ").append(toIndentedString(transStatusReason)).append("\n");
         sb.append("    whiteListStatus: ").append(toIndentedString(whiteListStatus)).append("\n");
+        sb.append("    challengeCancel: ").append(toIndentedString(challengeCancel)).append("\n");
+        sb.append("    challengeIndicator: ").append(toIndentedString(challengeIndicator)).append("\n");
+        sb.append("    exemptionIndicator: ").append(toIndentedString(exemptionIndicator)).append("\n");
+        sb.append("    riskScore: ").append(toIndentedString(riskScore)).append("\n");
         sb.append("}");
         return sb.toString();
     }

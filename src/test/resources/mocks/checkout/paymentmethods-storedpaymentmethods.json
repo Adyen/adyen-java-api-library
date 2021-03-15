@@ -1,0 +1,105 @@
+{
+  "paymentMethods": [
+    {
+      "details": [
+        {
+          "items": [
+            {
+              "id": "1121",
+              "name": "Test Issuer"
+            }
+          ],
+          "key": "issuer",
+          "type": "select"
+        }
+      ],
+      "name": "iDEAL",
+      "type": "ideal"
+    },
+    {
+      "brands": [
+        "mc",
+        "visa",
+        "amex",
+        "maestro",
+        "cup",
+        "diners",
+        "discover",
+        "jcb"
+      ],
+      "details": [
+        {
+          "key": "number",
+          "type": "text"
+        },
+        {
+          "key": "expiryMonth",
+          "type": "text"
+        },
+        {
+          "key": "expiryYear",
+          "type": "text"
+        },
+        {
+          "key": "cvc",
+          "type": "text"
+        },
+        {
+          "key": "holderName",
+          "optional": true,
+          "type": "text"
+        }
+      ],
+      "name": "Credit Card",
+      "type": "scheme"
+    },
+    {
+      "name": "SEPA Bank Transfer",
+      "type": "bankTransfer_IBAN"
+    }
+  ],
+  "storedPaymentMethods": [
+    {
+      "iban": "NL32ABNA0515071439",
+      "id": "8416153785764282",
+      "name": "SEPA Direct Debit",
+      "ownerName": "Adyen",
+      "supportedShopperInteractions": [],
+      "type": "sepadirectdebit"
+    },
+    {
+      "brand": "visa",
+      "expiryMonth": "03",
+      "expiryYear": "2030",
+      "holderName": "John Smith",
+      "id": "8416148729107853",
+      "lastFour": "1111",
+      "name": "VISA",
+      "supportedShopperInteractions": [
+        "Ecommerce",
+        "ContAuth"
+      ],
+      "type": "scheme"
+    },
+    {
+      "iban": "LI21088100002324013AA",
+      "id": "8416149601123570",
+      "name": "SEPA Direct Debit",
+      "ownerName": "Simon Hopper",
+      "supportedShopperInteractions": [
+        "ContAuth"
+      ],
+      "type": "sepadirectdebit"
+    },
+    {
+      "iban": "DE87123456781234567890",
+      "id": "8416149574839731",
+      "name": "SEPA Direct Debit",
+      "ownerName": "Simon Hopper",
+      "supportedShopperInteractions": [
+        "ContAuth"
+      ],
+      "type": "sepadirectdebit"
+    }
+  ]
+}
