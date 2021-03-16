@@ -1,20 +1,22 @@
 {
-  "eventDate": "2018-03-07T13:44:34+01:00",
+  "error": {
+    "errorCode": "000",
+    "message": "test error message"
+  },
+  "eventDate": "2019-01-01T01:00:00+01:00",
   "eventType": "COMPENSATE_NEGATIVE_BALANCE",
-  "executingUserKey": "ws_957630",
-  "live": "false",
-  "pspReference": "Test_COMPENSATE_NEGATIVE_BALANCE",
+  "executingUserKey": "executing-user-key",
+  "live": false,
+  "pspReference": "TSTPSPR0001",
   "content": {
     "records": [
       {
-        "CompensateNegativeBalanceNotificationRecord": {
-          "accountCode": "testCirtualAccount",
-          "amount": {
-            "currency": "EUR",
-            "value": 10000
-          },
-          "transferDate": "2018-03-07T13:44:34+01:00"
-        }
+        "accountCode": "AC000001",
+        "amount": {
+          "currency": "EUR",
+          "value": 10
+        },
+        "transferDate": "2019-01-01T01:00:00+01:00"
       }
     ]
   }

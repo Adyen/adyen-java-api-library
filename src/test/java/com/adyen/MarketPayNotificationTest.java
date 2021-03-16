@@ -135,13 +135,13 @@ public class MarketPayNotificationTest extends BaseTest {
         GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
 
         assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_CREATED, notificationMessage.getEventType());
-        AccountCreatedNotification accountCreatedNotificationMessage = (AccountCreatedNotification) notificationMessage;
+        AccountCreateNotification accountCreateNotificationMessage = (AccountCreateNotification) notificationMessage;
 
-        assertEquals("000", accountCreatedNotificationMessage.getError().getErrorCode());
-        assertEquals("test error message", accountCreatedNotificationMessage.getError().getMessage());
-        assertNotNull(accountCreatedNotificationMessage.getContent());
+        assertEquals("000", accountCreateNotificationMessage.getError().getErrorCode());
+        assertEquals("test error message", accountCreateNotificationMessage.getError().getMessage());
+        assertNotNull(accountCreateNotificationMessage.getContent());
 
-        final CreateAccountResponse content = accountCreatedNotificationMessage.getContent();
+        final CreateAccountResponse content = accountCreateNotificationMessage.getContent();
         assertEquals("TestAccountHolder", content.getAccountHolderCode());
         assertEquals("AC0000000001", content.getAccountCode());
         assertEquals("account description", content.getDescription());
@@ -169,9 +169,11 @@ public class MarketPayNotificationTest extends BaseTest {
         GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
 
         assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_CREATED, notificationMessage.getEventType());
-        AccountHolderCreatedNotification accountHolderCreatedNotificationMessage = (AccountHolderCreatedNotification) notificationMessage;
-        assertNotNull(accountHolderCreatedNotificationMessage.getContent());
-        assertEquals("TestAccountHolder", accountHolderCreatedNotificationMessage.getContent().getAccountHolderCode());
+        AccountHolderCreateNotification accountHolderCreateNotificationMessage = (AccountHolderCreateNotification) notificationMessage;
+        assertNotNull(accountHolderCreateNotificationMessage.getContent());
+        assertEquals("AHC00000001", accountHolderCreateNotificationMessage.getContent().getAccountHolderCode());
+        assertEquals("TSTPSPR0001", accountHolderCreateNotificationMessage.getContent().getPspReference());
+        assertEquals("executing-user-key", accountHolderCreateNotificationMessage.getExecutingUserKey());
     }
 
     @Test
@@ -184,9 +186,7 @@ public class MarketPayNotificationTest extends BaseTest {
         assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_VERIFICATION, notificationMessage.getEventType());
         AccountHolderVerificationNotification notification = (AccountHolderVerificationNotification) notificationMessage;
         assertNotNull(notification.getContent());
-
-        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationStatus());
-        assertEquals(IDENTITY_VERIFICATION, notification.getContent().getVerificationType());
+        assertEquals("AH0000001", notification.getContent().getAccountHolderCode());
     }
 
     @Test
@@ -230,7 +230,7 @@ public class MarketPayNotificationTest extends BaseTest {
         GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
 
         assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_UPDATED, notificationMessage.getEventType());
-        AccountHolderUpdatedNotification notification = (AccountHolderUpdatedNotification) notificationMessage;
+        AccountHolderUpdateNotification notification = (AccountHolderUpdateNotification) notificationMessage;
 
         assertNotNull(notification.getContent());
 
@@ -283,8 +283,8 @@ public class MarketPayNotificationTest extends BaseTest {
         CompensateNegativeBalanceNotification notification = (CompensateNegativeBalanceNotification) notificationMessage;
         assertNotNull(notification.getContent());
 
-        assertEquals("testCirtualAccount", notification.getContent().getRecords().get(0).getCompensateNegativeBalanceNotificationRecord().getAccountCode());
-        assertEquals(10000L, notification.getContent().getRecords().get(0).getCompensateNegativeBalanceNotificationRecord().getAmount().getValue().longValue());
+        assertEquals("AC000001", notification.getContent().getRecords().get(0).getAccountCode());
+        assertEquals(10L, notification.getContent().getRecords().get(0).getAmount().getValue().longValue());
     }
 
     @Test

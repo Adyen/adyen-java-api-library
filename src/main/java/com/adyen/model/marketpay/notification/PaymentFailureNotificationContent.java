@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -30,7 +30,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentFailureContent {
+public class PaymentFailureNotificationContent {
     @SerializedName("errorFields")
     @JsonProperty("errorFields")
     public List<ErrorFieldTypeContainer> errorFieldTypeContainers;

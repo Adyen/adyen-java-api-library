@@ -22,14 +22,14 @@
 package com.adyen.deserializer;
 
 import com.adyen.model.marketpay.notification.AccountCloseNotification;
-import com.adyen.model.marketpay.notification.AccountCreatedNotification;
+import com.adyen.model.marketpay.notification.AccountCreateNotification;
 import com.adyen.model.marketpay.notification.AccountFundsBelowThresholdNotification;
-import com.adyen.model.marketpay.notification.AccountHolderCreatedNotification;
+import com.adyen.model.marketpay.notification.AccountHolderCreateNotification;
 import com.adyen.model.marketpay.notification.AccountHolderPayoutNotification;
 import com.adyen.model.marketpay.notification.AccountHolderStatusChangeNotification;
 import com.adyen.model.marketpay.notification.AccountHolderStoreStatusChangeNotification;
 import com.adyen.model.marketpay.notification.AccountHolderUpcomingDeadlineNotification;
-import com.adyen.model.marketpay.notification.AccountHolderUpdatedNotification;
+import com.adyen.model.marketpay.notification.AccountHolderUpdateNotification;
 import com.adyen.model.marketpay.notification.AccountHolderVerificationNotification;
 import com.adyen.model.marketpay.notification.AccountUpdateNotification;
 import com.adyen.model.marketpay.notification.BeneficiarySetupNotification;
@@ -58,7 +58,7 @@ public class MarketPayNotificationMessageDeserializer implements JsonDeserialize
         String eventType = jsonType.getAsString();
 
         if (GenericNotification.EventTypeEnum.ACCOUNT_CREATED.toString().equalsIgnoreCase(eventType)) {
-            return jsonDeserializationContext.deserialize(jsonElement, AccountCreatedNotification.class);
+            return jsonDeserializationContext.deserialize(jsonElement, AccountCreateNotification.class);
         }
         if (GenericNotification.EventTypeEnum.ACCOUNT_CLOSED.toString().equalsIgnoreCase(eventType)) {
             return jsonDeserializationContext.deserialize(jsonElement, AccountCloseNotification.class);
@@ -70,7 +70,7 @@ public class MarketPayNotificationMessageDeserializer implements JsonDeserialize
             return jsonDeserializationContext.deserialize(jsonElement, AccountFundsBelowThresholdNotification.class);
         }
         if (GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_CREATED.toString().equalsIgnoreCase(eventType)) {
-            return jsonDeserializationContext.deserialize(jsonElement, AccountHolderCreatedNotification.class);
+            return jsonDeserializationContext.deserialize(jsonElement, AccountHolderCreateNotification.class);
         }
         if (GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_VERIFICATION.toString().equalsIgnoreCase(eventType)) {
             return jsonDeserializationContext.deserialize(jsonElement, AccountHolderVerificationNotification.class);
@@ -82,7 +82,7 @@ public class MarketPayNotificationMessageDeserializer implements JsonDeserialize
             return jsonDeserializationContext.deserialize(jsonElement, AccountHolderPayoutNotification.class);
         }
         if (GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_UPDATED.toString().equalsIgnoreCase(eventType)) {
-            return jsonDeserializationContext.deserialize(jsonElement, AccountHolderUpdatedNotification.class);
+            return jsonDeserializationContext.deserialize(jsonElement, AccountHolderUpdateNotification.class);
         }
         if (GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_STORE_STATUS_CHANGE.toString().equalsIgnoreCase(eventType)) {
             return jsonDeserializationContext.deserialize(jsonElement, AccountHolderStoreStatusChangeNotification.class);

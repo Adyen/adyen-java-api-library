@@ -14,25 +14,22 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 
 package com.adyen.model.marketpay.notification;
 
+import com.adyen.model.marketpay.UpdateAccountHolderResponse;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 import java.util.Objects;
 
-/**
- * RefundFundsTransferNotification
- */
-
-public class RefundFundsTransferNotification extends GenericNotification {
+public class AccountHolderUpdateNotification extends GenericNotification{
     @SerializedName("content")
-    private RefundFundsTransferNotificationContent content = null;
+    private UpdateAccountHolderResponse content = null;
 
     @SerializedName("error")
     private NotificationErrorContainer error = null;
@@ -49,7 +46,7 @@ public class RefundFundsTransferNotification extends GenericNotification {
     @SerializedName("pspReference")
     private String pspReference = null;
 
-    public RefundFundsTransferNotification content(RefundFundsTransferNotificationContent content) {
+    public AccountHolderUpdateNotification content(UpdateAccountHolderResponse content) {
         this.content = content;
         return this;
     }
@@ -59,15 +56,15 @@ public class RefundFundsTransferNotification extends GenericNotification {
      *
      * @return content
      **/
-    public RefundFundsTransferNotificationContent getContent() {
+    public UpdateAccountHolderResponse getContent() {
         return content;
     }
 
-    public void setContent(RefundFundsTransferNotificationContent content) {
+    public void setContent(UpdateAccountHolderResponse content) {
         this.content = content;
     }
 
-    public RefundFundsTransferNotification error(NotificationErrorContainer error) {
+    public AccountHolderUpdateNotification error(NotificationErrorContainer error) {
         this.error = error;
         return this;
     }
@@ -85,7 +82,7 @@ public class RefundFundsTransferNotification extends GenericNotification {
         this.error = error;
     }
 
-    public RefundFundsTransferNotification eventDate(Date eventDate) {
+    public AccountHolderUpdateNotification eventDate(Date eventDate) {
         this.eventDate = eventDate;
         return this;
     }
@@ -103,7 +100,7 @@ public class RefundFundsTransferNotification extends GenericNotification {
         this.eventDate = eventDate;
     }
 
-    public RefundFundsTransferNotification executingUserKey(String executingUserKey) {
+    public AccountHolderUpdateNotification executingUserKey(String executingUserKey) {
         this.executingUserKey = executingUserKey;
         return this;
     }
@@ -121,7 +118,7 @@ public class RefundFundsTransferNotification extends GenericNotification {
         this.executingUserKey = executingUserKey;
     }
 
-    public RefundFundsTransferNotification live(Boolean live) {
+    public AccountHolderUpdateNotification live(Boolean live) {
         this.live = live;
         return this;
     }
@@ -139,7 +136,7 @@ public class RefundFundsTransferNotification extends GenericNotification {
         this.live = live;
     }
 
-    public RefundFundsTransferNotification pspReference(String pspReference) {
+    public AccountHolderUpdateNotification pspReference(String pspReference) {
         this.pspReference = pspReference;
         return this;
     }
@@ -166,13 +163,13 @@ public class RefundFundsTransferNotification extends GenericNotification {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RefundFundsTransferNotification refundFundsTransferNotification = (RefundFundsTransferNotification) o;
-        return Objects.equals(this.content, refundFundsTransferNotification.content) &&
-                Objects.equals(this.error, refundFundsTransferNotification.error) &&
-                Objects.equals(this.eventDate, refundFundsTransferNotification.eventDate) &&
-                Objects.equals(this.executingUserKey, refundFundsTransferNotification.executingUserKey) &&
-                Objects.equals(this.live, refundFundsTransferNotification.live) &&
-                Objects.equals(this.pspReference, refundFundsTransferNotification.pspReference);
+        AccountHolderUpdateNotification accountHolderUpdateNotification = (AccountHolderUpdateNotification) o;
+        return Objects.equals(this.content, accountHolderUpdateNotification.content) &&
+                Objects.equals(this.error, accountHolderUpdateNotification.error) &&
+                Objects.equals(this.eventDate, accountHolderUpdateNotification.eventDate) &&
+                Objects.equals(this.executingUserKey, accountHolderUpdateNotification.executingUserKey) &&
+                Objects.equals(this.live, accountHolderUpdateNotification.live) &&
+                Objects.equals(this.pspReference, accountHolderUpdateNotification.pspReference);
     }
 
     @Override
@@ -184,7 +181,7 @@ public class RefundFundsTransferNotification extends GenericNotification {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RefundFundsTransferNotification {\n");
+        sb.append("class AccountHolderUpdateNotification {\n");
 
         sb.append("    content: ").append(toIndentedString(content)).append("\n");
         sb.append("    error: ").append(toIndentedString(error)).append("\n");

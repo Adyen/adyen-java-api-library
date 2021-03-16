@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,8 +30,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Objects;
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AccountHolderUpcomingDeadlineNotificationContent
@@ -48,23 +45,25 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
     @JsonAdapter(EventEnum.Adapter.class)
     public enum EventEnum {
         ACCESSPII("AccessPii"),
+        APITIERUPDATE("ApiTierUpdate"),
         CLOSEACCOUNT("CloseAccount"),
         CLOSESTORES("CloseStores"),
         DELETEBANKACCOUNTS("DeleteBankAccounts"),
         DELETEPAYOUTMETHODS("DeletePayoutMethods"),
         DELETESHAREHOLDERS("DeleteShareholders"),
         INACTIVATEACCOUNT("InactivateAccount"),
+        KYCDEADLINEEXTENSION("KYCDeadlineExtension"),
         RECALCULATEACCOUNTSTATUSANDPROCESSINGTIER("RecalculateAccountStatusAndProcessingTier"),
         REFUNDNOTPAIDOUTTRANSFERS("RefundNotPaidOutTransfers"),
         RESOLVEEVENTS("ResolveEvents"),
         SAVEACCOUNTHOLDER("SaveAccountHolder"),
+        SAVECRIMINALITYANDPEPCHECKS("SaveCriminalityAndPEPChecks"),
         SAVEKYCCHECKSTATUS("SaveKYCCheckStatus"),
         SUSPENDACCOUNT("SuspendAccount"),
         UNSUSPENDACCOUNT("UnSuspendAccount"),
         UPDATEACCOUNTHOLDERSTATE("UpdateAccountHolderState"),
         VERIFICATION("Verification");
 
-        @JsonValue
         private String value;
 
         EventEnum(String value) {
@@ -97,7 +96,7 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
 
             @Override
             public EventEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
+                Object value = jsonReader.nextString();
                 return EventEnum.fromValue(String.valueOf(value));
             }
         }
@@ -154,7 +153,7 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
     }
 
     /**
-     * Get executionDate
+     * The execution date scheduled for the event.
      *
      * @return executionDate
      **/
@@ -184,8 +183,9 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
         this.reason = reason;
     }
 
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -204,6 +204,7 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
         return Objects.hash(accountHolderCode, event, executionDate, reason);
     }
 
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -216,4 +217,16 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
         sb.append("}");
         return sb.toString();
     }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }

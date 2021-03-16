@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,8 +31,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * AccountHolderStoreStatusChangeNotificationContent
@@ -57,7 +54,6 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         INACTIVEWITHMODIFICATIONS("InactiveWithModifications"),
         PENDING("Pending");
 
-        @JsonValue
         private String value;
 
         NewStatusEnum(String value) {
@@ -90,7 +86,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
 
             @Override
             public NewStatusEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
+                Object value = jsonReader.nextString();
                 return NewStatusEnum.fromValue(String.valueOf(value));
             }
         }
@@ -110,7 +106,6 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         INACTIVEWITHMODIFICATIONS("InactiveWithModifications"),
         PENDING("Pending");
 
-        @JsonValue
         private String value;
 
         OldStatusEnum(String value) {
@@ -143,7 +138,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
 
             @Override
             public OldStatusEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
+                Object value = jsonReader.nextString();
                 return OldStatusEnum.fromValue(String.valueOf(value));
             }
         }
@@ -186,7 +181,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
 
     public AccountHolderStoreStatusChangeNotificationContent addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<>();
+            this.invalidFields = new ArrayList<ErrorFieldType>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;
@@ -295,8 +290,9 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         this.storeReference = storeReference;
     }
 
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -318,6 +314,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         return Objects.hash(accountHolderCode, invalidFields, newStatus, oldStatus, reason, store, storeReference);
     }
 
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -333,4 +330,16 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         sb.append("}");
         return sb.toString();
     }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }

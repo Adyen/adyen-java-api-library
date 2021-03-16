@@ -99,23 +99,8 @@ public class GenericNotification {
         }
     }
 
-    @SerializedName("error")
-    private NotificationErrorContainer error = null;
-
     @SerializedName("eventType")
     private EventTypeEnum eventType;
-
-    @SerializedName("eventDate")
-    private Date eventDate;
-
-    @SerializedName("executingUserKey")
-    private String executingUserKey;
-
-    @SerializedName("live")
-    private String live;
-
-    @SerializedName("pspReference")
-    private String pspReference;
 
     public EventTypeEnum getEventType() {
         return eventType;
@@ -125,56 +110,5 @@ public class GenericNotification {
         this.eventType = eventType;
     }
 
-    public Date getEventDate() {
-        return eventDate;
-    }
 
-    public void setEventDate(Date eventDate) {
-        this.eventDate = eventDate;
-    }
-
-    public String getExecutingUserKey() {
-        return executingUserKey;
-    }
-
-    public void setExecutingUserKey(String executingUserKey) {
-        this.executingUserKey = executingUserKey;
-    }
-
-    public String getLive() {
-        return live;
-    }
-
-    public void setLive(String live) {
-        this.live = live;
-    }
-
-    public String getPspReference() {
-        return pspReference;
-    }
-
-    public void setPspReference(String pspReference) {
-        this.pspReference = pspReference;
-    }
-
-    public NotificationErrorContainer getError() {
-        return error;
-    }
-
-    public void setError(NotificationErrorContainer error) {
-        this.error = error;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("GenericNotification{");
-        sb.append("error=").append(error);
-        sb.append(", eventType=").append(eventType);
-        sb.append(", eventDate=").append(eventDate);
-        sb.append(", executingUserKey='").append(executingUserKey).append('\'');
-        sb.append(", live='").append(live).append('\'');
-        sb.append(", pspReference='").append(pspReference).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
 }
