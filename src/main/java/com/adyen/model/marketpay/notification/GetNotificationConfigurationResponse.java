@@ -106,7 +106,7 @@ public class GetNotificationConfigurationResponse {
         }
         GetNotificationConfigurationResponse getNotificationConfigurationResponse = (GetNotificationConfigurationResponse) o;
         return Objects.equals(this.submittedAsync, getNotificationConfigurationResponse.submittedAsync) && Objects.equals(this.configurationDetails,
-                                                                                                                          getNotificationConfigurationResponse.configurationDetails) && Objects.equals(
+                getNotificationConfigurationResponse.configurationDetails) && Objects.equals(
                 this.pspReference,
                 getNotificationConfigurationResponse.pspReference);
     }
@@ -128,7 +128,6 @@ public class GetNotificationConfigurationResponse {
         sb.append("}");
         return sb.toString();
     }
-
 
 
 }

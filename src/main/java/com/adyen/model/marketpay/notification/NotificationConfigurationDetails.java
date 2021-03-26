@@ -183,7 +183,6 @@ public class NotificationConfigurationDetails {
     }
 
 
-
     public NotificationConfigurationDetails addEventConfigsItem(NotificationEventConfiguration eventConfigsItem) {
 
         NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(eventConfigsItem);
@@ -208,7 +207,7 @@ public class NotificationConfigurationDetails {
     public List<NotificationEventConfiguration> getEventConfigs() {
         if (eventConfigs == null) {
 
-            if (eventConfigsContainer != null && ! eventConfigsContainer.isEmpty()) {
+            if (eventConfigsContainer != null && !eventConfigsContainer.isEmpty()) {
                 eventConfigs = eventConfigsContainer.stream().map(s -> s.getNotificationEventConfiguration()).collect(Collectors.toList());
             }
         }
@@ -444,8 +443,6 @@ public class NotificationConfigurationDetails {
         sb.append("}");
         return sb.toString();
     }
-
-
 
 }
 

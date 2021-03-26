@@ -184,7 +184,5 @@ public class NotificationEventConfiguration {
         return sb.toString();
     }
 
-
-
 }
 

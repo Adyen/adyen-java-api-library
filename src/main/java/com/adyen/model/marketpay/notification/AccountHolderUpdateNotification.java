@@ -27,7 +27,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
-public class AccountHolderUpdateNotification extends GenericNotification{
+import static com.adyen.util.Util.toIndentedString;
+
+public class AccountHolderUpdateNotification extends GenericNotification {
     @SerializedName("content")
     private UpdateAccountHolderResponse content = null;
 
@@ -191,17 +193,6 @@ public class AccountHolderUpdateNotification extends GenericNotification{
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

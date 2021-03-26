@@ -22,6 +22,7 @@
 package com.adyen.model.marketpay.notification;
 
 import java.util.Date;
+
 import com.google.gson.annotations.SerializedName;
 
 public class ReportAvailableNotificationContent {

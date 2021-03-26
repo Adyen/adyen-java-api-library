@@ -26,7 +26,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
-public class CompensateNegativeBalanceNotification extends GenericNotification{
+import static com.adyen.util.Util.toIndentedString;
+
+public class CompensateNegativeBalanceNotification extends GenericNotification {
     @SerializedName("content")
     private CompensateNegativeBalanceNotificationContent content = null;
 
@@ -52,6 +54,7 @@ public class CompensateNegativeBalanceNotification extends GenericNotification{
 
     /**
      * Get content
+     *
      * @return content
      **/
     public CompensateNegativeBalanceNotificationContent getContent() {
@@ -69,6 +72,7 @@ public class CompensateNegativeBalanceNotification extends GenericNotification{
 
     /**
      * Get error
+     *
      * @return error
      **/
     public NotificationErrorContainer getError() {
@@ -86,6 +90,7 @@ public class CompensateNegativeBalanceNotification extends GenericNotification{
 
     /**
      * The date and time when an event has been completed.
+     *
      * @return eventDate
      **/
     public Date getEventDate() {
@@ -103,6 +108,7 @@ public class CompensateNegativeBalanceNotification extends GenericNotification{
 
     /**
      * The user or process that has triggered the notification.
+     *
      * @return executingUserKey
      **/
     public String getExecutingUserKey() {
@@ -120,6 +126,7 @@ public class CompensateNegativeBalanceNotification extends GenericNotification{
 
     /**
      * Indicates whether the notification originated from the live environment or the test environment. If true, the notification originated from the live environment. If false, the notification originated from the test environment.
+     *
      * @return live
      **/
     public Boolean isLive() {
@@ -137,6 +144,7 @@ public class CompensateNegativeBalanceNotification extends GenericNotification{
 
     /**
      * The PSP reference of the request from which the notification originates.
+     *
      * @return pspReference
      **/
     public String getPspReference() {
@@ -184,17 +192,6 @@ public class CompensateNegativeBalanceNotification extends GenericNotification{
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

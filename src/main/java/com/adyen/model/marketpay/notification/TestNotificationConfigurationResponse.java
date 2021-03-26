@@ -197,7 +197,7 @@ public class TestNotificationConfigurationResponse {
 
         if (exchangeMessages == null) {
 
-            if (exchangeMessageContainers != null && ! exchangeMessageContainers.isEmpty()) {
+            if (exchangeMessageContainers != null && !exchangeMessageContainers.isEmpty()) {
                 exchangeMessages = exchangeMessageContainers.stream().map(s -> s.getExchangeMessage()).collect(Collectors.toList());
             }
         }
@@ -322,8 +322,6 @@ public class TestNotificationConfigurationResponse {
         sb.append("}");
         return sb.toString();
     }
-
-
 
 }
 

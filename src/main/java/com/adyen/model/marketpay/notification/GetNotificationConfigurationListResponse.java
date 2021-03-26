@@ -125,7 +125,7 @@ public class GetNotificationConfigurationListResponse {
         GetNotificationConfigurationListResponse getNotificationConfigurationListResponse = (GetNotificationConfigurationListResponse) o;
         return Objects.equals(this.submittedAsync, getNotificationConfigurationListResponse.submittedAsync)
                 && Objects.equals(this.configurations,
-                                  getNotificationConfigurationListResponse.configurations)
+                getNotificationConfigurationListResponse.configurations)
                 && Objects.equals(this.pspReference, getNotificationConfigurationListResponse.pspReference);
     }
 

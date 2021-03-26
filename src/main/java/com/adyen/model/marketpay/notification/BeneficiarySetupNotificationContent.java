@@ -28,6 +28,8 @@ import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 
+import static com.adyen.util.Util.toIndentedString;
+
 public class BeneficiarySetupNotificationContent {
     @SerializedName("destinationAccountCode")
     private String destinationAccountCode = null;
@@ -223,17 +225,6 @@ public class BeneficiarySetupNotificationContent {
         sb.append("    transferDate: ").append(toIndentedString(transferDate)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

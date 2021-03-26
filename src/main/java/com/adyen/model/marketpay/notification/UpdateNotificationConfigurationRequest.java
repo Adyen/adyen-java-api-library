@@ -83,6 +83,5 @@ public class UpdateNotificationConfigurationRequest {
     }
 
 
-
 }
 
