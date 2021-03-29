@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -106,7 +106,7 @@ public class GetNotificationConfigurationResponse {
         }
         GetNotificationConfigurationResponse getNotificationConfigurationResponse = (GetNotificationConfigurationResponse) o;
         return Objects.equals(this.submittedAsync, getNotificationConfigurationResponse.submittedAsync) && Objects.equals(this.configurationDetails,
-                                                                                                                          getNotificationConfigurationResponse.configurationDetails) && Objects.equals(
+                getNotificationConfigurationResponse.configurationDetails) && Objects.equals(
                 this.pspReference,
                 getNotificationConfigurationResponse.pspReference);
     }
@@ -128,7 +128,6 @@ public class GetNotificationConfigurationResponse {
         sb.append("}");
         return sb.toString();
     }
-
 
 
 }

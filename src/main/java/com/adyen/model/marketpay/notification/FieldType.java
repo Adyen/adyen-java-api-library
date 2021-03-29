@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -69,6 +69,7 @@ public class FieldType {
         CHECKCODE("checkCode"),
         CITY("city"),
         COMPANYREGISTRATION("companyRegistration"),
+        CONSTITUTIONALDOCUMENT("constitutionalDocument"),
         COUNTRY("country"),
         COUNTRYCODE("countryCode"),
         CURRENCY("currency"),
@@ -89,6 +90,7 @@ public class FieldType {
         DRIVINGLICENSE("drivingLicense"),
         EMAIL("email"),
         FIRSTNAME("firstName"),
+        FORMTYPE("formType"),
         FULLPHONENUMBER("fullPhoneNumber"),
         GENDER("gender"),
         HOPWEBSERVICEUSER("hopWebserviceUser"),
@@ -100,7 +102,19 @@ public class FieldType {
         IDNUMBER("idNumber"),
         IDENTITYDOCUMENT("identityDocument"),
         INDIVIDUALDETAILS("individualDetails"),
+        JOBTITLE("jobTitle"),
         LASTNAME("lastName"),
+        LEGALARRANGEMENT("legalArrangement"),
+        LEGALARRANGEMENTCODE("legalArrangementCode"),
+        LEGALARRANGEMENTENTITY("legalArrangementEntity"),
+        LEGALARRANGEMENTENTITYCODE("legalArrangementEntityCode"),
+        LEGALARRANGEMENTLEGALFORM("legalArrangementLegalForm"),
+        LEGALARRANGEMENTMEMBER("legalArrangementMember"),
+        LEGALARRANGEMENTNAME("legalArrangementName"),
+        LEGALARRANGEMENTREFERENCE("legalArrangementReference"),
+        LEGALARRANGEMENTREGISTRATIONNUMBER("legalArrangementRegistrationNumber"),
+        LEGALARRANGEMENTTAXNUMBER("legalArrangementTaxNumber"),
+        LEGALARRANGEMENTTYPE("legalArrangementType"),
         LEGALBUSINESSNAME("legalBusinessName"),
         LEGALENTITY("legalEntity"),
         LEGALENTITYTYPE("legalEntityType"),
@@ -132,8 +146,13 @@ public class FieldType {
         SCHEDULE("schedule"),
         SHAREHOLDER("shareholder"),
         SHAREHOLDERCODE("shareholderCode"),
+        SHAREHOLDERTYPE("shareholderType"),
         SOCIALSECURITYNUMBER("socialSecurityNumber"),
         SOURCEACCOUNTCODE("sourceAccountCode"),
+        SPLITACCOUNT("splitAccount"),
+        SPLITCURRENCY("splitCurrency"),
+        SPLITVALUE("splitValue"),
+        SPLITS("splits"),
         STATEORPROVINCE("stateOrProvince"),
         STATUS("status"),
         STOCKEXCHANGE("stockExchange"),
@@ -152,7 +171,8 @@ public class FieldType {
         VALUE("value"),
         VIRTUALACCOUNT("virtualAccount"),
         VISANUMBER("visaNumber"),
-        WEBADDRESS("webAddress");
+        WEBADDRESS("webAddress"),
+        YEAR("year");
 
         @JsonValue
         private String value;

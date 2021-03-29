@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -90,7 +90,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
 
             @Override
             public NewStatusEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
+                Object value = jsonReader.nextString();
                 return NewStatusEnum.fromValue(String.valueOf(value));
             }
         }
@@ -143,7 +143,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
 
             @Override
             public OldStatusEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
+                Object value = jsonReader.nextString();
                 return OldStatusEnum.fromValue(String.valueOf(value));
             }
         }
@@ -186,7 +186,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
 
     public AccountHolderStoreStatusChangeNotificationContent addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<>();
+            this.invalidFields = new ArrayList<ErrorFieldType>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;
@@ -295,8 +295,9 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         this.storeReference = storeReference;
     }
 
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -318,6 +319,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         return Objects.hash(accountHolderCode, invalidFields, newStatus, oldStatus, reason, store, storeReference);
     }
 
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -333,4 +335,5 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         sb.append("}");
         return sb.toString();
     }
+
 }

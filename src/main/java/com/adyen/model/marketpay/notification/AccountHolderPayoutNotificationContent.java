@@ -14,12 +14,17 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 
 package com.adyen.model.marketpay.notification;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import com.adyen.model.Amount;
 import com.adyen.model.marketpay.BankAccountDetail;
@@ -30,10 +35,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -89,6 +90,7 @@ public class AccountHolderPayoutNotificationContent {
      */
     @JsonAdapter(PayoutSpeedEnum.Adapter.class)
     public enum PayoutSpeedEnum {
+        INSTANT("INSTANT"),
         SAME_DAY("SAME_DAY"),
         STANDARD("STANDARD");
 
@@ -124,7 +126,7 @@ public class AccountHolderPayoutNotificationContent {
 
             @Override
             public PayoutSpeedEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
+                Object value = jsonReader.nextString();
                 return PayoutSpeedEnum.fromValue(String.valueOf(value));
             }
         }
@@ -179,7 +181,7 @@ public class AccountHolderPayoutNotificationContent {
 
     public AccountHolderPayoutNotificationContent addAmountsItem(Amount amountsItem) {
         if (this.amounts == null) {
-            this.amounts = new ArrayList<>();
+            this.amounts = new ArrayList<Amount>();
         }
         this.amounts.add(amountsItem);
         return this;
@@ -259,7 +261,7 @@ public class AccountHolderPayoutNotificationContent {
 
     public AccountHolderPayoutNotificationContent addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
         if (this.invalidFields == null) {
-            this.invalidFields = new ArrayList<>();
+            this.invalidFields = new ArrayList<ErrorFieldType>();
         }
         this.invalidFields.add(invalidFieldsItem);
         return this;
@@ -440,8 +442,9 @@ public class AccountHolderPayoutNotificationContent {
         this.status = status;
     }
 
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -472,6 +475,7 @@ public class AccountHolderPayoutNotificationContent {
         return Objects.hash(accountCode, accountHolderCode, amounts, bankAccountDetail, description, estimatedArrivalDate, invalidFields, merchantReference, originalPspReference, payoutAccountCountry, payoutAccountNumber, payoutBankName, payoutBranchCode, payoutReference, payoutSpeed, status);
     }
 
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -496,4 +500,5 @@ public class AccountHolderPayoutNotificationContent {
         sb.append("}");
         return sb.toString();
     }
+
 }

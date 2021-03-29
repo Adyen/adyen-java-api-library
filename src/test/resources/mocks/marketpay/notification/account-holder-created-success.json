@@ -1,79 +1,183 @@
 {
-  "eventType":"ACCOUNT_HOLDER_CREATED",
-  "executingUserKey":"ws",
-  "live":"true",
-  "pspReference":"Test_ACCOUNT_HOLDER_CREATED",
-  "content":{
-    "pspReference":"Test_ACCOUNT_HOLDER_CREATED",
-    "accountHolderCode":"TestAccountHolder",
-    "accountCode":"118731451",
-    "accountHolderDetails":{
-      "bankAccountDetails":[
-
-      ],
-      "email":"testEmail@gmail.com",
-      "individualDetails":{
-        "name":{
-          "firstName":"testFirstName",
-          "gender":"MALE",
-          "lastName":"testLastName"
+  "error": {
+    "errorCode": "000",
+    "message": "test error message"
+  },
+  "eventDate": "2019-01-01T01:00:00+01:00",
+  "eventType": "ACCOUNT_HOLDER_CREATED",
+  "executingUserKey": "executing-user-key",
+  "live": false,
+  "pspReference": "TSTPSPR0001",
+  "content": {
+    "invalidFields": [
+      {
+        "errorCode": 1,
+        "errorDescription": "Field is missing",
+        "fieldType": {
+          "field": "AccountHolderDetails.BusinessDetails.Shareholders.unknown",
+          "fieldName": "unknown",
+          "shareholderCode": "SH00001"
         }
       }
-    },
-    "accountHolderStatus":{
-      "status":"Active",
-      "processingState":{
-        "processedFrom":{
-          "currency":"GBP",
-          "value":0
-        },
-        "processedTo":{
-          "currency":"GBP",
-          "value":9999
-        }
+    ],
+    "pspReference": "TSTPSPR0001",
+    "resultCode": "Success",
+    "accountCode": "AC0000000001",
+    "accountHolderCode": "AHC00000001",
+    "accountHolderDetails": {
+      "address": {
+        "city": "Amsterdam",
+        "country": "NL",
+        "houseNumberOrName": "96/A",
+        "postalCode": "1000AA",
+        "stateOrProvince": "Nord Holland",
+        "street": "Street"
       },
-      "payoutState":{
-        "allowPayout":"true",
-        "payoutLimit":{
-          "currency":"GBP",
-          "value":49999
-        }
-      }
-    },
-    "verification":{
-      "accountHolder":{
-        "checks":[
-          {
-            "type":"PASSPORT_VERIFICATION",
-            "status":"AWAITING_DATA",
-            "requiredFields":[
-              "AccountHolderDetails.Document.passport"
-            ]
-          },
-          {
-            "type":"IDENTITY_VERIFICATION",
-            "status":"PASSED",
-            "summary":{
-              "code":1602,
-              "description":"Passed"
-            }
-          }
-        ]
-      },
-      "bankAccounts":[
+      "bankAccountDetails": [
         {
-          "bankAccountUUID":"2f11df0b-a265-47ae-89c0-3d892066e7f5",
-          "checks":[
+          "accountNumber": "00000000",
+          "accountType": "checking",
+          "bankAccountName": "Account name",
+          "bankAccountReference": "Ref#000001",
+          "bankAccountUUID": "00000000-0000-0000-0000-000000000000",
+          "bankBicSwift": "BSWFT",
+          "bankCity": "Amsterdam",
+          "bankCode": "00000000",
+          "bankName": "Bank Name Co",
+          "branchCode": "00000000",
+          "checkCode": "1234",
+          "countryCode": "NL",
+          "currencyCode": "EUR",
+          "iban": "NL00NONE1234123412",
+          "ownerCity": "Amsterdam",
+          "ownerCountryCode": "NL",
+          "ownerDateOfBirth": "1981-02-27",
+          "ownerHouseNumberOrName": "32/B",
+          "ownerName": "Owner Name",
+          "ownerNationality": "NL",
+          "ownerPostalCode": "1000AA",
+          "ownerState": "Nord Holland",
+          "ownerStreet": "Owner Street",
+          "primaryAccount": false,
+          "taxId": "OT#12345",
+          "urlForVerification": "http://adyen.com"
+        }
+      ],
+      "email": "contact@adyen.com",
+      "fullPhoneNumber": "+31858888138",
+      "individualDetails": {
+        "name": {
+          "firstName": "Firstname",
+          "gender": "UNKNOWN",
+          "infix": "inifix",
+          "lastName": "Lastname"
+        },
+        "personalData": {
+          "dateOfBirth": "1981-02-27",
+          "documentData": [
             {
-              "type":"BANK_ACCOUNT_VERIFICATION",
-              "status":"PASSED"
+              "expirationDate": "2030-12-31",
+              "issuerCountry": "NL",
+              "issuerState": "Nord Holland",
+              "number": "ID#123456",
+              "type": "ID"
             }
-          ]
+          ],
+          "nationality": "Dutch"
+        }
+      },
+      "merchantCategoryCode": "1212",
+      "metadata": {
+        "MetaKey": "MetaValue"
+      },
+      "payoutInstrumentTokens": [
+        {
+          "merchantAccount": "MA000001",
+          "payoutInstrumentTokenCode": "PIT000001",
+          "payoutInstrumentTokenType": "CardToken",
+          "recurringDetailReference": "RDR0000001",
+          "shopperReference": "SR000001"
+        }
+      ],
+      "phoneNumber": {
+        "phoneCountryCode": "NL",
+        "phoneNumber": "858888138",
+        "phoneType": "Landline"
+      },
+      "webAddress": "https://adyen.com"
+    },
+    "accountHolderStatus": {
+      "status": "Active",
+      "statusReason": "Reason of status",
+      "processingState": {
+        "disabled": true,
+        "disableReason": "Reason of disabled",
+        "processedFrom": {
+          "currency": "EUR",
+          "value": 10
+        },
+        "processedTo": {
+          "currency": "EUR",
+          "value": 100
+        },
+        "tierNumber": 2
+      },
+      "payoutState": {
+        "allowPayout": false,
+        "payoutLimit": {
+          "currency": "EUR",
+          "value": 1000
+        },
+        "disabled": true,
+        "disableReason": "Reason of disabled",
+        "tierNumber": 2,
+        "notAllowedReason": "Reason of not allowed"
+      },
+      "events": [
+        {
+          "event": "InactivateAccount",
+          "executionDate": "2019-01-01T01:00:00+01:00",
+          "reason": "Reason of event"
         }
       ]
     },
-    "invalidFields":[
-
-    ]
+    "description": "Description for account holder",
+    "legalEntity": "Individual",
+    "primaryCurrency": "EUR",
+    "verification": {
+      "accountHolder": {
+        "checks": [
+          {
+            "type": "IDENTITY_VERIFICATION",
+            "status": "PENDING",
+            "summary": {
+              "kycCheckCode": 100,
+              "kycCheckDescription": "KYC check summary description"
+            },
+            "requiredFields": [
+              "field.missing"
+            ]
+          }
+        ]
+      },
+      "bankAccounts": [
+        {
+          "checks": [
+            {
+              "type": "IDENTITY_VERIFICATION",
+              "status": "PENDING",
+              "summary": {
+                "kycCheckCode": 100,
+                "kycCheckDescription": "KYC check summary description"
+              },
+              "requiredFields": [
+                "field.missing"
+              ]
+            }
+          ],
+          "bankAccountUUID": "00000000-0000-0000-0000-000000000000"
+        }
+      ]
+    }
   }
 }

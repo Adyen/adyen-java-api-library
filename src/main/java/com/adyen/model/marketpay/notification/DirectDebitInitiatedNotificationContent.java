@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -22,9 +22,12 @@
 package com.adyen.model.marketpay.notification;
 
 import com.adyen.model.Amount;
+import com.adyen.model.Split;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
@@ -43,8 +46,14 @@ public class DirectDebitInitiatedNotificationContent {
     @SerializedName("debitInitiationDate")
     private Date debitInitiationDate = null;
 
+    @SerializedName("invalidFields")
+    private List<ErrorFieldType> invalidFields = null;
+
     @SerializedName("merchantAccountCode")
     private String merchantAccountCode = null;
+
+    @SerializedName("splits")
+    private List<Split> splits = null;
 
     @SerializedName("status")
     private OperationStatus status = null;
@@ -103,6 +112,32 @@ public class DirectDebitInitiatedNotificationContent {
         this.debitInitiationDate = debitInitiationDate;
     }
 
+    public DirectDebitInitiatedNotificationContent invalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+        return this;
+    }
+
+    public DirectDebitInitiatedNotificationContent addInvalidFieldsItem(ErrorFieldType invalidFieldsItem) {
+        if (this.invalidFields == null) {
+            this.invalidFields = new ArrayList<ErrorFieldType>();
+        }
+        this.invalidFields.add(invalidFieldsItem);
+        return this;
+    }
+
+    /**
+     * Invalid fields list.
+     *
+     * @return invalidFields
+     **/
+    public List<ErrorFieldType> getInvalidFields() {
+        return invalidFields;
+    }
+
+    public void setInvalidFields(List<ErrorFieldType> invalidFields) {
+        this.invalidFields = invalidFields;
+    }
+
     public DirectDebitInitiatedNotificationContent merchantAccountCode(String merchantAccountCode) {
         this.merchantAccountCode = merchantAccountCode;
         return this;
@@ -119,6 +154,32 @@ public class DirectDebitInitiatedNotificationContent {
 
     public void setMerchantAccountCode(String merchantAccountCode) {
         this.merchantAccountCode = merchantAccountCode;
+    }
+
+    public DirectDebitInitiatedNotificationContent splits(List<Split> splits) {
+        this.splits = splits;
+        return this;
+    }
+
+    public DirectDebitInitiatedNotificationContent addSplitsItem(Split splitsItem) {
+        if (this.splits == null) {
+            this.splits = new ArrayList<Split>();
+        }
+        this.splits.add(splitsItem);
+        return this;
+    }
+
+    /**
+     * The split data for the debit request
+     *
+     * @return splits
+     **/
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
     }
 
     public DirectDebitInitiatedNotificationContent status(OperationStatus status) {
@@ -141,7 +202,7 @@ public class DirectDebitInitiatedNotificationContent {
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -152,14 +213,17 @@ public class DirectDebitInitiatedNotificationContent {
         return Objects.equals(this.accountCode, directDebitInitiatedNotificationContent.accountCode) &&
                 Objects.equals(this.amount, directDebitInitiatedNotificationContent.amount) &&
                 Objects.equals(this.debitInitiationDate, directDebitInitiatedNotificationContent.debitInitiationDate) &&
+                Objects.equals(this.invalidFields, directDebitInitiatedNotificationContent.invalidFields) &&
                 Objects.equals(this.merchantAccountCode, directDebitInitiatedNotificationContent.merchantAccountCode) &&
+                Objects.equals(this.splits, directDebitInitiatedNotificationContent.splits) &&
                 Objects.equals(this.status, directDebitInitiatedNotificationContent.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, amount, debitInitiationDate, merchantAccountCode, status);
+        return Objects.hash(accountCode, amount, debitInitiationDate, invalidFields, merchantAccountCode, splits, status);
     }
+
 
     @Override
     public String toString() {
@@ -169,9 +233,12 @@ public class DirectDebitInitiatedNotificationContent {
         sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    debitInitiationDate: ").append(toIndentedString(debitInitiationDate)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
         sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append("\n");
+        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }
+
 }
