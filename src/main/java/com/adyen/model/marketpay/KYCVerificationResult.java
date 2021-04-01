@@ -37,6 +37,9 @@ public class KYCVerificationResult {
     @SerializedName("bankAccounts")
     private List<KYCBankAccountCheckResult> bankAccounts = new ArrayList<>();
 
+    @SerializedName("payoutMethods")
+    private List<KYCPayoutMethodCheckResult> payoutMethods = new ArrayList<>();
+
     public List<KYCShareholderCheckResult> getShareholders() {
         return shareholders;
     }
@@ -61,8 +64,16 @@ public class KYCVerificationResult {
         this.bankAccounts = bankAccounts;
     }
 
+    public List<KYCPayoutMethodCheckResult> getPayoutMethods() {
+        return payoutMethods;
+    }
+
+    public void setPayoutMethods(List<KYCPayoutMethodCheckResult> payoutMethods) {
+        this.payoutMethods = payoutMethods;
+    }
+
     @Override
     public String toString() {
-        return "KYCVerificationResult{" + "shareholders=" + shareholders + ", accountHolder=" + accountHolder + ", bankAccounts=" + bankAccounts + '}';
+        return "KYCVerificationResult{" + "shareholders=" + shareholders + ", accountHolder=" + accountHolder + ", bankAccounts=" + bankAccounts + ", payoutMethods=" + payoutMethods + '}';
     }
 }

@@ -47,6 +47,9 @@ public class CreateAccountHolderRequest {
     @SerializedName("processingTier")
     private Integer processingTier = null;
 
+    @SerializedName("verificationProfile")
+    private String verificationProfile = null;
+
     /**
      * account holder legal entity type (Busines / Individual)
      */
@@ -182,6 +185,24 @@ public class CreateAccountHolderRequest {
         this.primaryCurrency = primaryCurrency;
     }
 
+    public CreateAccountHolderRequest verificationProfile(String verificationProfile) {
+        this.verificationProfile = verificationProfile;
+        return this;
+    }
+
+    /**
+     * The identifier of the profile that applies to this entity.
+     *
+     * @return verificationProfile
+     */
+    public String getVerificationProfile() {
+        return verificationProfile;
+    }
+
+    public void setVerificationProfile(String verificationProfile) {
+        this.verificationProfile = verificationProfile;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -195,12 +216,13 @@ public class CreateAccountHolderRequest {
                 && Objects.equals(this.accountHolderCode, createAccountHolderRequest.accountHolderCode)
                 && Objects.equals(this.accountHolderDetails, createAccountHolderRequest.accountHolderDetails)
                 && Objects.equals(this.processingTier, createAccountHolderRequest.processingTier)
-                && Objects.equals(this.legalEntity, createAccountHolderRequest.legalEntity);
+                && Objects.equals(this.legalEntity, createAccountHolderRequest.legalEntity)
+                && Objects.equals(this.verificationProfile, createAccountHolderRequest.verificationProfile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(createDefaultAccount, accountHolderCode, accountHolderDetails, processingTier, legalEntity);
+        return Objects.hash(createDefaultAccount, accountHolderCode, accountHolderDetails, processingTier, legalEntity, verificationProfile);
     }
 
 
@@ -216,6 +238,7 @@ public class CreateAccountHolderRequest {
         sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
         sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
+        sb.append("    verificationProfile: ").append(toIndentedString(verificationProfile)).append("\n");
         sb.append("}");
         return sb.toString();
     }

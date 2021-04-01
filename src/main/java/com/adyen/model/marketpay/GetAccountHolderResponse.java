@@ -125,6 +125,9 @@ public class GetAccountHolderResponse {
     @SerializedName("verification")
     private KYCVerificationResult verification = null;
 
+    @SerializedName("verificationProfile")
+    private String verificationProfile = null;
+
     public GetAccountHolderResponse accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
@@ -357,6 +360,23 @@ public class GetAccountHolderResponse {
         this.verification = verification;
     }
 
+    public GetAccountHolderResponse verificationProfile(String verificationProfile) {
+        this.verificationProfile = verificationProfile;
+        return this;
+    }
+
+    /**
+     * The identifier of the profile that applies to this entity.
+     *
+     * @return verificationProfile
+     */
+    public String getVerificationProfile() {
+        return verificationProfile;
+    }
+
+    public void setVerificationProfile(String verificationProfile) {
+        this.verificationProfile = verificationProfile;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -378,12 +398,13 @@ public class GetAccountHolderResponse {
                 Objects.equals(this.pspReference, getAccountHolderResponse.pspReference) &&
                 Objects.equals(this.resultCode, getAccountHolderResponse.resultCode) &&
                 Objects.equals(this.systemUpToDateTime, getAccountHolderResponse.systemUpToDateTime) &&
-                Objects.equals(this.verification, getAccountHolderResponse.verification);
+                Objects.equals(this.verification, getAccountHolderResponse.verification) &&
+                Objects.equals(this.verificationProfile, getAccountHolderResponse.verificationProfile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, accountHolderDetails, accountHolderStatus, accounts, description, invalidFields, legalEntity, primaryCurrency, pspReference, resultCode, systemUpToDateTime, verification);
+        return Objects.hash(accountHolderCode, accountHolderDetails, accountHolderStatus, accounts, description, invalidFields, legalEntity, primaryCurrency, pspReference, resultCode, systemUpToDateTime, verification, verificationProfile);
     }
 
 
@@ -404,6 +425,7 @@ public class GetAccountHolderResponse {
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    systemUpToDateTime: ").append(toIndentedString(systemUpToDateTime)).append("\n");
         sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
+        sb.append("    verificationProfile: ").append(toIndentedString(verificationProfile)).append("\n");
         sb.append("}");
         return sb.toString();
     }
