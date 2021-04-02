@@ -23,6 +23,7 @@ package com.adyen.model.marketpay;
 
 import com.adyen.model.Address;
 import com.adyen.model.Name;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -74,6 +75,7 @@ public class ShareholderContact {
     CONTROLLER("Controller"),
     OWNER("Owner");
 
+    @JsonValue
     private String value;
 
     ShareholderTypeEnum(String value) {
@@ -104,7 +106,7 @@ public class ShareholderContact {
 
       @Override
       public ShareholderTypeEnum read(final JsonReader jsonReader) throws IOException {
-        Object value = jsonReader.nextString();
+        String value = jsonReader.nextString();
         return ShareholderTypeEnum.fromValue(String.valueOf(value));
       }
     }

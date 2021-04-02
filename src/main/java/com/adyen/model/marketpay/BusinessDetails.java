@@ -55,7 +55,7 @@ public class BusinessDetails {
     @SerializedName("stockNumber")
     private String stockNumber = null;
 
-    @SerializedName("stockTicket")
+    @SerializedName("stockTicker")
     private String stockTicker = null;
 
     @SerializedName("taxId")

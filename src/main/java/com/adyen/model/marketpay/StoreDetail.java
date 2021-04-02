@@ -22,6 +22,7 @@
 package com.adyen.model.marketpay;
 
 import com.adyen.model.Address;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,6 +55,7 @@ public class StoreDetail {
         ECOMMERCE("Ecommerce"),
         POS("POS");
 
+        @JsonValue
         private String value;
 
         ShopperInteractionEnum(String value) {
@@ -84,7 +86,7 @@ public class StoreDetail {
 
             @Override
             public ShopperInteractionEnum read(final JsonReader jsonReader) throws IOException {
-                Object value = jsonReader.nextString();
+                String value = jsonReader.nextString();
                 return ShopperInteractionEnum.fromValue(String.valueOf(value));
             }
         }
@@ -104,6 +106,7 @@ public class StoreDetail {
         INACTIVEWITHMODIFICATIONS("InactiveWithModifications"),
         PENDING("Pending");
 
+        @JsonValue
         private String value;
 
         StatusEnum(String value) {
@@ -133,7 +136,7 @@ public class StoreDetail {
 
             @Override
             public StatusEnum read(final JsonReader jsonReader) throws IOException {
-                Object value = jsonReader.nextString();
+                String value = jsonReader.nextString();
                 return StatusEnum.fromValue(String.valueOf(value));
             }
         }
