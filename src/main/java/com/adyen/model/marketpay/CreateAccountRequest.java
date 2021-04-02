@@ -109,6 +109,15 @@ public class CreateAccountRequest {
     @SerializedName("payoutScheduleReason")
     private String payoutScheduleReason = null;
 
+    @SerializedName("bankAccountUUID")
+    private String bankAccountUUID = null;
+
+    @SerializedName("payoutMethodCode")
+    private String payoutMethodCode = null;
+
+    @SerializedName("payoutSpeed")
+    private PayoutSpeedEnum payoutSpeed = null;
+
     public CreateAccountRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
@@ -199,6 +208,44 @@ public class CreateAccountRequest {
         this.payoutScheduleReason = payoutScheduleReason;
     }
 
+    public CreateAccountRequest bankAccountUUID(String bankAccountUUID) {
+        this.bankAccountUUID = bankAccountUUID;
+        return this;
+    }
+
+    public String getBankAccountUUID() {
+        return bankAccountUUID;
+    }
+
+    public void setBankAccountUUID(String bankAccountUUID) {
+        this.bankAccountUUID = bankAccountUUID;
+    }
+
+    public CreateAccountRequest payoutMethodCode(String payoutMethodCode) {
+        this.payoutMethodCode = payoutMethodCode;
+        return this;
+    }
+
+    public String getPayoutMethodCode() {
+        return payoutMethodCode;
+    }
+
+    public void setPayoutMethodCode(String payoutMethodCode) {
+        this.payoutMethodCode = payoutMethodCode;
+    }
+
+    public CreateAccountRequest payoutSpeed(PayoutSpeedEnum payoutSpeed) {
+        this.payoutSpeed = payoutSpeed;
+        return this;
+    }
+
+    public PayoutSpeedEnum getPayoutSpeed() {
+        return payoutSpeed;
+    }
+
+    public void setPayoutSpeed(PayoutSpeedEnum payoutSpeed) {
+        this.payoutSpeed = payoutSpeed;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -213,12 +260,15 @@ public class CreateAccountRequest {
                 Objects.equals(this.description, createAccountRequest.description) &&
                 Objects.equals(this.metadata, createAccountRequest.metadata) &&
                 Objects.equals(this.payoutSchedule, createAccountRequest.payoutSchedule) &&
-                Objects.equals(this.payoutScheduleReason, createAccountRequest.payoutScheduleReason);
+                Objects.equals(this.payoutScheduleReason, createAccountRequest.payoutScheduleReason) &&
+                Objects.equals(this.bankAccountUUID, createAccountRequest.bankAccountUUID) &&
+                Objects.equals(this.payoutMethodCode, createAccountRequest.payoutMethodCode) &&
+                Objects.equals(this.payoutSpeed, createAccountRequest.payoutSpeed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, description, metadata, payoutSchedule, payoutScheduleReason);
+        return Objects.hash(accountHolderCode, description, metadata, payoutSchedule, payoutScheduleReason, bankAccountUUID, payoutMethodCode, payoutSpeed);
     }
 
 
@@ -232,6 +282,9 @@ public class CreateAccountRequest {
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
         sb.append("    payoutScheduleReason: ").append(toIndentedString(payoutScheduleReason)).append("\n");
+        sb.append("    bankAccountUUID").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    payoutMethodCode").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("    payoutSpeed").append(toIndentedString(payoutSpeed)).append("\n");
         sb.append("}");
         return sb.toString();
     }
