@@ -220,6 +220,7 @@ public class MarketPayTest extends BaseTest {
         assertEquals("681d5df6-cf38-4557-aecd-ac8ed0c04195", createAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
         assertEquals(BANK_ACCOUNT_VERIFICATION, createAccountHolderResponse.getVerification().getBankAccounts().get(0).getChecks().get(0).getCheckType());
         assertEquals(PASSED, createAccountHolderResponse.getVerification().getBankAccounts().get(0).getChecks().get(0).getCheckStatus());
+        assertEquals("705c2619-a9fb-48da-a121-c83fc37ee1cf", createAccountHolderResponse.getVerificationProfile());
     }
 
 
@@ -301,9 +302,12 @@ public class MarketPayTest extends BaseTest {
 
         // updateAccountHolder
         updateAccountHolderRequest.setAccountHolderDetails(accountHolderDetails);
+        updateAccountHolderRequest.setVerificationProfile("a3029731-77ec-4cad-ae7d-9b9c38851ad6");
+
         UpdateAccountHolderResponse updateAccountHolderResponse = account.updateAccountHolder(updateAccountHolderRequest);
 
         assertEquals(49999L, updateAccountHolderResponse.getAccountHolderStatus().getPayoutState().getPayoutLimit().getValue().longValue());
+        assertEquals("a3029731-77ec-4cad-ae7d-9b9c38851ad6", updateAccountHolderResponse.getVerificationProfile());
     }
 
     @Test
@@ -327,7 +331,14 @@ public class MarketPayTest extends BaseTest {
         assertNotNull(getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields());
         assertEquals("AccountHolderDetails.Address.address", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields().get(0));
         assertEquals("AccountHolderDetails.PhoneNumber.phoneNumber", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields().get(1));
-
+        assertEquals("d3d149a1-e39c-4b3a-8de3-da7b8f2cb3aa", getAccountHolderResponse.getVerificationProfile());
+        assertEquals("6dc80830-c165-4087-aedc-afb53d2601a8", getAccountHolderResponse.getAccountHolderDetails().getBankAggregatorDataReference());
+        assertEquals("Amsterdam", getAccountHolderResponse.getAccountHolderDetails().getPrincipalBusinessAddress().getCity());
+        assertEquals("NL", getAccountHolderResponse.getAccountHolderDetails().getPrincipalBusinessAddress().getCountry());
+        assertEquals("12345", getAccountHolderResponse.getAccountHolderDetails().getPrincipalBusinessAddress().getPostalCode());
+        assertEquals("TestMerchant1", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getMerchantAccount());
+        assertEquals("Other", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getMerchantCategoryCode());
+        assertEquals("611223344", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getPhoneNumber().getPhoneNumber());
     }
 
     @Test
@@ -351,6 +362,14 @@ public class MarketPayTest extends BaseTest {
         assertEquals(PASSED, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckStatus());
         assertEquals(1602, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getSummary().getKycCheckCode().intValue());
         assertEquals("Passed", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getSummary().getKycCheckDescription());
+        assertEquals("FBAR", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getStockExchange());
+        assertEquals("F1234", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getStockNumber());
+        assertEquals("TCOM", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getStockTicker());
+        assertEquals("b8d970ca-8951-4997-afc1-c6de204ec561", getAccountHolderResponse.getAccounts().get(0).getBankAccountUUID());
+        assertEquals("a8f392d1-7846-4a31-8c58-1b2e6abe8bb0", getAccountHolderResponse.getAccounts().get(0).getPayoutMethodCode());
+        assertEquals(PayoutSpeedEnum.STANDARD, getAccountHolderResponse.getAccounts().get(0).getPayoutSpeed());
+        assertEquals("Director", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getJobTitle());
+        assertEquals(ShareholderContact.ShareholderTypeEnum.CONTROLLER, getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getShareholderType());
     }
 
     @Test
@@ -416,6 +435,9 @@ public class MarketPayTest extends BaseTest {
         // create CreateAccount Request
         CreateAccountRequest createAccountRequest = new CreateAccountRequest();
         createAccountRequest.setAccountHolderCode("TestAccountHolder5691");
+        createAccountRequest.setBankAccountUUID("b8d970ca-8951-4997-afc1-c6de204ec561");
+        createAccountRequest.setPayoutMethodCode("a8f392d1-7846-4a31-8c58-1b2e6abe8bb0");
+        createAccountRequest.setPayoutSpeed(PayoutSpeedEnum.STANDARD);
 
         CreateAccountResponse createAccountResponse = account.createAccount(createAccountRequest);
         assertEquals("TestAccountHolder5691", createAccountResponse.getAccountHolderCode());
@@ -423,6 +445,9 @@ public class MarketPayTest extends BaseTest {
         assertEquals("9914913130220156", createAccountResponse.getPspReference());
         assertEquals("195920946", createAccountResponse.getAccountCode());
         assertEquals(CreateAccountResponse.StatusEnum.ACTIVE, createAccountResponse.getStatus());
+        assertEquals("b8d970ca-8951-4997-afc1-c6de204ec561", createAccountResponse.getBankAccountUUID());
+        assertEquals("a8f392d1-7846-4a31-8c58-1b2e6abe8bb0", createAccountResponse.getPayoutMethodCode());
+        assertEquals(PayoutSpeedEnum.STANDARD, createAccountResponse.getPayoutSpeed());
     }
 
     @Test
@@ -530,6 +555,7 @@ public class MarketPayTest extends BaseTest {
         CloseAccountResponse closeAccountResponse = account.closeAccount(closeAccountRequest);
         assertEquals("9914913129290137", closeAccountResponse.getPspReference());
         assertEquals("Success", closeAccountResponse.getResultCode());
+        assertEquals("118731451", closeAccountResponse.getAccountCode());
         assertEquals(CloseAccountResponse.StatusEnum.CLOSED, closeAccountResponse.getStatus());
     }
 
@@ -572,8 +598,11 @@ public class MarketPayTest extends BaseTest {
         amount.setValue(2000L);
         payoutAccountHolderRequest.setAmount(amount);
 
+        payoutAccountHolderRequest.setPayoutSpeed(PayoutSpeedEnum.STANDARD);
+
         PayoutAccountHolderResponse payoutAccountHolderResponse = fund.payoutAccountHolder(payoutAccountHolderRequest);
         assertEquals("testbankaccount", payoutAccountHolderResponse.getBankAccountUUID());
+        assertEquals(PayoutSpeedEnum.STANDARD, payoutAccountHolderResponse.getPayoutSpeed());
     }
 
     @Test
@@ -594,8 +623,15 @@ public class MarketPayTest extends BaseTest {
 
         updateAccountRequest.setPayoutSchedule(updatePayoutScheduleRequest);
 
+        updateAccountRequest.setBankAccountUUID("b8d970ca-8951-4997-afc1-c6de204ec561");
+        updateAccountRequest.setPayoutMethodCode("a8f392d1-7846-4a31-8c58-1b2e6abe8bb0");
+        updateAccountRequest.setPayoutSpeed(PayoutSpeedEnum.STANDARD);
+
         UpdateAccountResponse updateAccountResponse = account.updateAccount(updateAccountRequest);
         assertEquals(PayoutScheduleResponse.ScheduleEnum.WEEKLY, updateAccountResponse.getPayoutSchedule().getSchedule());
+        assertEquals("b8d970ca-8951-4997-afc1-c6de204ec561", updateAccountResponse.getBankAccountUUID());
+        assertEquals("a8f392d1-7846-4a31-8c58-1b2e6abe8bb0", updateAccountResponse.getPayoutMethodCode());
+        assertEquals(PayoutSpeedEnum.STANDARD, updateAccountResponse.getPayoutSpeed());
 
     }
 

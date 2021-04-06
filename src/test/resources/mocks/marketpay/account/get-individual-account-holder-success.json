@@ -56,7 +56,34 @@
     },
     "merchantCategoryCode": "9999",
     "payoutMethods": [],
-    "webAddress": null
+    "webAddress": null,
+    "bankAggregatorDataReference": "6dc80830-c165-4087-aedc-afb53d2601a8",
+    "principalBusinessAddress": {
+      "city": "Amsterdam",
+      "country": "NL",
+      "postalCode": "12345",
+      "houseNumberOrName": "1",
+      "street": "Baker Street"
+    },
+    "storeDetails": [
+      {
+        "address": {
+          "city": "Amsterdam",
+          "country": "NL",
+          "postalCode": "12345",
+          "houseNumberOrName": "1",
+          "street": "Baker Street"
+        },
+        "fullPhoneNumber": "0031 6 11 22 33 44",
+        "merchantAccount": "TestMerchant1",
+        "merchantCategoryCode": "Other",
+        "phoneNumber": {
+          "phoneCountryCode": "NL",
+          "phoneNumber": "611223344",
+          "phoneType": "Mobile"
+        }
+      }
+    ]
   },
   "accountHolderStatus": {
     "status": "Active",
@@ -163,5 +190,6 @@
         "bankAccountUUID": "ab3aeec6-a679-aaaa-dddd-88bd936a6a33"
       }
     ]
-  }
+  },
+  "verificationProfile": "d3d149a1-e39c-4b3a-8de3-da7b8f2cb3aa"
 }

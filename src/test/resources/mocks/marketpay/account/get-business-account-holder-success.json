@@ -70,10 +70,15 @@
             "phoneNumber": "0612345678",
             "phoneType": "Mobile"
           },
-          "shareholderCode": "d8ce1979-8f2b-42b9-8b1f-359af2575f91"
+          "shareholderCode": "d8ce1979-8f2b-42b9-8b1f-359af2575f91",
+          "jobTitle": "Director",
+          "shareholderType": "Controller"
         }
       ],
-      "taxId": "BV123456789"
+      "taxId": "BV123456789",
+      "stockExchange": "FBAR",
+      "stockNumber": "F1234",
+      "stockTicker": "TCOM"
     },
     "merchantCategoryCode": "9999",
     "payoutMethods": [],
@@ -108,7 +113,10 @@
         "nextScheduledPayout": "2020-02-11T00:00:00+01:00",
         "schedule": "DEFAULT"
       },
-      "status": "Active"
+      "status": "Active",
+      "bankAccountUUID": "b8d970ca-8951-4997-afc1-c6de204ec561",
+      "payoutMethodCode":"a8f392d1-7846-4a31-8c58-1b2e6abe8bb0",
+      "payoutSpeed": "STANDARD"
     },
     {
       "accountCode": "158653516",
