@@ -49,8 +49,8 @@ public class DeviceRenderOptions {
     @JsonAdapter(SdkInterfaceEnum.Adapter.class)
     public enum SdkInterfaceEnum {
 
-        HTML("Html"),
-        NATIVE("Native"),
+        HTML("html"),
+        NATIVE("native"),
         BOTH("both");
 
         @JsonValue
