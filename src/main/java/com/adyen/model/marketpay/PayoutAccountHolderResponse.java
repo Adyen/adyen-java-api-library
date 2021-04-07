@@ -51,6 +51,9 @@ public class PayoutAccountHolderResponse {
     @SerializedName("resultCode")
     private String resultCode = null;
 
+    @SerializedName("payoutSpeed")
+    private PayoutSpeedEnum payoutSpeed = PayoutSpeedEnum.STANDARD;
+
     public PayoutAccountHolderResponse bankAccountUUID(String bankAccountUUID) {
         this.bankAccountUUID = bankAccountUUID;
         return this;
@@ -149,6 +152,13 @@ public class PayoutAccountHolderResponse {
         this.resultCode = resultCode;
     }
 
+    public PayoutSpeedEnum getPayoutSpeed() {
+        return payoutSpeed;
+    }
+
+    public void setPayoutSpeed(PayoutSpeedEnum payoutSpeed) {
+        this.payoutSpeed = payoutSpeed;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -163,12 +173,13 @@ public class PayoutAccountHolderResponse {
                 Objects.equals(this.invalidFields, payoutAccountHolderResponse.invalidFields) &&
                 Objects.equals(this.merchantReference, payoutAccountHolderResponse.merchantReference) &&
                 Objects.equals(this.pspReference, payoutAccountHolderResponse.pspReference) &&
-                Objects.equals(this.resultCode, payoutAccountHolderResponse.resultCode);
+                Objects.equals(this.resultCode, payoutAccountHolderResponse.resultCode) &&
+                Objects.equals(this.payoutSpeed, payoutAccountHolderResponse.payoutSpeed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bankAccountUUID, invalidFields, merchantReference, pspReference, resultCode);
+        return Objects.hash(bankAccountUUID, invalidFields, merchantReference, pspReference, resultCode, payoutSpeed);
     }
 
 
@@ -182,6 +193,8 @@ public class PayoutAccountHolderResponse {
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    payoutSpeed: ").append(toIndentedString(payoutSpeed)).append("\n");
+
         sb.append("}");
         return sb.toString();
     }

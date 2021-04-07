@@ -3,5 +3,8 @@
   "resultCode": "Success",
   "accountHolderCode":"TestAccountHolder5691",
   "accountCode":"195920946",
-  "status":"Active"
+  "status":"Active",
+  "bankAccountUUID": "b8d970ca-8951-4997-afc1-c6de204ec561",
+  "payoutMethodCode":"a8f392d1-7846-4a31-8c58-1b2e6abe8bb0",
+  "payoutSpeed": "STANDARD"
 }

@@ -49,6 +49,15 @@ public class BusinessDetails {
     @SerializedName("shareholders")
     private List<ShareholderContact> shareholders = null;
 
+    @SerializedName("stockExchange")
+    private String stockExchange = null;
+
+    @SerializedName("stockNumber")
+    private String stockNumber = null;
+
+    @SerializedName("stockTicker")
+    private String stockTicker = null;
+
     @SerializedName("taxId")
     private String taxId = null;
 
@@ -168,6 +177,61 @@ public class BusinessDetails {
         this.taxId = taxId;
     }
 
+    public BusinessDetails stockExchange(String stockExchange) {
+        this.stockExchange = stockExchange;
+        return this;
+    }
+
+    /**
+     * Market Identifier Code (MIC)
+     *
+     * @return stockExchange
+     */
+    public String getStockExchange() {
+        return stockExchange;
+    }
+
+    public void setStockExchange(String stockExchange) {
+        this.stockExchange = stockExchange;
+    }
+
+    public BusinessDetails stockNumber(String stockNumber) {
+        this.stockNumber = stockNumber;
+        return this;
+    }
+
+    /**
+     * International Securities Identification Number (ISIN)
+     *
+     * @return stockNumber
+     */
+    public String getStockNumber() {
+        return stockNumber;
+    }
+
+    public void setStockNumber(String stockNumber) {
+        this.stockNumber = stockNumber;
+    }
+
+    public BusinessDetails stockTicker(String stockTicker) {
+        this.stockTicker = stockTicker;
+        return this;
+    }
+
+    /**
+     * Stock Ticker symbol.
+     *
+     * @return stockTicker
+     */
+    public String getStockTicker() {
+        return stockTicker;
+    }
+
+    public void setStockTicker(String stockTicker) {
+        this.stockTicker = stockTicker;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -183,12 +247,15 @@ public class BusinessDetails {
                 Objects.equals(this.legalBusinessName, businessDetails.legalBusinessName) &&
                 Objects.equals(this.registrationNumber, businessDetails.registrationNumber) &&
                 Objects.equals(this.shareholders, businessDetails.shareholders) &&
+                Objects.equals(this.stockExchange, businessDetails.stockExchange) &&
+                Objects.equals(this.stockNumber, businessDetails.stockNumber) &&
+                Objects.equals(this.stockTicker, businessDetails.stockTicker) &&
                 Objects.equals(this.taxId, businessDetails.taxId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(doingBusinessAs, incorporatedAt, legalBusinessName, registrationNumber, shareholders, taxId);
+        return Objects.hash(doingBusinessAs, incorporatedAt, legalBusinessName, registrationNumber, shareholders, stockExchange, stockNumber, stockTicker, taxId);
     }
 
 
@@ -202,6 +269,9 @@ public class BusinessDetails {
         sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
         sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
         sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
+        sb.append("    stockExchange: ").append(toIndentedString(stockExchange)).append("\n");
+        sb.append("    stockNumber: ").append(toIndentedString(stockNumber)).append("\n");
+        sb.append("    stockTicker: ").append(toIndentedString(stockTicker)).append("\n");
         sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
         sb.append("}");
         return sb.toString();

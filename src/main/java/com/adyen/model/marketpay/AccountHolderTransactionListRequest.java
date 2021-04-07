@@ -90,7 +90,19 @@ public class AccountHolderTransactionListRequest {
         PENDINGDEBIT("PendingDebit"),
 
         @SerializedName("PendingFundTransfer")
-        PENDINGFUNDTRANSFER("PendingFundTransfer");
+        PENDINGFUNDTRANSFER("PendingFundTransfer"),
+
+        @SerializedName("CreditClosed")
+        CREDITCLOSED("CreditClosed"),
+
+        @SerializedName("CreditSuspended")
+        CREDITSUSPENDED("CreditSuspended"),
+
+        @SerializedName("Converted")
+        CONVERTED("Converted"),
+
+        @SerializedName("ManualCorrected")
+        MANUALCORRECTED("ManualCorrected");
 
         @JsonValue
         private String value;

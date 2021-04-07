@@ -116,6 +116,15 @@ public class CreateAccountResponse {
     @SerializedName("status")
     private StatusEnum status = null;
 
+    @SerializedName("bankAccountUUID")
+    private String bankAccountUUID = null;
+
+    @SerializedName("payoutMethodCode")
+    private String payoutMethodCode = null;
+
+    @SerializedName("payoutSpeed")
+    private PayoutSpeedEnum payoutSpeed = null;
+
     public CreateAccountResponse accountCode(String accountCode) {
         this.accountCode = accountCode;
         return this;
@@ -294,6 +303,44 @@ public class CreateAccountResponse {
         this.status = status;
     }
 
+    public CreateAccountResponse bankAccountUUID(String bankAccountUUID) {
+        this.bankAccountUUID = bankAccountUUID;
+        return this;
+    }
+
+    public String getBankAccountUUID() {
+        return bankAccountUUID;
+    }
+
+    public void setBankAccountUUID(String bankAccountUUID) {
+        this.bankAccountUUID = bankAccountUUID;
+    }
+
+    public CreateAccountResponse payoutMethodCode(String payoutMethodCode) {
+        this.payoutMethodCode = payoutMethodCode;
+        return this;
+    }
+
+    public String getPayoutMethodCode() {
+        return payoutMethodCode;
+    }
+
+    public void setPayoutMethodCode(String payoutMethodCode) {
+        this.payoutMethodCode = payoutMethodCode;
+    }
+
+    public CreateAccountResponse payoutSpeed(PayoutSpeedEnum payoutSpeed) {
+        this.payoutSpeed = payoutSpeed;
+        return this;
+    }
+
+    public PayoutSpeedEnum getPayoutSpeed() {
+        return payoutSpeed;
+    }
+
+    public void setPayoutSpeed(PayoutSpeedEnum payoutSpeed) {
+        this.payoutSpeed = payoutSpeed;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -312,12 +359,15 @@ public class CreateAccountResponse {
                 Objects.equals(this.payoutSchedule, createAccountResponse.payoutSchedule) &&
                 Objects.equals(this.pspReference, createAccountResponse.pspReference) &&
                 Objects.equals(this.resultCode, createAccountResponse.resultCode) &&
-                Objects.equals(this.status, createAccountResponse.status);
+                Objects.equals(this.status, createAccountResponse.status) &&
+                Objects.equals(this.bankAccountUUID, createAccountResponse.bankAccountUUID) &&
+                Objects.equals(this.payoutMethodCode, createAccountResponse.payoutMethodCode) &&
+                Objects.equals(this.payoutSpeed, createAccountResponse.payoutSpeed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, accountHolderCode, description, invalidFields, metadata, payoutSchedule, pspReference, resultCode, status);
+        return Objects.hash(accountCode, accountHolderCode, description, invalidFields, metadata, payoutSchedule, pspReference, resultCode, status, bankAccountUUID, payoutMethodCode, payoutSpeed);
     }
 
 
@@ -335,6 +385,9 @@ public class CreateAccountResponse {
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    bankAccountUUID").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    payoutMethodCode").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("    payoutSpeed").append(toIndentedString(payoutSpeed)).append("\n");
         sb.append("}");
         return sb.toString();
     }

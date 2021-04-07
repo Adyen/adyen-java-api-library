@@ -1,5 +1,6 @@
 {
   "pspReference": "9915090894325643",
   "bankAccountUUID": "testbankaccount",
-  "merchantReference": "MerchantReference"
+  "merchantReference": "MerchantReference",
+  "payoutSpeed": "STANDARD"
 }

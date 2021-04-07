@@ -23,8 +23,14 @@ package com.adyen.model.marketpay;
 
 import com.adyen.model.Address;
 import com.adyen.model.Name;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
+import java.io.IOException;
 import java.util.Objects;
 
 
@@ -60,6 +66,54 @@ public class ShareholderContact {
 
   @SerializedName("webAddress")
   private String webAddress = null;
+
+  @SerializedName("jobTitle")
+  private String jobTitle = null;
+
+  @JsonAdapter(ShareholderTypeEnum.Adapter.class)
+  public enum ShareholderTypeEnum {
+    CONTROLLER("Controller"),
+    OWNER("Owner");
+
+    @JsonValue
+    private String value;
+
+    ShareholderTypeEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static ShareholderTypeEnum fromValue(String text) {
+      for (ShareholderTypeEnum b : ShareholderTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ShareholderTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ShareholderTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ShareholderTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ShareholderTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("shareholderType")
+  private ShareholderTypeEnum shareholderType = null;
 
   public ShareholderContact address(Address address) {
     this.address = address;
@@ -214,6 +268,31 @@ public class ShareholderContact {
     this.webAddress = webAddress;
   }
 
+  public ShareholderContact jobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+    return this;
+  }
+
+  public String getJobTitle() {
+    return jobTitle;
+  }
+
+  public void setJobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public ShareholderContact shareholderType(ShareholderTypeEnum shareholderType) {
+    this.shareholderType = shareholderType;
+    return this;
+  }
+
+  public ShareholderTypeEnum getShareholderType() {
+    return shareholderType;
+  }
+
+  public void setShareholderType(ShareholderTypeEnum shareholderType) {
+    this.shareholderType = shareholderType;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -232,12 +311,14 @@ public class ShareholderContact {
         Objects.equals(this.phoneNumber, shareholderContact.phoneNumber) &&
         Objects.equals(this.shareholderCode, shareholderContact.shareholderCode) &&
         Objects.equals(this.shareholderReference, shareholderContact.shareholderReference) &&
-        Objects.equals(this.webAddress, shareholderContact.webAddress);
+        Objects.equals(this.webAddress, shareholderContact.webAddress) &&
+        Objects.equals(this.jobTitle, shareholderContact.jobTitle) &&
+        Objects.equals(this.shareholderType, shareholderContact.shareholderType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, email, fullPhoneNumber, name, personalData, phoneNumber, shareholderCode, shareholderReference, webAddress);
+    return Objects.hash(address, email, fullPhoneNumber, name, personalData, phoneNumber, shareholderCode, shareholderReference, webAddress, jobTitle, shareholderType);
   }
 
 
@@ -255,6 +336,8 @@ public class ShareholderContact {
     sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
     sb.append("    shareholderReference: ").append(toIndentedString(shareholderReference)).append("\n");
     sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
+    sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
+    sb.append("    shareholderType: ").append(toIndentedString(shareholderType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
