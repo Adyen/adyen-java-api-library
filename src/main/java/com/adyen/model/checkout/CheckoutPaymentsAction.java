@@ -22,7 +22,6 @@ package com.adyen.model.checkout;
 
 import com.adyen.model.Amount;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.adyen.util.MaskUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -34,8 +33,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * CheckoutPaymentsAction
@@ -710,8 +707,12 @@ public class CheckoutPaymentsAction {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         CheckoutPaymentsAction checkoutPaymentsAction = (CheckoutPaymentsAction) o;
         return resendInterval == checkoutPaymentsAction.resendInterval &&
                 resendMaxAttempts == checkoutPaymentsAction.resendMaxAttempts &&
