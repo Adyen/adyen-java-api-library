@@ -22,7 +22,6 @@ package com.adyen.model.checkout;
 
 import com.adyen.model.Amount;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.adyen.util.MaskUtil;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -34,8 +33,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * CheckoutPaymentsAction
@@ -126,6 +123,18 @@ public class CheckoutPaymentsAction {
     @SerializedName("subtype")
     private String subtype;
 
+    @SerializedName("beneficiary")
+    private String beneficiary = null;
+
+    @SerializedName("bic")
+    private String bic = null;
+
+    @SerializedName("iban")
+    private String iban = null;
+
+    @SerializedName("shopperStatement")
+    private String shopperStatement = null;
+
     /**
      * Enum that specifies the action that needs to be taken by the client.
      */
@@ -139,7 +148,8 @@ public class CheckoutPaymentsAction {
         THREEDS2("threeDS2"),
         VOUCHER("voucher"),
         SDK("sdk"),
-        WECHATPAYSDK("wechatpaySDK");
+        WECHATPAYSDK("wechatpaySDK"),
+        BANKTRANSFER("bankTransfer");
 
         @JsonValue
         private String value;
@@ -647,6 +657,54 @@ public class CheckoutPaymentsAction {
         return this;
     }
 
+    public void setResendInterval(int resendInterval) {
+        this.resendInterval = resendInterval;
+    }
+
+    public void setResendMaxAttempts(int resendMaxAttempts) {
+        this.resendMaxAttempts = resendMaxAttempts;
+    }
+
+    public void setResendUrl(String resendUrl) {
+        this.resendUrl = resendUrl;
+    }
+
+    public void setRedirect(Redirect redirect) {
+        this.redirect = redirect;
+    }
+
+    public String getBeneficiary() {
+        return beneficiary;
+    }
+
+    public void setBeneficiary(String beneficiary) {
+        this.beneficiary = beneficiary;
+    }
+
+    public String getBic() {
+        return bic;
+    }
+
+    public void setBic(String bic) {
+        this.bic = bic;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getShopperStatement() {
+        return shopperStatement;
+    }
+
+    public void setShopperStatement(String shopperStatement) {
+        this.shopperStatement = shopperStatement;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -656,77 +714,85 @@ public class CheckoutPaymentsAction {
             return false;
         }
         CheckoutPaymentsAction checkoutPaymentsAction = (CheckoutPaymentsAction) o;
-        return Objects.equals(this.alternativeReference, checkoutPaymentsAction.alternativeReference) &&
-                Objects.equals(this.data, checkoutPaymentsAction.data) &&
-                Objects.equals(this.downloadUrl, checkoutPaymentsAction.downloadUrl) &&
-                Objects.equals(this.expiresAt, checkoutPaymentsAction.expiresAt) &&
-                Objects.equals(this.initialAmount, checkoutPaymentsAction.initialAmount) &&
-                Objects.equals(this.instructionsUrl, checkoutPaymentsAction.instructionsUrl) &&
-                Objects.equals(this.issuer, checkoutPaymentsAction.issuer) &&
-                Objects.equals(this.maskedTelephoneNumber, checkoutPaymentsAction.maskedTelephoneNumber) &&
-                Objects.equals(this.merchantName, checkoutPaymentsAction.merchantName) &&
-                Objects.equals(this.merchantReference, checkoutPaymentsAction.merchantReference) &&
-                Objects.equals(this.method, checkoutPaymentsAction.method) &&
-                Objects.equals(this.paymentData, checkoutPaymentsAction.paymentData) &&
-                Objects.equals(this.paymentMethodType, checkoutPaymentsAction.paymentMethodType) &&
-                Objects.equals(this.qrCodeData, checkoutPaymentsAction.qrCodeData) &&
-                Objects.equals(this.reference, checkoutPaymentsAction.reference) &&
-                Objects.equals(this.shopperEmail, checkoutPaymentsAction.shopperEmail) &&
-                Objects.equals(this.shopperName, checkoutPaymentsAction.shopperName) &&
-                Objects.equals(this.surcharge, checkoutPaymentsAction.surcharge) &&
-                Objects.equals(this.token, checkoutPaymentsAction.token) &&
-                Objects.equals(this.totalAmount, checkoutPaymentsAction.totalAmount) &&
-                Objects.equals(this.type, checkoutPaymentsAction.type) &&
-                Objects.equals(this.entity, checkoutPaymentsAction.entity) &&
-                Objects.equals(this.sdkData, checkoutPaymentsAction.sdkData) &&
-                Objects.equals(this.resendInterval, checkoutPaymentsAction.resendInterval) &&
-                Objects.equals(this.resendMaxAttempts, checkoutPaymentsAction.resendMaxAttempts) &&
-                Objects.equals(this.resendUrl, checkoutPaymentsAction.resendUrl) &&
-                Objects.equals(this.redirect, checkoutPaymentsAction.redirect) &&
-                Objects.equals(this.url, checkoutPaymentsAction.url);
+        return resendInterval == checkoutPaymentsAction.resendInterval &&
+                resendMaxAttempts == checkoutPaymentsAction.resendMaxAttempts &&
+                Objects.equals(alternativeReference, checkoutPaymentsAction.alternativeReference) &&
+                Objects.equals(data, checkoutPaymentsAction.data) &&
+                Objects.equals(downloadUrl, checkoutPaymentsAction.downloadUrl) &&
+                Objects.equals(expiresAt, checkoutPaymentsAction.expiresAt) &&
+                Objects.equals(initialAmount, checkoutPaymentsAction.initialAmount) &&
+                Objects.equals(instructionsUrl, checkoutPaymentsAction.instructionsUrl) &&
+                Objects.equals(issuer, checkoutPaymentsAction.issuer) &&
+                Objects.equals(maskedTelephoneNumber, checkoutPaymentsAction.maskedTelephoneNumber) &&
+                Objects.equals(merchantName, checkoutPaymentsAction.merchantName) &&
+                Objects.equals(merchantReference, checkoutPaymentsAction.merchantReference) &&
+                Objects.equals(method, checkoutPaymentsAction.method) &&
+                Objects.equals(paymentData, checkoutPaymentsAction.paymentData) &&
+                Objects.equals(paymentMethodType, checkoutPaymentsAction.paymentMethodType) &&
+                Objects.equals(qrCodeData, checkoutPaymentsAction.qrCodeData) &&
+                Objects.equals(reference, checkoutPaymentsAction.reference) &&
+                Objects.equals(shopperEmail, checkoutPaymentsAction.shopperEmail) &&
+                Objects.equals(shopperName, checkoutPaymentsAction.shopperName) &&
+                Objects.equals(surcharge, checkoutPaymentsAction.surcharge) &&
+                Objects.equals(token, checkoutPaymentsAction.token) &&
+                Objects.equals(totalAmount, checkoutPaymentsAction.totalAmount) &&
+                Objects.equals(entity, checkoutPaymentsAction.entity) &&
+                Objects.equals(sdkData, checkoutPaymentsAction.sdkData) &&
+                Objects.equals(resendUrl, checkoutPaymentsAction.resendUrl) &&
+                Objects.equals(redirect, checkoutPaymentsAction.redirect) &&
+                Objects.equals(authorisationToken, checkoutPaymentsAction.authorisationToken) &&
+                Objects.equals(subtype, checkoutPaymentsAction.subtype) &&
+                Objects.equals(beneficiary, checkoutPaymentsAction.beneficiary) &&
+                Objects.equals(bic, checkoutPaymentsAction.bic) &&
+                Objects.equals(iban, checkoutPaymentsAction.iban) &&
+                Objects.equals(shopperStatement, checkoutPaymentsAction.shopperStatement) &&
+                type == checkoutPaymentsAction.type &&
+                Objects.equals(url, checkoutPaymentsAction.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, type, url, entity, sdkData, resendInterval, resendMaxAttempts, resendUrl, redirect);
+        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, entity, sdkData, resendInterval, resendMaxAttempts, resendUrl, redirect, authorisationToken, subtype, beneficiary, bic, iban, shopperStatement, type, url);
     }
-
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("class CheckoutPaymentsAction {\n");
-
-        sb.append("    alternativeReference: ").append(toIndentedString(alternativeReference)).append("\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
-        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-        sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
-        sb.append("    initialAmount: ").append(toIndentedString(initialAmount)).append("\n");
-        sb.append("    instructionsUrl: ").append(toIndentedString(instructionsUrl)).append("\n");
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
-        sb.append("    maskedTelephoneNumber: ").append(toIndentedString(maskedTelephoneNumber)).append("\n");
-        sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    method: ").append(toIndentedString(method)).append("\n");
-        sb.append("    paymentData: ").append(toIndentedString(MaskUtil.mask(paymentData))).append("\n");
-        sb.append("    paymentMethodType: ").append(toIndentedString(paymentMethodType)).append("\n");
-        sb.append("    qrCodeData: ").append(toIndentedString(qrCodeData)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-        sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
-        sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
-        sb.append("    sdkData: ").append(toIndentedString(sdkData)).append("\n");
-        sb.append("    resendInterval: ").append(toIndentedString(resendInterval)).append("\n");
-        sb.append("    resendMaxAttempts: ").append(toIndentedString(resendMaxAttempts)).append("\n");
-        sb.append("    resendUrl: ").append(toIndentedString(resendUrl)).append("\n");
-        sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
-        sb.append("}");
+        final StringBuilder sb = new StringBuilder("CheckoutPaymentsAction{");
+        sb.append("alternativeReference='").append(alternativeReference).append('\'');
+        sb.append(", data=").append(data);
+        sb.append(", downloadUrl='").append(downloadUrl).append('\'');
+        sb.append(", expiresAt='").append(expiresAt).append('\'');
+        sb.append(", initialAmount=").append(initialAmount);
+        sb.append(", instructionsUrl='").append(instructionsUrl).append('\'');
+        sb.append(", issuer='").append(issuer).append('\'');
+        sb.append(", maskedTelephoneNumber='").append(maskedTelephoneNumber).append('\'');
+        sb.append(", merchantName='").append(merchantName).append('\'');
+        sb.append(", merchantReference='").append(merchantReference).append('\'');
+        sb.append(", method='").append(method).append('\'');
+        sb.append(", paymentData='").append(paymentData).append('\'');
+        sb.append(", paymentMethodType='").append(paymentMethodType).append('\'');
+        sb.append(", qrCodeData='").append(qrCodeData).append('\'');
+        sb.append(", reference='").append(reference).append('\'');
+        sb.append(", shopperEmail='").append(shopperEmail).append('\'');
+        sb.append(", shopperName='").append(shopperName).append('\'');
+        sb.append(", surcharge=").append(surcharge);
+        sb.append(", token='").append(token).append('\'');
+        sb.append(", totalAmount=").append(totalAmount);
+        sb.append(", entity='").append(entity).append('\'');
+        sb.append(", sdkData=").append(sdkData);
+        sb.append(", resendInterval=").append(resendInterval);
+        sb.append(", resendMaxAttempts=").append(resendMaxAttempts);
+        sb.append(", resendUrl='").append(resendUrl).append('\'');
+        sb.append(", redirect=").append(redirect);
+        sb.append(", authorisationToken='").append(authorisationToken).append('\'');
+        sb.append(", subtype='").append(subtype).append('\'');
+        sb.append(", beneficiary='").append(beneficiary).append('\'');
+        sb.append(", bic='").append(bic).append('\'');
+        sb.append(", iban='").append(iban).append('\'');
+        sb.append(", shopperStatement='").append(shopperStatement).append('\'');
+        sb.append(", type=").append(type);
+        sb.append(", url='").append(url).append('\'');
+        sb.append('}');
         return sb.toString();
     }
 
