@@ -40,37 +40,37 @@ public class MessageHeader {
      * The Protocol version.
      */
     @XmlAttribute(name = "ProtocolVersion")
-    @Schema(description = ">"--Rule:If MessageCategory is Login or Diagnosis")
-            protected String protocolVersion;
-            /**
-             * The Message class.
-            */
-            @XmlAttribute(name = "MessageClass", required = true)
-            @Schema(description = "Class of the message")
-            protected MessageClassType messageClass;
-            /**
-             * The Message category.
-            */
-            @XmlAttribute(name = "MessageCategory", required = true)
-            @Schema(description = "Category of message.")
-            protected MessageCategoryType messageCategory;
-            /**
-             * The Message type.
-            */
-            @XmlAttribute(name = "MessageType", required = true)
-            @Schema(description = "Type of message of the Sale to POI protocol")
-            protected MessageType messageType;
-            /**
-             * The Service id.
-            */
-            @XmlAttribute(name = "ServiceID")
-            @Schema(description = "Identification of a message pair, which processes a transaction --Rule: If "Service" or "Event" MessageClass message. If "Device" MessageClass, and request from POI or response from Sale.")
+    @Schema(description = ">--Rule:If MessageCategory is Login or Diagnosis")
+    protected String protocolVersion;
+    /**
+     * The Message class.
+     */
+    @XmlAttribute(name = "MessageClass", required = true)
+    @Schema(description = "Class of the message")
+    protected MessageClassType messageClass;
+    /**
+     * The Message category.
+     */
+    @XmlAttribute(name = "MessageCategory", required = true)
+    @Schema(description = "Category of message.")
+    protected MessageCategoryType messageCategory;
+    /**
+     * The Message type.
+     */
+    @XmlAttribute(name = "MessageType", required = true)
+    @Schema(description = "Type of message of the Sale to POI protocol")
+    protected MessageType messageType;
+    /**
+     * The Service id.
+     */
+    @XmlAttribute(name = "ServiceID")
+    @Schema(description = "Identification of a message pair, which processes a transaction --Rule: If \"Service\" or \"Event\" MessageClass message. If \"Device\" MessageClass, and request from POI or response from Sale.")
     protected String serviceID;
     /**
      * The Device id.
      */
     @XmlAttribute(name = "DeviceID")
-    @Schema(description = "Identification of a device message pair --Rule: If "Device" MessageClass")
+    @Schema(description = "Identification of a device message pair --Rule: If \"Device\" MessageClass")
     protected String deviceID;
     /**
      * The Sale id.

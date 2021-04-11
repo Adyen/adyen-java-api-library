@@ -55,14 +55,14 @@ public enum PaymentType {
      * One time reservation to be just followed by a completion when the service or good is delivered. This service is sometimes called "Deferred Sale".
      */
     @XmlEnumValue("OneTimeReservation")
-    @Schema(description = "One time reservation to be just followed by a completion when the service or good is delivered. This service is sometimes called "Deferred Sale".")
+    @Schema(description = "One time reservation to be just followed by a completion when the service or good is delivered. This service is sometimes called \"Deferred Sale\".")
     ONE_TIME_RESERVATION("OneTimeReservation"),
 
     /**
      * First reservation for an amount and period of time. This service is sometimes called "Pre-Authorisation".
      */
     @XmlEnumValue("FirstReservation")
-    @Schema(description = "First reservation for an amount and period of time. This service is sometimes called "Pre-Authorisation".")
+    @Schema(description = "First reservation for an amount and period of time. This service is sometimes called \"Pre-Authorisation\".")
     FIRST_RESERVATION("FirstReservation"),
 
     /**

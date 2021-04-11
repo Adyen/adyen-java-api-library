@@ -66,7 +66,7 @@ public class PaymentResult {
      * The Instalment.
      */
     @XmlElement(name = "Instalment")
-    @Schema(description = "Information related an instalment transaction. --Rule: Absent if PaymentType is not "IssuerInstalment"")
+    @Schema(description = "Information related an instalment transaction. --Rule: Absent if PaymentType is not \"IssuerInstalment\"")
     protected Instalment instalment;
     /**
      * The Currency conversion.

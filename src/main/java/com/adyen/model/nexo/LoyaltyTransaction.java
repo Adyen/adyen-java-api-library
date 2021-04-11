@@ -44,7 +44,7 @@ public class LoyaltyTransaction {
      * The Original poi transaction.
      */
     @XmlElement(name = "OriginalPOITransaction")
-    @Schema(description = "Identification of a previous POI transaction. --Rule: if LoyaltyTransactionType is "AwardRefund", "RebateRefund" or "RedemptionRefund"")
+    @Schema(description = "Identification of a previous POI transaction. --Rule: if LoyaltyTransactionType is \"AwardRefund\", \"RebateRefund\" or \"RedemptionRefund\"")
     protected OriginalPOITransaction originalPOITransaction;
     /**
      * The Transaction conditions.

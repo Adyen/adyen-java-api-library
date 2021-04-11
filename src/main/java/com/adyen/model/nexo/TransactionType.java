@@ -48,14 +48,14 @@ public enum TransactionType {
      * Payment Debit transactions (e.g. if PaymentType is "Normal")
      */
     @XmlEnumValue("Debit")
-    @Schema(description = "Payment Debit transactions (e.g. if PaymentType is "Normal")")
+    @Schema(description = "Payment Debit transactions (e.g. if PaymentType is \"Normal\")")
     DEBIT("Debit"),
 
     /**
      * Payment Credit transactions (e.g.  if PaymentType is "Refund")
      */
     @XmlEnumValue("Credit")
-    @Schema(description = "Payment Credit transactions (e.g.  if PaymentType is "Refund")")
+    @Schema(description = "Payment Credit transactions (e.g.  if PaymentType is \"Refund\")")
     CREDIT("Credit"),
 
     /**

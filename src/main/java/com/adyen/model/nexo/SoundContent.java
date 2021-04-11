@@ -40,31 +40,29 @@ public class SoundContent {
     protected String language;
 
     @XmlAttribute(name = "ReferenceID")
-    @Schema(description = "Identification of a predefined message to display, print or play. --Rule: Mandatory if
-            SoundFomat is SoundRef or MessageRef
-            ")
-            protected String referenceID;
-            @XmlAttribute(name = "Text")
-            @Schema(description = "Content of text message to display, print or play.")
-            protected String text;
+    @Schema(description = "Identification of a predefined message to display, print or play. --Rule: Mandatory if SoundFormat is SoundRef or MessageRef.")
+    protected String referenceID;
+    @XmlAttribute(name = "Text")
+    @Schema(description = "Content of text message to display, print or play.")
+    protected String text;
 
-            /**
-             * Gets the value of the soundFormat property.
-             *
-             * @return possible object is
-             * {@link SoundFormatType }
-            */
-            public SoundFormatType getSoundFormat(){
-            return soundFormat;
-            }
+    /**
+     * Gets the value of the soundFormat property.
+     *
+     * @return possible object is
+     * {@link SoundFormatType }
+     */
+    public SoundFormatType getSoundFormat() {
+        return soundFormat;
+    }
 
-            /**
-             * Sets the value of the soundFormat property.
-             *
-             * @param value allowed object is
-             *              {@link SoundFormatType }
-            */
-            public void setSoundFormat(SoundFormatType value) {
+    /**
+     * Sets the value of the soundFormat property.
+     *
+     * @param value allowed object is
+     *              {@link SoundFormatType }
+     */
+    public void setSoundFormat(SoundFormatType value) {
         this.soundFormat = value;
     }
 

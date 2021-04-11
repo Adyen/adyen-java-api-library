@@ -38,7 +38,7 @@ public enum TransactionActionType {
      * Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction to "StartTransaction", not followed by a service request from
      */
     @XmlEnumValue("AbortTransaction")
-    @Schema(description = "Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction to "StartTransaction", not followed by a service request from")
+    @Schema(description = "Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction to \"StartTransaction\", not followed by a service request from")
     ABORT_TRANSACTION("AbortTransaction");
     private final String value;
 

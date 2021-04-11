@@ -38,7 +38,7 @@ public class ReconciliationRequest {
      * The Acquirer id.
      */
     @XmlElement(name = "AcquirerID")
-    @Schema(description = "Identification of the Acquirer --Rule: Could be present only if ReconciliationType is "AcquirerReconciliation" or "AcquirerSynchronisation"")
+    @Schema(description = "Identification of the Acquirer --Rule: Could be present only if ReconciliationType is \"AcquirerReconciliation\" or \"AcquirerSynchronisation\"")
     protected List<String> acquirerID;
     /**
      * The Reconciliation.

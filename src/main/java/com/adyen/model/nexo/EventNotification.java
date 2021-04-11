@@ -49,7 +49,7 @@ public class EventNotification {
      * The Rejected message.
      */
     @XmlElement(name = "RejectedMessage")
-    @Schema(description = "Message request rejected by the receiver. --Rule: Mandatory if EventToNotify is "Reject", absent in other cases")
+    @Schema(description = "Message request rejected by the receiver. --Rule: Mandatory if EventToNotify is \"Reject\", absent in other cases")
     protected byte[] rejectedMessage;
     /**
      * The Display output.

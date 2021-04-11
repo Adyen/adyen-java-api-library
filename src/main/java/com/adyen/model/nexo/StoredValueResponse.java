@@ -63,7 +63,7 @@ public class StoredValueResponse {
      * The Stored value result.
      */
     @XmlElement(name = "StoredValueResult")
-    @Schema(description = "Result of loading/reloading a stored value card.. --Rule: If StoredValueResponse.Result is "Success" or "Partial", one entry per StoredValueRequest.StoredValueData loaded or")
+    @Schema(description = "Result of loading/reloading a stored value card.. --Rule: If StoredValueResponse.Result is \"Success\" or \"Partial\", one entry per StoredValueRequest.StoredValueData loaded or")
     protected List<StoredValueResult> storedValueResult;
 
     /**

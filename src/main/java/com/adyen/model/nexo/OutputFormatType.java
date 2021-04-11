@@ -1,4 +1,3 @@
-@Schema(description = "DisplayOutput uses the eXtensible HyperText Markup Language.")
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -47,6 +46,8 @@ public enum OutputFormatType {
     /**
      * DisplayOutput uses the eXtensible HyperText Markup Language.
      */
+    @XmlEnumValue("XHTML")
+    @Schema(description = "DisplayOutput uses the eXtensible HyperText Markup Language.")
     XHTML("XHTML"),
 
     /**

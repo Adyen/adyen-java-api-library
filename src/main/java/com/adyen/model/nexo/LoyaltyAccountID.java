@@ -45,28 +45,26 @@ public class LoyaltyAccountID {
     protected IdentificationType identificationType;
 
     @XmlAttribute(name = "IdentificationSupport")
-    @Schema(description = "Support of the loyalty account identification --Rule: if PaymentResponse or
-            LoyaltResponse or BalanceInquiryResponse
-            ")
-            protected IdentificationSupportType identificationSupport;
+    @Schema(description = "Support of the loyalty account identification --Rule: if PaymentResponse or LoyaltyResponse or BalanceInquiryResponse")
+    protected IdentificationSupportType identificationSupport;
 
-            /**
-             * Gets the value of the loyaltyID property.
-             *
-             * @return possible object is
-             * {@link String }
-            */
-            public String getLoyaltyID(){
-            return loyaltyID;
-            }
+    /**
+     * Gets the value of the loyaltyID property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
+    public String getLoyaltyID() {
+        return loyaltyID;
+    }
 
-            /**
-             * Sets the value of the loyaltyID property.
-             *
-             * @param value allowed object is
-             *              {@link String }
-            */
-            public void setLoyaltyID(String value) {
+    /**
+     * Sets the value of the loyaltyID property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setLoyaltyID(String value) {
         this.loyaltyID = value;
     }
 

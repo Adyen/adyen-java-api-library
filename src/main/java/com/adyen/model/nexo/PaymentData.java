@@ -56,7 +56,7 @@ public class PaymentData {
      * The Instalment.
      */
     @XmlElement(name = "Instalment")
-    @Schema(description = "Information related an instalment transaction. --Rule: If PaymentType is "Instalment" or "IssuerInstalment"")
+    @Schema(description = "Information related an instalment transaction. --Rule: If PaymentType is \"Instalment\" or \"IssuerInstalment\"")
     protected Instalment instalment;
     /**
      * The Customer order.

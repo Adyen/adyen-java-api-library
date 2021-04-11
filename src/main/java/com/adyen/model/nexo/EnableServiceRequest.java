@@ -40,7 +40,7 @@ public class EnableServiceRequest {
      */
     @XmlList
     @XmlElement(name = "ServicesEnabled")
-    @Schema(description = "Services which are enabled before the start-up of a transaction --Rule: Mandatory if TransactionAction is "StartTransaction", absent if not.")
+    @Schema(description = "Services which are enabled before the start-up of a transaction --Rule: Mandatory if TransactionAction is \"StartTransaction\", absent if not.")
     protected List<ServicesEnabledType> servicesEnabled;
     /**
      * The Display output.

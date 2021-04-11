@@ -39,19 +39,19 @@ public class PaymentInstrumentData {
      * The Card data.
      */
     @XmlElement(name = "CardData")
-    @Schema(description = "Information related to the payment card used for the transaction. --Rule: If PaymentInstrumentType is "Card"")
+    @Schema(description = "Information related to the payment card used for the transaction. --Rule: If PaymentInstrumentType is \"Card\"")
     protected CardData cardData;
     /**
      * The Check data.
      */
     @XmlElement(name = "CheckData")
-    @Schema(description = "Information related to the paper check used for the transaction. --Rule: If PaymentInstrumentType is "Check"")
+    @Schema(description = "Information related to the paper check used for the transaction. --Rule: If PaymentInstrumentType is \"Check\"")
     protected CheckData checkData;
     /**
      * The Mobile data.
      */
     @XmlElement(name = "MobileData")
-    @Schema(description = "Information related to the mobile for the payment transaction. --Rule: If PaymentInstrumentType is "Mobile"")
+    @Schema(description = "Information related to the mobile for the payment transaction. --Rule: If PaymentInstrumentType is \"Mobile\"")
     protected MobileData mobileData;
     /**
      * The Payment instrument.

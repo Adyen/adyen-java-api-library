@@ -63,7 +63,7 @@ public class CardData {
      * The Allowed product code.
      */
     @XmlElement(name = "AllowedProductCode")
-    @Schema(description = "Product codes that are payable by the payment card. --Rule: If ErrorCondition is "PaymentRestriction", some products are not payable by the payment card (payment response).")
+    @Schema(description = "Product codes that are payable by the payment card. --Rule: If ErrorCondition is \"PaymentRestriction\", some products are not payable by the payment card (payment response).")
     protected List<String> allowedProductCode;
     /**
      * The Allowed product.
