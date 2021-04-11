@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -40,11 +38,13 @@ public class AllowedProduct {
      * The Product label.
      */
     @XmlElement(name = "ProductLabel")
+    @Schema(description = "Product name of an item purchased with the transaction.")
     protected String productLabel;
     /**
      * The Additional product info.
      */
     @XmlElement(name = "AdditionalProductInfo")
+    @Schema(description = "Additionl information related to the line item.")
     protected String additionalProductInfo;
     /**
      * The Product code.

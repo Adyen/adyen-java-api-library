@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -38,45 +40,75 @@ import javax.xml.bind.annotation.XmlType;
 public class OutputText {
 
     @XmlAttribute(name = "Text", required = true)
+    @Schema(description = "Content of text message to display, print or play.")
     protected String text;
     @XmlAttribute(name = "CharacterSet")
-    protected Integer characterSet;
-    @XmlAttribute(name = "Font")
-    protected String font;
-    @XmlAttribute(name = "StartRow")
+    @Schema(description = "The character encoding of the text string. --Rule: If not present, the settings of the
+            target system or device are used.
+            ")
+            protected Integer characterSet;
+            @XmlAttribute(name = "Font")
+            @Schema(description = "Name of the font. --Rule: If not present, the settings of the target system or device
+            are used.
+            ")
+            protected String font;
+            @XmlAttribute(name = "StartRow")
+            @Schema(description = "Row from which the text string has to be displayed or printed. --Rule: If not present,
+            the settings of the target system or device are used(e.g.current row position).
+            ")
     protected Integer startRow;
+
     @XmlAttribute(name = "StartColumn")
-    protected Integer startColumn;
-    @XmlAttribute(name = "Color")
-    protected ColorType color;
-    @XmlAttribute(name = "CharacterWidth")
-    protected CharacterWidthType characterWidth;
-    @XmlAttribute(name = "CharacterHeight")
-    protected CharacterHeightType characterHeight;
-    @XmlAttribute(name = "CharacterStyle")
-    protected CharacterStyleType characterStyle;
-    @XmlAttribute(name = "Alignment")
-    protected AlignmentType alignment;
-    @XmlAttribute(name = "EndOfLineFlag")
-    protected Boolean endOfLineFlag;
+    @Schema(description = "Column from which the text string has to be displayed or printed. --Rule: If not
+            present, the settings of the target system or device are used(e.g.current column position).
+            ")
+            protected Integer startColumn;
+            @XmlAttribute(name = "Color")
+            @Schema(description = "Color of the text string to display or print. --Rule: If not present, default colour
+            used
+            ")
+            protected ColorType color;
+            @XmlAttribute(name = "CharacterWidth")
+            @Schema(description = "Character width of the text string to display or print. --Rule: If not present,
+            default width used
+            ")
+            protected CharacterWidthType characterWidth;
+            @XmlAttribute(name = "CharacterHeight")
+            @Schema(description = "Character height of the text string to display or print. --Rule: If not present,
+            default height used
+            ")
+            protected CharacterHeightType characterHeight;
+            @XmlAttribute(name = "CharacterStyle")
+            @Schema(description = "Typographic style of the sequence of characters to display or print. --Rule: If not
+            present, default style used
+            ")
+            protected CharacterStyleType characterStyle;
+            @XmlAttribute(name = "Alignment")
+            @Schema(description = "Alignment of the text string on the display line or print line --Rule: If not present,
+            default alignment used
+            ")
+            protected AlignmentType alignment;
+            @XmlAttribute(name = "EndOfLineFlag")
+            @Schema(description = "Text is at the end of a line.")
+            protected Boolean endOfLineFlag;
 
-    /**
-     * Gets the value of the text property.
-     *
-     * @return possible object is
-     * {@link String }
-     */
-    public String getText() {
-        return text;
-    }
+            /**
+             * Gets the value of the text property.
+             *
+             * @return possible object is
+             * {@link String }
+            */
+            public String getText(){
+            return text;
+            }
 
-    /**
-     * Sets the value of the text property.
-     *
-     * @param value allowed object is
-     *              {@link String }
-     */
-    public void setText(String value) {
+            /**
+             * Sets the value of the text property.
+             *
+             * @param value allowed object is
+             *              {@link String }
+            */
+            public void setText(String value) {
         this.text = value;
     }
 

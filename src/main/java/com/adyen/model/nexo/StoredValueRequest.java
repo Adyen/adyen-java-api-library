@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +39,13 @@ public class StoredValueRequest {
      * The Sale data.
      */
     @XmlElement(name = "SaleData", required = true)
+    @Schema(description = "Data related to the Sale System.")
     protected SaleData saleData;
     /**
      * The Stored value data.
      */
     @XmlElement(name = "StoredValueData", required = true)
+    @Schema(description = "Data related to the stored value card.")
     protected List<StoredValueData> storedValueData;
     /**
      * The Customer language.
@@ -73,28 +73,28 @@ public class StoredValueRequest {
 
     /**
      * Gets the value of the storedValueData property.
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the storedValueData property.
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getStoredValueData().add(newItem);
      * </pre>
-     *
-     *
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link StoredValueData }
      *

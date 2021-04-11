@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -37,11 +39,13 @@ public class InputResponse {
      * The Output result.
      */
     @XmlElement(name = "OutputResult")
+    @Schema(description = "Information related to the result the output (display, print, input). --Rule: If DisplayOutput present in the request.")
     protected OutputResult outputResult;
     /**
      * The Input result.
      */
     @XmlElement(name = "InputResult", required = true)
+    @Schema(description = "Information related to the result the input.")
     protected InputResult inputResult;
 
     /**

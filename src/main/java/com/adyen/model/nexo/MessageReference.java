@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -35,26 +37,31 @@ public class MessageReference {
      * The Message category.
      */
     @XmlAttribute(name = "MessageCategory")
+    @Schema(description = "Category of message. --Rule: Payment, Loyalty, StoredValue, CardAcquisition, Batch, Reconciliation, Display, Input, Print, CardReaderAPDU,")
     protected MessageCategoryType messageCategory;
     /**
      * The Service id.
      */
     @XmlAttribute(name = "ServiceID")
+    @Schema(description = "Identification of a message pair, which processes a transaction")
     protected String serviceID;
     /**
      * The Device id.
      */
     @XmlAttribute(name = "DeviceID")
+    @Schema(description = "Identification of a device message pair")
     protected String deviceID;
     /**
      * The Sale id.
      */
     @XmlAttribute(name = "SaleID")
+    @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol --Rule: default MessageHeader.SaleID")
     protected String saleID;
     /**
      * The Poiid.
      */
     @XmlAttribute(name = "POIID")
+    @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: default MessageHeader.POIID")
     protected String poiid;
 
     /**

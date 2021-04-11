@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
@@ -43,22 +41,26 @@ public class POISystemData {
      * The Date time.
      */
     @XmlElement(name = "DateTime", required = true)
+    @Schema(description = "Date and Time")
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dateTime;
     /**
      * The Poi software.
      */
     @XmlElement(name = "POISoftware", required = true)
+    @Schema(description = "Information related to the software of the POI System which manages the Sale to POI protocol.")
     protected POISoftware poiSoftware;
     /**
      * The Poi terminal data.
      */
     @XmlElement(name = "POITerminalData")
+    @Schema(description = "Information related to the software and hardware feature of the POI Terminal --Rule: Present if the login involve a POI Terminal")
     protected POITerminalData poiTerminalData;
     /**
      * The Poi status.
      */
     @XmlElement(name = "POIStatus")
+    @Schema(description = "State of a POI Terminal. --Rule: if Response.Result is Success")
     protected POIStatus poiStatus;
 
     /**

@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,21 +46,25 @@ public class InputUpdate {
      * The Message reference.
      */
     @XmlElement(name = "MessageReference", required = true)
+    @Schema(description = "Identification of a previous POI transaction.")
     protected MessageReference messageReference;
     /**
      * The Output content.
      */
     @XmlElement(name = "OutputContent", required = true)
+    @Schema(description = "Content to display or print.")
     protected OutputContent outputContent;
     /**
      * The Menu entry.
      */
     @XmlElement(name = "MenuEntry")
+    @Schema(description = "An entryof the menu to present to the Cashier")
     protected List<MenuEntry> menuEntry;
     /**
      * The Output signature.
      */
     @XmlElement(name = "OutputSignature")
+    @Schema(description = "Vendor specific signature of text message to display or print.")
     protected byte[] outputSignature;
     /**
      * The Min length.
@@ -118,21 +120,21 @@ public class InputUpdate {
 
     /**
      * Gets the value of the menuEntry property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the menuEntry property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMenuEntry().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link MenuEntry }
      *

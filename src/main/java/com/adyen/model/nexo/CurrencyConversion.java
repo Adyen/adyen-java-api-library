@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 
@@ -44,16 +42,19 @@ public class CurrencyConversion {
      * The Converted amount.
      */
     @XmlElement(name = "ConvertedAmount", required = true)
+    @Schema(description = "Amount after a currency conversion.")
     protected Amount convertedAmount;
     /**
      * The Commission.
      */
     @XmlElement(name = "Commission")
+    @Schema(description = "Commission for a service. --Rule: Commission of the conversion.")
     protected BigDecimal commission;
     /**
      * The Declaration.
      */
     @XmlElement(name = "Declaration")
+    @Schema(description = "Declaration to present to the customer or the cashier for validation. --Rule: If a declaration has to be presented to the customer")
     protected String declaration;
     /**
      * The Customer approved flag.

@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,11 +51,13 @@ public class TransactionTotals {
      * The Payment totals.
      */
     @XmlElement(name = "PaymentTotals")
+    @Schema(description = "Totals of the payment transaction during the reconciliation period. --Rule: If both TransactionCount and TransactionAmount are not equal to zero")
     protected List<PaymentTotals> paymentTotals;
     /**
      * The Loyalty totals.
      */
     @XmlElement(name = "LoyaltyTotals")
+    @Schema(description = "Totals of the loyalty transaction during the reconciliation period. --Rule: If both TransactionCount and TransactionAmount are not equal to zero")
     protected List<LoyaltyTotals> loyaltyTotals;
     /**
      * The Payment instrument.
@@ -127,21 +127,21 @@ public class TransactionTotals {
 
     /**
      * Gets the value of the paymentTotals property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the paymentTotals property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPaymentTotals().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PaymentTotals }
      *
@@ -156,21 +156,21 @@ public class TransactionTotals {
 
     /**
      * Gets the value of the loyaltyTotals property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the loyaltyTotals property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getLoyaltyTotals().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link LoyaltyTotals }
      *

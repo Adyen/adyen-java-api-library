@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -40,11 +38,13 @@ public class InputResult {
      * The Response.
      */
     @XmlElement(name = "Response", required = true)
+    @Schema(description = "Result of a message request processing.")
     protected Response response;
     /**
      * The Input.
      */
     @XmlElement(name = "Input")
+    @Schema(description = "Data entered by the user, related to the input command. --Rule: If Response.Result is Success")
     protected Input input;
     /**
      * The Device.

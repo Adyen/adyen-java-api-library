@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -45,16 +43,19 @@ public class OriginalPOITransaction {
      * The Poi transaction id.
      */
     @XmlElement(name = "POITransactionID")
+    @Schema(description = "Unique identification of a POI transaction for a POI --Rule: Absent if SaleReferenceID is sufficient to identify the transaction, or for some reversal cases.")
     protected TransactionIdentification poiTransactionID;
     /**
      * The Approval code.
      */
     @XmlElement(name = "ApprovalCode")
+    @Schema(description = "Code assigned to a transaction approval by the Acquirer. --Rule: If referral")
     protected String approvalCode;
     /**
      * The Host transaction id.
      */
     @XmlElement(name = "HostTransactionID")
+    @Schema(description = "Identification of the transaction by the host in charge of the stored value transaction --Rule: If POITransactionID not present")
     protected TransactionIdentification hostTransactionID;
     /**
      * The Sale id.

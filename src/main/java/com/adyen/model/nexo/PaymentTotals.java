@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -35,16 +37,19 @@ public class PaymentTotals {
      * The Transaction.
      */
     @XmlAttribute(name = "TransactionType", required = true)
+    @Schema(description = "Type of transaction for which totals are grouped. --Rule: Debit, Credit, ReverseDebit, ReverseCredit, OneTimeReservation, CompletedDeffered, FirstReservation, UpdateReservation,")
     protected TransactionType transactionType;
     /**
      * The Transaction count.
      */
     @XmlAttribute(name = "TransactionCount", required = true)
+    @Schema(description = "Number of processed transaction during the period.")
     protected BigInteger transactionCount;
     /**
      * The Transaction amount.
      */
     @XmlAttribute(name = "TransactionAmount", required = true)
+    @Schema(description = "Sum of amount of processed transaction during the period.")
     protected BigDecimal transactionAmount;
 
     /**

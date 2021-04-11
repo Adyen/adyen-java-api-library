@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -31,24 +33,28 @@ public enum IdentificationSupportType {
      * The identification is not found on a card
      */
     @XmlEnumValue("NoCard")
+    @Schema(description = "The identification is not found on a card")
     NO_CARD("NoCard"),
 
     /**
      * The identification is on a card dedicated to this loyalty brand.
      */
     @XmlEnumValue("LoyaltyCard")
+    @Schema(description = "The identification is on a card dedicated to this loyalty brand.")
     LOYALTY_CARD("LoyaltyCard"),
 
     /**
      * The identification is on a card which might be used both for the loyalty and the payment.
      */
     @XmlEnumValue("HybridCard")
+    @Schema(description = "The identification is on a card which might be used both for the loyalty and the payment.")
     HYBRID_CARD("HybridCard"),
 
     /**
      * The loyalty account is implicitly attached to the payment card. This is usually detected by the loyalty Acquirer.
      */
     @XmlEnumValue("LinkedCard")
+    @Schema(description = "The loyalty account is implicitly attached to the payment card. This is usually detected by the loyalty Acquirer.")
     LINKED_CARD("LinkedCard");
     private final String value;
 

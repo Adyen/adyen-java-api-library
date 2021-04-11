@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 
@@ -45,11 +43,13 @@ public class StoredValueData {
      * The Stored value account id.
      */
     @XmlElement(name = "StoredValueAccountID")
+    @Schema(description = "Identification of the stored value account or the stored value card --Rule: If the identification of the Stored Value account or card has been made by the Sale System before the request")
     protected StoredValueAccountID storedValueAccountID;
     /**
      * The Original poi transaction.
      */
     @XmlElement(name = "OriginalPOITransaction")
+    @Schema(description = "Identification of a previous POI transaction. --Rule: if StoredValueTransactionType  is Reverse or Duplicate")
     protected OriginalPOITransaction originalPOITransaction;
     /**
      * The Stored value provider.

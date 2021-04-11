@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -38,41 +40,49 @@ public class MessageHeader {
      * The Protocol version.
      */
     @XmlAttribute(name = "ProtocolVersion")
-    protected String protocolVersion;
-    /**
-     * The Message class.
-     */
-    @XmlAttribute(name = "MessageClass", required = true)
-    protected MessageClassType messageClass;
-    /**
-     * The Message category.
-     */
-    @XmlAttribute(name = "MessageCategory", required = true)
-    protected MessageCategoryType messageCategory;
-    /**
-     * The Message type.
-     */
-    @XmlAttribute(name = "MessageType", required = true)
-    protected MessageType messageType;
-    /**
-     * The Service id.
-     */
-    @XmlAttribute(name = "ServiceID")
+    @Schema(description = ">"--Rule:If MessageCategory is Login or Diagnosis")
+            protected String protocolVersion;
+            /**
+             * The Message class.
+            */
+            @XmlAttribute(name = "MessageClass", required = true)
+            @Schema(description = "Class of the message")
+            protected MessageClassType messageClass;
+            /**
+             * The Message category.
+            */
+            @XmlAttribute(name = "MessageCategory", required = true)
+            @Schema(description = "Category of message.")
+            protected MessageCategoryType messageCategory;
+            /**
+             * The Message type.
+            */
+            @XmlAttribute(name = "MessageType", required = true)
+            @Schema(description = "Type of message of the Sale to POI protocol")
+            protected MessageType messageType;
+            /**
+             * The Service id.
+            */
+            @XmlAttribute(name = "ServiceID")
+            @Schema(description = "Identification of a message pair, which processes a transaction --Rule: If "Service" or "Event" MessageClass message. If "Device" MessageClass, and request from POI or response from Sale.")
     protected String serviceID;
     /**
      * The Device id.
      */
     @XmlAttribute(name = "DeviceID")
+    @Schema(description = "Identification of a device message pair --Rule: If "Device" MessageClass")
     protected String deviceID;
     /**
      * The Sale id.
      */
     @XmlAttribute(name = "SaleID", required = true)
+    @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol")
     protected String saleID;
     /**
      * The Poiid.
      */
     @XmlAttribute(name = "POIID", required = true)
+    @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol")
     protected String poiid;
 
     /**

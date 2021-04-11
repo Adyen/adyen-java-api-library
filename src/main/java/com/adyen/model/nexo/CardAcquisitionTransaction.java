@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,16 +47,19 @@ public class CardAcquisitionTransaction {
      * The Allowed payment brand.
      */
     @XmlElement(name = "AllowedPaymentBrand")
+    @Schema(description = "Card payment brands allowed by the Sale System for the payment transaction.")
     protected List<String> allowedPaymentBrand;
     /**
      * The Allowed loyalty brand.
      */
     @XmlElement(name = "AllowedLoyaltyBrand")
+    @Schema(description = "Loyalty brands or programs allowed by the Sale System for the loyalty transaction.")
     protected List<String> allowedLoyaltyBrand;
     /**
      * The Force entry mode.
      */
     @XmlElement(name = "ForceEntryMode")
+    @Schema(description = "Payment instrument entry mode requested by the Sale System.")
     protected List<ForceEntryModeType> forceEntryMode;
     /**
      * The Loyalty handling.
@@ -93,21 +94,21 @@ public class CardAcquisitionTransaction {
 
     /**
      * Gets the value of the allowedPaymentBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedPaymentBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedPaymentBrand().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -122,21 +123,21 @@ public class CardAcquisitionTransaction {
 
     /**
      * Gets the value of the allowedLoyaltyBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedLoyaltyBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedLoyaltyBrand().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -151,21 +152,21 @@ public class CardAcquisitionTransaction {
 
     /**
      * Gets the value of the forceEntryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the forceEntryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getForceEntryMode().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ForceEntryModeType }
      *

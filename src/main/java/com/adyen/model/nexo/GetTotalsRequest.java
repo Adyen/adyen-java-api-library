@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,30 +39,32 @@ public class GetTotalsRequest {
      */
     @XmlList
     @XmlElement(name = "TotalDetails")
+    @Schema(description = "Indicates the hierarchical structure of the reconciliation result of the Sale to POI reconciliation. --Rule: Require to present totals per value of element included in this cluster (POI Terminal, Sale Terminal, Cashier, Shift,")
     protected List<TotalDetailsType> totalDetails;
     /**
      * The Total filter.
      */
     @XmlElement(name = "TotalFilter")
+    @Schema(description = "Filter to compute the totals. --Rule: If structure is not empty")
     protected TotalFilter totalFilter;
 
     /**
      * Gets the value of the totalDetails property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the totalDetails property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTotalDetails().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TotalDetailsType }
      *

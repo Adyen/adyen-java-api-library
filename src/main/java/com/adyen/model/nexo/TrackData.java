@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -30,10 +32,13 @@ import javax.xml.bind.annotation.XmlType;
 public class TrackData {
 
     @XmlAttribute(name = "TrackValue")
+    @Schema(description = "Card track content")
     protected String trackValue;
     @XmlAttribute(name = "TrackNumb")
+    @Schema(description = "Card track number")
     protected Integer trackNumb;
     @XmlAttribute(name = "TrackFormat")
+    @Schema(description = "Card track format")
     protected TrackFormatType trackFormat;
 
     /**

@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,36 +54,43 @@ public class PaymentResult {
      * The Payment instrument data.
      */
     @XmlElement(name = "PaymentInstrumentData")
+    @Schema(description = "Data related to the instrument of payment for the transaction. --Rule: If a payment instrument is analysed by the POI")
     protected PaymentInstrumentData paymentInstrumentData;
     /**
      * The Amounts resp.
      */
     @XmlElement(name = "AmountsResp")
+    @Schema(description = "Various amounts related to the payment response from the POI System. --Rule: If Result is Success or Partial")
     protected AmountsResp amountsResp;
     /**
      * The Instalment.
      */
     @XmlElement(name = "Instalment")
+    @Schema(description = "Information related an instalment transaction. --Rule: Absent if PaymentType is not "IssuerInstalment"")
     protected Instalment instalment;
     /**
      * The Currency conversion.
      */
     @XmlElement(name = "CurrencyConversion")
+    @Schema(description = "Information related to a currency conversion --Rule: If currency conversion the Sale needs to know")
     protected List<CurrencyConversion> currencyConversion;
     /**
      * The Captured signature.
      */
     @XmlElement(name = "CapturedSignature")
+    @Schema(description = "Numeric value of a handwritten signature. --Rule: If handwritten signature is captured on the POI by a signature capture device.")
     protected CapturedSignature capturedSignature;
     /**
      * The Protected signature.
      */
     @XmlElement(name = "ProtectedSignature")
+    @Schema(description = "Numeric value of a handwritten signature. --Rule: Encrypted handwritten signature captured on the POI by a signature capture device.")
     protected ContentInformation protectedSignature;
     /**
      * The Payment acquirer data.
      */
     @XmlElement(name = "PaymentAcquirerData")
+    @Schema(description = "Data related to the response from the payment Acquirer. --Rule: If a card is analysed and data available")
     protected PaymentAcquirerData paymentAcquirerData;
     /**
      * The Payment type.
@@ -174,21 +179,21 @@ public class PaymentResult {
 
     /**
      * Gets the value of the currencyConversion property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the currencyConversion property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCurrencyConversion().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CurrencyConversion }
      *
@@ -341,21 +346,21 @@ public class PaymentResult {
 
     /**
      * Gets the value of the authenticationMethod property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the authenticationMethod property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAuthenticationMethod().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AuthenticationMethodType }
      *

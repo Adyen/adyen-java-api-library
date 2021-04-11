@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
@@ -55,37 +52,44 @@ public class SaleItem {
      * The Unit of measure.
      */
     @XmlElement(name = "UnitOfMeasure")
+    @Schema(description = "Unit of measure of a quantity --Rule: if Quantity present")
     @XmlSchemaType(name = "string")
     protected UnitOfMeasureType unitOfMeasure;
     /**
      * The Quantity.
      */
     @XmlElement(name = "Quantity")
+    @Schema(description = "Product quantity --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
     protected BigDecimal quantity;
     /**
      * The Unit price.
      */
     @XmlElement(name = "UnitPrice")
+    @Schema(description = "Price per unit of product --Rule: if Quantity present")
     protected BigDecimal unitPrice;
     /**
      * The Tax code.
      */
     @XmlElement(name = "TaxCode")
+    @Schema(description = "Type of taxes associated to the line item. --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
     protected String taxCode;
     /**
      * The Sale channel.
      */
     @XmlElement(name = "SaleChannel")
+    @Schema(description = "Commercial or distribution channel associated to the line item. --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
     protected String saleChannel;
     /**
      * The Product label.
      */
     @XmlElement(name = "ProductLabel")
+    @Schema(description = "Product name of an item purchased with the transaction.")
     protected String productLabel;
     /**
      * The Additional product info.
      */
     @XmlElement(name = "AdditionalProductInfo")
+    @Schema(description = "Additionl information related to the line item. --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
     protected String additionalProductInfo;
     /**
      * The Item id.

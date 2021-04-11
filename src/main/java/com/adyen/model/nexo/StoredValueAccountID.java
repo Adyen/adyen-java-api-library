@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -36,37 +38,50 @@ import java.util.List;
 public class StoredValueAccountID {
 
     @XmlAttribute(name = "StoredValueAccountType", required = true)
+    @Schema(description = "Type of stored value account")
     protected StoredValueAccountType storedValueAccountType;
+
     @XmlAttribute(name = "StoredValueProvider")
-    protected String storedValueProvider;
-    @XmlAttribute(name = "OwnerName")
-    protected String ownerName;
-    @XmlAttribute(name = "ExpiryDate")
-    protected String expiryDate;
-    @XmlAttribute(name = "EntryMode", required = true)
-    protected List<EntryModeType> entryMode;
-    @XmlAttribute(name = "IdentificationType", required = true)
-    protected IdentificationType identificationType;
-    @XmlAttribute(name = "StoredValueID", required = true)
-    protected String storedValueID;
+    @Schema(description = "Identification of the provider of the stored value account load/reload --Rule: If
+            available for the card or account.
+            ")
+            protected String storedValueProvider;
+            @XmlAttribute(name = "OwnerName")
+            @Schema(description = "Owner name of an account --Rule: If available for the card or account.
+            ")
+            protected String ownerName;
+            @XmlAttribute(name = "ExpiryDate")
+            @Schema(description = "Date after which the card cannot be used. --Rule: If required for the card or
+            account.
+            ")
+            protected String expiryDate;
+            @XmlAttribute(name = "EntryMode", required = true)
+            @Schema(description = "Entry mode of the payment instrument information")
+            protected List<EntryModeType>entryMode;
+            @XmlAttribute(name = "IdentificationType", required = true)
+            @Schema(description = "Type of account identification")
+            protected IdentificationType identificationType;
+            @XmlAttribute(name = "StoredValueID", required = true)
+            @Schema(description = "Stored value account identification")
+            protected String storedValueID;
 
-    /**
-     * Gets the value of the storedValueAccountType property.
-     *
-     * @return possible object is
-     * {@link StoredValueAccountType }
-     */
-    public StoredValueAccountType getStoredValueAccountType() {
-        return storedValueAccountType;
-    }
+            /**
+             * Gets the value of the storedValueAccountType property.
+             *
+             * @return possible object is
+             * {@link StoredValueAccountType }
+            */
+            public StoredValueAccountType getStoredValueAccountType(){
+            return storedValueAccountType;
+            }
 
-    /**
-     * Sets the value of the storedValueAccountType property.
-     *
-     * @param value allowed object is
-     *              {@link StoredValueAccountType }
-     */
-    public void setStoredValueAccountType(StoredValueAccountType value) {
+            /**
+             * Sets the value of the storedValueAccountType property.
+             *
+             * @param value allowed object is
+             *              {@link StoredValueAccountType }
+            */
+            public void setStoredValueAccountType(StoredValueAccountType value) {
         this.storedValueAccountType = value;
     }
 

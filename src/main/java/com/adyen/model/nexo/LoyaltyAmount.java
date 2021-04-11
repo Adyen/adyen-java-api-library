@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 
@@ -46,6 +44,7 @@ public class LoyaltyAmount {
      * The Currency.
      */
     @XmlAttribute(name = "Currency")
+    @Schema(description = "Currency of a monetary amount. --Rule: if LoyaltyUnit is Monetary")
     protected String currency;
 
     /**

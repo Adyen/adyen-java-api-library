@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 
@@ -42,11 +40,13 @@ public class ReversalRequest {
      * The Original poi transaction.
      */
     @XmlElement(name = "OriginalPOITransaction", required = true)
+    @Schema(description = "Identification of a previous POI transaction.")
     protected OriginalPOITransaction originalPOITransaction;
     /**
      * The Customer order id.
      */
     @XmlElement(name = "CustomerOrderID")
+    @Schema(description = "If the reversal is performed inside a customer order.")
     protected CustomerOrder customerOrderID;
     /**
      * The Sale reference id.

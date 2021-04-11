@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +39,7 @@ public class SensitiveCardData {
      * The Track data.
      */
     @XmlElement(name = "TrackData")
+    @Schema(description = "Magnetic track or magnetic ink characters line. --Rule: if EntryMode is MagStripe or RFID ")
     protected List<TrackData> trackData;
     /**
      * The Pan.
@@ -60,28 +59,28 @@ public class SensitiveCardData {
 
     /**
      * Gets the value of the trackData property.
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the trackData property.
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTrackData().add(newItem);
      * </pre>
-     *
-     *
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TrackData }
      *

@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -31,6 +33,7 @@ public class LogoutRequest {
      * The Maintenance allowed.
      */
     @XmlAttribute(name = "MaintenanceAllowed")
+    @Schema(description = "Indicates that the POI terminal is able to (or have to) go to maintenance.")
     protected Boolean maintenanceAllowed;
 
     /**

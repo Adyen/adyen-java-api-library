@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -33,36 +35,42 @@ public enum LoyaltyTransactionType {
      * Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of a
      */
     @XmlEnumValue("Award")
+    @Schema(description = "Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of a")
     AWARD("Award"),
 
     /**
      * Rebate on a total amount, sale item amount, or sale items
      */
     @XmlEnumValue("Rebate")
+    @Schema(description = "Rebate on a total amount, sale item amount, or sale items")
     REBATE("Rebate"),
 
     /**
      * Redemption on a loyalty account.
      */
     @XmlEnumValue("Redemption")
+    @Schema(description = "Redemption on a loyalty account.")
     REDEMPTION("Redemption"),
 
     /**
      * Refund of a loyalty award transaction.
      */
     @XmlEnumValue("AwardRefund")
+    @Schema(description = "Refund of a loyalty award transaction.")
     AWARD_REFUND("AwardRefund"),
 
     /**
      * Refund of a loyalty rebate transaction.
      */
     @XmlEnumValue("RebateRefund")
+    @Schema(description = "Refund of a loyalty rebate transaction.")
     REBATE_REFUND("RebateRefund"),
 
     /**
      * Refund of a loyalty redemption transaction.
      */
     @XmlEnumValue("RedemptionRefund")
+    @Schema(description = "Refund of a loyalty redemption transaction.")
     REDEMPTION_REFUND("RedemptionRefund");
     private final String value;
 

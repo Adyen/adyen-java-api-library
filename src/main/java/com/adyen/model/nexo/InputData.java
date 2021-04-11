@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
 
 
@@ -57,11 +55,13 @@ public class InputData {
      * The Default input string.
      */
     @XmlElement(name = "DefaultInputString")
+    @Schema(description = "Default string value for an input command. --Rule: Not allowed if InputCommand is not TextString, DigitString or DecimalString")
     protected String defaultInputString;
     /**
      * The String mask.
      */
     @XmlElement(name = "StringMask")
+    @Schema(description = "String mask to get information requiring a specific format. --Rule: Not allowed if InputCommand is not TextString, DigitString or DecimalString")
     protected String stringMask;
     /**
      * The Device.

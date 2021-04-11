@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
@@ -45,16 +43,19 @@ public class EventNotification {
      * The Event details.
      */
     @XmlElement(name = "EventDetails")
+    @Schema(description = "Information about the event the POI notifies to the Sale System. --Rule: EventToNotify")
     protected String eventDetails;
     /**
      * The Rejected message.
      */
     @XmlElement(name = "RejectedMessage")
+    @Schema(description = "Message request rejected by the receiver. --Rule: Mandatory if EventToNotify is "Reject", absent in other cases")
     protected byte[] rejectedMessage;
     /**
      * The Display output.
      */
     @XmlElement(name = "DisplayOutput")
+    @Schema(description = "Information to display and the way to process the display. --Rule: To display an event message")
     protected DisplayOutput displayOutput;
     /**
      * The Time stamp.

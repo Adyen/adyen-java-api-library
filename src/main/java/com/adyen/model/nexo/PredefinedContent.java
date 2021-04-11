@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -32,11 +34,13 @@ public class PredefinedContent {
      * The Reference id.
      */
     @XmlAttribute(name = "ReferenceID", required = true)
+    @Schema(description = "Identification of a predefined message to display, print or play.")
     protected String referenceID;
     /**
      * The Language.
      */
     @XmlAttribute(name = "Language")
+    @Schema(description = "Identification of a language.")
     protected String language;
 
     /**

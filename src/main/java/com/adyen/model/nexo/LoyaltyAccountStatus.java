@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 
@@ -40,6 +38,7 @@ public class LoyaltyAccountStatus {
      * The Loyalty account.
      */
     @XmlElement(name = "LoyaltyAccount", required = true)
+    @Schema(description = "Data related to a loyalty account processed in the transaction.")
     protected LoyaltyAccount loyaltyAccount;
     /**
      * The Current balance.

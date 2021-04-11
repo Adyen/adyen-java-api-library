@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,21 +45,25 @@ public class ReversalResponse {
      * The Response.
      */
     @XmlElement(name = "Response", required = true)
+    @Schema(description = "Result of a message request processing.")
     protected Response response;
     /**
      * The Poi data.
      */
     @XmlElement(name = "POIData")
+    @Schema(description = "Data related to the POI System. --Rule: If Result is Success")
     protected POIData poiData;
     /**
      * The Original poi transaction.
      */
     @XmlElement(name = "OriginalPOITransaction")
+    @Schema(description = "Identification of a previous POI transaction. --Rule: Present if POITransactionID absent in the request")
     protected OriginalPOITransaction originalPOITransaction;
     /**
      * The Payment receipt.
      */
     @XmlElement(name = "PaymentReceipt")
+    @Schema(description = "Customer or Merchant payment receipt. --Rule: If Basic profile implementation with no printer on the POI.")
     protected List<PaymentReceipt> paymentReceipt;
     /**
      * The Reversed amount.
@@ -130,21 +132,21 @@ public class ReversalResponse {
 
     /**
      * Gets the value of the paymentReceipt property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the paymentReceipt property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPaymentReceipt().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link PaymentReceipt }
      *

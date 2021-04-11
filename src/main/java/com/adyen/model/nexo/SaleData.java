@@ -3,12 +3,9 @@ package com.adyen.model.nexo;
 import com.adyen.model.terminal.SaleToAcquirerData;
 import com.adyen.serializer.SaleToAcquirerDataSerializer;
 import com.google.gson.annotations.JsonAdapter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,32 +56,38 @@ public class SaleData {
      * The Sale transaction id.
      */
     @XmlElement(name = "SaleTransactionID", required = true)
+    @Schema(description = "Unique identification of a Sale transaction")
     protected TransactionIdentification saleTransactionID;
     /**
      * The Sale terminal data.
      */
     @XmlElement(name = "SaleTerminalData")
+    @Schema(description = "Information related to the software and hardware feature of the Sale Terminal. --Rule: If content is not empty")
     protected SaleTerminalData saleTerminalData;
     /**
      * The Sponsored merchant.
      */
     @XmlElement(name = "SponsoredMerchant")
+    @Schema(description = "Merchant using the payment services of a payment facilitator, acting as a card acceptor. --Rule: If the merchant is a payment facilitator providing services to sponsored merchants.")
     protected List<SponsoredMerchant> sponsoredMerchant;
     /**
      * The Sale to poi data.
      */
     @XmlElement(name = "SaleToPOIData")
+    @Schema(description = "Sale information intended for the POI. --Rule: Stored with the transaction")
     protected String saleToPOIData;
     /**
      * The Sale to acquirer data.
      */
     @XmlElement(name = "SaleToAcquirerData")
+    @Schema(description = "Sale information intended for the Acquirer. --Rule: Send to the Acquirer if present")
     @JsonAdapter(SaleToAcquirerDataSerializer.class)
     protected SaleToAcquirerData saleToAcquirerData;
     /**
      * The Sale to issuer data.
      */
     @XmlElement(name = "SaleToIssuerData")
+    @Schema(description = "Sale information intended for the Issuer. --Rule: Send to the Acquirer if present")
     protected SaleToIssuerData saleToIssuerData;
     /**
      * The Operator id.

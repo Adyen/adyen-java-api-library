@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -35,6 +37,7 @@ public class AdminRequest {
      * The Service identification.
      */
     @XmlElement(name = "ServiceIdentification")
+    @Schema(description = "Identification of the administrative service to process.")
     protected String serviceIdentification;
 
     /**

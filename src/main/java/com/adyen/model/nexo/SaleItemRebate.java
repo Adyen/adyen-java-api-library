@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
@@ -47,17 +44,20 @@ public class SaleItemRebate {
      * The Unit of measure.
      */
     @XmlElement(name = "UnitOfMeasure")
+    @Schema(description = "Unit of measure of a quantity --Rule: if Quantity present")
     @XmlSchemaType(name = "string")
     protected UnitOfMeasureType unitOfMeasure;
     /**
      * The Quantity.
      */
     @XmlElement(name = "Quantity")
+    @Schema(description = "Product quantity --Rule: if rebate is additional units")
     protected BigDecimal quantity;
     /**
      * The Rebate label.
      */
     @XmlElement(name = "RebateLabel")
+    @Schema(description = "Short text to qualify a rebate on an line item. --Rule: If provided by the Acquirer")
     protected String rebateLabel;
     /**
      * The Item id.

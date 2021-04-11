@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 
 
@@ -44,11 +42,13 @@ public class StoredValueResult {
      * The Stored value account status.
      */
     @XmlElement(name = "StoredValueAccountStatus", required = true)
+    @Schema(description = "Data related to the result of the stored value card transaction.")
     protected StoredValueAccountStatus storedValueAccountStatus;
     /**
      * The Host transaction id.
      */
     @XmlElement(name = "HostTransactionID")
+    @Schema(description = "Identification of the transaction by the host in charge of the stored value transaction --Rule: If provided by the Host")
     protected TransactionIdentification hostTransactionID;
     /**
      * The Stored value transaction.

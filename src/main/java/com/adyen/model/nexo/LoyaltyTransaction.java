@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,16 +44,19 @@ public class LoyaltyTransaction {
      * The Original poi transaction.
      */
     @XmlElement(name = "OriginalPOITransaction")
+    @Schema(description = "Identification of a previous POI transaction. --Rule: if LoyaltyTransactionType is "AwardRefund", "RebateRefund" or "RedemptionRefund"")
     protected OriginalPOITransaction originalPOITransaction;
     /**
      * The Transaction conditions.
      */
     @XmlElement(name = "TransactionConditions")
+    @Schema(description = "Conditions on which the transaction must be processed. --Rule: If one data element is present")
     protected TransactionConditions transactionConditions;
     /**
      * The Sale item.
      */
     @XmlElement(name = "SaleItem")
+    @Schema(description = "Sale items of a transaction.")
     protected List<SaleItem> saleItem;
     /**
      * The Loyalty transaction.
@@ -111,21 +112,21 @@ public class LoyaltyTransaction {
 
     /**
      * Gets the value of the saleItem property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the saleItem property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSaleItem().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SaleItem }
      *

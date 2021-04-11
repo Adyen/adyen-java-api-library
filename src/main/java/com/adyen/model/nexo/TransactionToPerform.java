@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -39,16 +41,19 @@ public class TransactionToPerform {
      * The Payment request.
      */
     @XmlElement(name = "PaymentRequest")
+    @Schema(description = "Data related to the Payment transaction request.")
     protected PaymentRequest paymentRequest;
     /**
      * The Loyalty request.
      */
     @XmlElement(name = "LoyaltyRequest")
+    @Schema(description = "Data related to the Loyalty transaction request.")
     protected LoyaltyRequest loyaltyRequest;
     /**
      * The Reversal request.
      */
     @XmlElement(name = "ReversalRequest")
+    @Schema(description = "Data related to the Reveraal transaction request.")
     protected ReversalRequest reversalRequest;
 
     /**

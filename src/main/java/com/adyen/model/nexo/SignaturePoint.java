@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -32,11 +34,13 @@ public class SignaturePoint {
      * The X.
      */
     @XmlAttribute(name = "X", required = true)
+    @Schema(description = "Abscissa of a point coordinates.")
     protected String x;
     /**
      * The Y.
      */
     @XmlAttribute(name = "Y", required = true)
+    @Schema(description = "Ordinate of a point coordinates.")
     protected String y;
 
     /**

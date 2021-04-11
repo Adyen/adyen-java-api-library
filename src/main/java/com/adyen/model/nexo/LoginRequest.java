@@ -1,11 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,17 +48,20 @@ public class LoginRequest {
      * The Date time.
      */
     @XmlElement(name = "DateTime", required = true)
+    @Schema(description = "Date and Time")
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dateTime;
     /**
      * The Sale software.
      */
     @XmlElement(name = "SaleSoftware", required = true)
+    @Schema(description = "Information related to the software of the Sale System which manages the Sale to POI protocol.")
     protected SaleSoftware saleSoftware;
     /**
      * The Sale terminal data.
      */
     @XmlElement(name = "SaleTerminalData")
+    @Schema(description = "Information related to the software and hardware feature of the Sale Terminal. --Rule: Present if the login involve a Sale Terminal")
     protected SaleTerminalData saleTerminalData;
     /**
      * The Training mode flag.
@@ -249,21 +249,21 @@ public class LoginRequest {
 
     /**
      * Gets the value of the customerOrderReq property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the customerOrderReq property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCustomerOrderReq().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CustomerOrderReqType }
      *

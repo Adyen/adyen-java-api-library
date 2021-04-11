@@ -1,4 +1,7 @@
+@Schema(description = "On-line PIN authentication (Personal Identification Number).")
 package com.adyen.model.nexo;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
@@ -38,66 +41,77 @@ public enum AuthenticationMethodType {
      * Authentication bypassed by the merchant.
      */
     @XmlEnumValue("Bypass")
+    @Schema(description = "Authentication bypassed by the merchant.")
     BYPASS("Bypass"),
 
     /**
      * Manual verification, for example passport or drivers license.
      */
     @XmlEnumValue("ManualVerification")
+    @Schema(description = "Manual verification, for example passport or drivers license.")
     MANUAL_VERIFICATION("ManualVerification"),
 
     /**
      * Merchant-related authentication.
      */
     @XmlEnumValue("MerchantAuthentication")
+    @Schema(description = "Merchant-related authentication.")
     MERCHANT_AUTHENTICATION("MerchantAuthentication"),
 
     /**
      * Off-line PIN authentication (Personal Identification Number).
      */
     @XmlEnumValue("OfflinePIN")
+    @Schema(description = "Off-line PIN authentication (Personal Identification Number).")
     OFFLINE_PIN("OfflinePIN"),
 
     /**
      * On-line PIN authentication (Personal Identification Number).
      */
     @XmlEnumValue("OnLinePIN")
+    @Schema(description = "On-line PIN authentication (Personal Identification Number).")
     ON_LINE_PIN("OnLinePIN", "OnlinePIN"),
 
     /**
      * Handwritten paper signature.
      */
     @XmlEnumValue("PaperSignature")
+    @Schema(description = "Handwritten paper signature.")
     PAPER_SIGNATURE("PaperSignature"),
 
     /**
      * Channel-encrypted transaction.
      */
     @XmlEnumValue("SecuredChannel")
+    @Schema(description = "Channel-encrypted transaction.")
     SECURED_CHANNEL("SecuredChannel"),
 
     /**
      * Secure electronic transaction with cardholder X.509 certificate.
      */
     @XmlEnumValue("SecureCertificate")
+    @Schema(description = "Secure electronic transaction with cardholder X.509 certificate.")
     SECURE_CERTIFICATE("SecureCertificate"),
 
     /**
      * Secure electronic transaction without cardholder certificate.
      */
     @XmlEnumValue("SecureNoCertificate")
+    @Schema(description = "Secure electronic transaction without cardholder certificate.")
     SECURE_NO_CERTIFICATE("SecureNoCertificate"),
 
     /**
      * Electronic signature capture (handwritten signature).
      */
     @XmlEnumValue("SignatureCapture")
+    @Schema(description = "Electronic signature capture (handwritten signature).")
     SIGNATURE_CAPTURE("SignatureCapture"),
 
     /**
      * Authentication method is performed unknown.
      */
     @XmlEnumValue("UnknownMethod")
+    @Schema(description = "Authentication method is performed unknown.")
     UNKNOWN_METHOD("UnknownMethod");
 
     private final String[] value;

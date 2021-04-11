@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -38,6 +36,7 @@ public class Response {
      * The Additional response.
      */
     @XmlElement(name = "AdditionalResponse")
+    @Schema(description = "Additional information related to processing status of a message request . --Rule: If present, the POI logs it for further examination")
     protected String additionalResponse;
     /**
      * The Result.

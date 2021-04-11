@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -31,31 +33,38 @@ import javax.xml.bind.annotation.XmlType;
 public class SoundContent {
 
     @XmlAttribute(name = "SoundFormat")
+    @Schema(description = "Type of sound to play.")
     protected SoundFormatType soundFormat;
     @XmlAttribute(name = "Language")
+    @Schema(description = "Identification of a language.")
     protected String language;
+
     @XmlAttribute(name = "ReferenceID")
-    protected String referenceID;
-    @XmlAttribute(name = "Text")
-    protected String text;
+    @Schema(description = "Identification of a predefined message to display, print or play. --Rule: Mandatory if
+            SoundFomat is SoundRef or MessageRef
+            ")
+            protected String referenceID;
+            @XmlAttribute(name = "Text")
+            @Schema(description = "Content of text message to display, print or play.")
+            protected String text;
 
-    /**
-     * Gets the value of the soundFormat property.
-     *
-     * @return possible object is
-     * {@link SoundFormatType }
-     */
-    public SoundFormatType getSoundFormat() {
-        return soundFormat;
-    }
+            /**
+             * Gets the value of the soundFormat property.
+             *
+             * @return possible object is
+             * {@link SoundFormatType }
+            */
+            public SoundFormatType getSoundFormat(){
+            return soundFormat;
+            }
 
-    /**
-     * Sets the value of the soundFormat property.
-     *
-     * @param value allowed object is
-     *              {@link SoundFormatType }
-     */
-    public void setSoundFormat(SoundFormatType value) {
+            /**
+             * Sets the value of the soundFormat property.
+             *
+             * @param value allowed object is
+             *              {@link SoundFormatType }
+            */
+            public void setSoundFormat(SoundFormatType value) {
         this.soundFormat = value;
     }
 

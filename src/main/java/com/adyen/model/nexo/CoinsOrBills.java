@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -34,11 +36,13 @@ public class CoinsOrBills {
      * The Unit value.
      */
     @XmlAttribute(name = "UnitValue", required = true)
+    @Schema(description = "Value of a coin or bill.")
     protected BigDecimal unitValue;
     /**
      * The Number.
      */
     @XmlAttribute(name = "Number", required = true)
+    @Schema(description = "Number of elements")
     protected BigInteger number;
 
     /**

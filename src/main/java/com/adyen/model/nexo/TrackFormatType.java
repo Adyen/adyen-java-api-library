@@ -1,4 +1,8 @@
+@Schema(description = "American driver license")
+@Schema(description = "ISO card track format - ISO 7813 - ISO 4909")
 package com.adyen.model.nexo;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
@@ -38,12 +42,14 @@ public enum TrackFormatType {
      * Japenese track format I
      */
     @XmlEnumValue("JIS-I")
+    @Schema(description = "Japenese track format I")
     JIS_I("JIS-I"),
 
     /**
      * Japenese track format II
      */
     @XmlEnumValue("JIS-II")
+    @Schema(description = "Japenese track format II")
     JIS_II("JIS-II"),
 
     /**
@@ -55,12 +61,14 @@ public enum TrackFormatType {
      * ((Magnetic Ink Character Recognition, using the CMC-7 font - ISO 1004) Line at the bottom of a check containing the bank account and the check number.
      */
     @XmlEnumValue("CMC-7")
+    @Schema(description = "((Magnetic Ink Character Recognition, using the CMC-7 font - ISO 1004) Line at the bottom of a check containing the bank account and the check number.")
     CMC_7("CMC-7"),
 
     /**
      * (Magnetic Ink Character Recognition, using the E-13B font) Line at the bottom of a check containing the bank account and the check number.
      */
     @XmlEnumValue("E-13B")
+    @Schema(description = "(Magnetic Ink Character Recognition, using the E-13B font) Line at the bottom of a check containing the bank account and the check number.")
     E_13_B("E-13B");
     private final String value;
 

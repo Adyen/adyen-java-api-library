@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -43,21 +45,25 @@ public class StoredValueResponse {
      * The Response.
      */
     @XmlElement(name = "Response", required = true)
+    @Schema(description = "Result of a message request processing.")
     protected Response response;
     /**
      * The Sale data.
      */
     @XmlElement(name = "SaleData", required = true)
+    @Schema(description = "Data related to the Sale System.")
     protected SaleData saleData;
     /**
      * The Poi data.
      */
     @XmlElement(name = "POIData", required = true)
+    @Schema(description = "Data related to the POI System.")
     protected POIData poiData;
     /**
      * The Stored value result.
      */
     @XmlElement(name = "StoredValueResult")
+    @Schema(description = "Result of loading/reloading a stored value card.. --Rule: If StoredValueResponse.Result is "Success" or "Partial", one entry per StoredValueRequest.StoredValueData loaded or")
     protected List<StoredValueResult> storedValueResult;
 
     /**
@@ -116,21 +122,21 @@ public class StoredValueResponse {
 
     /**
      * Gets the value of the storedValueResult property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the storedValueResult property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getStoredValueResult().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link StoredValueResult }
      *

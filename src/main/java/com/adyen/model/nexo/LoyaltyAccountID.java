@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -33,31 +35,38 @@ import java.util.List;
 public class LoyaltyAccountID {
 
     @XmlAttribute(name = "LoyaltyID", required = true)
+    @Schema(description = "Loyalty account identification")
     protected String loyaltyID;
     @XmlAttribute(name = "EntryMode", required = true)
+    @Schema(description = "Entry mode of the payment instrument information")
     protected List<EntryModeType> entryMode;
     @XmlAttribute(name = "IdentificationType", required = true)
+    @Schema(description = "Type of account identification")
     protected IdentificationType identificationType;
+
     @XmlAttribute(name = "IdentificationSupport")
-    protected IdentificationSupportType identificationSupport;
+    @Schema(description = "Support of the loyalty account identification --Rule: if PaymentResponse or
+            LoyaltResponse or BalanceInquiryResponse
+            ")
+            protected IdentificationSupportType identificationSupport;
 
-    /**
-     * Gets the value of the loyaltyID property.
-     *
-     * @return possible object is
-     * {@link String }
-     */
-    public String getLoyaltyID() {
-        return loyaltyID;
-    }
+            /**
+             * Gets the value of the loyaltyID property.
+             *
+             * @return possible object is
+             * {@link String }
+            */
+            public String getLoyaltyID(){
+            return loyaltyID;
+            }
 
-    /**
-     * Sets the value of the loyaltyID property.
-     *
-     * @param value allowed object is
-     *              {@link String }
-     */
-    public void setLoyaltyID(String value) {
+            /**
+             * Sets the value of the loyaltyID property.
+             *
+             * @param value allowed object is
+             *              {@link String }
+            */
+            public void setLoyaltyID(String value) {
         this.loyaltyID = value;
     }
 

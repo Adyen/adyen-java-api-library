@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +39,13 @@ public class GetTotalsResponse {
      * The Response.
      */
     @XmlElement(name = "Response", required = true)
+    @Schema(description = "Result of a message request processing.")
     protected Response response;
     /**
      * The Transaction totals.
      */
     @XmlElement(name = "TransactionTotals")
+    @Schema(description = "Result of the Sale to POI Reconciliation processing. --Rule: if Response.Result is Success")
     protected List<TransactionTotals> transactionTotals;
     /**
      * The Poi reconciliation id.
@@ -73,21 +73,21 @@ public class GetTotalsResponse {
 
     /**
      * Gets the value of the transactionTotals property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the transactionTotals property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTransactionTotals().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TransactionTotals }
      *

@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigDecimal;
 
@@ -46,6 +44,7 @@ public class CustomerOrder {
      * The Additional information.
      */
     @XmlElement(name = "AdditionalInformation")
+    @Schema(description = "Unqualified information. --Rule: If order process in progress.")
     protected String additionalInformation;
     /**
      * The Customer order id.

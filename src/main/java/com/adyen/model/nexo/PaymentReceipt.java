@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -39,6 +37,7 @@ public class PaymentReceipt {
      * The Output content.
      */
     @XmlElement(name = "OutputContent", required = true)
+    @Schema(description = "Content to display or print.")
     protected OutputContent outputContent;
     /**
      * The Document qualifier.

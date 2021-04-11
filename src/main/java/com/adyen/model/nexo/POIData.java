@@ -1,10 +1,8 @@
 package com.adyen.model.nexo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -37,6 +35,7 @@ public class POIData {
      * The Poi transaction id.
      */
     @XmlElement(name = "POITransactionID", required = true)
+    @Schema(description = "Unique identification of a POI transaction for a POI")
     protected TransactionIdentification poiTransactionID;
     /**
      * The Poi reconciliation id.
