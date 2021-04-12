@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -22,8 +22,11 @@
 package com.adyen.model.marketpay.notification;
 
 import java.util.Date;
+
 import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
+
+import static com.adyen.util.Util.toIndentedString;
 
 public class CompensateNegativeBalanceNotificationRecord {
     @SerializedName("accountCode")
@@ -61,6 +64,11 @@ public class CompensateNegativeBalanceNotificationRecord {
 
     @Override
     public String toString() {
-        return "CompensateNegativeBalanceNotificationRecord{" + "accountCode='" + accountCode + '\'' + ", transferDate=" + transferDate + ", amount=" + amount + '}';
+        final StringBuilder sb = new StringBuilder("CompensateNegativeBalanceNotificationRecord{");
+        sb.append("accountCode='").append(toIndentedString(accountCode)).append('\'');
+        sb.append(", transferDate=").append(toIndentedString(transferDate));
+        sb.append(", amount=").append(toIndentedString(amount));
+        sb.append('}');
+        return sb.toString();
     }
 }

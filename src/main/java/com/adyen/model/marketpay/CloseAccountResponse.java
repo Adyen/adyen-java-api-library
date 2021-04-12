@@ -42,6 +42,9 @@ import static com.adyen.util.Util.toIndentedString;
  * CloseAccountResponse
  */
 public class CloseAccountResponse {
+    @SerializedName("accountCode")
+    private String accountCode = null;
+
     @SerializedName("invalidFields")
     private List<ErrorFieldType> invalidFields = null;
 
@@ -180,6 +183,18 @@ public class CloseAccountResponse {
         this.status = status;
     }
 
+    public CloseAccountResponse accountCode(String accountCode) {
+        this.accountCode = accountCode;
+        return this;
+    }
+
+    public String getAccountCode() {
+        return accountCode;
+    }
+
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -193,12 +208,13 @@ public class CloseAccountResponse {
         return Objects.equals(this.invalidFields, closeAccountResponse.invalidFields) &&
                 Objects.equals(this.pspReference, closeAccountResponse.pspReference) &&
                 Objects.equals(this.resultCode, closeAccountResponse.resultCode) &&
-                Objects.equals(this.status, closeAccountResponse.status);
+                Objects.equals(this.status, closeAccountResponse.status) &&
+                Objects.equals(this.accountCode, closeAccountResponse.accountCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(invalidFields, pspReference, resultCode, status);
+        return Objects.hash(invalidFields, pspReference, resultCode, status, accountCode);
     }
 
 
@@ -211,6 +227,7 @@ public class CloseAccountResponse {
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -55,6 +55,9 @@ public class PayoutAccountHolderRequest {
     @SerializedName("payoutMethodCode")
     private String payoutMethodCode = null;
 
+    @SerializedName("payoutSpeed")
+    private PayoutSpeedEnum payoutSpeed = PayoutSpeedEnum.STANDARD;
+
     public PayoutAccountHolderRequest accountCode(String accountCode) {
         this.accountCode = accountCode;
         return this;
@@ -181,6 +184,18 @@ public class PayoutAccountHolderRequest {
         this.payoutMethodCode = payoutMethodCode;
     }
 
+    /**
+     * Speed with which payouts for this account are processed. Permitted values: &#x60;STANDARD&#x60;, &#x60;SAME_DAY&#x60;.
+     *
+     * @return payoutSpeed
+     **/
+    public PayoutSpeedEnum getPayoutSpeed() {
+        return payoutSpeed;
+    }
+
+    public void setPayoutSpeed(PayoutSpeedEnum payoutSpeed) {
+        this.payoutSpeed = payoutSpeed;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -197,12 +212,13 @@ public class PayoutAccountHolderRequest {
                 Objects.equals(this.bankAccountUUID, payoutAccountHolderRequest.bankAccountUUID) &&
                 Objects.equals(this.description, payoutAccountHolderRequest.description) &&
                 Objects.equals(this.merchantReference, payoutAccountHolderRequest.merchantReference) &&
-                Objects.equals(this.payoutMethodCode, payoutAccountHolderRequest.payoutMethodCode);
+                Objects.equals(this.payoutMethodCode, payoutAccountHolderRequest.payoutMethodCode) &&
+                Objects.equals(this.payoutSpeed, payoutAccountHolderRequest.payoutSpeed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, accountHolderCode, amount, bankAccountUUID, description, merchantReference, payoutMethodCode);
+        return Objects.hash(accountCode, accountHolderCode, amount, bankAccountUUID, description, merchantReference, payoutMethodCode, payoutSpeed);
     }
 
 
@@ -218,6 +234,7 @@ public class PayoutAccountHolderRequest {
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
         sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("    payoutSpeed: ").append(toIndentedString(payoutSpeed)).append("\n");
         sb.append("}");
         return sb.toString();
     }

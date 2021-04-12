@@ -45,6 +45,15 @@ public class UpdateAccountRequest {
     @SerializedName("payoutSchedule")
     private UpdatePayoutScheduleRequest payoutSchedule = null;
 
+    @SerializedName("bankAccountUUID")
+    private String bankAccountUUID = null;
+
+    @SerializedName("payoutMethodCode")
+    private String payoutMethodCode = null;
+
+    @SerializedName("payoutSpeed")
+    private PayoutSpeedEnum payoutSpeed = null;
+
     public UpdateAccountRequest accountCode(String accountCode) {
         this.accountCode = accountCode;
         return this;
@@ -118,6 +127,45 @@ public class UpdateAccountRequest {
     }
 
 
+    public UpdateAccountRequest bankAccountUUID(String bankAccountUUID) {
+        this.bankAccountUUID = bankAccountUUID;
+        return this;
+    }
+
+    public String getBankAccountUUID() {
+        return bankAccountUUID;
+    }
+
+    public void setBankAccountUUID(String bankAccountUUID) {
+        this.bankAccountUUID = bankAccountUUID;
+    }
+
+    public UpdateAccountRequest payoutMethodCode(String payoutMethodCode) {
+        this.payoutMethodCode = payoutMethodCode;
+        return this;
+    }
+
+    public String getPayoutMethodCode() {
+        return payoutMethodCode;
+    }
+
+    public void setPayoutMethodCode(String payoutMethodCode) {
+        this.payoutMethodCode = payoutMethodCode;
+    }
+
+    public UpdateAccountRequest payoutSpeed(PayoutSpeedEnum payoutSpeed) {
+        this.payoutSpeed = payoutSpeed;
+        return this;
+    }
+
+    public PayoutSpeedEnum getPayoutSpeed() {
+        return payoutSpeed;
+    }
+
+    public void setPayoutSpeed(PayoutSpeedEnum payoutSpeed) {
+        this.payoutSpeed = payoutSpeed;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -130,12 +178,15 @@ public class UpdateAccountRequest {
         return Objects.equals(this.accountCode, updateAccountRequest.accountCode) &&
                 Objects.equals(this.description, updateAccountRequest.description) &&
                 Objects.equals(this.metadata, updateAccountRequest.metadata) &&
-                Objects.equals(this.payoutSchedule, updateAccountRequest.payoutSchedule);
+                Objects.equals(this.payoutSchedule, updateAccountRequest.payoutSchedule) &&
+                Objects.equals(this.bankAccountUUID, updateAccountRequest.bankAccountUUID) &&
+                Objects.equals(this.payoutMethodCode, updateAccountRequest.payoutMethodCode) &&
+                Objects.equals(this.payoutSpeed, updateAccountRequest.payoutSpeed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountCode, description, metadata, payoutSchedule);
+        return Objects.hash(accountCode, description, metadata, payoutSchedule, bankAccountUUID, payoutMethodCode, payoutSpeed);
     }
 
 
@@ -148,6 +199,9 @@ public class UpdateAccountRequest {
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
+        sb.append("    bankAccountUUID").append(toIndentedString(bankAccountUUID)).append("\n");
+        sb.append("    payoutMethodCode").append(toIndentedString(payoutMethodCode)).append("\n");
+        sb.append("    payoutSpeed").append(toIndentedString(payoutSpeed)).append("\n");
         sb.append("}");
         return sb.toString();
     }

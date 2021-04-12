@@ -69,6 +69,15 @@ public class AccountHolderDetails {
     @SerializedName("phoneNumber")
     private PhoneNumber phoneNumber = null;
 
+    @SerializedName("principalBusinessAddress")
+    private Address principalBusinessAddress = null;
+
+    @SerializedName("bankAggregatorDataReference")
+    private String bankAggregatorDataReference = null;
+
+    @SerializedName("storeDetails")
+    private List<StoreDetail> storeDetails = null;
+
     public AccountHolderDetails address(Address address) {
         this.address = address;
         return this;
@@ -277,6 +286,35 @@ public class AccountHolderDetails {
         this.phoneNumber = phoneNumber;
     }
 
+    public Address getPrincipalBusinessAddress() {
+        return principalBusinessAddress;
+    }
+
+    public void setPrincipalBusinessAddress(Address principalBusinessAddress) {
+        this.principalBusinessAddress = principalBusinessAddress;
+    }
+
+    public AccountHolderDetails principalBusinessAddress(Address principalBusinessAddress) {
+        this.principalBusinessAddress = principalBusinessAddress;
+        return this;
+    }
+
+    public String getBankAggregatorDataReference() {
+        return bankAggregatorDataReference;
+    }
+
+    public void setBankAggregatorDataReference(String bankAggregatorDataReference) {
+        this.bankAggregatorDataReference = bankAggregatorDataReference;
+    }
+
+    public List<StoreDetail> getStoreDetails() {
+        return storeDetails;
+    }
+
+    public void setStoreDetails(List<StoreDetail> storeDetails) {
+        this.storeDetails = storeDetails;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -296,12 +334,16 @@ public class AccountHolderDetails {
                 Objects.equals(this.metadata, accountHolderDetails.metadata) &&
                 Objects.equals(this.payoutMethods, accountHolderDetails.payoutMethods) &&
                 Objects.equals(this.webAddress, accountHolderDetails.webAddress) &&
-                Objects.equals(this.phoneNumber, accountHolderDetails.phoneNumber);
+                Objects.equals(this.phoneNumber, accountHolderDetails.phoneNumber) &&
+                Objects.equals(this.principalBusinessAddress, accountHolderDetails.principalBusinessAddress) &&
+                Objects.equals(this.storeDetails, accountHolderDetails.storeDetails) &&
+                Objects.equals(this.bankAggregatorDataReference, accountHolderDetails.bankAggregatorDataReference);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(address, bankAccountDetails, businessDetails, email, fullPhoneNumber, individualDetails, merchantCategoryCode, metadata, payoutMethods, webAddress, phoneNumber);
+        return Objects.hash(address, bankAccountDetails, businessDetails, email, fullPhoneNumber, individualDetails, merchantCategoryCode, metadata, payoutMethods, webAddress, phoneNumber, principalBusinessAddress, bankAggregatorDataReference, storeDetails);
     }
 
 
@@ -321,6 +363,9 @@ public class AccountHolderDetails {
         sb.append("    payoutMethods: ").append(toIndentedString(payoutMethods)).append("\n");
         sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
         sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+        sb.append("    principalBusinessAddress").append(toIndentedString(principalBusinessAddress)).append("\n");
+        sb.append("    bankAggregatorDataReference: ").append(toIndentedString(bankAggregatorDataReference)).append("\n");
+        sb.append("    storeDetails: ").append(toIndentedString(storeDetails)).append("\n");
         sb.append("}");
         return sb.toString();
     }

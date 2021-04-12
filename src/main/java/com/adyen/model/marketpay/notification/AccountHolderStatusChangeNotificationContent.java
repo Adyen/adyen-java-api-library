@@ -25,8 +25,12 @@ import java.util.Objects;
 
 import com.adyen.model.marketpay.AccountHolderStatus;
 import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.adyen.util.Util.toIndentedString;
+
 /**
  * AccountHolderStatusChangeNotificationContent
  */
@@ -54,6 +58,7 @@ public class AccountHolderStatusChangeNotificationContent {
 
     /**
      * The code of the account holder.
+     *
      * @return accountHolderCode
      **/
     public String getAccountHolderCode() {
@@ -79,6 +84,7 @@ public class AccountHolderStatusChangeNotificationContent {
 
     /**
      * in case the account holder has not been updated, contains account holder fields, that did not pass the validation.
+     *
      * @return invalidFields
      **/
     public List<ErrorFieldType> getInvalidFields() {
@@ -96,6 +102,7 @@ public class AccountHolderStatusChangeNotificationContent {
 
     /**
      * Get newStatus
+     *
      * @return newStatus
      **/
     public AccountHolderStatus getNewStatus() {
@@ -113,6 +120,7 @@ public class AccountHolderStatusChangeNotificationContent {
 
     /**
      * Get oldStatus
+     *
      * @return oldStatus
      **/
     public AccountHolderStatus getOldStatus() {
@@ -130,6 +138,7 @@ public class AccountHolderStatusChangeNotificationContent {
 
     /**
      * The reason for the status change.
+     *
      * @return reason
      **/
     public String getReason() {
@@ -175,17 +184,6 @@ public class AccountHolderStatusChangeNotificationContent {
         sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
         sb.append("}");
         return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
     }
 
 }

@@ -1,0 +1,17 @@
+{
+  "pspReference": "851617894736924A",
+  "resultCode": "Received",
+  "action": {
+    "paymentMethodType": "bankTransfer_IBAN",
+    "totalAmount": {
+      "currency": "EUR",
+      "value": 10000
+    },
+    "beneficiary": "Adyen",
+    "iban": "NL13TEST0123456789",
+    "bic": "TESTNL02",
+    "reference": "851-6178-9473-6924A",
+    "type": "bankTransfer"
+  },
+  "merchantReference": "auth-banktransfer-split-e9afabf7-918a-471e-a8a2-40e1180bc156"
+}

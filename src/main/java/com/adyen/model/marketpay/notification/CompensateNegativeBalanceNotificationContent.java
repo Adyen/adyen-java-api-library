@@ -14,90 +14,75 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 
 package com.adyen.model.marketpay.notification;
 
-import com.google.gson.annotations.SerializedName;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import com.google.gson.annotations.SerializedName;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class KYCCheckSummary {
+public class CompensateNegativeBalanceNotificationContent {
+    @SerializedName("records")
+    private List<CompensateNegativeBalanceNotificationRecord> records = new ArrayList<CompensateNegativeBalanceNotificationRecord>();
 
-    @SerializedName("code")
-    private Integer code = null;
+    public CompensateNegativeBalanceNotificationContent records(List<CompensateNegativeBalanceNotificationRecord> records) {
+        this.records = records;
+        return this;
+    }
 
-    @SerializedName("description")
-    private String description = null;
-
-    public KYCCheckSummary code(Integer code) {
-        this.code = code;
+    public CompensateNegativeBalanceNotificationContent addRecordsItem(CompensateNegativeBalanceNotificationRecord recordsItem) {
+        this.records.add(recordsItem);
         return this;
     }
 
     /**
-     * The code of the check.
+     * A list of the negative balances compensated.
      *
-     * @return code
+     * @return records
      **/
-    public Integer getCode() {
-        return code;
+    public List<CompensateNegativeBalanceNotificationRecord> getRecords() {
+        return records;
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setRecords(List<CompensateNegativeBalanceNotificationRecord> records) {
+        this.records = records;
     }
 
-    public KYCCheckSummary description(String description) {
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * A description of the check.
-     *
-     * @return description
-     **/
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        KYCCheckSummary kyCCheckSummary = (KYCCheckSummary) o;
-        return Objects.equals(this.code, kyCCheckSummary.code) &&
-                Objects.equals(this.description, kyCCheckSummary.description);
+        CompensateNegativeBalanceNotificationContent compensateNegativeBalanceNotificationContent = (CompensateNegativeBalanceNotificationContent) o;
+        return Objects.equals(this.records, compensateNegativeBalanceNotificationContent.records);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, description);
+        return Objects.hash(records);
     }
+
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class KYCCheckSummary {\n");
+        sb.append("class CompensateNegativeBalanceNotificationContent {\n");
 
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    records: ").append(toIndentedString(records)).append("\n");
         sb.append("}");
         return sb.toString();
     }
+
 }

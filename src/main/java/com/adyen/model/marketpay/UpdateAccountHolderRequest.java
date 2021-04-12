@@ -104,6 +104,9 @@ public class UpdateAccountHolderRequest {
     @SerializedName("processingTier")
     private Integer processingTier = null;
 
+    @SerializedName("verificationProfile")
+    private String verificationProfile = null;
+
     public UpdateAccountHolderRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
@@ -212,6 +215,23 @@ public class UpdateAccountHolderRequest {
         this.processingTier = processingTier;
     }
 
+    public UpdateAccountHolderRequest verificationProfile(String verificationProfile) {
+        this.verificationProfile = verificationProfile;
+        return this;
+    }
+
+    /**
+     * The identifier of the profile that applies to this entity
+     *
+     * @return verificationProfile
+     */
+    public String getVerificationProfile() {
+        return verificationProfile;
+    }
+
+    public void setVerificationProfile(String verificationProfile) {
+        this.verificationProfile = verificationProfile;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -227,12 +247,13 @@ public class UpdateAccountHolderRequest {
                 Objects.equals(this.description, updateAccountHolderRequest.description) &&
                 Objects.equals(this.legalEntity, updateAccountHolderRequest.legalEntity) &&
                 Objects.equals(this.primaryCurrency, updateAccountHolderRequest.primaryCurrency) &&
-                Objects.equals(this.processingTier, updateAccountHolderRequest.processingTier);
+                Objects.equals(this.processingTier, updateAccountHolderRequest.processingTier) &&
+                Objects.equals(this.verificationProfile, updateAccountHolderRequest.verificationProfile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, accountHolderDetails, description, legalEntity, primaryCurrency, processingTier);
+        return Objects.hash(accountHolderCode, accountHolderDetails, description, legalEntity, primaryCurrency, processingTier, verificationProfile);
     }
 
 
@@ -247,6 +268,7 @@ public class UpdateAccountHolderRequest {
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
         sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
         sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
+        sb.append("    verificationProfile: ").append(toIndentedString(verificationProfile)).append("\n");
         sb.append("}");
         return sb.toString();
     }

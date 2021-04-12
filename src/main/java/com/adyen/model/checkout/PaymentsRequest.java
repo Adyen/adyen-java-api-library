@@ -1240,6 +1240,23 @@ public class PaymentsRequest {
         this.conversionId = conversionId;
     }
 
+
+    public String getRecurringExpiry() {
+        return recurringExpiry;
+    }
+
+    public void setRecurringExpiry(String recurringExpiry) {
+        this.recurringExpiry = recurringExpiry;
+    }
+
+    public String getRecurringFrequency() {
+        return recurringFrequency;
+    }
+
+    public void setRecurringFrequency(String recurringFrequency) {
+        this.recurringFrequency = recurringFrequency;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

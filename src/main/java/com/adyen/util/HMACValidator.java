@@ -28,6 +28,7 @@ import org.apache.commons.codec.binary.Hex;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,10 +73,10 @@ public class HMACValidator {
         if (notificationRequestItem.getAdditionalData() == null || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE).isEmpty()) {
             throw new IllegalArgumentException("Missing " + HMAC_SIGNATURE);
         }
-        final String merchantSign = notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE);
-        final String expectedSign = calculateHMAC(notificationRequestItem, key);
+        final byte[] merchantSign = (notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE)).getBytes(StandardCharsets.UTF_8);
+        final byte[] expectedSign = (calculateHMAC(notificationRequestItem, key)).getBytes(StandardCharsets.UTF_8);
 
-        return expectedSign.equals(merchantSign);
+        return MessageDigest.isEqual(merchantSign, expectedSign);
     }
 
     public String getDataToSign(NotificationRequestItem notificationRequestItem) {

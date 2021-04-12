@@ -25,6 +25,8 @@ import com.adyen.deserializer.PaymentMethodDetailsDeserializerJackson;
 import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
+import com.adyen.model.Split;
+import com.adyen.model.SplitAmount;
 import com.adyen.model.checkout.*;
 import com.adyen.model.checkout.details.AchDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
@@ -77,6 +79,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.ArrayList;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
@@ -2132,6 +2135,38 @@ public class CheckoutTest extends BaseTest {
         return checkoutCancelOrderRequest;
     }
 
+    protected PaymentsRequest createBankTransferPaymentRequest() {
+        PaymentsRequest paymentsRequest = new PaymentsRequest();
+        paymentsRequest.setReference("payment reference");
+
+        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
+        defaultPaymentMethodDetails.setType("bankTransfer_IBAN");
+        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(10000L);
+        paymentsRequest.setAmount(amount);
+
+        List<Split> splits = new ArrayList<>();
+        Split split = new Split();
+        split.setType(Split.TypeEnum.MARKETPLACE);
+        split.setAccount("1234567891234567");
+        split.setReference("Wallet deposit");
+        SplitAmount splitAmount = new SplitAmount();
+        splitAmount.setCurrency("EUR");
+        splitAmount.setValue(10000L);
+        split.setAmount(splitAmount);
+        splits.add(split);
+        paymentsRequest.setSplits(splits);
+
+        paymentsRequest.setCountryCode("NL");
+        paymentsRequest.setReference("auth-banktransfer-split-12345");
+        paymentsRequest.setMerchantAccount("merchantAccount");
+
+        return paymentsRequest;
+    }
+
     @Test
     public void TestPaymentMethodDetailsDirectDeserialization() throws JsonProcessingException {
         Gson gson = new GsonBuilder().registerTypeAdapterFactory(new PaymentMethodDetailsTypeAdapter()).create();
@@ -2148,6 +2183,21 @@ public class CheckoutTest extends BaseTest {
         assertNotNull(jacksonObject);
         assertTrue(jacksonObject instanceof ApplePayDetails);
         assertEquals("VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", ((ApplePayDetails) jacksonObject).getApplePayToken());
+    }
+
+    @Test
+    public void TestBankTransferPaymentsSuccess() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/payments-banktransfer-success.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsRequest paymentsRequest = createBankTransferPaymentRequest();
+        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+        assertEquals(PaymentsResponse.ResultCodeEnum.RECEIVED, paymentsResponse.getResultCode());
+        assertEquals(CheckoutPaymentsAction.CheckoutActionType.BANKTRANSFER, paymentsResponse.getAction().getType());
+        assertEquals("Adyen", paymentsResponse.getAction().getBeneficiary());
+        assertEquals("NL13TEST0123456789", paymentsResponse.getAction().getIban());
+        assertEquals("TESTNL02", paymentsResponse.getAction().getBic());
+        assertEquals("851-6178-9473-6924A", paymentsResponse.getAction().getReference());
+        assertEquals("bankTransfer_IBAN", paymentsResponse.getAction().getPaymentMethodType());
     }
 }
 
