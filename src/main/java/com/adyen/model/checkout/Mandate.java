@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,6 +47,7 @@ public class Mandate {
         MAX("max"),
         EXACT("exact");
 
+        @JsonValue
         private String value;
 
         AmountRuleEnum(String value) {
@@ -96,6 +98,7 @@ public class Mandate {
         BEFORE("before"),
         AFTER("after");
 
+        @JsonValue
         private String value;
 
         BillingAttemptsRuleEnum(String value) {
@@ -157,6 +160,7 @@ public class Mandate {
         HALFYEARLY("halfYearly"),
         YEARLY("yearly");
 
+        @JsonValue
         private String value;
 
         FrequencyEnum(String value) {
