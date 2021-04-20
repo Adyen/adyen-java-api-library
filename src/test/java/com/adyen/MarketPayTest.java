@@ -45,6 +45,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import static com.adyen.model.marketpay.AccountEvent.EventEnum.INACTIVATEACCOUNT;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.AWAITING_DATA;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.PASSED;
 import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.BANK_ACCOUNT_VERIFICATION;
@@ -339,6 +340,7 @@ public class MarketPayTest extends BaseTest {
         assertEquals("TestMerchant1", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getMerchantAccount());
         assertEquals("Other", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getMerchantCategoryCode());
         assertEquals("611223344", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getPhoneNumber().getPhoneNumber());
+        assertEquals(INACTIVATEACCOUNT, getAccountHolderResponse.getAccountHolderStatus().getEvents().get(0).getEvent());
     }
 
     @Test
