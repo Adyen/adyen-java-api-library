@@ -31,9 +31,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.adyen.model.marketpay.CreateAccountResponse.StatusEnum.ACTIVE;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.DATA_PROVIDED;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.COMPANY_VERIFICATION;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.IDENTITY_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.DATA_PROVIDED;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.COMPANY_VERIFICATION;
 import static com.adyen.model.marketpay.PayoutScheduleResponse.ScheduleEnum.DAILY;
 import static com.adyen.model.marketpay.Transaction.TransactionStatusEnum.PENDINGCREDIT;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_STATUS_CHANGE;
@@ -236,9 +235,9 @@ public class MarketPayNotificationTest extends BaseTest {
 
         assertEquals("accountHolderCode", notification.getContent().getAccountHolderCode());
         assertEquals(AccountHolderStatus.StatusEnum.ACTIVE, notification.getContent().getAccountHolderStatus().getStatus());
-        assertEquals(COMPANY_VERIFICATION, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getCheckType());
-        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getCheckStatus());
-        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getShareholders().get(0).getChecks().get(0).getCheckStatus());
+        assertEquals(COMPANY_VERIFICATION, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getType());
+        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getStatus());
+        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getShareholders().get(0).getChecks().get(0).getStatus());
     }
 
     @Test
