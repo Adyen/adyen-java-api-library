@@ -46,11 +46,11 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import static com.adyen.model.marketpay.AccountEvent.EventEnum.INACTIVATEACCOUNT;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.AWAITING_DATA;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.PASSED;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.BANK_ACCOUNT_VERIFICATION;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.COMPANY_VERIFICATION;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.IDENTITY_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.AWAITING_DATA;
+import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.PASSED;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.BANK_ACCOUNT_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.COMPANY_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.IDENTITY_VERIFICATION;
 import static org.junit.Assert.*;
 
 /**
@@ -219,8 +219,8 @@ public class MarketPayTest extends BaseTest {
 
         assertEquals("140922935", createAccountHolderResponse.getAccountCode());
         assertEquals("681d5df6-cf38-4557-aecd-ac8ed0c04195", createAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
-        assertEquals(BANK_ACCOUNT_VERIFICATION, createAccountHolderResponse.getVerification().getBankAccounts().get(0).getChecks().get(0).getCheckType());
-        assertEquals(PASSED, createAccountHolderResponse.getVerification().getBankAccounts().get(0).getChecks().get(0).getCheckStatus());
+        assertEquals(BANK_ACCOUNT_VERIFICATION, createAccountHolderResponse.getVerification().getBankAccounts().get(0).getChecks().get(0).getType());
+        assertEquals(PASSED, createAccountHolderResponse.getVerification().getBankAccounts().get(0).getChecks().get(0).getStatus());
         assertEquals("705c2619-a9fb-48da-a121-c83fc37ee1cf", createAccountHolderResponse.getVerificationProfile());
     }
 
@@ -327,8 +327,8 @@ public class MarketPayTest extends BaseTest {
 
         assertEquals("6026a526-7863-aaaa-dddd-f8fadc47473e", getAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
         assertEquals("115548513", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
-        assertEquals(IDENTITY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckType());
-        assertEquals(AWAITING_DATA, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckStatus());
+        assertEquals(IDENTITY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getType());
+        assertEquals(AWAITING_DATA, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getStatus());
         assertNotNull(getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields());
         assertEquals("AccountHolderDetails.Address.address", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields().get(0));
         assertEquals("AccountHolderDetails.PhoneNumber.phoneNumber", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getRequiredFields().get(1));
@@ -360,8 +360,8 @@ public class MarketPayTest extends BaseTest {
         assertEquals("1abf8304-58c7-4a9e-8bd3-4d7eff9801e4", getAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
         assertEquals("67890", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getAddress().getPostalCode());
         assertEquals("115548513", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
-        assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckType());
-        assertEquals(PASSED, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getCheckStatus());
+        assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getType());
+        assertEquals(PASSED, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getStatus());
         assertEquals(1602, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getSummary().getKycCheckCode().intValue());
         assertEquals("Passed", getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getSummary().getKycCheckDescription());
         assertEquals("FBAR", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getStockExchange());
