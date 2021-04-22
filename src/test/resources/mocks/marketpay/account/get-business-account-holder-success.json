@@ -75,6 +75,35 @@
           "shareholderType": "Controller"
         }
       ],
+      "signatories": [
+        {
+          "address": {
+            "city": "INVALIDDATACITY",
+            "country": "GB",
+            "postalCode": "69620",
+            "stateOrProvince": "NH",
+            "street": "Teststreet 2"
+          },
+          "email": "testsignatory@somewebsite.com",
+          "name": {
+            "firstName": "TestFirstName",
+            "gender": "MALE",
+            "lastName": "TestData"
+          },
+          "personalData": {
+            "dateOfBirth": "1970-01-01",
+            "idNumber": "1234567890",
+            "nationality": "NL"
+          },
+          "phoneNumber": {
+            "phoneCountryCode": "NL",
+            "phoneNumber": "0612345678",
+            "phoneType": "Mobile"
+          },
+          "signatoryCode": "d8ce1979-8f2b-42b9-8b1f-359af2575f91",
+          "jobTitle": "Director"
+        }
+      ],
       "taxId": "BV123456789",
       "stockExchange": "FBAR",
       "stockNumber": "F1234",
