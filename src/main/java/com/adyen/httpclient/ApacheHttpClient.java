@@ -91,12 +91,12 @@ public class ApacheHttpClient implements ClientInterface {
 
     @Override
     public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions) throws IOException, HTTPClientException {
-        return request(endpoint, requestBody, config, isApiKeyRequired, null, POST);
+        return request(endpoint, requestBody, config, isApiKeyRequired, requestOptions, POST);
     }
 
     @Override
     public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, String httpMethod) throws IOException, HTTPClientException {
-        return request(endpoint, requestBody, config, isApiKeyRequired, null, httpMethod, null);
+        return request(endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, null);
     }
 
     @Override
@@ -158,7 +158,7 @@ public class ApacheHttpClient implements ClientInterface {
             responseBody = httpclient.execute(httpUriRequest, new ApacheResponseHandler());
 
             if (responseBody.getStatus() < 200 || responseBody.getStatus() >= 300) {
-                throw new HTTPClientException(responseBody.getStatus(), "HTTP Exception", null, responseBody.getResponse());
+                throw new HTTPClientException(responseBody.getStatus(), "HTTP Exception", responseBody.getHeaders(), responseBody.getResponse());
             }
         }
         return responseBody.getResponse();
@@ -170,7 +170,7 @@ public class ApacheHttpClient implements ClientInterface {
         if (config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) {
             HttpClientBuilder httpClientBuilder = HttpClients.custom();
             // Create new KeyStore for the terminal certificate
-            try(InputStream certificateInput = new FileInputStream(config.getTerminalCertificatePath())) {
+            try (InputStream certificateInput = new FileInputStream(config.getTerminalCertificatePath())) {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(certificateInput);
 

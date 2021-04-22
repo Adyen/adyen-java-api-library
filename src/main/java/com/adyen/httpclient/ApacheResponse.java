@@ -20,10 +20,14 @@
  */
 package com.adyen.httpclient;
 
+import java.util.List;
+import java.util.Map;
+
 class ApacheResponse {
 
     private String response;
     private int status;
+    private Map<String, List<String>> headers;
 
     public String getResponse() {
         return response;
@@ -39,5 +43,13 @@ class ApacheResponse {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Map<String, List<String>> getHeaders() {
+        return headers;
+    }
+
+    public void setHeaders(Map<String, List<String>> headers) {
+        this.headers = headers;
     }
 }
