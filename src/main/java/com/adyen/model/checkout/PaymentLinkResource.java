@@ -33,7 +33,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -62,7 +61,7 @@ public class PaymentLinkResource {
     private String countryCode = null;
 
     @SerializedName("deliverAt")
-    private OffsetDateTime deliverAt = null;
+    private String deliverAt = null;
 
     @SerializedName("deliveryAddress")
     private Address deliveryAddress = null;
@@ -348,7 +347,7 @@ public class PaymentLinkResource {
         this.countryCode = countryCode;
     }
 
-    public PaymentLinkResource deliverAt(OffsetDateTime deliverAt) {
+    public PaymentLinkResource deliverAt(String deliverAt) {
         this.deliverAt = deliverAt;
         return this;
     }
@@ -358,11 +357,11 @@ public class PaymentLinkResource {
      *
      * @return deliverAt
      **/
-    public OffsetDateTime getDeliverAt() {
+    public String getDeliverAt() {
         return deliverAt;
     }
 
-    public void setDeliverAt(OffsetDateTime deliverAt) {
+    public void setDeliverAt(String deliverAt) {
         this.deliverAt = deliverAt;
     }
 

@@ -25,7 +25,6 @@ import com.adyen.Client;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.CreatePaymentLinkResponse;
 import com.adyen.model.checkout.PaymentLinkResource;
 import com.adyen.model.checkout.UpdatePaymentLinkRequest;
 import com.adyen.service.exception.ApiException;
@@ -40,21 +39,17 @@ import static org.junit.Assert.fail;
 public class PaymentLinksTest extends BaseTest {
 
     @Test
-    public void TestPaymentLinksSuccess() throws Exception {
-        Client client = createMockClientFromFile("mocks/paymentlinks/payment-links-success.json");
+    public void TestCreatePaymentLinksSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/paymentlinks/get-payment-link-success.json");
         PaymentLinks paymentLinks = new PaymentLinks(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
-        CreatePaymentLinkResponse createPaymentLinkResponse = paymentLinks.create(createPaymentLinkRequest);
-        assertNotNull(createPaymentLinkResponse);
-        assertNotNull(createPaymentLinkResponse.getUrl());
-        assertNotNull(createPaymentLinkResponse.getExpiresAt());
-        assertNotNull(createPaymentLinkResponse.getAmount());
-        assertNotNull(createPaymentLinkResponse.getReference());
+        PaymentLinkResource paymentLink = paymentLinks.create(createPaymentLinkRequest);
+        assertPaymentLinkResource(paymentLink, PaymentLinkResource.StatusEnum.ACTIVE);
     }
 
     @Test
-    public void TestPaymentLinksErrorMerchantMissing() throws IOException {
-        Client client = createMockClientForErrors(403, "mocks/paymentlinks/payment-links-error-merchant.json");
+    public void TestCreatePaymentLinksErrorMerchantMissing() throws IOException {
+        Client client = createMockClientForErrors(403, "mocks/paymentlinks/create-payment-links-error-merchant.json");
         PaymentLinks paymentLinks = new PaymentLinks(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
         try {
@@ -68,8 +63,8 @@ public class PaymentLinksTest extends BaseTest {
     }
 
     @Test
-    public void TestPaymentLinksErrorAmountMissing() throws IOException {
-        Client client = createMockClientForErrors(422, "mocks/paymentlinks/payment-links-error-amount.json");
+    public void TestCreatePaymentLinksErrorAmountMissing() throws IOException {
+        Client client = createMockClientForErrors(422, "mocks/paymentlinks/create-payment-links-error-amount.json");
         PaymentLinks paymentLinks = new PaymentLinks(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
         try {
@@ -83,8 +78,8 @@ public class PaymentLinksTest extends BaseTest {
     }
 
     @Test
-    public void TestPaymentLinksErrorReferenceMissing() throws IOException {
-        Client client = createMockClientForErrors(422, "mocks/paymentlinks/payment-links-error-reference.json");
+    public void TestCreatePaymentLinksErrorReferenceMissing() throws IOException {
+        Client client = createMockClientForErrors(422, "mocks/paymentlinks/create-payment-links-error-reference.json");
         PaymentLinks paymentLinks = new PaymentLinks(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
         try {
@@ -99,20 +94,10 @@ public class PaymentLinksTest extends BaseTest {
 
     @Test
     public void TestGetPaymentLink() throws IOException, ApiException {
-        Client client = createMockClientFromFile("mocks/paymentlinks/payment-link-success.json");
+        Client client = createMockClientFromFile("mocks/paymentlinks/get-payment-link-success.json");
         PaymentLinks paymentLinks = new PaymentLinks(client);
         PaymentLinkResource paymentLink = paymentLinks.get("id");
-        assertNotNull(paymentLink);
-        assertNotNull(paymentLink.getId());
-        assertNotNull(paymentLink.getAmount());
-        assertNotNull(paymentLink.getCountryCode());
-        assertNotNull(paymentLink.getExpiresAt());
-        assertNotNull(paymentLink.getMerchantAccount());
-        assertNotNull(paymentLink.getReference());
-        assertNotNull(paymentLink.getShopperLocale());
-        assertNotNull(paymentLink.getShopperReference());
-        assertNotNull(PaymentLinkResource.StatusEnum.ACTIVE.getValue(), paymentLink.getStatus());
-        assertNotNull(paymentLink.getUrl());
+        assertPaymentLinkResource(paymentLink, PaymentLinkResource.StatusEnum.ACTIVE);
     }
 
     @Test
@@ -122,6 +107,10 @@ public class PaymentLinksTest extends BaseTest {
         UpdatePaymentLinkRequest updatePaymentLinkRequest = new UpdatePaymentLinkRequest();
         updatePaymentLinkRequest.setStatus(UpdatePaymentLinkRequest.StatusEnum.EXPIRED);
         PaymentLinkResource paymentLink = paymentLinks.update("id", updatePaymentLinkRequest);
+        assertPaymentLinkResource(paymentLink, PaymentLinkResource.StatusEnum.EXPIRED);
+    }
+
+    private void assertPaymentLinkResource(PaymentLinkResource paymentLink, PaymentLinkResource.StatusEnum status) {
         assertNotNull(paymentLink);
         assertNotNull(paymentLink.getId());
         assertNotNull(paymentLink.getAmount());
@@ -131,14 +120,14 @@ public class PaymentLinksTest extends BaseTest {
         assertNotNull(paymentLink.getReference());
         assertNotNull(paymentLink.getShopperLocale());
         assertNotNull(paymentLink.getShopperReference());
-        assertNotNull(PaymentLinkResource.StatusEnum.EXPIRED.getValue(), paymentLink.getStatus().getValue());
+        assertNotNull(status.getValue(), paymentLink.getStatus());
         assertNotNull(paymentLink.getUrl());
     }
 
     /**
      * Returns a sample PaymentsRequest opbject with test data
      */
-    protected CreatePaymentLinkRequest createPaymentLinkRequest() {
+    private CreatePaymentLinkRequest createPaymentLinkRequest() {
         CreatePaymentLinkRequest createPaymentLinkRequest = new CreatePaymentLinkRequest();
 
         createPaymentLinkRequest.setReference("YOUR_ORDER_NUMBER");
@@ -165,7 +154,7 @@ public class PaymentLinksTest extends BaseTest {
     /**
      * Returns a sample Amount opbject with given currency and value
      */
-    protected Amount createAmountObject(String currency, Long value) {
+    private Amount createAmountObject(String currency, Long value) {
         Amount amount = new Amount();
         amount.setCurrency(currency);
         amount.setValue(value);

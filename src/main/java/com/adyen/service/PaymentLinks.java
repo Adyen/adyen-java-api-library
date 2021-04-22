@@ -24,7 +24,6 @@ import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.CreatePaymentLinkResponse;
 import com.adyen.model.checkout.PaymentLinkResource;
 import com.adyen.model.checkout.UpdatePaymentLinkRequest;
 import com.adyen.service.exception.ApiException;
@@ -55,10 +54,10 @@ public class PaymentLinks extends ApiKeyAuthenticatedService {
      * @throws IOException  IOException
      * @throws ApiException ApiException
      */
-    public CreatePaymentLinkResponse create(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
+    public PaymentLinkResource create(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(createPaymentLinkRequest);
         String jsonResult = paymentLinks.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<CreatePaymentLinkResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResource>() {
         }.getType());
     }
 
