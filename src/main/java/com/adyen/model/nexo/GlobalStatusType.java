@@ -1,4 +1,3 @@
-@Schema(description = "The POI is ready to receive and process a request")
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;

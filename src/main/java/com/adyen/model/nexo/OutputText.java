@@ -42,6 +42,7 @@ public class OutputText {
     @XmlAttribute(name = "Text", required = true)
     @Schema(description = "Content of text message to display, print or play.")
     protected String text;
+
     @XmlAttribute(name = "CharacterSet")
     @Schema(description = "The character encoding of the text string. --Rule: If not present, the settings of thetarget system or device are used. ")
     protected Integer characterSet;

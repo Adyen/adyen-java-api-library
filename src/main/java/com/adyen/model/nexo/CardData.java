@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,6 +91,7 @@ public class CardData {
      * The Payment brand.
      */
     @XmlAttribute(name = "PaymentBrand")
+    @Schema(description = "Type of payment card --Rule: If card PAN is readable ")
     protected String paymentBrand;
     /**
      * The Masked pan.
@@ -97,16 +102,19 @@ public class CardData {
      * The Payment account ref.
      */
     @XmlAttribute(name = "PaymentAccountRef")
+    @Schema(description = "Reference of the PAN, which identifies the PAN or the card uniquely, named also PAR (Payment Account Reference). This --Rule: Mandatory if available.")
     protected String paymentAccountRef;
     /**
      * The Entry mode.
      */
     @XmlAttribute(name = "EntryMode")
+    @Schema(description = "Entry mode of the payment instrument information --Rule: Mandatory in the request")
     protected List<EntryModeType> entryMode;
     /**
      * The Card country code.
      */
     @XmlAttribute(name = "CardCountryCode")
+    @Schema(description = "Country Code attached to the card (3 numerics). --Rule: If available in the card")
     protected String cardCountryCode;
 
     /**

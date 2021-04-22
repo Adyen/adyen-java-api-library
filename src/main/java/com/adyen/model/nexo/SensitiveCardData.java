@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,16 +49,19 @@ public class SensitiveCardData {
      * The Pan.
      */
     @XmlAttribute(name = "PAN")
+    @Schema(description = "Primary Account Number --Rule:  ")
     protected String pan;
     /**
      * The Card seq numb.
      */
     @XmlAttribute(name = "CardSeqNumb")
+    @Schema(description = "Card Sequence Number --Rule: if EntryMode is File, Keyed or Manual")
     protected String cardSeqNumb;
     /**
      * The Expiry date.
      */
     @XmlAttribute(name = "ExpiryDate")
+    @Schema(description = "Date after which the card cannot be used. --Rule: if EntryMode is File")
     protected String expiryDate;
 
     /**

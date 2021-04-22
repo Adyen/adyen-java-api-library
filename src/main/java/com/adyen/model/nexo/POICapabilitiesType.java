@@ -1,4 +1,3 @@
-@Schema(description = "Contact  ICC card reader")
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -97,13 +101,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "AbortRequest")
     @Schema(description = "Body of the Abort Request message.")
-    @Schema(description = "Body of the Abort Request message.")
     protected AbortRequest abortRequest;
     /**
      * The Balance inquiry request.
      */
     @XmlElement(name = "BalanceInquiryRequest")
-    @Schema(description = "Content of the Balance Inquiry Request message.")
     @Schema(description = "Content of the Balance Inquiry Request message.")
     protected BalanceInquiryRequest balanceInquiryRequest;
     /**
@@ -111,13 +113,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "BatchRequest")
     @Schema(description = "Content of the Batch Request message.")
-    @Schema(description = "Content of the Batch Request message.")
     protected BatchRequest batchRequest;
     /**
      * The Card acquisition request.
      */
     @XmlElement(name = "CardAcquisitionRequest")
-    @Schema(description = "Content of the Card Acquisition Request message.")
     @Schema(description = "Content of the Card Acquisition Request message.")
     protected CardAcquisitionRequest cardAcquisitionRequest;
     /**
@@ -125,13 +125,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "AdminRequest")
     @Schema(description = "Content of the Custom Admin Request message.")
-    @Schema(description = "Content of the Custom Admin Request message.")
     protected AdminRequest adminRequest;
     /**
      * The Diagnosis request.
      */
     @XmlElement(name = "DiagnosisRequest")
-    @Schema(description = "Content of the Diagnosis Request message.")
     @Schema(description = "Content of the Diagnosis Request message.")
     protected DiagnosisRequest diagnosisRequest;
     /**
@@ -139,13 +137,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "DisplayRequest")
     @Schema(description = "Content of the Display Request message.")
-    @Schema(description = "Content of the Display Request message.")
     protected DisplayRequest displayRequest;
     /**
      * The Enable service request.
      */
     @XmlElement(name = "EnableServiceRequest")
-    @Schema(description = "Content of the Enable Service Request message.")
     @Schema(description = "Content of the Enable Service Request message.")
     protected EnableServiceRequest enableServiceRequest;
     /**
@@ -153,13 +149,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "EventNotification")
     @Schema(description = "Content of the EventNotification message.")
-    @Schema(description = "Content of the EventNotification message.")
     protected EventNotification eventNotification;
     /**
      * The Get totals request.
      */
     @XmlElement(name = "GetTotalsRequest")
-    @Schema(description = "Content of the Get Totals Request message.")
     @Schema(description = "Content of the Get Totals Request message.")
     protected GetTotalsRequest getTotalsRequest;
     /**
@@ -167,13 +161,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "InputRequest")
     @Schema(description = "Content of the Input Request message.")
-    @Schema(description = "Content of the Input Request message.")
     protected InputRequest inputRequest;
     /**
      * The Input update.
      */
     @XmlElement(name = "InputUpdate")
-    @Schema(description = "Content of the Input Update message.")
     @Schema(description = "Content of the Input Update message.")
     protected InputUpdate inputUpdate;
     /**
@@ -181,13 +173,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "LoginRequest")
     @Schema(description = "Content of the Login Request message.")
-    @Schema(description = "Content of the Login Request message.")
     protected LoginRequest loginRequest;
     /**
      * The Logout request.
      */
     @XmlElement(name = "LogoutRequest")
-    @Schema(description = "Content of the Logout Request message.")
     @Schema(description = "Content of the Logout Request message.")
     protected LogoutRequest logoutRequest;
     /**
@@ -195,13 +185,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "LoyaltyRequest")
     @Schema(description = "Content of the Loyalty Request message.")
-    @Schema(description = "Content of the Loyalty Request message.")
     protected LoyaltyRequest loyaltyRequest;
     /**
      * The Payment request.
      */
     @XmlElement(name = "PaymentRequest")
-    @Schema(description = "Content of the Payment Request message.")
     @Schema(description = "Content of the Payment Request message.")
     protected PaymentRequest paymentRequest;
     /**
@@ -209,13 +197,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "PINRequest")
     @Schema(description = "Content of the PIN Request message.")
-    @Schema(description = "Content of the PIN Request message.")
     protected PINRequest pinRequest;
     /**
      * The Print request.
      */
     @XmlElement(name = "PrintRequest")
-    @Schema(description = "Content of the Print Request message.")
     @Schema(description = "Content of the Print Request message.")
     protected PrintRequest printRequest;
     /**
@@ -223,13 +209,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "CardReaderInitRequest")
     @Schema(description = "Content of the Card Reader Init Request message.")
-    @Schema(description = "Content of the Card Reader Init Request message.")
     protected CardReaderInitRequest cardReaderInitRequest;
     /**
      * The Card reader apdu request.
      */
     @XmlElement(name = "CardReaderAPDURequest")
-    @Schema(description = "Content of the Card Reader APDU Request message.")
     @Schema(description = "Content of the Card Reader APDU Request message.")
     protected CardReaderAPDURequest cardReaderAPDURequest;
     /**
@@ -237,13 +221,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "CardReaderPowerOffRequest")
     @Schema(description = "Content of the Card Reader Power-Off Request message.")
-    @Schema(description = "Content of the Card Reader Power-Off Request message.")
     protected CardReaderPowerOffRequest cardReaderPowerOffRequest;
     /**
      * The Reconciliation request.
      */
     @XmlElement(name = "ReconciliationRequest")
-    @Schema(description = "Content of the Reconciliation Request message.")
     @Schema(description = "Content of the Reconciliation Request message.")
     protected ReconciliationRequest reconciliationRequest;
     /**
@@ -251,13 +233,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "ReversalRequest")
     @Schema(description = "Content of the Reversal Request message.")
-    @Schema(description = "Content of the Reversal Request message.")
     protected ReversalRequest reversalRequest;
     /**
      * The Sound request.
      */
     @XmlElement(name = "SoundRequest")
-    @Schema(description = "Content of the Sound Request message.")
     @Schema(description = "Content of the Sound Request message.")
     protected SoundRequest soundRequest;
     /**
@@ -265,13 +245,11 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "StoredValueRequest")
     @Schema(description = "Content of the Stored Value Request message.")
-    @Schema(description = "Content of the Stored Value Request message.")
     protected StoredValueRequest storedValueRequest;
     /**
      * The Transaction status request.
      */
     @XmlElement(name = "TransactionStatusRequest")
-    @Schema(description = "Content of the TransactionStatus Request message.")
     @Schema(description = "Content of the TransactionStatus Request message.")
     protected TransactionStatusRequest transactionStatusRequest;
     /**
@@ -279,12 +257,12 @@ public class SaleToPOIRequest {
      */
     @XmlElement(name = "TransmitRequest")
     @Schema(description = "Content of the Transmit Request message.")
-    @Schema(description = "Content of the Transmit Request message.")
     protected TransmitRequest transmitRequest;
     /**
      * The Security trailer.
      */
     @XmlElement(name = "SecurityTrailer")
+    @Schema(description = "Protection of the whole message")
     protected ContentInformation securityTrailer;
 
     /**

@@ -1,4 +1,3 @@
-@Schema(description = "The Sale System could request the PIN validation services.")
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;

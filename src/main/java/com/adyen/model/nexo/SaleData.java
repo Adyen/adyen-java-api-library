@@ -5,7 +5,11 @@ import com.adyen.serializer.SaleToAcquirerDataSerializer;
 import com.google.gson.annotations.JsonAdapter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,36 +97,43 @@ public class SaleData {
      * The Operator id.
      */
     @XmlAttribute(name = "OperatorID")
+    @Schema(description = "Identification of the Cashier or Operator. --Rule: if different from the Login and  see Login .SaleData")
     protected String operatorID;
     /**
      * The Operator language.
      */
     @XmlAttribute(name = "OperatorLanguage")
+    @Schema(description = "Language of the Cashier or Operator. --Rule: if different from the Login")
     protected String operatorLanguage;
     /**
      * The Shift number.
      */
     @XmlAttribute(name = "ShiftNumber")
+    @Schema(description = "Shift number. --Rule: if different from the Login and  see Login .SaleData")
     protected String shiftNumber;
     /**
      * The Sale reference id.
      */
     @XmlAttribute(name = "SaleReferenceID")
+    @Schema(description = "Identification of a Sale global transaction for a sequence of related POI transactions --Rule: If payment reservation")
     protected String saleReferenceID;
     /**
      * The Token requested.
      */
     @XmlAttribute(name = "TokenRequestedType")
+    @Schema(description = "Type of token replacing the PAN of a payment card to identify the payment mean of the customer. --Rule: In a Payment or CardAcquisition request, if a token is requested.")
     protected TokenRequestedType tokenRequestedType;
     /**
      * The Customer order id.
      */
     @XmlAttribute(name = "CustomerOrderID")
+    @Schema(description = "Identification of a customer order. --Rule: If the payment is related to an open customer order.")
     protected String customerOrderID;
     /**
      * The Customer order req.
      */
     @XmlAttribute(name = "CustomerOrderReq")
+    @Schema(description = "List of customer orders must be sent in response message. --Rule: If customer orders must be listed in the response message.")
     protected List<CustomerOrderReqType> customerOrderReq;
 
     public SaleData() {

@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -52,21 +56,25 @@ public class PrintOutput {
      * The Document qualifier.
      */
     @XmlAttribute(name = "DocumentQualifier", required = true)
+    @Schema(description = "Qualification of the document to print to the Cashier or the Customer.")
     protected DocumentQualifierType documentQualifier;
     /**
      * The Response mode.
      */
     @XmlAttribute(name = "ResponseMode", required = true)
+    @Schema(description = "Message response awaited by the initiator of the Request")
     protected ResponseModeType responseMode;
     /**
      * The Integrated print flag.
      */
     @XmlAttribute(name = "IntegratedPrintFlag")
+    @Schema(description = "Type of the print integrated to other prints.")
     protected Boolean integratedPrintFlag;
     /**
      * The Required signature flag.
      */
     @XmlAttribute(name = "RequiredSignatureFlag")
+    @Schema(description = "Indicate that the cardholder payment receipt requires a physical signature by the Customer.")
     protected Boolean requiredSignatureFlag;
 
     /**

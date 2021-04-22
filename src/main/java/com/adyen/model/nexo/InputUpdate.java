@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,16 +74,19 @@ public class InputUpdate {
      * The Min length.
      */
     @XmlAttribute(name = "MinLength")
+    @Schema(description = "Minimum input length --Rule: If present in the Input to update.")
     protected BigInteger minLength;
     /**
      * The Max length.
      */
     @XmlAttribute(name = "MaxLength")
+    @Schema(description = "Maximum input length --Rule: If present in the Input to update.")
     protected BigInteger maxLength;
     /**
      * The Max decimal length.
      */
     @XmlAttribute(name = "MaxDecimalLength")
+    @Schema(description = "Maximum input length of the decimal part (without decimal point) --Rule: If present in the Input to update.")
     protected BigInteger maxDecimalLength;
 
     /**

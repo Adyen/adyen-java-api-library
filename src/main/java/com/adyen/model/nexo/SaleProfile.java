@@ -2,7 +2,12 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlList;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +49,7 @@ public class SaleProfile {
      * The Generic profile.
      */
     @XmlAttribute(name = "GenericProfile")
+    @Schema(description = "Functional profile of the Sale to POI protocol.")
     protected GenericProfileType genericProfile;
 
     /**

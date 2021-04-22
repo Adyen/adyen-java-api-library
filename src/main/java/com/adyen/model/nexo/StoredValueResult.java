@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 
 
@@ -54,26 +58,31 @@ public class StoredValueResult {
      * The Stored value transaction.
      */
     @XmlAttribute(name = "StoredValueTransactionType", required = true)
+    @Schema(description = "Identification of operation to proceed on the stored value account or the stored value card --Rule: Copy")
     protected StoredValueTransactionType storedValueTransactionType;
     /**
      * The Product code.
      */
     @XmlAttribute(name = "ProductCode", required = true)
+    @Schema(description = "Product code of item purchased with the transaction. --Rule: Copy")
     protected String productCode;
     /**
      * The Ean upc.
      */
     @XmlAttribute(name = "EanUpc")
+    @Schema(description = "Standard product code of item purchased with the transaction. --Rule: Copy")
     protected String eanUpc;
     /**
      * The Item amount.
      */
     @XmlAttribute(name = "ItemAmount", required = true)
+    @Schema(description = "Total amount of the item line.")
     protected BigDecimal itemAmount;
     /**
      * The Currency.
      */
     @XmlAttribute(name = "Currency", required = true)
+    @Schema(description = "Currency of a monetary amount. --Rule: Copy")
     protected String currency;
 
     /**

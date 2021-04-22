@@ -2,7 +2,12 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,36 +72,43 @@ public class LoginRequest {
      * The Training mode flag.
      */
     @XmlAttribute(name = "TrainingModeFlag")
+    @Schema(description = "Training mode --Rule: The POI does not realise the transaction with the Acquirer")
     protected Boolean trainingModeFlag;
     /**
      * The Operator language.
      */
     @XmlAttribute(name = "OperatorLanguage", required = true)
+    @Schema(description = "Language of the Cashier or Operator. --Rule: Default value for Device type displays")
     protected String operatorLanguage;
     /**
      * The Operator id.
      */
     @XmlAttribute(name = "OperatorID")
+    @Schema(description = "Identification of the Cashier or Operator. --Rule: 4 conditions to send it: a) the Sale System wants the POI log it in the transaction log b) because of reconciliation")
     protected String operatorID;
     /**
      * The Shift number.
      */
     @XmlAttribute(name = "ShiftNumber")
+    @Schema(description = "Shift number. --Rule: Same as OperatorID")
     protected String shiftNumber;
     /**
      * The Token requested.
      */
     @XmlAttribute(name = "TokenRequestedType")
+    @Schema(description = "Type of token replacing the PAN of a payment card to identify the payment mean of the customer. --Rule: If a token is requested during the the session.")
     protected TokenRequestedType tokenRequestedType;
     /**
      * The Customer order req.
      */
     @XmlAttribute(name = "CustomerOrderReq")
+    @Schema(description = "List of customer orders must be sent in response message. --Rule: If customer orders must be listed in Card Acquisition and Payment response messages during the session.")
     protected List<CustomerOrderReqType> customerOrderReq;
     /**
      * The Poi serial number.
      */
     @XmlAttribute(name = "POISerialNumber")
+    @Schema(description = "Serial number of a POI Terminal --Rule: If the login involve a POI Terminal and not the first Login to the POI System")
     protected String poiSerialNumber;
 
     /**

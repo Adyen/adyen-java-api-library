@@ -1,9 +1,10 @@
-@Schema(description = "documentation")
 package com.adyen.model.nexo;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 import java.math.BigDecimal;
 
 

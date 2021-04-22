@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -74,11 +78,13 @@ public class CheckData {
      * The Type code.
      */
     @XmlAttribute(name = "TypeCode")
+    @Schema(description = "Type of bank check.")
     protected CheckTypeCodeType typeCode;
     /**
      * The Country.
      */
     @XmlAttribute(name = "Country")
+    @Schema(description = "Country of the bank check. --Rule: Absent if country of the Sale system")
     protected String country;
 
     /**

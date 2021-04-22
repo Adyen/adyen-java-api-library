@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 
 
@@ -60,16 +64,19 @@ public class CurrencyConversion {
      * The Customer approved flag.
      */
     @XmlAttribute(name = "CustomerApprovedFlag")
+    @Schema(description = "Notify if the customer has approved something.")
     protected Boolean customerApprovedFlag;
     /**
      * The Rate.
      */
     @XmlAttribute(name = "Rate")
+    @Schema(description = "Rate of currency conversion. --Rule: Conversion rate of the target currency against the source currency.")
     protected BigDecimal rate;
     /**
      * The Markup.
      */
     @XmlAttribute(name = "Markup")
+    @Schema(description = "Markup of an amount in percentage. --Rule: Markup of the conversion.")
     protected BigDecimal markup;
 
     /**

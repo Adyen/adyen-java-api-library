@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,11 +48,13 @@ public class DiagnosisRequest {
      * The Poiid.
      */
     @XmlAttribute(name = "POIID")
+    @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: MessageHeader.POIID")
     protected String poiid;
     /**
      * The Host diagnosis flag.
      */
     @XmlAttribute(name = "HostDiagnosisFlag")
+    @Schema(description = "Indicates if Host Diagnosis are required")
     protected Boolean hostDiagnosisFlag;
 
     /**

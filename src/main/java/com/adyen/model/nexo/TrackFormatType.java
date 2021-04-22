@@ -1,5 +1,3 @@
-@Schema(description = "American driver license")
-@Schema(description = "ISO card track format - ISO 7813 - ISO 4909")
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;

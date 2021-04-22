@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 
 
@@ -52,16 +56,19 @@ public class ReversalRequest {
      * The Sale reference id.
      */
     @XmlAttribute(name = "SaleReferenceID")
+    @Schema(description = "Identification of a Sale global transaction for a sequence of related POI transactions --Rule: If payment reservation reversal")
     protected String saleReferenceID;
     /**
      * The Reversal reason.
      */
     @XmlAttribute(name = "ReversalReason", required = true)
+    @Schema(description = "Reason of the payment or loyalty reversal..")
     protected ReversalReasonType reversalReason;
     /**
      * The Reversed amount.
      */
     @XmlAttribute(name = "ReversedAmount")
+    @Schema(description = "Amount of the payment or loyalty to reverse.. --Rule: ReversedAmount is implicitely the AuthorizedAmount if absent.")
     protected BigDecimal reversedAmount;
     /**
      * The Sale data.

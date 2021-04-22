@@ -2,7 +2,12 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlList;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,11 +58,13 @@ public class POITerminalData {
      * The Terminal environment.
      */
     @XmlAttribute(name = "TerminalEnvironment", required = true)
+    @Schema(description = "Environment of the Terminal.")
     protected TerminalEnvironmentType terminalEnvironment;
     /**
      * The Poi serial number.
      */
     @XmlAttribute(name = "POISerialNumber", required = true)
+    @Schema(description = "Serial number of a POI Terminal")
     protected String poiSerialNumber;
 
     /**

@@ -1,4 +1,3 @@
-@Schema(description = "Give the totals result per POIID value.")
 package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;

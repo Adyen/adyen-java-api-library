@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,31 +100,37 @@ public class PaymentResult {
      * The Payment type.
      */
     @XmlAttribute(name = "PaymentType")
+    @Schema(description = "Type of payment transaction. --Rule: Copy")
     protected PaymentType paymentType;
     /**
      * The Merchant override flag.
      */
     @XmlAttribute(name = "MerchantOverrideFlag")
+    @Schema(description = "Indicate that the Merchant forced the result of the payment to successfull. --Rule: If payment forced by the Cashier")
     protected Boolean merchantOverrideFlag;
     /**
      * The Customer language.
      */
     @XmlAttribute(name = "CustomerLanguage")
+    @Schema(description = "Language of the Customer --Rule: If the customer language is different from the default language or different from the CustomerLanguage of the")
     protected String customerLanguage;
     /**
      * The Online flag.
      */
     @XmlAttribute(name = "OnlineFlag")
+    @Schema(description = "Indicate that the payment transaction processing has required the approval of a host. --Rule: \"True\" if the payment transaction processing has required the approval of a host.")
     protected Boolean onlineFlag;
     /**
      * The Authentication method.
      */
     @XmlAttribute(name = "AuthenticationMethod")
+    @Schema(description = "Method for customer authentication. --Rule: Method for customer authentication.")
     protected List<AuthenticationMethodType> authenticationMethod;
     /**
      * The Validity date.
      */
     @XmlAttribute(name = "ValidityDate")
+    @Schema(description = "End of the validity period for the reservation. --Rule: if OneTimeReservation, FirstReservation or UpdateReservation")
     protected String validityDate;
 
     /**

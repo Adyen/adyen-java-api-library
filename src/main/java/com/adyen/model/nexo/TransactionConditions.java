@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,26 +75,31 @@ public class TransactionConditions {
      * The Debit preferred flag.
      */
     @XmlAttribute(name = "DebitPreferredFlag")
+    @Schema(description = "The preferred type of payment is a debit transaction rather a credit transaction. --Rule: The preferred type of payment is a debit transaction rather a credit transaction.")
     protected Boolean debitPreferredFlag;
     /**
      * The Loyalty handling.
      */
     @XmlAttribute(name = "LoyaltyHandling")
+    @Schema(description = "Type of Loyalty processing requested by the Sale System.")
     protected LoyaltyHandlingType loyaltyHandling;
     /**
      * The Customer language.
      */
     @XmlAttribute(name = "CustomerLanguage")
+    @Schema(description = "Language of the Customer --Rule: If the language is selected by the Sale System before the request to the POI.")
     protected String customerLanguage;
     /**
      * The Force online flag.
      */
     @XmlAttribute(name = "ForceOnlineFlag")
+    @Schema(description = "Indicates if the Cashier requires POI forces online access to the Acquirer. --Rule:  Go online if data sent")
     protected Boolean forceOnlineFlag;
     /**
      * The Merchant category code.
      */
     @XmlAttribute(name = "MerchantCategoryCode")
+    @Schema(description = "The code which identifies the category of the transaction (MCC). --Rule: The payment implies a specific MCC.")
     protected String merchantCategoryCode;
 
     /**

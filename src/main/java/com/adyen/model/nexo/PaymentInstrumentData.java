@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -57,6 +61,7 @@ public class PaymentInstrumentData {
      * The Payment instrument.
      */
     @XmlAttribute(name = "PaymentInstrumentType", required = true)
+    @Schema(description = "Type of payment instrument.")
     protected PaymentInstrumentType paymentInstrumentType;
     /**
      * The Stored value account id.

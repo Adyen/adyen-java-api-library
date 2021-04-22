@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.math.BigInteger;
 
 
@@ -42,6 +46,7 @@ public class CardReaderPowerOffRequest {
      * The Max waiting time.
      */
     @XmlAttribute(name = "MaxWaitingTime")
+    @Schema(description = "Maximum time to wait for the request processing in seconds.")
     protected BigInteger maxWaitingTime;
 
     /**

@@ -2,7 +2,11 @@ package com.adyen.model.nexo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,31 +69,37 @@ public class CardAcquisitionTransaction {
      * The Loyalty handling.
      */
     @XmlAttribute(name = "LoyaltyHandling")
+    @Schema(description = "Type of Loyalty processing requested by the Sale System.")
     protected LoyaltyHandlingType loyaltyHandling;
     /**
      * The Customer language.
      */
     @XmlAttribute(name = "CustomerLanguage")
+    @Schema(description = "Language of the Customer --Rule: If the language is selected by the Sale System before the request to the POI.")
     protected String customerLanguage;
     /**
      * The Force customer selection flag.
      */
     @XmlAttribute(name = "ForceCustomerSelectionFlag")
+    @Schema(description = "Indicates if the Customer realises the selection of the card application.")
     protected Boolean forceCustomerSelectionFlag;
     /**
      * The Total amount.
      */
     @XmlAttribute(name = "TotalAmount")
+    @Schema(description = "Amount of a transaction. --Rule: Mandatory for contactless card, otherwise absent")
     protected BigDecimal totalAmount;
     /**
      * The Payment.
      */
     @XmlAttribute(name = "PaymentType")
+    @Schema(description = "Type of payment transaction. --Rule: Mandatory for contactless card, otherwise absent")
     protected PaymentType paymentType;
     /**
      * The Cash back flag.
      */
     @XmlAttribute(name = "CashBackFlag")
+    @Schema(description = "Cash back has been requested with the payment transaction. --Rule: For contactless, True if cash back has been requested, default False. Otherwise absent.")
     protected Boolean cashBackFlag;
 
     /**
