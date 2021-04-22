@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -22,8 +22,8 @@ package com.adyen;
 
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
+import com.adyen.httpclient.ApacheHttpClient;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.httpclient.HttpURLConnectionClient;
 import com.adyen.model.Address;
 import com.adyen.model.AuthenticationResultRequest;
 import com.adyen.model.AuthenticationResultResponse;
@@ -57,6 +57,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -244,14 +245,14 @@ public class PaymentTest extends BaseTest {
      */
     @Test
     public void TestError401Mocked() throws Exception {
-        HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
+        ApacheHttpClient apacheHttpClient = mock(ApacheHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<>(), null);
 
-        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
-        when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), isNull())).thenThrow(httpClientException);
+        when(apacheHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
+        when(apacheHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), anyString())).thenThrow(httpClientException);
 
         Client client = new Client();
-        client.setHttpClient(httpURLConnectionClient);
+        client.setHttpClient(apacheHttpClient);
 
         Payment payment = new Payment(client);
 
@@ -351,7 +352,7 @@ public class PaymentTest extends BaseTest {
     }
 
     @Test
-    public void TestGetAuthenticationResultErrorOldAuthentication() throws IOException, ApiException {
+    public void TestGetAuthenticationResultErrorOldAuthentication() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/authentication-result-error-old-psp.json");
 
         Payment payment = new Payment(client);
@@ -367,7 +368,7 @@ public class PaymentTest extends BaseTest {
     }
 
     @Test
-    public void TestGetAuthenticationResultErrorNotFound() throws IOException, ApiException {
+    public void TestGetAuthenticationResultErrorNotFound() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/authentication-result-error-not-found.json");
 
         Payment payment = new Payment(client);
@@ -383,7 +384,7 @@ public class PaymentTest extends BaseTest {
     }
 
     @Test
-    public void TestGetAuthenticationResultErrorInvalidPsp() throws IOException, ApiException {
+    public void TestGetAuthenticationResultErrorInvalidPsp() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/authentication-result-error-invalid-psp.json");
 
         Payment payment = new Payment(client);
@@ -400,7 +401,7 @@ public class PaymentTest extends BaseTest {
     }
 
     @Test
-    public void TestGetAuthenticationResultErrorNotAllowed() throws IOException, ApiException {
+    public void TestGetAuthenticationResultErrorNotAllowed() throws IOException {
         Client client = createMockClientForErrors(403, "mocks/authentication-result-error-not-allowed.json");
 
         Payment payment = new Payment(client);

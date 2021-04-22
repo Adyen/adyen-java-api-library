@@ -24,13 +24,10 @@ package com.adyen.service;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.model.RequestOptions;
-
 import com.adyen.model.checkout.CheckoutCancelOrderRequest;
 import com.adyen.model.checkout.CheckoutCancelOrderResponse;
 import com.adyen.model.checkout.CheckoutCreateOrderRequest;
 import com.adyen.model.checkout.CheckoutCreateOrderResponse;
-import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.CreatePaymentLinkResponse;
 import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
@@ -44,14 +41,13 @@ import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PaymentsResponse;
 import com.adyen.model.checkout.StoredPaymentMethodResource;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.checkout.PaymentLinks;
+import com.adyen.service.resource.checkout.Orders;
+import com.adyen.service.resource.checkout.OrdersCancel;
 import com.adyen.service.resource.checkout.PaymentMethods;
 import com.adyen.service.resource.checkout.PaymentSession;
 import com.adyen.service.resource.checkout.Payments;
 import com.adyen.service.resource.checkout.PaymentsDetails;
 import com.adyen.service.resource.checkout.PaymentsResult;
-import com.adyen.service.resource.checkout.Orders;
-import com.adyen.service.resource.checkout.OrdersCancel;
 import com.adyen.service.resource.checkout.StoredPaymentsMethods;
 import com.google.gson.reflect.TypeToken;
 
@@ -64,7 +60,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
     private PaymentsDetails paymentsDetails;
     private PaymentSession paymentSession;
     private PaymentsResult paymentsResult;
-    private PaymentLinks paymentLinks;
     private Orders orders;
     private OrdersCancel ordersCancel;
     private StoredPaymentsMethods storedPaymentsMethods;
@@ -77,7 +72,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
         paymentsDetails = new PaymentsDetails(this);
         paymentSession = new PaymentSession(this);
         paymentsResult = new PaymentsResult(this);
-        paymentLinks = new PaymentLinks(this);
         orders = new Orders(this);
         ordersCancel = new OrdersCancel(this);
         storedPaymentsMethods = new StoredPaymentsMethods(this);
@@ -172,21 +166,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
         String jsonRequest = GSON.toJson(paymentResultRequest);
         String jsonResult = paymentsResult.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentResultResponse>() {
-        }.getType());
-    }
-
-    /**
-     * POST /paymentLinks API call
-     *
-     * @param createPaymentLinkRequest CreatePaymentLinkRequest
-     * @return createPaymentLinkResponse
-     * @throws IOException  IOException
-     * @throws ApiException ApiException
-     */
-    public CreatePaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(createPaymentLinkRequest);
-        String jsonResult = paymentLinks.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<CreatePaymentLinkResponse>() {
         }.getType());
     }
 

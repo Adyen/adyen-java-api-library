@@ -14,15 +14,15 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.httpclient.ApacheHttpClient;
 import com.adyen.httpclient.ClientInterface;
-import com.adyen.httpclient.HttpURLConnectionClient;
 
 import java.util.Optional;
 
@@ -197,7 +197,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(HttpURLConnectionClient::new);
+        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(ApacheHttpClient::new);
         return this.httpClient;
     }
 
