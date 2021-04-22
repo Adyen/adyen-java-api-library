@@ -169,9 +169,8 @@ public class ApacheHttpClient implements ClientInterface {
 
         if (config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) {
             HttpClientBuilder httpClientBuilder = HttpClients.custom();
-            try {
-                // Create new KeyStore for the terminal certificate
-                InputStream certificateInput = new FileInputStream(config.getTerminalCertificatePath());
+            // Create new KeyStore for the terminal certificate
+            try(InputStream certificateInput = new FileInputStream(config.getTerminalCertificatePath())) {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(certificateInput);
 
