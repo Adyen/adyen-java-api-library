@@ -49,19 +49,19 @@ public class SensitiveCardData {
      * The Pan.
      */
     @XmlAttribute(name = "PAN")
-    @Schema(description = "Primary Account Number --Rule:  ")
+    @Schema(description = "Primary Account Number --Rule:  ", minLength = 8, maxLength = 28)
     protected String pan;
     /**
      * The Card seq numb.
      */
     @XmlAttribute(name = "CardSeqNumb")
-    @Schema(description = "Card Sequence Number --Rule: if EntryMode is File, Keyed or Manual")
+    @Schema(description = "Card Sequence Number --Rule: if EntryMode is File, Keyed or Manual", minLength = 2, maxLength = 3)
     protected String cardSeqNumb;
     /**
      * The Expiry date.
      */
     @XmlAttribute(name = "ExpiryDate")
-    @Schema(description = "Date after which the card cannot be used. --Rule: if EntryMode is File")
+    @Schema(description = "Date after which the card cannot be used. --Rule: if EntryMode is File", minLength = 4, maxLength = 4)
     protected String expiryDate;
 
     /**

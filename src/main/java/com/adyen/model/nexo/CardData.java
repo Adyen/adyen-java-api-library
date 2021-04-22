@@ -67,7 +67,7 @@ public class CardData {
      * The Allowed product code.
      */
     @XmlElement(name = "AllowedProductCode")
-    @Schema(description = "Product codes that are payable by the payment card. --Rule: If ErrorCondition is \"PaymentRestriction\", some products are not payable by the payment card (payment response).")
+    @Schema(description = "Product codes that are payable by the payment card. --Rule: If ErrorCondition is \"PaymentRestriction\", some products are not payable by the payment card (payment response).", minLength = 1, maxLength = 20)
     protected List<String> allowedProductCode;
     /**
      * The Allowed product.
@@ -114,7 +114,7 @@ public class CardData {
      * The Card country code.
      */
     @XmlAttribute(name = "CardCountryCode")
-    @Schema(description = "Country Code attached to the card (3 numerics). --Rule: If available in the card")
+    @Schema(description = "Country Code attached to the card (3 numerics). --Rule: If available in the card", minLength = 3, maxLength = 3)
     protected String cardCountryCode;
 
     /**

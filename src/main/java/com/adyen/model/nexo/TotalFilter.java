@@ -61,7 +61,7 @@ public class TotalFilter {
      * The Totals group id.
      */
     @XmlAttribute(name = "TotalsGroupID")
-    @Schema(description = "Identification of a group of transaction on a POI Terminal, having the same Sale features. --Rule: If totals in the response have to be computed only for this particular value of TotalsGroupID")
+    @Schema(description = "Identification of a group of transaction on a POI Terminal, having the same Sale features. --Rule: If totals in the response have to be computed only for this particular value of TotalsGroupID", minLength = 1, maxLength = 16)
     protected String totalsGroupID;
 
     /**

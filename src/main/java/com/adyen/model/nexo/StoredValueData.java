@@ -71,7 +71,7 @@ public class StoredValueData {
      * The Product code.
      */
     @XmlAttribute(name = "ProductCode")
-    @Schema(description = "Product code of item purchased with the transaction.")
+    @Schema(description = "Product code of item purchased with the transaction.", minLength = 1, maxLength = 20)
     protected String productCode;
     /**
      * The Ean upc.

@@ -99,7 +99,7 @@ public class TransactionConditions {
      * The Merchant category code.
      */
     @XmlAttribute(name = "MerchantCategoryCode")
-    @Schema(description = "The code which identifies the category of the transaction (MCC). --Rule: The payment implies a specific MCC.")
+    @Schema(description = "The code which identifies the category of the transaction (MCC). --Rule: The payment implies a specific MCC.", minLength = 3, maxLength = 4)
     protected String merchantCategoryCode;
 
     /**

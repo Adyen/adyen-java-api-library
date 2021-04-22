@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
 public class TrackData {
 
     @XmlAttribute(name = "TrackValue")
-    @Schema(description = "Card track content")
+    @Schema(description = "Card track content", minLength = 1, maxLength = 104)
     protected String trackValue;
     @XmlAttribute(name = "TrackNumb")
     @Schema(description = "Card track number")

@@ -49,7 +49,7 @@ public class MessageReference {
      * The Device id.
      */
     @XmlAttribute(name = "DeviceID")
-    @Schema(description = "Identification of a device message pair")
+    @Schema(description = "Identification of a device message pair", minLength = 1, maxLength = 10)
     protected String deviceID;
     /**
      * The Sale id.

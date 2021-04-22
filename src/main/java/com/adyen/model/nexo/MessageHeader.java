@@ -64,7 +64,7 @@ public class MessageHeader {
      * The Service id.
      */
     @XmlAttribute(name = "ServiceID")
-    @Schema(description = "Identification of a message pair, which processes a transaction --Rule: If \"Service\" or \"Event\" MessageClass message. If \"Device\" MessageClass, and request from POI or response from Sale.")
+    @Schema(description = "Identification of a message pair, which processes a transaction --Rule: If \"Service\" or \"Event\" MessageClass message. If \"Device\" MessageClass, and request from POI or response from Sale.", minLength = 1, maxLength = 10)
     protected String serviceID;
     /**
      * The Device id.

@@ -46,7 +46,7 @@ public class MobileData {
      * The Mobile country code.
      */
     @XmlElement(name = "MobileCountryCode")
-    @Schema(description = "Identifies the country of a mobile phone operator. --Rule: If data available")
+    @Schema(description = "Identifies the country of a mobile phone operator. --Rule: If data available", minLength = 3, maxLength = 3)
     protected String mobileCountryCode;
     /**
      * The Geolocation.
@@ -70,7 +70,7 @@ public class MobileData {
      * The Mobile network code.
      */
     @XmlAttribute(name = "MobileNetworkCode")
-    @Schema(description = "Identifies the mobile phone operator inside a country. --Rule: If data available")
+    @Schema(description = "Identifies the mobile phone operator inside a country. --Rule: If data available", minLength = 2, maxLength = 3)
     protected String mobileNetworkCode;
     /**
      * The Masked msisdn.
