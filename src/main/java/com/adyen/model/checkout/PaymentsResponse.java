@@ -20,6 +20,7 @@
  */
 
 package com.adyen.model.checkout;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -30,6 +31,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -79,7 +81,7 @@ public class PaymentsResponse extends AbstractPaymentsResponse<PaymentsResponse>
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PaymentsResponse {\n");
-        sb.append(super.hashCode());
+        sb.append(super.toString());
         sb.append("    action: ").append(toIndentedString(action)).append("\n");
         sb.append("}");
         return sb.toString();
