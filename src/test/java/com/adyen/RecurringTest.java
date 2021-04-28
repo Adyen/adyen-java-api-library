@@ -20,16 +20,18 @@
  */
 package com.adyen;
 
+import com.adyen.model.Card;
 import com.adyen.model.recurring.DisableRequest;
 import com.adyen.model.recurring.DisableResult;
+import com.adyen.model.recurring.NotifyShopperRequest;
+import com.adyen.model.recurring.NotifyShopperResult;
 import com.adyen.model.recurring.RecurringDetail;
 import com.adyen.model.recurring.RecurringDetailsRequest;
 import com.adyen.model.recurring.RecurringDetailsResult;
-import com.adyen.model.recurring.StoreTokenRequest;
-import com.adyen.model.recurring.StoreTokenResult;
 import com.adyen.model.recurring.ScheduleAccountUpdaterRequest;
 import com.adyen.model.recurring.ScheduleAccountUpdaterResult;
-import com.adyen.model.Card;
+import com.adyen.model.recurring.StoreTokenRequest;
+import com.adyen.model.recurring.StoreTokenResult;
 import com.adyen.service.Recurring;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
@@ -66,16 +68,16 @@ public class RecurringTest extends BaseTest {
     }
 
     private StoreTokenRequest createStoreTokenRequest() {
-    	StoreTokenRequest request = new StoreTokenRequest()
-    			.shopperReference("test-123")
-    			.merchantAccount("MerchantAccount")
-    			.shopperEmail("johndoe@merchant.com")
-    			.shopperStatement("this is your statement")
-    			.shopperIP("192.168.1.1")
-    			.setContractToOneClick()
-    			.setCardData("5136333333333335", "John Doe", "08", "2018", "737");
+        StoreTokenRequest request = new StoreTokenRequest()
+                .shopperReference("test-123")
+                .merchantAccount("MerchantAccount")
+                .shopperEmail("johndoe@merchant.com")
+                .shopperStatement("this is your statement")
+                .shopperIP("192.168.1.1")
+                .setContractToOneClick()
+                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
 
-    	return request;
+        return request;
     }
 
     private ScheduleAccountUpdaterRequest createScheduleAccountUpdaterRequest() {
@@ -92,6 +94,17 @@ public class RecurringTest extends BaseTest {
 
 
         return request;
+    }
+
+    private NotifyShopperRequest createNotifyShopperRequest() {
+        NotifyShopperRequest notifyShopperRequest = new NotifyShopperRequest();
+        notifyShopperRequest.setMerchantAccount("TestMerchant");
+        notifyShopperRequest.setRecurringDetailReference("8316158654144897");
+        notifyShopperRequest.setReference("Example reference");
+        notifyShopperRequest.setShopperReference("1234567");
+        notifyShopperRequest.setBillingDate("2021-03-31");
+        notifyShopperRequest.setDisplayedReference("Example displayed reference");
+        return notifyShopperRequest;
     }
 
     @Test
@@ -141,36 +154,36 @@ public class RecurringTest extends BaseTest {
         }
     }
 
-	@Test
-	public void testStoreToken() throws Exception {
-		Client client = createMockClientFromFile("mocks/recurring/storeToken-success.json");
-		Recurring recurring = new Recurring(client);
+    @Test
+    public void testStoreToken() throws Exception {
+        Client client = createMockClientFromFile("mocks/recurring/storeToken-success.json");
+        Recurring recurring = new Recurring(client);
 
-		StoreTokenRequest request = createStoreTokenRequest();
+        StoreTokenRequest request = createStoreTokenRequest();
 
-		StoreTokenResult result = recurring.storeToken(request);
-		assertNotNull(result);
-		assertEquals("Success", result.getResult());
-		assertEquals("Default", result.getAliasType());
-		assertEquals("8815398995557524", result.getPspReference());
-		assertEquals("8315398995429067", result.getRecurringDetailReference());
-	}
+        StoreTokenResult result = recurring.storeToken(request);
+        assertNotNull(result);
+        assertEquals("Success", result.getResult());
+        assertEquals("Default", result.getAliasType());
+        assertEquals("8815398995557524", result.getPspReference());
+        assertEquals("8315398995429067", result.getRecurringDetailReference());
+    }
 
-	@Test
-	public void testStoreToken101() throws IOException {
-		Client client = createMockClientForErrors(422, "mocks/recurring/storeToken-error-101.json");
-		Recurring recurring = new Recurring(client);
+    @Test
+    public void testStoreToken101() throws IOException {
+        Client client = createMockClientForErrors(422, "mocks/recurring/storeToken-error-101.json");
+        Recurring recurring = new Recurring(client);
 
-		StoreTokenRequest request = createStoreTokenRequest();
+        StoreTokenRequest request = createStoreTokenRequest();
 
-		try {
-			recurring.storeToken(request);
-			fail("Exception expected!");
-		} catch (ApiException e) {
-			assertNotEquals(200, e.getStatusCode());
-			assertEquals("101", e.getError().getErrorCode());
-		}
-	}
+        try {
+            recurring.storeToken(request);
+            fail("Exception expected!");
+        } catch (ApiException e) {
+            assertNotEquals(200, e.getStatusCode());
+            assertEquals("101", e.getError().getErrorCode());
+        }
+    }
 
     @Test
     public void testScheduleAccountUpdater() throws Exception {
@@ -209,5 +222,22 @@ public class RecurringTest extends BaseTest {
             assertNotEquals(200, e.getStatusCode());
             assertEquals("130", e.getError().getErrorCode());
         }
+    }
+
+    @Test
+    public void testNotifyShopper() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/recurring/notifyShopper-success.json");
+        Recurring recurring = new Recurring(client);
+
+        NotifyShopperRequest request = createNotifyShopperRequest();
+
+        NotifyShopperResult result = recurring.notifyShopper(request);
+        assertNotNull(result);
+        assertEquals("Example displayed reference", result.getDisplayedReference());
+        assertEquals("8516167336214570", result.getPspReference());
+        assertEquals("Request processed successfully", result.getMessage());
+        assertEquals("Example reference", result.getReference());
+        assertEquals("Success", result.getResultCode());
+        assertEquals("IA0F7500002462", result.getShopperNotificationReference());
     }
 }

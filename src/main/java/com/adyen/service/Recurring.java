@@ -24,6 +24,8 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.recurring.DisableRequest;
 import com.adyen.model.recurring.DisableResult;
+import com.adyen.model.recurring.NotifyShopperRequest;
+import com.adyen.model.recurring.NotifyShopperResult;
 import com.adyen.model.recurring.RecurringDetailsRequest;
 import com.adyen.model.recurring.RecurringDetailsResult;
 import com.adyen.model.recurring.StoreTokenRequest;
@@ -33,6 +35,7 @@ import com.adyen.model.recurring.ScheduleAccountUpdaterResult;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.recurring.Disable;
 import com.adyen.service.resource.recurring.ListRecurringDetails;
+import com.adyen.service.resource.recurring.NotifyShopper;
 import com.adyen.service.resource.recurring.ScheduleAccountUpdater;
 import com.adyen.service.resource.recurring.StoreToken;
 import com.google.gson.reflect.TypeToken;
@@ -44,6 +47,7 @@ public class Recurring extends Service {
     private Disable disable;
     private StoreToken storeToken;
     private ScheduleAccountUpdater scheduleAccountUpdater;
+    private NotifyShopper notifyShopper;
 
     public Recurring(Client client) {
         super(client);
@@ -52,6 +56,7 @@ public class Recurring extends Service {
         disable = new Disable(this);
         storeToken = new StoreToken(this);
         scheduleAccountUpdater = new ScheduleAccountUpdater(this);
+        notifyShopper = new NotifyShopper(this);
     }
 
     /**
@@ -111,6 +116,21 @@ public class Recurring extends Service {
         String jsonRequest = GSON.toJson(request);
         String jsonResult = scheduleAccountUpdater.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<ScheduleAccountUpdaterResult>() {
+        }.getType());
+    }
+
+    /**
+     * Issues a notifyShopper API call
+     *
+     * @param request ScheduleAccountUpdaterRequest
+     * @return ScheduleAccountUpdaterResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public NotifyShopperResult notifyShopper(NotifyShopperRequest request) throws IOException, ApiException {
+        String jsonRequest = GSON.toJson(request);
+        String jsonResult = notifyShopper.request(jsonRequest);
+        return GSON.fromJson(jsonResult, new TypeToken<NotifyShopperResult>() {
         }.getType());
     }
 
