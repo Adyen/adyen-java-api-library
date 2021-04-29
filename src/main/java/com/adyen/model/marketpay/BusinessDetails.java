@@ -49,6 +49,9 @@ public class BusinessDetails {
     @SerializedName("shareholders")
     private List<ShareholderContact> shareholders = null;
 
+    @SerializedName("signatories")
+    private List<Signatory> signatories = null;
+
     @SerializedName("stockExchange")
     private String stockExchange = null;
 
@@ -159,6 +162,32 @@ public class BusinessDetails {
         this.shareholders = shareholders;
     }
 
+    public BusinessDetails signatories(List<Signatory> signatories) {
+        this.signatories = signatories;
+        return this;
+    }
+
+    public BusinessDetails addSignatoriesItem(Signatory signatoriesItem) {
+        if (this.signatories == null) {
+            this.signatories = new ArrayList<>();
+        }
+        this.signatories.add(signatoriesItem);
+        return this;
+    }
+
+    /**
+     * Each of the signatories associated with the company. Each array entry should represent one shareholder.
+     *
+     * @return signatories
+     **/
+    public List<Signatory> getSignatories() {
+        return signatories;
+    }
+
+    public void setSignatories(List<Signatory> signatories) {
+        this.signatories = signatories;
+    }
+
     public BusinessDetails taxId(String taxId) {
         this.taxId = taxId;
         return this;
@@ -247,6 +276,7 @@ public class BusinessDetails {
                 Objects.equals(this.legalBusinessName, businessDetails.legalBusinessName) &&
                 Objects.equals(this.registrationNumber, businessDetails.registrationNumber) &&
                 Objects.equals(this.shareholders, businessDetails.shareholders) &&
+                Objects.equals(this.signatories, businessDetails.signatories) &&
                 Objects.equals(this.stockExchange, businessDetails.stockExchange) &&
                 Objects.equals(this.stockNumber, businessDetails.stockNumber) &&
                 Objects.equals(this.stockTicker, businessDetails.stockTicker) &&
@@ -255,7 +285,7 @@ public class BusinessDetails {
 
     @Override
     public int hashCode() {
-        return Objects.hash(doingBusinessAs, incorporatedAt, legalBusinessName, registrationNumber, shareholders, stockExchange, stockNumber, stockTicker, taxId);
+        return Objects.hash(doingBusinessAs, incorporatedAt, legalBusinessName, registrationNumber, shareholders, signatories, stockExchange, stockNumber, stockTicker, taxId);
     }
 
 
@@ -269,6 +299,7 @@ public class BusinessDetails {
         sb.append("    legalBusinessName: ").append(toIndentedString(legalBusinessName)).append("\n");
         sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
         sb.append("    shareholders: ").append(toIndentedString(shareholders)).append("\n");
+        sb.append("    signatories: ").append(toIndentedString(signatories)).append("\n");
         sb.append("    stockExchange: ").append(toIndentedString(stockExchange)).append("\n");
         sb.append("    stockNumber: ").append(toIndentedString(stockNumber)).append("\n");
         sb.append("    stockTicker: ").append(toIndentedString(stockTicker)).append("\n");

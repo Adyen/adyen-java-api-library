@@ -359,6 +359,7 @@ public class MarketPayTest extends BaseTest {
 
         assertEquals("1abf8304-58c7-4a9e-8bd3-4d7eff9801e4", getAccountHolderResponse.getAccountHolderDetails().getBankAccountDetails().get(0).getBankAccountUUID());
         assertEquals("67890", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getAddress().getPostalCode());
+        assertEquals("69620", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getSignatories().get(0).getAddress().getPostalCode());
         assertEquals("115548513", getAccountHolderResponse.getAccounts().get(0).getAccountCode());
         assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getType());
         assertEquals(PASSED, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getStatus());
@@ -371,6 +372,7 @@ public class MarketPayTest extends BaseTest {
         assertEquals("a8f392d1-7846-4a31-8c58-1b2e6abe8bb0", getAccountHolderResponse.getAccounts().get(0).getPayoutMethodCode());
         assertEquals(PayoutSpeedEnum.STANDARD, getAccountHolderResponse.getAccounts().get(0).getPayoutSpeed());
         assertEquals("Director", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getJobTitle());
+        assertEquals("Director", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getSignatories().get(0).getJobTitle());
         assertEquals(ShareholderContact.ShareholderTypeEnum.CONTROLLER, getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getShareholderType());
     }
 
