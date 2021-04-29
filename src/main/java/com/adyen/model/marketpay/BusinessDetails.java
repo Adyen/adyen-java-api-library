@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -50,7 +49,7 @@ public class BusinessDetails {
     private List<ShareholderContact> shareholders = null;
 
     @SerializedName("signatories")
-    private List<Signatory> signatories = null;
+    private List<SignatoryContact> signatories = null;
 
     @SerializedName("stockExchange")
     private String stockExchange = null;
@@ -162,12 +161,12 @@ public class BusinessDetails {
         this.shareholders = shareholders;
     }
 
-    public BusinessDetails signatories(List<Signatory> signatories) {
+    public BusinessDetails signatories(List<SignatoryContact> signatories) {
         this.signatories = signatories;
         return this;
     }
 
-    public BusinessDetails addSignatoriesItem(Signatory signatoriesItem) {
+    public BusinessDetails addSignatoriesItem(SignatoryContact signatoriesItem) {
         if (this.signatories == null) {
             this.signatories = new ArrayList<>();
         }
@@ -180,11 +179,11 @@ public class BusinessDetails {
      *
      * @return signatories
      **/
-    public List<Signatory> getSignatories() {
+    public List<SignatoryContact> getSignatories() {
         return signatories;
     }
 
-    public void setSignatories(List<Signatory> signatories) {
+    public void setSignatories(List<SignatoryContact> signatories) {
         this.signatories = signatories;
     }
 
@@ -261,7 +260,6 @@ public class BusinessDetails {
     }
 
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -307,7 +305,6 @@ public class BusinessDetails {
         sb.append("}");
         return sb.toString();
     }
-
 
 
 }
