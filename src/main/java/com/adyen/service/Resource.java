@@ -22,6 +22,7 @@ package com.adyen.service;
 
 import com.adyen.Config;
 import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.ApiError;
@@ -86,7 +87,7 @@ public class Resource {
      * @throws IOException  IOException
      * @return request
      */
-    public String request(String json, RequestOptions requestOptions, String httpMethod, Map<String, String> params) throws ApiException, IOException {
+    public String request(String json, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws ApiException, IOException {
         ClientInterface clientInterface = service.getClient().getHttpClient();
         Config config = service.getClient().getConfig();
         String responseBody;

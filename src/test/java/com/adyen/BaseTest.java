@@ -22,7 +22,7 @@ package com.adyen;
 
 import com.adyen.enums.Gender;
 import com.adyen.enums.VatCategory;
-import com.adyen.httpclient.ApacheHttpClient;
+import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.AbstractPaymentRequest;
 import com.adyen.model.Address;
@@ -74,7 +74,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
@@ -95,18 +94,18 @@ public class BaseTest {
      * Returns a Client object that has a mocked response
      */
     protected Client createMockClientFromResponse(String response) {
-        ApacheHttpClient apacheHttpClient = mock(ApacheHttpClient.class);
+        AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         try {
-            when(apacheHttpClient.post(anyString(), any(Map.class), any(Config.class))).thenReturn(response);
-            when(apacheHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenReturn(response);
-            when(apacheHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull())).thenReturn(response);
-            when(apacheHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), anyString())).thenReturn(response);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenReturn(response);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull())).thenReturn(response);
+            when(adyenHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), any())).thenReturn(response);
+            when(adyenHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), any(), any())).thenReturn(response);
 
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }
         Client client = new Client();
-        client.setHttpClient(apacheHttpClient);
+        client.setHttpClient(adyenHttpClient);
 
         Config config = new Config();
         config.setHmacKey("DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00");
@@ -353,15 +352,15 @@ public class BaseTest {
     protected Client createMockClientForErrors(int status, String fileName) {
         String response = getFileContents(fileName);
 
-        ApacheHttpClient apacheHttpClient = mock(ApacheHttpClient.class);
+        AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<>(), response);
         try {
-            when(apacheHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), anyString())).thenThrow(httpClientException);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }
         Client client = new Client();
-        client.setHttpClient(apacheHttpClient);
+        client.setHttpClient(adyenHttpClient);
         Config config = new Config();
         config.setCheckoutEndpoint(Client.CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);

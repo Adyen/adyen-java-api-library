@@ -96,7 +96,7 @@ public class PaymentLinksTest extends BaseTest {
     public void TestGetPaymentLink() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/paymentlinks/get-payment-link-success.json");
         PaymentLinks paymentLinks = new PaymentLinks(client);
-        PaymentLinkResource paymentLink = paymentLinks.get("id");
+        PaymentLinkResource paymentLink = paymentLinks.retrieve("id");
         assertPaymentLinkResource(paymentLink, PaymentLinkResource.StatusEnum.ACTIVE);
     }
 

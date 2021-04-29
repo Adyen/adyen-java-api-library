@@ -23,6 +23,7 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.hpp.DirectoryLookupRequest;
@@ -59,7 +60,7 @@ public class HostedPaymentPages extends Service {
         ClientInterface httpClient = getClient().getHttpClient();
         Config config = getClient().getConfig();
 
-        return httpClient.post(endpoint, postParameters, config);
+        return httpClient.request(endpoint, null, config, false, null, ApiConstants.HttpMethod.POST, postParameters);
     }
 
     public SortedMap<String, String> getPostParametersFromDLRequest(DirectoryLookupRequest request) throws SignatureException {

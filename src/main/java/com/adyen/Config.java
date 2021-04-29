@@ -14,13 +14,19 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2021 Adyen B.V.
+ * Copyright (c) 2018 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.util.CertificateUtil;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
 
 public class Config {
     protected String username;
@@ -48,7 +54,7 @@ public class Config {
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
     protected String terminalApiLocalEndpoint;
-    protected String terminalCertificatePath;
+    protected Certificate terminalCertificate;
 
     //Terminal Management API specific
     protected String posTerminalManagementApiEndpoint;
@@ -199,12 +205,20 @@ public class Config {
         this.posTerminalManagementApiEndpoint = posTerminalManagementApiEndpoint;
     }
 
-    public String getTerminalCertificatePath() {
-        return terminalCertificatePath;
+    public Certificate getTerminalCertificate() {
+        return terminalCertificate;
     }
 
-    public void setTerminalCertificatePath(String terminalCertificatePath) {
-        this.terminalCertificatePath = terminalCertificatePath;
+    public void setTerminalCertificate(Certificate terminalCertificate) {
+        this.terminalCertificate = terminalCertificate;
+    }
+
+    public void setTerminalCertificate(String terminalCertificatePath) throws FileNotFoundException, CertificateException {
+        this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificatePath);
+    }
+
+    public void setTerminalCertificate(InputStream terminalCertificateStream) throws CertificateException {
+        this.terminalCertificate = CertificateUtil.loadCertificate(terminalCertificateStream);
     }
 
     public String getDataProtectionEndpoint() {
@@ -214,4 +228,5 @@ public class Config {
     public void setDataProtectionEndpoint(String dataProtectionEndpoint) {
         this.dataProtectionEndpoint = dataProtectionEndpoint;
     }
+
 }

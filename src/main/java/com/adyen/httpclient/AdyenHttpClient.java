@@ -20,7 +20,9 @@
  */
 package com.adyen.httpclient;
 
+import com.adyen.Client;
 import com.adyen.Config;
+import com.adyen.constants.ApiConstants;
 import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
 import com.adyen.terminal.security.TerminalCommonNameValidator;
@@ -33,6 +35,7 @@ import org.apache.http.client.methods.HttpPatch;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -44,31 +47,31 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
-import java.net.URLEncoder;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
-import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Map;
 
-import static com.adyen.constants.ApiConstants.HttpMethod.DELETE;
-import static com.adyen.constants.ApiConstants.HttpMethod.GET;
-import static com.adyen.constants.ApiConstants.HttpMethod.PATCH;
 import static com.adyen.constants.ApiConstants.HttpMethod.POST;
+import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
 import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
 import static com.adyen.constants.ApiConstants.RequestProperty.APPLICATION_JSON_TYPE;
 import static com.adyen.constants.ApiConstants.RequestProperty.CONTENT_TYPE;
 import static com.adyen.constants.ApiConstants.RequestProperty.IDEMPOTENCY_KEY;
+import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
-public class ApacheHttpClient implements ClientInterface {
+public class AdyenHttpClient implements ClientInterface {
 
     private static final String CHARSET = "UTF-8";
+    private static final String TERMINAL_CERTIFICATE_ALIAS = "TerminalCertificate";
+    private static final String JAVA_KEYSTORE = "JKS";
+    private static final String SSL = "SSL";
     private Proxy proxy;
 
     public Proxy getProxy() {
@@ -95,88 +98,104 @@ public class ApacheHttpClient implements ClientInterface {
     }
 
     @Override
-    public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, String httpMethod) throws IOException, HTTPClientException {
+    public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod) throws IOException, HTTPClientException {
         return request(endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, null);
     }
 
     @Override
-    public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, String httpMethod, Map<String, Object> params) throws IOException, HTTPClientException {
-        if (params != null && !params.isEmpty()) {
-            String queryParams = getQueryNew(params);
-            endpoint = endpoint + "/" + queryParams;
-        }
-
-        ApacheResponse responseBody;
-
+    public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws IOException, HTTPClientException {
         try (CloseableHttpClient httpclient = createCloseableHttpClient(config)) {
-            HttpRequestBase httpUriRequest;
-            StringEntity requestEntity = null;
-
-            if (requestBody != null && !requestBody.isEmpty()) {
-                requestEntity = new StringEntity(requestBody);
-            }
-            if (GET.equals(httpMethod)) {
-                httpUriRequest = new HttpGet(endpoint);
-            } else if (PATCH.equals(httpMethod)) {
-                HttpPatch httpPatch = new HttpPatch(endpoint);
-                httpPatch.setEntity(requestEntity);
-                httpUriRequest = httpPatch;
-            } else if (DELETE.equals(httpMethod)) {
-                httpUriRequest = new HttpDelete(endpoint);
-            } else {
-                HttpPost httpPost = new HttpPost(endpoint);
-                httpPost.setEntity(requestEntity);
-                httpUriRequest = httpPost;
-            }
-
-            RequestConfig.Builder builder = RequestConfig.custom();
-
-            if (config.getReadTimeoutMillis() > 0) {
-                builder.setSocketTimeout(config.getReadTimeoutMillis());
-            }
-
-            if (config.getConnectionTimeoutMillis() > 0) {
-                builder.setConnectTimeout(config.getConnectionTimeoutMillis());
-            }
-
-            if (proxy != null && proxy.address() instanceof InetSocketAddress) {
-
-                InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
-                builder.setProxy(new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort()));
-            }
-
-            httpUriRequest.setConfig(builder.build());
-
-            setContentType(httpUriRequest, APPLICATION_JSON_TYPE);
-            setAuthentication(httpUriRequest, isApiKeyRequired, config);
-
-            if (requestOptions != null && requestOptions.getIdempotencyKey() != null) {
-                httpUriRequest.addHeader(IDEMPOTENCY_KEY, requestOptions.getIdempotencyKey());
-            }
+            HttpRequestBase httpRequest = createRequest(endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
 
             // Execute request with a custom response handler
-            responseBody = httpclient.execute(httpUriRequest, new ApacheResponseHandler());
+            AdyenResponse responseBody = httpclient.execute(httpRequest, new AdyenResponseHandler());
 
             if (responseBody.getStatus() < 200 || responseBody.getStatus() >= 300) {
                 throw new HTTPClientException(responseBody.getStatus(), "HTTP Exception", responseBody.getHeaders(), responseBody.getResponse());
             }
+            return responseBody.getResponse();
         }
-        return responseBody.getResponse();
+    }
+
+    private HttpRequestBase createRequest(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws HTTPClientException {
+        HttpRequestBase httpRequest = createHttpRequestBase(createUri(endpoint, params), requestBody, httpMethod);
+
+        RequestConfig.Builder builder = RequestConfig.custom();
+        if (config.getReadTimeoutMillis() > 0) {
+            builder.setSocketTimeout(config.getReadTimeoutMillis());
+        }
+        if (config.getConnectionTimeoutMillis() > 0) {
+            builder.setConnectTimeout(config.getConnectionTimeoutMillis());
+        }
+        if (proxy != null && proxy.address() instanceof InetSocketAddress) {
+            InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
+            builder.setProxy(new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort()));
+        }
+        httpRequest.setConfig(builder.build());
+
+        setAuthentication(httpRequest, isApiKeyRequired, config);
+        setHeaders(config, requestOptions, httpRequest);
+
+        return httpRequest;
+    }
+
+    private void setHeaders(Config config, RequestOptions requestOptions, HttpRequestBase httpUriRequest) {
+
+        setContentType(httpUriRequest, APPLICATION_JSON_TYPE);
+        httpUriRequest.addHeader(ACCEPT_CHARSET, CHARSET);
+        httpUriRequest.addHeader(USER_AGENT, String.format("%s %s/%s", config.getApplicationName(), Client.LIB_NAME, Client.LIB_VERSION));
+
+        if (requestOptions != null && requestOptions.getIdempotencyKey() != null) {
+            httpUriRequest.addHeader(IDEMPOTENCY_KEY, requestOptions.getIdempotencyKey());
+        }
+    }
+
+    private HttpRequestBase createHttpRequestBase(URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) throws HTTPClientException {
+        try {
+            switch (httpMethod) {
+                case GET:
+                    return new HttpGet(endpoint);
+                case PATCH:
+                    HttpPatch httpPatch = new HttpPatch(endpoint);
+                    httpPatch.setEntity(new StringEntity(requestBody));
+                    return httpPatch;
+                case DELETE:
+                    new HttpDelete(endpoint);
+                default:
+                    // Default to POST if httpMethod is not provided
+                    HttpPost httpPost = new HttpPost(endpoint);
+                    httpPost.setEntity(new StringEntity(requestBody));
+                    return httpPost;
+            }
+        }  catch (UnsupportedEncodingException e) {
+            throw new HTTPClientException("Unsupported encoding", e);
+        }
+    }
+
+    private URI createUri(String endpoint, Map<String, String> params) throws HTTPClientException {
+        try {
+            URIBuilder uriBuilder = new URIBuilder(endpoint);
+            if (params != null && !params.isEmpty()) {
+                for (String key: params.keySet()) {
+                    uriBuilder.addParameter(key, params.get(key));
+                }
+            }
+            return uriBuilder.build();
+        } catch (URISyntaxException e) {
+            throw new HTTPClientException("Invalid URI", e);
+        }
     }
 
     private CloseableHttpClient createCloseableHttpClient(Config config) throws HTTPClientException {
         CloseableHttpClient httpclient;
 
-        if (config.getTerminalCertificatePath() != null && !config.getTerminalCertificatePath().isEmpty()) {
+        if (config.getTerminalCertificate() != null) {
             HttpClientBuilder httpClientBuilder = HttpClients.custom();
             // Create new KeyStore for the terminal certificate
-            try (InputStream certificateInput = new FileInputStream(config.getTerminalCertificatePath())) {
-                CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-                X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(certificateInput);
-
-                KeyStore keyStore = KeyStore.getInstance("JKS");
+            try {
+                KeyStore keyStore = KeyStore.getInstance(JAVA_KEYSTORE);
                 keyStore.load(null, null);
-                keyStore.setCertificateEntry("TerminalCertificate", cert);
+                keyStore.setCertificateEntry(TERMINAL_CERTIFICATE_ALIAS, config.getTerminalCertificate());
 
                 TrustManagerFactory trustFactory =
                         TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -184,7 +203,7 @@ public class ApacheHttpClient implements ClientInterface {
                 TrustManager[] trustManagers = trustFactory.getTrustManagers();
 
                 // Install the terminal certificate trust manager
-                SSLContext sc = SSLContext.getInstance("SSL");
+                SSLContext sc = SSLContext.getInstance(SSL);
                 sc.init(null, trustManagers, new java.security.SecureRandom());
 
                 SSLConnectionSocketFactory sslConSocFactory = new SSLConnectionSocketFactory(sc, createHostnameVerifier(config.getEnvironment()));
@@ -236,34 +255,6 @@ public class ApacheHttpClient implements ClientInterface {
         httpUriRequest.addHeader(CONTENT_TYPE, contentType);
     }
 
-    @Override
-    public String post(String endpoint, Map<String, String> postParameters, Config config) throws IOException, HTTPClientException {
-        String postQuery = getQuery(postParameters);
-        return request(endpoint, postQuery, config, false, null);
-    }
-
-    /**
-     * Get HTTP querystring from Map<String,String>
-     */
-    private String getQuery(Map<String, String> params) throws UnsupportedEncodingException {
-        StringBuilder result = new StringBuilder();
-        boolean first = true;
-
-        for (Map.Entry<String, String> pair : params.entrySet()) {
-            if (first) {
-                first = false;
-            } else {
-                result.append("&");
-            }
-
-            result.append(URLEncoder.encode(pair.getKey(), CHARSET));
-            result.append("=");
-            result.append(URLEncoder.encode(pair.getValue(), CHARSET));
-        }
-
-        return result.toString();
-    }
-
     /**
      * Sets api key
      */
@@ -283,23 +274,5 @@ public class ApacheHttpClient implements ClientInterface {
         String authStringEnc = new String(authEncBytes);
 
         httpUriRequest.addHeader("Authorization", "Basic " + authStringEnc);
-    }
-
-    private String getQueryNew(Map<String, Object> params) throws UnsupportedEncodingException {
-        StringBuilder result = new StringBuilder();
-        boolean first = true;
-
-        for (Map.Entry<String, Object> pair : params.entrySet()) {
-            if (first) {
-                first = false;
-            } else {
-                result.append("&");
-            }
-
-            result.append(URLEncoder.encode(pair.getKey(), CHARSET));
-            result.append("=");
-            result.append(URLEncoder.encode(pair.getValue().toString(), CHARSET));
-        }
-        return result.toString();
     }
 }

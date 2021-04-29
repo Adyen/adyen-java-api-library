@@ -23,6 +23,7 @@ package com.adyen.service;
 import com.adyen.BaseTest;
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.service.exception.ApiException;
@@ -37,7 +38,6 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.when;
 
@@ -61,7 +61,7 @@ public class ResourceTest extends BaseTest {
 
     @Test
     public void testRequest() throws Exception {
-        when(clientInterfaceMock.request("", "request", null, false, null, "POST")).thenReturn("response");
+        when(clientInterfaceMock.request("", "request", null, false, null, ApiConstants.HttpMethod.POST)).thenReturn("response");
 
         Resource resource = new Resource(serviceMock, "", null);
         String response = resource.request("request");
@@ -72,7 +72,7 @@ public class ResourceTest extends BaseTest {
     @Test
     public void testRequestExceptionEmpty() throws IOException, HTTPClientException {
         try {
-            when(clientInterfaceMock.request("", "request", null, false, null, "POST"))
+            when(clientInterfaceMock.request("", "request", null, false, null, ApiConstants.HttpMethod.POST))
                     .thenThrow(new HTTPClientException("message", 403, new HashMap<>(), null));
 
             Resource resource = new Resource(serviceMock, "", null);

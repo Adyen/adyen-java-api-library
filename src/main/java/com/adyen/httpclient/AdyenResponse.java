@@ -23,7 +23,7 @@ package com.adyen.httpclient;
 import java.util.List;
 import java.util.Map;
 
-class ApacheResponse {
+class AdyenResponse {
 
     private String response;
     private int status;

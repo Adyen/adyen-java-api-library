@@ -22,7 +22,7 @@ package com.adyen;
 
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
-import com.adyen.httpclient.ApacheHttpClient;
+import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.Address;
 import com.adyen.model.AuthenticationResultRequest;
@@ -245,14 +245,14 @@ public class PaymentTest extends BaseTest {
      */
     @Test
     public void TestError401Mocked() throws Exception {
-        ApacheHttpClient apacheHttpClient = mock(ApacheHttpClient.class);
+        AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<>(), null);
 
-        when(apacheHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
-        when(apacheHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), anyString())).thenThrow(httpClientException);
+        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
+        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any())).thenThrow(httpClientException);
 
         Client client = new Client();
-        client.setHttpClient(apacheHttpClient);
+        client.setHttpClient(adyenHttpClient);
 
         Payment payment = new Payment(client);
 

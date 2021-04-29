@@ -32,19 +32,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ApacheResponseHandler implements ResponseHandler<ApacheResponse> {
+public class AdyenResponseHandler implements ResponseHandler<AdyenResponse> {
 
     @Override
-    public ApacheResponse handleResponse(HttpResponse httpResponse) throws IOException {
-        ApacheResponse apacheResponse = new ApacheResponse();
-        apacheResponse.setStatus(httpResponse.getStatusLine().getStatusCode());
-        apacheResponse.setHeaders(getHeaders(httpResponse.getAllHeaders()));
+    public AdyenResponse handleResponse(HttpResponse httpResponse) throws IOException {
+        AdyenResponse adyenResponse = new AdyenResponse();
+        adyenResponse.setStatus(httpResponse.getStatusLine().getStatusCode());
+        adyenResponse.setHeaders(getHeaders(httpResponse.getAllHeaders()));
 
         HttpEntity entity = httpResponse.getEntity();
         if (entity != null) {
-            apacheResponse.setResponse(EntityUtils.toString(entity));
+            adyenResponse.setResponse(EntityUtils.toString(entity));
         }
-        return apacheResponse;
+        return adyenResponse;
     }
 
     private Map<String, List<String>> getHeaders(Header[] allHeaders) {

@@ -69,7 +69,7 @@ public class PaymentLinks extends ApiKeyAuthenticatedService {
      * @throws IOException  IOException
      * @throws ApiException ApiException
      */
-    public PaymentLinkResource get(String linkId) throws ApiException, IOException {
+    public PaymentLinkResource retrieve(String linkId) throws ApiException, IOException {
         Map<String, String> params = Collections.singletonMap(LINK_ID, linkId);
         String jsonResult = paymentLink.request(null, null, ApiConstants.HttpMethod.GET, params);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResource>() {

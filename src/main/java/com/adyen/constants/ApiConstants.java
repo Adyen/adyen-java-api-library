@@ -124,10 +124,10 @@ public interface ApiConstants {
         String PROTOCOL_VERSION = "3.0";
     }
 
-    interface HttpMethod {
-        String POST = "POST";
-        String GET = "GET";
-        String DELETE = "DELETE";
-        String PATCH = "PATCH";
+    enum HttpMethod {
+        GET,
+        POST,
+        PATCH,
+        DELETE,
     }
 }
