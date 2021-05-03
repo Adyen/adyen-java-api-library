@@ -135,6 +135,9 @@ public class CheckoutPaymentsAction {
     @SerializedName("shopperStatement")
     private String shopperStatement = null;
 
+    @SerializedName("collectionInstitutionNumber")
+    private String collectionInstitutionNumber = null;
+
     /**
      * Enum that specifies the action that needs to be taken by the client.
      */
@@ -143,13 +146,12 @@ public class CheckoutPaymentsAction {
         AWAIT("await"),
         QRCODE("qrCode"),
         REDIRECT("redirect"),
-        THREEDS2CHALLENGE("threeDS2Challenge"),
-        THREEDS2FINGERPRINT("threeDS2Fingerprint"),
         THREEDS2("threeDS2"),
         VOUCHER("voucher"),
         SDK("sdk"),
         WECHATPAYSDK("wechatpaySDK"),
-        BANKTRANSFER("bankTransfer");
+        BANKTRANSFER("bankTransfer"),
+        DONATE("donate");
 
         @JsonValue
         private String value;
@@ -705,6 +707,14 @@ public class CheckoutPaymentsAction {
         this.shopperStatement = shopperStatement;
     }
 
+    public String getCollectionInstitutionNumber() {
+        return collectionInstitutionNumber;
+    }
+
+    public void setCollectionInstitutionNumber(String collectionInstitutionNumber) {
+        this.collectionInstitutionNumber = collectionInstitutionNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -747,12 +757,13 @@ public class CheckoutPaymentsAction {
                 Objects.equals(iban, checkoutPaymentsAction.iban) &&
                 Objects.equals(shopperStatement, checkoutPaymentsAction.shopperStatement) &&
                 type == checkoutPaymentsAction.type &&
-                Objects.equals(url, checkoutPaymentsAction.url);
+                Objects.equals(url, checkoutPaymentsAction.url) &&
+                Objects.equals(collectionInstitutionNumber, checkoutPaymentsAction.collectionInstitutionNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, entity, sdkData, resendInterval, resendMaxAttempts, resendUrl, redirect, authorisationToken, subtype, beneficiary, bic, iban, shopperStatement, type, url);
+        return Objects.hash(alternativeReference, data, downloadUrl, expiresAt, initialAmount, instructionsUrl, issuer, maskedTelephoneNumber, merchantName, merchantReference, method, paymentData, paymentMethodType, qrCodeData, reference, shopperEmail, shopperName, surcharge, token, totalAmount, entity, sdkData, resendInterval, resendMaxAttempts, resendUrl, redirect, authorisationToken, subtype, beneficiary, bic, iban, shopperStatement, type, url, collectionInstitutionNumber);
     }
 
     @Override
@@ -792,6 +803,7 @@ public class CheckoutPaymentsAction {
         sb.append(", shopperStatement='").append(shopperStatement).append('\'');
         sb.append(", type=").append(type);
         sb.append(", url='").append(url).append('\'');
+        sb.append(", collectionInstitutionNumber='").append(collectionInstitutionNumber).append('\'');
         sb.append('}');
         return sb.toString();
     }
