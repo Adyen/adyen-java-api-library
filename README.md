@@ -145,7 +145,7 @@ For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/
  
  
 ## Licence
-This repository is available under the [MIT license](https://github.com/Adyen/adyen-php-api-library/blob/master/LICENSE).
+This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/master/LICENSE).
  
  
  
