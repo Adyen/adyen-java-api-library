@@ -139,7 +139,7 @@ Have a look at our [contributing guidelines](https://github.com/Adyen/adyen-java
  
  
 ## Support
-If you have a feature request, or spotted a bug or a technical problem, [create an issue here](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2FAdyen%2Fadyen-web%2Fissues%2Fnew%2Fchoose).
+If you have a feature request, or spotted a bug or a technical problem, [create an issue here](https://github.com/Adyen/adyen-java-api-library/issues/new/choose).
  
 For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/requests/new?ticket_form_id=360000705420).
  
@@ -156,4 +156,3 @@ This repository is available under the [MIT license](https://github.com/Adyen/ad
     * [Kotlin Spring Boot](https://github.com/adyen-examples/adyen-kotlin-spring-online-payments)
 * [Adyen docs](https://docs.adyen.com/)
 * [API Explorer](https://docs.adyen.com/api-explorer/)
-
