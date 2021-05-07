@@ -222,6 +222,22 @@ public class MarketPayNotificationTest extends BaseTest {
     }
 
     @Test
+    public void testMarketPayAccountHolderPayoutNotification() {
+        String json = getFileContents("mocks/marketpay/notification/account-holder-payout.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_PAYOUT, notificationMessage.getEventType());
+        AccountHolderPayoutNotification notification = (AccountHolderPayoutNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+
+        assertEquals("AC00000001", notification.getContent().getAccountCode());
+        assertEquals(1, notification.getContent().getAmounts().size());
+        assertEquals(1500L, notification.getContent().getAmounts().get(0).getValue().longValue());
+    }
+
+    @Test
     public void testMarketPayAccountHolderUpdatedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-updated.json");
         NotificationHandler notificationHandler = new NotificationHandler();
