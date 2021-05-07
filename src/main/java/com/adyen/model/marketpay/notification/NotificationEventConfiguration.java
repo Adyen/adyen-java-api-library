@@ -61,6 +61,18 @@ public class NotificationEventConfiguration {
      * type of the events triggering the notification
      */
     public enum EventTypeEnum {
+        @SerializedName("ACCOUNT_CLOSED")
+        ACCOUNT_CLOSED("ACCOUNT_CLOSED"),
+
+        @SerializedName("ACCOUNT_FUNDS_BELOW_THRESHOLD")
+        ACCOUNT_FUNDS_BELOW_THRESHOLD("ACCOUNT_FUNDS_BELOW_THRESHOLD"),
+
+        @SerializedName("ACCOUNT_HOLDER_STORE_STATUS_CHANGE")
+        ACCOUNT_HOLDER_STORE_STATUS_CHANGE("ACCOUNT_HOLDER_STORE_STATUS_CHANGE"),
+
+        @SerializedName("ACCOUNT_HOLDER_UPCOMING_DEADLINE")
+        ACCOUNT_HOLDER_UPCOMING_DEADLINE("ACCOUNT_HOLDER_UPCOMING_DEADLINE"),
+
         @SerializedName("ACCOUNT_CREATED")
         ACCOUNT_CREATED("ACCOUNT_CREATED"),
 
@@ -91,8 +103,14 @@ public class NotificationEventConfiguration {
         @SerializedName("COMPENSATE_NEGATIVE_BALANCE")
         COMPENSATE_NEGATIVE_BALANCE("COMPENSATE_NEGATIVE_BALANCE"),
 
+        @SerializedName("DIRECT_DEBIT_INITIATED")
+        DIRECT_DEBIT_INITIATED("DIRECT_DEBIT_INITIATED"),
+
         @SerializedName("PAYMENT_FAILURE")
         PAYMENT_FAILURE("PAYMENT_FAILURE"),
+
+        @SerializedName("REFUND_FUNDS_TRANSFER")
+        REFUND_FUNDS_TRANSFER("REFUND_FUNDS_TRANSFER"),
 
         @SerializedName("REPORT_AVAILABLE")
         REPORT_AVAILABLE("REPORT_AVAILABLE"),
@@ -101,7 +119,10 @@ public class NotificationEventConfiguration {
         SCHEDULED_REFUNDS("SCHEDULED_REFUNDS"),
 
         @SerializedName("TRANSFER_FUNDS")
-        TRANSFER_FUNDS("TRANSFER_FUNDS");
+        TRANSFER_FUNDS("TRANSFER_FUNDS"),
+
+        @SerializedName("TRANSFER_NOT_PAIDOUT_TRANSFERS")
+        TRANSFER_NOT_PAIDOUT_TRANSFERS("TRANSFER_NOT_PAIDOUT_TRANSFERS");
 
         private String value;
 

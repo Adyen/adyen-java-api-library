@@ -42,7 +42,7 @@ public class Client {
     public static final String RECURRING_API_VERSION = "v49";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v6";
     public static final String MARKETPAY_FUND_API_VERSION = "v6";
-    public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
+    public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
     public static final String LIB_VERSION = "14.0.0";

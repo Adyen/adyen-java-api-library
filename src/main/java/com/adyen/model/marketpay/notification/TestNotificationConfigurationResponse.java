@@ -34,21 +34,15 @@ import static com.adyen.util.Util.toIndentedString;
 /**
  * TestNotificationConfigurationResponse
  */
-public class TestNotificationConfigurationResponse {
+public class TestNotificationConfigurationResponse extends GenericResponse {
     @SerializedName("errorMessages")
     private List<String> errorMessages = null;
-
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
 
     @SerializedName("okMessages")
     private List<String> okMessages = null;
 
     @SerializedName("exchangeMessages")
-    @JsonProperty("exchangeMessages")
-    private List<ExchangeMessageContainer> exchangeMessageContainers = null;
-
-    private transient List<ExchangeMessage> exchangeMessages = null;
+    private List<ExchangeMessage> exchangeMessages = null;
 
     @SerializedName("notificationId")
     private Long notificationId = null;
@@ -57,8 +51,14 @@ public class TestNotificationConfigurationResponse {
      * Gets or Sets eventTypes
      */
     public enum EventTypesEnum {
+        @SerializedName("ACCOUNT_CLOSED")
+        ACCOUNT_CLOSED("ACCOUNT_CLOSED"),
+
         @SerializedName("ACCOUNT_CREATED")
         ACCOUNT_CREATED("ACCOUNT_CREATED"),
+
+        @SerializedName("ACCOUNT_FUNDS_BELOW_THRESHOLD")
+        ACCOUNT_FUNDS_BELOW_THRESHOLD("ACCOUNT_FUNDS_BELOW_THRESHOLD"),
 
         @SerializedName("ACCOUNT_HOLDER_CREATED")
         ACCOUNT_HOLDER_CREATED("ACCOUNT_HOLDER_CREATED"),
@@ -71,6 +71,12 @@ public class TestNotificationConfigurationResponse {
 
         @SerializedName("ACCOUNT_HOLDER_STATUS_CHANGE")
         ACCOUNT_HOLDER_STATUS_CHANGE("ACCOUNT_HOLDER_STATUS_CHANGE"),
+
+        @SerializedName("ACCOUNT_HOLDER_STORE_STATUS_CHANGE")
+        ACCOUNT_HOLDER_STORE_STATUS_CHANGE("ACCOUNT_HOLDER_STORE_STATUS_CHANGE"),
+
+        @SerializedName("ACCOUNT_HOLDER_UPCOMING_DEADLINE")
+        ACCOUNT_HOLDER_UPCOMING_DEADLINE("ACCOUNT_HOLDER_UPCOMING_DEADLINE"),
 
         @SerializedName("ACCOUNT_HOLDER_UPDATED")
         ACCOUNT_HOLDER_UPDATED("ACCOUNT_HOLDER_UPDATED"),
@@ -87,8 +93,14 @@ public class TestNotificationConfigurationResponse {
         @SerializedName("COMPENSATE_NEGATIVE_BALANCE")
         COMPENSATE_NEGATIVE_BALANCE("COMPENSATE_NEGATIVE_BALANCE"),
 
+        @SerializedName("DIRECT_DEBIT_INITIATED")
+        DIRECT_DEBIT_INITIATED("DIRECT_DEBIT_INITIATED"),
+
         @SerializedName("PAYMENT_FAILURE")
         PAYMENT_FAILURE("PAYMENT_FAILURE"),
+
+        @SerializedName("REFUND_FUNDS_TRANSFER")
+        REFUND_FUNDS_TRANSFER("REFUND_FUNDS_TRANSFER"),
 
         @SerializedName("REPORT_AVAILABLE")
         REPORT_AVAILABLE("REPORT_AVAILABLE"),
@@ -97,7 +109,10 @@ public class TestNotificationConfigurationResponse {
         SCHEDULED_REFUNDS("SCHEDULED_REFUNDS"),
 
         @SerializedName("TRANSFER_FUNDS")
-        TRANSFER_FUNDS("TRANSFER_FUNDS");
+        TRANSFER_FUNDS("TRANSFER_FUNDS"),
+
+        @SerializedName("TRANSFER_NOT_PAIDOUT_TRANSFERS")
+        TRANSFER_NOT_PAIDOUT_TRANSFERS("TRANSFER_NOT_PAIDOUT_TRANSFERS");
 
         private String value;
 
@@ -113,9 +128,6 @@ public class TestNotificationConfigurationResponse {
 
     @SerializedName("eventTypes")
     private List<EventTypesEnum> eventTypes = null;
-
-    @SerializedName("pspReference")
-    private String pspReference = null;
 
     public TestNotificationConfigurationResponse errorMessages(List<String> errorMessages) {
         this.errorMessages = errorMessages;
@@ -141,24 +153,6 @@ public class TestNotificationConfigurationResponse {
 
     public void setErrorMessages(List<String> errorMessages) {
         this.errorMessages = errorMessages;
-    }
-
-    public TestNotificationConfigurationResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-        return this;
-    }
-
-    /**
-     * Get submittedAsync
-     *
-     * @return submittedAsync
-     **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
-    }
-
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
     }
 
     public TestNotificationConfigurationResponse okMessages(List<String> okMessages) {
@@ -187,6 +181,10 @@ public class TestNotificationConfigurationResponse {
         this.okMessages = okMessages;
     }
 
+    public TestNotificationConfigurationResponse exchangeMessages(List<ExchangeMessage> exchangeMessages) {
+        this.exchangeMessages = exchangeMessages;
+        return this;
+    }
 
     /**
      * Populate the virtual exchangeMessages to bypass the exchangeMessageContainers list
@@ -194,28 +192,13 @@ public class TestNotificationConfigurationResponse {
      * @return exchangeMessages
      **/
     public List<ExchangeMessage> getExchangeMessages() {
-
-        if (exchangeMessages == null) {
-
-            if (exchangeMessageContainers != null && !exchangeMessageContainers.isEmpty()) {
-                exchangeMessages = exchangeMessageContainers.stream().map(s -> s.getExchangeMessage()).collect(Collectors.toList());
-            }
-        }
         return exchangeMessages;
     }
 
     public void setExchangeMessages(List<ExchangeMessage> exchangeMessages) {
         this.exchangeMessages = exchangeMessages;
-
-        // set as well the container list this will be send in the API request
-        this.exchangeMessageContainers = exchangeMessages.stream().map(s -> createExchangeMessageContainerFromExchangeMessage(s)).collect(Collectors.toList());
     }
 
-    private ExchangeMessageContainer createExchangeMessageContainerFromExchangeMessage(ExchangeMessage exchangeMessage) {
-        ExchangeMessageContainer exchangeMessageContainer = new ExchangeMessageContainer();
-        exchangeMessageContainer.setExchangeMessage(exchangeMessage);
-        return exchangeMessageContainer;
-    }
 
     public TestNotificationConfigurationResponse notificationId(Long notificationId) {
         this.notificationId = notificationId;
@@ -261,24 +244,6 @@ public class TestNotificationConfigurationResponse {
         this.eventTypes = eventTypes;
     }
 
-    public TestNotificationConfigurationResponse pspReference(String pspReference) {
-        this.pspReference = pspReference;
-        return this;
-    }
-
-    /**
-     * psp reference
-     *
-     * @return pspReference
-     **/
-    public String getPspReference() {
-        return pspReference;
-    }
-
-    public void setPspReference(String pspReference) {
-        this.pspReference = pspReference;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -290,35 +255,36 @@ public class TestNotificationConfigurationResponse {
         }
         TestNotificationConfigurationResponse testNotificationConfigurationResponse = (TestNotificationConfigurationResponse) o;
         return Objects.equals(this.errorMessages, testNotificationConfigurationResponse.errorMessages)
-                && Objects.equals(this.submittedAsync, testNotificationConfigurationResponse.submittedAsync)
                 && Objects.equals(this.okMessages, testNotificationConfigurationResponse.okMessages)
-                && Objects.equals(this.exchangeMessageContainers, testNotificationConfigurationResponse.exchangeMessageContainers)
+                && Objects.equals(this.exchangeMessages, testNotificationConfigurationResponse.exchangeMessages)
                 && Objects.equals(this.notificationId, testNotificationConfigurationResponse.notificationId)
                 && Objects.equals(this.eventTypes, testNotificationConfigurationResponse.eventTypes)
-                && Objects.equals(this.pspReference, testNotificationConfigurationResponse.pspReference);
+                && Objects.equals(this.getPspReference(), testNotificationConfigurationResponse.getPspReference())
+                && Objects.equals(this.getInvalidFields(), testNotificationConfigurationResponse.getInvalidFields())
+                && Objects.equals(this.getResultCode(), testNotificationConfigurationResponse.getResultCode());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(errorMessages, submittedAsync, okMessages, exchangeMessageContainers, notificationId, eventTypes, pspReference);
+        return Objects.hash(errorMessages, okMessages, exchangeMessages, notificationId, eventTypes, getPspReference(), getInvalidFields(), getResultCode());
     }
 
 
     @Override
     public String toString() {
         // Populate the exchangeMessages list to provide back in the toString() method
-        this.getExchangeMessages();
-
         StringBuilder sb = new StringBuilder();
         sb.append("class TestNotificationConfigurationResponse {\n");
 
         sb.append("    errorMessages: ").append(toIndentedString(errorMessages)).append("\n");
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
-        sb.append("    okMessages: ").append(toIndentedString(okMessages)).append("\n");
-        sb.append("    exchangeMessages: ").append(toIndentedString(exchangeMessages)).append("\n");
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
         sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    exchangeMessages: ").append(toIndentedString(exchangeMessages)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(getInvalidFields())).append("\n");
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+        sb.append("    okMessages: ").append(toIndentedString(okMessages)).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(getPspReference())).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(getResultCode())).append("\n");
+
         sb.append("}");
         return sb.toString();
     }
