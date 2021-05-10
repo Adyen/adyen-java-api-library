@@ -15,7 +15,7 @@ The library supports all APIs under the following services:
 * [Platforms APIs](https://docs.adyen.com/platforms/api): Set of APIs when using Adyen for Platforms. 
   * [Account API](https://docs.adyen.com/api-explorer/#/Account/v6/overview) Current supported version: **v6**
   * [Fund API](https://docs.adyen.com/api-explorer/#/Fund/v6/overview) Current supported version: **v6**
-  * [Notification Configuration API](https://docs.adyen.com/api-explorer/#/NotificationConfigurationService/v1/overview) Current supported version: **v1**
+  * [Notification Configuration API](https://docs.adyen.com/api-explorer/#/NotificationConfigurationService/v1/overview) Current supported version: **v6**
   * [Hosted Onboarding API](https://docs.adyen.com/api-explorer/#/Hop/v6/overview) Current supported version: **v6**
 * [Cloud-based Terminal API](https://docs.adyen.com/point-of-sale/terminal-api-reference): Our point-of-sale integration.
 * [BinLookup API](https://docs.adyen.com/api-explorer/#/BinLookup/v50/overview): Our integration for retrieving information, such as cost estimates, and 3D Secure supported version based on a given BIN.
