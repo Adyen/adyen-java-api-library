@@ -42,7 +42,7 @@ public class AdyenResponseHandler implements ResponseHandler<AdyenResponse> {
 
         HttpEntity entity = httpResponse.getEntity();
         if (entity != null) {
-            adyenResponse.setResponse(EntityUtils.toString(entity));
+            adyenResponse.setBody(EntityUtils.toString(entity));
         }
         return adyenResponse;
     }

@@ -25,16 +25,16 @@ import java.util.Map;
 
 class AdyenResponse {
 
-    private String response;
+    private String body;
     private int status;
     private Map<String, List<String>> headers;
 
-    public String getResponse() {
-        return response;
+    public String getBody() {
+        return body;
     }
 
-    public void setResponse(String response) {
-        this.response = response;
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public int getStatus() {

@@ -108,12 +108,12 @@ public class AdyenHttpClient implements ClientInterface {
             HttpRequestBase httpRequest = createRequest(endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
 
             // Execute request with a custom response handler
-            AdyenResponse responseBody = httpclient.execute(httpRequest, new AdyenResponseHandler());
+            AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
 
-            if (responseBody.getStatus() < 200 || responseBody.getStatus() >= 300) {
-                throw new HTTPClientException(responseBody.getStatus(), "HTTP Exception", responseBody.getHeaders(), responseBody.getResponse());
+            if (response.getStatus() < 200 || response.getStatus() >= 300) {
+                throw new HTTPClientException(response.getStatus(), "HTTP Exception", response.getHeaders(), response.getBody());
             }
-            return responseBody.getResponse();
+            return response.getBody();
         }
     }
 
