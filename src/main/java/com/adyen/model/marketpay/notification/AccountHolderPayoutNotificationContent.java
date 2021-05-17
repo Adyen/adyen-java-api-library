@@ -21,11 +21,6 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 import com.adyen.model.Amount;
 import com.adyen.model.marketpay.BankAccountDetail;
 import com.google.gson.TypeAdapter;
@@ -35,6 +30,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -59,7 +58,7 @@ public class AccountHolderPayoutNotificationContent {
     private String description = null;
 
     @SerializedName("estimatedArrivalDate")
-    private LocalDate estimatedArrivalDate = null;
+    private Date estimatedArrivalDate = null;
 
     @SerializedName("invalidFields")
     private List<ErrorFieldType> invalidFields = null;
@@ -236,7 +235,7 @@ public class AccountHolderPayoutNotificationContent {
         this.description = description;
     }
 
-    public AccountHolderPayoutNotificationContent estimatedArrivalDate(LocalDate estimatedArrivalDate) {
+    public AccountHolderPayoutNotificationContent estimatedArrivalDate(Date estimatedArrivalDate) {
         this.estimatedArrivalDate = estimatedArrivalDate;
         return this;
     }
@@ -246,11 +245,11 @@ public class AccountHolderPayoutNotificationContent {
      *
      * @return estimatedArrivalDate
      **/
-    public LocalDate getEstimatedArrivalDate() {
+    public Date getEstimatedArrivalDate() {
         return estimatedArrivalDate;
     }
 
-    public void setEstimatedArrivalDate(LocalDate estimatedArrivalDate) {
+    public void setEstimatedArrivalDate(Date estimatedArrivalDate) {
         this.estimatedArrivalDate = estimatedArrivalDate;
     }
 

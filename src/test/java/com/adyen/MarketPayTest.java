@@ -340,7 +340,7 @@ public class MarketPayTest extends BaseTest {
         assertEquals("TestMerchant1", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getMerchantAccount());
         assertEquals("Other", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getMerchantCategoryCode());
         assertEquals("611223344", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getPhoneNumber().getPhoneNumber());
-        assertEquals(INACTIVATEACCOUNT, getAccountHolderResponse.getAccountHolderStatus().getEvents().get(0).getEvent());
+        assertEquals(INACTIVATEACCOUNT, getAccountHolderResponse.getAccountHolderStatus().getEvents().get(0).getAccountEvent().getEvent());
     }
 
     @Test

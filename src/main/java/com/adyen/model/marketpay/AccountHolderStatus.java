@@ -42,7 +42,7 @@ import static com.adyen.util.Util.toIndentedString;
 
 public class AccountHolderStatus {
     @SerializedName("events")
-    private List<AccountEvent> events = null;
+    private List<AccountEventContainer> events = null;
 
     @SerializedName("payoutState")
     private AccountPayoutState payoutState = null;
@@ -105,14 +105,14 @@ public class AccountHolderStatus {
     @SerializedName("statusReason")
     private String statusReason = null;
 
-    public AccountHolderStatus events(List<AccountEvent> events) {
+    public AccountHolderStatus events(List<AccountEventContainer> events) {
         this.events = events;
         return this;
     }
 
-    public AccountHolderStatus addEventsItem(AccountEvent eventsItem) {
+    public AccountHolderStatus addEventsItem(AccountEventContainer eventsItem) {
         if (this.events == null) {
-            this.events = new ArrayList<AccountEvent>();
+            this.events = new ArrayList<AccountEventContainer>();
         }
         this.events.add(eventsItem);
         return this;
@@ -123,11 +123,11 @@ public class AccountHolderStatus {
      *
      * @return events
      **/
-    public List<AccountEvent> getEvents() {
+    public List<AccountEventContainer> getEvents() {
         return events;
     }
 
-    public void setEvents(List<AccountEvent> events) {
+    public void setEvents(List<AccountEventContainer> events) {
         this.events = events;
     }
 
