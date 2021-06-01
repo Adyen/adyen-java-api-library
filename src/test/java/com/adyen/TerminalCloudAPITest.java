@@ -158,6 +158,16 @@ public class TerminalCloudAPITest extends BaseTest {
         assertNotNull(paymentResult.getAmountsResp());
         assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
         assertEquals(BigDecimal.ONE, paymentResult.getAmountsResp().getAuthorizedAmount());
+
+        assertNotNull(paymentResult.getCurrencyConversion());
+        assertNotNull(paymentResult.getCurrencyConversion().get(0));
+        assertTrue(paymentResult.getCurrencyConversion().get(0).isCustomerApprovedFlag());
+        assertEquals(new BigDecimal("3"), paymentResult.getCurrencyConversion().get(0).getMarkup());
+        assertEquals(new BigDecimal("0.035"), paymentResult.getCurrencyConversion().get(0).getRate());
+        assertNotNull(paymentResult.getCurrencyConversion().get(0).getConvertedAmount());
+        assertEquals(new BigDecimal("48.32"), paymentResult.getCurrencyConversion().get(0).getConvertedAmount().getAmountValue());
+        assertEquals("EUR", paymentResult.getCurrencyConversion().get(0).getConvertedAmount().getCurrency());
+
     }
 
     /**
