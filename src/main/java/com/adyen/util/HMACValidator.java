@@ -33,7 +33,6 @@ import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
-import java.util.stream.Collectors;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
@@ -81,7 +80,7 @@ public class HMACValidator {
     }
 
     public String getDataToSign(NotificationRequestItem notificationRequestItem) throws IllegalArgumentException {
-        if(notificationRequestItem == null) {
+        if (notificationRequestItem == null) {
             throw new IllegalArgumentException("Missing NotificationRequestItem.");
         }
 
@@ -94,7 +93,7 @@ public class HMACValidator {
         Amount amount = notificationRequestItem.getAmount();
 
         //If the amount and value are not null, append them to the payload.
-        if(amount != null && amount.getValue() != null) {
+        if (amount != null && amount.getValue() != null) {
             signedDataList.add(amount.getValue().toString());
         } else {
             //Else append a null. Will appear as a empty string in the final payload.
@@ -102,7 +101,7 @@ public class HMACValidator {
         }
 
         //If the amount and currency are not null, append them to the payload.
-        if(amount != null && amount.getCurrency() != null) {
+        if (amount != null && amount.getCurrency() != null) {
             signedDataList.add(amount.getCurrency());
         } else {
             //Else append a null. Will appear as a empty string in the final payload.
