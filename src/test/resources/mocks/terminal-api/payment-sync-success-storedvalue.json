@@ -1,0 +1,262 @@
+{
+	"SaleToPOIResponse": {
+		"StoredValueResponse": {
+			"POIData": {
+				"POITransactionID": {
+					"TimeStamp": "2019-04-29T00:00:00.000Z",
+					"TransactionID": "4r7i001556529591000.8515565295894301"
+				},
+				"POIReconciliationID": "1000"
+			},
+			"SaleData": {
+				"SaleTransactionID": {
+					"TimeStamp": "2019-04-29T00:00:00.000Z",
+					"TransactionID": "001"
+				}
+			},
+			"PaymentReceipt": [{
+					"RequiredSignatureFlag": false,
+					"DocumentQualifier": "CashierReceipt",
+					"OutputContent": {
+						"OutputFormat": "Text",
+						"OutputText": [{
+								"CharacterStyle": "Bold",
+								"Text": "key=header1",
+								"EndOfLineFlag": true
+							},
+							{
+								"CharacterStyle": "Bold",
+								"Text": "key=header2",
+								"EndOfLineFlag": true
+							},
+							{
+								"CharacterStyle": "Bold",
+								"Text": "name=MERCHANT%20COPY&key=merchantTitle",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "key=filler",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Date&value=29%2f04%2f19&key=txdate",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Time&value=10%3a19%3a51&key=txtime",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "key=filler",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Card&value=%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a3511&key=pan",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Pref.%20name&value=MCC%20351%20v1%202&key=preferredName",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Card%20type&value=mc&key=cardType",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Payment%20method&value=mc&key=paymentMethod",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Payment%20variant&value=mc&key=paymentMethodVariant",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Entry%20mode&value=Contactless%20swipe&key=posEntryMode",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "key=filler",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=AID&value=A0000000041010&key=aid",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=MID&value=1000&key=mid",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=TID&value=P400Plus-1123456789&key=tid",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=PTID&value=75039202&key=ptid",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "key=filler",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Auth.%20code&value=123456&key=authCode",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Tender&value=4r7i001556529591000&key=txRef",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Reference&value=003&key=mref",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "key=filler",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "name=Type&value=GOODS_SERVICES&key=txtype",
+								"EndOfLineFlag": true
+							},
+							{
+								"CharacterStyle": "Bold",
+								"Text": "name=TOTAL&value=%e2%82%ac%c2%a01.00&key=totalAmount",
+								"EndOfLineFlag": true
+							},
+							{
+								"Text": "key=filler",
+								"EndOfLineFlag": true
+							},
+							{
+								"CharacterStyle": "Bold",
+								"Text": "name=APPROVED&key=approved",
+								"EndOfLineFlag": true
+							}
+						]
+					}
+				},
+				{
+					"DocumentQualifier": "CustomerReceipt",
+					"OutputContent": {
+						"OutputFormat": "Text",
+						"OutputText": [{
+							"CharacterStyle": "Bold",
+							"Text": "key=header1",
+							"EndOfLineFlag": true
+						}, {
+							"CharacterStyle": "Bold",
+							"Text": "key=header2",
+							"EndOfLineFlag": true
+						}, {
+							"CharacterStyle": "Bold",
+							"Text": "name=CARDHOLDER%20COPY&key=cardholderHeader",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "key=filler",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Date&value=31%2f05%2f2021&key=txdate",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Time&value=17%3a32%3a19&key=txtime",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "key=filler",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Card&value=%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a%2a1896&key=pan",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Card%20type&value=givex&key=cardType",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Payment%20method&value=givex&key=paymentMethod",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Entry%20mode&value=MKE&key=posEntryMode",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "key=filler",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=TID&value=P400Plus-803566352&key=tid",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=PTID&value=62050590&key=ptid",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "key=filler",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Auth.%20code&value=948684&key=authCode",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Tender&value=CMBy001622475139003&key=txRef",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Reference&value=00000100120210531183208&key=mref",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "key=filler",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Type&value=GOODS_SERVICES&key=txtype",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Balance&value=%e2%82%ac%2061%2c00&key=currentBalanceAmount",
+							"EndOfLineFlag": true
+						}, {
+							"CharacterStyle": "Bold",
+							"Text": "name=TOTAL&value=%e2%82%ac%2010%2c00&key=totalAmount",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "key=filler",
+							"EndOfLineFlag": true
+						}, {
+							"CharacterStyle": "Bold",
+							"Text": "name=APPROVED&key=approved",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "key=filler",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Retain%20for%20your%20records&key=retain",
+							"EndOfLineFlag": true
+						}, {
+							"Text": "name=Thank%20you&key=thanks",
+							"EndOfLineFlag": true
+						}]
+					}
+				}
+			],
+			"StoredValueResult": [{
+				"StoredValueTransactionType": "Load",
+				"ItemAmount": 10,
+				"StoredValueAccountStatus": {
+					"StoredValueAccountID": {
+						"IdentificationType": "PAN",
+						"EntryMode": ["Scanned"],
+						"StoredValueID": "storedvalueidnumber",
+						"StoredValueAccountType": "GiftCard",
+						"StoredValueProvider": "givex"
+					},
+					"CurrentBalance": 61
+				},
+				"Currency": "EUR"
+			}],
+			"Response": {
+				"Result": "Success",
+				"AdditionalResponse": "....."
+			}
+		},
+		"MessageHeader": {
+			"ProtocolVersion": "3.0",
+			"SaleID": "001",
+			"MessageClass": "Service",
+			"MessageCategory": "StoredValue",
+			"ServiceID": "1234567890",
+			"POIID": "P400Plus-123456789",
+			"MessageType": "Response"
+		}
+	}
+}
