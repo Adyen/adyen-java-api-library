@@ -283,6 +283,17 @@
           },
           "MerchantID": "TestMerchant"
         },
+        "CurrencyConversion": [
+          {
+            "ConvertedAmount": {
+              "AmountValue": 48.32,
+              "Currency": "EUR"
+            },
+            "CustomerApprovedFlag": true,
+            "Markup": 3,
+            "Rate": 0.035
+          }
+        ],
         "PaymentInstrumentData": {
           "CardData": {
             "EntryMode": [
