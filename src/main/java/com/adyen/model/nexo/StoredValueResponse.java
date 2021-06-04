@@ -35,7 +35,8 @@ import java.util.List;
         "response",
         "saleData",
         "poiData",
-        "storedValueResult"
+        "storedValueResult",
+        "paymentReceipt"
 })
 public class StoredValueResponse {
 
@@ -59,6 +60,12 @@ public class StoredValueResponse {
      */
     @XmlElement(name = "StoredValueResult")
     protected List<StoredValueResult> storedValueResult;
+    /**
+     * The Payment receipt.
+     */
+    @XmlElement(name = "PaymentReceipt")
+    protected List<PaymentReceipt> paymentReceipt;
+
 
     /**
      * Gets the value of the response property.
@@ -113,7 +120,6 @@ public class StoredValueResponse {
     public void setPOIData(POIData value) {
         this.poiData = value;
     }
-
     /**
      * Gets the value of the storedValueResult property.
      *
@@ -142,5 +148,14 @@ public class StoredValueResponse {
         }
         return this.storedValueResult;
     }
+
+    public List<PaymentReceipt> getPaymentReceipt() {
+        return paymentReceipt;
+    }
+
+    public void setPaymentReceipt(List<PaymentReceipt> paymentReceipt) {
+        this.paymentReceipt = paymentReceipt;
+    }
+
 
 }
