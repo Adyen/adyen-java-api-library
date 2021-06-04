@@ -158,6 +158,16 @@ public class TerminalCloudAPITest extends BaseTest {
         assertNotNull(paymentResult.getAmountsResp());
         assertEquals("EUR", paymentResult.getAmountsResp().getCurrency());
         assertEquals(BigDecimal.ONE, paymentResult.getAmountsResp().getAuthorizedAmount());
+
+        assertNotNull(paymentResult.getCurrencyConversion());
+        assertNotNull(paymentResult.getCurrencyConversion().get(0));
+        assertTrue(paymentResult.getCurrencyConversion().get(0).isCustomerApprovedFlag());
+        assertEquals(new BigDecimal("3"), paymentResult.getCurrencyConversion().get(0).getMarkup());
+        assertEquals(new BigDecimal("0.035"), paymentResult.getCurrencyConversion().get(0).getRate());
+        assertNotNull(paymentResult.getCurrencyConversion().get(0).getConvertedAmount());
+        assertEquals(new BigDecimal("48.32"), paymentResult.getCurrencyConversion().get(0).getConvertedAmount().getAmountValue());
+        assertEquals("EUR", paymentResult.getCurrencyConversion().get(0).getConvertedAmount().getCurrency());
+
     }
 
     /**
@@ -206,5 +216,76 @@ public class TerminalCloudAPITest extends BaseTest {
         assertNotNull(requestResponse.getSaleToPOIResponse().getInputResponse().getInputResult().getInput());
         assertNotNull(requestResponse.getSaleToPOIResponse().getInputResponse().getInputResult().getInput().getMenuEntryNumber());
         assertEquals(2, requestResponse.getSaleToPOIResponse().getInputResponse().getInputResult().getInput().getMenuEntryNumber().length);
+    }
+
+    /**
+     * Mocked response for stored value type for POST /sync
+     */
+    @Test
+    public void syncPaymentRequestStoredValueSuccess() throws Exception {
+        Client client = createMockClientFromFile("mocks/terminal-api/payment-sync-success-storedvalue.json");
+        TerminalCloudAPI terminalCloudApi = new TerminalCloudAPI(client);
+
+        TerminalAPIRequest terminalAPIPaymentRequest = createTerminalAPIPaymentRequest();
+
+        // add some data
+        SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
+        PaymentRequest paymentRequest = new PaymentRequest();
+        SaleData saleDataRequest = new SaleData();
+        SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
+        saleDataRequest.setSaleToAcquirerData(saleToAcquirerData);
+        paymentRequest.setSaleData(saleDataRequest);
+        saleToPOIRequest.setPaymentRequest(paymentRequest);
+        terminalAPIPaymentRequest.setSaleToPOIRequest(saleToPOIRequest);
+
+        TerminalAPIResponse terminalAPIResponse = terminalCloudApi.sync(terminalAPIPaymentRequest);
+
+        assertNotNull(terminalAPIResponse);
+        assertNotNull(terminalAPIResponse.getSaleToPOIResponse());
+
+        SaleToPOIResponse saleToPoiResponse = terminalAPIResponse.getSaleToPOIResponse();
+        assertNotNull(saleToPoiResponse.getMessageHeader());
+        assertNotNull(saleToPoiResponse.getStoredValueResponse());
+
+        MessageHeader messageHeader = saleToPoiResponse.getMessageHeader();
+        assertEquals(MessageType.RESPONSE, messageHeader.getMessageType());
+        assertEquals(MessageClassType.SERVICE, messageHeader.getMessageClass());
+        assertEquals(MessageCategoryType.STORED_VALUE, messageHeader.getMessageCategory());
+        assertEquals("3.0", messageHeader.getProtocolVersion());
+        assertEquals("001", messageHeader.getSaleID());
+        assertEquals("1234567890", messageHeader.getServiceID());
+        assertEquals("P400Plus-123456789", messageHeader.getPOIID());
+
+        assertNotNull(saleToPoiResponse.getStoredValueResponse().getResponse());
+        Response response = saleToPoiResponse.getStoredValueResponse().getResponse();
+        assertEquals(ResultType.SUCCESS, response.getResult());
+        assertNotNull(response.getAdditionalResponse());
+
+        assertNotNull(saleToPoiResponse.getStoredValueResponse().getPOIData());
+        POIData poiData = saleToPoiResponse.getStoredValueResponse().getPOIData();
+        assertEquals("1000", poiData.getPOIReconciliationID());
+        assertNotNull(poiData.getPOITransactionID());
+        assertEquals("4r7i001556529591000.8515565295894301", poiData.getPOITransactionID().getTransactionID());
+        assertEquals("2019-04-29T00:00:00.000Z", poiData.getPOITransactionID().getTimeStamp().toString());
+
+        assertNotNull(saleToPoiResponse.getStoredValueResponse().getSaleData());
+        SaleData saleData = saleToPoiResponse.getStoredValueResponse().getSaleData();
+        assertNotNull(saleData.getSaleTransactionID());
+        assertEquals("001", saleData.getSaleTransactionID().getTransactionID());
+        assertEquals("2019-04-29T00:00:00.000Z", saleData.getSaleTransactionID().getTimeStamp().toString());
+
+        assertNotNull(saleToPoiResponse.getStoredValueResponse().getPaymentReceipt());
+        assertFalse(saleToPoiResponse.getStoredValueResponse().getPaymentReceipt().isEmpty());
+        List<PaymentReceipt> paymentReceiptList = saleToPoiResponse.getStoredValueResponse().getPaymentReceipt();
+        for (PaymentReceipt paymentReceipt : paymentReceiptList) {
+            assertNotNull(paymentReceipt.getDocumentQualifier());
+            assertNotNull(paymentReceipt.getOutputContent());
+            assertEquals(OutputFormatType.TEXT, paymentReceipt.getOutputContent().getOutputFormat());
+            assertNotNull(paymentReceipt.getOutputContent().getOutputText());
+            assertFalse(paymentReceipt.getOutputContent().getOutputText().isEmpty());
+            List<OutputText> outputTextList = paymentReceipt.getOutputContent().getOutputText();
+
+            outputTextList.forEach(outputText -> assertNotNull(outputText.getText()));
+        }
     }
 }

@@ -4,7 +4,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 import java.math.BigDecimal;
 
 
@@ -27,15 +26,16 @@ import java.math.BigDecimal;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Amount", propOrder = {
-        "value"
+        "amountValue",
+        "currency"
 })
 public class Amount {
 
     /**
      * The Value.
      */
-    @XmlValue
-    protected BigDecimal value;
+    @XmlAttribute(name = "AmountValue")
+    protected BigDecimal amountValue;
     /**
      * The Currency.
      */
@@ -43,21 +43,21 @@ public class Amount {
     protected String currency;
 
     /**
-     * Gets the value of the value property.
+     * Gets the value of the amountValue property.
      *
      * @return possible      object is     {@link BigDecimal }
      */
-    public BigDecimal getValue() {
-        return value;
+    public BigDecimal getAmountValue() {
+        return amountValue;
     }
 
     /**
-     * Sets the value of the value property.
+     * Sets the value of the amountValue property.
      *
      * @param value allowed object is     {@link BigDecimal }
      */
-    public void setValue(BigDecimal value) {
-        this.value = value;
+    public void setAmountValue(BigDecimal value) {
+        this.amountValue = value;
     }
 
     /**

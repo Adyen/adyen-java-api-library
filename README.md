@@ -18,6 +18,7 @@ The library supports all APIs under the following services:
   * [Notification Configuration API](https://docs.adyen.com/api-explorer/#/NotificationConfigurationService/v1/overview) Current supported version: **v6**
   * [Hosted Onboarding API](https://docs.adyen.com/api-explorer/#/Hop/v6/overview) Current supported version: **v6**
 * [Cloud-based Terminal API](https://docs.adyen.com/point-of-sale/terminal-api-reference): Our point-of-sale integration.
+* [Local-based Terminal API](https://docs.adyen.com/point-of-sale/choose-your-architecture/local): Our point-of-sale integration.
 * [BinLookup API](https://docs.adyen.com/api-explorer/#/BinLookup/v50/overview): Our integration for retrieving information, such as cost estimates, and 3D Secure supported version based on a given BIN.
 * [POS Terminal Management API](https://docs.adyen.com/api-explorer/#/postfmapi/v1/overview): Endpoints for managing your point-of-sale payment terminals: **v1** 
 * [Data Protection API](https://docs.adyen.com/development-resources/data-protection-api#): Endpoints to process Subject Erasure Requests as mandated in General Data Protection Regulation (GDPR): **v1** 
@@ -40,7 +41,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>15.0.0</version>
+  <version>15.0.1</version>
 </dependency>
 ```
 
