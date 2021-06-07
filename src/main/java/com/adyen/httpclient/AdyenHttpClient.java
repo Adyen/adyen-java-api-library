@@ -29,7 +29,12 @@ import com.adyen.terminal.security.TerminalCommonNameValidator;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.*;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPatch;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.StringEntity;
@@ -37,7 +42,11 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 
-import javax.net.ssl.*;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -49,7 +58,12 @@ import java.security.cert.X509Certificate;
 import java.util.Map;
 
 import static com.adyen.constants.ApiConstants.HttpMethod.POST;
-import static com.adyen.constants.ApiConstants.RequestProperty.*;
+import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
+import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
+import static com.adyen.constants.ApiConstants.RequestProperty.APPLICATION_JSON_TYPE;
+import static com.adyen.constants.ApiConstants.RequestProperty.CONTENT_TYPE;
+import static com.adyen.constants.ApiConstants.RequestProperty.IDEMPOTENCY_KEY;
+import static com.adyen.constants.ApiConstants.RequestProperty.USER_AGENT;
 
 public class AdyenHttpClient implements ClientInterface {
 
