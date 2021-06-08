@@ -70,6 +70,10 @@ public class HMACValidator {
     }
 
     public boolean validateHMAC(NotificationRequestItem notificationRequestItem, String key) throws IllegalArgumentException, SignatureException {
+        if (notificationRequestItem == null) {
+            throw new IllegalArgumentException("Missing NotificationRequestItem.");
+        }
+
         if (notificationRequestItem.getAdditionalData() == null || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE).isEmpty()) {
             throw new IllegalArgumentException("Missing " + HMAC_SIGNATURE);
         }
