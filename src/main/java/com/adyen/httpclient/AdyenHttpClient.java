@@ -39,10 +39,10 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 
 import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.TrustManager;
@@ -72,6 +72,7 @@ public class AdyenHttpClient implements ClientInterface {
     private static final String TERMINAL_CERTIFICATE_ALIAS = "TerminalCertificate";
     private static final String JAVA_KEYSTORE = "JKS";
     private static final String SSL = "SSL";
+    private static final String TLSV1_2 = "TLSv1.2";
     private Proxy proxy;
 
     public Proxy getProxy() {
@@ -187,35 +188,63 @@ public class AdyenHttpClient implements ClientInterface {
     }
 
     private CloseableHttpClient createCloseableHttpClient(Config config) throws HTTPClientException {
-        CloseableHttpClient httpclient;
 
-        if (config.getTerminalCertificate() != null) {
-            HttpClientBuilder httpClientBuilder = HttpClients.custom();
-            // Create new KeyStore for the terminal certificate
-            try {
-                KeyStore keyStore = KeyStore.getInstance(JAVA_KEYSTORE);
-                keyStore.load(null, null);
-                keyStore.setCertificateEntry(TERMINAL_CERTIFICATE_ALIAS, config.getTerminalCertificate());
-
-                TrustManagerFactory trustFactory =
-                        TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                trustFactory.init(keyStore);
-                TrustManager[] trustManagers = trustFactory.getTrustManagers();
-
-                // Install the terminal certificate trust manager
-                SSLContext sc = SSLContext.getInstance(SSL);
-                sc.init(null, trustManagers, new java.security.SecureRandom());
-
-                SSLConnectionSocketFactory sslConSocFactory = new SSLConnectionSocketFactory(sc, createHostnameVerifier(config.getEnvironment()));
-                httpClientBuilder.setSSLSocketFactory(sslConSocFactory);
-            } catch (GeneralSecurityException | IOException e) {
-                throw new HTTPClientException("Error loading certificate from path", e);
-            }
-            httpclient = httpClientBuilder.build();
+        if (config.getClientKeyStore() != null && config.getTrustKeyStore() != null) {
+            return HttpClients.custom()
+                    .setSSLSocketFactory(getClientCertificateAuthSSLContext(config))
+                    .build();
+        } else if (config.getTerminalCertificate() != null) {
+            return HttpClients.custom()
+                    .setSSLSocketFactory(getTerminalCertificateSocketFactory(config))
+                    .build();
         } else {
-            httpclient = HttpClients.createDefault();
+            return HttpClients.createDefault();
         }
-        return httpclient;
+    }
+
+    private SSLConnectionSocketFactory getTerminalCertificateSocketFactory(Config config) throws HTTPClientException {
+        try {
+            // Create new KeyStore for the terminal certificate
+            KeyStore keyStore = KeyStore.getInstance(JAVA_KEYSTORE);
+            keyStore.load(null, null);
+            keyStore.setCertificateEntry(TERMINAL_CERTIFICATE_ALIAS, config.getTerminalCertificate());
+
+            TrustManagerFactory trustFactory =
+                    TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            trustFactory.init(keyStore);
+            TrustManager[] trustManagers = trustFactory.getTrustManagers();
+
+            // Install the terminal certificate trust manager
+            SSLContext sc = SSLContext.getInstance(SSL);
+            sc.init(null, trustManagers, new java.security.SecureRandom());
+
+            return new SSLConnectionSocketFactory(sc, createHostnameVerifier(config.getEnvironment()));
+        } catch (GeneralSecurityException | IOException e) {
+            throw new HTTPClientException("Error loading certificate from path", e);
+        }
+    }
+
+    private SSLConnectionSocketFactory getClientCertificateAuthSSLContext(Config config) throws HTTPClientException {
+        try {
+            char[] password = null;
+            if (config.getClientKeyStorePassword() != null && !config.getClientKeyStorePassword().isEmpty()) {
+                password = config.getClientKeyStorePassword().toCharArray();
+            }
+
+            // Create a TrustManager that trusts the CAs in our Trust KeyStore
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init(config.getTrustKeyStore());
+
+            KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+            keyManagerFactory.init(config.getClientKeyStore(), password);
+
+            // Create an SSLContext that uses our TrustManager
+            SSLContext context = SSLContext.getInstance(TLSV1_2);
+            context.init(keyManagerFactory.getKeyManagers(), tmf.getTrustManagers(), null);
+            return new SSLConnectionSocketFactory(context);
+        } catch (Exception e) {
+            throw new HTTPClientException("Error creating SSL Context", e);
+        }
     }
 
     private HostnameVerifier createHostnameVerifier(final Environment environment) {
