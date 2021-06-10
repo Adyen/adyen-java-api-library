@@ -41,8 +41,12 @@ public class HMACValidator {
     public static final String DATA_SEPARATOR = ":";
 
     // To calculate the HMAC SHA-256
-    public String calculateHMAC(String data, String key) throws java.security.SignatureException {
+    public String calculateHMAC(String data, String key) throws IllegalArgumentException, SignatureException {
         try {
+            if (data == null || key == null) {
+                throw new IllegalArgumentException();
+            }
+
             byte[] rawKey = Hex.decodeHex(key.toCharArray());
             // Create an hmac_sha256 key from the raw key bytes
             SecretKeySpec signingKey = new SecretKeySpec(rawKey, HMAC_SHA256_ALGORITHM);
@@ -58,7 +62,8 @@ public class HMACValidator {
 
             // Base64-encode the hmac
             return new String(Base64.encodeBase64(rawHmac));
-
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Missing data or key.");
         } catch (Exception e) {
             throw new SignatureException("Failed to generate HMAC : " + e.getMessage());
         }

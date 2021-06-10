@@ -29,6 +29,7 @@ import java.security.SignatureException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class HMACValidatorTest {
 
@@ -83,6 +84,28 @@ public class HMACValidatorTest {
             new HMACValidator().getDataToSign((NotificationRequestItem) null);
         } catch (IllegalArgumentException e) {
             assertEquals("Missing NotificationRequestItem.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testCalculateHMACNullPayload() {
+        try {
+            new HMACValidator().calculateHMAC((String)null, HMAC_KEY);
+        } catch (IllegalArgumentException e) {
+            assertEquals("Missing data or key.", e.getMessage());
+        } catch (SignatureException e) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testCalculateHMACNullKey() {
+        try {
+            new HMACValidator().calculateHMAC("TestPayload", null);
+        } catch (IllegalArgumentException e) {
+            assertEquals("Missing data or key.", e.getMessage());
+        } catch (SignatureException e) {
+            fail();
         }
     }
 }
