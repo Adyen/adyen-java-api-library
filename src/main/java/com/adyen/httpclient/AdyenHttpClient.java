@@ -48,7 +48,6 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URI;
@@ -150,25 +149,21 @@ public class AdyenHttpClient implements ClientInterface {
         }
     }
 
-    private HttpRequestBase createHttpRequestBase(URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) throws HTTPClientException {
-        try {
-            switch (httpMethod) {
-                case GET:
-                    return new HttpGet(endpoint);
-                case PATCH:
-                    HttpPatch httpPatch = new HttpPatch(endpoint);
-                    httpPatch.setEntity(new StringEntity(requestBody));
-                    return httpPatch;
-                case DELETE:
-                    new HttpDelete(endpoint);
-                default:
-                    // Default to POST if httpMethod is not provided
-                    HttpPost httpPost = new HttpPost(endpoint);
-                    httpPost.setEntity(new StringEntity(requestBody));
-                    return httpPost;
-            }
-        }  catch (UnsupportedEncodingException e) {
-            throw new HTTPClientException("Unsupported encoding", e);
+    private HttpRequestBase createHttpRequestBase(URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) {
+        switch (httpMethod) {
+            case GET:
+                return new HttpGet(endpoint);
+            case PATCH:
+                HttpPatch httpPatch = new HttpPatch(endpoint);
+                httpPatch.setEntity(new StringEntity(requestBody, CHARSET));
+                return httpPatch;
+            case DELETE:
+                return new HttpDelete(endpoint);
+            default:
+                // Default to POST if httpMethod is not provided
+                HttpPost httpPost = new HttpPost(endpoint);
+                httpPost.setEntity(new StringEntity(requestBody, CHARSET));
+                return httpPost;
         }
     }
 
