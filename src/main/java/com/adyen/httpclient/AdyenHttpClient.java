@@ -69,7 +69,6 @@ public class AdyenHttpClient implements ClientInterface {
 
     private static final String CHARSET = "UTF-8";
     private static final String TERMINAL_CERTIFICATE_ALIAS = "TerminalCertificate";
-    private static final String JAVA_KEYSTORE = "JKS";
     private static final String SSL = "SSL";
     private Proxy proxy;
 
@@ -188,7 +187,7 @@ public class AdyenHttpClient implements ClientInterface {
             HttpClientBuilder httpClientBuilder = HttpClients.custom();
             // Create new KeyStore for the terminal certificate
             try {
-                KeyStore keyStore = KeyStore.getInstance(JAVA_KEYSTORE);
+                KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
                 keyStore.load(null, null);
                 keyStore.setCertificateEntry(TERMINAL_CERTIFICATE_ALIAS, config.getTerminalCertificate());
 
