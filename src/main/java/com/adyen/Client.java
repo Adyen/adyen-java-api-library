@@ -83,7 +83,7 @@ public class Client {
 
     /**
      * Use this constructor to create client for client certificate authentication along with API key.
-     * Note: Client certificate authentication is only applicable for PAL & Checkout services in LIVE,
+     * Note: Client certificate authentication is only applicable for PAL and Checkout services in LIVE,
      * Other services will just use API key for authentication.
      * @param trustStore Trust store containing server certificate
      * @param clientKeyStore Client Key store containing client certificate and key
