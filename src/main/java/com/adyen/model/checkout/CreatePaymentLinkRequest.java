@@ -20,6 +20,9 @@
  */
 package com.adyen.model.checkout;
 
+import java.util.Date;
+import java.util.Objects;
+
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.Name;
@@ -32,17 +35,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-
-import static com.adyen.util.Util.toIndentedString;
-
 /**
  * CreatePaymentLinkRequest
  */
@@ -79,6 +76,9 @@ public class CreatePaymentLinkRequest {
     @SerializedName("expiresAt")
     private String expiresAt = null;
 
+    @SerializedName("installmentOptions")
+    private Map<String, InstallmentOption> installmentOptions = null;
+
     @SerializedName("lineItems")
     private List<LineItem> lineItems = null;
 
@@ -92,7 +92,7 @@ public class CreatePaymentLinkRequest {
     private Map<String, String> metadata = null;
 
     /**
-     * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder&#x27;s balance drops below a certain amount.
+     * Defines a recurring payment type. Possible values: * **Subscription** – A transaction for a fixed or variable amount, which follows a fixed schedule. * **CardOnFile** – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * **UnscheduledCardOnFile** – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder&#x27;s balance drops below a certain amount.
      */
     @JsonAdapter(RecurringProcessingModelEnum.Adapter.class)
     public enum RecurringProcessingModelEnum {
@@ -106,7 +106,6 @@ public class CreatePaymentLinkRequest {
         RecurringProcessingModelEnum(String value) {
             this.value = value;
         }
-
         public String getValue() {
             return value;
         }
@@ -115,7 +114,6 @@ public class CreatePaymentLinkRequest {
         public String toString() {
             return String.valueOf(value);
         }
-
         public static RecurringProcessingModelEnum fromValue(String text) {
             for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
                 if (String.valueOf(b.value).equals(text)) {
@@ -124,7 +122,6 @@ public class CreatePaymentLinkRequest {
             }
             return null;
         }
-
         public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
             @Override
             public void write(final JsonWriter jsonWriter, final RecurringProcessingModelEnum enumeration) throws IOException {
@@ -133,7 +130,7 @@ public class CreatePaymentLinkRequest {
 
             @Override
             public RecurringProcessingModelEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
+                Object value = jsonReader.nextString();
                 return RecurringProcessingModelEnum.fromValue(String.valueOf(value));
             }
         }
@@ -144,6 +141,56 @@ public class CreatePaymentLinkRequest {
 
     @SerializedName("reference")
     private String reference = null;
+
+    /**
+     * Gets or Sets requiredShopperFields
+     */
+    @JsonAdapter(RequiredShopperFieldsEnum.Adapter.class)
+    public enum RequiredShopperFieldsEnum {
+        BILLINGADDRESS("billingAddress"),
+        DELIVERYADDRESS("deliveryAddress"),
+        SHOPPEREMAIL("shopperEmail"),
+        SHOPPERNAME("shopperName"),
+        TELEPHONENUMBER("telephoneNumber");
+
+        @JsonValue
+        private String value;
+
+        RequiredShopperFieldsEnum(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+        public static RequiredShopperFieldsEnum fromValue(String text) {
+            for (RequiredShopperFieldsEnum b : RequiredShopperFieldsEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static class Adapter extends TypeAdapter<RequiredShopperFieldsEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final RequiredShopperFieldsEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public RequiredShopperFieldsEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return RequiredShopperFieldsEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    @SerializedName("requiredShopperFields")
+    private List<RequiredShopperFieldsEnum> requiredShopperFields = null;
 
     @SerializedName("returnUrl")
     private String returnUrl = null;
@@ -189,8 +236,7 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * List of payments methods to be presented to the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
-     *
+     * List of payment methods to be presented to the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
      * @return allowedPaymentMethods
      **/
     public List<String> getAllowedPaymentMethods() {
@@ -208,7 +254,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Get amount
-     *
      * @return amount
      **/
     public Amount getAmount() {
@@ -226,7 +271,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Get applicationInfo
-     *
      * @return applicationInfo
      **/
     public ApplicationInfo getApplicationInfo() {
@@ -244,7 +288,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Get billingAddress
-     *
      * @return billingAddress
      **/
     public Address getBillingAddress() {
@@ -269,8 +312,7 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * List of payments methods to be hidden from the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
-     *
+     * List of payment methods to be hidden from the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
      * @return blockedPaymentMethods
      **/
     public List<String> getBlockedPaymentMethods() {
@@ -288,7 +330,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * The shopper&#x27;s two-letter country code.
-     *
      * @return countryCode
      **/
     public String getCountryCode() {
@@ -306,7 +347,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * The date and time the purchased goods should be delivered.
-     *
      * @return deliverAt
      **/
     public Date getDeliverAt() {
@@ -324,7 +364,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Get deliveryAddress
-     *
      * @return deliveryAddress
      **/
     public Address getDeliveryAddress() {
@@ -342,7 +381,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * A short description visible on the payment page. Maximum length: 280 characters.
-     *
      * @return description
      **/
     public String getDescription() {
@@ -359,8 +397,7 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * The date that the payment link expires, in ISO 8601 format. For example &#x60;2019-11-23T12:25:28Z&#x60;, or &#x60;2020-05-27T20:25:28+08:00&#x60;. Maximum expiry date should be 30 days from when the payment link is created. If not provided, the default expiry is set to 24 hours after the payment link is created.
-     *
+     * The date that the payment link expires, in ISO 8601 format. For example &#x60;2019-11-23T12:25:28Z&#x60;, or &#x60;2020-05-27T20:25:28+08:00&#x60;. Maximum expiry date should be 70 days from when the payment link is created. If not provided, the default expiry is set to 24 hours after the payment link is created.
      * @return expiresAt
      **/
     public String getExpiresAt() {
@@ -369,6 +406,31 @@ public class CreatePaymentLinkRequest {
 
     public void setExpiresAt(String expiresAt) {
         this.expiresAt = expiresAt;
+    }
+
+    public CreatePaymentLinkRequest installmentOptions(Map<String, InstallmentOption> installmentOptions) {
+        this.installmentOptions = installmentOptions;
+        return this;
+    }
+
+    public CreatePaymentLinkRequest putInstallmentOptionsItem(String key, InstallmentOption installmentOptionsItem) {
+        if (this.installmentOptions == null) {
+            this.installmentOptions = new HashMap<>();
+        }
+        this.installmentOptions.put(key, installmentOptionsItem);
+        return this;
+    }
+
+    /**
+     * A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
+     * @return installmentOptions
+     **/
+    public Map<String, InstallmentOption> getInstallmentOptions() {
+        return installmentOptions;
+    }
+
+    public void setInstallmentOptions(Map<String, InstallmentOption> installmentOptions) {
+        this.installmentOptions = installmentOptions;
     }
 
     public CreatePaymentLinkRequest lineItems(List<LineItem> lineItems) {
@@ -386,7 +448,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Price and product information about the purchased items, to be included on the invoice sent to the shopper. This parameter is required for open invoice (_buy now, pay later_) payment methods such AfterPay, Klarna, RatePay, and Zip.
-     *
      * @return lineItems
      **/
     public List<LineItem> getLineItems() {
@@ -404,7 +465,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * The merchant account identifier for which the payment link is created.
-     *
      * @return merchantAccount
      **/
     public String getMerchantAccount() {
@@ -422,7 +482,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * This reference allows linking multiple transactions to each other for reporting purposes (for example, order auth-rate). The reference should be unique per billing cycle.
-     *
      * @return merchantOrderReference
      **/
     public String getMerchantOrderReference() {
@@ -447,8 +506,7 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * Metadata consists of entries, each of which includes a key and a value. Limitations: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot; * Maximum 20 characters per key. When exceeding, the \&quot;178\&quot; error occurs: \&quot;Metadata key size exceeds limit\&quot; * A key cannot have the name &#x60;checkout.linkId&#x60;. Whatever value is present under that key is going to be replaced by the real link id
-     *
+     * Metadata consists of entries, each of which includes a key and a value. Limitations: * Maximum 20 key-value pairs per request. Otherwise, error \&quot;177\&quot; occurs: \&quot;Metadata size exceeds limit\&quot; * Maximum 20 characters per key. Otherwise, error \&quot;178\&quot; occurs: \&quot;Metadata key size exceeds limit\&quot; * A key cannot have the name &#x60;checkout.linkId&#x60;. Any value that you provide with this key is going to be replaced by the real payment link ID.
      * @return metadata
      **/
     public Map<String, String> getMetadata() {
@@ -465,8 +523,7 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder&#x27;s balance drops below a certain amount.
-     *
+     * Defines a recurring payment type. Possible values: * **Subscription** – A transaction for a fixed or variable amount, which follows a fixed schedule. * **CardOnFile** – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * **UnscheduledCardOnFile** – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or has variable amounts. For example, automatic top-ups when a cardholder&#x27;s balance drops below a certain amount.
      * @return recurringProcessingModel
      **/
     public RecurringProcessingModelEnum getRecurringProcessingModel() {
@@ -484,7 +541,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * A reference that is used to uniquely identify the payment in future communications about the payment status.
-     *
      * @return reference
      **/
     public String getReference() {
@@ -495,6 +551,31 @@ public class CreatePaymentLinkRequest {
         this.reference = reference;
     }
 
+    public CreatePaymentLinkRequest requiredShopperFields(List<RequiredShopperFieldsEnum> requiredShopperFields) {
+        this.requiredShopperFields = requiredShopperFields;
+        return this;
+    }
+
+    public CreatePaymentLinkRequest addRequiredShopperFieldsItem(RequiredShopperFieldsEnum requiredShopperFieldsItem) {
+        if (this.requiredShopperFields == null) {
+            this.requiredShopperFields = new ArrayList<>();
+        }
+        this.requiredShopperFields.add(requiredShopperFieldsItem);
+        return this;
+    }
+
+    /**
+     * List of fields that the shopper has to provide on the payment page before completing the payment. For more information, refer to [Provide shopper information](https://docs.adyen.com/online-payments/pay-by-link/api#shopper-information).  Possible values: * **billingAddress** – The address where to send the invoice. * **deliveryAddress** – The address where the purchased goods should be delivered. * **shopperEmail** – The shopper&#x27;s email address. * **shopperName** – The shopper&#x27;s full name. * **telephoneNumber** – The shopper&#x27;s phone number.
+     * @return requiredShopperFields
+     **/
+    public List<RequiredShopperFieldsEnum> getRequiredShopperFields() {
+        return requiredShopperFields;
+    }
+
+    public void setRequiredShopperFields(List<RequiredShopperFieldsEnum> requiredShopperFields) {
+        this.requiredShopperFields = requiredShopperFields;
+    }
+
     public CreatePaymentLinkRequest returnUrl(String returnUrl) {
         this.returnUrl = returnUrl;
         return this;
@@ -502,7 +583,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Website URL used for redirection after payment is completed. If provided, a **Continue** button will be shown on the payment page. If shoppers select the button, they are redirected to the specified URL.
-     *
      * @return returnUrl
      **/
     public String getReturnUrl() {
@@ -520,7 +600,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Indicates whether the payment link can be reused for multiple payments. If not provided, this defaults to **false** which means the link can be used for one successful payment only.
-     *
      * @return reusable
      **/
     public Boolean isReusable() {
@@ -538,7 +617,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Get riskData
-     *
      * @return riskData
      **/
     public RiskData getRiskData() {
@@ -556,7 +634,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * The shopper&#x27;s email address.
-     *
      * @return shopperEmail
      **/
     public String getShopperEmail() {
@@ -573,8 +650,7 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * The language to be used in the payment page, specified by a combination of a language and country code. For example, &#x60;en-US&#x60;.  For a list of shopper locales that Pay by Link supports, refer to [Language and localization](https://docs.adyen.com/checkout/pay-by-link#language-and-localization).
-     *
+     * The language to be used in the payment page, specified by a combination of a language and country code. For example, &#x60;en-US&#x60;.  For a list of shopper locales that Pay by Link supports, refer to [Language and localization](https://docs.adyen.com/online-payments/pay-by-link#language-and-localization).
      * @return shopperLocale
      **/
     public String getShopperLocale() {
@@ -592,7 +668,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * Get shopperName
-     *
      * @return shopperName
      **/
     public Name getShopperName() {
@@ -609,8 +684,7 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * A unique identifier for the shopper (for example, user ID or account ID).
-     *
+     * Your reference to uniquely identify this shopper (for example, user ID or account ID). Minimum length: 3 characters.
      * @return shopperReference
      **/
     public String getShopperReference() {
@@ -635,8 +709,7 @@ public class CreatePaymentLinkRequest {
     }
 
     /**
-     * Information on how the payment should be split between accounts when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information).
-     *
+     * An array of objects specifying how the payment should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/platforms/processing-payments#providing-split-information).
      * @return splits
      **/
     public List<Split> getSplits() {
@@ -654,7 +727,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * The physical store, for which this payment is processed.
-     *
      * @return store
      **/
     public String getStore() {
@@ -672,7 +744,6 @@ public class CreatePaymentLinkRequest {
 
     /**
      * When this is set to **true** and the &#x60;shopperReference&#x60; is provided, the payment details will be stored.
-     *
      * @return storePaymentMethod
      **/
     public Boolean isStorePaymentMethod() {
@@ -682,6 +753,7 @@ public class CreatePaymentLinkRequest {
     public void setStorePaymentMethod(Boolean storePaymentMethod) {
         this.storePaymentMethod = storePaymentMethod;
     }
+
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -702,12 +774,14 @@ public class CreatePaymentLinkRequest {
                 Objects.equals(this.deliveryAddress, createPaymentLinkRequest.deliveryAddress) &&
                 Objects.equals(this.description, createPaymentLinkRequest.description) &&
                 Objects.equals(this.expiresAt, createPaymentLinkRequest.expiresAt) &&
+                Objects.equals(this.installmentOptions, createPaymentLinkRequest.installmentOptions) &&
                 Objects.equals(this.lineItems, createPaymentLinkRequest.lineItems) &&
                 Objects.equals(this.merchantAccount, createPaymentLinkRequest.merchantAccount) &&
                 Objects.equals(this.merchantOrderReference, createPaymentLinkRequest.merchantOrderReference) &&
                 Objects.equals(this.metadata, createPaymentLinkRequest.metadata) &&
                 Objects.equals(this.recurringProcessingModel, createPaymentLinkRequest.recurringProcessingModel) &&
                 Objects.equals(this.reference, createPaymentLinkRequest.reference) &&
+                Objects.equals(this.requiredShopperFields, createPaymentLinkRequest.requiredShopperFields) &&
                 Objects.equals(this.returnUrl, createPaymentLinkRequest.returnUrl) &&
                 Objects.equals(this.reusable, createPaymentLinkRequest.reusable) &&
                 Objects.equals(this.riskData, createPaymentLinkRequest.riskData) &&
@@ -722,42 +796,54 @@ public class CreatePaymentLinkRequest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, countryCode, deliverAt, deliveryAddress, description, expiresAt, lineItems, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, splits, store, storePaymentMethod);
+        return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, countryCode, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, splits, store, storePaymentMethod);
     }
+
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CreatePaymentLinkRequest {\n");
 
-        sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    deliverAt: ").append(toIndentedString(deliverAt)).append("\n");
-        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
-        sb.append("    reusable: ").append(toIndentedString(reusable)).append("\n");
-        sb.append("    riskData: ").append(toIndentedString(riskData)).append("\n");
-        sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
-        sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-        sb.append("    store: ").append(toIndentedString(store)).append("\n");
-        sb.append("    storePaymentMethod: ").append(toIndentedString(storePaymentMethod)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class CreatePaymentLinkRequest {\n" +
+                "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + "\n" +
+                "    amount: " + toIndentedString(amount) + "\n" +
+                "    applicationInfo: " + toIndentedString(applicationInfo) + "\n" +
+                "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+                "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + "\n" +
+                "    countryCode: " + toIndentedString(countryCode) + "\n" +
+                "    deliverAt: " + toIndentedString(deliverAt) + "\n" +
+                "    deliveryAddress: " + toIndentedString(deliveryAddress) + "\n" +
+                "    description: " + toIndentedString(description) + "\n" +
+                "    expiresAt: " + toIndentedString(expiresAt) + "\n" +
+                "    installmentOptions: " + toIndentedString(installmentOptions) + "\n" +
+                "    lineItems: " + toIndentedString(lineItems) + "\n" +
+                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+                "    merchantOrderReference: " + toIndentedString(merchantOrderReference) + "\n" +
+                "    metadata: " + toIndentedString(metadata) + "\n" +
+                "    recurringProcessingModel: " + toIndentedString(recurringProcessingModel) + "\n" +
+                "    reference: " + toIndentedString(reference) + "\n" +
+                "    requiredShopperFields: " + toIndentedString(requiredShopperFields) + "\n" +
+                "    returnUrl: " + toIndentedString(returnUrl) + "\n" +
+                "    reusable: " + toIndentedString(reusable) + "\n" +
+                "    riskData: " + toIndentedString(riskData) + "\n" +
+                "    shopperEmail: " + toIndentedString(shopperEmail) + "\n" +
+                "    shopperLocale: " + toIndentedString(shopperLocale) + "\n" +
+                "    shopperName: " + toIndentedString(shopperName) + "\n" +
+                "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
+                "    splits: " + toIndentedString(splits) + "\n" +
+                "    store: " + toIndentedString(store) + "\n" +
+                "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + "\n" +
+                "}";
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
     }
 
 }
