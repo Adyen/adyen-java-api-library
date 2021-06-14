@@ -84,7 +84,10 @@ public final class CertificateUtil {
         if (!file.exists()) {
             throw new FileNotFoundException("Keystore file not found at path " + keyStorePath);
         }
-        keyStore.load(new FileInputStream(file), password);
+
+        FileInputStream inputStream = new FileInputStream(file);
+        keyStore.load(inputStream, password);
+        inputStream.close();
         return keyStore;
     }
 }
