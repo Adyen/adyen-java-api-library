@@ -149,19 +149,24 @@ public class AdyenHttpClient implements ClientInterface {
     }
 
     private HttpRequestBase createHttpRequestBase(URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) {
+        StringEntity requestEntity = null;
+        if (requestBody != null && !requestBody.isEmpty()) {
+            requestEntity = new StringEntity(requestBody, CHARSET);
+        }
+
         switch (httpMethod) {
             case GET:
                 return new HttpGet(endpoint);
             case PATCH:
                 HttpPatch httpPatch = new HttpPatch(endpoint);
-                httpPatch.setEntity(new StringEntity(requestBody, CHARSET));
+                httpPatch.setEntity(requestEntity);
                 return httpPatch;
             case DELETE:
                 return new HttpDelete(endpoint);
             default:
                 // Default to POST if httpMethod is not provided
                 HttpPost httpPost = new HttpPost(endpoint);
-                httpPost.setEntity(new StringEntity(requestBody, CHARSET));
+                httpPost.setEntity(requestEntity);
                 return httpPost;
         }
     }
