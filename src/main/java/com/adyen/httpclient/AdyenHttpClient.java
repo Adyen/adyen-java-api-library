@@ -69,7 +69,6 @@ public class AdyenHttpClient implements ClientInterface {
 
     private static final String CHARSET = "UTF-8";
     private static final String TERMINAL_CERTIFICATE_ALIAS = "TerminalCertificate";
-    private static final String JAVA_KEYSTORE = "JKS";
     private static final String SSL = "SSL";
     private static final String TLSV1_2 = "TLSv1.2";
     private Proxy proxy;
