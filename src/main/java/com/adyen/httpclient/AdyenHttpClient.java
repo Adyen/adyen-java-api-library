@@ -200,7 +200,7 @@ public class AdyenHttpClient implements ClientInterface {
     private SSLConnectionSocketFactory getTerminalCertificateSocketFactory(Config config) throws HTTPClientException {
         try {
             // Create new KeyStore for the terminal certificate
-            KeyStore keyStore = KeyStore.getInstance(JAVA_KEYSTORE);
+            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
             keyStore.setCertificateEntry(TERMINAL_CERTIFICATE_ALIAS, config.getTerminalCertificate());
 
