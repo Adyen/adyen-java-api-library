@@ -31,6 +31,7 @@ import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -40,7 +41,7 @@ public class PaymentLinksTest extends BaseTest {
 
     @Test
     public void TestCreatePaymentLinksSuccess() throws Exception {
-        Client client = createMockClientFromFile("mocks/paymentlinks/get-payment-link-success.json");
+        Client client = createMockClientFromFile("mocks/paymentlinks/create-payment-links-success.json");
         PaymentLinks paymentLinks = new PaymentLinks(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
         PaymentLinkResource paymentLink = paymentLinks.create(createPaymentLinkRequest);
@@ -138,6 +139,7 @@ public class PaymentLinksTest extends BaseTest {
         createPaymentLinkRequest.setShopperEmail("test@email.com");
         createPaymentLinkRequest.setShopperLocale("pt_BR");
         createPaymentLinkRequest.setExpiresAt("2019-12-17T10:05:29Z");
+        createPaymentLinkRequest.setRequiredShopperFields(Collections.singletonList(CreatePaymentLinkRequest.RequiredShopperFieldsEnum.DELIVERYADDRESS));
         Address address = new Address();
         address.setStreet("Street");
         address.setPostalCode("59000060");
