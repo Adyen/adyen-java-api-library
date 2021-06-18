@@ -48,7 +48,6 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URI;
@@ -70,7 +69,6 @@ public class AdyenHttpClient implements ClientInterface {
 
     private static final String CHARSET = "UTF-8";
     private static final String TERMINAL_CERTIFICATE_ALIAS = "TerminalCertificate";
-    private static final String JAVA_KEYSTORE = "JKS";
     private static final String SSL = "SSL";
     private Proxy proxy;
 
@@ -150,25 +148,26 @@ public class AdyenHttpClient implements ClientInterface {
         }
     }
 
-    private HttpRequestBase createHttpRequestBase(URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) throws HTTPClientException {
-        try {
-            switch (httpMethod) {
-                case GET:
-                    return new HttpGet(endpoint);
-                case PATCH:
-                    HttpPatch httpPatch = new HttpPatch(endpoint);
-                    httpPatch.setEntity(new StringEntity(requestBody));
-                    return httpPatch;
-                case DELETE:
-                    new HttpDelete(endpoint);
-                default:
-                    // Default to POST if httpMethod is not provided
-                    HttpPost httpPost = new HttpPost(endpoint);
-                    httpPost.setEntity(new StringEntity(requestBody));
-                    return httpPost;
-            }
-        }  catch (UnsupportedEncodingException e) {
-            throw new HTTPClientException("Unsupported encoding", e);
+    private HttpRequestBase createHttpRequestBase(URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) {
+        StringEntity requestEntity = null;
+        if (requestBody != null && !requestBody.isEmpty()) {
+            requestEntity = new StringEntity(requestBody, CHARSET);
+        }
+
+        switch (httpMethod) {
+            case GET:
+                return new HttpGet(endpoint);
+            case PATCH:
+                HttpPatch httpPatch = new HttpPatch(endpoint);
+                httpPatch.setEntity(requestEntity);
+                return httpPatch;
+            case DELETE:
+                return new HttpDelete(endpoint);
+            default:
+                // Default to POST if httpMethod is not provided
+                HttpPost httpPost = new HttpPost(endpoint);
+                httpPost.setEntity(requestEntity);
+                return httpPost;
         }
     }
 
@@ -193,7 +192,7 @@ public class AdyenHttpClient implements ClientInterface {
             HttpClientBuilder httpClientBuilder = HttpClients.custom();
             // Create new KeyStore for the terminal certificate
             try {
-                KeyStore keyStore = KeyStore.getInstance(JAVA_KEYSTORE);
+                KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
                 keyStore.load(null, null);
                 keyStore.setCertificateEntry(TERMINAL_CERTIFICATE_ALIAS, config.getTerminalCertificate());
 

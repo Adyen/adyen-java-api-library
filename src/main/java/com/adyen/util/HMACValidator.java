@@ -41,8 +41,12 @@ public class HMACValidator {
     public static final String DATA_SEPARATOR = ":";
 
     // To calculate the HMAC SHA-256
-    public String calculateHMAC(String data, String key) throws java.security.SignatureException {
+    public String calculateHMAC(String data, String key) throws IllegalArgumentException, SignatureException {
         try {
+            if (data == null || key == null) {
+                throw new IllegalArgumentException();
+            }
+
             byte[] rawKey = Hex.decodeHex(key.toCharArray());
             // Create an hmac_sha256 key from the raw key bytes
             SecretKeySpec signingKey = new SecretKeySpec(rawKey, HMAC_SHA256_ALGORITHM);
@@ -58,18 +62,23 @@ public class HMACValidator {
 
             // Base64-encode the hmac
             return new String(Base64.encodeBase64(rawHmac));
-
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Missing data or key.");
         } catch (Exception e) {
             throw new SignatureException("Failed to generate HMAC : " + e.getMessage());
         }
     }
 
     // To calculate the HMAC SHA-256
-    public String calculateHMAC(NotificationRequestItem notificationRequestItem, String key) throws SignatureException {
+    public String calculateHMAC(NotificationRequestItem notificationRequestItem, String key) throws IllegalArgumentException, SignatureException {
         return calculateHMAC(getDataToSign(notificationRequestItem), key);
     }
 
     public boolean validateHMAC(NotificationRequestItem notificationRequestItem, String key) throws IllegalArgumentException, SignatureException {
+        if (notificationRequestItem == null) {
+            throw new IllegalArgumentException("Missing NotificationRequestItem.");
+        }
+
         if (notificationRequestItem.getAdditionalData() == null || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE).isEmpty()) {
             throw new IllegalArgumentException("Missing " + HMAC_SIGNATURE);
         }
@@ -79,7 +88,11 @@ public class HMACValidator {
         return MessageDigest.isEqual(merchantSign, expectedSign);
     }
 
-    public String getDataToSign(NotificationRequestItem notificationRequestItem) {
+    public String getDataToSign(NotificationRequestItem notificationRequestItem) throws IllegalArgumentException {
+        if (notificationRequestItem == null) {
+            throw new IllegalArgumentException("Missing NotificationRequestItem.");
+        }
+
         List<String> signedDataList = new ArrayList<>(8);
         signedDataList.add(notificationRequestItem.getPspReference());
         signedDataList.add(notificationRequestItem.getOriginalReference());
@@ -87,8 +100,23 @@ public class HMACValidator {
         signedDataList.add(notificationRequestItem.getMerchantReference());
 
         Amount amount = notificationRequestItem.getAmount();
-        signedDataList.add(amount.getValue().toString());
-        signedDataList.add(amount.getCurrency());
+
+        //If the amount and value are not null, append them to the payload.
+        if (amount != null && amount.getValue() != null) {
+            signedDataList.add(amount.getValue().toString());
+        } else {
+            //Else append a null. Will appear as a empty string in the final payload.
+            signedDataList.add(null);
+        }
+
+        //If the amount and currency are not null, append them to the payload.
+        if (amount != null && amount.getCurrency() != null) {
+            signedDataList.add(amount.getCurrency());
+        } else {
+            //Else append a null. Will appear as a empty string in the final payload.
+            signedDataList.add(null);
+        }
+
 
         signedDataList.add(notificationRequestItem.getEventCode());
         signedDataList.add(String.valueOf(notificationRequestItem.isSuccess()));
