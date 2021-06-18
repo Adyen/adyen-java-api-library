@@ -64,6 +64,9 @@ public class Client {
     public static final String DATA_PROTECTION_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DataProtectionService";
     public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
     public static final String DATA_PROTECTION_VERSION = "v1";
+    public static final String MANAGEMENT_ENDPOINT_TEST = "https://management-test.adyen.com";
+    public static final String MANAGEMENT_ENDPOINT_LIVE = "https://management-live.adyen.com";
+    public static final String MANAGEMENT_API_VERSION = "v1";
 
     public Client() {
         this.config = new Config();
@@ -174,6 +177,7 @@ public class Client {
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
             this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_TEST);
+            this.config.setManagementEndpoint(MANAGEMENT_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
@@ -188,6 +192,7 @@ public class Client {
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE);
             this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_LIVE);
+            this.config.setManagementEndpoint(MANAGEMENT_ENDPOINT_LIVE);
         }
     }
 

@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "id": "id",
+      "domain": "https://www.adyen.com",
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/me/allowedOrigins/id"
+        }
+      }
+    }
+  ]
+}

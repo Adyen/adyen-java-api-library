@@ -1,0 +1,6 @@
+{
+  "type": "https://docs.adyen.com/errors/security/unauthorized",
+  "title": "Unauthorized",
+  "status": 401,
+  "errorCode": "00_401"
+}

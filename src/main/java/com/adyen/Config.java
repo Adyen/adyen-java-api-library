@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2018 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -60,6 +60,9 @@ public class Config {
     protected String posTerminalManagementApiEndpoint;
 
     protected String dataProtectionEndpoint;
+
+    // Management API specific
+    protected String managementEndpoint;
 
     public Config() {
         // do nothing
@@ -227,6 +230,14 @@ public class Config {
 
     public void setDataProtectionEndpoint(String dataProtectionEndpoint) {
         this.dataProtectionEndpoint = dataProtectionEndpoint;
+    }
+
+    public String getManagementEndpoint() {
+        return managementEndpoint;
+    }
+
+    public void setManagementEndpoint(String managementEndpoint) {
+        this.managementEndpoint = managementEndpoint;
     }
 
 }

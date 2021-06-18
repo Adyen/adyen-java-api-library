@@ -124,6 +124,10 @@ public interface ApiConstants {
         String PROTOCOL_VERSION = "3.0";
     }
 
+    interface ManagementAPI {
+        String ORIGIN_ID = "originId";
+    }
+
     enum HttpMethod {
         GET,
         POST,

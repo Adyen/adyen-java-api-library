@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -24,7 +24,6 @@ import com.adyen.model.marketpay.ErrorFieldType;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -38,13 +37,13 @@ public class ApiError {
     @SerializedName("errorCode")
     private String errorCode = null;
 
-    @SerializedName("message")
+    @SerializedName(value = "message", alternate = "detail")
     private String message = null;
 
-    @SerializedName("errorType")
+    @SerializedName(value = "errorType", alternate = "type")
     private String errorType = null;
 
-    @SerializedName("pspReference")
+    @SerializedName(value = "pspReference", alternate = "requestId")
     private String pspReference = null;
 
     @SerializedName("invalidFields")

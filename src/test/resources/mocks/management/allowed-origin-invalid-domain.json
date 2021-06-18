@@ -1,0 +1,15 @@
+{
+  "type": "https://docs.adyen.com/errors/general/invalid-field-value",
+  "title": "Invalid allowed origin information provided.",
+  "status": 422,
+  "requestId": "REQUEST_ID",
+  "invalidFields": [
+    {
+      "InvalidField": {
+        "name": "origin",
+        "message": "Origin 'invalid' is not a valid URL. Make sure a scheme is provided"
+      }
+    }
+  ],
+  "errorCode": "31_004"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "https://docs.adyen.com/errors/general/invalid-field-value",
+  "title": "Invalid allowed origin information provided.",
+  "status": 422,
+  "requestId": "REQUEST_ID",
+  "invalidFields": [
+    {
+      "InvalidField": {
+        "name": "domain",
+        "value": "https://www.adyen.com",
+        "message": "Origin already exists"
+      }
+    }
+  ],
+  "errorCode": "31_004"
+}

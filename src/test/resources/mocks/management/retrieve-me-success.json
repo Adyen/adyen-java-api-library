@@ -1,0 +1,18 @@
+{
+  "id": "id",
+  "username": "ws@Company.JavaAPILibrary",
+  "clientKey": "client_key",
+  "allowedIpAddresses": [],
+  "roles": [
+    "Checkout webservice role"
+  ],
+  "active": "true",
+  "_links": {
+    "allowedOrigins": {
+      "href": "https://management-test.adyen.com/v1/me/allowedOrigins"
+    },
+    "self": {
+      "href": "https://management-test.adyen.com/v1/me"
+    }
+  }
+}

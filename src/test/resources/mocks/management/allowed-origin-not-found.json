@@ -1,0 +1,8 @@
+{
+  "type": "https://docs.adyen.com/errors/general/not-found",
+  "title": "Entity was not found",
+  "status": 422,
+  "detail": "The origin id is invalid or does not exist.",
+  "requestId": "REQUEST_ID",
+  "errorCode": "30_112"
+}
