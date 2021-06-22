@@ -124,8 +124,17 @@ public interface ApiConstants {
         String PROTOCOL_VERSION = "3.0";
     }
 
+    interface Pagination {
+        String PAGE_SIZE = "pageSize";
+        String PAGE_NUMBER = "pageNumber";
+        Integer DEFAULT_PAGE_NUMBER = 1;
+        Integer DEFAULT_PAGE_SIZE = 10;
+    }
+
     interface ManagementAPI {
         String ORIGIN_ID = "originId";
+        String COMPANY_ID = "companyId";
+        String WEBHOOK_ID = "webhookId";
     }
 
     enum HttpMethod {

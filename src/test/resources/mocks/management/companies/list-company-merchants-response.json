@@ -1,0 +1,200 @@
+{
+  "_links": {
+    "first": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10"
+    },
+    "last": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10"
+    },
+    "next": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10"
+    },
+    "self": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10"
+    }
+  },
+  "itemsTotal": 19,
+  "pagesTotal": 2,
+  "data": [
+    {
+      "id": "Invoice1Merchant",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/Invoice1Merchant"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/Invoice1Merchant/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/Invoice1Merchant/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/Invoice1Merchant/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchant",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchant"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchant/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchant/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchant/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchantAuthenticationOnly",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantAuthenticationOnly"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantAuthenticationOnly/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantAuthenticationOnly/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantAuthenticationOnly/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchantBulkSettlement",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantBulkSettlement"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantBulkSettlement/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantBulkSettlement/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantBulkSettlement/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchantErrorRetry",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantErrorRetry"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantErrorRetry/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantErrorRetry/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantErrorRetry/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchantExt",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantExt"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantExt/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantExt/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantExt/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchantIS1",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS1"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS1/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS1/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS1/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchantIS2",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS2"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS2/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS2/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS2/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchantLoadExternalPayment",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantLoadExternalPayment"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantLoadExternalPayment/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantLoadExternalPayment/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantLoadExternalPayment/webhooks"
+        }
+      }
+    },
+    {
+      "id": "TestMerchantNetworkTokenization",
+      "status": "Active",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantNetworkTokenization"
+        },
+        "apiCredentials": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantNetworkTokenization/apiCredentials"
+        },
+        "users": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantNetworkTokenization/users"
+        },
+        "webhooks": {
+          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantNetworkTokenization/webhooks"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,612 @@
+{
+  "data": [
+    {
+      "merchantId": "Invoice1Merchant",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=Invoice1Merchant, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "259 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "Invoice1Merchant",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=Invoice1Merchant, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "34 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "Invoice1Merchant",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=Invoice1Merchant, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "Invoice1Merchant",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=Invoice1Merchant, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "91 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchant",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchant, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "261 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchant",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchant, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "195 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchant",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchant, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "29 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchant",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchant, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantAuthenticationOnly",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantAuthenticationOnly, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "260 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantAuthenticationOnly",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantAuthenticationOnly, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "220 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantAuthenticationOnly",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantAuthenticationOnly, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantAuthenticationOnly",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantAuthenticationOnly, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantBulkSettlement",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantBulkSettlement, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "28 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantBulkSettlement",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantBulkSettlement, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantBulkSettlement",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantBulkSettlement, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "28 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantBulkSettlement",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantBulkSettlement, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:36 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "39 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantErrorRetry",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantErrorRetry, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantErrorRetry",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantErrorRetry, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantErrorRetry",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantErrorRetry, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "29 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantErrorRetry",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantErrorRetry, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "29 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantExt",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantExt, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "31 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantExt",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantExt, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "28 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantExt",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantExt, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "43 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantExt",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantExt, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "31 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantIS1",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantIS1, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantIS1",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantIS1, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "29 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantIS1",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantIS1, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantIS1",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantIS1, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "35 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantIS2",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantIS2, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "34 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantIS2",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantIS2, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "31 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantIS2",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantIS2, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "57 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantIS2",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantIS2, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "31 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantLoadExternalPayment",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantLoadExternalPayment, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "39 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantLoadExternalPayment",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantLoadExternalPayment, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantLoadExternalPayment",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantLoadExternalPayment, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantLoadExternalPayment",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantLoadExternalPayment, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "40 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantNetworkTokenization",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantNetworkTokenization, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "34 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantNetworkTokenization",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantNetworkTokenization, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantNetworkTokenization",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantNetworkTokenization, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantNetworkTokenization",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantNetworkTokenization, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "37 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantOpiRecharge",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantOpiRecharge, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "28 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantOpiRecharge",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantOpiRecharge, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantOpiRecharge",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantOpiRecharge, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "29 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantOpiRecharge",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantOpiRecharge, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantOwnAcquiring",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantOwnAcquiring, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantOwnAcquiring",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantOwnAcquiring, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "35 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantOwnAcquiring",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantOwnAcquiring, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantOwnAcquiring",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantOwnAcquiring, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantPOS",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantPOS, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantPOS",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantPOS, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "39 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantPOS",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantPOS, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantPOS",
+      "output": "{\"timestamp\":\"2021-06-24T10:32:37.488+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"message\":\"\",\"path\":\"/\"}",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantPOS, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "500",
+      "responseTime": "67 ms",
+      "status": "failed"
+    },
+    {
+      "merchantId": "TestMerchantReferenceTransactionDetails",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantReferenceTransactionDetails, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "29 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantReferenceTransactionDetails",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantReferenceTransactionDetails, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "44 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantReferenceTransactionDetails",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantReferenceTransactionDetails, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantReferenceTransactionDetails",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantReferenceTransactionDetails, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantRefused",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantRefused, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "28 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantRefused",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantRefused, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantRefused",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantRefused, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "29 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantRefused",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantRefused, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantRiskOnly",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantRiskOnly, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "33 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantRiskOnly",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantRiskOnly, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "31 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantRiskOnly",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantRiskOnly, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "34 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantRiskOnly",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantRiskOnly, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantSDP",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantSDP, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "38 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantSDP",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantSDP, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "32 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantSDP",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantSDP, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "31 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantSDP",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantSDP, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "36 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantSLevel",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantSLevel, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantSLevel",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantSLevel, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "29 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantSLevel",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantSLevel, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "35 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantSLevel",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantSLevel, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "95 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantWithIdealRisk",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantWithIdealRisk, pspReference=test_AUTHORISATION_1, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "39 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantWithIdealRisk",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantWithIdealRisk, pspReference=test_AUTHORISATION_2, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.00, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, authCode=1234, cardSummary=7777, totalFraudScore=10, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=true, reason=1234:7777:12/2012, paymentMethod=visa, operations=[CANCEL][CAPTURE][REFUND]]",
+      "responseCode": "200",
+      "responseTime": "90 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantWithIdealRisk",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantWithIdealRisk, pspReference=test_AUTHORISATION_3, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=EUR 101.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "42 ms",
+      "status": "success"
+    },
+    {
+      "merchantId": "TestMerchantWithIdealRisk",
+      "output": "[accepted]",
+      "requestSent": "NotificationRequestItem[merchantAccountCode=TestMerchantWithIdealRisk, pspReference=test_AUTHORISATION_4, eventCode=AUTHORISATION, originalReference=null, merchantReference=8313842560770001, eventDate=Thu Jun 24 12:32:37 CEST 2021, amount=GBP 201.50, additionalData={expiryDate=12/2012,  NAME1 =VALUE1, totalFraudScore=10, cardSummary=7777, NAME2=  VALUE2  , fraudCheck-6-ShopperIpUsage=10}, success=false, reason=REFUSED, paymentMethod=visa]",
+      "responseCode": "200",
+      "responseTime": "30 ms",
+      "status": "success"
+    }
+  ]
+}

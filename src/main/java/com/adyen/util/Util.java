@@ -20,6 +20,7 @@
  */
 package com.adyen.util;
 
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.Amount;
 
 import java.math.BigDecimal;
@@ -158,5 +159,11 @@ public final class Util {
         fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         return fmt.format(sessionDate);
+    }
+
+    public static String getPaginationFragment() {
+        String paginationFragment = "%s={%s}&%s={%s}";
+        return String.format(paginationFragment, ApiConstants.Pagination.PAGE_NUMBER, ApiConstants.Pagination.PAGE_NUMBER,
+                ApiConstants.Pagination.PAGE_SIZE, ApiConstants.Pagination.PAGE_SIZE);
     }
 }

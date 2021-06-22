@@ -1,0 +1,629 @@
+{
+  "_links": {
+    "first": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
+    },
+    "last": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
+    },
+    "self": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
+    }
+  },
+  "itemsTotal": 11,
+  "pagesTotal": 1,
+  "data": [
+    {
+      "id": "S2-504B3E24",
+      "type": "standard",
+      "url": "http://example-1.com",
+      "description": "Standard Notification for TestCompany - 1622123155874",
+      "filterMerchantAccountType": "includeAccounts",
+      "username": "",
+      "hasPassword": "false",
+      "active": "true",
+      "hasError": "false",
+      "sslVersion": "TLSv1.2",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "certificateAlias": "signed.adyen.com_2020",
+      "populateSoapActionHeader": "false",
+      "additionalSettings": {
+        "properties": {
+          "includePosTerminalInfo": "false",
+          "includeARN": "false",
+          "includeAcquirerDetails": "false",
+          "includePosDetails": "false",
+          "includeCardInfoForRecurringContractNotification": "false",
+          "includeRiskData": "false",
+          "includeRiskExperimentReference": "false",
+          "includeSoapSecurityHeader": "false",
+          "includeContactlessWalletTokenInformation": "false",
+          "updateSepaDirectDebitReasonToDDD": "false",
+          "includeAcquirerReference": "false",
+          "includeRiskProfileReference": "false",
+          "includeOriginalMerchantReferenceCancelOrRefundNotification": "false",
+          "skipSendingOnPal": "false",
+          "includeNfcTokenInformation": "false",
+          "includeSubvariant": "false",
+          "includeThreeDSVersion": "false",
+          "includeInstallmentsInfo": "false",
+          "includeAliasInfo": "false",
+          "includeShopperCountry": "false",
+          "includeRawThreeDSecureResult": "false",
+          "includeAirlineData": "false",
+          "includeGrossCurrencyChargebackDetails": "false",
+          "includeThreeDSecureResult": "false",
+          "includeMetadataIn3DSecurePaymentNotification": "false",
+          "includeOriginalReferenceForChargebackReversed": "false",
+          "addAcquirerResult": "false",
+          "includeDeliveryAddress": "false",
+          "includeRetryAttempts": "false",
+          "includeExtraCosts": "false",
+          "includeInvoiceData": "false",
+          "includeCardHolderName": "false",
+          "includeShopperDetail": "false",
+          "includeBankAccountDetails": "false",
+          "includeMandateDetails": "false",
+          "includeAuthAmountForDynamicZeroAuth": "false",
+          "includeIssuerCountry": "false",
+          "includeAcquirerErrorDetails": "false",
+          "includeCoBrandedWith": "false",
+          "includeShopperInteraction": "false",
+          "includeDeviceAndBrowserInfo": "false",
+          "addRawAcquirerResult": "false",
+          "includeCardBin": "false",
+          "includeFundingSource": "false",
+          "includeThreeDS2ChallengeInformation": "false",
+          "includeRiskProfile": "false",
+          "includeRealtimeAccountUpdaterStatus": "false",
+          "includeDunningProjectData": "false",
+          "includeOpenInvoiceData": "false",
+          "includePaymentResultInOrderClosedNotification": "false",
+          "includeCardBinDetails": "false",
+          "includeNotesInManualReviewNotifications": "false",
+          "includeZeroAuthFlag": "false",
+          "addCaptureReferenceToDisputeNotification": "false",
+          "includePayPalDetails": "false",
+          "includeRawThreeDSecureDetailsResult": "false",
+          "includeBankVerificationResults": "false",
+          "includeCaptureDelayHours": "false",
+          "addPaymentAccountReference": "false",
+          "includePayULatamDetails": "false",
+          "includeStore": "false",
+          "returnAvsData": "false",
+          "includeCustomRoutingFlagging": "false",
+          "includeTokenisedPaymentMetaData": "false"
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24/test"
+        }
+      }
+    },
+    {
+      "id": "S2-2A5A6E33",
+      "type": "standard",
+      "url": "http://integration-test.com",
+      "description": "Webhook Integration Test",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "",
+      "hasPassword": "false",
+      "active": "true",
+      "hasError": "false",
+      "sslVersion": "SSL",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "certificateAlias": "signed.adyen.com_2020",
+      "populateSoapActionHeader": "false",
+      "additionalSettings": {
+        "properties": {
+          "includePosTerminalInfo": "false",
+          "includeARN": "false",
+          "includeAcquirerDetails": "false",
+          "includePosDetails": "false",
+          "includeCardInfoForRecurringContractNotification": "false",
+          "includeRiskData": "false",
+          "includeRiskExperimentReference": "false",
+          "includeSoapSecurityHeader": "false",
+          "includeContactlessWalletTokenInformation": "false",
+          "updateSepaDirectDebitReasonToDDD": "false",
+          "includeAcquirerReference": "false",
+          "includeRiskProfileReference": "false",
+          "skipSendingOnPal": "false",
+          "includeNfcTokenInformation": "false",
+          "includeSubvariant": "false",
+          "includeThreeDSVersion": "false",
+          "includeInstallmentsInfo": "false",
+          "includeAliasInfo": "false",
+          "includeShopperCountry": "false",
+          "includeRawThreeDSecureResult": "false",
+          "includeAirlineData": "false",
+          "includeGrossCurrencyChargebackDetails": "false",
+          "includeThreeDSecureResult": "false",
+          "includeMetadataIn3DSecurePaymentNotification": "false",
+          "includeOriginalReferenceForChargebackReversed": "false",
+          "addAcquirerResult": "false",
+          "includeDeliveryAddress": "false",
+          "includeRetryAttempts": "false",
+          "includeExtraCosts": "false",
+          "includeInvoiceData": "false",
+          "includeCardHolderName": "false",
+          "includeShopperDetail": "false",
+          "includeBankAccountDetails": "false",
+          "includeMandateDetails": "false",
+          "includeAuthAmountForDynamicZeroAuth": "false",
+          "includeIssuerCountry": "false",
+          "includeAcquirerErrorDetails": "false",
+          "includeCoBrandedWith": "false",
+          "includeShopperInteraction": "false",
+          "includeDeviceAndBrowserInfo": "false",
+          "addRawAcquirerResult": "false",
+          "includeCardBin": "false",
+          "includeFundingSource": "false",
+          "includeThreeDS2ChallengeInformation": "false",
+          "includeRiskProfile": "false",
+          "includeRealtimeAccountUpdaterStatus": "false",
+          "includeDunningProjectData": "false",
+          "includeOpenInvoiceData": "false",
+          "includeCardBinDetails": "false",
+          "includeNotesInManualReviewNotifications": "false",
+          "includeZeroAuthFlag": "false",
+          "addCaptureReferenceToDisputeNotification": "false",
+          "includePayPalDetails": "false",
+          "includeRawThreeDSecureDetailsResult": "false",
+          "includeBankVerificationResults": "false",
+          "includeCaptureDelayHours": "false",
+          "addPaymentAccountReference": "false",
+          "includePayULatamDetails": "false",
+          "includeStore": "false",
+          "returnAvsData": "false",
+          "includeCustomRoutingFlagging": "false"
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2A5A6E33"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2A5A6E33/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2A5A6E33/test"
+        }
+      }
+    },
+    {
+      "id": "S2-2B593138",
+      "type": "standard",
+      "url": "http://resource-test.com",
+      "description": "Webhook Resource Test",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "",
+      "hasPassword": "false",
+      "active": "true",
+      "hasError": "false",
+      "sslVersion": "SSL",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "certificateAlias": "signed.adyen.com_2020",
+      "populateSoapActionHeader": "false",
+      "additionalSettings": {
+        "properties": {
+          "includePosTerminalInfo": "false",
+          "includeARN": "false",
+          "includeAcquirerDetails": "false",
+          "includePosDetails": "false",
+          "includeCardInfoForRecurringContractNotification": "false",
+          "includeRiskData": "false",
+          "includeRiskExperimentReference": "false",
+          "includeSoapSecurityHeader": "false",
+          "includeContactlessWalletTokenInformation": "false",
+          "updateSepaDirectDebitReasonToDDD": "false",
+          "includeAcquirerReference": "false",
+          "includeRiskProfileReference": "false",
+          "skipSendingOnPal": "false",
+          "includeNfcTokenInformation": "false",
+          "includeSubvariant": "false",
+          "includeThreeDSVersion": "false",
+          "includeInstallmentsInfo": "false",
+          "includeAliasInfo": "false",
+          "includeShopperCountry": "false",
+          "includeRawThreeDSecureResult": "false",
+          "includeAirlineData": "false",
+          "includeGrossCurrencyChargebackDetails": "false",
+          "includeThreeDSecureResult": "false",
+          "includeMetadataIn3DSecurePaymentNotification": "false",
+          "includeOriginalReferenceForChargebackReversed": "false",
+          "addAcquirerResult": "false",
+          "includeDeliveryAddress": "false",
+          "includeRetryAttempts": "false",
+          "includeExtraCosts": "false",
+          "includeInvoiceData": "false",
+          "includeCardHolderName": "false",
+          "includeShopperDetail": "false",
+          "includeBankAccountDetails": "false",
+          "includeMandateDetails": "false",
+          "includeAuthAmountForDynamicZeroAuth": "false",
+          "includeIssuerCountry": "false",
+          "includeAcquirerErrorDetails": "false",
+          "includeCoBrandedWith": "false",
+          "includeShopperInteraction": "false",
+          "includeDeviceAndBrowserInfo": "false",
+          "addRawAcquirerResult": "false",
+          "includeCardBin": "false",
+          "includeFundingSource": "false",
+          "includeThreeDS2ChallengeInformation": "false",
+          "includeRiskProfile": "false",
+          "includeRealtimeAccountUpdaterStatus": "false",
+          "includeDunningProjectData": "false",
+          "includeOpenInvoiceData": "false",
+          "includeCardBinDetails": "false",
+          "includeNotesInManualReviewNotifications": "false",
+          "includeZeroAuthFlag": "false",
+          "addCaptureReferenceToDisputeNotification": "false",
+          "includePayPalDetails": "false",
+          "includeRawThreeDSecureDetailsResult": "false",
+          "includeBankVerificationResults": "false",
+          "includeCaptureDelayHours": "false",
+          "addPaymentAccountReference": "false",
+          "includePayULatamDetails": "false",
+          "includeStore": "false",
+          "returnAvsData": "false",
+          "includeCustomRoutingFlagging": "false"
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2B593138"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2B593138/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2B593138/test"
+        }
+      }
+    },
+    {
+      "id": "S2-39466D7E",
+      "type": "standard",
+      "url": "https://requestlogger.seamless-checkout.com",
+      "description": "Standard Notification for TestCompany - 1624461171194",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "admin",
+      "hasPassword": "true",
+      "active": "true",
+      "hasError": "false",
+      "sslVersion": "TLSv1.2",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "certificateAlias": "signed.adyen.com_2020",
+      "populateSoapActionHeader": "false",
+      "additionalSettings": {
+        "properties": {
+          "includePosTerminalInfo": "false",
+          "includeARN": "false",
+          "includeAcquirerDetails": "false",
+          "includePosDetails": "false",
+          "includeCardInfoForRecurringContractNotification": "false",
+          "includeRiskData": "false",
+          "includeRiskExperimentReference": "false",
+          "includeSoapSecurityHeader": "false",
+          "includeContactlessWalletTokenInformation": "false",
+          "updateSepaDirectDebitReasonToDDD": "false",
+          "includeAcquirerReference": "false",
+          "includeRiskProfileReference": "false",
+          "includeOriginalMerchantReferenceCancelOrRefundNotification": "false",
+          "skipSendingOnPal": "false",
+          "includeNfcTokenInformation": "false",
+          "includeSubvariant": "false",
+          "includeThreeDSVersion": "false",
+          "includeInstallmentsInfo": "false",
+          "includeAliasInfo": "false",
+          "includeShopperCountry": "false",
+          "includeRawThreeDSecureResult": "false",
+          "includeAirlineData": "false",
+          "includeGrossCurrencyChargebackDetails": "false",
+          "includeThreeDSecureResult": "false",
+          "includeMetadataIn3DSecurePaymentNotification": "false",
+          "includeOriginalReferenceForChargebackReversed": "false",
+          "addAcquirerResult": "false",
+          "includeDeliveryAddress": "false",
+          "includeRetryAttempts": "false",
+          "includeExtraCosts": "false",
+          "includeInvoiceData": "false",
+          "includeCardHolderName": "false",
+          "includeShopperDetail": "false",
+          "includeBankAccountDetails": "false",
+          "includeMandateDetails": "false",
+          "includeAuthAmountForDynamicZeroAuth": "false",
+          "includeIssuerCountry": "false",
+          "includeAcquirerErrorDetails": "false",
+          "includeCoBrandedWith": "false",
+          "includeShopperInteraction": "false",
+          "includeDeviceAndBrowserInfo": "false",
+          "addRawAcquirerResult": "false",
+          "includeCardBin": "false",
+          "includeFundingSource": "false",
+          "includeThreeDS2ChallengeInformation": "false",
+          "includeRiskProfile": "false",
+          "includeRealtimeAccountUpdaterStatus": "false",
+          "includeDunningProjectData": "false",
+          "includeOpenInvoiceData": "false",
+          "includePaymentResultInOrderClosedNotification": "false",
+          "includeCardBinDetails": "false",
+          "includeNotesInManualReviewNotifications": "false",
+          "includeZeroAuthFlag": "false",
+          "addCaptureReferenceToDisputeNotification": "false",
+          "includePayPalDetails": "false",
+          "includeRawThreeDSecureDetailsResult": "false",
+          "includeBankVerificationResults": "false",
+          "includeCaptureDelayHours": "false",
+          "addPaymentAccountReference": "false",
+          "includePayULatamDetails": "false",
+          "includeStore": "false",
+          "returnAvsData": "false",
+          "includeCustomRoutingFlagging": "false",
+          "includeTokenisedPaymentMetaData": "false"
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-39466D7E"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-39466D7E/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-39466D7E/test"
+        }
+      }
+    },
+    {
+      "id": "S2-6A60707B",
+      "type": "account-settings-notification",
+      "url": "http://localhost:8080/ca/services/AccountSettingsNotification",
+      "description": "SOAP AccountSettings Notification via localhost:8080",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "ws@Company.TestCompany",
+      "hasPassword": "true",
+      "active": "true",
+      "hasError": "false",
+      "sslVersion": "SSL",
+      "communicationFormat": "soap",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "true",
+      "acceptsUntrustedRootCertificate": "true",
+      "populateSoapActionHeader": "false",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A60707B"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A60707B/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A60707B/test"
+        }
+      }
+    },
+    {
+      "id": "S2-227E6D2A",
+      "type": "account-settings-notification",
+      "url": "http://localhost:8080/ca/services/AccountSettingsNotification/accountSettingsNotification",
+      "description": "HTTP AccountSettings Notification via localhost:8080",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "ws@Company.TestCompany",
+      "hasPassword": "true",
+      "active": "true",
+      "hasError": "false",
+      "sslVersion": "SSL",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "populateSoapActionHeader": "false",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-227E6D2A"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-227E6D2A/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-227E6D2A/test"
+        }
+      }
+    },
+    {
+      "id": "S2-362B382C",
+      "type": "standard",
+      "url": "https://test-url-for-e2e.com",
+      "description": "Webhook for TestCompany - 1624381848810",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "ws_161015",
+      "hasPassword": "true",
+      "active": "false",
+      "hasError": "false",
+      "sslVersion": "TLSv1.2",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "populateSoapActionHeader": "false",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-362B382C"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-362B382C/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-362B382C/test"
+        }
+      }
+    },
+    {
+      "id": "S2-6A715D5B",
+      "type": "standard",
+      "url": "https://example.com",
+      "description": "Webhook for TestCompany - 1624445046114",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "",
+      "hasPassword": "false",
+      "active": "false",
+      "hasError": "false",
+      "sslVersion": "TLSv1.2",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "populateSoapActionHeader": "false",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A715D5B"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A715D5B/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A715D5B/test"
+        }
+      }
+    },
+    {
+      "id": "S2-5E6D5166",
+      "type": "standard",
+      "url": "https://example.com",
+      "description": "Webhook for TestCompany - 1624445105923",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "",
+      "hasPassword": "false",
+      "active": "false",
+      "hasError": "false",
+      "sslVersion": "TLSv1.2",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "populateSoapActionHeader": "false",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-5E6D5166"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-5E6D5166/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-5E6D5166/test"
+        }
+      }
+    },
+    {
+      "id": "S2-383E3D62",
+      "type": "standard",
+      "url": "https://example.com",
+      "description": "Webhook for TestCompany - 1624448113397",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "",
+      "hasPassword": "false",
+      "active": "false",
+      "hasError": "false",
+      "sslVersion": "TLSv1.2",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "populateSoapActionHeader": "false",
+      "hmacKeyCheckValue": "8D77A2",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-383E3D62"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-383E3D62/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-383E3D62/test"
+        }
+      }
+    },
+    {
+      "id": "S2-7125452F",
+      "type": "standard",
+      "url": "http://partnerwebhook2.com",
+      "description": "Webhook for TestCompany - 1624460216618",
+      "filterMerchantAccountType": "allAccounts",
+      "username": "",
+      "hasPassword": "false",
+      "active": "false",
+      "hasError": "false",
+      "sslVersion": "TLSv1.2",
+      "communicationFormat": "json",
+      "acceptsExpiredCertificate": "false",
+      "acceptsSelfSignedCertificate": "false",
+      "acceptsUntrustedRootCertificate": "false",
+      "populateSoapActionHeader": "false",
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F"
+        },
+        "company": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        },
+        "generateHmac": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac"
+        },
+        "testWebhook": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/test"
+        }
+      }
+    }
+  ]
+}

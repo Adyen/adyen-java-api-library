@@ -1,0 +1,24 @@
+{
+  "id": "TestCompany",
+  "status": "Active",
+  "dataCenters": [
+    {
+      "name": "default",
+      "livePrefix": ""
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+    },
+    "apiCredentials": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/apiCredentials"
+    },
+    "users": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/users"
+    },
+    "webhooks": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks"
+    }
+  }
+}

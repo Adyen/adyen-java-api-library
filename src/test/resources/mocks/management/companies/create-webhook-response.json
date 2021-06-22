@@ -1,0 +1,31 @@
+{
+  "id": "S2-7125452F",
+  "type": "standard",
+  "url": "https://example.com",
+  "description": "Webhook for TestCompany - 1624460216618",
+  "filterMerchantAccountType": "allAccounts",
+  "username": "",
+  "hasPassword": "false",
+  "active": "false",
+  "hasError": "false",
+  "sslVersion": "TLSv1.2",
+  "communicationFormat": "json",
+  "acceptsExpiredCertificate": "false",
+  "acceptsSelfSignedCertificate": "false",
+  "acceptsUntrustedRootCertificate": "false",
+  "populateSoapActionHeader": "false",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F"
+    },
+    "company": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+    },
+    "generateHmac": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac"
+    },
+    "testWebhook": {
+      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/test"
+    }
+  }
+}

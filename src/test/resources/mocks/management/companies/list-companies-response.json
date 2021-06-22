@@ -1,0 +1,29 @@
+{
+  "_links": {
+    "first": {
+      "href": "http://localhost:8080/configurationapi/v1/companies?pageNumber=1&pageSize=10"
+    },
+    "last": {
+      "href": "http://localhost:8080/configurationapi/v1/companies?pageNumber=1&pageSize=10"
+    }
+  },
+  "itemsTotal": 1,
+  "pagesTotal": 1,
+  "data": [
+    {
+      "id": "TestCompany",
+      "status": "Active",
+      "dataCenters": [
+        {
+          "name": "default",
+          "livePrefix": ""
+        }
+      ],
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+        }
+      }
+    }
+  ]
+}
