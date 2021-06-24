@@ -71,6 +71,11 @@ public final class CertificateUtil {
      * @throws IOException
      */
     public static KeyStore loadKeyStore(String keyStorePath, String keyStoreType, String keyStorePassword) throws KeyStoreException, CertificateException, NoSuchAlgorithmException, IOException {
+
+        if (keyStorePath == null || keyStoreType == null) {
+            throw new IllegalArgumentException();
+        }
+
         KeyStore keyStore = KeyStore.getInstance(keyStoreType);
 
         char[] password = null;

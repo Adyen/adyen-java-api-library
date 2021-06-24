@@ -67,7 +67,27 @@ public class CertificateUtilTest {
     }
 
     @Test
-    public void testLoadKeyStore_FileNotFound() {
+    public void testLoadKeyStore_WithoutPassword() throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+        URL resource = getClass().getClassLoader().getResource("testStore.keystore");
+
+        KeyStore keyStore = CertificateUtil.loadKeyStore(resource.getPath(), KeyStore.getDefaultType(), null);
+
+        Assert.assertNotNull(keyStore);
+        Assert.assertTrue(keyStore.containsAlias("boguscert"));
+    }
+
+    @Test
+    public void testLoadKeyStore_FileNotFoundErrorOnInvalidPath() {
         Assert.assertThrows(FileNotFoundException.class, () -> CertificateUtil.loadKeyStore("xyz", KeyStore.getDefaultType(), ""));
+    }
+
+    @Test
+    public void testLoadKeyStore_ErrorOnNullKeyStorePath() {
+        Assert.assertThrows(IllegalArgumentException.class, () -> CertificateUtil.loadKeyStore(null, "JKS", ""));
+    }
+
+    @Test
+    public void testLoadKeyStore_ErrorOnNullKeyStoreType() {
+        Assert.assertThrows(IllegalArgumentException.class, () -> CertificateUtil.loadKeyStore("xyz", null, ""));
     }
 }

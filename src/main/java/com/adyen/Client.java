@@ -92,9 +92,7 @@ public class Client {
      * @param region Data center region (EU/US/AU), default EU if not provided
      */
     public Client(KeyStore trustStore, KeyStore clientKeyStore, String clientKeyStorePassword, String apiKey, Region region) {
-        this();
-        this.setEnvironment(Environment.LIVE, null);
-        this.config.setApiKey(apiKey);
+        this(apiKey, Environment.LIVE);
         this.config.setClientKeyStorePassword(clientKeyStorePassword);
         this.config.setClientKeyStore(clientKeyStore);
         this.config.setTrustKeyStore(trustStore);
