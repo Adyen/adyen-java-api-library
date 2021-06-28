@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -39,49 +39,49 @@ public class MessageHeader {
     /**
      * The Protocol version.
      */
-    @XmlAttribute(name = "ProtocolVersion")
+    @XmlElement(name = "ProtocolVersion")
     @Schema(description = ">--Rule:If MessageCategory is Login or Diagnosis")
     protected String protocolVersion;
     /**
      * The Message class.
      */
-    @XmlAttribute(name = "MessageClass", required = true)
+    @XmlElement(name = "MessageClass", required = true)
     @Schema(description = "Class of the message")
     protected MessageClassType messageClass;
     /**
      * The Message category.
      */
-    @XmlAttribute(name = "MessageCategory", required = true)
+    @XmlElement(name = "MessageCategory", required = true)
     @Schema(description = "Category of message.")
     protected MessageCategoryType messageCategory;
     /**
      * The Message type.
      */
-    @XmlAttribute(name = "MessageType", required = true)
+    @XmlElement(name = "MessageType", required = true)
     @Schema(description = "Type of message of the Sale to POI protocol")
     protected MessageType messageType;
     /**
      * The Service id.
      */
-    @XmlAttribute(name = "ServiceID")
+    @XmlElement(name = "ServiceID")
     @Schema(description = "Identification of a message pair, which processes a transaction --Rule: If \"Service\" or \"Event\" MessageClass message. If \"Device\" MessageClass, and request from POI or response from Sale.", minLength = 1, maxLength = 10)
     protected String serviceID;
     /**
      * The Device id.
      */
-    @XmlAttribute(name = "DeviceID")
+    @XmlElement(name = "DeviceID")
     @Schema(description = "Identification of a device message pair --Rule: If \"Device\" MessageClass")
     protected String deviceID;
     /**
      * The Sale id.
      */
-    @XmlAttribute(name = "SaleID", required = true)
+    @XmlElement(name = "SaleID", required = true)
     @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol")
     protected String saleID;
     /**
      * The Poiid.
      */
-    @XmlAttribute(name = "POIID", required = true)
+    @XmlElement(name = "POIID", required = true)
     @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol")
     protected String poiid;
 

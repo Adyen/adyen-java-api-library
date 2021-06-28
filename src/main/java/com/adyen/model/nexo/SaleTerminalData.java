@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
@@ -57,13 +56,13 @@ public class SaleTerminalData {
     /**
      * The Terminal environment.
      */
-    @XmlAttribute(name = "TerminalEnvironment")
+    @XmlElement(name = "TerminalEnvironment")
     @Schema(description = "Environment of the Terminal.")
     protected TerminalEnvironmentType terminalEnvironment;
     /**
      * The Totals group id.
      */
-    @XmlAttribute(name = "TotalsGroupID")
+    @XmlElement(name = "TotalsGroupID")
     @Schema(description = "Identification of a group of transaction on a POI Terminal, having the same Sale features. --Rule: If present, default value for all transaction.")
     protected String totalsGroupID;
 

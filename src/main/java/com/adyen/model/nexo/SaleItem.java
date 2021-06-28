@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
@@ -99,25 +98,25 @@ public class SaleItem {
     /**
      * The Item id.
      */
-    @XmlAttribute(name = "ItemID", required = true)
+    @XmlElement(name = "ItemID", required = true)
     @Schema(description = "Item identification inside a transaction (0 to n).")
     protected BigInteger itemID;
     /**
      * The Product code.
      */
-    @XmlAttribute(name = "ProductCode", required = true)
+    @XmlElement(name = "ProductCode", required = true)
     @Schema(description = "Product code of item purchased with the transaction.")
     protected String productCode;
     /**
      * The Ean upc.
      */
-    @XmlAttribute(name = "EanUpc")
+    @XmlElement(name = "EanUpc")
     @Schema(description = "Standard product code of item purchased with the transaction. --Rule: If data sent, POI has to store it and send it if the host protocol allows it")
     protected String eanUpc;
     /**
      * The Item amount.
      */
-    @XmlAttribute(name = "ItemAmount", required = true)
+    @XmlElement(name = "ItemAmount", required = true)
     @Schema(description = "Total amount of the item line.")
     protected BigDecimal itemAmount;
 

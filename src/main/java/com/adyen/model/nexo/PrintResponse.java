@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -44,7 +43,7 @@ public class PrintResponse {
     /**
      * The Document qualifier.
      */
-    @XmlAttribute(name = "DocumentQualifier", required = true)
+    @XmlElement(name = "DocumentQualifier", required = true)
     @Schema(description = "Qualification of the document to print to the Cashier or the Customer. --Rule: Copy")
     protected DocumentQualifierType documentQualifier;
 

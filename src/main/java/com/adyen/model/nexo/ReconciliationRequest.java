@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -47,13 +46,13 @@ public class ReconciliationRequest {
     /**
      * The Reconciliation.
      */
-    @XmlAttribute(name = "ReconciliationType", required = true)
+    @XmlElement(name = "ReconciliationType", required = true)
     @Schema(description = "Type of Reconciliation requested by the Sale to the POI.")
     protected ReconciliationType reconciliationType;
     /**
      * The Poi reconciliation id.
      */
-    @XmlAttribute(name = "POIReconciliationID")
+    @XmlElement(name = "POIReconciliationID")
     @Schema(description = "Identification of the reconciliation period between Sale and POI.  --Rule: Absent if ReconciliationType is not \"PreviousReconciliation\"")
     protected String poiReconciliationID;
 

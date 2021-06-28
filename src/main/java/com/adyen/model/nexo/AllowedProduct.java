@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -53,13 +52,13 @@ public class AllowedProduct {
     /**
      * The Product code.
      */
-    @XmlAttribute(name = "ProductCode", required = true)
+    @XmlElement(name = "ProductCode", required = true)
     @Schema(description = "Product code of item purchased with the transaction.")
     protected String productCode;
     /**
      * The Ean upc.
      */
-    @XmlAttribute(name = "EanUpc")
+    @XmlElement(name = "EanUpc")
     @Schema(description = "Standard product code of item purchased with the transaction.")
     protected String eanUpc;
 

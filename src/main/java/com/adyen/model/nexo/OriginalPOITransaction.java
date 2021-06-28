@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -64,31 +63,31 @@ public class OriginalPOITransaction {
     /**
      * The Sale id.
      */
-    @XmlAttribute(name = "SaleID")
+    @XmlElement(name = "SaleID")
     @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol")
     protected String saleID;
     /**
      * The Poiid.
      */
-    @XmlAttribute(name = "POIID")
+    @XmlElement(name = "POIID")
     @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: If original transaction is coming from another POI")
     protected String poiid;
     /**
      * The Reuse card data flag.
      */
-    @XmlAttribute(name = "ReuseCardDataFlag")
+    @XmlElement(name = "ReuseCardDataFlag")
     @Schema(description = "Indicate if the card data has to be got from a previous transaction.")
     protected Boolean reuseCardDataFlag;
     /**
      * The Customer language.
      */
-    @XmlAttribute(name = "CustomerLanguage")
+    @XmlElement(name = "CustomerLanguage")
     @Schema(description = "Language of the Customer --Rule: Optional for Reversal, otherwise absent.")
     protected String customerLanguage;
     /**
      * The Acquirer id.
      */
-    @XmlAttribute(name = "AcquirerID")
+    @XmlElement(name = "AcquirerID")
     @Schema(description = "Identification of the Acquirer --Rule: Optional for Reversal, otherwise absent.")
     protected String acquirerID;
 

@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -66,79 +65,79 @@ public class TransactionTotals {
     /**
      * The Payment instrument.
      */
-    @XmlAttribute(name = "PaymentInstrumentType", required = true)
+    @XmlElement(name = "PaymentInstrumentType", required = true)
     @Schema(description = "Type of payment instrument.")
     protected PaymentInstrumentType paymentInstrumentType;
     /**
      * The Acquirer id.
      */
-    @XmlAttribute(name = "AcquirerID")
+    @XmlElement(name = "AcquirerID")
     @Schema(description = "Identification of the Acquirer --Rule: If available")
     protected String acquirerID;
     /**
      * The Error condition.
      */
-    @XmlAttribute(name = "ErrorCondition")
+    @XmlElement(name = "ErrorCondition")
     @Schema(description = "Condition that has produced  an error on the processing of a message request --Rule: if Response.Result is Partial, and the reconciliation with this Acquirer failed.")
     protected ErrorConditionType errorCondition;
     /**
      * The Host reconciliation id.
      */
-    @XmlAttribute(name = "HostReconciliationID")
+    @XmlElement(name = "HostReconciliationID")
     @Schema(description = "Identifier of a reconciliation period with a payment or loyalty host. --Rule: If available")
     protected String hostReconciliationID;
     /**
      * The Card brand.
      */
-    @XmlAttribute(name = "CardBrand")
+    @XmlElement(name = "CardBrand")
     @Schema(description = "Type of payment or loyalty card --Rule: If configured to present totals per card brand, and Response.Result is Success")
     protected String cardBrand;
     /**
      * The Poiid.
      */
-    @XmlAttribute(name = "POIID")
+    @XmlElement(name = "POIID")
     @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: If requested in the message request")
     protected String poiid;
     /**
      * The Sale id.
      */
-    @XmlAttribute(name = "SaleID")
+    @XmlElement(name = "SaleID")
     @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol --Rule: If requested in the message request")
     protected String saleID;
     /**
      * The Operator id.
      */
-    @XmlAttribute(name = "OperatorID")
+    @XmlElement(name = "OperatorID")
     @Schema(description = "Identification of the Cashier or Operator. --Rule: If requested in the message request")
     protected String operatorID;
     /**
      * The Shift number.
      */
-    @XmlAttribute(name = "ShiftNumber")
+    @XmlElement(name = "ShiftNumber")
     @Schema(description = "Shift number. --Rule: If requested in the message request")
     protected String shiftNumber;
     /**
      * The Totals group id.
      */
-    @XmlAttribute(name = "TotalsGroupID")
+    @XmlElement(name = "TotalsGroupID")
     @Schema(description = "Identification of a group of transaction on a POI Terminal, having the same Sale features. --Rule: If requested in the message request")
     protected String totalsGroupID;
     /**
      * The Payment currency.
      */
-    @XmlAttribute(name = "PaymentCurrency")
+    @XmlElement(name = "PaymentCurrency")
     @Schema(description = "Currency of a monetary amount.")
     protected String paymentCurrency;
     /**
      * The Loyalty unit.
      */
-    @XmlAttribute(name = "LoyaltyUnit")
+    @XmlElement(name = "LoyaltyUnit")
     @Schema(description = "Unit of a loyalty amount.")
     protected LoyaltyUnitType loyaltyUnit;
     /**
      * The Loyalty currency.
      */
-    @XmlAttribute(name = "LoyaltyCurrency")
+    @XmlElement(name = "LoyaltyCurrency")
     @Schema(description = "Currency of a monetary amount. --Rule: If LoyaltyUnit is Monetary")
     protected String loyaltyCurrency;
 

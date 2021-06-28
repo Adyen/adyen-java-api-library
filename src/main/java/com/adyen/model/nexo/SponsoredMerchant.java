@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -36,31 +36,31 @@ public class SponsoredMerchant {
     /**
      * The Merchant name.
      */
-    @XmlAttribute(name = "MerchantName", required = true)
+    @XmlElement(name = "MerchantName", required = true)
     @Schema(description = "Unformatted name of the merchant.")
     protected String merchantName;
     /**
      * The Merchant address.
      */
-    @XmlAttribute(name = "MerchantAddress")
+    @XmlElement(name = "MerchantAddress")
     @Schema(description = "Unformatted address of the merchant.")
     protected String merchantAddress;
     /**
      * The Merchant country.
      */
-    @XmlAttribute(name = "MerchantCountry", required = true)
+    @XmlElement(name = "MerchantCountry", required = true)
     @Schema(description = "Country of the merchant.")
     protected String merchantCountry;
     /**
      * The Merchant category code.
      */
-    @XmlAttribute(name = "MerchantCategoryCode", required = true)
+    @XmlElement(name = "MerchantCategoryCode", required = true)
     @Schema(description = "The code which identifies the category of the transaction (MCC).")
     protected String merchantCategoryCode;
     /**
      * The Registration id.
      */
-    @XmlAttribute(name = "RegistrationID", required = true)
+    @XmlElement(name = "RegistrationID", required = true)
     @Schema(description = "Identification of a registered entity.")
     protected String registrationID;
 

@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,28 +37,28 @@ import java.util.List;
 @XmlType(name = "StoredValueAccountID")
 public class StoredValueAccountID {
 
-    @XmlAttribute(name = "StoredValueAccountType", required = true)
+    @XmlElement(name = "StoredValueAccountType", required = true)
     @Schema(description = "Type of stored value account")
     protected StoredValueAccountType storedValueAccountType;
 
-    @XmlAttribute(name = "StoredValueProvider")
+    @XmlElement(name = "StoredValueProvider")
     @Schema(description = "Identification of the provider of the stored value account load/reload --Rule: If available for the card or account.")
     protected String storedValueProvider;
 
-    @XmlAttribute(name = "OwnerName")
+    @XmlElement(name = "OwnerName")
     @Schema(description = "Owner name of an account --Rule: If available for the card or account.")
     protected String ownerName;
 
-    @XmlAttribute(name = "ExpiryDate")
+    @XmlElement(name = "ExpiryDate")
     @Schema(description = "Date after which the card cannot be used. --Rule: If required for the card or account.")
     protected String expiryDate;
-    @XmlAttribute(name = "EntryMode", required = true)
+    @XmlElement(name = "EntryMode", required = true)
     @Schema(description = "Entry mode of the payment instrument information")
     protected List<EntryModeType> entryMode;
-    @XmlAttribute(name = "IdentificationType", required = true)
+    @XmlElement(name = "IdentificationType", required = true)
     @Schema(description = "Type of account identification")
     protected IdentificationType identificationType;
-    @XmlAttribute(name = "StoredValueID", required = true)
+    @XmlElement(name = "StoredValueID", required = true)
     @Schema(description = "Stored value account identification")
     protected String storedValueID;
 

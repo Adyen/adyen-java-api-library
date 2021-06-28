@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -84,7 +83,7 @@ public class Input {
     /**
      * The Input command.
      */
-    @XmlAttribute(name = "InputCommand", required = true)
+    @XmlElement(name = "InputCommand", required = true)
     @Schema(description = "Type of requested input --Rule: Copy")
     protected InputCommandType inputCommand;
 

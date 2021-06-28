@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -72,13 +71,13 @@ public class ReversalResponse {
     /**
      * The Reversed amount.
      */
-    @XmlAttribute(name = "ReversedAmount")
+    @XmlElement(name = "ReversedAmount")
     @Schema(description = "Amount of the payment or loyalty to reverse.. --Rule: Copy")
     protected BigDecimal reversedAmount;
     /**
      * The Customer order id.
      */
-    @XmlAttribute(name = "CustomerOrderID")
+    @XmlElement(name = "CustomerOrderID")
     @Schema(description = "Customer order attached to a card, recorded in the POI system. --Rule: If the reversal is performed inside a customer order.")
     protected String customerOrderID;
 

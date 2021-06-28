@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -64,19 +63,19 @@ public class MenuEntry {
     /**
      * The Menu entry tag.
      */
-    @XmlAttribute(name = "MenuEntryTag")
+    @XmlElement(name = "MenuEntryTag")
     @Schema(description = "Characteristics related to the selection of a menu entry")
     protected MenuEntryTagType menuEntryTag;
     /**
      * The Output format.
      */
-    @XmlAttribute(name = "OutputFormat", required = true)
+    @XmlElement(name = "OutputFormat", required = true)
     @Schema(description = "Format of the content to display or print --Rule: MessageRef, Text, XHTML")
     protected OutputFormatType outputFormat;
     /**
      * The Default selected flag.
      */
-    @XmlAttribute(name = "DefaultSelectedFlag")
+    @XmlElement(name = "DefaultSelectedFlag")
     @Schema(description = "Selection of a menu entry to be displayed.")
     protected Boolean defaultSelectedFlag;
 

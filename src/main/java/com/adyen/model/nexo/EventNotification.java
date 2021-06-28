@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -64,25 +63,25 @@ public class EventNotification {
     /**
      * The Time stamp.
      */
-    @XmlAttribute(name = "TimeStamp", required = true)
+    @XmlElement(name = "TimeStamp", required = true)
     @Schema(description = "Date and time of a transaction for the Sale System, the POI System or the Acquirer.")
     protected XMLGregorianCalendar timeStamp;
     /**
      * The Event to notify.
      */
-    @XmlAttribute(name = "EventToNotify", required = true)
+    @XmlElement(name = "EventToNotify", required = true)
     @Schema(description = "Event the POI notifies to the Sale System.")
     protected EventToNotifyType eventToNotify;
     /**
      * The Maintenance required flag.
      */
-    @XmlAttribute(name = "MaintenanceRequiredFlag")
+    @XmlElement(name = "MaintenanceRequiredFlag")
     @Schema(description = "Indicates if the occurred event requires maintenance call or action.")
     protected Boolean maintenanceRequiredFlag;
     /**
      * The Customer language.
      */
-    @XmlAttribute(name = "CustomerLanguage")
+    @XmlElement(name = "CustomerLanguage")
     @Schema(description = "Language of the Customer --Rule: EventToNotify")
     protected String customerLanguage;
 

@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigInteger;
@@ -51,43 +50,43 @@ public class PINRequest {
     /**
      * The Pin request.
      */
-    @XmlAttribute(name = "PINRequestType", required = true)
+    @XmlElement(name = "PINRequestType", required = true)
     @Schema(description = "Type of PIN Service.")
     protected PINRequestType pinRequestType;
     /**
      * The Pin verif method.
      */
-    @XmlAttribute(name = "PINVerifMethod")
+    @XmlElement(name = "PINVerifMethod")
     @Schema(description = "Identify the PIN verification method and keys. --Rule: PINRequestType")
     protected String pinVerifMethod;
     /**
      * The Additional input.
      */
-    @XmlAttribute(name = "AdditionalInput")
+    @XmlElement(name = "AdditionalInput")
     @Schema(description = "Additional information required to verify the PIN like part of the PAN, or driver ID. --Rule: PINRequestType")
     protected String additionalInput;
     /**
      * The Pin enc algorithm.
      */
-    @XmlAttribute(name = "PINEncAlgorithm")
+    @XmlElement(name = "PINEncAlgorithm")
     @Schema(description = "Identify the encrypted PIN block algorithm. --Rule: PINRequestType")
     protected String pinEncAlgorithm;
     /**
      * The Pin format.
      */
-    @XmlAttribute(name = "PINFormat")
+    @XmlElement(name = "PINFormat")
     @Schema(description = "Identify the format of the PIN before encryption. --Rule: PINRequestType")
     protected PINFormatType pinFormat;
     /**
      * The Key reference.
      */
-    @XmlAttribute(name = "KeyReference")
+    @XmlElement(name = "KeyReference")
     @Schema(description = "Identify the key to use to encrypt the PIN block. --Rule: PINRequestType")
     protected String keyReference;
     /**
      * The Max waiting time.
      */
-    @XmlAttribute(name = "MaxWaitingTime")
+    @XmlElement(name = "MaxWaitingTime")
     @Schema(description = "Maximum time to wait for the request processing in seconds. --Rule: PINRequestTypePINRequestType")
     protected BigInteger maxWaitingTime;
 

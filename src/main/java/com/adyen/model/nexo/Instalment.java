@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
@@ -58,54 +57,54 @@ public class Instalment {
     /**
      * The Sequence number.
      */
-    @XmlAttribute(name = "SequenceNumber")
+    @XmlElement(name = "SequenceNumber")
     @Schema(description = "Sequence number of the instalment.")
     protected BigInteger sequenceNumber;
     /**
      * The Plan id.
      */
-    @XmlAttribute(name = "PlanID")
+    @XmlElement(name = "PlanID")
     @Schema(description = "Identification of an instalment plan.")
     protected String planID;
     /**
      * The Period.
      */
-    @XmlAttribute(name = "Period")
+    @XmlElement(name = "Period")
     @Schema(description = "Period of time with defined unit of time.")
     protected BigInteger period;
     /**
      * The Period unit.
      */
-    @XmlAttribute(name = "PeriodUnit")
+    @XmlElement(name = "PeriodUnit")
     protected PeriodUnitType periodUnit;
     /**
      * The First payment date.
      */
-    @XmlAttribute(name = "FirstPaymentDate")
+    @XmlElement(name = "FirstPaymentDate")
     @Schema(description = "First date of a payment.")
     protected String firstPaymentDate;
     /**
      * The Total nb of payments.
      */
-    @XmlAttribute(name = "TotalNbOfPayments")
+    @XmlElement(name = "TotalNbOfPayments")
     @Schema(description = "Total number of payments.")
     protected BigInteger totalNbOfPayments;
     /**
      * The Cumulative amount.
      */
-    @XmlAttribute(name = "CumulativeAmount")
+    @XmlElement(name = "CumulativeAmount")
     @Schema(description = "Sum of a collection of amounts.")
     protected BigDecimal cumulativeAmount;
     /**
      * The First amount.
      */
-    @XmlAttribute(name = "FirstAmount")
+    @XmlElement(name = "FirstAmount")
     @Schema(description = "First amount of a payment.")
     protected BigDecimal firstAmount;
     /**
      * The Charges.
      */
-    @XmlAttribute(name = "Charges")
+    @XmlElement(name = "Charges")
     @Schema(description = "Charges related to a transaction.")
     protected BigDecimal charges;
 

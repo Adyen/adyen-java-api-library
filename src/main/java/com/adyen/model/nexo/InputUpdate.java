@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigInteger;
@@ -73,19 +72,19 @@ public class InputUpdate {
     /**
      * The Min length.
      */
-    @XmlAttribute(name = "MinLength")
+    @XmlElement(name = "MinLength")
     @Schema(description = "Minimum input length --Rule: If present in the Input to update.")
     protected BigInteger minLength;
     /**
      * The Max length.
      */
-    @XmlAttribute(name = "MaxLength")
+    @XmlElement(name = "MaxLength")
     @Schema(description = "Maximum input length --Rule: If present in the Input to update.")
     protected BigInteger maxLength;
     /**
      * The Max decimal length.
      */
-    @XmlAttribute(name = "MaxDecimalLength")
+    @XmlElement(name = "MaxDecimalLength")
     @Schema(description = "Maximum input length of the decimal part (without decimal point) --Rule: If present in the Input to update.")
     protected BigInteger maxDecimalLength;
 

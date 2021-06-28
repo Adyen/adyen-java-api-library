@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -31,13 +31,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "TrackData")
 public class TrackData {
 
-    @XmlAttribute(name = "TrackValue")
+    @XmlElement(name = "TrackValue")
     @Schema(description = "Card track content", minLength = 1, maxLength = 104)
     protected String trackValue;
-    @XmlAttribute(name = "TrackNumb")
+    @XmlElement(name = "TrackNumb")
     @Schema(description = "Card track number")
     protected Integer trackNumb;
-    @XmlAttribute(name = "TrackFormat")
+    @XmlElement(name = "TrackFormat")
     @Schema(description = "Card track format")
     protected TrackFormatType trackFormat;
 

@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -35,19 +35,19 @@ public class PaymentToken {
     /**
      * The Token requested.
      */
-    @XmlAttribute(name = "TokenRequestedType", required = true)
+    @XmlElement(name = "TokenRequestedType", required = true)
     @Schema(description = "Type of token replacing the PAN of a payment card to identify the payment mean of the customer.")
     protected TokenRequestedType tokenRequestedType;
     /**
      * The Token value.
      */
-    @XmlAttribute(name = "TokenValue", required = true)
+    @XmlElement(name = "TokenValue", required = true)
     @Schema(description = "Payment token replacing the PAN of the payment card to identify the payment mean of the customer.")
     protected String tokenValue;
     /**
      * The Expiry date time.
      */
-    @XmlAttribute(name = "ExpiryDateTime")
+    @XmlElement(name = "ExpiryDateTime")
     @Schema(description = "Expiry date and time.")
     protected XMLGregorianCalendar expiryDateTime;
 

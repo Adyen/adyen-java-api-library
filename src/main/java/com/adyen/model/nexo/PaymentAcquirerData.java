@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -54,19 +53,19 @@ public class PaymentAcquirerData {
     /**
      * The Acquirer id.
      */
-    @XmlAttribute(name = "AcquirerID")
+    @XmlElement(name = "AcquirerID")
     @Schema(description = "Identification of the Acquirer --Rule: If several Acquirers")
     protected String acquirerID;
     /**
      * The Merchant id.
      */
-    @XmlAttribute(name = "MerchantID", required = true)
+    @XmlElement(name = "MerchantID", required = true)
     @Schema(description = "Identification of the Merchant for the Acquirer")
     protected String merchantID;
     /**
      * The Acquirer poiid.
      */
-    @XmlAttribute(name = "AcquirerPOIID", required = true)
+    @XmlElement(name = "AcquirerPOIID", required = true)
     @Schema(description = "Identification of the POI for the payment Acquirer")
     protected String acquirerPOIID;
 

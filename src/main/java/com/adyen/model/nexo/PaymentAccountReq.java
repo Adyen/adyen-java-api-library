@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -52,7 +51,7 @@ public class PaymentAccountReq {
     /**
      * The Account.
      */
-    @XmlAttribute(name = "AccountType")
+    @XmlElement(name = "AccountType")
     @Schema(description = "Type of cardholder account used for the transaction")
     protected AccountType accountType;
 

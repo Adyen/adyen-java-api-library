@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -48,31 +47,31 @@ public class CardReaderAPDURequest {
     /**
      * The Apdu class.
      */
-    @XmlAttribute(name = "APDUClass", required = true)
+    @XmlElement(name = "APDUClass", required = true)
     @Schema(description = "Class field of the APDU command (CLA)", minLength = 1, maxLength = 1)
     protected byte[] apduClass;
     /**
      * The Apdu instruction.
      */
-    @XmlAttribute(name = "APDUInstruction", required = true)
+    @XmlElement(name = "APDUInstruction", required = true)
     @Schema(description = "Instruction field of the APDU command (INS)", minLength = 1, maxLength = 1)
     protected byte[] apduInstruction;
     /**
      * The Apdu par 1.
      */
-    @XmlAttribute(name = "APDUPar1", required = true)
+    @XmlElement(name = "APDUPar1", required = true)
     @Schema(description = "Parameter 1 field of the APDU command (P1)", minLength = 1, maxLength = 1)
     protected byte[] apduPar1;
     /**
      * The Apdu par 2.
      */
-    @XmlAttribute(name = "APDUPar2", required = true)
+    @XmlElement(name = "APDUPar2", required = true)
     @Schema(description = "Parameter 2 field of the APDU command(P2)", minLength = 1, maxLength = 1)
     protected byte[] apduPar2;
     /**
      * The Apdu expected length.
      */
-    @XmlAttribute(name = "APDUExpectedLength")
+    @XmlElement(name = "APDUExpectedLength")
     @Schema(description = "Expected length of the data field of the APDU response to the command (Le)", minLength = 1, maxLength = 1)
     protected byte[] apduExpectedLength;
 

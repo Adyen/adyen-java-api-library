@@ -2,7 +2,6 @@ package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -32,17 +31,17 @@ public class KEKIdentifier {
     /**
      * The Key identifier.
      */
-    @XmlAttribute(name = "KeyIdentifier", required = true)
+    @XmlElement(name = "KeyIdentifier", required = true)
     protected String keyIdentifier;
     /**
      * The Key version.
      */
-    @XmlAttribute(name = "KeyVersion", required = true)
+    @XmlElement(name = "KeyVersion", required = true)
     protected String keyVersion;
     /**
      * The Derivation identifier.
      */
-    @XmlAttribute(name = "DerivationIdentifier")
+    @XmlElement(name = "DerivationIdentifier")
     protected byte[] derivationIdentifier;
 
     /**

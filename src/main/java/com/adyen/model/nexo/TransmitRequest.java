@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigInteger;
@@ -47,19 +46,19 @@ public class TransmitRequest {
     /**
      * The Wait response flag.
      */
-    @XmlAttribute(name = "WaitResponseFlag")
+    @XmlElement(name = "WaitResponseFlag")
     @Schema(description = "Indicates that a response message has to be received.")
     protected Boolean waitResponseFlag;
     /**
      * The Maximum transmit time.
      */
-    @XmlAttribute(name = "MaximumTransmitTime", required = true)
+    @XmlElement(name = "MaximumTransmitTime", required = true)
     @Schema(description = "Maximum time in seconds of transmission.")
     protected BigInteger maximumTransmitTime;
     /**
      * The Destination address.
      */
-    @XmlAttribute(name = "DestinationAddress", required = true)
+    @XmlElement(name = "DestinationAddress", required = true)
     @Schema(description = "Transport address containing the IP address or the DNS (Domain Name Server) address, followed by the character ':' and")
     protected String destinationAddress;
 

@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 
@@ -38,37 +38,37 @@ public class AmountsResp {
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency")
+    @XmlElement(name = "Currency")
     @Schema(description = "Currency of a monetary amount. --Rule: Mandatory for currency conversion.")
     protected String currency;
     /**
      * The Authorized amount.
      */
-    @XmlAttribute(name = "AuthorizedAmount", required = true)
+    @XmlElement(name = "AuthorizedAmount", required = true)
     @Schema(description = "The amount authorized by the Acquirer for the payment transaction.")
     protected BigDecimal authorizedAmount;
     /**
      * The Total rebates amount.
      */
-    @XmlAttribute(name = "TotalRebatesAmount")
+    @XmlElement(name = "TotalRebatesAmount")
     @Schema(description = "Sum of rebates in amount (total amount or line item amount) for all the loyalty programs.")
     protected BigDecimal totalRebatesAmount;
     /**
      * The Total fees amount.
      */
-    @XmlAttribute(name = "TotalFeesAmount")
+    @XmlElement(name = "TotalFeesAmount")
     @Schema(description = "Total amount of financial fees.")
     protected BigDecimal totalFeesAmount;
     /**
      * The Cash back amount.
      */
-    @XmlAttribute(name = "CashBackAmount")
+    @XmlElement(name = "CashBackAmount")
     @Schema(description = "The cash-back part of the amount requested by the Sale for the payment. --Rule: if payment with cash back")
     protected BigDecimal cashBackAmount;
     /**
      * The Tip amount.
      */
-    @XmlAttribute(name = "TipAmount")
+    @XmlElement(name = "TipAmount")
     @Schema(description = "Amount paid for a tip. --Rule: If payment with tip requested by the Sale System.")
     protected BigDecimal tipAmount;
 

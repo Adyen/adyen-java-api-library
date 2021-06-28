@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -52,7 +51,7 @@ public class CardReaderAPDUResponse {
     /**
      * The Card status words.
      */
-    @XmlAttribute(name = "CardStatusWords", required = true)
+    @XmlElement(name = "CardStatusWords", required = true)
     @Schema(description = "Status of a smartcard response to a command (SW1-SW2)")
     protected byte[] cardStatusWords;
 

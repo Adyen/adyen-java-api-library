@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,17 +34,17 @@ import java.util.List;
 @XmlType(name = "LoyaltyAccountID")
 public class LoyaltyAccountID {
 
-    @XmlAttribute(name = "LoyaltyID", required = true)
+    @XmlElement(name = "LoyaltyID", required = true)
     @Schema(description = "Loyalty account identification")
     protected String loyaltyID;
-    @XmlAttribute(name = "EntryMode", required = true)
+    @XmlElement(name = "EntryMode", required = true)
     @Schema(description = "Entry mode of the payment instrument information")
     protected List<EntryModeType> entryMode;
-    @XmlAttribute(name = "IdentificationType", required = true)
+    @XmlElement(name = "IdentificationType", required = true)
     @Schema(description = "Type of account identification")
     protected IdentificationType identificationType;
 
-    @XmlAttribute(name = "IdentificationSupport")
+    @XmlElement(name = "IdentificationSupport")
     @Schema(description = "Support of the loyalty account identification --Rule: if PaymentResponse or LoyaltyResponse or BalanceInquiryResponse")
     protected IdentificationSupportType identificationSupport;
 

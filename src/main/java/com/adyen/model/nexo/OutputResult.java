@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -45,13 +44,13 @@ public class OutputResult {
     /**
      * The Device.
      */
-    @XmlAttribute(name = "Device", required = true)
+    @XmlElement(name = "Device", required = true)
     @Schema(description = "Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print --Rule: Copy")
     protected DeviceType device;
     /**
      * The Info qualify.
      */
-    @XmlAttribute(name = "InfoQualify", required = true)
+    @XmlElement(name = "InfoQualify", required = true)
     @Schema(description = "Qualification of the information to sent to an output logical device, to display or print to the Cashier or the --Rule: Copy")
     protected InfoQualifyType infoQualify;
 

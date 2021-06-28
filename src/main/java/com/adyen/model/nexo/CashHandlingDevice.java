@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -47,13 +46,13 @@ public class CashHandlingDevice {
     /**
      * The Cash handling ok flag.
      */
-    @XmlAttribute(name = "CashHandlingOKFlag", required = true)
+    @XmlElement(name = "CashHandlingOKFlag", required = true)
     @Schema(description = "Indicates if the cash handling device is working and usable.")
     protected boolean cashHandlingOKFlag;
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency", required = true)
+    @XmlElement(name = "Currency", required = true)
     @Schema(description = "Currency of a monetary amount.")
     protected String currency;
 

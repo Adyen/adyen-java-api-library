@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -44,7 +43,7 @@ public class POIData {
     /**
      * The Poi reconciliation id.
      */
-    @XmlAttribute(name = "POIReconciliationID")
+    @XmlElement(name = "POIReconciliationID")
     @Schema(description = "Identification of the reconciliation period between Sale and POI.  --Rule: If Result is Success")
     protected String poiReconciliationID;
 

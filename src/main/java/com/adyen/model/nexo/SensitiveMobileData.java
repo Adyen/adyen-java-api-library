@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -34,19 +34,19 @@ public class SensitiveMobileData {
     /**
      * The Msisdn.
      */
-    @XmlAttribute(name = "MSISDN", required = true)
+    @XmlElement(name = "MSISDN", required = true)
     @Schema(description = "Mobile Subscriber Integrated Service Digital Network (i.e. mobile phone number of the SIM card).")
     protected String msisdn;
     /**
      * The Imsi.
      */
-    @XmlAttribute(name = "IMSI")
+    @XmlElement(name = "IMSI")
     @Schema(description = "International Mobile Subscriber Identity. --Rule: If data available")
     protected String imsi;
     /**
      * The Imei.
      */
-    @XmlAttribute(name = "IMEI")
+    @XmlElement(name = "IMEI")
     @Schema(description = "International Mobile Equipement Identity. --Rule: If data available")
     protected String imei;
 

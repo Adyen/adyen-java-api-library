@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -35,25 +35,25 @@ public class POISoftware {
     /**
      * The Manufacturer id.
      */
-    @XmlAttribute(name = "ManufacturerID", required = true)
+    @XmlElement(name = "ManufacturerID", required = true)
     @Schema(description = "Identification of the Manufacturer")
     protected String manufacturerID;
     /**
      * The Application name.
      */
-    @XmlAttribute(name = "ApplicationName", required = true)
+    @XmlElement(name = "ApplicationName", required = true)
     @Schema(description = "Name of the software product.")
     protected String applicationName;
     /**
      * The Software version.
      */
-    @XmlAttribute(name = "SoftwareVersion", required = true)
+    @XmlElement(name = "SoftwareVersion", required = true)
     @Schema(description = "Version of the software product")
     protected String softwareVersion;
     /**
      * The Certification code.
      */
-    @XmlAttribute(name = "CertificationCode", required = true)
+    @XmlElement(name = "CertificationCode", required = true)
     @Schema(description = "Certification code of the software which manages the Sale to POI protocol.")
     protected String certificationCode;
 

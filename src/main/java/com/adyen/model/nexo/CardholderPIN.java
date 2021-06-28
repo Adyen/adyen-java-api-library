@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -45,13 +44,13 @@ public class CardholderPIN {
     /**
      * The Pin format.
      */
-    @XmlAttribute(name = "PINFormat", required = true)
+    @XmlElement(name = "PINFormat", required = true)
     @Schema(description = "Identify the format of the PIN before encryption.")
     protected PINFormatType pinFormat;
     /**
      * The Additional input.
      */
-    @XmlAttribute(name = "AdditionalInput")
+    @XmlElement(name = "AdditionalInput")
     @Schema(description = "Additional information required to verify the PIN like part of the PAN, or driver ID.")
     protected String additionalInput;
 

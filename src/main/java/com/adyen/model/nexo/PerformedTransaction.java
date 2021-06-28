@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -79,7 +78,7 @@ public class PerformedTransaction {
     /**
      * The Reversed amount.
      */
-    @XmlAttribute(name = "ReversedAmount")
+    @XmlElement(name = "ReversedAmount")
     @Schema(description = "Amount of the payment or loyalty to reverse.. --Rule: If a transaction Reversal has been performed.")
     protected BigDecimal reversedAmount;
 

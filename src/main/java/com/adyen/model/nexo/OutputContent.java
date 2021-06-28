@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -70,7 +69,7 @@ public class OutputContent {
     /**
      * The Output format.
      */
-    @XmlAttribute(name = "OutputFormat", required = true)
+    @XmlElement(name = "OutputFormat", required = true)
     @Schema(description = "Format of the content to display or print")
     protected OutputFormatType outputFormat;
 

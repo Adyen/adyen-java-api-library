@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -58,37 +57,37 @@ public class StoredValueData {
     /**
      * The Stored value provider.
      */
-    @XmlAttribute(name = "StoredValueProvider")
+    @XmlElement(name = "StoredValueProvider")
     @Schema(description = "Identification of the provider of the stored value account load/reload --Rule: If more than one provider to manage on the POI, and StoredValueAccountID absent.")
     protected String storedValueProvider;
     /**
      * The Stored value transaction.
      */
-    @XmlAttribute(name = "StoredValueTransactionType", required = true)
+    @XmlElement(name = "StoredValueTransactionType", required = true)
     @Schema(description = "Identification of operation to proceed on the stored value account or the stored value card")
     protected StoredValueTransactionType storedValueTransactionType;
     /**
      * The Product code.
      */
-    @XmlAttribute(name = "ProductCode")
+    @XmlElement(name = "ProductCode")
     @Schema(description = "Product code of item purchased with the transaction.", minLength = 1, maxLength = 20)
     protected String productCode;
     /**
      * The Ean upc.
      */
-    @XmlAttribute(name = "EanUpc")
+    @XmlElement(name = "EanUpc")
     @Schema(description = "Standard product code of item purchased with the transaction.")
     protected String eanUpc;
     /**
      * The Item amount.
      */
-    @XmlAttribute(name = "ItemAmount", required = true)
+    @XmlElement(name = "ItemAmount", required = true)
     @Schema(description = "Total amount of the item line.")
     protected BigDecimal itemAmount;
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency", required = true)
+    @XmlElement(name = "Currency", required = true)
     @Schema(description = "Currency of a monetary amount.")
     protected String currency;
 

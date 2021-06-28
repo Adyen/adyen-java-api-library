@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -65,25 +64,25 @@ public class DisplayOutput {
     /**
      * The Response required flag.
      */
-    @XmlAttribute(name = "ResponseRequiredFlag")
+    @XmlElement(name = "ResponseRequiredFlag")
     @Schema(description = "Request of a message response.")
     protected Boolean responseRequiredFlag;
     /**
      * The Minimum display time.
      */
-    @XmlAttribute(name = "MinimumDisplayTime")
+    @XmlElement(name = "MinimumDisplayTime")
     @Schema(description = "Number of seconds the message has to be displayed")
     protected Integer minimumDisplayTime;
     /**
      * The Device.
      */
-    @XmlAttribute(name = "Device", required = true)
+    @XmlElement(name = "Device", required = true)
     @Schema(description = "Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print --Rule: CashierDisplay, CustomerDisplay")
     protected DeviceType device;
     /**
      * The Info qualify.
      */
-    @XmlAttribute(name = "InfoQualify", required = true)
+    @XmlElement(name = "InfoQualify", required = true)
     @Schema(description = "Qualification of the information to sent to an output logical device, to display or print to the Cashier or the --Rule: Status, Error, Display, POIReplication")
     protected InfoQualifyType infoQualify;
 

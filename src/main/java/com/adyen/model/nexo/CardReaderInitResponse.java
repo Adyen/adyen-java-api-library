@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -62,7 +61,7 @@ public class CardReaderInitResponse {
     /**
      * The Entry mode.
      */
-    @XmlAttribute(name = "EntryMode")
+    @XmlElement(name = "EntryMode")
     @Schema(description = "Entry mode of the payment instrument information --Rule: RFID, MagStripe, ICC, EMVContactless or SynchronousICC")
     protected List<EntryModeType> entryMode;
 

@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
@@ -56,7 +55,7 @@ public class TransactionStatusRequest {
     /**
      * The Receipt reprint flag.
      */
-    @XmlAttribute(name = "ReceiptReprintFlag")
+    @XmlElement(name = "ReceiptReprintFlag")
     @Schema(description = "Request to reprint the POI receipt(s).")
     protected Boolean receiptReprintFlag;
 

@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -47,19 +46,19 @@ public class LoyaltyAccountStatus {
     /**
      * The Current balance.
      */
-    @XmlAttribute(name = "CurrentBalance")
+    @XmlElement(name = "CurrentBalance")
     @Schema(description = "Balance of an account. --Rule: if known (provided by the card or an external host)")
     protected BigDecimal currentBalance;
     /**
      * The Loyalty unit.
      */
-    @XmlAttribute(name = "LoyaltyUnit")
+    @XmlElement(name = "LoyaltyUnit")
     @Schema(description = "Unit of a loyalty amount.")
     protected LoyaltyUnitType loyaltyUnit;
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency")
+    @XmlElement(name = "Currency")
     @Schema(description = "Currency of a monetary amount. --Rule: If Result is Success and If LoyaltyUnit is \"Monetary\"")
     protected String currency;
 

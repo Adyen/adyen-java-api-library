@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 
@@ -40,49 +40,49 @@ public class AmountsReq {
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency", required = true)
+    @XmlElement(name = "Currency", required = true)
     @Schema(description = "Currency of a monetary amount.")
     protected String currency;
     /**
      * The Requested amount.
      */
-    @XmlAttribute(name = "RequestedAmount")
+    @XmlElement(name = "RequestedAmount")
     @Schema(description = "Amount requested by the Sale for the payment. --Rule: Absent if the maximum amount is unknown for a OneTimeReservationThe value has to be greater than 0.")
     protected BigDecimal requestedAmount;
     /**
      * The Cash back amount.
      */
-    @XmlAttribute(name = "CashBackAmount")
+    @XmlElement(name = "CashBackAmount")
     @Schema(description = "The cash-back part of the amount requested by the Sale for the payment. --Rule: if payment with cash back. This data has to be performed by the POI. If cash back is not allowed, the payment is")
     protected BigDecimal cashBackAmount;
     /**
      * The Tip amount.
      */
-    @XmlAttribute(name = "TipAmount")
+    @XmlElement(name = "TipAmount")
     @Schema(description = "Amount paid for a tip. --Rule: If payment with tip requested by the Sale System.")
     protected BigDecimal tipAmount;
     /**
      * The Paid amount.
      */
-    @XmlAttribute(name = "PaidAmount")
+    @XmlElement(name = "PaidAmount")
     @Schema(description = "Amount already paid amount in case of split payment. --Rule: If SplitPaymentFlag is True (split amount of a split payment).")
     protected BigDecimal paidAmount;
     /**
      * The Minimum amount to deliver.
      */
-    @XmlAttribute(name = "MinimumAmountToDeliver")
+    @XmlElement(name = "MinimumAmountToDeliver")
     @Schema(description = "Minimum amount the Sale System is allowed to deliver for this payment. --Rule: if unknown maximum amount for a OneTimeReservation or minimum amount requested by the Sale System")
     protected BigDecimal minimumAmountToDeliver;
     /**
      * The Maximum cash back amount.
      */
-    @XmlAttribute(name = "MaximumCashBackAmount")
+    @XmlElement(name = "MaximumCashBackAmount")
     @Schema(description = "Maximum amount which could be requested for cash-back to the Sale System. --Rule: Maximum amount which could be requested for cash-back to the Sale System.")
     protected BigDecimal maximumCashBackAmount;
     /**
      * The Minimum split amount.
      */
-    @XmlAttribute(name = "MinimumSplitAmount")
+    @XmlElement(name = "MinimumSplitAmount")
     @Schema(description = "Minimum amount of a split, which could be requested by a Customer. --Rule: Minimum amount of a split, which could be requested.")
     protected BigDecimal minimumSplitAmount;
 

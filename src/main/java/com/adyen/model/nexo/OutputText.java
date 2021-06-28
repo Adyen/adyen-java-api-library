@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -39,43 +39,43 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "OutputText")
 public class OutputText {
 
-    @XmlAttribute(name = "Text", required = true)
+    @XmlElement(name = "Text", required = true)
     @Schema(description = "Content of text message to display, print or play.")
     protected String text;
 
-    @XmlAttribute(name = "CharacterSet")
+    @XmlElement(name = "CharacterSet")
     @Schema(description = "The character encoding of the text string. --Rule: If not present, the settings of thetarget system or device are used. ")
     protected Integer characterSet;
-    @XmlAttribute(name = "Font")
+    @XmlElement(name = "Font")
     @Schema(description = "Name of the font. --Rule: If not present, the settings of the target system or deviceare used. ")
     protected String font;
-    @XmlAttribute(name = "StartRow")
+    @XmlElement(name = "StartRow")
     @Schema(description = "Row from which the text string has to be displayed or printed. --Rule: If not present,the settings of the target system or device are used(e.g.current row position). ")
     protected Integer startRow;
 
-    @XmlAttribute(name = "StartColumn")
+    @XmlElement(name = "StartColumn")
     @Schema(description = "Column from which the text string has to be displayed or printed. --Rule: If notpresent, the settings of the target system or device are used(e.g.current column position). ")
     protected Integer startColumn;
 
-    @XmlAttribute(name = "Color")
+    @XmlElement(name = "Color")
     @Schema(description = "Color of the text string to display or print. --Rule: If not present, default colourused ")
     protected ColorType color;
 
-    @XmlAttribute(name = "CharacterWidth")
+    @XmlElement(name = "CharacterWidth")
     @Schema(description = "Character width of the text string to display or print. --Rule: If not present, default width used")
     protected CharacterWidthType characterWidth;
 
-    @XmlAttribute(name = "CharacterHeight")
+    @XmlElement(name = "CharacterHeight")
     @Schema(description = "Character height of the text string to display or print. --Rule: If not present, default height used ")
     protected CharacterHeightType characterHeight;
 
-    @XmlAttribute(name = "CharacterStyle")
+    @XmlElement(name = "CharacterStyle")
     @Schema(description = "Typographic style of the sequence of characters to display or print. --Rule: If notpresent, default style used ")
     protected CharacterStyleType characterStyle;
-    @XmlAttribute(name = "Alignment")
+    @XmlElement(name = "Alignment")
     @Schema(description = "Alignment of the text string on the display line or print line --Rule: If not present, default alignment used ")
     protected AlignmentType alignment;
-    @XmlAttribute(name = "EndOfLineFlag")
+    @XmlElement(name = "EndOfLineFlag")
     @Schema(description = "Text is at the end of a line.")
     protected Boolean endOfLineFlag;
 

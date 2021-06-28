@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -36,31 +36,31 @@ public class MessageReference {
     /**
      * The Message category.
      */
-    @XmlAttribute(name = "MessageCategory")
+    @XmlElement(name = "MessageCategory")
     @Schema(description = "Category of message. --Rule: Payment, Loyalty, StoredValue, CardAcquisition, Batch, Reconciliation, Display, Input, Print, CardReaderAPDU,")
     protected MessageCategoryType messageCategory;
     /**
      * The Service id.
      */
-    @XmlAttribute(name = "ServiceID")
+    @XmlElement(name = "ServiceID")
     @Schema(description = "Identification of a message pair, which processes a transaction")
     protected String serviceID;
     /**
      * The Device id.
      */
-    @XmlAttribute(name = "DeviceID")
+    @XmlElement(name = "DeviceID")
     @Schema(description = "Identification of a device message pair", minLength = 1, maxLength = 10)
     protected String deviceID;
     /**
      * The Sale id.
      */
-    @XmlAttribute(name = "SaleID")
+    @XmlElement(name = "SaleID")
     @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol --Rule: default MessageHeader.SaleID")
     protected String saleID;
     /**
      * The Poiid.
      */
-    @XmlAttribute(name = "POIID")
+    @XmlElement(name = "POIID")
     @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: default MessageHeader.POIID")
     protected String poiid;
 

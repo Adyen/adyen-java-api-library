@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -65,19 +64,19 @@ public class LoyaltyTransaction {
     /**
      * The Loyalty transaction.
      */
-    @XmlAttribute(name = "LoyaltyTransactionType", required = true)
+    @XmlElement(name = "LoyaltyTransactionType", required = true)
     @Schema(description = "Type of loyalty transaction.")
     protected LoyaltyTransactionType loyaltyTransactionType;
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency")
+    @XmlElement(name = "Currency")
     @Schema(description = "Currency of a monetary amount.")
     protected String currency;
     /**
      * The Total amount.
      */
-    @XmlAttribute(name = "TotalAmount")
+    @XmlElement(name = "TotalAmount")
     @Schema(description = "Amount of a transaction.")
     protected BigDecimal totalAmount;
 

@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class BatchRequest {
     /**
      * The Remove all flag.
      */
-    @XmlAttribute(name = "RemoveAllFlag")
+    @XmlElement(name = "RemoveAllFlag")
     @Schema(description = "A flag requesting to remove the transactions stored and not yet performed. default False.")
     protected Boolean removeAllFlag;
 
