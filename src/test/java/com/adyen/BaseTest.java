@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -22,8 +22,8 @@ package com.adyen;
 
 import com.adyen.enums.Gender;
 import com.adyen.enums.VatCategory;
+import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.httpclient.HttpURLConnectionClient;
 import com.adyen.model.AbstractPaymentRequest;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
@@ -44,12 +44,10 @@ import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.DonationRequest;
 import com.adyen.model.modification.RefundRequest;
 import com.adyen.model.modification.VoidPendingRefundRequest;
-import com.adyen.model.nexo.AbortRequest;
 import com.adyen.model.nexo.AmountsReq;
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
 import com.adyen.model.nexo.MessageHeader;
-import com.adyen.model.nexo.MessageReference;
 import com.adyen.model.nexo.MessageType;
 import com.adyen.model.nexo.PaymentTransaction;
 import com.adyen.model.nexo.SaleData;
@@ -76,10 +74,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.isNull;
 import static org.mockito.Mockito.mock;
@@ -96,17 +94,18 @@ public class BaseTest {
      * Returns a Client object that has a mocked response
      */
     protected Client createMockClientFromResponse(String response) {
-        HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
+        AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         try {
-            when(httpURLConnectionClient.post(any(String.class), any(Map.class), any(Config.class))).thenReturn(response);
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenReturn(response);
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), isNull())).thenReturn(response);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenReturn(response);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull())).thenReturn(response);
+            when(adyenHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), any())).thenReturn(response);
+            when(adyenHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), any(), any())).thenReturn(response);
 
         } catch (IOException | HTTPClientException e) {
             e.printStackTrace();
         }
         Client client = new Client();
-        client.setHttpClient(httpURLConnectionClient);
+        client.setHttpClient(adyenHttpClient);
 
         Config config = new Config();
         config.setHmacKey("DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00");
@@ -163,11 +162,9 @@ public class BaseTest {
      * Returns a sample PaymentRequest opbject with full card data
      */
     protected PaymentRequest createFullCardPaymentRequest() {
-        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                                                                                      .setAmountData("1000", "EUR")
-                                                                                      .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
-
-        return paymentRequest;
+        return createBasePaymentRequest(new PaymentRequest()).reference("123456")
+                .setAmountData("1000", "EUR")
+                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
     }
 
     protected PaymentsRequest createAfterPayPaymentRequest() {
@@ -323,18 +320,18 @@ public class BaseTest {
      * Returns a sample PaymentRequest object with CSE data
      */
     protected PaymentRequest createCSEPaymentRequest() {
-        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456").setAmountData("1000", "EUR").setCSEToken("adyenjs_0_1_4p1$...");
 
-        return paymentRequest;
+        return createBasePaymentRequest(new PaymentRequest()).reference("123456")
+                .setAmountData("1000", "EUR")
+                .setCSEToken("adyenjs_0_1_4p1$...");
     }
 
     /**
      * Returns a PaymentRequest3d object for 3D secure authorisation
      */
     protected PaymentRequest3d create3DPaymentRequest() {
-        PaymentRequest3d paymentRequest3d = createBasePaymentRequest(new PaymentRequest3d()).set3DRequestData("mdString", "paResString");
 
-        return paymentRequest3d;
+        return createBasePaymentRequest(new PaymentRequest3d()).set3DRequestData("mdString", "paResString");
     }
 
     /**
@@ -355,15 +352,15 @@ public class BaseTest {
     protected Client createMockClientForErrors(int status, String fileName) {
         String response = getFileContents(fileName);
 
-        HttpURLConnectionClient httpURLConnectionClient = mock(HttpURLConnectionClient.class);
+        AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<>(), response);
         try {
-            when(httpURLConnectionClient.request(any(String.class), any(String.class), any(Config.class), anyBoolean(), isNull())).thenThrow(httpClientException);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }
         Client client = new Client();
-        client.setHttpClient(httpURLConnectionClient);
+        client.setHttpClient(adyenHttpClient);
         Config config = new Config();
         config.setCheckoutEndpoint(Client.CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
@@ -440,37 +437,6 @@ public class BaseTest {
         paymentRequest.setPaymentTransaction(paymentTransaction);
 
         saleToPOIRequest.setPaymentRequest(paymentRequest);
-
-        TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
-        terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
-
-        return terminalAPIRequest;
-    }
-
-    protected TerminalAPIRequest createTerminalAPIAbortRequest() throws DatatypeConfigurationException {
-        SaleToPOIRequest saleToPOIRequest = new SaleToPOIRequest();
-
-        MessageHeader messageHeader = new MessageHeader();
-        messageHeader.setProtocolVersion("3.0");
-        messageHeader.setMessageClass(MessageClassType.SERVICE);
-        messageHeader.setMessageCategory(MessageCategoryType.ABORT);
-        messageHeader.setMessageType(MessageType.REQUEST);
-        messageHeader.setSaleID("001");
-        messageHeader.setServiceID("001");
-        messageHeader.setPOIID("P400Plus-123456789");
-
-        saleToPOIRequest.setMessageHeader(messageHeader);
-
-        AbortRequest abortRequest = new AbortRequest();
-        abortRequest.setAbortReason("test");
-
-        MessageReference messageReference = new MessageReference();
-        messageReference.setSaleID("002");
-        messageReference.setServiceID("002");
-        messageReference.setMessageCategory(MessageCategoryType.PAYMENT);
-        abortRequest.setMessageReference(messageReference);
-
-        saleToPOIRequest.setAbortRequest(abortRequest);
 
         TerminalAPIRequest terminalAPIRequest = new TerminalAPIRequest();
         terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);

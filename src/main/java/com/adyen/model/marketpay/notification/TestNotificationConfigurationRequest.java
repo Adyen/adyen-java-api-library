@@ -41,8 +41,14 @@ public class TestNotificationConfigurationRequest {
      * Gets or Sets eventTypes
      */
     public enum EventTypesEnum {
+        @SerializedName("ACCOUNT_CLOSED")
+        ACCOUNT_CLOSED("ACCOUNT_CLOSED"),
+
         @SerializedName("ACCOUNT_CREATED")
         ACCOUNT_CREATED("ACCOUNT_CREATED"),
+
+        @SerializedName("ACCOUNT_FUNDS_BELOW_THRESHOLD")
+        ACCOUNT_FUNDS_BELOW_THRESHOLD("ACCOUNT_FUNDS_BELOW_THRESHOLD"),
 
         @SerializedName("ACCOUNT_HOLDER_CREATED")
         ACCOUNT_HOLDER_CREATED("ACCOUNT_HOLDER_CREATED"),
@@ -55,6 +61,12 @@ public class TestNotificationConfigurationRequest {
 
         @SerializedName("ACCOUNT_HOLDER_STATUS_CHANGE")
         ACCOUNT_HOLDER_STATUS_CHANGE("ACCOUNT_HOLDER_STATUS_CHANGE"),
+
+        @SerializedName("ACCOUNT_HOLDER_STORE_STATUS_CHANGE")
+        ACCOUNT_HOLDER_STORE_STATUS_CHANGE("ACCOUNT_HOLDER_STORE_STATUS_CHANGE"),
+
+        @SerializedName("ACCOUNT_HOLDER_UPCOMING_DEADLINE")
+        ACCOUNT_HOLDER_UPCOMING_DEADLINE("ACCOUNT_HOLDER_UPCOMING_DEADLINE"),
 
         @SerializedName("ACCOUNT_HOLDER_UPDATED")
         ACCOUNT_HOLDER_UPDATED("ACCOUNT_HOLDER_UPDATED"),
@@ -71,8 +83,14 @@ public class TestNotificationConfigurationRequest {
         @SerializedName("COMPENSATE_NEGATIVE_BALANCE")
         COMPENSATE_NEGATIVE_BALANCE("COMPENSATE_NEGATIVE_BALANCE"),
 
+        @SerializedName("DIRECT_DEBIT_INITIATED")
+        DIRECT_DEBIT_INITIATED("DIRECT_DEBIT_INITIATED"),
+
         @SerializedName("PAYMENT_FAILURE")
         PAYMENT_FAILURE("PAYMENT_FAILURE"),
+
+        @SerializedName("REFUND_FUNDS_TRANSFER")
+        REFUND_FUNDS_TRANSFER("REFUND_FUNDS_TRANSFER"),
 
         @SerializedName("REPORT_AVAILABLE")
         REPORT_AVAILABLE("REPORT_AVAILABLE"),
@@ -81,7 +99,10 @@ public class TestNotificationConfigurationRequest {
         SCHEDULED_REFUNDS("SCHEDULED_REFUNDS"),
 
         @SerializedName("TRANSFER_FUNDS")
-        TRANSFER_FUNDS("TRANSFER_FUNDS");
+        TRANSFER_FUNDS("TRANSFER_FUNDS"),
+
+        @SerializedName("TRANSFER_NOT_PAIDOUT_TRANSFERS")
+        TRANSFER_NOT_PAIDOUT_TRANSFERS("TRANSFER_NOT_PAIDOUT_TRANSFERS");
 
         private String value;
 

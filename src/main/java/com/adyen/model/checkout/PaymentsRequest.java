@@ -194,6 +194,9 @@ public class PaymentsRequest {
     @SerializedName("recurringFrequency")
     private String recurringFrequency = null;
 
+    @SerializedName("mandate")
+    private Mandate mandate = null;
+
     public PaymentsRequest() {
         applicationInfo = new ApplicationInfo();
     }
@@ -743,6 +746,23 @@ public class PaymentsRequest {
     public PaymentsRequest store(String store) {
         this.store = store;
         return this;
+    }
+
+    public PaymentsRequest mandate(Mandate mandate) {
+        this.mandate = mandate;
+        return this;
+    }
+
+    /**
+     * Get mandate
+     * @return mandate
+     **/
+    public Mandate getMandate() {
+        return mandate;
+    }
+
+    public void setMandate(Mandate mandate) {
+        this.mandate = mandate;
     }
 
     public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode) {
@@ -1322,7 +1342,8 @@ public class PaymentsRequest {
                 Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber) &&
                 Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData) &&
                 Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly) &&
-                Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper);
+                Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper) &&
+                Objects.equals(this.mandate, paymentsRequest.mandate);
     }
 
     @Override
@@ -1335,7 +1356,7 @@ public class PaymentsRequest {
                 recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl,
                 riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName,
                 shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod,
-                telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+                telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper, mandate);
 
     }
 
@@ -1401,6 +1422,7 @@ public class PaymentsRequest {
         sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
         sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
         sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
+        sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
         sb.append("}");
         return sb.toString();
     }

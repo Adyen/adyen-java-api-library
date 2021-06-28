@@ -23,11 +23,32 @@ package com.adyen;
 import com.adyen.constants.BrandCodes;
 import com.adyen.deserializer.PaymentMethodDetailsDeserializerJackson;
 import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
-import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
 import com.adyen.model.SplitAmount;
-import com.adyen.model.checkout.*;
+import com.adyen.model.checkout.CheckoutCancelOrderRequest;
+import com.adyen.model.checkout.CheckoutCancelOrderResponse;
+import com.adyen.model.checkout.CheckoutCreateOrderRequest;
+import com.adyen.model.checkout.CheckoutCreateOrderResponse;
+import com.adyen.model.checkout.CheckoutOrder;
+import com.adyen.model.checkout.CheckoutPaymentsAction;
+import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
+import com.adyen.model.checkout.DefaultPaymentMethodDetails;
+import com.adyen.model.checkout.PaymentMethodDetails;
+import com.adyen.model.checkout.PaymentMethodsRequest;
+import com.adyen.model.checkout.PaymentMethodsResponse;
+import com.adyen.model.checkout.PaymentResultRequest;
+import com.adyen.model.checkout.PaymentResultResponse;
+import com.adyen.model.checkout.PaymentSessionRequest;
+import com.adyen.model.checkout.PaymentSessionResponse;
+import com.adyen.model.checkout.PaymentsDetailsRequest;
+import com.adyen.model.checkout.PaymentsDetailsResponse;
+import com.adyen.model.checkout.PaymentsRequest;
+import com.adyen.model.checkout.PaymentsResponse;
+import com.adyen.model.checkout.Redirect;
+import com.adyen.model.checkout.RiskData;
+import com.adyen.model.checkout.StoredPaymentMethodResource;
+import com.adyen.model.checkout.StoringMethod;
 import com.adyen.model.checkout.details.AchDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
 import com.adyen.model.checkout.details.AndroidPayDetails;
@@ -75,11 +96,11 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-import java.util.ArrayList;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
@@ -1724,19 +1745,6 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void TestPaymentLinksSuccess() throws Exception {
-        Client client = createMockClientFromFile("mocks/checkout/payment-links-success.json");
-        Checkout checkout = new Checkout(client);
-        CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
-        CreatePaymentLinkResponse createPaymentLinkResponse = checkout.paymentLinks(createPaymentLinkRequest);
-        assertNotNull(createPaymentLinkResponse);
-        assertNotNull(createPaymentLinkResponse.getUrl());
-        assertNotNull(createPaymentLinkResponse.getExpiresAt());
-        assertNotNull(createPaymentLinkResponse.getAmount());
-        assertNotNull(createPaymentLinkResponse.getReference());
-    }
-
-    @Test
     public void TestStoredPaymentMethodsSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/storedpaymentmethods-success.json");
         Checkout checkout = new Checkout(client);
@@ -1771,51 +1779,6 @@ public class CheckoutTest extends BaseTest {
             assertEquals(422, e.getError().getStatus());
             assertEquals(e.getResponseHeaders().size(), 0);
             assertNotNull(e.getResponseHeaders());
-        }
-    }
-
-    @Test
-    public void TestPaymentLinksErrorMerchantMissing() throws IOException {
-        Client client = createMockClientForErrors(403, "mocks/checkout/payment-links-error-merchant.json");
-        Checkout checkout = new Checkout(client);
-        CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
-        try {
-            checkout.paymentLinks(createPaymentLinkRequest);
-            fail("Exception expected");
-        } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("901", e.getError().getErrorCode());
-            assertEquals(403, e.getError().getStatus());
-        }
-    }
-
-    @Test
-    public void TestPaymentLinksErrorAmountMissing() throws IOException {
-        Client client = createMockClientForErrors(422, "mocks/checkout/payment-links-error-amount.json");
-        Checkout checkout = new Checkout(client);
-        CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
-        try {
-            checkout.paymentLinks(createPaymentLinkRequest);
-            fail("Exception expected");
-        } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("100", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
-        }
-    }
-
-    @Test
-    public void TestPaymentLinksErrorReferenceMissing() throws IOException {
-        Client client = createMockClientForErrors(422, "mocks/checkout/payment-links-error-reference.json");
-        Checkout checkout = new Checkout(client);
-        CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
-        try {
-            checkout.paymentLinks(createPaymentLinkRequest);
-            fail("Exception expected");
-        } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("130", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
         }
     }
 
@@ -2059,33 +2022,6 @@ public class CheckoutTest extends BaseTest {
         amount.setCurrency(currency);
         amount.setValue(value);
         return amount;
-    }
-
-    /**
-     * Returns a sample PaymentsRequest opbject with test data
-     */
-    protected CreatePaymentLinkRequest createPaymentLinkRequest() {
-        CreatePaymentLinkRequest createPaymentLinkRequest = new CreatePaymentLinkRequest();
-
-        createPaymentLinkRequest.setReference("YOUR_ORDER_NUMBER");
-        createPaymentLinkRequest.setAmount(createAmountObject("BRL", 1000L));
-        createPaymentLinkRequest.setCountryCode("BR");
-        createPaymentLinkRequest.setMerchantAccount("MagentoMerchantTest");
-        createPaymentLinkRequest.setShopperReference("YOUR_UNIQUE_SHOPPER_ID");
-        createPaymentLinkRequest.setShopperEmail("test@email.com");
-        createPaymentLinkRequest.setShopperLocale("pt_BR");
-        createPaymentLinkRequest.setExpiresAt("2019-12-17T10:05:29Z");
-        Address address = new Address();
-        address.setStreet("Street");
-        address.setPostalCode("59000060");
-        address.setCity("City");
-        address.setHouseNumberOrName("999");
-        address.setCountry("BR");
-        address.setStateOrProvince("SP");
-        createPaymentLinkRequest.setBillingAddress(address);
-        createPaymentLinkRequest.setDeliveryAddress(address);
-
-        return createPaymentLinkRequest;
     }
 
     protected CreateStoredPaymentMethodRequest createStoredPaymentMethodsRequest() {

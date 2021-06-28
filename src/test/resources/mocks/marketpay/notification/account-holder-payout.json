@@ -1,0 +1,32 @@
+{
+  "eventDate": "2021-05-06T16:00:11+02:00",
+  "eventType": "ACCOUNT_HOLDER_PAYOUT",
+  "executingUserKey": "Payout",
+  "live": false,
+  "pspReference": "8816255596048747",
+  "content": {
+    "accountCode": "AC00000001",
+    "accountHolderCode": "AH00000001",
+    "amounts": [
+      {
+        "currency": "EUR",
+        "value": 1500
+      }
+    ],
+    "bankAccountDetail": {
+      "bankAccountUUID": "778e4fff-6ea4-4584-9e1d-af5a5f6bb187",
+      "countryCode": "AT",
+      "currencyCode": "EUR",
+      "iban": "AT883400071439643338",
+      "ownerDateOfBirth": "1990-07-25",
+      "ownerName": "Tester Name",
+      "primaryAccount": false
+    },
+    "description": "description of payout",
+    "estimatedArrivalDate": "2021-05-07",
+    "payoutSpeed": "STANDARD",
+    "status": {
+      "statusCode": "Initiated"
+    }
+  }
+}

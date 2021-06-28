@@ -14,15 +14,15 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
-import com.adyen.httpclient.HttpURLConnectionClient;
 
 import java.util.Optional;
 
@@ -42,10 +42,10 @@ public class Client {
     public static final String RECURRING_API_VERSION = "v49";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v6";
     public static final String MARKETPAY_FUND_API_VERSION = "v6";
-    public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
+    public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "13.1.0";
+    public static final String LIB_VERSION = "15.0.2";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v67";
@@ -88,7 +88,7 @@ public class Client {
     /**
      * @param username your merchant account Username
      * @param password your merchant accont Password
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @param connectionTimeoutMillis Provide the time to time out
      * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
      * com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
@@ -102,7 +102,7 @@ public class Client {
     /**
      * @param username your merchant account Username
      * @param password your merchant accont Password
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @param connectionTimeoutMillis Provide the time to time out
      * @param liveEndpointUrlPrefix provide the merchant specific url
      * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
@@ -126,7 +126,7 @@ public class Client {
 
     /**
      * @param apiKey Defines the api key that can be retrieved by back office
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @param connectionTimeoutMillis Provide the time to time out
      * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
      * com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
@@ -139,7 +139,7 @@ public class Client {
 
     /**
      * @param apiKey Defines the api key that can be retrieved by back office
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @param connectionTimeoutMillis Provide the time to time out
      * @param liveEndpointUrlPrefix provide the merchant specific url
      * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
@@ -152,7 +152,7 @@ public class Client {
     }
 
     /**
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @deprecated As of library version 1.5.4, replaced by {@link #setEnvironment(Environment environment, String liveEndpointUrlPrefix)}.
      */
     @Deprecated
@@ -161,7 +161,7 @@ public class Client {
     }
 
     /**
-     * @param environment           This defines the payment enviroment live or test
+     * @param environment           This defines the payment environment live or test
      * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {
@@ -197,7 +197,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(HttpURLConnectionClient::new);
+        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(AdyenHttpClient::new);
         return this.httpClient;
     }
 

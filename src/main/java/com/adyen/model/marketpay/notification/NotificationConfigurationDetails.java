@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
@@ -30,7 +29,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 
 import static com.adyen.util.Util.toIndentedString;
@@ -46,35 +44,7 @@ public class NotificationConfigurationDetails {
     private Integer apiVersion = null;
 
     @SerializedName("eventConfigs")
-    @JsonProperty("eventConfigs")
-    private List<NotificationEventConfigurationContainer> eventConfigsContainer = null;
-
-    private transient List<NotificationEventConfiguration> eventConfigs = null;
-
-    /**
-     * data interchange format
-     */
-    public enum MessageFormatEnum {
-        @SerializedName("JSON")
-        JSON("JSON"),
-
-        @SerializedName("SOAP")
-        SOAP("SOAP");
-
-        private String value;
-
-        MessageFormatEnum(String value) {
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-    }
-
-    @SerializedName("messageFormat")
-    private MessageFormatEnum messageFormat = null;
+    private List<NotificationEventConfiguration> eventConfigs = null;
 
     @SerializedName("notifyUsername")
     private String notifyUsername = null;
@@ -135,11 +105,11 @@ public class NotificationConfigurationDetails {
     @SerializedName("notificationId")
     private Long notificationId = null;
 
-    @SerializedName("sendActionHeader")
-    private Boolean sendActionHeader = null;
-
     @SerializedName("notifyPassword")
     private String notifyPassword = null;
+
+    @SerializedName("hmacSignatureKey")
+    private String hmacSignatureKey = null;
 
     public NotificationConfigurationDetails settings(Map<String, String> settings) {
         this.settings = settings;
@@ -182,15 +152,12 @@ public class NotificationConfigurationDetails {
         this.apiVersion = apiVersion;
     }
 
+    public NotificationConfigurationDetails eventConfigs(List<NotificationEventConfiguration> eventConfigs) {
+        this.eventConfigs = eventConfigs;
+        return this;
+    }
 
     public NotificationConfigurationDetails addEventConfigsItem(NotificationEventConfiguration eventConfigsItem) {
-
-        NotificationEventConfigurationContainer notificationEventConfigurationContainer = createEventConfigsContainerForEventConfig(eventConfigsItem);
-        if (eventConfigsContainer == null) {
-            eventConfigsContainer = new ArrayList<>();
-        }
-        this.eventConfigsContainer.add(notificationEventConfigurationContainer);
-
         if (eventConfigs == null) {
             eventConfigs = new ArrayList<>();
         }
@@ -205,46 +172,11 @@ public class NotificationConfigurationDetails {
      * @return eventConfigs
      **/
     public List<NotificationEventConfiguration> getEventConfigs() {
-        if (eventConfigs == null) {
-
-            if (eventConfigsContainer != null && !eventConfigsContainer.isEmpty()) {
-                eventConfigs = eventConfigsContainer.stream().map(s -> s.getNotificationEventConfiguration()).collect(Collectors.toList());
-            }
-        }
         return eventConfigs;
     }
 
     public void setEventConfigs(List<NotificationEventConfiguration> eventConfigs) {
         this.eventConfigs = eventConfigs;
-
-        // set as well the container list this will be send in the API request
-        this.eventConfigsContainer = eventConfigs.stream().
-                map(s -> createEventConfigsContainerForEventConfig(s)).collect(Collectors.toList());
-    }
-
-    private NotificationEventConfigurationContainer createEventConfigsContainerForEventConfig(NotificationEventConfiguration notificationConfigurationDetails) {
-        NotificationEventConfigurationContainer notificationEventConfigurationContainer = new NotificationEventConfigurationContainer();
-        notificationEventConfigurationContainer.setNotificationEventConfiguration(notificationConfigurationDetails);
-        return notificationEventConfigurationContainer;
-    }
-
-
-    public NotificationConfigurationDetails messageFormat(MessageFormatEnum messageFormat) {
-        this.messageFormat = messageFormat;
-        return this;
-    }
-
-    /**
-     * data interchange format
-     *
-     * @return messageFormat
-     **/
-    public MessageFormatEnum getMessageFormat() {
-        return messageFormat;
-    }
-
-    public void setMessageFormat(MessageFormatEnum messageFormat) {
-        this.messageFormat = messageFormat;
     }
 
     public NotificationConfigurationDetails notifyUsername(String notifyUsername) {
@@ -355,24 +287,6 @@ public class NotificationConfigurationDetails {
         this.notificationId = notificationId;
     }
 
-    public NotificationConfigurationDetails sendActionHeader(Boolean sendActionHeader) {
-        this.sendActionHeader = sendActionHeader;
-        return this;
-    }
-
-    /**
-     * indicates if action header has to be added to SOAP notifications
-     *
-     * @return sendActionHeader
-     **/
-    public Boolean getSendActionHeader() {
-        return sendActionHeader;
-    }
-
-    public void setSendActionHeader(Boolean sendActionHeader) {
-        this.sendActionHeader = sendActionHeader;
-    }
-
     public NotificationConfigurationDetails notifyPassword(String notifyPassword) {
         this.notifyPassword = notifyPassword;
         return this;
@@ -391,6 +305,18 @@ public class NotificationConfigurationDetails {
         this.notifyPassword = notifyPassword;
     }
 
+    public NotificationConfigurationDetails hmacSignatureKey(String hmacSignatureKey) {
+        this.hmacSignatureKey = hmacSignatureKey;
+        return this;
+    }
+
+    public String getHmacSignatureKey() {
+        return hmacSignatureKey;
+    }
+
+    public void setHmacSignatureKey(String hmacSignatureKey) {
+        this.hmacSignatureKey = hmacSignatureKey;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -404,20 +330,19 @@ public class NotificationConfigurationDetails {
         return Objects.equals(this.settings, notificationConfigurationDetails.settings)
                 && Objects.equals(this.apiVersion, notificationConfigurationDetails.apiVersion)
                 && Objects.equals(this.eventConfigs, notificationConfigurationDetails.eventConfigs)
-                && Objects.equals(this.messageFormat, notificationConfigurationDetails.messageFormat)
                 && Objects.equals(this.notifyUsername, notificationConfigurationDetails.notifyUsername)
                 && Objects.equals(this.sslProtocol, notificationConfigurationDetails.sslProtocol)
                 && Objects.equals(this.notifyURL, notificationConfigurationDetails.notifyURL)
                 && Objects.equals(this.description, notificationConfigurationDetails.description)
                 && Objects.equals(this.active, notificationConfigurationDetails.active)
                 && Objects.equals(this.notificationId, notificationConfigurationDetails.notificationId)
-                && Objects.equals(this.sendActionHeader, notificationConfigurationDetails.sendActionHeader)
-                && Objects.equals(this.notifyPassword, notificationConfigurationDetails.notifyPassword);
+                && Objects.equals(this.notifyPassword, notificationConfigurationDetails.notifyPassword)
+                && Objects.equals(this.hmacSignatureKey, notificationConfigurationDetails.hmacSignatureKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(settings, apiVersion, eventConfigs, messageFormat, notifyUsername, sslProtocol, notifyURL, description, active, notificationId, sendActionHeader, notifyPassword);
+        return Objects.hash(settings, apiVersion, eventConfigs, notifyUsername, sslProtocol, notifyURL, description, active, notificationId, notifyPassword, hmacSignatureKey);
     }
 
 
@@ -428,18 +353,18 @@ public class NotificationConfigurationDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class NotificationConfigurationDetails {\n");
 
-        sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("    active: ").append(toIndentedString(active)).append("\n");
         sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    eventConfigs: ").append(toIndentedString(eventConfigs)).append("\n");
-        sb.append("    messageFormat: ").append(toIndentedString(messageFormat)).append("\n");
+        sb.append("    hmacSignatureKey: ").append(toIndentedString(hmacSignatureKey)).append("\n");
+        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
+        sb.append("    notifyPassword: ").append(toIndentedString(notifyPassword)).append("\n");
+        sb.append("    notifyURL: ").append(toIndentedString(notifyURL)).append("\n");
         sb.append("    notifyUsername: ").append(toIndentedString(notifyUsername)).append("\n");
         sb.append("    sslProtocol: ").append(toIndentedString(sslProtocol)).append("\n");
-        sb.append("    notifyURL: ").append(toIndentedString(notifyURL)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    active: ").append(toIndentedString(active)).append("\n");
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
-        sb.append("    sendActionHeader: ").append(toIndentedString(sendActionHeader)).append("\n");
-        sb.append("    notifyPassword: ").append(toIndentedString(notifyPassword)).append("\n");
+
+        sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("}");
         return sb.toString();
     }

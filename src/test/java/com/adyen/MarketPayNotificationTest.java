@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -31,12 +31,13 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.adyen.model.marketpay.CreateAccountResponse.StatusEnum.ACTIVE;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckStatusEnum.DATA_PROVIDED;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.COMPANY_VERIFICATION;
-import static com.adyen.model.marketpay.KYCCheckStatusData.CheckTypeEnum.IDENTITY_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.DATA_PROVIDED;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.COMPANY_VERIFICATION;
 import static com.adyen.model.marketpay.PayoutScheduleResponse.ScheduleEnum.DAILY;
 import static com.adyen.model.marketpay.Transaction.TransactionStatusEnum.PENDINGCREDIT;
+import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_CREATED;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_STATUS_CHANGE;
+import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_VERIFICATION;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.IncludeModeEnum.INCLUDE;
 import static java.time.ZonedDateTime.parse;
 import static org.junit.Assert.*;
@@ -51,7 +52,11 @@ public class MarketPayNotificationTest extends BaseTest {
         CreateNotificationConfigurationRequest createNotificationConfigurationRequest = new CreateNotificationConfigurationRequest();
         CreateNotificationConfigurationResponse getNotificationConfigurationResponse = notification.createNotificationConfiguration(createNotificationConfigurationRequest);
 
-        Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getEventConfigs().get(0).getEventType(), ACCOUNT_HOLDER_STATUS_CHANGE);
+        Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getEventConfigs().get(0).getEventType(), ACCOUNT_HOLDER_VERIFICATION);
+        Assert.assertEquals(getNotificationConfigurationResponse.getPspReference(), "8616203828653964");
+        Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getNotificationId().longValue(), 29288);
+        Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getSslProtocol(), NotificationConfigurationDetails.SslProtocolEnum.SSLINSECURECIPHERS);
+
     }
 
     @Test
@@ -62,7 +67,9 @@ public class MarketPayNotificationTest extends BaseTest {
         GetNotificationConfigurationRequest getNotificationConfigurationRequest = new GetNotificationConfigurationRequest();
         GetNotificationConfigurationResponse getNotificationConfigurationResponse = notification.getNotificationConfiguration(getNotificationConfigurationRequest);
 
-        Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getEventConfigs().get(0).getEventType(), ACCOUNT_HOLDER_STATUS_CHANGE);
+        Assert.assertEquals(getNotificationConfigurationResponse.getPspReference(), "8516203849579678");
+        Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getSslProtocol(), NotificationConfigurationDetails.SslProtocolEnum.TLSV10);
+        Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getEventConfigs().get(0).getEventType(), ACCOUNT_CREATED);
         Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getEventConfigs().get(0).getIncludeMode(), INCLUDE);
     }
 
@@ -72,14 +79,16 @@ public class MarketPayNotificationTest extends BaseTest {
         Notification notification = new Notification(client);
         GetNotificationConfigurationListResponse getNotificationConfigurationListResponse = notification.getNotificationConfigurationList();
 
-        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(0).getNotificationId(), new Long(157));
+        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(0).getNotificationId(), new Long(20734));
         Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(0).getEventConfigs().get(0).getIncludeMode(), INCLUDE);
-        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(0).getEventConfigs().get(0).getEventType(), ACCOUNT_HOLDER_STATUS_CHANGE);
+        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(0).getEventConfigs().get(0).getEventType(), ACCOUNT_HOLDER_VERIFICATION);
+        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(0).getSslProtocol(), NotificationConfigurationDetails.SslProtocolEnum.SSLINSECURECIPHERS);
 
-
-        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(1).getNotificationId(), new Long(161));
+        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(1).getNotificationId(), new Long(27893));
         Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(1).getEventConfigs().get(0).getIncludeMode(), INCLUDE);
-        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(1).getEventConfigs().get(0).getEventType(), ACCOUNT_HOLDER_STATUS_CHANGE);
+        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(1).getEventConfigs().get(0).getEventType(), ACCOUNT_HOLDER_VERIFICATION);
+        Assert.assertEquals(getNotificationConfigurationListResponse.getConfigurations().get(1).getSslProtocol(), NotificationConfigurationDetails.SslProtocolEnum.SSLINSECURECIPHERS);
+
     }
 
     @Test
@@ -90,9 +99,10 @@ public class MarketPayNotificationTest extends BaseTest {
         UpdateNotificationConfigurationRequest updateNotificationConfigurationRequest = new UpdateNotificationConfigurationRequest();
         UpdateNotificationConfigurationResponse getNotificationConfigurationResponse = notification.updateNotificationConfiguration(updateNotificationConfigurationRequest);
 
+        Assert.assertEquals(getNotificationConfigurationResponse.getPspReference(), "8816203862960539");
+        Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getSslProtocol(), NotificationConfigurationDetails.SslProtocolEnum.TLSV10);
         Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getEventConfigs().get(0).getEventType(), NotificationEventConfiguration.EventTypeEnum.ACCOUNT_CREATED);
         Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getEventConfigs().get(0).getIncludeMode(), NotificationEventConfiguration.IncludeModeEnum.INCLUDE);
-
 
         Assert.assertEquals(getNotificationConfigurationResponse.getConfigurationDetails().getEventConfigs().get(1).getEventType(),
                             NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_CREATED);
@@ -108,7 +118,6 @@ public class MarketPayNotificationTest extends BaseTest {
         DeleteNotificationConfigurationResponse getNotificationConfigurationResponse = notification.deleteNotificationConfiguration(deleteNotificationConfigurationRequest);
 
         Assert.assertEquals(getNotificationConfigurationResponse.getPspReference(), "8515078085249090");
-        Assert.assertEquals(getNotificationConfigurationResponse.getSubmittedAsync(), false);
     }
 
     @Test
@@ -124,7 +133,7 @@ public class MarketPayNotificationTest extends BaseTest {
         assertEquals("1", testNotificationConfigurationResponse.getExchangeMessages().get(0).getMessageDescription());
 
         assertEquals("Title", testNotificationConfigurationResponse.getExchangeMessages().get(1).getMessageCode());
-        assertEquals("Test 1: Test_ACCOUNT_CREATED", testNotificationConfigurationResponse.getExchangeMessages().get(1).getMessageDescription());
+        assertEquals("Test 1: 8816203869387116", testNotificationConfigurationResponse.getExchangeMessages().get(1).getMessageDescription());
     }
 
     @Test
@@ -223,6 +232,22 @@ public class MarketPayNotificationTest extends BaseTest {
     }
 
     @Test
+    public void testMarketPayAccountHolderPayoutNotification() {
+        String json = getFileContents("mocks/marketpay/notification/account-holder-payout.json");
+        NotificationHandler notificationHandler = new NotificationHandler();
+
+        GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
+
+        assertEquals(GenericNotification.EventTypeEnum.ACCOUNT_HOLDER_PAYOUT, notificationMessage.getEventType());
+        AccountHolderPayoutNotification notification = (AccountHolderPayoutNotification) notificationMessage;
+        assertNotNull(notification.getContent());
+
+        assertEquals("AC00000001", notification.getContent().getAccountCode());
+        assertEquals(1, notification.getContent().getAmounts().size());
+        assertEquals(1500L, notification.getContent().getAmounts().get(0).getValue().longValue());
+    }
+
+    @Test
     public void testMarketPayAccountHolderUpdatedNotification() {
         String json = getFileContents("mocks/marketpay/notification/account-holder-updated.json");
         NotificationHandler notificationHandler = new NotificationHandler();
@@ -236,9 +261,9 @@ public class MarketPayNotificationTest extends BaseTest {
 
         assertEquals("accountHolderCode", notification.getContent().getAccountHolderCode());
         assertEquals(AccountHolderStatus.StatusEnum.ACTIVE, notification.getContent().getAccountHolderStatus().getStatus());
-        assertEquals(COMPANY_VERIFICATION, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getCheckType());
-        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getCheckStatus());
-        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getShareholders().get(0).getChecks().get(0).getCheckStatus());
+        assertEquals(COMPANY_VERIFICATION, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getType());
+        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getStatus());
+        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getShareholders().get(0).getChecks().get(0).getStatus());
     }
 
     @Test

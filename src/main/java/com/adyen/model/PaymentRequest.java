@@ -24,6 +24,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
+import com.adyen.model.checkout.Mandate;
 import com.adyen.util.Util;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
@@ -67,6 +68,9 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
 
     @SerializedName("threeDS2RequestData")
     private ThreeDS2RequestData threeDS2RequestData = null;
+
+    @SerializedName("mandate")
+    private Mandate mandate = null;
 
 
     /**
@@ -352,6 +356,22 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         this.trustedShopper = trustedShopper;
     }
 
+    public PaymentRequest mandate(Mandate mandate) {
+        this.mandate = mandate;
+        return this;
+    }
+
+    /**
+     * Get mandate
+     * @return mandate
+     **/
+    public Mandate getMandate() {
+        return mandate;
+    }
+
+    public void setMandate(Mandate mandate) {
+        this.mandate = mandate;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -372,12 +392,13 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
                 && Objects.equals(this.splits, paymentRequest.splits)
                 && Objects.equals(this.store, paymentRequest.store)
                 && Objects.equals(this.threeDS2RequestData, paymentRequest.threeDS2RequestData)
-                && Objects.equals(this.trustedShopper, paymentRequest.trustedShopper);
+                && Objects.equals(this.trustedShopper, paymentRequest.trustedShopper)
+                && Objects.equals(this.mandate, paymentRequest.mandate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), accountInfo, card, mpiData, bankAccount, store, merchantRiskIndicator, splits, trustedShopper, threeDS2RequestData, recurringProcessingModel);
+        return Objects.hash(super.hashCode(), accountInfo, card, mpiData, bankAccount, store, merchantRiskIndicator, splits, trustedShopper, threeDS2RequestData, recurringProcessingModel, mandate);
     }
 
     @Override
@@ -395,6 +416,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         sb.append("    store: ").append(toIndentedString(store)).append("\n");
         sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
         sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
+        sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
         sb.append("}");
 
         return sb.toString();
