@@ -27,19 +27,20 @@ import com.adyen.enums.Environment;
 import com.adyen.model.RequestOptions;
 import com.adyen.terminal.security.TerminalCommonNameValidator;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.http.HttpHost;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPatch;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpRequestBase;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+import org.apache.hc.client5.http.classic.methods.HttpDelete;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.classic.methods.HttpPatch;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.classic.methods.HttpUriRequest;
+import org.apache.hc.client5.http.classic.methods.HttpUriRequestBase;
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
+import org.apache.hc.core5.http.HttpHost;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.apache.hc.core5.net.URIBuilder;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.KeyManagerFactory;
@@ -52,10 +53,12 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.cert.X509Certificate;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static com.adyen.constants.ApiConstants.HttpMethod.POST;
 import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
@@ -104,7 +107,7 @@ public class AdyenHttpClient implements ClientInterface {
     @Override
     public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws IOException, HTTPClientException {
         try (CloseableHttpClient httpclient = createCloseableHttpClient(config)) {
-            HttpRequestBase httpRequest = createRequest(endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
+            HttpUriRequestBase httpRequest = createRequest(endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
 
             // Execute request with a custom response handler
             AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
@@ -116,15 +119,15 @@ public class AdyenHttpClient implements ClientInterface {
         }
     }
 
-    private HttpRequestBase createRequest(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws HTTPClientException {
-        HttpRequestBase httpRequest = createHttpRequestBase(createUri(endpoint, params), requestBody, httpMethod);
+    private HttpUriRequestBase createRequest(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws HTTPClientException {
+        HttpUriRequestBase httpRequest = createHttpRequestBase(createUri(endpoint, params), requestBody, httpMethod);
 
         RequestConfig.Builder builder = RequestConfig.custom();
         if (config.getReadTimeoutMillis() > 0) {
-            builder.setSocketTimeout(config.getReadTimeoutMillis());
+            builder.setResponseTimeout(config.getReadTimeoutMillis(), TimeUnit.MILLISECONDS);
         }
         if (config.getConnectionTimeoutMillis() > 0) {
-            builder.setConnectTimeout(config.getConnectionTimeoutMillis());
+            builder.setConnectTimeout(config.getConnectionTimeoutMillis(), TimeUnit.MILLISECONDS);
         }
         if (proxy != null && proxy.address() instanceof InetSocketAddress) {
             InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
@@ -138,7 +141,7 @@ public class AdyenHttpClient implements ClientInterface {
         return httpRequest;
     }
 
-    private void setHeaders(Config config, RequestOptions requestOptions, HttpRequestBase httpUriRequest) {
+    private void setHeaders(Config config, RequestOptions requestOptions, HttpUriRequestBase httpUriRequest) {
 
         setContentType(httpUriRequest, APPLICATION_JSON_TYPE);
         httpUriRequest.addHeader(ACCEPT_CHARSET, CHARSET);
@@ -149,10 +152,10 @@ public class AdyenHttpClient implements ClientInterface {
         }
     }
 
-    private HttpRequestBase createHttpRequestBase(URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) {
+    private HttpUriRequestBase createHttpRequestBase(URI endpoint, String requestBody, ApiConstants.HttpMethod httpMethod) {
         StringEntity requestEntity = null;
         if (requestBody != null && !requestBody.isEmpty()) {
-            requestEntity = new StringEntity(requestBody, CHARSET);
+            requestEntity = new StringEntity(requestBody, Charset.forName(CHARSET));
         }
 
         switch (httpMethod) {
@@ -187,18 +190,21 @@ public class AdyenHttpClient implements ClientInterface {
     }
 
     private CloseableHttpClient createCloseableHttpClient(Config config) throws HTTPClientException {
-
         if (config.getClientKeyStore() != null && config.getTrustKeyStore() != null) {
-            return HttpClients.custom()
-                    .setSSLSocketFactory(getClientCertificateAuthSSLContext(config))
-                    .build();
-        } else if (config.getTerminalCertificate() != null) {
-            return HttpClients.custom()
-                    .setSSLSocketFactory(getTerminalCertificateSocketFactory(config))
-                    .build();
-        } else {
-            return HttpClients.createDefault();
+            return createHttpClientWithSocketFactory(getClientCertificateAuthSSLContext(config));
         }
+        if (config.getTerminalCertificate() != null) {
+            return createHttpClientWithSocketFactory(getTerminalCertificateSocketFactory(config));
+        }
+        return HttpClients.createDefault();
+    }
+
+    private CloseableHttpClient createHttpClientWithSocketFactory(SSLConnectionSocketFactory socketFactory) {
+        return HttpClients.custom()
+                .setConnectionManager(PoolingHttpClientConnectionManagerBuilder.create()
+                        .setSSLSocketFactory(socketFactory)
+                        .build())
+                .build();
     }
 
     private SSLConnectionSocketFactory getTerminalCertificateSocketFactory(Config config) throws HTTPClientException {

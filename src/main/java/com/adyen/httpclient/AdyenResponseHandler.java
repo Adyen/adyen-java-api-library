@@ -20,11 +20,12 @@
  */
 package com.adyen.httpclient;
 
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.core5.http.ClassicHttpResponse;
+import org.apache.hc.core5.http.Header;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.io.HttpClientResponseHandler;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -32,13 +33,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AdyenResponseHandler implements ResponseHandler<AdyenResponse> {
+public class AdyenResponseHandler implements HttpClientResponseHandler<AdyenResponse> {
 
     @Override
-    public AdyenResponse handleResponse(HttpResponse httpResponse) throws IOException {
+    public AdyenResponse handleResponse(ClassicHttpResponse httpResponse) throws IOException, ParseException {
         AdyenResponse adyenResponse = new AdyenResponse();
-        adyenResponse.setStatus(httpResponse.getStatusLine().getStatusCode());
-        adyenResponse.setHeaders(getHeaders(httpResponse.getAllHeaders()));
+        adyenResponse.setStatus(httpResponse.getCode());
+        adyenResponse.setHeaders(getHeaders(httpResponse.getHeaders()));
 
         HttpEntity entity = httpResponse.getEntity();
         if (entity != null) {
