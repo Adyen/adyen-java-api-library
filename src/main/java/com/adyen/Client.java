@@ -21,9 +21,11 @@
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
+import java.security.KeyStore;
 import java.util.Optional;
 
 public class Client {
@@ -32,6 +34,7 @@ public class Client {
 
     public static final String ENDPOINT_TEST = "https://pal-test.adyen.com";
     public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
+    public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
     public static final String ENDPOINT_LIVE_SUFFIX = "-pal-live.adyenpayments.com";
     public static final String HPP_TEST = "https://test.adyen.com/hpp";
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
@@ -48,6 +51,7 @@ public class Client {
     public static final String LIB_VERSION = "15.0.2";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
+    public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v67";
     public static final String CHECKOUT_STORED_PAYMENT_METHODS_VERSION = "v65";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
@@ -75,6 +79,31 @@ public class Client {
 
     public Client(String username, String password, Environment environment, String applicationName) {
         this(username, password, environment, null, applicationName);
+    }
+
+    /**
+     * Use this constructor to create client for client certificate authentication along with API key.
+     * Note: Client certificate authentication is only applicable for PAL and Checkout services in LIVE,
+     * Other services will just use API key for authentication.
+     * @param trustStore Trust store containing server certificate
+     * @param clientKeyStore Client Key store containing client certificate and key
+     * @param clientKeyStorePassword Password for client key store
+     * @param apiKey Adyen API Key
+     * @param region Data center region (EU/US/AU), default EU if not provided
+     */
+    public Client(KeyStore trustStore, KeyStore clientKeyStore, String clientKeyStorePassword, String apiKey, Region region) {
+        this(apiKey, Environment.LIVE);
+        this.config.setClientKeyStorePassword(clientKeyStorePassword);
+        this.config.setClientKeyStore(clientKeyStore);
+        this.config.setTrustKeyStore(trustStore);
+        this.config.setEndpoint(ENDPOINT_CERT_LIVE);
+
+        if (region != null) {
+            this.config.setCheckoutEndpoint(String.format(CHECKOUT_ENDPOINT_CERT_LIVE, region.name().toLowerCase()));
+        } else {
+            // default to EU if not provided
+            this.config.setCheckoutEndpoint(String.format(CHECKOUT_ENDPOINT_CERT_LIVE, Region.EU.name().toLowerCase()));
+        }
     }
 
     public Client(String username, String password, Environment environment, String liveEndpointUrlPrefix, String applicationName) {
