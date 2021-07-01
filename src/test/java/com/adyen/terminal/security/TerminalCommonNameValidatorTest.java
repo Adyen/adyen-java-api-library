@@ -49,11 +49,15 @@ public class TerminalCommonNameValidatorTest {
                 { "EMAILADDRESS=mock@adyen.com, CN=legacy-terminal-certificate.live.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.LIVE, true },
                 { "EMAILADDRESS=mock@adyen.com, CN=P400-123456789.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.TEST, true },
                 { "EMAILADDRESS=mock@adyen.com, CN=P400-123456789.live.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.LIVE, true },
+                { "EMAILADDRESS=mock@adyen.com, CN=S1E-000150123456789.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.TEST, true },
+                { "EMAILADDRESS=mock@adyen.com, CN=S1E-000150123456789.live.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.LIVE, true },
                 // Wrong environment
                 { "EMAILADDRESS=mock@adyen.com, CN=legacy-terminal-certificate.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.LIVE, false },
                 { "EMAILADDRESS=mock@adyen.com, CN=P400-123456789.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.LIVE, false },
+                { "EMAILADDRESS=mock@adyen.com, CN=S1E-000150123456789.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.LIVE, false },
                 { "EMAILADDRESS=mock@adyen.com, CN=legacy-terminal-certificate.live.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.TEST, false },
                 { "EMAILADDRESS=mock@adyen.com, CN=P400-123456789.live.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.TEST, false },
+                { "EMAILADDRESS=mock@adyen.com, CN=S1E-000150123456789.live.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.TEST, false },
                 // Invalid CN
                 { "EMAILADDRESS=mock@adyen.com, CN=wrong-terminal-certificate.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.TEST, false },
                 { "EMAILADDRESS=mock@adyen.com, CN=legacyy-terminal-certificate.test.terminal.adyen.com, OU=Mock, O=Mock, L=Mock, ST=MO, C=MO", Environment.TEST, false },

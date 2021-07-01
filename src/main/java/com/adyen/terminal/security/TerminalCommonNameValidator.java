@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
 public final class TerminalCommonNameValidator {
 
     private static final String ENVIRONMENT_WILDCARD = "{ENVIRONMENT}";
-    private static final String TERMINAL_API_CN_REGEX = "[a-zA-Z0-9]{4,}-[0-9]{9}\\." + ENVIRONMENT_WILDCARD + "\\.terminal\\.adyen\\.com";
+    private static final String TERMINAL_API_CN_REGEX = "[a-zA-Z0-9]{3,}-[0-9]{9,15}\\." + ENVIRONMENT_WILDCARD + "\\.terminal\\.adyen\\.com";
     private static final String TERMINAL_API_LEGACY_CN = "legacy-terminal-certificate." + ENVIRONMENT_WILDCARD + ".terminal.adyen.com";
 
     private TerminalCommonNameValidator() {
@@ -47,8 +47,9 @@ public final class TerminalCommonNameValidator {
             String groupName = matcher.group(1);
             if ("CN".equals(groupName)) {
                 String commonName = matcher.group(2);
-                valid = commonName.matches(TERMINAL_API_CN_REGEX.replace(ENVIRONMENT_WILDCARD, environmentName))
-                        || commonName.equals(TERMINAL_API_LEGACY_CN.replace(ENVIRONMENT_WILDCARD, environmentName));
+                valid = commonName != null
+                        && (commonName.matches(TERMINAL_API_CN_REGEX.replace(ENVIRONMENT_WILDCARD, environmentName))
+                        || commonName.equals(TERMINAL_API_LEGACY_CN.replace(ENVIRONMENT_WILDCARD, environmentName)));
             }
         }
 
