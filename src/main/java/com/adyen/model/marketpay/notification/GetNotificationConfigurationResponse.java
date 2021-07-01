@@ -31,33 +31,9 @@ import static com.adyen.util.Util.toIndentedString;
 /**
  * GetNotificationConfigurationResponse
  */
-public class GetNotificationConfigurationResponse {
-    @SerializedName("submittedAsync")
-    private Boolean submittedAsync = null;
-
+public class GetNotificationConfigurationResponse extends GenericResponse {
     @SerializedName("configurationDetails")
     private NotificationConfigurationDetails configurationDetails = null;
-
-    @SerializedName("pspReference")
-    private String pspReference = null;
-
-    public GetNotificationConfigurationResponse submittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-        return this;
-    }
-
-    /**
-     * Get submittedAsync
-     *
-     * @return submittedAsync
-     **/
-    public Boolean getSubmittedAsync() {
-        return submittedAsync;
-    }
-
-    public void setSubmittedAsync(Boolean submittedAsync) {
-        this.submittedAsync = submittedAsync;
-    }
 
     public GetNotificationConfigurationResponse configurationDetails(NotificationConfigurationDetails configurationDetails) {
         this.configurationDetails = configurationDetails;
@@ -77,25 +53,6 @@ public class GetNotificationConfigurationResponse {
         this.configurationDetails = configurationDetails;
     }
 
-    public GetNotificationConfigurationResponse pspReference(String pspReference) {
-        this.pspReference = pspReference;
-        return this;
-    }
-
-    /**
-     * psp reference
-     *
-     * @return pspReference
-     **/
-    public String getPspReference() {
-        return pspReference;
-    }
-
-    public void setPspReference(String pspReference) {
-        this.pspReference = pspReference;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -105,15 +62,15 @@ public class GetNotificationConfigurationResponse {
             return false;
         }
         GetNotificationConfigurationResponse getNotificationConfigurationResponse = (GetNotificationConfigurationResponse) o;
-        return Objects.equals(this.submittedAsync, getNotificationConfigurationResponse.submittedAsync) && Objects.equals(this.configurationDetails,
-                getNotificationConfigurationResponse.configurationDetails) && Objects.equals(
-                this.pspReference,
-                getNotificationConfigurationResponse.pspReference);
+        return Objects.equals(this.configurationDetails, getNotificationConfigurationResponse.configurationDetails) &&
+                Objects.equals(this.getInvalidFields(), getNotificationConfigurationResponse.getInvalidFields()) &&
+                Objects.equals(this.getPspReference(), getNotificationConfigurationResponse.getPspReference()) &&
+                Objects.equals(this.getResultCode(), getNotificationConfigurationResponse.getResultCode());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(submittedAsync, configurationDetails, pspReference);
+        return Objects.hash(configurationDetails, getInvalidFields(), getPspReference(), getResultCode());
     }
 
 
@@ -122,9 +79,10 @@ public class GetNotificationConfigurationResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class GetNotificationConfigurationResponse {\n");
 
-        sb.append("    submittedAsync: ").append(toIndentedString(submittedAsync)).append("\n");
         sb.append("    configurationDetails: ").append(toIndentedString(configurationDetails)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
+        sb.append("    invalidFields: ").append(toIndentedString(getInvalidFields())).append("\n");
+        sb.append("    pspReference: ").append(toIndentedString(getPspReference())).append("\n");
+        sb.append("    resultCode: ").append(toIndentedString(getResultCode())).append("\n");
         sb.append("}");
         return sb.toString();
     }

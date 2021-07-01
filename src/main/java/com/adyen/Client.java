@@ -14,17 +14,18 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen;
 
 import com.adyen.enums.Environment;
+import com.adyen.enums.Region;
+import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
-import com.adyen.httpclient.HttpURLConnectionClient;
 
-import java.util.Optional;
+import java.security.KeyStore;
 
 public class Client {
     private ClientInterface httpClient;
@@ -32,6 +33,7 @@ public class Client {
 
     public static final String ENDPOINT_TEST = "https://pal-test.adyen.com";
     public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
+    public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
     public static final String ENDPOINT_LIVE_SUFFIX = "-pal-live.adyenpayments.com";
     public static final String HPP_TEST = "https://test.adyen.com/hpp";
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
@@ -42,12 +44,13 @@ public class Client {
     public static final String RECURRING_API_VERSION = "v49";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v6";
     public static final String MARKETPAY_FUND_API_VERSION = "v6";
-    public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v1";
+    public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "14.0.0";
+    public static final String LIB_VERSION = "15.1.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
+    public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v67";
     public static final String CHECKOUT_STORED_PAYMENT_METHODS_VERSION = "v65";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
@@ -77,6 +80,31 @@ public class Client {
         this(username, password, environment, null, applicationName);
     }
 
+    /**
+     * Use this constructor to create client for client certificate authentication along with API key.
+     * Note: Client certificate authentication is only applicable for PAL and Checkout services in LIVE,
+     * Other services will just use API key for authentication.
+     * @param trustStore Trust store containing server certificate
+     * @param clientKeyStore Client Key store containing client certificate and key
+     * @param clientKeyStorePassword Password for client key store
+     * @param apiKey Adyen API Key
+     * @param region Data center region (EU/US/AU), default EU if not provided
+     */
+    public Client(KeyStore trustStore, KeyStore clientKeyStore, String clientKeyStorePassword, String apiKey, Region region) {
+        this(apiKey, Environment.LIVE);
+        this.config.setClientKeyStorePassword(clientKeyStorePassword);
+        this.config.setClientKeyStore(clientKeyStore);
+        this.config.setTrustKeyStore(trustStore);
+        this.config.setEndpoint(ENDPOINT_CERT_LIVE);
+
+        if (region != null) {
+            this.config.setCheckoutEndpoint(String.format(CHECKOUT_ENDPOINT_CERT_LIVE, region.name().toLowerCase()));
+        } else {
+            // default to EU if not provided
+            this.config.setCheckoutEndpoint(String.format(CHECKOUT_ENDPOINT_CERT_LIVE, Region.EU.name().toLowerCase()));
+        }
+    }
+
     public Client(String username, String password, Environment environment, String liveEndpointUrlPrefix, String applicationName) {
         this.config = new Config();
         this.config.setUsername(username);
@@ -88,7 +116,7 @@ public class Client {
     /**
      * @param username your merchant account Username
      * @param password your merchant accont Password
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @param connectionTimeoutMillis Provide the time to time out
      * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
      * com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
@@ -102,7 +130,7 @@ public class Client {
     /**
      * @param username your merchant account Username
      * @param password your merchant accont Password
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @param connectionTimeoutMillis Provide the time to time out
      * @param liveEndpointUrlPrefix provide the merchant specific url
      * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
@@ -126,7 +154,7 @@ public class Client {
 
     /**
      * @param apiKey Defines the api key that can be retrieved by back office
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @param connectionTimeoutMillis Provide the time to time out
      * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
      * com.adyen.Config#setConnectionTimeoutMillis(int connectionTimeoutMillis)}.
@@ -139,7 +167,7 @@ public class Client {
 
     /**
      * @param apiKey Defines the api key that can be retrieved by back office
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @param connectionTimeoutMillis Provide the time to time out
      * @param liveEndpointUrlPrefix provide the merchant specific url
      * @deprecated As of library version 1.6.1, timeouts should be set by {@link #setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis)} or directly by {@link
@@ -152,7 +180,7 @@ public class Client {
     }
 
     /**
-     * @param environment This defines the payment enviroment live or test
+     * @param environment This defines the payment environment live or test
      * @deprecated As of library version 1.5.4, replaced by {@link #setEnvironment(Environment environment, String liveEndpointUrlPrefix)}.
      */
     @Deprecated
@@ -161,7 +189,7 @@ public class Client {
     }
 
     /**
-     * @param environment           This defines the payment enviroment live or test
+     * @param environment           This defines the payment environment live or test
      * @param liveEndpointUrlPrefix Provide the unique live url prefix from the "API URLs and Response" menu in the Adyen Customer Area
      */
     public void setEnvironment(Environment environment, String liveEndpointUrlPrefix) {

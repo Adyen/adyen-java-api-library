@@ -62,7 +62,7 @@ public class CheckoutTest extends BaseTest {
         when(client.getConfig()).thenReturn(config);
         when(config.getCheckoutEndpoint()).thenReturn("checkout");
         when(client.getHttpClient()).thenReturn(clientInterface);
-        when(clientInterface.request(anyString(), anyString(), eq(config), anyBoolean(), nullable(RequestOptions.class))).thenReturn("{\"pspReference\": \"12345\"}");
+        when(clientInterface.request(anyString(), anyString(), eq(config), anyBoolean(), nullable(RequestOptions.class), any())).thenReturn("{\"pspReference\": \"12345\"}");
 
         ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
 
@@ -75,7 +75,7 @@ public class CheckoutTest extends BaseTest {
 
         assertNotNull(response);
         assertEquals("12345", response.getPspReference());
-        verify(clientInterface).request(anyString(), captor.capture(), any(Config.class), anyBoolean(), nullable(RequestOptions.class));
+        verify(clientInterface).request(anyString(), captor.capture(), any(Config.class), anyBoolean(), nullable(RequestOptions.class), any());
         //html escaped
         assertFalse(captor.getValue().contains("\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\",\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}"));
         //not html escaped
