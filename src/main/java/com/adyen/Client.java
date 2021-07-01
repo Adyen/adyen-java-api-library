@@ -225,7 +225,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        return this.httpClient == null ? new HttpURLConnectionClient() : this.httpClient;
+        return this.httpClient == null ? new AdyenHttpClient() : this.httpClient;
     }
 
     public void setHttpClient(ClientInterface httpClient) {
