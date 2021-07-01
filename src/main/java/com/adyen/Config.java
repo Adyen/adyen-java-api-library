@@ -24,7 +24,11 @@ import com.adyen.enums.Environment;
 import com.adyen.util.CertificateUtil;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 
@@ -60,6 +64,11 @@ public class Config {
     protected String posTerminalManagementApiEndpoint;
 
     protected String dataProtectionEndpoint;
+
+    // Client certificate authentication
+    protected KeyStore trustKeyStore;
+    protected KeyStore clientKeyStore;
+    protected String clientKeyStorePassword;
 
     public Config() {
         // do nothing
@@ -229,4 +238,36 @@ public class Config {
         this.dataProtectionEndpoint = dataProtectionEndpoint;
     }
 
+    public KeyStore getTrustKeyStore() {
+        return trustKeyStore;
+    }
+
+    public void setTrustKeyStore(KeyStore trustKeyStore) {
+        this.trustKeyStore = trustKeyStore;
+    }
+
+    public void setTrustKeyStore(String trustKeyStorePath, String keyStoreType, String password) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+        this.trustKeyStore = CertificateUtil.loadKeyStore(trustKeyStorePath, keyStoreType, password);
+    }
+
+    public KeyStore getClientKeyStore() {
+        return clientKeyStore;
+    }
+
+    public void setClientKeyStore(KeyStore clientKeyStore) {
+        this.clientKeyStore = clientKeyStore;
+    }
+
+    public void setClientKeyStore(String clientKeyStorePath, String keyStoreType, String clientKeyStorePassword) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+        this.clientKeyStorePassword = clientKeyStorePassword;
+        this.clientKeyStore = CertificateUtil.loadKeyStore(clientKeyStorePath, keyStoreType, clientKeyStorePassword);
+    }
+
+    public String getClientKeyStorePassword() {
+        return clientKeyStorePassword;
+    }
+
+    public void setClientKeyStorePassword(String clientKeyStorePassword) {
+        this.clientKeyStorePassword = clientKeyStorePassword;
+    }
 }
