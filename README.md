@@ -107,17 +107,17 @@ Checkout checkout = new Checkout(client);
 
  
 ### Proxy configuration
-You can configure a proxy connection by injecting your own HttpURLConnectionClient on your client instance.
+You can configure a proxy connection by injecting your own AdyenHttpClient on your client instance.
 
 Example:
 ~~~~ java
 ...
-HttpURLConnectionClient httpURLConnectionClientWithProxy = new HttpURLConnectionClient();
+AdyenHttpClient adyenHttpClientWithProxy = new AdyenHttpClient();
 
 Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("PROXY_HOST", PROXY_PORT));
-httpURLConnectionClientWithProxy.setProxy(proxy);
+adyenHttpClientWithProxy.setProxy(proxy);
 
-client.setHttpClient(httpURLConnectionClientWithProxy);
+client.setHttpClient(adyenHttpClientWithProxy);
 ~~~~
 
 ### Example integrations
