@@ -21,8 +21,8 @@
 
 package com.adyen.model.checkout;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.adyen.util.MaskUtil;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -90,6 +90,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
     private String brand;
     @SerializedName("networkPaymentReference")
     private String networkPaymentReference;
+    @SerializedName("shopperNotificationReference")
+    private String shopperNotificationReference;
 
     @Override
     public String getType() {
@@ -427,6 +429,14 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         this.networkPaymentReference = networkPaymentReference;
     }
 
+    public String getShopperNotificationReference() {
+        return shopperNotificationReference;
+    }
+
+    public void setShopperNotificationReference(String shopperNotificationReference) {
+        this.shopperNotificationReference = shopperNotificationReference;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -460,7 +470,8 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 && Objects.equals(separateDeliveryAddress, that.separateDeliveryAddress)
                 && Objects.equals(brand, that.brand)
                 && Objects.equals(networkPaymentReference, that.networkPaymentReference)
-                && Objects.equals(securityCode, that.securityCode);
+                && Objects.equals(securityCode, that.securityCode)
+                && Objects.equals(shopperNotificationReference, that.shopperNotificationReference);
     }
 
     @Override
@@ -468,7 +479,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
         return Objects.hash(type, number, expiryMonth, expiryYear, holderName, cvc, installmentConfigurationKey,
                 personalDetails, encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode,
                 recurringDetailReference, storedPaymentMethodId, storeDetails, idealIssuer, issuer, sepaOwnerName,
-                sepaIbanNumber, applepayToken, googlepayToken, separateDeliveryAddress, brand, networkPaymentReference, securityCode);
+                sepaIbanNumber, applepayToken, googlepayToken, separateDeliveryAddress, brand, networkPaymentReference, securityCode, shopperNotificationReference);
     }
 
     @Override
@@ -499,6 +510,7 @@ public class DefaultPaymentMethodDetails implements PaymentMethodDetails {
                 ", securityCode='" + MaskUtil.mask(securityCode) + '\'' +
                 ", brand='" + brand + '\'' +
                 ", networkPaymentReference='" + networkPaymentReference + '\'' +
+                ", shopperNotificationReference='" + shopperNotificationReference + '\'' +
                 '}';
     }
 }
