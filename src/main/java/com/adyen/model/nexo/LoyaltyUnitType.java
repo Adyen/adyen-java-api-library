@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -29,12 +31,14 @@ public enum LoyaltyUnitType {
      * The amount is expressed in point.
      */
     @XmlEnumValue("Point")
+    @Schema(description = "The amount is expressed in point.")
     POINT("Point"),
 
     /**
      * The amount is expressed in a monetary value in a currency.
      */
     @XmlEnumValue("Monetary")
+    @Schema(description = "The amount is expressed in a monetary value in a currency.")
     MONETARY("Monetary");
     private final String value;
 

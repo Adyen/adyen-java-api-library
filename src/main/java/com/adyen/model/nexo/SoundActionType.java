@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -30,18 +32,21 @@ public enum SoundActionType {
      * Start the sound as specified in the messageType.
      */
     @XmlEnumValue("StartSound")
+    @Schema(description = "Start the sound as specified in the message.")
     START_SOUND("StartSound"),
 
     /**
      * Stop the sound in progress.
      */
     @XmlEnumValue("StopSound")
+    @Schema(description = "Stop the sound in progress.")
     STOP_SOUND("StopSound"),
 
     /**
      * Set the default volume of sounds.
      */
     @XmlEnumValue("SetDefaultVolume")
+    @Schema(description = "Set the default volume of sounds.")
     SET_DEFAULT_VOLUME("SetDefaultVolume");
     private final String value;
 

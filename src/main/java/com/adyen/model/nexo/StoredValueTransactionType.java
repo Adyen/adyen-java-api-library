@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -33,36 +35,42 @@ public enum StoredValueTransactionType {
      * Reserve the account (e.g. get an activation code)
      */
     @XmlEnumValue("Reserve")
+    @Schema(description = "Reserve the account (e.g. get an activation code)")
     RESERVE("Reserve"),
 
     /**
      * Activate the account or the card
      */
     @XmlEnumValue("Activate")
+    @Schema(description = "Activate the account or the card")
     ACTIVATE("Activate"),
 
     /**
      * Load the account or the card with money
      */
     @XmlEnumValue("Load")
+    @Schema(description = "Load the account or the card with money")
     LOAD("Load"),
 
     /**
      * Unload the account
      */
     @XmlEnumValue("Unload")
+    @Schema(description = "Unload the account")
     UNLOAD("Unload"),
 
     /**
      * Reverse an activation or loading.
      */
     @XmlEnumValue("Reverse")
+    @Schema(description = "Reverse an activation or loading.")
     REVERSE("Reverse"),
 
     /**
      * Duplicate the code or number provided by the loading or activation
      */
     @XmlEnumValue("Duplicate")
+    @Schema(description = "Duplicate the code or number provided by the loading or activation")
     DUPLICATE("Duplicate");
     private final String value;
 

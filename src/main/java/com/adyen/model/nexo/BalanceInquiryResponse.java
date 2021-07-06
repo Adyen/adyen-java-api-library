@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -39,16 +41,19 @@ public class BalanceInquiryResponse {
      * The Response.
      */
     @XmlElement(name = "Response", required = true)
+    @Schema(description = "Result of a message request processing.")
     protected Response response;
     /**
      * The Payment account status.
      */
     @XmlElement(name = "PaymentAccountStatus")
+    @Schema(description = "Data related to the result of a Balance Inquiry request. --Rule: If BalanceInquiryRequest. PaymentAccount present")
     protected PaymentAccountStatus paymentAccountStatus;
     /**
      * The Loyalty account status.
      */
     @XmlElement(name = "LoyaltyAccountStatus")
+    @Schema(description = "Data related to the result of a loyalty Balance Inquiry. --Rule: If BalanceInquiryRequest. LoyaltyData present")
     protected LoyaltyAccountStatus loyaltyAccountStatus;
 
     /**

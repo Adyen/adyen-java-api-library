@@ -1,8 +1,10 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -29,9 +31,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "OutputBarcode")
 public class OutputBarcode {
 
-    @XmlAttribute(name = "BarcodeValue", required = true)
+    @XmlElement(name = "BarcodeValue", required = true)
+    @Schema(description = "Value with a BarCode coding.")
     protected String barcodeValue;
-    @XmlAttribute(name = "BarcodeType")
+    @XmlElement(name = "BarcodeType")
+    @Schema(description = "Type of BarCode coding.")
     protected BarcodeType barcodeType;
 
     /**

@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -40,35 +41,38 @@ public class CashHandlingDevice {
      * The Coins or bills.
      */
     @XmlElement(name = "CoinsOrBills", required = true)
+    @Schema(description = "Number of coins or bills of a given value.")
     protected List<CoinsOrBills> coinsOrBills;
     /**
      * The Cash handling ok flag.
      */
-    @XmlAttribute(name = "CashHandlingOKFlag", required = true)
+    @XmlElement(name = "CashHandlingOKFlag", required = true)
+    @Schema(description = "Indicates if the cash handling device is working and usable.")
     protected boolean cashHandlingOKFlag;
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency", required = true)
+    @XmlElement(name = "Currency", required = true)
+    @Schema(description = "Currency of a monetary amount.")
     protected String currency;
 
     /**
      * Gets the value of the coinsOrBills property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the coinsOrBills property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCoinsOrBills().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CoinsOrBills }
      *

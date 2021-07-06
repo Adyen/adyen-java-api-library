@@ -1,8 +1,10 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -32,12 +34,14 @@ public class TransactionIdentification {
     /**
      * The Transaction id.
      */
-    @XmlAttribute(name = "TransactionID", required = true)
+    @XmlElement(name = "TransactionID", required = true)
+    @Schema(description = "Unique identification of a transaction")
     protected String transactionID;
     /**
      * The Time stamp.
      */
-    @XmlAttribute(name = "TimeStamp", required = true)
+    @XmlElement(name = "TimeStamp", required = true)
+    @Schema(description = "Date and time of a transaction for the Sale System, the POI System or the Acquirer.")
     protected XMLGregorianCalendar timeStamp;
 
     /**

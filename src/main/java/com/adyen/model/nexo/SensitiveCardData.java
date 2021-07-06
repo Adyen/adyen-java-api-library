@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -41,47 +42,51 @@ public class SensitiveCardData {
      * The Track data.
      */
     @XmlElement(name = "TrackData")
+    @Schema(description = "Magnetic track or magnetic ink characters line. --Rule: if EntryMode is MagStripe or RFID ")
     protected List<TrackData> trackData;
     /**
      * The Pan.
      */
-    @XmlAttribute(name = "PAN")
+    @XmlElement(name = "PAN")
+    @Schema(description = "Primary Account Number --Rule:  ", minLength = 8, maxLength = 28)
     protected String pan;
     /**
      * The Card seq numb.
      */
-    @XmlAttribute(name = "CardSeqNumb")
+    @XmlElement(name = "CardSeqNumb")
+    @Schema(description = "Card Sequence Number --Rule: if EntryMode is File, Keyed or Manual", minLength = 2, maxLength = 3)
     protected String cardSeqNumb;
     /**
      * The Expiry date.
      */
-    @XmlAttribute(name = "ExpiryDate")
+    @XmlElement(name = "ExpiryDate")
+    @Schema(description = "Date after which the card cannot be used. --Rule: if EntryMode is File", minLength = 4, maxLength = 4)
     protected String expiryDate;
 
     /**
      * Gets the value of the trackData property.
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the trackData property.
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTrackData().add(newItem);
      * </pre>
-     *
-     *
-     *
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TrackData }
      *

@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -37,11 +39,13 @@ public class CardAcquisitionRequest {
      * The Sale data.
      */
     @XmlElement(name = "SaleData", required = true)
+    @Schema(description = "Data related to the Sale System.")
     protected SaleData saleData;
     /**
      * The Card acquisition transaction.
      */
     @XmlElement(name = "CardAcquisitionTransaction", required = true)
+    @Schema(description = "Data related to the payment and loyalty card acquisition.")
     protected CardAcquisitionTransaction cardAcquisitionTransaction;
 
     /**

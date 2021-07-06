@@ -1,8 +1,10 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -31,12 +33,14 @@ public class HostStatus {
     /**
      * The Acquirer id.
      */
-    @XmlAttribute(name = "AcquirerID", required = true)
+    @XmlElement(name = "AcquirerID", required = true)
+    @Schema(description = "Identification of the Acquirer")
     protected String acquirerID;
     /**
      * The Is reachable flag.
      */
-    @XmlAttribute(name = "IsReachableFlag")
+    @XmlElement(name = "IsReachableFlag")
+    @Schema(description = "Indicate if a Host is reachable")
     protected Boolean isReachableFlag;
 
     /**

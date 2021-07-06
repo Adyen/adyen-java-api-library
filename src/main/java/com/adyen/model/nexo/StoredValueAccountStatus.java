@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -38,11 +39,13 @@ public class StoredValueAccountStatus {
      * The Stored value account id.
      */
     @XmlElement(name = "StoredValueAccountID", required = true)
+    @Schema(description = "Identification of the stored value account or the stored value card")
     protected StoredValueAccountID storedValueAccountID;
     /**
      * The Current balance.
      */
-    @XmlAttribute(name = "CurrentBalance")
+    @XmlElement(name = "CurrentBalance")
+    @Schema(description = "Balance of an account. --Rule: if relevant and known")
     protected BigDecimal currentBalance;
 
     /**

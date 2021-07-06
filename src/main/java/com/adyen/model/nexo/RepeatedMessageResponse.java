@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -36,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "RepeatedMessageResponse", propOrder = {
         "repeatedResponseMessageBody",
         "messageHeader"
-        })
+})
 public class RepeatedMessageResponse {
 
     /**
@@ -48,6 +50,7 @@ public class RepeatedMessageResponse {
      * The Message header.
      */
     @XmlElement(name = "MessageHeader", required = true)
+    @Schema(description = "Message header of the Sale to POI protocol message.")
     protected MessageHeader messageHeader;
 
     /**

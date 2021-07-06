@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -45,36 +46,43 @@ public class EventNotification {
      * The Event details.
      */
     @XmlElement(name = "EventDetails")
+    @Schema(description = "Information about the event the POI notifies to the Sale System. --Rule: EventToNotify")
     protected String eventDetails;
     /**
      * The Rejected message.
      */
     @XmlElement(name = "RejectedMessage")
+    @Schema(description = "Message request rejected by the receiver. --Rule: Mandatory if EventToNotify is \"Reject\", absent in other cases")
     protected byte[] rejectedMessage;
     /**
      * The Display output.
      */
     @XmlElement(name = "DisplayOutput")
+    @Schema(description = "Information to display and the way to process the display. --Rule: To display an event message")
     protected DisplayOutput displayOutput;
     /**
      * The Time stamp.
      */
-    @XmlAttribute(name = "TimeStamp", required = true)
+    @XmlElement(name = "TimeStamp", required = true)
+    @Schema(description = "Date and time of a transaction for the Sale System, the POI System or the Acquirer.")
     protected XMLGregorianCalendar timeStamp;
     /**
      * The Event to notify.
      */
-    @XmlAttribute(name = "EventToNotify", required = true)
+    @XmlElement(name = "EventToNotify", required = true)
+    @Schema(description = "Event the POI notifies to the Sale System.")
     protected EventToNotifyType eventToNotify;
     /**
      * The Maintenance required flag.
      */
-    @XmlAttribute(name = "MaintenanceRequiredFlag")
+    @XmlElement(name = "MaintenanceRequiredFlag")
+    @Schema(description = "Indicates if the occurred event requires maintenance call or action.")
     protected Boolean maintenanceRequiredFlag;
     /**
      * The Customer language.
      */
-    @XmlAttribute(name = "CustomerLanguage")
+    @XmlElement(name = "CustomerLanguage")
+    @Schema(description = "Language of the Customer --Rule: EventToNotify")
     protected String customerLanguage;
 
     /**

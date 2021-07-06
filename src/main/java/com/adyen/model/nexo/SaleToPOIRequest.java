@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -98,141 +100,169 @@ public class SaleToPOIRequest {
      * The Abort request.
      */
     @XmlElement(name = "AbortRequest")
+    @Schema(description = "Body of the Abort Request message.")
     protected AbortRequest abortRequest;
     /**
      * The Balance inquiry request.
      */
     @XmlElement(name = "BalanceInquiryRequest")
+    @Schema(description = "Content of the Balance Inquiry Request message.")
     protected BalanceInquiryRequest balanceInquiryRequest;
     /**
      * The Batch request.
      */
     @XmlElement(name = "BatchRequest")
+    @Schema(description = "Content of the Batch Request message.")
     protected BatchRequest batchRequest;
     /**
      * The Card acquisition request.
      */
     @XmlElement(name = "CardAcquisitionRequest")
+    @Schema(description = "Content of the Card Acquisition Request message.")
     protected CardAcquisitionRequest cardAcquisitionRequest;
     /**
      * The Admin request.
      */
     @XmlElement(name = "AdminRequest")
+    @Schema(description = "Content of the Custom Admin Request message.")
     protected AdminRequest adminRequest;
     /**
      * The Diagnosis request.
      */
     @XmlElement(name = "DiagnosisRequest")
+    @Schema(description = "Content of the Diagnosis Request message.")
     protected DiagnosisRequest diagnosisRequest;
     /**
      * The Display request.
      */
     @XmlElement(name = "DisplayRequest")
+    @Schema(description = "Content of the Display Request message.")
     protected DisplayRequest displayRequest;
     /**
      * The Enable service request.
      */
     @XmlElement(name = "EnableServiceRequest")
+    @Schema(description = "Content of the Enable Service Request message.")
     protected EnableServiceRequest enableServiceRequest;
     /**
      * The Event notification.
      */
     @XmlElement(name = "EventNotification")
+    @Schema(description = "Content of the EventNotification message.")
     protected EventNotification eventNotification;
     /**
      * The Get totals request.
      */
     @XmlElement(name = "GetTotalsRequest")
+    @Schema(description = "Content of the Get Totals Request message.")
     protected GetTotalsRequest getTotalsRequest;
     /**
      * The Input request.
      */
     @XmlElement(name = "InputRequest")
+    @Schema(description = "Content of the Input Request message.")
     protected InputRequest inputRequest;
     /**
      * The Input update.
      */
     @XmlElement(name = "InputUpdate")
+    @Schema(description = "Content of the Input Update message.")
     protected InputUpdate inputUpdate;
     /**
      * The Login request.
      */
     @XmlElement(name = "LoginRequest")
+    @Schema(description = "Content of the Login Request message.")
     protected LoginRequest loginRequest;
     /**
      * The Logout request.
      */
     @XmlElement(name = "LogoutRequest")
+    @Schema(description = "Content of the Logout Request message.")
     protected LogoutRequest logoutRequest;
     /**
      * The Loyalty request.
      */
     @XmlElement(name = "LoyaltyRequest")
+    @Schema(description = "Content of the Loyalty Request message.")
     protected LoyaltyRequest loyaltyRequest;
     /**
      * The Payment request.
      */
     @XmlElement(name = "PaymentRequest")
+    @Schema(description = "Content of the Payment Request message.")
     protected PaymentRequest paymentRequest;
     /**
      * The Pin request.
      */
     @XmlElement(name = "PINRequest")
+    @Schema(description = "Content of the PIN Request message.")
     protected PINRequest pinRequest;
     /**
      * The Print request.
      */
     @XmlElement(name = "PrintRequest")
+    @Schema(description = "Content of the Print Request message.")
     protected PrintRequest printRequest;
     /**
      * The Card reader init request.
      */
     @XmlElement(name = "CardReaderInitRequest")
+    @Schema(description = "Content of the Card Reader Init Request message.")
     protected CardReaderInitRequest cardReaderInitRequest;
     /**
      * The Card reader apdu request.
      */
     @XmlElement(name = "CardReaderAPDURequest")
+    @Schema(description = "Content of the Card Reader APDU Request message.")
     protected CardReaderAPDURequest cardReaderAPDURequest;
     /**
      * The Card reader power off request.
      */
     @XmlElement(name = "CardReaderPowerOffRequest")
+    @Schema(description = "Content of the Card Reader Power-Off Request message.")
     protected CardReaderPowerOffRequest cardReaderPowerOffRequest;
     /**
      * The Reconciliation request.
      */
     @XmlElement(name = "ReconciliationRequest")
+    @Schema(description = "Content of the Reconciliation Request message.")
     protected ReconciliationRequest reconciliationRequest;
     /**
      * The Reversal request.
      */
     @XmlElement(name = "ReversalRequest")
+    @Schema(description = "Content of the Reversal Request message.")
     protected ReversalRequest reversalRequest;
     /**
      * The Sound request.
      */
     @XmlElement(name = "SoundRequest")
+    @Schema(description = "Content of the Sound Request message.")
     protected SoundRequest soundRequest;
     /**
      * The Stored value request.
      */
     @XmlElement(name = "StoredValueRequest")
+    @Schema(description = "Content of the Stored Value Request message.")
     protected StoredValueRequest storedValueRequest;
     /**
      * The Transaction status request.
      */
     @XmlElement(name = "TransactionStatusRequest")
+    @Schema(description = "Content of the TransactionStatus Request message.")
     protected TransactionStatusRequest transactionStatusRequest;
     /**
      * The Transmit request.
      */
     @XmlElement(name = "TransmitRequest")
+    @Schema(description = "Content of the Transmit Request message.")
     protected TransmitRequest transmitRequest;
     /**
      * The Security trailer.
      */
     @XmlElement(name = "SecurityTrailer")
+    @Schema(description = "Protection of the whole message")
     protected ContentInformation securityTrailer;
 
     /**

@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -37,24 +39,28 @@ public enum IdentificationType {
      * ISO Track 2 including identification.
      */
     @XmlEnumValue("ISOTrack2")
+    @Schema(description = "ISO Track 2 including identification.")
     ISO_TRACK_2("ISOTrack2"),
 
     /**
      * Bar-code with a specific form of identification
      */
     @XmlEnumValue("BarCode")
+    @Schema(description = "Bar-code with a specific form of identification")
     BAR_CODE("BarCode"),
 
     /**
      * Account number
      */
     @XmlEnumValue("AccountNumber")
+    @Schema(description = "Account number")
     ACCOUNT_NUMBER("AccountNumber"),
 
     /**
      * A phone number identifies the account on which the phone card is assigned.
      */
     @XmlEnumValue("PhoneNumber")
+    @Schema(description = "A phone number identifies the account on which the phone card is assigned.")
     PHONE_NUMBER("PhoneNumber");
     private final String value;
 

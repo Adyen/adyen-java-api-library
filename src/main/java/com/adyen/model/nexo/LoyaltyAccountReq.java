@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -37,11 +39,13 @@ public class LoyaltyAccountReq {
      * The Card acquisition reference.
      */
     @XmlElement(name = "CardAcquisitionReference")
+    @Schema(description = "Reference to the last CardAcquisition, to use the same card. --Rule: If the loyalty account ID comes from a previous CardAcquisition")
     protected TransactionIdentification cardAcquisitionReference;
     /**
      * The Loyalty account id.
      */
     @XmlElement(name = "LoyaltyAccountID")
+    @Schema(description = "Identification of a Loyalty account. --Rule: If loyalty identification of the loyalty account is realised by the Sale System")
     protected LoyaltyAccountID loyaltyAccountID;
 
     /**

@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -30,18 +32,21 @@ public enum SoundFormatType {
      * Preloaded sound File.
      */
     @XmlEnumValue("SoundRef")
+    @Schema(description = "Preloaded sound File.")
     SOUND_REF("SoundRef"),
 
     /**
      * Reference of a preloaded text to play.
      */
     @XmlEnumValue("MessageRef")
+    @Schema(description = "Reference of a preloaded text to play.")
     MESSAGE_REF("MessageRef"),
 
     /**
      * Text to play.
      */
     @XmlEnumValue("Text")
+    @Schema(description = "Text to play.")
     TEXT("Text");
     private final String value;
 

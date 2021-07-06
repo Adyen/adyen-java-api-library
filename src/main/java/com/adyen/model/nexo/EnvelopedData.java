@@ -2,7 +2,6 @@ package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
@@ -57,26 +56,26 @@ public class EnvelopedData {
     /**
      * The Version.
      */
-    @XmlAttribute(name = "Version")
+    @XmlElement(name = "Version")
     protected VersionType version;
 
     /**
      * Gets the value of the keyTransportOrKEK property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the keyTransportOrKEK property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getKeyTransportOrKEK().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link KeyTransport }
      * {@link KEK }

@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -39,16 +40,19 @@ public class PaymentAccountReq {
      * The Card acquisition reference.
      */
     @XmlElement(name = "CardAcquisitionReference")
+    @Schema(description = "Reference to the last CardAcquisition, to use the same card. --Rule: if the card data comes from a previous CardAcquisition")
     protected TransactionIdentification cardAcquisitionReference;
     /**
      * The Payment instrument data.
      */
     @XmlElement(name = "PaymentInstrumentData")
+    @Schema(description = "Data related to the instrument of payment for the transaction.")
     protected PaymentInstrumentData paymentInstrumentData;
     /**
      * The Account.
      */
-    @XmlAttribute(name = "AccountType")
+    @XmlElement(name = "AccountType")
+    @Schema(description = "Type of cardholder account used for the transaction")
     protected AccountType accountType;
 
     /**

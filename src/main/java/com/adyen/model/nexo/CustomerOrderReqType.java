@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -30,18 +32,21 @@ public enum CustomerOrderReqType {
      * Customer order not completed.
      */
     @XmlEnumValue("Open")
+    @Schema(description = "Customer order not completed.")
     OPEN("Open"),
 
     /**
      * Completed customer orders.
      */
     @XmlEnumValue("Closed")
+    @Schema(description = "Completed customer orders.")
     CLOSED("Closed"),
 
     /**
      * All type of CustomerOrder should be listed
      */
     @XmlEnumValue("Both")
+    @Schema(description = "All type of CustomerOrder should be listed")
     BOTH("Both");
     private final String value;
 

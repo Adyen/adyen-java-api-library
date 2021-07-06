@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -46,46 +47,55 @@ public class CustomerOrder {
      * The Additional information.
      */
     @XmlElement(name = "AdditionalInformation")
+    @Schema(description = "Unqualified information. --Rule: If order process in progress.")
     protected String additionalInformation;
     /**
      * The Customer order id.
      */
-    @XmlAttribute(name = "CustomerOrderID", required = true)
+    @XmlElement(name = "CustomerOrderID", required = true)
+    @Schema(description = "Identification of a customer order.")
     protected String customerOrderID;
     /**
      * The Open order state.
      */
-    @XmlAttribute(name = "OpenOrderState")
+    @XmlElement(name = "OpenOrderState")
+    @Schema(description = "State of a customer order.")
     protected Boolean openOrderState;
     /**
      * The Start date.
      */
-    @XmlAttribute(name = "StartDate", required = true)
+    @XmlElement(name = "StartDate", required = true)
+    @Schema(description = "Date time of the beginning of an operation.")
     protected XMLGregorianCalendar startDate;
     /**
      * The End date.
      */
-    @XmlAttribute(name = "EndDate")
+    @XmlElement(name = "EndDate")
+    @Schema(description = "Date time of the end of an operation. --Rule: If ClosedOrderFlag = \"True\".")
     protected XMLGregorianCalendar endDate;
     /**
      * The Forecasted amount.
      */
-    @XmlAttribute(name = "ForecastedAmount", required = true)
+    @XmlElement(name = "ForecastedAmount", required = true)
+    @Schema(description = "Amount of a transaction.")
     protected BigDecimal forecastedAmount;
     /**
      * The Current amount.
      */
-    @XmlAttribute(name = "CurrentAmount", required = true)
+    @XmlElement(name = "CurrentAmount", required = true)
+    @Schema(description = "Remaining amount to pay in a transaction.")
     protected BigDecimal currentAmount;
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency")
+    @XmlElement(name = "Currency")
+    @Schema(description = "Currency of a monetary amount.")
     protected String currency;
     /**
      * The Accessed by.
      */
-    @XmlAttribute(name = "AccessedBy")
+    @XmlElement(name = "AccessedBy")
+    @Schema(description = "Identification of an entity accessing data to perform an operation. --Rule: If multiple currencies are allowed.")
     protected String accessedBy;
 
     /**

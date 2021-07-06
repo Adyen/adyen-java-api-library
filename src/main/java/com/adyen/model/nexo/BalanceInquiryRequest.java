@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -37,11 +39,13 @@ public class BalanceInquiryRequest {
      * The Payment account req.
      */
     @XmlElement(name = "PaymentAccountReq")
+    @Schema(description = "Data related to the account pointed by the payment card")
     protected PaymentAccountReq paymentAccountReq;
     /**
      * The Loyalty account req.
      */
     @XmlElement(name = "LoyaltyAccountReq")
+    @Schema(description = "Data related to a requested Loyalty program or account.")
     protected LoyaltyAccountReq loyaltyAccountReq;
 
     /**

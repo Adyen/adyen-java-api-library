@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -37,24 +39,28 @@ public enum PrinterStatusType {
      * The printer is operational but paper roll is almost empty.
      */
     @XmlEnumValue("PaperLow")
+    @Schema(description = "The printer is operational but paper roll is almost empty.")
     PAPER_LOW("PaperLow"),
 
     /**
      * Paper roll is empty, an operator must insert a new paper roll.
      */
     @XmlEnumValue("NoPaper")
+    @Schema(description = "Paper roll is empty, an operator must insert a new paper roll.")
     NO_PAPER("NoPaper"),
 
     /**
      * An operator must remove the paper jam manually.
      */
     @XmlEnumValue("PaperJam")
+    @Schema(description = "An operator must remove the paper jam manually.")
     PAPER_JAM("PaperJam"),
 
     /**
      * The printer is out of order.
      */
     @XmlEnumValue("OutOfOrder")
+    @Schema(description = "The printer is out of order.")
     OUT_OF_ORDER("OutOfOrder");
     private final String value;
 

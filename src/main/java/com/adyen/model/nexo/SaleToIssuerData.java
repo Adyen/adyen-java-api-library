@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -35,6 +37,7 @@ public class SaleToIssuerData {
      * The Statement reference.
      */
     @XmlElement(name = "StatementReference")
+    @Schema(description = "Label to print on the bank statement. --Rule: Information to print on the bank statement")
     protected String statementReference;
 
     /**

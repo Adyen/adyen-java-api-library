@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -39,16 +41,19 @@ public class UTMCoordinates {
      * The Utm zone.
      */
     @XmlElement(name = "UTMZone", required = true)
+    @Schema(description = "UTM grid zone combination of the longitude zone (1 to 60) and the latitude band (C to X, excluding I and O).")
     protected String utmZone;
     /**
      * The Utm eastward.
      */
     @XmlElement(name = "UTMEastward", required = true)
+    @Schema(description = "X-coordinate of the Universal Transverse Mercator coordinate system.")
     protected String utmEastward;
     /**
      * The Utm northward.
      */
     @XmlElement(name = "UTMNorthward", required = true)
+    @Schema(description = "Y-coordinate of the Universal Transverse Mercator coordinate system.")
     protected String utmNorthward;
 
     /**

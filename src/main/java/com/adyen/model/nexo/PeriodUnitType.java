@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -31,24 +33,28 @@ public enum PeriodUnitType {
      * The day is the unit of the period.
      */
     @XmlEnumValue("Daily")
+    @Schema(description = "The day is the unit of the period.")
     DAILY("Daily"),
 
     /**
      * The week is the unit of the period.
      */
     @XmlEnumValue("Weekly")
+    @Schema(description = "The week is the unit of the period.")
     WEEKLY("Weekly"),
 
     /**
      * The month is the unit of the period.
      */
     @XmlEnumValue("Monthly")
+    @Schema(description = "The month is the unit of the period.")
     MONTHLY("Monthly"),
 
     /**
      * The year is the unit of the period.
      */
     @XmlEnumValue("Annual")
+    @Schema(description = "The year is the unit of the period.")
     ANNUAL("Annual");
     private final String value;
 

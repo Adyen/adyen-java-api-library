@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -31,24 +33,28 @@ public enum ReconciliationType {
      * Reconciliation with closure of the current period, without any Acquirers synchronisation.
      */
     @XmlEnumValue("SaleReconciliation")
+    @Schema(description = "Reconciliation with closure of the current period, without any Acquirers synchronisation.")
     SALE_RECONCILIATION("SaleReconciliation"),
 
     /**
      * Reconciliation and closure of the current period, with synchronisation of the reconciliation between the POI and Acquirers.
      */
     @XmlEnumValue("AcquirerSynchronisation")
+    @Schema(description = "Reconciliation and closure of the current period, with synchronisation of the reconciliation between the POI and Acquirers.")
     ACQUIRER_SYNCHRONISATION("AcquirerSynchronisation"),
 
     /**
      * Reconciliation between the POI and one or several Acquirers only. There is no reconciliation between the Sale System and the POI System.
      */
     @XmlEnumValue("AcquirerReconciliation")
+    @Schema(description = "Reconciliation between the POI and one or several Acquirers only. There is no reconciliation between the Sale System and the POI System.")
     ACQUIRER_RECONCILIATION("AcquirerReconciliation"),
 
     /**
      * Request result of a previous reconciliation.
      */
     @XmlEnumValue("PreviousReconciliation")
+    @Schema(description = "Request result of a previous reconciliation.")
     PREVIOUS_RECONCILIATION("PreviousReconciliation");
     private final String value;
 

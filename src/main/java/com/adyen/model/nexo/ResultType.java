@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -30,18 +32,21 @@ public enum ResultType {
      * Processing OK. Information related to the result of the processing is contained in other parts of the response messageType.
      */
     @XmlEnumValue("Success")
+    @Schema(description = "Processing OK. Information related to the result of the processing is contained in other parts of the response message.")
     SUCCESS("Success"),
 
     /**
      * ErrorCondition
      */
     @XmlEnumValue("Failure")
+    @Schema(description = "ErrorCondition")
     FAILURE("Failure"),
 
     /**
      * The transaction has been processed successfully, but the success is not complete (e.g. only a partial amount is available for the payment, the format to be
      */
     @XmlEnumValue("Partial")
+    @Schema(description = "The transaction has been processed successfully, but the success is not complete (e.g. only a partial amount is available for the payment, the format to be")
     PARTIAL("Partial");
     private final String value;
 

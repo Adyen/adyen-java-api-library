@@ -1,8 +1,10 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -30,13 +32,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "SoundContent")
 public class SoundContent {
 
-    @XmlAttribute(name = "SoundFormat")
+    @XmlElement(name = "SoundFormat")
+    @Schema(description = "Type of sound to play.")
     protected SoundFormatType soundFormat;
-    @XmlAttribute(name = "Language")
+    @XmlElement(name = "Language")
+    @Schema(description = "Identification of a language.")
     protected String language;
-    @XmlAttribute(name = "ReferenceID")
+
+    @XmlElement(name = "ReferenceID")
+    @Schema(description = "Identification of a predefined message to display, print or play. --Rule: Mandatory if SoundFormat is SoundRef or MessageRef.")
     protected String referenceID;
-    @XmlAttribute(name = "Text")
+    @XmlElement(name = "Text")
+    @Schema(description = "Content of text message to display, print or play.")
     protected String text;
 
     /**

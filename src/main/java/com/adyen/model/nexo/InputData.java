@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigInteger;
@@ -57,101 +58,121 @@ public class InputData {
      * The Default input string.
      */
     @XmlElement(name = "DefaultInputString")
+    @Schema(description = "Default string value for an input command. --Rule: Not allowed if InputCommand is not TextString, DigitString or DecimalString")
     protected String defaultInputString;
     /**
      * The String mask.
      */
     @XmlElement(name = "StringMask")
+    @Schema(description = "String mask to get information requiring a specific format. --Rule: Not allowed if InputCommand is not TextString, DigitString or DecimalString")
     protected String stringMask;
     /**
      * The Device.
      */
-    @XmlAttribute(name = "Device", required = true)
+    @XmlElement(name = "Device", required = true)
+    @Schema(description = "Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print --Rule: CashierInput , CustomerInput, CustomerAssistance")
     protected DeviceType device;
     /**
      * The Info qualify.
      */
-    @XmlAttribute(name = "InfoQualify", required = true)
+    @XmlElement(name = "InfoQualify", required = true)
+    @Schema(description = "Qualification of the information to sent to an output logical device, to display or print to the Cashier or the --Rule: Input, CustomerAssistance")
     protected InfoQualifyType infoQualify;
     /**
      * The Input command.
      */
-    @XmlAttribute(name = "InputCommand", required = true)
+    @XmlElement(name = "InputCommand", required = true)
+    @Schema(description = "Type of requested input")
     protected InputCommandType inputCommand;
     /**
      * The Notify card input flag.
      */
-    @XmlAttribute(name = "NotifyCardInputFlag")
+    @XmlElement(name = "NotifyCardInputFlag")
+    @Schema(description = "Request Notification of card entered in the POI card reader.")
     protected Boolean notifyCardInputFlag;
     /**
      * The Max input time.
      */
-    @XmlAttribute(name = "MaxInputTime")
+    @XmlElement(name = "MaxInputTime")
+    @Schema(description = "Maximum input time in seconds --Rule: If time limit for responding")
     protected BigInteger maxInputTime;
     /**
      * The Immediate response flag.
      */
-    @XmlAttribute(name = "ImmediateResponseFlag")
+    @XmlElement(name = "ImmediateResponseFlag")
+    @Schema(description = "Request Immediate response to the message without waiting for the completion of the command. --Rule: Optional if InputCommand is \"GetAnyKey\".")
     protected Boolean immediateResponseFlag;
     /**
      * The Min length.
      */
-    @XmlAttribute(name = "MinLength")
+    @XmlElement(name = "MinLength")
+    @Schema(description = "Minimum input length --Rule: Not allowed if InputCommand is not TextString or DigitString")
     protected BigInteger minLength;
     /**
      * The Max length.
      */
-    @XmlAttribute(name = "MaxLength")
+    @XmlElement(name = "MaxLength")
+    @Schema(description = "Maximum input length --Rule: Not allowed if InputCommand is not TextString or DigitString")
     protected BigInteger maxLength;
     /**
      * The Max decimal length.
      */
-    @XmlAttribute(name = "MaxDecimalLength")
+    @XmlElement(name = "MaxDecimalLength")
+    @Schema(description = "Maximum input length of the decimal part (without decimal point) --Rule: Not allowed if InputCommand is not DecimalString Greater than MinLength, lower than MaxLength.")
     protected BigInteger maxDecimalLength;
     /**
      * The Wait user validation flag.
      */
-    @XmlAttribute(name = "WaitUserValidationFlag")
+    @XmlElement(name = "WaitUserValidationFlag")
+    @Schema(description = "Indicates that the user must confirm the entered characters, when the maximum allowed length is reached. --Rule: Optional if MaxLength or MaxDecimalLength present ")
     protected Boolean waitUserValidationFlag;
     /**
      * The From right to left flag.
      */
-    @XmlAttribute(name = "FromRightToLeftFlag")
+    @XmlElement(name = "FromRightToLeftFlag")
+    @Schema(description = "Indicate if the entered character has to be displayed from the right to the left of the display field. --Rule: Not allowed if InputCommand is not TextString, DigitString or DecimalString")
     protected Boolean fromRightToLeftFlag;
     /**
      * The Mask characters flag.
      */
-    @XmlAttribute(name = "MaskCharactersFlag")
+    @XmlElement(name = "MaskCharactersFlag")
+    @Schema(description = "Indicates to mask the characters entered by the user (i.e. replacing in the display of the input, the entered character --Rule: Not allowed if InputCommand is not TextString, DigitString or Password")
     protected Boolean maskCharactersFlag;
     /**
      * The Beep key flag.
      */
-    @XmlAttribute(name = "BeepKeyFlag")
+    @XmlElement(name = "BeepKeyFlag")
+    @Schema(description = "Indicates, when the user press a key, if a beep has to be generated (value True).")
     protected Boolean beepKeyFlag;
     /**
      * The Global correction flag.
      */
-    @XmlAttribute(name = "GlobalCorrectionFlag")
+    @XmlElement(name = "GlobalCorrectionFlag")
+    @Schema(description = "Indicates, when the user press the Correct function key in an input entry, if all the entered characters are removed --Rule: Not allowed if InputCommand is not TextString, DigitString, Password or DecimalString")
     protected Boolean globalCorrectionFlag;
     /**
      * The Disable cancel flag.
      */
-    @XmlAttribute(name = "DisableCancelFlag")
+    @XmlElement(name = "DisableCancelFlag")
+    @Schema(description = "Indicates if the Cancel function key has to be desactived (value True). --Rule: Not allowed if InputCommand is not GetConfirmation, SiteManager, or GetMenuEntry")
     protected Boolean disableCancelFlag;
     /**
      * The Disable correct flag.
      */
-    @XmlAttribute(name = "DisableCorrectFlag")
+    @XmlElement(name = "DisableCorrectFlag")
+    @Schema(description = "Indicates if the Correct function key has to be desactived (value True). --Rule: Not allowed if InputCommand is not GetConfirmation, SiteManager, or GetMenuEntry")
     protected Boolean disableCorrectFlag;
     /**
      * The Disable valid flag.
      */
-    @XmlAttribute(name = "DisableValidFlag")
+    @XmlElement(name = "DisableValidFlag")
+    @Schema(description = "Indicates if the Valid function key has to be desactived (value True). --Rule: Not allowed if InputCommand is not GetConfirmation, SiteManager, or GetMenuEntry")
     protected Boolean disableValidFlag;
     /**
      * The Menu back flag.
      */
-    @XmlAttribute(name = "MenuBackFlag")
+    @XmlElement(name = "MenuBackFlag")
+    @Schema(description = "If it has the value True, it indicates that the \"Back\" function key (respectively \"Home\" function key) may be used to --Rule: Allowed for the GetMenuEntry value of InputCommand.")
     protected Boolean menuBackFlag;
 
     /**

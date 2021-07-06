@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -46,114 +48,133 @@ public enum UnitOfMeasureType {
      * Case or Carton
      */
     @XmlEnumValue("Case")
+    @Schema(description = "Case or Carton")
     CASE("Case"),
 
     /**
      * Foot
      */
     @XmlEnumValue("Foot")
+    @Schema(description = "Foot")
     FOOT("Foot"),
 
     /**
      * Gallon (UK)
      */
     @XmlEnumValue("UKGallon")
+    @Schema(description = "Gallon (UK)")
     UK_GALLON("UKGallon"),
 
     /**
      * Gallon (US)
      */
     @XmlEnumValue("USGallon")
+    @Schema(description = "Gallon (US)")
     US_GALLON("USGallon"),
 
     /**
      * Gram
      */
     @XmlEnumValue("Gram")
+    @Schema(description = "Gram")
     GRAM("Gram"),
 
     /**
      * Inch
      */
     @XmlEnumValue("Inch")
+    @Schema(description = "Inch")
     INCH("Inch"),
 
     /**
      * Kilogram
      */
     @XmlEnumValue("Kilogram")
+    @Schema(description = "Kilogram")
     KILOGRAM("Kilogram"),
 
     /**
      * Pound
      */
     @XmlEnumValue("Pound")
+    @Schema(description = "Pound")
     POUND("Pound"),
 
     /**
      * Meter
      */
     @XmlEnumValue("Meter")
+    @Schema(description = "Meter")
     METER("Meter"),
 
     /**
      * Centimetre
      */
     @XmlEnumValue("Centimetre")
+    @Schema(description = "Centimetre")
     CENTIMETRE("Centimetre"),
 
     /**
      * Litre
      */
     @XmlEnumValue("Litre")
+    @Schema(description = "Litre")
     LITRE("Litre"),
 
     /**
      * Centilitre
      */
     @XmlEnumValue("Centilitre")
+    @Schema(description = "Centilitre")
     CENTILITRE("Centilitre"),
 
     /**
      * Ounce
      */
     @XmlEnumValue("Ounce")
+    @Schema(description = "Ounce")
     OUNCE("Ounce"),
 
     /**
      * Quart
      */
     @XmlEnumValue("Quart")
+    @Schema(description = "Quart")
     QUART("Quart"),
 
     /**
      * Pint
      */
     @XmlEnumValue("Pint")
+    @Schema(description = "Pint")
     PINT("Pint"),
 
     /**
      * Mile
      */
     @XmlEnumValue("Mile")
+    @Schema(description = "Mile")
     MILE("Mile"),
 
     /**
      * Kilometre
      */
     @XmlEnumValue("Kilometre")
+    @Schema(description = "Kilometre")
     KILOMETRE("Kilometre"),
 
     /**
      * Yard
      */
     @XmlEnumValue("Yard")
+    @Schema(description = "Yard")
     YARD("Yard"),
 
     /**
      * Other unit than the previous one
      */
     @XmlEnumValue("Other")
+    @Schema(description = "Other unit than the previous one")
     OTHER("Other");
     private final String value;
 

@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -37,24 +39,28 @@ public enum TotalDetailsType {
      * Give the totals result per SaleID value.
      */
     @XmlEnumValue("SaleID")
+    @Schema(description = "Give the totals result per SaleID value.")
     SALE_ID("SaleID"),
 
     /**
      * Give the totals result per OperatorID value.
      */
     @XmlEnumValue("OperatorID")
+    @Schema(description = "Give the totals result per OperatorID value.")
     OPERATOR_ID("OperatorID"),
 
     /**
      * Give the totals result per ShiftNumber value.
      */
     @XmlEnumValue("ShiftNumber")
+    @Schema(description = "Give the totals result per ShiftNumber value.")
     SHIFT_NUMBER("ShiftNumber"),
 
     /**
      * Give the totals result per TotalsGroupID value.
      */
     @XmlEnumValue("TotalsGroupID")
+    @Schema(description = "Give the totals result per TotalsGroupID value.")
     TOTALS_GROUP_ID("TotalsGroupID");
     private final String value;
 
