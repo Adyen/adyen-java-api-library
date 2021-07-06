@@ -21,6 +21,7 @@
 
 package com.adyen.model.management;
 
+import com.adyen.model.management.links.MerchantLinks;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
@@ -31,7 +32,7 @@ import static com.adyen.util.Util.toIndentedString;
 public class Merchant {
     @SerializedName("_links")
     @JsonProperty("_links")
-    private Links links = null;
+    private MerchantLinks links = null;
 
     @SerializedName("captureDelay")
     private String captureDelay = null;
@@ -57,7 +58,7 @@ public class Merchant {
     @SerializedName("status")
     private String status = null;
 
-    public Merchant links(Links links) {
+    public Merchant links(MerchantLinks links) {
         this.links = links;
         return this;
     }
@@ -66,11 +67,11 @@ public class Merchant {
      * Get links
      * @return links
      **/
-    public Links getLinks() {
+    public MerchantLinks getLinks() {
         return links;
     }
 
-    public void setLinks(Links links) {
+    public void setLinks(MerchantLinks links) {
         this.links = links;
     }
 

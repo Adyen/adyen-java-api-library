@@ -21,6 +21,7 @@
 
 package com.adyen.model.management;
 
+import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -72,7 +73,7 @@ public class GenerateHmacKeyResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class GenerateHmacKeyResponse {\n");
 
-        sb.append("    hmacKey: ").append(toIndentedString(hmacKey)).append("\n");
+        sb.append("    hmacKey: ").append(toIndentedString(MaskUtil.mask(hmacKey))).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -16,16 +16,16 @@
   "populateSoapActionHeader": "false",
   "_links": {
     "self": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F"
     },
     "company": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany"
     },
     "generateHmac": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac"
     },
     "testWebhook": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/test"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/test"
     }
   }
 }

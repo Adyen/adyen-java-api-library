@@ -18,7 +18,7 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.model.management;
+package com.adyen.model.management.links;
 
 import com.google.gson.annotations.SerializedName;
 

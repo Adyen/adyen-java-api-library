@@ -20,6 +20,7 @@
  */
 
 package com.adyen.model.management;
+import com.adyen.model.management.links.CompanyLinks;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import static com.adyen.util.Util.toIndentedString;
 public class Company {
     @SerializedName("_links")
     @JsonProperty("_links")
-    private Links links = null;
+    private CompanyLinks links = null;
 
     @SerializedName("dataCenters")
     private List<DataCenter> dataCenters = null;
@@ -44,7 +45,7 @@ public class Company {
     @SerializedName("status")
     private String status = null;
 
-    public Company links(Links links) {
+    public Company links(CompanyLinks links) {
         this.links = links;
         return this;
     }
@@ -53,11 +54,11 @@ public class Company {
      * Get links
      * @return links
      **/
-    public Links getLinks() {
+    public CompanyLinks getLinks() {
         return links;
     }
 
-    public void setLinks(Links links) {
+    public void setLinks(CompanyLinks links) {
         this.links = links;
     }
 

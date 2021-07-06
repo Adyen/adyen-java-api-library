@@ -20,6 +20,7 @@
  */
 package com.adyen.model.management;
 
+import com.adyen.model.management.links.Links;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 

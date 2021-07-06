@@ -28,11 +28,11 @@ public class CompaniesTest extends BaseTest {
         Companies companies = new Companies(client);
         ListCompanyResponse response = companies.list(new Options(1, 10));
         assertEquals(1, response.getData().size());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies?pageNumber=1&pageSize=10", response.getLinks().getFirst().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies?pageNumber=1&pageSize=10", response.getLinks().getLast().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies?pageNumber=1&pageSize=10", response.getLinks().getFirst().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies?pageNumber=1&pageSize=10", response.getLinks().getLast().getHref());
         assertEquals("TestCompany", response.getData().get(0).getId());
         assertEquals("Active", response.getData().get(0).getStatus());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany", response.getData().get(0).getLinks().getSelf().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany", response.getData().get(0).getLinks().getSelf().getHref());
         assertEquals("default", response.getData().get(0).getDataCenters().get(0).getName());
     }
 
@@ -44,9 +44,9 @@ public class CompaniesTest extends BaseTest {
         assertEquals("TestCompany", company.getId());
         assertEquals("Active", company.getStatus());
         assertEquals("default",  company.getDataCenters().get(0).getName());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany", company.getLinks().getSelf().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/users", company.getLinks().getUsers().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks", company.getLinks().getWebhooks().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany", company.getLinks().getSelf().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/users", company.getLinks().getUsers().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks", company.getLinks().getWebhooks().getHref());
     }
 
     @Test
@@ -54,13 +54,13 @@ public class CompaniesTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/management/companies/list-company-merchants-response.json");
         Companies companies = new Companies(client);
         ListMerchantResponse response = companies.listMerchants("TestCompany", new Options());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10",
                 response.getLinks().getFirst().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10",
                 response.getLinks().getLast().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10",
                 response.getLinks().getNext().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10",
                 response.getLinks().getSelf().getHref());
         assertEquals(new Integer(19), response.getItemsTotal());
         assertEquals(new Integer(2), response.getPagesTotal());
@@ -73,11 +73,11 @@ public class CompaniesTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/management/companies/list-companies-webhooks-response.json");
         Companies companies = new Companies(client);
         ListWebhooksResponse response = companies.listWebhooks("TestCompany", new Options());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
                 response.getLinks().getFirst().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
                 response.getLinks().getLast().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
                 response.getLinks().getSelf().getHref());
         assertEquals(new Integer(11), response.getItemsTotal());
         assertEquals(new Integer(1), response.getPagesTotal());
@@ -94,13 +94,13 @@ public class CompaniesTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/management/companies/retrieve-webhook-response.json");
         Companies companies = new Companies(client);
         Webhook webhook = companies.retrieveWebhook("TestCompany", "S2-504B3E24");
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24",
                 webhook.getLinks().getSelf().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany",
                 webhook.getLinks().getCompany().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac",
                 webhook.getLinks().getGenerateHmac().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24/test",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/test",
                 webhook.getLinks().getTestWebhook().getHref());
         assertEquals("S2-504B3E24", webhook.getId());
         assertEquals("standard", webhook.getType());
@@ -114,13 +114,13 @@ public class CompaniesTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/management/companies/create-webhook-response.json");
         Companies companies = new Companies(client);
         Webhook webhook = companies.createWebhook("TestCompany", new CreateCompanyWebhookRequest());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F",
                 webhook.getLinks().getSelf().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany",
                 webhook.getLinks().getCompany().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac",
                 webhook.getLinks().getGenerateHmac().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/test",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/test",
                 webhook.getLinks().getTestWebhook().getHref());
         assertEquals("S2-7125452F", webhook.getId());
         assertEquals("standard", webhook.getType());
@@ -134,13 +134,13 @@ public class CompaniesTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/management/companies/update-webhook-response.json");
         Companies companies = new Companies(client);
         Webhook webhook = companies.updateWebhook("TestCompany", "S2-7125452F", new UpdateCompanyWebhookRequest());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F",
                 webhook.getLinks().getSelf().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany",
                 webhook.getLinks().getCompany().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac",
                 webhook.getLinks().getGenerateHmac().getHref());
-        assertEquals("http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/test",
+        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/test",
                 webhook.getLinks().getTestWebhook().getHref());
         assertEquals("S2-7125452F", webhook.getId());
         assertEquals("standard", webhook.getType());

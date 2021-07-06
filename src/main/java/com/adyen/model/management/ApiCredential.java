@@ -21,6 +21,7 @@
 
 package com.adyen.model.management;
 
+import com.adyen.model.management.links.ApiCredentialLinks;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
@@ -37,7 +38,7 @@ import static com.adyen.util.Util.toIndentedString;
 public class ApiCredential {
     @SerializedName("_links")
     @JsonProperty("_links")
-    private Links links = null;
+    private ApiCredentialLinks links = null;
 
     @SerializedName("active")
     private Boolean active = null;
@@ -60,7 +61,7 @@ public class ApiCredential {
     @SerializedName("username")
     private String username = null;
 
-    public ApiCredential links(Links links) {
+    public ApiCredential links(ApiCredentialLinks links) {
         this.links = links;
         return this;
     }
@@ -70,11 +71,11 @@ public class ApiCredential {
      *
      * @return links
      **/
-    public Links getLinks() {
+    public ApiCredentialLinks getLinks() {
         return links;
     }
 
-    public void setLinks(Links links) {
+    public void setLinks(ApiCredentialLinks links) {
         this.links = links;
     }
 

@@ -1,16 +1,16 @@
 {
   "_links": {
     "first": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10"
     },
     "last": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10"
     },
     "next": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10"
     },
     "self": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10"
     }
   },
   "itemsTotal": 19,
@@ -21,16 +21,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/Invoice1Merchant"
+          "href": "https://management-test.adyen.com/v1/merchants/Invoice1Merchant"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/Invoice1Merchant/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/Invoice1Merchant/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/Invoice1Merchant/users"
+          "href": "https://management-test.adyen.com/v1/merchants/Invoice1Merchant/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/Invoice1Merchant/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/Invoice1Merchant/webhooks"
         }
       }
     },
@@ -39,16 +39,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchant"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchant"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchant/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchant/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchant/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchant/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchant/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchant/webhooks"
         }
       }
     },
@@ -57,16 +57,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantAuthenticationOnly"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantAuthenticationOnly"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantAuthenticationOnly/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantAuthenticationOnly/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantAuthenticationOnly/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantAuthenticationOnly/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantAuthenticationOnly/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantAuthenticationOnly/webhooks"
         }
       }
     },
@@ -75,16 +75,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantBulkSettlement"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantBulkSettlement"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantBulkSettlement/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantBulkSettlement/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantBulkSettlement/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantBulkSettlement/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantBulkSettlement/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantBulkSettlement/webhooks"
         }
       }
     },
@@ -93,16 +93,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantErrorRetry"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantErrorRetry"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantErrorRetry/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantErrorRetry/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantErrorRetry/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantErrorRetry/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantErrorRetry/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantErrorRetry/webhooks"
         }
       }
     },
@@ -111,16 +111,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantExt"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantExt"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantExt/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantExt/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantExt/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantExt/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantExt/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantExt/webhooks"
         }
       }
     },
@@ -129,16 +129,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS1"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantIS1"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS1/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantIS1/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS1/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantIS1/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS1/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantIS1/webhooks"
         }
       }
     },
@@ -147,16 +147,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS2"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantIS2"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS2/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantIS2/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS2/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantIS2/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantIS2/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantIS2/webhooks"
         }
       }
     },
@@ -165,16 +165,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantLoadExternalPayment"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantLoadExternalPayment"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantLoadExternalPayment/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantLoadExternalPayment/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantLoadExternalPayment/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantLoadExternalPayment/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantLoadExternalPayment/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantLoadExternalPayment/webhooks"
         }
       }
     },
@@ -183,16 +183,16 @@
       "status": "Active",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantNetworkTokenization"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantNetworkTokenization"
         },
         "apiCredentials": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantNetworkTokenization/apiCredentials"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantNetworkTokenization/apiCredentials"
         },
         "users": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantNetworkTokenization/users"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantNetworkTokenization/users"
         },
         "webhooks": {
-          "href": "http://localhost:8080/configurationapi/v1/merchants/TestMerchantNetworkTokenization/webhooks"
+          "href": "https://management-test.adyen.com/v1/merchants/TestMerchantNetworkTokenization/webhooks"
         }
       }
     }

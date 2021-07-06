@@ -21,6 +21,7 @@
 
 package com.adyen.model.management;
 
+import com.adyen.model.management.links.WebhookLinks;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
@@ -39,7 +40,7 @@ import static com.adyen.util.Util.toIndentedString;
 public class Webhook {
     @SerializedName("_links")
     @JsonProperty("_links")
-    private Links links = null;
+    private WebhookLinks links = null;
 
     @SerializedName("acceptsExpiredCertificate")
     private Boolean acceptsExpiredCertificate = null;
@@ -278,7 +279,7 @@ public class Webhook {
     @SerializedName("username")
     private String username = null;
 
-    public Webhook links(Links links) {
+    public Webhook links(WebhookLinks links) {
         this.links = links;
         return this;
     }
@@ -287,11 +288,11 @@ public class Webhook {
      * Get links
      * @return links
      **/
-    public Links getLinks() {
+    public WebhookLinks getLinks() {
         return links;
     }
 
-    public void setLinks(Links links) {
+    public void setLinks(WebhookLinks links) {
         this.links = links;
     }
 

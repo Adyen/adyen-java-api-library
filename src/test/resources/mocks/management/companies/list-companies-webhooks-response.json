@@ -1,13 +1,13 @@
 {
   "_links": {
     "first": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
     },
     "last": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
     },
     "self": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30"
     }
   },
   "itemsTotal": 11,
@@ -100,16 +100,16 @@
       },
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/test"
         }
       }
     },
@@ -197,16 +197,16 @@
       },
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2A5A6E33"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-2A5A6E33"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2A5A6E33/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-2A5A6E33/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2A5A6E33/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-2A5A6E33/test"
         }
       }
     },
@@ -294,16 +294,16 @@
       },
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2B593138"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-2B593138"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2B593138/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-2B593138/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-2B593138/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-2B593138/test"
         }
       }
     },
@@ -394,16 +394,16 @@
       },
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-39466D7E"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-39466D7E"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-39466D7E/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-39466D7E/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-39466D7E/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-39466D7E/test"
         }
       }
     },
@@ -425,16 +425,16 @@
       "populateSoapActionHeader": "false",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A60707B"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-6A60707B"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A60707B/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-6A60707B/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A60707B/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-6A60707B/test"
         }
       }
     },
@@ -456,16 +456,16 @@
       "populateSoapActionHeader": "false",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-227E6D2A"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-227E6D2A"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-227E6D2A/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-227E6D2A/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-227E6D2A/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-227E6D2A/test"
         }
       }
     },
@@ -487,16 +487,16 @@
       "populateSoapActionHeader": "false",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-362B382C"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-362B382C"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-362B382C/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-362B382C/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-362B382C/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-362B382C/test"
         }
       }
     },
@@ -518,16 +518,16 @@
       "populateSoapActionHeader": "false",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A715D5B"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-6A715D5B"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A715D5B/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-6A715D5B/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-6A715D5B/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-6A715D5B/test"
         }
       }
     },
@@ -549,16 +549,16 @@
       "populateSoapActionHeader": "false",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-5E6D5166"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-5E6D5166"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-5E6D5166/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-5E6D5166/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-5E6D5166/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-5E6D5166/test"
         }
       }
     },
@@ -581,16 +581,16 @@
       "hmacKeyCheckValue": "8D77A2",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-383E3D62"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-383E3D62"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-383E3D62/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-383E3D62/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-383E3D62/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-383E3D62/test"
         }
       }
     },
@@ -612,16 +612,16 @@
       "populateSoapActionHeader": "false",
       "_links": {
         "self": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F"
         },
         "company": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
         },
         "generateHmac": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac"
         },
         "testWebhook": {
-          "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-7125452F/test"
+          "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/test"
         }
       }
     }

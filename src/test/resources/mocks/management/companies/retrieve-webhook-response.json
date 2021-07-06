@@ -85,16 +85,16 @@
   },
   "_links": {
     "self": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24"
     },
     "company": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany"
     },
     "generateHmac": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac"
     },
     "testWebhook": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks/S2-504B3E24/test"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/test"
     }
   }
 }

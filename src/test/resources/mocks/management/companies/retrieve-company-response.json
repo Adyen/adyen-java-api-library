@@ -9,16 +9,16 @@
   ],
   "_links": {
     "self": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany"
     },
     "apiCredentials": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/apiCredentials"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/apiCredentials"
     },
     "users": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/users"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/users"
     },
     "webhooks": {
-      "href": "http://localhost:8080/configurationapi/v1/companies/TestCompany/webhooks"
+      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks"
     }
   }
 }
