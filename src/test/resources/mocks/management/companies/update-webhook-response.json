@@ -2,7 +2,7 @@
   "id": "S2-7125452F",
   "type": "standard",
   "url": "http://example-update.com",
-  "description": "Webhook for TestCompany - 1624460216618",
+  "description": "Webhook for FakeCompany - 1624460216618",
   "filterMerchantAccountType": "allAccounts",
   "username": "",
   "hasPassword": "false",
@@ -16,16 +16,16 @@
   "populateSoapActionHeader": "false",
   "_links": {
     "self": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F"
     },
     "company": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany"
     },
     "generateHmac": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F/generateHmac"
     },
     "testWebhook": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/test"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F/test"
     }
   }
 }

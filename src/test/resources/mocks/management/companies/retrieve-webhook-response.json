@@ -2,7 +2,7 @@
   "id": "S2-504B3E24",
   "type": "standard",
   "url": "http://example-1.com",
-  "description": "Standard Notification for TestCompany - 1622123155874",
+  "description": "Standard Notification for FakeCompany - 1622123155874",
   "filterMerchantAccountType": "includeAccounts",
   "username": "",
   "hasPassword": "false",
@@ -85,16 +85,16 @@
   },
   "_links": {
     "self": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-504B3E24"
     },
     "company": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany"
     },
     "generateHmac": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-504B3E24/generateHmac"
     },
     "testWebhook": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/test"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-504B3E24/test"
     }
   }
 }

@@ -30,9 +30,9 @@ public class CompaniesTest extends BaseTest {
         assertEquals(1, response.getData().size());
         assertEquals("https://management-test.adyen.com/v1/companies?pageNumber=1&pageSize=10", response.getLinks().getFirst().getHref());
         assertEquals("https://management-test.adyen.com/v1/companies?pageNumber=1&pageSize=10", response.getLinks().getLast().getHref());
-        assertEquals("TestCompany", response.getData().get(0).getId());
+        assertEquals("FakeCompany", response.getData().get(0).getId());
         assertEquals("Active", response.getData().get(0).getStatus());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany", response.getData().get(0).getLinks().getSelf().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany", response.getData().get(0).getLinks().getSelf().getHref());
         assertEquals("default", response.getData().get(0).getDataCenters().get(0).getName());
     }
 
@@ -40,27 +40,27 @@ public class CompaniesTest extends BaseTest {
     public void retrieveCompanyByIdSuccess() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/management/companies/retrieve-company-response.json");
         Companies companies = new Companies(client);
-        Company company = companies.retrieveCompany("TestCompany");
-        assertEquals("TestCompany", company.getId());
+        Company company = companies.retrieveCompany("FakeCompany");
+        assertEquals("FakeCompany", company.getId());
         assertEquals("Active", company.getStatus());
         assertEquals("default",  company.getDataCenters().get(0).getName());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany", company.getLinks().getSelf().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/users", company.getLinks().getUsers().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks", company.getLinks().getWebhooks().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany", company.getLinks().getSelf().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/users", company.getLinks().getUsers().getHref());
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks", company.getLinks().getWebhooks().getHref());
     }
 
     @Test
     public void listCompanyMerchantsSuccess() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/management/companies/list-company-merchants-response.json");
         Companies companies = new Companies(client);
-        ListMerchantResponse response = companies.listMerchants("TestCompany", new Options());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10",
+        ListMerchantResponse response = companies.listMerchants("FakeCompany", new Options());
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/merchants?pageNumber=1&pageSize=10",
                 response.getLinks().getFirst().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/merchants?pageNumber=2&pageSize=10",
                 response.getLinks().getLast().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/merchants?pageNumber=2&pageSize=10",
                 response.getLinks().getNext().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/merchants?pageNumber=1&pageSize=10",
                 response.getLinks().getSelf().getHref());
         assertEquals(new Integer(19), response.getItemsTotal());
         assertEquals(new Integer(2), response.getPagesTotal());
@@ -72,19 +72,19 @@ public class CompaniesTest extends BaseTest {
     public void listCompanyWebhooksSuccess() throws ApiException, IOException {
         Client client = createMockClientFromFile("mocks/management/companies/list-companies-webhooks-response.json");
         Companies companies = new Companies(client);
-        ListWebhooksResponse response = companies.listWebhooks("TestCompany", new Options());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
+        ListWebhooksResponse response = companies.listWebhooks("FakeCompany", new Options());
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks?pageNumber=1&pageSize=30",
                 response.getLinks().getFirst().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks?pageNumber=1&pageSize=30",
                 response.getLinks().getLast().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks?pageNumber=1&pageSize=30",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks?pageNumber=1&pageSize=30",
                 response.getLinks().getSelf().getHref());
         assertEquals(new Integer(11), response.getItemsTotal());
         assertEquals(new Integer(1), response.getPagesTotal());
         assertEquals("S2-504B3E24", response.getData().get(0).getId());
         assertEquals("standard", response.getData().get(0).getType());
         assertEquals("http://example-1.com", response.getData().get(0).getUrl());
-        assertEquals("Standard Notification for TestCompany - 1622123155874", response.getData().get(0).getDescription());
+        assertEquals("Standard Notification for FakeCompany - 1622123155874", response.getData().get(0).getDescription());
         assertEquals(Webhook.CommunicationFormatEnum.JSON, response.getData().get(0).getCommunicationFormat());
         assertEquals(Webhook.SslVersionEnum.TLSV1_2, response.getData().get(0).getSslVersion());
     }
@@ -93,14 +93,14 @@ public class CompaniesTest extends BaseTest {
     public void retrieveCompanyWebhookSuccess() throws ApiException, IOException {
         Client client = createMockClientFromFile("mocks/management/companies/retrieve-webhook-response.json");
         Companies companies = new Companies(client);
-        Webhook webhook = companies.retrieveWebhook("TestCompany", "S2-504B3E24");
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24",
+        Webhook webhook = companies.retrieveWebhook("FakeCompany", "S2-504B3E24");
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-504B3E24",
                 webhook.getLinks().getSelf().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany",
                 webhook.getLinks().getCompany().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/generateHmac",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-504B3E24/generateHmac",
                 webhook.getLinks().getGenerateHmac().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-504B3E24/test",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-504B3E24/test",
                 webhook.getLinks().getTestWebhook().getHref());
         assertEquals("S2-504B3E24", webhook.getId());
         assertEquals("standard", webhook.getType());
@@ -113,14 +113,14 @@ public class CompaniesTest extends BaseTest {
     public void createCompanyWebhookSuccess() throws ApiException, IOException {
         Client client = createMockClientFromFile("mocks/management/companies/create-webhook-response.json");
         Companies companies = new Companies(client);
-        Webhook webhook = companies.createWebhook("TestCompany", new CreateCompanyWebhookRequest());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F",
+        Webhook webhook = companies.createWebhook("FakeCompany", new CreateCompanyWebhookRequest());
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F",
                 webhook.getLinks().getSelf().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany",
                 webhook.getLinks().getCompany().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F/generateHmac",
                 webhook.getLinks().getGenerateHmac().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/test",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F/test",
                 webhook.getLinks().getTestWebhook().getHref());
         assertEquals("S2-7125452F", webhook.getId());
         assertEquals("standard", webhook.getType());
@@ -133,14 +133,14 @@ public class CompaniesTest extends BaseTest {
     public void updateCompanyWebhookSuccess() throws ApiException, IOException {
         Client client = createMockClientFromFile("mocks/management/companies/update-webhook-response.json");
         Companies companies = new Companies(client);
-        Webhook webhook = companies.updateWebhook("TestCompany", "S2-7125452F", new UpdateCompanyWebhookRequest());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F",
+        Webhook webhook = companies.updateWebhook("FakeCompany", "S2-7125452F", new UpdateCompanyWebhookRequest());
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F",
                 webhook.getLinks().getSelf().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany",
                 webhook.getLinks().getCompany().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/generateHmac",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F/generateHmac",
                 webhook.getLinks().getGenerateHmac().getHref());
-        assertEquals("https://management-test.adyen.com/v1/companies/TestCompany/webhooks/S2-7125452F/test",
+        assertEquals("https://management-test.adyen.com/v1/companies/FakeCompany/webhooks/S2-7125452F/test",
                 webhook.getLinks().getTestWebhook().getHref());
         assertEquals("S2-7125452F", webhook.getId());
         assertEquals("standard", webhook.getType());
@@ -153,7 +153,7 @@ public class CompaniesTest extends BaseTest {
     public void testCompanyWebhookSuccess() throws ApiException, IOException {
         Client client = createMockClientFromFile("mocks/management/companies/test-webhook-response.json");
         Companies companies = new Companies(client);
-        TestWebhookResponse response = companies.testWebhook("TestCompany", "S2-7125452F", new TestWebhookRequest());
+        TestWebhookResponse response = companies.testWebhook("FakeCompany", "S2-7125452F", new TestWebhookRequest());
         assertEquals("Invoice1Merchant", response.getData().get(0).getMerchantId());
         assertEquals("[accepted]", response.getData().get(0).getOutput());
         assertEquals("200", response.getData().get(0).getResponseCode());
@@ -165,7 +165,7 @@ public class CompaniesTest extends BaseTest {
     public void testGenerateWebhookHmacSuccess() throws ApiException, IOException {
         Client client = createMockClientFromFile("mocks/management/companies/generate-hmac-response.json");
         Companies companies = new Companies(client);
-        GenerateHmacKeyResponse response = companies.generateWebhookHmac("TestCompany", "S2-A858DE45F56D9BC9");
+        GenerateHmacKeyResponse response = companies.generateWebhookHmac("FakeCompany", "S2-A858DE45F56D9BC9");
         assertEquals("D33D971ECE0EE8127185621F0E0E6C934B7390CFA2E3A78E7565B9F1F87E1F70", response.getHmacKey());
 
     }

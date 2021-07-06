@@ -11,7 +11,7 @@
   "pagesTotal": 1,
   "data": [
     {
-      "id": "TestCompany",
+      "id": "FakeCompany",
       "status": "Active",
       "dataCenters": [
         {
@@ -21,7 +21,7 @@
       ],
       "_links": {
         "self": {
-          "href": "https://management-test.adyen.com/v1/companies/TestCompany"
+          "href": "https://management-test.adyen.com/v1/companies/FakeCompany"
         }
       }
     }

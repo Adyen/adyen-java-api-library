@@ -1,16 +1,16 @@
 {
   "_links": {
     "first": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/merchants?pageNumber=1&pageSize=10"
     },
     "last": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/merchants?pageNumber=2&pageSize=10"
     },
     "next": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=2&pageSize=10"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/merchants?pageNumber=2&pageSize=10"
     },
     "self": {
-      "href": "https://management-test.adyen.com/v1/companies/TestCompany/merchants?pageNumber=1&pageSize=10"
+      "href": "https://management-test.adyen.com/v1/companies/FakeCompany/merchants?pageNumber=1&pageSize=10"
     }
   },
   "itemsTotal": 19,
