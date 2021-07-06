@@ -40,6 +40,8 @@ import com.adyen.model.marketpay.DeleteShareholderRequest;
 import com.adyen.model.marketpay.DeleteShareholderResponse;
 import com.adyen.model.marketpay.GetAccountHolderRequest;
 import com.adyen.model.marketpay.GetAccountHolderResponse;
+import com.adyen.model.marketpay.GetTaxFormRequest;
+import com.adyen.model.marketpay.GetTaxFormResponse;
 import com.adyen.model.marketpay.GetUploadedDocumentsRequest;
 import com.adyen.model.marketpay.GetUploadedDocumentsResponse;
 import com.adyen.model.marketpay.PerformVerificationRequest;
@@ -65,6 +67,7 @@ import com.adyen.service.resource.account.DeleteBankAccount;
 import com.adyen.service.resource.account.DeletePayoutMethod;
 import com.adyen.service.resource.account.DeleteShareholder;
 import com.adyen.service.resource.account.GetAccountHolder;
+import com.adyen.service.resource.account.GetTaxForm;
 import com.adyen.service.resource.account.GetUploadedDocuments;
 import com.adyen.service.resource.account.SuspendAccountHolder;
 import com.adyen.service.resource.account.UnSuspendAccountHolder;
@@ -94,6 +97,7 @@ public class Account extends Service {
     private GetUploadedDocuments getUploadedDocuments;
     private CheckAccountHolder checkAccountHolder;
     private DeletePayoutMethod deletePayoutMethod;
+    private GetTaxForm getTaxForm;
 
     public Account(Client client) {
         super(client);
@@ -114,6 +118,7 @@ public class Account extends Service {
         getUploadedDocuments = new GetUploadedDocuments(this);
         checkAccountHolder = new CheckAccountHolder(this);
         deletePayoutMethod = new DeletePayoutMethod(this);
+        getTaxForm = new GetTaxForm(this);
     }
 
     public CreateAccountHolderResponse createAccountHolder(CreateAccountHolderRequest accountHolderRequest) throws ApiException, IOException {
@@ -242,6 +247,14 @@ public class Account extends Service {
 
         String jsonResult = deletePayoutMethod.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<DeletePayoutMethodResponse>() {
+        }.getType());
+    }
+
+    public GetTaxFormResponse getTaxForm(GetTaxFormRequest getTaxFormRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(getTaxFormRequest);
+
+        String jsonResult = getTaxForm.request(jsonRequest);
+        return GSON.fromJson(jsonResult, new TypeToken<GetTaxFormResponse>() {
         }.getType());
     }
 }
