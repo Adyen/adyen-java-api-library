@@ -27,7 +27,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class WebhookLinks {
+public class WebhookLinks extends Links {
     @SerializedName("company")
     private LinksElement company = null;
 
@@ -36,9 +36,6 @@ public class WebhookLinks {
 
     @SerializedName("merchant")
     private LinksElement merchant = null;
-
-    @SerializedName("self")
-    private LinksElement self = null;
 
     @SerializedName("testWebhook")
     private LinksElement testWebhook = null;
@@ -94,23 +91,6 @@ public class WebhookLinks {
         this.merchant = merchant;
     }
 
-    public WebhookLinks self(LinksElement self) {
-        this.self = self;
-        return this;
-    }
-
-    /**
-     * Get self
-     * @return self
-     **/
-    public LinksElement getSelf() {
-        return self;
-    }
-
-    public void setSelf(LinksElement self) {
-        this.self = self;
-    }
-
     public WebhookLinks testWebhook(LinksElement testWebhook) {
         this.testWebhook = testWebhook;
         return this;
@@ -141,13 +121,13 @@ public class WebhookLinks {
         return Objects.equals(this.company, webhookLinks.company) &&
                 Objects.equals(this.generateHmac, webhookLinks.generateHmac) &&
                 Objects.equals(this.merchant, webhookLinks.merchant) &&
-                Objects.equals(this.self, webhookLinks.self) &&
+                Objects.equals(this.getSelf(), webhookLinks.getSelf()) &&
                 Objects.equals(this.testWebhook, webhookLinks.testWebhook);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(company, generateHmac, merchant, self, testWebhook);
+        return Objects.hash(company, generateHmac, merchant, this.getSelf(), testWebhook);
     }
 
 
@@ -159,7 +139,7 @@ public class WebhookLinks {
         sb.append("    company: ").append(toIndentedString(company)).append("\n");
         sb.append("    generateHmac: ").append(toIndentedString(generateHmac)).append("\n");
         sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
-        sb.append("    self: ").append(toIndentedString(self)).append("\n");
+        sb.append("    self: ").append(toIndentedString(this.getSelf())).append("\n");
         sb.append("    testWebhook: ").append(toIndentedString(testWebhook)).append("\n");
         sb.append("}");
         return sb.toString();

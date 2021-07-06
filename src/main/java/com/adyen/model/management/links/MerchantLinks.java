@@ -27,12 +27,9 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class MerchantLinks {
+public class MerchantLinks extends Links {
     @SerializedName("apiCredentials")
     private LinksElement apiCredentials = null;
-
-    @SerializedName("self")
-    private LinksElement self = null;
 
     @SerializedName("users")
     private LinksElement users = null;
@@ -55,23 +52,6 @@ public class MerchantLinks {
 
     public void setApiCredentials(LinksElement apiCredentials) {
         this.apiCredentials = apiCredentials;
-    }
-
-    public MerchantLinks self(LinksElement self) {
-        this.self = self;
-        return this;
-    }
-
-    /**
-     * Get self
-     * @return self
-     **/
-    public LinksElement getSelf() {
-        return self;
-    }
-
-    public void setSelf(LinksElement self) {
-        this.self = self;
     }
 
     public MerchantLinks users(LinksElement users) {
@@ -119,14 +99,14 @@ public class MerchantLinks {
         }
         MerchantLinks merchantLinks = (MerchantLinks) o;
         return Objects.equals(this.apiCredentials, merchantLinks.apiCredentials) &&
-                Objects.equals(this.self, merchantLinks.self) &&
+                Objects.equals(this.getSelf(), merchantLinks.getSelf()) &&
                 Objects.equals(this.users, merchantLinks.users) &&
                 Objects.equals(this.webhooks, merchantLinks.webhooks);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(apiCredentials, self, users, webhooks);
+        return Objects.hash(apiCredentials, this.getSelf(), users, webhooks);
     }
 
 
@@ -136,7 +116,7 @@ public class MerchantLinks {
         sb.append("class MerchantLinks {\n");
 
         sb.append("    apiCredentials: ").append(toIndentedString(apiCredentials)).append("\n");
-        sb.append("    self: ").append(toIndentedString(self)).append("\n");
+        sb.append("    self: ").append(toIndentedString(this.getSelf())).append("\n");
         sb.append("    users: ").append(toIndentedString(users)).append("\n");
         sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
         sb.append("}");

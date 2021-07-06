@@ -27,7 +27,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class ApiCredentialLinks {
+public class ApiCredentialLinks extends Links {
     @SerializedName("allowedOrigins")
     private LinksElement allowedOrigins = null;
 
@@ -42,9 +42,6 @@ public class ApiCredentialLinks {
 
     @SerializedName("merchant")
     private LinksElement merchant = null;
-
-    @SerializedName("self")
-    private LinksElement self = null;
 
     public ApiCredentialLinks allowedOrigins(LinksElement allowedOrigins) {
         this.allowedOrigins = allowedOrigins;
@@ -131,24 +128,6 @@ public class ApiCredentialLinks {
         this.merchant = merchant;
     }
 
-    public ApiCredentialLinks self(LinksElement self) {
-        this.self = self;
-        return this;
-    }
-
-    /**
-     * Get self
-     * @return self
-     **/
-    public LinksElement getSelf() {
-        return self;
-    }
-
-    public void setSelf(LinksElement self) {
-        this.self = self;
-    }
-
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -163,12 +142,12 @@ public class ApiCredentialLinks {
                 Objects.equals(this.generateApiKey, apiCredentialLinks.generateApiKey) &&
                 Objects.equals(this.generateClientKey, apiCredentialLinks.generateClientKey) &&
                 Objects.equals(this.merchant, apiCredentialLinks.merchant) &&
-                Objects.equals(this.self, apiCredentialLinks.self);
+                Objects.equals(this.getSelf(), apiCredentialLinks.getSelf());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(allowedOrigins, company, generateApiKey, generateClientKey, merchant, self);
+        return Objects.hash(allowedOrigins, company, generateApiKey, generateClientKey, merchant, this.getSelf());
     }
 
 
@@ -182,7 +161,7 @@ public class ApiCredentialLinks {
         sb.append("    generateApiKey: ").append(toIndentedString(generateApiKey)).append("\n");
         sb.append("    generateClientKey: ").append(toIndentedString(generateClientKey)).append("\n");
         sb.append("    merchant: ").append(toIndentedString(merchant)).append("\n");
-        sb.append("    self: ").append(toIndentedString(self)).append("\n");
+        sb.append("    self: ").append(toIndentedString(this.getSelf())).append("\n");
         sb.append("}");
         return sb.toString();
     }

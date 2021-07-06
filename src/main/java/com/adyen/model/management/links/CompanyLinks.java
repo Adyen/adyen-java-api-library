@@ -27,12 +27,9 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class CompanyLinks {
+public class CompanyLinks extends Links {
     @SerializedName("apiCredentials")
     private LinksElement apiCredentials = null;
-
-    @SerializedName("self")
-    private LinksElement self = null;
 
     @SerializedName("users")
     private LinksElement users = null;
@@ -55,23 +52,6 @@ public class CompanyLinks {
 
     public void setApiCredentials(LinksElement apiCredentials) {
         this.apiCredentials = apiCredentials;
-    }
-
-    public CompanyLinks self(LinksElement self) {
-        this.self = self;
-        return this;
-    }
-
-    /**
-     * Get self
-     * @return self
-     **/
-    public LinksElement getSelf() {
-        return self;
-    }
-
-    public void setSelf(LinksElement self) {
-        this.self = self;
     }
 
     public CompanyLinks users(LinksElement users) {
@@ -119,14 +99,14 @@ public class CompanyLinks {
         }
         CompanyLinks companyLinks = (CompanyLinks) o;
         return Objects.equals(this.apiCredentials, companyLinks.apiCredentials) &&
-                Objects.equals(this.self, companyLinks.self) &&
+                Objects.equals(this.getSelf(), companyLinks.getSelf()) &&
                 Objects.equals(this.users, companyLinks.users) &&
                 Objects.equals(this.webhooks, companyLinks.webhooks);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(apiCredentials, self, users, webhooks);
+        return Objects.hash(apiCredentials, this.getSelf(), users, webhooks);
     }
 
 
@@ -136,7 +116,7 @@ public class CompanyLinks {
         sb.append("class CompanyLinks {\n");
 
         sb.append("    apiCredentials: ").append(toIndentedString(apiCredentials)).append("\n");
-        sb.append("    self: ").append(toIndentedString(self)).append("\n");
+        sb.append("    self: ").append(toIndentedString(this.getSelf())).append("\n");
         sb.append("    users: ").append(toIndentedString(users)).append("\n");
         sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
         sb.append("}");

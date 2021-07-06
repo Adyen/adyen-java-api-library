@@ -26,7 +26,7 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class PaginationLinks {
+public class PaginationLinks extends Links {
     @SerializedName("first")
     private LinksElement first = null;
 
@@ -38,9 +38,6 @@ public class PaginationLinks {
 
     @SerializedName("prev")
     private LinksElement prev = null;
-
-    @SerializedName("self")
-    private LinksElement self = null;
 
     public PaginationLinks first(LinksElement first) {
         this.first = first;
@@ -110,24 +107,6 @@ public class PaginationLinks {
         this.prev = prev;
     }
 
-    public PaginationLinks self(LinksElement self) {
-        this.self = self;
-        return this;
-    }
-
-    /**
-     * Get self
-     * @return self
-     **/
-    public LinksElement getSelf() {
-        return self;
-    }
-
-    public void setSelf(LinksElement self) {
-        this.self = self;
-    }
-
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -141,12 +120,12 @@ public class PaginationLinks {
                 Objects.equals(this.last, paginationLinks.last) &&
                 Objects.equals(this.next, paginationLinks.next) &&
                 Objects.equals(this.prev, paginationLinks.prev) &&
-                Objects.equals(this.self, paginationLinks.self);
+                Objects.equals(this.getSelf(), paginationLinks.getSelf());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(first, last, next, prev, self);
+        return Objects.hash(first, last, next, prev, this.getSelf());
     }
 
 
@@ -159,7 +138,7 @@ public class PaginationLinks {
         sb.append("    last: ").append(toIndentedString(last)).append("\n");
         sb.append("    next: ").append(toIndentedString(next)).append("\n");
         sb.append("    prev: ").append(toIndentedString(prev)).append("\n");
-        sb.append("    self: ").append(toIndentedString(self)).append("\n");
+        sb.append("    self: ").append(toIndentedString(this.getSelf())).append("\n");
         sb.append("}");
         return sb.toString();
     }
