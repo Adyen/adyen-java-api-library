@@ -1,8 +1,10 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -31,12 +33,14 @@ public class ICCResetData {
     /**
      * The Atr value.
      */
-    @XmlAttribute(name = "ATRValue")
+    @XmlElement(name = "ATRValue")
+    @Schema(description = "Value of the Answer To Reset of a chip card --Rule: if available", minLength = 1, maxLength = 100)
     protected byte[] atrValue;
     /**
      * The Card status words.
      */
-    @XmlAttribute(name = "CardStatusWords")
+    @XmlElement(name = "CardStatusWords")
+    @Schema(description = "Status of a smartcard response to a command (SW1-SW2) --Rule: if available", minLength = 2, maxLength = 2)
     protected byte[] cardStatusWords;
 
     /**

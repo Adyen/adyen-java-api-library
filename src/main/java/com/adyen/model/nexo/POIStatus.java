@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -45,60 +46,68 @@ public class POIStatus {
      * The Cash handling device.
      */
     @XmlElement(name = "CashHandlingDevice")
+    @Schema(description = "Status of cash handling device. --Rule: If cash handling devices present.")
     protected List<CashHandlingDevice> cashHandlingDevice;
     /**
      * The Global status.
      */
-    @XmlAttribute(name = "GlobalStatus", required = true)
+    @XmlElement(name = "GlobalStatus", required = true)
+    @Schema(description = "Global status of a POI Server or POI Terminal.")
     protected GlobalStatusType globalStatus;
     /**
      * The Security ok flag.
      */
-    @XmlAttribute(name = "SecurityOKFlag")
+    @XmlElement(name = "SecurityOKFlag")
+    @Schema(description = "Indicates if the security module of the POI is working and usable. --Rule: If security module present")
     protected Boolean securityOKFlag;
     /**
      * The Pedok flag.
      */
-    @XmlAttribute(name = "PEDOKFlag")
+    @XmlElement(name = "PEDOKFlag")
+    @Schema(description = "Indicates if the PED is working and usable. --Rule: If PED present")
     protected Boolean pedokFlag;
     /**
      * The Card reader ok flag.
      */
-    @XmlAttribute(name = "CardReaderOKFlag")
+    @XmlElement(name = "CardReaderOKFlag")
+    @Schema(description = "Indicates if the card readers are working and usable. --Rule: If card reader device present")
     protected Boolean cardReaderOKFlag;
     /**
      * The Printer status.
      */
-    @XmlAttribute(name = "PrinterStatus")
+    @XmlElement(name = "PrinterStatus")
+    @Schema(description = "Indicates if the printer is working and usable. --Rule: If printer device present")
     protected PrinterStatusType printerStatus;
     /**
      * The Communication ok flag.
      */
-    @XmlAttribute(name = "CommunicationOKFlag")
+    @XmlElement(name = "CommunicationOKFlag")
+    @Schema(description = "Indicates if the communication infrastructure is working and usable. --Rule: If communication infrastructure present")
     protected Boolean communicationOKFlag;
     /**
      * The Fraud prevention flag.
      */
-    @XmlAttribute(name = "FraudPreventionFlag")
+    @XmlElement(name = "FraudPreventionFlag")
+    @Schema(description = "Indicate a suspicion of fraud by the POI System. --Rule: default False")
     protected Boolean fraudPreventionFlag;
 
     /**
      * Gets the value of the cashHandlingDevice property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the cashHandlingDevice property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCashHandlingDevice().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CashHandlingDevice }
      *

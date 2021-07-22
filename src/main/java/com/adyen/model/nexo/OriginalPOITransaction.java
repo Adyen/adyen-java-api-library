@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -45,41 +46,49 @@ public class OriginalPOITransaction {
      * The Poi transaction id.
      */
     @XmlElement(name = "POITransactionID")
+    @Schema(description = "Unique identification of a POI transaction for a POI --Rule: Absent if SaleReferenceID is sufficient to identify the transaction, or for some reversal cases.")
     protected TransactionIdentification poiTransactionID;
     /**
      * The Approval code.
      */
     @XmlElement(name = "ApprovalCode")
+    @Schema(description = "Code assigned to a transaction approval by the Acquirer. --Rule: If referral")
     protected String approvalCode;
     /**
      * The Host transaction id.
      */
     @XmlElement(name = "HostTransactionID")
+    @Schema(description = "Identification of the transaction by the host in charge of the stored value transaction --Rule: If POITransactionID not present")
     protected TransactionIdentification hostTransactionID;
     /**
      * The Sale id.
      */
-    @XmlAttribute(name = "SaleID")
+    @XmlElement(name = "SaleID")
+    @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol")
     protected String saleID;
     /**
      * The Poiid.
      */
-    @XmlAttribute(name = "POIID")
+    @XmlElement(name = "POIID")
+    @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: If original transaction is coming from another POI")
     protected String poiid;
     /**
      * The Reuse card data flag.
      */
-    @XmlAttribute(name = "ReuseCardDataFlag")
+    @XmlElement(name = "ReuseCardDataFlag")
+    @Schema(description = "Indicate if the card data has to be got from a previous transaction.")
     protected Boolean reuseCardDataFlag;
     /**
      * The Customer language.
      */
-    @XmlAttribute(name = "CustomerLanguage")
+    @XmlElement(name = "CustomerLanguage")
+    @Schema(description = "Language of the Customer --Rule: Optional for Reversal, otherwise absent.")
     protected String customerLanguage;
     /**
      * The Acquirer id.
      */
-    @XmlAttribute(name = "AcquirerID")
+    @XmlElement(name = "AcquirerID")
+    @Schema(description = "Identification of the Acquirer --Rule: Optional for Reversal, otherwise absent.")
     protected String acquirerID;
 
     /**

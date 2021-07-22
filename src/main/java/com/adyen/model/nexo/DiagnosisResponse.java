@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -43,21 +45,25 @@ public class DiagnosisResponse {
      * The Response.
      */
     @XmlElement(name = "Response", required = true)
+    @Schema(description = "Result of a message request processing.")
     protected Response response;
     /**
      * The Logged sale id.
      */
     @XmlElement(name = "LoggedSaleID")
+    @Schema(description = "Sale Terminal logged to. --Rule: If Sale Terminal logged to this POI Terminal")
     protected List<String> loggedSaleID;
     /**
      * The Poi status.
      */
     @XmlElement(name = "POIStatus")
+    @Schema(description = "State of a POI Terminal. --Rule: if Response.Result is Success")
     protected POIStatus poiStatus;
     /**
      * The Host status.
      */
     @XmlElement(name = "HostStatus")
+    @Schema(description = "State of a Host.")
     protected List<HostStatus> hostStatus;
 
     /**
@@ -80,21 +86,21 @@ public class DiagnosisResponse {
 
     /**
      * Gets the value of the loggedSaleID property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the loggedSaleID property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getLoggedSaleID().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -127,21 +133,21 @@ public class DiagnosisResponse {
 
     /**
      * Gets the value of the hostStatus property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the hostStatus property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getHostStatus().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link HostStatus }
      *

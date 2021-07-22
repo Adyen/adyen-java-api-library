@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -30,18 +32,21 @@ public enum GenericProfileType {
      * Protocol services that needs to be implemented by all the Sale and POI
      */
     @XmlEnumValue("Basic")
+    @Schema(description = "Protocol services that needs to be implemented by all the Sale and POI")
     BASIC("Basic"),
 
     /**
      * Protocol services involving interaction between Sale System and POI System as devices shared between the two Systems.
      */
     @XmlEnumValue("Standard")
+    @Schema(description = "Protocol services involving interaction between Sale System and POI System as devices shared between the two Systems.")
     STANDARD("Standard"),
 
     /**
      * Complete Protocol services
      */
     @XmlEnumValue("Extended")
+    @Schema(description = "Complete Protocol services")
     EXTENDED("Extended");
     private final String value;
 

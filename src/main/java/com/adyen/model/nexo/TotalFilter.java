@@ -1,8 +1,10 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -34,27 +36,32 @@ public class TotalFilter {
     /**
      * The Poiid.
      */
-    @XmlAttribute(name = "POIID")
+    @XmlElement(name = "POIID")
+    @Schema(description = "Identification of a POI System or a POI Terminal for the Sale to POI protocol --Rule: If totals in the response have to be computed only for this particular value of POIID")
     protected String poiid;
     /**
      * The Sale id.
      */
-    @XmlAttribute(name = "SaleID")
+    @XmlElement(name = "SaleID")
+    @Schema(description = "Identification of a Sale System or a Sale Terminal for the Sale to POI protocol --Rule: If totals in the response have to be computed only for this particular value of SaleID")
     protected String saleID;
     /**
      * The Operator id.
      */
-    @XmlAttribute(name = "OperatorID")
+    @XmlElement(name = "OperatorID")
+    @Schema(description = "Identification of the Cashier or Operator. --Rule: If totals in the response have to be computed only for this particular value of OperatorID")
     protected String operatorID;
     /**
      * The Shift number.
      */
-    @XmlAttribute(name = "ShiftNumber")
+    @XmlElement(name = "ShiftNumber")
+    @Schema(description = "Shift number. --Rule: If totals in the response have to be computed only for this particular value of ShiftNumber")
     protected String shiftNumber;
     /**
      * The Totals group id.
      */
-    @XmlAttribute(name = "TotalsGroupID")
+    @XmlElement(name = "TotalsGroupID")
+    @Schema(description = "Identification of a group of transaction on a POI Terminal, having the same Sale features. --Rule: If totals in the response have to be computed only for this particular value of TotalsGroupID", minLength = 1, maxLength = 16)
     protected String totalsGroupID;
 
     /**

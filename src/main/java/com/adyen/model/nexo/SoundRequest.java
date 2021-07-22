@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigInteger;
@@ -40,21 +41,25 @@ public class SoundRequest {
      * The Sound content.
      */
     @XmlElement(name = "SoundContent", required = true)
+    @Schema(description = "Content of the Sound to play. --Rule: Absent if SoundAction is SetDefaultVolume, otherwise mandatory.")
     protected SoundContent soundContent;
     /**
      * The Response mode.
      */
-    @XmlAttribute(name = "ResponseMode")
+    @XmlElement(name = "ResponseMode")
+    @Schema(description = "Message response awaited by the initiator of the Request")
     protected ResponseModeType responseMode;
     /**
      * The Sound action.
      */
-    @XmlAttribute(name = "SoundAction", required = true)
+    @XmlElement(name = "SoundAction", required = true)
+    @Schema(description = "Type of action to perform on the sound.")
     protected SoundActionType soundAction;
     /**
      * The Sound volume.
      */
-    @XmlAttribute(name = "SoundVolume")
+    @XmlElement(name = "SoundVolume")
+    @Schema(description = "Volume of a sound, either in a pourcentage of the maximum volume, or 0 to mute. --Rule: Mandatory if SoundAction is SetDefaultVolume")
     protected BigInteger soundVolume;
 
     /**

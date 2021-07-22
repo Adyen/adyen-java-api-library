@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -45,31 +46,37 @@ public class MenuEntry {
      * The Predefined content.
      */
     @XmlElement(name = "PredefinedContent")
+    @Schema(description = "Reference of a predefined message to display or print. --Rule: Mandatory, if OutputFormat is MessageRef, not allowed otherwise.")
     protected PredefinedContent predefinedContent;
     /**
      * The Output text.
      */
     @XmlElement(name = "OutputText")
+    @Schema(description = "Content of text message to display or print. --Rule: Mandatory, if OutputFormat is Text, not allowed otherwise. One instance of OutputText per shared format")
     protected List<OutputText> outputText;
     /**
      * The Output xhtml.
      */
     @XmlElement(name = "OutputXHTML")
+    @Schema(description = "XHTML document body containing the message to display or print. --Rule: Mandatory, if OutputFormat is XHTML, not allowed otherwise.")
     protected byte[] outputXHTML;
     /**
      * The Menu entry tag.
      */
-    @XmlAttribute(name = "MenuEntryTag")
+    @XmlElement(name = "MenuEntryTag")
+    @Schema(description = "Characteristics related to the selection of a menu entry")
     protected MenuEntryTagType menuEntryTag;
     /**
      * The Output format.
      */
-    @XmlAttribute(name = "OutputFormat", required = true)
+    @XmlElement(name = "OutputFormat", required = true)
+    @Schema(description = "Format of the content to display or print --Rule: MessageRef, Text, XHTML")
     protected OutputFormatType outputFormat;
     /**
      * The Default selected flag.
      */
-    @XmlAttribute(name = "DefaultSelectedFlag")
+    @XmlElement(name = "DefaultSelectedFlag")
+    @Schema(description = "Selection of a menu entry to be displayed.")
     protected Boolean defaultSelectedFlag;
 
     /**
@@ -92,21 +99,21 @@ public class MenuEntry {
 
     /**
      * Gets the value of the outputText property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the outputText property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getOutputText().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link OutputText }
      *

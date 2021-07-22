@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -42,16 +44,19 @@ public class Rebates {
      * The Total rebate.
      */
     @XmlElement(name = "TotalRebate")
+    @Schema(description = "The global awarded amount that is not attached to an item. --Rule: If rebate on the total amount for this loyalty program")
     protected BigDecimal totalRebate;
     /**
      * The Rebate label.
      */
     @XmlElement(name = "RebateLabel")
+    @Schema(description = "Short text to qualify a rebate on an line item. --Rule: If provided by the Acquirer")
     protected String rebateLabel;
     /**
      * The Sale item rebate.
      */
     @XmlElement(name = "SaleItemRebate")
+    @Schema(description = "The awarded amount that is attached to an item as a rebate. --Rule: only items with rebate (identified by ItemID)")
     protected List<SaleItemRebate> saleItemRebate;
 
     /**
@@ -92,21 +97,21 @@ public class Rebates {
 
     /**
      * Gets the value of the saleItemRebate property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the saleItemRebate property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSaleItemRebate().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SaleItemRebate }
      *

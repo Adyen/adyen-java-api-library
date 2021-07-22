@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -46,36 +47,43 @@ public class CheckData {
      * The Bank id.
      */
     @XmlElement(name = "BankID")
+    @Schema(description = "Identification of the bank. --Rule: Mandatory if TrackData absent")
     protected String bankID;
     /**
      * The Account number.
      */
     @XmlElement(name = "AccountNumber")
+    @Schema(description = "Identification of the customer account. --Rule: Mandatory if TrackData absent")
     protected String accountNumber;
     /**
      * The Check number.
      */
     @XmlElement(name = "CheckNumber")
+    @Schema(description = "Identification of the bank check. --Rule: Mandatory if TrackData absent")
     protected String checkNumber;
     /**
      * The Track data.
      */
     @XmlElement(name = "TrackData")
+    @Schema(description = "Magnetic track or magnetic ink characters line. --Rule: Mandatory if CheckNumber absent")
     protected TrackData trackData;
     /**
      * The Check card number.
      */
     @XmlElement(name = "CheckCardNumber")
+    @Schema(description = "Check guarantee card number. --Rule: If provided by the customer")
     protected String checkCardNumber;
     /**
      * The Type code.
      */
-    @XmlAttribute(name = "TypeCode")
+    @XmlElement(name = "TypeCode")
+    @Schema(description = "Type of bank check.")
     protected CheckTypeCodeType typeCode;
     /**
      * The Country.
      */
-    @XmlAttribute(name = "Country")
+    @XmlElement(name = "Country")
+    @Schema(description = "Country of the bank check. --Rule: Absent if country of the Sale system")
     protected String country;
 
     /**

@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -35,48 +37,56 @@ public enum AccountType {
      * Default account
      */
     @XmlEnumValue("Default")
+    @Schema(description = "Default account")
     DEFAULT("Default"),
 
     /**
      * Savings account
      */
     @XmlEnumValue("Savings")
+    @Schema(description = "Savings account")
     SAVINGS("Savings"),
 
     /**
      * Checking account
      */
     @XmlEnumValue("Checking")
+    @Schema(description = "Checking account")
     CHECKING("Checking"),
 
     /**
      * Credit card account
      */
     @XmlEnumValue("CreditCard")
+    @Schema(description = "Credit card account")
     CREDIT_CARD("CreditCard"),
 
     /**
      * Universal account
      */
     @XmlEnumValue("Universal")
+    @Schema(description = "Universal account")
     UNIVERSAL("Universal"),
 
     /**
      * Investment account
      */
     @XmlEnumValue("Investment")
+    @Schema(description = "Investment account")
     INVESTMENT("Investment"),
 
     /**
      * Card totals
      */
     @XmlEnumValue("CardTotals")
+    @Schema(description = "Card totals")
     CARD_TOTALS("CardTotals"),
 
     /**
      * e-Purse card account
      */
     @XmlEnumValue("EpurseCard")
+    @Schema(description = "e-Purse card account")
     EPURSE_CARD("EpurseCard");
     private final String value;
 

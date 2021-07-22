@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -42,31 +43,36 @@ public class ReversalRequest {
      * The Original poi transaction.
      */
     @XmlElement(name = "OriginalPOITransaction", required = true)
+    @Schema(description = "Identification of a previous POI transaction.")
     protected OriginalPOITransaction originalPOITransaction;
     /**
      * The Customer order id.
      */
     @XmlElement(name = "CustomerOrderID")
+    @Schema(description = "If the reversal is performed inside a customer order.")
     protected CustomerOrder customerOrderID;
     /**
      * The Sale reference id.
      */
-    @XmlAttribute(name = "SaleReferenceID")
+    @XmlElement(name = "SaleReferenceID")
+    @Schema(description = "Identification of a Sale global transaction for a sequence of related POI transactions --Rule: If payment reservation reversal")
     protected String saleReferenceID;
     /**
      * The Reversal reason.
      */
-    @XmlAttribute(name = "ReversalReason", required = true)
+    @XmlElement(name = "ReversalReason", required = true)
+    @Schema(description = "Reason of the payment or loyalty reversal..")
     protected ReversalReasonType reversalReason;
     /**
      * The Reversed amount.
      */
-    @XmlAttribute(name = "ReversedAmount")
+    @XmlElement(name = "ReversedAmount")
+    @Schema(description = "Amount of the payment or loyalty to reverse.. --Rule: ReversedAmount is implicitely the AuthorizedAmount if absent.")
     protected BigDecimal reversedAmount;
     /**
      * The Sale data.
      */
-    @XmlAttribute(name = "SaleData")
+    @XmlElement(name = "SaleData")
     protected SaleData saleData;
 
     /**

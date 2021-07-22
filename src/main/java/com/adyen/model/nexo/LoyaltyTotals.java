@@ -1,8 +1,10 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -34,17 +36,20 @@ public class LoyaltyTotals {
     /**
      * The Transaction.
      */
-    @XmlAttribute(name = "TransactionType", required = true)
+    @XmlElement(name = "TransactionType", required = true)
+    @Schema(description = "Type of transaction for which totals are grouped. --Rule: Award, ReverseAward, Redemption, ReverseRedemption, Rebate, ReverseRebate")
     protected TransactionType transactionType;
     /**
      * The Transaction count.
      */
-    @XmlAttribute(name = "TransactionCount", required = true)
+    @XmlElement(name = "TransactionCount", required = true)
+    @Schema(description = "Number of processed transaction during the period.")
     protected BigInteger transactionCount;
     /**
      * The Transaction amount.
      */
-    @XmlAttribute(name = "TransactionAmount", required = true)
+    @XmlElement(name = "TransactionAmount", required = true)
+    @Schema(description = "Sum of amount of processed transaction during the period.")
     protected BigDecimal transactionAmount;
 
     /**

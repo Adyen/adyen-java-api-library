@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -44,26 +45,31 @@ public class LoyaltyResult {
      * The Loyalty account.
      */
     @XmlElement(name = "LoyaltyAccount", required = true)
+    @Schema(description = "Data related to a loyalty account processed in the transaction.")
     protected LoyaltyAccount loyaltyAccount;
     /**
      * The Loyalty amount.
      */
     @XmlElement(name = "LoyaltyAmount")
+    @Schema(description = "Amount of a loyalty account. --Rule: If awarded amount")
     protected LoyaltyAmount loyaltyAmount;
     /**
      * The Loyalty acquirer data.
      */
     @XmlElement(name = "LoyaltyAcquirerData")
+    @Schema(description = "Data related to the loyalty Acquirer during a loyalty transaction. --Rule: if content not empty")
     protected LoyaltyAcquirerData loyaltyAcquirerData;
     /**
      * The Rebates.
      */
     @XmlElement(name = "Rebates")
+    @Schema(description = "Rebate form to an award; --Rule: if rebates awarded")
     protected Rebates rebates;
     /**
      * The Current balance.
      */
-    @XmlAttribute(name = "CurrentBalance")
+    @XmlElement(name = "CurrentBalance")
+    @Schema(description = "Balance of an account. --Rule: if known (provided by the card or an external host)")
     protected BigDecimal currentBalance;
 
     /**

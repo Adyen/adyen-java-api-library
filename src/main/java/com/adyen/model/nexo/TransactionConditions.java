@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -49,65 +50,74 @@ public class TransactionConditions {
      * The Allowed payment brand.
      */
     @XmlElement(name = "AllowedPaymentBrand")
+    @Schema(description = "Card payment brands allowed by the Sale System for the payment transaction. --Rule: Restrict brand if data sent")
     protected List<String> allowedPaymentBrand;
     /**
      * The Acquirer id.
      */
     @XmlElement(name = "AcquirerID")
+    @Schema(description = "Identification of the Acquirer --Rule: Restrict to these Acquirer if present")
     protected List<String> acquirerID;
     /**
      * The Allowed loyalty brand.
      */
     @XmlElement(name = "AllowedLoyaltyBrand")
+    @Schema(description = "Loyalty brands or programs allowed by the Sale System for the loyalty transaction. --Rule: Restrict brand if data sent")
     protected List<String> allowedLoyaltyBrand;
     /**
      * The Force entry mode.
      */
     @XmlElement(name = "ForceEntryMode")
+    @Schema(description = "Payment instrument entry mode requested by the Sale System. --Rule: Restrict entry mode if sent")
     protected List<ForceEntryModeType> forceEntryMode;
     /**
      * The Debit preferred flag.
      */
-    @XmlAttribute(name = "DebitPreferredFlag")
+    @XmlElement(name = "DebitPreferredFlag")
+    @Schema(description = "The preferred type of payment is a debit transaction rather a credit transaction. --Rule: The preferred type of payment is a debit transaction rather a credit transaction.")
     protected Boolean debitPreferredFlag;
     /**
      * The Loyalty handling.
      */
-    @XmlAttribute(name = "LoyaltyHandling")
+    @XmlElement(name = "LoyaltyHandling")
+    @Schema(description = "Type of Loyalty processing requested by the Sale System.")
     protected LoyaltyHandlingType loyaltyHandling;
     /**
      * The Customer language.
      */
-    @XmlAttribute(name = "CustomerLanguage")
+    @XmlElement(name = "CustomerLanguage")
+    @Schema(description = "Language of the Customer --Rule: If the language is selected by the Sale System before the request to the POI.")
     protected String customerLanguage;
     /**
      * The Force online flag.
      */
-    @XmlAttribute(name = "ForceOnlineFlag")
+    @XmlElement(name = "ForceOnlineFlag")
+    @Schema(description = "Indicates if the Cashier requires POI forces online access to the Acquirer. --Rule:  Go online if data sent")
     protected Boolean forceOnlineFlag;
     /**
      * The Merchant category code.
      */
-    @XmlAttribute(name = "MerchantCategoryCode")
+    @XmlElement(name = "MerchantCategoryCode")
+    @Schema(description = "The code which identifies the category of the transaction (MCC). --Rule: The payment implies a specific MCC.", minLength = 3, maxLength = 4)
     protected String merchantCategoryCode;
 
     /**
      * Gets the value of the allowedPaymentBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedPaymentBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedPaymentBrand().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -122,21 +132,21 @@ public class TransactionConditions {
 
     /**
      * Gets the value of the acquirerID property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the acquirerID property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAcquirerID().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -151,21 +161,21 @@ public class TransactionConditions {
 
     /**
      * Gets the value of the allowedLoyaltyBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedLoyaltyBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedLoyaltyBrand().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -180,21 +190,21 @@ public class TransactionConditions {
 
     /**
      * Gets the value of the forceEntryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the forceEntryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getForceEntryMode().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ForceEntryModeType }
      *

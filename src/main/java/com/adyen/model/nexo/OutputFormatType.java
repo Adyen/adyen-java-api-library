@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -31,23 +33,28 @@ public enum OutputFormatType {
      * Predefined messageType (of any format) on the POI or the Sale. The output is then a PredefinedContent data structure.
      */
     @XmlEnumValue("MessageRef")
+    @Schema(description = "Predefined message (of any format) on the POI or the Sale. The output is then a PredefinedContent data structure. ")
     MESSAGE_REF("MessageRef"),
 
     /**
      * Text messageType including control characters prefixed by an escape character. The DisplayOutput is then an OutputText data structure.
      */
     @XmlEnumValue("Text")
+    @Schema(description = "Text message including control characters prefixed by an escape character. The DisplayOutput is then an OutputText data structure.")
     TEXT("Text"),
 
     /**
      * DisplayOutput uses the eXtensible HyperText Markup Language.
      */
+    @XmlEnumValue("XHTML")
+    @Schema(description = "DisplayOutput uses the eXtensible HyperText Markup Language.")
     XHTML("XHTML"),
 
     /**
      * Barcode type to print The output is then a OutputBarCode data structure.
      */
     @XmlEnumValue("BarCode")
+    @Schema(description = "Barcode type to print The output is then a OutputBarCode data structure.")
     BAR_CODE("BarCode");
     private final String value;
 

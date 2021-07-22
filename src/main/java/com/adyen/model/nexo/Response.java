@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -38,16 +39,19 @@ public class Response {
      * The Additional response.
      */
     @XmlElement(name = "AdditionalResponse")
+    @Schema(description = "Additional information related to processing status of a message request . --Rule: If present, the POI logs it for further examination")
     protected String additionalResponse;
     /**
      * The Result.
      */
-    @XmlAttribute(name = "Result", required = true)
+    @XmlElement(name = "Result", required = true)
+    @Schema(description = "Result of the processing of the message")
     protected ResultType result;
     /**
      * The Error condition.
      */
-    @XmlAttribute(name = "ErrorCondition")
+    @XmlElement(name = "ErrorCondition")
+    @Schema(description = "Condition that has produced  an error on the processing of a message request --Rule: If Result is not Success")
     protected ErrorConditionType errorCondition;
 
     /**

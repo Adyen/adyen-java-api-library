@@ -2,7 +2,7 @@ package com.adyen.model.nexo;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 
@@ -34,12 +34,12 @@ public class Amount {
     /**
      * The Value.
      */
-    @XmlAttribute(name = "AmountValue")
+    @XmlElement(name = "AmountValue")
     protected BigDecimal amountValue;
     /**
      * The Currency.
      */
-    @XmlAttribute(name = "Currency")
+    @XmlElement(name = "Currency")
     protected String currency;
 
     /**

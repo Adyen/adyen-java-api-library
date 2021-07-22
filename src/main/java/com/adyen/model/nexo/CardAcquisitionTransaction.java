@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
@@ -49,65 +50,74 @@ public class CardAcquisitionTransaction {
      * The Allowed payment brand.
      */
     @XmlElement(name = "AllowedPaymentBrand")
+    @Schema(description = "Card payment brands allowed by the Sale System for the payment transaction.")
     protected List<String> allowedPaymentBrand;
     /**
      * The Allowed loyalty brand.
      */
     @XmlElement(name = "AllowedLoyaltyBrand")
+    @Schema(description = "Loyalty brands or programs allowed by the Sale System for the loyalty transaction.")
     protected List<String> allowedLoyaltyBrand;
     /**
      * The Force entry mode.
      */
     @XmlElement(name = "ForceEntryMode")
+    @Schema(description = "Payment instrument entry mode requested by the Sale System.")
     protected List<ForceEntryModeType> forceEntryMode;
     /**
      * The Loyalty handling.
      */
-    @XmlAttribute(name = "LoyaltyHandling")
+    @XmlElement(name = "LoyaltyHandling")
+    @Schema(description = "Type of Loyalty processing requested by the Sale System.")
     protected LoyaltyHandlingType loyaltyHandling;
     /**
      * The Customer language.
      */
-    @XmlAttribute(name = "CustomerLanguage")
+    @XmlElement(name = "CustomerLanguage")
+    @Schema(description = "Language of the Customer --Rule: If the language is selected by the Sale System before the request to the POI.")
     protected String customerLanguage;
     /**
      * The Force customer selection flag.
      */
-    @XmlAttribute(name = "ForceCustomerSelectionFlag")
+    @XmlElement(name = "ForceCustomerSelectionFlag")
+    @Schema(description = "Indicates if the Customer realises the selection of the card application.")
     protected Boolean forceCustomerSelectionFlag;
     /**
      * The Total amount.
      */
-    @XmlAttribute(name = "TotalAmount")
+    @XmlElement(name = "TotalAmount")
+    @Schema(description = "Amount of a transaction. --Rule: Mandatory for contactless card, otherwise absent")
     protected BigDecimal totalAmount;
     /**
      * The Payment.
      */
-    @XmlAttribute(name = "PaymentType")
+    @XmlElement(name = "PaymentType")
+    @Schema(description = "Type of payment transaction. --Rule: Mandatory for contactless card, otherwise absent")
     protected PaymentType paymentType;
     /**
      * The Cash back flag.
      */
-    @XmlAttribute(name = "CashBackFlag")
+    @XmlElement(name = "CashBackFlag")
+    @Schema(description = "Cash back has been requested with the payment transaction. --Rule: For contactless, True if cash back has been requested, default False. Otherwise absent.")
     protected Boolean cashBackFlag;
 
     /**
      * Gets the value of the allowedPaymentBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedPaymentBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedPaymentBrand().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -122,21 +132,21 @@ public class CardAcquisitionTransaction {
 
     /**
      * Gets the value of the allowedLoyaltyBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedLoyaltyBrand property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedLoyaltyBrand().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -151,21 +161,21 @@ public class CardAcquisitionTransaction {
 
     /**
      * Gets the value of the forceEntryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the forceEntryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getForceEntryMode().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ForceEntryModeType }
      *

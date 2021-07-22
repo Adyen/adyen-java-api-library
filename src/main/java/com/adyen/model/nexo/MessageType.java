@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -30,18 +32,21 @@ public enum MessageType {
      * Request messageType that requires a response, except if the request messageType mentions explicitely that a response messageType is not expected.
      */
     @XmlEnumValue("Request")
+    @Schema(description = "Request message that requires a response, except if the request message mentions explicitely that a response message is not expected.")
     REQUEST("Request"),
 
     /**
      * Response messageType, sent to answer to a request messageType.
      */
     @XmlEnumValue("Response")
+    @Schema(description = "Response message, sent to answer to a request message.")
     RESPONSE("Response"),
 
     /**
      * Unsollicited notification messageType that does not require an answer.
      */
     @XmlEnumValue("Notification")
+    @Schema(description = "Unsollicited notification message that does not require an answer.")
     NOTIFICATION("Notification");
     private final String value;
 

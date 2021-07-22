@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -40,21 +41,25 @@ public class LoyaltyAcquirerData {
      * The Approval code.
      */
     @XmlElement(name = "ApprovalCode")
+    @Schema(description = "Code assigned to a transaction approval by the Acquirer. --Rule: If provided by the Acquirer")
     protected String approvalCode;
     /**
      * The Loyalty transaction id.
      */
     @XmlElement(name = "LoyaltyTransactionID")
+    @Schema(description = "Identification of the Transaction for the Loyalty Acquirer. --Rule: If provided by the Acquirer")
     protected TransactionIdentification loyaltyTransactionID;
     /**
      * The Loyalty acquirer id.
      */
-    @XmlAttribute(name = "LoyaltyAcquirerID")
+    @XmlElement(name = "LoyaltyAcquirerID")
+    @Schema(description = "Identification of the loyalty Acquirer. --Rule: If available")
     protected String loyaltyAcquirerID;
     /**
      * The Host reconciliation id.
      */
-    @XmlAttribute(name = "HostReconciliationID")
+    @XmlElement(name = "HostReconciliationID")
+    @Schema(description = "Identifier of a reconciliation period with a payment or loyalty host. --Rule: If provided by the Acquirer")
     protected String hostReconciliationID;
 
     /**

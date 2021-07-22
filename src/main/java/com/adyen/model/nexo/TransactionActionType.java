@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -29,12 +31,14 @@ public enum TransactionActionType {
      * Start a transaction by a swipe ahead mechanism, with the services which are enabled.
      */
     @XmlEnumValue("StartTransaction")
+    @Schema(description = "Start a transaction by a swipe ahead mechanism, with the services which are enabled.")
     START_TRANSACTION("StartTransaction"),
 
     /**
      * Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction to "StartTransaction", not followed by a service request from
      */
     @XmlEnumValue("AbortTransaction")
+    @Schema(description = "Abort a transaction started either by a CardAcquisition or EnableService with TransactionAction to \"StartTransaction\", not followed by a service request from")
     ABORT_TRANSACTION("AbortTransaction");
     private final String value;
 

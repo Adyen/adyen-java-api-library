@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -53,56 +54,66 @@ public class CardData {
      * The Protected card data.
      */
     @XmlElement(name = "ProtectedCardData")
+    @Schema(description = "Sensitive information related to the payment card, protected by CMS. --Rule: SensitiveCardData protected by CMS EnvelopedData")
     protected ContentInformation protectedCardData;
     /**
      * The Sensitive card data.
      */
     @XmlElement(name = "SensitiveCardData")
+    @Schema(description = "Sensitive information related to the payment card, entered or read by the Sale System. --Rule: If structure non empty and unprotected")
     protected SensitiveCardData sensitiveCardData;
     /**
      * The Allowed product code.
      */
     @XmlElement(name = "AllowedProductCode")
+    @Schema(description = "Product codes that are payable by the payment card. --Rule: If ErrorCondition is \"PaymentRestriction\", some products are not payable by the payment card (payment response).", minLength = 1, maxLength = 20)
     protected List<String> allowedProductCode;
     /**
      * The Allowed product.
      */
     @XmlElement(name = "AllowedProduct")
+    @Schema(description = "Product that are payable by the payment card. --Rule: If the card has restrictions on product that can be purchased (card acquisition or balance inquiry response).")
     protected List<AllowedProduct> allowedProduct;
     /**
      * The Payment token.
      */
     @XmlElement(name = "PaymentToken")
+    @Schema(description = "Surrogate of the PAN (Primary Account Number) of the payment card to identify the payment mean of the customer. --Rule: Present in If requested in CardAcquisitionResponse or PaymentResponse if requested in the request or in the Login")
     protected PaymentToken paymentToken;
     /**
      * The Customer order.
      */
     @XmlElement(name = "CustomerOrder")
+    @Schema(description = "Customer order attached to a card, recorded in the POI system. --Rule: If the list of customer orders has been requested.")
     protected List<CustomerOrder> customerOrder;
     /**
      * The Payment brand.
      */
-    @XmlAttribute(name = "PaymentBrand")
+    @XmlElement(name = "PaymentBrand")
+    @Schema(description = "Type of payment card --Rule: If card PAN is readable ")
     protected String paymentBrand;
     /**
      * The Masked pan.
      */
-    @XmlAttribute(name = "MaskedPan")
+    @XmlElement(name = "MaskedPan")
     protected String maskedPAN;
     /**
      * The Payment account ref.
      */
-    @XmlAttribute(name = "PaymentAccountRef")
+    @XmlElement(name = "PaymentAccountRef")
+    @Schema(description = "Reference of the PAN, which identifies the PAN or the card uniquely, named also PAR (Payment Account Reference). This --Rule: Mandatory if available.")
     protected String paymentAccountRef;
     /**
      * The Entry mode.
      */
-    @XmlAttribute(name = "EntryMode")
+    @XmlElement(name = "EntryMode")
+    @Schema(description = "Entry mode of the payment instrument information --Rule: Mandatory in the request")
     protected List<EntryModeType> entryMode;
     /**
      * The Card country code.
      */
-    @XmlAttribute(name = "CardCountryCode")
+    @XmlElement(name = "CardCountryCode")
+    @Schema(description = "Country Code attached to the card (3 numerics). --Rule: If available in the card", minLength = 3, maxLength = 3)
     protected String cardCountryCode;
 
     /**
@@ -143,21 +154,21 @@ public class CardData {
 
     /**
      * Gets the value of the allowedProductCode property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedProductCode property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedProductCode().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      *
@@ -172,21 +183,21 @@ public class CardData {
 
     /**
      * Gets the value of the allowedProduct property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the allowedProduct property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getAllowedProduct().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link AllowedProduct }
      *
@@ -219,21 +230,21 @@ public class CardData {
 
     /**
      * Gets the value of the customerOrder property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the customerOrder property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getCustomerOrder().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link CustomerOrder }
      *
@@ -302,21 +313,21 @@ public class CardData {
 
     /**
      * Gets the value of the entryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the entryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getEntryMode().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link EntryModeType }
      *

@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -30,18 +32,21 @@ public enum PINRequestType {
      * The PIN Entering and Verify.
      */
     @XmlEnumValue("PINVerify")
+    @Schema(description = "The PIN Entering and Verify.")
     PIN_VERIFY("PINVerify"),
 
     /**
      * The PIN Verify only, the PIN is entered before and the PIN Block (encrypted PIN) is provided.
      */
     @XmlEnumValue("PINVerifyOnly")
+    @Schema(description = "The PIN Verify only, the PIN is entered before and the PIN Block (encrypted PIN) is provided.")
     PIN_VERIFY_ONLY("PINVerifyOnly"),
 
     /**
      * The PIN is entered by the Cardholder, encrypted by the POI, and provided as a result.
      */
     @XmlEnumValue("PINEnter")
+    @Schema(description = "The PIN is entered by the Cardholder, encrypted by the POI, and provided as a result.")
     PIN_ENTER("PINEnter");
     private final String value;
 

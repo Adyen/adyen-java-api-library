@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -92,126 +94,151 @@ public class SaleToPOIResponse {
      * The Balance inquiry response.
      */
     @XmlElement(name = "BalanceInquiryResponse")
+    @Schema(description = "Content of the Balance Inquiry Response message.")
     protected BalanceInquiryResponse balanceInquiryResponse;
     /**
      * The Batch response.
      */
     @XmlElement(name = "BatchResponse")
+    @Schema(description = "Content of the Batch Response message.")
     protected BatchResponse batchResponse;
     /**
      * The Card acquisition response.
      */
     @XmlElement(name = "CardAcquisitionResponse")
+    @Schema(description = "Content of the Card Acquisition Response message.")
     protected CardAcquisitionResponse cardAcquisitionResponse;
     /**
      * The Admin response.
      */
     @XmlElement(name = "AdminResponse")
+    @Schema(description = "Content of the Custom Admin Response message.")
     protected AdminResponse adminResponse;
     /**
      * The Diagnosis response.
      */
     @XmlElement(name = "DiagnosisResponse")
+    @Schema(description = "Content of the Diagnosis Response message.")
     protected DiagnosisResponse diagnosisResponse;
     /**
      * The Display response.
      */
     @XmlElement(name = "DisplayResponse")
+    @Schema(description = "Content of the Display Response message.")
     protected DisplayResponse displayResponse;
     /**
      * The Enable service response.
      */
     @XmlElement(name = "EnableServiceResponse")
+    @Schema(description = "Content of the Enable Service Response message.")
     protected EnableServiceResponse enableServiceResponse;
     /**
      * The Get totals response.
      */
     @XmlElement(name = "GetTotalsResponse")
+    @Schema(description = "Content of the Reconciliation Response message.")
     protected GetTotalsResponse getTotalsResponse;
     /**
      * The Input response.
      */
     @XmlElement(name = "InputResponse")
+    @Schema(description = "Content of the Input Response message.")
     protected InputResponse inputResponse;
     /**
      * The Login response.
      */
     @XmlElement(name = "LoginResponse")
+    @Schema(description = "Content of the Login Response message.")
     protected LoginResponse loginResponse;
     /**
      * The Logout response.
      */
     @XmlElement(name = "LogoutResponse")
+    @Schema(description = "Content of the Logout Response message.")
     protected LogoutResponse logoutResponse;
     /**
      * The Loyalty response.
      */
     @XmlElement(name = "LoyaltyResponse")
+    @Schema(description = "Content of the Loyalty Response message.")
     protected LoyaltyResponse loyaltyResponse;
     /**
      * The Payment response.
      */
     @XmlElement(name = "PaymentResponse")
+    @Schema(description = "Content of the Payment Response message.")
     protected PaymentResponse paymentResponse;
     /**
      * The Pin response.
      */
     @XmlElement(name = "PINResponse")
+    @Schema(description = "Content of the PIN Response message.")
     protected PINResponse pinResponse;
     /**
      * The Print response.
      */
     @XmlElement(name = "PrintResponse")
+    @Schema(description = "Content of the Print Response message.")
     protected PrintResponse printResponse;
     /**
      * The Card reader init response.
      */
     @XmlElement(name = "CardReaderInitResponse")
+    @Schema(description = "Content of the Card Reader Init Response message.")
     protected CardReaderInitResponse cardReaderInitResponse;
     /**
      * The Card reader apdu response.
      */
     @XmlElement(name = "CardReaderAPDUResponse")
+    @Schema(description = "Content of the Card Reader APDU Response message.")
     protected CardReaderAPDUResponse cardReaderAPDUResponse;
     /**
      * The Card reader power off response.
      */
     @XmlElement(name = "CardReaderPowerOffResponse")
+    @Schema(description = "Content of the Card Reader Power-Off Response message.")
     protected CardReaderPowerOffResponse cardReaderPowerOffResponse;
     /**
      * The Reconciliation response.
      */
     @XmlElement(name = "ReconciliationResponse")
+    @Schema(description = "Content of the Reconciliation Response message.")
     protected ReconciliationResponse reconciliationResponse;
     /**
      * The Reversal response.
      */
     @XmlElement(name = "ReversalResponse")
+    @Schema(description = "Content of the Reversal Response message.")
     protected ReversalResponse reversalResponse;
     /**
      * The Sound response.
      */
     @XmlElement(name = "SoundResponse")
+    @Schema(description = "Content of the Sound Response message.")
     protected SoundResponse soundResponse;
     /**
      * The Stored value response.
      */
     @XmlElement(name = "StoredValueResponse")
+    @Schema(description = "Content of the Stored Value Response message.")
     protected StoredValueResponse storedValueResponse;
     /**
      * The Transaction status response.
      */
     @XmlElement(name = "TransactionStatusResponse")
+    @Schema(description = "Content of the TransactionStatus Response message.")
     protected TransactionStatusResponse transactionStatusResponse;
     /**
      * The Transmit response.
      */
     @XmlElement(name = "TransmitResponse")
+    @Schema(description = "Content of the Transmit Response message.")
     protected TransmitResponse transmitResponse;
     /**
      * The Security trailer.
      */
     @XmlElement(name = "SecurityTrailer")
+    @Schema(description = "Protection of the whole message")
     protected ContentInformation securityTrailer;
 
     /**

@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigInteger;
@@ -44,45 +45,50 @@ public class CardReaderInitRequest {
      * The Force entry mode.
      */
     @XmlElement(name = "ForceEntryMode")
+    @Schema(description = "Payment instrument entry mode requested by the Sale System.")
     protected List<ForceEntryModeType> forceEntryMode;
     /**
      * The Display output.
      */
     @XmlElement(name = "DisplayOutput")
+    @Schema(description = "Information to display and the way to process the display.")
     protected DisplayOutput displayOutput;
     /**
      * The Warm reset flag.
      */
-    @XmlAttribute(name = "WarmResetFlag")
+    @XmlElement(name = "WarmResetFlag")
+    @Schema(description = "Flag to request a warm reset on a chip.")
     protected Boolean warmResetFlag;
     /**
      * The Leave card flag.
      */
-    @XmlAttribute(name = "LeaveCardFlag")
+    @XmlElement(name = "LeaveCardFlag")
+    @Schema(description = "Indicates if the POI has to keep the card in the reader for a smart card.")
     protected Boolean leaveCardFlag;
     /**
      * The Max waiting time.
      */
-    @XmlAttribute(name = "MaxWaitingTime")
+    @XmlElement(name = "MaxWaitingTime")
+    @Schema(description = "Maximum time to wait for the request processing in seconds.")
     protected BigInteger maxWaitingTime;
 
     /**
      * Gets the value of the forceEntryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the forceEntryMode property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getForceEntryMode().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ForceEntryModeType }
      *

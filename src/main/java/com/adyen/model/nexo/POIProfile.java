@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
@@ -41,30 +42,32 @@ public class POIProfile {
      */
     @XmlList
     @XmlElement(name = "ServiceProfiles")
+    @Schema(description = "Service profiles of the Sale to POI protocol. --Rule: If a service profile could be requested")
     protected List<ServiceProfilesType> serviceProfiles;
     /**
      * The Generic profile.
      */
-    @XmlAttribute(name = "GenericProfile")
+    @XmlElement(name = "GenericProfile")
+    @Schema(description = "Functional profile of the Sale to POI protocol.")
     protected GenericProfileType genericProfile;
 
     /**
      * Gets the value of the serviceProfiles property.
-     *
-     *
+     * <p>
+     * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the serviceProfiles property.
-     *
-     *
+     * <p>
+     * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getServiceProfiles().add(newItem);
      * </pre>
-     *
-     *
-     *
+     * <p>
+     * <p>
+     * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ServiceProfilesType }
      *

@@ -3,10 +3,10 @@ package com.adyen.model.nexo;
 import com.adyen.model.terminal.SaleToAcquirerData;
 import com.adyen.serializer.SaleToAcquirerDataSerializer;
 import com.google.gson.annotations.JsonAdapter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
@@ -59,67 +59,80 @@ public class SaleData {
      * The Sale transaction id.
      */
     @XmlElement(name = "SaleTransactionID", required = true)
+    @Schema(description = "Unique identification of a Sale transaction")
     protected TransactionIdentification saleTransactionID;
     /**
      * The Sale terminal data.
      */
     @XmlElement(name = "SaleTerminalData")
+    @Schema(description = "Information related to the software and hardware feature of the Sale Terminal. --Rule: If content is not empty")
     protected SaleTerminalData saleTerminalData;
     /**
      * The Sponsored merchant.
      */
     @XmlElement(name = "SponsoredMerchant")
+    @Schema(description = "Merchant using the payment services of a payment facilitator, acting as a card acceptor. --Rule: If the merchant is a payment facilitator providing services to sponsored merchants.")
     protected List<SponsoredMerchant> sponsoredMerchant;
     /**
      * The Sale to poi data.
      */
     @XmlElement(name = "SaleToPOIData")
+    @Schema(description = "Sale information intended for the POI. --Rule: Stored with the transaction")
     protected String saleToPOIData;
     /**
      * The Sale to acquirer data.
      */
     @XmlElement(name = "SaleToAcquirerData")
+    @Schema(description = "Sale information intended for the Acquirer. --Rule: Send to the Acquirer if present")
     @JsonAdapter(SaleToAcquirerDataSerializer.class)
     protected SaleToAcquirerData saleToAcquirerData;
     /**
      * The Sale to issuer data.
      */
     @XmlElement(name = "SaleToIssuerData")
+    @Schema(description = "Sale information intended for the Issuer. --Rule: Send to the Acquirer if present")
     protected SaleToIssuerData saleToIssuerData;
     /**
      * The Operator id.
      */
-    @XmlAttribute(name = "OperatorID")
+    @XmlElement(name = "OperatorID")
+    @Schema(description = "Identification of the Cashier or Operator. --Rule: if different from the Login and  see Login .SaleData")
     protected String operatorID;
     /**
      * The Operator language.
      */
-    @XmlAttribute(name = "OperatorLanguage")
+    @XmlElement(name = "OperatorLanguage")
+    @Schema(description = "Language of the Cashier or Operator. --Rule: if different from the Login")
     protected String operatorLanguage;
     /**
      * The Shift number.
      */
-    @XmlAttribute(name = "ShiftNumber")
+    @XmlElement(name = "ShiftNumber")
+    @Schema(description = "Shift number. --Rule: if different from the Login and  see Login .SaleData")
     protected String shiftNumber;
     /**
      * The Sale reference id.
      */
-    @XmlAttribute(name = "SaleReferenceID")
+    @XmlElement(name = "SaleReferenceID")
+    @Schema(description = "Identification of a Sale global transaction for a sequence of related POI transactions --Rule: If payment reservation")
     protected String saleReferenceID;
     /**
      * The Token requested.
      */
-    @XmlAttribute(name = "TokenRequestedType")
+    @XmlElement(name = "TokenRequestedType")
+    @Schema(description = "Type of token replacing the PAN of a payment card to identify the payment mean of the customer. --Rule: In a Payment or CardAcquisition request, if a token is requested.")
     protected TokenRequestedType tokenRequestedType;
     /**
      * The Customer order id.
      */
-    @XmlAttribute(name = "CustomerOrderID")
+    @XmlElement(name = "CustomerOrderID")
+    @Schema(description = "Identification of a customer order. --Rule: If the payment is related to an open customer order.")
     protected String customerOrderID;
     /**
      * The Customer order req.
      */
-    @XmlAttribute(name = "CustomerOrderReq")
+    @XmlElement(name = "CustomerOrderReq")
+    @Schema(description = "List of customer orders must be sent in response message. --Rule: If customer orders must be listed in the response message.")
     protected List<CustomerOrderReqType> customerOrderReq;
 
     public SaleData() {

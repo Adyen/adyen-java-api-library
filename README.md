@@ -41,7 +41,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>15.1.0</version>
+  <version>16.0.0</version>
 </dependency>
 ```
 
@@ -107,17 +107,17 @@ Checkout checkout = new Checkout(client);
 
  
 ### Proxy configuration
-You can configure a proxy connection by injecting your own HttpURLConnectionClient on your client instance.
+You can configure a proxy connection by injecting your own AdyenHttpClient on your client instance.
 
 Example:
 ~~~~ java
 ...
-HttpURLConnectionClient httpURLConnectionClientWithProxy = new HttpURLConnectionClient();
+AdyenHttpClient adyenHttpClientWithProxy = new AdyenHttpClient();
 
 Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("PROXY_HOST", PROXY_PORT));
-httpURLConnectionClientWithProxy.setProxy(proxy);
+adyenHttpClientWithProxy.setProxy(proxy);
 
-client.setHttpClient(httpURLConnectionClientWithProxy);
+client.setHttpClient(adyenHttpClientWithProxy);
 ~~~~
 
 ### Example integrations

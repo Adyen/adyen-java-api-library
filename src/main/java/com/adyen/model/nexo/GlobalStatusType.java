@@ -1,5 +1,7 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -36,18 +38,21 @@ public enum GlobalStatusType {
      * The POI Terminal cannot process a request because another processing is in progress.
      */
     @XmlEnumValue("Busy")
+    @Schema(description = "The POI Terminal cannot process a request because another processing is in progress.")
     BUSY("Busy"),
 
     /**
      * The POI is in maintenance processing
      */
     @XmlEnumValue("Maintenance")
+    @Schema(description = "The POI is in maintenance processing")
     MAINTENANCE("Maintenance"),
 
     /**
      * The POI is unreachable or not responding
      */
     @XmlEnumValue("Unreachable")
+    @Schema(description = "The POI is unreachable or not responding")
     UNREACHABLE("Unreachable");
     private final String value;
 

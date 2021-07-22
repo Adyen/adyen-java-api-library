@@ -1,8 +1,9 @@
 package com.adyen.model.nexo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -44,31 +45,37 @@ public class MobileData {
      * The Mobile country code.
      */
     @XmlElement(name = "MobileCountryCode")
+    @Schema(description = "Identifies the country of a mobile phone operator. --Rule: If data available", minLength = 3, maxLength = 3)
     protected String mobileCountryCode;
     /**
      * The Geolocation.
      */
     @XmlElement(name = "Geolocation")
+    @Schema(description = "Geographic location specified by geographic or UTM coordinates. --Rule: If data available")
     protected Geolocation geolocation;
     /**
      * The Protected mobile data.
      */
     @XmlElement(name = "ProtectedMobileData")
+    @Schema(description = "Sensitive information related to the mobile phone, protected by CMS. --Rule: SensitiveMobileData")
     protected ContentInformation protectedMobileData;
     /**
      * The Sensitive mobile data.
      */
     @XmlElement(name = "SensitiveMobileData")
+    @Schema(description = "Sensitive information related to the mobile phone. --Rule: If unprotected mobile data")
     protected SensitiveMobileData sensitiveMobileData;
     /**
      * The Mobile network code.
      */
-    @XmlAttribute(name = "MobileNetworkCode")
+    @XmlElement(name = "MobileNetworkCode")
+    @Schema(description = "Identifies the mobile phone operator inside a country. --Rule: If data available", minLength = 2, maxLength = 3)
     protected String mobileNetworkCode;
     /**
      * The Masked msisdn.
      */
-    @XmlAttribute(name = "MaskedMSISDN")
+    @XmlElement(name = "MaskedMSISDN")
+    @Schema(description = "Masked Mobile Subscriber Integrated Service Digital Network. --Rule: If data available")
     protected String maskedMSISDN;
 
     /**
