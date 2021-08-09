@@ -52,6 +52,8 @@ import com.adyen.model.marketpay.DeletePayoutMethodRequest;
 import com.adyen.model.marketpay.DeletePayoutMethodResponse;
 import com.adyen.model.marketpay.DeleteShareholderRequest;
 import com.adyen.model.marketpay.DeleteShareholderResponse;
+import com.adyen.model.marketpay.DeleteSignatoryRequest;
+import com.adyen.model.marketpay.DeleteSignatoryResponse;
 import com.adyen.model.marketpay.DocumentDetail;
 import com.adyen.model.marketpay.ErrorFieldType;
 import com.adyen.model.marketpay.FieldType;
@@ -551,6 +553,45 @@ public class MarketPayTest extends BaseTest {
         assertEquals("9914694372990637", deleteShareholderResponse.getPspReference());
         assertEquals("Received", deleteShareholderResponse.getResultCode());
 
+    }
+
+    @Test
+    public void TestDeleteSignatorySuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-signatory-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create DeleteSignatory Request
+        DeleteSignatoryRequest deleteSignatoryRequest = new DeleteSignatoryRequest();
+        deleteSignatoryRequest.setAccountHolderCode("TestAccountHolder289429");
+        deleteSignatoryRequest.addSignatoryCodesItem("39b57c2d-d73b-400c-93de-708a51cd1f20");
+
+        DeleteSignatoryResponse deleteSignatoryResponse = account.deleteSignatory(deleteSignatoryRequest);
+        assertEquals("8516284978974831", deleteSignatoryResponse.getPspReference());
+    }
+
+    @Test
+    public void TestDeleteSignatoryInvalid() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-signatory-error-invalid-fields.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create DeleteSignatory Request
+        DeleteSignatoryRequest deleteSignatoryRequest = new DeleteSignatoryRequest();
+        deleteSignatoryRequest.setAccountHolderCode("TestAccountHolder289429");
+        deleteSignatoryRequest.addSignatoryCodesItem("9a2deb52-9832-45eb-8233-9bd8cc3ebb69");
+
+        DeleteSignatoryResponse deleteSignatoryResponse = account.deleteSignatory(deleteSignatoryRequest);
+        assertEquals("8516284974139611", deleteSignatoryResponse.getPspReference());
+        assertEquals(1, deleteSignatoryResponse.getInvalidFields().size());
+        assertEquals(137, deleteSignatoryResponse.getInvalidFields().get(0).getErrorCode().intValue());
+        assertEquals("Signatory does not exist for signatoryCode: [9a2deb52-9832-45eb-8233-9bd8cc3ebb69]", deleteSignatoryResponse.getInvalidFields().get(0).getErrorDescription());
+        assertEquals("AccountHolderDetails.BusinessDetails.signatory", deleteSignatoryResponse.getInvalidFields().get(0).getFieldType().getField());
+        assertEquals(FieldType.FieldNameEnum.SIGNATORY, deleteSignatoryResponse.getInvalidFields().get(0).getFieldType().getFieldName());
     }
 
     @Test
