@@ -107,6 +107,9 @@ public class DocumentDetail {
     @SerializedName("shareholderCode")
     private String shareholderCode = null;
 
+    @SerializedName("signatoryCode")
+    private String signatoryCode = null;
+
     public DocumentDetail accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
@@ -215,6 +218,24 @@ public class DocumentDetail {
         this.shareholderCode = shareholderCode;
     }
 
+    /**
+     * The Adyen-generated signatoryCode to which the document must be linked.
+     * Populated only if the document is uploaded for a signatory.
+     *
+     * @return signatoryCode
+     **/
+    public String getSignatoryCode() {
+        return signatoryCode;
+    }
+
+    public void setSignatoryCode(String signatoryCode) {
+        this.signatoryCode = signatoryCode;
+    }
+
+    public DocumentDetail signatoryCode(String signatoryCode) {
+        this.signatoryCode = signatoryCode;
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -231,12 +252,13 @@ public class DocumentDetail {
                                   documentDetail.filename)
                 && Objects.equals(this.documentType, documentDetail.documentType)
                 && Objects.equals(this.description, documentDetail.description)
-                && Objects.equals(this.shareholderCode, documentDetail.shareholderCode);
+                && Objects.equals(this.shareholderCode, documentDetail.shareholderCode)
+                && Objects.equals(this.signatoryCode, documentDetail.signatoryCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, bankAccountUUID, filename, documentType, description, shareholderCode);
+        return Objects.hash(accountHolderCode, bankAccountUUID, filename, documentType, description, shareholderCode, signatoryCode);
     }
 
 
@@ -251,6 +273,7 @@ public class DocumentDetail {
         sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
+        sb.append("    signatoryCode: ").append(toIndentedString(signatoryCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
