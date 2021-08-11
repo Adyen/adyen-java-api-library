@@ -111,8 +111,14 @@ import java.util.TimeZone;
 import static com.adyen.model.marketpay.AccountEvent.EventEnum.INACTIVATEACCOUNT;
 import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.AWAITING_DATA;
 import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.PASSED;
-import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.*;
-import static org.junit.Assert.*;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.BANK_ACCOUNT_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.COMPANY_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.IDENTITY_VERIFICATION;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Tests for /authorise and /authorise3d
@@ -435,6 +441,32 @@ public class MarketPayTest extends BaseTest {
         assertEquals("Director", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getJobTitle());
         assertEquals("Director", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getSignatories().get(0).getJobTitle());
         assertEquals(ShareholderContact.ShareholderTypeEnum.CONTROLLER, getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getShareholderType());
+    }
+
+    @Test
+    public void TestGetBusinessAccountHolderWithParentSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/get-business-account-holder-with-parent-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create GetAccountHolder Request
+        GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
+        getAccountHolderRequest.setAccountHolderCode("TestAccountHolderUltimateParentCompany");
+
+        GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
+
+        assertEquals("TestAccountHolderUltimateParentCompany", getAccountHolderResponse.getAccountHolderCode());
+        assertEquals("25aee067-3560-4e16-83d6-0b6aa96e7e85", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getListedUltimateParentCompany().get(0).getUltimateParentCompanyCode());
+        assertEquals("UPC Test Street", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getListedUltimateParentCompany().get(0).getAddress().getStreet());
+
+        assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getType());
+        assertEquals(PASSED, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getStatus());
+
+        assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getChecks().get(0).getType());
+        assertEquals(PASSED, getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getChecks().get(0).getStatus());
+        assertEquals("25aee067-3560-4e16-83d6-0b6aa96e7e85", getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getUltimateParentCompanyCode());
     }
 
     @Test
