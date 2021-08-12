@@ -19,7 +19,15 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model.marketpay;
+package com.adyen.service.resource.account;
 
-public class DeleteSignatoryResponse extends GenericResponse {
+import com.adyen.Client;
+import com.adyen.Service;
+import com.adyen.service.Resource;
+
+public class DeleteSignatories extends Resource {
+
+    public DeleteSignatories(Service service) {
+        super(service, service.getClient().getConfig().getMarketPayEndpoint() + "/Account/" + Client.MARKETPAY_ACCOUNT_API_VERSION + "/deleteSignatories", null);
+    }
 }

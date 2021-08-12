@@ -29,16 +29,16 @@ import java.util.Objects;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * DeleteSignatoryRequest
+ * DeleteSignatoriesRequest
  */
-public class DeleteSignatoryRequest {
+public class DeleteSignatoriesRequest {
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
 
     @SerializedName("signatoryCodes")
     private List<String> signatoryCodes = new ArrayList<>();
 
-    public DeleteSignatoryRequest accountHolderCode(String accountHolderCode) {
+    public DeleteSignatoriesRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
     }
@@ -56,12 +56,12 @@ public class DeleteSignatoryRequest {
         this.accountHolderCode = accountHolderCode;
     }
 
-    public DeleteSignatoryRequest signatoryCodes(List<String> signatoryCodes) {
+    public DeleteSignatoriesRequest signatoryCodes(List<String> signatoryCodes) {
         this.signatoryCodes = signatoryCodes;
         return this;
     }
 
-    public DeleteSignatoryRequest addSignatoryCodesItem(String signatoryCodesItem) {
+    public DeleteSignatoriesRequest addSignatoryCodesItem(String signatoryCodesItem) {
         this.signatoryCodes.add(signatoryCodesItem);
         return this;
     }
@@ -88,8 +88,8 @@ public class DeleteSignatoryRequest {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DeleteSignatoryRequest deleteSignatoryRequest = (DeleteSignatoryRequest) o;
-        return Objects.equals(this.accountHolderCode, deleteSignatoryRequest.accountHolderCode) && Objects.equals(this.signatoryCodes, deleteSignatoryRequest.signatoryCodes);
+        DeleteSignatoriesRequest deleteSignatoriesRequest = (DeleteSignatoriesRequest) o;
+        return Objects.equals(this.accountHolderCode, deleteSignatoriesRequest.accountHolderCode) && Objects.equals(this.signatoryCodes, deleteSignatoriesRequest.signatoryCodes);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class DeleteSignatoryRequest {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteSignatoryRequest {\n");
+        sb.append("class DeleteSignatoriesRequest {\n");
 
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    signatoryCodes: ").append(toIndentedString(signatoryCodes)).append("\n");

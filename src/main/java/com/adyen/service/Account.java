@@ -38,8 +38,8 @@ import com.adyen.model.marketpay.DeletePayoutMethodRequest;
 import com.adyen.model.marketpay.DeletePayoutMethodResponse;
 import com.adyen.model.marketpay.DeleteShareholderRequest;
 import com.adyen.model.marketpay.DeleteShareholderResponse;
-import com.adyen.model.marketpay.DeleteSignatoryRequest;
-import com.adyen.model.marketpay.DeleteSignatoryResponse;
+import com.adyen.model.marketpay.DeleteSignatoriesRequest;
+import com.adyen.model.marketpay.DeleteSignatoriesResponse;
 import com.adyen.model.marketpay.GetAccountHolderRequest;
 import com.adyen.model.marketpay.GetAccountHolderResponse;
 import com.adyen.model.marketpay.GetTaxFormRequest;
@@ -68,7 +68,7 @@ import com.adyen.service.resource.account.CreateAccountHolder;
 import com.adyen.service.resource.account.DeleteBankAccount;
 import com.adyen.service.resource.account.DeletePayoutMethod;
 import com.adyen.service.resource.account.DeleteShareholder;
-import com.adyen.service.resource.account.DeleteSignatory;
+import com.adyen.service.resource.account.DeleteSignatories;
 import com.adyen.service.resource.account.GetAccountHolder;
 import com.adyen.service.resource.account.GetTaxForm;
 import com.adyen.service.resource.account.GetUploadedDocuments;
@@ -91,7 +91,7 @@ public class Account extends Service {
     private CreateAccount createAccount;
     private DeleteBankAccount deleteBankAccount;
     private DeleteShareholder deleteShareholder;
-    private DeleteSignatory deleteSignatory;
+    private DeleteSignatories deleteSignatories;
     private SuspendAccountHolder suspendAccountHolder;
     private UnSuspendAccountHolder unSuspendAccountHolder;
     private UpdateAccountHolderState updateAccountHolderState;
@@ -113,7 +113,7 @@ public class Account extends Service {
         createAccount = new CreateAccount(this);
         deleteBankAccount = new DeleteBankAccount(this);
         deleteShareholder = new DeleteShareholder(this);
-        deleteSignatory = new DeleteSignatory(this);
+        deleteSignatories = new DeleteSignatories(this);
         suspendAccountHolder = new SuspendAccountHolder(this);
         unSuspendAccountHolder = new UnSuspendAccountHolder(this);
         updateAccountHolderState = new UpdateAccountHolderState(this);
@@ -183,11 +183,11 @@ public class Account extends Service {
         }.getType());
     }
 
-    public DeleteSignatoryResponse deleteSignatory(DeleteSignatoryRequest deleteSignatoryRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(deleteSignatoryRequest);
+    public DeleteSignatoriesResponse deleteSignatories(DeleteSignatoriesRequest deleteSignatoriesRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(deleteSignatoriesRequest);
 
-        String jsonResult = deleteSignatory.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<DeleteSignatoryResponse>() {
+        String jsonResult = deleteSignatories.request(jsonRequest);
+        return GSON.fromJson(jsonResult, new TypeToken<DeleteSignatoriesResponse>() {
         }.getType());
     }
 
