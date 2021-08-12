@@ -36,7 +36,7 @@ public class UltimateParentCompany {
     private Address address = null;
 
     @SerializedName("businessDetails")
-    private BusinessDetails businessDetails = null;
+    private UltimateParentCompanyBusinessDetails businessDetails = null;
 
     @SerializedName("ultimateParentCompanyCode")
     private String ultimateParentCompanyCode = null;
@@ -64,15 +64,15 @@ public class UltimateParentCompany {
      *
      * @return businessDetails
      */
-    public BusinessDetails getBusinessDetails() {
+    public UltimateParentCompanyBusinessDetails getBusinessDetails() {
         return businessDetails;
     }
 
-    public void setBusinessDetails(BusinessDetails businessDetails) {
+    public void setBusinessDetails(UltimateParentCompanyBusinessDetails businessDetails) {
         this.businessDetails = businessDetails;
     }
 
-    public UltimateParentCompany businessDetails(BusinessDetails businessDetails) {
+    public UltimateParentCompany businessDetails(UltimateParentCompanyBusinessDetails businessDetails) {
         this.businessDetails = businessDetails;
         return this;
     }
