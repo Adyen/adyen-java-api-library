@@ -141,7 +141,7 @@ public class NexoCrypto {
         if (receivedHmac.length != hmac.length) {
             valid = false;
         }
-        for (int i = 0; i < hmac.length && valid; i++) {
+        for (int i = 0; i < hmac.length; i++) {
             if (receivedHmac[i] != hmac[i]) {
                 valid = false;
             }
