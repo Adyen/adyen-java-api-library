@@ -39,6 +39,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
@@ -136,17 +137,7 @@ public class NexoCrypto {
      */
     private void validateHmac(byte[] receivedHmac, byte[] decryptedMessage, NexoDerivedKey derivedKey) throws NexoCryptoException, InvalidKeyException, NoSuchAlgorithmException {
         byte[] hmac = hmac(decryptedMessage, derivedKey);
-
-        boolean valid = true;
-        if (receivedHmac.length != hmac.length) {
-            valid = false;
-        }
-        for (int i = 0; i < hmac.length && valid; i++) {
-            if (receivedHmac[i] != hmac[i]) {
-                valid = false;
-                break;
-            }
-        }
+        boolean valid = MessageDigest.isEqual(hmac, receivedHmac);
 
         if (!valid) {
             throw new NexoCryptoException("Hmac validation failed");
