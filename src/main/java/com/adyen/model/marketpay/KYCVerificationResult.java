@@ -20,9 +20,10 @@
  */
 package com.adyen.model.marketpay;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * KYCVerificationResult
@@ -30,6 +31,9 @@ import com.google.gson.annotations.SerializedName;
 public class KYCVerificationResult {
     @SerializedName("shareholders")
     private List<KYCShareholderCheckResult> shareholders = new ArrayList<>();
+
+    @SerializedName("signatories")
+    private List<KYCSignatoryCheckResult> signatories = new ArrayList<>();
 
     @SerializedName("accountHolder")
     private KYCCheckResult accountHolder;
@@ -46,6 +50,14 @@ public class KYCVerificationResult {
 
     public void setShareholders(List<KYCShareholderCheckResult> shareholders) {
         this.shareholders = shareholders;
+    }
+
+    public List<KYCSignatoryCheckResult> getSignatories() {
+        return signatories;
+    }
+
+    public void setSignatories(List<KYCSignatoryCheckResult> signatories) {
+        this.signatories = signatories;
     }
 
     public KYCCheckResult getAccountHolder() {
@@ -74,6 +86,6 @@ public class KYCVerificationResult {
 
     @Override
     public String toString() {
-        return "KYCVerificationResult{" + "shareholders=" + shareholders + ", accountHolder=" + accountHolder + ", bankAccounts=" + bankAccounts + ", payoutMethods=" + payoutMethods + '}';
+        return "KYCVerificationResult{" + "shareholders=" + shareholders + ", signatories=" + signatories + ", accountHolder=" + accountHolder + ", bankAccounts=" + bankAccounts + ", payoutMethods=" + payoutMethods + '}';
     }
 }
