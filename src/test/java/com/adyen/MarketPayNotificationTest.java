@@ -20,27 +20,68 @@
  */
 package com.adyen;
 
+import com.adyen.model.marketpay.AccountHolderStatus;
+import com.adyen.model.marketpay.CreateAccountResponse;
 import com.adyen.model.marketpay.ErrorFieldType;
 import com.adyen.model.marketpay.FieldType;
 import com.adyen.model.marketpay.PayoutScheduleResponse;
-import com.adyen.model.marketpay.*;
-import com.adyen.model.marketpay.notification.*;
+import com.adyen.model.marketpay.notification.AccountCloseNotification;
+import com.adyen.model.marketpay.notification.AccountCreateNotification;
+import com.adyen.model.marketpay.notification.AccountFundsBelowThresholdNotification;
+import com.adyen.model.marketpay.notification.AccountHolderCreateNotification;
+import com.adyen.model.marketpay.notification.AccountHolderPayoutNotification;
+import com.adyen.model.marketpay.notification.AccountHolderStatusChangeNotification;
+import com.adyen.model.marketpay.notification.AccountHolderStoreStatusChangeNotification;
+import com.adyen.model.marketpay.notification.AccountHolderUpcomingDeadlineNotification;
+import com.adyen.model.marketpay.notification.AccountHolderUpcomingDeadlineNotificationContent;
+import com.adyen.model.marketpay.notification.AccountHolderUpdateNotification;
+import com.adyen.model.marketpay.notification.AccountHolderVerificationNotification;
+import com.adyen.model.marketpay.notification.AccountUpdateNotification;
+import com.adyen.model.marketpay.notification.BeneficiarySetupNotification;
+import com.adyen.model.marketpay.notification.CompensateNegativeBalanceNotification;
+import com.adyen.model.marketpay.notification.CreateNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.CreateNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.DirectDebitInitiatedNotification;
+import com.adyen.model.marketpay.notification.GenericNotification;
+import com.adyen.model.marketpay.notification.GetNotificationConfigurationListResponse;
+import com.adyen.model.marketpay.notification.GetNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.GetNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.NotificationConfigurationDetails;
+import com.adyen.model.marketpay.notification.NotificationEventConfiguration;
+import com.adyen.model.marketpay.notification.PaymentFailureNotification;
+import com.adyen.model.marketpay.notification.RefundFundsTransferNotification;
+import com.adyen.model.marketpay.notification.ReportAvailableNotification;
+import com.adyen.model.marketpay.notification.ScheduledRefundsNotification;
+import com.adyen.model.marketpay.notification.TestNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.TestNotificationConfigurationResponse;
+import com.adyen.model.marketpay.notification.TransferFundsNotification;
+import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationRequest;
+import com.adyen.model.marketpay.notification.UpdateNotificationConfigurationResponse;
 import com.adyen.notification.NotificationHandler;
 import com.adyen.service.Notification;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static com.adyen.model.marketpay.CreateAccountResponse.StatusEnum.ACTIVE;
+import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.AWAITING_DATA;
 import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.DATA_PROVIDED;
+import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.PASSED;
 import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.COMPANY_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.IDENTITY_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.PASSPORT_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.PAYOUT_METHOD_VERIFICATION;
 import static com.adyen.model.marketpay.PayoutScheduleResponse.ScheduleEnum.DAILY;
 import static com.adyen.model.marketpay.Transaction.TransactionStatusEnum.PENDINGCREDIT;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_CREATED;
-import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_STATUS_CHANGE;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.EventTypeEnum.ACCOUNT_HOLDER_VERIFICATION;
 import static com.adyen.model.marketpay.notification.NotificationEventConfiguration.IncludeModeEnum.INCLUDE;
 import static java.time.ZonedDateTime.parse;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class MarketPayNotificationTest extends BaseTest {
 
@@ -262,8 +303,21 @@ public class MarketPayNotificationTest extends BaseTest {
         assertEquals("accountHolderCode", notification.getContent().getAccountHolderCode());
         assertEquals(AccountHolderStatus.StatusEnum.ACTIVE, notification.getContent().getAccountHolderStatus().getStatus());
         assertEquals(COMPANY_VERIFICATION, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getType());
-        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getStatus());
-        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getShareholders().get(0).getChecks().get(0).getStatus());
+        assertEquals(PASSED, notification.getContent().getVerificationResult().getAccountHolder().getChecks().get(0).getStatus());
+
+        assertEquals(PAYOUT_METHOD_VERIFICATION, notification.getContent().getVerificationResult().getPayoutMethods().get(0).getChecks().get(0).getType());
+        assertEquals(PASSED, notification.getContent().getVerificationResult().getPayoutMethods().get(0).getChecks().get(0).getStatus());
+
+        assertEquals("7c46d0fc-68e2-435c-bb9f-e8719d9cb3df", notification.getContent().getVerificationResult().getShareholders().get(0).getShareholderCode());
+        assertEquals(IDENTITY_VERIFICATION, notification.getContent().getVerificationResult().getShareholders().get(0).getChecks().get(0).getType());
+        assertEquals(PASSED, notification.getContent().getVerificationResult().getShareholders().get(0).getChecks().get(0).getStatus());
+
+        assertEquals("591d1886-3cfa-4980-bb3a-228f837a2bb3", notification.getContent().getVerificationResult().getSignatories().get(0).getSignatoryCode());
+        assertEquals(IDENTITY_VERIFICATION, notification.getContent().getVerificationResult().getSignatories().get(0).getChecks().get(0).getType());
+        assertEquals(DATA_PROVIDED, notification.getContent().getVerificationResult().getSignatories().get(0).getChecks().get(0).getStatus());
+        assertEquals(PASSPORT_VERIFICATION, notification.getContent().getVerificationResult().getSignatories().get(0).getChecks().get(1).getType());
+        assertEquals(AWAITING_DATA, notification.getContent().getVerificationResult().getSignatories().get(0).getChecks().get(1).getStatus());
+        assertEquals("AccountHolderDetails.BusinessDetails.Signatories.Document.document", notification.getContent().getVerificationResult().getSignatories().get(0).getChecks().get(1).getRequiredFields().get(0));
     }
 
     @Test

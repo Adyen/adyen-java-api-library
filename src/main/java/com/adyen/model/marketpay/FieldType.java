@@ -182,6 +182,9 @@ public class FieldType {
         @SerializedName("shareholder")
         SHAREHOLDER("shareholder"),
 
+        @SerializedName("signatory")
+        SIGNATORY("signatory"),
+
         @SerializedName("stateOrProvince")
         STATEORPROVINCE("stateOrProvince"),
 

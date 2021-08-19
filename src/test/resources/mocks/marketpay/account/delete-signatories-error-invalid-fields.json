@@ -1,0 +1,13 @@
+{
+  "invalidFields": [
+    {
+      "errorCode": 137,
+      "errorDescription": "Signatory does not exist for signatoryCode: [9a2deb52-9832-45eb-8233-9bd8cc3ebb69]",
+      "fieldType": {
+        "field": "AccountHolderDetails.BusinessDetails.signatory",
+        "fieldName": "signatory"
+      }
+    }
+  ],
+  "pspReference": "8516284974139611"
+}
