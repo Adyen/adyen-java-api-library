@@ -63,6 +63,9 @@ public class BusinessDetails {
     @SerializedName("taxId")
     private String taxId = null;
 
+    @SerializedName("listedUltimateParentCompany")
+    private List<UltimateParentCompany> listedUltimateParentCompany = null;
+
     public BusinessDetails doingBusinessAs(String doingBusinessAs) {
         this.doingBusinessAs = doingBusinessAs;
         return this;
@@ -259,6 +262,32 @@ public class BusinessDetails {
         this.stockTicker = stockTicker;
     }
 
+    /**
+     * Information about the parent public company. Required if the account holder is 100% owned by a publicly listed
+     * company.
+     *
+     * @return listedUltimateParentCompany
+     */
+    public List<UltimateParentCompany> getListedUltimateParentCompany() {
+        return listedUltimateParentCompany;
+    }
+
+    public void setListedUltimateParentCompany(List<UltimateParentCompany> listedUltimateParentCompany) {
+        this.listedUltimateParentCompany = listedUltimateParentCompany;
+    }
+
+    public BusinessDetails listedUltimateParentCompany(List<UltimateParentCompany> listedUltimateParentCompany) {
+        this.listedUltimateParentCompany = listedUltimateParentCompany;
+        return this;
+    }
+
+    public BusinessDetails addListedUltimateParentCompanyItem(UltimateParentCompany listedUltimateParentCompanyItem) {
+        if (this.listedUltimateParentCompany == null) {
+            this.listedUltimateParentCompany = new ArrayList<>();
+        }
+        this.listedUltimateParentCompany.add(listedUltimateParentCompanyItem);
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -278,12 +307,13 @@ public class BusinessDetails {
                 Objects.equals(this.stockExchange, businessDetails.stockExchange) &&
                 Objects.equals(this.stockNumber, businessDetails.stockNumber) &&
                 Objects.equals(this.stockTicker, businessDetails.stockTicker) &&
-                Objects.equals(this.taxId, businessDetails.taxId);
+                Objects.equals(this.taxId, businessDetails.taxId) &&
+                Objects.equals(this.listedUltimateParentCompany, businessDetails.listedUltimateParentCompany);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(doingBusinessAs, incorporatedAt, legalBusinessName, registrationNumber, shareholders, signatories, stockExchange, stockNumber, stockTicker, taxId);
+        return Objects.hash(doingBusinessAs, incorporatedAt, legalBusinessName, registrationNumber, shareholders, signatories, stockExchange, stockNumber, stockTicker, taxId, listedUltimateParentCompany);
     }
 
 
@@ -302,6 +332,7 @@ public class BusinessDetails {
         sb.append("    stockNumber: ").append(toIndentedString(stockNumber)).append("\n");
         sb.append("    stockTicker: ").append(toIndentedString(stockTicker)).append("\n");
         sb.append("    taxId: ").append(toIndentedString(taxId)).append("\n");
+        sb.append("    listedUltimateParentCompany: ").append(toIndentedString(listedUltimateParentCompany)).append("\n");
         sb.append("}");
         return sb.toString();
     }

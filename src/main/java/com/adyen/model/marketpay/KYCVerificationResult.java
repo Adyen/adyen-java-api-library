@@ -20,9 +20,10 @@
  */
 package com.adyen.model.marketpay;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * KYCVerificationResult
@@ -39,6 +40,9 @@ public class KYCVerificationResult {
 
     @SerializedName("payoutMethods")
     private List<KYCPayoutMethodCheckResult> payoutMethods = new ArrayList<>();
+
+    @SerializedName("ultimateParentCompany")
+    private List<KYCUltimateParentCompanyCheckResult> ultimateParentCompany = new ArrayList<>();
 
     public List<KYCShareholderCheckResult> getShareholders() {
         return shareholders;
@@ -72,8 +76,16 @@ public class KYCVerificationResult {
         this.payoutMethods = payoutMethods;
     }
 
+    public List<KYCUltimateParentCompanyCheckResult> getUltimateParentCompany() {
+        return ultimateParentCompany;
+    }
+
+    public void setUltimateParentCompany(List<KYCUltimateParentCompanyCheckResult> ultimateParentCompany) {
+        this.ultimateParentCompany = ultimateParentCompany;
+    }
+
     @Override
     public String toString() {
-        return "KYCVerificationResult{" + "shareholders=" + shareholders + ", accountHolder=" + accountHolder + ", bankAccounts=" + bankAccounts + ", payoutMethods=" + payoutMethods + '}';
+        return "KYCVerificationResult{" + "shareholders=" + shareholders + ", accountHolder=" + accountHolder + ", bankAccounts=" + bankAccounts + ", payoutMethods=" + payoutMethods + ", ultimateParentCompany=" + ultimateParentCompany + '}';
     }
 }
