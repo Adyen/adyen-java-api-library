@@ -446,6 +446,32 @@ public class MarketPayTest extends BaseTest {
     }
 
     @Test
+    public void TestGetBusinessAccountHolderWithParentSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/get-business-account-holder-with-parent-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create GetAccountHolder Request
+        GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
+        getAccountHolderRequest.setAccountHolderCode("TestAccountHolderUltimateParentCompany");
+
+        GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
+
+        assertEquals("TestAccountHolderUltimateParentCompany", getAccountHolderResponse.getAccountHolderCode());
+        assertEquals("25aee067-3560-4e16-83d6-0b6aa96e7e85", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getListedUltimateParentCompany().get(0).getUltimateParentCompanyCode());
+        assertEquals("UPC Test Street", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getListedUltimateParentCompany().get(0).getAddress().getStreet());
+
+        assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getType());
+        assertEquals(PASSED, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getStatus());
+
+        assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getChecks().get(0).getType());
+        assertEquals(PASSED, getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getChecks().get(0).getStatus());
+        assertEquals("25aee067-3560-4e16-83d6-0b6aa96e7e85", getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getUltimateParentCompanyCode());
+    }
+
+    @Test
     public void TestUploadDocumentSuccess() throws Exception {
         // setup client
         Client client = createMockClientFromFile("mocks/marketpay/account/upload-document-success.json");

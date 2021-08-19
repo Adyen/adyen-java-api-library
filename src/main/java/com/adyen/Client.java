@@ -26,7 +26,6 @@ import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
 import java.security.KeyStore;
-import java.util.Optional;
 
 public class Client {
     private ClientInterface httpClient;
@@ -226,8 +225,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(AdyenHttpClient::new);
-        return this.httpClient;
+        return this.httpClient == null ? new AdyenHttpClient() : this.httpClient;
     }
 
     public void setHttpClient(ClientInterface httpClient) {

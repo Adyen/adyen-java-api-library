@@ -1,0 +1,103 @@
+{
+  "pspReference": "8816286790542602",
+  "accountHolderCode": "TestAccountHolderUltimateParentCompany",
+  "accountHolderDetails": {
+    "address": {
+      "city": "PASSED",
+      "country": "NL",
+      "houseNumberOrName": "2",
+      "postalCode": "4321AB",
+      "street": "Outer Test Street"
+    },
+    "bankAccountDetails": [],
+    "businessDetails": {
+      "legalBusinessName": "TestData",
+      "listedUltimateParentCompany": [
+        {
+          "address": {
+            "city": "PASSED",
+            "country": "NL",
+            "houseNumberOrName": "1",
+            "postalCode": "1234AB",
+            "street": "UPC Test Street"
+          },
+          "businessDetails": {
+            "legalBusinessName": "TestData",
+            "registrationNumber": "123456",
+            "stockExchange": "XAMS",
+            "stockNumber": "NL0012969182",
+            "stockTicker": "ADYEN"
+          },
+          "ultimateParentCompanyCode": "25aee067-3560-4e16-83d6-0b6aa96e7e85"
+        }
+      ],
+      "registrationNumber": "12345678"
+    },
+    "email": "support@adyen.com",
+    "legalArrangements": [],
+    "merchantCategoryCode": "7999",
+    "payoutMethods": [],
+    "webAddress": null
+  },
+  "accountHolderStatus": {
+    "status": "Active",
+    "processingState": {
+      "disabled": false,
+      "processedFrom": {
+        "currency": "EUR",
+        "value": 0
+      },
+      "processedTo": {
+        "currency": "EUR",
+        "value": 0
+      },
+      "tierNumber": 0
+    },
+    "payoutState": {
+      "allowPayout": true,
+      "payoutLimit": {
+        "currency": "EUR",
+        "value": 0
+      },
+      "disabled": false,
+      "tierNumber": 0
+    },
+    "events": []
+  },
+  "accounts": [
+    {
+      "accountCode": "8816286790475498",
+      "description": "TransactionAccount",
+      "payoutSchedule": {
+        "schedule": "DEFAULT"
+      },
+      "payoutSpeed": "STANDARD",
+      "status": "Active"
+    }
+  ],
+  "legalEntity": "Business",
+  "systemUpToDateTime": "2021-08-11T12:50:48+02:00",
+  "verification": {
+    "accountHolder": {
+      "checks": [
+        {
+          "type": "COMPANY_VERIFICATION",
+          "status": "PASSED",
+          "summary": {}
+        }
+      ]
+    },
+    "ultimateParentCompany": [
+      {
+        "checks": [
+          {
+            "type": "COMPANY_VERIFICATION",
+            "status": "PASSED",
+            "summary": {}
+          }
+        ],
+        "ultimateParentCompanyCode": "25aee067-3560-4e16-83d6-0b6aa96e7e85"
+      }
+    ]
+  }
+}
