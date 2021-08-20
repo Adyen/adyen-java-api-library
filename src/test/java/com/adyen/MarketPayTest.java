@@ -52,6 +52,8 @@ import com.adyen.model.marketpay.DeletePayoutMethodRequest;
 import com.adyen.model.marketpay.DeletePayoutMethodResponse;
 import com.adyen.model.marketpay.DeleteShareholderRequest;
 import com.adyen.model.marketpay.DeleteShareholderResponse;
+import com.adyen.model.marketpay.DeleteSignatoriesRequest;
+import com.adyen.model.marketpay.DeleteSignatoriesResponse;
 import com.adyen.model.marketpay.DocumentDetail;
 import com.adyen.model.marketpay.ErrorFieldType;
 import com.adyen.model.marketpay.FieldType;
@@ -111,8 +113,14 @@ import java.util.TimeZone;
 import static com.adyen.model.marketpay.AccountEvent.EventEnum.INACTIVATEACCOUNT;
 import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.AWAITING_DATA;
 import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.PASSED;
-import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.*;
-import static org.junit.Assert.*;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.BANK_ACCOUNT_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.COMPANY_VERIFICATION;
+import static com.adyen.model.marketpay.KYCCheckStatusData.TypeEnum.IDENTITY_VERIFICATION;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Tests for /authorise and /authorise3d
@@ -401,7 +409,7 @@ public class MarketPayTest extends BaseTest {
         assertEquals("TestMerchant1", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getMerchantAccount());
         assertEquals("Other", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getMerchantCategoryCode());
         assertEquals("611223344", getAccountHolderResponse.getAccountHolderDetails().getStoreDetails().get(0).getPhoneNumber().getPhoneNumber());
-        assertEquals(INACTIVATEACCOUNT, getAccountHolderResponse.getAccountHolderStatus().getEvents().get(0).getAccountEvent().getEvent());
+        assertEquals(INACTIVATEACCOUNT, getAccountHolderResponse.getAccountHolderStatus().getEvents().get(0).getEvent());
     }
 
     @Test
@@ -435,6 +443,32 @@ public class MarketPayTest extends BaseTest {
         assertEquals("Director", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getJobTitle());
         assertEquals("Director", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getSignatories().get(0).getJobTitle());
         assertEquals(ShareholderContact.ShareholderTypeEnum.CONTROLLER, getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getShareholders().get(0).getShareholderType());
+    }
+
+    @Test
+    public void TestGetBusinessAccountHolderWithParentSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/get-business-account-holder-with-parent-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create GetAccountHolder Request
+        GetAccountHolderRequest getAccountHolderRequest = new GetAccountHolderRequest();
+        getAccountHolderRequest.setAccountHolderCode("TestAccountHolderUltimateParentCompany");
+
+        GetAccountHolderResponse getAccountHolderResponse = account.getAccountHolder(getAccountHolderRequest);
+
+        assertEquals("TestAccountHolderUltimateParentCompany", getAccountHolderResponse.getAccountHolderCode());
+        assertEquals("25aee067-3560-4e16-83d6-0b6aa96e7e85", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getListedUltimateParentCompany().get(0).getUltimateParentCompanyCode());
+        assertEquals("UPC Test Street", getAccountHolderResponse.getAccountHolderDetails().getBusinessDetails().getListedUltimateParentCompany().get(0).getAddress().getStreet());
+
+        assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getType());
+        assertEquals(PASSED, getAccountHolderResponse.getVerification().getAccountHolder().getChecks().get(0).getStatus());
+
+        assertEquals(COMPANY_VERIFICATION, getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getChecks().get(0).getType());
+        assertEquals(PASSED, getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getChecks().get(0).getStatus());
+        assertEquals("25aee067-3560-4e16-83d6-0b6aa96e7e85", getAccountHolderResponse.getVerification().getUltimateParentCompany().get(0).getUltimateParentCompanyCode());
     }
 
     @Test
@@ -551,6 +585,45 @@ public class MarketPayTest extends BaseTest {
         assertEquals("9914694372990637", deleteShareholderResponse.getPspReference());
         assertEquals("Received", deleteShareholderResponse.getResultCode());
 
+    }
+
+    @Test
+    public void TestDeleteSignatoriesSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-signatories-success.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create DeleteSignatories Request
+        DeleteSignatoriesRequest deleteSignatoriesRequest = new DeleteSignatoriesRequest();
+        deleteSignatoriesRequest.setAccountHolderCode("TestAccountHolder289429");
+        deleteSignatoriesRequest.addSignatoryCodesItem("39b57c2d-d73b-400c-93de-708a51cd1f20");
+
+        DeleteSignatoriesResponse deleteSignatoriesResponse = account.deleteSignatories(deleteSignatoriesRequest);
+        assertEquals("8516284978974831", deleteSignatoriesResponse.getPspReference());
+    }
+
+    @Test
+    public void TestDeleteSignatoriesInvalid() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/delete-signatories-error-invalid-fields.json");
+
+        // use Account service
+        Account account = new Account(client);
+
+        // create DeleteSignatories Request
+        DeleteSignatoriesRequest deleteSignatoriesRequest = new DeleteSignatoriesRequest();
+        deleteSignatoriesRequest.setAccountHolderCode("TestAccountHolder289429");
+        deleteSignatoriesRequest.addSignatoryCodesItem("9a2deb52-9832-45eb-8233-9bd8cc3ebb69");
+
+        DeleteSignatoriesResponse deleteSignatoriesResponse = account.deleteSignatories(deleteSignatoriesRequest);
+        assertEquals("8516284974139611", deleteSignatoriesResponse.getPspReference());
+        assertEquals(1, deleteSignatoriesResponse.getInvalidFields().size());
+        assertEquals(137, deleteSignatoriesResponse.getInvalidFields().get(0).getErrorCode().intValue());
+        assertEquals("Signatory does not exist for signatoryCode: [9a2deb52-9832-45eb-8233-9bd8cc3ebb69]", deleteSignatoriesResponse.getInvalidFields().get(0).getErrorDescription());
+        assertEquals("AccountHolderDetails.BusinessDetails.signatory", deleteSignatoriesResponse.getInvalidFields().get(0).getFieldType().getField());
+        assertEquals(FieldType.FieldNameEnum.SIGNATORY, deleteSignatoriesResponse.getInvalidFields().get(0).getFieldType().getFieldName());
     }
 
     @Test

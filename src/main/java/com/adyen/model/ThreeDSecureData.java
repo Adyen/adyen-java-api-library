@@ -120,6 +120,12 @@ public class ThreeDSecureData {
     @SerializedName("cavv")
     private String cavv = null;
 
+    @SerializedName("tavv")
+    private String tavv = null;
+
+    @SerializedName("tokenAuthenticationVerificationValue")
+    private String tokenAuthenticationVerificationValue = null;
+
     @SerializedName("eci")
     private String eci = null;
 
@@ -219,6 +225,33 @@ public class ThreeDSecureData {
         this.cavv = cavv;
         return this;
     }
+
+    /**
+     * Network token cryptogram.
+     *
+     * @return tavv
+     **/
+    public String getTavv() {
+        return tavv;
+    }
+
+    public void setTavv(String tavv) {
+        this.tavv = tavv;
+    }
+
+    /**
+     * Network token authentication verification value (TAVV). The network token cryptogram.
+     *
+     * @return tokenAuthenticationVerificationValue
+     **/
+    public String getTokenAuthenticationVerificationValue() {
+        return tokenAuthenticationVerificationValue;
+    }
+
+    public void setTokenAuthenticationVerificationValue(String tokenAuthenticationVerificationValue) {
+        this.tokenAuthenticationVerificationValue = tokenAuthenticationVerificationValue;
+    }
+
 
     /**
      * the cardholder authentication value (base64 encoded, 20 bytes in decoded form)
@@ -336,6 +369,8 @@ public class ThreeDSecureData {
                 && Objects.equals(this.authenticationResponse, threeDSecureData.authenticationResponse)
                 && Objects.equals(this.xid, threeDSecureData.xid)
                 && Objects.equals(this.cavv, threeDSecureData.cavv)
+                && Objects.equals(this.tavv, threeDSecureData.tavv)
+                && Objects.equals(this.tokenAuthenticationVerificationValue, threeDSecureData.tokenAuthenticationVerificationValue)
                 && Objects.equals(this.eci, threeDSecureData.eci)
                 && Objects.equals(this.dsTransID, threeDSecureData.dsTransID)
                 && Objects.equals(this.challengeCancel, threeDSecureData.challengeCancel)
@@ -345,7 +380,7 @@ public class ThreeDSecureData {
 
     @Override
     public int hashCode() {
-        return Objects.hash(cavvAlgorithm, directoryResponse, authenticationResponse, xid, cavv, eci, dsTransID, challengeCancel, riskScore, transStatusReason);
+        return Objects.hash(cavvAlgorithm, directoryResponse, authenticationResponse, xid, cavv, tavv, tokenAuthenticationVerificationValue, eci, dsTransID, challengeCancel, riskScore, transStatusReason);
     }
 
 
@@ -359,6 +394,8 @@ public class ThreeDSecureData {
         sb.append("    authenticationResponse: ").append(toIndentedString(authenticationResponse)).append("\n");
         sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
         sb.append("    cavv: ").append(toIndentedString(cavv)).append("\n");
+        sb.append("    tavv: ").append(toIndentedString(tavv)).append("\n");
+        sb.append("    tokenAuthenticationVerificationValue: ").append(toIndentedString(tokenAuthenticationVerificationValue)).append("\n");
         sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
         sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
         sb.append("    challengeCancel").append(toIndentedString(challengeCancel)).append("\n");

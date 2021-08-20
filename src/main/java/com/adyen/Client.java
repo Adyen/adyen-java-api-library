@@ -26,7 +26,6 @@ import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 
 import java.security.KeyStore;
-import java.util.Optional;
 
 public class Client {
     private ClientInterface httpClient;
@@ -48,7 +47,7 @@ public class Client {
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "16.0.0";
+    public static final String LIB_VERSION = "17.0.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
@@ -226,8 +225,7 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        this.httpClient = Optional.ofNullable(this.httpClient).orElseGet(AdyenHttpClient::new);
-        return this.httpClient;
+        return this.httpClient == null ? new AdyenHttpClient() : this.httpClient;
     }
 
     public void setHttpClient(ClientInterface httpClient) {

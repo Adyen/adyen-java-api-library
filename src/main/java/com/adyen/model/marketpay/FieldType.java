@@ -25,7 +25,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -183,6 +182,9 @@ public class FieldType {
         @SerializedName("shareholder")
         SHAREHOLDER("shareholder"),
 
+        @SerializedName("signatory")
+        SIGNATORY("signatory"),
+
         @SerializedName("stateOrProvince")
         STATEORPROVINCE("stateOrProvince"),
 
@@ -194,6 +196,39 @@ public class FieldType {
 
         @SerializedName("tierNumber")
         TIERNUMBER("tierNumber"),
+
+        @SerializedName("ultimateParentCompany")
+        ULTIMATEPARENTCOMPANY("ultimateParentCompany"),
+
+        @SerializedName("ultimateParentCompanyAddressDetails")
+        ULTIMATEPARENTCOMPANYADDRESSDETAILS("ultimateParentCompanyAddressDetails"),
+
+        @SerializedName("ultimateParentCompanyAddressDetailsCountry")
+        ULTIMATEPARENTCOMPANYADDRESSDETAILSCOUNTRY("ultimateParentCompanyAddressDetailsCountry"),
+
+        @SerializedName("ultimateParentCompanyBusinessDetails")
+        ULTIMATEPARENTCOMPANYBUSINESSDETAILS("ultimateParentCompanyBusinessDetails"),
+
+        @SerializedName("ultimateParentCompanyBusinessDetailsLegalBusinessName")
+        ULTIMATEPARENTCOMPANYBUSINESSDETAILSLEGALBUSINESSNAME("ultimateParentCompanyBusinessDetailsLegalBusinessName"),
+
+        @SerializedName("ultimateParentCompanyBusinessDetailsRegistrationNumber")
+        ULTIMATEPARENTCOMPANYBUSINESSDETAILSREGISTRATIONNUMBER("ultimateParentCompanyBusinessDetailsRegistrationNumber"),
+
+        @SerializedName("ultimateParentCompanyCode")
+        ULTIMATEPARENTCOMPANYCODE("ultimateParentCompanyCode"),
+
+        @SerializedName("ultimateParentCompanyStockExchange")
+        ULTIMATEPARENTCOMPANYSTOCKEXCHANGE("ultimateParentCompanyStockExchange"),
+
+        @SerializedName("ultimateParentCompanyStockNumber")
+        ULTIMATEPARENTCOMPANYSTOCKNUMBER("ultimateParentCompanyStockNumber"),
+
+        @SerializedName("ultimateParentCompanyStockNumberOrStockTicker")
+        ULTIMATEPARENTCOMPANYSTOCKNUMBERORSTOCKTICKER("ultimateParentCompanyStockNumberOrStockTicker"),
+
+        @SerializedName("ultimateParentCompanyStockTicker")
+        ULTIMATEPARENTCOMPANYSTOCKTICKER("ultimateParentCompanyStockTicker"),
 
         @SerializedName("unknown")
         UNKNOWN("unknown"),
