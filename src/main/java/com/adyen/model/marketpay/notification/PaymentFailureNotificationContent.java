@@ -38,6 +38,15 @@ public class PaymentFailureNotificationContent {
     @SerializedName("errorMessage")
     public Message errorMessage;
 
+    @SerializedName("modificationMerchantReference")
+    public String modificationMerchantReference;
+    @SerializedName("modificationPspReference")
+    public String modificationPspReference;
+    @SerializedName("paymentMerchantReference")
+    public String paymentMerchantReference;
+    @SerializedName("paymentPspReference")
+    public String paymentPspReference;
+
     public List<ErrorFieldType> getErrorFieldList() {
         List<ErrorFieldType> errorFieldTypeList = new ArrayList<>();
 
@@ -66,8 +75,40 @@ public class PaymentFailureNotificationContent {
         this.errorMessage = errorMessage;
     }
 
+    public String getModificationMerchantReference() {
+        return modificationMerchantReference;
+    }
+
+    public void setModificationMerchantReference(String modificationMerchantReference) {
+        this.modificationMerchantReference = modificationMerchantReference;
+    }
+
+    public String getModificationPspReference() {
+        return modificationPspReference;
+    }
+
+    public void setModificationPspReference(String modificationPspReference) {
+        this.modificationPspReference = modificationPspReference;
+    }
+
+    public String getPaymentMerchantReference() {
+        return paymentMerchantReference;
+    }
+
+    public void setPaymentMerchantReference(String paymentMerchantReference) {
+        this.paymentMerchantReference = paymentMerchantReference;
+    }
+
+    public String getPaymentPspReference() {
+        return paymentPspReference;
+    }
+
+    public void setPaymentPspReference(String paymentPspReference) {
+        this.paymentPspReference = paymentPspReference;
+    }
+
     @Override
     public String toString() {
-        return "PaymentFailureContent{" + "errorFieldTypeContainers=" + errorFieldTypeContainers + ", errorMessage=" + errorMessage + '}';
+        return "PaymentFailureContent{" + "errorFieldTypeContainers=" + errorFieldTypeContainers + ", errorMessage=" + errorMessage + ", modificationMerchantReference=" + modificationMerchantReference + ", modificationPspReference=" + modificationPspReference + ", paymentMerchantReference=" + paymentMerchantReference + ", paymentPspReference=" + paymentPspReference + '}';
     }
 }
