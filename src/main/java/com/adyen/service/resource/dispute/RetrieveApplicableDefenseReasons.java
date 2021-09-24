@@ -30,7 +30,7 @@ import java.util.Arrays;
 public class RetrieveApplicableDefenseReasons extends Resource {
 
     public RetrieveApplicableDefenseReasons(Service service) {
-        super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.DISPUTE_API_VERSION + "/retrieveApplicableDefenseReasons",
+        super(service, service.getClient().getConfig().getDisputeEndpoint() + "/" + Client.DISPUTE_API_VERSION + "/retrieveApplicableDefenseReasons",
                 Arrays.asList("disputePspReference", "merchantAccountCode"));
     }
 }

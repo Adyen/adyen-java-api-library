@@ -39,6 +39,7 @@ public class Dispute extends ApiKeyAuthenticatedService {
     public Dispute(Client client) {
 
         super(client);
+        this.setApiKeyRequired(true);
         this.retriveApplicableDefenseReasons = new RetrieveApplicableDefenseReasons(this);
 
     }

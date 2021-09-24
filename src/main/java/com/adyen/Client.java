@@ -52,6 +52,8 @@ public class Client {
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
     public static final String CHECKOUT_API_VERSION = "v67";
+    public static final String DISPUTE_ENDPOINT_TEST = "https://ca-test.adyen.com/ca/services/DisputeService/";
+    public static final String DISPUTE_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DisputeService/";
     public static final String DISPUTE_API_VERSION = "v30";
     public static final String CHECKOUT_STORED_PAYMENT_METHODS_VERSION = "v65";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
@@ -200,6 +202,7 @@ public class Client {
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
             this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
+            this.config.setDisputeEndpoint(DISPUTE_ENDPOINT_TEST);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
             this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_TEST);
@@ -207,6 +210,7 @@ public class Client {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
             this.config.setHppEndpoint(HPP_LIVE);
+            this.config.setDisputeEndpoint(DISPUTE_ENDPOINT_LIVE);
             if (liveEndpointUrlPrefix != null && !liveEndpointUrlPrefix.isEmpty()) {
                 this.config.setEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + ENDPOINT_LIVE_SUFFIX);
                 this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);

@@ -55,6 +55,9 @@ public class Config {
     //Checkout Specific
     protected String checkoutEndpoint;
 
+    //Dispute Specific
+    protected String disputeEndpoint;
+
     //Terminal API Specific
     protected String terminalApiCloudEndpoint;
     protected String terminalApiLocalEndpoint;
@@ -172,6 +175,17 @@ public class Config {
 
     public void setCheckoutEndpoint(String checkoutEndpoint) {
         this.checkoutEndpoint = checkoutEndpoint;
+    }
+
+    public String getDisputeEndpoint() {
+        if (disputeEndpoint == null || disputeEndpoint.isEmpty()) {
+            String message = "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide disputeEndpoint in your config object.";
+            throw new IllegalArgumentException(message);
+        }
+        return disputeEndpoint;
+    }
+    public void setDisputeEndpoint(String disputeEndpoint) {
+        this.disputeEndpoint = disputeEndpoint;
     }
 
     public String getTerminalApiCloudEndpoint() {
