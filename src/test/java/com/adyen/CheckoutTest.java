@@ -26,29 +26,7 @@ import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
 import com.adyen.model.SplitAmount;
-import com.adyen.model.checkout.CheckoutCancelOrderRequest;
-import com.adyen.model.checkout.CheckoutCancelOrderResponse;
-import com.adyen.model.checkout.CheckoutCreateOrderRequest;
-import com.adyen.model.checkout.CheckoutCreateOrderResponse;
-import com.adyen.model.checkout.CheckoutOrder;
-import com.adyen.model.checkout.CheckoutPaymentsAction;
-import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
-import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.model.checkout.PaymentMethodsRequest;
-import com.adyen.model.checkout.PaymentMethodsResponse;
-import com.adyen.model.checkout.PaymentResultRequest;
-import com.adyen.model.checkout.PaymentResultResponse;
-import com.adyen.model.checkout.PaymentSessionRequest;
-import com.adyen.model.checkout.PaymentSessionResponse;
-import com.adyen.model.checkout.PaymentsDetailsRequest;
-import com.adyen.model.checkout.PaymentsDetailsResponse;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.PaymentsResponse;
-import com.adyen.model.checkout.Redirect;
-import com.adyen.model.checkout.RiskData;
-import com.adyen.model.checkout.StoredPaymentMethodResource;
-import com.adyen.model.checkout.StoringMethod;
+import com.adyen.model.checkout.*;
 import com.adyen.model.checkout.details.AchDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
 import com.adyen.model.checkout.details.AndroidPayDetails;
@@ -1929,6 +1907,44 @@ public class CheckoutTest extends BaseTest {
         assertEquals("fingerprint", paymentsResponse.getAction().getSubtype());
         assertEquals("scheme", paymentsResponse.getAction().getPaymentMethodType());
     }
+
+    /**
+     * Start modifications endpoints tests
+     */
+    @Test public void TestPaymentsCaptures() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/paymentsession-sucess.json");
+        Checkout checkout = new Checkout(client);
+        CreatePaymentCaptureRequest createPaymentCaptureRequest = new CreatePaymentCaptureRequest();
+        createPaymentCaptureRequest.setAmount(createAmountObject("USD", 1000L));
+        createPaymentCaptureRequest.setMerchantAccount("MagentoMerchantTest");
+        PaymentCaptureResource paymentCaptureResource = checkout.paymentsCaptures("12321A", createPaymentCaptureRequest);
+
+    }
+
+    @Test public void TestPaymentsCancels() throws IOException, ApiException {
+
+    }
+
+    @Test public void TestCancels() throws IOException, ApiException {
+
+    }
+
+    @Test public void TestPaymentsRefunds() throws IOException, ApiException {
+
+    }
+
+    @Test public void TestPaymentsReversals() throws IOException, ApiException {
+
+    }
+
+    @Test public void TestPaymentsAmountUpdates() throws IOException, ApiException {
+
+    }
+    /**
+     * end modification endpoints tests
+     */
+
+
 
     /**
      * Returns a sample PaymentSessionRequest object with test data
