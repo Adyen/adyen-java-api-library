@@ -26,29 +26,7 @@ import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
 import com.adyen.model.SplitAmount;
-import com.adyen.model.checkout.CheckoutCancelOrderRequest;
-import com.adyen.model.checkout.CheckoutCancelOrderResponse;
-import com.adyen.model.checkout.CheckoutCreateOrderRequest;
-import com.adyen.model.checkout.CheckoutCreateOrderResponse;
-import com.adyen.model.checkout.CheckoutOrder;
-import com.adyen.model.checkout.CheckoutPaymentsAction;
-import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
-import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.model.checkout.PaymentMethodsRequest;
-import com.adyen.model.checkout.PaymentMethodsResponse;
-import com.adyen.model.checkout.PaymentResultRequest;
-import com.adyen.model.checkout.PaymentResultResponse;
-import com.adyen.model.checkout.PaymentSessionRequest;
-import com.adyen.model.checkout.PaymentSessionResponse;
-import com.adyen.model.checkout.PaymentsDetailsRequest;
-import com.adyen.model.checkout.PaymentsDetailsResponse;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.PaymentsResponse;
-import com.adyen.model.checkout.Redirect;
-import com.adyen.model.checkout.RiskData;
-import com.adyen.model.checkout.StoredPaymentMethodResource;
-import com.adyen.model.checkout.StoringMethod;
+import com.adyen.model.checkout.*;
 import com.adyen.model.checkout.details.AchDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
 import com.adyen.model.checkout.details.AndroidPayDetails;
@@ -2164,6 +2142,37 @@ public class CheckoutTest extends BaseTest {
         assertEquals("TESTNL02", paymentsResponse.getAction().getBic());
         assertEquals("851-6178-9473-6924A", paymentsResponse.getAction().getReference());
         assertEquals("bankTransfer_IBAN", paymentsResponse.getAction().getPaymentMethodType());
+    }
+
+    /**
+     * Test Checkout Sessions
+     */
+    protected CreateCheckoutSessionRequest createCreateCheckoutSessionRequest() {
+        CreateCheckoutSessionRequest createCheckoutSessionRequest = new CreateCheckoutSessionRequest();
+        createCheckoutSessionRequest.setMerchantAccount("TestMerchant");
+        createCheckoutSessionRequest.setReference("TestReference");
+        createCheckoutSessionRequest.setReturnUrl("http://test-url.com");
+
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(10000L);
+
+        createCheckoutSessionRequest.setAmount(amount);
+        return createCheckoutSessionRequest;
+    }
+
+    @Test
+    public void TestCheckoutSessionSuccess() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
+        Checkout checkout = new Checkout(client);
+        CreateCheckoutSessionRequest sessionsRequest = createCreateCheckoutSessionRequest();
+        CreateCheckoutSessionResponse sessionsResponse = checkout.sessions(sessionsRequest);
+        assertEquals("TestMerchant", sessionsResponse.getMerchantAccount());
+        assertEquals("TestReference", sessionsResponse.getReference());
+        assertEquals("http://test-url.com", sessionsResponse.getReturnUrl());
+        assertEquals("2021-09-30T06:45:06Z", sessionsResponse.getExpiresAt());
+        assertEquals("EUR", sessionsResponse.getAmount().getCurrency());
+        assertEquals("1000", sessionsResponse.getAmount().getValue().toString());
     }
 }
 

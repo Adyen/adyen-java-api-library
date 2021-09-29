@@ -1,0 +1,11 @@
+{
+  "id": "session-test-id",
+  "amount": {
+    "currency": "EUR",
+    "value": 1000
+  },
+  "reference": "TestReference",
+  "returnUrl": "http://test-url.com",
+  "expiresAt": "2021-09-30T06:45:06Z",
+  "merchantAccount": "TestMerchant"
+}
