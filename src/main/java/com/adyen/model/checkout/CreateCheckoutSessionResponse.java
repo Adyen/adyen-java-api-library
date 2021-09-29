@@ -30,6 +30,7 @@ import com.adyen.model.Amount;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.Name;
 import com.adyen.model.Split;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -88,11 +89,10 @@ public class CreateCheckoutSessionResponse {
     @JsonAdapter(ChannelEnum.Adapter.class)
     public enum ChannelEnum {
         IOS("iOS"),
-
         ANDROID("Android"),
-
         WEB("Web");
 
+        @JsonValue
         private final String value;
 
         ChannelEnum(String value) {
@@ -213,11 +213,10 @@ public class CreateCheckoutSessionResponse {
     @JsonAdapter(RecurringProcessingModelEnum.Adapter.class)
     public enum RecurringProcessingModelEnum {
         CARDONFILE("CardOnFile"),
-
         SUBSCRIPTION("Subscription"),
-
         UNSCHEDULEDCARDONFILE("UnscheduledCardOnFile");
 
+        @JsonValue
         private final String value;
 
         RecurringProcessingModelEnum(String value) {
@@ -298,13 +297,11 @@ public class CreateCheckoutSessionResponse {
     @JsonAdapter(ShopperInteractionEnum.Adapter.class)
     public enum ShopperInteractionEnum {
         ECOMMERCE("Ecommerce"),
-
         CONTAUTH("ContAuth"),
-
         MOTO("Moto"),
-
         POS("POS");
 
+        @JsonValue
         private final String value;
 
         ShopperInteractionEnum(String value) {
