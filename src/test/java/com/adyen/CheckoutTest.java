@@ -2198,6 +2198,15 @@ public class CheckoutTest extends BaseTest {
         assertEquals("EUR", sessionsResponse.getAmount().getCurrency());
         assertEquals("1000", sessionsResponse.getAmount().getValue().toString());
     }
+
+    @Test
+    public void TestCheckoutSessionErrorMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/sessions-error-invalid-data-422.json");
+        Checkout checkout = new Checkout(client);
+        CreateCheckoutSessionRequest sessionsRequest = createCreateCheckoutSessionRequest();
+        CreateCheckoutSessionResponse sessionsResponse = checkout.sessions(sessionsRequest);
+        assertNull(sessionsResponse.getSessionData());
+    }
 }
 
 class TestPaymentMethodDetails implements PaymentMethodDetails {
