@@ -23,19 +23,13 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
-import java.util.Arrays;
 
 import com.adyen.model.AccountInfo;
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.checkout.Company;
-import com.adyen.model.checkout.LineItem;
-import com.adyen.model.checkout.Mandate;
 import com.adyen.model.Name;
-import com.adyen.model.checkout.RiskData;
 import com.adyen.model.Split;
-import com.adyen.model.checkout.ThreeDSecureData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
