@@ -37,6 +37,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import static com.adyen.util.Util.toIndentedString;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1534,18 +1536,6 @@ public class CreateCheckoutSessionRequest {
         sb.append("}");
         return sb.toString();
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
 }
 
 
