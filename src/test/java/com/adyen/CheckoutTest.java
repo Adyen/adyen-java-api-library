@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -26,7 +26,31 @@ import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
 import com.adyen.model.SplitAmount;
-import com.adyen.model.checkout.*;
+import com.adyen.model.checkout.CheckoutCancelOrderRequest;
+import com.adyen.model.checkout.CheckoutCancelOrderResponse;
+import com.adyen.model.checkout.CheckoutCreateOrderRequest;
+import com.adyen.model.checkout.CheckoutCreateOrderResponse;
+import com.adyen.model.checkout.CheckoutOrder;
+import com.adyen.model.checkout.CheckoutPaymentsAction;
+import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
+import com.adyen.model.checkout.DefaultPaymentMethodDetails;
+import com.adyen.model.checkout.PaymentMethodDetails;
+import com.adyen.model.checkout.PaymentMethodsRequest;
+import com.adyen.model.checkout.PaymentMethodsResponse;
+import com.adyen.model.checkout.PaymentResultRequest;
+import com.adyen.model.checkout.PaymentResultResponse;
+import com.adyen.model.checkout.PaymentSessionRequest;
+import com.adyen.model.checkout.PaymentSessionResponse;
+import com.adyen.model.checkout.PaymentsDetailsRequest;
+import com.adyen.model.checkout.PaymentsDetailsResponse;
+import com.adyen.model.checkout.PaymentsRequest;
+import com.adyen.model.checkout.PaymentsResponse;
+import com.adyen.model.checkout.CreateCheckoutSessionRequest;
+import com.adyen.model.checkout.CreateCheckoutSessionResponse;
+import com.adyen.model.checkout.Redirect;
+import com.adyen.model.checkout.RiskData;
+import com.adyen.model.checkout.StoredPaymentMethodResource;
+import com.adyen.model.checkout.StoringMethod;
 import com.adyen.model.checkout.details.AchDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
 import com.adyen.model.checkout.details.AndroidPayDetails;
