@@ -394,6 +394,7 @@ public class CreateCheckoutSessionResponse {
     public CreateCheckoutSessionResponse accountInfo(AccountInfo accountInfo) {
 
         this.accountInfo = accountInfo;
+        this.applicationInfo = new ApplicationInfo();
         return this;
     }
 
