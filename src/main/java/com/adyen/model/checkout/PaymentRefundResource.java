@@ -21,6 +21,8 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -67,6 +69,7 @@ public class PaymentRefundResource {
   public enum StatusEnum {
     RECEIVED("received");
 
+    @JsonValue
     private String value;
 
     StatusEnum(String value) {
@@ -111,7 +114,7 @@ public class PaymentRefundResource {
 
 
   public PaymentRefundResource amount(Amount amount) {
-    
+
     this.amount = amount;
     return this;
   }
@@ -131,7 +134,7 @@ public class PaymentRefundResource {
 
 
   public PaymentRefundResource merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -151,13 +154,13 @@ public class PaymentRefundResource {
 
 
   public PaymentRefundResource paymentPspReference(String paymentPspReference) {
-    
+
     this.paymentPspReference = paymentPspReference;
     return this;
   }
 
    /**
-   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to refund. 
+   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to refund.
    * @return paymentPspReference
   **/
   public String getPaymentPspReference() {
@@ -171,7 +174,7 @@ public class PaymentRefundResource {
 
 
   public PaymentRefundResource pspReference(String pspReference) {
-    
+
     this.pspReference = pspReference;
     return this;
   }
@@ -191,7 +194,7 @@ public class PaymentRefundResource {
 
 
   public PaymentRefundResource reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }
@@ -211,7 +214,7 @@ public class PaymentRefundResource {
 
 
   public PaymentRefundResource splits(List<Split> splits) {
-    
+
     this.splits = splits;
     return this;
   }
@@ -239,7 +242,7 @@ public class PaymentRefundResource {
 
 
   public PaymentRefundResource status(StatusEnum status) {
-    
+
     this.status = status;
     return this;
   }

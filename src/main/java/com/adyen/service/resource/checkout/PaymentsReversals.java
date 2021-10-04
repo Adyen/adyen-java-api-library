@@ -31,6 +31,6 @@ public class PaymentsReversals extends Resource {
 
     public PaymentsReversals(Service service, String paymentPspReference) {
         super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.CHECKOUT_API_VERSION +
-                "/payments/"+ paymentPspReference +"/reversals", Arrays.asList("merchantAccount"));
+                "/payments/" + paymentPspReference + "/reversals", Arrays.asList("merchantAccount"));
     }
 }

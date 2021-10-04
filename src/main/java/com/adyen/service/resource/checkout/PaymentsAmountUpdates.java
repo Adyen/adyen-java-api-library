@@ -31,6 +31,6 @@ public class PaymentsAmountUpdates extends Resource {
 
     public PaymentsAmountUpdates(Service service, String paymentPspReference) {
         super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.CHECKOUT_API_VERSION +
-                "/payments/"+ paymentPspReference +"/amountUpdates", Arrays.asList("amount", "merchantAccount"));
+                "/payments/" + paymentPspReference  + "/amountUpdates", Arrays.asList("amount", "merchantAccount"));
     }
 }

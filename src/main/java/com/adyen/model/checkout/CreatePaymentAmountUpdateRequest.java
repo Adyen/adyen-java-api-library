@@ -21,6 +21,8 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,9 +52,10 @@ public class CreatePaymentAmountUpdateRequest {
   @JsonAdapter(ReasonEnum.Adapter.class)
   public enum ReasonEnum {
     DELAYEDCHARGE("delayedCharge"),
-    
+
     NOSHOW("noShow");
 
+    @JsonValue
     private String value;
 
     ReasonEnum(String value) {
@@ -105,7 +108,7 @@ public class CreatePaymentAmountUpdateRequest {
 
 
   public CreatePaymentAmountUpdateRequest amount(Amount amount) {
-    
+
     this.amount = amount;
     return this;
   }
@@ -125,7 +128,7 @@ public class CreatePaymentAmountUpdateRequest {
 
 
   public CreatePaymentAmountUpdateRequest merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -145,7 +148,7 @@ public class CreatePaymentAmountUpdateRequest {
 
 
   public CreatePaymentAmountUpdateRequest reason(ReasonEnum reason) {
-    
+
     this.reason = reason;
     return this;
   }
@@ -165,7 +168,7 @@ public class CreatePaymentAmountUpdateRequest {
 
 
   public CreatePaymentAmountUpdateRequest reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }
@@ -185,7 +188,7 @@ public class CreatePaymentAmountUpdateRequest {
 
 
   public CreatePaymentAmountUpdateRequest splits(List<Split> splits) {
-    
+
     this.splits = splits;
     return this;
   }

@@ -1948,23 +1948,23 @@ public class CheckoutTest extends BaseTest {
      * Start modifications endpoints tests
      */
     @Test public void TestPaymentsCaptures() throws IOException, ApiException {
-        Client client = createMockClientFromFile("mocks/checkout/captures-sucess.json");
+        Client client = createMockClientFromFile("mocks/checkout/captures-success.json");
         Checkout checkout = new Checkout(client);
         CreatePaymentCaptureRequest createPaymentCaptureRequest = new CreatePaymentCaptureRequest();
         createPaymentCaptureRequest.setAmount(createAmountObject("EUR", 1000L));
         createPaymentCaptureRequest.setMerchantAccount("test_merchant_account");
         PaymentCaptureResource paymentCaptureResource = checkout.paymentsCaptures("12321A", createPaymentCaptureRequest);
-        assertEquals("received", paymentCaptureResource.getStatus());
+        assertEquals("received", paymentCaptureResource.getStatus().toString());
         assertEquals("my_reference", paymentCaptureResource.getReference());
     }
 
     @Test public void TestPaymentsCancels() throws IOException, ApiException {
-        Client client = createMockClientFromFile("mocks/checkout/cancels-sucess.json");
+        Client client = createMockClientFromFile("mocks/checkout/cancels-success.json");
         Checkout checkout = new Checkout(client);
         CreatePaymentCancelRequest createPaymentCancelRequest = new CreatePaymentCancelRequest();
         createPaymentCancelRequest.setMerchantAccount("test_merchant_account");
         PaymentCancelResource paymentCancelResource = checkout.paymentsCancels("12321A", createPaymentCancelRequest);
-        assertEquals("received", paymentCancelResource.getStatus());
+        assertEquals("received", paymentCancelResource.getStatus().toString());
         assertEquals("my_reference", paymentCancelResource.getReference());
     }
 
@@ -1974,8 +1974,8 @@ public class CheckoutTest extends BaseTest {
         CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest = new CreateStandalonePaymentCancelRequest();
         createStandalonePaymentCancelRequest.setMerchantAccount("test_merchant_account");
         StandalonePaymentCancelResource standalonePaymentCancelResource = checkout.cancels(createStandalonePaymentCancelRequest);
-        assertEquals("received", standalonePaymentCancelResource.getStatus());
-        assertEquals("852633330805862B", standalonePaymentCancelResource.getPspReference());
+        assertEquals("received", standalonePaymentCancelResource.getStatus().toString());
+        assertEquals("861633338418518C", standalonePaymentCancelResource.getPspReference());
     }
 
     @Test public void TestPaymentsRefunds() throws IOException, ApiException {
@@ -1985,7 +1985,7 @@ public class CheckoutTest extends BaseTest {
         createPaymentRefundRequest.setAmount(createAmountObject("EUR", 1000L));
         createPaymentRefundRequest.setMerchantAccount("test_merchant_account");
         PaymentRefundResource paymentRefundResource = checkout.paymentsRefunds("12321A", createPaymentRefundRequest);
-        assertEquals("received", paymentRefundResource.getStatus());
+        assertEquals("received", paymentRefundResource.getStatus().toString());
         assertEquals("my_reference", paymentRefundResource.getReference());
     }
 
@@ -1995,7 +1995,7 @@ public class CheckoutTest extends BaseTest {
         CreatePaymentReversalRequest createPaymentReversalRequest = new CreatePaymentReversalRequest();
         createPaymentReversalRequest.setMerchantAccount("test_merchant_account");
         PaymentReversalResource paymentReversalResource = checkout.paymentsReversals("12321A", createPaymentReversalRequest);
-        assertEquals("received", paymentReversalResource.getStatus());
+        assertEquals("received", paymentReversalResource.getStatus().toString());
         assertEquals("my_reference", paymentReversalResource.getReference());
     }
 
@@ -2006,7 +2006,7 @@ public class CheckoutTest extends BaseTest {
         createPaymentAmountUpdateRequest.setAmount(createAmountObject("EUR", 1000L));
         createPaymentAmountUpdateRequest.setMerchantAccount("test_merchant_account");
         PaymentAmountUpdateResource paymentAmountUpdateResource = checkout.paymentsAmountUpdates("12321A", createPaymentAmountUpdateRequest);
-        assertEquals("received", paymentAmountUpdateResource.getStatus());
+        assertEquals("received", paymentAmountUpdateResource.getStatus().toString());
         assertEquals("my_reference", paymentAmountUpdateResource.getReference());
     }
     /**

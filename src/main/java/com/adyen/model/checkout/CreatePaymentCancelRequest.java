@@ -37,7 +37,7 @@ public class CreatePaymentCancelRequest {
 
 
   public CreatePaymentCancelRequest merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -57,7 +57,7 @@ public class CreatePaymentCancelRequest {
 
 
   public CreatePaymentCancelRequest reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }

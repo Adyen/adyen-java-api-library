@@ -42,7 +42,7 @@ public class CreateStandalonePaymentCancelRequest {
 
 
   public CreateStandalonePaymentCancelRequest merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -62,7 +62,7 @@ public class CreateStandalonePaymentCancelRequest {
 
 
   public CreateStandalonePaymentCancelRequest paymentReference(String paymentReference) {
-    
+
     this.paymentReference = paymentReference;
     return this;
   }
@@ -82,7 +82,7 @@ public class CreateStandalonePaymentCancelRequest {
 
 
   public CreateStandalonePaymentCancelRequest reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }

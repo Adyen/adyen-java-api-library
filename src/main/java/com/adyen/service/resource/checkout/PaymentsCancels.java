@@ -31,6 +31,6 @@ public class PaymentsCancels extends Resource {
 
     public PaymentsCancels(Service service, String paymentPspReference) {
         super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.CHECKOUT_API_VERSION +
-                "/payments/"+ paymentPspReference +"/cancels", Arrays.asList("merchantAccount"));
+                "/payments/" + paymentPspReference + "/cancels", Arrays.asList("merchantAccount"));
     }
 }

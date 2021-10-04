@@ -21,6 +21,8 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,9 +61,10 @@ public class PaymentAmountUpdateResource {
   @JsonAdapter(ReasonEnum.Adapter.class)
   public enum ReasonEnum {
     DELAYEDCHARGE("delayedCharge"),
-    
+
     NOSHOW("noShow");
 
+    @JsonValue
     private String value;
 
     ReasonEnum(String value) {
@@ -119,6 +122,7 @@ public class PaymentAmountUpdateResource {
   public enum StatusEnum {
     RECEIVED("received");
 
+    @JsonValue
     private String value;
 
     StatusEnum(String value) {
@@ -163,7 +167,7 @@ public class PaymentAmountUpdateResource {
 
 
   public PaymentAmountUpdateResource amount(Amount amount) {
-    
+
     this.amount = amount;
     return this;
   }
@@ -183,7 +187,7 @@ public class PaymentAmountUpdateResource {
 
 
   public PaymentAmountUpdateResource merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -203,13 +207,13 @@ public class PaymentAmountUpdateResource {
 
 
   public PaymentAmountUpdateResource paymentPspReference(String paymentPspReference) {
-    
+
     this.paymentPspReference = paymentPspReference;
     return this;
   }
 
    /**
-   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to update. 
+   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to update.
    * @return paymentPspReference
   **/
   public String getPaymentPspReference() {
@@ -223,7 +227,7 @@ public class PaymentAmountUpdateResource {
 
 
   public PaymentAmountUpdateResource pspReference(String pspReference) {
-    
+
     this.pspReference = pspReference;
     return this;
   }
@@ -243,7 +247,7 @@ public class PaymentAmountUpdateResource {
 
 
   public PaymentAmountUpdateResource reason(ReasonEnum reason) {
-    
+
     this.reason = reason;
     return this;
   }
@@ -263,7 +267,7 @@ public class PaymentAmountUpdateResource {
 
 
   public PaymentAmountUpdateResource reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }
@@ -283,7 +287,7 @@ public class PaymentAmountUpdateResource {
 
 
   public PaymentAmountUpdateResource splits(List<Split> splits) {
-    
+
     this.splits = splits;
     return this;
   }
@@ -311,7 +315,7 @@ public class PaymentAmountUpdateResource {
 
 
   public PaymentAmountUpdateResource status(StatusEnum status) {
-    
+
     this.status = status;
     return this;
   }

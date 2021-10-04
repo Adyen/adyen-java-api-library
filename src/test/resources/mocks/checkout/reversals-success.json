@@ -2,7 +2,7 @@
   "merchantAccount": "test_merchant_account",
   "paymentPspReference": "852633330805862B",
   "pspReference": "862633338502676D",
-  "reference": "852633330805862B",
+  "reference": "my_reference",
   "status": "received",
   "amount": {
     "currency": "EUR",

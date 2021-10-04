@@ -36,7 +36,7 @@ public class CreatePaymentReversalRequest {
 
 
   public CreatePaymentReversalRequest merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -56,7 +56,7 @@ public class CreatePaymentReversalRequest {
 
 
   public CreatePaymentReversalRequest reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }

@@ -31,6 +31,6 @@ public class PaymentsCaptures extends Resource {
 
     public PaymentsCaptures(Service service, String paymentPspReference) {
         super(service, service.getClient().getConfig().getCheckoutEndpoint() + "/" + Client.CHECKOUT_API_VERSION +
-                "/payments/"+ paymentPspReference +"/captures", Arrays.asList("amount", "merchantAccount"));
+                "/payments/" + paymentPspReference  + "/captures", Arrays.asList("amount", "merchantAccount"));
     }
 }

@@ -50,7 +50,7 @@ public class CreatePaymentCaptureRequest {
 
 
   public CreatePaymentCaptureRequest amount(Amount amount) {
-    
+
     this.amount = amount;
     return this;
   }
@@ -70,7 +70,7 @@ public class CreatePaymentCaptureRequest {
 
 
   public CreatePaymentCaptureRequest merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -90,7 +90,7 @@ public class CreatePaymentCaptureRequest {
 
 
   public CreatePaymentCaptureRequest reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }
@@ -110,7 +110,7 @@ public class CreatePaymentCaptureRequest {
 
 
   public CreatePaymentCaptureRequest splits(List<Split> splits) {
-    
+
     this.splits = splits;
     return this;
   }

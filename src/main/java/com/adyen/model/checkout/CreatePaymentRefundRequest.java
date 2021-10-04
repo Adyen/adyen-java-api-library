@@ -48,7 +48,7 @@ public class CreatePaymentRefundRequest {
 
 
   public CreatePaymentRefundRequest amount(Amount amount) {
-    
+
     this.amount = amount;
     return this;
   }
@@ -68,7 +68,7 @@ public class CreatePaymentRefundRequest {
 
 
   public CreatePaymentRefundRequest merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -88,7 +88,7 @@ public class CreatePaymentRefundRequest {
 
 
   public CreatePaymentRefundRequest reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }
@@ -108,7 +108,7 @@ public class CreatePaymentRefundRequest {
 
 
   public CreatePaymentRefundRequest splits(List<Split> splits) {
-    
+
     this.splits = splits;
     return this;
   }

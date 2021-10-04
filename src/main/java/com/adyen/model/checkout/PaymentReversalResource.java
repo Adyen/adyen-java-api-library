@@ -21,6 +21,8 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,6 +57,7 @@ public class PaymentReversalResource {
   public enum StatusEnum {
     RECEIVED("received");
 
+    @JsonValue
     private String value;
 
     StatusEnum(String value) {
@@ -99,7 +102,7 @@ public class PaymentReversalResource {
 
 
   public PaymentReversalResource merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -119,13 +122,13 @@ public class PaymentReversalResource {
 
 
   public PaymentReversalResource paymentPspReference(String paymentPspReference) {
-    
+
     this.paymentPspReference = paymentPspReference;
     return this;
   }
 
    /**
-   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
+   * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse.
    * @return paymentPspReference
   **/
   public String getPaymentPspReference() {
@@ -139,7 +142,7 @@ public class PaymentReversalResource {
 
 
   public PaymentReversalResource pspReference(String pspReference) {
-    
+
     this.pspReference = pspReference;
     return this;
   }
@@ -159,7 +162,7 @@ public class PaymentReversalResource {
 
 
   public PaymentReversalResource reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }
@@ -179,7 +182,7 @@ public class PaymentReversalResource {
 
 
   public PaymentReversalResource status(StatusEnum status) {
-    
+
     this.status = status;
     return this;
   }

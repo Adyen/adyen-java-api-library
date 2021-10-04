@@ -21,6 +21,8 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,6 +57,7 @@ public class StandalonePaymentCancelResource {
   public enum StatusEnum {
     RECEIVED("received");
 
+    @JsonValue
     private String value;
 
     StatusEnum(String value) {
@@ -99,7 +102,7 @@ public class StandalonePaymentCancelResource {
 
 
   public StandalonePaymentCancelResource merchantAccount(String merchantAccount) {
-    
+
     this.merchantAccount = merchantAccount;
     return this;
   }
@@ -119,7 +122,7 @@ public class StandalonePaymentCancelResource {
 
 
   public StandalonePaymentCancelResource paymentReference(String paymentReference) {
-    
+
     this.paymentReference = paymentReference;
     return this;
   }
@@ -139,7 +142,7 @@ public class StandalonePaymentCancelResource {
 
 
   public StandalonePaymentCancelResource pspReference(String pspReference) {
-    
+
     this.pspReference = pspReference;
     return this;
   }
@@ -159,7 +162,7 @@ public class StandalonePaymentCancelResource {
 
 
   public StandalonePaymentCancelResource reference(String reference) {
-    
+
     this.reference = reference;
     return this;
   }
@@ -179,7 +182,7 @@ public class StandalonePaymentCancelResource {
 
 
   public StandalonePaymentCancelResource status(StatusEnum status) {
-    
+
     this.status = status;
     return this;
   }
