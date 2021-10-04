@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -29,6 +29,8 @@ import com.adyen.model.checkout.CheckoutCancelOrderResponse;
 import com.adyen.model.checkout.CheckoutCreateOrderRequest;
 import com.adyen.model.checkout.CheckoutCreateOrderResponse;
 import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
+import com.adyen.model.checkout.CreateCheckoutSessionRequest;
+import com.adyen.model.checkout.CreateCheckoutSessionResponse;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
 import com.adyen.model.checkout.PaymentResultRequest;
@@ -48,6 +50,7 @@ import com.adyen.service.resource.checkout.PaymentSession;
 import com.adyen.service.resource.checkout.Payments;
 import com.adyen.service.resource.checkout.PaymentsDetails;
 import com.adyen.service.resource.checkout.PaymentsResult;
+import com.adyen.service.resource.checkout.Sessions;
 import com.adyen.service.resource.checkout.StoredPaymentsMethods;
 import com.google.gson.reflect.TypeToken;
 
@@ -62,6 +65,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
     private PaymentsResult paymentsResult;
     private Orders orders;
     private OrdersCancel ordersCancel;
+    private Sessions sessions;
     private StoredPaymentsMethods storedPaymentsMethods;
 
     public Checkout(Client client) {
@@ -74,6 +78,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
         paymentsResult = new PaymentsResult(this);
         orders = new Orders(this);
         ordersCancel = new OrdersCancel(this);
+        sessions = new Sessions(this);
         storedPaymentsMethods = new StoredPaymentsMethods(this);
 
     }
@@ -211,6 +216,21 @@ public class Checkout extends ApiKeyAuthenticatedService {
         String jsonRequest = GSON.toJson(checkoutCancelOrderRequest);
         String jsonResult = ordersCancel.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<CheckoutCancelOrderResponse>() {
+        }.getType());
+    }
+
+    /**
+     * POST /sessions API call
+     *
+     * @param createCheckoutSessionRequest CreateCheckoutSessionRequest
+     * @return
+     * @throws ApiException
+     * @throws IOException
+     */
+    public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(createCheckoutSessionRequest);
+        String jsonResult = sessions.request(jsonRequest);
+        return GSON.fromJson(jsonResult, new TypeToken<CreateCheckoutSessionResponse>() {
         }.getType());
     }
 }
