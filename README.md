@@ -8,7 +8,7 @@ This is the officially supported Java library for using Adyen's APIs.
  
 The library supports all APIs under the following services:
  
-* [Checkout API](https://docs.adyen.com/api-explorer/#/CheckoutService/v67/overview): Our latest integration for accepting online payments. Current supported version: **v67**
+* [Checkout API](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/overview): Our latest integration for accepting online payments. Current supported version: **v68**
 * [Payments API](https://docs.adyen.com/api-explorer/#/Payment/v52/overview): Our classic integration for online payments. Current supported version: **v52**
 * [Recurring API](https://docs.adyen.com/api-explorer/#/Recurring/v49/overview): Endpoints for managing saved payment details. Current supported version: **v49**
 * [Payouts API](https://docs.adyen.com/api-explorer/#/Payout/v51/overview): Endpoints for sending funds to your customers. Current supported version: **v51**
