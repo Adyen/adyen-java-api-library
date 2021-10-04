@@ -1958,6 +1958,24 @@ public class CheckoutTest extends BaseTest {
         assertEquals("my_reference", paymentCaptureResource.getReference());
     }
 
+    @Test public void TestPaymentsCapturesFailed() throws IOException, ApiException {
+        Client client = createMockClientForErrors(422, "mocks/checkout/modifications-error-422.json");
+        try {
+            Checkout checkout = new Checkout(client);
+            CreatePaymentCaptureRequest createPaymentCaptureRequest = new CreatePaymentCaptureRequest();
+            createPaymentCaptureRequest.setAmount(createAmountObject("EUR", 1000L));
+            createPaymentCaptureRequest.setMerchantAccount("test_merchant_account");
+            PaymentCaptureResource paymentCaptureResource = checkout.paymentsCaptures("12321A", createPaymentCaptureRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("167", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+            assertEquals(e.getResponseHeaders().size(), 0);
+            assertNotNull(e.getResponseHeaders());
+        }
+    }
+
     @Test public void TestPaymentsCancels() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/checkout/cancels-success.json");
         Checkout checkout = new Checkout(client);
@@ -1968,6 +1986,23 @@ public class CheckoutTest extends BaseTest {
         assertEquals("my_reference", paymentCancelResource.getReference());
     }
 
+    @Test public void TestPaymentsCancelsFailed() throws IOException, ApiException {
+        try {
+            Client client = createMockClientForErrors(422, "mocks/checkout/modifications-error-422.json");
+            Checkout checkout = new Checkout(client);
+            CreatePaymentCancelRequest createPaymentCancelRequest = new CreatePaymentCancelRequest();
+            createPaymentCancelRequest.setMerchantAccount("test_merchant_account");
+            checkout.paymentsCancels("12321A", createPaymentCancelRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("167", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+            assertEquals(e.getResponseHeaders().size(), 0);
+            assertNotNull(e.getResponseHeaders());
+        }
+    }
+
     @Test public void TestCancels() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/checkout/standalone-cancels-success.json");
         Checkout checkout = new Checkout(client);
@@ -1976,6 +2011,22 @@ public class CheckoutTest extends BaseTest {
         StandalonePaymentCancelResource standalonePaymentCancelResource = checkout.cancels(createStandalonePaymentCancelRequest);
         assertEquals("received", standalonePaymentCancelResource.getStatus().toString());
         assertEquals("861633338418518C", standalonePaymentCancelResource.getPspReference());
+    }
+    @Test public void TestCancelsFailed() throws IOException, ApiException {
+        try {
+            Client client = createMockClientForErrors(422, "mocks/checkout/modifications-error-422.json");
+            Checkout checkout = new Checkout(client);
+            CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest = new CreateStandalonePaymentCancelRequest();
+            createStandalonePaymentCancelRequest.setMerchantAccount("test_merchant_account");
+            checkout.cancels(createStandalonePaymentCancelRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("167", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+            assertEquals(e.getResponseHeaders().size(), 0);
+            assertNotNull(e.getResponseHeaders());
+        }
     }
 
     @Test public void TestPaymentsRefunds() throws IOException, ApiException {
@@ -1989,6 +2040,24 @@ public class CheckoutTest extends BaseTest {
         assertEquals("my_reference", paymentRefundResource.getReference());
     }
 
+    @Test public void TestPaymentsRefundsFailed() throws IOException, ApiException {
+        try {
+            Client client = createMockClientForErrors(422, "mocks/checkout/modifications-error-422.json");
+            Checkout checkout = new Checkout(client);
+            CreatePaymentRefundRequest createPaymentRefundRequest = new CreatePaymentRefundRequest();
+            createPaymentRefundRequest.setAmount(createAmountObject("EUR", 1000L));
+            createPaymentRefundRequest.setMerchantAccount("test_merchant_account");
+            checkout.paymentsRefunds("12321A", createPaymentRefundRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("167", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+            assertEquals(e.getResponseHeaders().size(), 0);
+            assertNotNull(e.getResponseHeaders());
+        }
+    }
+
     @Test public void TestPaymentsReversals() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/checkout/reversals-success.json");
         Checkout checkout = new Checkout(client);
@@ -1997,6 +2066,23 @@ public class CheckoutTest extends BaseTest {
         PaymentReversalResource paymentReversalResource = checkout.paymentsReversals("12321A", createPaymentReversalRequest);
         assertEquals("received", paymentReversalResource.getStatus().toString());
         assertEquals("my_reference", paymentReversalResource.getReference());
+    }
+
+    @Test public void TestPaymentsReversalsFailed() throws IOException, ApiException {
+        try {
+            Client client = createMockClientForErrors(422, "mocks/checkout/modifications-error-422.json");
+            Checkout checkout = new Checkout(client);
+            CreatePaymentReversalRequest createPaymentReversalRequest = new CreatePaymentReversalRequest();
+            createPaymentReversalRequest.setMerchantAccount("test_merchant_account");
+            checkout.paymentsReversals("12321A", createPaymentReversalRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("167", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+            assertEquals(e.getResponseHeaders().size(), 0);
+            assertNotNull(e.getResponseHeaders());
+        }
     }
 
     @Test public void TestPaymentsAmountUpdates() throws IOException, ApiException {
@@ -2009,6 +2095,25 @@ public class CheckoutTest extends BaseTest {
         assertEquals("received", paymentAmountUpdateResource.getStatus().toString());
         assertEquals("my_reference", paymentAmountUpdateResource.getReference());
     }
+
+    @Test public void TestPaymentsAmountUpdatesFailed() throws IOException, ApiException {
+        try {
+            Client client = createMockClientForErrors(422, "mocks/checkout/modifications-error-422.json");
+            Checkout checkout = new Checkout(client);
+            CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest = new CreatePaymentAmountUpdateRequest();
+            createPaymentAmountUpdateRequest.setAmount(createAmountObject("EUR", 1000L));
+            createPaymentAmountUpdateRequest.setMerchantAccount("test_merchant_account");
+            checkout.paymentsAmountUpdates("12321A", createPaymentAmountUpdateRequest);
+            fail("Exception expected");
+        } catch (ApiException e) {
+            assertNotNull(e.getError());
+            assertEquals("167", e.getError().getErrorCode());
+            assertEquals(422, e.getError().getStatus());
+            assertEquals(e.getResponseHeaders().size(), 0);
+            assertNotNull(e.getResponseHeaders());
+        }
+    }
+
     /**
      * end modification endpoints tests
      */
