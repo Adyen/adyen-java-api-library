@@ -4,7 +4,7 @@
     <groupId>com.adyen</groupId>
     <artifactId>adyen-java-api-library</artifactId>
     <packaging>jar</packaging>
-    <version>17.0.0</version>
+    <version>17.1.0</version>
     <name>Adyen Java API Library</name>
     <description>Adyen API Client Library for Java</description>
     <url>https://github.com/adyen/adyen-java-api-library</url>
@@ -25,6 +25,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <jackson.version>2.13.0</jackson.version>
     </properties>
     <scm>
