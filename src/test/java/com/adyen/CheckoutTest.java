@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -45,6 +45,8 @@ import com.adyen.model.checkout.PaymentsDetailsRequest;
 import com.adyen.model.checkout.PaymentsDetailsResponse;
 import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PaymentsResponse;
+import com.adyen.model.checkout.CreateCheckoutSessionRequest;
+import com.adyen.model.checkout.CreateCheckoutSessionResponse;
 import com.adyen.model.checkout.Redirect;
 import com.adyen.model.checkout.RiskData;
 import com.adyen.model.checkout.StoredPaymentMethodResource;
@@ -2164,6 +2166,46 @@ public class CheckoutTest extends BaseTest {
         assertEquals("TESTNL02", paymentsResponse.getAction().getBic());
         assertEquals("851-6178-9473-6924A", paymentsResponse.getAction().getReference());
         assertEquals("bankTransfer_IBAN", paymentsResponse.getAction().getPaymentMethodType());
+    }
+
+    /**
+     * Test Checkout Sessions
+     */
+    protected CreateCheckoutSessionRequest createCreateCheckoutSessionRequest() {
+        CreateCheckoutSessionRequest createCheckoutSessionRequest = new CreateCheckoutSessionRequest();
+        createCheckoutSessionRequest.setMerchantAccount("TestMerchant");
+        createCheckoutSessionRequest.setReference("TestReference");
+        createCheckoutSessionRequest.setReturnUrl("http://test-url.com");
+
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(10000L);
+
+        createCheckoutSessionRequest.setAmount(amount);
+        return createCheckoutSessionRequest;
+    }
+
+    @Test
+    public void TestCheckoutSessionSuccess() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
+        Checkout checkout = new Checkout(client);
+        CreateCheckoutSessionRequest sessionsRequest = createCreateCheckoutSessionRequest();
+        CreateCheckoutSessionResponse sessionsResponse = checkout.sessions(sessionsRequest);
+        assertEquals("TestMerchant", sessionsResponse.getMerchantAccount());
+        assertEquals("TestReference", sessionsResponse.getReference());
+        assertEquals("http://test-url.com", sessionsResponse.getReturnUrl());
+        assertEquals("2021-09-30T06:45:06Z", sessionsResponse.getExpiresAt());
+        assertEquals("EUR", sessionsResponse.getAmount().getCurrency());
+        assertEquals("1000", sessionsResponse.getAmount().getValue().toString());
+    }
+
+    @Test
+    public void TestCheckoutSessionErrorMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/sessions-error-invalid-data-422.json");
+        Checkout checkout = new Checkout(client);
+        CreateCheckoutSessionRequest sessionsRequest = createCreateCheckoutSessionRequest();
+        CreateCheckoutSessionResponse sessionsResponse = checkout.sessions(sessionsRequest);
+        assertNull(sessionsResponse.getSessionData());
     }
 }
 
