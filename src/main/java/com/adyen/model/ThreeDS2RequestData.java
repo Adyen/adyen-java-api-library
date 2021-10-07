@@ -51,7 +51,8 @@ public class ThreeDS2RequestData {
 
         NOPREFERENCE("noPreference"),
         REQUESTCHALLENGE("requestChallenge"),
-        REQUESTNOCHALLENGE("requestNoChallenge");
+        REQUESTNOCHALLENGE("requestNoChallenge"),
+        REQUESTCHALLENGEASMANDATE("requestChallengeAsMandate");
 
         @JsonValue
         private String value;
