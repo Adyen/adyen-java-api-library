@@ -1,0 +1,7 @@
+{
+  "status": 422,
+  "errorCode": "167",
+  "message": "Original pspReference required for this operation",
+  "errorType": "validation",
+  "pspReference": "invalid_psp"
+}
