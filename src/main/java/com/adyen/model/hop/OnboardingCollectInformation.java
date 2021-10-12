@@ -45,6 +45,11 @@ public class OnboardingCollectInformation {
     @SerializedName("shareholderDetails")
     private Boolean shareholderDetails = null;
 
+    /**
+     * Indicates whether individual details must be collected. Default is true.
+     *
+     * @return
+     */
     public Boolean getIndividualDetails() {
         return individualDetails;
     }
@@ -58,6 +63,11 @@ public class OnboardingCollectInformation {
         return this;
     }
 
+    /**
+     * Indicates whether business details must be collected. Default is true.
+     *
+     * @return
+     */
     public Boolean getBusinessDetails() {
         return businessDetails;
     }
@@ -71,6 +81,11 @@ public class OnboardingCollectInformation {
         return this;
     }
 
+    /**
+     * Indicates whether bank account details must be collected. Default is true.
+     *
+     * @return
+     */
     public Boolean getBankDetails() {
         return bankDetails;
     }
@@ -84,6 +99,11 @@ public class OnboardingCollectInformation {
         return this;
     }
 
+    /**
+     * Indicates whether legal arrangement details must be collected. Default is true.
+     *
+     * @return
+     */
     public Boolean getLegalArrangementDetails() {
         return legalArrangementDetails;
     }
@@ -97,6 +117,11 @@ public class OnboardingCollectInformation {
         return this;
     }
 
+    /**
+     * Indicates whether answers to a PCI questionnaire must be collected. Applies only to partner platforms. Default is true.
+     *
+     * @return
+     */
     public Boolean getPciQuestionnaire() {
         return pciQuestionnaire;
     }
@@ -110,6 +135,11 @@ public class OnboardingCollectInformation {
         return this;
     }
 
+    /**
+     * Indicates whether shareholder details must be collected. Defaults to true.
+     *
+     * @return
+     */
     public Boolean getShareholderDetails() {
         return shareholderDetails;
     }

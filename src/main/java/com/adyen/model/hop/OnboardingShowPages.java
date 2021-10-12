@@ -30,9 +30,6 @@ public class OnboardingShowPages {
     @SerializedName("welcomePage")
     private Boolean welcomePage = null;
 
-    @SerializedName("homePage")
-    private Boolean homePage = null;
-
     @SerializedName("individualDetailsSummaryPage")
     private Boolean individualDetailsSummaryPage = null;
 
@@ -45,32 +42,14 @@ public class OnboardingShowPages {
     @SerializedName("shareholderDetailsSummaryPage")
     private Boolean shareholderDetailsSummaryPage = null;
 
-    @SerializedName("bankVerificationOptionsPage")
-    private Boolean bankVerificationOptionsPage = null;
+    @SerializedName("legalArrangementsDetailsSummaryPage")
+    private Boolean legalArrangementsDetailsSummaryPage = null;
 
-    @SerializedName("identityDocumentPage")
-    private Boolean identityDocumentPage = null;
-
-    public OnboardingShowPages bankDetailsSummaryPage(Boolean bankDetailsSummaryPage) {
-        this.bankDetailsSummaryPage = bankDetailsSummaryPage;
-        return this;
-    }
-
-    public OnboardingShowPages shareholderDetailsSummaryPage(Boolean shareholderDetailsSummaryPage) {
-        this.shareholderDetailsSummaryPage = shareholderDetailsSummaryPage;
-        return this;
-    }
-
-    public OnboardingShowPages bankVerificationOptionsPage(Boolean bankVerificationOptionsPage) {
-        this.bankVerificationOptionsPage = bankVerificationOptionsPage;
-        return this;
-    }
-
-    public OnboardingShowPages identityDocumentPage(Boolean identityDocumentPage) {
-        this.identityDocumentPage = identityDocumentPage;
-        return this;
-    }
-
+    /**
+     * Indicates whether the welcome page must be shown. Defaults to false.
+     *
+     * @return
+     */
     public Boolean getWelcomePage() {
         return welcomePage;
     }
@@ -84,19 +63,11 @@ public class OnboardingShowPages {
         return this;
     }
 
-    public Boolean getHomePage() {
-        return homePage;
-    }
-
-    public void setHomePage(Boolean homePage) {
-        this.homePage = homePage;
-    }
-
-    public OnboardingShowPages homePage(Boolean homePage) {
-        this.homePage = homePage;
-        return this;
-    }
-
+    /**
+     * Indicates whether the page with the individual's details must be shown. Defaults to true.
+     *
+     * @return
+     */
     public Boolean getIndividualDetailsSummaryPage() {
         return individualDetailsSummaryPage;
     }
@@ -110,6 +81,11 @@ public class OnboardingShowPages {
         return this;
     }
 
+    /**
+     * Indicates whether the page with bank account details must be shown. Defaults to true.
+     *
+     * @return
+     */
     public Boolean getBusinessDetailsSummaryPage() {
         return businessDetailsSummaryPage;
     }
@@ -123,6 +99,11 @@ public class OnboardingShowPages {
         return this;
     }
 
+    /**
+     * Indicates whether the page with bank account details must be shown. Defaults to true.
+     *
+     * @return
+     */
     public Boolean getBankDetailsSummaryPage() {
         return bankDetailsSummaryPage;
     }
@@ -131,6 +112,16 @@ public class OnboardingShowPages {
         this.bankDetailsSummaryPage = bankDetailsSummaryPage;
     }
 
+    public OnboardingShowPages bankDetailsSummaryPage(Boolean bankDetailsSummaryPage) {
+        this.bankDetailsSummaryPage = bankDetailsSummaryPage;
+        return this;
+    }
+
+    /**
+     * Indicates whether the page with the shareholders' details must be shown. Defaults to true.
+     *
+     * @return
+     */
     public Boolean getShareholderDetailsSummaryPage() {
         return shareholderDetailsSummaryPage;
     }
@@ -139,20 +130,28 @@ public class OnboardingShowPages {
         this.shareholderDetailsSummaryPage = shareholderDetailsSummaryPage;
     }
 
-    public Boolean getBankVerificationOptionsPage() {
-        return bankVerificationOptionsPage;
+    public OnboardingShowPages shareholderDetailsSummaryPage(Boolean shareholderDetailsSummaryPage) {
+        this.shareholderDetailsSummaryPage = shareholderDetailsSummaryPage;
+        return this;
     }
 
-    public void setBankVerificationOptionsPage(Boolean bankVerificationOptionsPage) {
-        this.bankVerificationOptionsPage = bankVerificationOptionsPage;
+    /**
+     * Indicates whether the page with the legal arrangements' details must be shown. Defaults to true.
+     *
+     * @return
+     */
+
+    public Boolean getLegalArrangementsDetailsSummaryPage() {
+        return legalArrangementsDetailsSummaryPage;
     }
 
-    public Boolean getIdentityDocumentPage() {
-        return identityDocumentPage;
+    public void setLegalArrangementsDetailsSummaryPage(Boolean legalArrangementsDetailsSummaryPage) {
+        this.legalArrangementsDetailsSummaryPage = legalArrangementsDetailsSummaryPage;
     }
 
-    public void setIdentityDocumentPage(Boolean identityDocumentPage) {
-        this.identityDocumentPage = identityDocumentPage;
+    public OnboardingShowPages legalArrangementsDetailsSummaryPage(Boolean legalArrangementsDetailsSummaryPage) {
+        this.legalArrangementsDetailsSummaryPage = legalArrangementsDetailsSummaryPage;
+        return this;
     }
 
     @Override
@@ -165,31 +164,27 @@ public class OnboardingShowPages {
         }
         OnboardingShowPages that = (OnboardingShowPages) o;
         return Objects.equals(welcomePage, that.welcomePage) &&
-            Objects.equals(homePage, that.homePage) &&
             Objects.equals(individualDetailsSummaryPage, that.individualDetailsSummaryPage) &&
             Objects.equals(businessDetailsSummaryPage, that.businessDetailsSummaryPage) &&
             Objects.equals(bankDetailsSummaryPage, that.bankDetailsSummaryPage) &&
             Objects.equals(shareholderDetailsSummaryPage, that.shareholderDetailsSummaryPage) &&
-            Objects.equals(bankVerificationOptionsPage, that.bankVerificationOptionsPage) &&
-            Objects.equals(identityDocumentPage, that.identityDocumentPage);
+            Objects.equals(legalArrangementsDetailsSummaryPage, that.legalArrangementsDetailsSummaryPage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(welcomePage, homePage, individualDetailsSummaryPage, businessDetailsSummaryPage, bankDetailsSummaryPage, shareholderDetailsSummaryPage, bankVerificationOptionsPage, identityDocumentPage);
+        return Objects.hash(welcomePage, individualDetailsSummaryPage, businessDetailsSummaryPage, bankDetailsSummaryPage, shareholderDetailsSummaryPage, legalArrangementsDetailsSummaryPage);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("class OnboardingShowPages{");
         sb.append("welcomePage=").append(welcomePage);
-        sb.append(", homePage=").append(homePage);
         sb.append(", individualDetailsSummaryPage=").append(individualDetailsSummaryPage);
         sb.append(", businessDetailsSummaryPage=").append(businessDetailsSummaryPage);
         sb.append(", bankDetailsSummaryPage=").append(bankDetailsSummaryPage);
         sb.append(", shareholderDetailsSummaryPage=").append(shareholderDetailsSummaryPage);
-        sb.append(", bankVerificationOptionsPage=").append(bankVerificationOptionsPage);
-        sb.append(", identityDocumentPage=").append(identityDocumentPage);
+        sb.append(", legalArrangementsDetailsSummaryPage=").append(legalArrangementsDetailsSummaryPage);
         sb.append('}');
         return sb.toString();
     }

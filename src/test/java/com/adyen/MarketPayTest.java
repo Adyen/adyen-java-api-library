@@ -1018,13 +1018,11 @@ public class MarketPayTest extends BaseTest {
 
         OnboardingShowPages onboardingShowPages = new OnboardingShowPages();
         onboardingShowPages.setWelcomePage(true);
-        onboardingShowPages.setHomePage(true);
         onboardingShowPages.setIndividualDetailsSummaryPage(true);
         onboardingShowPages.setBusinessDetailsSummaryPage(true);
         onboardingShowPages.setBankDetailsSummaryPage(false);
         onboardingShowPages.setShareholderDetailsSummaryPage(false);
-        onboardingShowPages.setBankVerificationOptionsPage(true);
-        onboardingShowPages.setIdentityDocumentPage(true);
+        onboardingShowPages.setLegalArrangementsDetailsSummaryPage(true);
         getOnboardingUrlRequest.setShowPages(onboardingShowPages);
 
         OnboardingCollectInformation onboardingCollectInformation = new OnboardingCollectInformation();
