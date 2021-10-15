@@ -53,6 +53,9 @@ public class PaymentMethod {
     @SerializedName("details")
     private List<InputDetail> details = null;
 
+    @SerializedName("issuers")
+    private List<PaymentMethodIssuer> issuers = null;
+
     /**
      * The funding source of the payment method.
      */
@@ -104,9 +107,6 @@ public class PaymentMethod {
 
     @SerializedName("group")
     private PaymentMethodGroup group = null;
-
-    @SerializedName("inputDetails")
-    private List<InputDetail> inputDetails = null;
 
     @SerializedName("name")
     private String name = null;
@@ -252,33 +252,6 @@ public class PaymentMethod {
         this.group = group;
     }
 
-    public PaymentMethod inputDetails(List<InputDetail> inputDetails) {
-        this.inputDetails = inputDetails;
-        return this;
-    }
-
-    public PaymentMethod addInputDetailsItem(InputDetail inputDetailsItem) {
-        if (this.inputDetails == null) {
-            this.inputDetails = new ArrayList<InputDetail>();
-        }
-        this.inputDetails.add(inputDetailsItem);
-        return this;
-    }
-
-    /**
-     * All input details to be provided to complete the payment with this payment method.
-     *
-     * @return inputDetails
-     **/
-    public List<InputDetail> getInputDetails() {
-        return inputDetails;
-    }
-
-    public void setInputDetails(List<InputDetail> inputDetails) {
-        this.inputDetails = inputDetails;
-    }
-
-
     public PaymentMethod name(String name) {
         this.name = name;
         return this;
@@ -305,6 +278,34 @@ public class PaymentMethod {
     public PaymentMethod type(String type) {
         this.type = type;
         return this;
+    }
+
+
+    public PaymentMethod issuers(List<PaymentMethodIssuer> issuers) {
+
+        this.issuers = issuers;
+        return this;
+    }
+
+    public PaymentMethod addIssuersItem(PaymentMethodIssuer issuersItem) {
+        if (this.issuers == null) {
+            this.issuers = new ArrayList<PaymentMethodIssuer>();
+        }
+        this.issuers.add(issuersItem);
+        return this;
+    }
+
+    /**
+     * A list of issuers for this payment method.
+     * @return issuers
+     **/
+    public List<PaymentMethodIssuer> getIssuers() {
+        return issuers;
+    }
+
+
+    public void setIssuers(List<PaymentMethodIssuer> issuers) {
+        this.issuers = issuers;
     }
 
 
@@ -336,15 +337,15 @@ public class PaymentMethod {
                 Objects.equals(this.details, paymentMethod.details) &&
                 Objects.equals(this.fundingSource, paymentMethod.fundingSource) &&
                 Objects.equals(this.group, paymentMethod.group) &&
-                Objects.equals(this.inputDetails, paymentMethod.inputDetails) &&
                 Objects.equals(this.name, paymentMethod.name) &&
+                Objects.equals(this.issuers, paymentMethod.issuers) &&
                 Objects.equals(this.type, paymentMethod.type);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(brand, brands, configuration, details, fundingSource, group,
-                inputDetails, name, type);
+                name, issuers, type);
     }
 
     @Override
@@ -358,13 +359,10 @@ public class PaymentMethod {
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
-        sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");
+        sb.append("    issuers: ").append(toIndentedString(issuers)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 }
-
-
-

@@ -71,6 +71,8 @@ public class PaymentsRequest {
     private Address billingAddress = null;
     @SerializedName("captureDelayHours")
     private Integer captureDelayHours = null;
+    @SerializedName("checkoutAttemptId")
+    private String checkoutAttemptId = null;
     @SerializedName("channel")
     private ChannelEnum channel = null;
     @SerializedName("company")
@@ -1260,6 +1262,23 @@ public class PaymentsRequest {
         this.conversionId = conversionId;
     }
 
+    public PaymentsRequest checkoutAttemptId(String checkoutAttemptId) {
+
+        this.checkoutAttemptId = checkoutAttemptId;
+        return this;
+    }
+
+    /**
+     * Checkout attempt ID that corresponds to the Id generated for tracking user payment journey.
+     * @return checkoutAttemptId
+     **/
+    public String getCheckoutAttemptId() {
+        return checkoutAttemptId;
+    }
+
+    public void setCheckoutAttemptId(String checkoutAttemptId) {
+        this.checkoutAttemptId = checkoutAttemptId;
+    }
 
     public String getRecurringExpiry() {
         return recurringExpiry;
@@ -1295,6 +1314,7 @@ public class PaymentsRequest {
                 Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours) &&
                 Objects.equals(this.channel, paymentsRequest.channel) &&
                 Objects.equals(this.company, paymentsRequest.company) &&
+                Objects.equals(this.checkoutAttemptId, paymentsRequest.checkoutAttemptId) &&
                 Objects.equals(this.conversionId, paymentsRequest.conversionId) &&
                 Objects.equals(this.countryCode, paymentsRequest.countryCode) &&
                 Objects.equals(this.dateOfBirth, paymentsRequest.dateOfBirth) &&
@@ -1349,7 +1369,7 @@ public class PaymentsRequest {
     @Override
     public int hashCode() {
         return Objects.hash(accountInfo, additionalData, amount, applicationInfo, billingAddress, browserInfo,
-                captureDelayHours, channel, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress,
+                captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress,
                 deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset,
                 installments, lineItems, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata,
                 mpiData, order, orderReference, origin, paymentMethod, recurringExpiry, recurringFrequency,
@@ -1373,6 +1393,7 @@ public class PaymentsRequest {
         sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
         sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
         sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
+        sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
         sb.append("    company: ").append(toIndentedString(company)).append("\n");
         sb.append("    conversionId: ").append(toIndentedString(conversionId)).append("\n");
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");

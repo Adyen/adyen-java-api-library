@@ -232,10 +232,13 @@ public class CheckoutTest extends BaseTest {
         PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
         paymentMethodsRequest.setMerchantAccount("MagentoMerchantTest");
         PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
-        assertEquals(27, paymentMethodsResponse.getPaymentMethods().size());
-        assertEquals("Credit Card", paymentMethodsResponse.getPaymentMethods().get(0).getName());
-        assertEquals(6, paymentMethodsResponse.getPaymentMethods().get(0).getBrands().size());
-        assertEquals("vvvgiftcard", paymentMethodsResponse.getPaymentMethods().get(23).getBrand());
+        assertEquals(32, paymentMethodsResponse.getPaymentMethods().size());
+        assertEquals("Credit Card", paymentMethodsResponse.getPaymentMethods().get(2).getName());
+        assertEquals(9, paymentMethodsResponse.getPaymentMethods().get(2).getBrands().size());
+        assertEquals("svs", paymentMethodsResponse.getPaymentMethods().get(25).getBrand());
+        assertEquals("Local Polish Payment Methods", paymentMethodsResponse.getPaymentMethods().get(12).getName());
+        assertEquals("Bank transfer / postal", paymentMethodsResponse.getPaymentMethods().get(12).getIssuers().get(2).getName());
+
 
     }
 
