@@ -50,9 +50,6 @@ public class PaymentMethod {
     @SerializedName("configuration")
     private Map<String, String> configuration = null;
 
-    @SerializedName("details")
-    private List<InputDetail> details = null;
-
     @SerializedName("issuers")
     private List<PaymentMethodIssuer> issuers = null;
 
@@ -186,39 +183,6 @@ public class PaymentMethod {
         this.configuration = configuration;
     }
 
-    public PaymentMethod details(List<InputDetail> details) {
-        this.details = details;
-        return this;
-    }
-
-    public PaymentMethod addDetailsItem(InputDetail detailsItem) {
-
-        if (details == null) {
-            details = new ArrayList<>();
-        }
-
-        details.add(detailsItem);
-        return this;
-    }
-
-    /**
-     * All input details to be provided to complete the payment with this payment method.
-     *
-     * @return details
-     **/
-    public List<InputDetail> getDetails() {
-        return details;
-    }
-
-    public void setDetails(List<InputDetail> details) {
-        this.details = details;
-    }
-
-    public PaymentMethod fundingSource(FundingSourceEnum fundingSource) {
-        this.fundingSource = fundingSource;
-        return this;
-    }
-
     /**
      * The funding source of the payment method.
      *
@@ -334,7 +298,6 @@ public class PaymentMethod {
         return Objects.equals(this.brand, paymentMethod.brand) &&
                 Objects.equals(this.brands, paymentMethod.brands) &&
                 Objects.equals(this.configuration, paymentMethod.configuration) &&
-                Objects.equals(this.details, paymentMethod.details) &&
                 Objects.equals(this.fundingSource, paymentMethod.fundingSource) &&
                 Objects.equals(this.group, paymentMethod.group) &&
                 Objects.equals(this.name, paymentMethod.name) &&
@@ -344,7 +307,7 @@ public class PaymentMethod {
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, brands, configuration, details, fundingSource, group,
+        return Objects.hash(brand, brands, configuration, fundingSource, group,
                 name, issuers, type);
     }
 
@@ -356,7 +319,6 @@ public class PaymentMethod {
         sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
         sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
         sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("    issuers: ").append(toIndentedString(issuers)).append("\n");
