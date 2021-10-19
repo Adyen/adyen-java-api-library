@@ -51,7 +51,8 @@ public class ThreeDS2RequestData {
 
         NOPREFERENCE("noPreference"),
         REQUESTCHALLENGE("requestChallenge"),
-        REQUESTNOCHALLENGE("requestNoChallenge");
+        REQUESTNOCHALLENGE("requestNoChallenge"),
+        REQUESTCHALLENGEASMANDATE("requestChallengeAsMandate");
 
         @JsonValue
         private String value;
@@ -89,6 +90,10 @@ public class ThreeDS2RequestData {
         }
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 68, this field is not used anymore.
+     */
+    @Deprecated
     @SerializedName("challengeIndicator")
     private ChallengeIndicatorEnum challengeIndicator = null;
 
@@ -134,6 +139,9 @@ public class ThreeDS2RequestData {
 
     @SerializedName("threeDSRequestorID")
     private String threeDSRequestorID = null;
+
+    @SerializedName("threeDSRequestorChallengeInd")
+    private String threeDSRequestorChallengeInd = null;
 
     @SerializedName("threeDSRequestorName")
     private String threeDSRequestorName = null;
@@ -211,15 +219,27 @@ public class ThreeDS2RequestData {
         this.authenticationOnly = authenticationOnly;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 68, this field is not used anymore.
+     */
+    @Deprecated
     public ThreeDS2RequestData challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
         this.challengeIndicator = challengeIndicator;
         return this;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 68, this field is not used anymore.
+     */
+    @Deprecated
     public ChallengeIndicatorEnum getChallengeIndicator() {
         return challengeIndicator;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 68, this field is not used anymore.
+     */
+    @Deprecated
     public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
         this.challengeIndicator = challengeIndicator;
     }
@@ -407,6 +427,23 @@ public class ThreeDS2RequestData {
 
     public ThreeDS2RequestData messageVersion(String messageVersion) {
         this.messageVersion = messageVersion;
+        return this;
+    }
+
+    /**
+     * Indicates whether a challenge is requested for this transaction.
+     * @return threeDSRequestorChallengeInd
+     */
+    public String getThreeDSRequestorChallengeInd() {
+        return threeDSRequestorChallengeInd;
+    }
+
+    public void setThreeDSRequestorChallengeInd(String threeDSRequestorChallengeInd) {
+        this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    }
+
+    public ThreeDS2RequestData threeDSRequestorChallengeInd(String threeDSRequestorChallengeInd) {
+        this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
         return this;
     }
 
