@@ -90,6 +90,7 @@ public class ThreeDS2RequestData {
         }
     }
 
+    @Deprecated
     @SerializedName("challengeIndicator")
     private ChallengeIndicatorEnum challengeIndicator = null;
 
