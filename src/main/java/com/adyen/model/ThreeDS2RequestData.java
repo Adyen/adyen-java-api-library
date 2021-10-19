@@ -136,6 +136,9 @@ public class ThreeDS2RequestData {
     @SerializedName("threeDSRequestorID")
     private String threeDSRequestorID = null;
 
+    @SerializedName("threeDSRequestorChallengeInd")
+    private String threeDSRequestorChallengeInd = null;
+
     @SerializedName("threeDSRequestorName")
     private String threeDSRequestorName = null;
 
@@ -408,6 +411,23 @@ public class ThreeDS2RequestData {
 
     public ThreeDS2RequestData messageVersion(String messageVersion) {
         this.messageVersion = messageVersion;
+        return this;
+    }
+
+    /**
+     * Indicates whether a challenge is requested for this transaction.
+     * @return threeDSRequestorChallengeInd
+     */
+    public String getThreeDSRequestorChallengeInd() {
+        return threeDSRequestorChallengeInd;
+    }
+
+    public void setThreeDSRequestorChallengeInd(String threeDSRequestorChallengeInd) {
+        this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
+    }
+
+    public ThreeDS2RequestData threeDSRequestorChallengeInd(String threeDSRequestorChallengeInd) {
+        this.threeDSRequestorChallengeInd = threeDSRequestorChallengeInd;
         return this;
     }
 
