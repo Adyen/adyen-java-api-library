@@ -90,6 +90,9 @@ public class ThreeDS2RequestData {
         }
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 68, this field is not used anymore.
+     */
     @Deprecated
     @SerializedName("challengeIndicator")
     private ChallengeIndicatorEnum challengeIndicator = null;
@@ -216,15 +219,27 @@ public class ThreeDS2RequestData {
         this.authenticationOnly = authenticationOnly;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 68, this field is not used anymore.
+     */
+    @Deprecated
     public ThreeDS2RequestData challengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
         this.challengeIndicator = challengeIndicator;
         return this;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 68, this field is not used anymore.
+     */
+    @Deprecated
     public ChallengeIndicatorEnum getChallengeIndicator() {
         return challengeIndicator;
     }
 
+    /**
+     * @deprecated As of Checkout/Payments API version 68, this field is not used anymore.
+     */
+    @Deprecated
     public void setChallengeIndicator(ChallengeIndicatorEnum challengeIndicator) {
         this.challengeIndicator = challengeIndicator;
     }
