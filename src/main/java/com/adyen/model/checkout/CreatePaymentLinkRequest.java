@@ -222,6 +222,55 @@ public class CreatePaymentLinkRequest {
     @SerializedName("storePaymentMethod")
     private Boolean storePaymentMethod = null;
 
+    /**
+     * Indicates if the details of the payment method will be stored for the shopper. Possible values:* **disabled** – No details will be stored.* **askForConsent** – If the &#x60;shopperReference&#x60; is provided the shopper can decide whether or not the details will be stored.* **enabled** – If the &#x60;shopperReference&#x60; is provided the details will be stored without asking consent to the shopper.
+     */
+    @JsonAdapter(StorePaymentMethodModeEnum.Adapter.class)
+    public enum StorePaymentMethodModeEnum {
+        ASKFORCONSENT("askForConsent"),
+        DISABLED("disabled"),
+        ENABLED("enabled");
+
+        @JsonValue
+        private String value;
+
+        StorePaymentMethodModeEnum(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+        public static StorePaymentMethodModeEnum fromValue(String value) {
+            for (StorePaymentMethodModeEnum b : StorePaymentMethodModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter<StorePaymentMethodModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StorePaymentMethodModeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StorePaymentMethodModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value =  jsonReader.nextString();
+                return StorePaymentMethodModeEnum.fromValue(value);
+            }
+        }
+    }
+
+    @SerializedName("storePaymentMethodMode")
+    private StorePaymentMethodModeEnum storePaymentMethodMode;
+
     public CreatePaymentLinkRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
         this.allowedPaymentMethods = allowedPaymentMethods;
         return this;
@@ -754,6 +803,24 @@ public class CreatePaymentLinkRequest {
         this.storePaymentMethod = storePaymentMethod;
     }
 
+    public CreatePaymentLinkRequest storePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
+
+        this.storePaymentMethodMode = storePaymentMethodMode;
+        return this;
+    }
+
+    /**
+     * Indicates if the details of the payment method will be stored for the shopper. Possible values:* **disabled** – No details will be stored.* **askForConsent** – If the &#x60;shopperReference&#x60; is provided the shopper can decide whether or not the details will be stored.* **enabled** – If the &#x60;shopperReference&#x60; is provided the details will be stored without asking consent to the shopper.
+     * @return storePaymentMethodMode
+     **/
+    public StorePaymentMethodModeEnum getStorePaymentMethodMode() {
+        return storePaymentMethodMode;
+    }
+
+
+    public void setStorePaymentMethodMode(StorePaymentMethodModeEnum storePaymentMethodMode) {
+        this.storePaymentMethodMode = storePaymentMethodMode;
+    }
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -791,12 +858,13 @@ public class CreatePaymentLinkRequest {
                 Objects.equals(this.shopperReference, createPaymentLinkRequest.shopperReference) &&
                 Objects.equals(this.splits, createPaymentLinkRequest.splits) &&
                 Objects.equals(this.store, createPaymentLinkRequest.store) &&
-                Objects.equals(this.storePaymentMethod, createPaymentLinkRequest.storePaymentMethod);
+                Objects.equals(this.storePaymentMethod, createPaymentLinkRequest.storePaymentMethod) &&
+                Objects.equals(this.storePaymentMethodMode, createPaymentLinkRequest.storePaymentMethodMode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, countryCode, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, splits, store, storePaymentMethod);
+        return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, countryCode, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, splits, store, storePaymentMethod, storePaymentMethodMode);
     }
 
 
@@ -832,7 +900,8 @@ public class CreatePaymentLinkRequest {
                 "    splits: " + toIndentedString(splits) + "\n" +
                 "    store: " + toIndentedString(store) + "\n" +
                 "    storePaymentMethod: " + toIndentedString(storePaymentMethod) + "\n" +
-                "}";
+                "    storePaymentMethodMode: " + toIndentedString(storePaymentMethodMode) + "\n" +
+        "}";
     }
 
     /**
