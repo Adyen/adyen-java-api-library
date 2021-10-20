@@ -243,7 +243,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /sessions API call
      *
      * @param createCheckoutSessionRequest CreateCheckoutSessionRequest
-
      * @return
      * @throws ApiException
      * @throws IOException
