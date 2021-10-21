@@ -50,8 +50,8 @@ public class PaymentMethod {
     @SerializedName("configuration")
     private Map<String, String> configuration = null;
 
-    @SerializedName("details")
-    private List<InputDetail> details = null;
+    @SerializedName("issuers")
+    private List<PaymentMethodIssuer> issuers = null;
 
     /**
      * The funding source of the payment method.
@@ -186,39 +186,6 @@ public class PaymentMethod {
         this.configuration = configuration;
     }
 
-    public PaymentMethod details(List<InputDetail> details) {
-        this.details = details;
-        return this;
-    }
-
-    public PaymentMethod addDetailsItem(InputDetail detailsItem) {
-
-        if (details == null) {
-            details = new ArrayList<>();
-        }
-
-        details.add(detailsItem);
-        return this;
-    }
-
-    /**
-     * All input details to be provided to complete the payment with this payment method.
-     *
-     * @return details
-     **/
-    public List<InputDetail> getDetails() {
-        return details;
-    }
-
-    public void setDetails(List<InputDetail> details) {
-        this.details = details;
-    }
-
-    public PaymentMethod fundingSource(FundingSourceEnum fundingSource) {
-        this.fundingSource = fundingSource;
-        return this;
-    }
-
     /**
      * The funding source of the payment method.
      *
@@ -269,7 +236,9 @@ public class PaymentMethod {
      * All input details to be provided to complete the payment with this payment method.
      *
      * @return inputDetails
+     * @deprecated
      **/
+    @Deprecated
     public List<InputDetail> getInputDetails() {
         return inputDetails;
     }
@@ -278,12 +247,10 @@ public class PaymentMethod {
         this.inputDetails = inputDetails;
     }
 
-
     public PaymentMethod name(String name) {
         this.name = name;
         return this;
     }
-
 
     /**
      * The displayable name of this payment method.
@@ -305,6 +272,34 @@ public class PaymentMethod {
     public PaymentMethod type(String type) {
         this.type = type;
         return this;
+    }
+
+
+    public PaymentMethod issuers(List<PaymentMethodIssuer> issuers) {
+
+        this.issuers = issuers;
+        return this;
+    }
+
+    public PaymentMethod addIssuersItem(PaymentMethodIssuer issuersItem) {
+        if (this.issuers == null) {
+            this.issuers = new ArrayList<PaymentMethodIssuer>();
+        }
+        this.issuers.add(issuersItem);
+        return this;
+    }
+
+    /**
+     * A list of issuers for this payment method.
+     * @return issuers
+     **/
+    public List<PaymentMethodIssuer> getIssuers() {
+        return issuers;
+    }
+
+
+    public void setIssuers(List<PaymentMethodIssuer> issuers) {
+        this.issuers = issuers;
     }
 
 
@@ -333,18 +328,18 @@ public class PaymentMethod {
         return Objects.equals(this.brand, paymentMethod.brand) &&
                 Objects.equals(this.brands, paymentMethod.brands) &&
                 Objects.equals(this.configuration, paymentMethod.configuration) &&
-                Objects.equals(this.details, paymentMethod.details) &&
                 Objects.equals(this.fundingSource, paymentMethod.fundingSource) &&
                 Objects.equals(this.group, paymentMethod.group) &&
                 Objects.equals(this.inputDetails, paymentMethod.inputDetails) &&
                 Objects.equals(this.name, paymentMethod.name) &&
+                Objects.equals(this.issuers, paymentMethod.issuers) &&
                 Objects.equals(this.type, paymentMethod.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, brands, configuration, details, fundingSource, group,
-                inputDetails, name, type);
+        return Objects.hash(brand, brands, configuration, fundingSource, group,
+                inputDetails, name, issuers, type);
     }
 
     @Override
@@ -355,9 +350,9 @@ public class PaymentMethod {
         sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
         sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
         sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
+        sb.append("    issuers: ").append(toIndentedString(issuers)).append("\n");
         sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -365,6 +360,3 @@ public class PaymentMethod {
         return sb.toString();
     }
 }
-
-
-
