@@ -30,6 +30,8 @@ import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.hop.GetOnboardingUrlRequest;
 import com.adyen.model.hop.GetOnboardingUrlResponse;
+import com.adyen.model.hop.OnboardingCollectInformation;
+import com.adyen.model.hop.OnboardingShowPages;
 import com.adyen.model.marketpay.AccountHolderBalanceRequest;
 import com.adyen.model.marketpay.AccountHolderBalanceResponse;
 import com.adyen.model.marketpay.AccountHolderDetails;
@@ -1013,6 +1015,25 @@ public class MarketPayTest extends BaseTest {
         getOnboardingUrlRequest.setAccountHolderCode("accountHolderCode");
         getOnboardingUrlRequest.setReturnUrl("myReturnUrl");
         getOnboardingUrlRequest.setShopperLocale("en_GB");
+
+        OnboardingShowPages onboardingShowPages = new OnboardingShowPages();
+        onboardingShowPages.setWelcomePage(true);
+        onboardingShowPages.setIndividualDetailsSummaryPage(true);
+        onboardingShowPages.setBusinessDetailsSummaryPage(true);
+        onboardingShowPages.setBankDetailsSummaryPage(false);
+        onboardingShowPages.setShareholderDetailsSummaryPage(false);
+        onboardingShowPages.setLegalArrangementsDetailsSummaryPage(true);
+        getOnboardingUrlRequest.setShowPages(onboardingShowPages);
+
+        OnboardingCollectInformation onboardingCollectInformation = new OnboardingCollectInformation();
+        onboardingCollectInformation.setIndividualDetails(true);
+        onboardingCollectInformation.setBusinessDetails(true);
+        onboardingCollectInformation.setBankDetails(false);
+        onboardingCollectInformation.setLegalArrangementDetails(false);
+        onboardingCollectInformation.setPciQuestionnaire(false);
+        onboardingCollectInformation.setShareholderDetails(false);
+        getOnboardingUrlRequest.setCollectInformation(onboardingCollectInformation);
+
         GetOnboardingUrlResponse getOnboardingUrlResponse = hop.getOnboardingUrl(getOnboardingUrlRequest);
 
         assertEquals("8115977378312467", getOnboardingUrlResponse.getPspReference());
