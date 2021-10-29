@@ -25,6 +25,8 @@ import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 
+import static com.adyen.util.Util.toIndentedString;
+
 public class OnboardingShowPages {
 
     @SerializedName("welcomePage")
@@ -178,13 +180,15 @@ public class OnboardingShowPages {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("class OnboardingShowPages{");
-        sb.append("welcomePage=").append(welcomePage);
-        sb.append(", individualDetailsSummaryPage=").append(individualDetailsSummaryPage);
-        sb.append(", businessDetailsSummaryPage=").append(businessDetailsSummaryPage);
-        sb.append(", bankDetailsSummaryPage=").append(bankDetailsSummaryPage);
-        sb.append(", shareholderDetailsSummaryPage=").append(shareholderDetailsSummaryPage);
-        sb.append(", legalArrangementsDetailsSummaryPage=").append(legalArrangementsDetailsSummaryPage);
+        final StringBuilder sb = new StringBuilder();
+        sb.append("class OnboardingShowPages {\n");
+
+        sb.append("    welcomePage: ").append(toIndentedString(welcomePage)).append("\n");
+        sb.append("    individualDetailsSummaryPage: ").append(toIndentedString(individualDetailsSummaryPage)).append("\n");
+        sb.append("    businessDetailsSummaryPage: ").append(toIndentedString(businessDetailsSummaryPage)).append("\n");
+        sb.append("    bankDetailsSummaryPage: ").append(toIndentedString(bankDetailsSummaryPage)).append("\n");
+        sb.append("    shareholderDetailsSummaryPage: ").append(toIndentedString(shareholderDetailsSummaryPage)).append("\n");
+        sb.append("    legalArrangementsDetailsSummaryPage: ").append(toIndentedString(legalArrangementsDetailsSummaryPage)).append("\n");
         sb.append('}');
         return sb.toString();
     }

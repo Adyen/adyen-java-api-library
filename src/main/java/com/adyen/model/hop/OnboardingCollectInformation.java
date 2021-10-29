@@ -25,6 +25,8 @@ import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 
+import static com.adyen.util.Util.toIndentedString;
+
 public class OnboardingCollectInformation {
 
     @SerializedName("individualDetails")
@@ -177,14 +179,17 @@ public class OnboardingCollectInformation {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("class OnboardingCollectInformation {\n");
-       sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
-        sb.append(", businessDetails=").append(businessDetails);
-        sb.append(", bankDetails=").append(bankDetails);
-        sb.append(", legalArrangementDetails=").append(legalArrangementDetails);
-        sb.append(", pciQuestionnaire=").append(pciQuestionnaire);
-        sb.append(", shareholderDetails=").append(shareholderDetails);
+        final StringBuilder sb = new StringBuilder();
+        sb.append("class OnboardingCollectInformation {\n");
+
+        sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
+        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append("\n");
+        sb.append("    bankDetails: ").append(toIndentedString(bankDetails)).append("\n");
+        sb.append("    legalArrangementDetails: ").append(toIndentedString(legalArrangementDetails)).append("\n");
+        sb.append("    pciQuestionnaire: ").append(toIndentedString(pciQuestionnaire)).append("\n");
+        sb.append("    shareholderDetails: ").append(toIndentedString(shareholderDetails)).append("\n");
         sb.append('}');
         return sb.toString();
     }
+
 }
