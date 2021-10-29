@@ -178,7 +178,7 @@ public class OnboardingCollectInformation {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("OnboardingCollectInformation{");
-        sb.append("individualDetails=").append(individualDetails);
+       sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
         sb.append(", businessDetails=").append(businessDetails);
         sb.append(", bankDetails=").append(bankDetails);
         sb.append(", legalArrangementDetails=").append(legalArrangementDetails);
