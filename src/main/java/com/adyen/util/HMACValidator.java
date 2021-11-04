@@ -79,7 +79,9 @@ public class HMACValidator {
             throw new IllegalArgumentException("Missing NotificationRequestItem.");
         }
 
-        if (notificationRequestItem.getAdditionalData() == null || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE).isEmpty()) {
+        if (notificationRequestItem.getAdditionalData() == null
+                || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE) == null
+                || notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE).isEmpty()) {
             throw new IllegalArgumentException("Missing " + HMAC_SIGNATURE);
         }
         final byte[] merchantSign = (notificationRequestItem.getAdditionalData().get(HMAC_SIGNATURE)).getBytes(StandardCharsets.UTF_8);
