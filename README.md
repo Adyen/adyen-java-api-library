@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/Adyen/adyen-java-api-library.svg?branch=master)](https://travis-ci.org/Adyen/adyen-java-api-library)
-[![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=master)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=master)
+[![Build Status](https://travis-ci.org/Adyen/adyen-java-api-library.svg?branch=main)](https://travis-ci.org/Adyen/adyen-java-api-library)
+[![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=main)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=main)
 
 
 # Adyen Java API Library
@@ -146,7 +146,7 @@ For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/
  
  
 ## Licence
-This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/master/LICENSE).
+This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/main/LICENSE).
  
  
  
