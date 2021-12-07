@@ -124,6 +124,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import org.json.JSONException;
+import org.skyscreamer.jsonassert.JSONAssert;
 
 /**
  * Tests for
@@ -135,6 +137,17 @@ import static org.junit.Assert.fail;
  * /payments/storedPaymentMethods
  */
 public class CheckoutTest extends BaseTest {
+    /**
+     * Helper to compare Json String in any order
+     */
+    public void assertJsonEqualsNonStrict(String json1, String json2) {
+        try {
+            JSONAssert.assertEquals(json1, json2, false);
+        } catch (JSONException jse) {
+            throw new IllegalArgumentException(jse.getMessage());
+        }
+    }
+
     /**
      * Test success flow for
      * POST /payments
@@ -602,10 +615,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(achDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertJsonEqualsNonStrict(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -785,10 +798,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(dokuDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertJsonEqualsNonStrict(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -824,10 +837,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(amazonPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertJsonEqualsNonStrict(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -859,10 +872,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(applePayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertJsonEqualsNonStrict(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -892,10 +905,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(billdeskOnlineDetails);
 
         String gsonRequest = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gsonRequest);
+        assertJsonEqualsNonStrict(expectedJson, gsonRequest);
 
         String jacksonRequest = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jacksonRequest);
+        assertJsonEqualsNonStrict(expectedJson, jacksonRequest);
     }
 
     @Test
@@ -923,10 +936,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(bacsDirectDebitDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertJsonEqualsNonStrict(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -954,10 +967,11 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(billdeskWalletDetails);
 
         String gson = GSON.toJson(paymentsRequest);
+        assertJsonEqualsNonStrict(expectedJson, gson);
         assertEquals(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -985,10 +999,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(dotpayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertJsonEqualsNonStrict(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -1301,10 +1315,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(androidPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertJsonEqualsNonStrict(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -1544,10 +1558,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(blikDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertJsonEqualsNonStrict(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertJsonEqualsNonStrict(expectedJson, jackson);
     }
 
     @Test
@@ -1717,7 +1731,7 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setDateOfBirth(d);
         paymentsRequest.setDeliveryDate(d);
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertEquals("{\n"
+        String expectedJson = "{\n"
                 + "  \"dateOfBirth\": \"2018-10-31\",\n"
                 + "  \"deliveryDate\": \"2018-10-31T00:00:00.000Z\",\n"
                 + "  \"applicationInfo\": {\n"
@@ -1726,7 +1740,8 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}";
+        assertJsonEqualsNonStrict(expectedJson, jsonRequest);
     }
 
     @Test
