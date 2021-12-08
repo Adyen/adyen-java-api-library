@@ -968,7 +968,6 @@ public class CheckoutTest extends BaseTest {
 
         String gson = GSON.toJson(paymentsRequest);
         assertJsonEqualsNonStrict(expectedJson, gson);
-        assertEquals(expectedJson, gson);
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
         assertJsonEqualsNonStrict(expectedJson, jackson);
