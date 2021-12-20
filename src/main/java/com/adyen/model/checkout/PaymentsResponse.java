@@ -127,7 +127,7 @@ public class PaymentsResponse extends AbstractPaymentsResponse<PaymentsResponse>
 
         public static ResultCodeEnum fromValue(String text) {
             return Arrays.stream(values()).
-                    filter(s -> s.value.equals(text)).
+                    filter(s -> s.value.equalsIgnoreCase(text)).
                     findFirst().orElse(null);
         }
 
