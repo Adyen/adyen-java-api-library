@@ -17,7 +17,7 @@ jobs:
       - name: Build & Test
         run: mvn clean test
       - name: Coveralls
-        mvn test jacoco:report
+          run: mvn test jacoco:report
       - name: Coveralls Coverage Report Setup
           run: sed -i.bak 's/yourcoverallsprojectrepositorytoken/${{ secrets.COVERALL_REPO_TOKEN }}/g' pom.xml
       - name: Coveralls Coverage Report Submission
