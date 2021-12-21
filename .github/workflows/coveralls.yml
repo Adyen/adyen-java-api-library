@@ -17,6 +17,4 @@ jobs:
       - name: Build with Maven
         run: mvn clean test
       - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        run: jacoco:report coveralls:report
