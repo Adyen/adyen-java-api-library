@@ -17,4 +17,4 @@ jobs:
       - name: Build & Test with Maven
         run: mvn clean test
       - name: Coveralls
-        run: coveralls:report
+        run: mvn coveralls:report
