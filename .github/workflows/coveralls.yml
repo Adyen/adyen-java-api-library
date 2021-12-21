@@ -14,7 +14,14 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build & Test with Maven
+      - name: Build & Test
         run: mvn clean test
       - name: Coveralls
+        mvn test jacoco:report
+      - name: Coveralls Coverage Report Setup
+          run: sed -i.bak 's/yourcoverallsprojectrepositorytoken/${{ secrets.COVERALL_REPO_TOKEN }}/g' pom.xml
+      - name: Coveralls Coverage Report Submission
         run: mvn coveralls:report
+      - name: Cleanup Repository Token
+        if: ${{ always() }}
+        run: if [ -f "pom.xml.bak" ]; then mv pom.xml.bak pom.xml; fi
