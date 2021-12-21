@@ -14,7 +14,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build with Maven
+      - name: Build & Test with Maven
         run: mvn clean test
       - name: Coveralls
-        run: mvn verify jacoco:report coveralls:report
+        run: coveralls:report
