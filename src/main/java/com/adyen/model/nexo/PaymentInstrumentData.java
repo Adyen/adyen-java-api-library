@@ -72,7 +72,7 @@ public class PaymentInstrumentData {
     @XmlElement(name = "ProtectedCardData")
     protected ContentInformation protectedCardData;
 
-    @XmlAttribute(name = "ProtectedCardData")
+    @XmlAttribute(name = "ProtectedSSCData")
     @JsonAdapter(SSCSerializer.class)
     protected SSC protectedSSCData;
 
