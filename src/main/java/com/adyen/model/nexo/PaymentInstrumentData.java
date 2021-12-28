@@ -1,10 +1,11 @@
 package com.adyen.model.nexo;
 
-import com.adyen.serializer.SSCSerializer;
-import com.google.gson.annotations.JsonAdapter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -71,10 +72,6 @@ public class PaymentInstrumentData {
      */
     @XmlElement(name = "ProtectedCardData")
     protected ContentInformation protectedCardData;
-
-    @XmlAttribute(name = "ProtectedSSCData")
-    @JsonAdapter(SSCSerializer.class)
-    protected SSC protectedSSCData;
 
     /**
      * Gets the value of the cardData property.
@@ -173,14 +170,6 @@ public class PaymentInstrumentData {
      */
     public ContentInformation getProtectedCardData() {
         return protectedCardData;
-    }
-    
-    public SSC getProtectedSSCData() {
-        return protectedSSCData;
-    }
-    
-    public void setProtectedSSCData(SSC value) {
-        this.protectedSSCData = value;
     }
 
     /**

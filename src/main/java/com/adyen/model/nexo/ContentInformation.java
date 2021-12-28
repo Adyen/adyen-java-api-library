@@ -1,5 +1,8 @@
 package com.adyen.model.nexo;
 
+import com.adyen.serializer.SSCSerializer;
+import com.google.gson.annotations.JsonAdapter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -72,7 +75,11 @@ public class ContentInformation {
      */
     @XmlElement(name = "ContentType", required = true)
     protected ContentType contentType;
-
+    
+    @XmlElement(name = "ssc")
+    @JsonAdapter(SSCSerializer.class)
+    protected SSC ssc;
+    
     /**
      * Gets the value of the envelopedData property.
      *
@@ -179,6 +186,24 @@ public class ContentInformation {
      */
     public void setContentType(ContentType value) {
         this.contentType = value;
+    }
+
+    /**
+     * Gets the value of the ssc property.
+     *
+     * @return possible      object is     {@link SSC }
+     */
+    public SSC getSsc() {
+        return ssc;
+    }
+
+    /**
+     * Sets the value of the ssc property.
+     *
+     * @param value allowed object is     {@link SSC }
+     */
+    public void setSsc(SSC value) {
+        this.ssc = value;
     }
 
 }
