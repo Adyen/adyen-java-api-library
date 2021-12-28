@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/Adyen/adyen-java-api-library.svg?branch=main)](https://travis-ci.org/Adyen/adyen-java-api-library)
-[![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=main)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=main)
-
+[![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=master)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=master)
 
 # Adyen Java API Library
 
