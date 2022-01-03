@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2021 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -45,10 +45,11 @@ public class GetOnboardingUrlRequest {
     @SerializedName("shopperLocale")
     private String shopperLocale = null;
 
-    public GetOnboardingUrlRequest accountHolderCode(String accountHolderCode) {
-        this.accountHolderCode = accountHolderCode;
-        return this;
-    }
+    @SerializedName("showPages")
+    private OnboardingShowPages showPages = null;
+
+    @SerializedName("collectInformation")
+    private OnboardingCollectInformation collectInformation = null;
 
     /**
      * The account holder code you provided when you created the account holder.
@@ -63,8 +64,8 @@ public class GetOnboardingUrlRequest {
         this.accountHolderCode = accountHolderCode;
     }
 
-    public GetOnboardingUrlRequest editMode(Boolean editMode) {
-        this.editMode = editMode;
+    public GetOnboardingUrlRequest accountHolderCode(String accountHolderCode) {
+        this.accountHolderCode = accountHolderCode;
         return this;
     }
 
@@ -81,8 +82,8 @@ public class GetOnboardingUrlRequest {
         this.editMode = editMode;
     }
 
-    public GetOnboardingUrlRequest platformName(String platformName) {
-        this.platformName = platformName;
+    public GetOnboardingUrlRequest editMode(Boolean editMode) {
+        this.editMode = editMode;
         return this;
     }
 
@@ -99,8 +100,8 @@ public class GetOnboardingUrlRequest {
         this.platformName = platformName;
     }
 
-    public GetOnboardingUrlRequest returnUrl(String returnUrl) {
-        this.returnUrl = returnUrl;
+    public GetOnboardingUrlRequest platformName(String platformName) {
+        this.platformName = platformName;
         return this;
     }
 
@@ -117,6 +118,11 @@ public class GetOnboardingUrlRequest {
         this.returnUrl = returnUrl;
     }
 
+    public GetOnboardingUrlRequest returnUrl(String returnUrl) {
+        this.returnUrl = returnUrl;
+        return this;
+    }
+
     /**
      * The language to be used in the page, specified by a combination of a language and country code. For example, **pt-BR**. \n\nIf not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.\n\nFor a list supported languages, refer to [Change the page language](https://docs.adyen.com/platforms/onboarding-and-verification/hosted-onboarding-page#change-page-language).
      *
@@ -128,6 +134,47 @@ public class GetOnboardingUrlRequest {
 
     public void setShopperLocale(String shopperLocale) {
         this.shopperLocale = shopperLocale;
+    }
+
+    public GetOnboardingUrlRequest shopperLocale(String shopperLocale) {
+        this.shopperLocale = shopperLocale;
+        return this;
+    }
+
+    /**
+     * What pages should be shown on the hosted onbarding page
+     *
+     * @return
+     */
+    public OnboardingShowPages getShowPages() {
+        return showPages;
+    }
+
+    public void setShowPages(OnboardingShowPages showPages) {
+        this.showPages = showPages;
+    }
+
+    public GetOnboardingUrlRequest showPages(OnboardingShowPages showPages) {
+        this.showPages = showPages;
+        return this;
+    }
+
+    /**
+     * What information should be collected on the hosted onboarding page
+     *
+     * @return
+     */
+    public OnboardingCollectInformation getCollectInformation() {
+        return collectInformation;
+    }
+
+    public void setCollectInformation(OnboardingCollectInformation collectInformation) {
+        this.collectInformation = collectInformation;
+    }
+
+    public GetOnboardingUrlRequest collectInformation(OnboardingCollectInformation collectInformation) {
+        this.collectInformation = collectInformation;
+        return this;
     }
 
     @Override
@@ -143,12 +190,14 @@ public class GetOnboardingUrlRequest {
                 Objects.equals(this.editMode, getOnboardingUrlRequest.editMode) &&
                 Objects.equals(this.platformName, getOnboardingUrlRequest.platformName) &&
                 Objects.equals(this.returnUrl, getOnboardingUrlRequest.returnUrl) &&
-                Objects.equals(this.shopperLocale, getOnboardingUrlRequest.shopperLocale);
+                Objects.equals(this.shopperLocale, getOnboardingUrlRequest.shopperLocale) &&
+                Objects.equals(this.showPages, getOnboardingUrlRequest.showPages) &&
+                Objects.equals(this.collectInformation, getOnboardingUrlRequest.collectInformation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, editMode, platformName, returnUrl, shopperLocale);
+        return Objects.hash(accountHolderCode, editMode, platformName, returnUrl, shopperLocale, showPages, collectInformation);
     }
 
 
@@ -162,6 +211,8 @@ public class GetOnboardingUrlRequest {
         sb.append("    platformName: ").append(toIndentedString(platformName)).append("\n");
         sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
+        sb.append("    showPages: ").append(toIndentedString(showPages)).append("\n");
+        sb.append("    collectInformation: ").append(toIndentedString(collectInformation)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/Adyen/adyen-java-api-library.svg?branch=master)](https://travis-ci.org/Adyen/adyen-java-api-library)
 [![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=master)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=master)
-
 
 # Adyen Java API Library
 
@@ -41,7 +39,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>17.2.0</version>
+  <version>17.3.0</version>
 </dependency>
 ```
 
@@ -146,7 +144,7 @@ For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/
  
  
 ## Licence
-This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/master/LICENSE).
+This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/main/LICENSE).
  
  
  
