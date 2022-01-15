@@ -31,6 +31,7 @@ import java.util.HashMap;
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class PaymentRequestBuilderTest extends BaseTest {
 
@@ -89,7 +90,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertEquals(expected, paymentRequestJson);
+        assertTrue(jsonStringEqual(expected, paymentRequestJson));
     }
 
     @Test
@@ -121,7 +122,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertEquals(expected, paymentRequestJson);
+        assertTrue(jsonStringEqual(expected, paymentRequestJson));
     }
 
     @Test
@@ -146,7 +147,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertEquals(expected, paymentRequestJson);
+        assertTrue(jsonStringEqual(expected, paymentRequestJson));
     }
 
     @Test

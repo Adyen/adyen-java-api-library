@@ -200,7 +200,7 @@ public class NotificationTest extends BaseTest {
         String gson = GSON.toJson(notificationRequest);
         String jackson = OBJECT_MAPPER.writeValueAsString(notificationRequest);
 
-        assertEquals(jackson, gson);
+        assertTrue(jsonStringEqual(jackson, gson));
     }
 
     private NotificationRequest readNotificationRequestFromFile(String resourcePath) {

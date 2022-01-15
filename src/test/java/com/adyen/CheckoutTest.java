@@ -397,7 +397,7 @@ public class CheckoutTest extends BaseTest {
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"USD\"\n"
@@ -419,7 +419,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
 
         TestPaymentMethodDetails testPaymentMethodDetails = new TestPaymentMethodDetails();
         testPaymentMethodDetails.setType("testType");
@@ -427,7 +427,7 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(testPaymentMethodDetails);
 
         jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"USD\"\n"
@@ -445,7 +445,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
     }
 
     @Test
@@ -453,7 +453,7 @@ public class CheckoutTest extends BaseTest {
         PaymentsRequest paymentsRequest = createEncryptedPaymentsCheckoutRequest();
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"USD\"\n"
@@ -475,7 +475,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
 
         TestPaymentMethodDetails testPaymentMethodDetails = new TestPaymentMethodDetails();
         testPaymentMethodDetails.setType("testType");
@@ -483,7 +483,7 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(testPaymentMethodDetails);
 
         jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"USD\"\n"
@@ -501,7 +501,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
     }
 
     /**
@@ -533,7 +533,7 @@ public class CheckoutTest extends BaseTest {
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"USD\"\n"
@@ -552,7 +552,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
     }
 
     @Test
@@ -566,10 +566,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(sepaDirectDebitDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -602,10 +602,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(achDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -641,10 +641,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(econtextVoucherDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -677,10 +677,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(idealDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -710,10 +710,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(googlePayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -746,10 +746,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(payPalDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -785,10 +785,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(dokuDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -824,10 +824,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(amazonPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -859,10 +859,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(applePayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -892,10 +892,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(billdeskOnlineDetails);
 
         String gsonRequest = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gsonRequest);
+        assertTrue(jsonStringEqual(expectedJson, gsonRequest));
 
         String jacksonRequest = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jacksonRequest);
+        assertTrue(jsonStringEqual(expectedJson, jacksonRequest));
     }
 
     @Test
@@ -923,10 +923,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(bacsDirectDebitDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -954,10 +954,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(billdeskWalletDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -985,10 +985,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(dotpayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1016,10 +1016,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(entercashDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1048,7 +1048,7 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(genericIssuerPaymentMethodDetails);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"USD\"\n"
@@ -1066,7 +1066,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
     }
 
     @Test
@@ -1093,10 +1093,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(giropayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1109,10 +1109,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(qiwiWalletDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1142,10 +1142,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(samsungPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1175,10 +1175,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(vippsDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1208,10 +1208,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(visaCheckoutDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1241,7 +1241,7 @@ public class CheckoutTest extends BaseTest {
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"USD\"\n"
@@ -1258,7 +1258,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
     }
 
     @Test
@@ -1271,7 +1271,7 @@ public class CheckoutTest extends BaseTest {
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
                 + "    \"currency\": \"USD\"\n"
@@ -1288,7 +1288,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
     }
 
     @Test
@@ -1301,10 +1301,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(androidPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1341,10 +1341,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(klarnaDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1383,10 +1383,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(masterpassDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1415,10 +1415,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(mobilePayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1445,10 +1445,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(payUUpiDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1477,10 +1477,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(weChatPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1511,10 +1511,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(weChatPayMiniProgramDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1544,10 +1544,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(blikDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1578,10 +1578,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(dragonPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1613,10 +1613,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(lianLianPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1648,10 +1648,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(mbwayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1683,10 +1683,10 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setPaymentMethod(molPayDetails);
 
         String gson = GSON.toJson(paymentsRequest);
-        assertEquals(expectedJson, gson);
+        assertTrue(jsonStringEqual(expectedJson, gson));
 
         String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
-        assertEquals(expectedJson, jackson);
+        assertTrue(jsonStringEqual(expectedJson, jackson));
     }
 
     @Test
@@ -1717,7 +1717,7 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setDateOfBirth(d);
         paymentsRequest.setDeliveryDate(d);
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertEquals("{\n"
+        assertTrue(jsonStringEqual("{\n"
                 + "  \"dateOfBirth\": \"2018-10-31\",\n"
                 + "  \"deliveryDate\": \"2018-10-31T00:00:00.000Z\",\n"
                 + "  \"applicationInfo\": {\n"
@@ -1726,7 +1726,7 @@ public class CheckoutTest extends BaseTest {
                 + "      \"version\": \"" + LIB_VERSION + "\"\n"
                 + "    }\n"
                 + "  }\n"
-                + "}", jsonRequest);
+                + "}", jsonRequest));
     }
 
     @Test
@@ -1735,15 +1735,15 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARD_ON_FILE);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertTrue(jsonRequest.contains("recurringProcessingModel\": \"CardOnFile\"\n"));
+        assertTrue(jsonRequest.contains("recurringProcessingModel\": \"CardOnFile\"\n") || jsonRequest.contains("recurringProcessingModel\": \"CardOnFile\",\n"));
 
         paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.SUBSCRIPTION);
         jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertTrue(jsonRequest.contains("recurringProcessingModel\": \"Subscription\"\n"));
+        assertTrue(jsonRequest.contains("recurringProcessingModel\": \"Subscription\"\n") || jsonRequest.contains("recurringProcessingModel\": \"Subscription\",\n"));
 
         paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.UNSCHEDULED_CARD_ON_FILE);
         jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
-        assertTrue(jsonRequest.contains("recurringProcessingModel\": \"UnscheduledCardOnFile\"\n"));
+        assertTrue(jsonRequest.contains("recurringProcessingModel\": \"UnscheduledCardOnFile\"\n") || jsonRequest.contains("recurringProcessingModel\": \"UnscheduledCardOnFile\",\n"));
     }
 
     @Test
