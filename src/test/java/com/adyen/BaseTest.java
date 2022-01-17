@@ -182,7 +182,7 @@ public class BaseTest {
             int length;
             InputStream fileStream = classLoader.getResourceAsStream(fileName);
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            while ((length = fileStream.read(buffer)) != -1) {
+            while ((length = fileStream.read(buffer)) != - 1) {
                 outputStream.write(buffer, 0, length);
             }
             result = outputStream.toString(StandardCharsets.UTF_8.name());
@@ -196,10 +196,10 @@ public class BaseTest {
     /**
      * Populates the basic parameters (browser data, merchant account, shopper IP)
      */
-    protected < T extends AbstractPaymentRequest > T createBasePaymentRequest(T abstractPaymentRequest) {
+    protected <T extends AbstractPaymentRequest> T createBasePaymentRequest(T abstractPaymentRequest) {
         abstractPaymentRequest.merchantAccount("AMerchant")
-            .setBrowserInfoData("User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36", "*/*")
-            .setShopperIP("1.2.3.4");
+                              .setBrowserInfoData("User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36", "*/*")
+                              .setShopperIP("1.2.3.4");
 
         return abstractPaymentRequest;
     }
@@ -209,8 +209,8 @@ public class BaseTest {
      */
     protected PaymentRequest createFullCardPaymentRequest() {
         return createBasePaymentRequest(new PaymentRequest()).reference("123456")
-            .setAmountData("1000", "EUR")
-            .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
+                .setAmountData("1000", "EUR")
+                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
     }
 
     protected PaymentsRequest createAfterPayPaymentRequest() {
@@ -221,7 +221,7 @@ public class BaseTest {
 
         Amount amount = new Amount();
         amount.setCurrency("EUR");
-        amount.setValue(1000 L);
+        amount.setValue(1000L);
 
         paymentsRequest.setAmount(amount);
         paymentsRequest.setShopperReference("YOUR_UNIQUE_SHOPPER_ID");
@@ -254,34 +254,34 @@ public class BaseTest {
         paymentsRequest.setBillingAddress(billingAddress);
         paymentsRequest.setShopperIP("192.0.2.1");
 
-        List < LineItem > lineItems = new ArrayList < > ();
+        List<LineItem> lineItems = new ArrayList<>();
 
         lineItems.add(
-            new LineItem()
-            .quantity(1 L)
-            .amountExcludingTax(331 L)
-            .taxPercentage(2100 L)
-            .description("Shoes")
-            .id("Item #1")
-            .taxAmount(69 L)
-            .amountIncludingTax(400 L)
-            .taxCategory(LineItem.TaxCategoryEnum.HIGH)
-            .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
-            .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
+                new LineItem()
+                    .quantity(1L)
+                    .amountExcludingTax(331L)
+                    .taxPercentage(2100L)
+                    .description("Shoes")
+                    .id("Item #1")
+                    .taxAmount(69L)
+                    .amountIncludingTax(400L)
+                    .taxCategory(LineItem.TaxCategoryEnum.HIGH)
+                    .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
+                    .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
         );
 
         lineItems.add(
-            new LineItem()
-            .quantity(2 L)
-            .amountExcludingTax(248 L)
-            .taxPercentage(2100 L)
-            .description("Socks")
-            .id("Item #2")
-            .taxAmount(52 L)
-            .amountIncludingTax(300 L)
-            .taxCategory(LineItem.TaxCategoryEnum.HIGH)
-            .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
-            .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
+                new LineItem()
+                .quantity(2L)
+                .amountExcludingTax(248L)
+                .taxPercentage(2100L)
+                .description("Socks")
+                .id("Item #2")
+                .taxAmount(52L)
+                .amountIncludingTax(300L)
+                .taxCategory(LineItem.TaxCategoryEnum.HIGH)
+                .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
+                .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
         );
 
         paymentsRequest.setLineItems(lineItems);
@@ -330,7 +330,7 @@ public class BaseTest {
         Long itemVatAmount = new Long("1000");
         Long itemVatPercentage = new Long("1000");
 
-        List < InvoiceLine > invoiceLines = new ArrayList < > ();
+        List<InvoiceLine> invoiceLines = new ArrayList<>();
 
         // invoiceLine1
         InvoiceLine invoiceLine = new InvoiceLine();
@@ -368,8 +368,8 @@ public class BaseTest {
     protected PaymentRequest createCSEPaymentRequest() {
 
         return createBasePaymentRequest(new PaymentRequest()).reference("123456")
-            .setAmountData("1000", "EUR")
-            .setCSEToken("adyenjs_0_1_4p1$...");
+                .setAmountData("1000", "EUR")
+                .setCSEToken("adyenjs_0_1_4p1$...");
     }
 
     /**
@@ -399,7 +399,7 @@ public class BaseTest {
         String response = getFileContents(fileName);
 
         AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
-        HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap < > (), response);
+        HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<>(), response);
         try {
             when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
@@ -414,7 +414,7 @@ public class BaseTest {
         return client;
     }
 
-    protected < T extends AbstractModificationRequest > T createBaseModificationRequest(T modificationRequest) {
+    protected <T extends AbstractModificationRequest> T createBaseModificationRequest(T modificationRequest) {
         modificationRequest.merchantAccount("AMerchant").originalReference("originalReference").reference("merchantReference");
 
         return modificationRequest;
