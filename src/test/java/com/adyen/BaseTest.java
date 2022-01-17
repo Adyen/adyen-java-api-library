@@ -94,7 +94,7 @@ import static org.mockito.Mockito.when;
 public class BaseTest {
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
     protected static final Gson GSON = new Gson();
-    protected static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    protected static final ObjectMapper OBJECT_MAPPER =  new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
     public static final String DUMMY_PROTOCOL_IMAGE_URL = "dummy_protocol/image_url/";
     public static final String DUMMY_PROTOCOL_PRODUCT_URL = "dummy_protocol/product_url/";
 
