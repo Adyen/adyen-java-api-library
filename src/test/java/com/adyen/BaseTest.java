@@ -72,16 +72,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Map;
 import java.util.HashMap;
-import java.util.Set;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Iterator;
-
-import org.json.JSONObject;
-import org.json.JSONArray;
-import org.json.JSONException;
 
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
@@ -97,44 +89,6 @@ public class BaseTest {
     protected static final ObjectMapper OBJECT_MAPPER =  new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
     public static final String DUMMY_PROTOCOL_IMAGE_URL = "dummy_protocol/image_url/";
     public static final String DUMMY_PROTOCOL_PRODUCT_URL = "dummy_protocol/product_url/";
-
-    /**
-     * Helper Function to determine if two JSON-Like strings are equal under order permutation.
-     * @param firstInput, secondInput: two objects to be compared.
-     * @return Boolean signifies equality or not.
-     */
-    public static boolean jsonStringEqual(String firstInput, String secondInput) throws JSONException {
-        Object firstObject = jsonStringToMapOrSet(firstInput);
-        Object secondObject = jsonStringToMapOrSet(secondInput);
-        return firstObject.equals(secondObject);
-    }
-
-    /**
-     * Helper Function (Recursive) to convert JsonString to a nested map(w.r.t JSONObject)/set(w.r.t. JSONArray) structure.
-     * @param input: JSON string to be converted.
-     * @return Converted Map
-     */
-    private static Object jsonStringToMapOrSet(String input) throws JSONException {
-        if (input.charAt(0) != '{' && input.charAt(0) != '[') {
-            return input;
-        } else if (input.charAt(0) == '[') {
-            JSONArray array = new JSONArray(input);
-            Set < Object > jsonSet = new HashSet < > ();
-            for (int i = 0; i < array.length(); i++) {
-                jsonSet.add(jsonStringToMapOrSet(array.get(i).toString()));
-            }
-            return jsonSet;
-        } else {
-            JSONObject object = new JSONObject(input);
-            Iterator < String > keys = object.keys();
-            Map < String, Object > jsonMap = new HashMap < > ();
-            while (keys.hasNext()) {
-                String key = keys.next();
-                jsonMap.put(key, jsonStringToMapOrSet((object.get(key)).toString()));
-            }
-            return jsonMap;
-        }
-    }
 
     /**
      * Returns a Client object that has a mocked response

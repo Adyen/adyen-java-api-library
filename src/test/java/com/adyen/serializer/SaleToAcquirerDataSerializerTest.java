@@ -4,19 +4,18 @@ import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.ExternalPlatform;
 import com.adyen.model.applicationinfo.MerchantDevice;
 import com.adyen.model.terminal.SaleToAcquirerData;
+import com.adyen.util.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
-
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SaleToAcquirerDataSerializerTest {
 
@@ -47,7 +46,7 @@ public class SaleToAcquirerDataSerializerTest {
         externalPlatform.setName("externalPlatformName");
         externalPlatform.setVersion("2.0.0");
         applicationInfo.setExternalPlatform(externalPlatform);
-        
+
         MerchantDevice merchantDevice = new MerchantDevice();
         merchantDevice.setOs("merchantDeviceOS");
         merchantDevice.setOsVersion("10.12.6");
@@ -62,7 +61,7 @@ public class SaleToAcquirerDataSerializerTest {
         additionalData.put("key.keyTwo", "value2");
         saleToAcquirerData.setAdditionalData(additionalData);
         saleToAcquirerData.setAuthorisationType("authorisationType");
-        
+
         String json = "{\n" +
                 "  \"metadata\": {\n" +
                 "    \"key\": \"value\"\n" +
@@ -102,12 +101,11 @@ public class SaleToAcquirerDataSerializerTest {
 
         // test if json string matches
         String requestJson = PRETTY_PRINT_GSON.toJson(saleToAcquirerData);
-        assertTrue(com.adyen.BaseTest.jsonStringEqual(requestJson, json));
-        
+        assertTrue(Util.jsonStringEqual(requestJson, json));
+
         // test if base64 works
-        // Because the order of elements in JSONObjects is nondeterministic, we only check if strings have same lengths
-        String jsonBase64 = new String(Base64.encodeBase64(json.getBytes()));
+        String jsonBase64 = new String(Base64.encodeBase64((Util.jsonObjectStringToTreeMap(json)).toString().getBytes()));
         String serialized = saleToAcquirerDataModelAdapter.serialize(saleToAcquirerData, null, null).getAsString();
-        assertTrue(jsonBase64.length() == serialized.length());
+        assertEquals(jsonBase64, serialized);
     }
 }
