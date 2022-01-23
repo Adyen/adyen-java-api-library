@@ -47,7 +47,7 @@ public class SaleToAcquirerDataSerializerTest {
         externalPlatform.setName("externalPlatformName");
         externalPlatform.setVersion("2.0.0");
         applicationInfo.setExternalPlatform(externalPlatform);
-
+        
         MerchantDevice merchantDevice = new MerchantDevice();
         merchantDevice.setOs("merchantDeviceOS");
         merchantDevice.setOsVersion("10.12.6");
