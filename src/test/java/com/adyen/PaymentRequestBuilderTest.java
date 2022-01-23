@@ -24,7 +24,6 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.applicationinfo.ExternalPlatform;
-import com.adyen.util.Util;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -32,7 +31,6 @@ import java.util.HashMap;
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class PaymentRequestBuilderTest extends BaseTest {
 
@@ -91,7 +89,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertTrue(Util.jsonStringEqual(expected, paymentRequestJson));
+        assertEquals(expected, paymentRequestJson);
     }
 
     @Test
@@ -123,7 +121,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertTrue(Util.jsonStringEqual(expected, paymentRequestJson));
+        assertEquals(expected, paymentRequestJson);
     }
 
     @Test
@@ -148,7 +146,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertTrue(Util.jsonStringEqual(expected, paymentRequestJson));
+        assertEquals(expected, paymentRequestJson);
     }
 
     @Test
