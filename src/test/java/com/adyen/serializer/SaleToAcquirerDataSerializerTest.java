@@ -62,7 +62,7 @@ public class SaleToAcquirerDataSerializerTest {
         additionalData.put("key.keyTwo", "value2");
         saleToAcquirerData.setAdditionalData(additionalData);
         saleToAcquirerData.setAuthorisationType("authorisationType");
-
+        
         String json = "{\n" +
                 "  \"metadata\": {\n" +
                 "    \"key\": \"value\"\n" +
