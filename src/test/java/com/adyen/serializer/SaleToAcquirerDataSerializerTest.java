@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -102,7 +103,7 @@ public class SaleToAcquirerDataSerializerTest {
         // test if json string matches
         String requestJson = PRETTY_PRINT_GSON.toJson(saleToAcquirerData);
         assertTrue(Util.jsonStringEqual(requestJson, json));
-
+        
         // test if base64 works
         String jsonBase64 = new String(Base64.encodeBase64((Util.jsonObjectStringToTreeMap(json)).toString().getBytes()));
         String serialized = saleToAcquirerDataModelAdapter.serialize(saleToAcquirerData, null, null).getAsString();
