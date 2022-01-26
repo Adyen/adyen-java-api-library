@@ -219,7 +219,7 @@ public class SaleToAcquirerData {
 
     public String toBase64() {
         String json = PRETTY_PRINT_GSON.toJson(this);
-        json = (Util.jsonObjectStringToTreeMap(json)).toString(); // Convert the Json-like string to a treemap and cast it back to string to avoid element permutation
+        json = (Util.jsonObjectStringToTreeMap(json)).toString(); // Convert the JSONObject-like string to a treemap and cast it back to string to avoid element permutation
         return new String(Base64.encodeBase64(json.getBytes()));
     }
 }
