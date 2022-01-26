@@ -47,7 +47,7 @@ public class SaleToAcquirerDataSerializerTest {
         externalPlatform.setName("externalPlatformName");
         externalPlatform.setVersion("2.0.0");
         applicationInfo.setExternalPlatform(externalPlatform);
-
+        
         MerchantDevice merchantDevice = new MerchantDevice();
         merchantDevice.setOs("merchantDeviceOS");
         merchantDevice.setOsVersion("10.12.6");
@@ -62,7 +62,7 @@ public class SaleToAcquirerDataSerializerTest {
         additionalData.put("key.keyTwo", "value2");
         saleToAcquirerData.setAdditionalData(additionalData);
         saleToAcquirerData.setAuthorisationType("authorisationType");
-
+        
         String json = "{\n" +
                 "  \"metadata\": {\n" +
                 "    \"key\": \"value\"\n" +
@@ -103,7 +103,7 @@ public class SaleToAcquirerDataSerializerTest {
         // test if json string matches
         String requestJson = PRETTY_PRINT_GSON.toJson(saleToAcquirerData);
         assertJsonStringEquals(requestJson, json);
-
+        
         // test if base64 works
         String jsonBase64 = new String(Base64.encodeBase64((Util.jsonObjectStringToTreeMap(json)).toString().getBytes()));
         String serialized = saleToAcquirerDataModelAdapter.serialize(saleToAcquirerData, null, null).getAsString();

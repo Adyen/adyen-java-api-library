@@ -204,7 +204,7 @@ public class NotificationTest extends BaseTest {
         assertJsonStringEquals(jackson, gson);
     }
 
-    public static void assertJsonStringEquals(String firstInput, String secondInput) {
+    private void assertJsonStringEquals(String firstInput, String secondInput) {
         JsonParser parser = new JsonParser();
         assertEquals(parser.parse(firstInput), parser.parse(secondInput));
     }
