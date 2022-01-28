@@ -180,7 +180,7 @@ public class Input {
     /**
      * Gets the value of the menuEntryNumber property.
      *
-     * @return possible      object is     {@link Integer[] }
+     * @return possible      object is     Array of {@link Integer }
      */
     public Integer[] getMenuEntryNumber() {
         return menuEntryNumber;
@@ -189,7 +189,7 @@ public class Input {
     /**
      * Sets the value of the menuEntryNumber property.
      *
-     * @param value allowed object is     {@link Integer[] }
+     * @param value allowed object is    Array of {@link Integer }
      */
     public void setMenuEntryNumber(Integer[] value) {
         this.menuEntryNumber = value;
