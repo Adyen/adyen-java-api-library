@@ -164,7 +164,7 @@ public final class Util {
 
     /**
      * Recursive helper function to convert nested JSONObject-like string to a nested TreeMap to allow deterministic comparison after casting to string.
-     * @param input: Nested JSONObject-like string to be converted.
+     * @param input Nested JSONObject-like string to be converted.
      * @return Converted nested TreeMap.
      */
      public static Object jsonObjectStringToTreeMap(String input) {
