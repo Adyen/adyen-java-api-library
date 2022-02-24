@@ -8,6 +8,8 @@ import com.adyen.util.Util;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
 
@@ -23,7 +25,7 @@ public class SaleToAcquirerDataSerializerTest {
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     @Test
-    public void testSerialize()  {
+    public void testSerialize() throws JsonProcessingException {
         SaleToAcquirerDataSerializer saleToAcquirerDataModelAdapter = new SaleToAcquirerDataSerializer();
         SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
 
@@ -47,7 +49,7 @@ public class SaleToAcquirerDataSerializerTest {
         externalPlatform.setName("externalPlatformName");
         externalPlatform.setVersion("2.0.0");
         applicationInfo.setExternalPlatform(externalPlatform);
-        
+
         MerchantDevice merchantDevice = new MerchantDevice();
         merchantDevice.setOs("merchantDeviceOS");
         merchantDevice.setOsVersion("10.12.6");
@@ -62,7 +64,7 @@ public class SaleToAcquirerDataSerializerTest {
         additionalData.put("key.keyTwo", "value2");
         saleToAcquirerData.setAdditionalData(additionalData);
         saleToAcquirerData.setAuthorisationType("authorisationType");
-        
+
         String json = "{\n" +
                 "  \"metadata\": {\n" +
                 "    \"key\": \"value\"\n" +
@@ -103,9 +105,10 @@ public class SaleToAcquirerDataSerializerTest {
         // test if json string matches
         String requestJson = PRETTY_PRINT_GSON.toJson(saleToAcquirerData);
         assertJsonStringEquals(requestJson, json);
-        
+
         // test if base64 works
-        String jsonBase64 = new String(Base64.encodeBase64((Util.jsonObjectStringToTreeMap(json)).toString().getBytes()));
+        String jsonOrdered = new ObjectMapper().writeValueAsString((Util.jsonObjectStringToTreeMap(json)));
+        String jsonBase64 = new String(Base64.encodeBase64(jsonOrdered.getBytes()));
         String serialized = saleToAcquirerDataModelAdapter.serialize(saleToAcquirerData, null, null).getAsString();
         assertEquals(jsonBase64, serialized);
     }

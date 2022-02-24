@@ -24,6 +24,8 @@ import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.util.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.binary.Base64;
 
 import java.util.Map;
@@ -217,9 +219,9 @@ public class SaleToAcquirerData {
                 '}';
     }
 
-    public String toBase64() {
+    public String toBase64() throws JsonProcessingException {
         String json = PRETTY_PRINT_GSON.toJson(this);
-        json = (Util.jsonObjectStringToTreeMap(json)).toString(); // Convert the JSONObject-like string to a treemap and cast it back to string to avoid element permutation
-        return new String(Base64.encodeBase64(json.getBytes()));
+        String jsonOrdered = new ObjectMapper().writeValueAsString((Util.jsonObjectStringToTreeMap(json))); // Convert the JSONObject-like string to a treemap and cast it back to string to avoid element permutation
+        return new String(Base64.encodeBase64(jsonOrdered.getBytes()));
     }
 }
