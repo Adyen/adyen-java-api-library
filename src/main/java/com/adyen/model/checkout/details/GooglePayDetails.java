@@ -44,7 +44,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String GOOGLEPAY = "paywithgoogle";
+    public static final String GOOGLEPAY = "googlepay";
 
     /**
      * Gets or Sets fundingSource
