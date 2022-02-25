@@ -21,7 +21,6 @@
 package com.adyen.util;
 
 import com.adyen.model.Amount;
-import com.google.gson.Gson;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -32,7 +31,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-import java.util.TreeMap;
 
 
 
@@ -161,21 +159,4 @@ public final class Util {
 
         return fmt.format(sessionDate);
     }
-
-    /**
-     * Recursive helper function to convert nested JSONObject-like string to a nested TreeMap to allow deterministic comparison after casting to string.
-     * @param input Nested JSONObject-like string to be converted.
-     * @return Converted nested TreeMap.
-     */
-     public static Object jsonObjectStringToTreeMap(String input) {
-         if (input.charAt(0) != '{') {
-             return input;
-         }
-         Gson gson = new Gson();
-         TreeMap<String, Object> map = gson.fromJson(input, TreeMap.class);
-         for (String key : map.keySet()) {
-             map.replace(key, jsonObjectStringToTreeMap(map.get(key).toString()));
-         }
-         return map;
-     }
 }

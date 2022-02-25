@@ -4,11 +4,9 @@ import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.applicationinfo.ExternalPlatform;
 import com.adyen.model.applicationinfo.MerchantDevice;
 import com.adyen.model.terminal.SaleToAcquirerData;
-import com.adyen.util.Util;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
 
@@ -24,7 +22,7 @@ public class SaleToAcquirerDataSerializerTest {
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     @Test
-    public void testSerialize() {
+    public void testSerialize()  {
         SaleToAcquirerDataSerializer saleToAcquirerDataModelAdapter = new SaleToAcquirerDataSerializer();
         SaleToAcquirerData saleToAcquirerData = new SaleToAcquirerData();
 
@@ -106,11 +104,9 @@ public class SaleToAcquirerDataSerializerTest {
         assertJsonStringEquals(requestJson, json);
         
         // test if base64 works
-        Gson gson = new Gson();
-        String jsonOrdered = gson.toJson((Util.jsonObjectStringToTreeMap(json)), new TypeToken<HashMap>(){}.getType()); 
-        String jsonBase64 = new String(Base64.encodeBase64(jsonOrdered.getBytes()));
         String serialized = saleToAcquirerDataModelAdapter.serialize(saleToAcquirerData, null, null).getAsString();
-        assertEquals(jsonBase64, serialized);
+        SaleToAcquirerData saleToAcquirerDataDecoded = new Gson().fromJson(new String(Base64.decodeBase64(serialized)), SaleToAcquirerData.class);
+        assertEquals(saleToAcquirerData, saleToAcquirerDataDecoded);
     }
 
     public static void assertJsonStringEquals(String firstInput, String secondInput) {

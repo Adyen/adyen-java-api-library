@@ -21,14 +21,11 @@
 package com.adyen.model.terminal;
 
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.util.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import org.apache.commons.codec.binary.Base64;
 
 import java.util.Map;
-import java.util.HashMap;
 import java.util.Objects;
 
 public class SaleToAcquirerData {
@@ -221,8 +218,6 @@ public class SaleToAcquirerData {
 
     public String toBase64() {
         String json = PRETTY_PRINT_GSON.toJson(this);
-        Gson gson = new Gson();
-        String jsonOrdered = gson.toJson((Util.jsonObjectStringToTreeMap(json)), new TypeToken<HashMap>() { }.getType()); // Convert the JSONObject-like string to a treemap and cast it back to string to avoid element permutation
-        return new String(Base64.encodeBase64(jsonOrdered.getBytes()));
+        return new String(Base64.encodeBase64(json.getBytes()));
     }
 }
