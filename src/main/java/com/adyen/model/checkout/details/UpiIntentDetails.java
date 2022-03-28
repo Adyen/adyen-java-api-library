@@ -1,9 +1,32 @@
+/*
+ *                       ######
+ *                       ######
+ * ############    ####( ######  #####. ######  ############   ############
+ * #############  #####( ######  #####. ######  #############  #############
+ *        ######  #####( ######  #####. ######  #####  ######  #####  ######
+ * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
+ * ###### ######  #####( ######  #####. ######  #####          #####  ######
+ * #############  #############  #############  #############  #####  ######
+ *  ############   ############  #############   ############  #####  ######
+ *                                      ######
+ *                               #############
+ *                               ############
+ *
+ * Adyen Java API Library
+ *
+ * Copyright (c) 2022 Adyen N.V.
+ * This file is open source and available under the MIT license.
+ * See the LICENSE file for more info.
+ */
 package com.adyen.model.checkout.details;
 
 import java.util.Objects;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * UpiIntentDetails
+ */
 public class UpiIntentDetails implements PaymentMethodDetails {
 
     public static final String UPI_INTENT = "upi_intent";
