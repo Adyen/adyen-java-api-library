@@ -22,39 +22,7 @@ package com.adyen.deserializer;
 
 import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.model.checkout.details.AchDetails;
-import com.adyen.model.checkout.details.AmazonPayDetails;
-import com.adyen.model.checkout.details.AndroidPayDetails;
-import com.adyen.model.checkout.details.ApplePayDetails;
-import com.adyen.model.checkout.details.BacsDirectDebitDetails;
-import com.adyen.model.checkout.details.BillDeskOnlineDetails;
-import com.adyen.model.checkout.details.BillDeskWalletDetails;
-import com.adyen.model.checkout.details.BlikDetails;
-import com.adyen.model.checkout.details.CellulantDetails;
-import com.adyen.model.checkout.details.DokuDetails;
-import com.adyen.model.checkout.details.DotpayDetails;
-import com.adyen.model.checkout.details.DragonpayDetails;
-import com.adyen.model.checkout.details.EcontextVoucherDetails;
-import com.adyen.model.checkout.details.EntercashDetails;
-import com.adyen.model.checkout.details.GiropayDetails;
-import com.adyen.model.checkout.details.GooglePayDetails;
-import com.adyen.model.checkout.details.IdealDetails;
-import com.adyen.model.checkout.details.KlarnaDetails;
-import com.adyen.model.checkout.details.LianLianPayDetails;
-import com.adyen.model.checkout.details.MasterpassDetails;
-import com.adyen.model.checkout.details.MbwayDetails;
-import com.adyen.model.checkout.details.MobilePayDetails;
-import com.adyen.model.checkout.details.MolPayDetails;
-import com.adyen.model.checkout.details.PayPalDetails;
-import com.adyen.model.checkout.details.PayUUpiDetails;
-import com.adyen.model.checkout.details.QiwiWalletDetails;
-import com.adyen.model.checkout.details.SamsungPayDetails;
-import com.adyen.model.checkout.details.SepaDirectDebitDetails;
-import com.adyen.model.checkout.details.UpiDetails;
-import com.adyen.model.checkout.details.VippsDetails;
-import com.adyen.model.checkout.details.VisaCheckoutDetails;
-import com.adyen.model.checkout.details.WeChatPayDetails;
-import com.adyen.model.checkout.details.WeChatPayMiniProgramDetails;
+import com.adyen.model.checkout.details.*;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -118,6 +86,8 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
                 return codec.treeToValue(node, GiropayDetails.class);
             case GooglePayDetails.GOOGLEPAY:
                 return codec.treeToValue(node, GooglePayDetails.class);
+            case PayWithGoogleDetails.PAYWITHGOOGLE:
+                return codec.treeToValue(node, PayWithGoogleDetails.class);
             case IdealDetails.IDEAL:
                 return codec.treeToValue(node, IdealDetails.class);
             case KlarnaDetails.KLARNA:

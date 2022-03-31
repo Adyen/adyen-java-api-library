@@ -63,38 +63,7 @@ import com.adyen.model.checkout.CreateStandalonePaymentCancelRequest;
 import com.adyen.model.checkout.StandalonePaymentCancelResource;
 import com.adyen.model.checkout.PaymentAmountUpdateResource;
 import com.adyen.model.checkout.CreatePaymentAmountUpdateRequest;
-import com.adyen.model.checkout.details.AchDetails;
-import com.adyen.model.checkout.details.AmazonPayDetails;
-import com.adyen.model.checkout.details.AndroidPayDetails;
-import com.adyen.model.checkout.details.ApplePayDetails;
-import com.adyen.model.checkout.details.BacsDirectDebitDetails;
-import com.adyen.model.checkout.details.BillDeskOnlineDetails;
-import com.adyen.model.checkout.details.BillDeskWalletDetails;
-import com.adyen.model.checkout.details.BlikDetails;
-import com.adyen.model.checkout.details.DokuDetails;
-import com.adyen.model.checkout.details.DotpayDetails;
-import com.adyen.model.checkout.details.DragonpayDetails;
-import com.adyen.model.checkout.details.EcontextVoucherDetails;
-import com.adyen.model.checkout.details.EntercashDetails;
-import com.adyen.model.checkout.details.GenericIssuerPaymentMethodDetails;
-import com.adyen.model.checkout.details.GiropayDetails;
-import com.adyen.model.checkout.details.GooglePayDetails;
-import com.adyen.model.checkout.details.IdealDetails;
-import com.adyen.model.checkout.details.KlarnaDetails;
-import com.adyen.model.checkout.details.LianLianPayDetails;
-import com.adyen.model.checkout.details.MasterpassDetails;
-import com.adyen.model.checkout.details.MbwayDetails;
-import com.adyen.model.checkout.details.MobilePayDetails;
-import com.adyen.model.checkout.details.MolPayDetails;
-import com.adyen.model.checkout.details.PayPalDetails;
-import com.adyen.model.checkout.details.PayUUpiDetails;
-import com.adyen.model.checkout.details.QiwiWalletDetails;
-import com.adyen.model.checkout.details.SamsungPayDetails;
-import com.adyen.model.checkout.details.SepaDirectDebitDetails;
-import com.adyen.model.checkout.details.VippsDetails;
-import com.adyen.model.checkout.details.VisaCheckoutDetails;
-import com.adyen.model.checkout.details.WeChatPayDetails;
-import com.adyen.model.checkout.details.WeChatPayMiniProgramDetails;
+import com.adyen.model.checkout.details.*;
 import com.adyen.service.Checkout;
 import com.adyen.service.exception.ApiException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -726,6 +695,44 @@ public class CheckoutTest extends BaseTest {
         googlePayDetails.setGooglePayCardNetwork("googlepaycardnetwork");
         PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(googlePayDetails);
+
+        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        assertEquals(expectedPaymentRequest, gsonObject);
+
+        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        assertEquals(expectedPaymentRequest, jacksonObject);
+    }
+
+    @Test
+    public void TestPayWithGoogleDetailsSerialization() throws JsonProcessingException {
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"debit\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"recurringDetailReference\":\"serialize-reference\",\"storedPaymentMethodId\":\"shop\",\"type\":\"paywithgoogle\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+
+        PayWithGoogleDetails payWithGoogleDetails = new PayWithGoogleDetails();
+        payWithGoogleDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
+        payWithGoogleDetails.setFundingSource(PayWithGoogleDetails.FundingSourceEnum.DEBIT);
+        payWithGoogleDetails.setRecurringDetailReference("serialize-reference");
+        payWithGoogleDetails.setStoredPaymentMethodId("shop");
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(payWithGoogleDetails);
+
+        String gson = GSON.toJson(paymentsRequest);
+        assertJsonStringEquals(expectedJson, gson);
+
+        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        assertJsonStringEquals(expectedJson, jackson);
+    }
+
+    @Test
+    public void TestPayWithGoogleDetailsDeserialization() throws JsonProcessingException {
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"debit\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"recurringDetailReference\":\"some-reference\",\"storedPaymentMethodId\":\"my-shop\",\"type\":\"paywithgoogle\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+
+        PayWithGoogleDetails payWithGoogleDetails = new PayWithGoogleDetails();
+        payWithGoogleDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
+        payWithGoogleDetails.setFundingSource(PayWithGoogleDetails.FundingSourceEnum.DEBIT);
+        payWithGoogleDetails.setRecurringDetailReference("some-reference");
+        payWithGoogleDetails.setStoredPaymentMethodId("my-shop");
+        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        expectedPaymentRequest.setPaymentMethod(payWithGoogleDetails);
 
         PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
