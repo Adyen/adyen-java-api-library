@@ -88,6 +88,8 @@ import com.adyen.model.checkout.details.MobilePayDetails;
 import com.adyen.model.checkout.details.MolPayDetails;
 import com.adyen.model.checkout.details.PayPalDetails;
 import com.adyen.model.checkout.details.PayUUpiDetails;
+import com.adyen.model.checkout.details.UpiIntentDetails;
+import com.adyen.model.checkout.details.UpiCollectDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
@@ -1459,6 +1461,66 @@ public class CheckoutTest extends BaseTest {
         PayUUpiDetails payUUpiDetails = new PayUUpiDetails();
         PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(payUUpiDetails);
+
+        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        assertEquals(expectedRequest, gsonObject);
+
+        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        assertEquals(expectedRequest, jacksonObject);
+    }
+
+    @Test
+    public void TestPayUpiIntentDetailsSerialization() throws JsonProcessingException {
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"upi_intent\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+
+        UpiIntentDetails upiIntentDetails = new UpiIntentDetails();
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(upiIntentDetails);
+
+        String gson = GSON.toJson(paymentsRequest);
+        assertJsonStringEquals(expectedJson, gson);
+
+        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        assertJsonStringEquals(expectedJson, jackson);
+    }
+
+    @Test
+    public void TestPayUpiIntentDetailsDeserialization() throws JsonProcessingException {
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"upi_intent\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+
+        UpiIntentDetails upiIntentDetails = new UpiIntentDetails();
+        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        expectedRequest.setPaymentMethod(upiIntentDetails);
+
+        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        assertEquals(expectedRequest, gsonObject);
+
+        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        assertEquals(expectedRequest, jacksonObject);
+    }
+
+    @Test
+    public void TestPayUpiCollectDetailsSerialization() throws JsonProcessingException {
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"upi_collect\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+
+        UpiCollectDetails upiCollectDetails = new UpiCollectDetails();
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(upiCollectDetails);
+
+        String gson = GSON.toJson(paymentsRequest);
+        assertJsonStringEquals(expectedJson, gson);
+
+        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        assertJsonStringEquals(expectedJson, jackson);
+    }
+
+    @Test
+    public void TestPayUpiCollectDetailsDeserialization() throws JsonProcessingException {
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"upi_collect\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+
+        UpiCollectDetails upiCollectDetails = new UpiCollectDetails();
+        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        expectedRequest.setPaymentMethod(upiCollectDetails);
 
         PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
         assertEquals(expectedRequest, gsonObject);
