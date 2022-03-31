@@ -76,9 +76,10 @@ public class CheckoutTest extends BaseTest {
         assertNotNull(response);
         assertEquals("12345", response.getPspReference());
         verify(clientInterface).request(anyString(), captor.capture(), any(Config.class), anyBoolean(), nullable(RequestOptions.class), any());
+        String captorValue = captor.getValue();
         //html escaped
-        assertFalse(captor.getValue().contains("\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\",\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}"));
+        assertFalse(captorValue.contains("\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\",\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}") || captorValue.contains("\"mpiData\":{\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\",\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}"));
         //not html escaped
-        assertTrue(captor.getValue().contains("\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\",\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\"}"));
+        assertTrue(captorValue.contains("\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\",\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\"}") || captorValue.contains("\"mpiData\":{\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\",\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\"}"));
     }
 }
