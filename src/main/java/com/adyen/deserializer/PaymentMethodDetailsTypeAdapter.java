@@ -50,7 +50,9 @@ import com.adyen.model.checkout.details.PayUUpiDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
+import com.adyen.model.checkout.details.UpiCollectDetails;
 import com.adyen.model.checkout.details.UpiDetails;
+import com.adyen.model.checkout.details.UpiIntentDetails;
 import com.adyen.model.checkout.details.VippsDetails;
 import com.adyen.model.checkout.details.VisaCheckoutDetails;
 import com.adyen.model.checkout.details.WeChatPayDetails;
@@ -172,6 +174,10 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(SamsungPayDetails.class).fromJsonTree(jsonElement);
                     case SepaDirectDebitDetails.SEPA_DIRECT_DEBIT:
                         return gson.getAdapter(SepaDirectDebitDetails.class).fromJsonTree(jsonElement);
+                    case UpiIntentDetails.UPI_INTENT:
+                        return gson.getAdapter(UpiIntentDetails.class).fromJsonTree(jsonElement);
+                    case UpiCollectDetails.UPI_COLLECT:
+                        return gson.getAdapter(UpiCollectDetails.class).fromJsonTree(jsonElement);
                     case UpiDetails.UPI:
                         return gson.getAdapter(UpiDetails.class).fromJsonTree(jsonElement);
                     case VippsDetails.VIPPS:
