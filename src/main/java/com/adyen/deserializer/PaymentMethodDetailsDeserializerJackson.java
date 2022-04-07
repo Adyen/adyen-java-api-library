@@ -20,6 +20,7 @@
  */
 package com.adyen.deserializer;
 
+import java.io.IOException;
 import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.details.*;
@@ -28,8 +29,6 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-
-import java.io.IOException;
 
 public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<PaymentMethodDetails> {
 
@@ -127,6 +126,10 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
                 return codec.treeToValue(node, SepaDirectDebitDetails.class);
             case UpiDetails.UPI:
                 return codec.treeToValue(node, UpiDetails.class);
+            case UpiCollectDetails.UPI_COLLECT:
+                return codec.treeToValue(node, UpiCollectDetails.class);
+            case UpiIntentDetails.UPI_INTENT:
+                return codec.treeToValue(node, UpiIntentDetails.class);
             case VippsDetails.VIPPS:
                 return codec.treeToValue(node, VippsDetails.class);
             case VisaCheckoutDetails.VISA_CHECKOUT:
