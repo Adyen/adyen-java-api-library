@@ -25,7 +25,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jackson.version>2.13.2.2</jackson.version>
     </properties>
     <scm>
         <connection>scm:git:git@github.com:Adyen/adyen-java-api-library.git</connection>
