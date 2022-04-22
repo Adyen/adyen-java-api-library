@@ -103,16 +103,28 @@ public class Transaction {
         DEBITREVERSEDRECEIVED("DebitReversedReceived"),
         DEBITED("Debited"),
         DEBITEDREVERSED("DebitedReversed"),
+        DEPOSITCORRECTION("DepositCorrection"),
+        INVOICEDEDUCTION("InvoiceDeduction"),
+        FEE("Fee"),
         FUNDTRANSFER("FundTransfer"),
         FUNDTRANSFERREVERSED("FundTransferReversed"),
         MANUALCORRECTED("ManualCorrected"),
+        MANUALCORRECTIONCREDITED("ManualCorrectionCredited"),
+        MANUALCORRECTIONDEBITED("ManualCorrectionDebited"),
+        MERCHANTPAYIN("MerchantPayin"),
+        MERCHANTPAYINREVERSED("MerchantPayinReversed"),
+        PAIDOUT("PaidOut"),
         PAYOUT("Payout"),
+        PAYOUTFAILED("PayoutFailed"),
+        PAYOUTINITIATED("PayoutInitiated"),
         PAYOUTREVERSED("PayoutReversed"),
         PENDINGCREDIT("PendingCredit"),
         PENDINGDEBIT("PendingDebit"),
         PENDINGFUNDTRANSFER("PendingFundTransfer"),
         SECONDCHARGEBACK("SecondChargeback"),
-        SECONDCHARGEBACKRECEIVED("SecondChargebackReceived");
+        SECONDCHARGEBACKRECEIVED("SecondChargebackReceived"),
+        TRANSFERBALANCE("TransferBalance"),
+        VIRTUALACCOUNTPAYOUTRETURNED("VirtualAccountPayoutReturned");
 
         @JsonValue
         private String value;
