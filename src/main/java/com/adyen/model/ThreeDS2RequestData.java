@@ -124,6 +124,9 @@ public class ThreeDS2RequestData {
     @SerializedName("sdkTransID")
     private String sdkTransID = null;
 
+    @SerializedName("sdkVersion")
+    private String sdkVersion = null;
+
     @SerializedName("threeDSCompInd")
     private String threeDSCompInd = null;
 
@@ -361,11 +364,23 @@ public class ThreeDS2RequestData {
         this.sdkTransID = sdkTransID;
     }
 
+    public ThreeDS2RequestData sdkVersion(String sdkVersion) {
+        this.sdkVersion = sdkVersion;
+        return this;
+    }
+
+    public String getSdkVersion() {
+        return sdkVersion;
+    }
+
+    public void setSdkVersion(String sdkVersion) {
+        this.sdkVersion = sdkVersion;
+    }
+
     public ThreeDS2RequestData threeDSCompInd(String threeDSCompInd) {
         this.threeDSCompInd = threeDSCompInd;
         return this;
     }
-
 
     public String getThreeDSCompInd() {
         return threeDSCompInd;
@@ -612,6 +627,7 @@ public class ThreeDS2RequestData {
                 Objects.equals(this.sdkMaxTimeout, threeDS2RequestData.sdkMaxTimeout) &&
                 Objects.equals(this.sdkReferenceNumber, threeDS2RequestData.sdkReferenceNumber) &&
                 Objects.equals(this.sdkTransID, threeDS2RequestData.sdkTransID) &&
+                Objects.equals(this.sdkVersion, threeDS2RequestData.sdkVersion) &&
                 Objects.equals(this.threeDSCompInd, threeDS2RequestData.threeDSCompInd) &&
                 Objects.equals(this.threeDSRequestorID, threeDS2RequestData.threeDSRequestorID) &&
                 Objects.equals(this.threeDSRequestorName, threeDS2RequestData.threeDSRequestorName) &&
@@ -622,7 +638,7 @@ public class ThreeDS2RequestData {
 
     @Override
     public int hashCode() {
-        return Objects.hash(acquirerBIN, acquirerMerchantID, authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, mcc, merchantName, messageVersion, notificationURL, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, threeDSCompInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorURL, transactionType, whiteListStatus);
+        return Objects.hash(acquirerBIN, acquirerMerchantID, authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, mcc, merchantName, messageVersion, notificationURL, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, sdkVersion, threeDSRequestorID, threeDSRequestorName, threeDSRequestorURL, transactionType, whiteListStatus);
     }
 
 
@@ -647,6 +663,7 @@ public class ThreeDS2RequestData {
         sb.append("    sdkMaxTimeout: ").append(toIndentedString(sdkMaxTimeout)).append("\n");
         sb.append("    sdkReferenceNumber: ").append(toIndentedString(sdkReferenceNumber)).append("\n");
         sb.append("    sdkTransID: ").append(toIndentedString(sdkTransID)).append("\n");
+        sb.append("    sdkVersion: ").append(toIndentedString(sdkVersion)).append("\n");
         sb.append("    threeDSCompInd: ").append(toIndentedString(threeDSCompInd)).append("\n");
         sb.append("    threeDSRequestorID: ").append(toIndentedString(threeDSRequestorID)).append("\n");
         sb.append("    threeDSRequestorName: ").append(toIndentedString(threeDSRequestorName)).append("\n");
