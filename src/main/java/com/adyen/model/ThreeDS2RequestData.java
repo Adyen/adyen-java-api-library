@@ -638,7 +638,7 @@ public class ThreeDS2RequestData {
 
     @Override
     public int hashCode() {
-        return Objects.hash(acquirerBIN, acquirerMerchantID, authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, mcc, merchantName, messageVersion, notificationURL, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, sdkVersion, threeDSRequestorID, threeDSRequestorName, threeDSRequestorURL, transactionType, whiteListStatus);
+        return Objects.hash(acquirerBIN, acquirerMerchantID, authenticationOnly, challengeIndicator, deviceChannel, deviceRenderOptions, mcc, merchantName, messageVersion, notificationURL, sdkAppID, sdkEncData, sdkEphemPubKey, sdkMaxTimeout, sdkReferenceNumber, sdkTransID, sdkVersion, threeDSCompInd, threeDSRequestorID, threeDSRequestorName, threeDSRequestorURL, transactionType, whiteListStatus);
     }
 
 
