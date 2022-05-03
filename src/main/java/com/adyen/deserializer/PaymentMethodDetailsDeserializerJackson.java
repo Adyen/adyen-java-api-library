@@ -48,6 +48,7 @@ import com.adyen.model.checkout.details.MobilePayDetails;
 import com.adyen.model.checkout.details.MolPayDetails;
 import com.adyen.model.checkout.details.PayPalDetails;
 import com.adyen.model.checkout.details.PayUUpiDetails;
+import com.adyen.model.checkout.details.PayWithGoogleDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
@@ -119,6 +120,8 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
                 return codec.treeToValue(node, GiropayDetails.class);
             case GooglePayDetails.GOOGLEPAY:
                 return codec.treeToValue(node, GooglePayDetails.class);
+            case PayWithGoogleDetails.PAYWITHGOOGLE:
+                return codec.treeToValue(node, PayWithGoogleDetails.class);
             case IdealDetails.IDEAL:
                 return codec.treeToValue(node, IdealDetails.class);
             case KlarnaDetails.KLARNA:

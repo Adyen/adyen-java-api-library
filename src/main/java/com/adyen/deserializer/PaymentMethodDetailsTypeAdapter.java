@@ -47,6 +47,7 @@ import com.adyen.model.checkout.details.MobilePayDetails;
 import com.adyen.model.checkout.details.MolPayDetails;
 import com.adyen.model.checkout.details.PayPalDetails;
 import com.adyen.model.checkout.details.PayUUpiDetails;
+import com.adyen.model.checkout.details.PayWithGoogleDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
@@ -137,6 +138,8 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(GiropayDetails.class).fromJsonTree(jsonElement);
                     case GooglePayDetails.GOOGLEPAY:
                         return gson.getAdapter(GooglePayDetails.class).fromJsonTree(jsonElement);
+                    case PayWithGoogleDetails.PAYWITHGOOGLE:
+                        return gson.getAdapter(PayWithGoogleDetails.class).fromJsonTree(jsonElement);
                     case IdealDetails.IDEAL:
                         return gson.getAdapter(IdealDetails.class).fromJsonTree(jsonElement);
                     case KlarnaDetails.KLARNA:

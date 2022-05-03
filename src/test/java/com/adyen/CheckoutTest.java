@@ -88,11 +88,12 @@ import com.adyen.model.checkout.details.MobilePayDetails;
 import com.adyen.model.checkout.details.MolPayDetails;
 import com.adyen.model.checkout.details.PayPalDetails;
 import com.adyen.model.checkout.details.PayUUpiDetails;
-import com.adyen.model.checkout.details.UpiIntentDetails;
-import com.adyen.model.checkout.details.UpiCollectDetails;
+import com.adyen.model.checkout.details.PayWithGoogleDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
+import com.adyen.model.checkout.details.UpiCollectDetails;
+import com.adyen.model.checkout.details.UpiIntentDetails;
 import com.adyen.model.checkout.details.VippsDetails;
 import com.adyen.model.checkout.details.VisaCheckoutDetails;
 import com.adyen.model.checkout.details.WeChatPayDetails;
@@ -703,7 +704,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestGooglePayDetailsSerialization() throws JsonProcessingException {
-        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"googlePayCardNetwork\":\"googlepaycardnetwork\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"type\":\"paywithgoogle\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"googlePayCardNetwork\":\"googlepaycardnetwork\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"type\":\"googlepay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         GooglePayDetails googlePayDetails = new GooglePayDetails();
         googlePayDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
@@ -721,13 +722,51 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestGooglePayDetailsDeserialization() throws JsonProcessingException {
-        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"googlePayCardNetwork\":\"googlepaycardnetwork\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"type\":\"paywithgoogle\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"googlePayCardNetwork\":\"googlepaycardnetwork\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"type\":\"googlepay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
         GooglePayDetails googlePayDetails = new GooglePayDetails();
         googlePayDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
         googlePayDetails.setFundingSource(GooglePayDetails.FundingSourceEnum.CREDIT);
         googlePayDetails.setGooglePayCardNetwork("googlepaycardnetwork");
         PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(googlePayDetails);
+
+        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        assertEquals(expectedPaymentRequest, gsonObject);
+
+        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        assertEquals(expectedPaymentRequest, jacksonObject);
+    }
+
+    @Test
+    public void TestPayWithGoogleDetailsSerialization() throws JsonProcessingException {
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"debit\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"recurringDetailReference\":\"serialize-reference\",\"storedPaymentMethodId\":\"shop\",\"type\":\"paywithgoogle\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+
+        PayWithGoogleDetails payWithGoogleDetails = new PayWithGoogleDetails();
+        payWithGoogleDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
+        payWithGoogleDetails.setFundingSource(PayWithGoogleDetails.FundingSourceEnum.DEBIT);
+        payWithGoogleDetails.setRecurringDetailReference("serialize-reference");
+        payWithGoogleDetails.setStoredPaymentMethodId("shop");
+        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        paymentsRequest.setPaymentMethod(payWithGoogleDetails);
+
+        String gson = GSON.toJson(paymentsRequest);
+        assertJsonStringEquals(expectedJson, gson);
+
+        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        assertJsonStringEquals(expectedJson, jackson);
+    }
+
+    @Test
+    public void TestPayWithGoogleDetailsDeserialization() throws JsonProcessingException {
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"debit\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"recurringDetailReference\":\"some-reference\",\"storedPaymentMethodId\":\"my-shop\",\"type\":\"paywithgoogle\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+
+        PayWithGoogleDetails payWithGoogleDetails = new PayWithGoogleDetails();
+        payWithGoogleDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
+        payWithGoogleDetails.setFundingSource(PayWithGoogleDetails.FundingSourceEnum.DEBIT);
+        payWithGoogleDetails.setRecurringDetailReference("some-reference");
+        payWithGoogleDetails.setStoredPaymentMethodId("my-shop");
+        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        expectedPaymentRequest.setPaymentMethod(payWithGoogleDetails);
 
         PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
