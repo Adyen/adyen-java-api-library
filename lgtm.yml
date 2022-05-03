@@ -1,5 +1,0 @@
-extraction:
-  java:
-    index:
-      maven:
-        version: "3.6.3"
