@@ -47,7 +47,7 @@ public class Client {
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "17.3.0";
+    public static final String LIB_VERSION = "17.4.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
