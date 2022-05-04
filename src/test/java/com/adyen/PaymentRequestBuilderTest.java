@@ -24,6 +24,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.PaymentRequest3d;
 import com.adyen.model.applicationinfo.ExternalPlatform;
+import com.google.gson.JsonParser;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -89,7 +90,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertEquals(expected, paymentRequestJson);
+        assertJsonStringEquals(expected, paymentRequestJson);
     }
 
     @Test
@@ -121,7 +122,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertEquals(expected, paymentRequestJson);
+        assertJsonStringEquals(expected, paymentRequestJson);
     }
 
     @Test
@@ -146,7 +147,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  }\n"
                 + "}";
 
-        assertEquals(expected, paymentRequestJson);
+        assertJsonStringEquals(expected, paymentRequestJson);
     }
 
     @Test
@@ -158,5 +159,10 @@ public class PaymentRequestBuilderTest extends BaseTest {
         assertEquals("encryptedExpiryMonth", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_MONTH));
         assertEquals("encryptedExpiryYear", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_YEAR));
         assertEquals("encryptedSecurityCode", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_SECURITY_CODE));
+    }
+
+    private void assertJsonStringEquals(String firstInput, String secondInput) {
+        JsonParser parser = new JsonParser();
+        assertEquals(parser.parse(firstInput), parser.parse(secondInput));
     }
 }
