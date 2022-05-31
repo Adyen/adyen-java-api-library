@@ -55,8 +55,8 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
     /**
      * **sepadirectdebit**
      */
-    public final String SEPADIRECTDEBIT ="sepadirectdebit";
-    public final String SEPADIRECTDEBIT_AMAZONPAY = "sepadirectdebit_amazonpay";
+    public final static String SEPADIRECTDEBIT ="sepadirectdebit";
+    public final static String SEPADIRECTDEBIT_AMAZONPAY = "sepadirectdebit_amazonpay";
 
     @SerializedName("type")
     private String type = null;

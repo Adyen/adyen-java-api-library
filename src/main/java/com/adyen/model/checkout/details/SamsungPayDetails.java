@@ -97,7 +97,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     /**
      * **samsungpay**
      */
-    private final String SAMSUNGPAY = "samsungpay";
+    public final static String SAMSUNGPAY = "samsungpay";
 
     @SerializedName("type")
     private String type = SAMSUNGPAY;

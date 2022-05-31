@@ -50,6 +50,10 @@ public class AfterpayDetails implements PaymentMethodDetails  {
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
 
+
+    public static final String AFTERPAY_DEFAULT = "afterpay_default";
+    public static final String AFTERPAYTOUCH = "afterpaytouch";
+    public static final String AFTERPAY_B2B = "afterpay_b2b";
     @SerializedName("type")
     private String type = null;
 

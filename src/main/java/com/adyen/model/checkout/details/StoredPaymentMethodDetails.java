@@ -42,22 +42,22 @@ public class StoredPaymentMethodDetails  implements PaymentMethodDetails {
     /**
      * payment method type values.
      */
-    public final String BCMC_MOBILE = "bcmc_mobile";
-    public final String BCMC_MOBILE_QR = "bcmc_mobile_QR";
-    public final String BCMC_MOBILE_APP = "bcmc_mobile_app";
-    public final String MOMO_WALLET = "momo_wallet";
-    public final String MOMO_WALLET_APP = "momo_wallet_app";
-    public final String PAYMAYA_WALLET = "paymaya_wallet";
-    public final String GRABPAY_SG = "grabpay_SG";
-    public final String GRABPAY_MY = "grabpay_MY";
-    public final String GRABPAY_TH = "grabpay_TH";
-    public final String GRABPAY_ID = "grabpay_ID";
-    public final String GRABPAY_VN = "grabpay_VN";
-    public final String GRABPAY_PH = "grabpay_PH";
-    public final String OXXO = "oxxo";
-    public final String GCASH = "gcash";
-    public final String KAKAOPAY = "kakaopay";
-    public final String TRUEMONEY = "truemoney";
+    public static final String BCMC_MOBILE = "bcmc_mobile";
+    public static final String BCMC_MOBILE_QR = "bcmc_mobile_QR";
+    public static final String BCMC_MOBILE_APP = "bcmc_mobile_app";
+    public static final String MOMO_WALLET = "momo_wallet";
+    public static final String MOMO_WALLET_APP = "momo_wallet_app";
+    public static final String PAYMAYA_WALLET = "paymaya_wallet";
+    public static final String GRABPAY_SG = "grabpay_SG";
+    public static final String GRABPAY_MY = "grabpay_MY";
+    public static final String GRABPAY_TH = "grabpay_TH";
+    public static final String GRABPAY_ID = "grabpay_ID";
+    public static final String GRABPAY_VN = "grabpay_VN";
+    public static final String GRABPAY_PH = "grabpay_PH";
+    public static final String OXXO = "oxxo";
+    public static final String GCASH = "gcash";
+    public static final String KAKAOPAY = "kakaopay";
+    public static final String TRUEMONEY = "truemoney";
 
     @SerializedName("type")
     private String type = null;
