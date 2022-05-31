@@ -29,6 +29,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -100,6 +101,9 @@ public class ApplePayDetails implements PaymentMethodDetails {
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
 
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
+
     @SerializedName("type")
     private String type = APPLEPAY;
 
@@ -137,6 +141,24 @@ public class ApplePayDetails implements PaymentMethodDetails {
 
     public void setFundingSource(FundingSourceEnum fundingSource) {
         this.fundingSource = fundingSource;
+    }
+
+    public ApplePayDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
     }
 
     public ApplePayDetails type(String type) {
@@ -195,7 +217,7 @@ public class ApplePayDetails implements PaymentMethodDetails {
 
     @Override
     public int hashCode() {
-        return Objects.hash(applePayToken, fundingSource, storedPaymentMethodId, type);
+        return Objects.hash(applePayToken, fundingSource, recurringDetailReference, storedPaymentMethodId, type);
     }
 
 
@@ -206,6 +228,7 @@ public class ApplePayDetails implements PaymentMethodDetails {
 
         sb.append("    applePayToken: ").append(toIndentedString(MaskUtil.mask(applePayToken))).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

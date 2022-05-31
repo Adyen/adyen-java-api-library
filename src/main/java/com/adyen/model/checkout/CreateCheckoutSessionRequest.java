@@ -36,6 +36,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -44,6 +45,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Date;
 
 /**
  * CreateCheckoutSessionRequest
@@ -72,6 +74,9 @@ public class CreateCheckoutSessionRequest {
     public static final String SERIALIZED_NAME_APPLICATION_INFO = "applicationInfo";
     @SerializedName(SERIALIZED_NAME_APPLICATION_INFO)
     private ApplicationInfo applicationInfo;
+
+    @SerializedName("authenticationData")
+    private AuthenticationData authenticationData = null;
 
     public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
     @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
@@ -148,6 +153,9 @@ public class CreateCheckoutSessionRequest {
     public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
     @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
     private String dateOfBirth;
+
+    @SerializedName("deliverAt")
+    private Date deliverAt = null;
 
     public static final String SERIALIZED_NAME_DELIVERY_ADDRESS = "deliveryAddress";
     @SerializedName(SERIALIZED_NAME_DELIVERY_ADDRESS)
@@ -518,6 +526,24 @@ public class CreateCheckoutSessionRequest {
         this.applicationInfo = applicationInfo;
     }
 
+    public CreateCheckoutSessionRequest authenticationData(AuthenticationData authenticationData) {
+        this.authenticationData = authenticationData;
+        return this;
+    }
+
+    /**
+     * Get authenticationData
+     * @return authenticationData
+     **/
+    @Schema(description = "")
+    public AuthenticationData getAuthenticationData() {
+        return authenticationData;
+    }
+
+    public void setAuthenticationData(AuthenticationData authenticationData) {
+        this.authenticationData = authenticationData;
+    }
+
     public CreateCheckoutSessionRequest billingAddress(Address billingAddress) {
 
         this.billingAddress = billingAddress;
@@ -670,6 +696,23 @@ public class CreateCheckoutSessionRequest {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public CreateCheckoutSessionRequest deliverAt(Date deliverAt) {
+        this.deliverAt = deliverAt;
+        return this;
+    }
+
+    /**
+     * The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
+     * @return deliverAt
+     **/
+    @Schema(description = "The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.")
+    public Date getDeliverAt() {
+        return deliverAt;
+    }
+
+    public void setDeliverAt(Date deliverAt) {
+        this.deliverAt = deliverAt;
+    }
 
     public CreateCheckoutSessionRequest deliveryAddress(Address deliveryAddress) {
 
@@ -1434,6 +1477,7 @@ public class CreateCheckoutSessionRequest {
                 Objects.equals(this.allowedPaymentMethods, createCheckoutSessionRequest.allowedPaymentMethods) &&
                 Objects.equals(this.amount, createCheckoutSessionRequest.amount) &&
                 Objects.equals(this.applicationInfo, createCheckoutSessionRequest.applicationInfo) &&
+                Objects.equals(this.authenticationData, createCheckoutSessionRequest.authenticationData) &&
                 Objects.equals(this.billingAddress, createCheckoutSessionRequest.billingAddress) &&
                 Objects.equals(this.blockedPaymentMethods, createCheckoutSessionRequest.blockedPaymentMethods) &&
                 Objects.equals(this.captureDelayHours, createCheckoutSessionRequest.captureDelayHours) &&
@@ -1441,6 +1485,7 @@ public class CreateCheckoutSessionRequest {
                 Objects.equals(this.company, createCheckoutSessionRequest.company) &&
                 Objects.equals(this.countryCode, createCheckoutSessionRequest.countryCode) &&
                 Objects.equals(this.dateOfBirth, createCheckoutSessionRequest.dateOfBirth) &&
+                Objects.equals(this.deliverAt, createCheckoutSessionRequest.deliverAt) &&
                 Objects.equals(this.deliveryAddress, createCheckoutSessionRequest.deliveryAddress) &&
                 Objects.equals(this.enableOneClick, createCheckoutSessionRequest.enableOneClick) &&
                 Objects.equals(this.enablePayOut, createCheckoutSessionRequest.enablePayOut) &&
@@ -1479,7 +1524,7 @@ public class CreateCheckoutSessionRequest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mpiData, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splitCardFundingSources, splits, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, trustedShopper);
+        return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, authenticationData, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliverAt, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mpiData, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splitCardFundingSources, splits, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, trustedShopper);
     }
 
     @Override
@@ -1492,6 +1537,7 @@ public class CreateCheckoutSessionRequest {
         sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    authenticationData: ").append(toIndentedString(authenticationData)).append("\n");
         sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
         sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
         sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
@@ -1499,6 +1545,7 @@ public class CreateCheckoutSessionRequest {
         sb.append("    company: ").append(toIndentedString(company)).append("\n");
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
         sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
+        sb.append("    deliverAt: ").append(toIndentedString(deliverAt)).append("\n");
         sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
         sb.append("    enableOneClick: ").append(toIndentedString(enableOneClick)).append("\n");
         sb.append("    enablePayOut: ").append(toIndentedString(enablePayOut)).append("\n");

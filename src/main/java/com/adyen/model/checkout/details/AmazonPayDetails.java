@@ -41,9 +41,6 @@ public class AmazonPayDetails implements PaymentMethodDetails {
     @SerializedName("amazonPayToken")
     private String amazonPayToken = null;
 
-    @SerializedName("checkoutSessionId")
-    private String checkoutSessionId = null;
-
     @SerializedName("type")
     private String type = AMAZONPAY;
 
@@ -63,24 +60,6 @@ public class AmazonPayDetails implements PaymentMethodDetails {
 
     public void setAmazonPayToken(String amazonPayToken) {
         this.amazonPayToken = amazonPayToken;
-    }
-
-    public AmazonPayDetails checkoutSessionId(String checkoutSessionId) {
-        this.checkoutSessionId = checkoutSessionId;
-        return this;
-    }
-
-    /**
-     * Get checkoutSessionId
-     *
-     * @return checkoutSessionId
-     **/
-    public String getCheckoutSessionId() {
-        return checkoutSessionId;
-    }
-
-    public void setCheckoutSessionId(String checkoutSessionId) {
-        this.checkoutSessionId = checkoutSessionId;
     }
 
     public AmazonPayDetails type(String type) {
@@ -114,13 +93,7 @@ public class AmazonPayDetails implements PaymentMethodDetails {
         }
         AmazonPayDetails amazonPayDetails = (AmazonPayDetails) o;
         return Objects.equals(this.amazonPayToken, amazonPayDetails.amazonPayToken) &&
-                Objects.equals(this.checkoutSessionId, amazonPayDetails.checkoutSessionId) &&
                 Objects.equals(this.type, amazonPayDetails.type);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(amazonPayToken, checkoutSessionId, type);
     }
 
     @Override
@@ -129,7 +102,6 @@ public class AmazonPayDetails implements PaymentMethodDetails {
         sb.append("class AmazonPayDetails {\n");
 
         sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append("\n");
-        sb.append("    checkoutSessionId: ").append(toIndentedString(checkoutSessionId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

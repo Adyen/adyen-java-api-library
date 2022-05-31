@@ -14,7 +14,7 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2022 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
@@ -31,17 +31,18 @@ import java.util.Objects;
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * IdealDetails
+ * AfterpayDetails
  */
 
-public class IdealDetails implements PaymentMethodDetails {
-    /**
-     * Possible types
-     */
-    public static final String IDEAL = "ideal";
+public class AfterpayDetails implements PaymentMethodDetails  {
+    @SerializedName("billingAddress")
+    private String billingAddress = null;
 
-    @SerializedName("issuer")
-    private String issuer = null;
+    @SerializedName("deliveryAddress")
+    private String deliveryAddress = null;
+
+    @SerializedName("personalDetails")
+    private String personalDetails = null;
 
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
@@ -50,27 +51,63 @@ public class IdealDetails implements PaymentMethodDetails {
     private String storedPaymentMethodId = null;
 
     @SerializedName("type")
-    private String type = IDEAL;
+    private String type = null;
 
-    public IdealDetails issuer(String issuer) {
-        this.issuer = issuer;
+    public AfterpayDetails billingAddress(String billingAddress) {
+        this.billingAddress = billingAddress;
         return this;
     }
 
     /**
-     * The iDEAL issuer value of the shopper&#x27;s selected bank. Set this to an **id** of an iDEAL issuer to preselect it.
-     *
-     * @return issuer
+     * The address where to send the invoice.
+     * @return billingAddress
      **/
-    public String getIssuer() {
-        return issuer;
+    @Schema(description = "The address where to send the invoice.")
+    public String getBillingAddress() {
+        return billingAddress;
     }
 
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
+    public void setBillingAddress(String billingAddress) {
+        this.billingAddress = billingAddress;
     }
 
-    public IdealDetails recurringDetailReference(String recurringDetailReference) {
+    public AfterpayDetails deliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+        return this;
+    }
+
+    /**
+     * The address where the goods should be delivered.
+     * @return deliveryAddress
+     **/
+    @Schema(description = "The address where the goods should be delivered.")
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public AfterpayDetails personalDetails(String personalDetails) {
+        this.personalDetails = personalDetails;
+        return this;
+    }
+
+    /**
+     * Shopper name, date of birth, phone number, and email address.
+     * @return personalDetails
+     **/
+    @Schema(description = "Shopper name, date of birth, phone number, and email address.")
+    public String getPersonalDetails() {
+        return personalDetails;
+    }
+
+    public void setPersonalDetails(String personalDetails) {
+        this.personalDetails = personalDetails;
+    }
+
+    public AfterpayDetails recurringDetailReference(String recurringDetailReference) {
         this.recurringDetailReference = recurringDetailReference;
         return this;
     }
@@ -88,16 +125,16 @@ public class IdealDetails implements PaymentMethodDetails {
         this.recurringDetailReference = recurringDetailReference;
     }
 
-    public IdealDetails storedPaymentMethodId(String storedPaymentMethodId) {
+    public AfterpayDetails storedPaymentMethodId(String storedPaymentMethodId) {
         this.storedPaymentMethodId = storedPaymentMethodId;
         return this;
     }
 
     /**
      * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-     *
      * @return storedPaymentMethodId
      **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
     public String getStoredPaymentMethodId() {
         return storedPaymentMethodId;
     }
@@ -106,60 +143,60 @@ public class IdealDetails implements PaymentMethodDetails {
         this.storedPaymentMethodId = storedPaymentMethodId;
     }
 
-    public IdealDetails type(String type) {
+    public AfterpayDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **ideal**
-     *
+     * **afterpay_default**
      * @return type
      **/
-    @Override
+    @Schema(required = true, description = "**afterpay_default**")
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
     }
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        IdealDetails idealDetails = (IdealDetails) o;
-        return Objects.equals(this.issuer, idealDetails.issuer) &&
-                Objects.equals(this.recurringDetailReference, idealDetails.recurringDetailReference) &&
-                Objects.equals(this.storedPaymentMethodId, idealDetails.storedPaymentMethodId) &&
-                Objects.equals(this.type, idealDetails.type);
+        AfterpayDetails afterpayDetails = (AfterpayDetails) o;
+        return Objects.equals(this.billingAddress, afterpayDetails.billingAddress) &&
+                Objects.equals(this.deliveryAddress, afterpayDetails.deliveryAddress) &&
+                Objects.equals(this.personalDetails, afterpayDetails.personalDetails) &&
+                Objects.equals(this.recurringDetailReference, afterpayDetails.recurringDetailReference) &&
+                Objects.equals(this.storedPaymentMethodId, afterpayDetails.storedPaymentMethodId) &&
+                Objects.equals(this.type, afterpayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, recurringDetailReference, storedPaymentMethodId, type);
+        return Objects.hash(billingAddress, deliveryAddress, personalDetails, recurringDetailReference, storedPaymentMethodId, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class IdealDetails {\n");
+        sb.append("class AfterpayDetails {\n");
 
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+        sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
+        sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
         sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
-
-
 }

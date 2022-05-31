@@ -57,8 +57,7 @@ public class LineItem {
 
     @SerializedName("taxAmount")
     private Long taxAmount = null;
-    @SerializedName("taxCategory")
-    private TaxCategoryEnum taxCategory = null;
+
     @SerializedName("taxPercentage")
     private Long taxPercentage = null;
 
@@ -176,24 +175,6 @@ public class LineItem {
         this.taxAmount = taxAmount;
     }
 
-    public LineItem taxCategory(TaxCategoryEnum taxCategory) {
-        this.taxCategory = taxCategory;
-        return this;
-    }
-
-    /**
-     * Tax category: High, Low, None, Zero
-     *
-     * @return taxCategory
-     **/
-    public TaxCategoryEnum getTaxCategory() {
-        return taxCategory;
-    }
-
-    public void setTaxCategory(TaxCategoryEnum taxCategory) {
-        this.taxCategory = taxCategory;
-    }
-
     public LineItem taxPercentage(Long taxPercentage) {
         this.taxPercentage = taxPercentage;
         return this;
@@ -253,7 +234,6 @@ public class LineItem {
                 Objects.equals(this.id, lineItem.id) &&
                 Objects.equals(this.quantity, lineItem.quantity) &&
                 Objects.equals(this.taxAmount, lineItem.taxAmount) &&
-                Objects.equals(this.taxCategory, lineItem.taxCategory) &&
                 Objects.equals(this.taxPercentage, lineItem.taxPercentage) &&
                 Objects.equals(this.imageUrl, lineItem.imageUrl) &&
                 Objects.equals(this.productUrl, lineItem.productUrl);
@@ -261,7 +241,7 @@ public class LineItem {
 
     @Override
     public int hashCode() {
-        return Objects.hash(amountExcludingTax, amountIncludingTax, description, id, quantity, taxAmount, taxCategory, taxPercentage, imageUrl, productUrl);
+        return Objects.hash(amountExcludingTax, amountIncludingTax, description, id, quantity, taxAmount, taxPercentage, imageUrl, productUrl);
     }
 
     @Override
@@ -275,7 +255,6 @@ public class LineItem {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
         sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
-        sb.append("    taxCategory: ").append(toIndentedString(taxCategory)).append("\n");
         sb.append("    taxPercentage: ").append(toIndentedString(taxPercentage)).append("\n");
         sb.append("    imageUrl: ").append(toIndentedString(imageUrl)).append("\n");
         sb.append("    productUrl: ").append(toIndentedString(productUrl)).append("\n");

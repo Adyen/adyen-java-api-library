@@ -35,6 +35,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,8 +62,14 @@ public class CreatePaymentLinkRequest {
     @SerializedName("blockedPaymentMethods")
     private List<String> blockedPaymentMethods = null;
 
+    @SerializedName("captureDelayHours")
+    private Integer captureDelayHours = null;
+
     @SerializedName("countryCode")
     private String countryCode = null;
+
+    @SerializedName("dateOfBirth")
+    private Date dateOfBirth = null;
 
     @SerializedName("deliverAt")
     @JsonAdapter(DateSerializer.class)
@@ -81,6 +89,9 @@ public class CreatePaymentLinkRequest {
 
     @SerializedName("lineItems")
     private List<LineItem> lineItems = null;
+
+    @SerializedName("mcc")
+    private String mcc = null;
 
     @SerializedName("merchantAccount")
     private String merchantAccount = null;
@@ -372,6 +383,25 @@ public class CreatePaymentLinkRequest {
         this.blockedPaymentMethods = blockedPaymentMethods;
     }
 
+    public CreatePaymentLinkRequest captureDelayHours(Integer captureDelayHours) {
+        this.captureDelayHours = captureDelayHours;
+        return this;
+    }
+
+    /**
+     * The delay between the authorisation and scheduled auto-capture, specified in hours.
+     * @return captureDelayHours
+     **/
+    @Schema(description = "The delay between the authorisation and scheduled auto-capture, specified in hours.")
+    public Integer getCaptureDelayHours() {
+        return captureDelayHours;
+    }
+
+    public void setCaptureDelayHours(Integer captureDelayHours) {
+        this.captureDelayHours = captureDelayHours;
+    }
+
+
     public CreatePaymentLinkRequest countryCode(String countryCode) {
         this.countryCode = countryCode;
         return this;
@@ -387,6 +417,24 @@ public class CreatePaymentLinkRequest {
 
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
+    }
+
+    public CreatePaymentLinkRequest dateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+        return this;
+    }
+
+    /**
+     * The shopper&#x27;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
+     * @return dateOfBirth
+     **/
+    @Schema(description = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public CreatePaymentLinkRequest deliverAt(Date deliverAt) {
@@ -505,6 +553,24 @@ public class CreatePaymentLinkRequest {
 
     public void setLineItems(List<LineItem> lineItems) {
         this.lineItems = lineItems;
+    }
+
+    public CreatePaymentLinkRequest mcc(String mcc) {
+        this.mcc = mcc;
+        return this;
+    }
+
+    /**
+     * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
+     * @return mcc
+     **/
+    @Schema(description = "The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.")
+    public String getMcc() {
+        return mcc;
+    }
+
+    public void setMcc(String mcc) {
+        this.mcc = mcc;
     }
 
     public CreatePaymentLinkRequest merchantAccount(String merchantAccount) {
@@ -836,13 +902,16 @@ public class CreatePaymentLinkRequest {
                 Objects.equals(this.applicationInfo, createPaymentLinkRequest.applicationInfo) &&
                 Objects.equals(this.billingAddress, createPaymentLinkRequest.billingAddress) &&
                 Objects.equals(this.blockedPaymentMethods, createPaymentLinkRequest.blockedPaymentMethods) &&
+                Objects.equals(this.captureDelayHours, createPaymentLinkRequest.captureDelayHours) &&
                 Objects.equals(this.countryCode, createPaymentLinkRequest.countryCode) &&
+                Objects.equals(this.dateOfBirth, createPaymentLinkRequest.dateOfBirth) &&
                 Objects.equals(this.deliverAt, createPaymentLinkRequest.deliverAt) &&
                 Objects.equals(this.deliveryAddress, createPaymentLinkRequest.deliveryAddress) &&
                 Objects.equals(this.description, createPaymentLinkRequest.description) &&
                 Objects.equals(this.expiresAt, createPaymentLinkRequest.expiresAt) &&
                 Objects.equals(this.installmentOptions, createPaymentLinkRequest.installmentOptions) &&
                 Objects.equals(this.lineItems, createPaymentLinkRequest.lineItems) &&
+                Objects.equals(this.mcc, createPaymentLinkRequest.mcc) &&
                 Objects.equals(this.merchantAccount, createPaymentLinkRequest.merchantAccount) &&
                 Objects.equals(this.merchantOrderReference, createPaymentLinkRequest.merchantOrderReference) &&
                 Objects.equals(this.metadata, createPaymentLinkRequest.metadata) &&
@@ -864,7 +933,7 @@ public class CreatePaymentLinkRequest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, countryCode, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, splits, store, storePaymentMethod, storePaymentMethodMode);
+        return Objects.hash(allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, countryCode, captureDelayHours, dateOfBirth, deliverAt, deliveryAddress, description, expiresAt, installmentOptions, lineItems, mcc, merchantAccount, merchantOrderReference, metadata, recurringProcessingModel, reference, requiredShopperFields, returnUrl, reusable, riskData, shopperEmail, shopperLocale, shopperName, shopperReference, splits, store, storePaymentMethod, storePaymentMethodMode);
     }
 
 
@@ -877,13 +946,16 @@ public class CreatePaymentLinkRequest {
                 "    applicationInfo: " + toIndentedString(applicationInfo) + "\n" +
                 "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
                 "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + "\n" +
+                "    captureDelayHours: " + toIndentedString(captureDelayHours) + "\n" +
                 "    countryCode: " + toIndentedString(countryCode) + "\n" +
                 "    deliverAt: " + toIndentedString(deliverAt) + "\n" +
+                "    dateOfBirth: " + toIndentedString(dateOfBirth) + "\n" +
                 "    deliveryAddress: " + toIndentedString(deliveryAddress) + "\n" +
                 "    description: " + toIndentedString(description) + "\n" +
                 "    expiresAt: " + toIndentedString(expiresAt) + "\n" +
                 "    installmentOptions: " + toIndentedString(installmentOptions) + "\n" +
                 "    lineItems: " + toIndentedString(lineItems) + "\n" +
+                "    mcc: " + toIndentedString(mcc) + "\n" +
                 "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
                 "    merchantOrderReference: " + toIndentedString(merchantOrderReference) + "\n" +
                 "    metadata: " + toIndentedString(metadata) + "\n" +

@@ -14,18 +14,14 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2022 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 
 package com.adyen.model.checkout.details;
 
-import java.io.IOException;
-import java.util.Objects;
-
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.model.checkout.SubscriptionDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,32 +29,40 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-/**
- * PayUUpiDetails
- */
+import java.io.IOException;
+import java.util.Objects;
 
-public class PayUUpiDetails implements PaymentMethodDetails {
+public class StoredPaymentMethodDetails  implements PaymentMethodDetails {
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
-
-    @SerializedName("shopperNotificationReference")
-    private String shopperNotificationReference = null;
 
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
 
     /**
-     * **payu_IN_upi**
+     * payment method type values.
      */
-    public static final String PAYUINUPI = "payu_IN_upi";
+    public final String BCMC_MOBILE = "bcmc_mobile";
+    public final String BCMC_MOBILE_QR = "bcmc_mobile_QR";
+    public final String BCMC_MOBILE_APP = "bcmc_mobile_app";
+    public final String MOMO_WALLET = "momo_wallet";
+    public final String MOMO_WALLET_APP = "momo_wallet_app";
+    public final String PAYMAYA_WALLET = "paymaya_wallet";
+    public final String GRABPAY_SG = "grabpay_SG";
+    public final String GRABPAY_MY = "grabpay_MY";
+    public final String GRABPAY_TH = "grabpay_TH";
+    public final String GRABPAY_ID = "grabpay_ID";
+    public final String GRABPAY_VN = "grabpay_VN";
+    public final String GRABPAY_PH = "grabpay_PH";
+    public final String OXXO = "oxxo";
+    public final String GCASH = "gcash";
+    public final String KAKAOPAY = "kakaopay";
+    public final String TRUEMONEY = "truemoney";
 
     @SerializedName("type")
-    private String type = PAYUINUPI;
+    private String type = null;
 
-    @SerializedName("virtualPaymentAddress")
-    private String virtualPaymentAddress = null;
-
-    public PayUUpiDetails recurringDetailReference(String recurringDetailReference) {
+    public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
         this.recurringDetailReference = recurringDetailReference;
         return this;
     }
@@ -76,25 +80,7 @@ public class PayUUpiDetails implements PaymentMethodDetails {
         this.recurringDetailReference = recurringDetailReference;
     }
 
-    public PayUUpiDetails shopperNotificationReference(String shopperNotificationReference) {
-        this.shopperNotificationReference = shopperNotificationReference;
-        return this;
-    }
-
-    /**
-     * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
-     * @return shopperNotificationReference
-     **/
-    @Schema(description = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only.")
-    public String getShopperNotificationReference() {
-        return shopperNotificationReference;
-    }
-
-    public void setShopperNotificationReference(String shopperNotificationReference) {
-        this.shopperNotificationReference = shopperNotificationReference;
-    }
-
-    public PayUUpiDetails storedPaymentMethodId(String storedPaymentMethodId) {
+    public StoredPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
         this.storedPaymentMethodId = storedPaymentMethodId;
         return this;
     }
@@ -112,40 +98,22 @@ public class PayUUpiDetails implements PaymentMethodDetails {
         this.storedPaymentMethodId = storedPaymentMethodId;
     }
 
-    public PayUUpiDetails type(String type) {
+    public StoredPaymentMethodDetails type(String type) {
         this.type = type;
         return this;
     }
 
     /**
-     * **payu_IN_upi**
+     * The payment method type.
      * @return type
      **/
-    @Schema(required = true, description = "**payu_IN_upi**")
+    @Schema(description = "The payment method type.")
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public PayUUpiDetails virtualPaymentAddress(String virtualPaymentAddress) {
-        this.virtualPaymentAddress = virtualPaymentAddress;
-        return this;
-    }
-
-    /**
-     * The virtual payment address for UPI.
-     * @return virtualPaymentAddress
-     **/
-    @Schema(description = "The virtual payment address for UPI.")
-    public String getVirtualPaymentAddress() {
-        return virtualPaymentAddress;
-    }
-
-    public void setVirtualPaymentAddress(String virtualPaymentAddress) {
-        this.virtualPaymentAddress = virtualPaymentAddress;
     }
 
 
@@ -157,30 +125,26 @@ public class PayUUpiDetails implements PaymentMethodDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PayUUpiDetails payUUpiDetails = (PayUUpiDetails) o;
-        return Objects.equals(this.recurringDetailReference, payUUpiDetails.recurringDetailReference) &&
-                Objects.equals(this.shopperNotificationReference, payUUpiDetails.shopperNotificationReference) &&
-                Objects.equals(this.storedPaymentMethodId, payUUpiDetails.storedPaymentMethodId) &&
-                Objects.equals(this.type, payUUpiDetails.type) &&
-                Objects.equals(this.virtualPaymentAddress, payUUpiDetails.virtualPaymentAddress);
+        StoredPaymentMethodDetails storedPaymentMethodDetails = (StoredPaymentMethodDetails) o;
+        return Objects.equals(this.recurringDetailReference, storedPaymentMethodDetails.recurringDetailReference) &&
+                Objects.equals(this.storedPaymentMethodId, storedPaymentMethodDetails.storedPaymentMethodId) &&
+                Objects.equals(this.type, storedPaymentMethodDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(recurringDetailReference, shopperNotificationReference, storedPaymentMethodId, type, virtualPaymentAddress);
+        return Objects.hash(recurringDetailReference, storedPaymentMethodId, type);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PayUUpiDetails {\n");
+        sb.append("class StoredPaymentMethodDetails {\n");
 
         sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-        sb.append("    shopperNotificationReference: ").append(toIndentedString(shopperNotificationReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    virtualPaymentAddress: ").append(toIndentedString(virtualPaymentAddress)).append("\n");
         sb.append("}");
         return sb.toString();
     }

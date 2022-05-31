@@ -35,6 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.adyen.model.Amount;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * CheckoutCreateOrderResponse
@@ -43,6 +44,9 @@ import com.adyen.model.Amount;
 public class CheckoutCreateOrderResponse {
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+
+    @SerializedName("amount")
+    private Amount amount = null;
 
     @SerializedName("expiresAt")
     private String expiresAt = null;
@@ -140,6 +144,23 @@ public class CheckoutCreateOrderResponse {
         this.additionalData = additionalData;
     }
 
+    public CheckoutCreateOrderResponse amount(Amount amount) {
+        this.amount = amount;
+        return this;
+    }
+
+    /**
+     * Get amount
+     * @return amount
+     **/
+    @Schema(required = true, description = "")
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Amount amount) {
+        this.amount = amount;
+    }
     public CheckoutCreateOrderResponse expiresAt(String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
@@ -289,6 +310,7 @@ public class CheckoutCreateOrderResponse {
         }
         CheckoutCreateOrderResponse checkoutCreateOrderResponse = (CheckoutCreateOrderResponse) o;
         return Objects.equals(this.additionalData, checkoutCreateOrderResponse.additionalData) &&
+                Objects.equals(this.amount, checkoutCreateOrderResponse.amount) &&
                 Objects.equals(this.expiresAt, checkoutCreateOrderResponse.expiresAt) &&
                 Objects.equals(this.fraudResult, checkoutCreateOrderResponse.fraudResult) &&
                 Objects.equals(this.orderData, checkoutCreateOrderResponse.orderData) &&
@@ -301,7 +323,7 @@ public class CheckoutCreateOrderResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, expiresAt, fraudResult, orderData, pspReference, refusalReason, remainingAmount, reference, resultCode);
+        return Objects.hash(additionalData, amount, expiresAt, fraudResult, orderData, pspReference, refusalReason, remainingAmount, reference, resultCode);
     }
 
 
@@ -311,6 +333,7 @@ public class CheckoutCreateOrderResponse {
         sb.append("class CheckoutCreateOrderResponse {\n");
 
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
         sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
         sb.append("    orderData: ").append(toIndentedString(orderData)).append("\n");

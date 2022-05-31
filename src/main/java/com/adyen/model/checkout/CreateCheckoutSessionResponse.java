@@ -36,6 +36,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -72,6 +73,9 @@ public class CreateCheckoutSessionResponse {
     public static final String SERIALIZED_NAME_APPLICATION_INFO = "applicationInfo";
     @SerializedName(SERIALIZED_NAME_APPLICATION_INFO)
     private ApplicationInfo applicationInfo;
+
+    @SerializedName("authenticationData")
+    private AuthenticationData authenticationData = null;
 
     public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
     @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
@@ -533,6 +537,23 @@ public class CreateCheckoutSessionResponse {
         this.applicationInfo = applicationInfo;
     }
 
+    public CreateCheckoutSessionResponse authenticationData(AuthenticationData authenticationData) {
+        this.authenticationData = authenticationData;
+        return this;
+    }
+
+    /**
+     * Get authenticationData
+     * @return authenticationData
+     **/
+    @Schema(description = "")
+    public AuthenticationData getAuthenticationData() {
+        return authenticationData;
+    }
+
+    public void setAuthenticationData(AuthenticationData authenticationData) {
+        this.authenticationData = authenticationData;
+    }
 
     public CreateCheckoutSessionResponse billingAddress(Address billingAddress) {
 
@@ -1473,6 +1494,7 @@ public class CreateCheckoutSessionResponse {
                 Objects.equals(this.allowedPaymentMethods, createCheckoutSessionResponse.allowedPaymentMethods) &&
                 Objects.equals(this.amount, createCheckoutSessionResponse.amount) &&
                 Objects.equals(this.applicationInfo, createCheckoutSessionResponse.applicationInfo) &&
+                Objects.equals(this.authenticationData, createCheckoutSessionResponse.authenticationData) &&
                 Objects.equals(this.billingAddress, createCheckoutSessionResponse.billingAddress) &&
                 Objects.equals(this.blockedPaymentMethods, createCheckoutSessionResponse.blockedPaymentMethods) &&
                 Objects.equals(this.captureDelayHours, createCheckoutSessionResponse.captureDelayHours) &&
@@ -1520,7 +1542,7 @@ public class CreateCheckoutSessionResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, id, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mpiData, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splitCardFundingSources, splits, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, trustedShopper);
+        return Objects.hash(accountInfo, additionalAmount, additionalData, allowedPaymentMethods, amount, authenticationData, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, channel, company, countryCode, dateOfBirth, deliveryAddress, enableOneClick, enablePayOut, enableRecurring, expiresAt, id, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, mpiData, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionData, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splitCardFundingSources, splits, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, trustedShopper);
     }
 
     @Override
@@ -1533,6 +1555,7 @@ public class CreateCheckoutSessionResponse {
         sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    authenticationData: ").append(toIndentedString(authenticationData)).append("\n");
         sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
         sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
         sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
