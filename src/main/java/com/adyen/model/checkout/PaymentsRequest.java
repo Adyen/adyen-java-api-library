@@ -70,9 +70,6 @@ public class PaymentsRequest {
     @SerializedName("amount")
     private Amount amount = null;
 
-    @SerializedName("applicationInfo")
-    private ApplicationInfo applicationInfo = null;
-
     @SerializedName("authenticationData")
     private AuthenticationData authenticationData = null;
 
@@ -143,6 +140,7 @@ public class PaymentsRequest {
     private String countryCode = null;
 
     @SerializedName("dateOfBirth")
+    @JsonAdapter(DateSerializer.class)
     private Date dateOfBirth = null;
 
     @SerializedName("dccQuote")
@@ -152,6 +150,7 @@ public class PaymentsRequest {
     private Address deliveryAddress = null;
 
     @SerializedName("deliveryDate")
+    @JsonAdapter(DateTimeGMTSerializer.class)
     private Date deliveryDate = null;
 
     @SerializedName("deviceFingerprint")
@@ -402,14 +401,21 @@ public class PaymentsRequest {
     @SerializedName("telephoneNumber")
     private String telephoneNumber = null;
 
+    @SerializedName("applicationInfo")
+    private ApplicationInfo applicationInfo = null;
+
     @SerializedName("threeDS2RequestData")
     private ThreeDS2RequestData threeDS2RequestData = null;
 
     @SerializedName("threeDSAuthenticationOnly")
-    private Boolean threeDSAuthenticationOnly = false;
+    private Boolean threeDSAuthenticationOnly = null;
 
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
+
+    public PaymentsRequest() {
+        applicationInfo = new ApplicationInfo();
+    }
 
     public PaymentsRequest accountInfo(AccountInfo accountInfo) {
         this.accountInfo = accountInfo;

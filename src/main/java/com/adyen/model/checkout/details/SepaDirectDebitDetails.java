@@ -59,7 +59,7 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
     public final static String SEPADIRECTDEBIT_AMAZONPAY = "sepadirectdebit_amazonpay";
 
     @SerializedName("type")
-    private String type = null;
+    private String type = SEPADIRECTDEBIT;
 
     public SepaDirectDebitDetails iban(String iban) {
         this.iban = iban;

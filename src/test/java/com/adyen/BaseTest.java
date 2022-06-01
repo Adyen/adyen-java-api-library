@@ -219,7 +219,6 @@ public class BaseTest {
                     .id("Item #1")
                     .taxAmount(69L)
                     .amountIncludingTax(400L)
-                    .taxCategory(LineItem.TaxCategoryEnum.HIGH)
                     .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
                     .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
         );
@@ -233,7 +232,6 @@ public class BaseTest {
                 .id("Item #2")
                 .taxAmount(52L)
                 .amountIncludingTax(300L)
-                .taxCategory(LineItem.TaxCategoryEnum.HIGH)
                 .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
                 .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
         );

@@ -49,6 +49,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     public enum FundingSourceEnum {
         DEBIT("debit");
 
+        @JsonValue
         private String value;
 
         FundingSourceEnum(String value) {
