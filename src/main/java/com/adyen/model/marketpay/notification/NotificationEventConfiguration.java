@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -42,6 +43,7 @@ public class NotificationEventConfiguration {
         @SerializedName("INCLUDE")
         INCLUDE("INCLUDE");
 
+        @JsonValue
         private final String value;
 
         IncludeModeEnum(String value) {
@@ -124,6 +126,7 @@ public class NotificationEventConfiguration {
         @SerializedName("TRANSFER_NOT_PAIDOUT_TRANSFERS")
         TRANSFER_NOT_PAIDOUT_TRANSFERS("TRANSFER_NOT_PAIDOUT_TRANSFERS");
 
+        @JsonValue
         private final String value;
 
         EventTypeEnum(String value) {

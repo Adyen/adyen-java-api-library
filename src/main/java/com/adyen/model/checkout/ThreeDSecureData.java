@@ -21,6 +21,7 @@
 
 package com.adyen.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -218,6 +219,7 @@ public class ThreeDSecureData {
         U("U"),
         A("A");
 
+        @JsonValue
         private final String value;
 
         AuthenticationResponseEnum(String value) {
@@ -271,6 +273,7 @@ public class ThreeDSecureData {
         I("I"),
         E("E");
 
+        @JsonValue
         private final String value;
 
         DirectoryResponseEnum(String value) {

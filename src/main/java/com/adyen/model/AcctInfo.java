@@ -21,6 +21,7 @@
 
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,6 +44,7 @@ public class AcctInfo {
         _04("04"),
         _05("05");
 
+        @JsonValue
         private final String value;
 
         ChAccAgeIndEnum(String value) {
@@ -92,6 +94,7 @@ public class AcctInfo {
         _03("03"),
         _04("04");
 
+        @JsonValue
         private final String value;
 
         ChAccChangeIndEnum(String value) {
@@ -142,6 +145,7 @@ public class AcctInfo {
         _04("04"),
         _05("05");
 
+        @JsonValue
         private final String value;
 
         ChAccPwChangeIndEnum(String value) {
@@ -198,6 +202,7 @@ public class AcctInfo {
         _04("04"),
         _05("05");
 
+        @JsonValue
         private final String value;
 
         PaymentAccIndEnum(String value) {
@@ -250,6 +255,7 @@ public class AcctInfo {
         _03("03"),
         _04("04");
 
+        @JsonValue
         private final String value;
 
         ShipAddressUsageIndEnum(String value) {
@@ -294,6 +300,7 @@ public class AcctInfo {
         _01("01"),
         _02("02");
 
+        @JsonValue
         private final String value;
 
         ShipNameIndicatorEnum(String value) {
@@ -338,6 +345,7 @@ public class AcctInfo {
         _01("01"),
         _02("02");
 
+        @JsonValue
         private final String value;
 
         SuspiciousAccActivityEnum(String value) {

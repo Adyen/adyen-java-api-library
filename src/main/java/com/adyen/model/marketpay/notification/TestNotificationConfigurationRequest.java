@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -104,6 +105,7 @@ public class TestNotificationConfigurationRequest {
         @SerializedName("TRANSFER_NOT_PAIDOUT_TRANSFERS")
         TRANSFER_NOT_PAIDOUT_TRANSFERS("TRANSFER_NOT_PAIDOUT_TRANSFERS");
 
+        @JsonValue
         private final String value;
 
         EventTypesEnum(String value) {

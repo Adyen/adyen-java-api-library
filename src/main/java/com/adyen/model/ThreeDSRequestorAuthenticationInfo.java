@@ -21,6 +21,7 @@
 
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,6 +48,7 @@ public class ThreeDSRequestorAuthenticationInfo {
         _05("05"),
         _06("06");
 
+        @JsonValue
         private final String value;
 
         ThreeDSReqAuthMethodEnum(String value) {

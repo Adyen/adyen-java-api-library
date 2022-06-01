@@ -22,6 +22,7 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,6 +67,7 @@ public class PaymentRefundResource {
   public enum StatusEnum {
     RECEIVED("received");
 
+    @JsonValue
     private final String value;
 
     StatusEnum(String value) {

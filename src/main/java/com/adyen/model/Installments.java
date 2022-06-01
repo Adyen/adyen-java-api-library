@@ -20,6 +20,7 @@
  */
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,6 +46,7 @@ public class Installments {
         REGULAR("regular"),
         REVOLVING("revolving");
 
+        @JsonValue
         private final String value;
 
         PlanEnum(String value) {

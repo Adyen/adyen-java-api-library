@@ -21,6 +21,7 @@
 
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,6 +40,7 @@ public class ThreeDSRequestData {
     public enum NativeThreeDSEnum {
         PREFERRED("preferred");
 
+        @JsonValue
         private final String value;
 
         NativeThreeDSEnum(String value) {
@@ -83,6 +85,7 @@ public class ThreeDSRequestData {
         _1_0("2.1.0"),
         _2_0("2.2.0");
 
+        @JsonValue
         private final String value;
 
         ThreeDSVersionEnum(String value) {

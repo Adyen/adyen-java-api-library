@@ -20,6 +20,7 @@
  */
 package com.adyen.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,6 +46,7 @@ public class ThreeDSecureData {
         U("U"),
         A("A");
 
+        @JsonValue
         private final String value;
 
         AuthenticationResponseEnum(String value) {
@@ -100,6 +102,7 @@ public class ThreeDSecureData {
         _06("06"),
         _07("07");
 
+        @JsonValue
         private final String value;
 
         ChallengeCancelEnum(String value) {
@@ -150,6 +153,7 @@ public class ThreeDSecureData {
         U("U"),
         Y("Y");
 
+        @JsonValue
         private final String value;
 
         DirectoryResponseEnum(String value) {

@@ -25,6 +25,7 @@ import com.adyen.model.Amount;
 import com.adyen.model.Name;
 import com.adyen.model.Split;
 import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -111,6 +112,7 @@ public class PaymentLinkResource {
         SUBSCRIPTION("Subscription"),
         UNSCHEDULEDCARDONFILE("UnscheduledCardOnFile");
 
+        @JsonValue
         private final String value;
 
         RecurringProcessingModelEnum(String value) {
@@ -161,6 +163,7 @@ public class PaymentLinkResource {
         SHOPPERNAME("shopperName"),
         TELEPHONENUMBER("telephoneNumber");
 
+        @JsonValue
         private final String value;
 
         RequiredShopperFieldsEnum(String value) {
@@ -241,6 +244,7 @@ public class PaymentLinkResource {
         PAID("paid"),
         PAYMENTPENDING("paymentPending");
 
+        @JsonValue
         private final String value;
 
         StatusEnum(String value) {
@@ -289,6 +293,7 @@ public class PaymentLinkResource {
         DISABLED("disabled"),
         ENABLED("enabled");
 
+        @JsonValue
         private final String value;
 
         StorePaymentMethodModeEnum(String value) {

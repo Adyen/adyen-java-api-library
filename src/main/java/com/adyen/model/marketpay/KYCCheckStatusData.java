@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,6 +58,7 @@ public class KYCCheckStatusData {
         RETRY_LIMIT_REACHED("RETRY_LIMIT_REACHED"),
         UNCHECKED("UNCHECKED");
 
+        @JsonValue
         private final String value;
 
         StatusEnum(String value) {
@@ -121,6 +123,7 @@ public class KYCCheckStatusData {
         POLITICALLY_EXPOSED_IDENTIFICATION_VERIFICATION("POLITICALLY_EXPOSED_IDENTIFICATION_VERIFICATION"),
         POLITICALLY_EXPOSED_VERIFICATION("POLITICALLY_EXPOSED_VERIFICATION");
 
+        @JsonValue
         private final String value;
 
         TypeEnum(String value) {
