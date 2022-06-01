@@ -33,7 +33,7 @@ import java.io.IOException;
 
 public class DataProtection extends Service {
 
-    private RequestSubjectErasure requestSubjectErasure;
+    private final RequestSubjectErasure requestSubjectErasure;
 
     public DataProtection(Client client) {
         super(client);

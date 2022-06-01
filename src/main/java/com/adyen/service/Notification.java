@@ -43,12 +43,12 @@ import com.google.gson.reflect.TypeToken;
 
 public class Notification extends Service {
 
-    private CreateNotificationConfiguration createNotificationConfiguration;
-    private UpdateNotificationConfiguration updateNotificationConfiguration;
-    private GetNotificationConfiguration getNotificationConfiguration;
-    private DeleteNotificationConfigurations deleteNotificationConfiguration;
-    private TestNotificationConfiguration testNotificationConfiguration;
-    private GetNotificationConfigurationList getNotificationConfigurationList;
+    private final CreateNotificationConfiguration createNotificationConfiguration;
+    private final UpdateNotificationConfiguration updateNotificationConfiguration;
+    private final GetNotificationConfiguration getNotificationConfiguration;
+    private final DeleteNotificationConfigurations deleteNotificationConfiguration;
+    private final TestNotificationConfiguration testNotificationConfiguration;
+    private final GetNotificationConfigurationList getNotificationConfigurationList;
 
 
     public Notification(Client client) {

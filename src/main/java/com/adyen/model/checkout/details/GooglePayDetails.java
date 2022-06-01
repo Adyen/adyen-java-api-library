@@ -56,7 +56,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
         DEBIT("debit");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FundingSourceEnum(String value) {
             this.value = value;
@@ -102,7 +102,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
     private String recurringDetailReference = null;
 
     @SerializedName("storedPaymentMethodId")
-    private String storedPaymentMethodId = null;
+    private final String storedPaymentMethodId = null;
 
     @SerializedName("type")
     private String type = GOOGLEPAY;

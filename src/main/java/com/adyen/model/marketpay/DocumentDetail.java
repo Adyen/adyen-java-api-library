@@ -86,7 +86,7 @@ public class DocumentDetail {
         @SerializedName("SUPPORTING_DOCUMENTS")
         SUPPORTING_DOCUMENTS("SUPPORTING_DOCUMENTS");
 
-        private String value;
+        private final String value;
 
         DocumentTypeEnum(String value) {
             this.value = value;

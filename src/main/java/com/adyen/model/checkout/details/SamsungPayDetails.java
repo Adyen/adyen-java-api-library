@@ -31,11 +31,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
-
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * SamsungPayDetails
@@ -50,7 +46,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
         DEBIT("debit");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FundingSourceEnum(String value) {
             this.value = value;
@@ -80,7 +76,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
             @Override
             public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return FundingSourceEnum.fromValue((String)(value));
+                return FundingSourceEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("fundingSource")
@@ -98,7 +94,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     /**
      * **samsungpay**
      */
-    public final static String SAMSUNGPAY = "samsungpay";
+    public static final String SAMSUNGPAY = "samsungpay";
 
     @SerializedName("type")
     private String type = SAMSUNGPAY;

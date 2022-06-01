@@ -112,7 +112,7 @@ public class CreatePaymentLinkRequest {
         UNSCHEDULEDCARDONFILE("UnscheduledCardOnFile");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         RecurringProcessingModelEnum(String value) {
             this.value = value;
@@ -165,7 +165,7 @@ public class CreatePaymentLinkRequest {
         TELEPHONENUMBER("telephoneNumber");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         RequiredShopperFieldsEnum(String value) {
             this.value = value;
@@ -243,7 +243,7 @@ public class CreatePaymentLinkRequest {
         ENABLED("enabled");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         StorePaymentMethodModeEnum(String value) {
             this.value = value;

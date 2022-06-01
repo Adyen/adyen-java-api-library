@@ -22,18 +22,10 @@
 package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import java.io.IOException;
 import java.util.Objects;
-
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * SepaDirectDebitDetails
@@ -55,8 +47,8 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
     /**
      * **sepadirectdebit**
      */
-    public final static String SEPADIRECTDEBIT ="sepadirectdebit";
-    public final static String SEPADIRECTDEBIT_AMAZONPAY = "sepadirectdebit_amazonpay";
+    public static final String SEPADIRECTDEBIT = "sepadirectdebit";
+    public static final String SEPADIRECTDEBIT_AMAZONPAY = "sepadirectdebit_amazonpay";
 
     @SerializedName("type")
     private String type = SEPADIRECTDEBIT;

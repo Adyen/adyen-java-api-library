@@ -42,7 +42,7 @@ public class NotificationEventConfiguration {
         @SerializedName("INCLUDE")
         INCLUDE("INCLUDE");
 
-        private String value;
+        private final String value;
 
         IncludeModeEnum(String value) {
             this.value = value;
@@ -124,7 +124,7 @@ public class NotificationEventConfiguration {
         @SerializedName("TRANSFER_NOT_PAIDOUT_TRANSFERS")
         TRANSFER_NOT_PAIDOUT_TRANSFERS("TRANSFER_NOT_PAIDOUT_TRANSFERS");
 
-        private String value;
+        private final String value;
 
         EventTypeEnum(String value) {
             this.value = value;

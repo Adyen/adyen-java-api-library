@@ -50,7 +50,7 @@ public class ShopperInput {
         READONLY("readOnly");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         BillingAddressEnum(String value) {
             this.value = value;
@@ -99,7 +99,7 @@ public class ShopperInput {
         READONLY("readOnly");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         DeliveryAddressEnum(String value) {
             this.value = value;
@@ -148,7 +148,7 @@ public class ShopperInput {
         READONLY("readOnly");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         PersonalDetailsEnum(String value) {
             this.value = value;

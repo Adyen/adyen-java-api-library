@@ -393,7 +393,7 @@ public class PaymentMethodsRequest {
         WEB("Web");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ChannelEnum(String value) {
             this.value = value;

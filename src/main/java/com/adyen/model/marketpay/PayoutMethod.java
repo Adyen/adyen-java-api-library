@@ -53,7 +53,7 @@ public class PayoutMethod {
         CARDTOKEN("CardToken");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         PayoutMethodTypeEnum(String value) {
             this.value = value;

@@ -51,7 +51,7 @@ public class Recurring {
         RECURRING("RECURRING"),
         PAYOUT("PAYOUT");
 
-        private String value;
+        private final String value;
 
         ContractEnum(String value) {
             this.value = value;
@@ -106,7 +106,7 @@ public class Recurring {
         VISATOKENSERVICE("VISATOKENSERVICE"),
         MCTOKENSERVICE("MCTOKENSERVICE");
 
-        private String value;
+        private final String value;
 
         TokenServiceEnum(String value) {
             this.value = value;

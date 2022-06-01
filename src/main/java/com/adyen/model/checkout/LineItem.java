@@ -274,7 +274,7 @@ public class LineItem {
         ZERO("Zero");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         TaxCategoryEnum(String value) {
             this.value = value;

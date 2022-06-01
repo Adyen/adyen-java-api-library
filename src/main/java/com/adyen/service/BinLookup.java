@@ -12,8 +12,8 @@ import com.google.gson.reflect.TypeToken;
 
 public class BinLookup extends ApiKeyAuthenticatedService {
 
-    private Get3dsAvailability get3dsAvailability;
-    private GetCostEstimate getCostEstimate;
+    private final Get3dsAvailability get3dsAvailability;
+    private final GetCostEstimate getCostEstimate;
 
     public BinLookup(Client client) {
         super(client);

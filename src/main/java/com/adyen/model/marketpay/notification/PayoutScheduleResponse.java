@@ -61,7 +61,7 @@ public class PayoutScheduleResponse {
         WEEKLY_ON_TUE_FRI_MIDNIGHT("WEEKLY_ON_TUE_FRI_MIDNIGHT"),
         YEARLY("YEARLY");
 
-        private String value;
+        private final String value;
 
         ScheduleEnum(String value) {
             this.value = value;

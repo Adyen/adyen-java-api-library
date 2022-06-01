@@ -68,7 +68,7 @@ public class PayPalDetails implements PaymentMethodDetails {
         REDIRECT("redirect");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         SubtypeEnum(String value) {
             this.value = value;

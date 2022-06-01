@@ -65,7 +65,7 @@ public class PaymentAmountUpdateResource {
     NOSHOW("noShow");
 
     @JsonValue
-    private String value;
+    private final String value;
 
     ReasonEnum(String value) {
       this.value = value;
@@ -123,7 +123,7 @@ public class PaymentAmountUpdateResource {
     RECEIVED("received");
 
     @JsonValue
-    private String value;
+    private final String value;
 
     StatusEnum(String value) {
       this.value = value;

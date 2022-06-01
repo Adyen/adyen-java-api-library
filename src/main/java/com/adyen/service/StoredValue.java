@@ -48,12 +48,12 @@ import java.io.IOException;
 
 public class StoredValue extends ApiKeyAuthenticatedService {
 
-    private ChangeStatus changeStatus;
-    private CheckBalance checkBalance;
-    private Issue issue;
-    private Load load;
-    private MergeBalance mergeBalance;
-    private VoidTransaction voidTransaction;
+    private final ChangeStatus changeStatus;
+    private final CheckBalance checkBalance;
+    private final Issue issue;
+    private final Load load;
+    private final MergeBalance mergeBalance;
+    private final VoidTransaction voidTransaction;
 
     public StoredValue(Client client) {
         super(client);

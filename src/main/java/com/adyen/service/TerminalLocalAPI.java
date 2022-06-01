@@ -36,10 +36,10 @@ import com.google.gson.reflect.TypeToken;
 
 public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
 
-    private LocalRequest localRequest;
+    private final LocalRequest localRequest;
 
-    private NexoCrypto nexoCrypto;
-    private Gson terminalApiGson;
+    private final NexoCrypto nexoCrypto;
+    private final Gson terminalApiGson;
 
     public TerminalLocalAPI(Client client) {
         super(client);

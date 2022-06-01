@@ -61,7 +61,7 @@ public class StoredValueBalanceMergeResponse {
         NOTENOUGHBALANCE("NotEnoughBalance");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ResultCodeEnum(String value) {
             this.value = value;

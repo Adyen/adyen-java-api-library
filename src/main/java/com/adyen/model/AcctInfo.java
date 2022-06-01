@@ -43,7 +43,7 @@ public class AcctInfo {
         _04("04"),
         _05("05");
 
-        private String value;
+        private final String value;
 
         ChAccAgeIndEnum(String value) {
             this.value = value;
@@ -73,7 +73,7 @@ public class AcctInfo {
             @Override
             public ChAccAgeIndEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ChAccAgeIndEnum.fromValue((String)(value));
+                return ChAccAgeIndEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("chAccAgeInd")
@@ -92,7 +92,7 @@ public class AcctInfo {
         _03("03"),
         _04("04");
 
-        private String value;
+        private final String value;
 
         ChAccChangeIndEnum(String value) {
             this.value = value;
@@ -122,7 +122,7 @@ public class AcctInfo {
             @Override
             public ChAccChangeIndEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ChAccChangeIndEnum.fromValue((String)(value));
+                return ChAccChangeIndEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("chAccChangeInd")
@@ -142,7 +142,7 @@ public class AcctInfo {
         _04("04"),
         _05("05");
 
-        private String value;
+        private final String value;
 
         ChAccPwChangeIndEnum(String value) {
             this.value = value;
@@ -172,7 +172,7 @@ public class AcctInfo {
             @Override
             public ChAccPwChangeIndEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ChAccPwChangeIndEnum.fromValue((String)(value));
+                return ChAccPwChangeIndEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("chAccPwChangeInd")
@@ -198,7 +198,7 @@ public class AcctInfo {
         _04("04"),
         _05("05");
 
-        private String value;
+        private final String value;
 
         PaymentAccIndEnum(String value) {
             this.value = value;
@@ -228,7 +228,7 @@ public class AcctInfo {
             @Override
             public PaymentAccIndEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return PaymentAccIndEnum.fromValue((String)(value));
+                return PaymentAccIndEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("paymentAccInd")
@@ -250,7 +250,7 @@ public class AcctInfo {
         _03("03"),
         _04("04");
 
-        private String value;
+        private final String value;
 
         ShipAddressUsageIndEnum(String value) {
             this.value = value;
@@ -280,7 +280,7 @@ public class AcctInfo {
             @Override
             public ShipAddressUsageIndEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ShipAddressUsageIndEnum.fromValue((String)(value));
+                return ShipAddressUsageIndEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("shipAddressUsageInd")
@@ -294,7 +294,7 @@ public class AcctInfo {
         _01("01"),
         _02("02");
 
-        private String value;
+        private final String value;
 
         ShipNameIndicatorEnum(String value) {
             this.value = value;
@@ -324,7 +324,7 @@ public class AcctInfo {
             @Override
             public ShipNameIndicatorEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ShipNameIndicatorEnum.fromValue((String)(value));
+                return ShipNameIndicatorEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("shipNameIndicator")
@@ -338,7 +338,7 @@ public class AcctInfo {
         _01("01"),
         _02("02");
 
-        private String value;
+        private final String value;
 
         SuspiciousAccActivityEnum(String value) {
             this.value = value;
@@ -368,7 +368,7 @@ public class AcctInfo {
             @Override
             public SuspiciousAccActivityEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return SuspiciousAccActivityEnum.fromValue((String)(value));
+                return SuspiciousAccActivityEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("suspiciousAccActivity")

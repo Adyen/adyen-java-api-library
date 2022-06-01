@@ -60,7 +60,6 @@ public class AndroidPayDetails implements PaymentMethodDetails {
         this.type = type;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -72,7 +71,12 @@ public class AndroidPayDetails implements PaymentMethodDetails {
         AndroidPayDetails androidPayDetails = (AndroidPayDetails) o;
         return Objects.equals(this.type, androidPayDetails.type);
     }
-    
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

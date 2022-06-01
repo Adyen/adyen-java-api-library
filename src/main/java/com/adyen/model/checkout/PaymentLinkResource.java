@@ -25,7 +25,6 @@ import com.adyen.model.Amount;
 import com.adyen.model.Name;
 import com.adyen.model.Split;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -34,7 +33,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * PaymentLinkResource
@@ -78,7 +82,7 @@ public class PaymentLinkResource {
     private String expiresAt = null;
 
     @SerializedName("id")
-    private String id = null;
+    private final String id = null;
 
     @SerializedName("installmentOptions")
     private Map<String, InstallmentOption> installmentOptions = null;
@@ -107,7 +111,7 @@ public class PaymentLinkResource {
         SUBSCRIPTION("Subscription"),
         UNSCHEDULEDCARDONFILE("UnscheduledCardOnFile");
 
-        private String value;
+        private final String value;
 
         RecurringProcessingModelEnum(String value) {
             this.value = value;
@@ -137,7 +141,7 @@ public class PaymentLinkResource {
             @Override
             public RecurringProcessingModelEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return RecurringProcessingModelEnum.fromValue((String)(value));
+                return RecurringProcessingModelEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("recurringProcessingModel")
@@ -157,7 +161,7 @@ public class PaymentLinkResource {
         SHOPPERNAME("shopperName"),
         TELEPHONENUMBER("telephoneNumber");
 
-        private String value;
+        private final String value;
 
         RequiredShopperFieldsEnum(String value) {
             this.value = value;
@@ -187,7 +191,7 @@ public class PaymentLinkResource {
             @Override
             public RequiredShopperFieldsEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return RequiredShopperFieldsEnum.fromValue((String)(value));
+                return RequiredShopperFieldsEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("requiredShopperFields")
@@ -237,7 +241,7 @@ public class PaymentLinkResource {
         PAID("paid"),
         PAYMENTPENDING("paymentPending");
 
-        private String value;
+        private final String value;
 
         StatusEnum(String value) {
             this.value = value;
@@ -267,7 +271,7 @@ public class PaymentLinkResource {
             @Override
             public StatusEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return StatusEnum.fromValue((String)(value));
+                return StatusEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("status")
@@ -285,7 +289,7 @@ public class PaymentLinkResource {
         DISABLED("disabled"),
         ENABLED("enabled");
 
-        private String value;
+        private final String value;
 
         StorePaymentMethodModeEnum(String value) {
             this.value = value;
@@ -315,7 +319,7 @@ public class PaymentLinkResource {
             @Override
             public StorePaymentMethodModeEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return StorePaymentMethodModeEnum.fromValue((String)(value));
+                return StorePaymentMethodModeEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("storePaymentMethodMode")
@@ -328,7 +332,7 @@ public class PaymentLinkResource {
     private String themeId = null;
 
     @SerializedName("url")
-    private String url = null;
+    private final String url = null;
 
     public PaymentLinkResource allowedPaymentMethods(List<String> allowedPaymentMethods) {
         this.allowedPaymentMethods = allowedPaymentMethods;
@@ -1079,46 +1083,46 @@ public class PaymentLinkResource {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PaymentLinkResource PaymentLinkResource = (PaymentLinkResource) o;
-        return Objects.equals(this.allowedPaymentMethods, PaymentLinkResource.allowedPaymentMethods) &&
-                Objects.equals(this.amount, PaymentLinkResource.amount) &&
-                Objects.equals(this.applicationInfo, PaymentLinkResource.applicationInfo) &&
-                Objects.equals(this.billingAddress, PaymentLinkResource.billingAddress) &&
-                Objects.equals(this.blockedPaymentMethods, PaymentLinkResource.blockedPaymentMethods) &&
-                Objects.equals(this.captureDelayHours, PaymentLinkResource.captureDelayHours) &&
-                Objects.equals(this.countryCode, PaymentLinkResource.countryCode) &&
-                Objects.equals(this.dateOfBirth, PaymentLinkResource.dateOfBirth) &&
-                Objects.equals(this.deliverAt, PaymentLinkResource.deliverAt) &&
-                Objects.equals(this.deliveryAddress, PaymentLinkResource.deliveryAddress) &&
-                Objects.equals(this.description, PaymentLinkResource.description) &&
-                Objects.equals(this.expiresAt, PaymentLinkResource.expiresAt) &&
-                Objects.equals(this.id, PaymentLinkResource.id) &&
-                Objects.equals(this.installmentOptions, PaymentLinkResource.installmentOptions) &&
-                Objects.equals(this.lineItems, PaymentLinkResource.lineItems) &&
-                Objects.equals(this.mcc, PaymentLinkResource.mcc) &&
-                Objects.equals(this.merchantAccount, PaymentLinkResource.merchantAccount) &&
-                Objects.equals(this.merchantOrderReference, PaymentLinkResource.merchantOrderReference) &&
-                Objects.equals(this.metadata, PaymentLinkResource.metadata) &&
-                Objects.equals(this.recurringProcessingModel, PaymentLinkResource.recurringProcessingModel) &&
-                Objects.equals(this.reference, PaymentLinkResource.reference) &&
-                Objects.equals(this.requiredShopperFields, PaymentLinkResource.requiredShopperFields) &&
-                Objects.equals(this.returnUrl, PaymentLinkResource.returnUrl) &&
-                Objects.equals(this.reusable, PaymentLinkResource.reusable) &&
-                Objects.equals(this.riskData, PaymentLinkResource.riskData) &&
-                Objects.equals(this.shopperEmail, PaymentLinkResource.shopperEmail) &&
-                Objects.equals(this.shopperLocale, PaymentLinkResource.shopperLocale) &&
-                Objects.equals(this.shopperName, PaymentLinkResource.shopperName) &&
-                Objects.equals(this.shopperReference, PaymentLinkResource.shopperReference) &&
-                Objects.equals(this.shopperStatement, PaymentLinkResource.shopperStatement) &&
-                Objects.equals(this.socialSecurityNumber, PaymentLinkResource.socialSecurityNumber) &&
-                Objects.equals(this.splitCardFundingSources, PaymentLinkResource.splitCardFundingSources) &&
-                Objects.equals(this.splits, PaymentLinkResource.splits) &&
-                Objects.equals(this.status, PaymentLinkResource.status) &&
-                Objects.equals(this.store, PaymentLinkResource.store) &&
-                Objects.equals(this.storePaymentMethodMode, PaymentLinkResource.storePaymentMethodMode) &&
-                Objects.equals(this.telephoneNumber, PaymentLinkResource.telephoneNumber) &&
-                Objects.equals(this.themeId, PaymentLinkResource.themeId) &&
-                Objects.equals(this.url, PaymentLinkResource.url);
+        PaymentLinkResource paymentLinkResource = (PaymentLinkResource) o;
+        return Objects.equals(this.allowedPaymentMethods, paymentLinkResource.allowedPaymentMethods) &&
+                Objects.equals(this.amount, paymentLinkResource.amount) &&
+                Objects.equals(this.applicationInfo, paymentLinkResource.applicationInfo) &&
+                Objects.equals(this.billingAddress, paymentLinkResource.billingAddress) &&
+                Objects.equals(this.blockedPaymentMethods, paymentLinkResource.blockedPaymentMethods) &&
+                Objects.equals(this.captureDelayHours, paymentLinkResource.captureDelayHours) &&
+                Objects.equals(this.countryCode, paymentLinkResource.countryCode) &&
+                Objects.equals(this.dateOfBirth, paymentLinkResource.dateOfBirth) &&
+                Objects.equals(this.deliverAt, paymentLinkResource.deliverAt) &&
+                Objects.equals(this.deliveryAddress, paymentLinkResource.deliveryAddress) &&
+                Objects.equals(this.description, paymentLinkResource.description) &&
+                Objects.equals(this.expiresAt, paymentLinkResource.expiresAt) &&
+                Objects.equals(this.id, paymentLinkResource.id) &&
+                Objects.equals(this.installmentOptions, paymentLinkResource.installmentOptions) &&
+                Objects.equals(this.lineItems, paymentLinkResource.lineItems) &&
+                Objects.equals(this.mcc, paymentLinkResource.mcc) &&
+                Objects.equals(this.merchantAccount, paymentLinkResource.merchantAccount) &&
+                Objects.equals(this.merchantOrderReference, paymentLinkResource.merchantOrderReference) &&
+                Objects.equals(this.metadata, paymentLinkResource.metadata) &&
+                Objects.equals(this.recurringProcessingModel, paymentLinkResource.recurringProcessingModel) &&
+                Objects.equals(this.reference, paymentLinkResource.reference) &&
+                Objects.equals(this.requiredShopperFields, paymentLinkResource.requiredShopperFields) &&
+                Objects.equals(this.returnUrl, paymentLinkResource.returnUrl) &&
+                Objects.equals(this.reusable, paymentLinkResource.reusable) &&
+                Objects.equals(this.riskData, paymentLinkResource.riskData) &&
+                Objects.equals(this.shopperEmail, paymentLinkResource.shopperEmail) &&
+                Objects.equals(this.shopperLocale, paymentLinkResource.shopperLocale) &&
+                Objects.equals(this.shopperName, paymentLinkResource.shopperName) &&
+                Objects.equals(this.shopperReference, paymentLinkResource.shopperReference) &&
+                Objects.equals(this.shopperStatement, paymentLinkResource.shopperStatement) &&
+                Objects.equals(this.socialSecurityNumber, paymentLinkResource.socialSecurityNumber) &&
+                Objects.equals(this.splitCardFundingSources, paymentLinkResource.splitCardFundingSources) &&
+                Objects.equals(this.splits, paymentLinkResource.splits) &&
+                Objects.equals(this.status, paymentLinkResource.status) &&
+                Objects.equals(this.store, paymentLinkResource.store) &&
+                Objects.equals(this.storePaymentMethodMode, paymentLinkResource.storePaymentMethodMode) &&
+                Objects.equals(this.telephoneNumber, paymentLinkResource.telephoneNumber) &&
+                Objects.equals(this.themeId, paymentLinkResource.themeId) &&
+                Objects.equals(this.url, paymentLinkResource.url);
     }
 
     @Override

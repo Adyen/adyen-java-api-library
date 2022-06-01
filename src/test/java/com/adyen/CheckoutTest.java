@@ -26,7 +26,6 @@ import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
 import com.adyen.model.SplitAmount;
-import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.checkout.CheckoutCancelOrderRequest;
 import com.adyen.model.checkout.CheckoutCancelOrderResponse;
 import com.adyen.model.checkout.CheckoutCreateOrderRequest;

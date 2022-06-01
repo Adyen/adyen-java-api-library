@@ -45,7 +45,7 @@ public class Installments {
         REGULAR("regular"),
         REVOLVING("revolving");
 
-        private String value;
+        private final String value;
 
         PlanEnum(String value) {
             this.value = value;
@@ -75,7 +75,7 @@ public class Installments {
             @Override
             public PlanEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return PlanEnum.fromValue((String)(value));
+                return PlanEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("plan")

@@ -122,7 +122,7 @@ public class GetTerminalDetailsResponse {
         SWITCHEDOFF("SwitchedOff");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         TerminalStatusEnum(String value) {
             this.value = value;

@@ -78,9 +78,9 @@ public class TerminalCommonNameValidatorTest {
         });
     }
 
-    private String certificateName;
-    private Environment environment;
-    private boolean expectedResult;
+    private final String certificateName;
+    private final Environment environment;
+    private final boolean expectedResult;
 
     @Mock
     private X509Certificate certificate;

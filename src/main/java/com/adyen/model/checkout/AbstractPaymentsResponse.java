@@ -40,7 +40,6 @@ import static com.adyen.constants.ApiConstants.AdditionalData.CARD_BIN;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_HOLDER_NAME;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_SUMMARY;
 import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
-import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
 import static com.adyen.util.Util.toIndentedString;

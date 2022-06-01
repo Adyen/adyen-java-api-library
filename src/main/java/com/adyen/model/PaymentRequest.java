@@ -84,7 +84,7 @@ public class PaymentRequest extends AbstractPaymentRequest<PaymentRequest> {
         @SerializedName("UnscheduledCardOnFile") UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         RecurringProcessingModelEnum(String value) {
             this.value = value;

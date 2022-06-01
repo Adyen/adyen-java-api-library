@@ -57,7 +57,7 @@ public class KYCCheckStatusData {
         RETRY_LIMIT_REACHED("RETRY_LIMIT_REACHED"),
         UNCHECKED("UNCHECKED");
 
-        private String value;
+        private final String value;
 
         StatusEnum(String value) {
             this.value = value;
@@ -121,7 +121,7 @@ public class KYCCheckStatusData {
         POLITICALLY_EXPOSED_IDENTIFICATION_VERIFICATION("POLITICALLY_EXPOSED_IDENTIFICATION_VERIFICATION"),
         POLITICALLY_EXPOSED_VERIFICATION("POLITICALLY_EXPOSED_VERIFICATION");
 
-        private String value;
+        private final String value;
 
         TypeEnum(String value) {
             this.value = value;

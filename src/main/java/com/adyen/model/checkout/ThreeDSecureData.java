@@ -218,7 +218,7 @@ public class ThreeDSecureData {
         U("U"),
         A("A");
 
-        private String value;
+        private final String value;
 
         AuthenticationResponseEnum(String value) {
             this.value = value;
@@ -271,7 +271,7 @@ public class ThreeDSecureData {
         I("I"),
         E("E");
 
-        private String value;
+        private final String value;
 
         DirectoryResponseEnum(String value) {
             this.value = value;

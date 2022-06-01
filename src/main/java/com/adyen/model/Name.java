@@ -47,7 +47,7 @@ public class Name {
         @SerializedName("UNKNOWN")
         UNKNOWN("UNKNOWN");
 
-        private String value;
+        private final String value;
 
         GenderEnum(String value) {
             this.value = value;

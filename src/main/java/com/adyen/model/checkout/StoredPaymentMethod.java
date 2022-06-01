@@ -21,16 +21,12 @@
 
 package com.adyen.model.checkout;
 
-import com.adyen.util.MaskUtil;
 import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-
-import static com.adyen.util.Util.toIndentedString;
 
 public class StoredPaymentMethod {
     @SerializedName("brand")

@@ -43,11 +43,11 @@ import java.io.IOException;
 
 public class Payment extends Service {
 
-    private Authorise authorise;
-    private Authorise3D authorise3D;
-    private Authorise3DS2 authorise3DS2;
-    private Retrieve3DS2Result retrieve3DS2Result;
-    private GetAuthenticationResult getAuthenticationResult;
+    private final Authorise authorise;
+    private final Authorise3D authorise3D;
+    private final Authorise3DS2 authorise3DS2;
+    private final Retrieve3DS2Result retrieve3DS2Result;
+    private final GetAuthenticationResult getAuthenticationResult;
 
     public Payment(Client client) {
         super(client);

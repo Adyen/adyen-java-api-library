@@ -31,9 +31,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-
-import static com.adyen.util.Util.toIndentedString;
-
 /**
  * ThreeDSecureData
  */
@@ -48,7 +45,7 @@ public class ThreeDSecureData {
         U("U"),
         A("A");
 
-        private String value;
+        private final String value;
 
         AuthenticationResponseEnum(String value) {
             this.value = value;
@@ -78,7 +75,7 @@ public class ThreeDSecureData {
             @Override
             public AuthenticationResponseEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return AuthenticationResponseEnum.fromValue((String)(value));
+                return AuthenticationResponseEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("authenticationResponse")
@@ -103,7 +100,7 @@ public class ThreeDSecureData {
         _06("06"),
         _07("07");
 
-        private String value;
+        private final String value;
 
         ChallengeCancelEnum(String value) {
             this.value = value;
@@ -133,7 +130,7 @@ public class ThreeDSecureData {
             @Override
             public ChallengeCancelEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ChallengeCancelEnum.fromValue((String)(value));
+                return ChallengeCancelEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("challengeCancel")
@@ -153,7 +150,7 @@ public class ThreeDSecureData {
         U("U"),
         Y("Y");
 
-        private String value;
+        private final String value;
 
         DirectoryResponseEnum(String value) {
             this.value = value;
@@ -183,7 +180,7 @@ public class ThreeDSecureData {
             @Override
             public DirectoryResponseEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return DirectoryResponseEnum.fromValue((String)(value));
+                return DirectoryResponseEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("directoryResponse")

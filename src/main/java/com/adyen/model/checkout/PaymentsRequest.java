@@ -35,8 +35,6 @@ import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
-import com.adyen.util.Util;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -47,15 +45,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-
-import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * PaymentsRequest
@@ -91,7 +85,7 @@ public class PaymentsRequest {
         ANDROID("Android"),
         WEB("Web");
 
-        private String value;
+        private final String value;
 
         ChannelEnum(String value) {
             this.value = value;
@@ -121,7 +115,7 @@ public class PaymentsRequest {
             @Override
             public ChannelEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ChannelEnum.fromValue((String)(value));
+                return ChannelEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("channel")
@@ -173,7 +167,7 @@ public class PaymentsRequest {
         NATURALPERSON("NaturalPerson"),
         COMPANYNAME("CompanyName");
 
-        private String value;
+        private final String value;
 
         EntityTypeEnum(String value) {
             this.value = value;
@@ -203,7 +197,7 @@ public class PaymentsRequest {
             @Override
             public EntityTypeEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return EntityTypeEnum.fromValue((String)(value));
+                return EntityTypeEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("entityType")
@@ -268,7 +262,7 @@ public class PaymentsRequest {
         SUBSCRIPTION("Subscription"),
         UNSCHEDULEDCARDONFILE("UnscheduledCardOnFile");
 
-        private String value;
+        private final String value;
 
         RecurringProcessingModelEnum(String value) {
             this.value = value;
@@ -298,7 +292,7 @@ public class PaymentsRequest {
             @Override
             public RecurringProcessingModelEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return RecurringProcessingModelEnum.fromValue((String)(value));
+                return RecurringProcessingModelEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("recurringProcessingModel")
@@ -338,7 +332,7 @@ public class PaymentsRequest {
         MOTO("Moto"),
         POS("POS");
 
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;
@@ -368,7 +362,7 @@ public class PaymentsRequest {
             @Override
             public ShopperInteractionEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ShopperInteractionEnum.fromValue((String)(value));
+                return ShopperInteractionEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("shopperInteraction")

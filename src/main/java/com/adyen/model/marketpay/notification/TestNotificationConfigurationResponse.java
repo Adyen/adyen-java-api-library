@@ -112,7 +112,7 @@ public class TestNotificationConfigurationResponse extends GenericResponse {
         @SerializedName("TRANSFER_NOT_PAIDOUT_TRANSFERS")
         TRANSFER_NOT_PAIDOUT_TRANSFERS("TRANSFER_NOT_PAIDOUT_TRANSFERS");
 
-        private String value;
+        private final String value;
 
         EventTypesEnum(String value) {
             this.value = value;

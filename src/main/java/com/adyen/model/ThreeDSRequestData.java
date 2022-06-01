@@ -39,7 +39,7 @@ public class ThreeDSRequestData {
     public enum NativeThreeDSEnum {
         PREFERRED("preferred");
 
-        private String value;
+        private final String value;
 
         NativeThreeDSEnum(String value) {
             this.value = value;
@@ -69,7 +69,7 @@ public class ThreeDSRequestData {
             @Override
             public NativeThreeDSEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return NativeThreeDSEnum.fromValue((String)(value));
+                return NativeThreeDSEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("nativeThreeDS")
@@ -83,7 +83,7 @@ public class ThreeDSRequestData {
         _1_0("2.1.0"),
         _2_0("2.2.0");
 
-        private String value;
+        private final String value;
 
         ThreeDSVersionEnum(String value) {
             this.value = value;
@@ -113,7 +113,7 @@ public class ThreeDSRequestData {
             @Override
             public ThreeDSVersionEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ThreeDSVersionEnum.fromValue((String)(value));
+                return ThreeDSVersionEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("threeDSVersion")

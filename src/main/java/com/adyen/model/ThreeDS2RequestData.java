@@ -20,7 +20,6 @@
  */
 package com.adyen.model;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,11 +30,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import com.adyen.model.checkout.Phone;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
-
-
-import static com.adyen.util.Util.toIndentedString;
 
 
 /**
@@ -54,7 +49,7 @@ public class ThreeDS2RequestData {
         _02("02"),
         _03("03");
 
-        private String value;
+        private final String value;
 
         AcctTypeEnum(String value) {
             this.value = value;
@@ -109,7 +104,7 @@ public class ThreeDS2RequestData {
         Y("Y"),
         N("N");
 
-        private String value;
+        private final String value;
 
         AddrMatchEnum(String value) {
             this.value = value;
@@ -163,7 +158,7 @@ public class ThreeDS2RequestData {
         REQUESTCHALLENGE("requestChallenge"),
         REQUESTCHALLENGEASMANDATE("requestChallengeAsMandate");
 
-        private String value;
+        private final String value;
 
         ChallengeIndicatorEnum(String value) {
             this.value = value;
@@ -284,7 +279,7 @@ public class ThreeDS2RequestData {
         _04("04"),
         _05("05");
 
-        private String value;
+        private final String value;
 
         ThreeDSRequestorChallengeIndEnum(String value) {
             this.value = value;
@@ -348,7 +343,7 @@ public class ThreeDS2RequestData {
         _11("11"),
         _28("28");
 
-        private String value;
+        private final String value;
 
         TransTypeEnum(String value) {
             this.value = value;
@@ -400,7 +395,7 @@ public class ThreeDS2RequestData {
         QUASICASHTRANSACTION("quasiCashTransaction"),
         PREPAIDACTIVATIONANDLOAD("prepaidActivationAndLoad");
 
-        private String value;
+        private final String value;
 
         TransactionTypeEnum(String value) {
             this.value = value;

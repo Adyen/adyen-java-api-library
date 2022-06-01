@@ -21,7 +21,6 @@
 
 package com.adyen.model.checkout;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -36,9 +35,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-
-import static com.adyen.util.Util.toIndentedString;
-
 /**
  * RecurringDetail
  */
@@ -51,7 +47,7 @@ public class RecurringDetail {
     private List<String> brands = null;
 
     @SerializedName("configuration")
-    private Map<String, String> _configuration = null;
+    private Map<String, String> configuration = null;
 
     /**
      * The funding source of the payment method.
@@ -60,7 +56,7 @@ public class RecurringDetail {
     public enum FundingSourceEnum {
         DEBIT("debit");
 
-        private String value;
+        private final String value;
 
         FundingSourceEnum(String value) {
             this.value = value;
@@ -90,7 +86,7 @@ public class RecurringDetail {
             @Override
             public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return FundingSourceEnum.fromValue((String)(value));
+                return FundingSourceEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("fundingSource")
@@ -161,30 +157,30 @@ public class RecurringDetail {
         this.brands = brands;
     }
 
-    public RecurringDetail _configuration(Map<String, String> _configuration) {
-        this._configuration = _configuration;
+    public RecurringDetail configuration(Map<String, String> configuration) {
+        this.configuration = configuration;
         return this;
     }
 
-    public RecurringDetail putConfigurationItem(String key, String _configurationItem) {
-        if (this._configuration == null) {
-            this._configuration = new HashMap<String, String>();
+    public RecurringDetail putConfigurationItem(String key, String configurationItem) {
+        if (this.configuration == null) {
+            this.configuration = new HashMap<String, String>();
         }
-        this._configuration.put(key, _configurationItem);
+        this.configuration.put(key, configurationItem);
         return this;
     }
 
     /**
      * The configuration of the payment method.
-     * @return _configuration
+     * @return onfiguration
      **/
     @Schema(description = "The configuration of the payment method.")
     public Map<String, String> getConfiguration() {
-        return _configuration;
+        return configuration;
     }
 
-    public void setConfiguration(Map<String, String> _configuration) {
-        this._configuration = _configuration;
+    public void setConfiguration(Map<String, String> configuration) {
+        this.configuration = configuration;
     }
 
     public RecurringDetail fundingSource(FundingSourceEnum fundingSource) {
@@ -359,7 +355,7 @@ public class RecurringDetail {
         RecurringDetail recurringDetail = (RecurringDetail) o;
         return Objects.equals(this.brand, recurringDetail.brand) &&
                 Objects.equals(this.brands, recurringDetail.brands) &&
-                Objects.equals(this._configuration, recurringDetail._configuration) &&
+                Objects.equals(this.configuration, recurringDetail.configuration) &&
                 Objects.equals(this.fundingSource, recurringDetail.fundingSource) &&
                 Objects.equals(this.group, recurringDetail.group) &&
                 Objects.equals(this.inputDetails, recurringDetail.inputDetails) &&
@@ -372,7 +368,7 @@ public class RecurringDetail {
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, brands, _configuration, fundingSource, group, inputDetails, issuers, name, recurringDetailReference, storedDetails, type);
+        return Objects.hash(brand, brands, configuration, fundingSource, group, inputDetails, issuers, name, recurringDetailReference, storedDetails, type);
     }
 
 
@@ -383,7 +379,7 @@ public class RecurringDetail {
 
         sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
         sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-        sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+        sb.append("    _configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");

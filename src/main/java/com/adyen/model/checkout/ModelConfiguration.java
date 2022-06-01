@@ -50,7 +50,7 @@ public class ModelConfiguration {
         OPTIONAL("OPTIONAL"),
         REQUIRED("REQUIRED");
 
-        private String value;
+        private final String value;
 
         CardHolderNameEnum(String value) {
             this.value = value;

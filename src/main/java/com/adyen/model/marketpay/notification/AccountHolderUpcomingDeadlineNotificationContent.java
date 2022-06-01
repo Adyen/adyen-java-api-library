@@ -68,7 +68,7 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
         VERIFICATION("Verification");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         EventEnum(String value) {
             this.value = value;

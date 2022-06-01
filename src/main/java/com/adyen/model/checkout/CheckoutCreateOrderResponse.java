@@ -77,7 +77,7 @@ public class CheckoutCreateOrderResponse {
         SUCCESS("Success");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ResultCodeEnum(String value) {
             this.value = value;

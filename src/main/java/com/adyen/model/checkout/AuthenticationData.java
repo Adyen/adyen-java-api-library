@@ -43,7 +43,7 @@ public class AuthenticationData {
         NEVER("never"),
         PREFERNO("preferNo");
 
-        private String value;
+        private final String value;
 
         AttemptAuthenticationEnum(String value) {
             this.value = value;
@@ -73,7 +73,7 @@ public class AuthenticationData {
             @Override
             public AttemptAuthenticationEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return AttemptAuthenticationEnum.fromValue((String)(value));
+                return AttemptAuthenticationEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("attemptAuthentication")

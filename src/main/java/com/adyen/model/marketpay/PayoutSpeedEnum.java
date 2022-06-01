@@ -34,7 +34,7 @@ public enum PayoutSpeedEnum {
     SAME_DAY("SAME_DAY"),
     STANDARD("STANDARD");
 
-    private String value;
+    private final String value;
 
     PayoutSpeedEnum(String value) {
         this.value = value;

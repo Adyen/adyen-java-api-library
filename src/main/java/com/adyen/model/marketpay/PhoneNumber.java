@@ -49,7 +49,7 @@ public class PhoneNumber {
         SIP("SIP");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         PhoneTypeEnum(String value) {
             this.value = value;

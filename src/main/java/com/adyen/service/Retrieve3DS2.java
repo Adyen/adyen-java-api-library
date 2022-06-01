@@ -35,7 +35,7 @@ import java.io.IOException;
 
 public class Retrieve3DS2 extends Service {
 
-    private Retrieve3DS2Result retrieve3DS2Result;
+    private final Retrieve3DS2Result retrieve3DS2Result;
 
     public Retrieve3DS2(Client client) {
         super(client);

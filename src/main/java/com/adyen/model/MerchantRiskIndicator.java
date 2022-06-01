@@ -59,7 +59,7 @@ public class MerchantRiskIndicator {
         SHIPTOVERIFIEDADDRESS("shipToVerifiedAddress");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         DeliveryAddressIndicatorEnum(String value) {
             this.value = value;
@@ -112,7 +112,7 @@ public class MerchantRiskIndicator {
         TWOORMOREDAYSSHIPPING("twoOrMoreDaysShipping");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         DeliveryTimeframeEnum(String value) {
             this.value = value;

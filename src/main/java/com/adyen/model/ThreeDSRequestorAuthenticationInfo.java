@@ -47,7 +47,7 @@ public class ThreeDSRequestorAuthenticationInfo {
         _05("05"),
         _06("06");
 
-        private String value;
+        private final String value;
 
         ThreeDSReqAuthMethodEnum(String value) {
             this.value = value;
@@ -77,7 +77,7 @@ public class ThreeDSRequestorAuthenticationInfo {
             @Override
             public ThreeDSReqAuthMethodEnum read(final JsonReader jsonReader) throws IOException {
                 Object value = jsonReader.nextString();
-                return ThreeDSReqAuthMethodEnum.fromValue((String)(value));
+                return ThreeDSReqAuthMethodEnum.fromValue((String) (value));
             }
         }
     }  @SerializedName("threeDSReqAuthMethod")

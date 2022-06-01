@@ -68,7 +68,7 @@ public class CreateAccountRequest {
         WEEKLY_ON_TUE_FRI_MIDNIGHT("WEEKLY_ON_TUE_FRI_MIDNIGHT"),
         YEARLY("YEARLY");
 
-        private String value;
+        private final String value;
 
         PayoutScheduleEnum(String value) {
             this.value = value;
