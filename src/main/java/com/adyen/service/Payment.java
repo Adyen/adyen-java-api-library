@@ -36,6 +36,7 @@ import com.adyen.service.resource.payment.Authorise;
 import com.adyen.service.resource.payment.Authorise3D;
 import com.adyen.service.resource.payment.Authorise3DS2;
 import com.adyen.service.resource.payment.GetAuthenticationResult;
+import com.adyen.service.resource.payment.RefundWithData;
 import com.adyen.service.resource.payment.Retrieve3DS2Result;
 import com.google.gson.reflect.TypeToken;
 
@@ -46,6 +47,7 @@ public class Payment extends Service {
     private Authorise authorise;
     private Authorise3D authorise3D;
     private Authorise3DS2 authorise3DS2;
+    private RefundWithData refundWithData;
     private Retrieve3DS2Result retrieve3DS2Result;
     private GetAuthenticationResult getAuthenticationResult;
 
@@ -55,6 +57,7 @@ public class Payment extends Service {
         authorise = new Authorise(this);
         authorise3D = new Authorise3D(this);
         authorise3DS2 = new Authorise3DS2(this);
+        refundWithData = new RefundWithData(this);
         retrieve3DS2Result = new Retrieve3DS2Result(this);
         getAuthenticationResult = new GetAuthenticationResult(this);
     }
@@ -105,6 +108,22 @@ public class Payment extends Service {
         String jsonRequest = GSON.toJson(paymentRequest3ds2);
 
         String jsonResult = authorise3DS2.request(jsonRequest);
+
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
+        }.getType());
+    }
+
+    /**
+     * POST /refundWithData API call
+     *
+     * @param paymentRequest PaymentRequest
+     * @return PaymentResult
+     * @throws Exception Exception
+     */
+    public PaymentResult refundWithData(PaymentRequest paymentRequest) throws Exception {
+        String jsonRequest = GSON.toJson(paymentRequest);
+
+        String jsonResult = refundWithData.request(jsonRequest);
 
         return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
