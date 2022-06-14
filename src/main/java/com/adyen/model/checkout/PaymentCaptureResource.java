@@ -33,7 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * PaymentCaptureResource
