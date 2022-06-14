@@ -26,7 +26,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 import com.adyen.model.checkout.Phone;
 
@@ -459,7 +458,6 @@ public class ThreeDS2RequestData {
      *
      * @return acctInfo
      **/
-    @Schema(description = "")
     public AcctInfo getAcctInfo() {
         return acctInfo;
     }
@@ -478,7 +476,6 @@ public class ThreeDS2RequestData {
      *
      * @return acctType
      **/
-    @Schema(description = "Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit")
     public AcctTypeEnum getAcctType() {
         return acctType;
     }
@@ -497,7 +494,6 @@ public class ThreeDS2RequestData {
      *
      * @return acquirerBIN
      **/
-    @Schema(description = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.")
     public String getAcquirerBIN() {
         return acquirerBIN;
     }
@@ -516,7 +512,6 @@ public class ThreeDS2RequestData {
      *
      * @return acquirerMerchantID
      **/
-    @Schema(description = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant's acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.")
     public String getAcquirerMerchantID() {
         return acquirerMerchantID;
     }
@@ -535,7 +530,6 @@ public class ThreeDS2RequestData {
      *
      * @return addrMatch
      **/
-    @Schema(description = "Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.")
     public AddrMatchEnum getAddrMatch() {
         return addrMatch;
     }
@@ -554,7 +548,6 @@ public class ThreeDS2RequestData {
      *
      * @return authenticationOnly
      **/
-    @Schema(description = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
     public Boolean isAuthenticationOnly() {
         return authenticationOnly;
     }
@@ -573,7 +566,6 @@ public class ThreeDS2RequestData {
      *
      * @return challengeIndicator
      **/
-    @Schema(description = "Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * `noPreference` * `requestNoChallenge` * `requestChallenge` * `requestChallengeAsMandate` ")
     public ChallengeIndicatorEnum getChallengeIndicator() {
         return challengeIndicator;
     }
@@ -592,7 +584,6 @@ public class ThreeDS2RequestData {
      *
      * @return deviceChannel
      **/
-    @Schema(required = true, description = "The environment of the shopper. Allowed values: * `app` * `browser`")
     public String getDeviceChannel() {
         return deviceChannel;
     }
@@ -611,7 +602,6 @@ public class ThreeDS2RequestData {
      *
      * @return deviceRenderOptions
      **/
-    @Schema(description = "")
     public DeviceRenderOptions getDeviceRenderOptions() {
         return deviceRenderOptions;
     }
@@ -630,7 +620,6 @@ public class ThreeDS2RequestData {
      *
      * @return homePhone
      **/
-    @Schema(description = "")
     public Phone getHomePhone() {
         return homePhone;
     }
@@ -649,7 +638,6 @@ public class ThreeDS2RequestData {
      *
      * @return mcc
      **/
-    @Schema(description = "Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The `mcc` is a four-digit code with which the previously given `acquirerMerchantID` is registered at the scheme.")
     public String getMcc() {
         return mcc;
     }
@@ -668,7 +656,6 @@ public class ThreeDS2RequestData {
      *
      * @return merchantName
      **/
-    @Schema(description = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. > Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.")
     public String getMerchantName() {
         return merchantName;
     }
@@ -687,7 +674,6 @@ public class ThreeDS2RequestData {
      *
      * @return messageVersion
      **/
-    @Schema(description = "The `messageVersion` value indicating the 3D Secure 2 protocol version.")
     public String getMessageVersion() {
         return messageVersion;
     }
@@ -706,7 +692,6 @@ public class ThreeDS2RequestData {
      *
      * @return mobilePhone
      **/
-    @Schema(description = "")
     public Phone getMobilePhone() {
         return mobilePhone;
     }
@@ -725,7 +710,6 @@ public class ThreeDS2RequestData {
      *
      * @return notificationURL
      **/
-    @Schema(description = "URL to where the issuer should send the `CRes`. Required if you are not using components for `channel` **Web** or if you are using classic integration `deviceChannel` **browser**.")
     public String getNotificationURL() {
         return notificationURL;
     }
@@ -744,7 +728,6 @@ public class ThreeDS2RequestData {
      *
      * @return payTokenInd
      **/
-    @Schema(description = "Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.")
     public Boolean isPayTokenInd() {
         return payTokenInd;
     }
@@ -763,7 +746,6 @@ public class ThreeDS2RequestData {
      *
      * @return paymentAuthenticationUseCase
      **/
-    @Schema(description = "Indicates the type of payment for which an authentication is requested (message extension)")
     public String getPaymentAuthenticationUseCase() {
         return paymentAuthenticationUseCase;
     }
@@ -782,7 +764,6 @@ public class ThreeDS2RequestData {
      *
      * @return purchaseInstalData
      **/
-    @Schema(description = "Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.")
     public String getPurchaseInstalData() {
         return purchaseInstalData;
     }
@@ -801,7 +782,6 @@ public class ThreeDS2RequestData {
      *
      * @return recurringExpiry
      **/
-    @Schema(description = "Date after which no further authorisations shall be performed. Format: YYYYMMDD")
     public String getRecurringExpiry() {
         return recurringExpiry;
     }
@@ -820,7 +800,6 @@ public class ThreeDS2RequestData {
      *
      * @return recurringFrequency
      **/
-    @Schema(description = "Indicates the minimum number of days between authorisations. Maximum length: 4 characters.")
     public String getRecurringFrequency() {
         return recurringFrequency;
     }
@@ -839,7 +818,6 @@ public class ThreeDS2RequestData {
      *
      * @return sdkAppID
      **/
-    @Schema(description = "The `sdkAppID` value as received from the 3D Secure 2 SDK. Required for `deviceChannel` set to **app**.")
     public String getSdkAppID() {
         return sdkAppID;
     }
@@ -858,7 +836,6 @@ public class ThreeDS2RequestData {
      *
      * @return sdkEncData
      **/
-    @Schema(description = "The `sdkEncData` value as received from the 3D Secure 2 SDK. Required for `deviceChannel` set to **app**.")
     public String getSdkEncData() {
         return sdkEncData;
     }
@@ -877,7 +854,6 @@ public class ThreeDS2RequestData {
      *
      * @return sdkEphemPubKey
      **/
-    @Schema(description = "")
     public SDKEphemPubKey getSdkEphemPubKey() {
         return sdkEphemPubKey;
     }
@@ -896,7 +872,6 @@ public class ThreeDS2RequestData {
      *
      * @return sdkMaxTimeout
      **/
-    @Schema(description = "The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for `deviceChannel` set to **app**. Defaults to **60** minutes.")
     public Integer getSdkMaxTimeout() {
         return sdkMaxTimeout;
     }
@@ -915,7 +890,6 @@ public class ThreeDS2RequestData {
      *
      * @return sdkReferenceNumber
      **/
-    @Schema(description = "The `sdkReferenceNumber` value as received from the 3D Secure 2 SDK. Only for `deviceChannel` set to **app**.")
     public String getSdkReferenceNumber() {
         return sdkReferenceNumber;
     }
@@ -934,7 +908,6 @@ public class ThreeDS2RequestData {
      *
      * @return sdkTransID
      **/
-    @Schema(description = "The `sdkTransID` value as received from the 3D Secure 2 SDK. Only for `deviceChannel` set to **app**.")
     public String getSdkTransID() {
         return sdkTransID;
     }
@@ -953,7 +926,6 @@ public class ThreeDS2RequestData {
      *
      * @return sdkVersion
      **/
-    @Schema(description = "Version of the 3D Secure 2 mobile SDK.  Only for `deviceChannel` set to **app**.")
     public String getSdkVersion() {
         return sdkVersion;
     }
@@ -972,7 +944,6 @@ public class ThreeDS2RequestData {
      *
      * @return threeDSCompInd
      **/
-    @Schema(description = "Completion indicator for the device fingerprinting.")
     public String getThreeDSCompInd() {
         return threeDSCompInd;
     }
@@ -991,7 +962,6 @@ public class ThreeDS2RequestData {
      *
      * @return threeDSRequestorAuthenticationInd
      **/
-    @Schema(description = "Indicates the type of Authentication request.")
     public String getThreeDSRequestorAuthenticationInd() {
         return threeDSRequestorAuthenticationInd;
     }
@@ -1010,7 +980,6 @@ public class ThreeDS2RequestData {
      *
      * @return threeDSRequestorAuthenticationInfo
      **/
-    @Schema(description = "")
     public ThreeDSRequestorAuthenticationInfo getThreeDSRequestorAuthenticationInfo() {
         return threeDSRequestorAuthenticationInfo;
     }
@@ -1029,7 +998,6 @@ public class ThreeDS2RequestData {
      *
      * @return threeDSRequestorChallengeInd
      **/
-    @Schema(description = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed)")
     public ThreeDSRequestorChallengeIndEnum getThreeDSRequestorChallengeInd() {
         return threeDSRequestorChallengeInd;
     }
@@ -1048,7 +1016,6 @@ public class ThreeDS2RequestData {
      *
      * @return threeDSRequestorID
      **/
-    @Schema(description = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.")
     public String getThreeDSRequestorID() {
         return threeDSRequestorID;
     }
@@ -1067,7 +1034,6 @@ public class ThreeDS2RequestData {
      *
      * @return threeDSRequestorName
      **/
-    @Schema(description = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.")
     public String getThreeDSRequestorName() {
         return threeDSRequestorName;
     }
@@ -1086,7 +1052,6 @@ public class ThreeDS2RequestData {
      *
      * @return threeDSRequestorPriorAuthenticationInfo
      **/
-    @Schema(description = "")
     public ThreeDSRequestorPriorAuthenticationInfo getThreeDSRequestorPriorAuthenticationInfo() {
         return threeDSRequestorPriorAuthenticationInfo;
     }
@@ -1105,7 +1070,6 @@ public class ThreeDS2RequestData {
      *
      * @return threeDSRequestorURL
      **/
-    @Schema(description = "URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.")
     public String getThreeDSRequestorURL() {
         return threeDSRequestorURL;
     }
@@ -1124,7 +1088,6 @@ public class ThreeDS2RequestData {
      *
      * @return transType
      **/
-    @Schema(description = "Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load")
     public TransTypeEnum getTransType() {
         return transType;
     }
@@ -1143,7 +1106,6 @@ public class ThreeDS2RequestData {
      *
      * @return transactionType
      **/
-    @Schema(description = "Identify the type of the transaction being authenticated.")
     public TransactionTypeEnum getTransactionType() {
         return transactionType;
     }
@@ -1162,7 +1124,6 @@ public class ThreeDS2RequestData {
      *
      * @return whiteListStatus
      **/
-    @Schema(description = "The `whiteListStatus` value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.")
     public String getWhiteListStatus() {
         return whiteListStatus;
     }
@@ -1181,7 +1142,6 @@ public class ThreeDS2RequestData {
      *
      * @return workPhone
      **/
-    @Schema(description = "")
     public Phone getWorkPhone() {
         return workPhone;
     }

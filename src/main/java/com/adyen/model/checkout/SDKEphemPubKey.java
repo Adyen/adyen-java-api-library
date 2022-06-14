@@ -23,7 +23,6 @@
 package com.adyen.model.checkout;
 
 import com.google.gson.annotations.SerializedName;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
 
@@ -49,7 +48,6 @@ public class SDKEphemPubKey {
      * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
      * @return crv
      **/
-    @Schema(description = "The `crv` value as received from the 3D Secure 2 SDK.")
     public String getCrv() {
         return crv;
     }
@@ -67,7 +65,6 @@ public class SDKEphemPubKey {
      * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
      * @return kty
      **/
-    @Schema(description = "The `kty` value as received from the 3D Secure 2 SDK.")
     public String getKty() {
         return kty;
     }
@@ -85,7 +82,6 @@ public class SDKEphemPubKey {
      * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
      * @return x
      **/
-    @Schema(description = "The `x` value as received from the 3D Secure 2 SDK.")
     public String getX() {
         return x;
     }
@@ -103,7 +99,6 @@ public class SDKEphemPubKey {
      * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
      * @return y
      **/
-    @Schema(description = "The `y` value as received from the 3D Secure 2 SDK.")
     public String getY() {
         return y;
     }

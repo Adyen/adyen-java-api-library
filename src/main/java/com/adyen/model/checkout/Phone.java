@@ -22,8 +22,6 @@
 package com.adyen.model.checkout;
 
 import com.google.gson.annotations.SerializedName;
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.util.Objects;
 
 public class Phone {
@@ -42,7 +40,6 @@ public class Phone {
      * Country code. Length: 1–3 characters.
      * @return cc
      **/
-    @Schema(description = "Country code. Length: 1–3 characters.")
     public String getCc() {
         return cc;
     }
@@ -60,7 +57,6 @@ public class Phone {
      * Subscriber number. Maximum length: 15 characters.
      * @return subscriber
      **/
-    @Schema(description = "Subscriber number. Maximum length: 15 characters.")
     public String getSubscriber() {
         return subscriber;
     }

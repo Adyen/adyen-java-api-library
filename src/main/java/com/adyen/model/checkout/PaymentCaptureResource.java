@@ -33,7 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
-import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * PaymentCaptureResource
@@ -153,7 +152,6 @@ public class PaymentCaptureResource {
    * Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). &gt; This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
    * @return lineItems
    **/
-  @Schema(description = "Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). > This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
   public List<LineItem> getLineItems() {
     return lineItems;
   }
