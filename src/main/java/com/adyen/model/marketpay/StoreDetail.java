@@ -56,7 +56,7 @@ public class StoreDetail {
         POS("POS");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;
@@ -107,7 +107,7 @@ public class StoreDetail {
         PENDING("Pending");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         StatusEnum(String value) {
             this.value = value;

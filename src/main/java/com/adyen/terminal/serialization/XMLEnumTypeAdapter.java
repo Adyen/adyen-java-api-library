@@ -32,7 +32,7 @@ import java.lang.reflect.Method;
 
 public class XMLEnumTypeAdapter<T> extends TypeAdapter<T> {
 
-    private Class clazz;
+    private final Class clazz;
 
     public XMLEnumTypeAdapter(Class clazz) {
         this.clazz = clazz;

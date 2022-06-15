@@ -105,7 +105,7 @@ public class AccountHolderTransactionListRequest {
         MANUALCORRECTED("ManualCorrected");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         TransactionStatusesEnum(String value) {
             this.value = value;

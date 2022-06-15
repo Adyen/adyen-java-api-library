@@ -123,7 +123,7 @@ public class Avs {
         AUTOMATIC("automatic");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         EnabledEnum(String value) {
             this.value = value;

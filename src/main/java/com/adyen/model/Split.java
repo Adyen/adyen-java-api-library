@@ -63,7 +63,7 @@ public class Split {
         VERIFICATION("Verification");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         TypeEnum(String value) {
             this.value = value;

@@ -32,7 +32,7 @@ import java.io.IOException;
 
 public class CheckoutUtility extends ApiKeyAuthenticatedService {
 
-    private OriginKeys originKeys;
+    private final OriginKeys originKeys;
 
     public CheckoutUtility(Client client) {
         super(client);

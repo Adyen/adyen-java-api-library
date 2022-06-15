@@ -32,7 +32,7 @@ import java.io.IOException;
 
 public class PosPayment extends ApiKeyAuthenticatedService {
 
-    private ConnectedTerminals connectedTerminals;
+    private final ConnectedTerminals connectedTerminals;
 
     public PosPayment(Client client) {
         super(client);

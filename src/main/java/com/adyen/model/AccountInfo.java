@@ -53,7 +53,7 @@ public class AccountInfo {
         MORETHAN60DAYS("moreThan60Days");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         AccountAgeIndicatorEnum(String value) {
             this.value = value;
@@ -106,7 +106,7 @@ public class AccountInfo {
         MORETHAN60DAYS("moreThan60Days");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         AccountChangeIndicatorEnum(String value) {
             this.value = value;
@@ -158,7 +158,7 @@ public class AccountInfo {
         DEBIT("debit");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         AccountTypeEnum(String value) {
             this.value = value;
@@ -214,7 +214,7 @@ public class AccountInfo {
         MORETHAN60DAYS("moreThan60Days");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         DeliveryAddressUsageIndicatorEnum(String value) {
             this.value = value;
@@ -274,7 +274,7 @@ public class AccountInfo {
         MORETHAN60DAYS("moreThan60Days");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         PasswordChangeIndicatorEnum(String value) {
             this.value = value;
@@ -334,7 +334,7 @@ public class AccountInfo {
         MORETHAN60DAYS("moreThan60Days");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         PaymentAccountIndicatorEnum(String value) {
             this.value = value;

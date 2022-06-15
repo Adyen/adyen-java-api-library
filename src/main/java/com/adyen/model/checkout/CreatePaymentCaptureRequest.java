@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * CreatePaymentCaptureRequest
@@ -35,6 +36,9 @@ public class CreatePaymentCaptureRequest {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Amount amount;
+
+  @SerializedName("lineItems")
+  private List<LineItem> lineItems = null;
 
   public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
@@ -63,11 +67,35 @@ public class CreatePaymentCaptureRequest {
     return amount;
   }
 
-
   public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
+  public CreatePaymentCaptureRequest lineItems(List<LineItem> lineItems) {
+    this.lineItems = lineItems;
+    return this;
+  }
+
+  public CreatePaymentCaptureRequest addLineItemsItem(LineItem lineItemsItem) {
+    if (this.lineItems == null) {
+      this.lineItems = new ArrayList<LineItem>();
+    }
+    this.lineItems.add(lineItemsItem);
+    return this;
+  }
+
+  /**
+   * Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). &gt; This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
+   * @return lineItems
+   **/
+  @Schema(description = "Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). > This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
+  public List<LineItem> getLineItems() {
+    return lineItems;
+  }
+
+  public void setLineItems(List<LineItem> lineItems) {
+    this.lineItems = lineItems;
+  }
 
   public CreatePaymentCaptureRequest merchantAccount(String merchantAccount) {
 
@@ -147,6 +175,7 @@ public class CreatePaymentCaptureRequest {
     }
     CreatePaymentCaptureRequest createPaymentCaptureRequest = (CreatePaymentCaptureRequest) o;
     return Objects.equals(this.amount, createPaymentCaptureRequest.amount) &&
+        Objects.equals(this.lineItems, createPaymentCaptureRequest.lineItems) &&
         Objects.equals(this.merchantAccount, createPaymentCaptureRequest.merchantAccount) &&
         Objects.equals(this.reference, createPaymentCaptureRequest.reference) &&
         Objects.equals(this.splits, createPaymentCaptureRequest.splits);
@@ -154,7 +183,7 @@ public class CreatePaymentCaptureRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, merchantAccount, reference, splits);
+    return Objects.hash(amount, lineItems, merchantAccount, reference, splits);
   }
 
   @Override
@@ -162,6 +191,7 @@ public class CreatePaymentCaptureRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePaymentCaptureRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");

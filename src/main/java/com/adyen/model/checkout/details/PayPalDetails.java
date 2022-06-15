@@ -28,6 +28,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -55,6 +56,9 @@ public class PayPalDetails implements PaymentMethodDetails {
     @SerializedName("type")
     private String type = PAYPAL;
 
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
+
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
 
@@ -64,7 +68,7 @@ public class PayPalDetails implements PaymentMethodDetails {
         REDIRECT("redirect");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         SubtypeEnum(String value) {
             this.value = value;
@@ -138,6 +142,24 @@ public class PayPalDetails implements PaymentMethodDetails {
         this.payerID = payerID;
     }
 
+    public PayPalDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
+
     public PayPalDetails type(String type) {
         this.type = type;
         return this;
@@ -190,6 +212,7 @@ public class PayPalDetails implements PaymentMethodDetails {
         PayPalDetails payPalDetails = (PayPalDetails) o;
         return Objects.equals(this.orderID, payPalDetails.orderID) &&
                 Objects.equals(this.payerID, payPalDetails.payerID) &&
+                Objects.equals(this.recurringDetailReference, payPalDetails.recurringDetailReference) &&
                 Objects.equals(this.storedPaymentMethodId, payPalDetails.storedPaymentMethodId) &&
                 Objects.equals(this.subtype, payPalDetails.subtype) &&
                 Objects.equals(this.type, payPalDetails.type);
@@ -197,7 +220,7 @@ public class PayPalDetails implements PaymentMethodDetails {
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderID, payerID, storedPaymentMethodId, subtype, type);
+        return Objects.hash(orderID, payerID, recurringDetailReference, storedPaymentMethodId, subtype, type);
     }
 
     @Override
@@ -207,6 +230,7 @@ public class PayPalDetails implements PaymentMethodDetails {
 
         sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
         sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -58,7 +58,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         PENDING("Pending");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         NewStatusEnum(String value) {
             this.value = value;
@@ -111,7 +111,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         PENDING("Pending");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         OldStatusEnum(String value) {
             this.value = value;

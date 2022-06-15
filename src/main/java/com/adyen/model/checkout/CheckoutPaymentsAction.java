@@ -154,7 +154,7 @@ public class CheckoutPaymentsAction {
         DONATE("donate");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         CheckoutActionType(String value) {
             this.value = value;

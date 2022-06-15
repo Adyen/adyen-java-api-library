@@ -22,6 +22,7 @@
 package com.adyen.model.checkout;
 
 import com.adyen.model.Installments;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,7 +51,8 @@ public class ModelConfiguration {
         OPTIONAL("OPTIONAL"),
         REQUIRED("REQUIRED");
 
-        private String value;
+        @JsonValue
+        private final String value;
 
         CardHolderNameEnum(String value) {
             this.value = value;

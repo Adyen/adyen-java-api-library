@@ -53,7 +53,7 @@ public class MasterpassDetails implements PaymentMethodDetails {
         DEBIT("debit");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FundingSourceEnum(String value) {
             this.value = value;

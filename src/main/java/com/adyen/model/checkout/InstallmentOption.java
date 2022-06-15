@@ -50,7 +50,7 @@ public class InstallmentOption {
         REVOLVING("revolving");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         PlansEnum(String value) {
             this.value = value;

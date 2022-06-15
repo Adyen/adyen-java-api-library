@@ -45,7 +45,7 @@ public class SubjectErasureResponse {
         PAYMENT_NOT_FOUND("PAYMENT_NOT_FOUND"),
         SUCCESS("SUCCESS");
 
-        private String value;
+        private final String value;
 
         ResultEnum(String value) {
             this.value = value;

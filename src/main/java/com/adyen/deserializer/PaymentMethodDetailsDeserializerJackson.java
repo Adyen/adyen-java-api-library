@@ -21,9 +21,9 @@
 package com.adyen.deserializer;
 
 import java.io.IOException;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.details.AchDetails;
+import com.adyen.model.checkout.details.AfterpayDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
 import com.adyen.model.checkout.details.AndroidPayDetails;
 import com.adyen.model.checkout.details.ApplePayDetails;
@@ -31,6 +31,7 @@ import com.adyen.model.checkout.details.BacsDirectDebitDetails;
 import com.adyen.model.checkout.details.BillDeskOnlineDetails;
 import com.adyen.model.checkout.details.BillDeskWalletDetails;
 import com.adyen.model.checkout.details.BlikDetails;
+import com.adyen.model.checkout.details.CardDetails;
 import com.adyen.model.checkout.details.CellulantDetails;
 import com.adyen.model.checkout.details.DokuDetails;
 import com.adyen.model.checkout.details.DotpayDetails;
@@ -52,6 +53,7 @@ import com.adyen.model.checkout.details.PayWithGoogleDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
+import com.adyen.model.checkout.details.StoredPaymentMethodDetails;
 import com.adyen.model.checkout.details.UpiCollectDetails;
 import com.adyen.model.checkout.details.UpiDetails;
 import com.adyen.model.checkout.details.UpiIntentDetails;
@@ -74,6 +76,10 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
         String type = node.get("type").asText();
 
         switch (type) {
+            case AfterpayDetails.AFTERPAY_DEFAULT:
+            case AfterpayDetails.AFTERPAYTOUCH:
+            case AfterpayDetails.AFTERPAY_B2B:
+                return codec.treeToValue(node, AfterpayDetails.class);
             case AchDetails.ACH:
                 return codec.treeToValue(node, AchDetails.class);
             case AmazonPayDetails.AMAZONPAY:
@@ -157,7 +163,8 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
                 return codec.treeToValue(node, QiwiWalletDetails.class);
             case SamsungPayDetails.SAMSUNGPAY:
                 return codec.treeToValue(node, SamsungPayDetails.class);
-            case SepaDirectDebitDetails.SEPA_DIRECT_DEBIT:
+            case SepaDirectDebitDetails.SEPADIRECTDEBIT_AMAZONPAY:
+            case SepaDirectDebitDetails.SEPADIRECTDEBIT:
                 return codec.treeToValue(node, SepaDirectDebitDetails.class);
             case UpiDetails.UPI:
                 return codec.treeToValue(node, UpiDetails.class);
@@ -173,8 +180,25 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
                 return codec.treeToValue(node, WeChatPayDetails.class);
             case WeChatPayMiniProgramDetails.WECHATPAYMINIPROGRAM:
                 return codec.treeToValue(node, WeChatPayMiniProgramDetails.class);
+            case StoredPaymentMethodDetails.BCMC_MOBILE:
+            case StoredPaymentMethodDetails.BCMC_MOBILE_QR:
+            case StoredPaymentMethodDetails.BCMC_MOBILE_APP:
+            case StoredPaymentMethodDetails.MOMO_WALLET:
+            case StoredPaymentMethodDetails.MOMO_WALLET_APP:
+            case StoredPaymentMethodDetails.PAYMAYA_WALLET:
+            case StoredPaymentMethodDetails.GRABPAY_SG:
+            case StoredPaymentMethodDetails.GRABPAY_MY:
+            case StoredPaymentMethodDetails.GRABPAY_TH:
+            case StoredPaymentMethodDetails.GRABPAY_ID:
+            case StoredPaymentMethodDetails.GRABPAY_VN:
+            case StoredPaymentMethodDetails.GRABPAY_PH:
+            case StoredPaymentMethodDetails.OXXO:
+            case StoredPaymentMethodDetails.GCASH:
+            case StoredPaymentMethodDetails.KAKAOPAY:
+            case StoredPaymentMethodDetails.TRUEMONEY:
+                return codec.treeToValue(node, StoredPaymentMethodDetails.class);
             default:
-                return codec.treeToValue(node, DefaultPaymentMethodDetails.class);
+                return codec.treeToValue(node, CardDetails.class);
         }
     }
 }

@@ -63,7 +63,7 @@ public class CloseAccountResponse {
         SUSPENDED("Suspended");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         StatusEnum(String value) {
             this.value = value;

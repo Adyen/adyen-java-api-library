@@ -115,7 +115,7 @@ public class Transaction {
         SECONDCHARGEBACKRECEIVED("SecondChargebackReceived");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         TransactionStatusEnum(String value) {
             this.value = value;

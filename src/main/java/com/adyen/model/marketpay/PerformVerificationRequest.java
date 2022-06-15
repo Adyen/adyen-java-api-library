@@ -55,7 +55,7 @@ public class PerformVerificationRequest {
         PROCESSING("Processing");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         AccountStateTypeEnum(String value) {
             this.value = value;

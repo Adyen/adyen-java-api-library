@@ -88,7 +88,7 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
         SUBSCRIPTION("Subscription");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         RecurringProcessingModelEnum(String value) {
             this.value = value;
@@ -124,7 +124,7 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
     }
 
     @SerializedName("recurringProcessingModel")
-    private RecurringProcessingModelEnum recurringProcessingModel = null;
+    private final RecurringProcessingModelEnum recurringProcessingModel = null;
 
     /**
      * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper
@@ -143,7 +143,7 @@ public class PaymentRequest3ds2 extends AbstractPaymentRequest {
         POS("POS");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;

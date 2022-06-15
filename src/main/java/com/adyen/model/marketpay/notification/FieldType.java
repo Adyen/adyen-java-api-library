@@ -179,7 +179,7 @@ public class FieldType {
         YEAR("year");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FieldNameEnum(String value) {
             this.value = value;

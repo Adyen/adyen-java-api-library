@@ -120,7 +120,7 @@ public class PayoutRequest {
         COMPANYNAME("CompanyName");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         EntityTypeEnum(String value) {
             this.value = value;
@@ -203,7 +203,7 @@ public class PayoutRequest {
         SUBSCRIPTION("Subscription");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         RecurringProcessingModelEnum(String value) {
             this.value = value;
@@ -270,7 +270,7 @@ public class PayoutRequest {
         POS("POS");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;

@@ -50,7 +50,7 @@ public class UpdatePayoutScheduleRequest {
         @SerializedName("WEEKLY")
         WEEKLY("WEEKLY");
 
-        private String value;
+        private final String value;
 
         ScheduleEnum(String value) {
             this.value = value;
@@ -81,7 +81,7 @@ public class UpdatePayoutScheduleRequest {
         @SerializedName("UPDATE")
         UPDATE("UPDATE");
 
-        private String value;
+        private final String value;
 
         ActionEnum(String value) {
             this.value = value;

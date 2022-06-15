@@ -20,6 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -86,7 +87,8 @@ public class DocumentDetail {
         @SerializedName("SUPPORTING_DOCUMENTS")
         SUPPORTING_DOCUMENTS("SUPPORTING_DOCUMENTS");
 
-        private String value;
+        @JsonValue
+        private final String value;
 
         DocumentTypeEnum(String value) {
             this.value = value;

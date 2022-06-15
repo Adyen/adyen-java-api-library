@@ -55,14 +55,14 @@ import java.io.IOException;
 
 public class Fund extends Service {
 
-    private AccountHolderBalance accountHolderBalance;
-    private TransferFunds transferFunds;
-    private PayoutAccountHolder payoutAccountHolder;
-    private AccountHolderTransactionList accountHolderTransactionList;
-    private RefundNotPaidOutTransfers refundNotPaidOutTransfers;
-    private SetupBeneficiary setupBeneficiary;
-    private RefundFundsTransfer refundFundsTransfer;
-    private DebitAccountHolder debitAccountHolder;
+    private final AccountHolderBalance accountHolderBalance;
+    private final TransferFunds transferFunds;
+    private final PayoutAccountHolder payoutAccountHolder;
+    private final AccountHolderTransactionList accountHolderTransactionList;
+    private final RefundNotPaidOutTransfers refundNotPaidOutTransfers;
+    private final SetupBeneficiary setupBeneficiary;
+    private final RefundFundsTransfer refundFundsTransfer;
+    private final DebitAccountHolder debitAccountHolder;
 
     public Fund(Client client) {
         super(client);

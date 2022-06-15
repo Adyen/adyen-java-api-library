@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * CreatePaymentRefundRequest
  */
@@ -33,6 +35,9 @@ public class CreatePaymentRefundRequest {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Amount amount;
+
+  @SerializedName("lineItems")
+  private List<LineItem> lineItems = null;
 
   public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
@@ -66,6 +71,26 @@ public class CreatePaymentRefundRequest {
     this.amount = amount;
   }
 
+  public CreatePaymentRefundRequest addLineItemsItem(LineItem lineItemsItem) {
+    if (this.lineItems == null) {
+      this.lineItems = new ArrayList<LineItem>();
+    }
+    this.lineItems.add(lineItemsItem);
+    return this;
+  }
+
+  /**
+   * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
+   * @return lineItems
+   **/
+  @Schema(description = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
+  public List<LineItem> getLineItems() {
+    return lineItems;
+  }
+
+  public void setLineItems(List<LineItem> lineItems) {
+    this.lineItems = lineItems;
+  }
 
   public CreatePaymentRefundRequest merchantAccount(String merchantAccount) {
 
@@ -145,6 +170,7 @@ public class CreatePaymentRefundRequest {
     }
     CreatePaymentRefundRequest createPaymentRefundRequest = (CreatePaymentRefundRequest) o;
     return Objects.equals(this.amount, createPaymentRefundRequest.amount) &&
+        Objects.equals(this.lineItems, createPaymentRefundRequest.lineItems) &&
         Objects.equals(this.merchantAccount, createPaymentRefundRequest.merchantAccount) &&
         Objects.equals(this.reference, createPaymentRefundRequest.reference) &&
         Objects.equals(this.splits, createPaymentRefundRequest.splits);
@@ -152,7 +178,7 @@ public class CreatePaymentRefundRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, merchantAccount, reference, splits);
+    return Objects.hash(amount, lineItems, merchantAccount, reference, splits);
   }
 
   @Override
@@ -160,6 +186,7 @@ public class CreatePaymentRefundRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePaymentRefundRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
