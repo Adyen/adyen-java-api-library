@@ -33,7 +33,7 @@ import com.adyen.model.checkout.CheckoutCreateOrderResponse;
 import com.adyen.model.checkout.CheckoutOrder;
 import com.adyen.model.checkout.CheckoutPaymentsAction;
 import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
+import com.adyen.model.checkout.details.*;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
@@ -63,41 +63,6 @@ import com.adyen.model.checkout.CreateStandalonePaymentCancelRequest;
 import com.adyen.model.checkout.StandalonePaymentCancelResource;
 import com.adyen.model.checkout.PaymentAmountUpdateResource;
 import com.adyen.model.checkout.CreatePaymentAmountUpdateRequest;
-import com.adyen.model.checkout.details.AchDetails;
-import com.adyen.model.checkout.details.AmazonPayDetails;
-import com.adyen.model.checkout.details.AndroidPayDetails;
-import com.adyen.model.checkout.details.ApplePayDetails;
-import com.adyen.model.checkout.details.BacsDirectDebitDetails;
-import com.adyen.model.checkout.details.BillDeskOnlineDetails;
-import com.adyen.model.checkout.details.BillDeskWalletDetails;
-import com.adyen.model.checkout.details.BlikDetails;
-import com.adyen.model.checkout.details.DokuDetails;
-import com.adyen.model.checkout.details.DotpayDetails;
-import com.adyen.model.checkout.details.DragonpayDetails;
-import com.adyen.model.checkout.details.EcontextVoucherDetails;
-import com.adyen.model.checkout.details.EntercashDetails;
-import com.adyen.model.checkout.details.GenericIssuerPaymentMethodDetails;
-import com.adyen.model.checkout.details.GiropayDetails;
-import com.adyen.model.checkout.details.GooglePayDetails;
-import com.adyen.model.checkout.details.IdealDetails;
-import com.adyen.model.checkout.details.KlarnaDetails;
-import com.adyen.model.checkout.details.LianLianPayDetails;
-import com.adyen.model.checkout.details.MasterpassDetails;
-import com.adyen.model.checkout.details.MbwayDetails;
-import com.adyen.model.checkout.details.MobilePayDetails;
-import com.adyen.model.checkout.details.MolPayDetails;
-import com.adyen.model.checkout.details.PayPalDetails;
-import com.adyen.model.checkout.details.PayUUpiDetails;
-import com.adyen.model.checkout.details.PayWithGoogleDetails;
-import com.adyen.model.checkout.details.QiwiWalletDetails;
-import com.adyen.model.checkout.details.SamsungPayDetails;
-import com.adyen.model.checkout.details.SepaDirectDebitDetails;
-import com.adyen.model.checkout.details.UpiCollectDetails;
-import com.adyen.model.checkout.details.UpiIntentDetails;
-import com.adyen.model.checkout.details.VippsDetails;
-import com.adyen.model.checkout.details.VisaCheckoutDetails;
-import com.adyen.model.checkout.details.WeChatPayDetails;
-import com.adyen.model.checkout.details.WeChatPayMiniProgramDetails;
 import com.adyen.service.Checkout;
 import com.adyen.service.exception.ApiException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -527,13 +492,13 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestSepaPaymentMethodDetails() {
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.type("sepadirectdebit");
-        defaultPaymentMethodDetails.setSepaOwnerName("A. Schneider");
-        defaultPaymentMethodDetails.setSepaIbanNumber("DE87123456781234567890");
+        SepaDirectDebitDetails sepaDirectDebitDetailsDetails = new SepaDirectDebitDetails();
+        sepaDirectDebitDetailsDetails.type("sepadirectdebit");
+        sepaDirectDebitDetailsDetails.setOwnerName("A. Schneider");
+        sepaDirectDebitDetailsDetails.setIban("DE87123456781234567890");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        paymentsRequest.setPaymentMethod(sepaDirectDebitDetailsDetails);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
@@ -545,8 +510,8 @@ public class CheckoutTest extends BaseTest {
                 + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
                 + "  \"paymentMethod\": {\n"
                 + "    \"type\": \"sepadirectdebit\",\n"
-                + "    \"sepa.ownerName\": \"A. Schneider\",\n"
-                + "    \"sepa.ibanNumber\": \"DE87123456781234567890\"\n"
+                + "    \"ownerName\": \"A. Schneider\",\n"
+                + "    \"iban\": \"DE87123456781234567890\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
@@ -1271,11 +1236,11 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestRecurringPaymentMethodDetails() {
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.setStoredPaymentMethodId("testStoredPaymentMethodId");
+        StoredPaymentMethodDetails storedPaymentMethodDetails = new StoredPaymentMethodDetails();
+        storedPaymentMethodDetails.setStoredPaymentMethodId("testStoredPaymentMethodId");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        paymentsRequest.setPaymentMethod(storedPaymentMethodDetails);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
@@ -1301,11 +1266,11 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestShopperNotificationReferencePaymentMethodDetails() {
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.setShopperNotificationReference("IA0F7500002462");
+        CardDetails cardDetails = new CardDetails();
+        cardDetails.setShopperNotificationReference("IA0F7500002462");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        paymentsRequest.setPaymentMethod(cardDetails);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
@@ -2230,7 +2195,7 @@ public class CheckoutTest extends BaseTest {
      */
     protected PaymentsRequest createPaymentsCheckoutRequest() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
-        DefaultPaymentMethodDetails details = new DefaultPaymentMethodDetails();
+        CardDetails details = new CardDetails();
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
@@ -2267,7 +2232,7 @@ public class CheckoutTest extends BaseTest {
 
     protected PaymentsRequest createEncryptedPaymentsCheckoutRequest() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
-        DefaultPaymentMethodDetails details = new DefaultPaymentMethodDetails();
+        CardDetails details = new CardDetails();
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
@@ -2288,7 +2253,7 @@ public class CheckoutTest extends BaseTest {
 
     protected PaymentsRequest createEncryptedPaymentsCheckoutRequestWithoutHoldername() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
-        DefaultPaymentMethodDetails details = new DefaultPaymentMethodDetails();
+        CardDetails details = new CardDetails();
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
@@ -2314,7 +2279,7 @@ public class CheckoutTest extends BaseTest {
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
+        CardDetails defaultPaymentMethodDetails = new CardDetails();
         defaultPaymentMethodDetails.setType("networkToken");
         defaultPaymentMethodDetails.setBrand(BrandCodes.MASTERCARD);
         defaultPaymentMethodDetails.setExpiryMonth("08");
@@ -2379,7 +2344,7 @@ public class CheckoutTest extends BaseTest {
 
     protected PaymentsRequest createPaymentsRequestWithOrder() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
-        DefaultPaymentMethodDetails details = new DefaultPaymentMethodDetails();
+        CardDetails details = new CardDetails();
         paymentsRequest.setReference("payment reference");
         paymentsRequest.setAmount(createAmountObject("EUR", 1000L));
 
@@ -2414,8 +2379,8 @@ public class CheckoutTest extends BaseTest {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
         paymentsRequest.setReference("payment reference");
 
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.setType("bankTransfer_IBAN");
+        CardDetails defaultPaymentMethodDetails = new CardDetails();
+        defaultPaymentMethodDetails.setType("sepadirectdebit");
         paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
 
         Amount amount = new Amount();

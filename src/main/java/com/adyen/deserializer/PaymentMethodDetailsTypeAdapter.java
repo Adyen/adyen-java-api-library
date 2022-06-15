@@ -20,7 +20,6 @@
  */
 package com.adyen.deserializer;
 
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.details.AchDetails;
 import com.adyen.model.checkout.details.AfterpayDetails;
@@ -31,6 +30,7 @@ import com.adyen.model.checkout.details.BacsDirectDebitDetails;
 import com.adyen.model.checkout.details.BillDeskOnlineDetails;
 import com.adyen.model.checkout.details.BillDeskWalletDetails;
 import com.adyen.model.checkout.details.BlikDetails;
+import com.adyen.model.checkout.details.CardDetails;
 import com.adyen.model.checkout.details.CellulantDetails;
 import com.adyen.model.checkout.details.DokuDetails;
 import com.adyen.model.checkout.details.DotpayDetails;
@@ -92,7 +92,6 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
             public PaymentMethodDetails read(JsonReader in) {
                 JsonElement jsonElement = Streams.parse(in);
                 String paymentMethodType = jsonElement.getAsJsonObject().get("type").getAsString();
-
                 switch (paymentMethodType) {
                     case AfterpayDetails.AFTERPAY_DEFAULT:
                     case AfterpayDetails.AFTERPAYTOUCH:
@@ -216,7 +215,7 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                     case StoredPaymentMethodDetails.TRUEMONEY:
                         return gson.getAdapter(StoredPaymentMethodDetails.class).fromJsonTree(jsonElement);
                     default:
-                        return gson.getAdapter(DefaultPaymentMethodDetails.class).fromJsonTree(jsonElement);
+                        return gson.getAdapter(CardDetails.class).fromJsonTree(jsonElement);
                 }
             }
         };

@@ -35,10 +35,10 @@ import com.adyen.model.PaymentRequest3ds2;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.additionalData.InvoiceLine;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PersonalDetails;
+import com.adyen.model.checkout.details.AfterpayDetails;
 import com.adyen.model.modification.AbstractModificationRequest;
 import com.adyen.model.modification.CaptureRequest;
 import com.adyen.model.modification.DonationRequest;
@@ -182,21 +182,12 @@ public class BaseTest {
         paymentsRequest.setReference("YOUR_ORDER_NUMBER");
         paymentsRequest.setChannel(PaymentsRequest.ChannelEnum.WEB);
 
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.setType("afterpay_default");
+        AfterpayDetails afterpayDetails = new AfterpayDetails();
+        afterpayDetails.setType("afterpay_default");
 
-        PersonalDetails personalDetails = new PersonalDetails();
-        personalDetails.setFirstName("EndToEnd");
-        personalDetails.setLastName("lastName");
-        personalDetails.setGender(Gender.MALE);
-        personalDetails.setDateOfBirth("2000-02-02");
-        personalDetails.setTelephoneNumber("+31612345678");
-        personalDetails.setShopperEmail("SHOPPER@EMAIL_ADDRESS.COM");
+        afterpayDetails.setPersonalDetails("EndToEnd lastName 2000-02-02 +31612345678 SHOPPER@EMAIL_ADDRESS.COM");
 
-        defaultPaymentMethodDetails.setPersonalDetails(personalDetails);
-        defaultPaymentMethodDetails.setSeparateDeliveryAddress(false);
-
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        paymentsRequest.setPaymentMethod(afterpayDetails);
 
         Address billingAddress = new Address();
         billingAddress.setStreet("Simon Carmiggeltstraat");

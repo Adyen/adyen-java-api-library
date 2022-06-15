@@ -21,7 +21,6 @@
 package com.adyen.deserializer;
 
 import java.io.IOException;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.details.AchDetails;
 import com.adyen.model.checkout.details.AfterpayDetails;
@@ -32,6 +31,7 @@ import com.adyen.model.checkout.details.BacsDirectDebitDetails;
 import com.adyen.model.checkout.details.BillDeskOnlineDetails;
 import com.adyen.model.checkout.details.BillDeskWalletDetails;
 import com.adyen.model.checkout.details.BlikDetails;
+import com.adyen.model.checkout.details.CardDetails;
 import com.adyen.model.checkout.details.CellulantDetails;
 import com.adyen.model.checkout.details.DokuDetails;
 import com.adyen.model.checkout.details.DotpayDetails;
@@ -198,7 +198,7 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
             case StoredPaymentMethodDetails.TRUEMONEY:
                 return codec.treeToValue(node, StoredPaymentMethodDetails.class);
             default:
-                return codec.treeToValue(node, DefaultPaymentMethodDetails.class);
+                return codec.treeToValue(node, CardDetails.class);
         }
     }
 }
