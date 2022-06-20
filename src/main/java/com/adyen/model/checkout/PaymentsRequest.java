@@ -35,7 +35,6 @@ import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
-import com.adyen.util.Util;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.gson.TypeAdapter;
@@ -43,152 +42,213 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.adyen.constants.ApiConstants.PaymentMethodType.TYPE_SCHEME;
-import static com.adyen.util.Util.toIndentedString;
-
 /**
  * PaymentsRequest
  */
 public class PaymentsRequest {
-
     @SerializedName("accountInfo")
     private AccountInfo accountInfo = null;
+
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+
     @SerializedName("amount")
     private Amount amount = null;
+
+    @SerializedName("authenticationData")
+    private AuthenticationData authenticationData = null;
+
     @SerializedName("billingAddress")
     private Address billingAddress = null;
+
+    @SerializedName("browserInfo")
+    private BrowserInfo browserInfo = null;
+
     @SerializedName("captureDelayHours")
     private Integer captureDelayHours = null;
+
+    /**
+     * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
+     */
+    @JsonAdapter(ChannelEnum.Adapter.class)
+    public enum ChannelEnum {
+        IOS("iOS"),
+        ANDROID("Android"),
+        WEB("Web");
+
+        @JsonValue
+        private final String value;
+
+        ChannelEnum(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+        public static ChannelEnum fromValue(String input) {
+            for (ChannelEnum b : ChannelEnum.values()) {
+                if (b.value.equals(input)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static class Adapter extends TypeAdapter<ChannelEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ChannelEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
+
+            @Override
+            public ChannelEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return ChannelEnum.fromValue((String) (value));
+            }
+        }
+    }  @SerializedName("channel")
+    private ChannelEnum channel = null;
+
     @SerializedName("checkoutAttemptId")
     private String checkoutAttemptId = null;
-    @SerializedName("channel")
-    private ChannelEnum channel = null;
+
     @SerializedName("company")
     private Company company = null;
+
+    @SerializedName("conversionId")
+    private String conversionId = null;
+
     @SerializedName("countryCode")
     private String countryCode = null;
+
     @SerializedName("dateOfBirth")
     @JsonAdapter(DateSerializer.class)
     private Date dateOfBirth = null;
+
     @SerializedName("dccQuote")
     private ForexQuote dccQuote = null;
+
     @SerializedName("deliveryAddress")
     private Address deliveryAddress = null;
+
     @SerializedName("deliveryDate")
     @JsonAdapter(DateTimeGMTSerializer.class)
     private Date deliveryDate = null;
-    @SerializedName("enableOneClick")
-    private Boolean enableOneClick = null;
-    @SerializedName("enablePayOut")
-    private Boolean enablePayOut = null;
-    @SerializedName("enableRecurring")
-    private Boolean enableRecurring = null;
-    @SerializedName("entityType")
-    private EntityTypeEnum entityType = null;
-    @SerializedName("fraudOffset")
-    private Integer fraudOffset = null;
-    @SerializedName("installments")
-    private Installments installments = null;
-    @SerializedName("lineItems")
-    private List<LineItem> lineItems = null;
-    @SerializedName("mcc")
-    private String mcc = null;
-    @SerializedName("merchantAccount")
-    private String merchantAccount = null;
-    @SerializedName("merchantOrderReference")
-    private String merchantOrderReference = null;
-    @SerializedName("metadata")
-    private Map<String, String> metadata = null;
-    @SerializedName("orderReference")
-    private String orderReference = null;
-    @SerializedName("paymentMethod")
-    @JsonAdapter(PaymentMethodDetailsTypeAdapter.class)
-    @JsonDeserialize(using = PaymentMethodDetailsDeserializerJackson.class)
-    private PaymentMethodDetails paymentMethod = null;
-    @SerializedName("reference")
-    private String reference = null;
-    @SerializedName("returnUrl")
-    private String returnUrl = null;
-    @SerializedName("sessionValidity")
-    private String sessionValidity = null;
-    @SerializedName("shopperEmail")
-    private String shopperEmail = null;
-    @SerializedName("shopperIP")
-    private String shopperIP = null;
-    @SerializedName("shopperInteraction")
-    private ShopperInteractionEnum shopperInteraction = null;
-    @SerializedName("shopperLocale")
-    private String shopperLocale = null;
-    @SerializedName("shopperName")
-    private Name shopperName = null;
-    @SerializedName("shopperReference")
-    private String shopperReference = null;
-    @SerializedName("shopperStatement")
-    private String shopperStatement = null;
-    @SerializedName("socialSecurityNumber")
-    private String socialSecurityNumber = null;
-    @SerializedName("telephoneNumber")
-    private String telephoneNumber = null;
-    @SerializedName("browserInfo")
-    private BrowserInfo browserInfo = null;
+
     @SerializedName("deviceFingerprint")
     private String deviceFingerprint = null;
-    @SerializedName("applicationInfo")
-    private ApplicationInfo applicationInfo;
-    @SerializedName("splits")
-    private List<Split> splits = null;
+
+    @SerializedName("enableOneClick")
+    private Boolean enableOneClick = null;
+
+    @SerializedName("enablePayOut")
+    private Boolean enablePayOut = null;
+
+    @SerializedName("enableRecurring")
+    private Boolean enableRecurring = null;
+
+    /**
+     * The type of the entity the payment is processed for.
+     */
+    @JsonAdapter(EntityTypeEnum.Adapter.class)
+    public enum EntityTypeEnum {
+        NATURALPERSON("NaturalPerson"),
+        COMPANYNAME("CompanyName");
+
+        @JsonValue
+        private final String value;
+
+        EntityTypeEnum(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+        public static EntityTypeEnum fromValue(String input) {
+            for (EntityTypeEnum b : EntityTypeEnum.values()) {
+                if (b.value.equals(input)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static class Adapter extends TypeAdapter<EntityTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final EntityTypeEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
+
+            @Override
+            public EntityTypeEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return EntityTypeEnum.fromValue((String) (value));
+            }
+        }
+    }  @SerializedName("entityType")
+    private EntityTypeEnum entityType = null;
+
+    @SerializedName("fraudOffset")
+    private Integer fraudOffset = null;
+
+    @SerializedName("installments")
+    private Installments installments = null;
+
+    @SerializedName("lineItems")
+    private List<LineItem> lineItems = null;
+
+    @SerializedName("mandate")
+    private Mandate mandate = null;
+
+    @SerializedName("mcc")
+    private String mcc = null;
+
+    @SerializedName("merchantAccount")
+    private String merchantAccount = null;
+
+    @SerializedName("merchantOrderReference")
+    private String merchantOrderReference = null;
+
     @SerializedName("merchantRiskIndicator")
     private MerchantRiskIndicator merchantRiskIndicator = null;
-    @SerializedName("threeDS2RequestData")
-    private ThreeDS2RequestData threeDS2RequestData = null;
 
-    @SerializedName("trustedShopper")
-    private Boolean trustedShopper = null;
-
-    @SerializedName("origin")
-    private String origin;
-
-    @SerializedName("recurringProcessingModel")
-    private RecurringProcessingModelEnum recurringProcessingModel = null;
+    @SerializedName("metadata")
+    private Map<String, String> metadata = null;
 
     @SerializedName("mpiData")
     private ThreeDSecureData mpiData = null;
 
-    @SerializedName("redirectFromIssuerMethod")
-    private String redirectFromIssuerMethod = null;
-
-    @SerializedName("redirectToIssuerMethod")
-    private String redirectToIssuerMethod = null;
-
     @SerializedName("order")
     private CheckoutOrder order = null;
 
-    @SerializedName("storePaymentMethod")
-    private Boolean storePaymentMethod = null;
+    @SerializedName("orderReference")
+    private String orderReference = null;
 
-    @SerializedName("store")
-    private String store = null;
+    @SerializedName("origin")
+    private String origin = null;
 
-    @SerializedName("threeDSAuthenticationOnly")
-    private Boolean threeDSAuthenticationOnly = null;
-
-    @SerializedName("riskData")
-    private RiskData riskData = null;
-
-    @SerializedName("conversionId")
-    private String conversionId = null;
+    @SerializedName("paymentMethod")
+    @JsonAdapter(PaymentMethodDetailsTypeAdapter.class)
+    @JsonDeserialize(using = PaymentMethodDetailsDeserializerJackson.class)
+    private PaymentMethodDetails paymentMethod = null;
 
     @SerializedName("recurringExpiry")
     private String recurringExpiry = null;
@@ -196,34 +256,176 @@ public class PaymentsRequest {
     @SerializedName("recurringFrequency")
     private String recurringFrequency = null;
 
-    @SerializedName("mandate")
-    private Mandate mandate = null;
+    /**
+     * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#x27;s balance drops below a certain amount.
+     */
+    @JsonAdapter(RecurringProcessingModelEnum.Adapter.class)
+    public enum RecurringProcessingModelEnum {
+        CARDONFILE("CardOnFile"),
+        SUBSCRIPTION("Subscription"),
+        UNSCHEDULEDCARDONFILE("UnscheduledCardOnFile");
+
+        @JsonValue
+        private final String value;
+
+        RecurringProcessingModelEnum(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+        public static RecurringProcessingModelEnum fromValue(String input) {
+            for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
+                if (b.value.equals(input)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final RecurringProcessingModelEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
+
+            @Override
+            public RecurringProcessingModelEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return RecurringProcessingModelEnum.fromValue((String) (value));
+            }
+        }
+    }  @SerializedName("recurringProcessingModel")
+    private RecurringProcessingModelEnum recurringProcessingModel = null;
+
+    @SerializedName("redirectFromIssuerMethod")
+    private String redirectFromIssuerMethod = null;
+
+    @SerializedName("redirectToIssuerMethod")
+    private String redirectToIssuerMethod = null;
+
+    @SerializedName("reference")
+    private String reference = null;
+
+    @SerializedName("returnUrl")
+    private String returnUrl = null;
+
+    @SerializedName("riskData")
+    private RiskData riskData = null;
+
+    @SerializedName("sessionValidity")
+    private String sessionValidity = null;
+
+    @SerializedName("shopperEmail")
+    private String shopperEmail = null;
+
+    @SerializedName("shopperIP")
+    private String shopperIP = null;
+
+    /**
+     * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
+     */
+    @JsonAdapter(ShopperInteractionEnum.Adapter.class)
+    public enum ShopperInteractionEnum {
+        ECOMMERCE("Ecommerce"),
+        CONTAUTH("ContAuth"),
+        MOTO("Moto"),
+        POS("POS");
+
+        @JsonValue
+        private final String value;
+
+        ShopperInteractionEnum(String value) {
+            this.value = value;
+        }
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+        public static ShopperInteractionEnum fromValue(String input) {
+            for (ShopperInteractionEnum b : ShopperInteractionEnum.values()) {
+                if (b.value.equals(input)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static class Adapter extends TypeAdapter<ShopperInteractionEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ShopperInteractionEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
+
+            @Override
+            public ShopperInteractionEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return ShopperInteractionEnum.fromValue((String) (value));
+            }
+        }
+    }  @SerializedName("shopperInteraction")
+    private ShopperInteractionEnum shopperInteraction = null;
+
+    @SerializedName("shopperLocale")
+    private String shopperLocale = null;
+
+    @SerializedName("shopperName")
+    private Name shopperName = null;
+
+    @SerializedName("shopperReference")
+    private String shopperReference = null;
+
+    @SerializedName("shopperStatement")
+    private String shopperStatement = null;
+
+    @SerializedName("socialSecurityNumber")
+    private String socialSecurityNumber = null;
+
+    @SerializedName("splits")
+    private List<Split> splits = null;
+
+    @SerializedName("store")
+    private String store = null;
+
+    @SerializedName("storePaymentMethod")
+    private Boolean storePaymentMethod = null;
+
+    @SerializedName("telephoneNumber")
+    private String telephoneNumber = null;
+
+    @SerializedName("applicationInfo")
+    private ApplicationInfo applicationInfo = null;
+
+    @SerializedName("threeDS2RequestData")
+    private ThreeDS2RequestData threeDS2RequestData = null;
+
+    @SerializedName("threeDSAuthenticationOnly")
+    private Boolean threeDSAuthenticationOnly = null;
+
+    @SerializedName("trustedShopper")
+    private Boolean trustedShopper = null;
 
     public PaymentsRequest() {
         applicationInfo = new ApplicationInfo();
     }
 
-    public RecurringProcessingModelEnum getRecurringProcessingModel() {
-        return recurringProcessingModel;
-    }
-
-    public PaymentsRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
-        this.recurringProcessingModel = recurringProcessingModel;
+    public PaymentsRequest accountInfo(AccountInfo accountInfo) {
+        this.accountInfo = accountInfo;
         return this;
     }
 
-    public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
-        this.recurringProcessingModel = recurringProcessingModel;
-    }
-
-    public MerchantRiskIndicator getMerchantRiskIndicator() {
-        return merchantRiskIndicator;
-    }
-
-    public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
-        this.merchantRiskIndicator = merchantRiskIndicator;
-    }
-
+    /**
+     * Get accountInfo
+     * @return accountInfo
+     **/
+    @Schema(description = "")
     public AccountInfo getAccountInfo() {
         return accountInfo;
     }
@@ -232,63 +434,24 @@ public class PaymentsRequest {
         this.accountInfo = accountInfo;
     }
 
-    public Boolean getEnableOneClick() {
-        return enableOneClick;
-    }
-
-    public Boolean getEnablePayOut() {
-        return enablePayOut;
-    }
-
-    public Boolean getEnableRecurring() {
-        return enableRecurring;
-    }
-
-    public List<Split> getSplits() {
-        return splits;
-    }
-
-    public void setSplits(List<Split> splits) {
-        this.splits = splits;
-    }
-
-    public Boolean getTrustedShopper() {
-        return trustedShopper;
-    }
-
-    public void setTrustedShopper(Boolean trustedShopper) {
-        this.trustedShopper = trustedShopper;
-    }
-
-    public ThreeDS2RequestData getThreeDS2RequestData() {
-        return threeDS2RequestData;
-    }
-
-    public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
-        this.threeDS2RequestData = threeDS2RequestData;
-    }
-
     public PaymentsRequest additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
         return this;
     }
 
     public PaymentsRequest putAdditionalDataItem(String key, String additionalDataItem) {
-
-        if (additionalData == null) {
-            additionalData = new HashMap<>();
+        if (this.additionalData == null) {
+            this.additionalData = new HashMap<String, String>();
         }
-
-        additionalData.put(key, additionalDataItem);
+        this.additionalData.put(key, additionalDataItem);
         return this;
     }
 
     /**
-     * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and
-     * value. For more information on possible key-value pairs, refer to the [additionalData section](https://docs.adyen.com/developers/api-reference/payments-api#paymentrequestadditionaldata).
-     *
+     * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
      * @return additionalData
      **/
+    @Schema(description = "This field contains additional data, which may be required for a particular payment request.  The `additionalData` object consists of entries, each of which includes the key and value.")
     public Map<String, String> getAdditionalData() {
         return additionalData;
     }
@@ -304,9 +467,9 @@ public class PaymentsRequest {
 
     /**
      * Get amount
-     *
      * @return amount
      **/
+    @Schema(required = true, description = "")
     public Amount getAmount() {
         return amount;
     }
@@ -315,10 +478,40 @@ public class PaymentsRequest {
         this.amount = amount;
     }
 
-    public PaymentsRequest setAmountData(String amount, String currency) {
-        Amount amountData = Util.createAmount(amount, currency);
-        setAmount(amountData);
+    public PaymentsRequest applicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
         return this;
+    }
+
+    /**
+     * Get applicationInfo
+     * @return applicationInfo
+     **/
+    @Schema(description = "")
+    public ApplicationInfo getApplicationInfo() {
+        return applicationInfo;
+    }
+
+    public void setApplicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
+    }
+
+    public PaymentsRequest authenticationData(AuthenticationData authenticationData) {
+        this.authenticationData = authenticationData;
+        return this;
+    }
+
+    /**
+     * Get authenticationData
+     * @return authenticationData
+     **/
+    @Schema(description = "")
+    public AuthenticationData getAuthenticationData() {
+        return authenticationData;
+    }
+
+    public void setAuthenticationData(AuthenticationData authenticationData) {
+        this.authenticationData = authenticationData;
     }
 
     public PaymentsRequest billingAddress(Address billingAddress) {
@@ -328,15 +521,33 @@ public class PaymentsRequest {
 
     /**
      * Get billingAddress
-     *
      * @return billingAddress
      **/
+    @Schema(description = "")
     public Address getBillingAddress() {
         return billingAddress;
     }
 
     public void setBillingAddress(Address billingAddress) {
         this.billingAddress = billingAddress;
+    }
+
+    public PaymentsRequest browserInfo(BrowserInfo browserInfo) {
+        this.browserInfo = browserInfo;
+        return this;
+    }
+
+    /**
+     * Get browserInfo
+     * @return browserInfo
+     **/
+    @Schema(description = "")
+    public BrowserInfo getBrowserInfo() {
+        return browserInfo;
+    }
+
+    public void setBrowserInfo(BrowserInfo browserInfo) {
+        this.browserInfo = browserInfo;
     }
 
     public PaymentsRequest captureDelayHours(Integer captureDelayHours) {
@@ -346,9 +557,9 @@ public class PaymentsRequest {
 
     /**
      * The delay between the authorisation and scheduled auto-capture, specified in hours.
-     *
      * @return captureDelayHours
      **/
+    @Schema(description = "The delay between the authorisation and scheduled auto-capture, specified in hours.")
     public Integer getCaptureDelayHours() {
         return captureDelayHours;
     }
@@ -363,17 +574,34 @@ public class PaymentsRequest {
     }
 
     /**
-     * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we
-     * will try to infer it from the &#x60;sdkVersion&#x60; or token.  Possible values: * iOS * Android * Web
-     *
+     * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
      * @return channel
      **/
+    @Schema(description = "The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the `sdkVersion` or `token`.  Possible values: * iOS * Android * Web")
     public ChannelEnum getChannel() {
         return channel;
     }
 
     public void setChannel(ChannelEnum channel) {
         this.channel = channel;
+    }
+
+    public PaymentsRequest checkoutAttemptId(String checkoutAttemptId) {
+        this.checkoutAttemptId = checkoutAttemptId;
+        return this;
+    }
+
+    /**
+     * Checkout attempt ID that corresponds to the Id generated for tracking user payment journey.
+     * @return checkoutAttemptId
+     **/
+    @Schema(description = "Checkout attempt ID that corresponds to the Id generated for tracking user payment journey.")
+    public String getCheckoutAttemptId() {
+        return checkoutAttemptId;
+    }
+
+    public void setCheckoutAttemptId(String checkoutAttemptId) {
+        this.checkoutAttemptId = checkoutAttemptId;
     }
 
     public PaymentsRequest company(Company company) {
@@ -383,15 +611,33 @@ public class PaymentsRequest {
 
     /**
      * Get company
-     *
      * @return company
      **/
+    @Schema(description = "")
     public Company getCompany() {
         return company;
     }
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public PaymentsRequest conversionId(String conversionId) {
+        this.conversionId = conversionId;
+        return this;
+    }
+
+    /**
+     * Conversion ID that corresponds to the Id generated for tracking user payment journey.
+     * @return conversionId
+     **/
+    @Schema(description = "Conversion ID that corresponds to the Id generated for tracking user payment journey.")
+    public String getConversionId() {
+        return conversionId;
+    }
+
+    public void setConversionId(String conversionId) {
+        this.conversionId = conversionId;
     }
 
     public PaymentsRequest countryCode(String countryCode) {
@@ -401,9 +647,9 @@ public class PaymentsRequest {
 
     /**
      * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
-     *
      * @return countryCode
      **/
+    @Schema(description = "The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE")
     public String getCountryCode() {
         return countryCode;
     }
@@ -419,9 +665,9 @@ public class PaymentsRequest {
 
     /**
      * The shopper&#x27;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
-     *
      * @return dateOfBirth
      **/
+    @Schema(description = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
@@ -437,9 +683,9 @@ public class PaymentsRequest {
 
     /**
      * Get dccQuote
-     *
      * @return dccQuote
      **/
+    @Schema(description = "")
     public ForexQuote getDccQuote() {
         return dccQuote;
     }
@@ -455,9 +701,9 @@ public class PaymentsRequest {
 
     /**
      * Get deliveryAddress
-     *
      * @return deliveryAddress
      **/
+    @Schema(description = "")
     public Address getDeliveryAddress() {
         return deliveryAddress;
     }
@@ -473,15 +719,33 @@ public class PaymentsRequest {
 
     /**
      * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
-     *
      * @return deliveryDate
      **/
+    @Schema(description = "The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00")
     public Date getDeliveryDate() {
         return deliveryDate;
     }
 
     public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
+    }
+
+    public PaymentsRequest deviceFingerprint(String deviceFingerprint) {
+        this.deviceFingerprint = deviceFingerprint;
+        return this;
+    }
+
+    /**
+     * A string containing the shopper&#x27;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
+     * @return deviceFingerprint
+     **/
+    @Schema(description = "A string containing the shopper's device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).")
+    public String getDeviceFingerprint() {
+        return deviceFingerprint;
+    }
+
+    public void setDeviceFingerprint(String deviceFingerprint) {
+        this.deviceFingerprint = deviceFingerprint;
     }
 
     public PaymentsRequest enableOneClick(Boolean enableOneClick) {
@@ -491,9 +755,9 @@ public class PaymentsRequest {
 
     /**
      * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future one-click payments.
-     *
      * @return enableOneClick
      **/
+    @Schema(description = "When true and `shopperReference` is provided, the shopper will be asked if the payment details should be stored for future one-click payments.")
     public Boolean isEnableOneClick() {
         return enableOneClick;
     }
@@ -509,9 +773,9 @@ public class PaymentsRequest {
 
     /**
      * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
-     *
      * @return enablePayOut
      **/
+    @Schema(description = "When true and `shopperReference` is provided, the payment details will be tokenized for payouts.")
     public Boolean isEnablePayOut() {
         return enablePayOut;
     }
@@ -527,9 +791,9 @@ public class PaymentsRequest {
 
     /**
      * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for recurring payments.
-     *
      * @return enableRecurring
      **/
+    @Schema(description = "When true and `shopperReference` is provided, the payment details will be tokenized for recurring payments.")
     public Boolean isEnableRecurring() {
         return enableRecurring;
     }
@@ -545,10 +809,9 @@ public class PaymentsRequest {
 
     /**
      * The type of the entity the payment is processed for.
-     *
      * @return entityType
      **/
-
+    @Schema(description = "The type of the entity the payment is processed for.")
     public EntityTypeEnum getEntityType() {
         return entityType;
     }
@@ -564,9 +827,9 @@ public class PaymentsRequest {
 
     /**
      * An integer value that is added to the normal fraud score. The value can be either positive or negative.
-     *
      * @return fraudOffset
      **/
+    @Schema(description = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
     public Integer getFraudOffset() {
         return fraudOffset;
     }
@@ -582,10 +845,9 @@ public class PaymentsRequest {
 
     /**
      * Get installments
-     *
      * @return installments
      **/
-
+    @Schema(description = "")
     public Installments getInstallments() {
         return installments;
     }
@@ -600,20 +862,18 @@ public class PaymentsRequest {
     }
 
     public PaymentsRequest addLineItemsItem(LineItem lineItemsItem) {
-
-        if (lineItems == null) {
-            lineItems = new ArrayList<>();
+        if (this.lineItems == null) {
+            this.lineItems = new ArrayList<LineItem>();
         }
-
-        lineItems.add(lineItemsItem);
+        this.lineItems.add(lineItemsItem);
         return this;
     }
 
     /**
-     * Line items regarding the payment.
-     *
+     * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
      * @return lineItems
      **/
+    @Schema(description = "Price and product information about the purchased items, to be included on the invoice sent to the shopper. > This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
     public List<LineItem> getLineItems() {
         return lineItems;
     }
@@ -622,17 +882,34 @@ public class PaymentsRequest {
         this.lineItems = lineItems;
     }
 
+    public PaymentsRequest mandate(Mandate mandate) {
+        this.mandate = mandate;
+        return this;
+    }
+
+    /**
+     * Get mandate
+     * @return mandate
+     **/
+    @Schema(description = "")
+    public Mandate getMandate() {
+        return mandate;
+    }
+
+    public void setMandate(Mandate mandate) {
+        this.mandate = mandate;
+    }
+
     public PaymentsRequest mcc(String mcc) {
         this.mcc = mcc;
         return this;
     }
 
     /**
-     * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant
-     * activity that is conducted by the merchant.
-     *
+     * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
      * @return mcc
      **/
+    @Schema(description = "The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.")
     public String getMcc() {
         return mcc;
     }
@@ -648,9 +925,9 @@ public class PaymentsRequest {
 
     /**
      * The merchant account identifier, with which you want to process the transaction.
-     *
      * @return merchantAccount
      **/
+    @Schema(required = true, description = "The merchant account identifier, with which you want to process the transaction.")
     public String getMerchantAccount() {
         return merchantAccount;
     }
@@ -665,11 +942,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * This reference allows linking multiple transactions to each other. &gt; When providing the &#x60;merchantOrderReference&#x60; value, we also recommend you submit
-     * &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values.
-     *
+     * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;paymentsRequest.additionalData&#x60;.
      * @return merchantOrderReference
      **/
+    @Schema(description = "This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. > We strongly recommend you send the `merchantOrderReference` value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide `retry.orderAttemptNumber`, `retry.chainAttemptNumber`, and `retry.skipRetry` values in `paymentsRequest.additionalData`.")
     public String getMerchantOrderReference() {
         return merchantOrderReference;
     }
@@ -678,26 +954,42 @@ public class PaymentsRequest {
         this.merchantOrderReference = merchantOrderReference;
     }
 
+    public PaymentsRequest merchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+        this.merchantRiskIndicator = merchantRiskIndicator;
+        return this;
+    }
+
+    /**
+     * Get merchantRiskIndicator
+     * @return merchantRiskIndicator
+     **/
+    @Schema(description = "")
+    public MerchantRiskIndicator getMerchantRiskIndicator() {
+        return merchantRiskIndicator;
+    }
+
+    public void setMerchantRiskIndicator(MerchantRiskIndicator merchantRiskIndicator) {
+        this.merchantRiskIndicator = merchantRiskIndicator;
+    }
+
     public PaymentsRequest metadata(Map<String, String> metadata) {
         this.metadata = metadata;
         return this;
     }
 
     public PaymentsRequest putMetadataItem(String key, String metadataItem) {
-
-        if (metadata == null) {
-            metadata = new HashMap<>();
+        if (this.metadata == null) {
+            this.metadata = new HashMap<String, String>();
         }
-
-        metadata.put(key, metadataItem);
+        this.metadata.put(key, metadataItem);
         return this;
     }
 
     /**
-     * Metadata consists of entries, each of which includes a key and a value. Limitations: Error \&quot;177\&quot;, \&quot;Metadata size exceeds limit\&quot;
-     *
+     * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value.
      * @return metadata
      **/
+    @Schema(description = "Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \"177\" error occurs: \"Metadata size exceeds limit\". * Maximum 20 characters per key. * Maximum 80 characters per value. ")
     public Map<String, String> getMetadata() {
         return metadata;
     }
@@ -706,16 +998,52 @@ public class PaymentsRequest {
         this.metadata = metadata;
     }
 
+    public PaymentsRequest mpiData(ThreeDSecureData mpiData) {
+        this.mpiData = mpiData;
+        return this;
+    }
+
+    /**
+     * Get mpiData
+     * @return mpiData
+     **/
+    @Schema(description = "")
+    public ThreeDSecureData getMpiData() {
+        return mpiData;
+    }
+
+    public void setMpiData(ThreeDSecureData mpiData) {
+        this.mpiData = mpiData;
+    }
+
+    public PaymentsRequest order(CheckoutOrder order) {
+        this.order = order;
+        return this;
+    }
+
+    /**
+     * Get order
+     * @return order
+     **/
+    @Schema(description = "")
+    public CheckoutOrder getOrder() {
+        return order;
+    }
+
+    public void setOrder(CheckoutOrder order) {
+        this.order = order;
+    }
+
     public PaymentsRequest orderReference(String orderReference) {
         this.orderReference = orderReference;
         return this;
     }
 
     /**
-     * The order reference to link multiple partial payments.
-     *
+     * When you are doing multiple partial (gift card) payments, this is the &#x60;pspReference&#x60; of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the &#x60;merchantOrderReference&#x60;instead.
      * @return orderReference
      **/
+    @Schema(description = "When you are doing multiple partial (gift card) payments, this is the `pspReference` of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the `merchantOrderReference`instead.")
     public String getOrderReference() {
         return orderReference;
     }
@@ -724,6 +1052,34 @@ public class PaymentsRequest {
         this.orderReference = orderReference;
     }
 
+    public PaymentsRequest origin(String origin) {
+        this.origin = origin;
+        return this;
+    }
+
+    /**
+     * Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.
+     * @return origin
+     **/
+    @Schema(description = "Required for the 3D Secure 2 `channel` **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.")
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public PaymentsRequest paymentMethod(PaymentMethodDetails paymentMethod) {
+        this.paymentMethod = paymentMethod;
+        return this;
+    }
+
+    /**
+     * The type and required details of a payment method to use.
+     * @return paymentMethod
+     **/
+    @Schema(required = true, description = "The type and required details of a payment method to use.")
     public PaymentMethodDetails getPaymentMethod() {
         return paymentMethod;
     }
@@ -732,106 +1088,94 @@ public class PaymentsRequest {
         this.paymentMethod = paymentMethod;
     }
 
-    public PaymentsRequest paymentMethod(PaymentMethodDetails paymentMethod) {
-        this.paymentMethod = paymentMethod;
-        return this;
-    }
-
-    public String getStore() {
-        return store;
-    }
-
-    public void setStore(String store) {
-        this.store = store;
-    }
-
-    public PaymentsRequest store(String store) {
-        this.store = store;
-        return this;
-    }
-
-    public PaymentsRequest mandate(Mandate mandate) {
-        this.mandate = mandate;
+    public PaymentsRequest recurringExpiry(String recurringExpiry) {
+        this.recurringExpiry = recurringExpiry;
         return this;
     }
 
     /**
-     * Get mandate
-     * @return mandate
+     * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
+     * @return recurringExpiry
      **/
-    public Mandate getMandate() {
-        return mandate;
+    @Schema(description = "Date after which no further authorisations shall be performed. Only for 3D Secure 2.")
+    public String getRecurringExpiry() {
+        return recurringExpiry;
     }
 
-    public void setMandate(Mandate mandate) {
-        this.mandate = mandate;
+    public void setRecurringExpiry(String recurringExpiry) {
+        this.recurringExpiry = recurringExpiry;
     }
 
-    public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode) {
-        return addEncryptedCardData(encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, null, null);
-    }
-
-    public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName) {
-        return addEncryptedCardData(encryptedCardNumber, encryptedExpiryMonth, encryptedExpiryYear, encryptedSecurityCode, holderName, null);
-    }
-
-    public PaymentsRequest addEncryptedCardData(String encryptedCardNumber, String encryptedExpiryMonth, String encryptedExpiryYear, String encryptedSecurityCode, String holderName, Boolean storeDetails) {
-        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
-
-        paymentMethodDetails.type(TYPE_SCHEME).encryptedCardNumber(encryptedCardNumber).encryptedExpiryMonth(encryptedExpiryMonth).encryptedExpiryYear(encryptedExpiryYear);
-        if (encryptedSecurityCode != null) {
-            paymentMethodDetails.setEncryptedSecurityCode(encryptedSecurityCode);
-        }
-        if (holderName != null) {
-            paymentMethodDetails.setHolderName(holderName);
-        }
-        if (storeDetails != null) {
-            paymentMethodDetails.setStoreDetails(storeDetails);
-        }
-
-        paymentMethod = paymentMethodDetails;
+    public PaymentsRequest recurringFrequency(String recurringFrequency) {
+        this.recurringFrequency = recurringFrequency;
         return this;
     }
 
     /**
-     * Add raw card data into the payment request. You need to be PCI compliant!
-     *
-     * @param cardNumber   card number
-     * @param expiryMonth  expiry month
-     * @param expiryYear   expiry year
-     * @param holderName   holder name
-     * @param securityCode security code
-     * @return paymentMethod payment method
-     */
-    public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName) {
-        return addCardData(cardNumber, expiryMonth, expiryYear, securityCode, holderName, null);
+     * Minimum number of days between authorisations. Only for 3D Secure 2.
+     * @return recurringFrequency
+     **/
+    @Schema(description = "Minimum number of days between authorisations. Only for 3D Secure 2.")
+    public String getRecurringFrequency() {
+        return recurringFrequency;
     }
 
-    public PaymentsRequest addCardData(String cardNumber, String expiryMonth, String expiryYear, String securityCode, String holderName, Boolean storeDetails) {
-        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
-        paymentMethodDetails.type(TYPE_SCHEME).number(cardNumber).expiryMonth(expiryMonth).expiryYear(expiryYear);
+    public void setRecurringFrequency(String recurringFrequency) {
+        this.recurringFrequency = recurringFrequency;
+    }
 
-        if (securityCode != null) {
-            paymentMethodDetails.setCvc(securityCode);
-        }
-        if (holderName != null) {
-            paymentMethodDetails.setHolderName(holderName);
-        }
-        if (storeDetails != null) {
-            paymentMethodDetails.setStoreDetails(storeDetails);
-        }
-
-        paymentMethod = paymentMethodDetails;
+    public PaymentsRequest recurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+        this.recurringProcessingModel = recurringProcessingModel;
         return this;
     }
 
-    public PaymentsRequest addOneClickData(String recurringDetailReference, String encryptedSecurityCode) {
-        DefaultPaymentMethodDetails paymentMethodDetails = new DefaultPaymentMethodDetails();
-        paymentMethodDetails.type(TYPE_SCHEME).setStoredPaymentMethodId(recurringDetailReference);
-        paymentMethodDetails.type(TYPE_SCHEME).encryptedSecurityCode(encryptedSecurityCode);
+    /**
+     * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#x27;s balance drops below a certain amount.
+     * @return recurringProcessingModel
+     **/
+    @Schema(description = "Defines a recurring payment type. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
+    public RecurringProcessingModelEnum getRecurringProcessingModel() {
+        return recurringProcessingModel;
+    }
 
-        paymentMethod = paymentMethodDetails;
+    public void setRecurringProcessingModel(RecurringProcessingModelEnum recurringProcessingModel) {
+        this.recurringProcessingModel = recurringProcessingModel;
+    }
+
+    public PaymentsRequest redirectFromIssuerMethod(String redirectFromIssuerMethod) {
+        this.redirectFromIssuerMethod = redirectFromIssuerMethod;
         return this;
+    }
+
+    /**
+     * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
+     * @return redirectFromIssuerMethod
+     **/
+    @Schema(description = "Specifies the redirect method (GET or POST) when redirecting back from the issuer.")
+    public String getRedirectFromIssuerMethod() {
+        return redirectFromIssuerMethod;
+    }
+
+    public void setRedirectFromIssuerMethod(String redirectFromIssuerMethod) {
+        this.redirectFromIssuerMethod = redirectFromIssuerMethod;
+    }
+
+    public PaymentsRequest redirectToIssuerMethod(String redirectToIssuerMethod) {
+        this.redirectToIssuerMethod = redirectToIssuerMethod;
+        return this;
+    }
+
+    /**
+     * Specifies the redirect method (GET or POST) when redirecting to the issuer.
+     * @return redirectToIssuerMethod
+     **/
+    @Schema(description = "Specifies the redirect method (GET or POST) when redirecting to the issuer.")
+    public String getRedirectToIssuerMethod() {
+        return redirectToIssuerMethod;
+    }
+
+    public void setRedirectToIssuerMethod(String redirectToIssuerMethod) {
+        this.redirectToIssuerMethod = redirectToIssuerMethod;
     }
 
     public PaymentsRequest reference(String reference) {
@@ -840,11 +1184,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a
-     * requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
-     *
+     * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
      * @return reference
      **/
+    @Schema(required = true, description = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
     public String getReference() {
         return reference;
     }
@@ -859,10 +1202,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * The URL to return to.
-     *
+     * The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;
      * @return returnUrl
      **/
+    @Schema(required = true, description = "The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol `http://` or `https://`. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: `https://your-company.com/checkout?shopperOrder=12xy` * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: `my-app://` * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: `my-app://your.package.name`")
     public String getReturnUrl() {
         return returnUrl;
     }
@@ -871,16 +1214,34 @@ public class PaymentsRequest {
         this.returnUrl = returnUrl;
     }
 
+    public PaymentsRequest riskData(RiskData riskData) {
+        this.riskData = riskData;
+        return this;
+    }
+
+    /**
+     * Get riskData
+     * @return riskData
+     **/
+    @Schema(description = "")
+    public RiskData getRiskData() {
+        return riskData;
+    }
+
+    public void setRiskData(RiskData riskData) {
+        this.riskData = riskData;
+    }
+
     public PaymentsRequest sessionValidity(String sessionValidity) {
         this.sessionValidity = sessionValidity;
         return this;
     }
 
     /**
-     * The maximum validity of the session.
-     *
+     * The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00
      * @return sessionValidity
      **/
+    @Schema(description = "The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00")
     public String getSessionValidity() {
         return sessionValidity;
     }
@@ -895,10 +1256,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * The shopper&#x27;s email address. We recommend that you provide this data, as it is used in velocity fraud checks.
-     *
+     * The shopper&#x27;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
      * @return shopperEmail
      **/
+    @Schema(description = "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > For 3D Secure 2 transactions, schemes require `shopperEmail` for all browser-based and mobile implementations.")
     public String getShopperEmail() {
         return shopperEmail;
     }
@@ -913,11 +1274,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * The shopper&#x27;s IP address. We recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; This
-     * field is mandatory for some merchants depending on your business model. For more information, [contact Support](https://support.adyen.com/hc/en-us/requests/new).
-     *
+     * The shopper&#x27;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://support.adyen.com/hc/en-us/requests/new).
      * @return shopperIP
      **/
+    @Schema(description = "The shopper's IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). > For 3D Secure 2 transactions, schemes require `shopperIP` for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://support.adyen.com/hc/en-us/requests/new).")
     public String getShopperIP() {
         return shopperIP;
     }
@@ -932,15 +1292,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper
-     * interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we
-     * recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant
-     * (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order
-     * transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment
-     * using a secure payment terminal.
-     *
+     * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
      * @return shopperInteraction
      **/
+    @Schema(description = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
     public ShopperInteractionEnum getShopperInteraction() {
         return shopperInteraction;
     }
@@ -956,9 +1311,9 @@ public class PaymentsRequest {
 
     /**
      * The combination of a language code and a country code to specify the language to be used in the payment.
-     *
      * @return shopperLocale
      **/
+    @Schema(description = "The combination of a language code and a country code to specify the language to be used in the payment.")
     public String getShopperLocale() {
         return shopperLocale;
     }
@@ -974,9 +1329,9 @@ public class PaymentsRequest {
 
     /**
      * Get shopperName
-     *
      * @return shopperName
      **/
+    @Schema(description = "")
     public Name getShopperName() {
         return shopperName;
     }
@@ -991,10 +1346,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * The shopper&#x27;s reference to uniquely identify this shopper (e.g. user ID or account ID). &gt; This field is required for recurring payments.
-     *
+     * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
      * @return shopperReference
      **/
+    @Schema(description = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
     public String getShopperReference() {
         return shopperReference;
     }
@@ -1009,10 +1364,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * The text to appear on the shopper&#x27;s bank statement.
-     *
+     * The text to be shown on the shopper&#x27;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#x27; _ - ? + * /_**.
      * @return shopperStatement
      **/
+    @Schema(description = "The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.")
     public String getShopperStatement() {
         return shopperStatement;
     }
@@ -1028,15 +1383,77 @@ public class PaymentsRequest {
 
     /**
      * The shopper&#x27;s social security number.
-     *
      * @return socialSecurityNumber
      **/
+    @Schema(description = "The shopper's social security number.")
     public String getSocialSecurityNumber() {
         return socialSecurityNumber;
     }
 
     public void setSocialSecurityNumber(String socialSecurityNumber) {
         this.socialSecurityNumber = socialSecurityNumber;
+    }
+
+    public PaymentsRequest splits(List<Split> splits) {
+        this.splits = splits;
+        return this;
+    }
+
+    public PaymentsRequest addSplitsItem(Split splitsItem) {
+        if (this.splits == null) {
+            this.splits = new ArrayList<Split>();
+        }
+        this.splits.add(splitsItem);
+        return this;
+    }
+
+    /**
+     * An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
+     * @return splits
+     **/
+    @Schema(description = "An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
+    public List<Split> getSplits() {
+        return splits;
+    }
+
+    public void setSplits(List<Split> splits) {
+        this.splits = splits;
+    }
+
+    public PaymentsRequest store(String store) {
+        this.store = store;
+        return this;
+    }
+
+    /**
+     * The ecommerce or point-of-sale store that is processing the payment. Used in [partner arrangement integrations](https://docs.adyen.com/platforms/platforms-for-partners#route-payments) for Adyen for Platforms.
+     * @return store
+     **/
+    @Schema(description = "The ecommerce or point-of-sale store that is processing the payment. Used in [partner arrangement integrations](https://docs.adyen.com/platforms/platforms-for-partners#route-payments) for Adyen for Platforms.")
+    public String getStore() {
+        return store;
+    }
+
+    public void setStore(String store) {
+        this.store = store;
+    }
+
+    public PaymentsRequest storePaymentMethod(Boolean storePaymentMethod) {
+        this.storePaymentMethod = storePaymentMethod;
+        return this;
+    }
+
+    /**
+     * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored.
+     * @return storePaymentMethod
+     **/
+    @Schema(description = "When true and `shopperReference` is provided, the payment details will be stored.")
+    public Boolean isStorePaymentMethod() {
+        return storePaymentMethod;
+    }
+
+    public void setStorePaymentMethod(Boolean storePaymentMethod) {
+        this.storePaymentMethod = storePaymentMethod;
     }
 
     public PaymentsRequest telephoneNumber(String telephoneNumber) {
@@ -1046,9 +1463,9 @@ public class PaymentsRequest {
 
     /**
      * The shopper&#x27;s telephone number.
-     *
      * @return telephoneNumber
      **/
+    @Schema(description = "The shopper's telephone number.")
     public String getTelephoneNumber() {
         return telephoneNumber;
     }
@@ -1057,155 +1474,22 @@ public class PaymentsRequest {
         this.telephoneNumber = telephoneNumber;
     }
 
-    public BrowserInfo getBrowserInfo() {
-        return browserInfo;
-    }
-
-    public void setBrowserInfo(BrowserInfo browserInfo) {
-        this.browserInfo = browserInfo;
-    }
-
-    public PaymentsRequest browserInfo(BrowserInfo browserInfo) {
-        this.browserInfo = browserInfo;
-        return this;
-    }
-
-    public PaymentsRequest addBrowserInfoData(String userAgent, String acceptHeader) {
-        BrowserInfo browserInfo = new BrowserInfo();
-        browserInfo.setAcceptHeader(acceptHeader);
-        browserInfo.setUserAgent(userAgent);
-
-        setBrowserInfo(browserInfo);
-        return this;
-    }
-
-    public String getDeviceFingerprint() {
-        return deviceFingerprint;
-    }
-
-    public void setDeviceFingerprint(String deviceFingerprint) {
-        this.deviceFingerprint = deviceFingerprint;
-    }
-
-    public PaymentsRequest deviceFingerprint(String deviceFingerprint) {
-        this.deviceFingerprint = deviceFingerprint;
-        return this;
-    }
-
-    public ApplicationInfo getApplicationInfo() {
-        return applicationInfo;
-    }
-
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
-    }
-
-    public PaymentsRequest applicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
-        return this;
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
-    public PaymentsRequest origin(String origin) {
-        this.origin = origin;
+    public PaymentsRequest threeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
         return this;
     }
 
     /**
-     * Authentication data produced by an MPI (Mastercard SecureCode or Verified By Visa).
-     *
-     * @return the mpi data
-     */
-    public ThreeDSecureData getMpiData() {
-        return mpiData;
+     * Get threeDS2RequestData
+     * @return threeDS2RequestData
+     **/
+    @Schema(description = "")
+    public ThreeDS2RequestData getThreeDS2RequestData() {
+        return threeDS2RequestData;
     }
 
-    public void setMpiData(ThreeDSecureData mpiData) {
-        this.mpiData = mpiData;
-    }
-
-    public PaymentsRequest mpiData(ThreeDSecureData mpiData) {
-        this.mpiData = mpiData;
-        return this;
-    }
-
-    /**
-     * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
-     *
-     * @return the redirect from issuer method
-     */
-    public String getRedirectFromIssuerMethod() {
-        return redirectFromIssuerMethod;
-    }
-
-    public void setRedirectFromIssuerMethod(String redirectFromIssuerMethod) {
-        this.redirectFromIssuerMethod = redirectFromIssuerMethod;
-    }
-
-    public PaymentsRequest redirectFromIssuerMethod(String redirectFromIssuerMethod) {
-        this.redirectFromIssuerMethod = redirectFromIssuerMethod;
-        return this;
-    }
-
-    /**
-     * Specifies the redirect method (GET or POST) when redirecting to the issuer.
-     *
-     * @return the redirect to issuer method
-     */
-    public String getRedirectToIssuerMethod() {
-        return redirectToIssuerMethod;
-    }
-
-    public void setRedirectToIssuerMethod(String redirectToIssuerMethod) {
-        this.redirectToIssuerMethod = redirectToIssuerMethod;
-    }
-
-    public PaymentsRequest redirectToIssuerMethod(String redirectToIssuerMethod) {
-        this.redirectToIssuerMethod = redirectToIssuerMethod;
-        return this;
-    }
-
-    /**
-     * Contains the order information which is required for partial payments.
-     *
-     * @return order
-     */
-    public CheckoutOrder getOrder() {
-        return order;
-    }
-
-    public void setOrder(CheckoutOrder order) {
-        this.order = order;
-    }
-
-    public PaymentsRequest order(CheckoutOrder order) {
-        this.order = order;
-        return this;
-    }
-
-    /**
-     * When true and shopperReference is provided, the payment details will be stored.
-     *
-     * @return storePaymentMethod
-     */
-    public Boolean getStorePaymentMethod() {
-        return storePaymentMethod;
-    }
-
-    public void setStorePaymentMethod(Boolean storePaymentMethod) {
-        this.storePaymentMethod = storePaymentMethod;
-    }
-
-    public PaymentsRequest storePaymentMethod(Boolean storePaymentMethod) {
-        this.storePaymentMethod = storePaymentMethod;
-        return this;
+    public void setThreeDS2RequestData(ThreeDS2RequestData threeDS2RequestData) {
+        this.threeDS2RequestData = threeDS2RequestData;
     }
 
     public PaymentsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
@@ -1214,10 +1498,10 @@ public class PaymentsRequest {
     }
 
     /**
-     * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/checkout/3d-secure/native-3ds2/authentication-only), and not the payment authorisation.
-     *
+     * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
      * @return threeDSAuthenticationOnly
      **/
+    @Schema(description = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
     public Boolean isThreeDSAuthenticationOnly() {
         return threeDSAuthenticationOnly;
     }
@@ -1226,78 +1510,27 @@ public class PaymentsRequest {
         this.threeDSAuthenticationOnly = threeDSAuthenticationOnly;
     }
 
-    public PaymentsRequest riskData(RiskData riskData) {
-        this.riskData = riskData;
+    public PaymentsRequest trustedShopper(Boolean trustedShopper) {
+        this.trustedShopper = trustedShopper;
         return this;
     }
 
     /**
-     * Get riskData
-     *
-     * @return riskData
+     * Set to true if the payment should be routed to a trusted MID.
+     * @return trustedShopper
      **/
-    public RiskData getRiskData() {
-        return riskData;
+    @Schema(description = "Set to true if the payment should be routed to a trusted MID.")
+    public Boolean isTrustedShopper() {
+        return trustedShopper;
     }
 
-    public void setRiskData(RiskData riskData) {
-        this.riskData = riskData;
+    public void setTrustedShopper(Boolean trustedShopper) {
+        this.trustedShopper = trustedShopper;
     }
 
-    public PaymentsRequest conversionId(String conversionId) {
-        this.conversionId = conversionId;
-        return this;
-    }
-
-    /**
-     * Conversion ID that corresponds to the Id generated for tracking user payment journey.
-     *
-     * @return conversionId
-     **/
-    public String getConversionId() {
-        return conversionId;
-    }
-
-    public void setConversionId(String conversionId) {
-        this.conversionId = conversionId;
-    }
-
-    public PaymentsRequest checkoutAttemptId(String checkoutAttemptId) {
-
-        this.checkoutAttemptId = checkoutAttemptId;
-        return this;
-    }
-
-    /**
-     * Checkout attempt ID that corresponds to the Id generated for tracking user payment journey.
-     * @return checkoutAttemptId
-     **/
-    public String getCheckoutAttemptId() {
-        return checkoutAttemptId;
-    }
-
-    public void setCheckoutAttemptId(String checkoutAttemptId) {
-        this.checkoutAttemptId = checkoutAttemptId;
-    }
-
-    public String getRecurringExpiry() {
-        return recurringExpiry;
-    }
-
-    public void setRecurringExpiry(String recurringExpiry) {
-        this.recurringExpiry = recurringExpiry;
-    }
-
-    public String getRecurringFrequency() {
-        return recurringFrequency;
-    }
-
-    public void setRecurringFrequency(String recurringFrequency) {
-        this.recurringFrequency = recurringFrequency;
-    }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -1309,12 +1542,13 @@ public class PaymentsRequest {
                 Objects.equals(this.additionalData, paymentsRequest.additionalData) &&
                 Objects.equals(this.amount, paymentsRequest.amount) &&
                 Objects.equals(this.applicationInfo, paymentsRequest.applicationInfo) &&
+                Objects.equals(this.authenticationData, paymentsRequest.authenticationData) &&
                 Objects.equals(this.billingAddress, paymentsRequest.billingAddress) &&
                 Objects.equals(this.browserInfo, paymentsRequest.browserInfo) &&
                 Objects.equals(this.captureDelayHours, paymentsRequest.captureDelayHours) &&
                 Objects.equals(this.channel, paymentsRequest.channel) &&
-                Objects.equals(this.company, paymentsRequest.company) &&
                 Objects.equals(this.checkoutAttemptId, paymentsRequest.checkoutAttemptId) &&
+                Objects.equals(this.company, paymentsRequest.company) &&
                 Objects.equals(this.conversionId, paymentsRequest.conversionId) &&
                 Objects.equals(this.countryCode, paymentsRequest.countryCode) &&
                 Objects.equals(this.dateOfBirth, paymentsRequest.dateOfBirth) &&
@@ -1329,6 +1563,7 @@ public class PaymentsRequest {
                 Objects.equals(this.fraudOffset, paymentsRequest.fraudOffset) &&
                 Objects.equals(this.installments, paymentsRequest.installments) &&
                 Objects.equals(this.lineItems, paymentsRequest.lineItems) &&
+                Objects.equals(this.mandate, paymentsRequest.mandate) &&
                 Objects.equals(this.mcc, paymentsRequest.mcc) &&
                 Objects.equals(this.merchantAccount, paymentsRequest.merchantAccount) &&
                 Objects.equals(this.merchantOrderReference, paymentsRequest.merchantOrderReference) &&
@@ -1362,33 +1597,25 @@ public class PaymentsRequest {
                 Objects.equals(this.telephoneNumber, paymentsRequest.telephoneNumber) &&
                 Objects.equals(this.threeDS2RequestData, paymentsRequest.threeDS2RequestData) &&
                 Objects.equals(this.threeDSAuthenticationOnly, paymentsRequest.threeDSAuthenticationOnly) &&
-                Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper) &&
-                Objects.equals(this.mandate, paymentsRequest.mandate);
+                Objects.equals(this.trustedShopper, paymentsRequest.trustedShopper);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountInfo, additionalData, amount, applicationInfo, billingAddress, browserInfo,
-                captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress,
-                deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset,
-                installments, lineItems, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata,
-                mpiData, order, orderReference, origin, paymentMethod, recurringExpiry, recurringFrequency,
-                recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl,
-                riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName,
-                shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod,
-                telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper, mandate);
-
+        return Objects.hash(accountInfo, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
     }
+
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentsRequest {\n");
+        sb.append("class PaymentRequest {\n");
 
         sb.append("    accountInfo: ").append(toIndentedString(accountInfo)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    applicationInfo: ").append(toIndentedString(applicationInfo)).append("\n");
+        sb.append("    authenticationData: ").append(toIndentedString(authenticationData)).append("\n");
         sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
         sb.append("    browserInfo: ").append(toIndentedString(browserInfo)).append("\n");
         sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
@@ -1409,6 +1636,7 @@ public class PaymentsRequest {
         sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
         sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
         sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+        sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
         sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
@@ -1443,193 +1671,21 @@ public class PaymentsRequest {
         sb.append("    threeDS2RequestData: ").append(toIndentedString(threeDS2RequestData)).append("\n");
         sb.append("    threeDSAuthenticationOnly: ").append(toIndentedString(threeDSAuthenticationOnly)).append("\n");
         sb.append("    trustedShopper: ").append(toIndentedString(trustedShopper)).append("\n");
-        sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we
-     * will try to infer it from the &#x60;sdkVersion&#x60; or token.  Possible values: * iOS * Android * Web
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
-    @JsonAdapter(ChannelEnum.Adapter.class)
-    public enum ChannelEnum {
-
-        IOS("iOS"),
-        ANDROID("Android"),
-        WEB("Web");
-
-        @JsonValue
-        private final String value;
-
-        ChannelEnum(String value) {
-            this.value = value;
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
         }
-
-        public static ChannelEnum fromValue(String text) {
-            return Arrays.stream(values()).
-                    filter(s -> s.value.equals(text)).
-                    findFirst().orElse(null);
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static class Adapter extends TypeAdapter<ChannelEnum> {
-            @Override
-            public void write(JsonWriter jsonWriter, ChannelEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public ChannelEnum read(JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return ChannelEnum.fromValue(String.valueOf(value));
-            }
-        }
+        return o.toString().replace("\n", "\n    ");
     }
-
-    /**
-     * The type of the entity the payment is processed for.
-     */
-    @JsonAdapter(EntityTypeEnum.Adapter.class)
-    public enum EntityTypeEnum {
-
-        NATURALPERSON("NaturalPerson"),
-        COMPANYNAME("CompanyName");
-
-        @JsonValue
-        private final String value;
-
-        EntityTypeEnum(String value) {
-            this.value = value;
-        }
-
-        public static EntityTypeEnum fromValue(String text) {
-            return Arrays.stream(values()).
-                    filter(s -> s.value.equals(text)).
-                    findFirst().orElse(null);
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static class Adapter extends TypeAdapter<EntityTypeEnum> {
-            @Override
-            public void write(JsonWriter jsonWriter, EntityTypeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public EntityTypeEnum read(JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return EntityTypeEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
-    /**
-     * how the shopper interacts with the system
-     */
-    public enum RecurringProcessingModelEnum {
-
-        /**
-         * A transaction for a fixed or variable amount, which follows a fixed schedule. This is the default value.
-         */
-        @SerializedName("Subscription") SUBSCRIPTION("Subscription"),
-
-        /**
-         * Card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process.
-         * Any subscription not following a fixed schedule is also considered as a card-on-file transaction.
-         */
-
-        @SerializedName("CardOnFile") CARD_ON_FILE("CardOnFile"),
-
-        /**
-         * A transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount.
-         */
-        @SerializedName("UnscheduledCardOnFile") UNSCHEDULED_CARD_ON_FILE("UnscheduledCardOnFile");
-
-
-        @JsonValue
-        private final String value;
-
-        RecurringProcessingModelEnum(String value) {
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-    }
-
-    /**
-     * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper
-     * interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we
-     * recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant
-     * (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order
-     * transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment
-     * using a secure payment terminal.
-     */
-    @JsonAdapter(ShopperInteractionEnum.Adapter.class)
-    public enum ShopperInteractionEnum {
-
-        ECOMMERCE("Ecommerce"),
-        CONTAUTH("ContAuth"),
-        MOTO("Moto"),
-        POS("POS");
-
-        @JsonValue
-        private final String value;
-
-        ShopperInteractionEnum(String value) {
-            this.value = value;
-        }
-
-        public static ShopperInteractionEnum fromValue(String text) {
-            return Arrays.stream(values()).
-                    filter(s -> s.value.equals(text)).
-                    findFirst().orElse(null);
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static class Adapter extends TypeAdapter<ShopperInteractionEnum> {
-            @Override
-            public void write(JsonWriter jsonWriter, ShopperInteractionEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public ShopperInteractionEnum read(JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return ShopperInteractionEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
 
 }
-
 
 

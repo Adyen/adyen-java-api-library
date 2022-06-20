@@ -61,7 +61,7 @@ import static com.adyen.constants.ApiConstants.TerminalAPI.PROTOCOL_VERSION;
 public final class TerminalAPIRequestBuilder {
 
     // MessageHeader
-    private MessageHeader messageHeader;
+    private final MessageHeader messageHeader;
     private MessageClassType messageClass;
     private MessageCategoryType messageCategory;
 

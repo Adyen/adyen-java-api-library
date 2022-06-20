@@ -58,7 +58,7 @@ public class PaymentReversalResource {
     RECEIVED("received");
 
     @JsonValue
-    private String value;
+    private final String value;
 
     StatusEnum(String value) {
       this.value = value;

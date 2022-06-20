@@ -54,7 +54,7 @@ public class DeviceRenderOptions {
         BOTH("both");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         SdkInterfaceEnum(String value) {
             this.value = value;
@@ -105,7 +105,7 @@ public class DeviceRenderOptions {
         TEXT("text");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         SdkUiTypeEnum(String value) {
             this.value = value;

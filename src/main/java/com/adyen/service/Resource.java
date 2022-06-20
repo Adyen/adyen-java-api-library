@@ -43,7 +43,7 @@ public class Resource {
     protected static final Gson GSON = new Gson();
     protected String endpoint;
     protected List<String> requiredFields;
-    private Service service;
+    private final Service service;
 
     public Resource(Service service, String endpoint, List<String> requiredFields) {
         this.service = service;

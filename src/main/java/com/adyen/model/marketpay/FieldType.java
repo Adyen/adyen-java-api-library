@@ -240,7 +240,7 @@ public class FieldType {
         WEBADDRESS("webAddress");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FieldNameEnum(String value) {
             this.value = value;

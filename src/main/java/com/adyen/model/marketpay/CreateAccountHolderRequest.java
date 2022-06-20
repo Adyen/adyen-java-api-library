@@ -61,7 +61,7 @@ public class CreateAccountHolderRequest {
         INDIVIDUAL("Individual");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         LegalEntityEnum(String value) {
             this.value = value;

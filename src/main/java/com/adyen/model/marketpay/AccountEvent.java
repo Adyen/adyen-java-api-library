@@ -53,7 +53,7 @@ public class AccountEvent {
         REFUNDNOTPAIDOUTTRANSFERS("RefundNotPaidOutTransfers");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         EventEnum(String value) {
             this.value = value;

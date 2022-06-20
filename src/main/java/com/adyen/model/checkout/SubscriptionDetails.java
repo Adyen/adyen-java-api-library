@@ -48,7 +48,7 @@ public class SubscriptionDetails {
         EXACT("exact");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         AmountRuleEnum(String value) {
             this.value = value;
@@ -99,7 +99,7 @@ public class SubscriptionDetails {
         AFTER("after");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         BillingAttemptsRuleEnum(String value) {
             this.value = value;
@@ -161,7 +161,7 @@ public class SubscriptionDetails {
         YEARLY("yearly");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FrequencyEnum(String value) {
             this.value = value;

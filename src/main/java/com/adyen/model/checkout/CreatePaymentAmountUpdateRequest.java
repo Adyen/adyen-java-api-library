@@ -56,7 +56,7 @@ public class CreatePaymentAmountUpdateRequest {
     NOSHOW("noShow");
 
     @JsonValue
-    private String value;
+    private final String value;
 
     ReasonEnum(String value) {
       this.value = value;

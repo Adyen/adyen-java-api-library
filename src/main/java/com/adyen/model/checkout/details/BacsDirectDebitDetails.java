@@ -25,6 +25,7 @@ import java.util.Objects;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * BacsDirectDebitDetails
@@ -41,6 +42,12 @@ public class BacsDirectDebitDetails implements PaymentMethodDetails {
 
     @SerializedName("holderName")
     private String holderName = null;
+
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
+
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
 
     @SerializedName("type")
     private String type = DIRECTDEBIT_GB;
@@ -105,6 +112,37 @@ public class BacsDirectDebitDetails implements PaymentMethodDetails {
     }
 
     /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
+
+    public BacsDirectDebitDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return storedPaymentMethodId
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+    }
+
+    /**
      * **directdebit_GB**
      *
      * @return type
@@ -130,6 +168,8 @@ public class BacsDirectDebitDetails implements PaymentMethodDetails {
         return Objects.equals(this.bankAccountNumber, bacsDirectDebitDetails.bankAccountNumber) &&
                 Objects.equals(this.bankLocationId, bacsDirectDebitDetails.bankLocationId) &&
                 Objects.equals(this.holderName, bacsDirectDebitDetails.holderName) &&
+                Objects.equals(this.recurringDetailReference, bacsDirectDebitDetails.recurringDetailReference) &&
+                Objects.equals(this.storedPaymentMethodId, bacsDirectDebitDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, bacsDirectDebitDetails.type);
     }
 
@@ -146,6 +186,8 @@ public class BacsDirectDebitDetails implements PaymentMethodDetails {
         sb.append("    bankAccountNumber: ").append(toIndentedString(bankAccountNumber)).append("\n");
         sb.append("    bankLocationId: ").append(toIndentedString(bankLocationId)).append("\n");
         sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

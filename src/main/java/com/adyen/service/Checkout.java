@@ -76,16 +76,16 @@ import java.io.IOException;
 
 public class Checkout extends ApiKeyAuthenticatedService {
 
-    private Cancels cancels;
-    private Payments payments;
-    private PaymentMethods paymentMethods;
-    private PaymentsDetails paymentsDetails;
-    private PaymentSession paymentSession;
-    private PaymentsResult paymentsResult;
-    private Orders orders;
-    private OrdersCancel ordersCancel;
-    private Sessions sessions;
-    private StoredPaymentsMethods storedPaymentsMethods;
+    private final Cancels cancels;
+    private final Payments payments;
+    private final PaymentMethods paymentMethods;
+    private final PaymentsDetails paymentsDetails;
+    private final PaymentSession paymentSession;
+    private final PaymentsResult paymentsResult;
+    private final Orders orders;
+    private final OrdersCancel ordersCancel;
+    private final Sessions sessions;
+    private final StoredPaymentsMethods storedPaymentsMethods;
 
     public Checkout(Client client) {
 

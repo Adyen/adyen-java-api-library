@@ -51,7 +51,7 @@ public class StoredValueLoadRequest {
         LOAD("load");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         LoadTypeEnum(String value) {
             this.value = value;
@@ -115,7 +115,7 @@ public class StoredValueLoadRequest {
         POS("POS");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;

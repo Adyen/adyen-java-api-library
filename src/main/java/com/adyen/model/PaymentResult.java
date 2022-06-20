@@ -97,7 +97,7 @@ public class PaymentResult {
         REFUSED("Refused");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ResultCodeEnum(String value) {
             this.value = value;

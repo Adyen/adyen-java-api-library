@@ -35,10 +35,10 @@ import java.io.IOException;
 
 public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
 
-    private Async terminalApiAsync;
-    private Sync terminalApiSync;
+    private final Async terminalApiAsync;
+    private final Sync terminalApiSync;
 
-    private Gson terminalApiGson;
+    private final Gson terminalApiGson;
 
     public TerminalCloudAPI(Client client) {
         super(client);

@@ -20,9 +20,9 @@
  */
 package com.adyen.deserializer;
 
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.details.AchDetails;
+import com.adyen.model.checkout.details.AfterpayDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
 import com.adyen.model.checkout.details.AndroidPayDetails;
 import com.adyen.model.checkout.details.ApplePayDetails;
@@ -30,6 +30,7 @@ import com.adyen.model.checkout.details.BacsDirectDebitDetails;
 import com.adyen.model.checkout.details.BillDeskOnlineDetails;
 import com.adyen.model.checkout.details.BillDeskWalletDetails;
 import com.adyen.model.checkout.details.BlikDetails;
+import com.adyen.model.checkout.details.CardDetails;
 import com.adyen.model.checkout.details.CellulantDetails;
 import com.adyen.model.checkout.details.DokuDetails;
 import com.adyen.model.checkout.details.DotpayDetails;
@@ -51,6 +52,7 @@ import com.adyen.model.checkout.details.PayWithGoogleDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
+import com.adyen.model.checkout.details.StoredPaymentMethodDetails;
 import com.adyen.model.checkout.details.UpiCollectDetails;
 import com.adyen.model.checkout.details.UpiDetails;
 import com.adyen.model.checkout.details.UpiIntentDetails;
@@ -90,8 +92,11 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
             public PaymentMethodDetails read(JsonReader in) {
                 JsonElement jsonElement = Streams.parse(in);
                 String paymentMethodType = jsonElement.getAsJsonObject().get("type").getAsString();
-
                 switch (paymentMethodType) {
+                    case AfterpayDetails.AFTERPAY_DEFAULT:
+                    case AfterpayDetails.AFTERPAYTOUCH:
+                    case AfterpayDetails.AFTERPAY_B2B:
+                        return gson.getAdapter(AfterpayDetails.class).fromJsonTree(jsonElement);
                     case AchDetails.ACH:
                         return gson.getAdapter(AchDetails.class).fromJsonTree(jsonElement);
                     case AmazonPayDetails.AMAZONPAY:
@@ -175,7 +180,8 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(QiwiWalletDetails.class).fromJsonTree(jsonElement);
                     case SamsungPayDetails.SAMSUNGPAY:
                         return gson.getAdapter(SamsungPayDetails.class).fromJsonTree(jsonElement);
-                    case SepaDirectDebitDetails.SEPA_DIRECT_DEBIT:
+                    case SepaDirectDebitDetails.SEPADIRECTDEBIT_AMAZONPAY:
+                    case SepaDirectDebitDetails.SEPADIRECTDEBIT:
                         return gson.getAdapter(SepaDirectDebitDetails.class).fromJsonTree(jsonElement);
                     case UpiIntentDetails.UPI_INTENT:
                         return gson.getAdapter(UpiIntentDetails.class).fromJsonTree(jsonElement);
@@ -191,8 +197,25 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(WeChatPayDetails.class).fromJsonTree(jsonElement);
                     case WeChatPayMiniProgramDetails.WECHATPAYMINIPROGRAM:
                         return gson.getAdapter(WeChatPayMiniProgramDetails.class).fromJsonTree(jsonElement);
+                    case StoredPaymentMethodDetails.BCMC_MOBILE:
+                    case StoredPaymentMethodDetails.BCMC_MOBILE_QR:
+                    case StoredPaymentMethodDetails.BCMC_MOBILE_APP:
+                    case StoredPaymentMethodDetails.MOMO_WALLET:
+                    case StoredPaymentMethodDetails.MOMO_WALLET_APP:
+                    case StoredPaymentMethodDetails.PAYMAYA_WALLET:
+                    case StoredPaymentMethodDetails.GRABPAY_SG:
+                    case StoredPaymentMethodDetails.GRABPAY_MY:
+                    case StoredPaymentMethodDetails.GRABPAY_TH:
+                    case StoredPaymentMethodDetails.GRABPAY_ID:
+                    case StoredPaymentMethodDetails.GRABPAY_VN:
+                    case StoredPaymentMethodDetails.GRABPAY_PH:
+                    case StoredPaymentMethodDetails.OXXO:
+                    case StoredPaymentMethodDetails.GCASH:
+                    case StoredPaymentMethodDetails.KAKAOPAY:
+                    case StoredPaymentMethodDetails.TRUEMONEY:
+                        return gson.getAdapter(StoredPaymentMethodDetails.class).fromJsonTree(jsonElement);
                     default:
-                        return gson.getAdapter(DefaultPaymentMethodDetails.class).fromJsonTree(jsonElement);
+                        return gson.getAdapter(CardDetails.class).fromJsonTree(jsonElement);
                 }
             }
         };

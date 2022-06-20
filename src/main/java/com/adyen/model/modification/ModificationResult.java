@@ -54,10 +54,10 @@ public class ModificationResult {
     private String pspReference = null;
 
     @SerializedName("applicationInfo")
-    private ApplicationInfo applicationInfo = null;
+    private final ApplicationInfo applicationInfo = null;
 
     @SerializedName("splits")
-    private List<Split> splits = null;
+    private final List<Split> splits = null;
 
     @SerializedName("response")
     private String response = null;

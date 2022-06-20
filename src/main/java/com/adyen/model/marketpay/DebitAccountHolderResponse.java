@@ -12,7 +12,7 @@ public class DebitAccountHolderResponse {
     private String bankAccountUUID;
 
     @SerializedName("invalidFields")
-    private List<ErrorFieldType> invalidFields = null;
+    private final List<ErrorFieldType> invalidFields = null;
 
     @SerializedName("merchantReferences")
     private String[] merchantReferences;

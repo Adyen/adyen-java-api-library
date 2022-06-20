@@ -23,6 +23,7 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
 
@@ -45,50 +46,23 @@ public class KlarnaDetails implements PaymentMethodDetails {
     public static final String KLARNA_ACCOUNT = "klarna_account";
     public static final String KLARNA_B2B = "klarna_b2b";
 
-    @SerializedName("bankAccount")
-    private String bankAccount = null;
-
     @SerializedName("billingAddress")
     private String billingAddress = null;
 
     @SerializedName("deliveryAddress")
     private String deliveryAddress = null;
 
-    @SerializedName("installmentConfigurationKey")
-    private String installmentConfigurationKey = null;
-
     @SerializedName("personalDetails")
     private String personalDetails = null;
 
-    @SerializedName("separateDeliveryAddress")
-    private String separateDeliveryAddress = null;
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
 
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
 
-    @SerializedName("token")
-    private String token = null;
-
     @SerializedName("type")
     private String type = null;
-
-    public KlarnaDetails bankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
-        return this;
-    }
-
-    /**
-     * Get bankAccount
-     *
-     * @return bankAccount
-     **/
-    public String getBankAccount() {
-        return bankAccount;
-    }
-
-    public void setBankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
-    }
 
     public KlarnaDetails billingAddress(String billingAddress) {
         this.billingAddress = billingAddress;
@@ -126,24 +100,6 @@ public class KlarnaDetails implements PaymentMethodDetails {
         this.deliveryAddress = deliveryAddress;
     }
 
-    public KlarnaDetails installmentConfigurationKey(String installmentConfigurationKey) {
-        this.installmentConfigurationKey = installmentConfigurationKey;
-        return this;
-    }
-
-    /**
-     * Get installmentConfigurationKey
-     *
-     * @return installmentConfigurationKey
-     **/
-    public String getInstallmentConfigurationKey() {
-        return installmentConfigurationKey;
-    }
-
-    public void setInstallmentConfigurationKey(String installmentConfigurationKey) {
-        this.installmentConfigurationKey = installmentConfigurationKey;
-    }
-
     public KlarnaDetails personalDetails(String personalDetails) {
         this.personalDetails = personalDetails;
         return this;
@@ -162,22 +118,22 @@ public class KlarnaDetails implements PaymentMethodDetails {
         this.personalDetails = personalDetails;
     }
 
-    public KlarnaDetails separateDeliveryAddress(String separateDeliveryAddress) {
-        this.separateDeliveryAddress = separateDeliveryAddress;
+    public KlarnaDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
         return this;
     }
 
     /**
-     * Get separateDeliveryAddress
-     *
-     * @return separateDeliveryAddress
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
      **/
-    public String getSeparateDeliveryAddress() {
-        return separateDeliveryAddress;
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
     }
 
-    public void setSeparateDeliveryAddress(String separateDeliveryAddress) {
-        this.separateDeliveryAddress = separateDeliveryAddress;
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
     }
 
     public KlarnaDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -196,24 +152,6 @@ public class KlarnaDetails implements PaymentMethodDetails {
 
     public void setStoredPaymentMethodId(String storedPaymentMethodId) {
         this.storedPaymentMethodId = storedPaymentMethodId;
-    }
-
-    public KlarnaDetails token(String token) {
-        this.token = token;
-        return this;
-    }
-
-    /**
-     * Get token
-     *
-     * @return token
-     **/
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 
     public KlarnaDetails type(String type) {
@@ -244,20 +182,17 @@ public class KlarnaDetails implements PaymentMethodDetails {
             return false;
         }
         KlarnaDetails klarnaDetails = (KlarnaDetails) o;
-        return Objects.equals(this.bankAccount, klarnaDetails.bankAccount) &&
-                Objects.equals(this.billingAddress, klarnaDetails.billingAddress) &&
+        return Objects.equals(this.billingAddress, klarnaDetails.billingAddress) &&
                 Objects.equals(this.deliveryAddress, klarnaDetails.deliveryAddress) &&
-                Objects.equals(this.installmentConfigurationKey, klarnaDetails.installmentConfigurationKey) &&
                 Objects.equals(this.personalDetails, klarnaDetails.personalDetails) &&
-                Objects.equals(this.separateDeliveryAddress, klarnaDetails.separateDeliveryAddress) &&
+                Objects.equals(this.recurringDetailReference, klarnaDetails.recurringDetailReference) &&
                 Objects.equals(this.storedPaymentMethodId, klarnaDetails.storedPaymentMethodId) &&
-                Objects.equals(this.token, klarnaDetails.token) &&
                 Objects.equals(this.type, klarnaDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bankAccount, billingAddress, deliveryAddress, installmentConfigurationKey, personalDetails, separateDeliveryAddress, storedPaymentMethodId, token, type);
+        return Objects.hash(billingAddress, deliveryAddress, personalDetails, recurringDetailReference, storedPaymentMethodId, type);
     }
 
 
@@ -266,14 +201,11 @@ public class KlarnaDetails implements PaymentMethodDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class KlarnaDetails {\n");
 
-        sb.append("    bankAccount: ").append(toIndentedString(bankAccount)).append("\n");
         sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
         sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-        sb.append("    installmentConfigurationKey: ").append(toIndentedString(installmentConfigurationKey)).append("\n");
         sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
-        sb.append("    separateDeliveryAddress: ").append(toIndentedString(separateDeliveryAddress)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

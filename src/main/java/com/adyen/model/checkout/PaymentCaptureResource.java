@@ -42,6 +42,9 @@ public class PaymentCaptureResource {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Amount amount;
 
+  @SerializedName("lineItems")
+  private List<LineItem> lineItems = null;
+
   public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
   private String merchantAccount;
@@ -70,7 +73,7 @@ public class PaymentCaptureResource {
     RECEIVED("received");
 
     @JsonValue
-    private String value;
+    private final String value;
 
     StatusEnum(String value) {
       this.value = value;
@@ -132,6 +135,30 @@ public class PaymentCaptureResource {
     this.amount = amount;
   }
 
+  public PaymentCaptureResource lineItems(List<LineItem> lineItems) {
+    this.lineItems = lineItems;
+    return this;
+  }
+
+  public PaymentCaptureResource addLineItemsItem(LineItem lineItemsItem) {
+    if (this.lineItems == null) {
+      this.lineItems = new ArrayList<LineItem>();
+    }
+    this.lineItems.add(lineItemsItem);
+    return this;
+  }
+
+  /**
+   * Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). &gt; This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
+   * @return lineItems
+   **/
+  public List<LineItem> getLineItems() {
+    return lineItems;
+  }
+
+  public void setLineItems(List<LineItem> lineItems) {
+    this.lineItems = lineItems;
+  }
 
   public PaymentCaptureResource merchantAccount(String merchantAccount) {
 
@@ -271,6 +298,7 @@ public class PaymentCaptureResource {
     }
     PaymentCaptureResource paymentCaptureResource = (PaymentCaptureResource) o;
     return Objects.equals(this.amount, paymentCaptureResource.amount) &&
+        Objects.equals(this.lineItems, paymentCaptureResource.lineItems) &&
         Objects.equals(this.merchantAccount, paymentCaptureResource.merchantAccount) &&
         Objects.equals(this.paymentPspReference, paymentCaptureResource.paymentPspReference) &&
         Objects.equals(this.pspReference, paymentCaptureResource.pspReference) &&
@@ -281,7 +309,7 @@ public class PaymentCaptureResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, merchantAccount, paymentPspReference, pspReference, reference, splits, status);
+    return Objects.hash(amount, lineItems, merchantAccount, paymentPspReference, pspReference, reference, splits, status);
   }
 
   @Override
@@ -289,6 +317,7 @@ public class PaymentCaptureResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentCaptureResource {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    paymentPspReference: ").append(toIndentedString(paymentPspReference)).append("\n");
     sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");

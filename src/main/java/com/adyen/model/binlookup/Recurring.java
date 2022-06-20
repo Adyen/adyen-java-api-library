@@ -20,6 +20,7 @@
  */
 package com.adyen.model.binlookup;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,7 +52,8 @@ public class Recurring {
         RECURRING("RECURRING"),
         PAYOUT("PAYOUT");
 
-        private String value;
+        @JsonValue
+        private final String value;
 
         ContractEnum(String value) {
             this.value = value;
@@ -106,7 +108,8 @@ public class Recurring {
         VISATOKENSERVICE("VISATOKENSERVICE"),
         MCTOKENSERVICE("MCTOKENSERVICE");
 
-        private String value;
+        @JsonValue
+        private final String value;
 
         TokenServiceEnum(String value) {
             this.value = value;

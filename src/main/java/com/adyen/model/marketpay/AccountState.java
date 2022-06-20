@@ -71,7 +71,7 @@ public class AccountState {
         PROCESSING("Processing");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         StateTypeEnum(String value) {
             this.value = value;

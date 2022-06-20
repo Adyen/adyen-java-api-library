@@ -34,28 +34,12 @@ import static com.adyen.util.Util.toIndentedString;
 
 public class AndroidPayDetails implements PaymentMethodDetails {
     public static final String ANDROIDPAY = "androidpay";
-    @SerializedName("androidPayToken")
-    private String androidPayToken = null;
 
     @SerializedName("type")
     private String type = ANDROIDPAY;
 
-    public AndroidPayDetails androidPayToken(String androidPayToken) {
-        this.androidPayToken = androidPayToken;
+    public AndroidPayDetails androidPayToken() {
         return this;
-    }
-
-    /**
-     * Get androidPayToken
-     *
-     * @return androidPayToken
-     **/
-    public String getAndroidPayToken() {
-        return androidPayToken;
-    }
-
-    public void setAndroidPayToken(String androidPayToken) {
-        this.androidPayToken = androidPayToken;
     }
 
     public AndroidPayDetails type(String type) {
@@ -76,7 +60,6 @@ public class AndroidPayDetails implements PaymentMethodDetails {
         this.type = type;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -86,22 +69,19 @@ public class AndroidPayDetails implements PaymentMethodDetails {
             return false;
         }
         AndroidPayDetails androidPayDetails = (AndroidPayDetails) o;
-        return Objects.equals(this.androidPayToken, androidPayDetails.androidPayToken) &&
-                Objects.equals(this.type, androidPayDetails.type);
+        return Objects.equals(this.type, androidPayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(androidPayToken, type);
+        return Objects.hash(type);
     }
-
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AndroidPayDetails {\n");
 
-        sb.append("    androidPayToken: ").append(toIndentedString(androidPayToken)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

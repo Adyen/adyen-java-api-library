@@ -21,6 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -61,7 +62,8 @@ public class PayoutScheduleResponse {
         WEEKLY_ON_TUE_FRI_MIDNIGHT("WEEKLY_ON_TUE_FRI_MIDNIGHT"),
         YEARLY("YEARLY");
 
-        private String value;
+        @JsonValue
+        private final String value;
 
         ScheduleEnum(String value) {
             this.value = value;

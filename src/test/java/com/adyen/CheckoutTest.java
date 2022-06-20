@@ -33,7 +33,7 @@ import com.adyen.model.checkout.CheckoutCreateOrderResponse;
 import com.adyen.model.checkout.CheckoutOrder;
 import com.adyen.model.checkout.CheckoutPaymentsAction;
 import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
+import com.adyen.model.checkout.details.*;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
@@ -63,41 +63,6 @@ import com.adyen.model.checkout.CreateStandalonePaymentCancelRequest;
 import com.adyen.model.checkout.StandalonePaymentCancelResource;
 import com.adyen.model.checkout.PaymentAmountUpdateResource;
 import com.adyen.model.checkout.CreatePaymentAmountUpdateRequest;
-import com.adyen.model.checkout.details.AchDetails;
-import com.adyen.model.checkout.details.AmazonPayDetails;
-import com.adyen.model.checkout.details.AndroidPayDetails;
-import com.adyen.model.checkout.details.ApplePayDetails;
-import com.adyen.model.checkout.details.BacsDirectDebitDetails;
-import com.adyen.model.checkout.details.BillDeskOnlineDetails;
-import com.adyen.model.checkout.details.BillDeskWalletDetails;
-import com.adyen.model.checkout.details.BlikDetails;
-import com.adyen.model.checkout.details.DokuDetails;
-import com.adyen.model.checkout.details.DotpayDetails;
-import com.adyen.model.checkout.details.DragonpayDetails;
-import com.adyen.model.checkout.details.EcontextVoucherDetails;
-import com.adyen.model.checkout.details.EntercashDetails;
-import com.adyen.model.checkout.details.GenericIssuerPaymentMethodDetails;
-import com.adyen.model.checkout.details.GiropayDetails;
-import com.adyen.model.checkout.details.GooglePayDetails;
-import com.adyen.model.checkout.details.IdealDetails;
-import com.adyen.model.checkout.details.KlarnaDetails;
-import com.adyen.model.checkout.details.LianLianPayDetails;
-import com.adyen.model.checkout.details.MasterpassDetails;
-import com.adyen.model.checkout.details.MbwayDetails;
-import com.adyen.model.checkout.details.MobilePayDetails;
-import com.adyen.model.checkout.details.MolPayDetails;
-import com.adyen.model.checkout.details.PayPalDetails;
-import com.adyen.model.checkout.details.PayUUpiDetails;
-import com.adyen.model.checkout.details.PayWithGoogleDetails;
-import com.adyen.model.checkout.details.QiwiWalletDetails;
-import com.adyen.model.checkout.details.SamsungPayDetails;
-import com.adyen.model.checkout.details.SepaDirectDebitDetails;
-import com.adyen.model.checkout.details.UpiCollectDetails;
-import com.adyen.model.checkout.details.UpiIntentDetails;
-import com.adyen.model.checkout.details.VippsDetails;
-import com.adyen.model.checkout.details.VisaCheckoutDetails;
-import com.adyen.model.checkout.details.WeChatPayDetails;
-import com.adyen.model.checkout.details.WeChatPayMiniProgramDetails;
 import com.adyen.service.Checkout;
 import com.adyen.service.exception.ApiException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -409,11 +374,11 @@ public class CheckoutTest extends BaseTest {
                 + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
                 + "  \"paymentMethod\": {\n"
                 + "    \"type\": \"scheme\",\n"
-                + "    \"number\": \"4111111111111111\",\n"
-                + "    \"expiryMonth\": \"10\",\n"
-                + "    \"expiryYear\": \"2018\",\n"
                 + "    \"holderName\": \"John Smith\",\n"
-                + "    \"cvc\": \"737\"\n"
+                + "    \"cvc\": \"737\",\n"
+                + "    \"encryptedCardNumber\": \"test_4111111111111111\",\n"
+                + "    \"encryptedExpiryMonth\": \"test_10\",\n"
+                + "    \"encryptedExpiryYear\": \"test_2030\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
@@ -466,10 +431,10 @@ public class CheckoutTest extends BaseTest {
                 + "  \"paymentMethod\": {\n"
                 + "    \"type\": \"scheme\",\n"
                 + "    \"holderName\": \"John Smith\",\n"
+                + "    \"cvc\": \"737\",\n"
                 + "    \"encryptedCardNumber\": \"test_4111111111111111\",\n"
                 + "    \"encryptedExpiryMonth\": \"test_03\",\n"
-                + "    \"encryptedExpiryYear\": \"test_2030\",\n"
-                + "    \"encryptedSecurityCode\": \"test_737\"\n"
+                + "    \"encryptedExpiryYear\": \"test_2030\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
@@ -527,13 +492,13 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestSepaPaymentMethodDetails() {
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.type("sepadirectdebit");
-        defaultPaymentMethodDetails.setSepaOwnerName("A. Schneider");
-        defaultPaymentMethodDetails.setSepaIbanNumber("DE87123456781234567890");
+        SepaDirectDebitDetails sepaDirectDebitDetailsDetails = new SepaDirectDebitDetails();
+        sepaDirectDebitDetailsDetails.type("sepadirectdebit");
+        sepaDirectDebitDetailsDetails.setOwnerName("A. Schneider");
+        sepaDirectDebitDetailsDetails.setIban("DE87123456781234567890");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        paymentsRequest.setPaymentMethod(sepaDirectDebitDetailsDetails);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
@@ -545,8 +510,8 @@ public class CheckoutTest extends BaseTest {
                 + "  \"merchantAccount\": \"MagentoMerchantTest\",\n"
                 + "  \"paymentMethod\": {\n"
                 + "    \"type\": \"sepadirectdebit\",\n"
-                + "    \"sepa.ownerName\": \"A. Schneider\",\n"
-                + "    \"sepa.ibanNumber\": \"DE87123456781234567890\"\n"
+                + "    \"ownerName\": \"A. Schneider\",\n"
+                + "    \"iban\": \"DE87123456781234567890\"\n"
                 + "  },\n"
                 + "  \"reference\": \"Your order number\",\n"
                 + "  \"returnUrl\": \"https://your-company.com/...\",\n"
@@ -704,12 +669,11 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestGooglePayDetailsSerialization() throws JsonProcessingException {
-        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"googlePayCardNetwork\":\"googlepaycardnetwork\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"type\":\"googlepay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"type\":\"googlepay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         GooglePayDetails googlePayDetails = new GooglePayDetails();
         googlePayDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
         googlePayDetails.setFundingSource(GooglePayDetails.FundingSourceEnum.CREDIT);
-        googlePayDetails.setGooglePayCardNetwork("googlepaycardnetwork");
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(googlePayDetails);
 
@@ -722,11 +686,10 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestGooglePayDetailsDeserialization() throws JsonProcessingException {
-        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"googlePayCardNetwork\":\"googlepaycardnetwork\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"type\":\"googlepay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"type\":\"googlepay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
         GooglePayDetails googlePayDetails = new GooglePayDetails();
         googlePayDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
         googlePayDetails.setFundingSource(GooglePayDetails.FundingSourceEnum.CREDIT);
-        googlePayDetails.setGooglePayCardNetwork("googlepaycardnetwork");
         PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(googlePayDetails);
 
@@ -856,11 +819,10 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestAmazonPayDetailsSerialization() throws JsonProcessingException {
-        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"amazonPayToken\":\"amazonpaytoken\",\"checkoutSessionId\":\"checkoutsessionid\",\"type\":\"amazonpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"amazonPayToken\":\"amazonpaytoken\",\"type\":\"amazonpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         AmazonPayDetails amazonPayDetails = new AmazonPayDetails();
         amazonPayDetails.setAmazonPayToken("amazonpaytoken");
-        amazonPayDetails.setCheckoutSessionId("checkoutsessionid");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(amazonPayDetails);
@@ -874,11 +836,10 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestAmazonPayDetailsDeserializer() throws JsonProcessingException {
-        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"amazonPayToken\":\"amazonpaytoken\",\"checkoutSessionId\":\"checkoutsessionid\",\"type\":\"amazonpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"amazonPayToken\":\"amazonpaytoken\",\"type\":\"amazonpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         AmazonPayDetails amazonPayDetails = new AmazonPayDetails();
         amazonPayDetails.setAmazonPayToken("amazonpaytoken");
-        amazonPayDetails.setCheckoutSessionId("checkoutsessionid");
         PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(amazonPayDetails);
 
@@ -1175,10 +1136,10 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestSamsungPayDetailsSerialization() throws JsonProcessingException {
-        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"samsungPayToken\":\"samsungpaytoken\",\"type\":\"samsungpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"debit\",\"samsungPayToken\":\"samsungpaytoken\",\"type\":\"samsungpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         SamsungPayDetails samsungPayDetails = new SamsungPayDetails();
-        samsungPayDetails.setFundingSource(SamsungPayDetails.FundingSourceEnum.CREDIT);
+        samsungPayDetails.setFundingSource(SamsungPayDetails.FundingSourceEnum.DEBIT);
         samsungPayDetails.setSamsungPayToken("samsungpaytoken");
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(samsungPayDetails);
@@ -1192,10 +1153,10 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestSamsungPayDetailsDeserialization() throws JsonProcessingException {
-        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"credit\",\"samsungPayToken\":\"samsungpaytoken\",\"type\":\"samsungpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"debit\",\"samsungPayToken\":\"samsungpaytoken\",\"type\":\"samsungpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         SamsungPayDetails samsungPayDetails = new SamsungPayDetails();
-        samsungPayDetails.setFundingSource(SamsungPayDetails.FundingSourceEnum.CREDIT);
+        samsungPayDetails.setFundingSource(SamsungPayDetails.FundingSourceEnum.DEBIT);
         samsungPayDetails.setSamsungPayToken("samsungpaytoken");
         PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(samsungPayDetails);
@@ -1275,11 +1236,11 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestRecurringPaymentMethodDetails() {
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.setStoredPaymentMethodId("testStoredPaymentMethodId");
+        StoredPaymentMethodDetails storedPaymentMethodDetails = new StoredPaymentMethodDetails();
+        storedPaymentMethodDetails.setStoredPaymentMethodId("testStoredPaymentMethodId");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        paymentsRequest.setPaymentMethod(storedPaymentMethodDetails);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
@@ -1305,11 +1266,11 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestShopperNotificationReferencePaymentMethodDetails() {
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.setShopperNotificationReference("IA0F7500002462");
+        CardDetails cardDetails = new CardDetails();
+        cardDetails.setShopperNotificationReference("IA0F7500002462");
 
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        paymentsRequest.setPaymentMethod(cardDetails);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
 
@@ -1335,10 +1296,9 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestAndroidPayDetails() throws JsonProcessingException {
-        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"androidPayToken\":\"androidpaytoken\",\"type\":\"androidpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"androidpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         AndroidPayDetails androidPayDetails = new AndroidPayDetails();
-        androidPayDetails.setAndroidPayToken("androidpaytoken");
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(androidPayDetails);
 
@@ -1351,10 +1311,9 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestAndroidPayDetailsDeserializer() throws JsonProcessingException {
-        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"androidPayToken\":\"androidpaytoken\",\"type\":\"androidpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"androidpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         AndroidPayDetails androidPayDetails = new AndroidPayDetails();
-        androidPayDetails.setAndroidPayToken("androidpaytoken");
         PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(androidPayDetails);
 
@@ -1367,17 +1326,14 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestKlarnaDetailsSerialization() throws JsonProcessingException {
-        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"bankAccount\":\"bankaccount\",\"billingAddress\":\"billingaddress\",\"deliveryAddress\":\"deliveryaddress\",\"installmentConfigurationKey\":\"installmentconfigurationkey\",\"personalDetails\":\"personaldetails\",\"separateDeliveryAddress\":\"separatedeliveryaddress\",\"storedPaymentMethodId\":\"storedpaymentmethodid\",\"token\":\"token\",\"type\":\"klarna\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"billingAddress\":\"billingaddress\",\"deliveryAddress\":\"deliveryaddress\",\"personalDetails\":\"personaldetails\",\"recurringDetailReference\":\"reference\",\"storedPaymentMethodId\":\"storedpaymentmethodid\",\"type\":\"klarna\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         KlarnaDetails klarnaDetails = new KlarnaDetails();
-        klarnaDetails.setBankAccount("bankaccount");
         klarnaDetails.setBillingAddress("billingaddress");
         klarnaDetails.setDeliveryAddress("deliveryaddress");
-        klarnaDetails.setInstallmentConfigurationKey("installmentconfigurationkey");
         klarnaDetails.setPersonalDetails("personaldetails");
-        klarnaDetails.setSeparateDeliveryAddress("separatedeliveryaddress");
         klarnaDetails.setStoredPaymentMethodId("storedpaymentmethodid");
-        klarnaDetails.setToken("token");
+        klarnaDetails.setRecurringDetailReference("reference");
         klarnaDetails.setType(KlarnaDetails.KLARNA);
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(klarnaDetails);
@@ -1391,17 +1347,14 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestKlarnaDetailsDeserialization() throws JsonProcessingException {
-        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"bankAccount\":\"bankaccount\",\"billingAddress\":\"billingaddress\",\"deliveryAddress\":\"deliveryaddress\",\"installmentConfigurationKey\":\"installmentconfigurationkey\",\"personalDetails\":\"personaldetails\",\"separateDeliveryAddress\":\"separatedeliveryaddress\",\"storedPaymentMethodId\":\"storedpaymentmethodid\",\"token\":\"token\",\"type\":\"klarna\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
+        String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"billingAddress\":\"billingaddress\",\"deliveryAddress\":\"deliveryaddress\",\"personalDetails\":\"personaldetails\",\"recurringDetailReference\":\"reference\",\"storedPaymentMethodId\":\"storedpaymentmethodid\",\"type\":\"klarna\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         KlarnaDetails klarnaDetails = new KlarnaDetails();
-        klarnaDetails.setBankAccount("bankaccount");
+        klarnaDetails.setRecurringDetailReference("reference");
         klarnaDetails.setBillingAddress("billingaddress");
         klarnaDetails.setDeliveryAddress("deliveryaddress");
-        klarnaDetails.setInstallmentConfigurationKey("installmentconfigurationkey");
         klarnaDetails.setPersonalDetails("personaldetails");
-        klarnaDetails.setSeparateDeliveryAddress("separatedeliveryaddress");
         klarnaDetails.setStoredPaymentMethodId("storedpaymentmethodid");
-        klarnaDetails.setToken("token");
         klarnaDetails.setType(KlarnaDetails.KLARNA);
         PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(klarnaDetails);
@@ -1577,7 +1530,6 @@ public class CheckoutTest extends BaseTest {
         weChatPayDetails.setOpenid("openId");
         PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
         paymentsRequest.setPaymentMethod(weChatPayDetails);
-
         String gson = GSON.toJson(paymentsRequest);
         assertJsonStringEquals(expectedJson, gson);
 
@@ -1834,7 +1786,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestRecurringProcessingModels() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
-        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARD_ON_FILE);
+        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARDONFILE);
 
         String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
         assertTrue(jsonRequest.contains("recurringProcessingModel\": \"CardOnFile\"\n") || jsonRequest.contains("recurringProcessingModel\": \"CardOnFile\",\n"));
@@ -1843,7 +1795,7 @@ public class CheckoutTest extends BaseTest {
         jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
         assertTrue(jsonRequest.contains("recurringProcessingModel\": \"Subscription\"\n") || jsonRequest.contains("recurringProcessingModel\": \"Subscription\",\n"));
 
-        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.UNSCHEDULED_CARD_ON_FILE);
+        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.UNSCHEDULEDCARDONFILE);
         jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
         assertTrue(jsonRequest.contains("recurringProcessingModel\": \"UnscheduledCardOnFile\"\n") || jsonRequest.contains("recurringProcessingModel\": \"UnscheduledCardOnFile\",\n"));
     }
@@ -2243,10 +2195,19 @@ public class CheckoutTest extends BaseTest {
      */
     protected PaymentsRequest createPaymentsCheckoutRequest() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
+        CardDetails details = new CardDetails();
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
-        paymentsRequest.addCardData("4111111111111111", "10", "2018", "737", "John Smith");
+
+        details.setType("scheme");
+        details.setEncryptedCardNumber("test_4111111111111111");
+        details.setEncryptedExpiryMonth("test_10");
+        details.setEncryptedExpiryYear("test_2030");
+        details.setCvc("737");
+        details.setHolderName("John Smith");
+
+        paymentsRequest.setPaymentMethod(details);
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
@@ -2269,16 +2230,21 @@ public class CheckoutTest extends BaseTest {
         return paymentsRequest;
     }
 
-    /**
-     * Returns a sample Encrypted PaymentsRequest opbject with test data
-     */
     protected PaymentsRequest createEncryptedPaymentsCheckoutRequest() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
+        CardDetails details = new CardDetails();
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
-        paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737", "John Smith");
 
+        details.setType("scheme");
+        details.setEncryptedCardNumber("test_4111111111111111");
+        details.setEncryptedExpiryMonth("test_03");
+        details.setEncryptedExpiryYear("test_2030");
+        details.setCvc("737");
+        details.setHolderName("John Smith");
+
+        paymentsRequest.setPaymentMethod(details);
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
 
@@ -2287,10 +2253,17 @@ public class CheckoutTest extends BaseTest {
 
     protected PaymentsRequest createEncryptedPaymentsCheckoutRequestWithoutHoldername() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
+        CardDetails details = new CardDetails();
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
-        paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737");
+
+        details.setType("scheme");
+        details.setEncryptedCardNumber("test_4111111111111111");
+        details.setEncryptedExpiryMonth("test_10");
+        details.setEncryptedExpiryYear("test_2030");
+        details.setCvc("737");
+        details.setHolderName("John Smith");
 
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
@@ -2306,7 +2279,7 @@ public class CheckoutTest extends BaseTest {
 
         paymentsRequest.setReference("Your order number");
         paymentsRequest.setAmount(createAmountObject("USD", 1000L));
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
+        CardDetails defaultPaymentMethodDetails = new CardDetails();
         defaultPaymentMethodDetails.setType("networkToken");
         defaultPaymentMethodDetails.setBrand(BrandCodes.MASTERCARD);
         defaultPaymentMethodDetails.setExpiryMonth("08");
@@ -2320,7 +2293,7 @@ public class CheckoutTest extends BaseTest {
         paymentsRequest.setReturnUrl("https://your-company.com/...");
         paymentsRequest.setMerchantAccount("MagentoMerchantTest");
         paymentsRequest.setShopperReference("YOUR_SHOPPER_REFERENCE");
-        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARD_ON_FILE);
+        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARDONFILE);
 
         return paymentsRequest;
     }
@@ -2371,9 +2344,17 @@ public class CheckoutTest extends BaseTest {
 
     protected PaymentsRequest createPaymentsRequestWithOrder() {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
+        CardDetails details = new CardDetails();
         paymentsRequest.setReference("payment reference");
         paymentsRequest.setAmount(createAmountObject("EUR", 1000L));
-        paymentsRequest.addEncryptedCardData("test_4111111111111111", "test_03", "test_2030", "test_737", "holderName");
+
+        details.setType("scheme");
+        details.setEncryptedCardNumber("test_4111111111111111");
+        details.setEncryptedExpiryMonth("test_10");
+        details.setEncryptedExpiryYear("test_2030");
+        details.setCvc("737");
+        details.setHolderName("John Smith");
+        paymentsRequest.setPaymentMethod(details);
 
         CheckoutOrder checkoutOrder = new CheckoutOrder();
         checkoutOrder.setOrderData("Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...");
@@ -2398,8 +2379,8 @@ public class CheckoutTest extends BaseTest {
         PaymentsRequest paymentsRequest = new PaymentsRequest();
         paymentsRequest.setReference("payment reference");
 
-        DefaultPaymentMethodDetails defaultPaymentMethodDetails = new DefaultPaymentMethodDetails();
-        defaultPaymentMethodDetails.setType("bankTransfer_IBAN");
+        CardDetails defaultPaymentMethodDetails = new CardDetails();
+        defaultPaymentMethodDetails.setType("sepadirectdebit");
         paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
 
         Amount amount = new Amount();

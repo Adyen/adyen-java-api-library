@@ -47,14 +47,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 public class Modification extends Service {
-    private CancelOrRefund cancelOrRefund;
-    private Cancel cancel;
-    private Capture capture;
-    private Refund refund;
-    private AdjustAuthorisation adjustAuthorisation;
-    private TechnicalCancel technicalCancel;
-    private VoidPendingRefund voidPendingRefund;
-    private Donate donate;
+    private final CancelOrRefund cancelOrRefund;
+    private final Cancel cancel;
+    private final Capture capture;
+    private final Refund refund;
+    private final AdjustAuthorisation adjustAuthorisation;
+    private final TechnicalCancel technicalCancel;
+    private final VoidPendingRefund voidPendingRefund;
+    private final Donate donate;
 
     public Modification(Client client) {
         super(client);

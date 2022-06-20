@@ -84,24 +84,24 @@ import java.io.IOException;
 
 public class Account extends Service {
 
-    private CreateAccountHolder createAccountHolder;
-    private UpdateAccountHolder updateAccountHolder;
-    private GetAccountHolder getAccountHolder;
-    private UploadDocument uploadDocument;
-    private CreateAccount createAccount;
-    private DeleteBankAccount deleteBankAccount;
-    private DeleteShareholder deleteShareholder;
-    private DeleteSignatories deleteSignatories;
-    private SuspendAccountHolder suspendAccountHolder;
-    private UnSuspendAccountHolder unSuspendAccountHolder;
-    private UpdateAccountHolderState updateAccountHolderState;
-    private CloseAccount closeAccount;
-    private CloseAccountHolder closeAccountHolder;
-    private UpdateAccount updateAccount;
-    private GetUploadedDocuments getUploadedDocuments;
-    private CheckAccountHolder checkAccountHolder;
-    private DeletePayoutMethod deletePayoutMethod;
-    private GetTaxForm getTaxForm;
+    private final CreateAccountHolder createAccountHolder;
+    private final UpdateAccountHolder updateAccountHolder;
+    private final GetAccountHolder getAccountHolder;
+    private final UploadDocument uploadDocument;
+    private final CreateAccount createAccount;
+    private final DeleteBankAccount deleteBankAccount;
+    private final DeleteShareholder deleteShareholder;
+    private final DeleteSignatories deleteSignatories;
+    private final SuspendAccountHolder suspendAccountHolder;
+    private final UnSuspendAccountHolder unSuspendAccountHolder;
+    private final UpdateAccountHolderState updateAccountHolderState;
+    private final CloseAccount closeAccount;
+    private final CloseAccountHolder closeAccountHolder;
+    private final UpdateAccount updateAccount;
+    private final GetUploadedDocuments getUploadedDocuments;
+    private final CheckAccountHolder checkAccountHolder;
+    private final DeletePayoutMethod deletePayoutMethod;
+    private final GetTaxForm getTaxForm;
 
     public Account(Client client) {
         super(client);

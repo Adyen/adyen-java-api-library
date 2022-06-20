@@ -28,13 +28,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
-
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * SamsungPayDetails
@@ -42,25 +39,18 @@ import static com.adyen.util.Util.toIndentedString;
 
 public class SamsungPayDetails implements PaymentMethodDetails {
     /**
-     * Possible types
-     */
-    public static final String SAMSUNGPAY = "samsungpay";
-
-    /**
-     * Gets or Sets fundingSource
+     * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
      */
     @JsonAdapter(FundingSourceEnum.Adapter.class)
     public enum FundingSourceEnum {
-        CREDIT("credit"),
         DEBIT("debit");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FundingSourceEnum(String value) {
             this.value = value;
         }
-
         public String getValue() {
             return value;
         }
@@ -69,35 +59,42 @@ public class SamsungPayDetails implements PaymentMethodDetails {
         public String toString() {
             return String.valueOf(value);
         }
-
-        public static FundingSourceEnum fromValue(String text) {
-            return Arrays.stream(values()).
-                    filter(s -> s.value.equals(text)).
-                    findFirst().orElse(null);
+        public static FundingSourceEnum fromValue(String input) {
+            for (FundingSourceEnum b : FundingSourceEnum.values()) {
+                if (b.value.equals(input)) {
+                    return b;
+                }
+            }
+            return null;
         }
-
         public static class Adapter extends TypeAdapter<FundingSourceEnum> {
             @Override
             public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
             }
 
             @Override
             public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return FundingSourceEnum.fromValue(String.valueOf(value));
+                Object value = jsonReader.nextString();
+                return FundingSourceEnum.fromValue((String) (value));
             }
         }
-    }
-
-    @SerializedName("fundingSource")
+    }  @SerializedName("fundingSource")
     private FundingSourceEnum fundingSource = null;
+
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
 
     @SerializedName("samsungPayToken")
     private String samsungPayToken = null;
 
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
+
+    /**
+     * **samsungpay**
+     */
+    public static final String SAMSUNGPAY = "samsungpay";
 
     @SerializedName("type")
     private String type = SAMSUNGPAY;
@@ -108,10 +105,10 @@ public class SamsungPayDetails implements PaymentMethodDetails {
     }
 
     /**
-     * Get fundingSource
-     *
+     * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
      * @return fundingSource
      **/
+    @Schema(description = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
     public FundingSourceEnum getFundingSource() {
         return fundingSource;
     }
@@ -120,16 +117,34 @@ public class SamsungPayDetails implements PaymentMethodDetails {
         this.fundingSource = fundingSource;
     }
 
+    public SamsungPayDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
+
     public SamsungPayDetails samsungPayToken(String samsungPayToken) {
         this.samsungPayToken = samsungPayToken;
         return this;
     }
 
     /**
-     * Get samsungPayToken
-     *
+     * The payload you received from the Samsung Pay SDK response.
      * @return samsungPayToken
      **/
+    @Schema(required = true, description = "The payload you received from the Samsung Pay SDK response.")
     public String getSamsungPayToken() {
         return samsungPayToken;
     }
@@ -145,9 +160,9 @@ public class SamsungPayDetails implements PaymentMethodDetails {
 
     /**
      * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-     *
      * @return storedPaymentMethodId
      **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
     public String getStoredPaymentMethodId() {
         return storedPaymentMethodId;
     }
@@ -163,22 +178,20 @@ public class SamsungPayDetails implements PaymentMethodDetails {
 
     /**
      * **samsungpay**
-     *
      * @return type
      **/
-    @Override
+    @Schema(description = "**samsungpay**")
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
     }
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -187,6 +200,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
         }
         SamsungPayDetails samsungPayDetails = (SamsungPayDetails) o;
         return Objects.equals(this.fundingSource, samsungPayDetails.fundingSource) &&
+                Objects.equals(this.recurringDetailReference, samsungPayDetails.recurringDetailReference) &&
                 Objects.equals(this.samsungPayToken, samsungPayDetails.samsungPayToken) &&
                 Objects.equals(this.storedPaymentMethodId, samsungPayDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, samsungPayDetails.type);
@@ -194,7 +208,7 @@ public class SamsungPayDetails implements PaymentMethodDetails {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fundingSource, samsungPayToken, type);
+        return Objects.hash(fundingSource, recurringDetailReference, samsungPayToken, storedPaymentMethodId, type);
     }
 
 
@@ -204,11 +218,23 @@ public class SamsungPayDetails implements PaymentMethodDetails {
         sb.append("class SamsungPayDetails {\n");
 
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    samsungPayToken: ").append(toIndentedString(samsungPayToken)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
     }
 
 }

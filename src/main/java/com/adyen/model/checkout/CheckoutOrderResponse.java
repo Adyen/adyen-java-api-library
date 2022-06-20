@@ -24,12 +24,16 @@ import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
 import com.adyen.model.Amount;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * CheckoutOrderResponse
  */
 
 public class CheckoutOrderResponse {
+    @SerializedName("amount")
+    private Amount amount = null;
+
     @SerializedName("expiresAt")
     private String expiresAt = null;
 
@@ -44,6 +48,24 @@ public class CheckoutOrderResponse {
 
     @SerializedName("remainingAmount")
     private Amount remainingAmount = null;
+
+    public CheckoutOrderResponse amount(Amount amount) {
+        this.amount = amount;
+        return this;
+    }
+
+    /**
+     * Get amount
+     * @return amount
+     **/
+    @Schema(description = "")
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Amount amount) {
+        this.amount = amount;
+    }
 
     public CheckoutOrderResponse expiresAt(String expiresAt) {
         this.expiresAt = expiresAt;
@@ -145,7 +167,8 @@ public class CheckoutOrderResponse {
             return false;
         }
         CheckoutOrderResponse checkoutOrderResponse = (CheckoutOrderResponse) o;
-        return Objects.equals(this.expiresAt, checkoutOrderResponse.expiresAt) &&
+        return Objects.equals(this.amount, checkoutOrderResponse.amount) &&
+                Objects.equals(this.expiresAt, checkoutOrderResponse.expiresAt) &&
                 Objects.equals(this.orderData, checkoutOrderResponse.orderData) &&
                 Objects.equals(this.pspReference, checkoutOrderResponse.pspReference) &&
                 Objects.equals(this.reference, checkoutOrderResponse.reference) &&
@@ -154,7 +177,7 @@ public class CheckoutOrderResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(expiresAt, orderData, pspReference, reference, remainingAmount);
+        return Objects.hash(amount, expiresAt, orderData, pspReference, reference, remainingAmount);
     }
 
 
@@ -163,6 +186,7 @@ public class CheckoutOrderResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class CheckoutOrderResponse {\n");
 
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
         sb.append("    orderData: ").append(toIndentedString(orderData)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");

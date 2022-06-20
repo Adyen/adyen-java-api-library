@@ -23,6 +23,7 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
 
@@ -41,6 +42,9 @@ public class IdealDetails implements PaymentMethodDetails {
 
     @SerializedName("issuer")
     private String issuer = null;
+
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
 
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
@@ -64,6 +68,24 @@ public class IdealDetails implements PaymentMethodDetails {
 
     public void setIssuer(String issuer) {
         this.issuer = issuer;
+    }
+
+    public IdealDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
     }
 
     public IdealDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -115,13 +137,14 @@ public class IdealDetails implements PaymentMethodDetails {
         }
         IdealDetails idealDetails = (IdealDetails) o;
         return Objects.equals(this.issuer, idealDetails.issuer) &&
+                Objects.equals(this.recurringDetailReference, idealDetails.recurringDetailReference) &&
                 Objects.equals(this.storedPaymentMethodId, idealDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, idealDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, storedPaymentMethodId, type);
+        return Objects.hash(issuer, recurringDetailReference, storedPaymentMethodId, type);
     }
 
 
@@ -131,6 +154,7 @@ public class IdealDetails implements PaymentMethodDetails {
         sb.append("class IdealDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

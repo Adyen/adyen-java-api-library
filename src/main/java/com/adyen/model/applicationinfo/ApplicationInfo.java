@@ -29,7 +29,7 @@ import static com.adyen.Client.LIB_VERSION;
 
 public class ApplicationInfo {
     @SerializedName("adyenLibrary")
-    private CommonField adyenLibrary;
+    private final CommonField adyenLibrary;
 
     @SerializedName("adyenPaymentSource")
     private CommonField adyenPaymentSource = null;
