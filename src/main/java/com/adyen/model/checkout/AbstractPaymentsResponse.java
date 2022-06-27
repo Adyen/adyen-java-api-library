@@ -26,9 +26,16 @@ import com.adyen.model.FraudResult;
 import com.adyen.model.ThreeDS2Result;
 import com.adyen.model.ThreeDS2ResponseData;
 import com.adyen.util.DateUtil;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,6 +52,9 @@ import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
 import static com.adyen.util.Util.toIndentedString;
 
 public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsResponse<T>> {
+    @SerializedName("action")
+    private CheckoutPaymentsAction action;
+
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
 
@@ -61,7 +71,7 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
     private String refusalReasonCode = null;
 
     @SerializedName("resultCode")
-    private PaymentsResponse.ResultCodeEnum resultCode = null;
+    private ResultCodeEnum resultCode = null;
 
     @SerializedName("shopperLocale")
     private String shopperLocale = null;
@@ -73,7 +83,7 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
     private ThreeDS2ResponseData threeDS2ResponseData = null;
 
     @SerializedName("authResponse")
-    private PaymentsResponse.ResultCodeEnum authResponse;
+    private ResultCodeEnum authResponse;
 
     @SerializedName("merchantReference")
     private String merchantReference;
@@ -95,6 +105,19 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
 
     @SerializedName("donationToken")
     private String donationToken;
+
+    /**
+     * Action to be taken for completing the payment.
+     *
+     * @return action
+     **/
+    public CheckoutPaymentsAction getAction() {
+        return action;
+    }
+
+    public void setAction(CheckoutPaymentsAction action) {
+        this.action = action;
+    }
 
     public T additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -202,7 +225,7 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         this.refusalReasonCode = refusalReasonCode;
     }
 
-    public T resultCode(PaymentsResponse.ResultCodeEnum resultCode) {
+    public T resultCode(ResultCodeEnum resultCode) {
         this.resultCode = resultCode;
         return (T) this;
     }
@@ -220,11 +243,11 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
      *
      * @return resultCode
      **/
-    public PaymentsResponse.ResultCodeEnum getResultCode() {
+    public ResultCodeEnum getResultCode() {
         return resultCode;
     }
 
-    public void setResultCode(PaymentsResponse.ResultCodeEnum resultCode) {
+    public void setResultCode(ResultCodeEnum resultCode) {
         this.resultCode = resultCode;
     }
 
@@ -272,11 +295,11 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         this.serviceError = serviceError;
     }
 
-    public PaymentsResponse.ResultCodeEnum getAuthResponse() {
+    public ResultCodeEnum getAuthResponse() {
         return authResponse;
     }
 
-    public void setAuthResponse(PaymentsResponse.ResultCodeEnum authResponse) {
+    public void setAuthResponse(ResultCodeEnum authResponse) {
         this.authResponse = authResponse;
     }
 
@@ -402,20 +425,20 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
 
         AbstractPaymentsResponse response = (AbstractPaymentsResponse) o;
         return Objects.equals(this.additionalData, response.additionalData) &&
-                Objects.equals(this.amount, response.amount) &&
-                Objects.equals(this.donationToken, response.donationToken) &&
-                Objects.equals(this.fraudResult, response.fraudResult) &&
-                Objects.equals(this.merchantReference, response.merchantReference) &&
-                Objects.equals(this.order, response.order) &&
-                Objects.equals(this.paymentMethod, response.paymentMethod) &&
-                Objects.equals(this.pspReference, response.pspReference) &&
-                Objects.equals(this.refusalReason, response.refusalReason) &&
-                Objects.equals(this.refusalReasonCode, response.refusalReasonCode) &&
-                Objects.equals(this.resultCode, response.resultCode) &&
-                Objects.equals(this.shopperLocale, response.shopperLocale) &&
-                Objects.equals(this.threeDS2ResponseData, response.threeDS2ResponseData) &&
-                Objects.equals(this.threeDS2Result, response.threeDS2Result) &&
-                Objects.equals(this.threeDSPaymentData, response.threeDSPaymentData);
+            Objects.equals(this.amount, response.amount) &&
+            Objects.equals(this.donationToken, response.donationToken) &&
+            Objects.equals(this.fraudResult, response.fraudResult) &&
+            Objects.equals(this.merchantReference, response.merchantReference) &&
+            Objects.equals(this.order, response.order) &&
+            Objects.equals(this.paymentMethod, response.paymentMethod) &&
+            Objects.equals(this.pspReference, response.pspReference) &&
+            Objects.equals(this.refusalReason, response.refusalReason) &&
+            Objects.equals(this.refusalReasonCode, response.refusalReasonCode) &&
+            Objects.equals(this.resultCode, response.resultCode) &&
+            Objects.equals(this.shopperLocale, response.shopperLocale) &&
+            Objects.equals(this.threeDS2ResponseData, response.threeDS2ResponseData) &&
+            Objects.equals(this.threeDS2Result, response.threeDS2Result) &&
+            Objects.equals(this.threeDSPaymentData, response.threeDSPaymentData);
     }
 
     @Override
@@ -479,5 +502,70 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         return DateUtil.parseMYDate(expiryDate);
     }
 
+    /**
+     * The result of the payment. Possible values:
+     * * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions.
+     * * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state.
+     * * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state.
+     * * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions.
+     * * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state.
+     * * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions.
+     * * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. For more information on handling a pending payment, refer to [Payments with pending status](https://docs.adyen.com/development-resources/payments-with-pending-status).
+     * * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments.
+     * * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation.
+     * * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
+     */
+    @JsonAdapter(ResultCodeEnum.Adapter.class)
+    public enum ResultCodeEnum {
 
+        AUTHENTICATIONFINISHED("AuthenticationFinished"),
+        AUTHENTICATIONNOTREQUIRED("AuthenticationNotRequired"),
+        AUTHORISED("Authorised"),
+        CANCELLED("Cancelled"),
+        CHALLENGESHOPPER("ChallengeShopper"),
+        ERROR("Error"),
+        IDENTIFYSHOPPER("IdentifyShopper"),
+        PENDING("Pending"),
+        RECEIVED("Received"),
+        REDIRECTSHOPPER("RedirectShopper"),
+        REFUSED("Refused"),
+        PARTIALLYAUTHORISED("PartiallyAuthorised"),
+        PRESENTTOSHOPPER("PresentToShopper"),
+        UNKNOWN("Unknown"); //applicable for payments/details
+
+        @JsonValue
+        private final String value;
+
+        ResultCodeEnum(String value) {
+            this.value = value;
+        }
+
+        public static ResultCodeEnum fromValue(String text) {
+            return Arrays.stream(values()).
+                filter(s -> s.value.equals(text)).
+                findFirst().orElse(null);
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<ResultCodeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ResultCodeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ResultCodeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ResultCodeEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
 }

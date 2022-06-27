@@ -303,6 +303,19 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
+     * Test success flow for
+     * POST /payments/details
+     */
+    @Test
+    public void TestPaymentsDetailsChallengeShopperMocked() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-challenge-shopper.json");
+        Checkout checkout = new Checkout(client);
+        PaymentsDetailsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
+        assertEquals("ChallengeShopper", paymentsResponse.getResultCode().toString());
+        assertEquals("challenge", paymentsResponse.getAction().getSubtype());
+    }
+
+    /**
      * Test error flow for
      * POST  /paymentSession
      */
