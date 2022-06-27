@@ -424,21 +424,22 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         }
 
         AbstractPaymentsResponse response = (AbstractPaymentsResponse) o;
-        return Objects.equals(this.additionalData, response.additionalData) &&
-            Objects.equals(this.amount, response.amount) &&
-            Objects.equals(this.donationToken, response.donationToken) &&
-            Objects.equals(this.fraudResult, response.fraudResult) &&
-            Objects.equals(this.merchantReference, response.merchantReference) &&
-            Objects.equals(this.order, response.order) &&
-            Objects.equals(this.paymentMethod, response.paymentMethod) &&
-            Objects.equals(this.pspReference, response.pspReference) &&
-            Objects.equals(this.refusalReason, response.refusalReason) &&
-            Objects.equals(this.refusalReasonCode, response.refusalReasonCode) &&
-            Objects.equals(this.resultCode, response.resultCode) &&
-            Objects.equals(this.shopperLocale, response.shopperLocale) &&
-            Objects.equals(this.threeDS2ResponseData, response.threeDS2ResponseData) &&
-            Objects.equals(this.threeDS2Result, response.threeDS2Result) &&
-            Objects.equals(this.threeDSPaymentData, response.threeDSPaymentData);
+        return Objects.equals(this.action, response.action) &&
+                Objects.equals(this.additionalData, response.additionalData) &&
+                Objects.equals(this.amount, response.amount) &&
+                Objects.equals(this.donationToken, response.donationToken) &&
+                Objects.equals(this.fraudResult, response.fraudResult) &&
+                Objects.equals(this.merchantReference, response.merchantReference) &&
+                Objects.equals(this.order, response.order) &&
+                Objects.equals(this.paymentMethod, response.paymentMethod) &&
+                Objects.equals(this.pspReference, response.pspReference) &&
+                Objects.equals(this.refusalReason, response.refusalReason) &&
+                Objects.equals(this.refusalReasonCode, response.refusalReasonCode) &&
+                Objects.equals(this.resultCode, response.resultCode) &&
+                Objects.equals(this.shopperLocale, response.shopperLocale) &&
+                Objects.equals(this.threeDS2ResponseData, response.threeDS2ResponseData) &&
+                Objects.equals(this.threeDS2Result, response.threeDS2Result) &&
+                Objects.equals(this.threeDSPaymentData, response.threeDSPaymentData);
     }
 
     @Override
