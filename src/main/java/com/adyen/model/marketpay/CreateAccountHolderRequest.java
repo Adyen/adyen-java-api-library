@@ -61,7 +61,7 @@ public class CreateAccountHolderRequest {
         PUBLICCOMPANY("PublicCompany");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         LegalEntityEnum(String value) {
             this.value = value;
@@ -90,8 +90,8 @@ public class CreateAccountHolderRequest {
 
             @Override
             public LegalEntityEnum read(final JsonReader jsonReader) throws IOException {
-                Object value = jsonReader.nextString();
-                return LegalEntityEnum.fromValue((String)(value));
+                String value = jsonReader.nextString();
+                return LegalEntityEnum.fromValue(value);
             }
         }
     }  @SerializedName("legalEntity")
