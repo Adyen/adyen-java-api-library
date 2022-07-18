@@ -24,11 +24,15 @@ import com.adyen.enums.Environment;
 import com.adyen.enums.Region;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
+import com.adyen.httpclient.RequestHook;
+import com.adyen.httpclient.ResponseHook;
 
 import java.security.KeyStore;
 
 public class Client {
-    private ClientInterface httpClient;
+    private ClientInterface customHttpClient;
+
+    private ClientInterface adyenHttpClient;
     private Config config;
 
     public static final String ENDPOINT_TEST = "https://pal-test.adyen.com";
@@ -225,11 +229,15 @@ public class Client {
     }
 
     public ClientInterface getHttpClient() {
-        return this.httpClient == null ? new AdyenHttpClient() : this.httpClient;
+        if(this.customHttpClient == null) {
+            return this.adyenHttpClient == null ? this.adyenHttpClient = new AdyenHttpClient() : this.adyenHttpClient;
+        }
+
+        return this.customHttpClient;
     }
 
     public void setHttpClient(ClientInterface httpClient) {
-        this.httpClient = httpClient;
+        this.customHttpClient = httpClient;
     }
 
 
@@ -248,6 +256,36 @@ public class Client {
     public void setTimeouts(int connectionTimeoutMillis, int readTimeoutMillis) {
         this.config.setConnectionTimeoutMillis(connectionTimeoutMillis);
         this.config.setReadTimeoutMillis(readTimeoutMillis);
+    }
+
+    /**
+     * Adds request interceptor hook into each request adyen api calls
+     * Custom http clients are not supported
+     *
+     * @param requestHook Request hook implementation
+     */
+    public void addRequestHook(RequestHook requestHook) {
+        if(this.customHttpClient != null) {
+            throw new UnsupportedOperationException("Custom client configuration doesn't support hooks");
+        }
+
+        AdyenHttpClient adyenHttpClient = (AdyenHttpClient) getHttpClient();
+        adyenHttpClient.addRequestHook(requestHook);
+    }
+
+    /**
+     * Adds response interceptor hook into each response from adyen api calls
+     * Custom http clients are not supported
+     *
+     * @param responseHook Response hook implementation
+     */
+    public void addResponseHook(ResponseHook responseHook) {
+        if(this.customHttpClient != null) {
+            throw new UnsupportedOperationException("Custom client configuration doesn't support hooks");
+        }
+
+        AdyenHttpClient adyenHttpClient = (AdyenHttpClient) getHttpClient();
+        adyenHttpClient.addResponseHook(responseHook);
     }
 
 }

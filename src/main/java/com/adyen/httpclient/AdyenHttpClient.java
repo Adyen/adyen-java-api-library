@@ -57,7 +57,9 @@ import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.cert.X509Certificate;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 import static com.adyen.constants.ApiConstants.HttpMethod.POST;
@@ -75,6 +77,21 @@ public class AdyenHttpClient implements ClientInterface {
     private static final String SSL = "SSL";
     private static final String TLSV1_2 = "TLSv1.2";
     private Proxy proxy;
+    private final Map<Config, CloseableHttpClient> httpClientMap;
+    private final LinkedList<RequestHook> requestHooks;
+    private final LinkedList<ResponseHook> responseHooks;
+
+    public AdyenHttpClient() {
+        this.httpClientMap = new ConcurrentHashMap<>();
+        this.requestHooks = new LinkedList<>();
+        this.responseHooks = new LinkedList<>();
+    }
+
+    public AdyenHttpClient(Map<Config, CloseableHttpClient> httpClientMap) {
+        this.httpClientMap = new ConcurrentHashMap<>(httpClientMap);
+        this.requestHooks = new LinkedList<>();
+        this.responseHooks = new LinkedList<>();
+    }
 
     public Proxy getProxy() {
         return proxy;
@@ -106,11 +123,19 @@ public class AdyenHttpClient implements ClientInterface {
 
     @Override
     public String request(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws IOException, HTTPClientException {
-        try (CloseableHttpClient httpclient = createCloseableHttpClient(config)) {
-            HttpUriRequestBase httpRequest = createRequest(endpoint, requestBody, config, isApiKeyRequired, requestOptions, httpMethod, params);
+        return request(new AdyenRequest(endpoint, requestBody, isApiKeyRequired, requestOptions, httpMethod, params), config);
+    }
+
+    @Override
+    public String request(AdyenRequest adyenRequest, Config config) throws IOException, HTTPClientException {
+        try (CloseableHttpClient httpclient = getCloseableHttpClient(config)) {
+            HttpUriRequestBase httpRequest = createRequest(adyenRequest, config);
+
+            runRequestHooks(adyenRequest);
 
             // Execute request with a custom response handler
             AdyenResponse response = httpclient.execute(httpRequest, new AdyenResponseHandler());
+            runResponseHooks(response);
 
             if (response.getStatus() < 200 || response.getStatus() >= 300) {
                 throw new HTTPClientException(response.getStatus(), "HTTP Exception", response.getHeaders(), response.getBody());
@@ -119,8 +144,46 @@ public class AdyenHttpClient implements ClientInterface {
         }
     }
 
-    private HttpUriRequestBase createRequest(String endpoint, String requestBody, Config config, boolean isApiKeyRequired, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws HTTPClientException {
-        HttpUriRequestBase httpRequest = createHttpRequestBase(createUri(endpoint, params), requestBody, httpMethod);
+    /**
+     * Adds new request hook into list
+     *
+     * @param requestHook Request hook implementation
+     */
+    public void addRequestHook(RequestHook requestHook) {
+        requestHooks.addLast(requestHook);
+    }
+
+    /**
+     * Adds new response hook into list
+     *
+     * @param responseHook Response hook implementation
+     */
+    public void addResponseHook(ResponseHook responseHook) {
+        responseHooks.addLast(responseHook);
+    }
+
+    /**
+     * Fetch the existing CloseableHttpClient with given config, If It doesn't exist creates a new one
+     *
+     * @param config HttpClient configuration
+     * @return CloseableHttpClient
+     * @throws HTTPClientException If new CloseableHttpClient creation is failed
+     */
+    private CloseableHttpClient getCloseableHttpClient(Config config) throws HTTPClientException {
+        CloseableHttpClient httpClient = httpClientMap.get(config);
+        if (httpClient != null) {
+            return httpClient;
+        }
+
+        httpClient = createCloseableHttpClient(config);
+        httpClientMap.put(config, httpClient);
+
+        return httpClient;
+    }
+
+    private HttpUriRequestBase createRequest(AdyenRequest adyenRequest, Config config) throws HTTPClientException {
+        HttpUriRequestBase httpRequest = createHttpRequestBase(createUri(
+                adyenRequest.getEndpoint(), adyenRequest.getParams()), adyenRequest.getRequestBody(), adyenRequest.getHttpMethod());
 
         RequestConfig.Builder builder = RequestConfig.custom();
         if (config.getReadTimeoutMillis() > 0) {
@@ -135,8 +198,8 @@ public class AdyenHttpClient implements ClientInterface {
         }
         httpRequest.setConfig(builder.build());
 
-        setAuthentication(httpRequest, isApiKeyRequired, config);
-        setHeaders(config, requestOptions, httpRequest);
+        setAuthentication(httpRequest, adyenRequest.isApiKeyRequired(), config);
+        setHeaders(config, adyenRequest.getRequestOptions(), httpRequest);
 
         return httpRequest;
     }
@@ -308,5 +371,27 @@ public class AdyenHttpClient implements ClientInterface {
         String authStringEnc = new String(authEncBytes);
 
         httpUriRequest.addHeader("Authorization", "Basic " + authStringEnc);
+    }
+
+    /**
+     * Runs all interceptor response hooks
+     *
+     * @param response Adyen api response
+     */
+    private void runResponseHooks(AdyenResponse response) {
+        for (ResponseHook responseHook : responseHooks) {
+            responseHook.Run(response);
+        }
+    }
+
+    /**
+     * Runs all interceptor request hooks
+     *
+     * @param request Adyen api request
+     */
+    private void runRequestHooks(AdyenRequest request) {
+        for (RequestHook requestHook : requestHooks) {
+            requestHook.Run(request);
+        }
     }
 }

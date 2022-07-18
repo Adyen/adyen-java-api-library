@@ -31,6 +31,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
+import java.util.Objects;
 
 public class Config {
     protected String username;
@@ -269,5 +270,39 @@ public class Config {
 
     public void setClientKeyStorePassword(String clientKeyStorePassword) {
         this.clientKeyStorePassword = clientKeyStorePassword;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Config config = (Config) o;
+        return connectionTimeoutMillis == config.connectionTimeoutMillis
+                && readTimeoutMillis == config.readTimeoutMillis
+                && Objects.equals(username, config.username)
+                && Objects.equals(password, config.password)
+                && Objects.equals(merchantAccount, config.merchantAccount)
+                && environment == config.environment
+                && Objects.equals(endpoint, config.endpoint)
+                && Objects.equals(marketPayEndpoint, config.marketPayEndpoint)
+                && Objects.equals(applicationName, config.applicationName)
+                && Objects.equals(apiKey, config.apiKey)
+                && Objects.equals(hppEndpoint, config.hppEndpoint)
+                && Objects.equals(skinCode, config.skinCode)
+                && Objects.equals(hmacKey, config.hmacKey)
+                && Objects.equals(checkoutEndpoint, config.checkoutEndpoint)
+                && Objects.equals(terminalApiCloudEndpoint, config.terminalApiCloudEndpoint)
+                && Objects.equals(terminalApiLocalEndpoint, config.terminalApiLocalEndpoint)
+                && Objects.equals(terminalCertificate, config.terminalCertificate)
+                && Objects.equals(posTerminalManagementApiEndpoint, config.posTerminalManagementApiEndpoint)
+                && Objects.equals(dataProtectionEndpoint, config.dataProtectionEndpoint)
+                && Objects.equals(trustKeyStore, config.trustKeyStore)
+                && Objects.equals(clientKeyStore, config.clientKeyStore)
+                && Objects.equals(clientKeyStorePassword, config.clientKeyStorePassword);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password, merchantAccount, environment, endpoint, marketPayEndpoint, applicationName, apiKey, connectionTimeoutMillis, readTimeoutMillis, hppEndpoint, skinCode, hmacKey, checkoutEndpoint, terminalApiCloudEndpoint, terminalApiLocalEndpoint, terminalCertificate, posTerminalManagementApiEndpoint, dataProtectionEndpoint, trustKeyStore, clientKeyStore, clientKeyStorePassword);
     }
 }
