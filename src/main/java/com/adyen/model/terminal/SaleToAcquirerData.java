@@ -44,6 +44,7 @@ public class SaleToAcquirerData {
     private String tenderOption;
     private Map<String, String> additionalData;
     private String authorisationType;
+    private int ssc;
     private static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public SaleToAcquirerData() {
@@ -162,6 +163,14 @@ public class SaleToAcquirerData {
         this.authorisationType = authorisationType;
     }
 
+    public int getSsc(){
+        return ssc;
+    }
+
+    public void setSsc(int ssc){
+        this.ssc = ssc;
+    }
+
     public static Gson getPrettyPrintGson() {
         return PRETTY_PRINT_GSON;
     }
@@ -188,12 +197,13 @@ public class SaleToAcquirerData {
                 Objects.equals(applicationInfo, that.applicationInfo) &&
                 Objects.equals(tenderOption, that.tenderOption) &&
                 Objects.equals(additionalData, that.additionalData) &&
-                Objects.equals(authorisationType, that.authorisationType);
+                Objects.equals(authorisationType, that.authorisationType) &&
+                Objects.equals(ssc, that.ssc);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(metadata, shopperEmail, shopperReference, recurringContract, shopperStatement, recurringDetailName, recurringTokenService, store, merchantAccount, currency, applicationInfo, tenderOption, additionalData, authorisationType);
+        return Objects.hash(metadata, shopperEmail, shopperReference, recurringContract, shopperStatement, recurringDetailName, recurringTokenService, store, merchantAccount, currency, applicationInfo, tenderOption, additionalData, authorisationType, ssc);
     }
 
     @Override
@@ -213,6 +223,7 @@ public class SaleToAcquirerData {
                 ", tenderOption='" + tenderOption + '\'' +
                 ", additionalData=" + additionalData +
                 ", authorisationType=" + authorisationType +
+                ", ssc='" + ssc + '\'' +
                 '}';
     }
 
