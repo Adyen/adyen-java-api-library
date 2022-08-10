@@ -167,7 +167,7 @@ public class SaleToAcquirerData {
         return ssc;
     }
 
-    public void setSsc(int ssc){
+    public void setSsc(int ssc) {
         this.ssc = ssc;
     }
 
