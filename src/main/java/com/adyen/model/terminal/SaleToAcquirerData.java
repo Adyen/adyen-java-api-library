@@ -163,7 +163,7 @@ public class SaleToAcquirerData {
         this.authorisationType = authorisationType;
     }
 
-    public int getSsc(){
+    public int getSsc() {
         return ssc;
     }
 
