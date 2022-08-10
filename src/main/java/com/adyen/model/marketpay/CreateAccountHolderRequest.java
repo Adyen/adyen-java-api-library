@@ -58,7 +58,10 @@ public class CreateAccountHolderRequest {
         BUSINESS("Business"),
 
         @SerializedName("Individual")
-        INDIVIDUAL("Individual");
+        INDIVIDUAL("Individual"),
+
+        @SerializedName("NonProfit")
+        NONPROFIT("NonProfit");
 
         @JsonValue
         private final String value;
