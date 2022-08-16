@@ -115,6 +115,7 @@ public class CreatePaymentLinkRequest {
         RecurringProcessingModelEnum(String value) {
             this.value = value;
         }
+
         public String getValue() {
             return value;
         }
@@ -123,6 +124,7 @@ public class CreatePaymentLinkRequest {
         public String toString() {
             return String.valueOf(value);
         }
+
         public static RecurringProcessingModelEnum fromValue(String input) {
             for (RecurringProcessingModelEnum b : RecurringProcessingModelEnum.values()) {
                 if (b.value.equals(input)) {
@@ -131,6 +133,7 @@ public class CreatePaymentLinkRequest {
             }
             return null;
         }
+
         public static class Adapter extends TypeAdapter<RecurringProcessingModelEnum> {
             @Override
             public void write(final JsonWriter jsonWriter, final RecurringProcessingModelEnum enumeration) throws IOException {
@@ -139,11 +142,12 @@ public class CreatePaymentLinkRequest {
 
             @Override
             public RecurringProcessingModelEnum read(final JsonReader jsonReader) throws IOException {
-                Object value = jsonReader.nextString();
-                return RecurringProcessingModelEnum.fromValue((String)(value));
+                String value = jsonReader.nextString();
+                return RecurringProcessingModelEnum.fromValue(value);
             }
         }
-    }  @SerializedName("recurringProcessingModel")
+    }
+    @SerializedName("recurringProcessingModel")
     private RecurringProcessingModelEnum recurringProcessingModel = null;
 
     @SerializedName("reference")
