@@ -28,7 +28,6 @@ import com.adyen.model.Amount;
 import com.adyen.model.Name;
 import com.adyen.model.Split;
 import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.serializer.DateSerializer;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
