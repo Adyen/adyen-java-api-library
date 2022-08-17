@@ -96,7 +96,7 @@
                 <configuration>
                     <source>8</source>
                 </configuration>
-                <version>3.4.0</version>
+                <version>3.4.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
