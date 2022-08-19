@@ -194,7 +194,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
     private Map<String, String> metadata = null;
 
     @SerializedName("applicationInfo")
-    private final ApplicationInfo applicationInfo;
+    private ApplicationInfo applicationInfo;
 
     @SerializedName("enableRealTimeUpdate")
     private Boolean enableRealTimeUpdate = null;
@@ -814,6 +814,10 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
 
     public ApplicationInfo getApplicationInfo() {
         return applicationInfo;
+    }
+
+    public void setApplicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
     }
 
     /**

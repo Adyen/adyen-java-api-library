@@ -36,6 +36,8 @@ import com.adyen.model.PaymentResult;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.ThreeDS2ResultRequest;
 import com.adyen.model.ThreeDS2ResultResponse;
+import com.adyen.model.applicationinfo.ApplicationInfo;
+import com.adyen.model.applicationinfo.MerchantDevice;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
@@ -75,6 +77,13 @@ public class PaymentTest extends BaseTest {
         Payment payment = new Payment(client);
 
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
+
+        MerchantDevice device = new MerchantDevice();
+        device.setOs("LINUX");
+
+        ApplicationInfo applicationInfo = new ApplicationInfo();
+        applicationInfo.setMerchantDevice(device);
+        paymentRequest.setApplicationInfo(applicationInfo);
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
