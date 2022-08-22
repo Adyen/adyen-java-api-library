@@ -67,7 +67,7 @@ public enum AuthenticationMethodType {
     /**
      * On-line PIN authentication (Personal Identification Number).
      */
-    @XmlEnumValue("OnLinePIN")
+    @XmlEnumValue("OnlinePIN")
     @Schema(description = "On-line PIN authentication (Personal Identification Number).")
     ON_LINE_PIN("OnLinePIN", "OnlinePIN"),
 

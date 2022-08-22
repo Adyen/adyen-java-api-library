@@ -32,77 +32,13 @@ import com.adyen.model.hop.GetOnboardingUrlRequest;
 import com.adyen.model.hop.GetOnboardingUrlResponse;
 import com.adyen.model.hop.OnboardingCollectInformation;
 import com.adyen.model.hop.OnboardingShowPages;
-import com.adyen.model.marketpay.AccountHolderBalanceRequest;
-import com.adyen.model.marketpay.AccountHolderBalanceResponse;
-import com.adyen.model.marketpay.AccountHolderDetails;
-import com.adyen.model.marketpay.AccountHolderStatus;
-import com.adyen.model.marketpay.AccountHolderTransactionListRequest;
-import com.adyen.model.marketpay.AccountHolderTransactionListResponse;
-import com.adyen.model.marketpay.BankAccountDetail;
-import com.adyen.model.marketpay.CheckAccountHolderResponse;
-import com.adyen.model.marketpay.CloseAccountHolderRequest;
-import com.adyen.model.marketpay.CloseAccountHolderResponse;
-import com.adyen.model.marketpay.CloseAccountRequest;
-import com.adyen.model.marketpay.CloseAccountResponse;
-import com.adyen.model.marketpay.CreateAccountHolderRequest;
-import com.adyen.model.marketpay.CreateAccountHolderResponse;
-import com.adyen.model.marketpay.CreateAccountRequest;
-import com.adyen.model.marketpay.CreateAccountResponse;
-import com.adyen.model.marketpay.DeleteBankAccountRequest;
-import com.adyen.model.marketpay.DeleteBankAccountResponse;
-import com.adyen.model.marketpay.DeletePayoutMethodRequest;
-import com.adyen.model.marketpay.DeletePayoutMethodResponse;
-import com.adyen.model.marketpay.DeleteShareholderRequest;
-import com.adyen.model.marketpay.DeleteShareholderResponse;
-import com.adyen.model.marketpay.DeleteSignatoriesRequest;
-import com.adyen.model.marketpay.DeleteSignatoriesResponse;
-import com.adyen.model.marketpay.DocumentDetail;
-import com.adyen.model.marketpay.ErrorFieldType;
-import com.adyen.model.marketpay.FieldType;
-import com.adyen.model.marketpay.GetAccountHolderRequest;
-import com.adyen.model.marketpay.GetAccountHolderResponse;
-import com.adyen.model.marketpay.GetTaxFormRequest;
-import com.adyen.model.marketpay.GetTaxFormResponse;
-import com.adyen.model.marketpay.GetUploadedDocumentsRequest;
-import com.adyen.model.marketpay.GetUploadedDocumentsResponse;
-import com.adyen.model.marketpay.IndividualDetails;
-import com.adyen.model.marketpay.PayoutAccountHolderRequest;
-import com.adyen.model.marketpay.PayoutAccountHolderResponse;
-import com.adyen.model.marketpay.PayoutScheduleResponse;
-import com.adyen.model.marketpay.PayoutSpeedEnum;
-import com.adyen.model.marketpay.PerformVerificationRequest;
-import com.adyen.model.marketpay.PersonalData;
-import com.adyen.model.marketpay.PersonalDocumentData;
-import com.adyen.model.marketpay.PhoneNumber;
-import com.adyen.model.marketpay.RefundFundsTransferRequest;
-import com.adyen.model.marketpay.RefundFundsTransferResponse;
-import com.adyen.model.marketpay.RefundNotPaidOutTransfersRequest;
-import com.adyen.model.marketpay.RefundNotPaidOutTransfersResponse;
-import com.adyen.model.marketpay.SetupBeneficiaryRequest;
-import com.adyen.model.marketpay.SetupBeneficiaryResponse;
-import com.adyen.model.marketpay.ShareholderContact;
-import com.adyen.model.marketpay.SuspendAccountHolderRequest;
-import com.adyen.model.marketpay.SuspendAccountHolderResponse;
-import com.adyen.model.marketpay.Transaction;
-import com.adyen.model.marketpay.TransactionListForAccount;
-import com.adyen.model.marketpay.TransferFundsRequest;
-import com.adyen.model.marketpay.TransferFundsResponse;
-import com.adyen.model.marketpay.UnSuspendAccountHolderRequest;
-import com.adyen.model.marketpay.UnSuspendAccountHolderResponse;
-import com.adyen.model.marketpay.UpdateAccountHolderRequest;
-import com.adyen.model.marketpay.UpdateAccountHolderResponse;
-import com.adyen.model.marketpay.UpdateAccountHolderStateRequest;
-import com.adyen.model.marketpay.UpdateAccountHolderStateResponse;
-import com.adyen.model.marketpay.UpdateAccountRequest;
-import com.adyen.model.marketpay.UpdateAccountResponse;
-import com.adyen.model.marketpay.UpdatePayoutScheduleRequest;
-import com.adyen.model.marketpay.UploadDocumentRequest;
-import com.adyen.model.marketpay.UploadDocumentResponse;
+import com.adyen.model.marketpay.*;
 import com.adyen.service.Account;
 import com.adyen.service.Fund;
 import com.adyen.service.Hop;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
+import com.adyen.service.resource.account.CloseStores;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -715,6 +651,23 @@ public class MarketPayTest extends BaseTest {
         assertEquals("9914713476670992", closeAccountHolderResponse.getPspReference());
         assertEquals("Success", closeAccountHolderResponse.getResultCode());
         assertEquals(AccountHolderStatus.StatusEnum.CLOSED, closeAccountHolderResponse.getAccountHolderStatus().getStatus());
+    }
+
+    @Test
+    public void TestCloseStoresSuccess() throws Exception {
+        // setup client
+        Client client = createMockClientFromFile("mocks/marketpay/account/close-stores-success.json");
+
+        // use account service
+        Account account = new Account(client);
+
+        // create CloseStores Request
+        CloseStoresRequest closeStoresRequest = new CloseStoresRequest();
+        closeStoresRequest.setAccountHolderCode("TestAccountHolder1998");
+
+        GenericResponse genericResponse = account.closeStores(closeStoresRequest);
+        assertEquals("9918713476670992", genericResponse.getPspReference());
+        assertEquals("Success", genericResponse.getResultCode());
     }
 
     @Test
