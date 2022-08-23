@@ -33,6 +33,8 @@ public class ErrorFieldTypeContainer {
     @JsonProperty("ErrorFieldType")
     private ErrorFieldType errorFieldType;
 
+    public ErrorFieldTypeContainer() {}
+
     public ErrorFieldTypeContainer(ErrorFieldType errorFieldType) {
         this.errorFieldType = errorFieldType;
     }

@@ -29,6 +29,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PaymentFailureNotificationContent {
     @SerializedName("errorFields")
@@ -110,5 +111,30 @@ public class PaymentFailureNotificationContent {
     @Override
     public String toString() {
         return "PaymentFailureContent{" + "errorFieldTypeContainers=" + errorFieldTypeContainers + ", errorMessage=" + errorMessage + ", modificationMerchantReference=" + modificationMerchantReference + ", modificationPspReference=" + modificationPspReference + ", paymentMerchantReference=" + paymentMerchantReference + ", paymentPspReference=" + paymentPspReference + '}';
+    }
+
+    @Override public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PaymentFailureNotificationContent that = (PaymentFailureNotificationContent) o;
+        return Objects.equals(errorFieldTypeContainers, that.errorFieldTypeContainers) &&
+                Objects.equals(errorMessage, that.errorMessage) &&
+                Objects.equals(modificationMerchantReference, that.modificationMerchantReference) &&
+                Objects.equals(modificationPspReference, that.modificationPspReference) &&
+                Objects.equals(paymentMerchantReference, that.paymentMerchantReference) &&
+                Objects.equals(paymentPspReference, that.paymentPspReference);
+    }
+
+    @Override public int hashCode() {
+        return Objects.hash(errorFieldTypeContainers,
+                errorMessage,
+                modificationMerchantReference,
+                modificationPspReference,
+                paymentMerchantReference,
+                paymentPspReference);
     }
 }
