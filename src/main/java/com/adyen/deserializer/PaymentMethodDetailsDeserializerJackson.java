@@ -38,6 +38,7 @@ import com.adyen.model.checkout.details.DotpayDetails;
 import com.adyen.model.checkout.details.DragonpayDetails;
 import com.adyen.model.checkout.details.EcontextVoucherDetails;
 import com.adyen.model.checkout.details.EntercashDetails;
+import com.adyen.model.checkout.details.GenericIssuerPaymentMethodDetails;
 import com.adyen.model.checkout.details.GiropayDetails;
 import com.adyen.model.checkout.details.GooglePayDetails;
 import com.adyen.model.checkout.details.IdealDetails;
@@ -122,6 +123,9 @@ public class PaymentMethodDetailsDeserializerJackson extends JsonDeserializer<Pa
                 return codec.treeToValue(node, EcontextVoucherDetails.class);
             case EntercashDetails.ENTERCASH:
                 return codec.treeToValue(node, EntercashDetails.class);
+            case GenericIssuerPaymentMethodDetails.ONLINEBANKING_IN:
+            case GenericIssuerPaymentMethodDetails.WALLET_IN:
+                return codec.treeToValue(node, GenericIssuerPaymentMethodDetails.class);
             case GiropayDetails.GIROPAY:
                 return codec.treeToValue(node, GiropayDetails.class);
             case GooglePayDetails.GOOGLEPAY:
