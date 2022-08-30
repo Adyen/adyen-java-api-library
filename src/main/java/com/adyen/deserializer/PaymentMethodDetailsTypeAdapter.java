@@ -37,6 +37,7 @@ import com.adyen.model.checkout.details.DotpayDetails;
 import com.adyen.model.checkout.details.DragonpayDetails;
 import com.adyen.model.checkout.details.EcontextVoucherDetails;
 import com.adyen.model.checkout.details.EntercashDetails;
+import com.adyen.model.checkout.details.GenericIssuerPaymentMethodDetails;
 import com.adyen.model.checkout.details.GiropayDetails;
 import com.adyen.model.checkout.details.GooglePayDetails;
 import com.adyen.model.checkout.details.IdealDetails;
@@ -159,6 +160,9 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                     case LianLianPayDetails.EBANKING_DEBIT:
                     case LianLianPayDetails.EBANKING_ENTERPRISE:
                         return gson.getAdapter(LianLianPayDetails.class).fromJsonTree(jsonElement);
+                    case GenericIssuerPaymentMethodDetails.ONLINEBANKING_IN:
+                    case GenericIssuerPaymentMethodDetails.WALLET_IN:
+                        return gson.getAdapter(GenericIssuerPaymentMethodDetails.class).fromJsonTree(jsonElement);
                     case MasterpassDetails.MASTERPASS:
                         return gson.getAdapter(MasterpassDetails.class).fromJsonTree(jsonElement);
                     case MbwayDetails.MBWAY:

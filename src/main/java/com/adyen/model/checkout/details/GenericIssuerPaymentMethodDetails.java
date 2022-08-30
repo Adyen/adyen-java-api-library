@@ -35,6 +35,12 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String ONLINEBANKING_IN = "onlinebanking_IN";
+    public static final String WALLET_IN = "wallet_IN";
+
     @SerializedName("issuer")
     private String issuer = null;
 

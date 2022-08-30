@@ -176,7 +176,7 @@ public class CheckoutTest extends BaseTest {
         PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
         assertEquals("853613724697009G", paymentsResponse.getPspReference());
     }
-
+    
     /**
      * Test error flow for
      * POST /payments
@@ -2423,6 +2423,24 @@ public class CheckoutTest extends BaseTest {
         assertNotNull(jacksonObject);
         assertTrue(jacksonObject instanceof ApplePayDetails);
         assertEquals("VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", ((ApplePayDetails) jacksonObject).getApplePayToken());
+    }
+
+    @Test
+    public void TestPaymentMethodDetailsDirectDeserializationIndianBanking() throws JsonProcessingException {
+        Gson gson = new GsonBuilder().registerTypeAdapterFactory(new PaymentMethodDetailsTypeAdapter()).create();
+
+        String json = "{\"type\": \"wallet_IN\",\"issuer\": \"CBI\"}";
+
+        PaymentMethodDetails gsonObject = gson.fromJson(json, PaymentMethodDetails.class);
+        assertNotNull(gsonObject);
+        assertTrue(gsonObject instanceof GenericIssuerPaymentMethodDetails);
+        assertEquals("CBI", ((GenericIssuerPaymentMethodDetails) gsonObject).getIssuer());
+
+        ObjectMapper objectMapper = new ObjectMapper().registerModule(new SimpleModule().addDeserializer(PaymentMethodDetails.class, new PaymentMethodDetailsDeserializerJackson()));
+        PaymentMethodDetails jacksonObject = objectMapper.readValue(json, PaymentMethodDetails.class);
+        assertNotNull(jacksonObject);
+        assertTrue(jacksonObject instanceof GenericIssuerPaymentMethodDetails);
+        assertEquals("CBI", ((GenericIssuerPaymentMethodDetails) jacksonObject).getIssuer());
     }
 
     @Test
