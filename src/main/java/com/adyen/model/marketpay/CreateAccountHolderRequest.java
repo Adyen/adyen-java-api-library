@@ -14,15 +14,20 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2022 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen.model.marketpay;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
+import java.io.IOException;
 import java.util.Objects;
 
 
@@ -32,33 +37,28 @@ import static com.adyen.util.Util.toIndentedString;
  * CreateAccountHolderRequest
  */
 public class CreateAccountHolderRequest {
-    @SerializedName("createDefaultAccount")
-    private Boolean createDefaultAccount = null;
-
-    @SerializedName("description")
-    private String description = null;
-
     @SerializedName("accountHolderCode")
     private String accountHolderCode = null;
 
     @SerializedName("accountHolderDetails")
     private AccountHolderDetails accountHolderDetails = null;
 
-    @SerializedName("processingTier")
-    private Integer processingTier = null;
+    @SerializedName("createDefaultAccount")
+    private Boolean createDefaultAccount = null;
 
-    @SerializedName("verificationProfile")
-    private String verificationProfile = null;
+    @SerializedName("description")
+    private String description = null;
 
     /**
-     * account holder legal entity type (Busines / Individual)
+     * The legal entity type of the account holder. This determines the information that should be provided in the request.  Possible values: **Business**, **Individual**, or **NonProfit**.  * If set to **Business** or **NonProfit**, then &#x60;accountHolderDetails.businessDetails&#x60; must be provided, with at least one entry in the &#x60;accountHolderDetails.businessDetails.shareholders&#x60; list.  * If set to **Individual**, then &#x60;accountHolderDetails.individualDetails&#x60; must be provided.
      */
+    @JsonAdapter(LegalEntityEnum.Adapter.class)
     public enum LegalEntityEnum {
-        @SerializedName("Business")
         BUSINESS("Business"),
-
-        @SerializedName("Individual")
-        INDIVIDUAL("Individual");
+        INDIVIDUAL("Individual"),
+        NONPROFIT("NonProfit"),
+        PARTNERSHIP("Partnership"),
+        PUBLICCOMPANY("PublicCompany");
 
         @JsonValue
         private final String value;
@@ -66,53 +66,53 @@ public class CreateAccountHolderRequest {
         LegalEntityEnum(String value) {
             this.value = value;
         }
+        public String getValue() {
+            return value;
+        }
 
         @Override
         public String toString() {
             return String.valueOf(value);
         }
-    }
+        public static LegalEntityEnum fromValue(String input) {
+            for (LegalEntityEnum b : LegalEntityEnum.values()) {
+                if (b.value.equals(input)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+        public static class Adapter extends TypeAdapter<LegalEntityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LegalEntityEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
 
-    @SerializedName("legalEntity")
+            @Override
+            public LegalEntityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return LegalEntityEnum.fromValue(value);
+            }
+        }
+    }  @SerializedName("legalEntity")
     private LegalEntityEnum legalEntity = null;
 
     @SerializedName("primaryCurrency")
     private String primaryCurrency = null;
 
-    public CreateAccountHolderRequest createDefaultAccount(Boolean createDefaultAccount) {
-        this.createDefaultAccount = createDefaultAccount;
-        return this;
-    }
+    @SerializedName("processingTier")
+    private Integer processingTier = null;
 
-    /**
-     * indicates if a default account has to be created for the account holder
-     *
-     * @return createDefaultAccount
-     **/
-    public Boolean getCreateDefaultAccount() {
-        return createDefaultAccount;
-    }
-
-    public void setCreateDefaultAccount(Boolean createDefaultAccount) {
-        this.createDefaultAccount = createDefaultAccount;
-    }
+    @SerializedName("verificationProfile")
+    private String verificationProfile = null;
 
     public CreateAccountHolderRequest accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
         return this;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     /**
-     * code of account holder to be created
-     *
+     * Your unique identifier for the prospective account holder. The length must be between three (3) and fifty (50) characters long. Only letters, digits, and hyphens (-) are allowed.
      * @return accountHolderCode
      **/
     public String getAccountHolderCode() {
@@ -129,8 +129,7 @@ public class CreateAccountHolderRequest {
     }
 
     /**
-     * account holder properties to be set
-     *
+     * Get accountHolderDetails
      * @return accountHolderDetails
      **/
     public AccountHolderDetails getAccountHolderDetails() {
@@ -141,22 +140,38 @@ public class CreateAccountHolderRequest {
         this.accountHolderDetails = accountHolderDetails;
     }
 
-    public CreateAccountHolderRequest processingTier(Integer processingTier) {
-        this.processingTier = processingTier;
+    public CreateAccountHolderRequest createDefaultAccount(Boolean createDefaultAccount) {
+        this.createDefaultAccount = createDefaultAccount;
         return this;
     }
 
     /**
-     * processing tier in which the account needs to start
-     *
-     * @return processingTier
+     * If set to **true**, an account with the default options is automatically created for the account holder. By default, this field is set to **true**.
+     * @return createDefaultAccount
      **/
-    public Integer getProcessingTier() {
-        return processingTier;
+    public Boolean isCreateDefaultAccount() {
+        return createDefaultAccount;
     }
 
-    public void setProcessingTier(Integer processingTier) {
-        this.processingTier = processingTier;
+    public void setCreateDefaultAccount(Boolean createDefaultAccount) {
+        this.createDefaultAccount = createDefaultAccount;
+    }
+
+    public CreateAccountHolderRequest description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * A description of the prospective account holder, maximum 256 characters. You can use alphanumeric characters (A-Z, a-z, 0-9), white spaces, and underscores &#x60;_&#x60;.
+     * @return description
+     **/
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public CreateAccountHolderRequest legalEntity(LegalEntityEnum legalEntity) {
@@ -165,8 +180,7 @@ public class CreateAccountHolderRequest {
     }
 
     /**
-     * account holder legal entity type (Busines / Individual)
-     *
+     * The legal entity type of the account holder. This determines the information that should be provided in the request.  Possible values: **Business**, **Individual**, or **NonProfit**.  * If set to **Business** or **NonProfit**, then &#x60;accountHolderDetails.businessDetails&#x60; must be provided, with at least one entry in the &#x60;accountHolderDetails.businessDetails.shareholders&#x60; list.  * If set to **Individual**, then &#x60;accountHolderDetails.individualDetails&#x60; must be provided.
      * @return legalEntity
      **/
     public LegalEntityEnum getLegalEntity() {
@@ -177,12 +191,38 @@ public class CreateAccountHolderRequest {
         this.legalEntity = legalEntity;
     }
 
+    public CreateAccountHolderRequest primaryCurrency(String primaryCurrency) {
+        this.primaryCurrency = primaryCurrency;
+        return this;
+    }
+
+    /**
+     * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes), with which the prospective account holder primarily deals.
+     * @return primaryCurrency
+     **/
     public String getPrimaryCurrency() {
         return primaryCurrency;
     }
 
     public void setPrimaryCurrency(String primaryCurrency) {
         this.primaryCurrency = primaryCurrency;
+    }
+
+    public CreateAccountHolderRequest processingTier(Integer processingTier) {
+        this.processingTier = processingTier;
+        return this;
+    }
+
+    /**
+     * The starting [processing tier](https://docs.adyen.com/platforms/onboarding-and-verification/precheck-kyc-information) for the prospective account holder.
+     * @return processingTier
+     **/
+    public Integer getProcessingTier() {
+        return processingTier;
+    }
+
+    public void setProcessingTier(Integer processingTier) {
+        this.processingTier = processingTier;
     }
 
     public CreateAccountHolderRequest verificationProfile(String verificationProfile) {
@@ -192,9 +232,8 @@ public class CreateAccountHolderRequest {
 
     /**
      * The identifier of the profile that applies to this entity.
-     *
      * @return verificationProfile
-     */
+     **/
     public String getVerificationProfile() {
         return verificationProfile;
     }
@@ -203,8 +242,9 @@ public class CreateAccountHolderRequest {
         this.verificationProfile = verificationProfile;
     }
 
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -212,17 +252,19 @@ public class CreateAccountHolderRequest {
             return false;
         }
         CreateAccountHolderRequest createAccountHolderRequest = (CreateAccountHolderRequest) o;
-        return Objects.equals(this.createDefaultAccount, createAccountHolderRequest.createDefaultAccount)
-                && Objects.equals(this.accountHolderCode, createAccountHolderRequest.accountHolderCode)
-                && Objects.equals(this.accountHolderDetails, createAccountHolderRequest.accountHolderDetails)
-                && Objects.equals(this.processingTier, createAccountHolderRequest.processingTier)
-                && Objects.equals(this.legalEntity, createAccountHolderRequest.legalEntity)
-                && Objects.equals(this.verificationProfile, createAccountHolderRequest.verificationProfile);
+        return Objects.equals(this.accountHolderCode, createAccountHolderRequest.accountHolderCode) &&
+                Objects.equals(this.accountHolderDetails, createAccountHolderRequest.accountHolderDetails) &&
+                Objects.equals(this.createDefaultAccount, createAccountHolderRequest.createDefaultAccount) &&
+                Objects.equals(this.description, createAccountHolderRequest.description) &&
+                Objects.equals(this.legalEntity, createAccountHolderRequest.legalEntity) &&
+                Objects.equals(this.primaryCurrency, createAccountHolderRequest.primaryCurrency) &&
+                Objects.equals(this.processingTier, createAccountHolderRequest.processingTier) &&
+                Objects.equals(this.verificationProfile, createAccountHolderRequest.verificationProfile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(createDefaultAccount, accountHolderCode, accountHolderDetails, processingTier, legalEntity, verificationProfile);
+        return Objects.hash(accountHolderCode, accountHolderDetails, createDefaultAccount, description, legalEntity, primaryCurrency, processingTier, verificationProfile);
     }
 
 
@@ -231,19 +273,28 @@ public class CreateAccountHolderRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAccountHolderRequest {\n");
 
-        sb.append("    createDefaultAccount: ").append(toIndentedString(createDefaultAccount)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    accountHolderDetails: ").append(toIndentedString(accountHolderDetails)).append("\n");
-        sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
+        sb.append("    createDefaultAccount: ").append(toIndentedString(createDefaultAccount)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    legalEntity: ").append(toIndentedString(legalEntity)).append("\n");
         sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
+        sb.append("    processingTier: ").append(toIndentedString(processingTier)).append("\n");
         sb.append("    verificationProfile: ").append(toIndentedString(verificationProfile)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
-
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 
