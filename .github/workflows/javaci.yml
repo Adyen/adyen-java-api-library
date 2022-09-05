@@ -16,4 +16,4 @@ jobs:
           distribution: 'adopt'
           
       - name: Run the tests with Maven
-        run: mvn test
+        run: mvn -B test --no-transfer-progress
