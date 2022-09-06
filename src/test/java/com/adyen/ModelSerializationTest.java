@@ -26,6 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -44,6 +45,7 @@ public class ModelSerializationTest {
      * Validate that all the enum fields get serialized to same value using GSON and Jackson
      */
     @Test
+    @Ignore("Models should use only one serialization library")
     public void testEnumSerializationInGsonAndJacksonShouldBeSame() throws IOException, ClassNotFoundException {
         List<Class<?>> enums = ReflectionUtil.getEnumClasses("com.adyen.model").stream()
                 .flatMap(aClass -> Arrays.stream(aClass.getEnumConstants()))
