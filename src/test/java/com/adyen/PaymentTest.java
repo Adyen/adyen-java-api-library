@@ -24,22 +24,11 @@ import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.Address;
-import com.adyen.model.AuthenticationResultRequest;
-import com.adyen.model.AuthenticationResultResponse;
-import com.adyen.model.FraudCheckResult;
-import com.adyen.model.Name;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentRequest3d;
-import com.adyen.model.PaymentRequest3ds2;
-import com.adyen.model.PaymentResult;
+import com.adyen.model.payments.*;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.ThreeDS2ResultRequest;
-import com.adyen.model.ThreeDS2ResultResponse;
-import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.applicationinfo.MerchantDevice;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
+import com.adyen.util.DateUtil;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -47,10 +36,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
+import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
-import static com.adyen.model.PaymentResult.ResultCodeEnum.RECEIVED;
+import static com.adyen.model.payments.PaymentResult.ResultCodeEnum.RECEIVED;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -87,23 +78,26 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
 
         SimpleDateFormat format = new SimpleDateFormat("M/yyyy", Locale.ENGLISH);
         format.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-        assertEquals("8/2018", format.format(paymentResult.getExpiryDate()));
+        Map<String, String> additionalData =  paymentResult.getAdditionalData();
+        assertNotNull(additionalData);
+        String expiryDate = additionalData.get(EXPIRY_DATE);
+        assertEquals("8/2018", format.format(DateUtil.parseMYDate(expiryDate)));
 
-        assertEquals("411111", paymentResult.getCardBin());
-        assertEquals("1111", paymentResult.getCardSummary());
-        assertEquals("Holder", paymentResult.getCardHolderName());
-        assertTrue(paymentResult.get3DOffered());
-        assertFalse(paymentResult.get3DAuthenticated());
+        assertEquals("411111", additionalData.get(CARD_BIN));
+        assertEquals("1111", additionalData.get(CARD_SUMMARY));
+        assertEquals("Holder", additionalData.get(CARD_HOLDER_NAME));
+        assertEquals("true", additionalData.get(THREE_D_OFFERERED));
+        assertEquals("false", additionalData.get(THREE_D_AUTHENTICATED));
         assertEquals("69746", paymentResult.getAuthCode());
 
-        assertEquals(11, paymentResult.getFraudResult().getFraudCheckResults().size());
+        assertEquals(11, paymentResult.getFraudResult().getResults().size());
 
-        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getFraudCheckResults().get(0);
+        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0);
         assertEquals("CardChunkUsage", fraudCheckResult.getName());
         assertEquals(8, fraudCheckResult.getAccountScore().intValue());
         assertEquals(2, fraudCheckResult.getCheckId().intValue());
@@ -143,7 +137,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isRefused());
+        assertRefused(paymentResult);
     }
 
     /**
@@ -158,7 +152,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isRedirectShopper());
+        assertEquals(PaymentResult.ResultCodeEnum.REDIRECTSHOPPER, paymentResult.getResultCode());
         assertNotNull(paymentResult.getMd());
         assertNotNull(paymentResult.getIssuerUrl());
         assertNotNull(paymentResult.getPaRequest());
@@ -176,7 +170,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise3D(paymentRequest3d);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
         assertNotNull(paymentResult.getPspReference());
     }
 
@@ -192,7 +186,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise3DS2(paymentRequest3ds2);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
         assertNotNull(paymentResult.getAdditionalData());
         assertEquals(paymentResult.getPspReference(), "9935272408535455");
         assertEquals(paymentResult.getAuthCode(), "46125");
@@ -229,7 +223,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
     }
 
     /**
@@ -244,7 +238,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isRefused());
+        assertRefused(paymentResult);
         assertEquals(RefusalReason.REFUSED, paymentResult.getRefusalReason());
         assertEquals("DECLINED Expiry Incorrect", paymentResult.getAdditionalData().get(AdditionalData.REFUSAL_REASON_RAW));
     }
@@ -290,7 +284,7 @@ public class PaymentTest extends BaseTest {
         PaymentResult paymentResult = payment.authorise(paymentRequest);
         assertEquals("2374421290", paymentResult.getAdditionalData().get("additionalData.acquirerReference"));
         assertEquals("klarna", paymentResult.getAdditionalData().get("paymentMethodVariant"));
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
     }
 
     @Test
@@ -312,26 +306,29 @@ public class PaymentTest extends BaseTest {
         shopperName.setLastName("Silva");
 
         PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                                                                                      .setAmountData("200", "BRL")
+                                                                                      .amount(new Amount().value(200L).currency( "BRL"))
                                                                                       .billingAddress(billingAddress)
                                                                                       .selectedBrand(BOLETO_SANTANDER)
                                                                                       .shopperName(shopperName);
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
-        assertEquals(BOLETO_SANTANDER, paymentResult.getPaymentMethod());
-        assertEquals("34191.75801 12021.372227 21111.100000 8 71670000001000", paymentResult.getBoletoBarCodeReference());
+
+        Map<String, String> additionalData =  paymentResult.getAdditionalData();
+        assertNotNull(additionalData);
+        assertEquals(BOLETO_SANTANDER, additionalData.get(PAYMENT_METHOD));
+        assertEquals("34191.75801 12021.372227 21111.100000 8 71670000001000", additionalData.get(BOLETO_BARCODE_REFERENCE));
         assertEquals(
                 "BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z/z9EdC5yFH3+1o/DQH3v3dtTxqXD2DrEdVH0Ro3r/+G9bdUzrCUjfMFh7YB32VL2oPqye9Ly/MWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR/CBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3+qihZa7vvzV/XylTXdgirxboVKpk07Wfvpad8Owg/K/ofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ+9vZs+aor/E//s+EjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1/AvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL+DKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT/eVf+wncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs=",
-                paymentResult.getBoletoData());
+                additionalData.get(BOLETO_DATA));
 
         DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-        assertEquals("2017-05-22", fmt.format(paymentResult.getBoletoDueDate()));
+        assertEquals("2017-05-22", fmt.format(DateUtil.parseYmdDate(additionalData.get(BOLETO_DUE_DATE))));
         assertEquals(
                 "https://test.adyen.com/hpp/generationBoleto.shtml?data=BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z%2Fz9EdC5yFH3%2B1o%2FDQH3v3dtTxqXD2DrEdVH0Ro3r%2F%2BG9bdUzrCUjfMFh7YB32VL2oPqye9Ly%2FMWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR%2FCBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3%2BqihZa7vvzV%2FXylTXdgirxboVKpk07Wfvpad8Owg%2FK%2FofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ%2B9vZs%2Baor%2FE%2F%2Fs%2BEjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1%2FAvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL%2BDKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT%2FeVf%2BwncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs%3D",
-                paymentResult.getBoletoUrl());
-        assertEquals("2017-06-06", fmt.format(paymentResult.getBoletoExpirationDate()));
+                additionalData.get(BOLETO_URL));
+        assertEquals("2017-06-06", fmt.format(DateUtil.parseYmdDate(additionalData.get(BOLETO_EXPIRATION_DATE))));
         assertEquals(RECEIVED, paymentResult.getResultCode());
         assertEquals("8814950120218231", paymentResult.getPspReference());
     }
@@ -423,5 +420,13 @@ public class PaymentTest extends BaseTest {
             assertEquals("010", e.getError().getErrorCode());
             assertEquals(403, e.getError().getStatus());
         }
+    }
+
+    protected void assertAuthorised(PaymentResult paymentResult) {
+        assertEquals(PaymentResult.ResultCodeEnum.AUTHORISED, paymentResult.getResultCode());
+    }
+    
+    protected void assertRefused(PaymentResult paymentResult) {
+        assertEquals(PaymentResult.ResultCodeEnum.REFUSED, paymentResult.getResultCode());
     }
 }
