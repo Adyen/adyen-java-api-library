@@ -20,13 +20,17 @@
  */
 package com.adyen;
 
-import com.adyen.enums.Gender;
+import com.adyen.constants.ApiConstants;
 import com.adyen.enums.VatCategory;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.applicationinfo.ExternalPlatform;
+import com.adyen.model.payments.Amount;
+import com.adyen.model.payments.PaymentRequest;
+import com.adyen.model.payments.ExternalPlatform;
 import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.details.AfterpayDetails;
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
@@ -34,7 +38,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class PaymentRequestTest extends BaseTest {
-
     @Test
     public void TestOpenInvoiceRequest() {
         PaymentRequest paymentRequestOpenInvoice = createOpenInvoicePaymentRequest();
@@ -61,17 +64,23 @@ public class PaymentRequestTest extends BaseTest {
 
     @Test
     public void TestPaypalEcsRequest() {
-        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456").setAmountData("23.45", "EUR").setPaymentToken("apaymenttoken");
+        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456");
+        paymentRequest.setAmount(new Amount().value(2345L).currency("EUR"));
+        Map<String, String> additionalData = new HashMap<>();
+        additionalData.put(ApiConstants.AdditionalData.PAYMENT_TOKEN, "apaymenttoken");
+        paymentRequest.setAdditionalData(additionalData);
 
         assertEquals("123456", paymentRequest.getReference());
         assertEquals(new Long("2345"), paymentRequest.getAmount().getValue());
         assertEquals("EUR", paymentRequest.getAmount().getCurrency());
+        assertNotNull(paymentRequest.getAdditionalData());
         assertEquals("apaymenttoken", paymentRequest.getAdditionalData().get("payment.token"));
     }
 
     @Test
     public void TestDefaultApplicationInfoAdyenLibrary() {
         PaymentRequest paymentRequest = new PaymentRequest();
+        paymentRequest.setApplicationInfo(applicationInfo);
 
         assertNotNull(paymentRequest.getApplicationInfo());
         assertNotNull(paymentRequest.getApplicationInfo().getAdyenLibrary());
@@ -84,6 +93,7 @@ public class PaymentRequestTest extends BaseTest {
     @Test
     public void TestCustomApplicationInfoAdyenLibrary() {
         PaymentRequest paymentRequest = new PaymentRequest();
+        paymentRequest.setApplicationInfo(applicationInfo);
         ExternalPlatform externalPlatform = new ExternalPlatform();
         externalPlatform.setIntegrator("TEST");
         paymentRequest.getApplicationInfo().setExternalPlatform(externalPlatform);

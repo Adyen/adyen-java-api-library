@@ -422,6 +422,36 @@ public class PaymentTest extends BaseTest {
         }
     }
 
+    @Test
+    public void TestAuthoriseDefaultApplicationInfo() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createCSEPaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+
+        assertAuthorised(paymentResult);
+        assertEquals(applicationInfo, paymentRequest.getApplicationInfo());
+    }
+
+    @Test
+    public void TestAuthoriseCustomApplicationInfo() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createCSEPaymentRequest();
+        ApplicationInfo applicationInfo = new ApplicationInfo();
+        applicationInfo.setMerchantDevice(new MerchantDevice().os("Android"));
+        paymentRequest.setApplicationInfo(applicationInfo);
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+
+        assertAuthorised(paymentResult);
+        assertEquals(applicationInfo, paymentRequest.getApplicationInfo());
+        assertEquals("Android", paymentRequest.getApplicationInfo().getMerchantDevice().getOs());
+    }
+
     protected void assertAuthorised(PaymentResult paymentResult) {
         assertEquals(PaymentResult.ResultCodeEnum.AUTHORISED, paymentResult.getResultCode());
     }

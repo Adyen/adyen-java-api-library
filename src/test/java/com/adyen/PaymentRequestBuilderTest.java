@@ -21,36 +21,33 @@
 package com.adyen;
 
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentRequest3d;
-import com.adyen.model.applicationinfo.ExternalPlatform;
+import com.adyen.model.payments.*;
 import com.google.gson.JsonParser;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.assertEquals;
 
 public class PaymentRequestBuilderTest extends BaseTest {
-
-
     @Test
     public void TestCCPaymentRequest() {
         String integratorName = "TestIntegrator";
         PaymentRequest paymentRequest = createFullCardPaymentRequest();
+        paymentRequest.setApplicationInfo(applicationInfo);
         ExternalPlatform externalPlatform = new ExternalPlatform();
         externalPlatform.setIntegrator(integratorName);
         paymentRequest.getApplicationInfo().setExternalPlatform(externalPlatform);
-
 
         // Test metadata
         paymentRequest.setMetadata(new HashMap<>());
         paymentRequest.getMetadata().put("key", "value");
 
         // Test recurring processing model
-        paymentRequest.setRecurringProcessingModel(PaymentRequest.RecurringProcessingModelEnum.CARD_ON_FILE);
+        paymentRequest.setRecurringProcessingModel(PaymentRequest.RecurringProcessingModelEnum.CARDONFILE);
 
         String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest);
 
@@ -69,10 +66,12 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  },\n"
                 + "  \"reference\": \"123456\",\n"
                 + "  \"shopperIP\": \"1.2.3.4\",\n"
+                + "  \"threeDSAuthenticationOnly\": false,\n"
                 + "  \"merchantAccount\": \"AMerchant\",\n"
                 + "  \"browserInfo\": {\n"
                 + "    \"userAgent\": \"User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36\",\n"
-                + "    \"acceptHeader\": \"*/*\"\n"
+                + "    \"acceptHeader\": \"*/*\",\n"
+                + "    \"javaScriptEnabled\": true\n"
                 + "  },\n"
                 + "  \"metadata\": {\n"
                 + "    \"key\": \"value\"\n"
@@ -96,6 +95,7 @@ public class PaymentRequestBuilderTest extends BaseTest {
     @Test
     public void TestCSEPaymentRequest() {
         PaymentRequest paymentRequest = createCSEPaymentRequest();
+        paymentRequest.setApplicationInfo(applicationInfo);
 
         String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest);
 
@@ -106,10 +106,12 @@ public class PaymentRequestBuilderTest extends BaseTest {
                 + "  },\n"
                 + "  \"reference\": \"123456\",\n"
                 + "  \"shopperIP\": \"1.2.3.4\",\n"
+                + "  \"threeDSAuthenticationOnly\": false,\n"
                 + "  \"merchantAccount\": \"AMerchant\",\n"
                 + "  \"browserInfo\": {\n"
                 + "    \"userAgent\": \"User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36\",\n"
-                + "    \"acceptHeader\": \"*/*\"\n"
+                + "    \"acceptHeader\": \"*/*\",\n"
+                + "    \"javaScriptEnabled\": true\n"
                 + "  },\n"
                 + "  \"additionalData\": {\n"
                 + "    \"card.encrypted.json\": \"adyenjs_0_1_4p1$...\"\n"
@@ -128,16 +130,19 @@ public class PaymentRequestBuilderTest extends BaseTest {
     @Test
     public void Test3DSecureRequest() {
         PaymentRequest3d paymentRequest3d = create3DPaymentRequest();
+        paymentRequest3d.setApplicationInfo(applicationInfo);
 
         String paymentRequestJson = PRETTY_PRINT_GSON.toJson(paymentRequest3d);
         String expected = "{\n"
                 + "  \"md\": \"mdString\",\n"
                 + "  \"paResponse\": \"paResString\",\n"
                 + "  \"shopperIP\": \"1.2.3.4\",\n"
+                + "  \"threeDSAuthenticationOnly\": false,\n"
                 + "  \"merchantAccount\": \"AMerchant\",\n"
                 + "  \"browserInfo\": {\n"
                 + "    \"userAgent\": \"User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36\",\n"
-                + "    \"acceptHeader\": \"*/*\"\n"
+                + "    \"acceptHeader\": \"*/*\",\n"
+                + "    \"javaScriptEnabled\": true\n"
                 + "  },\n"
                 + "  \"applicationInfo\": {\n"
                 + "    \"adyenLibrary\": {\n"
@@ -152,13 +157,19 @@ public class PaymentRequestBuilderTest extends BaseTest {
 
     @Test
     public void TestSecuredFieldsPaymentRequest() {
-        PaymentRequest paymentRequest = new PaymentRequest().setSecuredFieldsData("encryptedCardNumber", "cardHolder", "encryptedExpiryMonth", "encryptedExpiryYear", "encryptedSecurityCode");
+        PaymentRequest paymentRequest = new PaymentRequest();
+        Card card = new Card();
+        card.setHolderName("cardHolder");
+        paymentRequest.setCard(card);
+        Map<String, String> additionalData = new HashMap<>();
+        additionalData.put(ApiConstants.AdditionalData.ENCRYPTED_CARD_NUMBER, "encryptedCardNumber");
+        additionalData.put(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_MONTH, "encryptedExpiryMonth");
+        additionalData.put(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_YEAR, "encryptedExpiryYear");
+        additionalData.put(ApiConstants.AdditionalData.ENCRYPTED_SECURITY_CODE, "encryptedSecurityCode");
+        paymentRequest.setAdditionalData(additionalData);
 
-        assertEquals("encryptedCardNumber", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_CARD_NUMBER));
+        assertEquals(additionalData, paymentRequest.getAdditionalData());
         assertEquals("cardHolder", paymentRequest.getCard().getHolderName());
-        assertEquals("encryptedExpiryMonth", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_MONTH));
-        assertEquals("encryptedExpiryYear", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_EXPIRY_YEAR));
-        assertEquals("encryptedSecurityCode", paymentRequest.getAdditionalData().get(ApiConstants.AdditionalData.ENCRYPTED_SECURITY_CODE));
     }
 
     private void assertJsonStringEquals(String firstInput, String secondInput) {
