@@ -20,16 +20,16 @@
  */
 package com.adyen;
 
-import com.adyen.model.modification.VoidPendingRefundRequest;
-import org.junit.Test;
-import com.adyen.model.modification.CancelOrRefundRequest;
-import com.adyen.model.modification.CancelRequest;
-import com.adyen.model.modification.CaptureRequest;
-import com.adyen.model.modification.DonationRequest;
-import com.adyen.model.modification.ModificationResult;
-import com.adyen.model.modification.RefundRequest;
+import com.adyen.model.payments.VoidPendingRefundRequest;
+import com.adyen.model.payments.CancelOrRefundRequest;
+import com.adyen.model.payments.CancelRequest;
+import com.adyen.model.payments.CaptureRequest;
+import com.adyen.model.payments.DonationRequest;
+import com.adyen.model.payments.ModificationResult;
+import com.adyen.model.payments.RefundRequest;
 import com.adyen.service.Modification;
 import com.adyen.service.exception.ApiException;
+import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -47,7 +47,7 @@ public class ModificationTest extends BaseTest {
         CaptureRequest captureRequest = createCaptureRequest();
 
         ModificationResult modificationResult = modification.capture(captureRequest);
-        assertEquals(ModificationResult.ModificationResponse.CAPTURE_RECEIVED, modificationResult.getResponse());
+        assertEquals(ModificationResult.ResponseEnum.CAPTURE_RECEIVED_, modificationResult.getResponse());
         assertEquals("test", modificationResult.getAdditionalData().get("merchantReference"));
     }
 
@@ -85,10 +85,13 @@ public class ModificationTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/cancelOrRefund-received.json");
         Modification modification = new Modification(client);
 
-        CancelOrRefundRequest cancelOrRefundRequest = createBaseModificationRequest(new CancelOrRefundRequest());
+        CancelOrRefundRequest modificationRequest = new CancelOrRefundRequest();
+        modificationRequest.merchantAccount("AMerchant").originalReference("originalReference").reference("merchantReference");
+
+        CancelOrRefundRequest cancelOrRefundRequest = modificationRequest;
 
         ModificationResult modificationResult = modification.cancelOrRefund(cancelOrRefundRequest);
-        assertEquals(ModificationResult.ModificationResponse.CANCELORREFUND_RECEIVED, modificationResult.getResponse());
+        assertEquals(ModificationResult.ResponseEnum.CANCELORREFUND_RECEIVED_, modificationResult.getResponse());
     }
 
     /**
@@ -104,7 +107,7 @@ public class ModificationTest extends BaseTest {
         RefundRequest refundRequest = createRefundRequest();
 
         ModificationResult modificationResult = modification.refund(refundRequest);
-        assertEquals(ModificationResult.ModificationResponse.REFUND_RECEIVED, modificationResult.getResponse());
+        assertEquals(ModificationResult.ResponseEnum.REFUND_RECEIVED_, modificationResult.getResponse());
     }
 
     /**
@@ -117,10 +120,11 @@ public class ModificationTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/cancel-received.json");
         Modification modification = new Modification(client);
 
-        CancelRequest cancelRequest = createBaseModificationRequest(new CancelRequest());
+        CancelRequest modificationRequest = new CancelRequest();
+        modificationRequest.merchantAccount("AMerchant").originalReference("originalReference").reference("merchantReference");
 
-        ModificationResult modificationResult = modification.cancel(cancelRequest);
-        assertEquals(ModificationResult.ModificationResponse.CANCEL_RECEIVED, modificationResult.getResponse());
+        ModificationResult modificationResult = modification.cancel(modificationRequest);
+        assertEquals(ModificationResult.ResponseEnum.CANCEL_RECEIVED_, modificationResult.getResponse());
     }
 
     /**
@@ -136,7 +140,7 @@ public class ModificationTest extends BaseTest {
         VoidPendingRefundRequest voidPendingRefundRequest = createVoidPendingRefundRequest();
 
         ModificationResult modificationResult = modification.voidPendingRefund(voidPendingRefundRequest);
-        assertEquals(ModificationResult.ModificationResponse.VOIDPENDINGREFUND_RECEIVED, modificationResult.getResponse());
+        assertEquals(ModificationResult.ResponseEnum.VOIDPENDINGREFUND_RECEIVED_, modificationResult.getResponse());
     }
 
     /**
@@ -152,6 +156,6 @@ public class ModificationTest extends BaseTest {
         DonationRequest donationRequest = createDonationRequest();
 
         ModificationResult modificationResult = modification.donate(donationRequest);
-        assertEquals(ModificationResult.ModificationResponse.DONATION_RECEIVED, modificationResult.getResponse());
+        assertEquals(ModificationResult.ResponseEnum.DONATION_RECEIVED_, modificationResult.getResponse());
     }
 }
