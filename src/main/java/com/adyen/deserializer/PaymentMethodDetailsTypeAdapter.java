@@ -20,9 +20,9 @@
  */
 package com.adyen.deserializer;
 
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.details.AchDetails;
+import com.adyen.model.checkout.details.AfterpayDetails;
 import com.adyen.model.checkout.details.AmazonPayDetails;
 import com.adyen.model.checkout.details.AndroidPayDetails;
 import com.adyen.model.checkout.details.ApplePayDetails;
@@ -30,12 +30,14 @@ import com.adyen.model.checkout.details.BacsDirectDebitDetails;
 import com.adyen.model.checkout.details.BillDeskOnlineDetails;
 import com.adyen.model.checkout.details.BillDeskWalletDetails;
 import com.adyen.model.checkout.details.BlikDetails;
+import com.adyen.model.checkout.details.CardDetails;
 import com.adyen.model.checkout.details.CellulantDetails;
 import com.adyen.model.checkout.details.DokuDetails;
 import com.adyen.model.checkout.details.DotpayDetails;
 import com.adyen.model.checkout.details.DragonpayDetails;
 import com.adyen.model.checkout.details.EcontextVoucherDetails;
 import com.adyen.model.checkout.details.EntercashDetails;
+import com.adyen.model.checkout.details.GenericIssuerPaymentMethodDetails;
 import com.adyen.model.checkout.details.GiropayDetails;
 import com.adyen.model.checkout.details.GooglePayDetails;
 import com.adyen.model.checkout.details.IdealDetails;
@@ -47,10 +49,14 @@ import com.adyen.model.checkout.details.MobilePayDetails;
 import com.adyen.model.checkout.details.MolPayDetails;
 import com.adyen.model.checkout.details.PayPalDetails;
 import com.adyen.model.checkout.details.PayUUpiDetails;
+import com.adyen.model.checkout.details.PayWithGoogleDetails;
 import com.adyen.model.checkout.details.QiwiWalletDetails;
 import com.adyen.model.checkout.details.SamsungPayDetails;
 import com.adyen.model.checkout.details.SepaDirectDebitDetails;
+import com.adyen.model.checkout.details.StoredPaymentMethodDetails;
+import com.adyen.model.checkout.details.UpiCollectDetails;
 import com.adyen.model.checkout.details.UpiDetails;
+import com.adyen.model.checkout.details.UpiIntentDetails;
 import com.adyen.model.checkout.details.VippsDetails;
 import com.adyen.model.checkout.details.VisaCheckoutDetails;
 import com.adyen.model.checkout.details.WeChatPayDetails;
@@ -87,8 +93,11 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
             public PaymentMethodDetails read(JsonReader in) {
                 JsonElement jsonElement = Streams.parse(in);
                 String paymentMethodType = jsonElement.getAsJsonObject().get("type").getAsString();
-
                 switch (paymentMethodType) {
+                    case AfterpayDetails.AFTERPAY_DEFAULT:
+                    case AfterpayDetails.AFTERPAYTOUCH:
+                    case AfterpayDetails.AFTERPAY_B2B:
+                        return gson.getAdapter(AfterpayDetails.class).fromJsonTree(jsonElement);
                     case AchDetails.ACH:
                         return gson.getAdapter(AchDetails.class).fromJsonTree(jsonElement);
                     case AmazonPayDetails.AMAZONPAY:
@@ -135,6 +144,8 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(GiropayDetails.class).fromJsonTree(jsonElement);
                     case GooglePayDetails.GOOGLEPAY:
                         return gson.getAdapter(GooglePayDetails.class).fromJsonTree(jsonElement);
+                    case PayWithGoogleDetails.PAYWITHGOOGLE:
+                        return gson.getAdapter(PayWithGoogleDetails.class).fromJsonTree(jsonElement);
                     case IdealDetails.IDEAL:
                         return gson.getAdapter(IdealDetails.class).fromJsonTree(jsonElement);
                     case KlarnaDetails.KLARNA:
@@ -149,6 +160,9 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                     case LianLianPayDetails.EBANKING_DEBIT:
                     case LianLianPayDetails.EBANKING_ENTERPRISE:
                         return gson.getAdapter(LianLianPayDetails.class).fromJsonTree(jsonElement);
+                    case GenericIssuerPaymentMethodDetails.ONLINEBANKING_IN:
+                    case GenericIssuerPaymentMethodDetails.WALLET_IN:
+                        return gson.getAdapter(GenericIssuerPaymentMethodDetails.class).fromJsonTree(jsonElement);
                     case MasterpassDetails.MASTERPASS:
                         return gson.getAdapter(MasterpassDetails.class).fromJsonTree(jsonElement);
                     case MbwayDetails.MBWAY:
@@ -170,8 +184,13 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(QiwiWalletDetails.class).fromJsonTree(jsonElement);
                     case SamsungPayDetails.SAMSUNGPAY:
                         return gson.getAdapter(SamsungPayDetails.class).fromJsonTree(jsonElement);
-                    case SepaDirectDebitDetails.SEPA_DIRECT_DEBIT:
+                    case SepaDirectDebitDetails.SEPADIRECTDEBIT_AMAZONPAY:
+                    case SepaDirectDebitDetails.SEPADIRECTDEBIT:
                         return gson.getAdapter(SepaDirectDebitDetails.class).fromJsonTree(jsonElement);
+                    case UpiIntentDetails.UPI_INTENT:
+                        return gson.getAdapter(UpiIntentDetails.class).fromJsonTree(jsonElement);
+                    case UpiCollectDetails.UPI_COLLECT:
+                        return gson.getAdapter(UpiCollectDetails.class).fromJsonTree(jsonElement);
                     case UpiDetails.UPI:
                         return gson.getAdapter(UpiDetails.class).fromJsonTree(jsonElement);
                     case VippsDetails.VIPPS:
@@ -182,8 +201,25 @@ public class PaymentMethodDetailsTypeAdapter implements TypeAdapterFactory {
                         return gson.getAdapter(WeChatPayDetails.class).fromJsonTree(jsonElement);
                     case WeChatPayMiniProgramDetails.WECHATPAYMINIPROGRAM:
                         return gson.getAdapter(WeChatPayMiniProgramDetails.class).fromJsonTree(jsonElement);
+                    case StoredPaymentMethodDetails.BCMC_MOBILE:
+                    case StoredPaymentMethodDetails.BCMC_MOBILE_QR:
+                    case StoredPaymentMethodDetails.BCMC_MOBILE_APP:
+                    case StoredPaymentMethodDetails.MOMO_WALLET:
+                    case StoredPaymentMethodDetails.MOMO_WALLET_APP:
+                    case StoredPaymentMethodDetails.PAYMAYA_WALLET:
+                    case StoredPaymentMethodDetails.GRABPAY_SG:
+                    case StoredPaymentMethodDetails.GRABPAY_MY:
+                    case StoredPaymentMethodDetails.GRABPAY_TH:
+                    case StoredPaymentMethodDetails.GRABPAY_ID:
+                    case StoredPaymentMethodDetails.GRABPAY_VN:
+                    case StoredPaymentMethodDetails.GRABPAY_PH:
+                    case StoredPaymentMethodDetails.OXXO:
+                    case StoredPaymentMethodDetails.GCASH:
+                    case StoredPaymentMethodDetails.KAKAOPAY:
+                    case StoredPaymentMethodDetails.TRUEMONEY:
+                        return gson.getAdapter(StoredPaymentMethodDetails.class).fromJsonTree(jsonElement);
                     default:
-                        return gson.getAdapter(DefaultPaymentMethodDetails.class).fromJsonTree(jsonElement);
+                        return gson.getAdapter(CardDetails.class).fromJsonTree(jsonElement);
                 }
             }
         };

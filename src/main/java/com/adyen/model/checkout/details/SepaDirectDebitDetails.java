@@ -23,33 +23,35 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
-
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * SepaDirectDebitDetails
  */
 
 public class SepaDirectDebitDetails implements PaymentMethodDetails {
-    /**
-     * Possible types
-     */
-    public static final String SEPA_DIRECT_DEBIT = "sepadirectdebit";
-
     @SerializedName("iban")
     private String iban = null;
 
     @SerializedName("ownerName")
     private String ownerName = null;
 
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
+
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
 
+    /**
+     * **sepadirectdebit**
+     */
+    public static final String SEPADIRECTDEBIT = "sepadirectdebit";
+    public static final String SEPADIRECTDEBIT_AMAZONPAY = "sepadirectdebit_amazonpay";
+
     @SerializedName("type")
-    private String type = SEPA_DIRECT_DEBIT;
+    private String type = SEPADIRECTDEBIT;
 
     public SepaDirectDebitDetails iban(String iban) {
         this.iban = iban;
@@ -58,9 +60,9 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
 
     /**
      * The International Bank Account Number (IBAN).
-     *
      * @return iban
      **/
+    @Schema(required = true, description = "The International Bank Account Number (IBAN).")
     public String getIban() {
         return iban;
     }
@@ -76,15 +78,51 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
 
     /**
      * The name of the bank account holder.
-     *
      * @return ownerName
      **/
+    @Schema(required = true, description = "The name of the bank account holder.")
     public String getOwnerName() {
         return ownerName;
     }
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    public SepaDirectDebitDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
+
+    public SepaDirectDebitDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return storedPaymentMethodId
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
     }
 
     public SepaDirectDebitDetails type(String type) {
@@ -94,22 +132,20 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
 
     /**
      * **sepadirectdebit**
-     *
      * @return type
      **/
-    @Override
+    @Schema(description = "**sepadirectdebit**")
     public String getType() {
         return type;
     }
 
-    @Override
     public void setType(String type) {
         this.type = type;
     }
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -119,13 +155,14 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
         SepaDirectDebitDetails sepaDirectDebitDetails = (SepaDirectDebitDetails) o;
         return Objects.equals(this.iban, sepaDirectDebitDetails.iban) &&
                 Objects.equals(this.ownerName, sepaDirectDebitDetails.ownerName) &&
+                Objects.equals(this.recurringDetailReference, sepaDirectDebitDetails.recurringDetailReference) &&
                 Objects.equals(this.storedPaymentMethodId, sepaDirectDebitDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, sepaDirectDebitDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(iban, ownerName, storedPaymentMethodId, type);
+        return Objects.hash(iban, ownerName, recurringDetailReference, storedPaymentMethodId, type);
     }
 
 
@@ -136,10 +173,22 @@ public class SepaDirectDebitDetails implements PaymentMethodDetails {
 
         sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
         sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
     }
 
 }

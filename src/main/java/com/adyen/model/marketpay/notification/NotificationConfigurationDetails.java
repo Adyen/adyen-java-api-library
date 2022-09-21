@@ -78,7 +78,7 @@ public class NotificationConfigurationDetails {
         TLSV12("TLSv12");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         SslProtocolEnum(String value) {
             this.value = value;

@@ -24,18 +24,16 @@ package com.adyen.model.checkout.details;
 import java.util.Objects;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
-import com.adyen.model.checkout.SubscriptionDetails;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * PayUUpiDetails
  */
 
 public class PayUUpiDetails implements PaymentMethodDetails {
-    /**
-     * Possible types
-     */
-    public static final String PAYUINUPI = "payu_IN_upi";
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
 
     @SerializedName("shopperNotificationReference")
     private String shopperNotificationReference = null;
@@ -43,14 +41,34 @@ public class PayUUpiDetails implements PaymentMethodDetails {
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
 
-    @SerializedName("subscriptionDetails")
-    private SubscriptionDetails subscriptionDetails = null;
+    /**
+     * **payu_IN_upi**
+     */
+    public static final String PAYUINUPI = "payu_IN_upi";
 
     @SerializedName("type")
     private String type = PAYUINUPI;
 
     @SerializedName("virtualPaymentAddress")
     private String virtualPaymentAddress = null;
+
+    public PayUUpiDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
 
     public PayUUpiDetails shopperNotificationReference(String shopperNotificationReference) {
         this.shopperNotificationReference = shopperNotificationReference;
@@ -59,9 +77,9 @@ public class PayUUpiDetails implements PaymentMethodDetails {
 
     /**
      * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
-     *
      * @return shopperNotificationReference
      **/
+    @Schema(description = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only.")
     public String getShopperNotificationReference() {
         return shopperNotificationReference;
     }
@@ -77,33 +95,15 @@ public class PayUUpiDetails implements PaymentMethodDetails {
 
     /**
      * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
-     *
      * @return storedPaymentMethodId
      **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
     public String getStoredPaymentMethodId() {
         return storedPaymentMethodId;
     }
 
     public void setStoredPaymentMethodId(String storedPaymentMethodId) {
         this.storedPaymentMethodId = storedPaymentMethodId;
-    }
-
-    public PayUUpiDetails subscriptionDetails(SubscriptionDetails subscriptionDetails) {
-        this.subscriptionDetails = subscriptionDetails;
-        return this;
-    }
-
-    /**
-     * Get subscriptionDetails
-     *
-     * @return subscriptionDetails
-     **/
-    public SubscriptionDetails getSubscriptionDetails() {
-        return subscriptionDetails;
-    }
-
-    public void setSubscriptionDetails(SubscriptionDetails subscriptionDetails) {
-        this.subscriptionDetails = subscriptionDetails;
     }
 
     public PayUUpiDetails type(String type) {
@@ -113,9 +113,9 @@ public class PayUUpiDetails implements PaymentMethodDetails {
 
     /**
      * **payu_IN_upi**
-     *
      * @return type
      **/
+    @Schema(required = true, description = "**payu_IN_upi**")
     public String getType() {
         return type;
     }
@@ -131,9 +131,9 @@ public class PayUUpiDetails implements PaymentMethodDetails {
 
     /**
      * The virtual payment address for UPI.
-     *
      * @return virtualPaymentAddress
      **/
+    @Schema(description = "The virtual payment address for UPI.")
     public String getVirtualPaymentAddress() {
         return virtualPaymentAddress;
     }
@@ -152,16 +152,16 @@ public class PayUUpiDetails implements PaymentMethodDetails {
             return false;
         }
         PayUUpiDetails payUUpiDetails = (PayUUpiDetails) o;
-        return Objects.equals(this.shopperNotificationReference, payUUpiDetails.shopperNotificationReference) &&
+        return Objects.equals(this.recurringDetailReference, payUUpiDetails.recurringDetailReference) &&
+                Objects.equals(this.shopperNotificationReference, payUUpiDetails.shopperNotificationReference) &&
                 Objects.equals(this.storedPaymentMethodId, payUUpiDetails.storedPaymentMethodId) &&
-                Objects.equals(this.subscriptionDetails, payUUpiDetails.subscriptionDetails) &&
                 Objects.equals(this.type, payUUpiDetails.type) &&
                 Objects.equals(this.virtualPaymentAddress, payUUpiDetails.virtualPaymentAddress);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shopperNotificationReference, storedPaymentMethodId, subscriptionDetails, type, virtualPaymentAddress);
+        return Objects.hash(recurringDetailReference, shopperNotificationReference, storedPaymentMethodId, type, virtualPaymentAddress);
     }
 
 
@@ -170,9 +170,9 @@ public class PayUUpiDetails implements PaymentMethodDetails {
         StringBuilder sb = new StringBuilder();
         sb.append("class PayUUpiDetails {\n");
 
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    shopperNotificationReference: ").append(toIndentedString(shopperNotificationReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
-        sb.append("    subscriptionDetails: ").append(toIndentedString(subscriptionDetails)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    virtualPaymentAddress: ").append(toIndentedString(virtualPaymentAddress)).append("\n");
         sb.append("}");

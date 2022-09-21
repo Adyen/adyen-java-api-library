@@ -33,7 +33,7 @@ import java.io.IOException;
 
 public class Hop extends Service {
 
-    private GetOnboardingUrl getOnboardingUrl;
+    private final GetOnboardingUrl getOnboardingUrl;
 
     public Hop(Client client) {
         super(client);

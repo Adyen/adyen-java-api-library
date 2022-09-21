@@ -108,7 +108,7 @@ public class PaymentSessionRequest {
         WEB("Web");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ChannelEnum(String value) {
             this.value = value;
@@ -196,7 +196,7 @@ public class PaymentSessionRequest {
         COMPANYNAME("CompanyName");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         EntityTypeEnum(String value) {
             this.value = value;
@@ -288,7 +288,7 @@ public class PaymentSessionRequest {
         SUBSCRIPTION("Subscription");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         RecurringProcessingModelEnum(String value) {
             this.value = value;
@@ -376,7 +376,7 @@ public class PaymentSessionRequest {
         POS("POS");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;

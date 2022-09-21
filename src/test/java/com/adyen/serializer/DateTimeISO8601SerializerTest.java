@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(MockitoJUnitRunner.class)
 public class DateTimeISO8601SerializerTest
 {
-    private static TimeZone defaultTZ = TimeZone.getDefault();
+    private static final TimeZone defaultTZ = TimeZone.getDefault();
 
     @AfterClass
     public static void tearDown() {

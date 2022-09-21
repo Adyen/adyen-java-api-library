@@ -28,6 +28,7 @@ import com.adyen.model.marketpay.CloseAccountHolderRequest;
 import com.adyen.model.marketpay.CloseAccountHolderResponse;
 import com.adyen.model.marketpay.CloseAccountRequest;
 import com.adyen.model.marketpay.CloseAccountResponse;
+import com.adyen.model.marketpay.CloseStoresRequest;
 import com.adyen.model.marketpay.CreateAccountHolderRequest;
 import com.adyen.model.marketpay.CreateAccountHolderResponse;
 import com.adyen.model.marketpay.CreateAccountRequest;
@@ -40,6 +41,7 @@ import com.adyen.model.marketpay.DeleteShareholderRequest;
 import com.adyen.model.marketpay.DeleteShareholderResponse;
 import com.adyen.model.marketpay.DeleteSignatoriesRequest;
 import com.adyen.model.marketpay.DeleteSignatoriesResponse;
+import com.adyen.model.marketpay.GenericResponse;
 import com.adyen.model.marketpay.GetAccountHolderRequest;
 import com.adyen.model.marketpay.GetAccountHolderResponse;
 import com.adyen.model.marketpay.GetTaxFormRequest;
@@ -63,6 +65,7 @@ import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.account.CheckAccountHolder;
 import com.adyen.service.resource.account.CloseAccount;
 import com.adyen.service.resource.account.CloseAccountHolder;
+import com.adyen.service.resource.account.CloseStores;
 import com.adyen.service.resource.account.CreateAccount;
 import com.adyen.service.resource.account.CreateAccountHolder;
 import com.adyen.service.resource.account.DeleteBankAccount;
@@ -84,24 +87,25 @@ import java.io.IOException;
 
 public class Account extends Service {
 
-    private CreateAccountHolder createAccountHolder;
-    private UpdateAccountHolder updateAccountHolder;
-    private GetAccountHolder getAccountHolder;
-    private UploadDocument uploadDocument;
-    private CreateAccount createAccount;
-    private DeleteBankAccount deleteBankAccount;
-    private DeleteShareholder deleteShareholder;
-    private DeleteSignatories deleteSignatories;
-    private SuspendAccountHolder suspendAccountHolder;
-    private UnSuspendAccountHolder unSuspendAccountHolder;
-    private UpdateAccountHolderState updateAccountHolderState;
-    private CloseAccount closeAccount;
-    private CloseAccountHolder closeAccountHolder;
-    private UpdateAccount updateAccount;
-    private GetUploadedDocuments getUploadedDocuments;
-    private CheckAccountHolder checkAccountHolder;
-    private DeletePayoutMethod deletePayoutMethod;
-    private GetTaxForm getTaxForm;
+    private final CreateAccountHolder createAccountHolder;
+    private final UpdateAccountHolder updateAccountHolder;
+    private final GetAccountHolder getAccountHolder;
+    private final UploadDocument uploadDocument;
+    private final CreateAccount createAccount;
+    private final DeleteBankAccount deleteBankAccount;
+    private final DeleteShareholder deleteShareholder;
+    private final DeleteSignatories deleteSignatories;
+    private final SuspendAccountHolder suspendAccountHolder;
+    private final UnSuspendAccountHolder unSuspendAccountHolder;
+    private final UpdateAccountHolderState updateAccountHolderState;
+    private final CloseAccount closeAccount;
+    private final CloseAccountHolder closeAccountHolder;
+    private final CloseStores closeStores;
+    private final UpdateAccount updateAccount;
+    private final GetUploadedDocuments getUploadedDocuments;
+    private final CheckAccountHolder checkAccountHolder;
+    private final DeletePayoutMethod deletePayoutMethod;
+    private final GetTaxForm getTaxForm;
 
     public Account(Client client) {
         super(client);
@@ -119,6 +123,7 @@ public class Account extends Service {
         updateAccountHolderState = new UpdateAccountHolderState(this);
         closeAccount = new CloseAccount(this);
         closeAccountHolder = new CloseAccountHolder(this);
+        closeStores = new CloseStores(this);
         updateAccount = new UpdateAccount(this);
         getUploadedDocuments = new GetUploadedDocuments(this);
         checkAccountHolder = new CheckAccountHolder(this);
@@ -228,6 +233,13 @@ public class Account extends Service {
 
         String jsonResult = closeAccountHolder.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<CloseAccountHolderResponse>() {
+        }.getType());
+    }
+    public GenericResponse closeStores(CloseStoresRequest closeStoresRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(closeStoresRequest);
+
+        String jsonResult = closeStores.request(jsonRequest);
+        return GSON.fromJson(jsonResult, new TypeToken<GenericResponse>() {
         }.getType());
     }
 

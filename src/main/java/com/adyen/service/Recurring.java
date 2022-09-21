@@ -43,11 +43,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 public class Recurring extends Service {
-    private ListRecurringDetails listRecurringDetails;
-    private Disable disable;
-    private StoreToken storeToken;
-    private ScheduleAccountUpdater scheduleAccountUpdater;
-    private NotifyShopper notifyShopper;
+    private final ListRecurringDetails listRecurringDetails;
+    private final Disable disable;
+    private final StoreToken storeToken;
+    private final ScheduleAccountUpdater scheduleAccountUpdater;
+    private final NotifyShopper notifyShopper;
 
     public Recurring(Client client) {
         super(client);

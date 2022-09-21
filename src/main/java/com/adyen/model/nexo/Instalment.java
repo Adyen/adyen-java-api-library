@@ -5,12 +5,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -24,9 +21,7 @@ import java.util.List;
  * &lt;complexType name="Instalment"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="Instalment" type="{}InstalmentTypeList" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
+ *       &lt;attribute name="Instalment" type="{}InstalmentType" /&gt;
  *       &lt;attribute name="SequenceNumber" type="{}SequenceNumber" /&gt;
  *       &lt;attribute name="PlanID" type="{}PlanID" /&gt;
  *       &lt;attribute name="Period" type="{}Period" /&gt;
@@ -42,18 +37,15 @@ import java.util.List;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Instalment", propOrder = {
-        "instalmentType"
-})
+@XmlType(name = "Instalment")
 public class Instalment {
 
     /**
      * The Instalment type.
      */
-    @XmlList
     @XmlElement(name = "InstalmentType")
     @Schema(description = "Type of instalment transaction.")
-    protected List<InstalmentType> instalmentType;
+    protected InstalmentType instalmentType;
     /**
      * The Sequence number.
      */
@@ -110,31 +102,20 @@ public class Instalment {
 
     /**
      * Gets the value of the instalment property.
-     * <p>
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the instalment property.
-     * <p>
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getInstalment().add(newItem);
-     * </pre>
-     * <p>
-     * <p>
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link InstalmentType }
      *
-     * @return the instalment
+     * @return possible      object is     {@link InstalmentType }
      */
-    public List<InstalmentType> getInstalmentType() {
-        if (instalmentType == null) {
-            instalmentType = new ArrayList<>();
-        }
-        return this.instalmentType;
+    public InstalmentType getInstalmentType() {
+        return instalmentType;
+    }
+
+    /**
+     * Sets the value of the instalmentType property.
+     *
+     * @param value allowed object is     {@link InstalmentType }
+     */
+    public void setInstalmentType(InstalmentType value) {
+        this.instalmentType = value;
     }
 
     /**

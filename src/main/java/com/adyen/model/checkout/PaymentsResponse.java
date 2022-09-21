@@ -119,7 +119,7 @@ public class PaymentsResponse extends AbstractPaymentsResponse<PaymentsResponse>
         UNKNOWN("Unknown"); //applicable for payments/details
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ResultCodeEnum(String value) {
             this.value = value;

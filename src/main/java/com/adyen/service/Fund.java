@@ -28,6 +28,8 @@ import com.adyen.model.marketpay.AccountHolderBalanceRequest;
 import com.adyen.model.marketpay.AccountHolderBalanceResponse;
 import com.adyen.model.marketpay.AccountHolderTransactionListRequest;
 import com.adyen.model.marketpay.AccountHolderTransactionListResponse;
+import com.adyen.model.marketpay.DebitAccountHolderRequest;
+import com.adyen.model.marketpay.DebitAccountHolderResponse;
 import com.adyen.model.marketpay.PayoutAccountHolderRequest;
 import com.adyen.model.marketpay.PayoutAccountHolderResponse;
 import com.adyen.model.marketpay.RefundFundsTransferRequest;
@@ -41,6 +43,7 @@ import com.adyen.model.marketpay.TransferFundsResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.fund.AccountHolderBalance;
 import com.adyen.service.resource.fund.AccountHolderTransactionList;
+import com.adyen.service.resource.fund.DebitAccountHolder;
 import com.adyen.service.resource.fund.PayoutAccountHolder;
 import com.adyen.service.resource.fund.RefundFundsTransfer;
 import com.adyen.service.resource.fund.RefundNotPaidOutTransfers;
@@ -52,13 +55,14 @@ import java.io.IOException;
 
 public class Fund extends Service {
 
-    private AccountHolderBalance accountHolderBalance;
-    private TransferFunds transferFunds;
-    private PayoutAccountHolder payoutAccountHolder;
-    private AccountHolderTransactionList accountHolderTransactionList;
-    private RefundNotPaidOutTransfers refundNotPaidOutTransfers;
-    private SetupBeneficiary setupBeneficiary;
-    private RefundFundsTransfer refundFundsTransfer;
+    private final AccountHolderBalance accountHolderBalance;
+    private final TransferFunds transferFunds;
+    private final PayoutAccountHolder payoutAccountHolder;
+    private final AccountHolderTransactionList accountHolderTransactionList;
+    private final RefundNotPaidOutTransfers refundNotPaidOutTransfers;
+    private final SetupBeneficiary setupBeneficiary;
+    private final RefundFundsTransfer refundFundsTransfer;
+    private final DebitAccountHolder debitAccountHolder;
 
     public Fund(Client client) {
         super(client);
@@ -69,6 +73,7 @@ public class Fund extends Service {
         refundNotPaidOutTransfers = new RefundNotPaidOutTransfers(this);
         setupBeneficiary = new SetupBeneficiary(this);
         refundFundsTransfer = new RefundFundsTransfer(this);
+        debitAccountHolder = new DebitAccountHolder(this);
     }
 
     public AccountHolderBalanceResponse accountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws ApiException, IOException {
@@ -131,6 +136,15 @@ public class Fund extends Service {
         String jsonResult = refundFundsTransfer.request(jsonRequest);
 
         return GSON.fromJson(jsonResult, new TypeToken<RefundFundsTransferResponse>() {
+        }.getType());
+    }
+
+    public DebitAccountHolderResponse debitAccountHolder(DebitAccountHolderRequest debitAccountHolderRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(debitAccountHolderRequest);
+
+        String jsonResult = debitAccountHolder.request(jsonRequest);
+
+        return GSON.fromJson(jsonResult, new TypeToken<DebitAccountHolderResponse>() {
         }.getType());
     }
 }

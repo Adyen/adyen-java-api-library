@@ -23,6 +23,7 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
 
@@ -40,6 +41,12 @@ public class BlikDetails implements PaymentMethodDetails {
 
     @SerializedName("blikCode")
     private String blikCode = null;
+
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
+
+    @SerializedName("storedPaymentMethodId")
+    private String storedPaymentMethodId = null;
 
     @SerializedName("type")
     private String type = BLIK;
@@ -59,6 +66,42 @@ public class BlikDetails implements PaymentMethodDetails {
 
     public void setBlikCode(String blikCode) {
         this.blikCode = blikCode;
+    }
+
+    public BlikDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
+
+    public BlikDetails storedPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return storedPaymentMethodId
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getStoredPaymentMethodId() {
+        return storedPaymentMethodId;
+    }
+
+    public void setStoredPaymentMethodId(String storedPaymentMethodId) {
+        this.storedPaymentMethodId = storedPaymentMethodId;
     }
 
     public BlikDetails type(String type) {
@@ -91,6 +134,8 @@ public class BlikDetails implements PaymentMethodDetails {
         }
         BlikDetails blikDetails = (BlikDetails) o;
         return Objects.equals(this.blikCode, blikDetails.blikCode) &&
+                Objects.equals(this.recurringDetailReference, blikDetails.recurringDetailReference) &&
+                Objects.equals(this.storedPaymentMethodId, blikDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, blikDetails.type);
     }
 
@@ -106,6 +151,8 @@ public class BlikDetails implements PaymentMethodDetails {
         sb.append("class BlikDetails {\n");
 
         sb.append("    blikCode: ").append(toIndentedString(blikCode)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
+        sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();

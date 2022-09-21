@@ -45,11 +45,11 @@ import java.io.IOException;
 
 public class PosTerminalManagement extends ApiKeyAuthenticatedService {
 
-    private AssignTerminals assignTerminals;
-    private FindTerminal findTerminal;
-    private GetTerminalsUnderAccount getTerminalsUnderAccount;
-    private GetStoresUnderAccount getStoresUnderAccount;
-    private GetTerminalDetails getTerminalDetails;
+    private final AssignTerminals assignTerminals;
+    private final FindTerminal findTerminal;
+    private final GetTerminalsUnderAccount getTerminalsUnderAccount;
+    private final GetStoresUnderAccount getStoresUnderAccount;
+    private final GetTerminalDetails getTerminalDetails;
 
     public PosTerminalManagement(Client client) {
 

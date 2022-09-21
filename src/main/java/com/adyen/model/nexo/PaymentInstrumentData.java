@@ -71,7 +71,7 @@ public class PaymentInstrumentData {
      * The Protected card data.
      */
     @XmlElement(name = "ProtectedCardData")
-    protected ContentInformation protectedCardData;
+    protected String protectedCardData;
 
     /**
      * Gets the value of the cardData property.
@@ -166,18 +166,18 @@ public class PaymentInstrumentData {
     /**
      * Gets the value of the protectedCardData property.
      *
-     * @return possible      object is     {@link ContentInformation }
+     * @return possible      object is     {@link String }
      */
-    public ContentInformation getProtectedCardData() {
+    public String getProtectedCardData() {
         return protectedCardData;
     }
 
     /**
      * Sets the value of the protectedCardData property.
      *
-     * @param value allowed object is     {@link ContentInformation }
+     * @param value allowed object is     {@link String }
      */
-    public void setProtectedCardData(ContentInformation value) {
+    public void setProtectedCardData(String value) {
         this.protectedCardData = value;
     }
 }

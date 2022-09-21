@@ -21,7 +21,7 @@
 package com.adyen;
 
 import com.adyen.model.Amount;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
+import com.adyen.model.checkout.details.CardDetails;
 import com.adyen.model.storedvalue.StoredValueBalanceCheckRequest;
 import com.adyen.model.storedvalue.StoredValueBalanceCheckResponse;
 import com.adyen.model.storedvalue.StoredValueBalanceMergeRequest;
@@ -59,7 +59,7 @@ public class StoredValueTest extends BaseTest {
         StoredValueIssueRequest storedValueIssueRequest = new StoredValueIssueRequest();
         storedValueIssueRequest.setMerchantAccount("merchantAccount");
         storedValueIssueRequest.setReference("issueReference");
-        storedValueIssueRequest.setPaymentMethod(new DefaultPaymentMethodDetails().type("givex"));
+        storedValueIssueRequest.setPaymentMethod(new CardDetails().type("givex"));
 
         Amount amount = new Amount();
         amount.setCurrency("EUR");
@@ -90,7 +90,7 @@ public class StoredValueTest extends BaseTest {
 
         storedValueStatusChangeRequest.setAmount(amount);
         storedValueStatusChangeRequest.setMerchantAccount("merchantAccount");
-        storedValueStatusChangeRequest.setPaymentMethod(new DefaultPaymentMethodDetails().type("givex").number("6036280000000000000").securityCode("1111"));
+        storedValueStatusChangeRequest.setPaymentMethod(new CardDetails().type("givex").number("6036280000000000000").cvc("1111"));
         storedValueStatusChangeRequest.setReference("changeStatusReference");
 
         StoredValueStatusChangeResponse storedValueStatusChangeResponse = storedValue.changeStatus(storedValueStatusChangeRequest);
@@ -115,7 +115,7 @@ public class StoredValueTest extends BaseTest {
         storedValueLoadRequest.setAmount(amount);
         storedValueLoadRequest.setLoadType(StoredValueLoadRequest.LoadTypeEnum.MERCHANDISERETURN);
         storedValueLoadRequest.setMerchantAccount("merchantAccount");
-        storedValueLoadRequest.setPaymentMethod(new DefaultPaymentMethodDetails().type("givex").number("603628672882001915092").securityCode("5754"));
+        storedValueLoadRequest.setPaymentMethod(new CardDetails().type("givex").number("603628672882001915092").cvc("5754"));
         storedValueLoadRequest.setReference("loadReference");
 
         StoredValueLoadResponse storedValueLoadResponse = storedValue.load(storedValueLoadRequest);
@@ -133,7 +133,7 @@ public class StoredValueTest extends BaseTest {
 
         StoredValueBalanceCheckRequest storedValueBalanceCheckRequest = new StoredValueBalanceCheckRequest();
         storedValueBalanceCheckRequest.setMerchantAccount("merchantAccount");
-        storedValueBalanceCheckRequest.setPaymentMethod(new DefaultPaymentMethodDetails().type("givex").number("603628672882001915092").securityCode("5754"));
+        storedValueBalanceCheckRequest.setPaymentMethod(new CardDetails().type("givex").number("603628672882001915092").cvc("5754"));
         storedValueBalanceCheckRequest.setReference("checkBalanceReference");
 
         StoredValueBalanceCheckResponse storedValueBalanceCheckResponse = storedValue.checkBalance(storedValueBalanceCheckRequest);
@@ -150,8 +150,8 @@ public class StoredValueTest extends BaseTest {
 
         StoredValueBalanceMergeRequest storedValueBalanceMergeRequest = new StoredValueBalanceMergeRequest();
         storedValueBalanceMergeRequest.setMerchantAccount("merchantAccount");
-        storedValueBalanceMergeRequest.setSourcePaymentMethod(new DefaultPaymentMethodDetails().number("7777182708544835").securityCode("2329"));
-        storedValueBalanceMergeRequest.setPaymentMethod(new DefaultPaymentMethodDetails().type("valuelink").number("8888182708544836").securityCode("2330"));
+        storedValueBalanceMergeRequest.setSourcePaymentMethod(new CardDetails().number("7777182708544835").cvc("2329"));
+        storedValueBalanceMergeRequest.setPaymentMethod(new CardDetails().type("valuelink").number("8888182708544836").cvc("2330"));
         storedValueBalanceMergeRequest.setReference("mergeBalanceReference");
 
         StoredValueBalanceMergeResponse storedValueBalanceMergeResponse = storedValue.mergeBalance(storedValueBalanceMergeRequest);

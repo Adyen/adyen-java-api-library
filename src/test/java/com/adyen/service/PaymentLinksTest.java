@@ -149,6 +149,7 @@ public class PaymentLinksTest extends BaseTest {
         address.setStateOrProvince("SP");
         createPaymentLinkRequest.setBillingAddress(address);
         createPaymentLinkRequest.setDeliveryAddress(address);
+        createPaymentLinkRequest.setStorePaymentMethodMode(CreatePaymentLinkRequest.StorePaymentMethodModeEnum.DISABLED);
 
         return createPaymentLinkRequest;
     }

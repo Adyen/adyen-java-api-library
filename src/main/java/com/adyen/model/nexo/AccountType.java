@@ -88,6 +88,7 @@ public enum AccountType {
     @XmlEnumValue("EpurseCard")
     @Schema(description = "e-Purse card account")
     EPURSE_CARD("EpurseCard");
+
     private final String value;
 
     AccountType(String v) {

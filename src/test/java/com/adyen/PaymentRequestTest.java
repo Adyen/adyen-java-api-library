@@ -24,8 +24,8 @@ import com.adyen.enums.Gender;
 import com.adyen.enums.VatCategory;
 import com.adyen.model.PaymentRequest;
 import com.adyen.model.applicationinfo.ExternalPlatform;
-import com.adyen.model.checkout.DefaultPaymentMethodDetails;
 import com.adyen.model.checkout.PaymentsRequest;
+import com.adyen.model.checkout.details.AfterpayDetails;
 import org.junit.Test;
 
 import static com.adyen.Client.LIB_NAME;
@@ -101,13 +101,11 @@ public class PaymentRequestTest extends BaseTest {
 
         PaymentsRequest paymentsRequest = createAfterPayPaymentRequest();
 
-        DefaultPaymentMethodDetails paymentMethodDetails =
-                (DefaultPaymentMethodDetails) paymentsRequest.getPaymentMethod();
+        AfterpayDetails paymentMethodDetails =
+                (AfterpayDetails) paymentsRequest.getPaymentMethod();
 
-        assertNotNull(paymentMethodDetails.getSeparateDeliveryAddress());
-        assertNotNull(paymentMethodDetails.getPersonalDetails().getGender());
-        assertEquals(paymentMethodDetails.getSeparateDeliveryAddress(), false);
-        assertEquals(paymentMethodDetails.getPersonalDetails().getGender(), Gender.MALE);
+        assertNotNull(paymentMethodDetails.getPersonalDetails());
+        assertEquals(paymentMethodDetails.getPersonalDetails(), "EndToEnd lastName 2000-02-02 +31612345678 SHOPPER@EMAIL_ADDRESS.COM");
 
         assertNotNull(paymentsRequest.getApplicationInfo());
         assertNotNull(paymentsRequest.getApplicationInfo().getAdyenLibrary());

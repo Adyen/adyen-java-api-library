@@ -73,7 +73,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         @SerializedName("Moto") MOTO("Moto");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;
@@ -112,7 +112,7 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
         @SerializedName("credit") CREDIT("credit");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FundingSourceEnum(String value) {
             this.value = value;
@@ -814,6 +814,10 @@ public abstract class AbstractPaymentRequest<T extends AbstractPaymentRequest<T>
 
     public ApplicationInfo getApplicationInfo() {
         return applicationInfo;
+    }
+
+    public void setApplicationInfo(ApplicationInfo applicationInfo) {
+        this.applicationInfo = applicationInfo;
     }
 
     /**

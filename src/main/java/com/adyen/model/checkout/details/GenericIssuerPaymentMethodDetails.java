@@ -23,6 +23,7 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
 
@@ -34,8 +35,17 @@ import static com.adyen.util.Util.toIndentedString;
  */
 
 public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
+    /**
+     * Possible types
+     */
+    public static final String ONLINEBANKING_IN = "onlinebanking_IN";
+    public static final String WALLET_IN = "wallet_IN";
+
     @SerializedName("issuer")
     private String issuer = null;
+
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
 
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
@@ -59,6 +69,24 @@ public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
 
     public void setIssuer(String issuer) {
         this.issuer = issuer;
+    }
+
+    public GenericIssuerPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
     }
 
     public GenericIssuerPaymentMethodDetails storedPaymentMethodId(String storedPaymentMethodId) {
@@ -110,13 +138,14 @@ public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
         }
         GenericIssuerPaymentMethodDetails genericIssuerPaymentMethodDetails = (GenericIssuerPaymentMethodDetails) o;
         return Objects.equals(this.issuer, genericIssuerPaymentMethodDetails.issuer) &&
+                Objects.equals(this.recurringDetailReference, genericIssuerPaymentMethodDetails.recurringDetailReference) &&
                 Objects.equals(this.storedPaymentMethodId, genericIssuerPaymentMethodDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, genericIssuerPaymentMethodDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(issuer, storedPaymentMethodId, type);
+        return Objects.hash(issuer, recurringDetailReference, storedPaymentMethodId, type);
     }
 
 
@@ -126,6 +155,7 @@ public class GenericIssuerPaymentMethodDetails implements PaymentMethodDetails {
         sb.append("class GenericIssuerPaymentMethodDetails {\n");
 
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

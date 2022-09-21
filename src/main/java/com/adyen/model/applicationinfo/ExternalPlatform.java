@@ -63,7 +63,6 @@ public class ExternalPlatform extends CommonField {
         sb.append("class ExternalPlatform {\n");
 
         sb.append("    integrator: ").append(toIndentedString(integrator)).append("\n");
-
         sb.append("}");
         return sb.toString();
     }

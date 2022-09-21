@@ -37,8 +37,8 @@ import java.util.Map;
 public class PaymentLinks extends ApiKeyAuthenticatedService {
     private static final String LINK_ID = "linkId";
 
-    private com.adyen.service.resource.checkout.PaymentLinks paymentLinks;
-    private PaymentLink paymentLink;
+    private final com.adyen.service.resource.checkout.PaymentLinks paymentLinks;
+    private final PaymentLink paymentLink;
 
     public PaymentLinks(Client client) {
         super(client);

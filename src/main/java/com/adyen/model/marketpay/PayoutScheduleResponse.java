@@ -51,7 +51,7 @@ public class PayoutScheduleResponse {
         @SerializedName("WEEKLY")
         WEEKLY("WEEKLY");
 
-        private String value;
+        private final String value;
 
         ScheduleEnum(String value) {
             this.value = value;

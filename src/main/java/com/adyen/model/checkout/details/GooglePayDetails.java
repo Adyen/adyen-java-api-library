@@ -28,6 +28,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -44,7 +45,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
     /**
      * Possible types
      */
-    public static final String GOOGLEPAY = "paywithgoogle";
+    public static final String GOOGLEPAY = "googlepay";
 
     /**
      * Gets or Sets fundingSource
@@ -55,7 +56,7 @@ public class GooglePayDetails implements PaymentMethodDetails {
         DEBIT("debit");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FundingSourceEnum(String value) {
             this.value = value;
@@ -93,14 +94,15 @@ public class GooglePayDetails implements PaymentMethodDetails {
     @SerializedName("fundingSource")
     private FundingSourceEnum fundingSource = null;
 
-    @SerializedName("googlePayCardNetwork")
-    private String googlePayCardNetwork = null;
 
     @SerializedName("googlePayToken")
     private String googlePayToken = null;
 
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
+
     @SerializedName("storedPaymentMethodId")
-    private String storedPaymentMethodId = null;
+    private final String storedPaymentMethodId = null;
 
     @SerializedName("type")
     private String type = GOOGLEPAY;
@@ -123,24 +125,6 @@ public class GooglePayDetails implements PaymentMethodDetails {
         this.fundingSource = fundingSource;
     }
 
-    public GooglePayDetails googlePayCardNetwork(String googlePayCardNetwork) {
-        this.googlePayCardNetwork = googlePayCardNetwork;
-        return this;
-    }
-
-    /**
-     * Get googlePayCardNetwork
-     *
-     * @return googlePayCardNetwork
-     **/
-    public String getGooglePayCardNetwork() {
-        return googlePayCardNetwork;
-    }
-
-    public void setGooglePayCardNetwork(String googlePayCardNetwork) {
-        this.googlePayCardNetwork = googlePayCardNetwork;
-    }
-
     public GooglePayDetails googlePayToken(String googlePayToken) {
         this.googlePayToken = googlePayToken;
         return this;
@@ -157,6 +141,24 @@ public class GooglePayDetails implements PaymentMethodDetails {
 
     public void setGooglePayToken(String googlePayToken) {
         this.googlePayToken = googlePayToken;
+    }
+
+    public GooglePayDetails recurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+        return this;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
     }
 
     public GooglePayDetails type(String type) {
@@ -190,15 +192,15 @@ public class GooglePayDetails implements PaymentMethodDetails {
         }
         GooglePayDetails googlePayDetails = (GooglePayDetails) o;
         return Objects.equals(this.fundingSource, googlePayDetails.fundingSource) &&
-                Objects.equals(this.googlePayCardNetwork, googlePayDetails.googlePayCardNetwork) &&
                 Objects.equals(this.googlePayToken, googlePayDetails.googlePayToken) &&
+                Objects.equals(this.recurringDetailReference, googlePayDetails.recurringDetailReference) &&
                 Objects.equals(this.storedPaymentMethodId, googlePayDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, googlePayDetails.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fundingSource, googlePayCardNetwork, googlePayToken, storedPaymentMethodId, type);
+        return Objects.hash(fundingSource, googlePayToken, recurringDetailReference, storedPaymentMethodId, type);
     }
 
 
@@ -208,8 +210,8 @@ public class GooglePayDetails implements PaymentMethodDetails {
         sb.append("class GooglePayDetails {\n");
 
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
-        sb.append("    googlePayCardNetwork: ").append(toIndentedString(googlePayCardNetwork)).append("\n");
         sb.append("    googlePayToken: ").append(toIndentedString(googlePayToken)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

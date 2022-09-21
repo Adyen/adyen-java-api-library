@@ -76,7 +76,7 @@ public class ShareholderContact {
     OWNER("Owner");
 
     @JsonValue
-    private String value;
+    private final String value;
 
     ShareholderTypeEnum(String value) {
       this.value = value;

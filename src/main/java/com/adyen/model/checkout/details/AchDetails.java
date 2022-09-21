@@ -23,6 +23,7 @@ package com.adyen.model.checkout.details;
 
 import com.adyen.model.checkout.PaymentMethodDetails;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Objects;
 
@@ -56,6 +57,9 @@ public class AchDetails implements PaymentMethodDetails {
 
     @SerializedName("storedPaymentMethodId")
     private String storedPaymentMethodId = null;
+
+    @SerializedName("recurringDetailReference")
+    private String recurringDetailReference = null;
 
     @SerializedName("type")
     private String type = ACH;
@@ -157,6 +161,19 @@ public class AchDetails implements PaymentMethodDetails {
 
     /**
      * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
+     * @return recurringDetailReference
+     **/
+    @Schema(description = "This is the `recurringDetailReference` returned in the response when you created the token.")
+    public String getRecurringDetailReference() {
+        return recurringDetailReference;
+    }
+
+    public void setRecurringDetailReference(String recurringDetailReference) {
+        this.recurringDetailReference = recurringDetailReference;
+    }
+
+    /**
+     * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
      *
      * @return storedPaymentMethodId
      **/
@@ -203,6 +220,7 @@ public class AchDetails implements PaymentMethodDetails {
                 Objects.equals(this.encryptedBankAccountNumber, achDetails.encryptedBankAccountNumber) &&
                 Objects.equals(this.encryptedBankLocationId, achDetails.encryptedBankLocationId) &&
                 Objects.equals(this.ownerName, achDetails.ownerName) &&
+                Objects.equals(this.recurringDetailReference, achDetails.recurringDetailReference) &&
                 Objects.equals(this.storedPaymentMethodId, achDetails.storedPaymentMethodId) &&
                 Objects.equals(this.type, achDetails.type);
     }
@@ -224,6 +242,7 @@ public class AchDetails implements PaymentMethodDetails {
         sb.append("    encryptedBankAccountNumber: ").append(toIndentedString(encryptedBankAccountNumber)).append("\n");
         sb.append("    encryptedBankLocationId: ").append(toIndentedString(encryptedBankLocationId)).append("\n");
         sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
+        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");

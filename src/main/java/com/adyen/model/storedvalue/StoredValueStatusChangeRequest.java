@@ -65,7 +65,7 @@ public class StoredValueStatusChangeRequest {
         POS("POS");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;
@@ -118,7 +118,7 @@ public class StoredValueStatusChangeRequest {
         INACTIVE("inactive");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         StatusEnum(String value) {
             this.value = value;

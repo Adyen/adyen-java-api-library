@@ -24,8 +24,10 @@ package com.adyen.model.checkout;
 import com.adyen.model.Amount;
 import com.adyen.model.FraudResult;
 import com.adyen.model.ThreeDS2Result;
+import com.adyen.model.ThreeDS2ResponseData;
 import com.adyen.util.DateUtil;
 import com.google.gson.annotations.SerializedName;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -38,7 +40,6 @@ import static com.adyen.constants.ApiConstants.AdditionalData.CARD_BIN;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_HOLDER_NAME;
 import static com.adyen.constants.ApiConstants.AdditionalData.CARD_SUMMARY;
 import static com.adyen.constants.ApiConstants.AdditionalData.EXPIRY_DATE;
-import static com.adyen.constants.ApiConstants.AdditionalData.PAYMENT_METHOD;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_AUTHENTICATED;
 import static com.adyen.constants.ApiConstants.AdditionalData.THREE_D_OFFERERED;
 import static com.adyen.util.Util.toIndentedString;
@@ -62,8 +63,14 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
     @SerializedName("resultCode")
     private PaymentsResponse.ResultCodeEnum resultCode = null;
 
+    @SerializedName("shopperLocale")
+    private String shopperLocale = null;
+
     @SerializedName("serviceError")
     private ServiceError serviceError;
+
+    @SerializedName("threeDS2ResponseData")
+    private ThreeDS2ResponseData threeDS2ResponseData = null;
 
     @SerializedName("authResponse")
     private PaymentsResponse.ResultCodeEnum authResponse;
@@ -74,11 +81,17 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
     @SerializedName("threeDS2Result")
     private ThreeDS2Result threeDS2Result;
 
+    @SerializedName("threeDSPaymentData")
+    private String threeDSPaymentData = null;
+
     @SerializedName("amount")
     private Amount amount = null;
 
     @SerializedName("order")
     private CheckoutOrderResponse order = null;
+
+    @SerializedName("paymentMethod")
+    private PaymentMethod paymentMethod = null;
 
     @SerializedName("donationToken")
     private String donationToken;
@@ -215,6 +228,42 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         this.resultCode = resultCode;
     }
 
+    public T shopperLocale(String shopperLocale) {
+        this.shopperLocale = shopperLocale;
+        return (T) this;
+    }
+
+    /**
+     * The shopperLocale.
+     * @return shopperLocale
+     **/
+    @Schema(description = "The shopperLocale.")
+    public String getShopperLocale() {
+        return shopperLocale;
+    }
+
+    public void setShopperLocale(String shopperLocale) {
+        this.shopperLocale = shopperLocale;
+    }
+
+    public T threeDS2ResponseData(ThreeDS2ResponseData threeDS2ResponseData) {
+        this.threeDS2ResponseData = threeDS2ResponseData;
+        return (T) this;
+    }
+
+    /**
+     * Get threeDS2ResponseData
+     * @return threeDS2ResponseData
+     **/
+    @Schema(description = "")
+    public ThreeDS2ResponseData getThreeDS2ResponseData() {
+        return threeDS2ResponseData;
+    }
+
+    public void setThreeDS2ResponseData(ThreeDS2ResponseData threeDS2ResponseData) {
+        this.threeDS2ResponseData = threeDS2ResponseData;
+    }
+
     public ServiceError getServiceError() {
         return serviceError;
     }
@@ -257,6 +306,25 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         return (T) this;
     }
 
+    public T threeDSPaymentData(String threeDSPaymentData) {
+        this.threeDSPaymentData = threeDSPaymentData;
+        return (T) this;
+    }
+
+    /**
+     * When non-empty, contains a value that you must submit to the &#x60;/payments/details&#x60; endpoint as &#x60;paymentData&#x60;.
+     * @return threeDSPaymentData
+     **/
+    @Schema(description = "When non-empty, contains a value that you must submit to the `/payments/details` endpoint as `paymentData`.")
+    public String getThreeDSPaymentData() {
+        return threeDSPaymentData;
+    }
+
+    public void setThreeDSPaymentData(String threeDSPaymentData) {
+        this.threeDSPaymentData = threeDSPaymentData;
+    }
+
+
     public T amount(Amount amount) {
         this.amount = amount;
         return (T) this;
@@ -292,6 +360,25 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         this.order = order;
     }
 
+    public T paymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+        return (T) this;
+    }
+
+    /**
+     * Get paymentMethod
+     * @return paymentMethod
+     **/
+    @Schema(description = "")
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+
     /**
      * Donation Token containing payment details for Adyen Giving.
      * @return donationToken
@@ -314,19 +401,21 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         }
 
         AbstractPaymentsResponse response = (AbstractPaymentsResponse) o;
-        return Objects.equals(this.additionalData, response.additionalData)
-                && Objects.equals(this.fraudResult, response.fraudResult)
-                && Objects.equals(this.pspReference, response.pspReference)
-                && Objects.equals(this.refusalReason, response.refusalReason)
-                && Objects.equals(this.refusalReasonCode, response.refusalReasonCode)
-                && Objects.equals(this.resultCode, response.resultCode)
-                && Objects.equals(this.serviceError, response.serviceError)
-                && Objects.equals(this.authResponse, response.authResponse)
-                && Objects.equals(this.merchantReference, response.merchantReference)
-                && Objects.equals(this.threeDS2Result, response.threeDS2Result)
-                && Objects.equals(this.amount, response.amount)
-                && Objects.equals(this.order, response.order)
-                && Objects.equals(this.donationToken, response.donationToken);
+        return Objects.equals(this.additionalData, response.additionalData) &&
+                Objects.equals(this.amount, response.amount) &&
+                Objects.equals(this.donationToken, response.donationToken) &&
+                Objects.equals(this.fraudResult, response.fraudResult) &&
+                Objects.equals(this.merchantReference, response.merchantReference) &&
+                Objects.equals(this.order, response.order) &&
+                Objects.equals(this.paymentMethod, response.paymentMethod) &&
+                Objects.equals(this.pspReference, response.pspReference) &&
+                Objects.equals(this.refusalReason, response.refusalReason) &&
+                Objects.equals(this.refusalReasonCode, response.refusalReasonCode) &&
+                Objects.equals(this.resultCode, response.resultCode) &&
+                Objects.equals(this.shopperLocale, response.shopperLocale) &&
+                Objects.equals(this.threeDS2ResponseData, response.threeDS2ResponseData) &&
+                Objects.equals(this.threeDS2Result, response.threeDS2Result) &&
+                Objects.equals(this.threeDSPaymentData, response.threeDSPaymentData);
     }
 
     @Override
@@ -339,18 +428,21 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
         StringBuilder sb = new StringBuilder();
 
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");
         sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    order: ").append(toIndentedString(order)).append("\n");
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
         sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
-        sb.append("    authResponse: ").append(toIndentedString(authResponse)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
+        sb.append("    threeDS2ResponseData: ").append(toIndentedString(threeDS2ResponseData)).append("\n");
         sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    order: ").append(toIndentedString(order)).append("\n");
-        sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");
+        sb.append("    threeDSPaymentData: ").append(toIndentedString(threeDSPaymentData)).append("\n");
+        sb.append("}");
         return sb.toString();
     }
 
@@ -364,10 +456,6 @@ public abstract class AbstractPaymentsResponse<T extends AbstractPaymentsRespons
 
     public String getCardSummary() {
         return getAdditionalDataByKey(CARD_SUMMARY);
-    }
-
-    public String getPaymentMethod() {
-        return getAdditionalDataByKey(PAYMENT_METHOD);
     }
 
     public String getAvsResult() {

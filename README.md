@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/Adyen/adyen-java-api-library.svg?branch=master)](https://travis-ci.org/Adyen/adyen-java-api-library)
 [![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=master)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=master)
-
 
 # Adyen Java API Library
 
@@ -8,7 +6,7 @@ This is the officially supported Java library for using Adyen's APIs.
  
 The library supports all APIs under the following services:
  
-* [Checkout API](https://docs.adyen.com/api-explorer/#/CheckoutService/v67/overview): Our latest integration for accepting online payments. Current supported version: **v67**
+* [Checkout API](https://docs.adyen.com/api-explorer/#/CheckoutService/v69/overview): Our latest integration for accepting online payments. Current supported version: **v69**
 * [Payments API](https://docs.adyen.com/api-explorer/#/Payment/v52/overview): Our classic integration for online payments. Current supported version: **v52**
 * [Recurring API](https://docs.adyen.com/api-explorer/#/Recurring/v49/overview): Endpoints for managing saved payment details. Current supported version: **v49**
 * [Payouts API](https://docs.adyen.com/api-explorer/#/Payout/v51/overview): Endpoints for sending funds to your customers. Current supported version: **v51**
@@ -41,7 +39,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>17.0.0</version>
+  <version>18.1.0</version>
 </dependency>
 ```
 
@@ -146,7 +144,7 @@ For other questions, [contact our Support Team](https://www.adyen.help/hc/en-us/
  
  
 ## Licence
-This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/master/LICENSE).
+This repository is available under the [MIT license](https://github.com/Adyen/adyen-java-api-library/blob/main/LICENSE).
  
  
  

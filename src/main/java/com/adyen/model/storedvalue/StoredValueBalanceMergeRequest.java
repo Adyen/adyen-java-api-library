@@ -65,7 +65,7 @@ public class StoredValueBalanceMergeRequest {
         POS("POS");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ShopperInteractionEnum(String value) {
             this.value = value;

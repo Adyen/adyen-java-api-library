@@ -69,7 +69,7 @@ public class Recurring {
         EXTERNAL("EXTERNAL");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ContractEnum(String value) {
             this.value = value;
@@ -102,7 +102,7 @@ public class Recurring {
         VISATOKENSERVICE("VISATOKENSERVICE"),
         MCTOKENSERVICE("MCTOKENSERVICE");
 
-        private String value;
+        private final String value;
 
         TokenServiceEnum(String value) {
             this.value = value;

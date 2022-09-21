@@ -83,9 +83,6 @@ public class PaymentMethodsRequest {
     @SerializedName("trustedShopper")
     private Boolean trustedShopper = null;
 
-    @SerializedName("enableRealTimeUpdate")
-    private Boolean enableRealTimeUpdate = null;
-
     @SerializedName("threeDSAuthenticationOnly")
     private Boolean threeDSAuthenticationOnly = null;
 
@@ -279,11 +276,6 @@ public class PaymentMethodsRequest {
         this.blockedPaymentMethods = blockedPaymentMethods;
     }
 
-    public PaymentMethodsRequest enableRealTimeUpdate(Boolean enableRealTimeUpdate) {
-        this.enableRealTimeUpdate = enableRealTimeUpdate;
-        return this;
-    }
-
     public String getStore() {
         return store;
     }
@@ -295,19 +287,6 @@ public class PaymentMethodsRequest {
     public PaymentMethodsRequest store(String store) {
         this.store = store;
         return this;
-    }
-
-    /**
-     * Choose if a specific transaction should use the Real-time Account Updater, regardless of other settings.
-     *
-     * @return enableRealTimeUpdate
-     **/
-    public Boolean isEnableRealTimeUpdate() {
-        return enableRealTimeUpdate;
-    }
-
-    public void setEnableRealTimeUpdate(Boolean enableRealTimeUpdate) {
-        this.enableRealTimeUpdate = enableRealTimeUpdate;
     }
 
     public PaymentMethodsRequest threeDSAuthenticationOnly(Boolean threeDSAuthenticationOnly) {
@@ -368,7 +347,6 @@ public class PaymentMethodsRequest {
                 Objects.equals(this.blockedPaymentMethods, paymentMethodsRequest.blockedPaymentMethods) &&
                 Objects.equals(this.channel, paymentMethodsRequest.channel) &&
                 Objects.equals(this.countryCode, paymentMethodsRequest.countryCode) &&
-                Objects.equals(this.enableRealTimeUpdate, paymentMethodsRequest.enableRealTimeUpdate) &&
                 Objects.equals(this.merchantAccount, paymentMethodsRequest.merchantAccount) &&
                 Objects.equals(this.order, paymentMethodsRequest.order) &&
                 Objects.equals(this.shopperLocale, paymentMethodsRequest.shopperLocale) &&
@@ -379,7 +357,7 @@ public class PaymentMethodsRequest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, enableRealTimeUpdate, merchantAccount, order, shopperLocale, shopperReference, splitCardFundingSources, store);
+        return Objects.hash(additionalData, allowedPaymentMethods, amount, blockedPaymentMethods, channel, countryCode, merchantAccount, order, shopperLocale, shopperReference, splitCardFundingSources, store);
     }
 
     @Override
@@ -393,7 +371,6 @@ public class PaymentMethodsRequest {
         sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
         sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
         sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    enableRealTimeUpdate: ").append(toIndentedString(enableRealTimeUpdate)).append("\n");
         sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
         sb.append("    order: ").append(toIndentedString(order)).append("\n");
         sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
@@ -416,7 +393,7 @@ public class PaymentMethodsRequest {
         WEB("Web");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         ChannelEnum(String value) {
             this.value = value;
@@ -425,7 +402,7 @@ public class PaymentMethodsRequest {
         public static ChannelEnum fromValue(String text) {
             return Arrays.stream(values()).
                     filter(s -> s.value.equals(text)).
-                    findFirst().orElse(null);
+                                 findFirst().orElse(null);
         }
 
         public String getValue() {
@@ -452,6 +429,3 @@ public class PaymentMethodsRequest {
     }
 
 }
-
-
-

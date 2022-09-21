@@ -27,6 +27,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,9 +35,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-
-
-import static com.adyen.util.Util.toIndentedString;
 
 /**
  * RecurringDetail
@@ -52,9 +50,6 @@ public class RecurringDetail {
     @SerializedName("configuration")
     private Map<String, String> configuration = null;
 
-    @SerializedName("details")
-    private List<InputDetail> details = null;
-
     /**
      * The funding source of the payment method.
      */
@@ -63,12 +58,11 @@ public class RecurringDetail {
         DEBIT("debit");
 
         @JsonValue
-        private String value;
+        private final String value;
 
         FundingSourceEnum(String value) {
             this.value = value;
         }
-
         public String getValue() {
             return value;
         }
@@ -77,31 +71,27 @@ public class RecurringDetail {
         public String toString() {
             return String.valueOf(value);
         }
-
-        public static FundingSourceEnum fromValue(String text) {
+        public static FundingSourceEnum fromValue(String input) {
             for (FundingSourceEnum b : FundingSourceEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
+                if (b.value.equals(input)) {
                     return b;
                 }
             }
             return null;
         }
-
         public static class Adapter extends TypeAdapter<FundingSourceEnum> {
             @Override
             public void write(final JsonWriter jsonWriter, final FundingSourceEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
             }
 
             @Override
             public FundingSourceEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return FundingSourceEnum.fromValue(String.valueOf(value));
+                Object value = jsonReader.nextString();
+                return FundingSourceEnum.fromValue((String) (value));
             }
         }
-    }
-
-    @SerializedName("fundingSource")
+    }  @SerializedName("fundingSource")
     private FundingSourceEnum fundingSource = null;
 
     @SerializedName("group")
@@ -110,20 +100,17 @@ public class RecurringDetail {
     @SerializedName("inputDetails")
     private List<InputDetail> inputDetails = null;
 
+    @SerializedName("issuers")
+    private List<PaymentMethodIssuer> issuers = null;
+
     @SerializedName("name")
     private String name = null;
-
-    @SerializedName("paymentMethodData")
-    private String paymentMethodData = null;
 
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
 
     @SerializedName("storedDetails")
     private StoredDetails storedDetails = null;
-
-    @SerializedName("supportsRecurring")
-    private Boolean supportsRecurring = null;
 
     @SerializedName("type")
     private String type = null;
@@ -135,9 +122,9 @@ public class RecurringDetail {
 
     /**
      * Brand for the selected gift card. For example: plastix, hmclub.
-     *
      * @return brand
      **/
+    @Schema(description = "Brand for the selected gift card. For example: plastix, hmclub.")
     public String getBrand() {
         return brand;
     }
@@ -152,18 +139,18 @@ public class RecurringDetail {
     }
 
     public RecurringDetail addBrandsItem(String brandsItem) {
-        if (brands == null) {
-            brands = new ArrayList<>();
+        if (this.brands == null) {
+            this.brands = new ArrayList<String>();
         }
-        brands.add(brandsItem);
+        this.brands.add(brandsItem);
         return this;
     }
 
     /**
      * List of possible brands. For example: visa, mc.
-     *
      * @return brands
      **/
+    @Schema(description = "List of possible brands. For example: visa, mc.")
     public List<String> getBrands() {
         return brands;
     }
@@ -178,52 +165,24 @@ public class RecurringDetail {
     }
 
     public RecurringDetail putConfigurationItem(String key, String configurationItem) {
-
-        if (configuration == null) {
-            configuration = new HashMap<>();
+        if (this.configuration == null) {
+            this.configuration = new HashMap<String, String>();
         }
-
-        configuration.put(key, configurationItem);
+        this.configuration.put(key, configurationItem);
         return this;
     }
 
     /**
      * The configuration of the payment method.
-     *
-     * @return configuration
+     * @return onfiguration
      **/
+    @Schema(description = "The configuration of the payment method.")
     public Map<String, String> getConfiguration() {
         return configuration;
     }
 
     public void setConfiguration(Map<String, String> configuration) {
         this.configuration = configuration;
-    }
-
-    public RecurringDetail details(List<InputDetail> details) {
-        this.details = details;
-        return this;
-    }
-
-    public RecurringDetail addDetailsItem(InputDetail detailsItem) {
-        if (details == null) {
-            details = new ArrayList<>();
-        }
-        details.add(detailsItem);
-        return this;
-    }
-
-    /**
-     * All input details to be provided to complete the payment with this payment method.
-     *
-     * @return details
-     **/
-    public List<InputDetail> getDetails() {
-        return details;
-    }
-
-    public void setDetails(List<InputDetail> details) {
-        this.details = details;
     }
 
     public RecurringDetail fundingSource(FundingSourceEnum fundingSource) {
@@ -233,9 +192,9 @@ public class RecurringDetail {
 
     /**
      * The funding source of the payment method.
-     *
      * @return fundingSource
      **/
+    @Schema(description = "The funding source of the payment method.")
     public FundingSourceEnum getFundingSource() {
         return fundingSource;
     }
@@ -251,9 +210,9 @@ public class RecurringDetail {
 
     /**
      * Get group
-     *
      * @return group
      **/
+    @Schema(description = "")
     public PaymentMethodGroup getGroup() {
         return group;
     }
@@ -277,9 +236,9 @@ public class RecurringDetail {
 
     /**
      * All input details to be provided to complete the payment with this payment method.
-     *
      * @return inputDetails
      **/
+    @Schema(description = "All input details to be provided to complete the payment with this payment method.")
     public List<InputDetail> getInputDetails() {
         return inputDetails;
     }
@@ -288,6 +247,31 @@ public class RecurringDetail {
         this.inputDetails = inputDetails;
     }
 
+    public RecurringDetail issuers(List<PaymentMethodIssuer> issuers) {
+        this.issuers = issuers;
+        return this;
+    }
+
+    public RecurringDetail addIssuersItem(PaymentMethodIssuer issuersItem) {
+        if (this.issuers == null) {
+            this.issuers = new ArrayList<PaymentMethodIssuer>();
+        }
+        this.issuers.add(issuersItem);
+        return this;
+    }
+
+    /**
+     * A list of issuers for this payment method.
+     * @return issuers
+     **/
+    @Schema(description = "A list of issuers for this payment method.")
+    public List<PaymentMethodIssuer> getIssuers() {
+        return issuers;
+    }
+
+    public void setIssuers(List<PaymentMethodIssuer> issuers) {
+        this.issuers = issuers;
+    }
 
     public RecurringDetail name(String name) {
         this.name = name;
@@ -296,33 +280,15 @@ public class RecurringDetail {
 
     /**
      * The displayable name of this payment method.
-     *
      * @return name
      **/
+    @Schema(description = "The displayable name of this payment method.")
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public RecurringDetail paymentMethodData(String paymentMethodData) {
-        this.paymentMethodData = paymentMethodData;
-        return this;
-    }
-
-    /**
-     * Echo data required to send in next calls.
-     *
-     * @return paymentMethodData
-     **/
-    public String getPaymentMethodData() {
-        return paymentMethodData;
-    }
-
-    public void setPaymentMethodData(String paymentMethodData) {
-        this.paymentMethodData = paymentMethodData;
     }
 
     public RecurringDetail recurringDetailReference(String recurringDetailReference) {
@@ -332,9 +298,9 @@ public class RecurringDetail {
 
     /**
      * The reference that uniquely identifies the recurring detail.
-     *
      * @return recurringDetailReference
      **/
+    @Schema(description = "The reference that uniquely identifies the recurring detail.")
     public String getRecurringDetailReference() {
         return recurringDetailReference;
     }
@@ -350,33 +316,15 @@ public class RecurringDetail {
 
     /**
      * Get storedDetails
-     *
      * @return storedDetails
      **/
+    @Schema(description = "")
     public StoredDetails getStoredDetails() {
         return storedDetails;
     }
 
     public void setStoredDetails(StoredDetails storedDetails) {
         this.storedDetails = storedDetails;
-    }
-
-    public RecurringDetail supportsRecurring(Boolean supportsRecurring) {
-        this.supportsRecurring = supportsRecurring;
-        return this;
-    }
-
-    /**
-     * Indicates whether this payment method supports tokenization or not.
-     *
-     * @return supportsRecurring
-     **/
-    public Boolean isSupportsRecurring() {
-        return supportsRecurring;
-    }
-
-    public void setSupportsRecurring(Boolean supportsRecurring) {
-        this.supportsRecurring = supportsRecurring;
     }
 
     public RecurringDetail type(String type) {
@@ -386,9 +334,9 @@ public class RecurringDetail {
 
     /**
      * The unique payment method code.
-     *
      * @return type
      **/
+    @Schema(description = "The unique payment method code.")
     public String getType() {
         return type;
     }
@@ -399,7 +347,7 @@ public class RecurringDetail {
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -410,10 +358,10 @@ public class RecurringDetail {
         return Objects.equals(this.brand, recurringDetail.brand) &&
                 Objects.equals(this.brands, recurringDetail.brands) &&
                 Objects.equals(this.configuration, recurringDetail.configuration) &&
-                Objects.equals(this.details, recurringDetail.details) &&
                 Objects.equals(this.fundingSource, recurringDetail.fundingSource) &&
                 Objects.equals(this.group, recurringDetail.group) &&
                 Objects.equals(this.inputDetails, recurringDetail.inputDetails) &&
+                Objects.equals(this.issuers, recurringDetail.issuers) &&
                 Objects.equals(this.name, recurringDetail.name) &&
                 Objects.equals(this.recurringDetailReference, recurringDetail.recurringDetailReference) &&
                 Objects.equals(this.storedDetails, recurringDetail.storedDetails) &&
@@ -422,8 +370,7 @@ public class RecurringDetail {
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, brands, configuration, details, fundingSource, group, inputDetails, name,
-                recurringDetailReference, storedDetails, type);
+        return Objects.hash(brand, brands, configuration, fundingSource, group, inputDetails, issuers, name, recurringDetailReference, storedDetails, type);
     }
 
 
@@ -434,11 +381,11 @@ public class RecurringDetail {
 
         sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
         sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-        sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
+        sb.append("    _configuration: ").append(toIndentedString(configuration)).append("\n");
         sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");
+        sb.append("    issuers: ").append(toIndentedString(issuers)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
         sb.append("    storedDetails: ").append(toIndentedString(storedDetails)).append("\n");
@@ -446,4 +393,16 @@ public class RecurringDetail {
         sb.append("}");
         return sb.toString();
     }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }
