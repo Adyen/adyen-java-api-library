@@ -37,13 +37,18 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
-import java.security.*;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.Provider;
 
 import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
 
 public class NexoCrypto {
 
-    private static final Provider provider = new SecureRandom().getProvider();
+    private static final Provider PROVIDER = new SecureRandom().getProvider();
 
     public SaleToPOISecuredMessage encrypt(
             String saleToPoiMessageJson, MessageHeader messageHeader, SecurityKey securityKey) throws Exception {
@@ -147,7 +152,7 @@ public class NexoCrypto {
      */
     private byte[] generateRandomIvNonce() throws NoSuchAlgorithmException {
         byte[] ivNonce = new byte[NEXO_IV_LENGTH];
-        SecureRandom SECURE_RANDOM = SecureRandom.getInstance("NativePRNGNonBlocking", provider);
+        SecureRandom SECURE_RANDOM = SecureRandom.getInstance("NativePRNGNonBlocking", PROVIDER);
         SECURE_RANDOM.nextBytes(ivNonce);
         return ivNonce;
     }
