@@ -118,6 +118,15 @@ adyenHttpClientWithProxy.setProxy(proxy);
 client.setHttpClient(adyenHttpClientWithProxy);
 ~~~~
 
+If your proxy requires authentication, set all the settings as system properties instead (don't mix with previous approach), for example: 
+
+~~~~ java
+System.setProperty("https.proxyHost", "127.0.0.1");
+System.setProperty("https.proxyPort", "3128");
+System.setProperty("https.proxyUser", "squid");
+System.setProperty("https.proxyPassword", "ward");
+~~~~
+
 ### Example integrations
  
 For a closer look at how our Java library works, you can clone one of our example integrations:
