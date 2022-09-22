@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=payments management balanceplatform transfers
+services:=payments
 models:=src/main/java/com/adyen/model
 output:=target/out
 
