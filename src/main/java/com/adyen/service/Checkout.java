@@ -29,7 +29,6 @@ import com.adyen.model.checkout.CheckoutCancelOrderRequest;
 import com.adyen.model.checkout.CheckoutCancelOrderResponse;
 import com.adyen.model.checkout.CheckoutCreateOrderRequest;
 import com.adyen.model.checkout.CheckoutCreateOrderResponse;
-import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
 import com.adyen.model.checkout.PaymentMethodsRequest;
@@ -42,7 +41,6 @@ import com.adyen.model.checkout.PaymentsDetailsRequest;
 import com.adyen.model.checkout.PaymentsDetailsResponse;
 import com.adyen.model.checkout.PaymentsRequest;
 import com.adyen.model.checkout.PaymentsResponse;
-import com.adyen.model.checkout.StoredPaymentMethodResource;
 import com.adyen.model.checkout.CreatePaymentCaptureRequest;
 import com.adyen.model.checkout.PaymentCaptureResource;
 import com.adyen.model.checkout.CreatePaymentCancelRequest;
@@ -55,52 +53,37 @@ import com.adyen.model.checkout.CreateStandalonePaymentCancelRequest;
 import com.adyen.model.checkout.StandalonePaymentCancelResource;
 import com.adyen.model.checkout.PaymentAmountUpdateResource;
 import com.adyen.model.checkout.CreatePaymentAmountUpdateRequest;
-import com.adyen.service.resource.checkout.Orders;
-import com.adyen.service.resource.checkout.OrdersCancel;
-import com.adyen.service.resource.checkout.PaymentMethods;
-import com.adyen.service.resource.checkout.PaymentSession;
-import com.adyen.service.resource.checkout.Payments;
-import com.adyen.service.resource.checkout.PaymentsDetails;
-import com.adyen.service.resource.checkout.PaymentsResult;
-import com.adyen.service.resource.checkout.Sessions;
-import com.adyen.service.resource.checkout.StoredPaymentsMethods;
+import com.adyen.service.resource.CheckoutResource;
 import com.google.gson.reflect.TypeToken;
-import com.adyen.service.resource.checkout.Cancels;
-import com.adyen.service.resource.checkout.PaymentsRefunds;
-import com.adyen.service.resource.checkout.PaymentsCancels;
-import com.adyen.service.resource.checkout.PaymentsAmountUpdates;
-import com.adyen.service.resource.checkout.PaymentsReversals;
-import com.adyen.service.resource.checkout.PaymentsCaptures;
 
 import java.io.IOException;
 
 public class Checkout extends ApiKeyAuthenticatedService {
 
-    private final Cancels cancels;
-    private final Payments payments;
-    private final PaymentMethods paymentMethods;
-    private final PaymentsDetails paymentsDetails;
-    private final PaymentSession paymentSession;
-    private final PaymentsResult paymentsResult;
-    private final Orders orders;
-    private final OrdersCancel ordersCancel;
-    private final Sessions sessions;
-    private final StoredPaymentsMethods storedPaymentsMethods;
+    private final CheckoutResource cancels;
+    private final CheckoutResource payments;
+    private final CheckoutResource paymentMethods;
+    private final CheckoutResource paymentsDetails;
+    private final CheckoutResource paymentSession;
+    private final CheckoutResource paymentsResult;
+    private final CheckoutResource orders;
+    private final CheckoutResource ordersCancel;
+    private final CheckoutResource sessions;
+    private final CheckoutResource paymentMethodsBalance;
 
     public Checkout(Client client) {
 
         super(client);
-        cancels = new Cancels(this);
-        payments = new Payments(this);
-        paymentMethods = new PaymentMethods(this);
-        paymentsDetails = new PaymentsDetails(this);
-        paymentSession = new PaymentSession(this);
-        paymentsResult = new PaymentsResult(this);
-        orders = new Orders(this);
-        ordersCancel = new OrdersCancel(this);
-        sessions = new Sessions(this);
-        storedPaymentsMethods = new StoredPaymentsMethods(this);
-
+        cancels = new CheckoutResource(this, "/cancels");
+        payments = new CheckoutResource(this, "/payments");
+        paymentMethods = new CheckoutResource(this, "/paymentMethods");
+        paymentsDetails = new CheckoutResource(this, "/payments/details");
+        paymentSession = new CheckoutResource(this, "/paymentSession");
+        paymentsResult = new CheckoutResource(this, "/payments/result");
+        orders = new CheckoutResource(this, "/orders");
+        ordersCancel = new CheckoutResource(this, "/orders/cancel");
+        sessions = new CheckoutResource(this, "/sessions");
+        paymentMethodsBalance = new CheckoutResource(this, "/paymentMethods/balance");
     }
 
     /**
@@ -137,7 +120,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
         String jsonResult = paymentMethods.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentMethodsResponse>() {
         }.getType());
-
     }
 
     /**
@@ -195,21 +177,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
     }
 
     /**
-     * POST /storedPaymentMethods API call
-     *
-     * @param createStoredPaymentMethodRequest StoredPaymentMethodsRequest
-     * @return storedPaymentMethod
-     * @throws IOException  IOException
-     * @throws ApiException ApiException
-     */
-    public StoredPaymentMethodResource storedPaymentMethods(CreateStoredPaymentMethodRequest createStoredPaymentMethodRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(createStoredPaymentMethodRequest);
-        String jsonResult = storedPaymentsMethods.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<StoredPaymentMethodResource>() {
-        }.getType());
-    }
-
-    /**
      * POST /orders API call
      *
      * @param checkoutCreateOrderRequest CheckoutCreateOrderRequest
@@ -261,7 +228,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @param createPaymentCaptureRequest CreatePaymentCaptureRequest
      */
     public PaymentCaptureResource paymentsCaptures(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
-        PaymentsCaptures paymentsCaptures = new PaymentsCaptures(this, paymentPspReference);
+        CheckoutResource paymentsCaptures = new CheckoutResource(this, "/payments/" + paymentPspReference  + "/captures");
         String jsonRequest = GSON.toJson(createPaymentCaptureRequest);
         String jsonResult = paymentsCaptures.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentCaptureResource>() {
@@ -278,7 +245,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentCancelResource paymentsCancels(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
-        PaymentsCancels paymentsCancels = new PaymentsCancels(this, paymentPspReference);
+        CheckoutResource paymentsCancels = new CheckoutResource(this, "/payments/" + paymentPspReference  + "/cancels");
         String jsonRequest = GSON.toJson(createPaymentCancelRequest);
         String jsonResult = paymentsCancels.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentCancelResource>() {
@@ -310,7 +277,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentReversalResource paymentsReversals(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
-        PaymentsReversals paymentReversal = new PaymentsReversals(this, paymentPspReference);
+        CheckoutResource paymentReversal = new CheckoutResource(this, "/payments/" + paymentPspReference + "/reversals");
         String jsonRequest = GSON.toJson(createPaymentReversalRequest);
         String jsonResult = paymentReversal.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentReversalResource>() {
@@ -327,7 +294,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentRefundResource paymentsRefunds(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
-        PaymentsRefunds paymentsRefunds = new PaymentsRefunds(this, paymentPspReference);
+        CheckoutResource paymentsRefunds = new CheckoutResource(this, "/payments/" + paymentPspReference + "/refunds");
         String jsonRequest = GSON.toJson(createPaymentRefundRequest);
         String jsonResult = paymentsRefunds.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentRefundResource>() {
@@ -344,7 +311,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentAmountUpdateResource paymentsAmountUpdates(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
-        PaymentsAmountUpdates paymentsAmountUpdates = new PaymentsAmountUpdates(this, paymentPspReference);
+        CheckoutResource paymentsAmountUpdates = new CheckoutResource(this, "/payments/" + paymentPspReference  + "/amountUpdates");
         String jsonRequest = GSON.toJson(createPaymentAmountUpdateRequest);
         String jsonResult = paymentsAmountUpdates.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentAmountUpdateResource>() {

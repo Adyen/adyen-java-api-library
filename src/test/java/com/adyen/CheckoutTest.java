@@ -1845,44 +1845,6 @@ public class CheckoutTest extends BaseTest {
         assertNotNull(paymentsResponse.getThreeDS2Result().getTransStatus());
     }
 
-    @Test
-    public void TestStoredPaymentMethodsSuccess() throws Exception {
-        Client client = createMockClientFromFile("mocks/checkout/storedpaymentmethods-success.json");
-        Checkout checkout = new Checkout(client);
-        CreateStoredPaymentMethodRequest createStoredPaymentMethodRequest = createStoredPaymentMethodsRequest();
-        StoredPaymentMethodResource storedPaymentMethodResource = checkout.storedPaymentMethods(createStoredPaymentMethodRequest);
-
-        assertNotNull(createStoredPaymentMethodRequest);
-        assertEquals("128472894248249", storedPaymentMethodResource.getId());
-        assertEquals("scheme", storedPaymentMethodResource.getType());
-        assertEquals("sh123412341234", storedPaymentMethodResource.getShopperReference());
-        assertEquals("mc", storedPaymentMethodResource.getBrand());
-        assertEquals("1111", storedPaymentMethodResource.getLastFour());
-        assertEquals("04", storedPaymentMethodResource.getExpiryMonth());
-        assertEquals("2020", storedPaymentMethodResource.getExpiryYear());
-        assertNotNull(storedPaymentMethodResource.getSupportedShopperInteractions());
-        List<String> supportedShopperInteraction = storedPaymentMethodResource.getSupportedShopperInteractions();
-        assertTrue(supportedShopperInteraction.contains("Ecommerce"));
-        assertTrue(supportedShopperInteraction.contains("ContAuth"));
-    }
-
-    @Test
-    public void TestStoredPaymentMethodsErrorMocked() throws Exception {
-        Client client = createMockClientForErrors(422, "mocks/checkout/storedpaymentmethods-error-invalid-data-422.json");
-        Checkout checkout = new Checkout(client);
-        CreateStoredPaymentMethodRequest createStoredPaymentMethodRequest = createStoredPaymentMethodsRequest();
-        try {
-            checkout.storedPaymentMethods(createStoredPaymentMethodRequest);
-            fail("Exception expected");
-        } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("121", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
-            assertEquals(e.getResponseHeaders().size(), 0);
-            assertNotNull(e.getResponseHeaders());
-        }
-    }
-
     /**
      * Test ApiException flow for POST
      */
