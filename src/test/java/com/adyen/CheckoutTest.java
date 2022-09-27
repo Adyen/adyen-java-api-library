@@ -22,7 +22,6 @@ package com.adyen;
 
 import com.adyen.constants.BrandCodes;
 import com.adyen.deserializer.PaymentMethodDetailsDeserializerJackson;
-import com.adyen.deserializer.PaymentMethodDetailsTypeAdapter;
 import com.adyen.model.Amount;
 import com.adyen.model.Split;
 import com.adyen.model.SplitAmount;
@@ -31,26 +30,13 @@ import com.adyen.model.checkout.CheckoutCancelOrderResponse;
 import com.adyen.model.checkout.CheckoutCreateOrderRequest;
 import com.adyen.model.checkout.CheckoutCreateOrderResponse;
 import com.adyen.model.checkout.CheckoutOrder;
-import com.adyen.model.checkout.CheckoutPaymentsAction;
-import com.adyen.model.checkout.CreateStoredPaymentMethodRequest;
-import com.adyen.model.checkout.details.*;
-import com.adyen.model.checkout.PaymentMethodDetails;
 import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
-import com.adyen.model.checkout.PaymentResultRequest;
-import com.adyen.model.checkout.PaymentResultResponse;
-import com.adyen.model.checkout.PaymentSessionRequest;
-import com.adyen.model.checkout.PaymentSessionResponse;
-import com.adyen.model.checkout.PaymentsDetailsRequest;
-import com.adyen.model.checkout.PaymentsDetailsResponse;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.PaymentsResponse;
+import com.adyen.model.checkout.PaymentRequest;
+import com.adyen.model.checkout.PaymentResponse;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreateCheckoutSessionResponse;
-import com.adyen.model.checkout.Redirect;
 import com.adyen.model.checkout.RiskData;
-import com.adyen.model.checkout.StoredPaymentMethodResource;
-import com.adyen.model.checkout.StoringMethod;
 import com.adyen.model.checkout.CreatePaymentCaptureRequest;
 import com.adyen.model.checkout.PaymentCaptureResource;
 import com.adyen.model.checkout.CreatePaymentCancelRequest;
@@ -112,10 +98,10 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-success.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals("8535296650153317", paymentsResponse.getPspReference());
-        assertNotNull(paymentsResponse.getDonationToken());
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals("8535296650153317", PaymentResponse.getPspReference());
+        assertNotNull(PaymentResponse.getDonationToken());
     }
 
     /**
@@ -126,9 +112,9 @@ public class CheckoutTest extends BaseTest {
     public void TestPaypalPaymentSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-success-paypal.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals("EC-42N19135GM6949000", paymentsResponse.getAction().getSdkData().get("orderID"));
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals("EC-42N19135GM6949000", PaymentResponse.getAction().getCheckoutSDKAction().getSdkData().get("orderID"));
     }
 
     /**
@@ -139,15 +125,15 @@ public class CheckoutTest extends BaseTest {
     public void TestOneTimePassPaymentSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-success-onetimepass.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals(1, paymentsResponse.getAction().getResendInterval());
-        assertEquals(3, paymentsResponse.getAction().getResendMaxAttempts());
-        assertEquals("https://localhost:8080", paymentsResponse.getAction().getResendUrl());
-        assertNotNull(paymentsResponse.getAction());
-        assertEquals(Redirect.MethodEnum.GET, paymentsResponse.getAction().getRedirect().getMethod());
-        assertEquals("https://localhost:8080", paymentsResponse.getAction().getRedirect().getUrl());
-        assertNull(paymentsResponse.getAction().getRedirect().getData());
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals(1, PaymentResponse.getAction().getCheckoutSDKAction().getResendInterval());
+        assertEquals(3, PaymentResponse.getAction().getResendMaxAttempts());
+        assertEquals("https://localhost:8080", PaymentResponse.getAction().getResendUrl());
+        assertNotNull(PaymentResponse.getAction());
+        assertEquals(Redirect.MethodEnum.GET, PaymentResponse.getAction().getRedirect().getMethod());
+        assertEquals("https://localhost:8080", PaymentResponse.getAction().getRedirect().getUrl());
+        assertNull(PaymentResponse.getAction().getRedirect().getData());
 
     }
 
@@ -159,9 +145,9 @@ public class CheckoutTest extends BaseTest {
     public void TestEncryptedPaymentsSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-encrypted-success.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createEncryptedPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals("883586864229293H", paymentsResponse.getPspReference());
+        PaymentRequest PaymentRequest = createEncryptedPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals("883586864229293H", PaymentResponse.getPspReference());
     }
 
     /**
@@ -172,9 +158,9 @@ public class CheckoutTest extends BaseTest {
     public void TestEncryptedPaymentsWithoutHoldernameSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-encrypted-without-holdername-success.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createEncryptedPaymentsCheckoutRequestWithoutHoldername();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals("853613724697009G", paymentsResponse.getPspReference());
+        PaymentRequest PaymentRequest = createEncryptedPaymentsCheckoutRequestWithoutHoldername();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals("853613724697009G", PaymentResponse.getPspReference());
     }
     
     /**
@@ -185,9 +171,9 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-error-invalid-data-422.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertNull(paymentsResponse.getPspReference());
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertNull(PaymentResponse.getPspReference());
     }
 
     /**
@@ -223,7 +209,7 @@ public class CheckoutTest extends BaseTest {
         PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
         paymentMethodsRequest.setMerchantAccount("MagentoMerchantTest");
         PaymentMethodsResponse paymentMethodsResponse = checkout.paymentMethods(paymentMethodsRequest);
-        assertNotNull(paymentMethodsResponse.getOneClickPaymentMethods());
+        assertNotNull(paymentMethodsResponse.getPaymentMethods().getOneClickPaymentMethods());
         assertEquals(2, paymentMethodsResponse.getOneClickPaymentMethods().size());
         assertEquals("8314960677671745", paymentMethodsResponse.getOneClickPaymentMethods().get(0).getRecurringDetailReference());
     }
@@ -270,8 +256,8 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsDetailsSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-sucess.json");
         Checkout checkout = new Checkout(client);
-        PaymentsDetailsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
-        assertEquals("Authorised", paymentsResponse.getResultCode().toString());
+        PaymentsDetailsResponse PaymentResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
+        assertEquals("Authorised", PaymentResponse.getResultCode().toString());
     }
 
     /**
@@ -283,8 +269,8 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsDetailsErrorMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsdetails-error-invalid-data-422.json");
         Checkout checkout = new Checkout(client);
-        PaymentsDetailsResponse paymentsResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
-        assertNull(paymentsResponse.getResultCode());
+        PaymentsDetailsResponse PaymentResponse = checkout.paymentsDetails(createPaymentsDetailsRequest());
+        assertNull(PaymentResponse.getResultCode());
 
     }
 
@@ -363,8 +349,8 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestPaymentMethodDetails() {
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
 
         assertJsonStringEquals("{\n"
                 + "  \"amount\": {\n"
@@ -393,9 +379,9 @@ public class CheckoutTest extends BaseTest {
         TestPaymentMethodDetails testPaymentMethodDetails = new TestPaymentMethodDetails();
         testPaymentMethodDetails.setType("testType");
         testPaymentMethodDetails.setTestValue("testValue");
-        paymentsRequest.setPaymentMethod(testPaymentMethodDetails);
+        PaymentRequest.setPaymentMethod(testPaymentMethodDetails);
 
-        jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
         assertJsonStringEquals("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
@@ -419,8 +405,8 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestEncryptedPaymentMethodDetails() {
-        PaymentsRequest paymentsRequest = createEncryptedPaymentsCheckoutRequest();
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        PaymentRequest PaymentRequest = createEncryptedPaymentsCheckoutRequest();
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
 
         assertJsonStringEquals("{\n"
                 + "  \"amount\": {\n"
@@ -449,9 +435,9 @@ public class CheckoutTest extends BaseTest {
         TestPaymentMethodDetails testPaymentMethodDetails = new TestPaymentMethodDetails();
         testPaymentMethodDetails.setType("testType");
         testPaymentMethodDetails.setTestValue("testValue");
-        paymentsRequest.setPaymentMethod(testPaymentMethodDetails);
+        PaymentRequest.setPaymentMethod(testPaymentMethodDetails);
 
-        jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
         assertJsonStringEquals("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
@@ -481,12 +467,12 @@ public class CheckoutTest extends BaseTest {
     public void TestMultibancoPaymentsSuccessMocked() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/paymentsresult-multibanco-succes.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals(0, new BigDecimal("1000.0").compareTo(BigDecimal.valueOf(paymentsResponse.getAction().getInitialAmount().getValue())));
-        assertEquals("2020-01-12T09:37:49", paymentsResponse.getAction().getExpiresAt());
-        assertEquals("12101", paymentsResponse.getAction().getEntity());
-        assertEquals("501 422 944", paymentsResponse.getAction().getReference());
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals(0, new BigDecimal("1000.0").compareTo(BigDecimal.valueOf(PaymentResponse.getAction().getInitialAmount().getValue())));
+        assertEquals("2020-01-12T09:37:49", PaymentResponse.getAction().getExpiresAt());
+        assertEquals("12101", PaymentResponse.getAction().getEntity());
+        assertEquals("501 422 944", PaymentResponse.getAction().getReference());
 
     }
 
@@ -497,10 +483,10 @@ public class CheckoutTest extends BaseTest {
         sepaDirectDebitDetailsDetails.setOwnerName("A. Schneider");
         sepaDirectDebitDetailsDetails.setIban("DE87123456781234567890");
 
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(sepaDirectDebitDetailsDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(sepaDirectDebitDetailsDetails);
 
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
 
         assertJsonStringEquals("{\n"
                 + "  \"amount\": {\n"
@@ -531,13 +517,13 @@ public class CheckoutTest extends BaseTest {
         SepaDirectDebitDetails sepaDirectDebitDetails = new SepaDirectDebitDetails();
         sepaDirectDebitDetails.setOwnerName("A. Schneider");
         sepaDirectDebitDetails.setIban("DE87123456781234567890");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(sepaDirectDebitDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(sepaDirectDebitDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -548,13 +534,13 @@ public class CheckoutTest extends BaseTest {
         SepaDirectDebitDetails sepaDirectDebitDetails = new SepaDirectDebitDetails();
         sepaDirectDebitDetails.setOwnerName("A. Schneider");
         sepaDirectDebitDetails.setIban("DE87123456781234567890");
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(sepaDirectDebitDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -567,13 +553,13 @@ public class CheckoutTest extends BaseTest {
         achDetails.setBankLocationId("1234567");
         achDetails.setEncryptedBankAccountNumber("1234asdfg");
         achDetails.setOwnerName("John Smith");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(achDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(achDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -586,13 +572,13 @@ public class CheckoutTest extends BaseTest {
         achDetails.setBankLocationId("1234567");
         achDetails.setEncryptedBankAccountNumber("1234asdfg");
         achDetails.setOwnerName("John Smith");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(achDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -606,13 +592,13 @@ public class CheckoutTest extends BaseTest {
         econtextVoucherDetails.setShopperEmail("test@email.com");
         econtextVoucherDetails.setTelephoneNumber("0123456789");
         econtextVoucherDetails.setType(EcontextVoucherDetails.SEVENELEVEN);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(econtextVoucherDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(econtextVoucherDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -626,13 +612,13 @@ public class CheckoutTest extends BaseTest {
         econtextVoucherDetails.setShopperEmail("test@email.com");
         econtextVoucherDetails.setTelephoneNumber("0123456789");
         econtextVoucherDetails.setType(EcontextVoucherDetails.SEVENELEVEN);
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(econtextVoucherDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -642,13 +628,13 @@ public class CheckoutTest extends BaseTest {
 
         IdealDetails idealDetails = new IdealDetails();
         idealDetails.setIssuer("1121");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(idealDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(idealDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -657,13 +643,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"issuer\":\"1121\",\"type\":\"ideal\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
         IdealDetails idealDetails = new IdealDetails();
         idealDetails.setIssuer("1121");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(idealDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -674,13 +660,13 @@ public class CheckoutTest extends BaseTest {
         GooglePayDetails googlePayDetails = new GooglePayDetails();
         googlePayDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
         googlePayDetails.setFundingSource(GooglePayDetails.FundingSourceEnum.CREDIT);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(googlePayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(googlePayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -690,13 +676,13 @@ public class CheckoutTest extends BaseTest {
         GooglePayDetails googlePayDetails = new GooglePayDetails();
         googlePayDetails.setGooglePayToken("Payload as retrieved from Google Pay response");
         googlePayDetails.setFundingSource(GooglePayDetails.FundingSourceEnum.CREDIT);
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(googlePayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -709,13 +695,13 @@ public class CheckoutTest extends BaseTest {
         payWithGoogleDetails.setFundingSource(PayWithGoogleDetails.FundingSourceEnum.DEBIT);
         payWithGoogleDetails.setRecurringDetailReference("serialize-reference");
         payWithGoogleDetails.setStoredPaymentMethodId("shop");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(payWithGoogleDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(payWithGoogleDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -728,13 +714,13 @@ public class CheckoutTest extends BaseTest {
         payWithGoogleDetails.setFundingSource(PayWithGoogleDetails.FundingSourceEnum.DEBIT);
         payWithGoogleDetails.setRecurringDetailReference("some-reference");
         payWithGoogleDetails.setStoredPaymentMethodId("my-shop");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(payWithGoogleDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -747,13 +733,13 @@ public class CheckoutTest extends BaseTest {
         payPalDetails.setPayerID("payerId");
         payPalDetails.setSubtype(PayPalDetails.SubtypeEnum.SDK);
         payPalDetails.setStoredPaymentMethodId("12345678");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(payPalDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(payPalDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -765,13 +751,13 @@ public class CheckoutTest extends BaseTest {
         payPalDetails.setOrderID("orderId");
         payPalDetails.setPayerID("payerId");
         payPalDetails.setSubtype(PayPalDetails.SubtypeEnum.SDK);
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(payPalDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -786,13 +772,13 @@ public class CheckoutTest extends BaseTest {
         dokuDetails.setOvoId("ovoid");
         dokuDetails.setShopperEmail("test@email.com");
         dokuDetails.setType(DokuDetails.INDOMARET);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(dokuDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(dokuDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -807,13 +793,13 @@ public class CheckoutTest extends BaseTest {
         dokuDetails.setOvoId("ovoid");
         dokuDetails.setShopperEmail("test@email.com");
         dokuDetails.setType(DokuDetails.INDOMARET);
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(dokuDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -824,13 +810,13 @@ public class CheckoutTest extends BaseTest {
         AmazonPayDetails amazonPayDetails = new AmazonPayDetails();
         amazonPayDetails.setAmazonPayToken("amazonpaytoken");
 
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(amazonPayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(amazonPayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -840,13 +826,13 @@ public class CheckoutTest extends BaseTest {
 
         AmazonPayDetails amazonPayDetails = new AmazonPayDetails();
         amazonPayDetails.setAmazonPayToken("amazonpaytoken");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(amazonPayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
 
     }
@@ -858,13 +844,13 @@ public class CheckoutTest extends BaseTest {
         ApplePayDetails applePayDetails = new ApplePayDetails();
         applePayDetails.setApplePayToken("applepaytoken");
         applePayDetails.setFundingSource(ApplePayDetails.FundingSourceEnum.CREDIT);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(applePayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(applePayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -875,13 +861,13 @@ public class CheckoutTest extends BaseTest {
         ApplePayDetails applePayDetails = new ApplePayDetails();
         applePayDetails.setApplePayToken("applepaytoken");
         applePayDetails.setFundingSource(ApplePayDetails.FundingSourceEnum.CREDIT);
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(applePayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -891,13 +877,13 @@ public class CheckoutTest extends BaseTest {
 
         BillDeskOnlineDetails billdeskOnlineDetails = new BillDeskOnlineDetails();
         billdeskOnlineDetails.setIssuer("111");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(billdeskOnlineDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(billdeskOnlineDetails);
 
-        String gsonRequest = GSON.toJson(paymentsRequest);
+        String gsonRequest = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gsonRequest);
 
-        String jacksonRequest = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jacksonRequest = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jacksonRequest);
     }
 
@@ -907,13 +893,13 @@ public class CheckoutTest extends BaseTest {
 
         BillDeskOnlineDetails billdeskOnlineDetails = new BillDeskOnlineDetails();
         billdeskOnlineDetails.setIssuer("111");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(billdeskOnlineDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -922,13 +908,13 @@ public class CheckoutTest extends BaseTest {
         String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"GBP\"},\"merchantAccount\":\"TestMerchant\",\"paymentMethod\":{\"type\":\"directdebit_GB\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         BacsDirectDebitDetails bacsDirectDebitDetails = new BacsDirectDebitDetails();
-        PaymentsRequest paymentsRequest = createBacsDirectDebitDetails();
-        paymentsRequest.setPaymentMethod(bacsDirectDebitDetails);
+        PaymentRequest PaymentRequest = createBacsDirectDebitDetails();
+        PaymentRequest.setPaymentMethod(bacsDirectDebitDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -937,13 +923,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"GBP\"},\"merchantAccount\":\"TestMerchant\",\"paymentMethod\":{\"type\":\"directdebit_GB\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         BacsDirectDebitDetails bacsDirectDebitDetails = new BacsDirectDebitDetails();
-        PaymentsRequest expectedPaymentRequest = createBacsDirectDebitDetails();
+        PaymentRequest expectedPaymentRequest = createBacsDirectDebitDetails();
         expectedPaymentRequest.setPaymentMethod(bacsDirectDebitDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -953,13 +939,13 @@ public class CheckoutTest extends BaseTest {
 
         BillDeskWalletDetails billdeskWalletDetails = new BillDeskWalletDetails();
         billdeskWalletDetails.setIssuer("111");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(billdeskWalletDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(billdeskWalletDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -968,13 +954,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"issuer\":\"111\",\"type\":\"billdesk_wallet\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
         BillDeskWalletDetails billdeskWalletDetails = new BillDeskWalletDetails();
         billdeskWalletDetails.setIssuer("111");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(billdeskWalletDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -984,13 +970,13 @@ public class CheckoutTest extends BaseTest {
 
         DotpayDetails dotpayDetails = new DotpayDetails();
         dotpayDetails.setIssuer("111");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(dotpayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(dotpayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -999,13 +985,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"issuer\":\"111\",\"type\":\"dotpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
         DotpayDetails dotpayDetails = new DotpayDetails();
         dotpayDetails.setIssuer("111");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(dotpayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -1015,13 +1001,13 @@ public class CheckoutTest extends BaseTest {
 
         EntercashDetails entercashDetails = new EntercashDetails();
         entercashDetails.setIssuer("111");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(entercashDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(entercashDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1031,13 +1017,13 @@ public class CheckoutTest extends BaseTest {
 
         EntercashDetails entercashDetails = new EntercashDetails();
         entercashDetails.setIssuer("111");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(entercashDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -1047,10 +1033,10 @@ public class CheckoutTest extends BaseTest {
         genericIssuerPaymentMethodDetails.setIssuer("111");
         genericIssuerPaymentMethodDetails.setType("ideal");
 
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(genericIssuerPaymentMethodDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(genericIssuerPaymentMethodDetails);
 
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
         assertJsonStringEquals("{\n"
                 + "  \"amount\": {\n"
                 + "    \"value\": 1000,\n"
@@ -1077,13 +1063,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"giropay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         GiropayDetails giropayDetails = new GiropayDetails();
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(giropayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -1092,13 +1078,13 @@ public class CheckoutTest extends BaseTest {
         String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"giropay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         GiropayDetails giropayDetails = new GiropayDetails();
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(giropayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(giropayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1108,13 +1094,13 @@ public class CheckoutTest extends BaseTest {
 
         QiwiWalletDetails qiwiWalletDetails = new QiwiWalletDetails();
         qiwiWalletDetails.setTelephoneNumber("123456789");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(qiwiWalletDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(qiwiWalletDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1124,13 +1110,13 @@ public class CheckoutTest extends BaseTest {
 
         QiwiWalletDetails qiwiWalletDetails = new QiwiWalletDetails();
         qiwiWalletDetails.setTelephoneNumber("123456789");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(qiwiWalletDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -1141,13 +1127,13 @@ public class CheckoutTest extends BaseTest {
         SamsungPayDetails samsungPayDetails = new SamsungPayDetails();
         samsungPayDetails.setFundingSource(SamsungPayDetails.FundingSourceEnum.DEBIT);
         samsungPayDetails.setSamsungPayToken("samsungpaytoken");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(samsungPayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(samsungPayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1158,13 +1144,13 @@ public class CheckoutTest extends BaseTest {
         SamsungPayDetails samsungPayDetails = new SamsungPayDetails();
         samsungPayDetails.setFundingSource(SamsungPayDetails.FundingSourceEnum.DEBIT);
         samsungPayDetails.setSamsungPayToken("samsungpaytoken");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(samsungPayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -1174,13 +1160,13 @@ public class CheckoutTest extends BaseTest {
 
         VippsDetails vippsDetails = new VippsDetails();
         vippsDetails.setTelephoneNumber("123456789");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(vippsDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(vippsDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1190,13 +1176,13 @@ public class CheckoutTest extends BaseTest {
 
         VippsDetails vippsDetails = new VippsDetails();
         vippsDetails.setTelephoneNumber("123456789");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(vippsDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -1207,13 +1193,13 @@ public class CheckoutTest extends BaseTest {
         VisaCheckoutDetails visaCheckoutDetails = new VisaCheckoutDetails();
         visaCheckoutDetails.setFundingSource(VisaCheckoutDetails.FundingSourceEnum.CREDIT);
         visaCheckoutDetails.setVisaCheckoutCallId("visacheckoutcallid");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(visaCheckoutDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(visaCheckoutDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1224,13 +1210,13 @@ public class CheckoutTest extends BaseTest {
         VisaCheckoutDetails visaCheckoutDetails = new VisaCheckoutDetails();
         visaCheckoutDetails.setFundingSource(VisaCheckoutDetails.FundingSourceEnum.CREDIT);
         visaCheckoutDetails.setVisaCheckoutCallId("visacheckoutcallid");
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(visaCheckoutDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jacksonObject);
     }
 
@@ -1239,10 +1225,10 @@ public class CheckoutTest extends BaseTest {
         StoredPaymentMethodDetails storedPaymentMethodDetails = new StoredPaymentMethodDetails();
         storedPaymentMethodDetails.setStoredPaymentMethodId("testStoredPaymentMethodId");
 
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(storedPaymentMethodDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(storedPaymentMethodDetails);
 
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
 
         assertJsonStringEquals("{\n"
                 + "  \"amount\": {\n"
@@ -1269,10 +1255,10 @@ public class CheckoutTest extends BaseTest {
         CardDetails cardDetails = new CardDetails();
         cardDetails.setShopperNotificationReference("IA0F7500002462");
 
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(cardDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(cardDetails);
 
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
 
         assertJsonStringEquals("{\n"
                 + "  \"amount\": {\n"
@@ -1299,13 +1285,13 @@ public class CheckoutTest extends BaseTest {
         String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"androidpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         AndroidPayDetails androidPayDetails = new AndroidPayDetails();
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(androidPayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(androidPayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1314,11 +1300,11 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"androidpay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         AndroidPayDetails androidPayDetails = new AndroidPayDetails();
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(androidPayDetails);
 
-        PaymentsRequest gson = PRETTY_PRINT_GSON.fromJson(json, PaymentsRequest.class);
-        PaymentsRequest jackson = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest gson = PRETTY_PRINT_GSON.fromJson(json, PaymentRequest.class);
+        PaymentRequest jackson = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
 
         assertEquals(expectedPaymentRequest, gson);
         assertEquals(expectedPaymentRequest, jackson);
@@ -1335,13 +1321,13 @@ public class CheckoutTest extends BaseTest {
         klarnaDetails.setStoredPaymentMethodId("storedpaymentmethodid");
         klarnaDetails.setRecurringDetailReference("reference");
         klarnaDetails.setType(KlarnaDetails.KLARNA);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(klarnaDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(klarnaDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1356,13 +1342,13 @@ public class CheckoutTest extends BaseTest {
         klarnaDetails.setPersonalDetails("personaldetails");
         klarnaDetails.setStoredPaymentMethodId("storedpaymentmethodid");
         klarnaDetails.setType(KlarnaDetails.KLARNA);
-        PaymentsRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(klarnaDetails);
 
-        PaymentsRequest gson = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gson = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, gson);
 
-        PaymentsRequest jackson = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jackson = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedPaymentRequest, jackson);
     }
 
@@ -1374,13 +1360,13 @@ public class CheckoutTest extends BaseTest {
         masterpassDetails.setFundingSource(MasterpassDetails.FundingSourceEnum.CREDIT);
         masterpassDetails.setMasterpassTransactionId("transactionId");
 
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(masterpassDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(masterpassDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1391,13 +1377,13 @@ public class CheckoutTest extends BaseTest {
         MasterpassDetails masterpassDetails = new MasterpassDetails();
         masterpassDetails.setFundingSource(MasterpassDetails.FundingSourceEnum.CREDIT);
         masterpassDetails.setMasterpassTransactionId("transactionId");
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(masterpassDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1406,13 +1392,13 @@ public class CheckoutTest extends BaseTest {
         String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"mobilepay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         MobilePayDetails mobilePayDetails = new MobilePayDetails();
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(mobilePayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(mobilePayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1421,13 +1407,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"mobilepay\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         MobilePayDetails mobilePayDetails = new MobilePayDetails();
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(mobilePayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1436,13 +1422,13 @@ public class CheckoutTest extends BaseTest {
         String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"payu_IN_upi\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         PayUUpiDetails payUUpiDetails = new PayUUpiDetails();
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(payUUpiDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(payUUpiDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1451,13 +1437,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"payu_IN_upi\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         PayUUpiDetails payUUpiDetails = new PayUUpiDetails();
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(payUUpiDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1466,13 +1452,13 @@ public class CheckoutTest extends BaseTest {
         String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"upi_intent\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         UpiIntentDetails upiIntentDetails = new UpiIntentDetails();
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(upiIntentDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(upiIntentDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1481,13 +1467,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"upi_intent\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         UpiIntentDetails upiIntentDetails = new UpiIntentDetails();
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(upiIntentDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1496,13 +1482,13 @@ public class CheckoutTest extends BaseTest {
         String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"upi_collect\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         UpiCollectDetails upiCollectDetails = new UpiCollectDetails();
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(upiCollectDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(upiCollectDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1511,13 +1497,13 @@ public class CheckoutTest extends BaseTest {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"type\":\"upi_collect\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         UpiCollectDetails upiCollectDetails = new UpiCollectDetails();
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(upiCollectDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1528,12 +1514,12 @@ public class CheckoutTest extends BaseTest {
         WeChatPayDetails weChatPayDetails = new WeChatPayDetails();
         weChatPayDetails.setAppId("appId");
         weChatPayDetails.setOpenid("openId");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(weChatPayDetails);
-        String gson = GSON.toJson(paymentsRequest);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(weChatPayDetails);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1544,13 +1530,13 @@ public class CheckoutTest extends BaseTest {
         WeChatPayDetails weChatPayDetails = new WeChatPayDetails();
         weChatPayDetails.setAppId("appId");
         weChatPayDetails.setOpenid("openId");
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(weChatPayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1561,13 +1547,13 @@ public class CheckoutTest extends BaseTest {
         WeChatPayMiniProgramDetails weChatPayMiniProgramDetails = new WeChatPayMiniProgramDetails();
         weChatPayMiniProgramDetails.setAppId("appId");
         weChatPayMiniProgramDetails.setOpenid("openId");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(weChatPayMiniProgramDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(weChatPayMiniProgramDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1578,13 +1564,13 @@ public class CheckoutTest extends BaseTest {
         WeChatPayMiniProgramDetails weChatPayMiniProgramDetails = new WeChatPayMiniProgramDetails();
         weChatPayMiniProgramDetails.setAppId("appId");
         weChatPayMiniProgramDetails.setOpenid("openId");
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(weChatPayMiniProgramDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1594,13 +1580,13 @@ public class CheckoutTest extends BaseTest {
 
         BlikDetails blikDetails = new BlikDetails();
         blikDetails.setBlikCode("blikCode");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(blikDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(blikDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1610,13 +1596,13 @@ public class CheckoutTest extends BaseTest {
 
         BlikDetails blikDetails = new BlikDetails();
         blikDetails.setBlikCode("blikCode");
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(blikDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1628,13 +1614,13 @@ public class CheckoutTest extends BaseTest {
         dragonPayDetails.setIssuer("issuer");
         dragonPayDetails.setShopperEmail("test@test.com");
         dragonPayDetails.setType(DragonpayDetails.EBANKING);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(dragonPayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(dragonPayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1646,13 +1632,13 @@ public class CheckoutTest extends BaseTest {
         dragonPayDetails.setIssuer("issuer");
         dragonPayDetails.setShopperEmail("test@test.com");
         dragonPayDetails.setType(DragonpayDetails.EBANKING);
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(dragonPayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1663,13 +1649,13 @@ public class CheckoutTest extends BaseTest {
         LianLianPayDetails lianLianPayDetails = new LianLianPayDetails();
         lianLianPayDetails.setTelephoneNumber("telephone");
         lianLianPayDetails.setType(LianLianPayDetails.EBANKING_CREDIT);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(lianLianPayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(lianLianPayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1680,13 +1666,13 @@ public class CheckoutTest extends BaseTest {
         LianLianPayDetails lianLianPayDetails = new LianLianPayDetails();
         lianLianPayDetails.setTelephoneNumber("telephone");
         lianLianPayDetails.setType(LianLianPayDetails.EBANKING_CREDIT);
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(lianLianPayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1698,13 +1684,13 @@ public class CheckoutTest extends BaseTest {
         mbwayDetails.setTelephoneNumber("telephone");
         mbwayDetails.setShopperEmail("test@test.com");
         mbwayDetails.setType(MbwayDetails.MBWAY);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(mbwayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(mbwayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1716,13 +1702,13 @@ public class CheckoutTest extends BaseTest {
         mbwayDetails.setTelephoneNumber("telephone");
         mbwayDetails.setShopperEmail("test@test.com");
         mbwayDetails.setType(MbwayDetails.MBWAY);
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(mbwayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
@@ -1733,13 +1719,13 @@ public class CheckoutTest extends BaseTest {
         MolPayDetails molPayDetails = new MolPayDetails();
         molPayDetails.setIssuer("issuer");
         molPayDetails.setType(MolPayDetails.EBANKING_DIRECT_MY);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setPaymentMethod(molPayDetails);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setPaymentMethod(molPayDetails);
 
-        String gson = GSON.toJson(paymentsRequest);
+        String gson = GSON.toJson(PaymentRequest);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(paymentsRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 
@@ -1750,27 +1736,27 @@ public class CheckoutTest extends BaseTest {
         MolPayDetails molPayDetails = new MolPayDetails();
         molPayDetails.setIssuer("issuer");
         molPayDetails.setType(MolPayDetails.EBANKING_DIRECT_MY);
-        PaymentsRequest expectedRequest = createPaymentsCheckoutRequest();
+        PaymentRequest expectedRequest = createPaymentsCheckoutRequest();
         expectedRequest.setPaymentMethod(molPayDetails);
 
-        PaymentsRequest gsonObject = GSON.fromJson(json, PaymentsRequest.class);
+        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
         assertEquals(expectedRequest, gsonObject);
 
-        PaymentsRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentsRequest.class);
+        PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
         assertEquals(expectedRequest, jacksonObject);
     }
 
     @Test
     public void TestDateSerializers() throws ParseException {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
+        PaymentRequest PaymentRequest = new PaymentRequest();
 
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         Date d = fmt.parse("2018-10-31");
-        paymentsRequest.setDateOfBirth(d);
-        paymentsRequest.setDeliveryDate(d);
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        PaymentRequest.setDateOfBirth(d);
+        PaymentRequest.setDeliveryDate(d);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
         assertJsonStringEquals("{\n"
                 + "  \"dateOfBirth\": \"2018-10-31\",\n"
                 + "  \"deliveryDate\": \"2018-10-31T00:00:00.000Z\",\n"
@@ -1785,26 +1771,26 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void TestRecurringProcessingModels() {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
-        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARDONFILE);
+        PaymentRequest PaymentRequest = new PaymentRequest();
+        PaymentRequest.setRecurringProcessingModel(PaymentRequest.RecurringProcessingModelEnum.CARDONFILE);
 
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
         assertTrue(jsonRequest.contains("recurringProcessingModel\": \"CardOnFile\"\n") || jsonRequest.contains("recurringProcessingModel\": \"CardOnFile\",\n"));
 
-        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.SUBSCRIPTION);
-        jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        PaymentRequest.setRecurringProcessingModel(PaymentRequest.RecurringProcessingModelEnum.SUBSCRIPTION);
+        jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
         assertTrue(jsonRequest.contains("recurringProcessingModel\": \"Subscription\"\n") || jsonRequest.contains("recurringProcessingModel\": \"Subscription\",\n"));
 
-        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.UNSCHEDULEDCARDONFILE);
-        jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        PaymentRequest.setRecurringProcessingModel(PaymentRequest.RecurringProcessingModelEnum.UNSCHEDULEDCARDONFILE);
+        jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
         assertTrue(jsonRequest.contains("recurringProcessingModel\": \"UnscheduledCardOnFile\"\n") || jsonRequest.contains("recurringProcessingModel\": \"UnscheduledCardOnFile\",\n"));
     }
 
     @Test
     public void TestPaymentResponseDate() {
-        PaymentsResponse paymentsResponse = new PaymentsResponse();
+        PaymentResponse PaymentResponse = new PaymentResponse();
         try {
-            Date expiryDate = paymentsResponse.getExpiryDate();
+            Date expiryDate = PaymentResponse.getExpiryDate();
             Assert.assertNull(expiryDate);
         } catch (Exception ex) {
 
@@ -1816,33 +1802,33 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentResponseChallengeShopper() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-3ds2-challenge-shopper.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals(PaymentsResponse.ResultCodeEnum.CHALLENGESHOPPER, paymentsResponse.getResultCode());
-        assertNotNull(paymentsResponse.getAction());
-        assertNotNull(paymentsResponse.getAction().getData());
-        assertEquals(3, paymentsResponse.getAction().getData().size());
-        assertEquals("POST", paymentsResponse.getAction().getMethod());
-        assertEquals("Ab02b4c0!BQABAgA4e3wGkhVah4CJL19qdegdmm9E...", paymentsResponse.getAction().getPaymentData());
-        assertEquals("scheme", paymentsResponse.getAction().getPaymentMethodType());
-        assertEquals("https://test.adyen.com/hpp/3d/validate.shtml", paymentsResponse.getAction().getUrl());
-        assertEquals(CheckoutPaymentsAction.CheckoutActionType.REDIRECT, paymentsResponse.getAction().getType());
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals(PaymentResponse.ResultCodeEnum.CHALLENGESHOPPER, PaymentResponse.getResultCode());
+        assertNotNull(PaymentResponse.getAction());
+        assertNotNull(PaymentResponse.getAction().getData());
+        assertEquals(3, PaymentResponse.getAction().getData().size());
+        assertEquals("POST", PaymentResponse.getAction().getMethod());
+        assertEquals("Ab02b4c0!BQABAgA4e3wGkhVah4CJL19qdegdmm9E...", PaymentResponse.getAction().getPaymentData());
+        assertEquals("scheme", PaymentResponse.getAction().getPaymentMethodType());
+        assertEquals("https://test.adyen.com/hpp/3d/validate.shtml", PaymentResponse.getAction().getUrl());
+        assertEquals(CheckoutPaymentsAction.CheckoutActionType.REDIRECT, PaymentResponse.getAction().getType());
     }
 
     @Test
     public void TestPaymentResponseAuthenticationFinished() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-3ds2-authentication-finished.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals(PaymentsResponse.ResultCodeEnum.AUTHENTICATIONFINISHED, paymentsResponse.getResultCode());
-        assertNotNull(paymentsResponse.getThreeDS2Result());
-        assertNotNull(paymentsResponse.getThreeDS2Result().getAuthenticationValue());
-        assertNotNull(paymentsResponse.getThreeDS2Result().getDsTransID());
-        assertNotNull(paymentsResponse.getThreeDS2Result().getEci());
-        assertNotNull(paymentsResponse.getThreeDS2Result().getMessageVersion());
-        assertNotNull(paymentsResponse.getThreeDS2Result().getThreeDSServerTransID());
-        assertNotNull(paymentsResponse.getThreeDS2Result().getTransStatus());
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals(PaymentResponse.ResultCodeEnum.AUTHENTICATIONFINISHED, PaymentResponse.getResultCode());
+        assertNotNull(PaymentResponse.getThreeDS2Result());
+        assertNotNull(PaymentResponse.getThreeDS2Result().getAuthenticationValue());
+        assertNotNull(PaymentResponse.getThreeDS2Result().getDsTransID());
+        assertNotNull(PaymentResponse.getThreeDS2Result().getEci());
+        assertNotNull(PaymentResponse.getThreeDS2Result().getMessageVersion());
+        assertNotNull(PaymentResponse.getThreeDS2Result().getThreeDSServerTransID());
+        assertNotNull(PaymentResponse.getThreeDS2Result().getTransStatus());
     }
 
     /**
@@ -1852,9 +1838,9 @@ public class CheckoutTest extends BaseTest {
     public void TestApiExceptionErrorMocked() throws Exception {
         Client client = createMockClientForErrors(422, "mocks/checkout/payments-error-invalid-data-422.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
         try {
-            checkout.payments(paymentsRequest);
+            checkout.payments(PaymentRequest);
             fail("Exception expected");
         } catch (ApiException e) {
             assertNotNull(e.getError());
@@ -1872,10 +1858,10 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsNetworkSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/payments-network-success.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsNetworkCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals("MCC123456789012", paymentsResponse.getAdditionalData().get("networkTxReference"));
-        assertEquals("8535296650153317", paymentsResponse.getPspReference());
+        PaymentRequest PaymentRequest = createPaymentsNetworkCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals("MCC123456789012", PaymentResponse.getAdditionalData().get("networkTxReference"));
+        assertEquals("8535296650153317", PaymentResponse.getPspReference());
     }
 
     /**
@@ -1885,10 +1871,10 @@ public class CheckoutTest extends BaseTest {
     public void TestRiskDataInRequest() {
         RiskData riskData = new RiskData();
         riskData.setClientData("IOfW3k9G2PvXFu2j");
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        paymentsRequest.setRiskData(riskData);
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentRequest.setRiskData(riskData);
 
-        String jsonRequest = PRETTY_PRINT_GSON.toJson(paymentsRequest);
+        String jsonRequest = PRETTY_PRINT_GSON.toJson(PaymentRequest);
         assertTrue(jsonRequest.contains("riskData"));
         assertTrue(jsonRequest.contains("clientData\": \"IOfW3k9G2PvXFu2j\"\n"));
     }
@@ -1912,19 +1898,19 @@ public class CheckoutTest extends BaseTest {
     public void TestPaymentsWithOrderSuccess() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/checkout/payments-success-order.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsRequestWithOrder();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals("payment reference", paymentsResponse.getMerchantReference());
-        assertEquals("881593078164515C", paymentsResponse.getPspReference());
-        assertEquals(PaymentsResponse.ResultCodeEnum.AUTHORISED, paymentsResponse.getResultCode());
-        assertEquals("EUR", paymentsResponse.getAmount().getCurrency());
-        assertEquals((Long) 1000L, paymentsResponse.getAmount().getValue());
-        assertEquals("Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...", paymentsResponse.getOrder().getOrderData());
-        assertEquals("order reference", paymentsResponse.getOrder().getReference());
-        assertEquals("8515930288670953", paymentsResponse.getOrder().getPspReference());
-        assertEquals("2020-06-25T20:01:07Z", paymentsResponse.getOrder().getExpiresAt());
-        assertEquals("EUR", paymentsResponse.getOrder().getRemainingAmount().getCurrency());
-        assertEquals((Long) 1500L, paymentsResponse.getOrder().getRemainingAmount().getValue());
+        PaymentRequest PaymentRequest = createPaymentRequestWithOrder();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals("payment reference", PaymentResponse.getMerchantReference());
+        assertEquals("881593078164515C", PaymentResponse.getPspReference());
+        assertEquals(PaymentResponse.ResultCodeEnum.AUTHORISED, PaymentResponse.getResultCode());
+        assertEquals("EUR", PaymentResponse.getAmount().getCurrency());
+        assertEquals((Long) 1000L, PaymentResponse.getAmount().getValue());
+        assertEquals("Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...", PaymentResponse.getOrder().getOrderData());
+        assertEquals("order reference", PaymentResponse.getOrder().getReference());
+        assertEquals("8515930288670953", PaymentResponse.getOrder().getPspReference());
+        assertEquals("2020-06-25T20:01:07Z", PaymentResponse.getOrder().getExpiresAt());
+        assertEquals("EUR", PaymentResponse.getOrder().getRemainingAmount().getCurrency());
+        assertEquals((Long) 1500L, PaymentResponse.getOrder().getRemainingAmount().getValue());
     }
 
     @Test
@@ -1952,15 +1938,15 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void TestPaymentsResponseIdentifyShopper() throws IOException, ApiException {
+    public void TestPaymentResponseIdentifyShopper() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/checkout/payments-3ds2-identify-shopper.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createPaymentsCheckoutRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals(PaymentsResponse.ResultCodeEnum.IDENTIFYSHOPPER, paymentsResponse.getResultCode());
-        assertEquals(CheckoutPaymentsAction.CheckoutActionType.THREEDS2, paymentsResponse.getAction().getType());
-        assertEquals("fingerprint", paymentsResponse.getAction().getSubtype());
-        assertEquals("scheme", paymentsResponse.getAction().getPaymentMethodType());
+        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals(PaymentResponse.ResultCodeEnum.IDENTIFYSHOPPER, PaymentResponse.getResultCode());
+        assertEquals(CheckoutPaymentsAction.CheckoutActionType.THREEDS2, PaymentResponse.getAction().getType());
+        assertEquals("fingerprint", PaymentResponse.getAction().getSubtype());
+        assertEquals("scheme", PaymentResponse.getAction().getPaymentMethodType());
     }
 
     /**
@@ -2153,14 +2139,14 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
-     * Returns a sample PaymentsRequest object with test data
+     * Returns a sample PaymentRequest object with test data
      */
-    protected PaymentsRequest createPaymentsCheckoutRequest() {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
+    protected PaymentRequest createPaymentsCheckoutRequest() {
+        PaymentRequest PaymentRequest = new PaymentRequest();
         CardDetails details = new CardDetails();
 
-        paymentsRequest.setReference("Your order number");
-        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        PaymentRequest.setReference("Your order number");
+        PaymentRequest.setAmount(createAmountObject("USD", 1000L));
 
         details.setType("scheme");
         details.setEncryptedCardNumber("test_4111111111111111");
@@ -2169,35 +2155,35 @@ public class CheckoutTest extends BaseTest {
         details.setCvc("737");
         details.setHolderName("John Smith");
 
-        paymentsRequest.setPaymentMethod(details);
+        PaymentRequest.setPaymentMethod(details);
 
-        paymentsRequest.setReturnUrl("https://your-company.com/...");
-        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+        PaymentRequest.setReturnUrl("https://your-company.com/...");
+        PaymentRequest.setMerchantAccount("MagentoMerchantTest");
 
-        return paymentsRequest;
+        return PaymentRequest;
     }
 
     /**
-     * Returns a sample PaymentsRequest object with test data
+     * Returns a sample PaymentRequest object with test data
      */
-    protected PaymentsRequest createBacsDirectDebitDetails() {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
+    protected PaymentRequest createBacsDirectDebitDetails() {
+        PaymentRequest PaymentRequest = new PaymentRequest();
 
-        paymentsRequest.setReference("Your order number");
-        paymentsRequest.setAmount(createAmountObject("GBP", 1000L));
+        PaymentRequest.setReference("Your order number");
+        PaymentRequest.setAmount(createAmountObject("GBP", 1000L));
 
-        paymentsRequest.setReturnUrl("https://your-company.com/...");
-        paymentsRequest.setMerchantAccount("TestMerchant");
+        PaymentRequest.setReturnUrl("https://your-company.com/...");
+        PaymentRequest.setMerchantAccount("TestMerchant");
 
-        return paymentsRequest;
+        return PaymentRequest;
     }
 
-    protected PaymentsRequest createEncryptedPaymentsCheckoutRequest() {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
+    protected PaymentRequest createEncryptedPaymentsCheckoutRequest() {
+        PaymentRequest PaymentRequest = new PaymentRequest();
         CardDetails details = new CardDetails();
 
-        paymentsRequest.setReference("Your order number");
-        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        PaymentRequest.setReference("Your order number");
+        PaymentRequest.setAmount(createAmountObject("USD", 1000L));
 
         details.setType("scheme");
         details.setEncryptedCardNumber("test_4111111111111111");
@@ -2206,19 +2192,19 @@ public class CheckoutTest extends BaseTest {
         details.setCvc("737");
         details.setHolderName("John Smith");
 
-        paymentsRequest.setPaymentMethod(details);
-        paymentsRequest.setReturnUrl("https://your-company.com/...");
-        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+        PaymentRequest.setPaymentMethod(details);
+        PaymentRequest.setReturnUrl("https://your-company.com/...");
+        PaymentRequest.setMerchantAccount("MagentoMerchantTest");
 
-        return paymentsRequest;
+        return PaymentRequest;
     }
 
-    protected PaymentsRequest createEncryptedPaymentsCheckoutRequestWithoutHoldername() {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
+    protected PaymentRequest createEncryptedPaymentsCheckoutRequestWithoutHoldername() {
+        PaymentRequest PaymentRequest = new PaymentRequest();
         CardDetails details = new CardDetails();
 
-        paymentsRequest.setReference("Your order number");
-        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        PaymentRequest.setReference("Your order number");
+        PaymentRequest.setAmount(createAmountObject("USD", 1000L));
 
         details.setType("scheme");
         details.setEncryptedCardNumber("test_4111111111111111");
@@ -2227,20 +2213,20 @@ public class CheckoutTest extends BaseTest {
         details.setCvc("737");
         details.setHolderName("John Smith");
 
-        paymentsRequest.setReturnUrl("https://your-company.com/...");
-        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
+        PaymentRequest.setReturnUrl("https://your-company.com/...");
+        PaymentRequest.setMerchantAccount("MagentoMerchantTest");
 
-        return paymentsRequest;
+        return PaymentRequest;
     }
 
     /**
-     * Returns a sample PaymentsRequest object with type networkToken and brand visa
+     * Returns a sample PaymentRequest object with type networkToken and brand visa
      */
-    protected PaymentsRequest createPaymentsNetworkCheckoutRequest() {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
+    protected PaymentRequest createPaymentsNetworkCheckoutRequest() {
+        PaymentRequest PaymentRequest = new PaymentRequest();
 
-        paymentsRequest.setReference("Your order number");
-        paymentsRequest.setAmount(createAmountObject("USD", 1000L));
+        PaymentRequest.setReference("Your order number");
+        PaymentRequest.setAmount(createAmountObject("USD", 1000L));
         CardDetails defaultPaymentMethodDetails = new CardDetails();
         defaultPaymentMethodDetails.setType("networkToken");
         defaultPaymentMethodDetails.setBrand(BrandCodes.MASTERCARD);
@@ -2250,14 +2236,14 @@ public class CheckoutTest extends BaseTest {
         defaultPaymentMethodDetails.setNumber("5555444433331111");
         defaultPaymentMethodDetails.setNetworkPaymentReference("MCC123456789012");
 
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        PaymentRequest.setPaymentMethod(defaultPaymentMethodDetails);
 
-        paymentsRequest.setReturnUrl("https://your-company.com/...");
-        paymentsRequest.setMerchantAccount("MagentoMerchantTest");
-        paymentsRequest.setShopperReference("YOUR_SHOPPER_REFERENCE");
-        paymentsRequest.setRecurringProcessingModel(PaymentsRequest.RecurringProcessingModelEnum.CARDONFILE);
+        PaymentRequest.setReturnUrl("https://your-company.com/...");
+        PaymentRequest.setMerchantAccount("MagentoMerchantTest");
+        PaymentRequest.setShopperReference("YOUR_SHOPPER_REFERENCE");
+        PaymentRequest.setRecurringProcessingModel(PaymentRequest.RecurringProcessingModelEnum.CARDONFILE);
 
-        return paymentsRequest;
+        return PaymentRequest;
     }
 
 
@@ -2304,11 +2290,11 @@ public class CheckoutTest extends BaseTest {
         return checkoutCreateOrderRequest;
     }
 
-    protected PaymentsRequest createPaymentsRequestWithOrder() {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
+    protected PaymentRequest createPaymentRequestWithOrder() {
+        PaymentRequest PaymentRequest = new PaymentRequest();
         CardDetails details = new CardDetails();
-        paymentsRequest.setReference("payment reference");
-        paymentsRequest.setAmount(createAmountObject("EUR", 1000L));
+        PaymentRequest.setReference("payment reference");
+        PaymentRequest.setAmount(createAmountObject("EUR", 1000L));
 
         details.setType("scheme");
         details.setEncryptedCardNumber("test_4111111111111111");
@@ -2316,15 +2302,15 @@ public class CheckoutTest extends BaseTest {
         details.setEncryptedExpiryYear("test_2030");
         details.setCvc("737");
         details.setHolderName("John Smith");
-        paymentsRequest.setPaymentMethod(details);
+        PaymentRequest.setPaymentMethod(details);
 
         CheckoutOrder checkoutOrder = new CheckoutOrder();
         checkoutOrder.setOrderData("Ab02b4c0!BQABAgBqxSuFhuXUF7IvIRvSw5bDPHN...");
         checkoutOrder.setPspReference("8515930288670953");
-        paymentsRequest.setOrder(checkoutOrder);
+        PaymentRequest.setOrder(checkoutOrder);
 
-        paymentsRequest.setMerchantAccount("TestMerchant");
-        return paymentsRequest;
+        PaymentRequest.setMerchantAccount("TestMerchant");
+        return PaymentRequest;
     }
 
     protected CheckoutCancelOrderRequest createCheckoutCancelOrderRequest() {
@@ -2337,18 +2323,18 @@ public class CheckoutTest extends BaseTest {
         return checkoutCancelOrderRequest;
     }
 
-    protected PaymentsRequest createBankTransferPaymentRequest() {
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
-        paymentsRequest.setReference("payment reference");
+    protected PaymentRequest createBankTransferPaymentRequest() {
+        PaymentRequest PaymentRequest = new PaymentRequest();
+        PaymentRequest.setReference("payment reference");
 
         CardDetails defaultPaymentMethodDetails = new CardDetails();
         defaultPaymentMethodDetails.setType("sepadirectdebit");
-        paymentsRequest.setPaymentMethod(defaultPaymentMethodDetails);
+        PaymentRequest.setPaymentMethod(defaultPaymentMethodDetails);
 
         Amount amount = new Amount();
         amount.setCurrency("EUR");
         amount.setValue(10000L);
-        paymentsRequest.setAmount(amount);
+        PaymentRequest.setAmount(amount);
 
         List<Split> splits = new ArrayList<>();
         Split split = new Split();
@@ -2360,13 +2346,13 @@ public class CheckoutTest extends BaseTest {
         splitAmount.setValue(10000L);
         split.setAmount(splitAmount);
         splits.add(split);
-        paymentsRequest.setSplits(splits);
+        PaymentRequest.setSplits(splits);
 
-        paymentsRequest.setCountryCode("NL");
-        paymentsRequest.setReference("auth-banktransfer-split-12345");
-        paymentsRequest.setMerchantAccount("merchantAccount");
+        PaymentRequest.setCountryCode("NL");
+        PaymentRequest.setReference("auth-banktransfer-split-12345");
+        PaymentRequest.setMerchantAccount("merchantAccount");
 
-        return paymentsRequest;
+        return PaymentRequest;
     }
 
     @Test
@@ -2409,15 +2395,15 @@ public class CheckoutTest extends BaseTest {
     public void TestBankTransferPaymentsSuccess() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/checkout/payments-banktransfer-success.json");
         Checkout checkout = new Checkout(client);
-        PaymentsRequest paymentsRequest = createBankTransferPaymentRequest();
-        PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
-        assertEquals(PaymentsResponse.ResultCodeEnum.RECEIVED, paymentsResponse.getResultCode());
-        assertEquals(CheckoutPaymentsAction.CheckoutActionType.BANKTRANSFER, paymentsResponse.getAction().getType());
-        assertEquals("Adyen", paymentsResponse.getAction().getBeneficiary());
-        assertEquals("NL13TEST0123456789", paymentsResponse.getAction().getIban());
-        assertEquals("TESTNL02", paymentsResponse.getAction().getBic());
-        assertEquals("851-6178-9473-6924A", paymentsResponse.getAction().getReference());
-        assertEquals("bankTransfer_IBAN", paymentsResponse.getAction().getPaymentMethodType());
+        PaymentRequest PaymentRequest = createBankTransferPaymentRequest();
+        PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
+        assertEquals(PaymentResponse.ResultCodeEnum.RECEIVED, PaymentResponse.getResultCode());
+        assertEquals(CheckoutPaymentsAction.CheckoutActionType.BANKTRANSFER, PaymentResponse.getAction().getType());
+        assertEquals("Adyen", PaymentResponse.getAction().getBeneficiary());
+        assertEquals("NL13TEST0123456789", PaymentResponse.getAction().getIban());
+        assertEquals("TESTNL02", PaymentResponse.getAction().getBic());
+        assertEquals("851-6178-9473-6924A", PaymentResponse.getAction().getReference());
+        assertEquals("bankTransfer_IBAN", PaymentResponse.getAction().getPaymentMethodType());
     }
 
     /**
