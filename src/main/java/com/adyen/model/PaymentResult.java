@@ -75,6 +75,8 @@ public class PaymentResult {
     public enum ResultCodeEnum {
         @SerializedName("AuthenticationFinished")
         AUTHENTICATIONFINISHED("AuthenticationFinished"),
+        @SerializedName("AuthenticationNotRequired")
+        AUTHENTICATIONNOTREQUIRED("AuthenticationNotRequired"),
         @SerializedName("Authorised")
         AUTHORISED("Authorised"),
         @SerializedName("Cancelled")

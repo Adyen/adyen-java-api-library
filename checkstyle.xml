@@ -41,6 +41,11 @@
 
     <property name="fileExtensions" value="java, properties, xml"/>
 
+    <!-- Ignore generated models -->
+    <module name="BeforeExecutionExclusionFileFilter">
+        <property name="fileNamePattern" value="model[\\/].*$"/>
+    </module>
+
     <!-- Checks that a package-info.java file exists for each package.     -->
     <!-- See http://checkstyle.sf.net/config_javadoc.html#JavadocPackage -->
     <!--<module name="JavadocPackage"/>-->
