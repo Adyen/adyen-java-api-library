@@ -48,7 +48,8 @@ import static com.adyen.model.terminal.security.NexoDerivedKey.NEXO_IV_LENGTH;
 
 public class NexoCrypto {
 
-    private static final Provider PROVIDER = new SecureRandom().getProvider();
+    private static SecureRandom secureRandom = new SecureRandom();
+    private static final Provider PROVIDER = secureRandom.getProvider();
 
     public SaleToPOISecuredMessage encrypt(
             String saleToPoiMessageJson, MessageHeader messageHeader, SecurityKey securityKey) throws Exception {
@@ -148,11 +149,15 @@ public class NexoCrypto {
     }
 
     /**
-     * Generate a random iv nonce
+     * Generate a random iv nonce with cryptographically strongest non blocking RNG
      */
-    private byte[] generateRandomIvNonce() throws NoSuchAlgorithmException {
+    private byte[] generateRandomIvNonce() {
         byte[] ivNonce = new byte[NEXO_IV_LENGTH];
-        SecureRandom secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking", PROVIDER);
+        try {
+            secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking", PROVIDER);
+        } catch(Exception NoSuchAlgorithmException) {
+            secureRandom = new SecureRandom();
+        }
         secureRandom.nextBytes(ivNonce);
         return ivNonce;
     }
