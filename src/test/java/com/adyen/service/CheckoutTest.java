@@ -25,8 +25,6 @@ import com.adyen.Client;
 import com.adyen.Config;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.PaymentsResponse;
 import com.adyen.model.checkout.ThreeDSecureData;
 import org.junit.Test;
 import org.junit.runner.RunWith;

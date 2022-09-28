@@ -22,10 +22,10 @@ package com.adyen.service;
 
 import com.adyen.BaseTest;
 import com.adyen.Client;
-import com.adyen.model.Address;
-import com.adyen.model.Amount;
+import com.adyen.model.checkout.Address;
+import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.PaymentLinkResource;
+import com.adyen.model.checkout.PaymentLinkResponse;
 import com.adyen.model.checkout.UpdatePaymentLinkRequest;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
@@ -42,19 +42,19 @@ public class PaymentLinksTest extends BaseTest {
     @Test
     public void TestCreatePaymentLinksSuccess() throws Exception {
         Client client = createMockClientFromFile("mocks/paymentlinks/create-payment-links-success.json");
-        PaymentLinks paymentLinks = new PaymentLinks(client);
+        Checkout paymentLinks = new Checkout(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
-        PaymentLinkResource paymentLink = paymentLinks.create(createPaymentLinkRequest);
-        assertPaymentLinkResource(paymentLink, PaymentLinkResource.StatusEnum.ACTIVE);
+        PaymentLinkResponse paymentLink = paymentLinks.paymentLinks(createPaymentLinkRequest);
+        assertPaymentLinkResponse(paymentLink, PaymentLinkResponse.StatusEnum.ACTIVE);
     }
 
     @Test
     public void TestCreatePaymentLinksErrorMerchantMissing() throws IOException {
         Client client = createMockClientForErrors(403, "mocks/paymentlinks/create-payment-links-error-merchant.json");
-        PaymentLinks paymentLinks = new PaymentLinks(client);
+        Checkout paymentLinks = new Checkout(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
         try {
-            paymentLinks.create(createPaymentLinkRequest);
+            paymentLinks.paymentLinks(createPaymentLinkRequest);
             fail("Exception expected");
         } catch (ApiException e) {
             assertNotNull(e.getError());
@@ -66,10 +66,10 @@ public class PaymentLinksTest extends BaseTest {
     @Test
     public void TestCreatePaymentLinksErrorAmountMissing() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/paymentlinks/create-payment-links-error-amount.json");
-        PaymentLinks paymentLinks = new PaymentLinks(client);
+        Checkout paymentLinks = new Checkout(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
         try {
-            paymentLinks.create(createPaymentLinkRequest);
+            paymentLinks.paymentLinks(createPaymentLinkRequest);
             fail("Exception expected");
         } catch (ApiException e) {
             assertNotNull(e.getError());
@@ -81,10 +81,10 @@ public class PaymentLinksTest extends BaseTest {
     @Test
     public void TestCreatePaymentLinksErrorReferenceMissing() throws IOException {
         Client client = createMockClientForErrors(422, "mocks/paymentlinks/create-payment-links-error-reference.json");
-        PaymentLinks paymentLinks = new PaymentLinks(client);
+        Checkout paymentLinks = new Checkout(client);
         CreatePaymentLinkRequest createPaymentLinkRequest = createPaymentLinkRequest();
         try {
-            paymentLinks.create(createPaymentLinkRequest);
+            paymentLinks.paymentLinks(createPaymentLinkRequest);
             fail("Exception expected");
         } catch (ApiException e) {
             assertNotNull(e.getError());
@@ -96,22 +96,22 @@ public class PaymentLinksTest extends BaseTest {
     @Test
     public void TestGetPaymentLink() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/paymentlinks/get-payment-link-success.json");
-        PaymentLinks paymentLinks = new PaymentLinks(client);
-        PaymentLinkResource paymentLink = paymentLinks.retrieve("id");
-        assertPaymentLinkResource(paymentLink, PaymentLinkResource.StatusEnum.ACTIVE);
+        Checkout paymentLinks = new Checkout(client);
+        PaymentLinkResponse paymentLink = paymentLinks.getPaymentLinks("id");
+        assertPaymentLinkResponse(paymentLink, PaymentLinkResponse.StatusEnum.ACTIVE);
     }
 
     @Test
     public void TestUpdatePaymentLink() throws IOException, ApiException {
         Client client = createMockClientFromFile("mocks/paymentlinks/update-payment-link-success.json");
-        PaymentLinks paymentLinks = new PaymentLinks(client);
+        Checkout paymentLinks = new Checkout(client);
         UpdatePaymentLinkRequest updatePaymentLinkRequest = new UpdatePaymentLinkRequest();
         updatePaymentLinkRequest.setStatus(UpdatePaymentLinkRequest.StatusEnum.EXPIRED);
-        PaymentLinkResource paymentLink = paymentLinks.update("id", updatePaymentLinkRequest);
-        assertPaymentLinkResource(paymentLink, PaymentLinkResource.StatusEnum.EXPIRED);
+        PaymentLinkResponse paymentLink = paymentLinks.patchPaymentLinks("id", updatePaymentLinkRequest);
+        assertPaymentLinkResponse(paymentLink, PaymentLinkResponse.StatusEnum.EXPIRED);
     }
 
-    private void assertPaymentLinkResource(PaymentLinkResource paymentLink, PaymentLinkResource.StatusEnum status) {
+    private void assertPaymentLinkResponse(PaymentLinkResponse paymentLink, PaymentLinkResponse.StatusEnum status) {
         assertNotNull(paymentLink);
         assertNotNull(paymentLink.getId());
         assertNotNull(paymentLink.getAmount());
@@ -132,7 +132,10 @@ public class PaymentLinksTest extends BaseTest {
         CreatePaymentLinkRequest createPaymentLinkRequest = new CreatePaymentLinkRequest();
 
         createPaymentLinkRequest.setReference("YOUR_ORDER_NUMBER");
-        createPaymentLinkRequest.setAmount(createAmountObject("BRL", 1000L));
+        Amount amount = new Amount();
+        amount.setValue(1000L);
+        amount.setCurrency("BRL");
+        createPaymentLinkRequest.setAmount(amount);
         createPaymentLinkRequest.setCountryCode("BR");
         createPaymentLinkRequest.setMerchantAccount("MagentoMerchantTest");
         createPaymentLinkRequest.setShopperReference("YOUR_UNIQUE_SHOPPER_ID");

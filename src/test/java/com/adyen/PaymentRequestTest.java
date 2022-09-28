@@ -20,12 +20,9 @@
  */
 package com.adyen;
 
-import com.adyen.enums.Gender;
 import com.adyen.enums.VatCategory;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.applicationinfo.ExternalPlatform;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.details.AfterpayDetails;
+import com.adyen.model.checkout.*;
+import com.adyen.model.checkout.AfterpayDetails;
 import org.junit.Test;
 
 import static com.adyen.Client.LIB_NAME;
@@ -61,7 +58,7 @@ public class PaymentRequestTest extends BaseTest {
 
     @Test
     public void TestPaypalEcsRequest() {
-        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456").setAmountData("23.45", "EUR").setPaymentToken("apaymenttoken");
+        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456").amount(new Amount().currency("EUR").value(2345L)).setPaymentToken("apaymenttoken");
 
         assertEquals("123456", paymentRequest.getReference());
         assertEquals(new Long("2345"), paymentRequest.getAmount().getValue());
@@ -99,10 +96,9 @@ public class PaymentRequestTest extends BaseTest {
     @Test
     public void TestAfterPayPaymentMethod() {
 
-        PaymentsRequest paymentsRequest = createAfterPayPaymentRequest();
+        PaymentRequest paymentsRequest = createAfterPayPaymentRequest();
 
-        AfterpayDetails paymentMethodDetails =
-                (AfterpayDetails) paymentsRequest.getPaymentMethod();
+        AfterpayDetails paymentMethodDetails =paymentsRequest.getPaymentMethod().getAfterpayDetails();
 
         assertNotNull(paymentMethodDetails.getPersonalDetails());
         assertEquals(paymentMethodDetails.getPersonalDetails(), "EndToEnd lastName 2000-02-02 +31612345678 SHOPPER@EMAIL_ADDRESS.COM");
@@ -119,7 +115,7 @@ public class PaymentRequestTest extends BaseTest {
     @Test
     public void TestPaymentsRequestForPresenceOfItemURLs() {
 
-        PaymentsRequest paymentsRequest = createAfterPayPaymentRequest();
+        PaymentRequest paymentsRequest = createAfterPayPaymentRequest();
 
         assertEquals(BaseTest.DUMMY_PROTOCOL_IMAGE_URL, paymentsRequest.getLineItems().get(0).getImageUrl());
         assertEquals(BaseTest.DUMMY_PROTOCOL_PRODUCT_URL, paymentsRequest.getLineItems().get(0).getProductUrl());

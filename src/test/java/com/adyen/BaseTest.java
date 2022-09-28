@@ -20,30 +20,21 @@
  */
 package com.adyen;
 
-import com.adyen.enums.Gender;
-import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.AbstractPaymentRequest;
-import com.adyen.model.Address;
-import com.adyen.model.Amount;
-import com.adyen.model.AuthenticationResultRequest;
-import com.adyen.model.Name;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentRequest3d;
-import com.adyen.model.PaymentRequest3ds2;
-import com.adyen.model.RequestOptions;
-import com.adyen.model.ThreeDS2RequestData;
-import com.adyen.model.additionalData.InvoiceLine;
+import com.adyen.model.checkout.PaymentRequest;
+import com.adyen.model.checkout.Amount;
+import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.LineItem;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.PersonalDetails;
-import com.adyen.model.checkout.details.AfterpayDetails;
-import com.adyen.model.modification.AbstractModificationRequest;
-import com.adyen.model.modification.CaptureRequest;
-import com.adyen.model.modification.DonationRequest;
-import com.adyen.model.modification.RefundRequest;
-import com.adyen.model.modification.VoidPendingRefundRequest;
+import com.adyen.model.checkout.Name;
+import com.adyen.model.RequestOptions;
+import com.adyen.model.checkout.KlarnaDetails;
+import com.adyen.model.checkout.BrowserInfo;
+import com.adyen.model.checkout.CardDetails;
+import com.adyen.model.checkout.PaymentDonationRequestPaymentMethod;
+import com.adyen.model.checkout.AfterpayDetails;
+import com.adyen.model.checkout.CreatePaymentCaptureRequest;
+import com.adyen.model.checkout.CreatePaymentRefundRequest;
 import com.adyen.model.nexo.AmountsReq;
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
@@ -55,7 +46,6 @@ import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.TransactionIdentification;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.util.DateUtil;
-import com.adyen.util.Util;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
@@ -69,11 +59,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
@@ -150,26 +136,36 @@ public class BaseTest {
     /**
      * Populates the basic parameters (browser data, merchant account, shopper IP)
      */
-    protected <T extends AbstractPaymentRequest> T createBasePaymentRequest(T abstractPaymentRequest) {
-        abstractPaymentRequest.merchantAccount("AMerchant")
-                              .setBrowserInfoData("User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36", "*/*")
-                              .setShopperIP("1.2.3.4");
+    protected PaymentRequest createBasePaymentRequest(PaymentRequest paymentRequest) {
+        BrowserInfo browserInfo = new BrowserInfo();
+        browserInfo.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36");
+        paymentRequest.setMerchantAccount("AMerchant");
+        paymentRequest.setBrowserInfo(browserInfo);
+        paymentRequest.setShopperIP("1.2.3.4");
 
-        return abstractPaymentRequest;
+        return paymentRequest;
     }
 
     /**
      * Returns a sample PaymentRequest opbject with full card data
      */
     protected PaymentRequest createFullCardPaymentRequest() {
+        Amount amount = new Amount().currency("EUR").value(1000L);
+        CardDetails cardDetails = new CardDetails();
+        cardDetails.encryptedCardNumber("5136333333333335")
+                .holderName("John Doe")
+                .cvc("737")
+                .encryptedExpiryMonth("08")
+                .encryptedExpiryYear("2018");
+
         return createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                .setAmountData("1000", "EUR")
-                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
+                .amount(amount)
+                .paymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
     }
 
-    protected PaymentsRequest createAfterPayPaymentRequest() {
+    protected PaymentRequest createAfterPayPaymentRequest() {
 
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
+        PaymentRequest paymentsRequest = new PaymentRequest();
         paymentsRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
         paymentsRequest.setCountryCode("NL");
 
@@ -180,14 +176,14 @@ public class BaseTest {
         paymentsRequest.setAmount(amount);
         paymentsRequest.setShopperReference("YOUR_UNIQUE_SHOPPER_ID");
         paymentsRequest.setReference("YOUR_ORDER_NUMBER");
-        paymentsRequest.setChannel(PaymentsRequest.ChannelEnum.WEB);
+        paymentsRequest.setChannel(PaymentRequest.ChannelEnum.WEB);
 
         AfterpayDetails afterpayDetails = new AfterpayDetails();
-        afterpayDetails.setType("afterpay_default");
+        afterpayDetails.setType(AfterpayDetails.TypeEnum.AFTERPAY_DEFAULT);
 
         afterpayDetails.setPersonalDetails("EndToEnd lastName 2000-02-02 +31612345678 SHOPPER@EMAIL_ADDRESS.COM");
 
-        paymentsRequest.setPaymentMethod(afterpayDetails);
+        paymentsRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(afterpayDetails));
 
         Address billingAddress = new Address();
         billingAddress.setStreet("Simon Carmiggeltstraat");
@@ -239,8 +235,8 @@ public class BaseTest {
     protected PaymentRequest createOpenInvoicePaymentRequest() {
 
         Date dateOfBirth = DateUtil.parseYmdDate("1970-07-10");
-
-        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456").setAmountData("200", "EUR");
+        Amount amount = new Amount().currency("EUR").value(200L);
+        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456").amount(amount);
 
         // Set Shopper Data
         paymentRequest.setShopperEmail("youremail@email.com");
@@ -252,7 +248,6 @@ public class BaseTest {
         Name shopperName = new Name();
         shopperName.setFirstName("Testperson-nl");
         shopperName.setLastName("Approved");
-        shopperName.gender(Name.GenderEnum.MALE);
         paymentRequest.setShopperName(shopperName);
 
         // Set Billing and Delivery address
@@ -267,40 +262,38 @@ public class BaseTest {
         paymentRequest.setBillingAddress(address);
 
         // Use OpenInvoice Provider (klarna, ratepay)
-        paymentRequest.selectedBrand("klarna");
+        KlarnaDetails klarnaDetails = new KlarnaDetails();
+        klarnaDetails.type(KlarnaDetails.TypeEnum.KLARNA);
+        paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(klarnaDetails));
 
-        Long itemAmount = new Long("9000");
-        Long itemVatAmount = new Long("1000");
-        Long itemVatPercentage = new Long("1000");
+        Long itemAmount = 9000L;
+        Long itemVatAmount = 1000L;
+        Long itemVatPercentage = 1000L;
 
-        List<InvoiceLine> invoiceLines = new ArrayList<>();
+        List<LineItem> invoiceLines = new ArrayList<>();
 
         // invoiceLine1
-        InvoiceLine invoiceLine = new InvoiceLine();
-        invoiceLine.setCurrencyCode("EUR");
+        LineItem invoiceLine = new LineItem();
         invoiceLine.setDescription("Test product");
-        invoiceLine.setItemAmount(itemAmount);
-        invoiceLine.setItemVATAmount(itemVatAmount);
-        invoiceLine.setItemVatPercentage(itemVatPercentage);
-        invoiceLine.setVatCategory(VatCategory.NONE);
-        invoiceLine.setNumberOfItems(1);
-        invoiceLine.setItemId("1234");
+        invoiceLine.setQuantity(1L);
+        invoiceLine.setAmountIncludingTax(itemAmount);
+        invoiceLine.setTaxAmount(itemVatAmount);
+        invoiceLine.setTaxPercentage(itemVatPercentage);
+        invoiceLine.setId("1234");
 
         // invoiceLine2
-        InvoiceLine invoiceLine2 = new InvoiceLine();
-        invoiceLine2.setCurrencyCode("EUR");
+        LineItem invoiceLine2 = new LineItem();
         invoiceLine2.setDescription("Test product 2");
-        invoiceLine2.setItemAmount(itemAmount);
-        invoiceLine2.setItemVATAmount(itemVatAmount);
-        invoiceLine2.setItemVatPercentage(itemVatPercentage);
-        invoiceLine2.setVatCategory(VatCategory.NONE);
-        invoiceLine2.setNumberOfItems(1);
-        invoiceLine2.setItemId("4567");
+        invoiceLine.setQuantity(1L);
+        invoiceLine.setAmountIncludingTax(itemAmount);
+        invoiceLine.setTaxAmount(itemVatAmount);
+        invoiceLine.setTaxPercentage(itemVatPercentage);
+        invoiceLine.setId("5678");
 
         invoiceLines.add(invoiceLine);
         invoiceLines.add(invoiceLine2);
 
-        paymentRequest.setInvoiceLines(invoiceLines);
+        paymentRequest.lineItems(invoiceLines);
 
         return paymentRequest;
     }
@@ -309,31 +302,13 @@ public class BaseTest {
      * Returns a sample PaymentRequest object with CSE data
      */
     protected PaymentRequest createCSEPaymentRequest() {
-
+        Map<String, String> additionalData = new HashMap<>();
+        additionalData.put("card.encrypted.json", "adyenjs_0_1_4p1$...");
         return createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                .setAmountData("1000", "EUR")
-                .setCSEToken("adyenjs_0_1_4p1$...");
+                .amount(new Amount().value(1000L).currency("EUR"))
+                .additionalData(additionalData);
     }
 
-    /**
-     * Returns a PaymentRequest3d object for 3D secure authorisation
-     */
-    protected PaymentRequest3d create3DPaymentRequest() {
-
-        return createBasePaymentRequest(new PaymentRequest3d()).set3DRequestData("mdString", "paResString");
-    }
-
-    /**
-     * Returns a PaymentRequest3d object for 3D secure authorisation
-     */
-    protected PaymentRequest3ds2 create3DS2PaymentRequest() {
-
-        PaymentRequest3ds2 paymentRequest3ds2 = createBasePaymentRequest(new PaymentRequest3ds2());
-        paymentRequest3ds2.setThreeDS2Token("— - BINARY DATA - -");
-        paymentRequest3ds2.setThreeDS2RequestData(new ThreeDS2RequestData());
-        paymentRequest3ds2.getThreeDS2RequestData().setThreeDSCompInd("Y");
-        return paymentRequest3ds2;
-    }
 
     /**
      * Returns a Client that has a mocked error response from fileName
@@ -357,40 +332,21 @@ public class BaseTest {
         return client;
     }
 
-    protected <T extends AbstractModificationRequest> T createBaseModificationRequest(T modificationRequest) {
-        modificationRequest.merchantAccount("AMerchant").originalReference("originalReference").reference("merchantReference");
 
-        return modificationRequest;
-    }
-
-    protected CaptureRequest createCaptureRequest() {
-        CaptureRequest captureRequest = createBaseModificationRequest(new CaptureRequest());
-
-        captureRequest.fillAmount("15.00", "EUR");
+    protected CreatePaymentCaptureRequest createCaptureRequest() {
+        CreatePaymentCaptureRequest captureRequest = new CreatePaymentCaptureRequest();
+        Amount amount = new Amount().currency("EUR").value(1500L);
+        captureRequest.merchantAccount("AMerchant")
+                .reference("originalReference")
+                .amount(amount);
 
         return captureRequest;
     }
 
-    protected RefundRequest createRefundRequest() {
-        Amount amount = Util.createAmount("15.00", "EUR");
+    protected CreatePaymentRefundRequest createRefundRequest() {
+        Amount amount = new Amount().currency("EUR").value(1500L);
 
-        return createBaseModificationRequest(new RefundRequest()).modificationAmount(amount);
-    }
-
-    protected VoidPendingRefundRequest createVoidPendingRefundRequest() {
-        return createBaseModificationRequest(new VoidPendingRefundRequest()).tenderReference("tenderReference");
-    }
-
-    protected DonationRequest createDonationRequest() {
-        Amount amount = Util.createAmount("15.00", "EUR");
-
-        DonationRequest donationRequest = new DonationRequest();
-        donationRequest.setMerchantAccount("AMerchant");
-        donationRequest.setDonationAccount("donationAccount");
-        donationRequest.setModificationAmount(amount);
-        donationRequest.setOriginalReference("originalReference");
-
-        return donationRequest;
+        return new CreatePaymentRefundRequest().amount(amount);
     }
 
     protected TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {
@@ -431,12 +387,5 @@ public class BaseTest {
         terminalAPIRequest.setSaleToPOIRequest(saleToPOIRequest);
 
         return terminalAPIRequest;
-    }
-
-    protected AuthenticationResultRequest createAuthenticationResultRequest() {
-        AuthenticationResultRequest authenticationResultRequest = new AuthenticationResultRequest();
-        authenticationResultRequest.setMerchantAccount("AMerchant");
-        authenticationResultRequest.setPspReference("APspReference");
-        return authenticationResultRequest;
     }
 }

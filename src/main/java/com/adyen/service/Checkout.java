@@ -1,37 +1,55 @@
-/*
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
- * Adyen Java API Library
- *
- * Copyright (c) 2021 Adyen B.V.
- * This file is open source and available under the MIT license.
- * See the LICENSE file for more info.
- */
-
 package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.checkout.*;
-import com.adyen.service.exception.ApiException;
 import com.adyen.model.checkout.PaymentRequest;
 import com.adyen.model.checkout.PaymentResponse;
+import com.adyen.model.checkout.PaymentMethodsRequest;
+import com.adyen.model.checkout.PaymentMethodsResponse;
+import com.adyen.model.checkout.DetailsRequest;
+import com.adyen.model.checkout.PaymentDetailsResponse;
+import com.adyen.model.checkout.PaymentSetupRequest;
+import com.adyen.model.checkout.PaymentSetupResponse;
+import com.adyen.model.checkout.PaymentVerificationRequest;
+import com.adyen.model.checkout.PaymentVerificationResponse;
+import com.adyen.model.checkout.CheckoutCancelOrderRequest;
+import com.adyen.model.checkout.CheckoutCancelOrderResponse;
+import com.adyen.model.checkout.CheckoutCreateOrderRequest;
+import com.adyen.model.checkout.CheckoutCreateOrderResponse;
+import com.adyen.model.checkout.CreateCheckoutSessionRequest;
+import com.adyen.model.checkout.CreateCheckoutSessionResponse;
+import com.adyen.model.checkout.CreatePaymentCaptureRequest;
+import com.adyen.model.checkout.PaymentCaptureResource;
+import com.adyen.model.checkout.CreatePaymentCancelRequest;
+import com.adyen.model.checkout.PaymentCancelResource;
+import com.adyen.model.checkout.CreateStandalonePaymentCancelRequest;
+import com.adyen.model.checkout.StandalonePaymentCancelResource;
+import com.adyen.model.checkout.CreatePaymentReversalRequest;
+import com.adyen.model.checkout.PaymentReversalResource;
+import com.adyen.model.checkout.CreatePaymentRefundRequest;
+import com.adyen.model.checkout.PaymentRefundResource;
+import com.adyen.model.checkout.CreatePaymentAmountUpdateRequest;
+import com.adyen.model.checkout.PaymentAmountUpdateResource;
+import com.adyen.model.checkout.CheckoutBalanceCheckRequest;
+import com.adyen.model.checkout.CheckoutBalanceCheckResponse;
+import com.adyen.model.checkout.PaymentLinkResponse;
+import com.adyen.model.checkout.CreatePaymentLinkRequest;
+import com.adyen.model.checkout.CreateApplePaySessionRequest;
+import com.adyen.model.checkout.ApplePaySessionResponse;
+import com.adyen.model.checkout.PaymentDonationRequest;
+import com.adyen.model.checkout.DonationResponse;
+import com.adyen.model.checkout.CardDetailsRequest;
+import com.adyen.model.checkout.CardDetailsResponse;
+import com.adyen.model.checkout.UpdatePaymentLinkRequest;
+import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.CheckoutResource;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+
+import static com.adyen.constants.ApiConstants.HttpMethod.GET;
+import static com.adyen.constants.ApiConstants.HttpMethod.PATCH;
 
 public class Checkout extends ApiKeyAuthenticatedService {
 
@@ -48,6 +66,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
     private final CheckoutResource applePaySessions;
     private final CheckoutResource donations;
     private final CheckoutResource cardDetails;
+    private final CheckoutResource paymentLinks;
 
     public Checkout(Client client) {
 
@@ -64,24 +83,25 @@ public class Checkout extends ApiKeyAuthenticatedService {
         paymentMethodsBalance = new CheckoutResource(this, "/paymentMethods/balance");
         applePaySessions = new CheckoutResource(this, "/applePay/sessions");
         donations = new CheckoutResource(this, "/donations");
-        cardDetails = new CheckoutResource(this,"/cardDetails");
+        cardDetails = new CheckoutResource(this, "/cardDetails");
+        paymentLinks = new CheckoutResource(this, "/paymentLinks");
     }
 
     /**
      * POST /payments API call
      *
-     * @param PaymentRequest PaymentRequest
+     * @param paymentRequest PaymentRequest
      * @return PaymentResponse
      * @throws IOException  IOException
      * @throws ApiException ApiException
      */
-    public PaymentResponse payments(PaymentRequest PaymentRequest) throws ApiException, IOException {
-        return payments(PaymentRequest, null);
+    public PaymentResponse payments(PaymentRequest paymentRequest) throws ApiException, IOException {
+        return payments(paymentRequest, null);
     }
 
 
-    public PaymentResponse payments(PaymentRequest PaymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(PaymentRequest);
+    public PaymentResponse payments(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(paymentRequest);
         String jsonResult = payments.request(jsonRequest, requestOptions);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentResponse>() {
         }.getType());
@@ -315,6 +335,21 @@ public class Checkout extends ApiKeyAuthenticatedService {
     }
 
     /**
+     * POST /paymentLinks
+     *
+     * @param createPaymentLinkRequest CreatePaymentLinkRequest
+     * @return
+     * @throws ApiException
+     * @throws IOException
+     */
+    public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
+        String jsonRequest = GSON.toJson(createPaymentLinkRequest);
+        String jsonResult = paymentLinks.request(jsonRequest);
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResponse>() {
+        }.getType());
+    }
+
+    /**
      * GET /paymentLinks/{linkId}
      *
      * @param linkId String
@@ -322,9 +357,27 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws ApiException
      * @throws IOException
      */
-    public PaymentLinkResponse paymentLinks(String linkId) throws ApiException, IOException {
+    public PaymentLinkResponse getPaymentLinks(String linkId) throws ApiException, IOException {
         CheckoutResource paymentLinks = new CheckoutResource(this, "/paymentLinks/" + linkId);
-        String jsonResult = paymentLinks.request("{}");
+        String jsonResult = paymentLinks.request("{}", GET);
+        return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResponse>() {
+        }.getType());
+    }
+
+    /**
+     * PATCH /paymentLinks/{linkId}
+     *
+     * @param updatePaymentLinkRequest UpdatePaymentLinkRequest
+     * @param linkId String
+     * @return
+     * @throws ApiException
+     * @throws IOException
+     */
+    public PaymentLinkResponse patchPaymentLinks(String linkId, UpdatePaymentLinkRequest updatePaymentLinkRequest) throws ApiException, IOException {
+        CheckoutResource paymentLinks = new CheckoutResource(this, "/paymentLinks/" + linkId);
+
+        String jsonRequest = GSON.toJson(updatePaymentLinkRequest);
+        String jsonResult = paymentLinks.request(jsonRequest, PATCH);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResponse>() {
         }.getType());
     }

@@ -21,7 +21,7 @@
 package com.adyen;
 
 import com.adyen.model.Amount;
-import com.adyen.model.checkout.details.CardDetails;
+import com.adyen.model.checkout.CardDetails;
 import com.adyen.model.storedvalue.StoredValueBalanceCheckRequest;
 import com.adyen.model.storedvalue.StoredValueBalanceCheckResponse;
 import com.adyen.model.storedvalue.StoredValueBalanceMergeRequest;
@@ -59,7 +59,7 @@ public class StoredValueTest extends BaseTest {
         StoredValueIssueRequest storedValueIssueRequest = new StoredValueIssueRequest();
         storedValueIssueRequest.setMerchantAccount("merchantAccount");
         storedValueIssueRequest.setReference("issueReference");
-        storedValueIssueRequest.setPaymentMethod(new CardDetails().type("givex"));
+        storedValueIssueRequest.setPaymentMethod(new CardDetails().type(CardDetails.TypeEnum.GIFTCARD));
 
         Amount amount = new Amount();
         amount.setCurrency("EUR");

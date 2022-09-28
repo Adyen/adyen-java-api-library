@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=payments
+services:=payments checkout
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -41,7 +41,6 @@ $(services): target/spec $(openapi-generator-jar)
 		--skip-validate-spec \
 		--model-package $(subst /,.,com.adyen.model.$@) \
 		--library $(library) \
-		--global-property models \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=legacy

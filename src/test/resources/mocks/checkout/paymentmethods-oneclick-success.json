@@ -1,5 +1,5 @@
 {
-  "oneClickPaymentMethods": [
+  "storedPaymentMethods": [
     {
       "details": [
         {
@@ -9,15 +9,11 @@
       ],
       "name": "VISA",
       "type": "visa",
-      "recurringDetailReference": "8314960677671745",
-      "storedDetails": {
-        "card": {
-          "expiryMonth": "10",
-          "expiryYear": "2020",
-          "holderName": "John Smith",
-          "number": "1111"
-        }
-      }
+      "id": "8314960677671745",
+      "expiryMonth": "10",
+      "expiryYear": "2020",
+      "holderName": "John Smith",
+      "lastFour": "1111"
     },
     {
       "details": [
@@ -28,15 +24,11 @@
       ],
       "name": "MasterCard",
       "type": "mc",
-      "recurringDetailReference": "8315620575279517",
-      "storedDetails": {
-        "card": {
+      "id": "8315620575279517",
           "expiryMonth": "10",
           "expiryYear": "2020",
           "holderName": "John Smith",
-          "number": "5583"
-        }
-      }
+          "lastFour": "5583"
     }
   ],
   "paymentMethods": [
