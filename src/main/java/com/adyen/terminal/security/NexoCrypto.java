@@ -155,7 +155,7 @@ public class NexoCrypto {
         byte[] ivNonce = new byte[NEXO_IV_LENGTH];
         try {
             secureRandom = SecureRandom.getInstance("NativePRNGNonBlocking", PROVIDER);
-        } catch(Exception NoSuchAlgorithmException) {
+        } catch (Exception NoSuchAlgorithmException) {
             secureRandom = new SecureRandom();
         }
         secureRandom.nextBytes(ivNonce);
