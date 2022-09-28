@@ -41,7 +41,7 @@ public class Client {
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
     public static final String API_VERSION = "v52";
     public static final String PAYOUT_API_VERSION = "v51";
-    public static final String RECURRING_API_VERSION = "v49";
+    public static final String RECURRING_API_VERSION = "v68";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v6";
     public static final String MARKETPAY_FUND_API_VERSION = "v6";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";

@@ -35,7 +35,6 @@ import com.adyen.service.resource.recurring.Disable;
 import com.adyen.service.resource.recurring.ListRecurringDetails;
 import com.adyen.service.resource.recurring.NotifyShopper;
 import com.adyen.service.resource.recurring.ScheduleAccountUpdater;
-import com.adyen.service.resource.recurring.StoreToken;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -43,7 +42,6 @@ import java.io.IOException;
 public class Recurring extends Service {
     private final ListRecurringDetails listRecurringDetails;
     private final Disable disable;
-    private final StoreToken storeToken;
     private final ScheduleAccountUpdater scheduleAccountUpdater;
     private final NotifyShopper notifyShopper;
 
@@ -52,7 +50,6 @@ public class Recurring extends Service {
 
         listRecurringDetails = new ListRecurringDetails(this);
         disable = new Disable(this);
-        storeToken = new StoreToken(this);
         scheduleAccountUpdater = new ScheduleAccountUpdater(this);
         notifyShopper = new NotifyShopper(this);
     }
