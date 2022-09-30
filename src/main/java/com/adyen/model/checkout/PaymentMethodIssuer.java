@@ -1,6 +1,5 @@
 /*
  * Adyen Checkout API
- * Adyen Checkout API provides a simple and flexible way to initiate and authorise online payments. You can use the same integration for payments made with cards (including 3D Secure), mobile wallets, and local payment methods (for example, iDEAL and Sofort).  This API reference provides information on available endpoints and how to interact with them. To learn more about the API, visit [Checkout documentation](https://docs.adyen.com/online-payments).  ## Authentication Each request to the Checkout API must be signed with an API key. For this, obtain an API Key from your Customer Area, as described in [How to get the API key](https://docs.adyen.com/development-resources/api-credentials#generate-api-key). Then set this key to the `X-API-Key` header value, for example:  ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: Your_Checkout_API_key\" \\ ... ``` Note that when going live, you need to generate a new API Key to access the [live endpoints](https://docs.adyen.com/development-resources/live-endpoints).  ## Versioning Checkout API supports versioning of its endpoints through a version suffix in the endpoint URL. This suffix has the following format: \"vXX\", where XX is the version number.  For example: ``` https://checkout-test.adyen.com/v68/payments ```
  *
  * The version of the OpenAPI document: 69
  * Contact: developer-experience@adyen.com
@@ -14,25 +13,58 @@
 package com.adyen.model.checkout;
 
 import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import static com.adyen.util.Util.toIndentedString;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.adyen.model.checkout.JSON;
 
 /**
  * PaymentMethodIssuer
  */
+
 public class PaymentMethodIssuer {
-  @SerializedName("disabled")
+  public static final String SERIALIZED_NAME_DISABLED = "disabled";
+  @SerializedName(SERIALIZED_NAME_DISABLED)
   private Boolean disabled = false;
 
-  @SerializedName("id")
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  @SerializedName("name")
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public PaymentMethodIssuer() { 
+  }
 
   public PaymentMethodIssuer disabled(Boolean disabled) {
-
+    
     this.disabled = disabled;
     return this;
   }
@@ -41,6 +73,9 @@ public class PaymentMethodIssuer {
    * A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
    * @return disabled
   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A boolean value indicating whether this issuer is unavailable. Can be `true` whenever the issuer is offline.")
+
   public Boolean getDisabled() {
     return disabled;
   }
@@ -52,7 +87,7 @@ public class PaymentMethodIssuer {
 
 
   public PaymentMethodIssuer id(String id) {
-
+    
     this.id = id;
     return this;
   }
@@ -61,6 +96,9 @@ public class PaymentMethodIssuer {
    * The unique identifier of this issuer, to submit in requests to /payments.
    * @return id
   **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The unique identifier of this issuer, to submit in requests to /payments.")
+
   public String getId() {
     return id;
   }
@@ -72,7 +110,7 @@ public class PaymentMethodIssuer {
 
 
   public PaymentMethodIssuer name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -81,6 +119,9 @@ public class PaymentMethodIssuer {
    * A localized name of the issuer.
    * @return name
   **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "A localized name of the issuer.")
+
   public String getName() {
     return name;
   }
@@ -89,6 +130,7 @@ public class PaymentMethodIssuer {
   public void setName(String name) {
     this.name = name;
   }
+
 
 
   @Override
@@ -120,4 +162,119 @@ public class PaymentMethodIssuer {
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("disabled");
+    openapiFields.add("id");
+    openapiFields.add("name");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
+    openapiRequiredFields.add("name");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to PaymentMethodIssuer
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (PaymentMethodIssuer.openapiRequiredFields.isEmpty()) {
+          return;
+        } else { // has required fields
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentMethodIssuer is not found in the empty JSON string", PaymentMethodIssuer.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!PaymentMethodIssuer.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentMethodIssuer` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : PaymentMethodIssuer.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!PaymentMethodIssuer.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PaymentMethodIssuer' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<PaymentMethodIssuer> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentMethodIssuer.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<PaymentMethodIssuer>() {
+           @Override
+           public void write(JsonWriter out, PaymentMethodIssuer value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public PaymentMethodIssuer read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of PaymentMethodIssuer given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentMethodIssuer
+  * @throws IOException if the JSON string is invalid with respect to PaymentMethodIssuer
+  */
+  public static PaymentMethodIssuer fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentMethodIssuer.class);
+  }
+
+ /**
+  * Convert an instance of PaymentMethodIssuer to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
+

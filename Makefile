@@ -41,11 +41,11 @@ $(services): target/spec $(openapi-generator-jar)
 		--skip-validate-spec \
 		--model-package $(subst /,.,com.adyen.model.$@) \
 		--library $(library) \
-		--global-property models \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=legacy
 	mv $(output)/$(models)/$@ $(models)/$@
+	mv $(output)/$(models)/JSON.java $(models)/$@
 
 
 # Checkout spec (and patch version)
