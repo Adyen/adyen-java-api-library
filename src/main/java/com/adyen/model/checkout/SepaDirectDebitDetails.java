@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class SepaDirectDebitDetails {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_IBAN = "iban";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_IBAN = "iban";
   @SerializedName(SERIALIZED_NAME_IBAN)
   private String iban;
 

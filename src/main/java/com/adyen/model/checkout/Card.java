@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class Card {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CVC = "cvc";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_CVC = "cvc";
   @SerializedName(SERIALIZED_NAME_CVC)
   private String cvc;
 

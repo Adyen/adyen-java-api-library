@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class Installments {
-  private static final JSON JSON = new JSON();  /**
+  private static final JSON JSON = new JSON();
+
+  /**
    * The installment plan, used for [card installments in Japan](https://docs.adyen.com/payment-methods/cards/credit-card-installments#make-a-payment-japan). By default, this is set to **regular**. Possible values: * **regular** * **revolving** 
    */
   @JsonAdapter(PlanEnum.Adapter.class)

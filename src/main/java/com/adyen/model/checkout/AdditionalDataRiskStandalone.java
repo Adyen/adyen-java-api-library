@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataRiskStandalone {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_PAY_PAL_COUNTRY_CODE = "PayPal.CountryCode";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_PAY_PAL_COUNTRY_CODE = "PayPal.CountryCode";
   @SerializedName(SERIALIZED_NAME_PAY_PAL_COUNTRY_CODE)
   private String payPalCountryCode;
 

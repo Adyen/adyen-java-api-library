@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ThreeDS2ResponseData {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ACS_CHALLENGE_MANDATED = "acsChallengeMandated";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ACS_CHALLENGE_MANDATED = "acsChallengeMandated";
   @SerializedName(SERIALIZED_NAME_ACS_CHALLENGE_MANDATED)
   private String acsChallengeMandated;
 

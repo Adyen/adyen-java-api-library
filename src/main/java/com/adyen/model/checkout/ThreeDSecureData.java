@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ThreeDSecureData {
-  private static final JSON JSON = new JSON();  /**
+  private static final JSON JSON = new JSON();
+
+  /**
    * In 3D Secure 1, the authentication response if the shopper was redirected.  In 3D Secure 2, this is the &#x60;transStatus&#x60; from the challenge result. If the transaction was frictionless, omit this parameter.
    */
   @JsonAdapter(AuthenticationResponseEnum.Adapter.class)

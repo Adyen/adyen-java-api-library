@@ -50,7 +50,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class StoredDetails {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_BANK = "bank";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_BANK = "bank";
   @SerializedName(SERIALIZED_NAME_BANK)
   private BankAccount bank;
 

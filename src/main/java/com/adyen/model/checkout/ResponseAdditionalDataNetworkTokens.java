@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ResponseAdditionalDataNetworkTokens {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_NETWORK_TOKEN_AVAILABLE = "networkToken.available";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_NETWORK_TOKEN_AVAILABLE = "networkToken.available";
   @SerializedName(SERIALIZED_NAME_NETWORK_TOKEN_AVAILABLE)
   private String networkTokenAvailable;
 

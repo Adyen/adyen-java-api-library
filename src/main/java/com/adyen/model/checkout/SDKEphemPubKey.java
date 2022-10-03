@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class SDKEphemPubKey {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CRV = "crv";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_CRV = "crv";
   @SerializedName(SERIALIZED_NAME_CRV)
   private String crv;
 

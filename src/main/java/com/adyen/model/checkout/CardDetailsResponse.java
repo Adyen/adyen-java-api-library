@@ -51,7 +51,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CardDetailsResponse {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_BRANDS = "brands";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_BRANDS = "brands";
   @SerializedName(SERIALIZED_NAME_BRANDS)
   private List<CardBrandDetails> brands = null;
 

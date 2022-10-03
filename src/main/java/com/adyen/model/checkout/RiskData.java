@@ -51,7 +51,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class RiskData {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CLIENT_DATA = "clientData";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_CLIENT_DATA = "clientData";
   @SerializedName(SERIALIZED_NAME_CLIENT_DATA)
   private String clientData;
 

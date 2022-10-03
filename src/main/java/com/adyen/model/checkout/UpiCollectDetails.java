@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class UpiCollectDetails {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_BILLING_SEQUENCE_NUMBER = "billingSequenceNumber";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_BILLING_SEQUENCE_NUMBER = "billingSequenceNumber";
   @SerializedName(SERIALIZED_NAME_BILLING_SEQUENCE_NUMBER)
   private String billingSequenceNumber;
 

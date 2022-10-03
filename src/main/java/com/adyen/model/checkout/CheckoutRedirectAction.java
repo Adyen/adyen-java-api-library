@@ -51,7 +51,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CheckoutRedirectAction {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_DATA = "data";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private Map<String, String> data = null;
 

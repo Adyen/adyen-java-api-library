@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class MbwayDetails {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_SHOPPER_EMAIL = "shopperEmail";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_SHOPPER_EMAIL = "shopperEmail";
   @SerializedName(SERIALIZED_NAME_SHOPPER_EMAIL)
   private String shopperEmail;
 

@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ResponseAdditionalDataInstallments {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE = "installmentPaymentData.installmentType";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE = "installmentPaymentData.installmentType";
   @SerializedName(SERIALIZED_NAME_INSTALLMENT_PAYMENT_DATA_INSTALLMENT_TYPE)
   private String installmentPaymentDataInstallmentType;
 

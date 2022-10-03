@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataRetry {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_RETRY_CHAIN_ATTEMPT_NUMBER = "retry.chainAttemptNumber";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_RETRY_CHAIN_ATTEMPT_NUMBER = "retry.chainAttemptNumber";
   @SerializedName(SERIALIZED_NAME_RETRY_CHAIN_ATTEMPT_NUMBER)
   private String retryChainAttemptNumber;
 

@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class UpiIntentDetails {
-  private static final JSON JSON = new JSON();  /**
+  private static final JSON JSON = new JSON();
+
+  /**
    * **upi_intent**
    */
   @JsonAdapter(TypeEnum.Adapter.class)

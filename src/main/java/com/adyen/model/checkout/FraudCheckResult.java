@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class FraudCheckResult {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ACCOUNT_SCORE = "accountScore";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ACCOUNT_SCORE = "accountScore";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_SCORE)
   private Integer accountScore;
 

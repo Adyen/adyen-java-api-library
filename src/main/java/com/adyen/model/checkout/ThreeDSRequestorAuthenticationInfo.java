@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ThreeDSRequestorAuthenticationInfo {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_THREE_D_S_REQ_AUTH_DATA = "threeDSReqAuthData";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_THREE_D_S_REQ_AUTH_DATA = "threeDSReqAuthData";
   @SerializedName(SERIALIZED_NAME_THREE_D_S_REQ_AUTH_DATA)
   private String threeDSReqAuthData;
 

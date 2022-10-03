@@ -54,7 +54,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ThreeDS2RequestData {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ACCT_INFO = "acctInfo";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ACCT_INFO = "acctInfo";
   @SerializedName(SERIALIZED_NAME_ACCT_INFO)
   private AcctInfo acctInfo;
 

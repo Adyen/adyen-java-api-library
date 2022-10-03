@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class BlikDetails {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_BLIK_CODE = "blikCode";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_BLIK_CODE = "blikCode";
   @SerializedName(SERIALIZED_NAME_BLIK_CODE)
   private String blikCode;
 

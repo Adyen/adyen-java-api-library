@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ResponseAdditionalDataCard {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CARD_BIN = "cardBin";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_CARD_BIN = "cardBin";
   @SerializedName(SERIALIZED_NAME_CARD_BIN)
   private String cardBin;
 

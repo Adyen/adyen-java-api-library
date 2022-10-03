@@ -72,7 +72,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PaymentDonationRequest {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ACCOUNT_INFO = "accountInfo";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ACCOUNT_INFO = "accountInfo";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_INFO)
   private AccountInfo accountInfo;
 

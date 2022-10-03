@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataWallets {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ANDROIDPAY_TOKEN = "androidpay.token";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ANDROIDPAY_TOKEN = "androidpay.token";
   @SerializedName(SERIALIZED_NAME_ANDROIDPAY_TOKEN)
   private String androidpayToken;
 

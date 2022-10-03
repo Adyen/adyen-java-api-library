@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ResponseAdditionalDataSepa {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_SEPADIRECTDEBIT_DATE_OF_SIGNATURE = "sepadirectdebit.dateOfSignature";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_SEPADIRECTDEBIT_DATE_OF_SIGNATURE = "sepadirectdebit.dateOfSignature";
   @SerializedName(SERIALIZED_NAME_SEPADIRECTDEBIT_DATE_OF_SIGNATURE)
   private String sepadirectdebitDateOfSignature;
 

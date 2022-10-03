@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ResponseAdditionalDataBillingAddress {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_BILLING_ADDRESS_CITY = "billingAddress.city";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_BILLING_ADDRESS_CITY = "billingAddress.city";
   @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS_CITY)
   private String billingAddressCity;
 

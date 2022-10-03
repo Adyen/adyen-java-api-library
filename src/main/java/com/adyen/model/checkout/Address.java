@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class Address {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CITY = "city";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_CITY = "city";
   @SerializedName(SERIALIZED_NAME_CITY)
   private String city;
 

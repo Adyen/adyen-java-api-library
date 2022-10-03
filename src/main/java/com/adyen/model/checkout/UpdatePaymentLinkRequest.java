@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class UpdatePaymentLinkRequest {
-  private static final JSON JSON = new JSON();  /**
+  private static final JSON JSON = new JSON();
+
+  /**
    * Status of the payment link. Possible values: * **expired**
    */
   @JsonAdapter(StatusEnum.Adapter.class)

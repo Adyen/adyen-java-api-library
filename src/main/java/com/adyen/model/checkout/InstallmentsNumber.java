@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class InstallmentsNumber {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_MAX_NUMBER_OF_INSTALLMENTS = "maxNumberOfInstallments";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_MAX_NUMBER_OF_INSTALLMENTS = "maxNumberOfInstallments";
   @SerializedName(SERIALIZED_NAME_MAX_NUMBER_OF_INSTALLMENTS)
   private Integer maxNumberOfInstallments;
 

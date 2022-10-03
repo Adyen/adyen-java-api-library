@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ServiceError2 {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
   @SerializedName(SERIALIZED_NAME_ERROR_CODE)
   private String errorCode;
 

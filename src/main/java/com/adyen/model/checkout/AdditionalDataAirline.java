@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataAirline {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_AIRLINE_AGENCY_INVOICE_NUMBER = "airline.agency_invoice_number";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_AIRLINE_AGENCY_INVOICE_NUMBER = "airline.agency_invoice_number";
   @SerializedName(SERIALIZED_NAME_AIRLINE_AGENCY_INVOICE_NUMBER)
   private String airlineAgencyInvoiceNumber;
 

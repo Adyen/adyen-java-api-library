@@ -61,7 +61,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CreatePaymentLinkRequest {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ALLOWED_PAYMENT_METHODS = "allowedPaymentMethods";
   @SerializedName(SERIALIZED_NAME_ALLOWED_PAYMENT_METHODS)
   private List<String> allowedPaymentMethods = null;
 

@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ExternalPlatform {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_INTEGRATOR = "integrator";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_INTEGRATOR = "integrator";
   @SerializedName(SERIALIZED_NAME_INTEGRATOR)
   private String integrator;
 

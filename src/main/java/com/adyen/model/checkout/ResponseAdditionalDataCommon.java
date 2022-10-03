@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ResponseAdditionalDataCommon {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ACQUIRER_ACCOUNT_CODE = "acquirerAccountCode";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ACQUIRER_ACCOUNT_CODE = "acquirerAccountCode";
   @SerializedName(SERIALIZED_NAME_ACQUIRER_ACCOUNT_CODE)
   private String acquirerAccountCode;
 

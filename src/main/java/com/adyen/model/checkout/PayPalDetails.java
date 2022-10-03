@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PayPalDetails {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ORDER_I_D = "orderID";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_ORDER_I_D = "orderID";
   @SerializedName(SERIALIZED_NAME_ORDER_I_D)
   private String orderID;
 

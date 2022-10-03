@@ -51,7 +51,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PaymentSetupResponse {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_PAYMENT_SESSION = "paymentSession";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_PAYMENT_SESSION = "paymentSession";
   @SerializedName(SERIALIZED_NAME_PAYMENT_SESSION)
   private String paymentSession;
 

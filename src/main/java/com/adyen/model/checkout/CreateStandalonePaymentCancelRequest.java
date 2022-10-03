@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CreateStandalonePaymentCancelRequest {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_MERCHANT_ACCOUNT = "merchantAccount";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ACCOUNT)
   private String merchantAccount;
 

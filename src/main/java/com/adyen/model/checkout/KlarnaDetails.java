@@ -48,7 +48,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class KlarnaDetails {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
   @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
   private String billingAddress;
 

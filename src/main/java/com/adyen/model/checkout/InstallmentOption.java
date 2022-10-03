@@ -50,7 +50,9 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class InstallmentOption {
-  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_MAX_VALUE = "maxValue";
+  private static final JSON JSON = new JSON();
+
+  public static final String SERIALIZED_NAME_MAX_VALUE = "maxValue";
   @SerializedName(SERIALIZED_NAME_MAX_VALUE)
   private Integer maxValue;
 
