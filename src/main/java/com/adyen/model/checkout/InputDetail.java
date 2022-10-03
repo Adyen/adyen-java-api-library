@@ -54,7 +54,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class InputDetail {
-  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
   private Map<String, String> _configuration = null;
 

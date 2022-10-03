@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class Phone {
-  public static final String SERIALIZED_NAME_CC = "cc";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CC = "cc";
   @SerializedName(SERIALIZED_NAME_CC)
   private String cc;
 

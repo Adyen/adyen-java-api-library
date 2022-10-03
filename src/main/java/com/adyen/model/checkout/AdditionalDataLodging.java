@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataLodging {
-  public static final String SERIALIZED_NAME_LODGING_CHECK_IN_DATE = "lodging.checkInDate";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_LODGING_CHECK_IN_DATE = "lodging.checkInDate";
   @SerializedName(SERIALIZED_NAME_LODGING_CHECK_IN_DATE)
   private String lodgingCheckInDate;
 

@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PaymentVerificationRequest {
-  public static final String SERIALIZED_NAME_PAYLOAD = "payload";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_PAYLOAD = "payload";
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   private String payload;
 

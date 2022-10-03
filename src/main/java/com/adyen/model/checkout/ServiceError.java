@@ -51,7 +51,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ServiceError {
-  public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ADDITIONAL_DATA = "additionalData";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_DATA)
   private Map<String, String> additionalData = null;
 

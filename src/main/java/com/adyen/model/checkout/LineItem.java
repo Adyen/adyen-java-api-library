@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class LineItem {
-  public static final String SERIALIZED_NAME_AMOUNT_EXCLUDING_TAX = "amountExcludingTax";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_AMOUNT_EXCLUDING_TAX = "amountExcludingTax";
   @SerializedName(SERIALIZED_NAME_AMOUNT_EXCLUDING_TAX)
   private Long amountExcludingTax;
 

@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class Item {
-  public static final String SERIALIZED_NAME_ID = "id";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 

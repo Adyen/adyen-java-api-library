@@ -64,11 +64,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
-import com.adyen.model.JSON;
+import com.adyen.model.checkout.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-30T13:16:36.976585-05:00[America/Chicago]")
 public class PaymentResponseAction extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PaymentResponseAction.class.getName());
+    private static final JSON JSON = new JSON();
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")

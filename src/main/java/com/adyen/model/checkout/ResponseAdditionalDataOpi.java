@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ResponseAdditionalDataOpi {
-  public static final String SERIALIZED_NAME_OPI_TRANS_TOKEN = "opi.transToken";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_OPI_TRANS_TOKEN = "opi.transToken";
   @SerializedName(SERIALIZED_NAME_OPI_TRANS_TOKEN)
   private String opiTransToken;
 

@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AndroidPayDetails {
-  /**
+  private static final JSON JSON = new JSON();  /**
    * **androidpay**
    */
   @JsonAdapter(TypeEnum.Adapter.class)

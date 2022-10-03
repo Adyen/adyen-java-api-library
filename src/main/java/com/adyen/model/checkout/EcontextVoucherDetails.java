@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class EcontextVoucherDetails {
-  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
 

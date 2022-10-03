@@ -52,7 +52,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PaymentMethodsResponse {
-  public static final String SERIALIZED_NAME_PAYMENT_METHODS = "paymentMethods";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_PAYMENT_METHODS = "paymentMethods";
   @SerializedName(SERIALIZED_NAME_PAYMENT_METHODS)
   private List<PaymentMethod> paymentMethods = null;
 

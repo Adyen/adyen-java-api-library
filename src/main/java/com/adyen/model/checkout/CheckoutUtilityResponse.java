@@ -51,7 +51,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CheckoutUtilityResponse {
-  public static final String SERIALIZED_NAME_ORIGIN_KEYS = "originKeys";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ORIGIN_KEYS = "originKeys";
   @SerializedName(SERIALIZED_NAME_ORIGIN_KEYS)
   private Map<String, String> originKeys = null;
 

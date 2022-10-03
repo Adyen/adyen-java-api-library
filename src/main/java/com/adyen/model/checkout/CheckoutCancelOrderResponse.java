@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CheckoutCancelOrderResponse {
-  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_PSP_REFERENCE = "pspReference";
   @SerializedName(SERIALIZED_NAME_PSP_REFERENCE)
   private String pspReference;
 

@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AchDetails {
-  public static final String SERIALIZED_NAME_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_BANK_ACCOUNT_NUMBER = "bankAccountNumber";
   @SerializedName(SERIALIZED_NAME_BANK_ACCOUNT_NUMBER)
   private String bankAccountNumber;
 

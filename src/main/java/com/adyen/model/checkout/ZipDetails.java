@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ZipDetails {
-  public static final String SERIALIZED_NAME_CLICK_AND_COLLECT = "clickAndCollect";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CLICK_AND_COLLECT = "clickAndCollect";
   @SerializedName(SERIALIZED_NAME_CLICK_AND_COLLECT)
   private String clickAndCollect;
 

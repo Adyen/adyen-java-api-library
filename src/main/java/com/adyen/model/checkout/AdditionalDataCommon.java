@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataCommon {
-  public static final String SERIALIZED_NAME_REQUESTED_TEST_ERROR_RESPONSE_CODE = "RequestedTestErrorResponseCode";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_REQUESTED_TEST_ERROR_RESPONSE_CODE = "RequestedTestErrorResponseCode";
   @SerializedName(SERIALIZED_NAME_REQUESTED_TEST_ERROR_RESPONSE_CODE)
   private String requestedTestErrorResponseCode;
 

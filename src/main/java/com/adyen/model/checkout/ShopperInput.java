@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ShopperInput {
-  /**
+  private static final JSON JSON = new JSON();  /**
    * Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly
    */
   @JsonAdapter(BillingAddressEnum.Adapter.class)

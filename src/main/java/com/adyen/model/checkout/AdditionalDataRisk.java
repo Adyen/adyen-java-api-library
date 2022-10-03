@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataRisk {
-  public static final String SERIALIZED_NAME_RISKDATA_CUSTOM_FIELD_NAME = "riskdata.[customFieldName]";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_RISKDATA_CUSTOM_FIELD_NAME = "riskdata.[customFieldName]";
   @SerializedName(SERIALIZED_NAME_RISKDATA_CUSTOM_FIELD_NAME)
   private String riskdataCustomFieldName;
 

@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CheckoutQrCodeAction {
-  public static final String SERIALIZED_NAME_EXPIRES_AT = "expiresAt";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_EXPIRES_AT = "expiresAt";
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private String expiresAt;
 

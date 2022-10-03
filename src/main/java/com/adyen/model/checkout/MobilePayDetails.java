@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class MobilePayDetails {
-  /**
+  private static final JSON JSON = new JSON();  /**
    * **mobilepay**
    */
   @JsonAdapter(TypeEnum.Adapter.class)

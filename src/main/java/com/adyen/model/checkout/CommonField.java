@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CommonField {
-  public static final String SERIALIZED_NAME_NAME = "name";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 

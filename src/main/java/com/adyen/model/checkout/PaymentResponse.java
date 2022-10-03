@@ -58,7 +58,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PaymentResponse {
-  public static final String SERIALIZED_NAME_ACTION = "action";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
   private PaymentResponseAction action;
 

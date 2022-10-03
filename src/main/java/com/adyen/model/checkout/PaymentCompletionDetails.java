@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PaymentCompletionDetails {
-  public static final String SERIALIZED_NAME_M_D = "MD";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_M_D = "MD";
   @SerializedName(SERIALIZED_NAME_M_D)
   private String MD;
 

@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class BrowserInfo {
-  public static final String SERIALIZED_NAME_ACCEPT_HEADER = "acceptHeader";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ACCEPT_HEADER = "acceptHeader";
   @SerializedName(SERIALIZED_NAME_ACCEPT_HEADER)
   private String acceptHeader;
 

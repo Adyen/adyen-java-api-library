@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class Amount {
-  public static final String SERIALIZED_NAME_CURRENCY = "currency";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 

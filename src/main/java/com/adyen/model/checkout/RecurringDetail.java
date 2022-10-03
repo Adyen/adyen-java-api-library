@@ -56,7 +56,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class RecurringDetail {
-  public static final String SERIALIZED_NAME_BRAND = "brand";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_BRAND = "brand";
   @SerializedName(SERIALIZED_NAME_BRAND)
   private String brand;
 

@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataOpenInvoice {
-  public static final String SERIALIZED_NAME_OPENINVOICEDATA_MERCHANT_DATA = "openinvoicedata.merchantData";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_OPENINVOICEDATA_MERCHANT_DATA = "openinvoicedata.merchantData";
   @SerializedName(SERIALIZED_NAME_OPENINVOICEDATA_MERCHANT_DATA)
   private String openinvoicedataMerchantData;
 

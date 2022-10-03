@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class WeChatPayDetails {
-  /**
+  private static final JSON JSON = new JSON();  /**
    * **wechatpay**
    */
   @JsonAdapter(TypeEnum.Adapter.class)

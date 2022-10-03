@@ -50,7 +50,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CheckoutSessionInstallmentOption {
-  /**
+  private static final JSON JSON = new JSON();  /**
    * Gets or Sets plans
    */
   @JsonAdapter(PlansEnum.Adapter.class)

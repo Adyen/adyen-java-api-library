@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CheckoutOrder {
-  public static final String SERIALIZED_NAME_ORDER_DATA = "orderData";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ORDER_DATA = "orderData";
   @SerializedName(SERIALIZED_NAME_ORDER_DATA)
   private String orderData;
 

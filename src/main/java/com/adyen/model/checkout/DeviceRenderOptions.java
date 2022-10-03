@@ -50,7 +50,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class DeviceRenderOptions {
-  /**
+  private static final JSON JSON = new JSON();  /**
    * Supported SDK interface types. Allowed values: * native * html * both
    */
   @JsonAdapter(SdkInterfaceEnum.Adapter.class)

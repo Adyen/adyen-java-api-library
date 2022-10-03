@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalData3DSecure {
-  public static final String SERIALIZED_NAME_ALLOW3_D_S2 = "allow3DS2";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ALLOW3_D_S2 = "allow3DS2";
   @SerializedName(SERIALIZED_NAME_ALLOW3_D_S2)
   private String allow3DS2;
 

@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class ResponseAdditionalData3DSecure {
-  public static final String SERIALIZED_NAME_CARD_HOLDER_INFO = "cardHolderInfo";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CARD_HOLDER_INFO = "cardHolderInfo";
   @SerializedName(SERIALIZED_NAME_CARD_HOLDER_INFO)
   private String cardHolderInfo;
 

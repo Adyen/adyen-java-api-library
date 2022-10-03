@@ -49,7 +49,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AccountInfo {
-  /**
+  private static final JSON JSON = new JSON();  /**
    * Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    */
   @JsonAdapter(AccountAgeIndicatorEnum.Adapter.class)

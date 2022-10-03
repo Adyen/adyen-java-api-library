@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class WeChatPayMiniProgramDetails {
-  public static final String SERIALIZED_NAME_APP_ID = "appId";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_APP_ID = "appId";
   @SerializedName(SERIALIZED_NAME_APP_ID)
   private String appId;
 

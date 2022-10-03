@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CheckoutThreeDS2Action {
-  public static final String SERIALIZED_NAME_AUTHORISATION_TOKEN = "authorisationToken";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_AUTHORISATION_TOKEN = "authorisationToken";
   @SerializedName(SERIALIZED_NAME_AUTHORISATION_TOKEN)
   private String authorisationToken;
 

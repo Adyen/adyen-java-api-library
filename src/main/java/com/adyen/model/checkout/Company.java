@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class Company {
-  public static final String SERIALIZED_NAME_HOMEPAGE = "homepage";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_HOMEPAGE = "homepage";
   @SerializedName(SERIALIZED_NAME_HOMEPAGE)
   private String homepage;
 

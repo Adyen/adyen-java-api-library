@@ -50,7 +50,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CheckoutUtilityRequest {
-  public static final String SERIALIZED_NAME_ORIGIN_DOMAINS = "originDomains";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ORIGIN_DOMAINS = "originDomains";
   @SerializedName(SERIALIZED_NAME_ORIGIN_DOMAINS)
   private List<String> originDomains = new ArrayList<>();
 

@@ -50,7 +50,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CardDetailsRequest {
-  public static final String SERIALIZED_NAME_CARD_NUMBER = "cardNumber";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_CARD_NUMBER = "cardNumber";
   @SerializedName(SERIALIZED_NAME_CARD_NUMBER)
   private String cardNumber;
 

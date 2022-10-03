@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PaymentDetails {
-  /**
+  private static final JSON JSON = new JSON();  /**
    * The payment method type.
    */
   @JsonAdapter(TypeEnum.Adapter.class)

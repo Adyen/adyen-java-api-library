@@ -50,7 +50,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class DonationResponse {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private Amount amount;
 

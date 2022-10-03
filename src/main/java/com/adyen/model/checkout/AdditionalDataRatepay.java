@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataRatepay {
-  public static final String SERIALIZED_NAME_RATEPAY_INSTALLMENT_AMOUNT = "ratepay.installmentAmount";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_RATEPAY_INSTALLMENT_AMOUNT = "ratepay.installmentAmount";
   @SerializedName(SERIALIZED_NAME_RATEPAY_INSTALLMENT_AMOUNT)
   private String ratepayInstallmentAmount;
 

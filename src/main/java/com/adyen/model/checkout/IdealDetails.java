@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class IdealDetails {
-  public static final String SERIALIZED_NAME_ISSUER = "issuer";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
 

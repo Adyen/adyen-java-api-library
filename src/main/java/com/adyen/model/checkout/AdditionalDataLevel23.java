@@ -48,7 +48,7 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AdditionalDataLevel23 {
-  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE = "enhancedSchemeData.customerReference";
+  private static final JSON JSON = new JSON();  public static final String SERIALIZED_NAME_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE = "enhancedSchemeData.customerReference";
   @SerializedName(SERIALIZED_NAME_ENHANCED_SCHEME_DATA_CUSTOMER_REFERENCE)
   private String enhancedSchemeDataCustomerReference;
 
