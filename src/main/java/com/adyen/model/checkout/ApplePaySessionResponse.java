@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ApplePaySessionResponse
  */
@@ -157,6 +159,7 @@ public class ApplePaySessionResponse {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field data
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data").toString()));
       }
@@ -191,5 +194,24 @@ public class ApplePaySessionResponse {
     }
   }
 
+ /**
+  * Create an instance of ApplePaySessionResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ApplePaySessionResponse
+  * @throws IOException if the JSON string is invalid with respect to ApplePaySessionResponse
+  */
+  public static ApplePaySessionResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApplePaySessionResponse.class);
+  }
+
+ /**
+  * Convert an instance of ApplePaySessionResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

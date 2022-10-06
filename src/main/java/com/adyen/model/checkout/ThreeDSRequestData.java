@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ThreeDSRequestData
  */
@@ -354,14 +356,26 @@ public class ThreeDSRequestData {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSRequestData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("challengeWindowSize") != null && !jsonObj.get("challengeWindowSize").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `challengeWindowSize` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeWindowSize").toString()));
+      // ensure the field challengeWindowSize can be parsed to an enum value
+      if (jsonObj.get("challengeWindowSize") != null) {
+        if(!jsonObj.get("challengeWindowSize").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `challengeWindowSize` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeWindowSize").toString()));
+        }
+        ChallengeWindowSizeEnum.fromValue(jsonObj.get("challengeWindowSize").getAsString());
       }
-      if (jsonObj.get("nativeThreeDS") != null && !jsonObj.get("nativeThreeDS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nativeThreeDS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nativeThreeDS").toString()));
+      // ensure the field nativeThreeDS can be parsed to an enum value
+      if (jsonObj.get("nativeThreeDS") != null) {
+        if(!jsonObj.get("nativeThreeDS").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `nativeThreeDS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nativeThreeDS").toString()));
+        }
+        NativeThreeDSEnum.fromValue(jsonObj.get("nativeThreeDS").getAsString());
       }
-      if (jsonObj.get("threeDSVersion") != null && !jsonObj.get("threeDSVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSVersion").toString()));
+      // ensure the field threeDSVersion can be parsed to an enum value
+      if (jsonObj.get("threeDSVersion") != null) {
+        if(!jsonObj.get("threeDSVersion").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `threeDSVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSVersion").toString()));
+        }
+        ThreeDSVersionEnum.fromValue(jsonObj.get("threeDSVersion").getAsString());
       }
   }
 
@@ -394,5 +408,24 @@ public class ThreeDSRequestData {
     }
   }
 
+ /**
+  * Create an instance of ThreeDSRequestData given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ThreeDSRequestData
+  * @throws IOException if the JSON string is invalid with respect to ThreeDSRequestData
+  */
+  public static ThreeDSRequestData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDSRequestData.class);
+  }
+
+ /**
+  * Convert an instance of ThreeDSRequestData to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

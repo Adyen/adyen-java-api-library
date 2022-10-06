@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * PaymentVerificationRequest
  */
@@ -157,6 +159,7 @@ public class PaymentVerificationRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field payload
       if (jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));
       }
@@ -191,5 +194,24 @@ public class PaymentVerificationRequest {
     }
   }
 
+ /**
+  * Create an instance of PaymentVerificationRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentVerificationRequest
+  * @throws IOException if the JSON string is invalid with respect to PaymentVerificationRequest
+  */
+  public static PaymentVerificationRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentVerificationRequest.class);
+  }
+
+ /**
+  * Convert an instance of PaymentVerificationRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

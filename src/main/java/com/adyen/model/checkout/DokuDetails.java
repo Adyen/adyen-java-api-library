@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * DokuDetails
  */
@@ -311,17 +313,24 @@ public class DokuDetails {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field firstName
       if (jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
       }
+      // validate the optional field lastName
       if (jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
       }
+      // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -354,5 +363,24 @@ public class DokuDetails {
     }
   }
 
+ /**
+  * Create an instance of DokuDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DokuDetails
+  * @throws IOException if the JSON string is invalid with respect to DokuDetails
+  */
+  public static DokuDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DokuDetails.class);
+  }
+
+ /**
+  * Convert an instance of DokuDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

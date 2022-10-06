@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ResponsePaymentMethod
  */
@@ -179,9 +181,11 @@ public class ResponsePaymentMethod {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponsePaymentMethod` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field brand
       if (jsonObj.get("brand") != null && !jsonObj.get("brand").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brand").toString()));
       }
+      // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -216,5 +220,24 @@ public class ResponsePaymentMethod {
     }
   }
 
+ /**
+  * Create an instance of ResponsePaymentMethod given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ResponsePaymentMethod
+  * @throws IOException if the JSON string is invalid with respect to ResponsePaymentMethod
+  */
+  public static ResponsePaymentMethod fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ResponsePaymentMethod.class);
+  }
+
+ /**
+  * Convert an instance of ResponsePaymentMethod to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * DragonpayDetails
  */
@@ -269,14 +271,20 @@ public class DragonpayDetails {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field issuer
       if (jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
       }
+      // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -309,5 +317,24 @@ public class DragonpayDetails {
     }
   }
 
+ /**
+  * Create an instance of DragonpayDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DragonpayDetails
+  * @throws IOException if the JSON string is invalid with respect to DragonpayDetails
+  */
+  public static DragonpayDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DragonpayDetails.class);
+  }
+
+ /**
+  * Convert an instance of DragonpayDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

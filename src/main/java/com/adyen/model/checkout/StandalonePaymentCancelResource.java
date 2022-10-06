@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * StandalonePaymentCancelResource
  */
@@ -325,20 +327,28 @@ public class StandalonePaymentCancelResource {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field paymentReference
       if (jsonObj.get("paymentReference") != null && !jsonObj.get("paymentReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentReference").toString()));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      // ensure the field status can be parsed to an enum value
+      if (jsonObj.get("status") != null) {
+        if(!jsonObj.get("status").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        }
+        StatusEnum.fromValue(jsonObj.get("status").getAsString());
       }
   }
 
@@ -371,5 +381,24 @@ public class StandalonePaymentCancelResource {
     }
   }
 
+ /**
+  * Create an instance of StandalonePaymentCancelResource given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StandalonePaymentCancelResource
+  * @throws IOException if the JSON string is invalid with respect to StandalonePaymentCancelResource
+  */
+  public static StandalonePaymentCancelResource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StandalonePaymentCancelResource.class);
+  }
+
+ /**
+  * Convert an instance of StandalonePaymentCancelResource to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

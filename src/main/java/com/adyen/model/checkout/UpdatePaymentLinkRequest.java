@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * UpdatePaymentLinkRequest
  */
@@ -202,8 +204,12 @@ public class UpdatePaymentLinkRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      // ensure the field status can be parsed to an enum value
+      if (jsonObj.get("status") != null) {
+        if(!jsonObj.get("status").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        }
+        StatusEnum.fromValue(jsonObj.get("status").getAsString());
       }
   }
 
@@ -236,5 +242,24 @@ public class UpdatePaymentLinkRequest {
     }
   }
 
+ /**
+  * Create an instance of UpdatePaymentLinkRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of UpdatePaymentLinkRequest
+  * @throws IOException if the JSON string is invalid with respect to UpdatePaymentLinkRequest
+  */
+  public static UpdatePaymentLinkRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdatePaymentLinkRequest.class);
+  }
+
+ /**
+  * Convert an instance of UpdatePaymentLinkRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

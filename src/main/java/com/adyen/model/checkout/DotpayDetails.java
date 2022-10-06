@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * DotpayDetails
  */
@@ -232,11 +234,16 @@ public class DotpayDetails {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field issuer
       if (jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -269,5 +276,24 @@ public class DotpayDetails {
     }
   }
 
+ /**
+  * Create an instance of DotpayDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DotpayDetails
+  * @throws IOException if the JSON string is invalid with respect to DotpayDetails
+  */
+  public static DotpayDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DotpayDetails.class);
+  }
+
+ /**
+  * Convert an instance of DotpayDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

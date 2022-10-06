@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ResponseAdditionalData3DSecure
  */
@@ -269,15 +271,19 @@ public class ResponseAdditionalData3DSecure {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalData3DSecure` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field cardHolderInfo
       if (jsonObj.get("cardHolderInfo") != null && !jsonObj.get("cardHolderInfo").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardHolderInfo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardHolderInfo").toString()));
       }
+      // validate the optional field cavv
       if (jsonObj.get("cavv") != null && !jsonObj.get("cavv").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cavv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavv").toString()));
       }
+      // validate the optional field cavvAlgorithm
       if (jsonObj.get("cavvAlgorithm") != null && !jsonObj.get("cavvAlgorithm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cavvAlgorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavvAlgorithm").toString()));
       }
+      // validate the optional field scaExemptionRequested
       if (jsonObj.get("scaExemptionRequested") != null && !jsonObj.get("scaExemptionRequested").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `scaExemptionRequested` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scaExemptionRequested").toString()));
       }
@@ -312,5 +318,24 @@ public class ResponseAdditionalData3DSecure {
     }
   }
 
+ /**
+  * Create an instance of ResponseAdditionalData3DSecure given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ResponseAdditionalData3DSecure
+  * @throws IOException if the JSON string is invalid with respect to ResponseAdditionalData3DSecure
+  */
+  public static ResponseAdditionalData3DSecure fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ResponseAdditionalData3DSecure.class);
+  }
+
+ /**
+  * Convert an instance of ResponseAdditionalData3DSecure to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * Avs
  */
@@ -228,8 +230,12 @@ public class Avs {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Avs` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("enabled") != null && !jsonObj.get("enabled").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enabled` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enabled").toString()));
+      // ensure the field enabled can be parsed to an enum value
+      if (jsonObj.get("enabled") != null) {
+        if(!jsonObj.get("enabled").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `enabled` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enabled").toString()));
+        }
+        EnabledEnum.fromValue(jsonObj.get("enabled").getAsString());
       }
   }
 
@@ -262,5 +268,24 @@ public class Avs {
     }
   }
 
+ /**
+  * Create an instance of Avs given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Avs
+  * @throws IOException if the JSON string is invalid with respect to Avs
+  */
+  public static Avs fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Avs.class);
+  }
+
+ /**
+  * Convert an instance of Avs to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

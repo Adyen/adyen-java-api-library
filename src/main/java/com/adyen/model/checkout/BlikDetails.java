@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * BlikDetails
  */
@@ -286,17 +288,24 @@ public class BlikDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BlikDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field blikCode
       if (jsonObj.get("blikCode") != null && !jsonObj.get("blikCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `blikCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blikCode").toString()));
       }
+      // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
       }
+      // validate the optional field storedPaymentMethodId
       if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -329,5 +338,24 @@ public class BlikDetails {
     }
   }
 
+ /**
+  * Create an instance of BlikDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of BlikDetails
+  * @throws IOException if the JSON string is invalid with respect to BlikDetails
+  */
+  public static BlikDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BlikDetails.class);
+  }
+
+ /**
+  * Convert an instance of BlikDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

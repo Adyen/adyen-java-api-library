@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ResponseAdditionalDataSepa
  */
@@ -209,12 +211,15 @@ public class ResponseAdditionalDataSepa {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataSepa` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field sepadirectdebit.dateOfSignature
       if (jsonObj.get("sepadirectdebit.dateOfSignature") != null && !jsonObj.get("sepadirectdebit.dateOfSignature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.dateOfSignature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.dateOfSignature").toString()));
       }
+      // validate the optional field sepadirectdebit.mandateId
       if (jsonObj.get("sepadirectdebit.mandateId") != null && !jsonObj.get("sepadirectdebit.mandateId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.mandateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.mandateId").toString()));
       }
+      // validate the optional field sepadirectdebit.sequenceType
       if (jsonObj.get("sepadirectdebit.sequenceType") != null && !jsonObj.get("sepadirectdebit.sequenceType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.sequenceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.sequenceType").toString()));
       }
@@ -249,5 +254,24 @@ public class ResponseAdditionalDataSepa {
     }
   }
 
+ /**
+  * Create an instance of ResponseAdditionalDataSepa given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ResponseAdditionalDataSepa
+  * @throws IOException if the JSON string is invalid with respect to ResponseAdditionalDataSepa
+  */
+  public static ResponseAdditionalDataSepa fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ResponseAdditionalDataSepa.class);
+  }
+
+ /**
+  * Convert an instance of ResponseAdditionalDataSepa to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

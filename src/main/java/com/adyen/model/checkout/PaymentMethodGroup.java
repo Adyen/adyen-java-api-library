@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * PaymentMethodGroup
  */
@@ -209,12 +211,15 @@ public class PaymentMethodGroup {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentMethodGroup` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      // validate the optional field paymentMethodData
       if (jsonObj.get("paymentMethodData") != null && !jsonObj.get("paymentMethodData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentMethodData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentMethodData").toString()));
       }
+      // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -249,5 +254,24 @@ public class PaymentMethodGroup {
     }
   }
 
+ /**
+  * Create an instance of PaymentMethodGroup given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentMethodGroup
+  * @throws IOException if the JSON string is invalid with respect to PaymentMethodGroup
+  */
+  public static PaymentMethodGroup fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentMethodGroup.class);
+  }
+
+ /**
+  * Convert an instance of PaymentMethodGroup to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

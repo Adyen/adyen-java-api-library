@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ThreeDS2ResponseData
  */
@@ -689,60 +691,79 @@ public class ThreeDS2ResponseData {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2ResponseData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field acsChallengeMandated
       if (jsonObj.get("acsChallengeMandated") != null && !jsonObj.get("acsChallengeMandated").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acsChallengeMandated` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsChallengeMandated").toString()));
       }
+      // validate the optional field acsOperatorID
       if (jsonObj.get("acsOperatorID") != null && !jsonObj.get("acsOperatorID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acsOperatorID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsOperatorID").toString()));
       }
+      // validate the optional field acsReferenceNumber
       if (jsonObj.get("acsReferenceNumber") != null && !jsonObj.get("acsReferenceNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acsReferenceNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsReferenceNumber").toString()));
       }
+      // validate the optional field acsSignedContent
       if (jsonObj.get("acsSignedContent") != null && !jsonObj.get("acsSignedContent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acsSignedContent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsSignedContent").toString()));
       }
+      // validate the optional field acsTransID
       if (jsonObj.get("acsTransID") != null && !jsonObj.get("acsTransID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acsTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsTransID").toString()));
       }
+      // validate the optional field acsURL
       if (jsonObj.get("acsURL") != null && !jsonObj.get("acsURL").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acsURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acsURL").toString()));
       }
+      // validate the optional field authenticationType
       if (jsonObj.get("authenticationType") != null && !jsonObj.get("authenticationType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authenticationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authenticationType").toString()));
       }
+      // validate the optional field cardHolderInfo
       if (jsonObj.get("cardHolderInfo") != null && !jsonObj.get("cardHolderInfo").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardHolderInfo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardHolderInfo").toString()));
       }
+      // validate the optional field cavvAlgorithm
       if (jsonObj.get("cavvAlgorithm") != null && !jsonObj.get("cavvAlgorithm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cavvAlgorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavvAlgorithm").toString()));
       }
+      // validate the optional field challengeIndicator
       if (jsonObj.get("challengeIndicator") != null && !jsonObj.get("challengeIndicator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `challengeIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeIndicator").toString()));
       }
+      // validate the optional field dsReferenceNumber
       if (jsonObj.get("dsReferenceNumber") != null && !jsonObj.get("dsReferenceNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dsReferenceNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dsReferenceNumber").toString()));
       }
+      // validate the optional field dsTransID
       if (jsonObj.get("dsTransID") != null && !jsonObj.get("dsTransID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dsTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dsTransID").toString()));
       }
+      // validate the optional field exemptionIndicator
       if (jsonObj.get("exemptionIndicator") != null && !jsonObj.get("exemptionIndicator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `exemptionIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exemptionIndicator").toString()));
       }
+      // validate the optional field messageVersion
       if (jsonObj.get("messageVersion") != null && !jsonObj.get("messageVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `messageVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("messageVersion").toString()));
       }
+      // validate the optional field riskScore
       if (jsonObj.get("riskScore") != null && !jsonObj.get("riskScore").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskScore` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskScore").toString()));
       }
+      // validate the optional field sdkEphemPubKey
       if (jsonObj.get("sdkEphemPubKey") != null && !jsonObj.get("sdkEphemPubKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sdkEphemPubKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkEphemPubKey").toString()));
       }
+      // validate the optional field threeDSServerTransID
       if (jsonObj.get("threeDSServerTransID") != null && !jsonObj.get("threeDSServerTransID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSServerTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSServerTransID").toString()));
       }
+      // validate the optional field transStatus
       if (jsonObj.get("transStatus") != null && !jsonObj.get("transStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transStatus").toString()));
       }
+      // validate the optional field transStatusReason
       if (jsonObj.get("transStatusReason") != null && !jsonObj.get("transStatusReason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transStatusReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transStatusReason").toString()));
       }
@@ -777,5 +798,24 @@ public class ThreeDS2ResponseData {
     }
   }
 
+ /**
+  * Create an instance of ThreeDS2ResponseData given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ThreeDS2ResponseData
+  * @throws IOException if the JSON string is invalid with respect to ThreeDS2ResponseData
+  */
+  public static ThreeDS2ResponseData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDS2ResponseData.class);
+  }
+
+ /**
+  * Convert an instance of ThreeDS2ResponseData to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

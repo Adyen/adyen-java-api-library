@@ -43,6 +43,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CardDetailsRequest
  */
@@ -258,12 +260,15 @@ public class CardDetailsRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field cardNumber
       if (jsonObj.get("cardNumber") != null && !jsonObj.get("cardNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardNumber").toString()));
       }
+      // validate the optional field countryCode
       if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
@@ -302,5 +307,24 @@ public class CardDetailsRequest {
     }
   }
 
+ /**
+  * Create an instance of CardDetailsRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CardDetailsRequest
+  * @throws IOException if the JSON string is invalid with respect to CardDetailsRequest
+  */
+  public static CardDetailsRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CardDetailsRequest.class);
+  }
+
+ /**
+  * Convert an instance of CardDetailsRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * AuthenticationData
  */
@@ -259,8 +261,12 @@ public class AuthenticationData {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthenticationData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("attemptAuthentication") != null && !jsonObj.get("attemptAuthentication").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attemptAuthentication` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attemptAuthentication").toString()));
+      // ensure the field attemptAuthentication can be parsed to an enum value
+      if (jsonObj.get("attemptAuthentication") != null) {
+        if(!jsonObj.get("attemptAuthentication").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `attemptAuthentication` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attemptAuthentication").toString()));
+        }
+        AttemptAuthenticationEnum.fromValue(jsonObj.get("attemptAuthentication").getAsString());
       }
       // validate the optional field `threeDSRequestData`
       if (jsonObj.getAsJsonObject("threeDSRequestData") != null) {
@@ -297,5 +303,24 @@ public class AuthenticationData {
     }
   }
 
+ /**
+  * Create an instance of AuthenticationData given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AuthenticationData
+  * @throws IOException if the JSON string is invalid with respect to AuthenticationData
+  */
+  public static AuthenticationData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AuthenticationData.class);
+  }
+
+ /**
+  * Convert an instance of AuthenticationData to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -45,6 +45,7 @@ $(services): target/spec $(openapi-generator-jar)
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=legacy
 	mv $(output)/$(models)/$@ $(models)/$@
+	mv $(output)/$(models)/JSON.java $(models)/$@
 
 
 # Checkout spec (and patch version)

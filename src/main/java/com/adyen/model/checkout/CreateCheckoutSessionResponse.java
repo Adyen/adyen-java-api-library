@@ -59,6 +59,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CreateCheckoutSessionResponse
  */
@@ -1976,13 +1978,18 @@ public class CreateCheckoutSessionResponse {
       if (jsonObj.get("blockedPaymentMethods") != null && !jsonObj.get("blockedPaymentMethods").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `blockedPaymentMethods` to be an array in the JSON string but got `%s`", jsonObj.get("blockedPaymentMethods").toString()));
       }
-      if (jsonObj.get("channel") != null && !jsonObj.get("channel").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("channel").toString()));
+      // ensure the field channel can be parsed to an enum value
+      if (jsonObj.get("channel") != null) {
+        if(!jsonObj.get("channel").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("channel").toString()));
+        }
+        ChannelEnum.fromValue(jsonObj.get("channel").getAsString());
       }
       // validate the optional field `company`
       if (jsonObj.getAsJsonObject("company") != null) {
         Company.validateJsonObject(jsonObj.getAsJsonObject("company"));
       }
+      // validate the optional field countryCode
       if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
@@ -1990,6 +1997,7 @@ public class CreateCheckoutSessionResponse {
       if (jsonObj.getAsJsonObject("deliveryAddress") != null) {
         Address.validateJsonObject(jsonObj.getAsJsonObject("deliveryAddress"));
       }
+      // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -2009,12 +2017,15 @@ public class CreateCheckoutSessionResponse {
       if (jsonObj.getAsJsonObject("mandate") != null) {
         Mandate.validateJsonObject(jsonObj.getAsJsonObject("mandate"));
       }
+      // validate the optional field mcc
       if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field merchantOrderReference
       if (jsonObj.get("merchantOrderReference") != null && !jsonObj.get("merchantOrderReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantOrderReference").toString()));
       }
@@ -2022,24 +2033,34 @@ public class CreateCheckoutSessionResponse {
       if (jsonObj.getAsJsonObject("mpiData") != null) {
         ThreeDSecureData.validateJsonObject(jsonObj.getAsJsonObject("mpiData"));
       }
+      // validate the optional field recurringExpiry
       if (jsonObj.get("recurringExpiry") != null && !jsonObj.get("recurringExpiry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringExpiry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringExpiry").toString()));
       }
+      // validate the optional field recurringFrequency
       if (jsonObj.get("recurringFrequency") != null && !jsonObj.get("recurringFrequency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringFrequency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringFrequency").toString()));
       }
-      if (jsonObj.get("recurringProcessingModel") != null && !jsonObj.get("recurringProcessingModel").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recurringProcessingModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringProcessingModel").toString()));
+      // ensure the field recurringProcessingModel can be parsed to an enum value
+      if (jsonObj.get("recurringProcessingModel") != null) {
+        if(!jsonObj.get("recurringProcessingModel").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `recurringProcessingModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringProcessingModel").toString()));
+        }
+        RecurringProcessingModelEnum.fromValue(jsonObj.get("recurringProcessingModel").getAsString());
       }
+      // validate the optional field redirectFromIssuerMethod
       if (jsonObj.get("redirectFromIssuerMethod") != null && !jsonObj.get("redirectFromIssuerMethod").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `redirectFromIssuerMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirectFromIssuerMethod").toString()));
       }
+      // validate the optional field redirectToIssuerMethod
       if (jsonObj.get("redirectToIssuerMethod") != null && !jsonObj.get("redirectToIssuerMethod").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `redirectToIssuerMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirectToIssuerMethod").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
+      // validate the optional field returnUrl
       if (jsonObj.get("returnUrl") != null && !jsonObj.get("returnUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `returnUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("returnUrl").toString()));
       }
@@ -2047,18 +2068,26 @@ public class CreateCheckoutSessionResponse {
       if (jsonObj.getAsJsonObject("riskData") != null) {
         RiskData.validateJsonObject(jsonObj.getAsJsonObject("riskData"));
       }
+      // validate the optional field sessionData
       if (jsonObj.get("sessionData") != null && !jsonObj.get("sessionData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sessionData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionData").toString()));
       }
+      // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
+      // validate the optional field shopperIP
       if (jsonObj.get("shopperIP") != null && !jsonObj.get("shopperIP").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperIP").toString()));
       }
-      if (jsonObj.get("shopperInteraction") != null && !jsonObj.get("shopperInteraction").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
+      // ensure the field shopperInteraction can be parsed to an enum value
+      if (jsonObj.get("shopperInteraction") != null) {
+        if(!jsonObj.get("shopperInteraction").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
+        }
+        ShopperInteractionEnum.fromValue(jsonObj.get("shopperInteraction").getAsString());
       }
+      // validate the optional field shopperLocale
       if (jsonObj.get("shopperLocale") != null && !jsonObj.get("shopperLocale").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperLocale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperLocale").toString()));
       }
@@ -2066,12 +2095,15 @@ public class CreateCheckoutSessionResponse {
       if (jsonObj.getAsJsonObject("shopperName") != null) {
         Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
       }
+      // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
+      // validate the optional field shopperStatement
       if (jsonObj.get("shopperStatement") != null && !jsonObj.get("shopperStatement").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
       }
+      // validate the optional field socialSecurityNumber
       if (jsonObj.get("socialSecurityNumber") != null && !jsonObj.get("socialSecurityNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `socialSecurityNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialSecurityNumber").toString()));
       }
@@ -2087,9 +2119,11 @@ public class CreateCheckoutSessionResponse {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
       }
+      // validate the optional field telephoneNumber
       if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
       }
@@ -2124,5 +2158,24 @@ public class CreateCheckoutSessionResponse {
     }
   }
 
+ /**
+  * Create an instance of CreateCheckoutSessionResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CreateCheckoutSessionResponse
+  * @throws IOException if the JSON string is invalid with respect to CreateCheckoutSessionResponse
+  */
+  public static CreateCheckoutSessionResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateCheckoutSessionResponse.class);
+  }
+
+ /**
+  * Convert an instance of CreateCheckoutSessionResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

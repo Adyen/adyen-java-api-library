@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CheckoutCancelOrderResponse
  */
@@ -233,11 +235,16 @@ public class CheckoutCancelOrderResponse {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
-      if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+      // ensure the field resultCode can be parsed to an enum value
+      if (jsonObj.get("resultCode") != null) {
+        if(!jsonObj.get("resultCode").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+        }
+        ResultCodeEnum.fromValue(jsonObj.get("resultCode").getAsString());
       }
   }
 
@@ -270,5 +277,24 @@ public class CheckoutCancelOrderResponse {
     }
   }
 
+ /**
+  * Create an instance of CheckoutCancelOrderResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CheckoutCancelOrderResponse
+  * @throws IOException if the JSON string is invalid with respect to CheckoutCancelOrderResponse
+  */
+  public static CheckoutCancelOrderResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CheckoutCancelOrderResponse.class);
+  }
+
+ /**
+  * Convert an instance of CheckoutCancelOrderResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

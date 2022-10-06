@@ -45,6 +45,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * PaymentMethodsResponse
  */
@@ -254,5 +256,24 @@ public class PaymentMethodsResponse {
     }
   }
 
+ /**
+  * Create an instance of PaymentMethodsResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentMethodsResponse
+  * @throws IOException if the JSON string is invalid with respect to PaymentMethodsResponse
+  */
+  public static PaymentMethodsResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentMethodsResponse.class);
+  }
+
+ /**
+  * Convert an instance of PaymentMethodsResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

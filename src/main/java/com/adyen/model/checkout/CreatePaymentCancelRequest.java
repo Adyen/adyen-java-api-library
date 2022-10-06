@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CreatePaymentCancelRequest
  */
@@ -187,9 +189,11 @@ public class CreatePaymentCancelRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
@@ -224,5 +228,24 @@ public class CreatePaymentCancelRequest {
     }
   }
 
+ /**
+  * Create an instance of CreatePaymentCancelRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CreatePaymentCancelRequest
+  * @throws IOException if the JSON string is invalid with respect to CreatePaymentCancelRequest
+  */
+  public static CreatePaymentCancelRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreatePaymentCancelRequest.class);
+  }
+
+ /**
+  * Convert an instance of CreatePaymentCancelRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

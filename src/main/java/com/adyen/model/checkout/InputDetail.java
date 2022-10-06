@@ -47,6 +47,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * InputDetail
  */
@@ -453,6 +455,7 @@ public class InputDetail {
           SubInputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field itemSearchUrl
       if (jsonObj.get("itemSearchUrl") != null && !jsonObj.get("itemSearchUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `itemSearchUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("itemSearchUrl").toString()));
       }
@@ -468,12 +471,15 @@ public class InputDetail {
           Item.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field key
       if (jsonObj.get("key") != null && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
+      // validate the optional field value
       if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
@@ -508,5 +514,24 @@ public class InputDetail {
     }
   }
 
+ /**
+  * Create an instance of InputDetail given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of InputDetail
+  * @throws IOException if the JSON string is invalid with respect to InputDetail
+  */
+  public static InputDetail fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, InputDetail.class);
+  }
+
+ /**
+  * Convert an instance of InputDetail to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

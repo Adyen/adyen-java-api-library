@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CheckoutRedirectAction
  */
@@ -333,15 +335,22 @@ public class CheckoutRedirectAction {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field method
       if (jsonObj.get("method") != null && !jsonObj.get("method").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
       }
+      // validate the optional field paymentMethodType
       if (jsonObj.get("paymentMethodType") != null && !jsonObj.get("paymentMethodType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentMethodType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentMethodType").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
+      // validate the optional field url
       if (jsonObj.get("url") != null && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
@@ -376,5 +385,24 @@ public class CheckoutRedirectAction {
     }
   }
 
+ /**
+  * Create an instance of CheckoutRedirectAction given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CheckoutRedirectAction
+  * @throws IOException if the JSON string is invalid with respect to CheckoutRedirectAction
+  */
+  public static CheckoutRedirectAction fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CheckoutRedirectAction.class);
+  }
+
+ /**
+  * Convert an instance of CheckoutRedirectAction to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

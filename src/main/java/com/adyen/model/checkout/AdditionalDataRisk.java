@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * AdditionalDataRisk
  */
@@ -749,66 +751,87 @@ public class AdditionalDataRisk {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRisk` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field riskdata.[customFieldName]
       if (jsonObj.get("riskdata.[customFieldName]") != null && !jsonObj.get("riskdata.[customFieldName]").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.[customFieldName]` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.[customFieldName]").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].amountPerItem
       if (jsonObj.get("riskdata.basket.item[itemNr].amountPerItem") != null && !jsonObj.get("riskdata.basket.item[itemNr].amountPerItem").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].amountPerItem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].amountPerItem").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].brand
       if (jsonObj.get("riskdata.basket.item[itemNr].brand") != null && !jsonObj.get("riskdata.basket.item[itemNr].brand").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].brand").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].category
       if (jsonObj.get("riskdata.basket.item[itemNr].category") != null && !jsonObj.get("riskdata.basket.item[itemNr].category").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].category").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].color
       if (jsonObj.get("riskdata.basket.item[itemNr].color") != null && !jsonObj.get("riskdata.basket.item[itemNr].color").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].color` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].color").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].currency
       if (jsonObj.get("riskdata.basket.item[itemNr].currency") != null && !jsonObj.get("riskdata.basket.item[itemNr].currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].currency").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].itemID
       if (jsonObj.get("riskdata.basket.item[itemNr].itemID") != null && !jsonObj.get("riskdata.basket.item[itemNr].itemID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].itemID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].itemID").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].manufacturer
       if (jsonObj.get("riskdata.basket.item[itemNr].manufacturer") != null && !jsonObj.get("riskdata.basket.item[itemNr].manufacturer").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].manufacturer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].manufacturer").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].productTitle
       if (jsonObj.get("riskdata.basket.item[itemNr].productTitle") != null && !jsonObj.get("riskdata.basket.item[itemNr].productTitle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].productTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].productTitle").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].quantity
       if (jsonObj.get("riskdata.basket.item[itemNr].quantity") != null && !jsonObj.get("riskdata.basket.item[itemNr].quantity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].quantity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].quantity").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].receiverEmail
       if (jsonObj.get("riskdata.basket.item[itemNr].receiverEmail") != null && !jsonObj.get("riskdata.basket.item[itemNr].receiverEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].receiverEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].receiverEmail").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].size
       if (jsonObj.get("riskdata.basket.item[itemNr].size") != null && !jsonObj.get("riskdata.basket.item[itemNr].size").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].size` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].size").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].sku
       if (jsonObj.get("riskdata.basket.item[itemNr].sku") != null && !jsonObj.get("riskdata.basket.item[itemNr].sku").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].sku` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].sku").toString()));
       }
+      // validate the optional field riskdata.basket.item[itemNr].upc
       if (jsonObj.get("riskdata.basket.item[itemNr].upc") != null && !jsonObj.get("riskdata.basket.item[itemNr].upc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.basket.item[itemNr].upc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.basket.item[itemNr].upc").toString()));
       }
+      // validate the optional field riskdata.promotions.promotion[itemNr].promotionCode
       if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionCode") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionCode").toString()));
       }
+      // validate the optional field riskdata.promotions.promotion[itemNr].promotionDiscountAmount
       if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountAmount") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionDiscountAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountAmount").toString()));
       }
+      // validate the optional field riskdata.promotions.promotion[itemNr].promotionDiscountCurrency
       if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountCurrency") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountCurrency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionDiscountCurrency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountCurrency").toString()));
       }
+      // validate the optional field riskdata.promotions.promotion[itemNr].promotionDiscountPercentage
       if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountPercentage") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountPercentage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionDiscountPercentage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionDiscountPercentage").toString()));
       }
+      // validate the optional field riskdata.promotions.promotion[itemNr].promotionName
       if (jsonObj.get("riskdata.promotions.promotion[itemNr].promotionName") != null && !jsonObj.get("riskdata.promotions.promotion[itemNr].promotionName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.promotions.promotion[itemNr].promotionName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.promotions.promotion[itemNr].promotionName").toString()));
       }
+      // validate the optional field riskdata.riskProfileReference
       if (jsonObj.get("riskdata.riskProfileReference") != null && !jsonObj.get("riskdata.riskProfileReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.riskProfileReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.riskProfileReference").toString()));
       }
+      // validate the optional field riskdata.skipRisk
       if (jsonObj.get("riskdata.skipRisk") != null && !jsonObj.get("riskdata.skipRisk").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskdata.skipRisk` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskdata.skipRisk").toString()));
       }
@@ -843,5 +866,24 @@ public class AdditionalDataRisk {
     }
   }
 
+ /**
+  * Create an instance of AdditionalDataRisk given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AdditionalDataRisk
+  * @throws IOException if the JSON string is invalid with respect to AdditionalDataRisk
+  */
+  public static AdditionalDataRisk fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AdditionalDataRisk.class);
+  }
+
+ /**
+  * Convert an instance of AdditionalDataRisk to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

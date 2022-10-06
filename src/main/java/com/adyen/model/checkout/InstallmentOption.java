@@ -43,6 +43,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * InstallmentOption
  */
@@ -343,5 +345,24 @@ public class InstallmentOption {
     }
   }
 
+ /**
+  * Create an instance of InstallmentOption given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of InstallmentOption
+  * @throws IOException if the JSON string is invalid with respect to InstallmentOption
+  */
+  public static InstallmentOption fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, InstallmentOption.class);
+  }
+
+ /**
+  * Convert an instance of InstallmentOption to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

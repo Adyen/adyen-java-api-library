@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * Split
  */
@@ -338,6 +340,7 @@ public class Split {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field account
       if (jsonObj.get("account") != null && !jsonObj.get("account").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account").toString()));
       }
@@ -345,14 +348,20 @@ public class Split {
       if (jsonObj.getAsJsonObject("amount") != null) {
         SplitAmount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
       }
+      // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -385,5 +394,24 @@ public class Split {
     }
   }
 
+ /**
+  * Create an instance of Split given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Split
+  * @throws IOException if the JSON string is invalid with respect to Split
+  */
+  public static Split fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Split.class);
+  }
+
+ /**
+  * Convert an instance of Split to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

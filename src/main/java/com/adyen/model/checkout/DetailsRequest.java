@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * DetailsRequest
  */
@@ -222,6 +224,7 @@ public class DetailsRequest {
       if (jsonObj.getAsJsonObject("details") != null) {
         PaymentCompletionDetails.validateJsonObject(jsonObj.getAsJsonObject("details"));
       }
+      // validate the optional field paymentData
       if (jsonObj.get("paymentData") != null && !jsonObj.get("paymentData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentData").toString()));
       }
@@ -256,5 +259,24 @@ public class DetailsRequest {
     }
   }
 
+ /**
+  * Create an instance of DetailsRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DetailsRequest
+  * @throws IOException if the JSON string is invalid with respect to DetailsRequest
+  */
+  public static DetailsRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DetailsRequest.class);
+  }
+
+ /**
+  * Convert an instance of DetailsRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

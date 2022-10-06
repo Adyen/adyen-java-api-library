@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ResponseAdditionalDataCard
  */
@@ -359,27 +361,35 @@ public class ResponseAdditionalDataCard {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataCard` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field cardBin
       if (jsonObj.get("cardBin") != null && !jsonObj.get("cardBin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardBin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardBin").toString()));
       }
+      // validate the optional field cardHolderName
       if (jsonObj.get("cardHolderName") != null && !jsonObj.get("cardHolderName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardHolderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardHolderName").toString()));
       }
+      // validate the optional field cardIssuingBank
       if (jsonObj.get("cardIssuingBank") != null && !jsonObj.get("cardIssuingBank").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardIssuingBank` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIssuingBank").toString()));
       }
+      // validate the optional field cardIssuingCountry
       if (jsonObj.get("cardIssuingCountry") != null && !jsonObj.get("cardIssuingCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardIssuingCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIssuingCountry").toString()));
       }
+      // validate the optional field cardIssuingCurrency
       if (jsonObj.get("cardIssuingCurrency") != null && !jsonObj.get("cardIssuingCurrency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardIssuingCurrency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardIssuingCurrency").toString()));
       }
+      // validate the optional field cardPaymentMethod
       if (jsonObj.get("cardPaymentMethod") != null && !jsonObj.get("cardPaymentMethod").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardPaymentMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardPaymentMethod").toString()));
       }
+      // validate the optional field cardSummary
       if (jsonObj.get("cardSummary") != null && !jsonObj.get("cardSummary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardSummary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardSummary").toString()));
       }
+      // validate the optional field issuerBin
       if (jsonObj.get("issuerBin") != null && !jsonObj.get("issuerBin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerBin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerBin").toString()));
       }
@@ -414,5 +424,24 @@ public class ResponseAdditionalDataCard {
     }
   }
 
+ /**
+  * Create an instance of ResponseAdditionalDataCard given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ResponseAdditionalDataCard
+  * @throws IOException if the JSON string is invalid with respect to ResponseAdditionalDataCard
+  */
+  public static ResponseAdditionalDataCard fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ResponseAdditionalDataCard.class);
+  }
+
+ /**
+  * Convert an instance of ResponseAdditionalDataCard to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * InstallmentsNumber
  */
@@ -188,5 +190,24 @@ public class InstallmentsNumber {
     }
   }
 
+ /**
+  * Create an instance of InstallmentsNumber given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of InstallmentsNumber
+  * @throws IOException if the JSON string is invalid with respect to InstallmentsNumber
+  */
+  public static InstallmentsNumber fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, InstallmentsNumber.class);
+  }
+
+ /**
+  * Convert an instance of InstallmentsNumber to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

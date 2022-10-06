@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CreateApplePaySessionRequest
  */
@@ -219,12 +221,15 @@ public class CreateApplePaySessionRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field displayName
       if (jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
       }
+      // validate the optional field domainName
       if (jsonObj.get("domainName") != null && !jsonObj.get("domainName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `domainName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domainName").toString()));
       }
+      // validate the optional field merchantIdentifier
       if (jsonObj.get("merchantIdentifier") != null && !jsonObj.get("merchantIdentifier").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantIdentifier").toString()));
       }
@@ -259,5 +264,24 @@ public class CreateApplePaySessionRequest {
     }
   }
 
+ /**
+  * Create an instance of CreateApplePaySessionRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CreateApplePaySessionRequest
+  * @throws IOException if the JSON string is invalid with respect to CreateApplePaySessionRequest
+  */
+  public static CreateApplePaySessionRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateApplePaySessionRequest.class);
+  }
+
+ /**
+  * Convert an instance of CreateApplePaySessionRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

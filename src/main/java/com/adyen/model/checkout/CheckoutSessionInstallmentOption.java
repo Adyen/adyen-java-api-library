@@ -43,6 +43,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CheckoutSessionInstallmentOption
  */
@@ -313,5 +315,24 @@ public class CheckoutSessionInstallmentOption {
     }
   }
 
+ /**
+  * Create an instance of CheckoutSessionInstallmentOption given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CheckoutSessionInstallmentOption
+  * @throws IOException if the JSON string is invalid with respect to CheckoutSessionInstallmentOption
+  */
+  public static CheckoutSessionInstallmentOption fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CheckoutSessionInstallmentOption.class);
+  }
+
+ /**
+  * Convert an instance of CheckoutSessionInstallmentOption to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

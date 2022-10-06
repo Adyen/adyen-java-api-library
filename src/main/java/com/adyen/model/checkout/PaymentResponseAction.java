@@ -64,6 +64,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
+import com.adyen.model.checkout.JSON;
+
+
 public class PaymentResponseAction extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PaymentResponseAction.class.getName());
 
@@ -473,6 +476,26 @@ public class PaymentResponseAction extends AbstractOpenApiSchema {
     if (validCount != 1) {
       throw new IOException(String.format("The JSON string is invalid for PaymentResponseAction with oneOf schemas: CheckoutAwaitAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
     }
+  }
+
+ /**
+  * Create an instance of PaymentResponseAction given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentResponseAction
+  * @throws IOException if the JSON string is invalid with respect to PaymentResponseAction
+  */
+  public static PaymentResponseAction fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentResponseAction.class);
+  }
+
+ /**
+  * Convert an instance of PaymentResponseAction to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
   }
 }
 

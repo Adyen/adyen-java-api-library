@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ThreeDSRequestorAuthenticationInfo
  */
@@ -264,12 +266,18 @@ public class ThreeDSRequestorAuthenticationInfo {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSRequestorAuthenticationInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field threeDSReqAuthData
       if (jsonObj.get("threeDSReqAuthData") != null && !jsonObj.get("threeDSReqAuthData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthData").toString()));
       }
-      if (jsonObj.get("threeDSReqAuthMethod") != null && !jsonObj.get("threeDSReqAuthMethod").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthMethod").toString()));
+      // ensure the field threeDSReqAuthMethod can be parsed to an enum value
+      if (jsonObj.get("threeDSReqAuthMethod") != null) {
+        if(!jsonObj.get("threeDSReqAuthMethod").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthMethod").toString()));
+        }
+        ThreeDSReqAuthMethodEnum.fromValue(jsonObj.get("threeDSReqAuthMethod").getAsString());
       }
+      // validate the optional field threeDSReqAuthTimestamp
       if (jsonObj.get("threeDSReqAuthTimestamp") != null && !jsonObj.get("threeDSReqAuthTimestamp").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthTimestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthTimestamp").toString()));
       }
@@ -304,5 +312,24 @@ public class ThreeDSRequestorAuthenticationInfo {
     }
   }
 
+ /**
+  * Create an instance of ThreeDSRequestorAuthenticationInfo given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ThreeDSRequestorAuthenticationInfo
+  * @throws IOException if the JSON string is invalid with respect to ThreeDSRequestorAuthenticationInfo
+  */
+  public static ThreeDSRequestorAuthenticationInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDSRequestorAuthenticationInfo.class);
+  }
+
+ /**
+  * Convert an instance of ThreeDSRequestorAuthenticationInfo to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * OpenInvoiceDetails
  */
@@ -350,23 +352,32 @@ public class OpenInvoiceDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OpenInvoiceDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field billingAddress
       if (jsonObj.get("billingAddress") != null && !jsonObj.get("billingAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billingAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress").toString()));
       }
+      // validate the optional field deliveryAddress
       if (jsonObj.get("deliveryAddress") != null && !jsonObj.get("deliveryAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `deliveryAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryAddress").toString()));
       }
+      // validate the optional field personalDetails
       if (jsonObj.get("personalDetails") != null && !jsonObj.get("personalDetails").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `personalDetails` to be a primitive type in the JSON string but got `%s`", jsonObj.get("personalDetails").toString()));
       }
+      // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
       }
+      // validate the optional field storedPaymentMethodId
       if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -399,5 +410,24 @@ public class OpenInvoiceDetails {
     }
   }
 
+ /**
+  * Create an instance of OpenInvoiceDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of OpenInvoiceDetails
+  * @throws IOException if the JSON string is invalid with respect to OpenInvoiceDetails
+  */
+  public static OpenInvoiceDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OpenInvoiceDetails.class);
+  }
+
+ /**
+  * Convert an instance of OpenInvoiceDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

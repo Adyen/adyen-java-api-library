@@ -43,6 +43,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * DeviceRenderOptions
  */
@@ -291,8 +293,12 @@ public class DeviceRenderOptions {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeviceRenderOptions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("sdkInterface") != null && !jsonObj.get("sdkInterface").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sdkInterface` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkInterface").toString()));
+      // ensure the field sdkInterface can be parsed to an enum value
+      if (jsonObj.get("sdkInterface") != null) {
+        if(!jsonObj.get("sdkInterface").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `sdkInterface` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkInterface").toString()));
+        }
+        SdkInterfaceEnum.fromValue(jsonObj.get("sdkInterface").getAsString());
       }
       // ensure the json data is an array
       if (jsonObj.get("sdkUiType") != null && !jsonObj.get("sdkUiType").isJsonArray()) {
@@ -329,5 +335,24 @@ public class DeviceRenderOptions {
     }
   }
 
+ /**
+  * Create an instance of DeviceRenderOptions given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DeviceRenderOptions
+  * @throws IOException if the JSON string is invalid with respect to DeviceRenderOptions
+  */
+  public static DeviceRenderOptions fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeviceRenderOptions.class);
+  }
+
+ /**
+  * Convert an instance of DeviceRenderOptions to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

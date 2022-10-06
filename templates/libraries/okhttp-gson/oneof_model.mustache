@@ -29,6 +29,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
+import {{package}}.JSON;
+
+{{>additionalModelTypeAnnotations}}{{>xmlAnnotation}}
 public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-implements}}, {{{.}}}{{/vendorExtensions.x-implements}} {
     private static final Logger log = Logger.getLogger({{classname}}.class.getName());
 
@@ -223,5 +226,25 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     if (validCount != 1) {
       throw new IOException(String.format("The JSON string is invalid for {{classname}} with oneOf schemas: {{#oneOf}}{{{.}}}{{^-last}}, {{/-last}}{{/oneOf}}. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
     }
+  }
+
+ /**
+  * Create an instance of {{classname}} given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of {{classname}}
+  * @throws IOException if the JSON string is invalid with respect to {{classname}}
+  */
+  public static {{{classname}}} fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, {{{classname}}}.class);
+  }
+
+ /**
+  * Convert an instance of {{classname}} to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
   }
 }

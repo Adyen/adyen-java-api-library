@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CellulantDetails
  */
@@ -224,11 +226,16 @@ public class CellulantDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CellulantDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field issuer
       if (jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -261,5 +268,24 @@ public class CellulantDetails {
     }
   }
 
+ /**
+  * Create an instance of CellulantDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CellulantDetails
+  * @throws IOException if the JSON string is invalid with respect to CellulantDetails
+  */
+  public static CellulantDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CellulantDetails.class);
+  }
+
+ /**
+  * Convert an instance of CellulantDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

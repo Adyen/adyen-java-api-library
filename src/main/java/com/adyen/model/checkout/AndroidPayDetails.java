@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * AndroidPayDetails
  */
@@ -194,8 +196,12 @@ public class AndroidPayDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AndroidPayDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -228,5 +234,24 @@ public class AndroidPayDetails {
     }
   }
 
+ /**
+  * Create an instance of AndroidPayDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AndroidPayDetails
+  * @throws IOException if the JSON string is invalid with respect to AndroidPayDetails
+  */
+  public static AndroidPayDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AndroidPayDetails.class);
+  }
+
+ /**
+  * Convert an instance of AndroidPayDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

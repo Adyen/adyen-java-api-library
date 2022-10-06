@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * AdditionalDataLevel23
  */
@@ -629,54 +631,71 @@ public class AdditionalDataLevel23 {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLevel23` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field enhancedSchemeData.customerReference
       if (jsonObj.get("enhancedSchemeData.customerReference") != null && !jsonObj.get("enhancedSchemeData.customerReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.customerReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.customerReference").toString()));
       }
+      // validate the optional field enhancedSchemeData.destinationCountryCode
       if (jsonObj.get("enhancedSchemeData.destinationCountryCode") != null && !jsonObj.get("enhancedSchemeData.destinationCountryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.destinationCountryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.destinationCountryCode").toString()));
       }
+      // validate the optional field enhancedSchemeData.destinationPostalCode
       if (jsonObj.get("enhancedSchemeData.destinationPostalCode") != null && !jsonObj.get("enhancedSchemeData.destinationPostalCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.destinationPostalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.destinationPostalCode").toString()));
       }
+      // validate the optional field enhancedSchemeData.destinationStateProvinceCode
       if (jsonObj.get("enhancedSchemeData.destinationStateProvinceCode") != null && !jsonObj.get("enhancedSchemeData.destinationStateProvinceCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.destinationStateProvinceCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.destinationStateProvinceCode").toString()));
       }
+      // validate the optional field enhancedSchemeData.dutyAmount
       if (jsonObj.get("enhancedSchemeData.dutyAmount") != null && !jsonObj.get("enhancedSchemeData.dutyAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.dutyAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.dutyAmount").toString()));
       }
+      // validate the optional field enhancedSchemeData.freightAmount
       if (jsonObj.get("enhancedSchemeData.freightAmount") != null && !jsonObj.get("enhancedSchemeData.freightAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.freightAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.freightAmount").toString()));
       }
+      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].commodityCode
       if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].commodityCode") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].commodityCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].commodityCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].commodityCode").toString()));
       }
+      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].description
       if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].description") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].description").toString()));
       }
+      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].discountAmount
       if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].discountAmount") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].discountAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].discountAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].discountAmount").toString()));
       }
+      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].productCode
       if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].productCode") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].productCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].productCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].productCode").toString()));
       }
+      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].quantity
       if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].quantity") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].quantity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].quantity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].quantity").toString()));
       }
+      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].totalAmount
       if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].totalAmount") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].totalAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].totalAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].totalAmount").toString()));
       }
+      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure
       if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure").toString()));
       }
+      // validate the optional field enhancedSchemeData.itemDetailLine[itemNr].unitPrice
       if (jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitPrice") != null && !jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitPrice").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.itemDetailLine[itemNr].unitPrice` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.itemDetailLine[itemNr].unitPrice").toString()));
       }
+      // validate the optional field enhancedSchemeData.orderDate
       if (jsonObj.get("enhancedSchemeData.orderDate") != null && !jsonObj.get("enhancedSchemeData.orderDate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.orderDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.orderDate").toString()));
       }
+      // validate the optional field enhancedSchemeData.shipFromPostalCode
       if (jsonObj.get("enhancedSchemeData.shipFromPostalCode") != null && !jsonObj.get("enhancedSchemeData.shipFromPostalCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.shipFromPostalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.shipFromPostalCode").toString()));
       }
+      // validate the optional field enhancedSchemeData.totalTaxAmount
       if (jsonObj.get("enhancedSchemeData.totalTaxAmount") != null && !jsonObj.get("enhancedSchemeData.totalTaxAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enhancedSchemeData.totalTaxAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enhancedSchemeData.totalTaxAmount").toString()));
       }
@@ -711,5 +730,24 @@ public class AdditionalDataLevel23 {
     }
   }
 
+ /**
+  * Create an instance of AdditionalDataLevel23 given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AdditionalDataLevel23
+  * @throws IOException if the JSON string is invalid with respect to AdditionalDataLevel23
+  */
+  public static AdditionalDataLevel23 fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AdditionalDataLevel23.class);
+  }
+
+ /**
+  * Convert an instance of AdditionalDataLevel23 to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

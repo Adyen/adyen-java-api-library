@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CardBrandDetails
  */
@@ -179,6 +181,7 @@ public class CardBrandDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CardBrandDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
@@ -213,5 +216,24 @@ public class CardBrandDetails {
     }
   }
 
+ /**
+  * Create an instance of CardBrandDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CardBrandDetails
+  * @throws IOException if the JSON string is invalid with respect to CardBrandDetails
+  */
+  public static CardBrandDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CardBrandDetails.class);
+  }
+
+ /**
+  * Convert an instance of CardBrandDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * RiskData
  */
@@ -250,9 +252,11 @@ public class RiskData {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RiskData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field clientData
       if (jsonObj.get("clientData") != null && !jsonObj.get("clientData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `clientData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clientData").toString()));
       }
+      // validate the optional field profileReference
       if (jsonObj.get("profileReference") != null && !jsonObj.get("profileReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `profileReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("profileReference").toString()));
       }
@@ -287,5 +291,24 @@ public class RiskData {
     }
   }
 
+ /**
+  * Create an instance of RiskData given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of RiskData
+  * @throws IOException if the JSON string is invalid with respect to RiskData
+  */
+  public static RiskData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RiskData.class);
+  }
+
+ /**
+  * Convert an instance of RiskData to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

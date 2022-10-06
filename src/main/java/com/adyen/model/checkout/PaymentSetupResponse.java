@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * PaymentSetupResponse
  */
@@ -192,6 +194,7 @@ public class PaymentSetupResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentSetupResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field paymentSession
       if (jsonObj.get("paymentSession") != null && !jsonObj.get("paymentSession").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentSession` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentSession").toString()));
       }
@@ -238,5 +241,24 @@ public class PaymentSetupResponse {
     }
   }
 
+ /**
+  * Create an instance of PaymentSetupResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentSetupResponse
+  * @throws IOException if the JSON string is invalid with respect to PaymentSetupResponse
+  */
+  public static PaymentSetupResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentSetupResponse.class);
+  }
+
+ /**
+  * Convert an instance of PaymentSetupResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

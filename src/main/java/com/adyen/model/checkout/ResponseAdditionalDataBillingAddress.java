@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ResponseAdditionalDataBillingAddress
  */
@@ -299,21 +301,27 @@ public class ResponseAdditionalDataBillingAddress {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataBillingAddress` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field billingAddress.city
       if (jsonObj.get("billingAddress.city") != null && !jsonObj.get("billingAddress.city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billingAddress.city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.city").toString()));
       }
+      // validate the optional field billingAddress.country
       if (jsonObj.get("billingAddress.country") != null && !jsonObj.get("billingAddress.country").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billingAddress.country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.country").toString()));
       }
+      // validate the optional field billingAddress.houseNumberOrName
       if (jsonObj.get("billingAddress.houseNumberOrName") != null && !jsonObj.get("billingAddress.houseNumberOrName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billingAddress.houseNumberOrName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.houseNumberOrName").toString()));
       }
+      // validate the optional field billingAddress.postalCode
       if (jsonObj.get("billingAddress.postalCode") != null && !jsonObj.get("billingAddress.postalCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billingAddress.postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.postalCode").toString()));
       }
+      // validate the optional field billingAddress.stateOrProvince
       if (jsonObj.get("billingAddress.stateOrProvince") != null && !jsonObj.get("billingAddress.stateOrProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billingAddress.stateOrProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.stateOrProvince").toString()));
       }
+      // validate the optional field billingAddress.street
       if (jsonObj.get("billingAddress.street") != null && !jsonObj.get("billingAddress.street").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billingAddress.street` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress.street").toString()));
       }
@@ -348,5 +356,24 @@ public class ResponseAdditionalDataBillingAddress {
     }
   }
 
+ /**
+  * Create an instance of ResponseAdditionalDataBillingAddress given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ResponseAdditionalDataBillingAddress
+  * @throws IOException if the JSON string is invalid with respect to ResponseAdditionalDataBillingAddress
+  */
+  public static ResponseAdditionalDataBillingAddress fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ResponseAdditionalDataBillingAddress.class);
+  }
+
+ /**
+  * Convert an instance of ResponseAdditionalDataBillingAddress to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

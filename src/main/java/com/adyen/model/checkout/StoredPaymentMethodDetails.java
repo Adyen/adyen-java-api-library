@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * StoredPaymentMethodDetails
  */
@@ -286,14 +288,20 @@ public class StoredPaymentMethodDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoredPaymentMethodDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
       }
+      // validate the optional field storedPaymentMethodId
       if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -326,5 +334,24 @@ public class StoredPaymentMethodDetails {
     }
   }
 
+ /**
+  * Create an instance of StoredPaymentMethodDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StoredPaymentMethodDetails
+  * @throws IOException if the JSON string is invalid with respect to StoredPaymentMethodDetails
+  */
+  public static StoredPaymentMethodDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StoredPaymentMethodDetails.class);
+  }
+
+ /**
+  * Convert an instance of StoredPaymentMethodDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

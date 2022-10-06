@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * ServiceError2
  */
@@ -239,15 +241,19 @@ public class ServiceError2 {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ServiceError2` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field errorCode
       if (jsonObj.get("errorCode") != null && !jsonObj.get("errorCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `errorCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorCode").toString()));
       }
+      // validate the optional field errorType
       if (jsonObj.get("errorType") != null && !jsonObj.get("errorType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `errorType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorType").toString()));
       }
+      // validate the optional field message
       if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
@@ -282,5 +288,24 @@ public class ServiceError2 {
     }
   }
 
+ /**
+  * Create an instance of ServiceError2 given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ServiceError2
+  * @throws IOException if the JSON string is invalid with respect to ServiceError2
+  */
+  public static ServiceError2 fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ServiceError2.class);
+  }
+
+ /**
+  * Convert an instance of ServiceError2 to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * AdditionalDataOpi
  */
@@ -149,6 +151,7 @@ public class AdditionalDataOpi {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataOpi` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field opi.includeTransToken
       if (jsonObj.get("opi.includeTransToken") != null && !jsonObj.get("opi.includeTransToken").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `opi.includeTransToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("opi.includeTransToken").toString()));
       }
@@ -183,5 +186,24 @@ public class AdditionalDataOpi {
     }
   }
 
+ /**
+  * Create an instance of AdditionalDataOpi given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AdditionalDataOpi
+  * @throws IOException if the JSON string is invalid with respect to AdditionalDataOpi
+  */
+  public static AdditionalDataOpi fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AdditionalDataOpi.class);
+  }
+
+ /**
+  * Convert an instance of AdditionalDataOpi to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

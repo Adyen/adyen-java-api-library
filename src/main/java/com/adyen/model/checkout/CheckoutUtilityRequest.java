@@ -43,6 +43,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CheckoutUtilityRequest
  */
@@ -199,5 +201,24 @@ public class CheckoutUtilityRequest {
     }
   }
 
+ /**
+  * Create an instance of CheckoutUtilityRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CheckoutUtilityRequest
+  * @throws IOException if the JSON string is invalid with respect to CheckoutUtilityRequest
+  */
+  public static CheckoutUtilityRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CheckoutUtilityRequest.class);
+  }
+
+ /**
+  * Convert an instance of CheckoutUtilityRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

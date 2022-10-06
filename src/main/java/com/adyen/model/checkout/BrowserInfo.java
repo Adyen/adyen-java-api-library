@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * BrowserInfo
  */
@@ -404,12 +406,15 @@ public class BrowserInfo {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field acceptHeader
       if (jsonObj.get("acceptHeader") != null && !jsonObj.get("acceptHeader").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acceptHeader` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acceptHeader").toString()));
       }
+      // validate the optional field language
       if (jsonObj.get("language") != null && !jsonObj.get("language").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
       }
+      // validate the optional field userAgent
       if (jsonObj.get("userAgent") != null && !jsonObj.get("userAgent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userAgent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userAgent").toString()));
       }
@@ -444,5 +449,24 @@ public class BrowserInfo {
     }
   }
 
+ /**
+  * Create an instance of BrowserInfo given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of BrowserInfo
+  * @throws IOException if the JSON string is invalid with respect to BrowserInfo
+  */
+  public static BrowserInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BrowserInfo.class);
+  }
+
+ /**
+  * Convert an instance of BrowserInfo to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

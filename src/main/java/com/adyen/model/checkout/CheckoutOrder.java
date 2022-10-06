@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CheckoutOrder
  */
@@ -188,9 +190,11 @@ public class CheckoutOrder {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field orderData
       if (jsonObj.get("orderData") != null && !jsonObj.get("orderData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `orderData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderData").toString()));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
@@ -225,5 +229,24 @@ public class CheckoutOrder {
     }
   }
 
+ /**
+  * Create an instance of CheckoutOrder given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CheckoutOrder
+  * @throws IOException if the JSON string is invalid with respect to CheckoutOrder
+  */
+  public static CheckoutOrder fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CheckoutOrder.class);
+  }
+
+ /**
+  * Convert an instance of CheckoutOrder to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -117,7 +117,7 @@ public class CheckoutTest extends BaseTest {
         PaymentResponse PaymentResponse = checkout.payments(PaymentRequest);
         assertEquals("853613724697009G", PaymentResponse.getPspReference());
     }
-    
+
     /**
      * Test error flow for
      * POST /payments
@@ -529,7 +529,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void TestPayWithGoogleDetailsDeserialization() throws JsonProcessingException {
+    public void TestPayWithGoogleDetailsDeserialization() throws IOException {
         String json = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"fundingSource\":\"debit\",\"googlePayToken\":\"Payload as retrieved from Google Pay response\",\"recurringDetailReference\":\"some-reference\",\"storedPaymentMethodId\":\"my-shop\",\"type\":\"paywithgoogle\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
 
         PayWithGoogleDetails payWithGoogleDetails = new PayWithGoogleDetails();
@@ -537,10 +537,12 @@ public class CheckoutTest extends BaseTest {
         payWithGoogleDetails.setFundingSource(PayWithGoogleDetails.FundingSourceEnum.DEBIT);
         payWithGoogleDetails.setRecurringDetailReference("some-reference");
         payWithGoogleDetails.setStoredPaymentMethodId("my-shop");
+        payWithGoogleDetails.setType(PayWithGoogleDetails.TypeEnum.PAYWITHGOOGLE);
         PaymentRequest expectedPaymentRequest = createPaymentsCheckoutRequest();
         expectedPaymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(payWithGoogleDetails));
+        JSON jsonInstance  = new JSON();
 
-        PaymentRequest gsonObject = GSON.fromJson(json, PaymentRequest.class);
+        PaymentRequest gsonObject = PaymentRequest.fromJson(json);
         assertEquals(expectedPaymentRequest, gsonObject);
 
         PaymentRequest jacksonObject = OBJECT_MAPPER.readValue(json, PaymentRequest.class);
@@ -548,21 +550,22 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void TestPayPalDetails() throws JsonProcessingException {
+    public void TestPayPalDetails() throws IOException {
         String expectedJson = "{\"amount\":{\"value\":1000,\"currency\":\"USD\"},\"merchantAccount\":\"MagentoMerchantTest\",\"paymentMethod\":{\"orderID\":\"orderId\",\"payerID\":\"payerId\",\"type\":\"paypal\",\"storedPaymentMethodId\":\"12345678\",\"subtype\":\"sdk\"},\"reference\":\"Your order number\",\"returnUrl\":\"https://your-company.com/...\",\"applicationInfo\":{\"adyenLibrary\":{\"name\":\"adyen-java-api-library\",\"version\":\"" + LIB_VERSION + "\"}}}";
-
         PayPalDetails payPalDetails = new PayPalDetails();
         payPalDetails.setOrderID("orderId");
         payPalDetails.setPayerID("payerId");
         payPalDetails.setSubtype(PayPalDetails.SubtypeEnum.SDK);
         payPalDetails.setStoredPaymentMethodId("12345678");
-        PaymentRequest PaymentRequest = createPaymentsCheckoutRequest();
-        PaymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(payPalDetails));
-
-        String gson = GSON.toJson(PaymentRequest);
+        payPalDetails.setType(PayPalDetails.TypeEnum.PAYPAL);
+        PaymentRequest paymentRequest = createPaymentsCheckoutRequest();
+        paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(payPalDetails));
+        JSON json  = new JSON();
+        String gson = paymentRequest.toJson();
+        PaymentRequest parsedRequest = PaymentRequest.fromJson(expectedJson);
         assertJsonStringEquals(expectedJson, gson);
 
-        String jackson = OBJECT_MAPPER.writeValueAsString(PaymentRequest);
+        String jackson = OBJECT_MAPPER.writeValueAsString(paymentRequest);
         assertJsonStringEquals(expectedJson, jackson);
     }
 

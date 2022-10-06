@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * SDKEphemPubKey
  */
@@ -239,15 +241,19 @@ public class SDKEphemPubKey {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SDKEphemPubKey` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field crv
       if (jsonObj.get("crv") != null && !jsonObj.get("crv").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `crv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crv").toString()));
       }
+      // validate the optional field kty
       if (jsonObj.get("kty") != null && !jsonObj.get("kty").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `kty` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kty").toString()));
       }
+      // validate the optional field x
       if (jsonObj.get("x") != null && !jsonObj.get("x").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `x` to be a primitive type in the JSON string but got `%s`", jsonObj.get("x").toString()));
       }
+      // validate the optional field y
       if (jsonObj.get("y") != null && !jsonObj.get("y").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `y` to be a primitive type in the JSON string but got `%s`", jsonObj.get("y").toString()));
       }
@@ -282,5 +288,24 @@ public class SDKEphemPubKey {
     }
   }
 
+ /**
+  * Create an instance of SDKEphemPubKey given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SDKEphemPubKey
+  * @throws IOException if the JSON string is invalid with respect to SDKEphemPubKey
+  */
+  public static SDKEphemPubKey fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SDKEphemPubKey.class);
+  }
+
+ /**
+  * Convert an instance of SDKEphemPubKey to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

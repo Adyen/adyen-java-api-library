@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CheckoutOrderResponse
  */
@@ -312,15 +314,19 @@ public class CheckoutOrderResponse {
       if (jsonObj.getAsJsonObject("amount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
       }
+      // validate the optional field expiresAt
       if (jsonObj.get("expiresAt") != null && !jsonObj.get("expiresAt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expiresAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiresAt").toString()));
       }
+      // validate the optional field orderData
       if (jsonObj.get("orderData") != null && !jsonObj.get("orderData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `orderData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderData").toString()));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
@@ -359,5 +365,24 @@ public class CheckoutOrderResponse {
     }
   }
 
+ /**
+  * Create an instance of CheckoutOrderResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CheckoutOrderResponse
+  * @throws IOException if the JSON string is invalid with respect to CheckoutOrderResponse
+  */
+  public static CheckoutOrderResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CheckoutOrderResponse.class);
+  }
+
+ /**
+  * Convert an instance of CheckoutOrderResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

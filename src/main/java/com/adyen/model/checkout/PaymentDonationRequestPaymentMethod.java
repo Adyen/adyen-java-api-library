@@ -93,6 +93,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
+import com.adyen.model.checkout.JSON;
+
+
 public class PaymentDonationRequestPaymentMethod extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PaymentDonationRequestPaymentMethod.class.getName());
 
@@ -2218,6 +2221,26 @@ public class PaymentDonationRequestPaymentMethod extends AbstractOpenApiSchema {
     if (validCount != 1) {
       throw new IOException(String.format("The JSON string is invalid for PaymentDonationRequestPaymentMethod with oneOf schemas: AchDetails, AfterpayDetails, AmazonPayDetails, AndroidPayDetails, ApplePayDetails, BacsDirectDebitDetails, BillDeskDetails, BlikDetails, CardDetails, CellulantDetails, DokuDetails, DotpayDetails, DragonpayDetails, EcontextVoucherDetails, GenericIssuerPaymentMethodDetails, GiropayDetails, GooglePayDetails, IdealDetails, KlarnaDetails, MasterpassDetails, MbwayDetails, MobilePayDetails, MolPayDetails, OpenInvoiceDetails, PayPalDetails, PayUUpiDetails, PayWithGoogleDetails, PaymentDetails, RatepayDetails, SamsungPayDetails, SepaDirectDebitDetails, StoredPaymentMethodDetails, UpiCollectDetails, UpiIntentDetails, VippsDetails, VisaCheckoutDetails, WeChatPayDetails, WeChatPayMiniProgramDetails, ZipDetails. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonObj.toString()));
     }
+  }
+
+ /**
+  * Create an instance of PaymentDonationRequestPaymentMethod given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentDonationRequestPaymentMethod
+  * @throws IOException if the JSON string is invalid with respect to PaymentDonationRequestPaymentMethod
+  */
+  public static PaymentDonationRequestPaymentMethod fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentDonationRequestPaymentMethod.class);
+  }
+
+ /**
+  * Convert an instance of PaymentDonationRequestPaymentMethod to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
   }
 }
 

@@ -45,6 +45,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * PaymentAmountUpdateResource
  */
@@ -480,18 +482,26 @@ public class PaymentAmountUpdateResource {
       if (jsonObj.getAsJsonObject("amount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field paymentPspReference
       if (jsonObj.get("paymentPspReference") != null && !jsonObj.get("paymentPspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentPspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentPspReference").toString()));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
-      if (jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      // ensure the field reason can be parsed to an enum value
+      if (jsonObj.get("reason") != null) {
+        if(!jsonObj.get("reason").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+        }
+        ReasonEnum.fromValue(jsonObj.get("reason").getAsString());
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
@@ -507,8 +517,12 @@ public class PaymentAmountUpdateResource {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
         };
       }
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      // ensure the field status can be parsed to an enum value
+      if (jsonObj.get("status") != null) {
+        if(!jsonObj.get("status").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        }
+        StatusEnum.fromValue(jsonObj.get("status").getAsString());
       }
   }
 
@@ -541,5 +555,24 @@ public class PaymentAmountUpdateResource {
     }
   }
 
+ /**
+  * Create an instance of PaymentAmountUpdateResource given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentAmountUpdateResource
+  * @throws IOException if the JSON string is invalid with respect to PaymentAmountUpdateResource
+  */
+  public static PaymentAmountUpdateResource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentAmountUpdateResource.class);
+  }
+
+ /**
+  * Convert an instance of PaymentAmountUpdateResource to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

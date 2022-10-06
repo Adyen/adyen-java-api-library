@@ -51,6 +51,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * PaymentResponse
  */
@@ -662,6 +664,7 @@ public class PaymentResponse {
       if (jsonObj.getAsJsonObject("amount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
       }
+      // validate the optional field donationToken
       if (jsonObj.get("donationToken") != null && !jsonObj.get("donationToken").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `donationToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("donationToken").toString()));
       }
@@ -669,6 +672,7 @@ public class PaymentResponse {
       if (jsonObj.getAsJsonObject("fraudResult") != null) {
         FraudResult.validateJsonObject(jsonObj.getAsJsonObject("fraudResult"));
       }
+      // validate the optional field merchantReference
       if (jsonObj.get("merchantReference") != null && !jsonObj.get("merchantReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantReference").toString()));
       }
@@ -680,17 +684,24 @@ public class PaymentResponse {
       if (jsonObj.getAsJsonObject("paymentMethod") != null) {
         ResponsePaymentMethod.validateJsonObject(jsonObj.getAsJsonObject("paymentMethod"));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field refusalReason
       if (jsonObj.get("refusalReason") != null && !jsonObj.get("refusalReason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReason").toString()));
       }
+      // validate the optional field refusalReasonCode
       if (jsonObj.get("refusalReasonCode") != null && !jsonObj.get("refusalReasonCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refusalReasonCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReasonCode").toString()));
       }
-      if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+      // ensure the field resultCode can be parsed to an enum value
+      if (jsonObj.get("resultCode") != null) {
+        if(!jsonObj.get("resultCode").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+        }
+        ResultCodeEnum.fromValue(jsonObj.get("resultCode").getAsString());
       }
       // validate the optional field `threeDS2ResponseData`
       if (jsonObj.getAsJsonObject("threeDS2ResponseData") != null) {
@@ -700,6 +711,7 @@ public class PaymentResponse {
       if (jsonObj.getAsJsonObject("threeDS2Result") != null) {
         ThreeDS2Result.validateJsonObject(jsonObj.getAsJsonObject("threeDS2Result"));
       }
+      // validate the optional field threeDSPaymentData
       if (jsonObj.get("threeDSPaymentData") != null && !jsonObj.get("threeDSPaymentData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSPaymentData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSPaymentData").toString()));
       }
@@ -734,5 +746,24 @@ public class PaymentResponse {
     }
   }
 
+ /**
+  * Create an instance of PaymentResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentResponse
+  * @throws IOException if the JSON string is invalid with respect to PaymentResponse
+  */
+  public static PaymentResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentResponse.class);
+  }
+
+ /**
+  * Convert an instance of PaymentResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

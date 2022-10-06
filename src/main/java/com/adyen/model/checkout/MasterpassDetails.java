@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * MasterpassDetails
  */
@@ -307,14 +309,23 @@ public class MasterpassDetails {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("fundingSource") != null && !jsonObj.get("fundingSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
+      // ensure the field fundingSource can be parsed to an enum value
+      if (jsonObj.get("fundingSource") != null) {
+        if(!jsonObj.get("fundingSource").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
+        }
+        FundingSourceEnum.fromValue(jsonObj.get("fundingSource").getAsString());
       }
+      // validate the optional field masterpassTransactionId
       if (jsonObj.get("masterpassTransactionId") != null && !jsonObj.get("masterpassTransactionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `masterpassTransactionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("masterpassTransactionId").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -347,5 +358,24 @@ public class MasterpassDetails {
     }
   }
 
+ /**
+  * Create an instance of MasterpassDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MasterpassDetails
+  * @throws IOException if the JSON string is invalid with respect to MasterpassDetails
+  */
+  public static MasterpassDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MasterpassDetails.class);
+  }
+
+ /**
+  * Convert an instance of MasterpassDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

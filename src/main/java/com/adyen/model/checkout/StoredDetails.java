@@ -43,6 +43,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * StoredDetails
  */
@@ -219,6 +221,7 @@ public class StoredDetails {
       if (jsonObj.getAsJsonObject("card") != null) {
         Card.validateJsonObject(jsonObj.getAsJsonObject("card"));
       }
+      // validate the optional field emailAddress
       if (jsonObj.get("emailAddress") != null && !jsonObj.get("emailAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `emailAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emailAddress").toString()));
       }
@@ -253,5 +256,24 @@ public class StoredDetails {
     }
   }
 
+ /**
+  * Create an instance of StoredDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StoredDetails
+  * @throws IOException if the JSON string is invalid with respect to StoredDetails
+  */
+  public static StoredDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StoredDetails.class);
+  }
+
+ /**
+  * Convert an instance of StoredDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

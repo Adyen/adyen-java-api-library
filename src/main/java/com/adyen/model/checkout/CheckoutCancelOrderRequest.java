@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * CheckoutCancelOrderRequest
  */
@@ -189,6 +191,7 @@ public class CheckoutCancelOrderRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
@@ -227,5 +230,24 @@ public class CheckoutCancelOrderRequest {
     }
   }
 
+ /**
+  * Create an instance of CheckoutCancelOrderRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CheckoutCancelOrderRequest
+  * @throws IOException if the JSON string is invalid with respect to CheckoutCancelOrderRequest
+  */
+  public static CheckoutCancelOrderRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CheckoutCancelOrderRequest.class);
+  }
+
+ /**
+  * Convert an instance of CheckoutCancelOrderRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -16,6 +16,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import {{package}}.JSON;
+
 /**
  * {{description}}{{^description}}{{classname}}{{/description}}{{#isDeprecated}}
  * @deprecated{{/isDeprecated}}
@@ -488,10 +490,22 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       {{/isArray}}
       {{^isContainer}}
       {{#isString}}
+      {{^isEnum}}
+      // validate the {{#isRequired}}required{{/isRequired}}{{^isRequired}}optional{{/isRequired}} field {{{baseName}}}
       if ({{^isRequired}}jsonObj.get("{{{baseName}}}") != null && {{/isRequired}}!jsonObj.get("{{{baseName}}}").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `{{{baseName}}}` to be a primitive type in the JSON string but got `%s`", jsonObj.get("{{{baseName}}}").toString()));
       }
+      {{/isEnum}}
       {{/isString}}
+      {{#isEnum}}
+      // ensure the field {{{baseName}}} can be parsed to an enum value
+      if ({{^isRequired}}jsonObj.get("{{{baseName}}}") != null) {
+        if({{/isRequired}}!jsonObj.get("{{{baseName}}}").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `{{{baseName}}}` to be a primitive type in the JSON string but got `%s`", jsonObj.get("{{{baseName}}}").toString()));
+        }
+        {{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}.fromValue(jsonObj.get("{{{baseName}}}").getAsString());
+      }
+      {{/isEnum}}
       {{#isModel}}
       {{#isRequired}}
       // validate the required field `{{{baseName}}}`
@@ -517,7 +531,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
           {{modelName}}.validateJsonObject(jsonObj);
           break;
       {{/mappedModels}}
-        default: 
+        default:
           throw new IllegalArgumentException(String.format("The value of the `{{{propertyBaseName}}}` field `%s` does not match any key defined in the discriminator's mapping.", discriminatorValue));
       }
       {{/discriminator}}
@@ -597,4 +611,23 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   }
 {{/hasChildren}}
 
+ /**
+  * Create an instance of {{classname}} given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of {{classname}}
+  * @throws IOException if the JSON string is invalid with respect to {{classname}}
+  */
+  public static {{{classname}}} fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, {{{classname}}}.class);
+  }
+
+ /**
+  * Convert an instance of {{classname}} to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

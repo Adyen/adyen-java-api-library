@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.checkout.JSON;
+
 /**
  * AdditionalDataAirline
  */
@@ -967,87 +969,115 @@ public class AdditionalDataAirline {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field airline.agency_invoice_number
       if (jsonObj.get("airline.agency_invoice_number") != null && !jsonObj.get("airline.agency_invoice_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.agency_invoice_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.agency_invoice_number").toString()));
       }
+      // validate the optional field airline.agency_plan_name
       if (jsonObj.get("airline.agency_plan_name") != null && !jsonObj.get("airline.agency_plan_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.agency_plan_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.agency_plan_name").toString()));
       }
+      // validate the optional field airline.airline_code
       if (jsonObj.get("airline.airline_code") != null && !jsonObj.get("airline.airline_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.airline_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.airline_code").toString()));
       }
+      // validate the optional field airline.airline_designator_code
       if (jsonObj.get("airline.airline_designator_code") != null && !jsonObj.get("airline.airline_designator_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.airline_designator_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.airline_designator_code").toString()));
       }
+      // validate the optional field airline.boarding_fee
       if (jsonObj.get("airline.boarding_fee") != null && !jsonObj.get("airline.boarding_fee").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.boarding_fee` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.boarding_fee").toString()));
       }
+      // validate the optional field airline.computerized_reservation_system
       if (jsonObj.get("airline.computerized_reservation_system") != null && !jsonObj.get("airline.computerized_reservation_system").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.computerized_reservation_system` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.computerized_reservation_system").toString()));
       }
+      // validate the optional field airline.customer_reference_number
       if (jsonObj.get("airline.customer_reference_number") != null && !jsonObj.get("airline.customer_reference_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.customer_reference_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.customer_reference_number").toString()));
       }
+      // validate the optional field airline.document_type
       if (jsonObj.get("airline.document_type") != null && !jsonObj.get("airline.document_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.document_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.document_type").toString()));
       }
+      // validate the optional field airline.flight_date
       if (jsonObj.get("airline.flight_date") != null && !jsonObj.get("airline.flight_date").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.flight_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.flight_date").toString()));
       }
+      // validate the optional field airline.leg.carrier_code
       if (jsonObj.get("airline.leg.carrier_code") != null && !jsonObj.get("airline.leg.carrier_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.carrier_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.carrier_code").toString()));
       }
+      // validate the optional field airline.leg.class_of_travel
       if (jsonObj.get("airline.leg.class_of_travel") != null && !jsonObj.get("airline.leg.class_of_travel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.class_of_travel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.class_of_travel").toString()));
       }
+      // validate the optional field airline.leg.date_of_travel
       if (jsonObj.get("airline.leg.date_of_travel") != null && !jsonObj.get("airline.leg.date_of_travel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.date_of_travel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.date_of_travel").toString()));
       }
+      // validate the optional field airline.leg.depart_airport
       if (jsonObj.get("airline.leg.depart_airport") != null && !jsonObj.get("airline.leg.depart_airport").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.depart_airport` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.depart_airport").toString()));
       }
+      // validate the optional field airline.leg.depart_tax
       if (jsonObj.get("airline.leg.depart_tax") != null && !jsonObj.get("airline.leg.depart_tax").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.depart_tax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.depart_tax").toString()));
       }
+      // validate the optional field airline.leg.destination_code
       if (jsonObj.get("airline.leg.destination_code") != null && !jsonObj.get("airline.leg.destination_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.destination_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.destination_code").toString()));
       }
+      // validate the optional field airline.leg.fare_base_code
       if (jsonObj.get("airline.leg.fare_base_code") != null && !jsonObj.get("airline.leg.fare_base_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.fare_base_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.fare_base_code").toString()));
       }
+      // validate the optional field airline.leg.flight_number
       if (jsonObj.get("airline.leg.flight_number") != null && !jsonObj.get("airline.leg.flight_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.flight_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.flight_number").toString()));
       }
+      // validate the optional field airline.leg.stop_over_code
       if (jsonObj.get("airline.leg.stop_over_code") != null && !jsonObj.get("airline.leg.stop_over_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.leg.stop_over_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.leg.stop_over_code").toString()));
       }
+      // validate the optional field airline.passenger.date_of_birth
       if (jsonObj.get("airline.passenger.date_of_birth") != null && !jsonObj.get("airline.passenger.date_of_birth").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.passenger.date_of_birth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.date_of_birth").toString()));
       }
+      // validate the optional field airline.passenger.first_name
       if (jsonObj.get("airline.passenger.first_name") != null && !jsonObj.get("airline.passenger.first_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.passenger.first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.first_name").toString()));
       }
+      // validate the optional field airline.passenger.last_name
       if (jsonObj.get("airline.passenger.last_name") != null && !jsonObj.get("airline.passenger.last_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.passenger.last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.last_name").toString()));
       }
+      // validate the optional field airline.passenger.telephone_number
       if (jsonObj.get("airline.passenger.telephone_number") != null && !jsonObj.get("airline.passenger.telephone_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.passenger.telephone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.telephone_number").toString()));
       }
+      // validate the optional field airline.passenger.traveller_type
       if (jsonObj.get("airline.passenger.traveller_type") != null && !jsonObj.get("airline.passenger.traveller_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.passenger.traveller_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger.traveller_type").toString()));
       }
+      // validate the optional field airline.passenger_name
       if (jsonObj.get("airline.passenger_name") != null && !jsonObj.get("airline.passenger_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.passenger_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.passenger_name").toString()));
       }
+      // validate the optional field airline.ticket_issue_address
       if (jsonObj.get("airline.ticket_issue_address") != null && !jsonObj.get("airline.ticket_issue_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.ticket_issue_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.ticket_issue_address").toString()));
       }
+      // validate the optional field airline.ticket_number
       if (jsonObj.get("airline.ticket_number") != null && !jsonObj.get("airline.ticket_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.ticket_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.ticket_number").toString()));
       }
+      // validate the optional field airline.travel_agency_code
       if (jsonObj.get("airline.travel_agency_code") != null && !jsonObj.get("airline.travel_agency_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.travel_agency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.travel_agency_code").toString()));
       }
+      // validate the optional field airline.travel_agency_name
       if (jsonObj.get("airline.travel_agency_name") != null && !jsonObj.get("airline.travel_agency_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `airline.travel_agency_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("airline.travel_agency_name").toString()));
       }
@@ -1082,5 +1112,24 @@ public class AdditionalDataAirline {
     }
   }
 
+ /**
+  * Create an instance of AdditionalDataAirline given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AdditionalDataAirline
+  * @throws IOException if the JSON string is invalid with respect to AdditionalDataAirline
+  */
+  public static AdditionalDataAirline fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AdditionalDataAirline.class);
+  }
+
+ /**
+  * Convert an instance of AdditionalDataAirline to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
