@@ -45,6 +45,8 @@ import com.adyen.model.checkout.UpdatePaymentLinkRequest;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.CheckoutResource;
 import com.google.gson.reflect.TypeToken;
+import com.adyen.model.checkout.JSON;
+
 
 import java.io.IOException;
 
@@ -85,6 +87,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
         donations = new CheckoutResource(this, "/donations");
         cardDetails = new CheckoutResource(this, "/cardDetails");
         paymentLinks = new CheckoutResource(this, "/paymentLinks");
+        new JSON();
+
     }
 
     /**
@@ -101,10 +105,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
 
 
     public PaymentResponse payments(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentRequest);
+        String jsonRequest = paymentRequest.toJson();
         String jsonResult = payments.request(jsonRequest, requestOptions);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentResponse>() {
-        }.getType());
+        return PaymentResponse.fromJson(jsonResult);
     }
 
     /**
@@ -117,10 +120,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
 
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentMethodsRequest);
+        String jsonRequest = paymentMethodsRequest.toJson();
         String jsonResult = paymentMethods.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentMethodsResponse>() {
-        }.getType());
+        return PaymentMethodsResponse.fromJson(jsonResult);
     }
 
     /**
@@ -136,10 +138,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
     }
 
     public PaymentDetailsResponse paymentsDetails(DetailsRequest paymentsDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentsDetailsRequest);
+        String jsonRequest = paymentsDetailsRequest.toJson();
         String jsonResult = paymentsDetails.request(jsonRequest, requestOptions);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentDetailsResponse>() {
-        }.getType());
+        return PaymentDetailsResponse.fromJson(jsonResult);
     }
 
     /**
@@ -156,10 +157,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
     }
 
     public PaymentSetupResponse paymentSession(PaymentSetupRequest paymentSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentSessionRequest);
+        String jsonRequest = paymentSessionRequest.toJson();
         String jsonResult = paymentSession.request(jsonRequest, requestOptions);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentSetupResponse>() {
-        }.getType());
+        return PaymentSetupResponse.fromJson(jsonResult);
     }
 
     /**
@@ -171,10 +171,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public PaymentVerificationResponse paymentResult(PaymentVerificationRequest paymentResultRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentResultRequest);
+        String jsonRequest = paymentResultRequest.toJson();
         String jsonResult = paymentsResult.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentVerificationResponse>() {
-        }.getType());
+        return PaymentVerificationResponse.fromJson(jsonResult);
     }
 
     /**
@@ -186,10 +185,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(checkoutCreateOrderRequest);
+        String jsonRequest = checkoutCreateOrderRequest.toJson();
         String jsonResult = orders.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<CheckoutCreateOrderResponse>() {
-        }.getType());
+        return CheckoutCreateOrderResponse.fromJson(jsonResult);
     }
 
     /**
@@ -201,10 +199,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CheckoutCancelOrderResponse ordersCancel(CheckoutCancelOrderRequest checkoutCancelOrderRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(checkoutCancelOrderRequest);
+        String jsonRequest = checkoutCancelOrderRequest.toJson();
         String jsonResult = ordersCancel.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<CheckoutCancelOrderResponse>() {
-        }.getType());
+        return CheckoutCancelOrderResponse.fromJson(jsonResult);
     }
 
     /**
@@ -216,10 +213,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(createCheckoutSessionRequest);
+        String jsonRequest = createCheckoutSessionRequest.toJson();
         String jsonResult = sessions.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<CreateCheckoutSessionResponse>() {
-        }.getType());
+        return CreateCheckoutSessionResponse.fromJson(jsonResult);
     }
 
     /**
@@ -230,10 +226,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
     public PaymentCaptureResource paymentsCaptures(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
         CheckoutResource paymentsCaptures = new CheckoutResource(this, "/payments/" + paymentPspReference + "/captures");
-        String jsonRequest = GSON.toJson(createPaymentCaptureRequest);
+        String jsonRequest = createPaymentCaptureRequest.toJson();
         String jsonResult = paymentsCaptures.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentCaptureResource>() {
-        }.getType());
+        return PaymentCaptureResource.fromJson(jsonResult);
     }
 
     /**
@@ -247,10 +242,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
     public PaymentCancelResource paymentsCancels(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
         CheckoutResource paymentsCancels = new CheckoutResource(this, "/payments/" + paymentPspReference + "/cancels");
-        String jsonRequest = GSON.toJson(createPaymentCancelRequest);
+        String jsonRequest = createPaymentCancelRequest.toJson();
         String jsonResult = paymentsCancels.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentCancelResource>() {
-        }.getType());
+        return PaymentCancelResource.fromJson(jsonResult);
     }
 
     /**
@@ -262,10 +256,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public StandalonePaymentCancelResource cancels(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(createStandalonePaymentCancelRequest);
+        String jsonRequest = createStandalonePaymentCancelRequest.toJson();
         String jsonResult = cancels.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<StandalonePaymentCancelResource>() {
-        }.getType());
+        return StandalonePaymentCancelResource.fromJson(jsonResult);
     }
 
     /**
@@ -279,10 +272,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
     public PaymentReversalResource paymentsReversals(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
         CheckoutResource paymentReversal = new CheckoutResource(this, "/payments/" + paymentPspReference + "/reversals");
-        String jsonRequest = GSON.toJson(createPaymentReversalRequest);
+        String jsonRequest = createPaymentReversalRequest.toJson();
         String jsonResult = paymentReversal.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentReversalResource>() {
-        }.getType());
+        return PaymentReversalResource.fromJson(jsonResult);
     }
 
     /**
@@ -296,10 +288,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
     public PaymentRefundResource paymentsRefunds(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
         CheckoutResource paymentsRefunds = new CheckoutResource(this, "/payments/" + paymentPspReference + "/refunds");
-        String jsonRequest = GSON.toJson(createPaymentRefundRequest);
+        String jsonRequest = createPaymentRefundRequest.toJson();
         String jsonResult = paymentsRefunds.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentRefundResource>() {
-        }.getType());
+        return PaymentRefundResource.fromJson(jsonResult);
     }
 
     /**
@@ -313,10 +304,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
     public PaymentAmountUpdateResource paymentsAmountUpdates(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
         CheckoutResource paymentsAmountUpdates = new CheckoutResource(this, "/payments/" + paymentPspReference + "/amountUpdates");
-        String jsonRequest = GSON.toJson(createPaymentAmountUpdateRequest);
+        String jsonRequest = createPaymentAmountUpdateRequest.toJson();
         String jsonResult = paymentsAmountUpdates.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentAmountUpdateResource>() {
-        }.getType());
+        return PaymentAmountUpdateResource.fromJson(jsonResult);
     }
 
     /**
@@ -328,10 +318,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CheckoutBalanceCheckResponse paymentsMethodsBalance(CheckoutBalanceCheckRequest checkoutBalanceCheckRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(checkoutBalanceCheckRequest);
+        String jsonRequest = checkoutBalanceCheckRequest.toJson();
         String jsonResult = paymentMethodsBalance.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<CheckoutBalanceCheckResponse>() {
-        }.getType());
+        return CheckoutBalanceCheckResponse.fromJson(jsonResult);
     }
 
     /**
@@ -343,10 +332,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(createPaymentLinkRequest);
+        String jsonRequest = createPaymentLinkRequest.toJson();
         String jsonResult = paymentLinks.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResponse>() {
-        }.getType());
+        return PaymentLinkResponse.fromJson(jsonResult);
     }
 
     /**
@@ -360,8 +348,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
     public PaymentLinkResponse getPaymentLinks(String linkId) throws ApiException, IOException {
         CheckoutResource paymentLinks = new CheckoutResource(this, "/paymentLinks/" + linkId);
         String jsonResult = paymentLinks.request("{}", GET);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResponse>() {
-        }.getType());
+        return PaymentLinkResponse.fromJson(jsonResult);
     }
 
     /**
@@ -376,10 +363,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
     public PaymentLinkResponse patchPaymentLinks(String linkId, UpdatePaymentLinkRequest updatePaymentLinkRequest) throws ApiException, IOException {
         CheckoutResource paymentLinks = new CheckoutResource(this, "/paymentLinks/" + linkId);
 
-        String jsonRequest = GSON.toJson(updatePaymentLinkRequest);
+        String jsonRequest = updatePaymentLinkRequest.toJson();
         String jsonResult = paymentLinks.request(jsonRequest, PATCH);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResponse>() {
-        }.getType());
+        return PaymentLinkResponse.fromJson(jsonResult);
     }
 
     /**
@@ -391,10 +377,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public ApplePaySessionResponse applePaySessions(CreateApplePaySessionRequest createApplePaySessionRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(createApplePaySessionRequest);
+        String jsonRequest = createApplePaySessionRequest.toJson();
         String jsonResult = applePaySessions.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<ApplePaySessionResponse>() {
-        }.getType());
+        return ApplePaySessionResponse.fromJson(jsonResult);
     }
 
     /**
@@ -406,10 +391,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public DonationResponse donations(PaymentDonationRequest paymentDonationRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(paymentDonationRequest);
+        String jsonRequest = paymentDonationRequest.toJson();
         String jsonResult = donations.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<DonationResponse>() {
-        }.getType());
+        return DonationResponse.fromJson(jsonResult);
     }
 
     /**
@@ -421,9 +405,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest) throws ApiException, IOException {
-        String jsonRequest = GSON.toJson(cardDetailsRequest);
+        String jsonRequest = cardDetailsRequest.toJson();
         String jsonResult = cardDetails.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<CardDetailsResponse>() {
-        }.getType());
+        return CardDetailsResponse.fromJson(jsonResult);
     }
 }

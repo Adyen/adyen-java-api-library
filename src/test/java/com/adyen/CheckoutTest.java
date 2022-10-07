@@ -21,6 +21,9 @@
 package com.adyen;
 
 import com.adyen.constants.BrandCodes;
+import com.adyen.enums.Environment;
+import com.adyen.httpclient.AdyenHttpClient;
+import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.Split;
 import com.adyen.model.SplitAmount;
 import com.adyen.model.checkout.*;
@@ -54,6 +57,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Tests for
@@ -65,6 +72,119 @@ import static org.junit.Assert.fail;
  * /payments/storedPaymentMethods
  */
 public class CheckoutTest extends BaseTest {
+    protected Client createMockClient(String response) {
+        AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
+        try {
+            when(adyenHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), any())).thenReturn(response);
+        } catch (IOException | HTTPClientException e) {
+        e.printStackTrace();
+        }
+        Client client = new Client();
+        client.setHttpClient(adyenHttpClient);
+        client.setEnvironment(Environment.TEST, null);
+        return client;
+    }
+
+    /**
+     * Should make a payment
+     */
+    @Test
+    public void TestPaymentSuccess() throws Exception {
+        Client client = createMockClient("{\"pspReference\": \"993617895204576J\", \"resultCode\": \"Authorised\"}");
+        Amount amount = new Amount().currency("EUR").value(1000L);
+        CardDetails cardDetails = new CardDetails();
+        cardDetails.encryptedCardNumber("5136333333333335")
+                .holderName("John Doe")
+                .cvc("737")
+                .encryptedExpiryMonth("08")
+                .encryptedExpiryYear("2018");
+        cardDetails.setType(CardDetails.TypeEnum.SCHEME);
+        PaymentRequest paymentRequest = new PaymentRequest();
+        paymentRequest.setAmount(amount);
+        paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
+        Checkout checkout = new Checkout(client);
+        PaymentResponse paymentResponse = checkout.payments(paymentRequest);
+        assertEquals("993617895204576J", paymentResponse.getPspReference());
+    }
+
+    /**
+     * Should be able to stringify paymentMethod in PaymentRequest (test oneOf serialization)
+     */
+    @Test
+    public void TestPaymentRequestSerialization() throws Exception {
+        new JSON();
+        IdealDetails idealDetails = new IdealDetails();
+        idealDetails.setIssuer("issuerName");
+        Amount amount = new Amount().currency("EUR").value(1000L);
+        PaymentRequest paymentRequest = new PaymentRequest();
+        paymentRequest.setAmount(amount);
+        paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(idealDetails));
+        assertEquals("{\"amount\":{}}",paymentRequest.toJson());
+
+    }
+
+    /**
+     * Should be able to parse paymentMethod in response (test oneOf deserialization)
+     */
+
+    /**
+     * Should return correct exception at failed call
+     */
+
+    /**
+     * Should make paymentMethods call
+     */
+
+    /**
+     * Should make paymentLink call
+     */
+
+    /**
+     * Should make paymentLink get call
+     */
+
+    /**
+     * Should make paymentLink patch call
+     */
+
+    /**
+     * Should make payments/details call
+     */
+
+    /**
+     * Should make sessions call
+     */
+
+    /**
+     * Should make paymentsResults call
+     */
+
+    /**
+     * Should make orders call
+     */
+
+    /**
+     * Should make ordersCancel call
+     */
+
+    /**
+     * Should make applePaySessions call
+     */
+
+    /**
+     * Should make donations call
+     */
+
+    /**
+     * Should make cardDetails call
+     */
+
+    /**
+     * Should make paymentLinks call
+     */
+
+
+
     /**
      * Test success flow for
      * POST /payments
