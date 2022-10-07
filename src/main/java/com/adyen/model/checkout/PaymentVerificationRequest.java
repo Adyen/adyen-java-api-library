@@ -161,6 +161,7 @@ public class PaymentVerificationRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field payload
       if (jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));
       }

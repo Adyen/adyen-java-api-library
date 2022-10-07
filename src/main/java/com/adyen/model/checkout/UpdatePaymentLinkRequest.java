@@ -206,8 +206,12 @@ public class UpdatePaymentLinkRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      // ensure the field status can be parsed to an enum value
+      if (jsonObj.get("status") != null) {
+        if(!jsonObj.get("status").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        }
+        StatusEnum.fromValue(jsonObj.get("status").getAsString());
       }
   }
 

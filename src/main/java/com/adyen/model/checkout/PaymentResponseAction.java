@@ -66,9 +66,9 @@ import com.google.gson.JsonParseException;
 
 import com.adyen.model.checkout.JSON;
 
+
 public class PaymentResponseAction extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PaymentResponseAction.class.getName());
-    private static final JSON JSON = new JSON();
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")

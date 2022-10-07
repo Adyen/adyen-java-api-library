@@ -363,27 +363,35 @@ public class AdditionalDataRatepay {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRatepay` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field ratepay.installmentAmount
       if (jsonObj.get("ratepay.installmentAmount") != null && !jsonObj.get("ratepay.installmentAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ratepay.installmentAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ratepay.installmentAmount").toString()));
       }
+      // validate the optional field ratepay.interestRate
       if (jsonObj.get("ratepay.interestRate") != null && !jsonObj.get("ratepay.interestRate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ratepay.interestRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ratepay.interestRate").toString()));
       }
+      // validate the optional field ratepay.lastInstallmentAmount
       if (jsonObj.get("ratepay.lastInstallmentAmount") != null && !jsonObj.get("ratepay.lastInstallmentAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ratepay.lastInstallmentAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ratepay.lastInstallmentAmount").toString()));
       }
+      // validate the optional field ratepay.paymentFirstday
       if (jsonObj.get("ratepay.paymentFirstday") != null && !jsonObj.get("ratepay.paymentFirstday").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ratepay.paymentFirstday` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ratepay.paymentFirstday").toString()));
       }
+      // validate the optional field ratepaydata.deliveryDate
       if (jsonObj.get("ratepaydata.deliveryDate") != null && !jsonObj.get("ratepaydata.deliveryDate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ratepaydata.deliveryDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ratepaydata.deliveryDate").toString()));
       }
+      // validate the optional field ratepaydata.dueDate
       if (jsonObj.get("ratepaydata.dueDate") != null && !jsonObj.get("ratepaydata.dueDate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ratepaydata.dueDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ratepaydata.dueDate").toString()));
       }
+      // validate the optional field ratepaydata.invoiceDate
       if (jsonObj.get("ratepaydata.invoiceDate") != null && !jsonObj.get("ratepaydata.invoiceDate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ratepaydata.invoiceDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ratepaydata.invoiceDate").toString()));
       }
+      // validate the optional field ratepaydata.invoiceId
       if (jsonObj.get("ratepaydata.invoiceId") != null && !jsonObj.get("ratepaydata.invoiceId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ratepaydata.invoiceId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ratepaydata.invoiceId").toString()));
       }

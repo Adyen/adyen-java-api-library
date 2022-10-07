@@ -268,12 +268,18 @@ public class ThreeDSRequestorAuthenticationInfo {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSRequestorAuthenticationInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field threeDSReqAuthData
       if (jsonObj.get("threeDSReqAuthData") != null && !jsonObj.get("threeDSReqAuthData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthData").toString()));
       }
-      if (jsonObj.get("threeDSReqAuthMethod") != null && !jsonObj.get("threeDSReqAuthMethod").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthMethod").toString()));
+      // ensure the field threeDSReqAuthMethod can be parsed to an enum value
+      if (jsonObj.get("threeDSReqAuthMethod") != null) {
+        if(!jsonObj.get("threeDSReqAuthMethod").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthMethod").toString()));
+        }
+        ThreeDSReqAuthMethodEnum.fromValue(jsonObj.get("threeDSReqAuthMethod").getAsString());
       }
+      // validate the optional field threeDSReqAuthTimestamp
       if (jsonObj.get("threeDSReqAuthTimestamp") != null && !jsonObj.get("threeDSReqAuthTimestamp").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSReqAuthTimestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqAuthTimestamp").toString()));
       }

@@ -388,12 +388,15 @@ public class DonationResponse {
       if (jsonObj.getAsJsonObject("amount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
       }
+      // validate the optional field donationAccount
       if (jsonObj.get("donationAccount") != null && !jsonObj.get("donationAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `donationAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("donationAccount").toString()));
       }
+      // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
@@ -401,11 +404,16 @@ public class DonationResponse {
       if (jsonObj.getAsJsonObject("payment") != null) {
         PaymentResponse.validateJsonObject(jsonObj.getAsJsonObject("payment"));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      // ensure the field status can be parsed to an enum value
+      if (jsonObj.get("status") != null) {
+        if(!jsonObj.get("status").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        }
+        StatusEnum.fromValue(jsonObj.get("status").getAsString());
       }
   }
 

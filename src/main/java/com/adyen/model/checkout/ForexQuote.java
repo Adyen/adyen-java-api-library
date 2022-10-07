@@ -494,9 +494,11 @@ public class ForexQuote {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field account
       if (jsonObj.get("account") != null && !jsonObj.get("account").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account").toString()));
       }
+      // validate the optional field accountType
       if (jsonObj.get("accountType") != null && !jsonObj.get("accountType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountType").toString()));
       }
@@ -512,6 +514,7 @@ public class ForexQuote {
       if (jsonObj.getAsJsonObject("interbank") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("interbank"));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
@@ -519,12 +522,15 @@ public class ForexQuote {
       if (jsonObj.getAsJsonObject("sell") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("sell"));
       }
+      // validate the optional field signature
       if (jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
+      // validate the optional field source
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
+      // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }

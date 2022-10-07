@@ -213,12 +213,15 @@ public class AdditionalDataRetry {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataRetry` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field retry.chainAttemptNumber
       if (jsonObj.get("retry.chainAttemptNumber") != null && !jsonObj.get("retry.chainAttemptNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `retry.chainAttemptNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("retry.chainAttemptNumber").toString()));
       }
+      // validate the optional field retry.orderAttemptNumber
       if (jsonObj.get("retry.orderAttemptNumber") != null && !jsonObj.get("retry.orderAttemptNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `retry.orderAttemptNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("retry.orderAttemptNumber").toString()));
       }
+      // validate the optional field retry.skipRetry
       if (jsonObj.get("retry.skipRetry") != null && !jsonObj.get("retry.skipRetry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `retry.skipRetry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("retry.skipRetry").toString()));
       }

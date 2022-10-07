@@ -528,27 +528,44 @@ public class Mandate {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field amount
       if (jsonObj.get("amount") != null && !jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
-      if (jsonObj.get("amountRule") != null && !jsonObj.get("amountRule").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `amountRule` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amountRule").toString()));
+      // ensure the field amountRule can be parsed to an enum value
+      if (jsonObj.get("amountRule") != null) {
+        if(!jsonObj.get("amountRule").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `amountRule` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amountRule").toString()));
+        }
+        AmountRuleEnum.fromValue(jsonObj.get("amountRule").getAsString());
       }
-      if (jsonObj.get("billingAttemptsRule") != null && !jsonObj.get("billingAttemptsRule").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingAttemptsRule` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAttemptsRule").toString()));
+      // ensure the field billingAttemptsRule can be parsed to an enum value
+      if (jsonObj.get("billingAttemptsRule") != null) {
+        if(!jsonObj.get("billingAttemptsRule").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `billingAttemptsRule` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAttemptsRule").toString()));
+        }
+        BillingAttemptsRuleEnum.fromValue(jsonObj.get("billingAttemptsRule").getAsString());
       }
+      // validate the optional field billingDay
       if (jsonObj.get("billingDay") != null && !jsonObj.get("billingDay").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billingDay` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingDay").toString()));
       }
+      // validate the optional field endsAt
       if (jsonObj.get("endsAt") != null && !jsonObj.get("endsAt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `endsAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endsAt").toString()));
       }
-      if (jsonObj.get("frequency") != null && !jsonObj.get("frequency").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `frequency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("frequency").toString()));
+      // ensure the field frequency can be parsed to an enum value
+      if (jsonObj.get("frequency") != null) {
+        if(!jsonObj.get("frequency").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `frequency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("frequency").toString()));
+        }
+        FrequencyEnum.fromValue(jsonObj.get("frequency").getAsString());
       }
+      // validate the optional field remarks
       if (jsonObj.get("remarks") != null && !jsonObj.get("remarks").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `remarks` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remarks").toString()));
       }
+      // validate the optional field startsAt
       if (jsonObj.get("startsAt") != null && !jsonObj.get("startsAt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `startsAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startsAt").toString()));
       }

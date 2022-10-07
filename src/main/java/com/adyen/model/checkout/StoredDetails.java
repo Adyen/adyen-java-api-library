@@ -223,6 +223,7 @@ public class StoredDetails {
       if (jsonObj.getAsJsonObject("card") != null) {
         Card.validateJsonObject(jsonObj.getAsJsonObject("card"));
       }
+      // validate the optional field emailAddress
       if (jsonObj.get("emailAddress") != null && !jsonObj.get("emailAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `emailAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emailAddress").toString()));
       }

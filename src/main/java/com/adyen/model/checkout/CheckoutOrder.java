@@ -192,9 +192,11 @@ public class CheckoutOrder {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field orderData
       if (jsonObj.get("orderData") != null && !jsonObj.get("orderData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `orderData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderData").toString()));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }

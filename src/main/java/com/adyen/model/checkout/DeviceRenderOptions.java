@@ -295,8 +295,12 @@ public class DeviceRenderOptions {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeviceRenderOptions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("sdkInterface") != null && !jsonObj.get("sdkInterface").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sdkInterface` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkInterface").toString()));
+      // ensure the field sdkInterface can be parsed to an enum value
+      if (jsonObj.get("sdkInterface") != null) {
+        if(!jsonObj.get("sdkInterface").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `sdkInterface` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdkInterface").toString()));
+        }
+        SdkInterfaceEnum.fromValue(jsonObj.get("sdkInterface").getAsString());
       }
       // ensure the json data is an array
       if (jsonObj.get("sdkUiType") != null && !jsonObj.get("sdkUiType").isJsonArray()) {

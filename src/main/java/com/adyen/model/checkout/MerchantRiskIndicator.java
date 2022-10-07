@@ -655,31 +655,45 @@ public class MerchantRiskIndicator {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantRiskIndicator` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("deliveryAddressIndicator") != null && !jsonObj.get("deliveryAddressIndicator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deliveryAddressIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryAddressIndicator").toString()));
+      // ensure the field deliveryAddressIndicator can be parsed to an enum value
+      if (jsonObj.get("deliveryAddressIndicator") != null) {
+        if(!jsonObj.get("deliveryAddressIndicator").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `deliveryAddressIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryAddressIndicator").toString()));
+        }
+        DeliveryAddressIndicatorEnum.fromValue(jsonObj.get("deliveryAddressIndicator").getAsString());
       }
+      // validate the optional field deliveryEmail
       if (jsonObj.get("deliveryEmail") != null && !jsonObj.get("deliveryEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `deliveryEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryEmail").toString()));
       }
+      // validate the optional field deliveryEmailAddress
       if (jsonObj.get("deliveryEmailAddress") != null && !jsonObj.get("deliveryEmailAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `deliveryEmailAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryEmailAddress").toString()));
       }
-      if (jsonObj.get("deliveryTimeframe") != null && !jsonObj.get("deliveryTimeframe").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deliveryTimeframe` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryTimeframe").toString()));
+      // ensure the field deliveryTimeframe can be parsed to an enum value
+      if (jsonObj.get("deliveryTimeframe") != null) {
+        if(!jsonObj.get("deliveryTimeframe").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `deliveryTimeframe` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryTimeframe").toString()));
+        }
+        DeliveryTimeframeEnum.fromValue(jsonObj.get("deliveryTimeframe").getAsString());
       }
       // validate the optional field `giftCardAmount`
       if (jsonObj.getAsJsonObject("giftCardAmount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("giftCardAmount"));
       }
+      // validate the optional field giftCardCurr
       if (jsonObj.get("giftCardCurr") != null && !jsonObj.get("giftCardCurr").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `giftCardCurr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("giftCardCurr").toString()));
       }
+      // validate the optional field preOrderPurchaseInd
       if (jsonObj.get("preOrderPurchaseInd") != null && !jsonObj.get("preOrderPurchaseInd").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `preOrderPurchaseInd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preOrderPurchaseInd").toString()));
       }
+      // validate the optional field reorderItemsInd
       if (jsonObj.get("reorderItemsInd") != null && !jsonObj.get("reorderItemsInd").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reorderItemsInd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reorderItemsInd").toString()));
       }
+      // validate the optional field shipIndicator
       if (jsonObj.get("shipIndicator") != null && !jsonObj.get("shipIndicator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shipIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shipIndicator").toString()));
       }

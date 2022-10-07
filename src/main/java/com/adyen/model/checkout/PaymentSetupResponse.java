@@ -196,6 +196,7 @@ public class PaymentSetupResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentSetupResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field paymentSession
       if (jsonObj.get("paymentSession") != null && !jsonObj.get("paymentSession").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentSession` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentSession").toString()));
       }

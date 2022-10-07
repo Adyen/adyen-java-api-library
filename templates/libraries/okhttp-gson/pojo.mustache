@@ -492,10 +492,22 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       {{/isArray}}
       {{^isContainer}}
       {{#isString}}
+      {{^isEnum}}
+      // validate the {{#isRequired}}required{{/isRequired}}{{^isRequired}}optional{{/isRequired}} field {{{baseName}}}
       if ({{^isRequired}}jsonObj.get("{{{baseName}}}") != null && {{/isRequired}}!jsonObj.get("{{{baseName}}}").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `{{{baseName}}}` to be a primitive type in the JSON string but got `%s`", jsonObj.get("{{{baseName}}}").toString()));
       }
+      {{/isEnum}}
       {{/isString}}
+      {{#isEnum}}
+      // ensure the field {{{baseName}}} can be parsed to an enum value
+      if ({{^isRequired}}jsonObj.get("{{{baseName}}}") != null) {
+        if({{/isRequired}}!jsonObj.get("{{{baseName}}}").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `{{{baseName}}}` to be a primitive type in the JSON string but got `%s`", jsonObj.get("{{{baseName}}}").toString()));
+        }
+        {{{datatypeWithEnum}}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}.fromValue(jsonObj.get("{{{baseName}}}").getAsString());
+      }
+      {{/isEnum}}
       {{#isModel}}
       {{#isRequired}}
       // validate the required field `{{{baseName}}}`
@@ -521,7 +533,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
           {{modelName}}.validateJsonObject(jsonObj);
           break;
       {{/mappedModels}}
-        default: 
+        default:
           throw new IllegalArgumentException(String.format("The value of the `{{{propertyBaseName}}}` field `%s` does not match any key defined in the discriminator's mapping.", discriminatorValue));
       }
       {{/discriminator}}

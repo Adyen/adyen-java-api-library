@@ -161,6 +161,7 @@ public class ApplePaySessionResponse {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field data
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data").toString()));
       }

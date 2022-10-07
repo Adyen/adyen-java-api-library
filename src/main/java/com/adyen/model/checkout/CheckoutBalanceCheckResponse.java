@@ -412,14 +412,20 @@ public class CheckoutBalanceCheckResponse {
       if (jsonObj.getAsJsonObject("fraudResult") != null) {
         FraudResult.validateJsonObject(jsonObj.getAsJsonObject("fraudResult"));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field refusalReason
       if (jsonObj.get("refusalReason") != null && !jsonObj.get("refusalReason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReason").toString()));
       }
-      if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+      // ensure the field resultCode can be parsed to an enum value
+      if (jsonObj.get("resultCode") != null) {
+        if(!jsonObj.get("resultCode").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+        }
+        ResultCodeEnum.fromValue(jsonObj.get("resultCode").getAsString());
       }
       // validate the optional field `transactionLimit`
       if (jsonObj.getAsJsonObject("transactionLimit") != null) {

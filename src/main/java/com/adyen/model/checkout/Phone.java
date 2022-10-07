@@ -183,9 +183,11 @@ public class Phone {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Phone` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field cc
       if (jsonObj.get("cc") != null && !jsonObj.get("cc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cc").toString()));
       }
+      // validate the optional field subscriber
       if (jsonObj.get("subscriber") != null && !jsonObj.get("subscriber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscriber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscriber").toString()));
       }

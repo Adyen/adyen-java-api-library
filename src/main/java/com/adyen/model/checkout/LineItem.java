@@ -423,18 +423,23 @@ public class LineItem {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LineItem` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
+      // validate the optional field imageUrl
       if (jsonObj.get("imageUrl") != null && !jsonObj.get("imageUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imageUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageUrl").toString()));
       }
+      // validate the optional field itemCategory
       if (jsonObj.get("itemCategory") != null && !jsonObj.get("itemCategory").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `itemCategory` to be a primitive type in the JSON string but got `%s`", jsonObj.get("itemCategory").toString()));
       }
+      // validate the optional field productUrl
       if (jsonObj.get("productUrl") != null && !jsonObj.get("productUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `productUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("productUrl").toString()));
       }

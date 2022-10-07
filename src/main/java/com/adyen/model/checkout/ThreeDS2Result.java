@@ -702,45 +702,68 @@ public class ThreeDS2Result {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2Result` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field authenticationValue
       if (jsonObj.get("authenticationValue") != null && !jsonObj.get("authenticationValue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authenticationValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authenticationValue").toString()));
       }
+      // validate the optional field cavvAlgorithm
       if (jsonObj.get("cavvAlgorithm") != null && !jsonObj.get("cavvAlgorithm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cavvAlgorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavvAlgorithm").toString()));
       }
-      if (jsonObj.get("challengeCancel") != null && !jsonObj.get("challengeCancel").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `challengeCancel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeCancel").toString()));
+      // ensure the field challengeCancel can be parsed to an enum value
+      if (jsonObj.get("challengeCancel") != null) {
+        if(!jsonObj.get("challengeCancel").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `challengeCancel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeCancel").toString()));
+        }
+        ChallengeCancelEnum.fromValue(jsonObj.get("challengeCancel").getAsString());
       }
-      if (jsonObj.get("challengeIndicator") != null && !jsonObj.get("challengeIndicator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `challengeIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeIndicator").toString()));
+      // ensure the field challengeIndicator can be parsed to an enum value
+      if (jsonObj.get("challengeIndicator") != null) {
+        if(!jsonObj.get("challengeIndicator").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `challengeIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeIndicator").toString()));
+        }
+        ChallengeIndicatorEnum.fromValue(jsonObj.get("challengeIndicator").getAsString());
       }
+      // validate the optional field dsTransID
       if (jsonObj.get("dsTransID") != null && !jsonObj.get("dsTransID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dsTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dsTransID").toString()));
       }
+      // validate the optional field eci
       if (jsonObj.get("eci") != null && !jsonObj.get("eci").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `eci` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eci").toString()));
       }
-      if (jsonObj.get("exemptionIndicator") != null && !jsonObj.get("exemptionIndicator").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `exemptionIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exemptionIndicator").toString()));
+      // ensure the field exemptionIndicator can be parsed to an enum value
+      if (jsonObj.get("exemptionIndicator") != null) {
+        if(!jsonObj.get("exemptionIndicator").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `exemptionIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exemptionIndicator").toString()));
+        }
+        ExemptionIndicatorEnum.fromValue(jsonObj.get("exemptionIndicator").getAsString());
       }
+      // validate the optional field messageVersion
       if (jsonObj.get("messageVersion") != null && !jsonObj.get("messageVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `messageVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("messageVersion").toString()));
       }
+      // validate the optional field riskScore
       if (jsonObj.get("riskScore") != null && !jsonObj.get("riskScore").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `riskScore` to be a primitive type in the JSON string but got `%s`", jsonObj.get("riskScore").toString()));
       }
+      // validate the optional field threeDSServerTransID
       if (jsonObj.get("threeDSServerTransID") != null && !jsonObj.get("threeDSServerTransID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSServerTransID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSServerTransID").toString()));
       }
+      // validate the optional field timestamp
       if (jsonObj.get("timestamp") != null && !jsonObj.get("timestamp").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `timestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timestamp").toString()));
       }
+      // validate the optional field transStatus
       if (jsonObj.get("transStatus") != null && !jsonObj.get("transStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transStatus").toString()));
       }
+      // validate the optional field transStatusReason
       if (jsonObj.get("transStatusReason") != null && !jsonObj.get("transStatusReason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transStatusReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transStatusReason").toString()));
       }
+      // validate the optional field whiteListStatus
       if (jsonObj.get("whiteListStatus") != null && !jsonObj.get("whiteListStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `whiteListStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("whiteListStatus").toString()));
       }

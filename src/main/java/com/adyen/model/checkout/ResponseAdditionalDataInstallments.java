@@ -483,39 +483,51 @@ public class ResponseAdditionalDataInstallments {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataInstallments` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field installmentPaymentData.installmentType
       if (jsonObj.get("installmentPaymentData.installmentType") != null && !jsonObj.get("installmentPaymentData.installmentType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.installmentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.installmentType").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].annualPercentageRate
       if (jsonObj.get("installmentPaymentData.option[itemNr].annualPercentageRate") != null && !jsonObj.get("installmentPaymentData.option[itemNr].annualPercentageRate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].annualPercentageRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].annualPercentageRate").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].firstInstallmentAmount
       if (jsonObj.get("installmentPaymentData.option[itemNr].firstInstallmentAmount") != null && !jsonObj.get("installmentPaymentData.option[itemNr].firstInstallmentAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].firstInstallmentAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].firstInstallmentAmount").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].installmentFee
       if (jsonObj.get("installmentPaymentData.option[itemNr].installmentFee") != null && !jsonObj.get("installmentPaymentData.option[itemNr].installmentFee").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].installmentFee` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].installmentFee").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].interestRate
       if (jsonObj.get("installmentPaymentData.option[itemNr].interestRate") != null && !jsonObj.get("installmentPaymentData.option[itemNr].interestRate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].interestRate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].interestRate").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].maximumNumberOfInstallments
       if (jsonObj.get("installmentPaymentData.option[itemNr].maximumNumberOfInstallments") != null && !jsonObj.get("installmentPaymentData.option[itemNr].maximumNumberOfInstallments").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].maximumNumberOfInstallments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].maximumNumberOfInstallments").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].minimumNumberOfInstallments
       if (jsonObj.get("installmentPaymentData.option[itemNr].minimumNumberOfInstallments") != null && !jsonObj.get("installmentPaymentData.option[itemNr].minimumNumberOfInstallments").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].minimumNumberOfInstallments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].minimumNumberOfInstallments").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].numberOfInstallments
       if (jsonObj.get("installmentPaymentData.option[itemNr].numberOfInstallments") != null && !jsonObj.get("installmentPaymentData.option[itemNr].numberOfInstallments").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].numberOfInstallments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].numberOfInstallments").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].subsequentInstallmentAmount
       if (jsonObj.get("installmentPaymentData.option[itemNr].subsequentInstallmentAmount") != null && !jsonObj.get("installmentPaymentData.option[itemNr].subsequentInstallmentAmount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].subsequentInstallmentAmount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].subsequentInstallmentAmount").toString()));
       }
+      // validate the optional field installmentPaymentData.option[itemNr].totalAmountDue
       if (jsonObj.get("installmentPaymentData.option[itemNr].totalAmountDue") != null && !jsonObj.get("installmentPaymentData.option[itemNr].totalAmountDue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.option[itemNr].totalAmountDue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.option[itemNr].totalAmountDue").toString()));
       }
+      // validate the optional field installmentPaymentData.paymentOptions
       if (jsonObj.get("installmentPaymentData.paymentOptions") != null && !jsonObj.get("installmentPaymentData.paymentOptions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installmentPaymentData.paymentOptions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installmentPaymentData.paymentOptions").toString()));
       }
+      // validate the optional field installments.value
       if (jsonObj.get("installments.value") != null && !jsonObj.get("installments.value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installments.value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installments.value").toString()));
       }

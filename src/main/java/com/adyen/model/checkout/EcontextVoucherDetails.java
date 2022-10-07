@@ -332,20 +332,28 @@ public class EcontextVoucherDetails {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field firstName
       if (jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
       }
+      // validate the optional field lastName
       if (jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
       }
+      // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
+      // validate the optional field telephoneNumber
       if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 

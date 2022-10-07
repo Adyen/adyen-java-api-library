@@ -457,6 +457,7 @@ public class InputDetail {
           SubInputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field itemSearchUrl
       if (jsonObj.get("itemSearchUrl") != null && !jsonObj.get("itemSearchUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `itemSearchUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("itemSearchUrl").toString()));
       }
@@ -472,12 +473,15 @@ public class InputDetail {
           Item.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field key
       if (jsonObj.get("key") != null && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
+      // validate the optional field value
       if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }

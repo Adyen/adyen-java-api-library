@@ -226,6 +226,7 @@ public class DetailsRequest {
       if (jsonObj.getAsJsonObject("details") != null) {
         PaymentCompletionDetails.validateJsonObject(jsonObj.getAsJsonObject("details"));
       }
+      // validate the optional field paymentData
       if (jsonObj.get("paymentData") != null && !jsonObj.get("paymentData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentData").toString()));
       }

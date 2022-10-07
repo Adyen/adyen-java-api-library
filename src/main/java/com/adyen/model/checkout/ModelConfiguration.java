@@ -299,8 +299,12 @@ public class ModelConfiguration {
       if (jsonObj.getAsJsonObject("avs") != null) {
         Avs.validateJsonObject(jsonObj.getAsJsonObject("avs"));
       }
-      if (jsonObj.get("cardHolderName") != null && !jsonObj.get("cardHolderName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cardHolderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardHolderName").toString()));
+      // ensure the field cardHolderName can be parsed to an enum value
+      if (jsonObj.get("cardHolderName") != null) {
+        if(!jsonObj.get("cardHolderName").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `cardHolderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardHolderName").toString()));
+        }
+        CardHolderNameEnum.fromValue(jsonObj.get("cardHolderName").getAsString());
       }
       // validate the optional field `installments`
       if (jsonObj.getAsJsonObject("installments") != null) {

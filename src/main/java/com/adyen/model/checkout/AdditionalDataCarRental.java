@@ -813,72 +813,95 @@ public class AdditionalDataCarRental {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataCarRental` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field carRental.checkOutDate
       if (jsonObj.get("carRental.checkOutDate") != null && !jsonObj.get("carRental.checkOutDate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.checkOutDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.checkOutDate").toString()));
       }
+      // validate the optional field carRental.customerServiceTollFreeNumber
       if (jsonObj.get("carRental.customerServiceTollFreeNumber") != null && !jsonObj.get("carRental.customerServiceTollFreeNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.customerServiceTollFreeNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.customerServiceTollFreeNumber").toString()));
       }
+      // validate the optional field carRental.daysRented
       if (jsonObj.get("carRental.daysRented") != null && !jsonObj.get("carRental.daysRented").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.daysRented` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.daysRented").toString()));
       }
+      // validate the optional field carRental.fuelCharges
       if (jsonObj.get("carRental.fuelCharges") != null && !jsonObj.get("carRental.fuelCharges").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.fuelCharges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.fuelCharges").toString()));
       }
+      // validate the optional field carRental.insuranceCharges
       if (jsonObj.get("carRental.insuranceCharges") != null && !jsonObj.get("carRental.insuranceCharges").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.insuranceCharges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.insuranceCharges").toString()));
       }
+      // validate the optional field carRental.locationCity
       if (jsonObj.get("carRental.locationCity") != null && !jsonObj.get("carRental.locationCity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.locationCity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.locationCity").toString()));
       }
+      // validate the optional field carRental.locationCountry
       if (jsonObj.get("carRental.locationCountry") != null && !jsonObj.get("carRental.locationCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.locationCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.locationCountry").toString()));
       }
+      // validate the optional field carRental.locationStateProvince
       if (jsonObj.get("carRental.locationStateProvince") != null && !jsonObj.get("carRental.locationStateProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.locationStateProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.locationStateProvince").toString()));
       }
+      // validate the optional field carRental.noShowIndicator
       if (jsonObj.get("carRental.noShowIndicator") != null && !jsonObj.get("carRental.noShowIndicator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.noShowIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.noShowIndicator").toString()));
       }
+      // validate the optional field carRental.oneWayDropOffCharges
       if (jsonObj.get("carRental.oneWayDropOffCharges") != null && !jsonObj.get("carRental.oneWayDropOffCharges").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.oneWayDropOffCharges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.oneWayDropOffCharges").toString()));
       }
+      // validate the optional field carRental.rate
       if (jsonObj.get("carRental.rate") != null && !jsonObj.get("carRental.rate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.rate").toString()));
       }
+      // validate the optional field carRental.rateIndicator
       if (jsonObj.get("carRental.rateIndicator") != null && !jsonObj.get("carRental.rateIndicator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.rateIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.rateIndicator").toString()));
       }
+      // validate the optional field carRental.rentalAgreementNumber
       if (jsonObj.get("carRental.rentalAgreementNumber") != null && !jsonObj.get("carRental.rentalAgreementNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.rentalAgreementNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.rentalAgreementNumber").toString()));
       }
+      // validate the optional field carRental.rentalClassId
       if (jsonObj.get("carRental.rentalClassId") != null && !jsonObj.get("carRental.rentalClassId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.rentalClassId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.rentalClassId").toString()));
       }
+      // validate the optional field carRental.renterName
       if (jsonObj.get("carRental.renterName") != null && !jsonObj.get("carRental.renterName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.renterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.renterName").toString()));
       }
+      // validate the optional field carRental.returnCity
       if (jsonObj.get("carRental.returnCity") != null && !jsonObj.get("carRental.returnCity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.returnCity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.returnCity").toString()));
       }
+      // validate the optional field carRental.returnCountry
       if (jsonObj.get("carRental.returnCountry") != null && !jsonObj.get("carRental.returnCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.returnCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.returnCountry").toString()));
       }
+      // validate the optional field carRental.returnDate
       if (jsonObj.get("carRental.returnDate") != null && !jsonObj.get("carRental.returnDate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.returnDate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.returnDate").toString()));
       }
+      // validate the optional field carRental.returnLocationId
       if (jsonObj.get("carRental.returnLocationId") != null && !jsonObj.get("carRental.returnLocationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.returnLocationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.returnLocationId").toString()));
       }
+      // validate the optional field carRental.returnStateProvince
       if (jsonObj.get("carRental.returnStateProvince") != null && !jsonObj.get("carRental.returnStateProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.returnStateProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.returnStateProvince").toString()));
       }
+      // validate the optional field carRental.taxExemptIndicator
       if (jsonObj.get("carRental.taxExemptIndicator") != null && !jsonObj.get("carRental.taxExemptIndicator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `carRental.taxExemptIndicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("carRental.taxExemptIndicator").toString()));
       }
+      // validate the optional field travelEntertainmentAuthData.duration
       if (jsonObj.get("travelEntertainmentAuthData.duration") != null && !jsonObj.get("travelEntertainmentAuthData.duration").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `travelEntertainmentAuthData.duration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.duration").toString()));
       }
+      // validate the optional field travelEntertainmentAuthData.market
       if (jsonObj.get("travelEntertainmentAuthData.market") != null && !jsonObj.get("travelEntertainmentAuthData.market").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `travelEntertainmentAuthData.market` to be a primitive type in the JSON string but got `%s`", jsonObj.get("travelEntertainmentAuthData.market").toString()));
       }

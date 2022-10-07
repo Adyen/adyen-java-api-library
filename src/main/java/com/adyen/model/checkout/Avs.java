@@ -232,8 +232,12 @@ public class Avs {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Avs` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("enabled") != null && !jsonObj.get("enabled").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enabled` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enabled").toString()));
+      // ensure the field enabled can be parsed to an enum value
+      if (jsonObj.get("enabled") != null) {
+        if(!jsonObj.get("enabled").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `enabled` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enabled").toString()));
+        }
+        EnabledEnum.fromValue(jsonObj.get("enabled").getAsString());
       }
   }
 

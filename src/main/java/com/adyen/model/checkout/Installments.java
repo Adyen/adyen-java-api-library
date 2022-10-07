@@ -238,8 +238,12 @@ public class Installments {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("plan") != null && !jsonObj.get("plan").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `plan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("plan").toString()));
+      // ensure the field plan can be parsed to an enum value
+      if (jsonObj.get("plan") != null) {
+        if(!jsonObj.get("plan").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `plan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("plan").toString()));
+        }
+        PlanEnum.fromValue(jsonObj.get("plan").getAsString());
       }
   }
 

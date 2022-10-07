@@ -273,15 +273,19 @@ public class ResponseAdditionalData3DSecure {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalData3DSecure` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field cardHolderInfo
       if (jsonObj.get("cardHolderInfo") != null && !jsonObj.get("cardHolderInfo").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardHolderInfo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardHolderInfo").toString()));
       }
+      // validate the optional field cavv
       if (jsonObj.get("cavv") != null && !jsonObj.get("cavv").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cavv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavv").toString()));
       }
+      // validate the optional field cavvAlgorithm
       if (jsonObj.get("cavvAlgorithm") != null && !jsonObj.get("cavvAlgorithm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cavvAlgorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavvAlgorithm").toString()));
       }
+      // validate the optional field scaExemptionRequested
       if (jsonObj.get("scaExemptionRequested") != null && !jsonObj.get("scaExemptionRequested").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `scaExemptionRequested` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scaExemptionRequested").toString()));
       }

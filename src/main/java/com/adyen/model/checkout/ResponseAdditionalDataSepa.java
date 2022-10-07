@@ -213,12 +213,15 @@ public class ResponseAdditionalDataSepa {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataSepa` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field sepadirectdebit.dateOfSignature
       if (jsonObj.get("sepadirectdebit.dateOfSignature") != null && !jsonObj.get("sepadirectdebit.dateOfSignature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.dateOfSignature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.dateOfSignature").toString()));
       }
+      // validate the optional field sepadirectdebit.mandateId
       if (jsonObj.get("sepadirectdebit.mandateId") != null && !jsonObj.get("sepadirectdebit.mandateId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.mandateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.mandateId").toString()));
       }
+      // validate the optional field sepadirectdebit.sequenceType
       if (jsonObj.get("sepadirectdebit.sequenceType") != null && !jsonObj.get("sepadirectdebit.sequenceType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sepadirectdebit.sequenceType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sepadirectdebit.sequenceType").toString()));
       }

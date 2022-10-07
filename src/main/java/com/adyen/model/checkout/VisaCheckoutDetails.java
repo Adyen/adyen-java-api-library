@@ -311,12 +311,21 @@ public class VisaCheckoutDetails {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("fundingSource") != null && !jsonObj.get("fundingSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
+      // ensure the field fundingSource can be parsed to an enum value
+      if (jsonObj.get("fundingSource") != null) {
+        if(!jsonObj.get("fundingSource").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
+        }
+        FundingSourceEnum.fromValue(jsonObj.get("fundingSource").getAsString());
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
+      // validate the optional field visaCheckoutCallId
       if (jsonObj.get("visaCheckoutCallId") != null && !jsonObj.get("visaCheckoutCallId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `visaCheckoutCallId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("visaCheckoutCallId").toString()));
       }

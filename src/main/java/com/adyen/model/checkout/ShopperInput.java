@@ -360,14 +360,26 @@ public class ShopperInput {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ShopperInput` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("billingAddress") != null && !jsonObj.get("billingAddress").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `billingAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress").toString()));
+      // ensure the field billingAddress can be parsed to an enum value
+      if (jsonObj.get("billingAddress") != null) {
+        if(!jsonObj.get("billingAddress").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `billingAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billingAddress").toString()));
+        }
+        BillingAddressEnum.fromValue(jsonObj.get("billingAddress").getAsString());
       }
-      if (jsonObj.get("deliveryAddress") != null && !jsonObj.get("deliveryAddress").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deliveryAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryAddress").toString()));
+      // ensure the field deliveryAddress can be parsed to an enum value
+      if (jsonObj.get("deliveryAddress") != null) {
+        if(!jsonObj.get("deliveryAddress").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `deliveryAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryAddress").toString()));
+        }
+        DeliveryAddressEnum.fromValue(jsonObj.get("deliveryAddress").getAsString());
       }
-      if (jsonObj.get("personalDetails") != null && !jsonObj.get("personalDetails").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `personalDetails` to be a primitive type in the JSON string but got `%s`", jsonObj.get("personalDetails").toString()));
+      // ensure the field personalDetails can be parsed to an enum value
+      if (jsonObj.get("personalDetails") != null) {
+        if(!jsonObj.get("personalDetails").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `personalDetails` to be a primitive type in the JSON string but got `%s`", jsonObj.get("personalDetails").toString()));
+        }
+        PersonalDetailsEnum.fromValue(jsonObj.get("personalDetails").getAsString());
       }
   }
 

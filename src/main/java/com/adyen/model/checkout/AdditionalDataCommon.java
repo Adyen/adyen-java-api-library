@@ -590,45 +590,62 @@ public class AdditionalDataCommon {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataCommon` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field RequestedTestErrorResponseCode
       if (jsonObj.get("RequestedTestErrorResponseCode") != null && !jsonObj.get("RequestedTestErrorResponseCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `RequestedTestErrorResponseCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("RequestedTestErrorResponseCode").toString()));
       }
+      // validate the optional field authorisationType
       if (jsonObj.get("authorisationType") != null && !jsonObj.get("authorisationType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authorisationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorisationType").toString()));
       }
+      // validate the optional field customRoutingFlag
       if (jsonObj.get("customRoutingFlag") != null && !jsonObj.get("customRoutingFlag").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `customRoutingFlag` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customRoutingFlag").toString()));
       }
-      if (jsonObj.get("industryUsage") != null && !jsonObj.get("industryUsage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `industryUsage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("industryUsage").toString()));
+      // ensure the field industryUsage can be parsed to an enum value
+      if (jsonObj.get("industryUsage") != null) {
+        if(!jsonObj.get("industryUsage").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `industryUsage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("industryUsage").toString()));
+        }
+        IndustryUsageEnum.fromValue(jsonObj.get("industryUsage").getAsString());
       }
+      // validate the optional field networkTxReference
       if (jsonObj.get("networkTxReference") != null && !jsonObj.get("networkTxReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `networkTxReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkTxReference").toString()));
       }
+      // validate the optional field overwriteBrand
       if (jsonObj.get("overwriteBrand") != null && !jsonObj.get("overwriteBrand").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `overwriteBrand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("overwriteBrand").toString()));
       }
+      // validate the optional field subMerchantCity
       if (jsonObj.get("subMerchantCity") != null && !jsonObj.get("subMerchantCity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subMerchantCity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchantCity").toString()));
       }
+      // validate the optional field subMerchantCountry
       if (jsonObj.get("subMerchantCountry") != null && !jsonObj.get("subMerchantCountry").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subMerchantCountry` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchantCountry").toString()));
       }
+      // validate the optional field subMerchantID
       if (jsonObj.get("subMerchantID") != null && !jsonObj.get("subMerchantID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subMerchantID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchantID").toString()));
       }
+      // validate the optional field subMerchantName
       if (jsonObj.get("subMerchantName") != null && !jsonObj.get("subMerchantName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subMerchantName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchantName").toString()));
       }
+      // validate the optional field subMerchantPostalCode
       if (jsonObj.get("subMerchantPostalCode") != null && !jsonObj.get("subMerchantPostalCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subMerchantPostalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchantPostalCode").toString()));
       }
+      // validate the optional field subMerchantState
       if (jsonObj.get("subMerchantState") != null && !jsonObj.get("subMerchantState").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subMerchantState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchantState").toString()));
       }
+      // validate the optional field subMerchantStreet
       if (jsonObj.get("subMerchantStreet") != null && !jsonObj.get("subMerchantStreet").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subMerchantStreet` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchantStreet").toString()));
       }
+      // validate the optional field subMerchantTaxId
       if (jsonObj.get("subMerchantTaxId") != null && !jsonObj.get("subMerchantTaxId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subMerchantTaxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subMerchantTaxId").toString()));
       }

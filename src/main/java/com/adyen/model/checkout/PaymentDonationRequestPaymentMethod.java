@@ -95,9 +95,9 @@ import com.google.gson.JsonParseException;
 
 import com.adyen.model.checkout.JSON;
 
+
 public class PaymentDonationRequestPaymentMethod extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PaymentDonationRequestPaymentMethod.class.getName());
-    private static final JSON JSON = new JSON();
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")

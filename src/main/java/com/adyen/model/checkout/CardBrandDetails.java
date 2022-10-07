@@ -183,6 +183,7 @@ public class CardBrandDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CardBrandDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }

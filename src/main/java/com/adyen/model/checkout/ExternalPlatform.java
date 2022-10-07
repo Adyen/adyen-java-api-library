@@ -213,12 +213,15 @@ public class ExternalPlatform {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalPlatform` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field integrator
       if (jsonObj.get("integrator") != null && !jsonObj.get("integrator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `integrator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrator").toString()));
       }
+      // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      // validate the optional field version
       if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }

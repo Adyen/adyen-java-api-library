@@ -192,9 +192,11 @@ public class Name {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field firstName
       if (jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
       }
+      // validate the optional field lastName
       if (jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
       }

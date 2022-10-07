@@ -213,12 +213,15 @@ public class ResponseAdditionalDataNetworkTokens {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataNetworkTokens` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field networkToken.available
       if (jsonObj.get("networkToken.available") != null && !jsonObj.get("networkToken.available").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `networkToken.available` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.available").toString()));
       }
+      // validate the optional field networkToken.bin
       if (jsonObj.get("networkToken.bin") != null && !jsonObj.get("networkToken.bin").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `networkToken.bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.bin").toString()));
       }
+      // validate the optional field networkToken.tokenSummary
       if (jsonObj.get("networkToken.tokenSummary") != null && !jsonObj.get("networkToken.tokenSummary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `networkToken.tokenSummary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("networkToken.tokenSummary").toString()));
       }

@@ -153,6 +153,7 @@ public class ResponseAdditionalDataOpi {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseAdditionalDataOpi` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field opi.transToken
       if (jsonObj.get("opi.transToken") != null && !jsonObj.get("opi.transToken").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `opi.transToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("opi.transToken").toString()));
       }

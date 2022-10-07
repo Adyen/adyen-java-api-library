@@ -223,12 +223,15 @@ public class CreateApplePaySessionRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field displayName
       if (jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
       }
+      // validate the optional field domainName
       if (jsonObj.get("domainName") != null && !jsonObj.get("domainName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `domainName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domainName").toString()));
       }
+      // validate the optional field merchantIdentifier
       if (jsonObj.get("merchantIdentifier") != null && !jsonObj.get("merchantIdentifier").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantIdentifier").toString()));
       }

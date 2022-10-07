@@ -263,8 +263,12 @@ public class AuthenticationData {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthenticationData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("attemptAuthentication") != null && !jsonObj.get("attemptAuthentication").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attemptAuthentication` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attemptAuthentication").toString()));
+      // ensure the field attemptAuthentication can be parsed to an enum value
+      if (jsonObj.get("attemptAuthentication") != null) {
+        if(!jsonObj.get("attemptAuthentication").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `attemptAuthentication` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attemptAuthentication").toString()));
+        }
+        AttemptAuthenticationEnum.fromValue(jsonObj.get("attemptAuthentication").getAsString());
       }
       // validate the optional field `threeDSRequestData`
       if (jsonObj.getAsJsonObject("threeDSRequestData") != null) {

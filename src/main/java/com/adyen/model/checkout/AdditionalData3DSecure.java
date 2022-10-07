@@ -360,21 +360,30 @@ public class AdditionalData3DSecure {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalData3DSecure` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field allow3DS2
       if (jsonObj.get("allow3DS2") != null && !jsonObj.get("allow3DS2").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `allow3DS2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allow3DS2").toString()));
       }
-      if (jsonObj.get("challengeWindowSize") != null && !jsonObj.get("challengeWindowSize").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `challengeWindowSize` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeWindowSize").toString()));
+      // ensure the field challengeWindowSize can be parsed to an enum value
+      if (jsonObj.get("challengeWindowSize") != null) {
+        if(!jsonObj.get("challengeWindowSize").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `challengeWindowSize` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challengeWindowSize").toString()));
+        }
+        ChallengeWindowSizeEnum.fromValue(jsonObj.get("challengeWindowSize").getAsString());
       }
+      // validate the optional field executeThreeD
       if (jsonObj.get("executeThreeD") != null && !jsonObj.get("executeThreeD").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `executeThreeD` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executeThreeD").toString()));
       }
+      // validate the optional field mpiImplementationType
       if (jsonObj.get("mpiImplementationType") != null && !jsonObj.get("mpiImplementationType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mpiImplementationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mpiImplementationType").toString()));
       }
+      // validate the optional field scaExemption
       if (jsonObj.get("scaExemption") != null && !jsonObj.get("scaExemption").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `scaExemption` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scaExemption").toString()));
       }
+      // validate the optional field threeDSVersion
       if (jsonObj.get("threeDSVersion") != null && !jsonObj.get("threeDSVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSVersion").toString()));
       }

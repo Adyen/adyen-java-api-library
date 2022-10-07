@@ -258,14 +258,20 @@ public class WeChatPayMiniProgramDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WeChatPayMiniProgramDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field appId
       if (jsonObj.get("appId") != null && !jsonObj.get("appId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `appId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("appId").toString()));
       }
+      // validate the optional field openid
       if (jsonObj.get("openid") != null && !jsonObj.get("openid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `openid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openid").toString()));
       }
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 

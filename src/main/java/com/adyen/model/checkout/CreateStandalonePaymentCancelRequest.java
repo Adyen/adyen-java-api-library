@@ -222,12 +222,15 @@ public class CreateStandalonePaymentCancelRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field paymentReference
       if (jsonObj.get("paymentReference") != null && !jsonObj.get("paymentReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paymentReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentReference").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
