@@ -411,6 +411,7 @@ public class PaymentTest extends BaseTest {
 
     @Test
     public void TestGetAuthenticationResultErrorNotAllowed() throws IOException {
+
         Client client = createMockClientForErrors(403, "mocks/authentication-result-error-not-allowed.json");
 
         Payment payment = new Payment(client);
