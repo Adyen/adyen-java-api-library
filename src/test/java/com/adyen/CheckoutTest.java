@@ -464,6 +464,9 @@ public class CheckoutTest extends BaseTest {
         checkoutBalanceCheckRequest.setReference("YOUR_MERCHANT_REFERENCE");
         Map<String, String> paymentMethod = new HashMap<>();
         checkoutBalanceCheckRequest.setPaymentMethod(paymentMethod);
-        assert(checkoutBalanceCheckRequest.toJson().contains("\"dateOfBirth\":\"2022-10-11T15:08:27.000Z\""));
+        String checkoutBalanceRequestJson = checkoutBalanceCheckRequest.toJson();
+        assert(checkoutBalanceRequestJson.contains("\"dateOfBirth\":\"2022-10-11T15:08:27.000Z\""));
+        assertEquals(1665500907000L, CheckoutBalanceCheckRequest.fromJson(checkoutBalanceRequestJson).getDateOfBirth().getTime());
+
     }
 }
