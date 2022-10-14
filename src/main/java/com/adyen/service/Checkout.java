@@ -44,7 +44,6 @@ import com.adyen.model.checkout.CardDetailsResponse;
 import com.adyen.model.checkout.UpdatePaymentLinkRequest;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.CheckoutResource;
-import com.google.gson.reflect.TypeToken;
 import com.adyen.model.checkout.JSON;
 
 
