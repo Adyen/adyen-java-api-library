@@ -13,6 +13,7 @@ import com.adyen.service.resource.balancePlatform.BalancePlatformResource;
 import java.io.IOException;
 import java.util.Map;
 
+
 public class AccountHolders extends Service {
 
     public AccountHolders(Client client) {
@@ -34,9 +35,10 @@ public class AccountHolders extends Service {
         return AccountHolder.fromJson(jsonResult);
     }
 
-    public AccountHolder update(String id) throws IOException, ApiException {
+    public AccountHolder update(String id, AccountHolder request) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/accountHolders/%s", id));
-        String jsonResult = resource.request(null, ApiConstants.HttpMethod.PATCH);
+        String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.PATCH);
         return AccountHolder.fromJson(jsonResult);
     }
 

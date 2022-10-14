@@ -6,8 +6,8 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.PaymentInstrument;
 import com.adyen.model.balanceplatform.PaymentInstrumentInfo;
 import com.adyen.model.balanceplatform.PaymentInstrumentUpdateRequest;
-import com.adyen.model.balanceplatform.TransactionRuleResponse;
 import com.adyen.model.balanceplatform.JSON;
+import com.adyen.model.balanceplatform.TransactionRulesResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.balancePlatform.BalancePlatformResource;
 
@@ -39,9 +39,9 @@ public class PaymentInstruments extends Service {
         return PaymentInstrument.fromJson(jsonResult);
     }
 
-    public TransactionRuleResponse listTransactionRules(String id) throws IOException, ApiException {
+    public TransactionRulesResponse listTransactionRules(String id) throws IOException, ApiException {
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstruments/%s/transactionRules", id));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
-        return TransactionRuleResponse.fromJson(jsonResult);
+        return TransactionRulesResponse.fromJson(jsonResult);
     }
 }
