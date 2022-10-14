@@ -231,6 +231,21 @@
             <artifactId>swagger-annotations</artifactId>
             <version>2.2.3</version>
         </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.gsonfire</groupId>
+            <artifactId>gson-fire</artifactId>
+            <version>1.8.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio</artifactId>
+            <version>3.2.0</version>
+        </dependency>
         <!-- Generated model annotations -->
         <dependency>
             <groupId>io.swagger</groupId>
