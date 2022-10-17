@@ -67,9 +67,9 @@ public class CardInfo {
   @SerializedName(SERIALIZED_NAME_CARDHOLDER_NAME)
   private String cardholderName;
 
-  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
+  public static final String SERIALIZED_NAME_CONFIGURATION = "_configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private CardConfiguration configuration;
+  private CardConfiguration _configuration;
 
   public static final String SERIALIZED_NAME_DELIVERY_CONTACT = "deliveryContact";
   @SerializedName(SERIALIZED_NAME_DELIVERY_CONTACT)
@@ -223,26 +223,26 @@ public class CardInfo {
   }
 
 
-  public CardInfo configuration(CardConfiguration configuration) {
+  public CardInfo _configuration(CardConfiguration _configuration) {
     
-    this.configuration = configuration;
+    this._configuration = _configuration;
     return this;
   }
 
    /**
-   * Get configuration
-   * @return configuration
+   * Get _configuration
+   * @return _configuration
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public CardConfiguration getConfiguration() {
-    return configuration;
+    return _configuration;
   }
 
 
-  public void setConfiguration(CardConfiguration configuration) {
-    this.configuration = configuration;
+  public void setConfiguration(CardConfiguration _configuration) {
+    this._configuration = _configuration;
   }
 
 
@@ -306,14 +306,14 @@ public class CardInfo {
         Objects.equals(this.brand, cardInfo.brand) &&
         Objects.equals(this.brandVariant, cardInfo.brandVariant) &&
         Objects.equals(this.cardholderName, cardInfo.cardholderName) &&
-        Objects.equals(this.configuration, cardInfo.configuration) &&
+        Objects.equals(this._configuration, cardInfo._configuration) &&
         Objects.equals(this.deliveryContact, cardInfo.deliveryContact) &&
         Objects.equals(this.formFactor, cardInfo.formFactor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authentication, brand, brandVariant, cardholderName, configuration, deliveryContact, formFactor);
+    return Objects.hash(authentication, brand, brandVariant, cardholderName, _configuration, deliveryContact, formFactor);
   }
 
   @Override
@@ -324,7 +324,7 @@ public class CardInfo {
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    brandVariant: ").append(toIndentedString(brandVariant)).append("\n");
     sb.append("    cardholderName: ").append(toIndentedString(cardholderName)).append("\n");
-    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
+    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    deliveryContact: ").append(toIndentedString(deliveryContact)).append("\n");
     sb.append("    formFactor: ").append(toIndentedString(formFactor)).append("\n");
     sb.append("}");
@@ -353,7 +353,7 @@ public class CardInfo {
     openapiFields.add("brand");
     openapiFields.add("brandVariant");
     openapiFields.add("cardholderName");
-    openapiFields.add("configuration");
+    openapiFields.add("_configuration");
     openapiFields.add("deliveryContact");
     openapiFields.add("formFactor");
 
@@ -411,8 +411,8 @@ public class CardInfo {
         throw new IllegalArgumentException(String.format("Expected the field `cardholderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardholderName").toString()));
       }
       // validate the optional field `configuration`
-      if (jsonObj.getAsJsonObject("configuration") != null) {
-        CardConfiguration.validateJsonObject(jsonObj.getAsJsonObject("configuration"));
+      if (jsonObj.getAsJsonObject("_configuration") != null) {
+        CardConfiguration.validateJsonObject(jsonObj.getAsJsonObject("_configuration"));
       }
       // validate the optional field `deliveryContact`
       if (jsonObj.getAsJsonObject("deliveryContact") != null) {
