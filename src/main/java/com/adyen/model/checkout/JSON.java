@@ -55,59 +55,6 @@ public class JSON {
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
-                .registerTypeSelector(com.adyen.model.checkout.PaymentDonationRequestPaymentMethod.class, new TypeSelector<com.adyen.model.checkout.PaymentDonationRequestPaymentMethod>() {
-                    @Override
-                    public Class<? extends com.adyen.model.checkout.PaymentDonationRequestPaymentMethod> getClassForElement(JsonElement readElement) {
-                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("AchDetails", com.adyen.model.checkout.AchDetails.class);
-                        classByDiscriminatorValue.put("AfterpayDetails", com.adyen.model.checkout.AfterpayDetails.class);
-                        classByDiscriminatorValue.put("AmazonPayDetails", com.adyen.model.checkout.AmazonPayDetails.class);
-                        classByDiscriminatorValue.put("AndroidPayDetails", com.adyen.model.checkout.AndroidPayDetails.class);
-                        classByDiscriminatorValue.put("ApplePayDetails", com.adyen.model.checkout.ApplePayDetails.class);
-                        classByDiscriminatorValue.put("BacsDirectDebitDetails", com.adyen.model.checkout.BacsDirectDebitDetails.class);
-                        classByDiscriminatorValue.put("BillDeskDetails", com.adyen.model.checkout.BillDeskDetails.class);
-                        classByDiscriminatorValue.put("BlikDetails", com.adyen.model.checkout.BlikDetails.class);
-                        classByDiscriminatorValue.put("CardDetails", com.adyen.model.checkout.CardDetails.class);
-                        classByDiscriminatorValue.put("CellulantDetails", com.adyen.model.checkout.CellulantDetails.class);
-                        classByDiscriminatorValue.put("DokuDetails", com.adyen.model.checkout.DokuDetails.class);
-                        classByDiscriminatorValue.put("DotpayDetails", com.adyen.model.checkout.DotpayDetails.class);
-                        classByDiscriminatorValue.put("DragonpayDetails", com.adyen.model.checkout.DragonpayDetails.class);
-                        classByDiscriminatorValue.put("EcontextVoucherDetails", com.adyen.model.checkout.EcontextVoucherDetails.class);
-                        classByDiscriminatorValue.put("GenericIssuerPaymentMethodDetails", com.adyen.model.checkout.GenericIssuerPaymentMethodDetails.class);
-                        classByDiscriminatorValue.put("GiropayDetails", com.adyen.model.checkout.GiropayDetails.class);
-                        classByDiscriminatorValue.put("GooglePayDetails", com.adyen.model.checkout.GooglePayDetails.class);
-                        classByDiscriminatorValue.put("IdealDetails", com.adyen.model.checkout.IdealDetails.class);
-                        classByDiscriminatorValue.put("KlarnaDetails", com.adyen.model.checkout.KlarnaDetails.class);
-                        classByDiscriminatorValue.put("MasterpassDetails", com.adyen.model.checkout.MasterpassDetails.class);
-                        classByDiscriminatorValue.put("MbwayDetails", com.adyen.model.checkout.MbwayDetails.class);
-                        classByDiscriminatorValue.put("MobilePayDetails", com.adyen.model.checkout.MobilePayDetails.class);
-                        classByDiscriminatorValue.put("MolPayDetails", com.adyen.model.checkout.MolPayDetails.class);
-                        classByDiscriminatorValue.put("OpenInvoiceDetails", com.adyen.model.checkout.OpenInvoiceDetails.class);
-                        classByDiscriminatorValue.put("PayPalDetails", com.adyen.model.checkout.PayPalDetails.class);
-                        classByDiscriminatorValue.put("PayUUpiDetails", com.adyen.model.checkout.PayUUpiDetails.class);
-                        classByDiscriminatorValue.put("PayWithGoogleDetails", com.adyen.model.checkout.PayWithGoogleDetails.class);
-                        classByDiscriminatorValue.put("PaymentDetails", com.adyen.model.checkout.PaymentDetails.class);
-                        classByDiscriminatorValue.put("RatepayDetails", com.adyen.model.checkout.RatepayDetails.class);
-                        classByDiscriminatorValue.put("SamsungPayDetails", com.adyen.model.checkout.SamsungPayDetails.class);
-                        classByDiscriminatorValue.put("SepaDirectDebitDetails", com.adyen.model.checkout.SepaDirectDebitDetails.class);
-                        classByDiscriminatorValue.put("StoredPaymentMethodDetails", com.adyen.model.checkout.StoredPaymentMethodDetails.class);
-                        classByDiscriminatorValue.put("UpiCollectDetails", com.adyen.model.checkout.UpiCollectDetails.class);
-                        classByDiscriminatorValue.put("UpiIntentDetails", com.adyen.model.checkout.UpiIntentDetails.class);
-                        classByDiscriminatorValue.put("VippsDetails", com.adyen.model.checkout.VippsDetails.class);
-                        classByDiscriminatorValue.put("VisaCheckoutDetails", com.adyen.model.checkout.VisaCheckoutDetails.class);
-                        classByDiscriminatorValue.put("WeChatPayDetails", com.adyen.model.checkout.WeChatPayDetails.class);
-                        classByDiscriminatorValue.put("WeChatPayMiniProgramDetails", com.adyen.model.checkout.WeChatPayMiniProgramDetails.class);
-                        classByDiscriminatorValue.put("ZipDetails", com.adyen.model.checkout.ZipDetails.class);
-                        classByDiscriminatorValue.put("ach", com.adyen.model.checkout.AchDetails.class);
-                        classByDiscriminatorValue.put("androidpay", com.adyen.model.checkout.AndroidPayDetails.class);
-                        classByDiscriminatorValue.put("googlepay", com.adyen.model.checkout.GooglePayDetails.class);
-                        classByDiscriminatorValue.put("paypal", com.adyen.model.checkout.PayPalDetails.class);
-                        classByDiscriminatorValue.put("paywithgoogle", com.adyen.model.checkout.PayWithGoogleDetails.class);
-                        classByDiscriminatorValue.put("PaymentDonationRequest_paymentMethod", com.adyen.model.checkout.PaymentDonationRequestPaymentMethod.class);
-                        return getClassByDiscriminator(classByDiscriminatorValue,
-                                getDiscriminatorValue(readElement, "type"));
-                    }
-          })
         ;
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;
