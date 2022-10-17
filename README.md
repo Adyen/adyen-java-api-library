@@ -21,6 +21,7 @@ The library supports all APIs under the following services:
 * [POS Terminal Management API](https://docs.adyen.com/api-explorer/#/postfmapi/v1/overview): Endpoints for managing your point-of-sale payment terminals: **v1** 
 * [Data Protection API](https://docs.adyen.com/development-resources/data-protection-api#): Endpoints to process Subject Erasure Requests as mandated in General Data Protection Regulation (GDPR): **v1** 
 * [Stored Value API](https://docs.adyen.com/payment-methods/gift-cards/stored-value-api): Endpoints to manage gift cards and other stored-value cards: **v46** 
+* [Configuration API](https://docs.adyen.com/api-explorer/balanceplatform/latest/overview): Endpoints to manage accounting and payment processing for your users: **v2**
 
 For more information, refer to our [documentation](https://docs.adyen.com/) or the [API Explorer](https://docs.adyen.com/api-explorer/).
 
