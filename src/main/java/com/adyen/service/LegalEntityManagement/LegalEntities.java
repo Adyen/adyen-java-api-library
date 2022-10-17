@@ -25,21 +25,21 @@ public class LegalEntities extends Service {
         return LegalEntity.fromJson(jsonResult);
     }
 
-    public LegalEntity retrieve(String id) throws IOException, ApiException {
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/legalEntities/%s", id));
+    public LegalEntity retrieve(String legalEntityId) throws IOException, ApiException {
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/legalEntities/%s", legalEntityId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return LegalEntity.fromJson(jsonResult);
     }
 
-    public LegalEntity update(String id, LegalEntityInfo request) throws IOException, ApiException {
+    public LegalEntity update(String legalEntityId, LegalEntityInfo request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/legalEntities/%s", id));
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/legalEntities/%s", legalEntityId));
         String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.PATCH);
         return LegalEntity.fromJson(jsonResult);
     }
 
-    public BusinessLines listBusinessLines(String id) throws IOException, ApiException {
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/legalEntities/%s/businessLines", id));
+    public BusinessLines listBusinessLines(String legalEntityId) throws IOException, ApiException {
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/legalEntities/%s/businessLines", legalEntityId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return BusinessLines.fromJson(jsonResult);
     }

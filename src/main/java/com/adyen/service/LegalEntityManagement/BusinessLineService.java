@@ -24,15 +24,15 @@ public class BusinessLineService extends Service {
         return BusinessLine.fromJson(jsonResult);
     }
 
-    public BusinessLine retrieve(String id) throws IOException, ApiException {
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/businessLines/%s", id));
+    public BusinessLine retrieve(String businessLineId) throws IOException, ApiException {
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/businessLines/%s", businessLineId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return BusinessLine.fromJson(jsonResult);
     }
 
-    public BusinessLine update(String id, BusinessLineInfo request) throws IOException, ApiException {
+    public BusinessLine update(String businessLineId, BusinessLineInfo request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/businessLines/%s", id));
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/businessLines/%s", businessLineId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.PATCH);
         return BusinessLine.fromJson(jsonResult);
     }

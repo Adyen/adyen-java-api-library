@@ -23,21 +23,21 @@ public class Documents extends Service {
         return Document.fromJson(jsonResult);
     }
 
-    public Document retrieve(String id) throws IOException, ApiException {
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", id));
+    public Document retrieve(String documentId) throws IOException, ApiException {
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", documentId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return Document.fromJson(jsonResult);
     }
 
-    public Document update(String id, Document request) throws IOException, ApiException {
+    public Document update(String documentId, Document request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", id));
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", documentId));
         String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.PATCH);
         return Document.fromJson(jsonResult);
     }
 
-    public void delete(String id) throws IOException, ApiException {
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", id));
+    public void delete(String documentId) throws IOException, ApiException {
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", documentId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.DELETE);
     }
 }

@@ -19,9 +19,9 @@ public class HostedOnboardingPage extends Service {
         new JSON();
     }
 
-    public OnboardingLink create(String id, OnboardingLinkInfo request) throws IOException, ApiException {
+    public OnboardingLink create(String legalEntityId, OnboardingLinkInfo request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", id));
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", legalEntityId));
         String jsonResult = resource.request(jsonRequest);
         return OnboardingLink.fromJson(jsonResult);
     }
@@ -32,8 +32,8 @@ public class HostedOnboardingPage extends Service {
         return OnboardingThemes.fromJson(jsonResult);
     }
 
-    public OnboardingTheme retrieveTheme(String id) throws IOException, ApiException {
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/themes/%s", id));
+    public OnboardingTheme retrieveTheme(String themeId) throws IOException, ApiException {
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/themes/%s", themeId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return OnboardingTheme.fromJson(jsonResult);
     }

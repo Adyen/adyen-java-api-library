@@ -24,21 +24,21 @@ public class TransferInstruments extends Service {
         return TransferInstrument.fromJson(jsonResult);
     }
 
-    public TransferInstrument retrieve(String id) throws IOException, ApiException {
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/transferInstruments/%s", id));
+    public TransferInstrument retrieve(String transferInstrumentId) throws IOException, ApiException {
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/transferInstruments/%s", transferInstrumentId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return TransferInstrument.fromJson(jsonResult);
     }
 
-    public TransferInstrument update(String id, TransferInstrumentInfo request) throws IOException, ApiException {
+    public TransferInstrument update(String transferInstrumentId, TransferInstrumentInfo request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/transferInstruments/%s", id));
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/transferInstruments/%s", transferInstrumentId));
         String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.PATCH);
         return TransferInstrument.fromJson(jsonResult);
     }
 
-    public void delete(String id) throws IOException, ApiException {
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/transferInstruments/%s", id));
+    public void delete(String transferInstrumentId) throws IOException, ApiException {
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/transferInstruments/%s", transferInstrumentId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.DELETE);
     }
 
