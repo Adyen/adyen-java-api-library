@@ -67,8 +67,8 @@ public class Client {
     public static final String DATA_PROTECTION_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DataProtectionService";
     public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
     public static final String DATA_PROTECTION_VERSION = "v1";
-    public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST = "https://kyc-test.adyen.com/lem";
-    public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE = "https://kyc-test.adyen.com/lem";
+    public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST = "https://kyc-test.adyen.com/lem/";
+    public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_VERSION = "v3";
 
 

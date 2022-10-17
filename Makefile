@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=payments checkout
+services:=payments checkout legalEntityManagement
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -23,6 +23,7 @@ payout: spec=PayoutService-v68
 management: spec=ManagementService-v1
 balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
+legalEntityManagement: spec=LegalEntityService-v3
 # Classic Platforms
 marketpay/account: spec=AccountService-v6
 marketpay/fund: spec=FundService-v6
