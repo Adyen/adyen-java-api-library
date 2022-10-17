@@ -70,13 +70,15 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         AccountHolder response = service.accountHolders.create(request);
         assertEquals("AH3227C223222B5CMD2SXFKGT" ,response.getId());
+        assertEquals("LE322KT223222D5FJ7THR293F" ,response.getLegalEntityId());
     }
     @Test
     public void AccountHoldersRetrieveTest() throws  Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/AccountHolder.json");
         BalancePlatformService service = new BalancePlatformService(client);
-        AccountHolder response = service.accountHolders.retrieve("AH3227C223222B5CMD2SXFKGT");
+        AccountHolder response = service.accountHolders.retrieve("LE322KT223222D5FJ7THR293F");
         assertEquals("AH3227C223222B5CMD2SXFKGT" ,response.getId());
+        assertEquals("LE322KT223222D5FJ7THR293F" ,response.getLegalEntityId());
     }
     @Test
     public void AccountHoldersUpdateTest() throws  Exception {
@@ -105,6 +107,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         AccountHolder response = service.accountHolders.update("AH3227C223222B5CMD2SXFKGT", request);
         assertEquals("AH3227C223222B5CMD2SXFKGT" ,response.getId());
+        assertEquals("LE322KT223222D5FJ7THR293F" ,response.getLegalEntityId());
     }
     @Test
     public void AccountHolderListTest() throws Exception {
@@ -112,6 +115,7 @@ public class BalancePlatformTest extends BaseTest {
         BalancePlatformService service = new BalancePlatformService(client);
         PaginatedBalanceAccountsResponse response = service.accountHolders.list("AH3227C223222B5CMD2SXFKGT", null);
         assertEquals("AH32272223222B59K6ZKBBFNQ" ,response.getBalanceAccounts().get(0).getAccountHolderId());
+        assertEquals("BA32272223222B59K6ZXHBFN6" ,response.getBalanceAccounts().get(0).getId());
     }
     @Test
     public void BalanceAccountsCreateTest() throws Exception {
@@ -123,6 +127,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         BalanceAccount response = service.balanceAccounts.create(request);
         assertEquals("AH32272223222B59K6ZKBBFNQ", response.getAccountHolderId());
+        assertEquals("BA32272223222B59CZ3T52DKZ", response.getId());
     }
 
     @Test
@@ -131,6 +136,7 @@ public class BalancePlatformTest extends BaseTest {
         BalancePlatformService service = new BalancePlatformService(client);
         BalanceAccount response = service.balanceAccounts.retrieve("AH32272223222B59K6ZKBBFNQ");
         assertEquals("AH32272223222B59K6ZKBBFNQ", response.getAccountHolderId());
+        assertEquals("BA32272223222B59CZ3T52DKZ", response.getId());
     }
 
     @Test
@@ -145,6 +151,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         BalanceAccount response = service.balanceAccounts.update("AH32272223222B59K6ZKBBFNQ", request);
         assertEquals("AH32272223222B59K6ZKBBFNQ", response.getAccountHolderId());
+        assertEquals("BA32272223222B59CZ3T52DKZ", response.getId());
     }
 
     @Test
@@ -153,6 +160,7 @@ public class BalancePlatformTest extends BaseTest {
         BalancePlatformService service = new BalancePlatformService(client);
         BalanceSweepConfigurationsResponse response = service.balanceAccounts.listSweeps("AH32272223222B59K6ZKBBFNQ", null);
         assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getSweeps().get(0).getId());
+        assertEquals("BA32272223222B5FTD2KR6TJD", response.getSweeps().get(0).getCounterparty().getBalanceAccountId());
     }
 
     @Test
@@ -177,6 +185,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         BalanceSweepConfigurationsResponse response = service.balanceAccounts.createSweep("AH32272223222B59K6ZKBBFNQ", request);
         assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getSweeps().get(0).getId());
+        assertEquals("BA32272223222B5FTD2KR6TJD", response.getSweeps().get(0).getCounterparty().getBalanceAccountId());
     }
 
     @Test
@@ -192,6 +201,7 @@ public class BalancePlatformTest extends BaseTest {
         BalancePlatformService service = new BalancePlatformService(client);
         SweepConfigurationV2 response = service.balanceAccounts.retrieveSweep("AH32272223222B59K6ZKBBFNQ", "SWPC4227C224555B5FTD2NT2JV4WN5");
         assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getId());
+        assertEquals("BA32272223222B5FTD2KR6TJD", response.getCounterparty().getBalanceAccountId());
     }
 
     @Test
@@ -216,6 +226,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         SweepConfigurationV2 response = service.balanceAccounts.updateSweep("AH32272223222B59K6ZKBBFNQ", "SWPC4227C224555B5FTD2NT2JV4WN5", request);
         assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getId());
+        assertEquals("BA32272223222B5FTD2KR6TJD", response.getCounterparty().getBalanceAccountId());
     }
 
     @Test
@@ -224,6 +235,7 @@ public class BalancePlatformTest extends BaseTest {
         BalancePlatformService service = new BalancePlatformService(client);
         PaginatedPaymentInstrumentsResponse response = service.balanceAccounts.listPaymentInstruments("AH32272223222B59K6ZKBBFNQ", null);
         assertEquals("PI32272223222B59M5TM658DT", response.getPaymentInstruments().get(0).getId());
+        assertEquals("BA32272223222B59CZ3T52DKZ", response.getPaymentInstruments().get(0).getBalanceAccountId());
     }
 
     @Test
@@ -238,6 +250,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         PaymentInstrument response = service.paymentInstruments.create(request);
         assertEquals("PI322LJ223222B5DJS7CD9LWL", response.getId());
+        assertEquals("BA3227C223222B5CTBLR8BWJB", response.getBalanceAccountId());
     }
 
     @Test
@@ -246,6 +259,7 @@ public class BalancePlatformTest extends BaseTest {
         BalancePlatformService service = new BalancePlatformService(client);
         PaymentInstrument response = service.paymentInstruments.retrieve("PI322LJ223222B5DJS7CD9LWL");
         assertEquals("PI322LJ223222B5DJS7CD9LWL", response.getId());
+        assertEquals("BA3227C223222B5CTBLR8BWJB", response.getBalanceAccountId());
     }
 
     @Test
@@ -257,6 +271,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         PaymentInstrument response = service.paymentInstruments.update("PI322LJ223222B5DJS7CD9LWL", request);
         assertEquals("PI322LJ223222B5DJS7CD9LWL", response.getId());
+        assertEquals("BA3227C223222B5CTBLR8BWJB", response.getBalanceAccountId());
     }
 
     @Test
@@ -265,6 +280,7 @@ public class BalancePlatformTest extends BaseTest {
         BalancePlatformService service = new BalancePlatformService(client);
         TransactionRulesResponse response = service.paymentInstruments.listTransactionRules("TR3227C223222B5FCB756DV9H");
         assertEquals("TR3227C223222B5FCB756DV9H", response.getTransactionRules().get(0).getId());
+        assertEquals("PI3227C223222B5BPCMFXD2XG", response.getTransactionRules().get(0).getEntityKey().getEntityReference());
     }
 
     @Test
@@ -293,6 +309,7 @@ public class BalancePlatformTest extends BaseTest {
         BalancePlatformService service = new BalancePlatformService(client);
         TransactionRulesResponse response = service.paymentsInstrumentGroups.listTransactionRules("TR3227C223222B5FCB756DV9H");
         assertEquals("TR3227C223222B5FCB756DV9H", response.getTransactionRules().get(0).getId());
+        assertEquals("PI3227C223222B5BPCMFXD2XG", response.getTransactionRules().get(0).getEntityKey().getEntityReference());
     }
 
     @Test
@@ -322,6 +339,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         TransactionRule response = service.transactionRules.create(request);
         assertEquals("TR3227C223222B5FCB756DV9H", response.getId());
+        assertEquals("PI3227C223222B5BPCMFXD2XG", response.getEntityKey().getEntityReference());
     }
 
     @Test
@@ -359,6 +377,7 @@ public class BalancePlatformTest extends BaseTest {
                 "}");
         TransactionRule response = service.transactionRules.update("TR3227C223222B5FCB756DV9H", request);
         assertEquals("TR3227C223222B5FCB756DV9H", response.getId());
+        assertEquals("PI3227C223222B5BPCMFXD2XG", response.getEntityKey().getEntityReference());
     }
 
     @Test
