@@ -17,15 +17,15 @@ public class General extends Service {
         super(client);
     }
 
-    public BalancePlatform retrieve(String id) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balancePlatforms/%s", id));
+    public BalancePlatform retrieve(String platformId) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balancePlatforms/%s", platformId));
         String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, null);
         return BalancePlatform.fromJson(jsonResult);
     }
 
     // need to add query parameters (with param Map? should we make a model for this)
-    public PaginatedAccountHoldersResponse listAccountHolders(String id, Map<String, String> params) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balancePlatforms/%s/accountHolders", id));
+    public PaginatedAccountHoldersResponse listAccountHolders(String platformId, Map<String, String> params) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balancePlatforms/%s/accountHolders", platformId));
         String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, params);
         return PaginatedAccountHoldersResponse.fromJson(jsonResult);
     }

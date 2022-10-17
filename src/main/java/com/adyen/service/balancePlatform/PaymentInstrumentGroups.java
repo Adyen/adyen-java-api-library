@@ -25,14 +25,14 @@ public class PaymentInstrumentGroups extends Service {
         return PaymentInstrumentGroup.fromJson(jsonResult);
     }
 
-    public PaymentInstrumentGroup retrieve(String id) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstrumentsGroups/%s", id));
+    public PaymentInstrumentGroup retrieve(String instrumentGroupId) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstrumentsGroups/%s", instrumentGroupId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return PaymentInstrumentGroup.fromJson(jsonResult);
     }
 
-    public TransactionRulesResponse listTransactionRules(String id) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstrumentsGroups/%s/transactionRules", id));
+    public TransactionRulesResponse listTransactionRules(String instrumentGroupId) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstrumentsGroups/%s/transactionRules", instrumentGroupId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return TransactionRulesResponse.fromJson(jsonResult);
     }

@@ -29,18 +29,20 @@ import static org.junit.Assert.assertEquals;
 public class BalancePlatformTest extends BaseTest {
     @Test
     public void GeneralRetrieveTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/balancePlatform/balancePlatformResponse.json");
+        Client client = createMockClientFromFile("mocks/balancePlatform/BalancePlatformResponse.json");
         BalancePlatformService service = new BalancePlatformService(client);
         BalancePlatform response = service.general.retrieve("123456789");
         assertEquals("123456789" ,response.getId());
+        assertEquals("active" ,response.getStatus());
     }
 
     @Test
     public void GeneralListAccountHoldersTest() throws  Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/PaginatedAccountHoldersResponse.json");
         BalancePlatformService service = new BalancePlatformService(client);
-        PaginatedAccountHoldersResponse response = service.general.listAccountHolders("AH32272223222B59DJ7QBCMPN", null);
+        PaginatedAccountHoldersResponse response = service.general.listAccountHolders("LE322KT223222D5FJ7THR293F", null);
         assertEquals("123456789" ,response.getAccountHolders().get(0).getId());
+        assertEquals("LE322KT223222D5FJ7THR293F" ,response.getAccountHolders().get(0).getLegalEntityId());
     }
 
     @Test

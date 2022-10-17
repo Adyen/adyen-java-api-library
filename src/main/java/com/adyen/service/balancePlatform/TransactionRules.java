@@ -26,21 +26,21 @@ public class TransactionRules extends Service {
         return TransactionRule.fromJson(jsonResult);
     }
 
-    public TransactionRuleResponse retrieve(String id) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/transactionRules/%s", id));
+    public TransactionRuleResponse retrieve(String transactionRuleId) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/transactionRules/%s", transactionRuleId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return TransactionRuleResponse.fromJson(jsonResult);
     }
 
-    public TransactionRule update(String id, TransactionRuleInfo request) throws IOException, ApiException {
+    public TransactionRule update(String transactionRuleId, TransactionRuleInfo request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/transactionRules/%s", id));
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/transactionRules/%s", transactionRuleId));
         String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.PATCH);
         return TransactionRule.fromJson(jsonResult);
     }
 
-    public void delete(String id) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/transactionRules/%s", id));
+    public void delete(String transactionRuleId) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/transactionRules/%s", transactionRuleId));
         resource.request(null, ApiConstants.HttpMethod.DELETE);
     }
 

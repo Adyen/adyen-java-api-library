@@ -29,21 +29,21 @@ public class AccountHolders extends Service {
 
     }
 
-    public AccountHolder retrieve(String id) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/accountHolders/%s", id));
+    public AccountHolder retrieve(String accountHolderId) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/accountHolders/%s", accountHolderId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return AccountHolder.fromJson(jsonResult);
     }
 
-    public AccountHolder update(String id, AccountHolder request) throws IOException, ApiException {
+    public AccountHolder update(String accountHolderId, AccountHolder request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/accountHolders/%s", id));
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/accountHolders/%s", accountHolderId));
         String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.PATCH);
         return AccountHolder.fromJson(jsonResult);
     }
 
-    public PaginatedBalanceAccountsResponse list(String id, Map<String, String> params) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/accountHolders/%s/balanceAccounts", id));
+    public PaginatedBalanceAccountsResponse list(String accountHolderId, Map<String, String> params) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/accountHolders/%s/balanceAccounts", accountHolderId));
         String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, params);
         return PaginatedBalanceAccountsResponse.fromJson(jsonResult);
     }

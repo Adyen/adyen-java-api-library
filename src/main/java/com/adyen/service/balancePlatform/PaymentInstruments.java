@@ -26,21 +26,21 @@ public class PaymentInstruments extends Service {
         return PaymentInstrument.fromJson(jsonResult);
     }
 
-    public PaymentInstrument retrieve(String id) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstruments/%s", id));
+    public PaymentInstrument retrieve(String paymentInstrumentId) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstruments/%s", paymentInstrumentId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return PaymentInstrument.fromJson(jsonResult);
     }
 
-    public PaymentInstrument update(String id, PaymentInstrumentUpdateRequest request) throws IOException, ApiException {
+    public PaymentInstrument update(String paymentInstrumentId, PaymentInstrumentUpdateRequest request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstruments/%s", id));
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstruments/%s", paymentInstrumentId));
         String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.PATCH);
         return PaymentInstrument.fromJson(jsonResult);
     }
 
-    public TransactionRulesResponse listTransactionRules(String id) throws IOException, ApiException {
-        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstruments/%s/transactionRules", id));
+    public TransactionRulesResponse listTransactionRules(String paymentInstrumentId) throws IOException, ApiException {
+        BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/paymentInstruments/%s/transactionRules", paymentInstrumentId));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return TransactionRulesResponse.fromJson(jsonResult);
     }
