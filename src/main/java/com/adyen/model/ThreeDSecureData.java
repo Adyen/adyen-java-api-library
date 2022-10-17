@@ -205,12 +205,14 @@ public class ThreeDSecureData {
     private String threeDSVersion = null;
 
     @SerializedName("tokenAuthenticationVerificationValue")
+    @JsonAdapter(ByteArrayToStringAdapter.class)
     private byte[] tokenAuthenticationVerificationValue = null;
 
     @SerializedName("transStatusReason")
     private String transStatusReason = null;
 
     @SerializedName("xid")
+    @JsonAdapter(ByteArrayToStringAdapter.class)
     private byte[] xid = null;
 
     public ThreeDSecureData authenticationResponse(AuthenticationResponseEnum authenticationResponse) {
