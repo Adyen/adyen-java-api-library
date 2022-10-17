@@ -30,7 +30,7 @@ public class BusinessLineService extends Service {
         return BusinessLine.fromJson(jsonResult);
     }
 
-    public BusinessLine retrieve(String id, BusinessLineInfo request) throws IOException, ApiException {
+    public BusinessLine update(String id, BusinessLineInfo request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
         LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/businessLines/%s", id));
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.PATCH);
