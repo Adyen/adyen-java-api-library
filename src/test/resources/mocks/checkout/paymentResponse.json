@@ -1,0 +1,10 @@
+{
+  "pspReference": "993617895204576J",
+  "resultCode": "RedirectShopper",
+  "action":{
+      "method":"GET",
+      "paymentMethodType":"scheme",
+      "type":"redirect",
+      "url":"https://checkoutshopper-test.adyen.com/checkoutshopper/threeDS/redirect?MD=M2R..."
+   }
+}

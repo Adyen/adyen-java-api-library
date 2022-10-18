@@ -40,19 +40,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CheckoutTest extends BaseTest {
-    protected Client createMockClient(String response) {
-        AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
-        try {
-            when(adyenHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), any())).thenReturn(response);
-        } catch (IOException | HTTPClientException e) {
-        e.printStackTrace();
-        }
-        Client client = new Client();
-        client.setHttpClient(adyenHttpClient);
-        client.setEnvironment(Environment.TEST, null);
-        return client;
-    }
-
     protected Client createMockErrorClient(String response) {
         AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         try {
@@ -71,15 +58,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestPaymentSuccess() throws Exception {
-        Client client = createMockClient("{\"" +
-                "pspReference\": \"993617895204576J\", " +
-                "\"resultCode\": \"RedirectShopper\", " +
-                "\"action\":{" +
-                "      \"method\":\"GET\"," +
-                "      \"paymentMethodType\":\"scheme\"," +
-                "      \"type\":\"redirect\"," +
-                "      \"url\":\"https://checkoutshopper-test.adyen.com/checkoutshopper/threeDS/redirect?MD=M2R...\"" +
-                "   }}");
+        Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
         Amount amount = new Amount().currency("EUR").value(1000L);
         CardDetails cardDetails = new CardDetails();
         cardDetails.encryptedCardNumber("5136333333333335")
@@ -104,7 +83,7 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void TestPaymentRequestSerialization() throws Exception {
         new JSON();
-        String paymentRequestJson = "{\"amount\":{\"currency\":\"EUR\",\"value\":1000},\"merchantAccount\":\"myMerchantAccount\",\"paymentMethod\":{\"issuer\":\"issuerName\",\"type\":\"ideal\"},\"reference\":\"merchantReference\",\"returnUrl\":\"http://return.com\"}";
+        String paymentRequestJson = getFileContents("mocks/checkout/paymentRequest.json");
         IdealDetails idealDetails = new IdealDetails();
         idealDetails.setIssuer("issuerName");
         Amount amount = new Amount().currency("EUR").value(1000L);
@@ -114,7 +93,6 @@ public class CheckoutTest extends BaseTest {
         paymentRequest.setReference("merchantReference");
         paymentRequest.setReturnUrl("http://return.com");
         paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(idealDetails));
-        assertEquals(paymentRequestJson,paymentRequest.toJson());
 
         PaymentRequest parsedPaymentRequest = PaymentRequest.fromJson(paymentRequestJson);
         assertEquals(IdealDetails.TypeEnum.IDEAL, parsedPaymentRequest.getPaymentMethod().getIdealDetails().getType());
@@ -122,37 +100,11 @@ public class CheckoutTest extends BaseTest {
     }
 
     /**
-     * Should return correct exception at failed call
-     */
-    @Test
-    public void TestPaymentRequestException() throws Exception {
-        try {
-            Client client = createMockErrorClient("{ \"status\": 422, \"errorCode\": \"14_0391\", \"message\": \"Invalid redirectResult provided\", \"errorType\": \"validation\", \"pspReference\": \"J5C22LHW7QHG5S82\"}");
-            Amount amount = new Amount().currency("EUR").value(1000L);
-            CardDetails cardDetails = new CardDetails();
-            cardDetails.encryptedCardNumber("5136333333333335")
-                    .holderName("John Doe")
-                    .cvc("737")
-                    .encryptedExpiryMonth("08")
-                    .encryptedExpiryYear("2018");
-            cardDetails.setType(CardDetails.TypeEnum.SCHEME);
-            PaymentRequest paymentRequest = new PaymentRequest();
-            paymentRequest.setAmount(amount);
-            paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
-            Checkout checkout = new Checkout(client);
-            checkout.payments(paymentRequest);
-            assert(false);
-        } catch (Exception exception) {
-            assert(true);
-        }
-    }
-
-    /**
      * Should make paymentMethods call
      */
     @Test
     public void TestPaymentMethodsSuccess() throws Exception {
-        Client client = createMockClient("{\"paymentMethods\": [{\"name\": \"Pay later with Klarna.\", \"type\": \"klarna\"}]}");
+        Client client = createMockClientFromFile("mocks/checkout/paymentMethodsResponse.json");
         PaymentMethodsRequest paymentMethodsRequest = new PaymentMethodsRequest();
         paymentMethodsRequest.setMerchantAccount("myMerchantAccount");
         Checkout checkout = new Checkout(client);
@@ -166,18 +118,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestPaymentLinkSuccess() throws Exception {
-        Client client = createMockClient("{" +
-            "  \"amount\": {" +
-            "    \"currency\": \"EUR\"," +
-            "    \"value\": 1250" +
-            "  }," +
-            "  \"expiresAt\": \"2021-04-09T14:17:31Z\"," +
-            "  \"reference\": \"shopper-reference-ekvL83\"," +
-            "  \"url\": \"https://test.adyen.link/PL6DB3157D27FFBBCF\"," +
-            "  \"id\": \"foo\"," +
-            "  \"merchantAccount\": \"myMerchantAccount\"," +
-            "  \"status\": \"active\"" +
-            "}");
+        Client client = createMockClientFromFile("mocks/checkout/paymentLinkResponse.json");
         CreatePaymentLinkRequest createPaymentLinkRequest = new CreatePaymentLinkRequest();
         Amount amount = new Amount().currency("EUR").value(500L);
         createPaymentLinkRequest.setAmount(amount);
@@ -194,21 +135,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestGetPaymentLinkSuccess() throws Exception {
-        Client client = createMockClient("{" +
-            "  \"amount\": {" +
-            "    \"currency\": \"EUR\"," +
-            "    \"value\": 8700" +
-            "  }," +
-            "  \"id\": \"paymentLinkId\"," +
-            "  \"countryCode\": \"NL\"," +
-            "  \"expiresAt\": \"2021-04-08T14:06:39Z\"," +
-            "  \"merchantAccount\": \"TestMerchantCheckout\"," +
-            "  \"reference\": \"shopper-reference\"," +
-            "  \"shopperLocale\": \"hu-HU\"," +
-            "  \"shopperReference\": \"shopper-reference\"," +
-            "  \"status\": \"expired\"," +
-            "  \"url\": \"https://test.adyen.link/PL61C53A8B97E6915A\"" +
-            "}");
+        Client client = createMockClientFromFile("mocks/checkout/getPaymentLinkResponse.json");
 
         Checkout checkout = new Checkout(client);
         PaymentLinkResponse paymentLinkResponse = checkout.getPaymentLinks("linkId");
@@ -221,21 +148,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestPatchPaymentLinkSuccess() throws Exception {
-        Client client = createMockClient("{" +
-                "  \"amount\": {" +
-                "    \"currency\": \"EUR\"," +
-                "    \"value\": 8700" +
-                "  }," +
-                "  \"id\": \"paymentLinkId\"," +
-                "  \"countryCode\": \"NL\"," +
-                "  \"expiresAt\": \"2021-04-08T14:06:39Z\"," +
-                "  \"merchantAccount\": \"TestMerchantCheckout\"," +
-                "  \"reference\": \"shopper-reference\"," +
-                "  \"shopperLocale\": \"hu-HU\"," +
-                "  \"shopperReference\": \"shopper-reference\"," +
-                "  \"status\": \"expired\"," +
-                "  \"url\": \"https://test.adyen.link/PL61C53A8B97E6915A\"" +
-                "}");
+        Client client = createMockClientFromFile("mocks/checkout/patchPaymentLinkResponse.json");
 
         UpdatePaymentLinkRequest updatePaymentLinkRequest = new UpdatePaymentLinkRequest();
         updatePaymentLinkRequest.setStatus(UpdatePaymentLinkRequest.StatusEnum.EXPIRED);
@@ -250,10 +163,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestPaymentDetailsSuccess() throws Exception {
-        Client client = createMockClient("{" +
-            " \"resultCode\": \"Authorised\"," +
-            " \"pspReference\": \"V4HZ4RBFJGXXGN82\"" +
-            "}");
+        Client client = createMockClientFromFile("mocks/checkout/paymentDetailsResponse.json");
         DetailsRequest detailsRequest = new DetailsRequest();
         detailsRequest.setPaymentData("STATE_DATA");
         Checkout checkout = new Checkout(client);
@@ -267,20 +177,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestCreateSessionsSuccessCall() throws Exception {
-        Client client = createMockClient("{\n" +
-            "  \"amount\": {" +
-            "    \"currency\": \"EUR\"," +
-            "    \"value\": 100" +
-            "  }," +
-            "  \"countryCode\": \"NL\"," +
-            "  \"expiresAt\": \"2022-10-11T16:54:37+02:00\"," +
-            "  \"id\": \"CS1453E3730C313478\"," +
-            "  \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"," +
-            "  \"recurringProcessingModel\": \"CardOnFile\"," +
-            "  \"reference\": \"YOUR_PAYMENT_REFERENCE\"," +
-            "  \"returnUrl\": \"https://your-company.com/checkout?shopperOrder=12xy..\"," +
-            "  \"sessionData\": \"Ab02b4c0!BFHSPFBQTEwM0NBNTM3RfCf5\"" +
-            "}");
+        Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
         CreateCheckoutSessionRequest sessionRequest = new CreateCheckoutSessionRequest();
         sessionRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
         sessionRequest.setCountryCode("NL");
@@ -299,12 +196,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestPaymentsResultsSuccessCall() throws Exception {
-        Client client = createMockClient("{" +
-            " \"merchantReference\": \"YOUR_MERCHANT_ACCOUNT\"," +
-            " \"shopperLocale\": \"NL\"," +
-            " \"resultCode\": \"Authorised\"," +
-            " \"pspReference\": \"V4HZ4RBFJGXXGN82\"" +
-            "}");
+        Client client = createMockClientFromFile("mocks/checkout/paymentResultsResponse.json");
         PaymentVerificationRequest paymentVerificationRequest = new PaymentVerificationRequest();
         paymentVerificationRequest.setPayload("PAYLOAD");
         Checkout checkout = new Checkout(client);
@@ -318,21 +210,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestCreateOrderSuccessCall() throws Exception {
-        Client client = createMockClient("{" +
-            "  \"pspReference\": \"8616178914061985\"," +
-            "  \"resultCode\": \"Success\"," +
-            "  \"expiresAt\": \"2021-04-09T14:16:46Z\"," +
-            "  \"orderData\": \"Abzt3JH4wnzErMnOZwSdgA==\"," +
-            "  \"reference\": \"shopper-reference-ekvL83\"," +
-            "  \"remainingAmount\": {" +
-            "    \"currency\": \"EUR\"," +
-            "    \"value\": 2500" +
-            "  }," +
-            "  \"amount\": {" +
-            "    \"currency\": \"EUR\"," +
-            "    \"value\": 2500" +
-            "  }" +
-            "}");
+        Client client = createMockClientFromFile("mocks/checkout/createOrderResponse.json");
         CheckoutCreateOrderRequest checkoutCreateOrderRequest = new CheckoutCreateOrderRequest();
         Amount amount = new Amount().currency("EUR").value(2500L);
         checkoutCreateOrderRequest.setAmount(amount);
@@ -349,10 +227,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestCancelOrderSuccessCall() throws Exception {
-        Client client = createMockClient("{" +
-            "  \"pspReference\": \"8816178914079738\"," +
-            "  \"resultCode\": \"Received\"" +
-            "}");
+        Client client = createMockClientFromFile("mocks/checkout/cancelOrderResponse.json");
         CheckoutCancelOrderRequest checkoutCancelOrderRequest = new CheckoutCancelOrderRequest();
         checkoutCancelOrderRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
         CheckoutOrder checkoutOrder = new CheckoutOrder();
@@ -370,7 +245,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestApplePaySessionsSuccessCall() throws Exception {
-        Client client = createMockClient("{\"data\": \"eyJ2Z\"}");
+        Client client = createMockClientFromFile("mocks/checkout/applePaySessionsResponse.json");
         CreateApplePaySessionRequest createApplePaySessionRequest = new CreateApplePaySessionRequest();
         createApplePaySessionRequest.setDisplayName("YOUR_MERCHANT_NAME");
         createApplePaySessionRequest.setDomainName("YOUR_DOMAIN_NAME");
@@ -385,26 +260,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestDonationsSuccessCall() throws Exception {
-        Client client =  createMockClient("{" +
-            "  \"id\": \"UNIQUE_RESOURCE_ID\"," +
-            "  \"status\": \"completed\"," +
-            "  \"donationAccount\": \"CHARITY_ACCOUNT\"," +
-            "  \"merchantAccount\": \"YOUR_MERCHANT_ACCOUNT\"," +
-            "  \"amount\": {" +
-            "    \"currency\": \"EUR\"," +
-            "    \"value\": 1000" +
-            "  }," +
-            "  \"reference\": \"YOUR_DONATION_REFERENCE\"," +
-            "  \"payment\": {" +
-            "    \"pspReference\": \"8535762347980628\"," +
-            "    \"resultCode\": \"Authorised\"," +
-            "    \"amount\": {" +
-            "      \"currency\": \"EUR\"," +
-            "      \"value\": 1000" +
-            "    }," +
-            "    \"merchantReference\": \"YOUR_DONATION_REFERENCE\"" +
-            "  }" +
-            "}");
+        Client client =  createMockClientFromFile("mocks/checkout/donationResponse.json");
         PaymentDonationRequest paymentDonationRequest = new PaymentDonationRequest();
         Amount amount = new Amount().currency("EUR").value(1000L);
         paymentDonationRequest.setAmount(amount);
@@ -426,18 +282,7 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestCardDetailsRequestSuccess() throws Exception {
-        Client client = createMockClient("{" +
-            "  \"brands\": [" +
-            "    {" +
-            "      \"type\": \"visa\"," +
-            "      \"supported\": \"true\"" +
-            "    }," +
-            "    {" +
-            "      \"type\": \"cartebancaire\"," +
-            "      \"supported\": \"true\"" +
-            "    }" +
-            "  ]" +
-            "}");
+        Client client = createMockClientFromFile("mocks/checkout/cardDetailsResponse.json");
         CardDetailsRequest cardDetailsRequest = new CardDetailsRequest();
         cardDetailsRequest.setCardNumber("123412341234");
         cardDetailsRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
