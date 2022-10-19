@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=balanceplatform payments checkout
+services:=balanceplatform
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -37,6 +37,7 @@ $(services): target/spec $(openapi-generator-jar)
 		-g $(generator) \
 		-t templates \
 		-o $(output) \
+		--reserved-words-mappings configuration=configuration \
 		--ignore-file-override ./.openapi-generator-ignore \
 		--skip-validate-spec \
 		--model-package $(subst /,.,com.adyen.model.$@) \

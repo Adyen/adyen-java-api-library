@@ -72,9 +72,9 @@ public class Card {
   @SerializedName(SERIALIZED_NAME_CARDHOLDER_NAME)
   private String cardholderName;
 
-  public static final String SERIALIZED_NAME_CONFIGURATION = "_configuration";
+  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private CardConfiguration _configuration;
+  private CardConfiguration configuration;
 
   public static final String SERIALIZED_NAME_CVC = "cvc";
   @SerializedName(SERIALIZED_NAME_CVC)
@@ -275,26 +275,26 @@ public class Card {
   }
 
 
-  public Card _configuration(CardConfiguration _configuration) {
+  public Card configuration(CardConfiguration configuration) {
     
-    this._configuration = _configuration;
+    this.configuration = configuration;
     return this;
   }
 
    /**
-   * Get _configuration
-   * @return _configuration
+   * Get configuration
+   * @return configuration
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public CardConfiguration getConfiguration() {
-    return _configuration;
+    return configuration;
   }
 
 
-  public void setConfiguration(CardConfiguration _configuration) {
-    this._configuration = _configuration;
+  public void setConfiguration(CardConfiguration configuration) {
+    this.configuration = configuration;
   }
 
 
@@ -442,7 +442,7 @@ public class Card {
         Objects.equals(this.brand, card.brand) &&
         Objects.equals(this.brandVariant, card.brandVariant) &&
         Objects.equals(this.cardholderName, card.cardholderName) &&
-        Objects.equals(this._configuration, card._configuration) &&
+        Objects.equals(this.configuration, card.configuration) &&
         Objects.equals(this.cvc, card.cvc) &&
         Objects.equals(this.deliveryContact, card.deliveryContact) &&
         Objects.equals(this.expiration, card.expiration) &&
@@ -453,7 +453,7 @@ public class Card {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authentication, bin, brand, brandVariant, cardholderName, _configuration, cvc, deliveryContact, expiration, formFactor, lastFour, number);
+    return Objects.hash(authentication, bin, brand, brandVariant, cardholderName, configuration, cvc, deliveryContact, expiration, formFactor, lastFour, number);
   }
 
   @Override
@@ -465,7 +465,7 @@ public class Card {
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    brandVariant: ").append(toIndentedString(brandVariant)).append("\n");
     sb.append("    cardholderName: ").append(toIndentedString(cardholderName)).append("\n");
-    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
     sb.append("    cvc: ").append(toIndentedString(cvc)).append("\n");
     sb.append("    deliveryContact: ").append(toIndentedString(deliveryContact)).append("\n");
     sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
@@ -499,7 +499,7 @@ public class Card {
     openapiFields.add("brand");
     openapiFields.add("brandVariant");
     openapiFields.add("cardholderName");
-    openapiFields.add("_configuration");
+    openapiFields.add("configuration");
     openapiFields.add("cvc");
     openapiFields.add("deliveryContact");
     openapiFields.add("expiration");
@@ -566,8 +566,8 @@ public class Card {
         throw new IllegalArgumentException(String.format("Expected the field `cardholderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardholderName").toString()));
       }
       // validate the optional field `configuration`
-      if (jsonObj.getAsJsonObject("_configuration") != null) {
-        CardConfiguration.validateJsonObject(jsonObj.getAsJsonObject("_configuration"));
+      if (jsonObj.getAsJsonObject("configuration") != null) {
+        CardConfiguration.validateJsonObject(jsonObj.getAsJsonObject("configuration"));
       }
       // validate the optional field cvc
       if (jsonObj.get("cvc") != null && !jsonObj.get("cvc").isJsonPrimitive()) {
