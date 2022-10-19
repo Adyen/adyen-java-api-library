@@ -67,8 +67,8 @@ public class Client {
     public static final String DATA_PROTECTION_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DataProtectionService";
     public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
     public static final String DATA_PROTECTION_VERSION = "v1";
-    public static final String BALANCE_PLATFORM_ENDPOINT_TEST = "https://balanceplatform-api-test.adyen.com/bcl";
-    public static final String BALANCE_PLATFORM_ENDPOINT_LIVE = "https://balanceplatform-api-live.adyen.com/bcl";
+    public static final String BALANCE_PLATFORM_ENDPOINT_TEST = "https://balanceplatform-api-test.adyen.com";
+    public static final String BALANCE_PLATFORM_ENDPOINT_LIVE = "https://balanceplatform-api-live.adyen.com";
     public static final String BALANCE_PLATFORM_VERSION = "v2";
 
     public Client() {

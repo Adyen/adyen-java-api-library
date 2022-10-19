@@ -6,6 +6,6 @@ import com.adyen.service.Resource;
 
 public class BalancePlatformResource extends Resource {
     public BalancePlatformResource(Service service, String endpoint) {
-        super(service, service.getClient().getConfig().getBalancePlatformEndpoint() + "/" + Client.BALANCE_PLATFORM_VERSION + endpoint, null);
+        super(service, service.getClient().getConfig().getBalancePlatformEndpoint() + "/bcl/" + Client.BALANCE_PLATFORM_VERSION + endpoint, null);
     }
 }
