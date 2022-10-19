@@ -3,7 +3,6 @@ package com.adyen.service.LegalEntityManagement;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.legalEntityManagement.JSON;
 import com.adyen.model.legalEntityManagement.OnboardingLink;
 import com.adyen.model.legalEntityManagement.OnboardingLinkInfo;
 import com.adyen.model.legalEntityManagement.OnboardingTheme;

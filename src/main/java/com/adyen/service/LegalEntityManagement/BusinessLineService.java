@@ -5,7 +5,6 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.legalEntityManagement.BusinessLine;
 import com.adyen.model.legalEntityManagement.BusinessLineInfo;
-import com.adyen.model.legalEntityManagement.JSON;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.LegalEntityManagementResource;
 
