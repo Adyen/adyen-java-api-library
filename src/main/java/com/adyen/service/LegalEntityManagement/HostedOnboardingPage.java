@@ -20,7 +20,7 @@ public class HostedOnboardingPage extends Service {
 
     public OnboardingLink create(String legalEntityId, OnboardingLinkInfo request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
-        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", legalEntityId));
+        LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/legalEntities/%s/onboardingLinks", legalEntityId));
         String jsonResult = resource.request(jsonRequest);
         return OnboardingLink.fromJson(jsonResult);
     }
