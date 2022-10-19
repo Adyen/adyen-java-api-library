@@ -12,8 +12,8 @@ import com.adyen.service.resource.LegalEntityManagementResource;
 
 import java.io.IOException;
 
-public class HostedOnboardingPage extends Service {
-    public HostedOnboardingPage(Client client) {
+public class HostedOnboarding extends Service {
+    public HostedOnboarding(Client client) {
         super(client);
     }
 

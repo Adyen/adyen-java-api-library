@@ -311,7 +311,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"redirectUrl\": \"https://your.redirect-url.com\",\n" +
                 "    \"themeId\": \"123456789\"\n" +
                 "}");
-        OnboardingLink response = service.hostedOnboardingPage.create("",request);
+        OnboardingLink response = service.hostedOnboarding.create("",request);
         assertEquals("https://your.redirect-url.com", response.getUrl());
     }
 
@@ -319,7 +319,7 @@ public class LegalEntityManagementTest extends BaseTest {
     public void HostedOnboardingPageListThemesTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/OnboardingThemes.json");
         LegalEntityManagementService service = new LegalEntityManagementService(client);
-        OnboardingThemes response = service.hostedOnboardingPage.listThemes();
+        OnboardingThemes response = service.hostedOnboarding.listThemes();
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getThemes().get(0).getId());
     }
 
@@ -327,7 +327,7 @@ public class LegalEntityManagementTest extends BaseTest {
     public void HostedOnboardingPageRetrieveThemesTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/OnboardingTheme.json");
         LegalEntityManagementService service = new LegalEntityManagementService(client);
-        OnboardingTheme response = service.hostedOnboardingPage.retrieveTheme("SE322KT223222D5FJ7TJN2986");
+        OnboardingTheme response = service.hostedOnboarding.retrieveTheme("SE322KT223222D5FJ7TJN2986");
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
 }
