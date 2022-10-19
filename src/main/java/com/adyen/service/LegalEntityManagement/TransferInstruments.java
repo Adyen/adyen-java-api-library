@@ -14,7 +14,6 @@ import java.io.IOException;
 public class TransferInstruments extends Service {
     public TransferInstruments(Client client) {
         super(client);
-        new JSON();
     }
 
     public TransferInstrument create(TransferInstrumentInfo request) throws IOException, ApiException {
@@ -39,7 +38,7 @@ public class TransferInstruments extends Service {
 
     public void delete(String transferInstrumentId) throws IOException, ApiException {
         LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/transferInstruments/%s", transferInstrumentId));
-        String jsonResult = resource.request(null, ApiConstants.HttpMethod.DELETE);
+        resource.request(null, ApiConstants.HttpMethod.DELETE);
     }
 
 }

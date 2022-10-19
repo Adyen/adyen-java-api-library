@@ -14,7 +14,6 @@ import java.io.IOException;
 public class BusinessLineService extends Service {
     public BusinessLineService(Client client) {
         super(client);
-        new JSON();
     }
 
     public BusinessLine create(BusinessLineInfo request) throws IOException, ApiException {
@@ -33,7 +32,7 @@ public class BusinessLineService extends Service {
     public BusinessLine update(String businessLineId, BusinessLineInfo request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
         LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/businessLines/%s", businessLineId));
-        String jsonResult = resource.request(null, ApiConstants.HttpMethod.PATCH);
+        String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.PATCH);
         return BusinessLine.fromJson(jsonResult);
     }
 }

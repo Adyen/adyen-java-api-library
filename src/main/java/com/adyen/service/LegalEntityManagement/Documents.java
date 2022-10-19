@@ -13,7 +13,6 @@ import java.io.IOException;
 public class Documents extends Service {
     public Documents(Client client) {
         super(client);
-        new JSON();
     }
 
     public Document create(Document request) throws IOException, ApiException {
@@ -38,6 +37,6 @@ public class Documents extends Service {
 
     public void delete(String documentId) throws IOException, ApiException {
         LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/documents/%s", documentId));
-        String jsonResult = resource.request(null, ApiConstants.HttpMethod.DELETE);
+        resource.request(null, ApiConstants.HttpMethod.DELETE);
     }
 }

@@ -15,7 +15,6 @@ import java.io.IOException;
 public class LegalEntities extends Service {
     public LegalEntities(Client client) {
         super(client);
-        new JSON();
     }
 
     public LegalEntity create(LegalEntityInfo request) throws IOException, ApiException {

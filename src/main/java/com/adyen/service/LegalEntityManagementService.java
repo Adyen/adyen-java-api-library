@@ -2,6 +2,7 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.model.legalEntityManagement.JSON;
 import com.adyen.service.LegalEntityManagement.BusinessLineService;
 import com.adyen.service.LegalEntityManagement.Documents;
 import com.adyen.service.LegalEntityManagement.HostedOnboardingPage;
@@ -11,6 +12,7 @@ import com.adyen.service.LegalEntityManagement.TransferInstruments;
 public class LegalEntityManagementService extends Service {
     public LegalEntityManagementService(Client client) {
         super(client);
+        new JSON();
     }
 
     public LegalEntities legalEntities = new LegalEntities(this.getClient());
