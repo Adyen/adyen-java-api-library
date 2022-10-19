@@ -26,7 +26,17 @@ public class DateSerializationTest extends BaseTest {
 
     (note: dateOfBirth also gets serialized to ISO8601 which is fine one API side)
     */
-
+    private Date date() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 2023);
+        cal.set(Calendar.MONTH, 5);
+        cal.set(Calendar.DAY_OF_MONTH, 2);
+        cal.set(Calendar.HOUR, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
     @Test
     public void TestCheckoutSessionDate() throws IOException, ApiException, HTTPClientException {
         Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
@@ -34,12 +44,12 @@ public class DateSerializationTest extends BaseTest {
 
         CreateCheckoutSessionRequest sessionsRequest = new CreateCheckoutSessionRequest();
 
-        sessionsRequest.setDeliverAt(new Date(23, Calendar.MAY,2));
+        sessionsRequest.setDeliverAt(date());
 
         checkout.sessions(sessionsRequest);
         ClientInterface http = client.getHttpClient();
 
-        String expected = "\"deliverAt\":\"1923-05-02T00:00:00+00:19\"";
+        String expected = "\"deliverAt\":\"2023-06-02T12:00:00+02:00\"";
         verify(http).request(anyString(), Mockito.contains(expected), any(), eq(true), isNull(), any());
     }
 
@@ -50,14 +60,14 @@ public class DateSerializationTest extends BaseTest {
 
         CreatePaymentLinkRequest paymentLinkRequest = new CreatePaymentLinkRequest();
 
-        paymentLinkRequest.setDeliverAt(new Date(23, Calendar.MAY,2));
-        paymentLinkRequest.setDateOfBirth(new Date(23, Calendar.MAY,2));
+        paymentLinkRequest.setDeliverAt(date());
+        paymentLinkRequest.setDateOfBirth(date());
 
         payment.create(paymentLinkRequest);
         ClientInterface http = client.getHttpClient();
 
-        String expected1 = "\"deliverAt\":\"1923-05-02T00:00:00+00:19\"";
-        String expected2 = "\"dateOfBirth\":\"1923-05-02T00:00:00+00:19\"";
+        String expected1 = "\"deliverAt\":\"2023-06-02T12:00:00+02:00\"";
+        String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00+02:00\"";
         verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
         verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
     }
@@ -69,15 +79,14 @@ public class DateSerializationTest extends BaseTest {
 
         PaymentSessionRequest request = new PaymentSessionRequest();
 
-        request.setDateOfBirth(new Date(23, Calendar.MAY,2));
-        request.setDeliveryDate(new Date(23, Calendar.MAY,2));
-        System.out.println(GSON.toJson(request));
+        request.setDateOfBirth(date());
+        request.setDeliveryDate(date());
 
         checkout.paymentSession(request);
         ClientInterface http = client.getHttpClient();
 
-        String expected1 = "\"deliveryDate\":\"1923-05-02T00:00:00+00:19\"";
-        String expected2 = "\"dateOfBirth\":\"1923-05-02T00:00:00+00:19\"";
+        String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00+02:00\"";
+        String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00+02:00\"";
         verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
         verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
     }
@@ -89,15 +98,14 @@ public class DateSerializationTest extends BaseTest {
 
         PaymentsRequest request = new PaymentsRequest();
 
-        request.setDateOfBirth(new Date(23, Calendar.MAY,2));
-        request.setDeliveryDate(new Date(23, Calendar.MAY,2));
-        System.out.println(GSON.toJson(request));
+        request.setDateOfBirth(date());
+        request.setDeliveryDate(date());
 
         checkout.payments(request);
         ClientInterface http = client.getHttpClient();
 
-        String expected1 = "\"deliveryDate\":\"1923-05-02T00:00:00+00:19\"";
-        String expected2 = "\"dateOfBirth\":\"1923-05-02T00:00:00+00:19\"";
+        String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00+02:00\"";
+        String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00+02:00\"";
         verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
         verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
     }
