@@ -20,7 +20,6 @@
  */
 package com.adyen.model;
 
-import com.adyen.serializer.ByteArrayToStringAdapter;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -85,7 +84,6 @@ public class ThreeDSecureData {
     private AuthenticationResponseEnum authenticationResponse = null;
 
     @SerializedName("cavv")
-    @JsonAdapter(ByteArrayToStringAdapter.class)
     private byte[] cavv = null;
 
     @SerializedName("cavvAlgorithm")
@@ -205,14 +203,12 @@ public class ThreeDSecureData {
     private String threeDSVersion = null;
 
     @SerializedName("tokenAuthenticationVerificationValue")
-    @JsonAdapter(ByteArrayToStringAdapter.class)
     private byte[] tokenAuthenticationVerificationValue = null;
 
     @SerializedName("transStatusReason")
     private String transStatusReason = null;
 
     @SerializedName("xid")
-    @JsonAdapter(ByteArrayToStringAdapter.class)
     private byte[] xid = null;
 
     public ThreeDSecureData authenticationResponse(AuthenticationResponseEnum authenticationResponse) {
