@@ -22,6 +22,7 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.marketpay.notification.CreateNotificationConfigurationRequest;
 import com.adyen.model.marketpay.notification.CreateNotificationConfigurationResponse;
 import com.adyen.model.marketpay.notification.DeleteNotificationConfigurationRequest;
@@ -63,42 +64,42 @@ public class Notification extends Service {
 
     public CreateNotificationConfigurationResponse createNotificationConfiguration(CreateNotificationConfigurationRequest createNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(createNotificationConfigurationRequest);
-        String jsonResult = createNotificationConfiguration.request(jsonRequest);
+        String jsonResult = createNotificationConfiguration.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<CreateNotificationConfigurationResponse>() {
         }.getType());
     }
 
     public UpdateNotificationConfigurationResponse updateNotificationConfiguration(UpdateNotificationConfigurationRequest updateNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(updateNotificationConfigurationRequest);
-        String jsonResult = updateNotificationConfiguration.request(jsonRequest);
+        String jsonResult = updateNotificationConfiguration.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<UpdateNotificationConfigurationResponse>() {
         }.getType());
     }
 
     public GetNotificationConfigurationResponse getNotificationConfiguration(GetNotificationConfigurationRequest getNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(getNotificationConfigurationRequest);
-        String jsonResult = getNotificationConfiguration.request(jsonRequest);
+        String jsonResult = getNotificationConfiguration.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationResponse>() {
         }.getType());
     }
 
     public DeleteNotificationConfigurationResponse deleteNotificationConfiguration(DeleteNotificationConfigurationRequest deleteNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(deleteNotificationConfigurationRequest);
-        String jsonResult = deleteNotificationConfiguration.request(jsonRequest);
+        String jsonResult = deleteNotificationConfiguration.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<DeleteNotificationConfigurationResponse>() {
         }.getType());
     }
 
     public TestNotificationConfigurationResponse testNotificationConfiguration(TestNotificationConfigurationRequest testNotificationConfigurationRequest) throws Exception {
         String jsonRequest = GSON.toJson(testNotificationConfigurationRequest);
-        String jsonResult = testNotificationConfiguration.request(jsonRequest);
+        String jsonResult = testNotificationConfiguration.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<TestNotificationConfigurationResponse>() {
         }.getType());
     }
 
     public GetNotificationConfigurationListResponse getNotificationConfigurationList() throws Exception {
-        String jsonResult = getNotificationConfigurationList.request("{}");
+        String jsonResult = getNotificationConfigurationList.request("{}", ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<GetNotificationConfigurationListResponse>() {
         }.getType());
     }

@@ -1,0 +1,27 @@
+{
+  "accountHolderId": "AHA1B2C3D4E5F6G7H8I9J0",
+  "amount": {
+    "currency": "EUR",
+    "value": 9887
+  },
+  "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
+  "balancePlatform": "YOUR_BALANCE_PLATFORM",
+  "bookingDate": "2022-03-14T12:01:00+01:00",
+  "category": "bank",
+  "counterparty": {
+    "balanceAccountId": "NL29ADYX0000000001"
+  },
+  "createdAt": "2022-03-14T12:01:00+01:00",
+  "description": "YOUR_DESCRIPTION",
+  "id": "IZK7C25U7DYVX03Y",
+  "instructedAmount": {
+    "currency": "EUR",
+    "value": 9887
+  },
+  "reference": "2L6C6B5U7DYULLXC",
+  "referenceForBeneficiary": "YOUR_REFERENCE_FOR_BENEFICIARY",
+  "status": "booked",
+  "transferId": "2QP32A5U7IWC5WKG",
+  "type": "bankTransfer",
+  "valueDate": "2022-03-14T12:01:00+01:00"
+}

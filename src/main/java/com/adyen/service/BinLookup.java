@@ -2,6 +2,7 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.binlookup.CostEstimateRequest;
 import com.adyen.model.binlookup.CostEstimateResponse;
 import com.adyen.model.binlookup.ThreeDSAvailabilityRequest;
@@ -25,7 +26,7 @@ public class BinLookup extends ApiKeyAuthenticatedService {
     public ThreeDSAvailabilityResponse get3dsAvailability(ThreeDSAvailabilityRequest threeDSAvailabilityRequest) throws Exception {
         String jsonRequest = GSON.toJson(threeDSAvailabilityRequest);
 
-        String jsonResult = get3dsAvailability.request(jsonRequest);
+        String jsonResult = get3dsAvailability.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<ThreeDSAvailabilityResponse>() {
         }.getType());
@@ -34,7 +35,7 @@ public class BinLookup extends ApiKeyAuthenticatedService {
     public CostEstimateResponse getCostEstimate(CostEstimateRequest costEstimateRequest) throws Exception {
         String jsonRequest = GSON.toJson(costEstimateRequest);
 
-        String jsonResult = getCostEstimate.request(jsonRequest);
+        String jsonResult = getCostEstimate.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<CostEstimateResponse>() {
         }.getType());

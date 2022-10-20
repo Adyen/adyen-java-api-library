@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=payments checkout
+services:=payments checkout transfer
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -29,6 +29,8 @@ marketpay/fund: spec=FundService-v6
 marketpay/configuration: spec=NotificationConfigurationService-v6
 marketpay/webhooks: spec=MarketPayNotificationService-v6
 hop: spec=HopService-v6
+transfer: spec=TransferService-v3
+
 
 $(services): target/spec $(openapi-generator-jar)
 	rm -rf $(models)/$@ $(output)

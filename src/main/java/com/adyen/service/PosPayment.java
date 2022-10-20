@@ -22,6 +22,7 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.terminal.ConnectedTerminalsRequest;
 import com.adyen.model.terminal.ConnectedTerminalsResponse;
 import com.adyen.service.exception.ApiException;
@@ -49,7 +50,7 @@ public class PosPayment extends ApiKeyAuthenticatedService {
      */
     public ConnectedTerminalsResponse connectedTerminals(ConnectedTerminalsRequest connectedTerminalsRequest) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(connectedTerminalsRequest);
-        String jsonResult = connectedTerminals.request(jsonRequest);
+        String jsonResult = connectedTerminals.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<ConnectedTerminalsResponse>() {
         }.getType());
     }

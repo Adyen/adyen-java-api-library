@@ -64,7 +64,7 @@ public class ResourceTest extends BaseTest {
         when(clientInterfaceMock.request("", "request", null, false, null, ApiConstants.HttpMethod.POST)).thenReturn("response");
 
         Resource resource = new Resource(serviceMock, "", null);
-        String response = resource.request("request");
+        String response = resource.request("request", ApiConstants.HttpMethod.POST);
 
         assertEquals("response", response);
     }
@@ -76,7 +76,7 @@ public class ResourceTest extends BaseTest {
                     .thenThrow(new HTTPClientException("message", 403, new HashMap<>(), null));
 
             Resource resource = new Resource(serviceMock, "", null);
-            String response = resource.request("request");
+            String response = resource.request("request", ApiConstants.HttpMethod.POST);
 
             fail("Expected exception");
         } catch (ApiException e) {
@@ -92,7 +92,7 @@ public class ResourceTest extends BaseTest {
         when(serviceMock.getClient()).thenReturn(client);
         try {
             Resource resource = new Resource(serviceMock, "", null);
-            String response = resource.request("request");
+            String response = resource.request("request", ApiConstants.HttpMethod.POST);
 
             fail("Expected exception");
         } catch (ApiException e) {

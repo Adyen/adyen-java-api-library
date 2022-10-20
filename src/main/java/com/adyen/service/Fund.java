@@ -24,6 +24,7 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.marketpay.AccountHolderBalanceRequest;
 import com.adyen.model.marketpay.AccountHolderBalanceResponse;
 import com.adyen.model.marketpay.AccountHolderTransactionListRequest;
@@ -79,7 +80,7 @@ public class Fund extends Service {
     public AccountHolderBalanceResponse accountHolderBalance(AccountHolderBalanceRequest accountHolderBalanceRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(accountHolderBalanceRequest);
 
-        String jsonResult = accountHolderBalance.request(jsonRequest);
+        String jsonResult = accountHolderBalance.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<AccountHolderBalanceResponse>() {
         }.getType());
@@ -88,7 +89,7 @@ public class Fund extends Service {
     public TransferFundsResponse transferFunds(TransferFundsRequest transferFundsRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(transferFundsRequest);
 
-        String jsonResult = transferFunds.request(jsonRequest);
+        String jsonResult = transferFunds.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<TransferFundsResponse>() {
         }.getType());
@@ -97,7 +98,7 @@ public class Fund extends Service {
     public PayoutAccountHolderResponse payoutAccountHolder(PayoutAccountHolderRequest payoutAccountHolderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(payoutAccountHolderRequest);
 
-        String jsonResult = payoutAccountHolder.request(jsonRequest);
+        String jsonResult = payoutAccountHolder.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<PayoutAccountHolderResponse>() {
         }.getType());
@@ -106,7 +107,7 @@ public class Fund extends Service {
     public AccountHolderTransactionListResponse accountHolderTransactionList(AccountHolderTransactionListRequest accountHolderTransactionListRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(accountHolderTransactionListRequest);
 
-        String jsonResult = accountHolderTransactionList.request(jsonRequest);
+        String jsonResult = accountHolderTransactionList.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<AccountHolderTransactionListResponse>() {
         }.getType());
@@ -115,7 +116,7 @@ public class Fund extends Service {
     public RefundNotPaidOutTransfersResponse refundNotPaidOutTransfers(RefundNotPaidOutTransfersRequest refundNotPaidOutTransfersRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(refundNotPaidOutTransfersRequest);
 
-        String jsonResult = refundNotPaidOutTransfers.request(jsonRequest);
+        String jsonResult = refundNotPaidOutTransfers.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<RefundNotPaidOutTransfersResponse>() {
         }.getType());
@@ -124,7 +125,7 @@ public class Fund extends Service {
     public SetupBeneficiaryResponse setupBeneficiary(SetupBeneficiaryRequest setupBeneficiaryRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(setupBeneficiaryRequest);
 
-        String jsonResult = setupBeneficiary.request(jsonRequest);
+        String jsonResult = setupBeneficiary.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<SetupBeneficiaryResponse>() {
         }.getType());
@@ -133,7 +134,7 @@ public class Fund extends Service {
     public RefundFundsTransferResponse refundFundsTransfer(RefundFundsTransferRequest refundFundsTransferRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(refundFundsTransferRequest);
 
-        String jsonResult = refundFundsTransfer.request(jsonRequest);
+        String jsonResult = refundFundsTransfer.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<RefundFundsTransferResponse>() {
         }.getType());
@@ -142,7 +143,7 @@ public class Fund extends Service {
     public DebitAccountHolderResponse debitAccountHolder(DebitAccountHolderRequest debitAccountHolderRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(debitAccountHolderRequest);
 
-        String jsonResult = debitAccountHolder.request(jsonRequest);
+        String jsonResult = debitAccountHolder.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<DebitAccountHolderResponse>() {
         }.getType());

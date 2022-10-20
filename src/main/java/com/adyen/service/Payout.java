@@ -22,6 +22,7 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.RequestOptions;
 import com.adyen.model.payout.ConfirmThirdPartyRequest;
 import com.adyen.model.payout.ConfirmThirdPartyResponse;
@@ -75,7 +76,7 @@ public class Payout extends Service {
     public StoreDetailAndSubmitResponse storeDetailAndSubmitThirdParty(StoreDetailAndSubmitRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
-        String jsonResult = storeDetailAndSubmitThirdParty.request(jsonRequest);
+        String jsonResult = storeDetailAndSubmitThirdParty.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<StoreDetailAndSubmitResponse>() {
         }.getType());
@@ -92,7 +93,7 @@ public class Payout extends Service {
     public ConfirmThirdPartyResponse confirmThirdParty(ConfirmThirdPartyRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
-        String jsonResult = confirmThirdParty.request(jsonRequest);
+        String jsonResult = confirmThirdParty.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<ConfirmThirdPartyResponse>() {
         }.getType());
@@ -109,7 +110,7 @@ public class Payout extends Service {
     public DeclineThirdPartyResponse declineThirdParty(DeclineThirdPartyRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
-        String jsonResult = declineThirdParty.request(jsonRequest);
+        String jsonResult = declineThirdParty.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<DeclineThirdPartyResponse>() {
         }.getType());
@@ -126,7 +127,7 @@ public class Payout extends Service {
     public StoreDetailResponse storeDetail(StoreDetailRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
-        String jsonResult = storeDetail.request(jsonRequest);
+        String jsonResult = storeDetail.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<StoreDetailResponse>() {
         }.getType());
@@ -143,7 +144,7 @@ public class Payout extends Service {
     public SubmitResponse submitThirdparty(SubmitRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
-        String jsonResult = submitThirdparty.request(jsonRequest);
+        String jsonResult = submitThirdparty.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<SubmitResponse>() {
         }.getType());

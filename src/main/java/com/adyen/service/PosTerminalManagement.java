@@ -23,6 +23,7 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.posterminalmanagement.AssignTerminalsRequest;
 import com.adyen.model.posterminalmanagement.AssignTerminalsResponse;
 import com.adyen.model.posterminalmanagement.FindTerminalRequest;
@@ -71,7 +72,7 @@ public class PosTerminalManagement extends ApiKeyAuthenticatedService {
      */
     public AssignTerminalsResponse assignTerminals(AssignTerminalsRequest assignTerminalsRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(assignTerminalsRequest);
-        String jsonResult = assignTerminals.request(jsonRequest);
+        String jsonResult = assignTerminals.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<AssignTerminalsResponse>() {
         }.getType());
     }
@@ -86,7 +87,7 @@ public class PosTerminalManagement extends ApiKeyAuthenticatedService {
      */
     public FindTerminalResponse findTerminal(FindTerminalRequest findTerminalRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(findTerminalRequest);
-        String jsonResult = findTerminal.request(jsonRequest);
+        String jsonResult = findTerminal.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<FindTerminalResponse>() {
         }.getType());
     }
@@ -101,7 +102,7 @@ public class PosTerminalManagement extends ApiKeyAuthenticatedService {
      */
     public GetTerminalsUnderAccountResponse getTerminalsUnderAccount(GetTerminalsUnderAccountRequest getTerminalsUnderAccountRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(getTerminalsUnderAccountRequest);
-        String jsonResult = getTerminalsUnderAccount.request(jsonRequest);
+        String jsonResult = getTerminalsUnderAccount.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<GetTerminalsUnderAccountResponse>() {
         }.getType());
     }
@@ -117,7 +118,7 @@ public class PosTerminalManagement extends ApiKeyAuthenticatedService {
      */
     public GetStoresUnderAccountResponse getStoresUnderAccount(GetStoresUnderAccountRequest getStoresUnderAccountRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(getStoresUnderAccountRequest);
-        String jsonResult = getStoresUnderAccount.request(jsonRequest);
+        String jsonResult = getStoresUnderAccount.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<GetStoresUnderAccountResponse>() {
         }.getType());
     }
@@ -132,7 +133,7 @@ public class PosTerminalManagement extends ApiKeyAuthenticatedService {
      */
     public GetTerminalDetailsResponse getTerminalDetails(GetTerminalDetailsRequest getTerminalDetailsRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(getTerminalDetailsRequest);
-        String jsonResult = getTerminalDetails.request(jsonRequest);
+        String jsonResult = getTerminalDetails.request(jsonRequest, ApiConstants.HttpMethod.POST);
         return GSON.fromJson(jsonResult, new TypeToken<GetTerminalDetailsResponse>() {
         }.getType());
     }

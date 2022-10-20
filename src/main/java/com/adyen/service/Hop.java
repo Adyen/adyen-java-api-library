@@ -23,6 +23,7 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
 import com.adyen.model.hop.GetOnboardingUrlRequest;
 import com.adyen.model.hop.GetOnboardingUrlResponse;
 import com.adyen.service.exception.ApiException;
@@ -43,7 +44,7 @@ public class Hop extends Service {
     public GetOnboardingUrlResponse getOnboardingUrl(GetOnboardingUrlRequest getOnboardingUrlRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(getOnboardingUrlRequest);
 
-        String jsonResult = getOnboardingUrl.request(jsonRequest);
+        String jsonResult = getOnboardingUrl.request(jsonRequest, ApiConstants.HttpMethod.POST);
 
         return GSON.fromJson(jsonResult, new TypeToken<GetOnboardingUrlResponse>() {
         }.getType());
