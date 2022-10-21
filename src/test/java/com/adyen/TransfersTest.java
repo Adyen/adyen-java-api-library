@@ -1,7 +1,6 @@
 package com.adyen;
 
 import com.adyen.model.transfer.*;
-import com.adyen.service.Transactions;
 import com.adyen.service.Transfers;
 import org.junit.Test;
 
@@ -25,7 +24,7 @@ public class TransfersTest extends BaseTest {
     @Test
     public void TransactionsListTest() throws Exception {
         Client client = createMockClientFromFile("mocks/transfers/get-transactions-success-200.json");
-        Transactions transactions = new Transactions(client);
+        Transfers transactions = new Transfers(client);
         TransactionSearchResponse response = transactions.list();
         Transaction transactionsResponse = response.getData().get(1);
         assertEquals(transactionsResponse.getAccountHolderId(), "AHA1B2C3D4E5F6G7H8I9J0");
@@ -36,7 +35,7 @@ public class TransfersTest extends BaseTest {
     @Test
     public void TransactionsRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/transfers/get-transactions-id-success-200.json");
-        Transactions transactions = new Transactions(client);
+        Transfers transactions = new Transfers(client);
         Transaction response = transactions.retrieve("1");
         assertEquals(response.getAccountHolderId(), "AHA1B2C3D4E5F6G7H8I9J0");
         assertEquals(response.getBalancePlatform(), "YOUR_BALANCE_PLATFORM");
