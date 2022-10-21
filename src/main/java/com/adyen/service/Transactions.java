@@ -8,13 +8,10 @@ import com.adyen.model.transfer.Transaction;
 import com.adyen.model.transfer.TransactionSearchResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.transfers.TransactionResource;
-import com.adyen.service.resource.transfers.TransfersResource;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
-
-import static com.adyen.constants.ApiConstants.HttpMethod.GET;
 
 public class Transactions extends Service {
 
