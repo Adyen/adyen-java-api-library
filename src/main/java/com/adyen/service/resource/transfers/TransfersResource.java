@@ -5,10 +5,10 @@ import com.adyen.Service;
 import com.adyen.service.Resource;
 
 public class TransfersResource extends Resource {
-    public TransfersResource(Service service) {
+    public TransfersResource(Service service, String endpoint) {
         super(service,
                 service.getClient().getConfig().getEndpoint() + "/btl/" + Client.TRANSFER_VERSION
-                        + "/transfers",
+                        + endpoint,
                 null);
     }
 }

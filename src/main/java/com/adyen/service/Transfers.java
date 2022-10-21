@@ -19,7 +19,7 @@ public class Transfers extends Service {
 
     public Transfer transfers(TransferInfo transferInfo) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(transferInfo);
-        TransfersResource transfersResource = new TransfersResource(this);
+        TransfersResource transfersResource = new TransfersResource(this, "/transfers");
         String jsonResult = transfersResource.request(jsonRequest);
         return Transfer.fromJson(jsonResult);
     }
