@@ -10,8 +10,6 @@ import com.adyen.service.resource.transfers.TransfersResource;
 
 import java.io.IOException;
 
-import static com.adyen.constants.ApiConstants.HttpMethod.POST;
-
 public class Transfers extends Service {
 
     public Transfers(Client client) {
@@ -21,8 +19,8 @@ public class Transfers extends Service {
 
     public Transfer transfers(TransferInfo transferInfo) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(transferInfo);
-        TransfersResource transfersResource = new TransfersResource(this, null);
-        String jsonResult = transfersResource.request(jsonRequest, POST);
+        TransfersResource transfersResource = new TransfersResource(this);
+        String jsonResult = transfersResource.request(jsonRequest);
         return Transfer.fromJson(jsonResult);
     }
 }

@@ -4,11 +4,12 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.Resource;
 
-public class TransfersResource extends Resource {
-    public TransfersResource(Service service) {
+
+public class TransactionResource extends Resource {
+    public TransactionResource(Service service) {
         super(service,
                 service.getClient().getConfig().getEndpoint() + "/btl/" + Client.TRANSFER_VERSION
-                        + "/transfers",
+                        + "/transactions/",
                 null);
     }
 }
