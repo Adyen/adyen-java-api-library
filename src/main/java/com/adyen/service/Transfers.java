@@ -26,7 +26,7 @@ public class Transfers extends Service {
     }
 
     public Transfer transfers(TransferInfo transferInfo) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(transferInfo);
+        String jsonRequest = transferInfo.toJson();
         TransfersResource transfersResource = new TransfersResource(this, "/transfers");
         String jsonResult = transfersResource.request(jsonRequest);
         return Transfer.fromJson(jsonResult);
