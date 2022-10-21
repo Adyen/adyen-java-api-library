@@ -56,7 +56,7 @@ public class PaymentLinks extends ApiKeyAuthenticatedService {
      */
     public PaymentLinkResource create(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(createPaymentLinkRequest);
-        String jsonResult = paymentLinks.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = paymentLinks.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentLinkResource>() {
         }.getType());
     }

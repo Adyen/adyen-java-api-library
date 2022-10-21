@@ -22,7 +22,6 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.constants.ApiConstants;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.service.exception.ApiException;
@@ -59,7 +58,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
     public String async(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
 
-        return terminalApiAsync.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        return terminalApiAsync.request(jsonRequest);
     }
 
     /**
@@ -73,7 +72,7 @@ public class TerminalCloudAPI extends ApiKeyAuthenticatedService {
     public TerminalAPIResponse sync(TerminalAPIRequest terminalAPIRequest) throws IOException, ApiException {
         String jsonRequest = terminalApiGson.toJson(terminalAPIRequest);
 
-        String jsonResponse = terminalApiSync.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResponse = terminalApiSync.request(jsonRequest);
 
         if (jsonResponse == null || jsonResponse.isEmpty() || "ok".equals(jsonResponse)) {
             return null;

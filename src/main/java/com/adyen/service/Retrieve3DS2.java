@@ -25,7 +25,6 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.constants.ApiConstants;
 import com.adyen.model.ThreeDS2ResultRequest;
 import com.adyen.model.ThreeDS2ResultResponse;
 import com.adyen.service.exception.ApiException;
@@ -55,7 +54,7 @@ public class Retrieve3DS2 extends Service {
 
     public ThreeDS2ResultResponse authorise(ThreeDS2ResultRequest threeDS2ResultRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(threeDS2ResultRequest);
-        String jsonResult = retrieve3DS2Result.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = retrieve3DS2Result.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<ThreeDS2ResultResponse>() {
         }.getType());
     }

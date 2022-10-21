@@ -22,7 +22,6 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.constants.ApiConstants;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.model.terminal.TerminalAPISecuredRequest;
@@ -64,7 +63,7 @@ public class TerminalLocalAPI extends ApiKeyAuthenticatedService {
         securedPaymentRequest.setSaleToPOIRequest(saleToPOISecuredRequest);
         String jsonEncryptedRequest = terminalApiGson.toJson(securedPaymentRequest);
 
-        String jsonResponse = localRequest.request(jsonEncryptedRequest, ApiConstants.HttpMethod.POST);
+        String jsonResponse = localRequest.request(jsonEncryptedRequest);
 
         if (jsonResponse == null || jsonResponse.isEmpty()) {
             return null;

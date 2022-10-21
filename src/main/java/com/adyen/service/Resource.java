@@ -55,12 +55,11 @@ public class Resource {
      * Request using json String
      *
      * @param json request json
-     * @param post
      * @return request
      * @throws ApiException ApiException
      * @throws IOException  IOException
      */
-    public String request(String json, ApiConstants.HttpMethod post) throws ApiException, IOException {
+    public String request(String json) throws ApiException, IOException {
         return request(json, null, POST, null);
     }
 

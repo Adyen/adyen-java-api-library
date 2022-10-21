@@ -22,7 +22,6 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.constants.ApiConstants;
 import com.adyen.model.AuthenticationResultRequest;
 import com.adyen.model.AuthenticationResultResponse;
 import com.adyen.model.PaymentRequest;
@@ -89,7 +88,7 @@ public class Payment extends Service {
     public PaymentResult authorise3D(PaymentRequest3d paymentRequest3d) throws Exception {
         String jsonRequest = GSON.toJson(paymentRequest3d);
 
-        String jsonResult = authorise3D.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = authorise3D.request(jsonRequest);
 
         return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
@@ -105,7 +104,7 @@ public class Payment extends Service {
     public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws Exception {
         String jsonRequest = GSON.toJson(paymentRequest3ds2);
 
-        String jsonResult = authorise3DS2.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = authorise3DS2.request(jsonRequest);
 
         return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
         }.getType());
@@ -123,7 +122,7 @@ public class Payment extends Service {
     public ThreeDS2ResultResponse retrieve3ds2Result(ThreeDS2ResultRequest threeDS2ResultRequest) throws Exception {
         String jsonRequest = GSON.toJson(threeDS2ResultRequest);
 
-        String jsonResult = retrieve3DS2Result.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = retrieve3DS2Result.request(jsonRequest);
 
         return GSON.fromJson(jsonResult, new TypeToken<ThreeDS2ResultResponse>() {
         }.getType());
@@ -140,7 +139,7 @@ public class Payment extends Service {
     public AuthenticationResultResponse getAuthenticationResult(AuthenticationResultRequest authenticationResultRequest) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(authenticationResultRequest);
 
-        String jsonResult = getAuthenticationResult.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = getAuthenticationResult.request(jsonRequest);
 
         return GSON.fromJson(jsonResult, new TypeToken<AuthenticationResultResponse>() {
         }.getType());

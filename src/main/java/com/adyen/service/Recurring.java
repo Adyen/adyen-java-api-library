@@ -22,7 +22,6 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.constants.ApiConstants;
 import com.adyen.model.recurring.DisableRequest;
 import com.adyen.model.recurring.DisableResult;
 import com.adyen.model.recurring.NotifyShopperRequest;
@@ -70,7 +69,7 @@ public class Recurring extends Service {
      */
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-        String jsonResult = listRecurringDetails.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = listRecurringDetails.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<RecurringDetailsResult>() {
         }.getType());
     }
@@ -85,7 +84,7 @@ public class Recurring extends Service {
      */
     public DisableResult disable(DisableRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-        String jsonResult = disable.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = disable.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<DisableResult>() {
         }.getType());
     }
@@ -100,7 +99,7 @@ public class Recurring extends Service {
      */
     public StoreTokenResult storeToken(StoreTokenRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-        String jsonResult = storeToken.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = storeToken.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
         }.getType());
     }
@@ -115,7 +114,7 @@ public class Recurring extends Service {
      */
     public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-        String jsonResult = scheduleAccountUpdater.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = scheduleAccountUpdater.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<ScheduleAccountUpdaterResult>() {
         }.getType());
     }
@@ -130,7 +129,7 @@ public class Recurring extends Service {
      */
     public NotifyShopperResult notifyShopper(NotifyShopperRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
-        String jsonResult = notifyShopper.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = notifyShopper.request(jsonRequest);
         return GSON.fromJson(jsonResult, new TypeToken<NotifyShopperResult>() {
         }.getType());
     }

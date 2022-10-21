@@ -23,7 +23,6 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.constants.ApiConstants;
 import com.adyen.model.storedvalue.StoredValueBalanceCheckRequest;
 import com.adyen.model.storedvalue.StoredValueBalanceCheckResponse;
 import com.adyen.model.storedvalue.StoredValueBalanceMergeRequest;
@@ -70,7 +69,7 @@ public class StoredValue extends ApiKeyAuthenticatedService {
     public StoredValueStatusChangeResponse changeStatus(StoredValueStatusChangeRequest storedValueStatusChangeRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(storedValueStatusChangeRequest);
 
-        String jsonResult = changeStatus.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = changeStatus.request(jsonRequest);
 
         StoredValueStatusChangeResponse storedValueStatusChangeResponse = GSON.fromJson(jsonResult, new TypeToken<StoredValueStatusChangeResponse>() {
         }.getType());
@@ -81,7 +80,7 @@ public class StoredValue extends ApiKeyAuthenticatedService {
     public StoredValueBalanceCheckResponse checkBalance(StoredValueBalanceCheckRequest storedValueBalanceCheckRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(storedValueBalanceCheckRequest);
 
-        String jsonResult = checkBalance.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = checkBalance.request(jsonRequest);
 
         StoredValueBalanceCheckResponse storedValueBalanceCheckResponse = GSON.fromJson(jsonResult, new TypeToken<StoredValueBalanceCheckResponse>() {
         }.getType());
@@ -92,7 +91,7 @@ public class StoredValue extends ApiKeyAuthenticatedService {
     public StoredValueIssueResponse issue(StoredValueIssueRequest storedValueIssueRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(storedValueIssueRequest);
 
-        String jsonResult = issue.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = issue.request(jsonRequest);
 
         StoredValueIssueResponse storedValueIssueResponse = GSON.fromJson(jsonResult, new TypeToken<StoredValueIssueResponse>() {
         }.getType());
@@ -103,7 +102,7 @@ public class StoredValue extends ApiKeyAuthenticatedService {
     public StoredValueLoadResponse load(StoredValueLoadRequest storedValueLoadRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(storedValueLoadRequest);
 
-        String jsonResult = load.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = load.request(jsonRequest);
 
         StoredValueLoadResponse storedValueLoadResponse = GSON.fromJson(jsonResult, new TypeToken<StoredValueLoadResponse>() {
         }.getType());
@@ -114,7 +113,7 @@ public class StoredValue extends ApiKeyAuthenticatedService {
     public StoredValueBalanceMergeResponse mergeBalance(StoredValueBalanceMergeRequest storedValueBalanceMergeRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(storedValueBalanceMergeRequest);
 
-        String jsonResult = mergeBalance.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = mergeBalance.request(jsonRequest);
 
         StoredValueBalanceMergeResponse storedValueBalanceMergeResponse = GSON.fromJson(jsonResult, new TypeToken<StoredValueBalanceMergeResponse>() {
         }.getType());
@@ -125,7 +124,7 @@ public class StoredValue extends ApiKeyAuthenticatedService {
     public StoredValueVoidResponse voidTransaction(StoredValueVoidRequest storedValueVoidRequest) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(storedValueVoidRequest);
 
-        String jsonResult = voidTransaction.request(jsonRequest, ApiConstants.HttpMethod.POST);
+        String jsonResult = voidTransaction.request(jsonRequest);
 
         StoredValueVoidResponse storedValueVoidResponse = GSON.fromJson(jsonResult, new TypeToken<StoredValueVoidResponse>() {
         }.getType());
