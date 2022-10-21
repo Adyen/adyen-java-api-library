@@ -30,7 +30,7 @@ public class Transactions extends Service {
 
     public Transaction retrieve(String transactionId) throws IOException, ApiException {
         Map<String, String> params = Collections.singletonMap(ID, transactionId);
-        TransfersResource transfersResource = new TransfersResource(this,"/transactions");
+        TransfersResource transfersResource = new TransfersResource(this, "/transactions");
         String jsonResult = transfersResource.request(null, null, ApiConstants.HttpMethod.GET, params);
         return Transaction.fromJson(jsonResult);
     }
