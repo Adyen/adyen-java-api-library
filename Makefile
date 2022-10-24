@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=payments checkout
+services:=payments checkout management
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -21,6 +21,7 @@ payments: spec=PaymentService-v68
 recurring: spec=RecurringService-v68
 payout: spec=PayoutService-v68
 management: spec=ManagementService-v1
+management: resourceClass=Management
 balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
 # Classic Platforms
@@ -43,7 +44,8 @@ $(services): target/spec $(openapi-generator-jar)
 		--library $(library) \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--additional-properties=dateLibrary=legacy
+		--additional-properties=dateLibrary=legacy \
+		--additional-properties=resourceClass=$(resourceClass)Resource
 	mv $(output)/$(models)/$@ $(models)/$@
 	mv $(output)/$(models)/JSON.java $(models)/$@
 

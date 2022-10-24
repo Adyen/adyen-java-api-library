@@ -33,6 +33,8 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
@@ -94,7 +96,7 @@ public class Resource {
         ApiException apiException;
 
         try {
-            return clientInterface.request(resolve(params), json, config, service.isApiKeyRequired(), requestOptions, httpMethod);
+            return clientInterface.request(resolve(params), json, config, service.isApiKeyRequired(), requestOptions, httpMethod, requestOptions != null ? requestOptions.getQueryString() : null);
         } catch (HTTPClientException e) {
             responseBody = e.getResponseBody();
             apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
