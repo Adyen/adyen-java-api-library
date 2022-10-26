@@ -30,6 +30,7 @@ import com.adyen.model.Amount;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.model.Name;
 import com.adyen.model.Split;
+import com.adyen.serializer.DateTimeISO8601Serializer;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -155,6 +156,7 @@ public class CreateCheckoutSessionRequest {
     private String dateOfBirth;
 
     @SerializedName("deliverAt")
+    @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date deliverAt = null;
 
     public static final String SERIALIZED_NAME_DELIVERY_ADDRESS = "deliveryAddress";

@@ -35,6 +35,7 @@ import com.adyen.model.ThreeDS2RequestData;
 import com.adyen.model.applicationinfo.ApplicationInfo;
 import com.adyen.serializer.DateSerializer;
 import com.adyen.serializer.DateTimeGMTSerializer;
+import com.adyen.serializer.DateTimeISO8601Serializer;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.gson.TypeAdapter;
@@ -136,7 +137,7 @@ public class PaymentsRequest {
     private String countryCode = null;
 
     @SerializedName("dateOfBirth")
-    @JsonAdapter(DateSerializer.class)
+    @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date dateOfBirth = null;
 
     @SerializedName("dccQuote")
@@ -146,7 +147,7 @@ public class PaymentsRequest {
     private Address deliveryAddress = null;
 
     @SerializedName("deliveryDate")
-    @JsonAdapter(DateTimeGMTSerializer.class)
+    @JsonAdapter(DateTimeISO8601Serializer.class)
     private Date deliveryDate = null;
 
     @SerializedName("deviceFingerprint")
