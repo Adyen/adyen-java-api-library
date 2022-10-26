@@ -4,6 +4,7 @@ package {{package}};
 
 import com.adyen.Client;
 import com.adyen.Service;
+import com.adyen.model.RequestOptions;
 import com.adyen.constants.ApiConstants;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.{{resourceClass}};
@@ -51,7 +52,7 @@ public class {{classname}} {
    {{#isDeprecated}}
    @Deprecated
    {{/isDeprecated}}
-    public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{operationId}}({{#pathParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/pathParams}}{{#bodyParams}}{{#-first}}, {{/-first}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/bodyParams}}{{#queryParams}}{{#-first}}, RequestOptions requestOptions{{/-first}}{{/queryParams}}) throws ApiException, IOException {
+    public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException, IOException {
     {{#allParams}}{{#required}}
         // verify the required parameter '{{paramName}}' is set
         if ({{paramName}} == null) {
