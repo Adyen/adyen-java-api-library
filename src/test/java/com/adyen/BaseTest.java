@@ -20,39 +20,18 @@
  */
 package com.adyen;
 
-import com.adyen.enums.Gender;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.AbstractPaymentRequest;
-import com.adyen.model.Address;
 import com.adyen.model.Amount;
-import com.adyen.model.AuthenticationResultRequest;
-import com.adyen.model.Name;
 import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentRequest3d;
-import com.adyen.model.PaymentRequest3ds2;
-import com.adyen.model.RequestOptions;
-import com.adyen.model.ThreeDS2RequestData;
+import com.adyen.model.*;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.PersonalDetails;
 import com.adyen.model.checkout.details.AfterpayDetails;
-import com.adyen.model.modification.AbstractModificationRequest;
-import com.adyen.model.modification.CaptureRequest;
-import com.adyen.model.modification.DonationRequest;
-import com.adyen.model.modification.RefundRequest;
-import com.adyen.model.modification.VoidPendingRefundRequest;
-import com.adyen.model.nexo.AmountsReq;
-import com.adyen.model.nexo.MessageCategoryType;
-import com.adyen.model.nexo.MessageClassType;
-import com.adyen.model.nexo.MessageHeader;
-import com.adyen.model.nexo.MessageType;
-import com.adyen.model.nexo.PaymentTransaction;
-import com.adyen.model.nexo.SaleData;
-import com.adyen.model.nexo.SaleToPOIRequest;
-import com.adyen.model.nexo.TransactionIdentification;
+import com.adyen.model.modification.*;
+import com.adyen.model.nexo.*;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.util.DateUtil;
 import com.adyen.util.Util;
@@ -69,19 +48,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.isNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class BaseTest {
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -344,7 +316,7 @@ public class BaseTest {
         AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<>(), response);
         try {
-            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any())).thenThrow(httpClientException);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any(), any())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }
