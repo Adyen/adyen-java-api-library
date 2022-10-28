@@ -22,6 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,37 +45,72 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 /**
- * DisableResult
+ * TokenDetails
  */
 
-public class DisableResult {
-  public static final String SERIALIZED_NAME_RESPONSE = "response";
-  @SerializedName(SERIALIZED_NAME_RESPONSE)
-  private String response;
+public class TokenDetails {
+  public static final String SERIALIZED_NAME_TOKEN_DATA = "tokenData";
+  @SerializedName(SERIALIZED_NAME_TOKEN_DATA)
+  private Map<String, String> tokenData = null;
 
-  public DisableResult() { 
+  public static final String SERIALIZED_NAME_TOKEN_DATA_TYPE = "tokenDataType";
+  @SerializedName(SERIALIZED_NAME_TOKEN_DATA_TYPE)
+  private String tokenDataType;
+
+  public TokenDetails() { 
   }
 
-  public DisableResult response(String response) {
+  public TokenDetails tokenData(Map<String, String> tokenData) {
     
-    this.response = response;
+    this.tokenData = tokenData;
+    return this;
+  }
+
+  public TokenDetails putTokenDataItem(String key, String tokenDataItem) {
+    if (this.tokenData == null) {
+      this.tokenData = new HashMap<>();
+    }
+    this.tokenData.put(key, tokenDataItem);
     return this;
   }
 
    /**
-   * Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].
-   * @return response
+   * Get tokenData
+   * @return tokenData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].")
+  @ApiModelProperty(value = "")
 
-  public String getResponse() {
-    return response;
+  public Map<String, String> getTokenData() {
+    return tokenData;
   }
 
 
-  public void setResponse(String response) {
-    this.response = response;
+  public void setTokenData(Map<String, String> tokenData) {
+    this.tokenData = tokenData;
+  }
+
+
+  public TokenDetails tokenDataType(String tokenDataType) {
+    
+    this.tokenDataType = tokenDataType;
+    return this;
+  }
+
+   /**
+   * Get tokenDataType
+   * @return tokenDataType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTokenDataType() {
+    return tokenDataType;
+  }
+
+
+  public void setTokenDataType(String tokenDataType) {
+    this.tokenDataType = tokenDataType;
   }
 
 
@@ -85,20 +123,22 @@ public class DisableResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisableResult disableResult = (DisableResult) o;
-    return Objects.equals(this.response, disableResult.response);
+    TokenDetails tokenDetails = (TokenDetails) o;
+    return Objects.equals(this.tokenData, tokenDetails.tokenData) &&
+        Objects.equals(this.tokenDataType, tokenDetails.tokenDataType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(response);
+    return Objects.hash(tokenData, tokenDataType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisableResult {\n");
-    sb.append("    response: ").append(toIndentedString(response)).append("\n");
+    sb.append("class TokenDetails {\n");
+    sb.append("    tokenData: ").append(toIndentedString(tokenData)).append("\n");
+    sb.append("    tokenDataType: ").append(toIndentedString(tokenDataType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -121,7 +161,8 @@ public class DisableResult {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("response");
+    openapiFields.add("tokenData");
+    openapiFields.add("tokenDataType");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -131,26 +172,26 @@ public class DisableResult {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DisableResult
+  * @throws IOException if the JSON Object is invalid with respect to TokenDetails
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (DisableResult.openapiRequiredFields.isEmpty()) {
+        if (TokenDetails.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DisableResult is not found in the empty JSON string", DisableResult.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenDetails is not found in the empty JSON string", TokenDetails.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!DisableResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DisableResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!TokenDetails.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TokenDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("response") != null && !jsonObj.get("response").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `response` to be a primitive type in the JSON string but got `%s`", jsonObj.get("response").toString()));
+      if (jsonObj.get("tokenDataType") != null && !jsonObj.get("tokenDataType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tokenDataType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tokenDataType").toString()));
       }
   }
 
@@ -158,22 +199,22 @@ public class DisableResult {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DisableResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DisableResult' and its subtypes
+       if (!TokenDetails.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TokenDetails' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DisableResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DisableResult.class));
+       final TypeAdapter<TokenDetails> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TokenDetails.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DisableResult>() {
+       return (TypeAdapter<T>) new TypeAdapter<TokenDetails>() {
            @Override
-           public void write(JsonWriter out, DisableResult value) throws IOException {
+           public void write(JsonWriter out, TokenDetails value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public DisableResult read(JsonReader in) throws IOException {
+           public TokenDetails read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
