@@ -8,8 +8,8 @@ The library supports all APIs under the following services:
  
 * [Checkout API](https://docs.adyen.com/api-explorer/#/CheckoutService/v69/overview): Our latest integration for accepting online payments. Current supported version: **v69**
 * [Payments API](https://docs.adyen.com/api-explorer/#/Payment/v52/overview): Our classic integration for online payments. Current supported version: **v52**
-* [Recurring API](https://docs.adyen.com/api-explorer/#/Recurring/v49/overview): Endpoints for managing saved payment details. Current supported version: **v49**
-* [Payouts API](https://docs.adyen.com/api-explorer/#/Payout/v51/overview): Endpoints for sending funds to your customers. Current supported version: **v51**
+* [Recurring API](https://docs.adyen.com/api-explorer/#/Recurring/v68/overview): Endpoints for managing saved payment details. Current supported version: **v68**
+* [Payouts API](https://docs.adyen.com/api-explorer/#/Payout/v68/overview): Endpoints for sending funds to your customers. Current supported version: **v68**
 * [Platforms APIs](https://docs.adyen.com/platforms/api): Set of APIs when using Adyen for Platforms. 
   * [Account API](https://docs.adyen.com/api-explorer/#/Account/v6/overview) Current supported version: **v6**
   * [Fund API](https://docs.adyen.com/api-explorer/#/Fund/v6/overview) Current supported version: **v6**
@@ -22,6 +22,7 @@ The library supports all APIs under the following services:
 * [Data Protection API](https://docs.adyen.com/development-resources/data-protection-api#): Endpoints to process Subject Erasure Requests as mandated in General Data Protection Regulation (GDPR): **v1** 
 * [Stored Value API](https://docs.adyen.com/payment-methods/gift-cards/stored-value-api): Endpoints to manage gift cards and other stored-value cards: **v46** 
 * [Configuration API](https://docs.adyen.com/api-explorer/balanceplatform/latest/overview): Endpoints to manage accounting and payment processing for your users: **v2**
+* [Legal Entity Management API](https://docs.adyen.com/api-explorer/legalentity/2/overview): Endpoints to manage legal entities that contain information required for verification: **v2**
 
 For more information, refer to our [documentation](https://docs.adyen.com/) or the [API Explorer](https://docs.adyen.com/api-explorer/).
 
@@ -40,7 +41,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>18.1.1</version>
+  <version>18.1.3</version>
 </dependency>
 ```
 
