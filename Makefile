@@ -5,10 +5,9 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=payments recurring
+services:=checkout legalEntityManagement payments payout recurring
 models:=src/main/java/com/adyen/model
 output:=target/out
-
 
 # Generate models (for each service)
 models: $(services)
@@ -23,6 +22,7 @@ payout: spec=PayoutService-v68
 management: spec=ManagementService-v1
 balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
+legalEntityManagement: spec=LegalEntityService-v2
 # Classic Platforms
 marketpay/account: spec=AccountService-v6
 marketpay/fund: spec=FundService-v6
@@ -41,11 +41,11 @@ $(services): target/spec $(openapi-generator-jar)
 		--skip-validate-spec \
 		--model-package $(subst /,.,com.adyen.model.$@) \
 		--library $(library) \
-		--global-property models \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=legacy
 	mv $(output)/$(models)/$@ $(models)/$@
+	mv $(output)/$(models)/JSON.java $(models)/$@
 
 
 # Checkout spec (and patch version)
