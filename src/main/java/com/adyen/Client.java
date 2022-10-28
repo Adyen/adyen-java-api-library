@@ -40,14 +40,14 @@ public class Client {
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
     public static final String API_VERSION = "v52";
-    public static final String PAYOUT_API_VERSION = "v51";
+    public static final String PAYOUT_API_VERSION = "v68";
     public static final String RECURRING_API_VERSION = "v49";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v6";
     public static final String MARKETPAY_FUND_API_VERSION = "v6";
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "18.1.1";
+    public static final String LIB_VERSION = "18.1.3";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";

@@ -23,10 +23,8 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.payout.ConfirmThirdPartyRequest;
-import com.adyen.model.payout.ConfirmThirdPartyResponse;
-import com.adyen.model.payout.DeclineThirdPartyRequest;
-import com.adyen.model.payout.DeclineThirdPartyResponse;
+import com.adyen.model.payout.ModifyRequest;
+import com.adyen.model.payout.ModifyResponse;
 import com.adyen.model.payout.PayoutRequest;
 import com.adyen.model.payout.PayoutResponse;
 import com.adyen.model.payout.StoreDetailAndSubmitRequest;
@@ -85,33 +83,30 @@ public class Payout extends Service {
      * Issues a ConfirmThirdParty API call
      *
      * @param request ConfirmThirdPartyRequest
-     * @return ConfirmThirdPartyResponse
      * @throws IOException  IOException
      * @throws ApiException ApiException
      */
-    public ConfirmThirdPartyResponse confirmThirdParty(ConfirmThirdPartyRequest request) throws IOException, ApiException {
+    public ModifyResponse confirmThirdParty(ModifyRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
         String jsonResult = confirmThirdParty.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<ConfirmThirdPartyResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<ModifyResponse>() {
         }.getType());
     }
 
     /**
      * Issues a DeclineThirdParty API call
      *
-     * @param request DeclineThirdPartyRequest
-     * @return DeclineThirdPartyResponse
      * @throws IOException  IOException
      * @throws ApiException ApiException
      */
-    public DeclineThirdPartyResponse declineThirdParty(DeclineThirdPartyRequest request) throws IOException, ApiException {
+    public ModifyResponse declineThirdParty(ModifyRequest request) throws IOException, ApiException {
         String jsonRequest = GSON.toJson(request);
 
         String jsonResult = declineThirdParty.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<DeclineThirdPartyResponse>() {
+        return GSON.fromJson(jsonResult, new TypeToken<ModifyResponse>() {
         }.getType());
     }
 

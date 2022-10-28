@@ -9,7 +9,7 @@ The library supports all APIs under the following services:
 * [Checkout API](https://docs.adyen.com/api-explorer/#/CheckoutService/v69/overview): Our latest integration for accepting online payments. Current supported version: **v69**
 * [Payments API](https://docs.adyen.com/api-explorer/#/Payment/v52/overview): Our classic integration for online payments. Current supported version: **v52**
 * [Recurring API](https://docs.adyen.com/api-explorer/#/Recurring/v49/overview): Endpoints for managing saved payment details. Current supported version: **v49**
-* [Payouts API](https://docs.adyen.com/api-explorer/#/Payout/v51/overview): Endpoints for sending funds to your customers. Current supported version: **v51**
+* [Payouts API](https://docs.adyen.com/api-explorer/#/Payout/v68/overview): Endpoints for sending funds to your customers. Current supported version: **v68**
 * [Platforms APIs](https://docs.adyen.com/platforms/api): Set of APIs when using Adyen for Platforms. 
   * [Account API](https://docs.adyen.com/api-explorer/#/Account/v6/overview) Current supported version: **v6**
   * [Fund API](https://docs.adyen.com/api-explorer/#/Fund/v6/overview) Current supported version: **v6**
@@ -40,7 +40,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>18.1.1</version>
+  <version>18.1.3</version>
 </dependency>
 ```
 
