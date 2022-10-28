@@ -20,18 +20,7 @@
  */
 package com.adyen;
 
-import com.adyen.model.payout.ConfirmThirdPartyRequest;
-import com.adyen.model.payout.ConfirmThirdPartyResponse;
-import com.adyen.model.payout.DeclineThirdPartyRequest;
-import com.adyen.model.payout.DeclineThirdPartyResponse;
-import com.adyen.model.payout.PayoutRequest;
-import com.adyen.model.payout.PayoutResponse;
-import com.adyen.model.payout.StoreDetailAndSubmitRequest;
-import com.adyen.model.payout.StoreDetailAndSubmitResponse;
-import com.adyen.model.payout.StoreDetailRequest;
-import com.adyen.model.payout.StoreDetailResponse;
-import com.adyen.model.payout.SubmitRequest;
-import com.adyen.model.payout.SubmitResponse;
+import com.adyen.model.payout.*;
 import com.adyen.service.Payout;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
@@ -76,8 +65,8 @@ public class PayoutTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/payout/modifyResponse-success.json");
         Payout payout = new Payout(client);
 
-        ConfirmThirdPartyRequest request = new ConfirmThirdPartyRequest();
-        ConfirmThirdPartyResponse result = payout.confirmThirdParty(request);
+        ModifyRequest request = new ModifyRequest();
+        ModifyResponse result = payout.confirmThirdParty(request);
 
         assertEquals("[payout-confirm-received]", result.getResponse());
         assertEquals("8815131762537886", result.getPspReference());
@@ -102,8 +91,8 @@ public class PayoutTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/payout/modifyResponse-success.json");
         Payout payout = new Payout(client);
 
-        DeclineThirdPartyRequest request = new DeclineThirdPartyRequest();
-        DeclineThirdPartyResponse result = payout.declineThirdParty(request);
+        ModifyRequest request = new ModifyRequest();
+        ModifyResponse result = payout.declineThirdParty(request);
 
         assertEquals("[payout-confirm-received]", result.getResponse());
         assertEquals("8815131762537886", result.getPspReference());

@@ -20,9 +20,11 @@
  */
 package com.adyen;
 
+import com.adyen.constants.ApiConstants;
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
 import com.adyen.httpclient.AdyenHttpClient;
+import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.payments.*;
 import com.adyen.model.RequestOptions;
@@ -32,6 +34,7 @@ import com.adyen.util.DateUtil;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -52,8 +55,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Tests for /authorise and /authorise3d
@@ -458,5 +460,19 @@ public class PaymentTest extends BaseTest {
     
     protected void assertRefused(PaymentResult paymentResult) {
         assertEquals(PaymentResult.ResultCodeEnum.REFUSED, paymentResult.getResultCode());
+    }
+
+    @Test
+    public void TestByteArrayToJSONString() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success.json");
+        Payment payment = new Payment(client);
+        PaymentRequest paymentRequest = new PaymentRequest();
+        paymentRequest.mpiData(new ThreeDSecureData().cavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ=".getBytes()));
+        
+        payment.authorise(paymentRequest);
+        
+        String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\"}";
+        ClientInterface http = client.getHttpClient();
+        verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any());
     }
 }
