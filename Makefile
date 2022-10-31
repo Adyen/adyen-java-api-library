@@ -5,11 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-<<<<<<< HEAD
-services:=balanceplatform checkout legalEntityManagement payments payout recurring
-=======
-services:=payments checkout management
->>>>>>> origin/PW-7305
+services:=balanceplatform checkout legalEntityManagement payments payout recurring management
 models:=src/main/java/com/adyen/model
 output:=target/out
 
