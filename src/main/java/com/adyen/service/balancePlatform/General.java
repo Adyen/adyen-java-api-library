@@ -23,10 +23,9 @@ public class General extends Service {
         return BalancePlatform.fromJson(jsonResult);
     }
 
-    // need to add query parameters (with param Map? should we make a model for this)
-    public PaginatedAccountHoldersResponse listAccountHolders(String platformId, Map<String, String> params) throws IOException, ApiException {
+    public PaginatedAccountHoldersResponse listAccountHolders(String platformId, Map<String, String> queryString) throws IOException, ApiException {
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balancePlatforms/%s/accountHolders", platformId));
-        String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, params);
+        String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, null, queryString);
         return PaginatedAccountHoldersResponse.fromJson(jsonResult);
     }
 }

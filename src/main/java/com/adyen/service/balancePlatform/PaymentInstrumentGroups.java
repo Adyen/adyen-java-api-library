@@ -36,6 +36,4 @@ public class PaymentInstrumentGroups extends Service {
         String jsonResult = resource.request(null, ApiConstants.HttpMethod.GET);
         return TransactionRulesResponse.fromJson(jsonResult);
     }
-
-
 }

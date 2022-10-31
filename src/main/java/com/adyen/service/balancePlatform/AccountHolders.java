@@ -42,12 +42,9 @@ public class AccountHolders extends Service {
         return AccountHolder.fromJson(jsonResult);
     }
 
-    public PaginatedBalanceAccountsResponse list(String accountHolderId, Map<String, String> params) throws IOException, ApiException {
+    public PaginatedBalanceAccountsResponse list(String accountHolderId, Map<String, String> queryString) throws IOException, ApiException {
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/accountHolders/%s/balanceAccounts", accountHolderId));
-        String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, params);
+        String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, null, queryString);
         return PaginatedBalanceAccountsResponse.fromJson(jsonResult);
     }
-
-
-
 }

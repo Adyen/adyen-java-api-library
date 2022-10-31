@@ -30,9 +30,9 @@ public class BalanceAccounts extends Service {
         return BalanceAccount.fromJson(jsonResult);
     }
 
-    public BalanceSweepConfigurationsResponse listSweeps(String balanceAccountId, Map<String, String> params) throws IOException, ApiException {
+    public BalanceSweepConfigurationsResponse listSweeps(String balanceAccountId, Map<String, String> queryString) throws IOException, ApiException {
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balanceAccounts/%s/sweeps", balanceAccountId));
-        String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, params);
+        String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, null, queryString);
         return BalanceSweepConfigurationsResponse.fromJson(jsonResult);
     }
 
@@ -74,9 +74,9 @@ public class BalanceAccounts extends Service {
         return BalanceAccount.fromJson(jsonResult);
     }
 
-    public PaginatedPaymentInstrumentsResponse listPaymentInstruments(String balanceAccountId, Map<String, String> params) throws IOException, ApiException {
+    public PaginatedPaymentInstrumentsResponse listPaymentInstruments(String balanceAccountId, Map<String, String> queryString) throws IOException, ApiException {
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balanceAccounts/%s/paymentInstruments", balanceAccountId));
-        String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, params);
+        String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, null, queryString);
         return PaginatedPaymentInstrumentsResponse.fromJson(jsonResult);
     }
 }

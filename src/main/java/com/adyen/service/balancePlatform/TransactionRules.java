@@ -43,6 +43,4 @@ public class TransactionRules extends Service {
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/transactionRules/%s", transactionRuleId));
         resource.request(null, ApiConstants.HttpMethod.DELETE);
     }
-
-
 }
