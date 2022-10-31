@@ -4,7 +4,6 @@ package {{package}};
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.RequestOptions;
 import com.adyen.constants.ApiConstants;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.{{resourceClass}};
@@ -33,10 +32,13 @@ public class {{classname}} {
 {{#operation}}
     /**
      * {{summary}}
-     * {{notes}}
+     *
      {{#allParams}}
      * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
      {{/allParams}}
+     {{#queryParams}}
+     *    {{paramName}}: {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}<br />
+     {{/queryParams}}
      {{#returnType}}
      * @return {{.}}
      {{/returnType}}
@@ -67,11 +69,11 @@ public class {{classname}} {
         String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
         {{resourceClass}} resource = new {{resourceClass}}(this, "{{{path}}}");
         {{#returnType}}
-        String jsonResult = resource.request(requestBody, {{#queryParams}}{{#-first}}requestOptions{{/-first}}{{/queryParams}}{{^queryParams}}null{{/queryParams}}, ApiConstants.HttpMethod.{{httpMethod}}, pathParams);
+        String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}}, pathParams{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
         return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
         {{/returnType}}
         {{^returnType}}
-        resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.{{httpMethod}});
+        resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}});
         {{/returnType}}
     }
     
