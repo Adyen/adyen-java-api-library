@@ -23,7 +23,7 @@ package com.adyen.service.resource.payment;
 import java.util.Arrays;
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.Resource;
+import com.adyen.service.resource.Resource;
 
 public class Authorise3D extends Resource {
     public Authorise3D(Service service) {

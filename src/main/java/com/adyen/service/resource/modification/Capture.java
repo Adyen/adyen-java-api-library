@@ -23,7 +23,7 @@ package com.adyen.service.resource.modification;
 import java.util.Arrays;
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.Resource;
+import com.adyen.service.resource.Resource;
 
 public class Capture extends Resource {
     public Capture(Service service) {

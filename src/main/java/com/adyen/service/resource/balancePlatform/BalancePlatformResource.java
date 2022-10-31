@@ -2,7 +2,7 @@ package com.adyen.service.resource.balancePlatform;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.Resource;
+import com.adyen.service.resource.Resource;
 
 public class BalancePlatformResource extends Resource {
     public BalancePlatformResource(Service service, String endpoint) {
