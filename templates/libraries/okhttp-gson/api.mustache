@@ -1,0 +1,82 @@
+{{>licenseInfo}}
+
+package {{package}};
+
+import com.adyen.Client;
+import com.adyen.Service;
+import com.adyen.constants.ApiConstants;
+import com.adyen.service.exception.ApiException;
+import com.adyen.service.resource.{{resourceClass}};
+
+import java.io.IOException;
+
+import {{modelPackage}}.*;
+import {{invokerPackage}}.Pair;
+
+{{#imports}}import {{import}};
+{{/imports}}
+
+{{^fullJavaUtil}}
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+{{/fullJavaUtil}}
+
+{{#operations}}
+public class {{classname}} {
+    public {{classname}}(Client client) {
+        super(client);
+    }
+
+{{#operation}}
+    /**
+     * {{summary}}
+     *
+     {{#allParams}}
+     * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
+     {{/allParams}}
+     {{#queryParams}}
+     *    {{paramName}}: {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}<br />
+     {{/queryParams}}
+     {{#returnType}}
+     * @return {{.}}
+     {{/returnType}}
+     * @throws ApiException if fails to make API call
+     {{#isDeprecated}}
+     * @deprecated
+     {{/isDeprecated}}
+     {{#externalDocs}}
+     * {{description}}
+     * @see <a href="{{url}}">{{summary}} Documentation</a>
+     {{/externalDocs}}
+     */
+   {{#isDeprecated}}
+   @Deprecated
+   {{/isDeprecated}}
+    public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException, IOException {
+    {{#allParams}}{{#required}}
+        // verify the required parameter '{{paramName}}' is set
+        if ({{paramName}} == null) {
+            throw new ApiException(400, "Missing the required parameter '{{paramName}}'");
+        }
+    {{/required}}{{/allParams}}
+        Map<String, String> pathParams = new HashMap<>();
+        {{#pathParams}}
+        pathParams.put("{{baseName}}", {{{paramName}}});
+        {{/pathParams}}
+        
+        String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
+        {{resourceClass}} resource = new {{resourceClass}}(this, "{{{path}}}");
+        {{#returnType}}
+        String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}}, pathParams{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
+        return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
+        {{/returnType}}
+        {{^returnType}}
+        resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}});
+        {{/returnType}}
+    }
+    
+{{/operation}}
+}
+{{/operations}}

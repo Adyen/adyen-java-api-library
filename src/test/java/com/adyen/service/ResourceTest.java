@@ -34,11 +34,12 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -61,7 +62,7 @@ public class ResourceTest extends BaseTest {
 
     @Test
     public void testRequest() throws Exception {
-        when(clientInterfaceMock.request("", "request", null, false, null, ApiConstants.HttpMethod.POST)).thenReturn("response");
+        when(clientInterfaceMock.request("", "request", null, false, null, ApiConstants.HttpMethod.POST, null)).thenReturn("response");
 
         Resource resource = new Resource(serviceMock, "", null);
         String response = resource.request("request");
@@ -70,9 +71,20 @@ public class ResourceTest extends BaseTest {
     }
 
     @Test
+    public void testRequestQueryString() throws Exception {
+        Map<String, String> pathParams = Collections.singletonMap("companyId", "adyen");
+        Map<String, String> queryString = Collections.singletonMap("pageSize", "10");
+        Resource resource = new Resource(serviceMock, "/companies/{companyId}/merchants", null);
+        
+        resource.request(null, null, ApiConstants.HttpMethod.GET, pathParams, queryString);
+
+        verify(clientInterfaceMock).request("/companies/adyen/merchants", null, null, false, null, ApiConstants.HttpMethod.GET, queryString);
+    }
+
+    @Test
     public void testRequestExceptionEmpty() throws IOException, HTTPClientException {
         try {
-            when(clientInterfaceMock.request("", "request", null, false, null, ApiConstants.HttpMethod.POST))
+            when(clientInterfaceMock.request("", "request", null, false, null, ApiConstants.HttpMethod.POST, null))
                     .thenThrow(new HTTPClientException("message", 403, new HashMap<>(), null));
 
             Resource resource = new Resource(serviceMock, "", null);
