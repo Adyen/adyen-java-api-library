@@ -48,6 +48,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * VoidPendingRefundRequest
  */
@@ -280,11 +282,11 @@ public class VoidPendingRefundRequest {
   }
 
    /**
-   * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/platforms/processing-payments#providing-split-information).
+   * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
    * @return splits
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/platforms/processing-payments#providing-split-information).")
+  @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
 
   public List<Split> getSplits() {
     return splits;
@@ -450,6 +452,7 @@ public class VoidPendingRefundRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
@@ -461,12 +464,15 @@ public class VoidPendingRefundRequest {
       if (jsonObj.getAsJsonObject("mpiData") != null) {
         ThreeDSecureData.validateJsonObject(jsonObj.getAsJsonObject("mpiData"));
       }
+      // validate the optional field originalMerchantReference
       if (jsonObj.get("originalMerchantReference") != null && !jsonObj.get("originalMerchantReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalMerchantReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalMerchantReference").toString()));
       }
+      // validate the optional field originalReference
       if (jsonObj.get("originalReference") != null && !jsonObj.get("originalReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalReference").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
@@ -482,9 +488,11 @@ public class VoidPendingRefundRequest {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field tenderReference
       if (jsonObj.get("tenderReference") != null && !jsonObj.get("tenderReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tenderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenderReference").toString()));
       }
+      // validate the optional field uniqueTerminalId
       if (jsonObj.get("uniqueTerminalId") != null && !jsonObj.get("uniqueTerminalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uniqueTerminalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uniqueTerminalId").toString()));
       }
@@ -519,5 +527,24 @@ public class VoidPendingRefundRequest {
     }
   }
 
+ /**
+  * Create an instance of VoidPendingRefundRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of VoidPendingRefundRequest
+  * @throws IOException if the JSON string is invalid with respect to VoidPendingRefundRequest
+  */
+  public static VoidPendingRefundRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, VoidPendingRefundRequest.class);
+  }
+
+ /**
+  * Convert an instance of VoidPendingRefundRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

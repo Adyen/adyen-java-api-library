@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * StoreDetailResponse
  */
@@ -260,12 +262,15 @@ public class StoreDetailResponse {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
       }
+      // validate the optional field resultCode
       if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
       }
@@ -300,5 +305,24 @@ public class StoreDetailResponse {
     }
   }
 
+ /**
+  * Create an instance of StoreDetailResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StoreDetailResponse
+  * @throws IOException if the JSON string is invalid with respect to StoreDetailResponse
+  */
+  public static StoreDetailResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StoreDetailResponse.class);
+  }
+
+ /**
+  * Convert an instance of StoreDetailResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

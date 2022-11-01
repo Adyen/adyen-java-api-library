@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * DonationRequest
  */
@@ -280,9 +282,11 @@ public class DonationRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field donationAccount
       if (jsonObj.get("donationAccount") != null && !jsonObj.get("donationAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `donationAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("donationAccount").toString()));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
@@ -290,9 +294,11 @@ public class DonationRequest {
       if (jsonObj.getAsJsonObject("modificationAmount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("modificationAmount"));
       }
+      // validate the optional field originalReference
       if (jsonObj.get("originalReference") != null && !jsonObj.get("originalReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalReference").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
@@ -327,5 +333,24 @@ public class DonationRequest {
     }
   }
 
+ /**
+  * Create an instance of DonationRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DonationRequest
+  * @throws IOException if the JSON string is invalid with respect to DonationRequest
+  */
+  public static DonationRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DonationRequest.class);
+  }
+
+ /**
+  * Convert an instance of DonationRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

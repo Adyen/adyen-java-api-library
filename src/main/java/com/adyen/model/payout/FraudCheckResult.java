@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * FraudCheckResult
  */
@@ -219,6 +221,7 @@ public class FraudCheckResult {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -253,5 +256,24 @@ public class FraudCheckResult {
     }
   }
 
+ /**
+  * Create an instance of FraudCheckResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of FraudCheckResult
+  * @throws IOException if the JSON string is invalid with respect to FraudCheckResult
+  */
+  public static FraudCheckResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FraudCheckResult.class);
+  }
+
+ /**
+  * Convert an instance of FraudCheckResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

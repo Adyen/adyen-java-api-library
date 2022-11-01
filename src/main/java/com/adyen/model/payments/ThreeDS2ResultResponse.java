@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * ThreeDS2ResultResponse
  */
@@ -185,5 +187,24 @@ public class ThreeDS2ResultResponse {
     }
   }
 
+ /**
+  * Create an instance of ThreeDS2ResultResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ThreeDS2ResultResponse
+  * @throws IOException if the JSON string is invalid with respect to ThreeDS2ResultResponse
+  */
+  public static ThreeDS2ResultResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDS2ResultResponse.class);
+  }
+
+ /**
+  * Convert an instance of ThreeDS2ResultResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

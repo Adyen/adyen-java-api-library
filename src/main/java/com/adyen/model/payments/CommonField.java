@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * CommonField
  */
@@ -179,9 +181,11 @@ public class CommonField {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CommonField` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      // validate the optional field version
       if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
@@ -216,5 +220,24 @@ public class CommonField {
     }
   }
 
+ /**
+  * Create an instance of CommonField given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CommonField
+  * @throws IOException if the JSON string is invalid with respect to CommonField
+  */
+  public static CommonField fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CommonField.class);
+  }
+
+ /**
+  * Convert an instance of CommonField to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

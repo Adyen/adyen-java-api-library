@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * ThreeDSRequestorPriorAuthenticationInfo
  */
@@ -290,15 +292,22 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSRequestorPriorAuthenticationInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field threeDSReqPriorAuthData
       if (jsonObj.get("threeDSReqPriorAuthData") != null && !jsonObj.get("threeDSReqPriorAuthData").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSReqPriorAuthData` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqPriorAuthData").toString()));
       }
-      if (jsonObj.get("threeDSReqPriorAuthMethod") != null && !jsonObj.get("threeDSReqPriorAuthMethod").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `threeDSReqPriorAuthMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqPriorAuthMethod").toString()));
+      // ensure the field threeDSReqPriorAuthMethod can be parsed to an enum value
+      if (jsonObj.get("threeDSReqPriorAuthMethod") != null) {
+        if(!jsonObj.get("threeDSReqPriorAuthMethod").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `threeDSReqPriorAuthMethod` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqPriorAuthMethod").toString()));
+        }
+        ThreeDSReqPriorAuthMethodEnum.fromValue(jsonObj.get("threeDSReqPriorAuthMethod").getAsString());
       }
+      // validate the optional field threeDSReqPriorAuthTimestamp
       if (jsonObj.get("threeDSReqPriorAuthTimestamp") != null && !jsonObj.get("threeDSReqPriorAuthTimestamp").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSReqPriorAuthTimestamp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqPriorAuthTimestamp").toString()));
       }
+      // validate the optional field threeDSReqPriorRef
       if (jsonObj.get("threeDSReqPriorRef") != null && !jsonObj.get("threeDSReqPriorRef").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDSReqPriorRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDSReqPriorRef").toString()));
       }
@@ -333,5 +342,24 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
     }
   }
 
+ /**
+  * Create an instance of ThreeDSRequestorPriorAuthenticationInfo given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ThreeDSRequestorPriorAuthenticationInfo
+  * @throws IOException if the JSON string is invalid with respect to ThreeDSRequestorPriorAuthenticationInfo
+  */
+  public static ThreeDSRequestorPriorAuthenticationInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDSRequestorPriorAuthenticationInfo.class);
+  }
+
+ /**
+  * Convert an instance of ThreeDSRequestorPriorAuthenticationInfo to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

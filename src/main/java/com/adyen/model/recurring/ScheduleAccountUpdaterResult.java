@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.recurring.JSON;
+
 /**
  * ScheduleAccountUpdaterResult
  */
@@ -188,9 +190,11 @@ public class ScheduleAccountUpdaterResult {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field result
       if (jsonObj.get("result") != null && !jsonObj.get("result").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `result` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result").toString()));
       }
@@ -225,5 +229,24 @@ public class ScheduleAccountUpdaterResult {
     }
   }
 
+ /**
+  * Create an instance of ScheduleAccountUpdaterResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ScheduleAccountUpdaterResult
+  * @throws IOException if the JSON string is invalid with respect to ScheduleAccountUpdaterResult
+  */
+  public static ScheduleAccountUpdaterResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ScheduleAccountUpdaterResult.class);
+  }
+
+ /**
+  * Convert an instance of ScheduleAccountUpdaterResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

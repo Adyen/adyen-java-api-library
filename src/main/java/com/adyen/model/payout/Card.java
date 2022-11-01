@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * Card
  */
@@ -370,27 +372,35 @@ public class Card {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field cvc
       if (jsonObj.get("cvc") != null && !jsonObj.get("cvc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cvc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvc").toString()));
       }
+      // validate the optional field expiryMonth
       if (jsonObj.get("expiryMonth") != null && !jsonObj.get("expiryMonth").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expiryMonth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryMonth").toString()));
       }
+      // validate the optional field expiryYear
       if (jsonObj.get("expiryYear") != null && !jsonObj.get("expiryYear").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expiryYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryYear").toString()));
       }
+      // validate the optional field holderName
       if (jsonObj.get("holderName") != null && !jsonObj.get("holderName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `holderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holderName").toString()));
       }
+      // validate the optional field issueNumber
       if (jsonObj.get("issueNumber") != null && !jsonObj.get("issueNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issueNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issueNumber").toString()));
       }
+      // validate the optional field number
       if (jsonObj.get("number") != null && !jsonObj.get("number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
       }
+      // validate the optional field startMonth
       if (jsonObj.get("startMonth") != null && !jsonObj.get("startMonth").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `startMonth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startMonth").toString()));
       }
+      // validate the optional field startYear
       if (jsonObj.get("startYear") != null && !jsonObj.get("startYear").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `startYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startYear").toString()));
       }
@@ -425,5 +435,24 @@ public class Card {
     }
   }
 
+ /**
+  * Create an instance of Card given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Card
+  * @throws IOException if the JSON string is invalid with respect to Card
+  */
+  public static Card fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Card.class);
+  }
+
+ /**
+  * Convert an instance of Card to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

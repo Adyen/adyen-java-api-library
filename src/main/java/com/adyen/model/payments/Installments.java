@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * Installments
  */
@@ -234,8 +236,12 @@ public class Installments {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("plan") != null && !jsonObj.get("plan").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `plan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("plan").toString()));
+      // ensure the field plan can be parsed to an enum value
+      if (jsonObj.get("plan") != null) {
+        if(!jsonObj.get("plan").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `plan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("plan").toString()));
+        }
+        PlanEnum.fromValue(jsonObj.get("plan").getAsString());
       }
   }
 
@@ -268,5 +274,24 @@ public class Installments {
     }
   }
 
+ /**
+  * Create an instance of Installments given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Installments
+  * @throws IOException if the JSON string is invalid with respect to Installments
+  */
+  public static Installments fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Installments.class);
+  }
+
+ /**
+  * Convert an instance of Installments to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

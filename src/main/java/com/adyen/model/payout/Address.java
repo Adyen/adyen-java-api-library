@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * Address
  */
@@ -311,21 +313,27 @@ public class Address {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field city
       if (jsonObj.get("city") != null && !jsonObj.get("city").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
       }
+      // validate the optional field country
       if (jsonObj.get("country") != null && !jsonObj.get("country").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
       }
+      // validate the optional field houseNumberOrName
       if (jsonObj.get("houseNumberOrName") != null && !jsonObj.get("houseNumberOrName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `houseNumberOrName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("houseNumberOrName").toString()));
       }
+      // validate the optional field postalCode
       if (jsonObj.get("postalCode") != null && !jsonObj.get("postalCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postalCode").toString()));
       }
+      // validate the optional field stateOrProvince
       if (jsonObj.get("stateOrProvince") != null && !jsonObj.get("stateOrProvince").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `stateOrProvince` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stateOrProvince").toString()));
       }
+      // validate the optional field street
       if (jsonObj.get("street") != null && !jsonObj.get("street").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `street` to be a primitive type in the JSON string but got `%s`", jsonObj.get("street").toString()));
       }
@@ -360,5 +368,24 @@ public class Address {
     }
   }
 
+ /**
+  * Create an instance of Address given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Address
+  * @throws IOException if the JSON string is invalid with respect to Address
+  */
+  public static Address fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Address.class);
+  }
+
+ /**
+  * Convert an instance of Address to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * Phone
  */
@@ -179,9 +181,11 @@ public class Phone {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Phone` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field cc
       if (jsonObj.get("cc") != null && !jsonObj.get("cc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cc").toString()));
       }
+      // validate the optional field subscriber
       if (jsonObj.get("subscriber") != null && !jsonObj.get("subscriber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subscriber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscriber").toString()));
       }
@@ -216,5 +220,24 @@ public class Phone {
     }
   }
 
+ /**
+  * Create an instance of Phone given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Phone
+  * @throws IOException if the JSON string is invalid with respect to Phone
+  */
+  public static Phone fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Phone.class);
+  }
+
+ /**
+  * Convert an instance of Phone to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

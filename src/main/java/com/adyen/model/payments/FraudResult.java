@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * FraudResult
  */
@@ -241,5 +243,24 @@ public class FraudResult {
     }
   }
 
+ /**
+  * Create an instance of FraudResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of FraudResult
+  * @throws IOException if the JSON string is invalid with respect to FraudResult
+  */
+  public static FraudResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FraudResult.class);
+  }
+
+ /**
+  * Convert an instance of FraudResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * ShopperInteractionDevice
  */
@@ -209,12 +211,15 @@ public class ShopperInteractionDevice {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ShopperInteractionDevice` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field locale
       if (jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
       }
+      // validate the optional field os
       if (jsonObj.get("os") != null && !jsonObj.get("os").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `os` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os").toString()));
       }
+      // validate the optional field osVersion
       if (jsonObj.get("osVersion") != null && !jsonObj.get("osVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `osVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("osVersion").toString()));
       }
@@ -249,5 +254,24 @@ public class ShopperInteractionDevice {
     }
   }
 
+ /**
+  * Create an instance of ShopperInteractionDevice given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ShopperInteractionDevice
+  * @throws IOException if the JSON string is invalid with respect to ShopperInteractionDevice
+  */
+  public static ShopperInteractionDevice fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ShopperInteractionDevice.class);
+  }
+
+ /**
+  * Convert an instance of ShopperInteractionDevice to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

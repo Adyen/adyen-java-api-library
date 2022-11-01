@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * MerchantDevice
  */
@@ -209,12 +211,15 @@ public class MerchantDevice {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantDevice` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field os
       if (jsonObj.get("os") != null && !jsonObj.get("os").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `os` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os").toString()));
       }
+      // validate the optional field osVersion
       if (jsonObj.get("osVersion") != null && !jsonObj.get("osVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `osVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("osVersion").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
@@ -249,5 +254,24 @@ public class MerchantDevice {
     }
   }
 
+ /**
+  * Create an instance of MerchantDevice given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MerchantDevice
+  * @throws IOException if the JSON string is invalid with respect to MerchantDevice
+  */
+  public static MerchantDevice fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MerchantDevice.class);
+  }
+
+ /**
+  * Convert an instance of MerchantDevice to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
