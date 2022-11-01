@@ -42,7 +42,7 @@ import java.util.TimeZone;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
-import static com.adyen.model.PaymentResult.ResultCodeEnum.RECEIVED;
+import static com.adyen.model.payments.PaymentResult.ResultCodeEnum.RECEIVED;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.contains;
