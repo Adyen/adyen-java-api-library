@@ -38,11 +38,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.nullable;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -62,7 +58,7 @@ public class CheckoutTest extends BaseTest {
         when(client.getConfig()).thenReturn(config);
         when(config.getCheckoutEndpoint()).thenReturn("checkout");
         when(client.getHttpClient()).thenReturn(clientInterface);
-        when(clientInterface.request(anyString(), anyString(), eq(config), anyBoolean(), nullable(RequestOptions.class), any())).thenReturn("{\"pspReference\": \"12345\"}");
+        when(clientInterface.request(anyString(), anyString(), eq(config), anyBoolean(), nullable(RequestOptions.class), any(), isNull())).thenReturn("{\"pspReference\": \"12345\"}");
 
         ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
 
@@ -75,7 +71,7 @@ public class CheckoutTest extends BaseTest {
 
         assertNotNull(response);
         assertEquals("12345", response.getPspReference());
-        verify(clientInterface).request(anyString(), captor.capture(), any(Config.class), anyBoolean(), nullable(RequestOptions.class), any());
+        verify(clientInterface).request(anyString(), captor.capture(), any(Config.class), anyBoolean(), nullable(RequestOptions.class), any(), isNull());
         String captorValue = captor.getValue();
         //html escaped
         assertFalse(captorValue.contains("\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\",\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}") || captorValue.contains("\"mpiData\":{\"xid\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\",\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}"));

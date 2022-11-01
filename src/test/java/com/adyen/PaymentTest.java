@@ -20,7 +20,6 @@
  */
 package com.adyen;
 
-import com.adyen.constants.ApiConstants;
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
 import com.adyen.httpclient.AdyenHttpClient;
@@ -34,7 +33,6 @@ import com.adyen.util.DateUtil;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -44,17 +42,11 @@ import java.util.TimeZone;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
-import static com.adyen.model.payments.PaymentResult.ResultCodeEnum.RECEIVED;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.isNull;
+import static com.adyen.model.PaymentResult.ResultCodeEnum.RECEIVED;
+import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.contains;
+import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.*;
 
 /**
@@ -253,8 +245,8 @@ public class PaymentTest extends BaseTest {
         AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<>(), null);
 
-        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
-        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any())).thenThrow(httpClientException);
+        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class), isNull())).thenThrow(httpClientException);
+        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any(), isNull())).thenThrow(httpClientException);
 
         Client client = new Client();
         client.setHttpClient(adyenHttpClient);
@@ -473,6 +465,6 @@ public class PaymentTest extends BaseTest {
         
         String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\"}";
         ClientInterface http = client.getHttpClient();
-        verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any());
+        verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());
     }
 }

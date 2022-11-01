@@ -28,6 +28,12 @@ import com.adyen.model.Address;
 import com.adyen.model.Amount;
 import com.adyen.model.payments.*;
 import com.adyen.model.RequestOptions;
+import com.adyen.enums.VatCategory;
+import com.adyen.httpclient.AdyenHttpClient;
+import com.adyen.httpclient.HTTPClientException;
+import com.adyen.model.Amount;
+import com.adyen.model.PaymentRequest;
+import com.adyen.model.*;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.checkout.LineItem;
 import com.adyen.model.checkout.PaymentsRequest;
@@ -45,6 +51,8 @@ import com.adyen.model.nexo.PaymentTransaction;
 import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.TransactionIdentification;
+import com.adyen.model.modification.*;
+import com.adyen.model.nexo.*;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -67,10 +75,7 @@ import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.isNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class BaseTest {
     protected final ApplicationInfo applicationInfo = new ApplicationInfo()
@@ -386,7 +391,7 @@ public class BaseTest {
         AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(status, "An error occured", new HashMap<>(), response);
         try {
-            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any())).thenThrow(httpClientException);
+            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any(), any())).thenThrow(httpClientException);
         } catch (IOException | HTTPClientException e) {
             fail("Unexpected exception: " + e.getMessage());
         }
