@@ -46,6 +46,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * PaymentResult
  */
@@ -97,6 +99,8 @@ public class PaymentResult {
   @JsonAdapter(ResultCodeEnum.Adapter.class)
   public enum ResultCodeEnum {
     AUTHENTICATIONFINISHED("AuthenticationFinished"),
+    
+    AUTHENTICATIONNOTREQUIRED("AuthenticationNotRequired"),
     
     AUTHORISED("Authorised"),
     
@@ -529,6 +533,7 @@ public class PaymentResult {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field authCode
       if (jsonObj.get("authCode") != null && !jsonObj.get("authCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authCode").toString()));
       }
@@ -536,6 +541,7 @@ public class PaymentResult {
       if (jsonObj.getAsJsonObject("dccAmount") != null) {
         Amount.validateJsonObject(jsonObj.getAsJsonObject("dccAmount"));
       }
+      // validate the optional field dccSignature
       if (jsonObj.get("dccSignature") != null && !jsonObj.get("dccSignature").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dccSignature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dccSignature").toString()));
       }
@@ -543,23 +549,32 @@ public class PaymentResult {
       if (jsonObj.getAsJsonObject("fraudResult") != null) {
         FraudResult.validateJsonObject(jsonObj.getAsJsonObject("fraudResult"));
       }
+      // validate the optional field issuerUrl
       if (jsonObj.get("issuerUrl") != null && !jsonObj.get("issuerUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerUrl").toString()));
       }
+      // validate the optional field md
       if (jsonObj.get("md") != null && !jsonObj.get("md").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `md` to be a primitive type in the JSON string but got `%s`", jsonObj.get("md").toString()));
       }
+      // validate the optional field paRequest
       if (jsonObj.get("paRequest") != null && !jsonObj.get("paRequest").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paRequest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paRequest").toString()));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field refusalReason
       if (jsonObj.get("refusalReason") != null && !jsonObj.get("refusalReason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReason").toString()));
       }
-      if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+      // ensure the field resultCode can be parsed to an enum value
+      if (jsonObj.get("resultCode") != null) {
+        if(!jsonObj.get("resultCode").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
+        }
+        ResultCodeEnum.fromValue(jsonObj.get("resultCode").getAsString());
       }
   }
 
@@ -592,5 +607,24 @@ public class PaymentResult {
     }
   }
 
+ /**
+  * Create an instance of PaymentResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentResult
+  * @throws IOException if the JSON string is invalid with respect to PaymentResult
+  */
+  public static PaymentResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentResult.class);
+  }
+
+ /**
+  * Convert an instance of PaymentResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

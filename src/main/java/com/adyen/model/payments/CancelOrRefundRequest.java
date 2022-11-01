@@ -45,6 +45,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * CancelOrRefundRequest
  */
@@ -380,6 +382,7 @@ public class CancelOrRefundRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
@@ -387,18 +390,23 @@ public class CancelOrRefundRequest {
       if (jsonObj.getAsJsonObject("mpiData") != null) {
         ThreeDSecureData.validateJsonObject(jsonObj.getAsJsonObject("mpiData"));
       }
+      // validate the optional field originalMerchantReference
       if (jsonObj.get("originalMerchantReference") != null && !jsonObj.get("originalMerchantReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalMerchantReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalMerchantReference").toString()));
       }
+      // validate the optional field originalReference
       if (jsonObj.get("originalReference") != null && !jsonObj.get("originalReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalReference").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
+      // validate the optional field tenderReference
       if (jsonObj.get("tenderReference") != null && !jsonObj.get("tenderReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tenderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenderReference").toString()));
       }
+      // validate the optional field uniqueTerminalId
       if (jsonObj.get("uniqueTerminalId") != null && !jsonObj.get("uniqueTerminalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uniqueTerminalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uniqueTerminalId").toString()));
       }
@@ -433,5 +441,24 @@ public class CancelOrRefundRequest {
     }
   }
 
+ /**
+  * Create an instance of CancelOrRefundRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CancelOrRefundRequest
+  * @throws IOException if the JSON string is invalid with respect to CancelOrRefundRequest
+  */
+  public static CancelOrRefundRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CancelOrRefundRequest.class);
+  }
+
+ /**
+  * Convert an instance of CancelOrRefundRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

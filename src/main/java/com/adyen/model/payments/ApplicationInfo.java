@@ -45,6 +45,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * ApplicationInfo
  */
@@ -358,5 +360,24 @@ public class ApplicationInfo {
     }
   }
 
+ /**
+  * Create an instance of ApplicationInfo given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ApplicationInfo
+  * @throws IOException if the JSON string is invalid with respect to ApplicationInfo
+  */
+  public static ApplicationInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApplicationInfo.class);
+  }
+
+ /**
+  * Convert an instance of ApplicationInfo to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

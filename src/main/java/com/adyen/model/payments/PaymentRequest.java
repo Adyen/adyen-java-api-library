@@ -22,6 +22,8 @@ import com.adyen.model.payments.BankAccount;
 import com.adyen.model.payments.BrowserInfo;
 import com.adyen.model.payments.Card;
 import com.adyen.model.payments.ForexQuote;
+import com.adyen.model.payments.FundDestination;
+import com.adyen.model.payments.FundSource;
 import com.adyen.model.payments.Installments;
 import com.adyen.model.payments.Mandate;
 import com.adyen.model.payments.MerchantRiskIndicator;
@@ -61,6 +63,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.payments.JSON;
 
 /**
  * PaymentRequest
@@ -181,6 +185,14 @@ public class PaymentRequest {
   public static final String SERIALIZED_NAME_FRAUD_OFFSET = "fraudOffset";
   @SerializedName(SERIALIZED_NAME_FRAUD_OFFSET)
   private Integer fraudOffset;
+
+  public static final String SERIALIZED_NAME_FUND_DESTINATION = "fundDestination";
+  @SerializedName(SERIALIZED_NAME_FUND_DESTINATION)
+  private FundDestination fundDestination;
+
+  public static final String SERIALIZED_NAME_FUND_SOURCE = "fundSource";
+  @SerializedName(SERIALIZED_NAME_FUND_SOURCE)
+  private FundSource fundSource;
 
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
@@ -857,6 +869,52 @@ public class PaymentRequest {
   }
 
 
+  public PaymentRequest fundDestination(FundDestination fundDestination) {
+    
+    this.fundDestination = fundDestination;
+    return this;
+  }
+
+   /**
+   * Get fundDestination
+   * @return fundDestination
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public FundDestination getFundDestination() {
+    return fundDestination;
+  }
+
+
+  public void setFundDestination(FundDestination fundDestination) {
+    this.fundDestination = fundDestination;
+  }
+
+
+  public PaymentRequest fundSource(FundSource fundSource) {
+    
+    this.fundSource = fundSource;
+    return this;
+  }
+
+   /**
+   * Get fundSource
+   * @return fundSource
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public FundSource getFundSource() {
+    return fundSource;
+  }
+
+
+  public void setFundSource(FundSource fundSource) {
+    this.fundSource = fundSource;
+  }
+
+
   public PaymentRequest fundingSource(FundingSourceEnum fundingSource) {
     
     this.fundingSource = fundingSource;
@@ -1455,11 +1513,11 @@ public class PaymentRequest {
   }
 
    /**
-   * An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
+   * An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).
    * @return splits
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
+  @ApiModelProperty(value = "An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).")
 
   public List<Split> getSplits() {
     return splits;
@@ -1478,11 +1536,11 @@ public class PaymentRequest {
   }
 
    /**
-   * The ecommerce or point-of-sale store that is processing the payment. Used in [partner arrangement integrations](https://docs.adyen.com/platforms/platforms-for-partners#route-payments) for Adyen for Platforms.
+   * The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.
    * @return store
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment. Used in [partner arrangement integrations](https://docs.adyen.com/platforms/platforms-for-partners#route-payments) for Adyen for Platforms.")
+  @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.")
 
   public String getStore() {
     return store;
@@ -1636,6 +1694,8 @@ public class PaymentRequest {
         Objects.equals(this.deviceFingerprint, paymentRequest.deviceFingerprint) &&
         Objects.equals(this.entityType, paymentRequest.entityType) &&
         Objects.equals(this.fraudOffset, paymentRequest.fraudOffset) &&
+        Objects.equals(this.fundDestination, paymentRequest.fundDestination) &&
+        Objects.equals(this.fundSource, paymentRequest.fundSource) &&
         Objects.equals(this.fundingSource, paymentRequest.fundingSource) &&
         Objects.equals(this.installments, paymentRequest.installments) &&
         Objects.equals(this.mandate, paymentRequest.mandate) &&
@@ -1672,7 +1732,7 @@ public class PaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, bankAccount, billingAddress, browserInfo, captureDelayHours, card, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, entityType, fraudOffset, fundingSource, installments, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, nationality, orderReference, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, bankAccount, billingAddress, browserInfo, captureDelayHours, card, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, entityType, fraudOffset, fundDestination, fundSource, fundingSource, installments, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, nationality, orderReference, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
   }
 
   @Override
@@ -1696,6 +1756,8 @@ public class PaymentRequest {
     sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
     sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
     sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
+    sb.append("    fundDestination: ").append(toIndentedString(fundDestination)).append("\n");
+    sb.append("    fundSource: ").append(toIndentedString(fundSource)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
     sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
@@ -1767,6 +1829,8 @@ public class PaymentRequest {
     openapiFields.add("deviceFingerprint");
     openapiFields.add("entityType");
     openapiFields.add("fraudOffset");
+    openapiFields.add("fundDestination");
+    openapiFields.add("fundSource");
     openapiFields.add("fundingSource");
     openapiFields.add("installments");
     openapiFields.add("mandate");
@@ -1876,14 +1940,31 @@ public class PaymentRequest {
       if (jsonObj.getAsJsonObject("deliveryAddress") != null) {
         Address.validateJsonObject(jsonObj.getAsJsonObject("deliveryAddress"));
       }
+      // validate the optional field deviceFingerprint
       if (jsonObj.get("deviceFingerprint") != null && !jsonObj.get("deviceFingerprint").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `deviceFingerprint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceFingerprint").toString()));
       }
-      if (jsonObj.get("entityType") != null && !jsonObj.get("entityType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
+      // ensure the field entityType can be parsed to an enum value
+      if (jsonObj.get("entityType") != null) {
+        if(!jsonObj.get("entityType").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
+        }
+        EntityTypeEnum.fromValue(jsonObj.get("entityType").getAsString());
       }
-      if (jsonObj.get("fundingSource") != null && !jsonObj.get("fundingSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
+      // validate the optional field `fundDestination`
+      if (jsonObj.getAsJsonObject("fundDestination") != null) {
+        FundDestination.validateJsonObject(jsonObj.getAsJsonObject("fundDestination"));
+      }
+      // validate the optional field `fundSource`
+      if (jsonObj.getAsJsonObject("fundSource") != null) {
+        FundSource.validateJsonObject(jsonObj.getAsJsonObject("fundSource"));
+      }
+      // ensure the field fundingSource can be parsed to an enum value
+      if (jsonObj.get("fundingSource") != null) {
+        if(!jsonObj.get("fundingSource").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `fundingSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fundingSource").toString()));
+        }
+        FundingSourceEnum.fromValue(jsonObj.get("fundingSource").getAsString());
       }
       // validate the optional field `installments`
       if (jsonObj.getAsJsonObject("installments") != null) {
@@ -1893,12 +1974,15 @@ public class PaymentRequest {
       if (jsonObj.getAsJsonObject("mandate") != null) {
         Mandate.validateJsonObject(jsonObj.getAsJsonObject("mandate"));
       }
+      // validate the optional field mcc
       if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mcc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcc").toString()));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field merchantOrderReference
       if (jsonObj.get("merchantOrderReference") != null && !jsonObj.get("merchantOrderReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantOrderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantOrderReference").toString()));
       }
@@ -1910,9 +1994,11 @@ public class PaymentRequest {
       if (jsonObj.getAsJsonObject("mpiData") != null) {
         ThreeDSecureData.validateJsonObject(jsonObj.getAsJsonObject("mpiData"));
       }
+      // validate the optional field nationality
       if (jsonObj.get("nationality") != null && !jsonObj.get("nationality").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nationality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nationality").toString()));
       }
+      // validate the optional field orderReference
       if (jsonObj.get("orderReference") != null && !jsonObj.get("orderReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `orderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderReference").toString()));
       }
@@ -1920,30 +2006,45 @@ public class PaymentRequest {
       if (jsonObj.getAsJsonObject("recurring") != null) {
         Recurring.validateJsonObject(jsonObj.getAsJsonObject("recurring"));
       }
-      if (jsonObj.get("recurringProcessingModel") != null && !jsonObj.get("recurringProcessingModel").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recurringProcessingModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringProcessingModel").toString()));
+      // ensure the field recurringProcessingModel can be parsed to an enum value
+      if (jsonObj.get("recurringProcessingModel") != null) {
+        if(!jsonObj.get("recurringProcessingModel").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `recurringProcessingModel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringProcessingModel").toString()));
+        }
+        RecurringProcessingModelEnum.fromValue(jsonObj.get("recurringProcessingModel").getAsString());
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
+      // validate the optional field selectedBrand
       if (jsonObj.get("selectedBrand") != null && !jsonObj.get("selectedBrand").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `selectedBrand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedBrand").toString()));
       }
+      // validate the optional field selectedRecurringDetailReference
       if (jsonObj.get("selectedRecurringDetailReference") != null && !jsonObj.get("selectedRecurringDetailReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `selectedRecurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedRecurringDetailReference").toString()));
       }
+      // validate the optional field sessionId
       if (jsonObj.get("sessionId") != null && !jsonObj.get("sessionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionId").toString()));
       }
+      // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
+      // validate the optional field shopperIP
       if (jsonObj.get("shopperIP") != null && !jsonObj.get("shopperIP").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperIP").toString()));
       }
-      if (jsonObj.get("shopperInteraction") != null && !jsonObj.get("shopperInteraction").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
+      // ensure the field shopperInteraction can be parsed to an enum value
+      if (jsonObj.get("shopperInteraction") != null) {
+        if(!jsonObj.get("shopperInteraction").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
+        }
+        ShopperInteractionEnum.fromValue(jsonObj.get("shopperInteraction").getAsString());
       }
+      // validate the optional field shopperLocale
       if (jsonObj.get("shopperLocale") != null && !jsonObj.get("shopperLocale").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperLocale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperLocale").toString()));
       }
@@ -1951,12 +2052,15 @@ public class PaymentRequest {
       if (jsonObj.getAsJsonObject("shopperName") != null) {
         Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
       }
+      // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
+      // validate the optional field shopperStatement
       if (jsonObj.get("shopperStatement") != null && !jsonObj.get("shopperStatement").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperStatement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperStatement").toString()));
       }
+      // validate the optional field socialSecurityNumber
       if (jsonObj.get("socialSecurityNumber") != null && !jsonObj.get("socialSecurityNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `socialSecurityNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("socialSecurityNumber").toString()));
       }
@@ -1972,9 +2076,11 @@ public class PaymentRequest {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `store` to be a primitive type in the JSON string but got `%s`", jsonObj.get("store").toString()));
       }
+      // validate the optional field telephoneNumber
       if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
       }
@@ -1982,6 +2088,7 @@ public class PaymentRequest {
       if (jsonObj.getAsJsonObject("threeDS2RequestData") != null) {
         ThreeDS2RequestData.validateJsonObject(jsonObj.getAsJsonObject("threeDS2RequestData"));
       }
+      // validate the optional field totalsGroup
       if (jsonObj.get("totalsGroup") != null && !jsonObj.get("totalsGroup").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `totalsGroup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("totalsGroup").toString()));
       }
@@ -2016,5 +2123,24 @@ public class PaymentRequest {
     }
   }
 
+ /**
+  * Create an instance of PaymentRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PaymentRequest
+  * @throws IOException if the JSON string is invalid with respect to PaymentRequest
+  */
+  public static PaymentRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PaymentRequest.class);
+  }
+
+ /**
+  * Convert an instance of PaymentRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

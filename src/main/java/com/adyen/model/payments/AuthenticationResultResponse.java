@@ -43,6 +43,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * AuthenticationResultResponse
  */
@@ -220,5 +222,24 @@ public class AuthenticationResultResponse {
     }
   }
 
+ /**
+  * Create an instance of AuthenticationResultResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AuthenticationResultResponse
+  * @throws IOException if the JSON string is invalid with respect to AuthenticationResultResponse
+  */
+  public static AuthenticationResultResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AuthenticationResultResponse.class);
+  }
+
+ /**
+  * Convert an instance of AuthenticationResultResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

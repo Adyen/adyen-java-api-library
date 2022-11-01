@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * ExternalPlatform
  */
@@ -209,12 +211,15 @@ public class ExternalPlatform {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalPlatform` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field integrator
       if (jsonObj.get("integrator") != null && !jsonObj.get("integrator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `integrator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("integrator").toString()));
       }
+      // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      // validate the optional field version
       if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
@@ -249,5 +254,24 @@ public class ExternalPlatform {
     }
   }
 
+ /**
+  * Create an instance of ExternalPlatform given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ExternalPlatform
+  * @throws IOException if the JSON string is invalid with respect to ExternalPlatform
+  */
+  public static ExternalPlatform fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ExternalPlatform.class);
+  }
+
+ /**
+  * Convert an instance of ExternalPlatform to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

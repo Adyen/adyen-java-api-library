@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.recurring.JSON;
+
 /**
  * DisableRequest
  */
@@ -248,15 +250,19 @@ public class DisableRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field contract
       if (jsonObj.get("contract") != null && !jsonObj.get("contract").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contract` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contract").toString()));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailReference").toString()));
       }
+      // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
@@ -291,5 +297,24 @@ public class DisableRequest {
     }
   }
 
+ /**
+  * Create an instance of DisableRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DisableRequest
+  * @throws IOException if the JSON string is invalid with respect to DisableRequest
+  */
+  public static DisableRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DisableRequest.class);
+  }
+
+ /**
+  * Convert an instance of DisableRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

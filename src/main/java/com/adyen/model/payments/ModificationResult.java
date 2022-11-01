@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * ModificationResult
  */
@@ -288,11 +290,16 @@ public class ModificationResult {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
-      if (jsonObj.get("response") != null && !jsonObj.get("response").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `response` to be a primitive type in the JSON string but got `%s`", jsonObj.get("response").toString()));
+      // ensure the field response can be parsed to an enum value
+      if (jsonObj.get("response") != null) {
+        if(!jsonObj.get("response").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `response` to be a primitive type in the JSON string but got `%s`", jsonObj.get("response").toString()));
+        }
+        ResponseEnum.fromValue(jsonObj.get("response").getAsString());
       }
   }
 
@@ -325,5 +332,24 @@ public class ModificationResult {
     }
   }
 
+ /**
+  * Create an instance of ModificationResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ModificationResult
+  * @throws IOException if the JSON string is invalid with respect to ModificationResult
+  */
+  public static ModificationResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ModificationResult.class);
+  }
+
+ /**
+  * Convert an instance of ModificationResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * ThreeDS1Result
  */
@@ -299,21 +301,27 @@ public class ThreeDS1Result {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS1Result` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field cavv
       if (jsonObj.get("cavv") != null && !jsonObj.get("cavv").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cavv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavv").toString()));
       }
+      // validate the optional field cavvAlgorithm
       if (jsonObj.get("cavvAlgorithm") != null && !jsonObj.get("cavvAlgorithm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cavvAlgorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cavvAlgorithm").toString()));
       }
+      // validate the optional field eci
       if (jsonObj.get("eci") != null && !jsonObj.get("eci").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `eci` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eci").toString()));
       }
+      // validate the optional field threeDAuthenticatedResponse
       if (jsonObj.get("threeDAuthenticatedResponse") != null && !jsonObj.get("threeDAuthenticatedResponse").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDAuthenticatedResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDAuthenticatedResponse").toString()));
       }
+      // validate the optional field threeDOfferedResponse
       if (jsonObj.get("threeDOfferedResponse") != null && !jsonObj.get("threeDOfferedResponse").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeDOfferedResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeDOfferedResponse").toString()));
       }
+      // validate the optional field xid
       if (jsonObj.get("xid") != null && !jsonObj.get("xid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `xid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xid").toString()));
       }
@@ -348,5 +356,24 @@ public class ThreeDS1Result {
     }
   }
 
+ /**
+  * Create an instance of ThreeDS1Result given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ThreeDS1Result
+  * @throws IOException if the JSON string is invalid with respect to ThreeDS1Result
+  */
+  public static ThreeDS1Result fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDS1Result.class);
+  }
+
+ /**
+  * Convert an instance of ThreeDS1Result to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

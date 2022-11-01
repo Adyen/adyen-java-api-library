@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * Amount
  */
@@ -188,6 +190,7 @@ public class Amount {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field currency
       if (jsonObj.get("currency") != null && !jsonObj.get("currency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
       }
@@ -222,5 +225,24 @@ public class Amount {
     }
   }
 
+ /**
+  * Create an instance of Amount given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Amount
+  * @throws IOException if the JSON string is invalid with respect to Amount
+  */
+  public static Amount fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Amount.class);
+  }
+
+ /**
+  * Convert an instance of Amount to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

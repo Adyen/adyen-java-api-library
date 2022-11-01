@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * Recurring
  */
@@ -366,17 +368,27 @@ public class Recurring {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Recurring` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("contract") != null && !jsonObj.get("contract").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contract` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contract").toString()));
+      // ensure the field contract can be parsed to an enum value
+      if (jsonObj.get("contract") != null) {
+        if(!jsonObj.get("contract").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `contract` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contract").toString()));
+        }
+        ContractEnum.fromValue(jsonObj.get("contract").getAsString());
       }
+      // validate the optional field recurringDetailName
       if (jsonObj.get("recurringDetailName") != null && !jsonObj.get("recurringDetailName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringDetailName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringDetailName").toString()));
       }
+      // validate the optional field recurringFrequency
       if (jsonObj.get("recurringFrequency") != null && !jsonObj.get("recurringFrequency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recurringFrequency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recurringFrequency").toString()));
       }
-      if (jsonObj.get("tokenService") != null && !jsonObj.get("tokenService").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tokenService` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tokenService").toString()));
+      // ensure the field tokenService can be parsed to an enum value
+      if (jsonObj.get("tokenService") != null) {
+        if(!jsonObj.get("tokenService").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `tokenService` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tokenService").toString()));
+        }
+        TokenServiceEnum.fromValue(jsonObj.get("tokenService").getAsString());
       }
   }
 
@@ -409,5 +421,24 @@ public class Recurring {
     }
   }
 
+ /**
+  * Create an instance of Recurring given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Recurring
+  * @throws IOException if the JSON string is invalid with respect to Recurring
+  */
+  public static Recurring fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Recurring.class);
+  }
+
+ /**
+  * Convert an instance of Recurring to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -45,6 +45,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.recurring.JSON;
+
 /**
  * ScheduleAccountUpdaterRequest
  */
@@ -324,15 +326,19 @@ public class ScheduleAccountUpdaterRequest {
       if (jsonObj.getAsJsonObject("card") != null) {
         Card.validateJsonObject(jsonObj.getAsJsonObject("card"));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
+      // validate the optional field selectedRecurringDetailReference
       if (jsonObj.get("selectedRecurringDetailReference") != null && !jsonObj.get("selectedRecurringDetailReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `selectedRecurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedRecurringDetailReference").toString()));
       }
+      // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
@@ -367,5 +373,24 @@ public class ScheduleAccountUpdaterRequest {
     }
   }
 
+ /**
+  * Create an instance of ScheduleAccountUpdaterRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ScheduleAccountUpdaterRequest
+  * @throws IOException if the JSON string is invalid with respect to ScheduleAccountUpdaterRequest
+  */
+  public static ScheduleAccountUpdaterRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ScheduleAccountUpdaterRequest.class);
+  }
+
+ /**
+  * Convert an instance of ScheduleAccountUpdaterRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

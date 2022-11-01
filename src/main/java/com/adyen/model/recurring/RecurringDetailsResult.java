@@ -45,6 +45,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.recurring.JSON;
+
 /**
  * RecurringDetailsResult
  */
@@ -263,9 +265,11 @@ public class RecurringDetailsResult {
           RecurringDetail.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field lastKnownShopperEmail
       if (jsonObj.get("lastKnownShopperEmail") != null && !jsonObj.get("lastKnownShopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastKnownShopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastKnownShopperEmail").toString()));
       }
+      // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
@@ -300,5 +304,24 @@ public class RecurringDetailsResult {
     }
   }
 
+ /**
+  * Create an instance of RecurringDetailsResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of RecurringDetailsResult
+  * @throws IOException if the JSON string is invalid with respect to RecurringDetailsResult
+  */
+  public static RecurringDetailsResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RecurringDetailsResult.class);
+  }
+
+ /**
+  * Convert an instance of RecurringDetailsResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

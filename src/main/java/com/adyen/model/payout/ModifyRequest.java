@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * ModifyRequest
  */
@@ -229,9 +231,11 @@ public class ModifyRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
+      // validate the optional field originalReference
       if (jsonObj.get("originalReference") != null && !jsonObj.get("originalReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalReference").toString()));
       }
@@ -266,5 +270,24 @@ public class ModifyRequest {
     }
   }
 
+ /**
+  * Create an instance of ModifyRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ModifyRequest
+  * @throws IOException if the JSON string is invalid with respect to ModifyRequest
+  */
+  public static ModifyRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ModifyRequest.class);
+  }
+
+ /**
+  * Convert an instance of ModifyRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

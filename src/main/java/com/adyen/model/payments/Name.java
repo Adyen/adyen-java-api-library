@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payments.JSON;
+
 /**
  * Name
  */
@@ -188,9 +190,11 @@ public class Name {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field firstName
       if (jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
       }
+      // validate the optional field lastName
       if (jsonObj.get("lastName") != null && !jsonObj.get("lastName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
       }
@@ -225,5 +229,24 @@ public class Name {
     }
   }
 
+ /**
+  * Create an instance of Name given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Name
+  * @throws IOException if the JSON string is invalid with respect to Name
+  */
+  public static Name fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Name.class);
+  }
+
+ /**
+  * Convert an instance of Name to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
