@@ -70,7 +70,9 @@ public class Client {
     public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_VERSION = "v2";
-
+    public static final String MANAGEMENT_ENDPOINT_TEST = "https://management-test.adyen.com";
+    public static final String MANAGEMENT_ENDPOINT_LIVE = "https://management-live.adyen.com";
+    public static final String MANAGEMENT_VERSION = "v1";
 
     public Client() {
         this.config = new Config();

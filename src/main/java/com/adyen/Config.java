@@ -70,6 +70,7 @@ public class Config {
     protected KeyStore clientKeyStore;
     protected String clientKeyStorePassword;
     protected String legalEntityManagementEndpoint;
+    protected String managementEndpoint;
 
     public Config() {
         // do nothing
@@ -278,5 +279,13 @@ public class Config {
 
     public void setLegalEntityManagementEndpoint(String legalEntityManagementEndpoint) {
         this.legalEntityManagementEndpoint = legalEntityManagementEndpoint;
+    }
+
+    public String getManagementEndpoint() {
+        return managementEndpoint;
+    }
+
+    public void setManagementEndpoint(String managementEndpoint) {
+        this.managementEndpoint = managementEndpoint;
     }
 }
