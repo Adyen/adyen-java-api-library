@@ -45,6 +45,8 @@ $(services): target/spec $(openapi-generator-jar)
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=legacy \
+		--additional-properties=serializationLibrary=gson \
+		--additional-properties=openApiNullable=false \
 		--additional-properties=resourceClass=$(resourceClass)Resource
 	mv $(output)/$(models)/$@ $(models)/$@
 	mv $(output)/$(models)/JSON.java $(models)/$@
