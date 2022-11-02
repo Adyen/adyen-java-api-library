@@ -2,28 +2,25 @@
 
 package {{package}};
 
+import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import {{modelPackage}}.*;
+{{#imports}}import {{import}};
+{{/imports}}
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.{{resourceClass}};
 
 import java.io.IOException;
-
-import {{modelPackage}}.*;
-
-{{#imports}}import {{import}};
-{{/imports}}
-
-{{^fullJavaUtil}}
 import java.util.HashMap;
 import java.util.Map;
-{{/fullJavaUtil}}
 
 {{#operations}}
-public class {{classname}} extends Service {
+public class {{classname}} extends ApiKeyAuthenticatedService {
     public {{classname}}(Client client) {
         super(client);
+        new JSON();
     }
 
 {{#operation}}
@@ -70,7 +67,7 @@ public class {{classname}} extends Service {
         return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
         {{/returnType}}
         {{^returnType}}
-        resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}});
+        resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}}, pathParams{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
         {{/returnType}}
     }
     

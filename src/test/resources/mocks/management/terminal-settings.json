@@ -1,0 +1,98 @@
+{
+  "cardholderReceipt": {
+    "headerForAuthorizedReceipt": "header1,header2,filler"
+  },
+  "gratuities": [
+    {
+      "currency": "EUR",
+      "usePredefinedTipEntries": true,
+      "predefinedTipEntries": [
+        "100",
+        "1%",
+        "5%"
+      ],
+      "allowCustomAmount": true
+    }
+  ],
+  "nexo": {
+    "nexoEventUrls": [
+      "https://your-event-notifications-endpoint.com"
+    ]
+  },
+  "opi": {
+    "enablePayAtTable": true,
+    "payAtTableStoreNumber": "1",
+    "payAtTableURL": "https:/your-pay-at-table-endpoint.com"
+  },
+  "offlineProcessing": {
+    "chipFloorLimit": 0
+  },
+  "receiptOptions": {
+    "qrCodeData": "http://www.example.com/order/${pspreference}/${merchantreference}"
+  },
+  "receiptPrinting": {
+    "shopperApproved": true,
+    "shopperRefused": true,
+    "shopperCancelled": true,
+    "shopperRefundApproved": true,
+    "shopperRefundRefused": true,
+    "shopperVoid": true
+  },
+  "signature": {
+    "askSignatureOnScreen": true,
+    "skipSignature": false,
+    "deviceName": "Amsterdam-236203386"
+  },
+  "wifiProfiles": {
+    "profiles": [
+      {
+        "authType": "wpa-eap",
+        "autoWifi": false,
+        "bssType": "infra",
+        "channel": 0,
+        "defaultProfile": true,
+        "eap": "peap",
+        "eapCaCert": {
+          "data": "MD1rKS05M2JqRVFNQ...RTtLH1tLWo=",
+          "name": "eap-peap-ca.pem"
+        },
+        "eapIdentity": "admin",
+        "eapIntermediateCert": {
+          "data": "PD3tUS1CRDdJTiGDR...EFoLS0tLQg=",
+          "name": "eap-peap-client.pem"
+        },
+        "eapPwd": "EAP_PEAP_PASSWORD",
+        "hiddenSsid": false,
+        "name": "Profile-eap-peap-1",
+        "ssid": "your-network",
+        "wsec": "ccmp"
+      },
+      {
+        "authType": "wpa-psk",
+        "autoWifi": false,
+        "bssType": "infra",
+        "channel": 0,
+        "defaultProfile": false,
+        "hiddenSsid": false,
+        "name": "Profile-guest-wifi",
+        "psk": "WIFI_PASSWORD",
+        "ssid": "your-network",
+        "wsec": "ccmp"
+      }
+    ],
+    "settings": {
+      "band": "2.4GHz",
+      "roaming": true,
+      "timeout": 5
+    }
+  },
+  "timeouts": {
+    "fromActiveToSleep": 30
+  },
+  "hardware": {
+    "displayMaximumBackLight": 75
+  },
+  "connectivity": {
+    "simcardStatus": "INVENTORY"
+  }
+}

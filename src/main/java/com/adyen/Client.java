@@ -70,8 +70,8 @@ public class Client {
     public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_VERSION = "v2";
-    public static final String MANAGEMENT_ENDPOINT_TEST = "https://management-test.adyen.com";
-    public static final String MANAGEMENT_ENDPOINT_LIVE = "https://management-live.adyen.com";
+    public static final String MANAGEMENT_ENDPOINT_TEST = "https://management-test.adyen.com/";
+    public static final String MANAGEMENT_ENDPOINT_LIVE = "https://management-live.adyen.com/";
     public static final String MANAGEMENT_VERSION = "v1";
 
     public Client() {
@@ -209,6 +209,7 @@ public class Client {
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
             this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_TEST);
             this.config.setLegalEntityManagementEndpoint(LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST);
+            this.config.setManagementEndpoint(MANAGEMENT_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
@@ -224,6 +225,7 @@ public class Client {
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE);
             this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_LIVE);
             this.config.setLegalEntityManagementEndpoint(LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE);
+            this.config.setManagementEndpoint(MANAGEMENT_ENDPOINT_LIVE);
         }
     }
 
