@@ -49,17 +49,16 @@ public class {{classname}} extends ApiKeyAuthenticatedService {
    @Deprecated
    {{/isDeprecated}}
     public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException, IOException {
-    {{#allParams}}{{#required}}
-        // verify the required parameter '{{paramName}}' is set
-        if ({{paramName}} == null) {
+{{! verify if a required parameter is set }}
+{{#allParams}}{{#required}}        if ({{paramName}} == null) {
             throw new ApiException("Missing the required parameter '{{paramName}}'", 400);
         }
-    {{/required}}{{/allParams}}
+{{/required}}{{/allParams}}
         Map<String, String> pathParams = new HashMap<>();
-        {{#pathParams}}
+{{#pathParams}}
         pathParams.put("{{baseName}}", {{{paramName}}});
-        {{/pathParams}}
-        
+{{/pathParams}}
+
         String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
         {{resourceClass}} resource = new {{resourceClass}}(this, "{{{path}}}");
         {{#returnType}}
