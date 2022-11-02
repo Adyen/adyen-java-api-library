@@ -27,6 +27,7 @@ import com.adyen.model.payments.ApplicationInfo;
 import com.adyen.model.payments.AuthenticationResultRequest;
 import com.adyen.model.payments.AuthenticationResultResponse;
 import com.adyen.model.payments.CommonField;
+import com.adyen.model.payments.JSON;
 import com.adyen.model.payments.PaymentRequest;
 import com.adyen.model.payments.PaymentRequest3d;
 import com.adyen.model.payments.PaymentRequest3ds2;
@@ -39,7 +40,6 @@ import com.adyen.service.resource.payment.Authorise3D;
 import com.adyen.service.resource.payment.Authorise3DS2;
 import com.adyen.service.resource.payment.GetAuthenticationResult;
 import com.adyen.service.resource.payment.Retrieve3DS2Result;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -63,6 +63,7 @@ public class Payment extends Service {
         authorise3DS2 = new Authorise3DS2(this);
         retrieve3DS2Result = new Retrieve3DS2Result(this);
         getAuthenticationResult = new GetAuthenticationResult(this);
+        new JSON();
     }
 
     /**
@@ -79,10 +80,9 @@ public class Payment extends Service {
 
     public PaymentResult authorise(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
         paymentRequest.setApplicationInfo(addLibrary(paymentRequest.getApplicationInfo()));
-        String jsonRequest = GSON.toJson(paymentRequest);
+        String jsonRequest = paymentRequest.toJson();
         String jsonResult = authorise.request(jsonRequest, requestOptions);
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
-        }.getType());
+        return PaymentResult.fromJson(jsonResult);
     }
 
     /**
@@ -94,12 +94,11 @@ public class Payment extends Service {
      */
     public PaymentResult authorise3D(PaymentRequest3d paymentRequest3d) throws Exception {
         paymentRequest3d.setApplicationInfo(addLibrary(paymentRequest3d.getApplicationInfo()));
-        String jsonRequest = GSON.toJson(paymentRequest3d);
+        String jsonRequest = paymentRequest3d.toJson();
 
         String jsonResult = authorise3D.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
-        }.getType());
+        return PaymentResult.fromJson(jsonResult);
     }
 
     /**
@@ -111,12 +110,11 @@ public class Payment extends Service {
      */
     public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws Exception {
         paymentRequest3ds2.setApplicationInfo(addLibrary(paymentRequest3ds2.getApplicationInfo()));
-        String jsonRequest = GSON.toJson(paymentRequest3ds2);
+        String jsonRequest = paymentRequest3ds2.toJson();
 
         String jsonResult = authorise3DS2.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
-        }.getType());
+        return PaymentResult.fromJson(jsonResult);
     }
 
     /**
@@ -129,12 +127,11 @@ public class Payment extends Service {
      */
     @Deprecated
     public ThreeDS2ResultResponse retrieve3ds2Result(ThreeDS2ResultRequest threeDS2ResultRequest) throws Exception {
-        String jsonRequest = GSON.toJson(threeDS2ResultRequest);
+        String jsonRequest = threeDS2ResultRequest.toJson();
 
         String jsonResult = retrieve3DS2Result.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<ThreeDS2ResultResponse>() {
-        }.getType());
+        return ThreeDS2ResultResponse.fromJson(jsonResult);
     }
 
     /**
@@ -146,12 +143,11 @@ public class Payment extends Service {
      * @throws IOException  IOException
      */
     public AuthenticationResultResponse getAuthenticationResult(AuthenticationResultRequest authenticationResultRequest) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(authenticationResultRequest);
+        String jsonRequest = authenticationResultRequest.toJson();
 
         String jsonResult = getAuthenticationResult.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<AuthenticationResultResponse>() {
-        }.getType());
+        return AuthenticationResultResponse.fromJson(jsonResult);
     }
 
     /**
