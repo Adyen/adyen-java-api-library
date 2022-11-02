@@ -32,13 +32,13 @@ public class Transfers extends Service {
         return Transfer.fromJson(jsonResult);
     }
 
-    public TransactionSearchResponse list() throws IOException, ApiException {
+    public TransactionSearchResponse listTransactions() throws IOException, ApiException {
         TransfersResource transfersResource = new TransfersResource(this, "/transactions");
         String jsonResult = transfersResource.request(null, null, ApiConstants.HttpMethod.GET, null);
         return TransactionSearchResponse.fromJson(jsonResult);
     }
 
-    public Transaction retrieve(String transactionId) throws IOException, ApiException {
+    public Transaction getTransaction(String transactionId) throws IOException, ApiException {
         Map<String, String> params = Collections.singletonMap(ID, transactionId);
         TransfersResource transfersResource = new TransfersResource(this, "/transactions");
         String jsonResult = transfersResource.request(null, null, ApiConstants.HttpMethod.GET, params);
