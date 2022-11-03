@@ -6,6 +6,7 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.management.*;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.management.*;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -118,5 +119,16 @@ public class ManagementTest extends BaseTest {
                 ApiConstants.HttpMethod.DELETE,
                 null
         );
+    }
+    
+    @Test
+    @Ignore("Integration test")
+    public void me() throws IOException, ApiException {
+        Client client = new Client(System.getenv("API_KEY"), Environment.TEST);
+        MyApiCredential service = new MyApiCredential(client);
+
+        MeApiCredential me = service.getMe();
+        
+        assertTrue(me.getActive());
     }
 }

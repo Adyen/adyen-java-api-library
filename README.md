@@ -22,6 +22,7 @@ The library supports all APIs under the following services:
 * [Data Protection API](https://docs.adyen.com/development-resources/data-protection-api#): Endpoints to process Subject Erasure Requests as mandated in General Data Protection Regulation (GDPR): **v1** 
 * [Stored Value API](https://docs.adyen.com/payment-methods/gift-cards/stored-value-api): Endpoints to manage gift cards and other stored-value cards: **v46** 
 * [Legal Entity Management API](https://docs.adyen.com/api-explorer/legalentity/2/overview): Endpoints to manage legal entities that contain information required for verification: **v2**
+* [Management API](https://docs.adyen.com/api-explorer/Management/1/overview): Configure and manage your Adyen company and merchant accounts, stores, and payment terminals: **v1**
 
 For more information, refer to our [documentation](https://docs.adyen.com/) or the [API Explorer](https://docs.adyen.com/api-explorer/).
 
