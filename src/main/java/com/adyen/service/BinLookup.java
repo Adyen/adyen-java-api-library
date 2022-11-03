@@ -2,10 +2,7 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.model.binlookup.CostEstimateRequest;
-import com.adyen.model.binlookup.CostEstimateResponse;
-import com.adyen.model.binlookup.ThreeDSAvailabilityRequest;
-import com.adyen.model.binlookup.ThreeDSAvailabilityResponse;
+import com.adyen.model.binlookup.*;
 import com.adyen.service.resource.binlookup.Get3dsAvailability;
 import com.adyen.service.resource.binlookup.GetCostEstimate;
 import com.google.gson.reflect.TypeToken;
@@ -19,25 +16,19 @@ public class BinLookup extends ApiKeyAuthenticatedService {
         super(client);
         get3dsAvailability = new Get3dsAvailability(this);
         getCostEstimate = new GetCostEstimate(this);
+        new JSON();
     }
 
 
     public ThreeDSAvailabilityResponse get3dsAvailability(ThreeDSAvailabilityRequest threeDSAvailabilityRequest) throws Exception {
-        String jsonRequest = GSON.toJson(threeDSAvailabilityRequest);
-
+        String jsonRequest = threeDSAvailabilityRequest.toJson();
         String jsonResult = get3dsAvailability.request(jsonRequest);
-
-        return GSON.fromJson(jsonResult, new TypeToken<ThreeDSAvailabilityResponse>() {
-        }.getType());
+        return ThreeDSAvailabilityResponse.fromJson(jsonResult);
     }
 
     public CostEstimateResponse getCostEstimate(CostEstimateRequest costEstimateRequest) throws Exception {
-        String jsonRequest = GSON.toJson(costEstimateRequest);
-
+        String jsonRequest = costEstimateRequest.toJson();
         String jsonResult = getCostEstimate.request(jsonRequest);
-
-        return GSON.fromJson(jsonResult, new TypeToken<CostEstimateResponse>() {
-        }.getType());
+        return CostEstimateResponse.fromJson(jsonResult);
     }
-
 }

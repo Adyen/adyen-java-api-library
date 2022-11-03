@@ -54,7 +54,7 @@ public class Client {
     public static final String CHECKOUT_API_VERSION = "v69";
     public static final String CHECKOUT_STORED_PAYMENT_METHODS_VERSION = "v65";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
-    public static final String BIN_LOOKUP_API_VERSION = "v50";
+    public static final String BIN_LOOKUP_API_VERSION = "v52";
     public static final String CHECKOUT_UTILITY_API_VERSION = "v1";
     public static final String TERMINAL_API_ENDPOINT_TEST = "https://terminal-api-test.adyen.com";
     public static final String TERMINAL_API_ENDPOINT_LIVE = "https://terminal-api-live.adyen.com";
