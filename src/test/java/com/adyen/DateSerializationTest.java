@@ -50,7 +50,7 @@ public class DateSerializationTest extends BaseTest {
         ClientInterface http = client.getHttpClient();
 
         String expected = "\"deliverAt\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected), any(), eq(true), isNull(), any());
+        verify(http).request(anyString(), Mockito.contains(expected), any(), eq(true), isNull(), any(), isNull());
     }
 
     @Test
@@ -68,8 +68,8 @@ public class DateSerializationTest extends BaseTest {
 
         String expected1 = "\"deliverAt\":\"2023-06-02T12:00:00";
         String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
+        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
+        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }
 
     @Test
@@ -87,8 +87,8 @@ public class DateSerializationTest extends BaseTest {
 
         String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
         String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
+        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
+        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }
 
     @Test
@@ -106,7 +106,7 @@ public class DateSerializationTest extends BaseTest {
 
         String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
         String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
+        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
+        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }
 }

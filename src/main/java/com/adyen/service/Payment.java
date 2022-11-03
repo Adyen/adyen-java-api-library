@@ -22,15 +22,17 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.AuthenticationResultRequest;
-import com.adyen.model.AuthenticationResultResponse;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentRequest3d;
-import com.adyen.model.PaymentRequest3ds2;
-import com.adyen.model.PaymentResult;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.ThreeDS2ResultRequest;
-import com.adyen.model.ThreeDS2ResultResponse;
+import com.adyen.model.payments.ApplicationInfo;
+import com.adyen.model.payments.AuthenticationResultRequest;
+import com.adyen.model.payments.AuthenticationResultResponse;
+import com.adyen.model.payments.CommonField;
+import com.adyen.model.payments.PaymentRequest;
+import com.adyen.model.payments.PaymentRequest3d;
+import com.adyen.model.payments.PaymentRequest3ds2;
+import com.adyen.model.payments.PaymentResult;
+import com.adyen.model.payments.ThreeDS2ResultRequest;
+import com.adyen.model.payments.ThreeDS2ResultResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.payment.Authorise;
 import com.adyen.service.resource.payment.Authorise3D;
@@ -40,6 +42,10 @@ import com.adyen.service.resource.payment.Retrieve3DS2Result;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.util.Optional;
+
+import static com.adyen.Client.LIB_NAME;
+import static com.adyen.Client.LIB_VERSION;
 
 public class Payment extends Service {
 
@@ -72,6 +78,7 @@ public class Payment extends Service {
     }
 
     public PaymentResult authorise(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
+        paymentRequest.setApplicationInfo(addLibrary(paymentRequest.getApplicationInfo()));
         String jsonRequest = GSON.toJson(paymentRequest);
         String jsonResult = authorise.request(jsonRequest, requestOptions);
         return GSON.fromJson(jsonResult, new TypeToken<PaymentResult>() {
@@ -86,6 +93,7 @@ public class Payment extends Service {
      * @throws Exception Exception
      */
     public PaymentResult authorise3D(PaymentRequest3d paymentRequest3d) throws Exception {
+        paymentRequest3d.setApplicationInfo(addLibrary(paymentRequest3d.getApplicationInfo()));
         String jsonRequest = GSON.toJson(paymentRequest3d);
 
         String jsonResult = authorise3D.request(jsonRequest);
@@ -102,6 +110,7 @@ public class Payment extends Service {
      * @throws Exception Exception
      */
     public PaymentResult authorise3DS2(PaymentRequest3ds2 paymentRequest3ds2) throws Exception {
+        paymentRequest3ds2.setApplicationInfo(addLibrary(paymentRequest3ds2.getApplicationInfo()));
         String jsonRequest = GSON.toJson(paymentRequest3ds2);
 
         String jsonResult = authorise3DS2.request(jsonRequest);
@@ -143,5 +152,14 @@ public class Payment extends Service {
 
         return GSON.fromJson(jsonResult, new TypeToken<AuthenticationResultResponse>() {
         }.getType());
+    }
+
+    /**
+     * Overwrite library version
+     */
+    private ApplicationInfo addLibrary(ApplicationInfo applicationInfo) {
+        return Optional.ofNullable(applicationInfo)
+                .orElse(new ApplicationInfo())
+                .adyenLibrary(new CommonField().name(LIB_NAME).version(LIB_VERSION));
     }
 }

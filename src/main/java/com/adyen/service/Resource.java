@@ -59,6 +59,18 @@ public class Resource {
      * @throws ApiException ApiException
      * @throws IOException  IOException
      */
+    public String request(String json, ApiConstants.HttpMethod httpMethod) throws ApiException, IOException {
+        return request(json, null, httpMethod, null);
+    }
+
+    /**
+     * Request using json String
+     *
+     * @param json request json
+     * @return request
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
     public String request(String json) throws ApiException, IOException {
         return request(json, null, POST, null);
     }
@@ -77,24 +89,32 @@ public class Resource {
     }
 
     /**
+     * Request without query string parameters
+     */
+    public String request(String json, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> pathParams) throws ApiException, IOException {
+        return request(json, requestOptions, httpMethod, pathParams, null);
+    }
+
+    /**
      * Request using json String with additional request parameters like idempotency-key
      *
      * @param json   json
      * @param requestOptions request options
      * @param httpMethod http method
-     * @param params request parameters
+     * @param pathParams path parameters
+     * @param queryString query string parameters
      * @throws ApiException apiException
      * @throws IOException  IOException
      * @return request
      */
-    public String request(String json, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> params) throws ApiException, IOException {
+    public String request(String json, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> pathParams, Map<String, String> queryString) throws ApiException, IOException {
         ClientInterface clientInterface = service.getClient().getHttpClient();
         Config config = service.getClient().getConfig();
         String responseBody;
         ApiException apiException;
 
         try {
-            return clientInterface.request(resolve(params), json, config, service.isApiKeyRequired(), requestOptions, httpMethod);
+            return clientInterface.request(resolve(pathParams), json, config, service.isApiKeyRequired(), requestOptions, httpMethod, queryString);
         } catch (HTTPClientException e) {
             responseBody = e.getResponseBody();
             apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());

@@ -22,10 +22,11 @@ package com.adyen;
 
 import com.adyen.model.Address;
 import com.adyen.model.Amount;
-import com.adyen.model.FraudCheckResult;
+import com.adyen.model.payments.Card;
+import com.adyen.model.payments.FraudCheckResult;
 import com.adyen.model.Name;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.PaymentResult;
+import com.adyen.model.payments.PaymentRequest;
+import com.adyen.model.payments.PaymentResult;
 import com.adyen.model.additionalData.SplitPayment;
 import com.adyen.model.additionalData.SplitPaymentItem;
 import com.adyen.model.hop.GetOnboardingUrlRequest;
@@ -39,15 +40,14 @@ import com.adyen.service.Hop;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.account.CloseStores;
+import com.adyen.util.DateUtil;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
+import java.util.*;
+import java.util.stream.Collectors;
 
+import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.model.marketpay.AccountEvent.EventEnum.INACTIVATEACCOUNT;
 import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.AWAITING_DATA;
 import static com.adyen.model.marketpay.KYCCheckStatusData.StatusEnum.PASSED;
@@ -72,9 +72,15 @@ public class MarketPayTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
         Payment payment = new Payment(client);
 
-        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                .setAmountData("6200", "EUR")
-                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
+        PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456");
+        paymentRequest.setAmount(new com.adyen.model.payments.Amount().value(6200L).currency("EUR"));
+        Card card = new Card();
+        card.setExpiryMonth("08");
+        card.setExpiryYear("2018");
+        card.setHolderName("John Doe");
+        card.setNumber("5136333333333335");
+        card.setCvc("737");
+        paymentRequest.setCard(card);
 
         // splitPayment
         SplitPayment splitPayment = new SplitPayment();
@@ -93,7 +99,7 @@ public class MarketPayTest extends BaseTest {
         splitPaymentItem.setDescription("Porcelain Doll: Eliza (20cm)");
         splitPaymentItems.add(splitPaymentItem);
 
-        // seconf split payment item
+        // second split payment item
         SplitPaymentItem splitPaymentItem2 = new SplitPaymentItem();
         splitPaymentItem2.setAmount(200L);
         splitPaymentItem2.setType("Commission");
@@ -104,30 +110,60 @@ public class MarketPayTest extends BaseTest {
         splitPayment.setSplitPaymentItems(splitPaymentItems);
 
         // add it into the request
-        paymentRequest.setSplitPayment(splitPayment);
+        setSplitPayment(paymentRequest, splitPayment);
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertEquals("2", paymentRequest.getAdditionalData().get("split.nrOfItems"));
+        assertEquals(PaymentResult.ResultCodeEnum.AUTHORISED, paymentResult.getResultCode());
 
         SimpleDateFormat format = new SimpleDateFormat("M/yyyy", Locale.ENGLISH);
         format.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-        assertEquals("8/2018", format.format(paymentResult.getExpiryDate()));
+        Map<String, String> additionalData =  paymentResult.getAdditionalData();
 
-        assertEquals("411111", paymentResult.getCardBin());
-        assertEquals("1111", paymentResult.getCardSummary());
-        assertEquals("Holder", paymentResult.getCardHolderName());
-        assertTrue(paymentResult.get3DOffered());
-        assertFalse(paymentResult.get3DAuthenticated());
+        String expiryDate = additionalData.get(EXPIRY_DATE);
+        assertEquals("8/2018", format.format(DateUtil.parseMYDate(expiryDate)));
+
+        assertEquals("411111", additionalData.get(CARD_BIN));
+        assertEquals("1111", additionalData.get(CARD_SUMMARY));
+        assertEquals("Holder", additionalData.get(CARD_HOLDER_NAME));
+        assertEquals("true", additionalData.get(THREE_D_OFFERERED));
+        assertEquals("false", additionalData.get(THREE_D_AUTHENTICATED));
         assertEquals("69746", paymentResult.getAuthCode());
 
-        assertEquals(11, paymentResult.getFraudResult().getFraudCheckResults().size());
+        assertEquals(11, paymentResult.getFraudResult().getResults().size());
 
-        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getFraudCheckResults().get(0);
+        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0);
         assertEquals("CardChunkUsage", fraudCheckResult.getName());
         assertEquals(8, fraudCheckResult.getAccountScore().intValue());
         assertEquals(2, fraudCheckResult.getCheckId().intValue());
+    }
+
+    /**
+     * TODO publish this method in com.adyen.model.additionalData.SplitPayment?
+     */
+    protected void setSplitPayment(PaymentRequest paymentRequest, SplitPayment splitPayment) {
+        Map<String, String> additionalData = paymentRequest.getAdditionalData() != null ?
+                paymentRequest.getAdditionalData() : new HashMap<>();
+        additionalData.put("split.api", splitPayment.getApi().toString());
+        additionalData.put("split.totalAmount", splitPayment.getTotalAmount().toString());
+        additionalData.put("split.currencyCode", splitPayment.getCurrencyCode());
+
+        int count = 1;
+        for (SplitPaymentItem splitPaymentItem : splitPayment.getSplitPaymentItems()) {
+            String lineNumber = "split.item" + count;
+
+            additionalData.put(lineNumber + ".amount", splitPaymentItem.getAmount().toString());
+            additionalData.put(lineNumber + ".type", splitPaymentItem.getType());
+            additionalData.put(lineNumber + ".account", splitPaymentItem.getAccount());
+            additionalData.put(lineNumber + ".reference", splitPaymentItem.getReference());
+            additionalData.put(lineNumber + ".description", splitPaymentItem.getDescription());
+
+            count++;
+        }
+        additionalData.put("split.nrOfItems", Integer.toString(splitPayment.getSplitPaymentItems().size()));
+        paymentRequest.setAdditionalData(additionalData);
     }
 
     /**
