@@ -22,7 +22,7 @@ package com.adyen.model.storedvalue;
 
 import java.util.Objects;
 
-import com.adyen.model.checkout.PaymentMethodDetails;
+import com.adyen.model.checkout.PaymentMethod;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -46,7 +46,7 @@ public class StoredValueIssueRequest {
     private String merchantAccount = null;
 
     @SerializedName("paymentMethod")
-    private PaymentMethodDetails paymentMethod = null;
+    private PaymentMethod paymentMethod = null;
 
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
@@ -148,7 +148,7 @@ public class StoredValueIssueRequest {
         this.merchantAccount = merchantAccount;
     }
 
-    public StoredValueIssueRequest paymentMethod(PaymentMethodDetails paymentMethod) {
+    public StoredValueIssueRequest paymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
         return this;
     }
@@ -158,11 +158,11 @@ public class StoredValueIssueRequest {
      *
      * @return paymentMethod
      **/
-    public PaymentMethodDetails getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 

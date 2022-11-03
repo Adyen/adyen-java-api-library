@@ -1,0 +1,12 @@
+{
+  "amount": {
+    "currency": "EUR",
+    "value": 1250
+  },
+  "expiresAt": "2021-04-09T14:17:31Z",
+  "reference": "shopper-reference-ekvL83",
+  "url": "https://test.adyen.link/PL6DB3157D27FFBBCF",
+  "id": "foo",
+  "merchantAccount": "myMerchantAccount",
+  "status": "active"
+}
