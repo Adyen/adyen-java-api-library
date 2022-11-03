@@ -2,10 +2,14 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.model.binlookup.*;
+import com.adyen.model.binlookup.JSON;
+import com.adyen.model.binlookup.ThreeDSAvailabilityResponse;
+import com.adyen.model.binlookup.CostEstimateResponse;
+import com.adyen.model.binlookup.CostEstimateRequest;
+import com.adyen.model.binlookup.ThreeDSAvailabilityRequest;
+
 import com.adyen.service.resource.binlookup.Get3dsAvailability;
 import com.adyen.service.resource.binlookup.GetCostEstimate;
-import com.google.gson.reflect.TypeToken;
 
 public class BinLookup extends ApiKeyAuthenticatedService {
 
