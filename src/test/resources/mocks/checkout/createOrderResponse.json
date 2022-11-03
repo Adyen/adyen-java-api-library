@@ -1,0 +1,15 @@
+{
+  "pspReference": "8616178914061985",
+  "resultCode": "Success",
+  "expiresAt": "2021-04-09T14:16:46Z",
+  "orderData": "Abzt3JH4wnzErMnOZwSdgA==",
+  "reference": "shopper-reference-ekvL83",
+  "remainingAmount": {
+    "currency": "EUR",
+    "value": 2500
+  },
+  "amount": {
+    "currency": "EUR",
+    "value": 2500
+  }
+}

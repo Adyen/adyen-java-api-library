@@ -20,37 +20,25 @@
  */
 package com.adyen;
 
+
 import com.adyen.constants.ApiConstants;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.Address;
-import com.adyen.model.Amount;
+import com.adyen.model.checkout.Address;
+import com.adyen.model.nexo.*;
 import com.adyen.model.payments.*;
-import com.adyen.model.RequestOptions;
 import com.adyen.model.additionalData.InvoiceLine;
-import com.adyen.model.checkout.LineItem;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.details.AfterpayDetails;
-import com.adyen.model.payments.CaptureRequest;
-import com.adyen.model.payments.DonationRequest;
-import com.adyen.model.payments.RefundRequest;
-import com.adyen.model.payments.VoidPendingRefundRequest;
-import com.adyen.model.nexo.AmountsReq;
-import com.adyen.model.nexo.MessageCategoryType;
-import com.adyen.model.nexo.MessageClassType;
-import com.adyen.model.nexo.MessageHeader;
-import com.adyen.model.nexo.MessageType;
-import com.adyen.model.nexo.PaymentTransaction;
-import com.adyen.model.nexo.SaleData;
-import com.adyen.model.nexo.SaleToPOIRequest;
-import com.adyen.model.nexo.TransactionIdentification;
-import com.adyen.model.terminal.TerminalAPIRequest;
+
+import com.adyen.model.payments.Amount;
+import com.adyen.model.payments.PaymentRequest;
+import com.adyen.model.terminal.*;
 import com.adyen.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -85,7 +73,6 @@ public class BaseTest {
     protected Client createMockClientFromResponse(String response) {
         AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         try {
-            when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenReturn(response);
             when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull())).thenReturn(response);
             when(adyenHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), any())).thenReturn(response);
             when(adyenHttpClient.request(anyString(), any(), any(Config.class), anyBoolean(), isNull(), any(), any())).thenReturn(response);
@@ -176,72 +163,6 @@ public class BaseTest {
         return createBasePaymentRequest(new PaymentRequest()).reference("123456")
                 .amount(new com.adyen.model.payments.Amount().value(100000L).currency("EUR"))
                 .card(card);
-    }
-
-    protected PaymentsRequest createAfterPayPaymentRequest() {
-
-        PaymentsRequest paymentsRequest = new PaymentsRequest();
-        paymentsRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
-        paymentsRequest.setCountryCode("NL");
-
-        Amount amount = new Amount();
-        amount.setCurrency("EUR");
-        amount.setValue(1000L);
-
-        paymentsRequest.setAmount(amount);
-        paymentsRequest.setShopperReference("YOUR_UNIQUE_SHOPPER_ID");
-        paymentsRequest.setReference("YOUR_ORDER_NUMBER");
-        paymentsRequest.setChannel(PaymentsRequest.ChannelEnum.WEB);
-
-        AfterpayDetails afterpayDetails = new AfterpayDetails();
-        afterpayDetails.setType("afterpay_default");
-
-        afterpayDetails.setPersonalDetails("EndToEnd lastName 2000-02-02 +31612345678 SHOPPER@EMAIL_ADDRESS.COM");
-
-        paymentsRequest.setPaymentMethod(afterpayDetails);
-
-        Address billingAddress = new Address();
-        billingAddress.setStreet("Simon Carmiggeltstraat");
-        billingAddress.setHouseNumberOrName("136");
-        billingAddress.setCity("Amsterdam");
-        billingAddress.setPostalCode("1011DJ");
-        billingAddress.setCountry("NL");
-
-        paymentsRequest.setBillingAddress(billingAddress);
-        paymentsRequest.setShopperIP("192.0.2.1");
-
-        List<LineItem> lineItems = new ArrayList<>();
-
-        lineItems.add(
-                new LineItem()
-                    .quantity(1L)
-                    .amountExcludingTax(331L)
-                    .taxPercentage(2100L)
-                    .description("Shoes")
-                    .id("Item #1")
-                    .taxAmount(69L)
-                    .amountIncludingTax(400L)
-                    .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
-                    .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
-        );
-
-        lineItems.add(
-                new LineItem()
-                .quantity(2L)
-                .amountExcludingTax(248L)
-                .taxPercentage(2100L)
-                .description("Socks")
-                .id("Item #2")
-                .taxAmount(52L)
-                .amountIncludingTax(300L)
-                .imageUrl(DUMMY_PROTOCOL_IMAGE_URL)
-                .productUrl(DUMMY_PROTOCOL_PRODUCT_URL)
-        );
-
-        paymentsRequest.setLineItems(lineItems);
-
-        return paymentsRequest;
-
     }
 
     /**
@@ -394,38 +315,6 @@ public class BaseTest {
         client.setConfig(config);
 
         return client;
-    }
-
-    protected CaptureRequest createCaptureRequest() {
-        return new CaptureRequest()
-                .merchantAccount("AMerchant")
-                .originalReference("originalReference")
-                .reference("merchantReference")
-                .modificationAmount(new com.adyen.model.payments.Amount().value(1500L).currency("EUR"));
-    }
-
-    protected RefundRequest createRefundRequest() {
-        return new RefundRequest()
-                .merchantAccount("AMerchant")
-                .originalReference("originalReference")
-                .reference("merchantReference")
-                .modificationAmount(new com.adyen.model.payments.Amount().value(1500L).currency("EUR"));
-    }
-
-    protected VoidPendingRefundRequest createVoidPendingRefundRequest() {
-        return new VoidPendingRefundRequest()
-                .merchantAccount("AMerchant")
-                .originalReference("originalReference")
-                .reference("merchantReference")
-                .tenderReference("tenderReference");
-    }
-
-    protected DonationRequest createDonationRequest() {
-        return new DonationRequest()
-            .merchantAccount("AMerchant")
-            .donationAccount("donationAccount")
-            .modificationAmount(new com.adyen.model.payments.Amount().value(1500L).currency("EUR"))
-            .originalReference("originalReference");
     }
 
     protected TerminalAPIRequest createTerminalAPIPaymentRequest() throws DatatypeConfigurationException {
