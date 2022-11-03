@@ -1,0 +1,8 @@
+{
+  "paymentMethods": [
+    {
+      "name": "Pay later with Klarna.",
+      "type": "klarna"
+    }
+  ]
+}

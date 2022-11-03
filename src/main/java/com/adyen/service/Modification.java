@@ -23,16 +23,15 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.modification.AbstractModificationRequest;
-import com.adyen.model.modification.AdjustAuthorisationRequest;
-import com.adyen.model.modification.CancelOrRefundRequest;
-import com.adyen.model.modification.CancelRequest;
-import com.adyen.model.modification.CaptureRequest;
-import com.adyen.model.modification.DonationRequest;
-import com.adyen.model.modification.ModificationResult;
-import com.adyen.model.modification.RefundRequest;
-import com.adyen.model.modification.TechnicalCancelRequest;
-import com.adyen.model.modification.VoidPendingRefundRequest;
+import com.adyen.model.payments.AdjustAuthorisationRequest;
+import com.adyen.model.payments.CancelOrRefundRequest;
+import com.adyen.model.payments.CancelRequest;
+import com.adyen.model.payments.CaptureRequest;
+import com.adyen.model.payments.DonationRequest;
+import com.adyen.model.payments.ModificationResult;
+import com.adyen.model.payments.RefundRequest;
+import com.adyen.model.payments.TechnicalCancelRequest;
+import com.adyen.model.payments.VoidPendingRefundRequest;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.modification.AdjustAuthorisation;
 import com.adyen.service.resource.modification.Cancel;
@@ -83,7 +82,7 @@ public class Modification extends Service {
     }
 
     public ModificationResult capture(CaptureRequest captureRequest, RequestOptions requestOptions) throws IOException, ApiException {
-        String jsonRequest = serializeRequest(captureRequest);
+        String jsonRequest = GSON.toJson(captureRequest);
         String jsonResult = capture.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
@@ -101,7 +100,7 @@ public class Modification extends Service {
     }
 
     public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest, RequestOptions requestOptions) throws IOException, ApiException {
-        String jsonRequest = serializeRequest(cancelOrRefundRequest);
+        String jsonRequest = GSON.toJson(cancelOrRefundRequest);
         String jsonResult = cancelOrRefund.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
@@ -119,7 +118,7 @@ public class Modification extends Service {
     }
 
     public ModificationResult refund(RefundRequest refundRequest, RequestOptions requestOptions) throws IOException, ApiException {
-        String jsonRequest = serializeRequest(refundRequest);
+        String jsonRequest = GSON.toJson(refundRequest);
         String jsonResult = refund.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
@@ -138,7 +137,7 @@ public class Modification extends Service {
 
     public ModificationResult cancel(CancelRequest cancelRequest, RequestOptions requestOptions) throws IOException, ApiException {
 
-        String jsonRequest = serializeRequest(cancelRequest);
+        String jsonRequest = GSON.toJson(cancelRequest);
         String jsonResult = cancel.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
@@ -158,7 +157,7 @@ public class Modification extends Service {
 
     public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest, RequestOptions requestOptions) throws IOException, ApiException {
 
-        String jsonRequest = serializeRequest(technicalCancelRequest);
+        String jsonRequest = GSON.toJson(technicalCancelRequest);
         String jsonResult = technicalCancel.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
@@ -177,7 +176,7 @@ public class Modification extends Service {
 
     public ModificationResult adjustAuthorization(AdjustAuthorisationRequest adjustAuthorisationRequest, RequestOptions requestOptions) throws IOException, ApiException {
 
-        String jsonRequest = serializeRequest(adjustAuthorisationRequest);
+        String jsonRequest = GSON.toJson(adjustAuthorisationRequest);
         String jsonResult = adjustAuthorisation.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
@@ -195,7 +194,7 @@ public class Modification extends Service {
     }
 
     public ModificationResult voidPendingRefund(VoidPendingRefundRequest voidPendingRefundRequest, RequestOptions requestOptions) throws IOException, ApiException {
-        String jsonRequest = serializeRequest(voidPendingRefundRequest);
+        String jsonRequest = GSON.toJson(voidPendingRefundRequest);
         String jsonResult = voidPendingRefund.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
     }
@@ -216,10 +215,6 @@ public class Modification extends Service {
         String jsonRequest = serializeDonationRequest(donationRequest);
         String jsonResult = donate.request(jsonRequest, requestOptions);
         return deserializeResponse(jsonResult);
-    }
-
-    private String serializeRequest(AbstractModificationRequest modificationRequest) {
-        return GSON.toJson(modificationRequest);
     }
 
     private String serializeDonationRequest(DonationRequest donationRequest) {
