@@ -47,6 +47,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * FundSource
  */
@@ -321,6 +323,7 @@ public class FundSource {
       if (jsonObj.getAsJsonObject("card") != null) {
         Card.validateJsonObject(jsonObj.getAsJsonObject("card"));
       }
+      // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
@@ -328,6 +331,7 @@ public class FundSource {
       if (jsonObj.getAsJsonObject("shopperName") != null) {
         Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
       }
+      // validate the optional field telephoneNumber
       if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
       }
@@ -362,5 +366,24 @@ public class FundSource {
     }
   }
 
+ /**
+  * Create an instance of FundSource given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of FundSource
+  * @throws IOException if the JSON string is invalid with respect to FundSource
+  */
+  public static FundSource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FundSource.class);
+  }
+
+ /**
+  * Convert an instance of FundSource to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

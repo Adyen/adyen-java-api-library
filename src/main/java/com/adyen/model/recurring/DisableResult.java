@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.recurring.JSON;
+
 /**
  * DisableResult
  */
@@ -149,6 +151,7 @@ public class DisableResult {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DisableResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field response
       if (jsonObj.get("response") != null && !jsonObj.get("response").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `response` to be a primitive type in the JSON string but got `%s`", jsonObj.get("response").toString()));
       }
@@ -183,5 +186,24 @@ public class DisableResult {
     }
   }
 
+ /**
+  * Create an instance of DisableResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of DisableResult
+  * @throws IOException if the JSON string is invalid with respect to DisableResult
+  */
+  public static DisableResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DisableResult.class);
+  }
+
+ /**
+  * Convert an instance of DisableResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

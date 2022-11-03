@@ -1,0 +1,19 @@
+{
+  "id": "1W1UG35U8A9J5ZLG",
+  "amount": {
+    "value": 80000,
+    "currency": "EUR"
+  },
+  "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
+  "category": "bank",
+  "counterparty": {
+    "transferInstrumentId": "SE1234567890ABC1234567890"
+  },
+  "priority": "regular",
+  "referenceForBeneficiary": "Your reference sent to the beneficiary",
+  "reference": "Your internal reference for the transfer",
+  "description": "Your description for the transfer",
+  "direction": "outgoing",
+  "reason": "approved",
+  "status": "authorised"
+}

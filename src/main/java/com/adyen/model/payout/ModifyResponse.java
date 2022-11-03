@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * ModifyResponse
  */
@@ -229,9 +231,11 @@ public class ModifyResponse {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field response
       if (jsonObj.get("response") != null && !jsonObj.get("response").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `response` to be a primitive type in the JSON string but got `%s`", jsonObj.get("response").toString()));
       }
@@ -266,5 +270,24 @@ public class ModifyResponse {
     }
   }
 
+ /**
+  * Create an instance of ModifyResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ModifyResponse
+  * @throws IOException if the JSON string is invalid with respect to ModifyResponse
+  */
+  public static ModifyResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ModifyResponse.class);
+  }
+
+ /**
+  * Convert an instance of ModifyResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

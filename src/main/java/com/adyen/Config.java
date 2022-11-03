@@ -39,7 +39,6 @@ public class Config {
     protected Environment environment;
     protected String endpoint;
     protected String marketPayEndpoint;
-
     protected String balancePlatformEndpoint;
     /**
      * Application name: used as HTTP client User-Agent

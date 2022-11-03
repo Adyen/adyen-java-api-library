@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.recurring.JSON;
+
 /**
  * RecurringDetailsRequest
  */
@@ -219,6 +221,7 @@ public class RecurringDetailsRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
@@ -226,6 +229,7 @@ public class RecurringDetailsRequest {
       if (jsonObj.getAsJsonObject("recurring") != null) {
         Recurring.validateJsonObject(jsonObj.getAsJsonObject("recurring"));
       }
+      // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
@@ -260,5 +264,24 @@ public class RecurringDetailsRequest {
     }
   }
 
+ /**
+  * Create an instance of RecurringDetailsRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of RecurringDetailsRequest
+  * @throws IOException if the JSON string is invalid with respect to RecurringDetailsRequest
+  */
+  public static RecurringDetailsRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RecurringDetailsRequest.class);
+  }
+
+ /**
+  * Convert an instance of RecurringDetailsRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.recurring.JSON;
+
 /**
  * NotifyShopperResult
  */
@@ -329,24 +331,31 @@ public class NotifyShopperResult {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotifyShopperResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field displayedReference
       if (jsonObj.get("displayedReference") != null && !jsonObj.get("displayedReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `displayedReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayedReference").toString()));
       }
+      // validate the optional field message
       if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
+      // validate the optional field resultCode
       if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
       }
+      // validate the optional field shopperNotificationReference
       if (jsonObj.get("shopperNotificationReference") != null && !jsonObj.get("shopperNotificationReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperNotificationReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperNotificationReference").toString()));
       }
+      // validate the optional field storedPaymentMethodId
       if (jsonObj.get("storedPaymentMethodId") != null && !jsonObj.get("storedPaymentMethodId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `storedPaymentMethodId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storedPaymentMethodId").toString()));
       }
@@ -381,5 +390,24 @@ public class NotifyShopperResult {
     }
   }
 
+ /**
+  * Create an instance of NotifyShopperResult given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of NotifyShopperResult
+  * @throws IOException if the JSON string is invalid with respect to NotifyShopperResult
+  */
+  public static NotifyShopperResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, NotifyShopperResult.class);
+  }
+
+ /**
+  * Convert an instance of NotifyShopperResult to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.recurring.JSON;
+
 /**
  * TokenDetails
  */
@@ -190,6 +192,7 @@ public class TokenDetails {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TokenDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field tokenDataType
       if (jsonObj.get("tokenDataType") != null && !jsonObj.get("tokenDataType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tokenDataType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tokenDataType").toString()));
       }
@@ -224,5 +227,24 @@ public class TokenDetails {
     }
   }
 
+ /**
+  * Create an instance of TokenDetails given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TokenDetails
+  * @throws IOException if the JSON string is invalid with respect to TokenDetails
+  */
+  public static TokenDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TokenDetails.class);
+  }
+
+ /**
+  * Convert an instance of TokenDetails to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
