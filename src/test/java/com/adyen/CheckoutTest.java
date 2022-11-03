@@ -225,6 +225,21 @@ public class CheckoutTest extends BaseTest {
     /**
      * Should make ordersCancel call
      */
+    protected CreateCheckoutSessionRequest createCreateCheckoutSessionRequest() {
+        CreateCheckoutSessionRequest createCheckoutSessionRequest = new CreateCheckoutSessionRequest();
+        createCheckoutSessionRequest.setMerchantAccount("TestMerchant");
+        createCheckoutSessionRequest.setReference("TestReference");
+        createCheckoutSessionRequest.setReturnUrl("http://test-url.com");
+
+
+        Amount amount = new Amount();
+        amount.setCurrency("EUR");
+        amount.setValue(10000L);
+
+        createCheckoutSessionRequest.setAmount(amount);
+        return createCheckoutSessionRequest;
+    }
+
     @Test
     public void TestCancelOrderSuccessCall() throws Exception {
         Client client = createMockClientFromFile("mocks/checkout/cancelOrderResponse.json");
