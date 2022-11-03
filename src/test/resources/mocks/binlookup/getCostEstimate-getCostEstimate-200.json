@@ -1,0 +1,8 @@
+{
+  "costEstimateAmount": {
+    "currency": "EUR",
+    "value": 12
+  },
+  "resultCode": "Success",
+  "surchargeType": "PASSTHROUGH"
+}

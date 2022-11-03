@@ -20,16 +20,12 @@
  */
 package com.adyen;
 
-import com.adyen.model.Amount;
-import com.adyen.model.binlookup.CostEstimateAssumptions;
-import com.adyen.model.binlookup.CostEstimateRequest;
-import com.adyen.model.binlookup.CostEstimateResponse;
-import com.adyen.model.binlookup.MerchantDetails;
-import com.adyen.model.binlookup.ThreeDSAvailabilityRequest;
-import com.adyen.model.binlookup.ThreeDSAvailabilityResponse;
+import com.adyen.model.binlookup.*;
 import com.adyen.service.BinLookup;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -45,7 +41,7 @@ public class BinLookupTest extends BaseTest {
 
     @Test
     public void TestGet3dsAvailabilitySuccessMocked() throws Exception {
-        Client client = createMockClientFromFile("mocks/binlookup/get3dsavailability-success.json");
+        Client client = createMockClientFromFile("mocks/binlookup/get3dsAvailability-200-success.json");
         BinLookup binLookup = new BinLookup(client);
 
         ThreeDSAvailabilityRequest threeDSAvailabilityRequest = new ThreeDSAvailabilityRequest();
@@ -53,9 +49,9 @@ public class BinLookupTest extends BaseTest {
         threeDSAvailabilityRequest.setCardNumber("4111111111111111");
 
         ThreeDSAvailabilityResponse threeDSAvailabilityResponse = binLookup.get3dsAvailability(threeDSAvailabilityRequest);
-        assertEquals("visa", threeDSAvailabilityResponse.getDsPublicKeys().get(0).getBrand());
-        assertEquals("visa", threeDSAvailabilityResponse.getThreeDS2CardRangeDetails().get(0).getBrandCode());
-        assertEquals(true, threeDSAvailabilityResponse.isThreeDS1Supported());
+        assertEquals(true, threeDSAvailabilityResponse.getThreeDS1Supported());
+        assertEquals(false, threeDSAvailabilityResponse.getThreeDS2supported());
+        assertEquals(new ArrayList<ThreeDS2CardRangeDetail>(), threeDSAvailabilityResponse.getThreeDS2CardRangeDetails());
     }
 
     @Test
@@ -80,7 +76,7 @@ public class BinLookupTest extends BaseTest {
     @Test
     public void TestGetCostEstimateSuccessMocked() throws Exception {
 
-        Client client = createMockClientFromFile("mocks/binlookup/getcostestimate-success.json");
+        Client client = createMockClientFromFile("mocks/binlookup/getCostEstimate-getCostEstimate-200.json");
         BinLookup binLookup = new BinLookup(client);
 
         CostEstimateRequest costEstimateRequest = new CostEstimateRequest();
@@ -105,9 +101,10 @@ public class BinLookupTest extends BaseTest {
 
 
         CostEstimateResponse costEstimateResponse = binLookup.getCostEstimate(costEstimateRequest);
-        assertEquals("1111", costEstimateResponse.getCardBin().getSummary());
-        assertEquals("Unsupported", costEstimateResponse.getResultCode());
-        assertEquals("ZERO", costEstimateResponse.getSurchargeType());
+        assertEquals("EUR", costEstimateResponse.getCostEstimateAmount().getCurrency());
+        assertEquals(12L, costEstimateResponse.getCostEstimateAmount().getValue().longValue());
+        assertEquals("Success", costEstimateResponse.getResultCode());
+        assertEquals("PASSTHROUGH", costEstimateResponse.getSurchargeType());
     }
 
     @Test

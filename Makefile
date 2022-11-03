@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=payments checkout
+services:=payments checkout binlookup
 models:=src/main/java/com/adyen/model
 output:=target/out
 
