@@ -38,6 +38,7 @@ $(services): target/spec $(openapi-generator-jar)
 		-g $(generator) \
 		-t templates \
 		-o $(output) \
+		--reserved-words-mappings configuration=configuration \
 		--ignore-file-override ./.openapi-generator-ignore \
 		--skip-validate-spec \
 		--model-package $(subst /,.,com.adyen.model.$@) \

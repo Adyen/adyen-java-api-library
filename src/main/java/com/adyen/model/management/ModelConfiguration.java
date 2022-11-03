@@ -157,10 +157,10 @@ public class ModelConfiguration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModelConfiguration _configuration = (ModelConfiguration) o;
-    return Objects.equals(this.brand, _configuration.brand) &&
-        Objects.equals(this.currencies, _configuration.currencies) &&
-        Objects.equals(this.sources, _configuration.sources);
+    ModelConfiguration configuration = (ModelConfiguration) o;
+    return Objects.equals(this.brand, configuration.brand) &&
+        Objects.equals(this.currencies, configuration.currencies) &&
+        Objects.equals(this.sources, configuration.sources);
   }
 
   @Override
