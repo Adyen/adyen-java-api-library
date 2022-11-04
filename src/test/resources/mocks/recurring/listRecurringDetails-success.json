@@ -23,8 +23,6 @@
       "variant": "visa"
     },
     {
-      "acquirer": "PayPalSandbox",
-      "acquirerAccount": "TestPmmAcquirerAccount",
       "billingAddress": {
         "city": "City",
         "country": "NL",

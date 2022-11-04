@@ -45,6 +45,10 @@
     <module name="BeforeExecutionExclusionFileFilter">
         <property name="fileNamePattern" value="model[\\/].*$"/>
     </module>
+    <!-- Ignore generated service classes -->
+    <module name="BeforeExecutionExclusionFileFilter">
+        <property name="fileNamePattern" value="service[\\/]management"/>
+    </module>
 
     <!-- Checks that a package-info.java file exists for each package.     -->
     <!-- See http://checkstyle.sf.net/config_javadoc.html#JavadocPackage -->

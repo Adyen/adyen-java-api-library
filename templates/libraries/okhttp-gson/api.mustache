@@ -2,31 +2,24 @@
 
 package {{package}};
 
+import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import {{modelPackage}}.JSON;
+{{#imports}}import {{import}};
+{{/imports}}
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.{{resourceClass}};
 
 import java.io.IOException;
-
-import {{modelPackage}}.*;
-import {{invokerPackage}}.Pair;
-
-{{#imports}}import {{import}};
-{{/imports}}
-
-{{^fullJavaUtil}}
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-{{/fullJavaUtil}}
 
 {{#operations}}
-public class {{classname}} {
+public class {{classname}} extends ApiKeyAuthenticatedService {
     public {{classname}}(Client client) {
         super(client);
+        new JSON();
     }
 
 {{#operation}}
@@ -55,17 +48,16 @@ public class {{classname}} {
    @Deprecated
    {{/isDeprecated}}
     public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException, IOException {
-    {{#allParams}}{{#required}}
-        // verify the required parameter '{{paramName}}' is set
-        if ({{paramName}} == null) {
-            throw new ApiException(400, "Missing the required parameter '{{paramName}}'");
+{{! verify if a required parameter is set }}
+{{#allParams}}{{#required}}        if ({{paramName}} == null) {
+            throw new ApiException("Missing the required parameter '{{paramName}}'", 400);
         }
-    {{/required}}{{/allParams}}
+{{/required}}{{/allParams}}
         Map<String, String> pathParams = new HashMap<>();
-        {{#pathParams}}
+{{#pathParams}}
         pathParams.put("{{baseName}}", {{{paramName}}});
-        {{/pathParams}}
-        
+{{/pathParams}}
+
         String requestBody = {{#bodyParam}}{{paramName}}.toJson(){{/bodyParam}}{{^bodyParam}}null{{/bodyParam}};
         {{resourceClass}} resource = new {{resourceClass}}(this, "{{{path}}}");
         {{#returnType}}
@@ -73,7 +65,7 @@ public class {{classname}} {
         return {{#returnType}}{{{.}}}.fromJson(jsonResult){{/returnType}};
         {{/returnType}}
         {{^returnType}}
-        resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}});
+        resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}}, pathParams{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
         {{/returnType}}
     }
     

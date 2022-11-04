@@ -1,4 +1,4 @@
-/**
+/*
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -18,10 +18,8 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.model.modification;
+package com.adyen.model;
 
-import com.adyen.model.Amount;
-import com.adyen.util.Util;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -29,55 +27,67 @@ import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
-public class RefundRequest extends AbstractModificationRequest<RefundRequest> {
-    @SerializedName("modificationAmount")
-    private Amount modificationAmount = null;
+/**
+ * SplitAmount
+ */
+public class SplitAmount {
 
-    public RefundRequest modificationAmount(Amount modificationAmount) {
-        this.modificationAmount = modificationAmount;
+    @SerializedName("currency")
+    private String currency = null;
+
+    @SerializedName("value")
+    private Long value = null;
+
+    public SplitAmount currency(String currency) {
+        this.currency = currency;
         return this;
     }
 
-    public Amount getModificationAmount() {
-        return modificationAmount;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setModificationAmount(Amount modificationAmount) {
-        this.modificationAmount = modificationAmount;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public RefundRequest fillAmount(String amount, String currency) {
-        Amount amountData = Util.createAmount(amount, currency);
-
-        this.setModificationAmount(amountData);
+    public SplitAmount value(Long value) {
+        this.value = value;
         return this;
+    }
+
+    public Long getValue() {
+        return value;
+    }
+
+    public void setValue(Long value) {
+        this.value = value;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RefundRequest refundRequest = (RefundRequest) o;
-        return super.equals(refundRequest) &&
-                Objects.equals(this.modificationAmount, refundRequest.modificationAmount);
+        SplitAmount splitAmount = (SplitAmount) o;
+        return Objects.equals(this.currency, splitAmount.currency) && Objects.equals(this.value, splitAmount.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(modificationAmount, super.hashCode());
+        return Objects.hash(currency, value);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RefundRequest {\n");
+        sb.append("class SplitAmount {\n");
 
-        sb.append(super.toString());
-        sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
+        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
         sb.append("}");
         return sb.toString();
     }

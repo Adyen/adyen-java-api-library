@@ -4,10 +4,9 @@ import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.PaymentSessionRequest;
-import com.adyen.model.checkout.PaymentsRequest;
+import com.adyen.model.checkout.PaymentSetupRequest;
+import com.adyen.model.checkout.PaymentRequest;
 import com.adyen.service.Checkout;
-import com.adyen.service.PaymentLinks;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -15,6 +14,7 @@ import org.mockito.Mockito;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
@@ -35,11 +35,12 @@ public class DateSerializationTest extends BaseTest {
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
+        cal.setTimeZone(TimeZone.getTimeZone("UTC"));
         return cal.getTime();
     }
     @Test
     public void TestCheckoutSessionDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
+        Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
         Checkout checkout = new Checkout(client);
 
         CreateCheckoutSessionRequest sessionsRequest = new CreateCheckoutSessionRequest();
@@ -55,15 +56,15 @@ public class DateSerializationTest extends BaseTest {
 
     @Test
     public void TestCreatePaymentLinkDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
-        PaymentLinks payment = new PaymentLinks(client);
+        Client client = createMockClientFromFile("mocks/checkout/paymentLinkResponse.json");
+        Checkout checkout = new Checkout(client);
 
         CreatePaymentLinkRequest paymentLinkRequest = new CreatePaymentLinkRequest();
 
         paymentLinkRequest.setDeliverAt(date());
         paymentLinkRequest.setDateOfBirth(date());
 
-        payment.create(paymentLinkRequest);
+        checkout.paymentLinks(paymentLinkRequest);
         ClientInterface http = client.getHttpClient();
 
         String expected1 = "\"deliverAt\":\"2023-06-02T12:00:00";
@@ -74,10 +75,10 @@ public class DateSerializationTest extends BaseTest {
 
     @Test
     public void TestPaymentSessionDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
+        Client client = createMockClientFromFile("mocks/checkout/paymentSessionResponse.json");
         Checkout checkout = new Checkout(client);
 
-        PaymentSessionRequest request = new PaymentSessionRequest();
+        PaymentSetupRequest request = new PaymentSetupRequest();
 
         request.setDateOfBirth(date());
         request.setDeliveryDate(date());
@@ -93,10 +94,10 @@ public class DateSerializationTest extends BaseTest {
 
     @Test
     public void TestCheckoutPaymentsDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
+        Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
         Checkout checkout = new Checkout(client);
 
-        PaymentsRequest request = new PaymentsRequest();
+        PaymentRequest request = new PaymentRequest();
 
         request.setDateOfBirth(date());
         request.setDeliveryDate(date());

@@ -38,6 +38,7 @@ $(services): target/spec $(openapi-generator-jar)
 		-g $(generator) \
 		-t templates \
 		-o $(output) \
+		--reserved-words-mappings configuration=configuration \
 		--ignore-file-override ./.openapi-generator-ignore \
 		--skip-validate-spec \
 		--model-package $(subst /,.,com.adyen.model.$@) \
@@ -45,6 +46,8 @@ $(services): target/spec $(openapi-generator-jar)
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
 		--additional-properties=dateLibrary=legacy \
+		--additional-properties=serializationLibrary=gson \
+		--additional-properties=openApiNullable=false \
 		--additional-properties=resourceClass=$(resourceClass)Resource
 	mv $(output)/$(models)/$@ $(models)/$@
 	mv $(output)/$(models)/JSON.java $(models)/$@
