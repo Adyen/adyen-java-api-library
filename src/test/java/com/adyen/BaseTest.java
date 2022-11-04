@@ -20,40 +20,10 @@
  */
 package com.adyen;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-import com.adyen.enums.VatCategory;
-import com.adyen.httpclient.AdyenHttpClient;
-import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.Amount;
-import com.adyen.model.PaymentRequest;
-import com.adyen.model.*;
-=======
-=======
-
->>>>>>> develop
 import com.adyen.constants.ApiConstants;
 import com.adyen.enums.VatCategory;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.checkout.Address;
-import com.adyen.model.nexo.*;
-import com.adyen.model.payments.*;
-<<<<<<< HEAD
-import com.adyen.model.RequestOptions;
->>>>>>> develop
-import com.adyen.model.additionalData.InvoiceLine;
-import com.adyen.model.checkout.LineItem;
-import com.adyen.model.checkout.PaymentsRequest;
-import com.adyen.model.checkout.details.AfterpayDetails;
-<<<<<<< HEAD
-import com.adyen.model.modification.*;
-import com.adyen.model.nexo.*;
-=======
-import com.adyen.model.payments.CaptureRequest;
-import com.adyen.model.payments.DonationRequest;
-import com.adyen.model.payments.RefundRequest;
-import com.adyen.model.payments.VoidPendingRefundRequest;
 import com.adyen.model.nexo.AmountsReq;
 import com.adyen.model.nexo.MessageCategoryType;
 import com.adyen.model.nexo.MessageClassType;
@@ -63,15 +33,18 @@ import com.adyen.model.nexo.PaymentTransaction;
 import com.adyen.model.nexo.SaleData;
 import com.adyen.model.nexo.SaleToPOIRequest;
 import com.adyen.model.nexo.TransactionIdentification;
->>>>>>> develop
+import com.adyen.model.payments.ApplicationInfo;
+import com.adyen.model.payments.AuthenticationResultRequest;
+import com.adyen.model.payments.BrowserInfo;
+import com.adyen.model.payments.Card;
+import com.adyen.model.payments.CommonField;
+import com.adyen.model.payments.Name;
+import com.adyen.model.payments.PaymentRequest3d;
+import com.adyen.model.payments.PaymentRequest3ds2;
+import com.adyen.model.payments.ThreeDS2RequestData;
 import com.adyen.model.terminal.TerminalAPIRequest;
-=======
 import com.adyen.model.additionalData.InvoiceLine;
-
-import com.adyen.model.payments.Amount;
 import com.adyen.model.payments.PaymentRequest;
-import com.adyen.model.terminal.*;
->>>>>>> develop
 import com.adyen.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -87,14 +60,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
 import static org.junit.Assert.fail;
-import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class BaseTest {
     protected final ApplicationInfo applicationInfo = new ApplicationInfo()
