@@ -47,6 +47,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * PayoutRequest
  */
@@ -622,6 +624,7 @@ public class PayoutRequest {
       if (jsonObj.getAsJsonObject("fundSource") != null) {
         FundSource.validateJsonObject(jsonObj.getAsJsonObject("fundSource"));
       }
+      // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchantAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantAccount").toString()));
       }
@@ -629,25 +632,34 @@ public class PayoutRequest {
       if (jsonObj.getAsJsonObject("recurring") != null) {
         Recurring.validateJsonObject(jsonObj.getAsJsonObject("recurring"));
       }
+      // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
+      // validate the optional field selectedRecurringDetailReference
       if (jsonObj.get("selectedRecurringDetailReference") != null && !jsonObj.get("selectedRecurringDetailReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `selectedRecurringDetailReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectedRecurringDetailReference").toString()));
       }
+      // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
-      if (jsonObj.get("shopperInteraction") != null && !jsonObj.get("shopperInteraction").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
+      // ensure the field shopperInteraction can be parsed to an enum value
+      if (jsonObj.get("shopperInteraction") != null) {
+        if(!jsonObj.get("shopperInteraction").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `shopperInteraction` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperInteraction").toString()));
+        }
+        ShopperInteractionEnum.fromValue(jsonObj.get("shopperInteraction").getAsString());
       }
       // validate the optional field `shopperName`
       if (jsonObj.getAsJsonObject("shopperName") != null) {
         Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
       }
+      // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
       }
+      // validate the optional field telephoneNumber
       if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `telephoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telephoneNumber").toString()));
       }
@@ -682,5 +694,24 @@ public class PayoutRequest {
     }
   }
 
+ /**
+  * Create an instance of PayoutRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of PayoutRequest
+  * @throws IOException if the JSON string is invalid with respect to PayoutRequest
+  */
+  public static PayoutRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PayoutRequest.class);
+  }
+
+ /**
+  * Convert an instance of PayoutRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

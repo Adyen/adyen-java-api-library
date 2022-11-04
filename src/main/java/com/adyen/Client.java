@@ -39,7 +39,7 @@ public class Client {
     public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
-    public static final String API_VERSION = "v52";
+    public static final String API_VERSION = "v68";
     public static final String PAYOUT_API_VERSION = "v68";
     public static final String RECURRING_API_VERSION = "v68";
     public static final String MARKETPAY_ACCOUNT_API_VERSION = "v6";
@@ -67,6 +67,10 @@ public class Client {
     public static final String DATA_PROTECTION_ENDPOINT_LIVE = "https://ca-live.adyen.com/ca/services/DataProtectionService";
     public static final String POS_TERMINAL_MANAGEMENT_VERSION = "v1";
     public static final String DATA_PROTECTION_VERSION = "v1";
+    public static final String BALANCE_PLATFORM_ENDPOINT_TEST = "https://balanceplatform-api-test.adyen.com";
+    public static final String BALANCE_PLATFORM_ENDPOINT_LIVE = "https://balanceplatform-api-live.adyen.com";
+    public static final String BALANCE_PLATFORM_VERSION = "v2";
+    public static final String TRANSFER_VERSION = "v3";
     public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_ENDPOINT_LIVE = "https://kyc-test.adyen.com/lem/";
     public static final String LEGAL_ENTITY_MANAGEMENT_VERSION = "v2";
@@ -208,6 +212,7 @@ public class Client {
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
             this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_TEST);
+            this.config.setBalancePlatformEndpoint(BALANCE_PLATFORM_ENDPOINT_TEST);
             this.config.setLegalEntityManagementEndpoint(LEGAL_ENTITY_MANAGEMENT_ENDPOINT_TEST);
             this.config.setManagementEndpoint(MANAGEMENT_ENDPOINT_TEST);
         } else if (Environment.LIVE.equals(environment)) {
@@ -221,6 +226,7 @@ public class Client {
                 this.config.setEndpoint(ENDPOINT_LIVE);
                 this.config.setCheckoutEndpoint(null);
             }
+            this.config.setBalancePlatformEndpoint(BALANCE_PLATFORM_ENDPOINT_LIVE);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_LIVE);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE);
             this.config.setDataProtectionEndpoint(DATA_PROTECTION_ENDPOINT_LIVE);

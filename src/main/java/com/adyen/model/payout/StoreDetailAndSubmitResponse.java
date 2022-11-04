@@ -44,6 +44,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * StoreDetailAndSubmitResponse
  */
@@ -259,12 +261,15 @@ public class StoreDetailAndSubmitResponse {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field pspReference
       if (jsonObj.get("pspReference") != null && !jsonObj.get("pspReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pspReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pspReference").toString()));
       }
+      // validate the optional field refusalReason
       if (jsonObj.get("refusalReason") != null && !jsonObj.get("refusalReason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refusalReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refusalReason").toString()));
       }
+      // validate the optional field resultCode
       if (jsonObj.get("resultCode") != null && !jsonObj.get("resultCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `resultCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resultCode").toString()));
       }
@@ -299,5 +304,24 @@ public class StoreDetailAndSubmitResponse {
     }
   }
 
+ /**
+  * Create an instance of StoreDetailAndSubmitResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StoreDetailAndSubmitResponse
+  * @throws IOException if the JSON string is invalid with respect to StoreDetailAndSubmitResponse
+  */
+  public static StoreDetailAndSubmitResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StoreDetailAndSubmitResponse.class);
+  }
+
+ /**
+  * Convert an instance of StoreDetailAndSubmitResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

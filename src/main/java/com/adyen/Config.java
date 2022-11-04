@@ -39,6 +39,8 @@ public class Config {
     protected Environment environment;
     protected String endpoint;
     protected String marketPayEndpoint;
+    protected String balancePlatformEndpoint;
+
     /**
      * Application name: used as HTTP client User-Agent
      */
@@ -271,6 +273,14 @@ public class Config {
 
     public void setClientKeyStorePassword(String clientKeyStorePassword) {
         this.clientKeyStorePassword = clientKeyStorePassword;
+    }
+
+    public String getBalancePlatformEndpoint() {
+        return balancePlatformEndpoint;
+    }
+
+    public void setBalancePlatformEndpoint(String balancePlatformEndpoint) {
+        this.balancePlatformEndpoint = balancePlatformEndpoint;
     }
 
     public String getLegalManagementEndpoint() {

@@ -41,6 +41,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.adyen.model.payout.JSON;
+
 /**
  * BankAccount
  */
@@ -389,30 +391,39 @@ public class BankAccount {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BankAccount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field bankAccountNumber
       if (jsonObj.get("bankAccountNumber") != null && !jsonObj.get("bankAccountNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bankAccountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankAccountNumber").toString()));
       }
+      // validate the optional field bankCity
       if (jsonObj.get("bankCity") != null && !jsonObj.get("bankCity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bankCity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankCity").toString()));
       }
+      // validate the optional field bankLocationId
       if (jsonObj.get("bankLocationId") != null && !jsonObj.get("bankLocationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bankLocationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankLocationId").toString()));
       }
+      // validate the optional field bankName
       if (jsonObj.get("bankName") != null && !jsonObj.get("bankName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bankName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bankName").toString()));
       }
+      // validate the optional field bic
       if (jsonObj.get("bic") != null && !jsonObj.get("bic").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bic` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bic").toString()));
       }
+      // validate the optional field countryCode
       if (jsonObj.get("countryCode") != null && !jsonObj.get("countryCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryCode").toString()));
       }
+      // validate the optional field iban
       if (jsonObj.get("iban") != null && !jsonObj.get("iban").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `iban` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iban").toString()));
       }
+      // validate the optional field ownerName
       if (jsonObj.get("ownerName") != null && !jsonObj.get("ownerName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ownerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerName").toString()));
       }
+      // validate the optional field taxId
       if (jsonObj.get("taxId") != null && !jsonObj.get("taxId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `taxId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taxId").toString()));
       }
@@ -447,5 +458,24 @@ public class BankAccount {
     }
   }
 
+ /**
+  * Create an instance of BankAccount given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of BankAccount
+  * @throws IOException if the JSON string is invalid with respect to BankAccount
+  */
+  public static BankAccount fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BankAccount.class);
+  }
+
+ /**
+  * Convert an instance of BankAccount to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

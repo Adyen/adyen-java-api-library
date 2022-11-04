@@ -1,6 +1,0 @@
-{
-  "status": 422,
-  "errorCode": "121",
-  "message": "ShopperReference is missing",
-  "errorType": "validation"
-}
