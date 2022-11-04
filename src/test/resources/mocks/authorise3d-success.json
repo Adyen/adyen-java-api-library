@@ -9,18 +9,14 @@
     "accountScore": 12,
     "results": [
       {
-        "FraudCheckResult": {
-          "accountScore": 12,
-          "checkId": -1,
-          "name": "Pre-Auth-Risk-Total"
-        }
+        "accountScore": 12,
+        "checkId": -1,
+        "name": "Pre-Auth-Risk-Total"
       },
       {
-        "FraudCheckResult": {
-          "accountScore": 0,
-          "checkId": 25,
-          "name": "CVCAuthResultCheck"
-        }
+        "accountScore": 0,
+        "checkId": 25,
+        "name": "CVCAuthResultCheck"
       }
     ]
   },

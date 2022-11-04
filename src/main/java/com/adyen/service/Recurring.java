@@ -24,6 +24,7 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.recurring.DisableRequest;
 import com.adyen.model.recurring.DisableResult;
+import com.adyen.model.recurring.JSON;
 import com.adyen.model.recurring.NotifyShopperRequest;
 import com.adyen.model.recurring.NotifyShopperResult;
 import com.adyen.model.recurring.RecurringDetailsRequest;
@@ -35,8 +36,6 @@ import com.adyen.service.resource.recurring.Disable;
 import com.adyen.service.resource.recurring.ListRecurringDetails;
 import com.adyen.service.resource.recurring.NotifyShopper;
 import com.adyen.service.resource.recurring.ScheduleAccountUpdater;
-import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
 
 public class Recurring extends Service {
@@ -52,6 +51,7 @@ public class Recurring extends Service {
         disable = new Disable(this);
         scheduleAccountUpdater = new ScheduleAccountUpdater(this);
         notifyShopper = new NotifyShopper(this);
+        new JSON();
     }
 
     /**
@@ -63,10 +63,9 @@ public class Recurring extends Service {
      * @throws ApiException ApiException
      */
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
         String jsonResult = listRecurringDetails.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<RecurringDetailsResult>() {
-        }.getType());
+        return RecurringDetailsResult.fromJson(jsonResult);
     }
 
     /**
@@ -78,10 +77,9 @@ public class Recurring extends Service {
      * @throws ApiException ApiException
      */
     public DisableResult disable(DisableRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
         String jsonResult = disable.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<DisableResult>() {
-        }.getType());
+        return DisableResult.fromJson(jsonResult);
     }
 
     /**
@@ -93,10 +91,9 @@ public class Recurring extends Service {
      * @throws ApiException ApiException
      */
     public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
         String jsonResult = scheduleAccountUpdater.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<ScheduleAccountUpdaterResult>() {
-        }.getType());
+        return ScheduleAccountUpdaterResult.fromJson(jsonResult);
     }
 
     /**
@@ -108,10 +105,9 @@ public class Recurring extends Service {
      * @throws ApiException ApiException
      */
     public NotifyShopperResult notifyShopper(NotifyShopperRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
         String jsonResult = notifyShopper.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<NotifyShopperResult>() {
-        }.getType());
+        return NotifyShopperResult.fromJson(jsonResult);
     }
 
 }

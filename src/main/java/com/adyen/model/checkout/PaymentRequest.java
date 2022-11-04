@@ -502,7 +502,7 @@ public class PaymentRequest {
 
   public static final String SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
   @SerializedName(SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY)
-  private Boolean threeDSAuthenticationOnly = false;
+  private Boolean threeDSAuthenticationOnly;
 
   public static final String SERIALIZED_NAME_TRUSTED_SHOPPER = "trustedShopper";
   @SerializedName(SERIALIZED_NAME_TRUSTED_SHOPPER)
