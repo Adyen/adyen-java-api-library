@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.CreateMerchantUserRequest;
 import com.adyen.model.management.CreateUserResponse;
 import com.adyen.model.management.ListMerchantUsersResponse;
@@ -47,15 +46,13 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ListMerchantUsersResponse getMerchantsMerchantIdUsers(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/users");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -71,21 +68,17 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public User getMerchantsMerchantIdUsersUserId(String merchantId, String userId) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("userId", userId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/users/{userId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -102,21 +95,17 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public User patchMerchantsMerchantIdUsersUserId(String merchantId, String userId, UpdateMerchantUserRequest updateMerchantUserRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("userId", userId);
-        
+
         String requestBody = updateMerchantUserRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/users/{userId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);
@@ -132,15 +121,13 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public CreateUserResponse postMerchantsMerchantIdUsers(String merchantId, CreateMerchantUserRequest createMerchantUserRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
-        
+
         String requestBody = createMerchantUserRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/users");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

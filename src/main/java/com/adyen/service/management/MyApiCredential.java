@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.AllowedOrigin;
 import com.adyen.model.management.AllowedOriginsResponse;
 import com.adyen.model.management.CreateAllowedOriginRequest;
@@ -42,15 +41,13 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public void deleteMeAllowedOriginsOriginId(String originId) throws ApiException, IOException {
-    
-        // verify the required parameter 'originId' is set
         if (originId == null) {
             throw new ApiException("Missing the required parameter 'originId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("originId", originId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/me/allowedOrigins/{originId}");
         resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams);
@@ -63,9 +60,9 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public MeApiCredential getMe() throws ApiException, IOException {
-    
+
         Map<String, String> pathParams = new HashMap<>();
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/me");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -79,9 +76,9 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public AllowedOriginsResponse getMeAllowedOrigins() throws ApiException, IOException {
-    
+
         Map<String, String> pathParams = new HashMap<>();
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/me/allowedOrigins");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -96,15 +93,13 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public AllowedOrigin getMeAllowedOriginsOriginId(String originId) throws ApiException, IOException {
-    
-        // verify the required parameter 'originId' is set
         if (originId == null) {
             throw new ApiException("Missing the required parameter 'originId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("originId", originId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/me/allowedOrigins/{originId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -119,9 +114,9 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public AllowedOriginsResponse postMeAllowedOrigins(CreateAllowedOriginRequest createAllowedOriginRequest) throws ApiException, IOException {
-    
+
         Map<String, String> pathParams = new HashMap<>();
-        
+
         String requestBody = createAllowedOriginRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/me/allowedOrigins");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.ApiCredential;
 import com.adyen.model.management.CreateApiCredentialResponse;
 import com.adyen.model.management.CreateMerchantApiCredentialRequest;
@@ -47,15 +46,13 @@ public class ApiCredentialsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ListMerchantApiCredentialsResponse getMerchantsMerchantIdApiCredentials(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -71,21 +68,17 @@ public class ApiCredentialsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ApiCredential getMerchantsMerchantIdApiCredentialsApiCredentialId(String merchantId, String apiCredentialId) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("apiCredentialId", apiCredentialId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -102,21 +95,17 @@ public class ApiCredentialsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ApiCredential patchMerchantsMerchantIdApiCredentialsApiCredentialId(String merchantId, String apiCredentialId, UpdateMerchantApiCredentialRequest updateMerchantApiCredentialRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("apiCredentialId", apiCredentialId);
-        
+
         String requestBody = updateMerchantApiCredentialRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);
@@ -132,15 +121,13 @@ public class ApiCredentialsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public CreateApiCredentialResponse postMerchantsMerchantIdApiCredentials(String merchantId, CreateMerchantApiCredentialRequest createMerchantApiCredentialRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
-        
+
         String requestBody = createMerchantApiCredentialRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

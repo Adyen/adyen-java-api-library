@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.CreateCompanyWebhookRequest;
 import com.adyen.model.management.GenerateHmacKeyResponse;
 import com.adyen.model.management.ListWebhooksResponse;
@@ -46,24 +45,20 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public void deleteCompaniesCompanyIdWebhooksWebhookId(String companyId, String webhookId) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
             throw new ApiException("Missing the required parameter 'webhookId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("webhookId", webhookId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/webhooks/{webhookId}");
-        resource.request(requestBody, ApiConstants.HttpMethod.DELETE);
+        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams);
     }
     
     /**
@@ -77,15 +72,13 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ListWebhooksResponse getCompaniesCompanyIdWebhooks(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/webhooks");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -101,21 +94,17 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public Webhook getCompaniesCompanyIdWebhooksWebhookId(String companyId, String webhookId) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
             throw new ApiException("Missing the required parameter 'webhookId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("webhookId", webhookId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/webhooks/{webhookId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -132,21 +121,17 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public Webhook patchCompaniesCompanyIdWebhooksWebhookId(String companyId, String webhookId, UpdateCompanyWebhookRequest updateCompanyWebhookRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
             throw new ApiException("Missing the required parameter 'webhookId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("webhookId", webhookId);
-        
+
         String requestBody = updateCompanyWebhookRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/webhooks/{webhookId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);
@@ -162,15 +147,13 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public Webhook postCompaniesCompanyIdWebhooks(String companyId, CreateCompanyWebhookRequest createCompanyWebhookRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = createCompanyWebhookRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/webhooks");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);
@@ -186,21 +169,17 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public GenerateHmacKeyResponse postCompaniesCompanyIdWebhooksWebhookIdGenerateHmac(String companyId, String webhookId) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
             throw new ApiException("Missing the required parameter 'webhookId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("webhookId", webhookId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/webhooks/{webhookId}/generateHmac");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);
@@ -217,21 +196,17 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TestWebhookResponse postCompaniesCompanyIdWebhooksWebhookIdTest(String companyId, String webhookId, TestCompanyWebhookRequest testCompanyWebhookRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'webhookId' is set
         if (webhookId == null) {
             throw new ApiException("Missing the required parameter 'webhookId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("webhookId", webhookId);
-        
+
         String requestBody = testCompanyWebhookRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/webhooks/{webhookId}/test");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

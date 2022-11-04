@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.GenerateApiKeyResponse;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.service.exception.ApiException;
@@ -41,21 +40,17 @@ public class ApiKeyMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public GenerateApiKeyResponse postMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKey(String merchantId, String apiCredentialId) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("apiCredentialId", apiCredentialId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/generateApiKey");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

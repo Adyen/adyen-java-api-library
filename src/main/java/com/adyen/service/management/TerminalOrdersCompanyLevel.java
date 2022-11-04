@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.BillingEntitiesResponse;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.model.management.ShippingLocation;
@@ -49,15 +48,13 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public BillingEntitiesResponse getCompaniesCompanyIdBillingEntities(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/billingEntities");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -76,15 +73,13 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ShippingLocationsResponse getCompaniesCompanyIdShippingLocations(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/shippingLocations");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -99,15 +94,13 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalModelsResponse getCompaniesCompanyIdTerminalModels(String companyId) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalModels");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -127,15 +120,13 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalOrdersResponse getCompaniesCompanyIdTerminalOrders(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalOrders");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -151,21 +142,17 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalOrder getCompaniesCompanyIdTerminalOrdersOrderId(String companyId, String orderId) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("orderId", orderId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalOrders/{orderId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -185,15 +172,13 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalProductsResponse getCompaniesCompanyIdTerminalProducts(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalProducts");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -210,21 +195,17 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalOrder patchCompaniesCompanyIdTerminalOrdersOrderId(String companyId, String orderId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("orderId", orderId);
-        
+
         String requestBody = terminalOrderRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalOrders/{orderId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);
@@ -240,15 +221,13 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ShippingLocation postCompaniesCompanyIdShippingLocations(String companyId, ShippingLocation shippingLocation) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = shippingLocation.toJson();
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/shippingLocations");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);
@@ -264,15 +243,13 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalOrder postCompaniesCompanyIdTerminalOrders(String companyId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = terminalOrderRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalOrders");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);
@@ -288,21 +265,17 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalOrder postCompaniesCompanyIdTerminalOrdersOrderIdCancel(String companyId, String orderId) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'orderId' is set
         if (orderId == null) {
             throw new ApiException("Missing the required parameter 'orderId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("orderId", orderId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalOrders/{orderId}/cancel");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

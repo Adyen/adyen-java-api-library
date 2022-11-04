@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.CompanyApiCredential;
 import com.adyen.model.management.CreateCompanyApiCredentialRequest;
 import com.adyen.model.management.CreateCompanyApiCredentialResponse;
@@ -47,15 +46,13 @@ public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ListCompanyApiCredentialsResponse getCompaniesCompanyIdApiCredentials(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/apiCredentials");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -71,21 +68,17 @@ public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public CompanyApiCredential getCompaniesCompanyIdApiCredentialsApiCredentialId(String companyId, String apiCredentialId) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("apiCredentialId", apiCredentialId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/apiCredentials/{apiCredentialId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -102,21 +95,17 @@ public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public CompanyApiCredential patchCompaniesCompanyIdApiCredentialsApiCredentialId(String companyId, String apiCredentialId, UpdateCompanyApiCredentialRequest updateCompanyApiCredentialRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("apiCredentialId", apiCredentialId);
-        
+
         String requestBody = updateCompanyApiCredentialRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/apiCredentials/{apiCredentialId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);
@@ -132,15 +121,13 @@ public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public CreateCompanyApiCredentialResponse postCompaniesCompanyIdApiCredentials(String companyId, CreateCompanyApiCredentialRequest createCompanyApiCredentialRequest) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = createCompanyApiCredentialRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/apiCredentials");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

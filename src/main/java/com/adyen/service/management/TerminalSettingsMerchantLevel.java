@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.Logo;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.model.management.TerminalSettings;
@@ -43,15 +42,13 @@ public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public Logo getMerchantsMerchantIdTerminalLogos(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/terminalLogos");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -66,15 +63,13 @@ public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalSettings getMerchantsMerchantIdTerminalSettings(String merchantId) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/terminalSettings");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -92,15 +87,13 @@ public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public Logo patchMerchantsMerchantIdTerminalLogos(String merchantId, Logo logo, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
-        
+
         String requestBody = logo.toJson();
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/terminalLogos");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams, queryParams);
@@ -116,15 +109,13 @@ public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalSettings patchMerchantsMerchantIdTerminalSettings(String merchantId, TerminalSettings terminalSettings) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
-        
+
         String requestBody = terminalSettings.toJson();
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/terminalSettings");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);

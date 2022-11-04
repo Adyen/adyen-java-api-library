@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.Logo;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.model.management.TerminalSettings;
@@ -41,15 +40,13 @@ public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public Logo getTerminalsTerminalIdTerminalLogos(String terminalId) throws ApiException, IOException {
-    
-        // verify the required parameter 'terminalId' is set
         if (terminalId == null) {
             throw new ApiException("Missing the required parameter 'terminalId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("terminalId", terminalId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/terminals/{terminalId}/terminalLogos");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -64,15 +61,13 @@ public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalSettings getTerminalsTerminalIdTerminalSettings(String terminalId) throws ApiException, IOException {
-    
-        // verify the required parameter 'terminalId' is set
         if (terminalId == null) {
             throw new ApiException("Missing the required parameter 'terminalId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("terminalId", terminalId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/terminals/{terminalId}/terminalSettings");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -88,15 +83,13 @@ public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public Logo patchTerminalsTerminalIdTerminalLogos(String terminalId, Logo logo) throws ApiException, IOException {
-    
-        // verify the required parameter 'terminalId' is set
         if (terminalId == null) {
             throw new ApiException("Missing the required parameter 'terminalId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("terminalId", terminalId);
-        
+
         String requestBody = logo.toJson();
         ManagementResource resource = new ManagementResource(this, "/terminals/{terminalId}/terminalLogos");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);
@@ -112,15 +105,13 @@ public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public TerminalSettings patchTerminalsTerminalIdTerminalSettings(String terminalId, TerminalSettings terminalSettings) throws ApiException, IOException {
-    
-        // verify the required parameter 'terminalId' is set
         if (terminalId == null) {
             throw new ApiException("Missing the required parameter 'terminalId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("terminalId", terminalId);
-        
+
         String requestBody = terminalSettings.toJson();
         ManagementResource resource = new ManagementResource(this, "/terminals/{terminalId}/terminalSettings");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.PATCH, pathParams);

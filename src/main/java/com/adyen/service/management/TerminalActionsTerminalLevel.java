@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.model.management.ScheduleTerminalActionsRequest;
 import com.adyen.model.management.ScheduleTerminalActionsResponse;
@@ -41,9 +40,9 @@ public class TerminalActionsTerminalLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ScheduleTerminalActionsResponse postTerminalsScheduleActions(ScheduleTerminalActionsRequest scheduleTerminalActionsRequest) throws ApiException, IOException {
-    
+
         Map<String, String> pathParams = new HashMap<>();
-        
+
         String requestBody = scheduleTerminalActionsRequest.toJson();
         ManagementResource resource = new ManagementResource(this, "/terminals/scheduleActions");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

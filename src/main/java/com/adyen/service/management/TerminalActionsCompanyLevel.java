@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.AndroidAppsResponse;
 import com.adyen.model.management.AndroidCertificatesResponse;
 import com.adyen.model.management.ExternalTerminalAction;
@@ -46,15 +45,13 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public AndroidAppsResponse getCompaniesCompanyIdAndroidApps(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/androidApps");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -72,15 +69,13 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public AndroidCertificatesResponse getCompaniesCompanyIdAndroidCertificates(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/androidCertificates");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -100,15 +95,13 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ListExternalTerminalActionsResponse getCompaniesCompanyIdTerminalActions(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalActions");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
@@ -124,21 +117,17 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ExternalTerminalAction getCompaniesCompanyIdTerminalActionsActionId(String companyId, String actionId) throws ApiException, IOException {
-    
-        // verify the required parameter 'companyId' is set
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
-    
-        // verify the required parameter 'actionId' is set
         if (actionId == null) {
             throw new ApiException("Missing the required parameter 'actionId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("companyId", companyId);
         pathParams.put("actionId", actionId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/companies/{companyId}/terminalActions/{actionId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);

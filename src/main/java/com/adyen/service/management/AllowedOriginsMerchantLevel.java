@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.AllowedOrigin;
 import com.adyen.model.management.AllowedOriginsResponse;
 import com.adyen.model.management.RestServiceError;
@@ -42,30 +41,24 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public void deleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(String merchantId, String apiCredentialId, String originId) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
-        // verify the required parameter 'originId' is set
         if (originId == null) {
             throw new ApiException("Missing the required parameter 'originId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("apiCredentialId", apiCredentialId);
         pathParams.put("originId", originId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}");
-        resource.request(requestBody, ApiConstants.HttpMethod.DELETE);
+        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams);
     }
     
     /**
@@ -77,21 +70,17 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public AllowedOriginsResponse getMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(String merchantId, String apiCredentialId) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("apiCredentialId", apiCredentialId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -108,27 +97,21 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public AllowedOrigin getMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(String merchantId, String apiCredentialId, String originId) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
-        // verify the required parameter 'originId' is set
         if (originId == null) {
             throw new ApiException("Missing the required parameter 'originId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("apiCredentialId", apiCredentialId);
         pathParams.put("originId", originId);
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams);
@@ -145,21 +128,17 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public AllowedOriginsResponse postMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(String merchantId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
-    
-        // verify the required parameter 'merchantId' is set
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
-    
-        // verify the required parameter 'apiCredentialId' is set
         if (apiCredentialId == null) {
             throw new ApiException("Missing the required parameter 'apiCredentialId'", 400);
         }
-    
+
         Map<String, String> pathParams = new HashMap<>();
         pathParams.put("merchantId", merchantId);
         pathParams.put("apiCredentialId", apiCredentialId);
-        
+
         String requestBody = allowedOrigin.toJson();
         ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.POST, pathParams);

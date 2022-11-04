@@ -14,9 +14,8 @@ package com.adyen.service.management;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.management.*;
+import com.adyen.model.management.JSON;
 import com.adyen.model.management.ListTerminalsResponse;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.service.exception.ApiException;
@@ -47,9 +46,9 @@ public class TerminalsTerminalLevel extends ApiKeyAuthenticatedService {
      * @throws ApiException if fails to make API call
      */
     public ListTerminalsResponse getTerminals(Map<String, String> queryParams) throws ApiException, IOException {
-    
+
         Map<String, String> pathParams = new HashMap<>();
-        
+
         String requestBody = null;
         ManagementResource resource = new ManagementResource(this, "/terminals");
         String jsonResult = resource.request(requestBody, null, ApiConstants.HttpMethod.GET, pathParams, queryParams);
