@@ -2,12 +2,12 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.balancePlatform.AccountHolders;
-import com.adyen.service.balancePlatform.BalanceAccounts;
-import com.adyen.service.balancePlatform.General;
-import com.adyen.service.balancePlatform.PaymentInstrumentGroups;
-import com.adyen.service.balancePlatform.PaymentInstruments;
-import com.adyen.service.balancePlatform.TransactionRules;
+import com.adyen.service.balanceplatform.AccountHolders;
+import com.adyen.service.balanceplatform.BalanceAccounts;
+import com.adyen.service.balanceplatform.General;
+import com.adyen.service.balanceplatform.PaymentInstrumentGroups;
+import com.adyen.service.balanceplatform.PaymentInstruments;
+import com.adyen.service.balanceplatform.TransactionRules;
 
 public class BalancePlatformService extends Service {
     public BalancePlatformService(Client client) {
