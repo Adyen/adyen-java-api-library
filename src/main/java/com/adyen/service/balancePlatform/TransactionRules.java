@@ -8,7 +8,7 @@ import com.adyen.model.balanceplatform.TransactionRule;
 import com.adyen.model.balanceplatform.TransactionRuleInfo;
 import com.adyen.model.balanceplatform.TransactionRuleResponse;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.balancePlatform.BalancePlatformResource;
+import com.adyen.service.resource.balanceplatform.BalancePlatformResource;
 
 import java.io.IOException;
 

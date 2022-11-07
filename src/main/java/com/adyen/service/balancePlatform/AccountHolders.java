@@ -8,7 +8,7 @@ import com.adyen.model.balanceplatform.AccountHolderInfo;
 import com.adyen.model.balanceplatform.JSON;
 import com.adyen.model.balanceplatform.PaginatedBalanceAccountsResponse;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.balancePlatform.BalancePlatformResource;
+import com.adyen.service.resource.balanceplatform.BalancePlatformResource;
 
 import java.io.IOException;
 import java.util.Map;

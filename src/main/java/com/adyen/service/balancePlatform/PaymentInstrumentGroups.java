@@ -8,7 +8,7 @@ import com.adyen.model.balanceplatform.PaymentInstrumentGroup;
 import com.adyen.model.balanceplatform.PaymentInstrumentGroupInfo;
 import com.adyen.model.balanceplatform.TransactionRulesResponse;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.balancePlatform.BalancePlatformResource;
+import com.adyen.service.resource.balanceplatform.BalancePlatformResource;
 
 import java.io.IOException;
 

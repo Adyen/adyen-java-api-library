@@ -1,4 +1,4 @@
-package com.adyen.service.resource.balancePlatform;
+package com.adyen.service.resource.balanceplatform;
 
 import com.adyen.Client;
 import com.adyen.Service;

@@ -6,7 +6,7 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.BalancePlatform;
 import com.adyen.model.balanceplatform.PaginatedAccountHoldersResponse;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.balancePlatform.BalancePlatformResource;
+import com.adyen.service.resource.balanceplatform.BalancePlatformResource;
 
 import java.io.IOException;
 import java.util.Map;

@@ -11,7 +11,7 @@ import com.adyen.model.balanceplatform.SweepConfigurationV2;
 import com.adyen.model.balanceplatform.PaginatedPaymentInstrumentsResponse;
 import com.adyen.model.balanceplatform.JSON;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.balancePlatform.BalancePlatformResource;
+import com.adyen.service.resource.balanceplatform.BalancePlatformResource;
 
 import java.io.IOException;
 import java.util.Map;
