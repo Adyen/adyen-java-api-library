@@ -224,9 +224,13 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @param createPaymentCaptureRequest CreatePaymentCaptureRequest
      */
     public PaymentCaptureResource paymentsCaptures(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
+        return paymentsCaptures(paymentPspReference, createPaymentCaptureRequest, null);
+    }
+
+    public PaymentCaptureResource paymentsCaptures(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest, RequestOptions requestOptions) throws ApiException, IOException {
         CheckoutResource paymentsCaptures = new CheckoutResource(this, "/payments/" + paymentPspReference + "/captures");
         String jsonRequest = createPaymentCaptureRequest.toJson();
-        String jsonResult = paymentsCaptures.request(jsonRequest);
+        String jsonResult = paymentsCaptures.request(jsonRequest, requestOptions);
         return PaymentCaptureResource.fromJson(jsonResult);
     }
 
@@ -240,9 +244,13 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentCancelResource paymentsCancels(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
+        return paymentsCancels(paymentPspReference, createPaymentCancelRequest, null);
+    }
+
+    public PaymentCancelResource paymentsCancels(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
         CheckoutResource paymentsCancels = new CheckoutResource(this, "/payments/" + paymentPspReference + "/cancels");
         String jsonRequest = createPaymentCancelRequest.toJson();
-        String jsonResult = paymentsCancels.request(jsonRequest);
+        String jsonResult = paymentsCancels.request(jsonRequest, requestOptions);
         return PaymentCancelResource.fromJson(jsonResult);
     }
 
@@ -255,8 +263,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public StandalonePaymentCancelResource cancels(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest) throws ApiException, IOException {
+        return cancels(createStandalonePaymentCancelRequest, null);
+    }
+
+    public StandalonePaymentCancelResource cancels(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = createStandalonePaymentCancelRequest.toJson();
-        String jsonResult = cancels.request(jsonRequest);
+        String jsonResult = cancels.request(jsonRequest, requestOptions);
         return StandalonePaymentCancelResource.fromJson(jsonResult);
     }
 
@@ -270,9 +282,13 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentReversalResource paymentsReversals(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
+        return paymentsReversals(paymentPspReference, createPaymentReversalRequest, null);
+    }
+
+    public PaymentReversalResource paymentsReversals(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest, RequestOptions requestOptions) throws ApiException, IOException {
         CheckoutResource paymentReversal = new CheckoutResource(this, "/payments/" + paymentPspReference + "/reversals");
         String jsonRequest = createPaymentReversalRequest.toJson();
-        String jsonResult = paymentReversal.request(jsonRequest);
+        String jsonResult = paymentReversal.request(jsonRequest, requestOptions);
         return PaymentReversalResource.fromJson(jsonResult);
     }
 
@@ -286,9 +302,13 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentRefundResource paymentsRefunds(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
+        return paymentsRefunds(paymentPspReference, createPaymentRefundRequest, null);
+    }
+
+    public PaymentRefundResource paymentsRefunds(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest, RequestOptions requestOptions) throws ApiException, IOException {
         CheckoutResource paymentsRefunds = new CheckoutResource(this, "/payments/" + paymentPspReference + "/refunds");
         String jsonRequest = createPaymentRefundRequest.toJson();
-        String jsonResult = paymentsRefunds.request(jsonRequest);
+        String jsonResult = paymentsRefunds.request(jsonRequest, requestOptions);
         return PaymentRefundResource.fromJson(jsonResult);
     }
 
@@ -302,9 +322,13 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentAmountUpdateResource paymentsAmountUpdates(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
+        return paymentsAmountUpdates(paymentPspReference, createPaymentAmountUpdateRequest, null);
+    }
+
+    public PaymentAmountUpdateResource paymentsAmountUpdates(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
         CheckoutResource paymentsAmountUpdates = new CheckoutResource(this, "/payments/" + paymentPspReference + "/amountUpdates");
         String jsonRequest = createPaymentAmountUpdateRequest.toJson();
-        String jsonResult = paymentsAmountUpdates.request(jsonRequest);
+        String jsonResult = paymentsAmountUpdates.request(jsonRequest, requestOptions);
         return PaymentAmountUpdateResource.fromJson(jsonResult);
     }
 
