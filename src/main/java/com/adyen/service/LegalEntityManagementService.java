@@ -3,11 +3,11 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.legalEntityManagement.JSON;
-import com.adyen.service.LegalEntityManagement.BusinessLineService;
-import com.adyen.service.LegalEntityManagement.Documents;
-import com.adyen.service.LegalEntityManagement.HostedOnboarding;
-import com.adyen.service.LegalEntityManagement.LegalEntities;
-import com.adyen.service.LegalEntityManagement.TransferInstruments;
+import com.adyen.service.legalentitymanagement.BusinessLineService;
+import com.adyen.service.legalentitymanagement.Documents;
+import com.adyen.service.legalentitymanagement.HostedOnboarding;
+import com.adyen.service.legalentitymanagement.LegalEntities;
+import com.adyen.service.legalentitymanagement.TransferInstruments;
 
 public class LegalEntityManagementService extends Service {
     public LegalEntityManagementService(Client client) {
