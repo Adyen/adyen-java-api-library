@@ -40,7 +40,7 @@ public class AllowedOriginsCompanyLevel extends ApiKeyAuthenticatedService {
      * @param originId Unique identifier of the allowed origin. (required)
      * @throws ApiException if fails to make API call
      */
-    public void deleteCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(String companyId, String apiCredentialId, String originId) throws ApiException, IOException {
+    public void deleteAllowedOrigin(String companyId, String apiCredentialId, String originId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -69,7 +69,7 @@ public class AllowedOriginsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return AllowedOriginsResponse
      * @throws ApiException if fails to make API call
      */
-    public AllowedOriginsResponse getCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOrigins(String companyId, String apiCredentialId) throws ApiException, IOException {
+    public AllowedOriginsResponse getListOfAllowedOrigins(String companyId, String apiCredentialId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -96,7 +96,7 @@ public class AllowedOriginsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return AllowedOrigin
      * @throws ApiException if fails to make API call
      */
-    public AllowedOrigin getCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(String companyId, String apiCredentialId, String originId) throws ApiException, IOException {
+    public AllowedOrigin getAllowedOrigin(String companyId, String apiCredentialId, String originId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -127,7 +127,7 @@ public class AllowedOriginsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return AllowedOriginsResponse
      * @throws ApiException if fails to make API call
      */
-    public AllowedOriginsResponse postCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOrigins(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
+    public AllowedOriginsResponse createAllowedOrigin(String companyId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

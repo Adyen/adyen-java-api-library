@@ -39,7 +39,7 @@ public class ApiKeyCompanyLevel extends ApiKeyAuthenticatedService {
      * @return GenerateApiKeyResponse
      * @throws ApiException if fails to make API call
      */
-    public GenerateApiKeyResponse postCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKey(String companyId, String apiCredentialId) throws ApiException, IOException {
+    public GenerateApiKeyResponse generateNewApiKey(String companyId, String apiCredentialId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

@@ -41,7 +41,7 @@ public class PayoutSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @param payoutSettingsId The unique identifier of the payout setting. (required)
      * @throws ApiException if fails to make API call
      */
-    public void deleteMerchantsMerchantIdPayoutSettingsPayoutSettingsId(String merchantId, String payoutSettingsId) throws ApiException, IOException {
+    public void deletePayoutSetting(String merchantId, String payoutSettingsId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -65,7 +65,7 @@ public class PayoutSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PayoutSettingsResponse
      * @throws ApiException if fails to make API call
      */
-    public PayoutSettingsResponse getMerchantsMerchantIdPayoutSettings(String merchantId) throws ApiException, IOException {
+    public PayoutSettingsResponse getListOfPayoutSettings(String merchantId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -87,7 +87,7 @@ public class PayoutSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PayoutSettings
      * @throws ApiException if fails to make API call
      */
-    public PayoutSettings getMerchantsMerchantIdPayoutSettingsPayoutSettingsId(String merchantId, String payoutSettingsId) throws ApiException, IOException {
+    public PayoutSettings getPayoutSetting(String merchantId, String payoutSettingsId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -114,7 +114,7 @@ public class PayoutSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PayoutSettings
      * @throws ApiException if fails to make API call
      */
-    public PayoutSettings patchMerchantsMerchantIdPayoutSettingsPayoutSettingsId(String merchantId, String payoutSettingsId, UpdatePayoutSettingsRequest updatePayoutSettingsRequest) throws ApiException, IOException {
+    public PayoutSettings updatePayoutSetting(String merchantId, String payoutSettingsId, UpdatePayoutSettingsRequest updatePayoutSettingsRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -140,7 +140,7 @@ public class PayoutSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PayoutSettings
      * @throws ApiException if fails to make API call
      */
-    public PayoutSettings postMerchantsMerchantIdPayoutSettings(String merchantId, PayoutSettingsRequest payoutSettingsRequest) throws ApiException, IOException {
+    public PayoutSettings addPayoutSetting(String merchantId, PayoutSettingsRequest payoutSettingsRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

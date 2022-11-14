@@ -44,7 +44,7 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @param webhookId Unique identifier of the webhook configuration. (required)
      * @throws ApiException if fails to make API call
      */
-    public void deleteCompaniesCompanyIdWebhooksWebhookId(String companyId, String webhookId) throws ApiException, IOException {
+    public void removeWebhook(String companyId, String webhookId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -71,7 +71,7 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ListWebhooksResponse
      * @throws ApiException if fails to make API call
      */
-    public ListWebhooksResponse getCompaniesCompanyIdWebhooks(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListWebhooksResponse listAllWebhooks(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -93,7 +93,7 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @return Webhook
      * @throws ApiException if fails to make API call
      */
-    public Webhook getCompaniesCompanyIdWebhooksWebhookId(String companyId, String webhookId) throws ApiException, IOException {
+    public Webhook getWebhook(String companyId, String webhookId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -120,7 +120,7 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @return Webhook
      * @throws ApiException if fails to make API call
      */
-    public Webhook patchCompaniesCompanyIdWebhooksWebhookId(String companyId, String webhookId, UpdateCompanyWebhookRequest updateCompanyWebhookRequest) throws ApiException, IOException {
+    public Webhook updateWebhook(String companyId, String webhookId, UpdateCompanyWebhookRequest updateCompanyWebhookRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -146,7 +146,7 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @return Webhook
      * @throws ApiException if fails to make API call
      */
-    public Webhook postCompaniesCompanyIdWebhooks(String companyId, CreateCompanyWebhookRequest createCompanyWebhookRequest) throws ApiException, IOException {
+    public Webhook setUpWebhook(String companyId, CreateCompanyWebhookRequest createCompanyWebhookRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -168,7 +168,7 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @return GenerateHmacKeyResponse
      * @throws ApiException if fails to make API call
      */
-    public GenerateHmacKeyResponse postCompaniesCompanyIdWebhooksWebhookIdGenerateHmac(String companyId, String webhookId) throws ApiException, IOException {
+    public GenerateHmacKeyResponse generateHmacKey(String companyId, String webhookId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -195,7 +195,7 @@ public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TestWebhookResponse
      * @throws ApiException if fails to make API call
      */
-    public TestWebhookResponse postCompaniesCompanyIdWebhooksWebhookIdTest(String companyId, String webhookId, TestCompanyWebhookRequest testCompanyWebhookRequest) throws ApiException, IOException {
+    public TestWebhookResponse testWebhook(String companyId, String webhookId, TestCompanyWebhookRequest testCompanyWebhookRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

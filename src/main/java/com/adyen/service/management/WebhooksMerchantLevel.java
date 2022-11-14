@@ -44,7 +44,7 @@ public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
      * @param webhookId Unique identifier of the webhook configuration. (required)
      * @throws ApiException if fails to make API call
      */
-    public void deleteMerchantsMerchantIdWebhooksWebhookId(String merchantId, String webhookId) throws ApiException, IOException {
+    public void removeWebhook(String merchantId, String webhookId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -71,7 +71,7 @@ public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ListWebhooksResponse
      * @throws ApiException if fails to make API call
      */
-    public ListWebhooksResponse getMerchantsMerchantIdWebhooks(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListWebhooksResponse listAllWebhooks(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -93,7 +93,7 @@ public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
      * @return Webhook
      * @throws ApiException if fails to make API call
      */
-    public Webhook getMerchantsMerchantIdWebhooksWebhookId(String merchantId, String webhookId) throws ApiException, IOException {
+    public Webhook getWebhook(String merchantId, String webhookId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -120,7 +120,7 @@ public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
      * @return Webhook
      * @throws ApiException if fails to make API call
      */
-    public Webhook patchMerchantsMerchantIdWebhooksWebhookId(String merchantId, String webhookId, UpdateMerchantWebhookRequest updateMerchantWebhookRequest) throws ApiException, IOException {
+    public Webhook updateWebhook(String merchantId, String webhookId, UpdateMerchantWebhookRequest updateMerchantWebhookRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -146,7 +146,7 @@ public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
      * @return Webhook
      * @throws ApiException if fails to make API call
      */
-    public Webhook postMerchantsMerchantIdWebhooks(String merchantId, CreateMerchantWebhookRequest createMerchantWebhookRequest) throws ApiException, IOException {
+    public Webhook setUpWebhook(String merchantId, CreateMerchantWebhookRequest createMerchantWebhookRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -168,7 +168,7 @@ public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
      * @return GenerateHmacKeyResponse
      * @throws ApiException if fails to make API call
      */
-    public GenerateHmacKeyResponse postMerchantsMerchantIdWebhooksWebhookIdGenerateHmac(String merchantId, String webhookId) throws ApiException, IOException {
+    public GenerateHmacKeyResponse generateHmacKey(String merchantId, String webhookId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -195,7 +195,7 @@ public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
      * @return TestWebhookResponse
      * @throws ApiException if fails to make API call
      */
-    public TestWebhookResponse postMerchantsMerchantIdWebhooksWebhookIdTest(String merchantId, String webhookId, TestWebhookRequest testWebhookRequest) throws ApiException, IOException {
+    public TestWebhookResponse testWebhook(String merchantId, String webhookId, TestWebhookRequest testWebhookRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

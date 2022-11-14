@@ -44,7 +44,7 @@ public class AccountMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ListMerchantResponse
      * @throws ApiException if fails to make API call
      */
-    public ListMerchantResponse getMerchants(Map<String, String> queryParams) throws ApiException, IOException {
+    public ListMerchantResponse getListOfMerchantAccounts(Map<String, String> queryParams) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 
@@ -61,7 +61,7 @@ public class AccountMerchantLevel extends ApiKeyAuthenticatedService {
      * @return Merchant
      * @throws ApiException if fails to make API call
      */
-    public Merchant getMerchantsMerchantId(String merchantId) throws ApiException, IOException {
+    public Merchant getMerchantAccount(String merchantId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -82,7 +82,7 @@ public class AccountMerchantLevel extends ApiKeyAuthenticatedService {
      * @return CreateMerchantResponse
      * @throws ApiException if fails to make API call
      */
-    public CreateMerchantResponse postMerchants(CreateMerchantRequest createMerchantRequest) throws ApiException, IOException {
+    public CreateMerchantResponse createMerchantAccount(CreateMerchantRequest createMerchantRequest) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 
@@ -99,7 +99,7 @@ public class AccountMerchantLevel extends ApiKeyAuthenticatedService {
      * @return RequestActivationResponse
      * @throws ApiException if fails to make API call
      */
-    public RequestActivationResponse postMerchantsMerchantIdActivate(String merchantId) throws ApiException, IOException {
+    public RequestActivationResponse requestToActivateMerchantAccount(String merchantId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

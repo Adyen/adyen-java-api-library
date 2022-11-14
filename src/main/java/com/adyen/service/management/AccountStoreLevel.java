@@ -46,7 +46,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return ListStoresResponse
      * @throws ApiException if fails to make API call
      */
-    public ListStoresResponse getMerchantsMerchantIdStores(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListStoresResponse getListOfStores(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -68,7 +68,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return Store
      * @throws ApiException if fails to make API call
      */
-    public Store getMerchantsMerchantIdStoresStoreId(String merchantId, String storeId) throws ApiException, IOException {
+    public Store getStore(String merchantId, String storeId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -97,7 +97,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return ListStoresResponse
      * @throws ApiException if fails to make API call
      */
-    public ListStoresResponse getStores(Map<String, String> queryParams) throws ApiException, IOException {
+    public ListStoresResponse getListOfStores(Map<String, String> queryParams) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 
@@ -114,7 +114,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return Store
      * @throws ApiException if fails to make API call
      */
-    public Store getStoresStoreId(String storeId) throws ApiException, IOException {
+    public Store getStore(String storeId) throws ApiException, IOException {
         if (storeId == null) {
             throw new ApiException("Missing the required parameter 'storeId'", 400);
         }
@@ -137,7 +137,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return Store
      * @throws ApiException if fails to make API call
      */
-    public Store patchMerchantsMerchantIdStoresStoreId(String merchantId, String storeId, UpdateStoreRequest updateStoreRequest) throws ApiException, IOException {
+    public Store updateStore(String merchantId, String storeId, UpdateStoreRequest updateStoreRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -163,7 +163,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return Store
      * @throws ApiException if fails to make API call
      */
-    public Store patchStoresStoreId(String storeId, UpdateStoreRequest updateStoreRequest) throws ApiException, IOException {
+    public Store updateStore(String storeId, UpdateStoreRequest updateStoreRequest) throws ApiException, IOException {
         if (storeId == null) {
             throw new ApiException("Missing the required parameter 'storeId'", 400);
         }
@@ -185,7 +185,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return Store
      * @throws ApiException if fails to make API call
      */
-    public Store postMerchantsMerchantIdStores(String merchantId, StoreCreationRequest storeCreationRequest) throws ApiException, IOException {
+    public Store createStore(String merchantId, StoreCreationRequest storeCreationRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -206,7 +206,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return Store
      * @throws ApiException if fails to make API call
      */
-    public Store postStores(StoreCreationWithMerchantCodeRequest storeCreationWithMerchantCodeRequest) throws ApiException, IOException {
+    public Store createStore(StoreCreationWithMerchantCodeRequest storeCreationWithMerchantCodeRequest) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 

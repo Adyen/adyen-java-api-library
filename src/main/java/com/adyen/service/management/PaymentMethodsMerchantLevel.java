@@ -47,7 +47,7 @@ public class PaymentMethodsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PaymentMethodResponse
      * @throws ApiException if fails to make API call
      */
-    public PaymentMethodResponse getMerchantsMerchantIdPaymentMethodSettings(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public PaymentMethodResponse getAllPaymentMethods(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -69,7 +69,7 @@ public class PaymentMethodsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PaymentMethod
      * @throws ApiException if fails to make API call
      */
-    public PaymentMethod getMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId(String merchantId, String paymentMethodId) throws ApiException, IOException {
+    public PaymentMethod getPaymentMethodDetails(String merchantId, String paymentMethodId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -95,7 +95,7 @@ public class PaymentMethodsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ApplePayInfo
      * @throws ApiException if fails to make API call
      */
-    public ApplePayInfo getMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomains(String merchantId, String paymentMethodId) throws ApiException, IOException {
+    public ApplePayInfo getApplePayDomains(String merchantId, String paymentMethodId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -122,7 +122,7 @@ public class PaymentMethodsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PaymentMethod
      * @throws ApiException if fails to make API call
      */
-    public PaymentMethod patchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodId(String merchantId, String paymentMethodId, UpdatePaymentMethodInfo updatePaymentMethodInfo) throws ApiException, IOException {
+    public PaymentMethod updatePaymentMethod(String merchantId, String paymentMethodId, UpdatePaymentMethodInfo updatePaymentMethodInfo) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -148,7 +148,7 @@ public class PaymentMethodsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PaymentMethod
      * @throws ApiException if fails to make API call
      */
-    public PaymentMethod postMerchantsMerchantIdPaymentMethodSettings(String merchantId, PaymentMethodSetupInfo paymentMethodSetupInfo) throws ApiException, IOException {
+    public PaymentMethod requestPaymentMethod(String merchantId, PaymentMethodSetupInfo paymentMethodSetupInfo) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -170,7 +170,7 @@ public class PaymentMethodsMerchantLevel extends ApiKeyAuthenticatedService {
      * @param applePayInfo  (optional)
      * @throws ApiException if fails to make API call
      */
-    public void postMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomains(String merchantId, String paymentMethodId, ApplePayInfo applePayInfo) throws ApiException, IOException {
+    public void addApplePayDomain(String merchantId, String paymentMethodId, ApplePayInfo applePayInfo) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

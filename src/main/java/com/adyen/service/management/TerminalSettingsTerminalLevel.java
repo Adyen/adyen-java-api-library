@@ -39,7 +39,7 @@ public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
      * @return Logo
      * @throws ApiException if fails to make API call
      */
-    public Logo getTerminalsTerminalIdTerminalLogos(String terminalId) throws ApiException, IOException {
+    public Logo getTheTerminalLogo(String terminalId) throws ApiException, IOException {
         if (terminalId == null) {
             throw new ApiException("Missing the required parameter 'terminalId'", 400);
         }
@@ -60,7 +60,7 @@ public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
      * @return TerminalSettings
      * @throws ApiException if fails to make API call
      */
-    public TerminalSettings getTerminalsTerminalIdTerminalSettings(String terminalId) throws ApiException, IOException {
+    public TerminalSettings getTerminalSettings(String terminalId) throws ApiException, IOException {
         if (terminalId == null) {
             throw new ApiException("Missing the required parameter 'terminalId'", 400);
         }
@@ -82,7 +82,7 @@ public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
      * @return Logo
      * @throws ApiException if fails to make API call
      */
-    public Logo patchTerminalsTerminalIdTerminalLogos(String terminalId, Logo logo) throws ApiException, IOException {
+    public Logo updateTheLogo(String terminalId, Logo logo) throws ApiException, IOException {
         if (terminalId == null) {
             throw new ApiException("Missing the required parameter 'terminalId'", 400);
         }
@@ -104,7 +104,7 @@ public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
      * @return TerminalSettings
      * @throws ApiException if fails to make API call
      */
-    public TerminalSettings patchTerminalsTerminalIdTerminalSettings(String terminalId, TerminalSettings terminalSettings) throws ApiException, IOException {
+    public TerminalSettings updateTerminalSettings(String terminalId, TerminalSettings terminalSettings) throws ApiException, IOException {
         if (terminalId == null) {
             throw new ApiException("Missing the required parameter 'terminalId'", 400);
         }
