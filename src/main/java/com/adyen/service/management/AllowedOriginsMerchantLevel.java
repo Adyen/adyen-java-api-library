@@ -69,7 +69,7 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return AllowedOriginsResponse
      * @throws ApiException if fails to make API call
      */
-    public AllowedOriginsResponse getListOfAllowedOrigins(String merchantId, String apiCredentialId) throws ApiException, IOException {
+    public AllowedOriginsResponse listAllowedOrigins(String merchantId, String apiCredentialId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

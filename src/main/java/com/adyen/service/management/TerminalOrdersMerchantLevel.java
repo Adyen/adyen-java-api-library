@@ -47,7 +47,7 @@ public class TerminalOrdersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return BillingEntitiesResponse
      * @throws ApiException if fails to make API call
      */
-    public BillingEntitiesResponse getListOfBillingEntities(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public BillingEntitiesResponse listBillingEntities(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -72,7 +72,7 @@ public class TerminalOrdersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ShippingLocationsResponse
      * @throws ApiException if fails to make API call
      */
-    public ShippingLocationsResponse getListOfShippingLocations(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ShippingLocationsResponse listShippingLocations(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -93,7 +93,7 @@ public class TerminalOrdersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return TerminalModelsResponse
      * @throws ApiException if fails to make API call
      */
-    public TerminalModelsResponse getListOfTerminalModels(String merchantId) throws ApiException, IOException {
+    public TerminalModelsResponse listTerminalModels(String merchantId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -119,7 +119,7 @@ public class TerminalOrdersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return TerminalOrdersResponse
      * @throws ApiException if fails to make API call
      */
-    public TerminalOrdersResponse getListOfOrders(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public TerminalOrdersResponse listOrders(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -171,7 +171,7 @@ public class TerminalOrdersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return TerminalProductsResponse
      * @throws ApiException if fails to make API call
      */
-    public TerminalProductsResponse getListOfTerminalProducts(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public TerminalProductsResponse listTerminalProducts(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

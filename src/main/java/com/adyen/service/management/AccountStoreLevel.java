@@ -46,7 +46,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return ListStoresResponse
      * @throws ApiException if fails to make API call
      */
-    public ListStoresResponse getListOfStores(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListStoresResponse listStores(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -97,7 +97,7 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * @return ListStoresResponse
      * @throws ApiException if fails to make API call
      */
-    public ListStoresResponse getListOfStores(Map<String, String> queryParams) throws ApiException, IOException {
+    public ListStoresResponse listStores(Map<String, String> queryParams) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 

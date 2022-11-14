@@ -45,7 +45,7 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ListMerchantUsersResponse
      * @throws ApiException if fails to make API call
      */
-    public ListMerchantUsersResponse getListOfUsers(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListMerchantUsersResponse listUsers(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

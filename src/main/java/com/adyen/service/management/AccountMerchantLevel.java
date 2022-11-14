@@ -44,7 +44,7 @@ public class AccountMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ListMerchantResponse
      * @throws ApiException if fails to make API call
      */
-    public ListMerchantResponse getListOfMerchantAccounts(Map<String, String> queryParams) throws ApiException, IOException {
+    public ListMerchantResponse listMerchantAccounts(Map<String, String> queryParams) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 

@@ -22,7 +22,7 @@ public class ManagementTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/management/list-merchants.json");
         AccountMerchantLevel service = new AccountMerchantLevel(client);
 
-        ListMerchantResponse merchants = service.getListOfMerchantAccounts(null);
+        ListMerchantResponse merchants = service.listMerchantAccounts(null);
 
         assertEquals(10, merchants.getData().size());
         assertEquals("Amsterdam", merchants.getData().get(0).getMerchantCity());
@@ -35,7 +35,7 @@ public class ManagementTest extends BaseTest {
         Map<String, String> queryParams = Collections.singletonMap("pageSize", "25");
         AccountMerchantLevel service = new AccountMerchantLevel(client);
 
-        service.getListOfMerchantAccounts(queryParams);
+        service.listMerchantAccounts(queryParams);
 
         verify(client.getHttpClient()).request(
                 "https://management-test.adyen.com/v1/merchants",
@@ -53,7 +53,7 @@ public class ManagementTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/management/list-companies.json");
         AccountCompanyLevel service = new AccountCompanyLevel(client);
 
-        ListCompanyResponse merchants = service.getListOfCompanyAccounts(null);
+        ListCompanyResponse merchants = service.listCompanyAccounts(null);
 
         assertEquals(1, merchants.getData().size());
         assertEquals("YOUR_COMPANY_NAME", merchants.getData().get(0).getName());

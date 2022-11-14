@@ -69,7 +69,7 @@ public class AllowedOriginsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return AllowedOriginsResponse
      * @throws ApiException if fails to make API call
      */
-    public AllowedOriginsResponse getListOfAllowedOrigins(String companyId, String apiCredentialId) throws ApiException, IOException {
+    public AllowedOriginsResponse listAllowedOrigins(String companyId, String apiCredentialId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

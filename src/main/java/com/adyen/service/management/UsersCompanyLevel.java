@@ -45,7 +45,7 @@ public class UsersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ListCompanyUsersResponse
      * @throws ApiException if fails to make API call
      */
-    public ListCompanyUsersResponse getListOfUsers(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListCompanyUsersResponse listUsers(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

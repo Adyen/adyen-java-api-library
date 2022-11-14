@@ -65,7 +65,7 @@ public class PayoutSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return PayoutSettingsResponse
      * @throws ApiException if fails to make API call
      */
-    public PayoutSettingsResponse getListOfPayoutSettings(String merchantId) throws ApiException, IOException {
+    public PayoutSettingsResponse listPayoutSettings(String merchantId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
