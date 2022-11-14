@@ -23,23 +23,28 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.RequestOptions;
+import com.adyen.model.payments.AdjustAuthorisationRequest;
 import com.adyen.model.payments.ApplicationInfo;
 import com.adyen.model.payments.AuthenticationResultRequest;
 import com.adyen.model.payments.AuthenticationResultResponse;
+import com.adyen.model.payments.CancelOrRefundRequest;
+import com.adyen.model.payments.CancelRequest;
+import com.adyen.model.payments.CaptureRequest;
 import com.adyen.model.payments.CommonField;
+import com.adyen.model.payments.DonationRequest;
 import com.adyen.model.payments.JSON;
+import com.adyen.model.payments.ModificationResult;
 import com.adyen.model.payments.PaymentRequest;
 import com.adyen.model.payments.PaymentRequest3d;
 import com.adyen.model.payments.PaymentRequest3ds2;
 import com.adyen.model.payments.PaymentResult;
+import com.adyen.model.payments.RefundRequest;
+import com.adyen.model.payments.TechnicalCancelRequest;
 import com.adyen.model.payments.ThreeDS2ResultRequest;
 import com.adyen.model.payments.ThreeDS2ResultResponse;
+import com.adyen.model.payments.VoidPendingRefundRequest;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.payment.Authorise;
-import com.adyen.service.resource.payment.Authorise3D;
-import com.adyen.service.resource.payment.Authorise3DS2;
-import com.adyen.service.resource.payment.GetAuthenticationResult;
-import com.adyen.service.resource.payment.Retrieve3DS2Result;
+import com.adyen.service.resource.PaymentResource;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -49,20 +54,36 @@ import static com.adyen.Client.LIB_VERSION;
 
 public class Payment extends Service {
 
-    private final Authorise authorise;
-    private final Authorise3D authorise3D;
-    private final Authorise3DS2 authorise3DS2;
-    private final Retrieve3DS2Result retrieve3DS2Result;
-    private final GetAuthenticationResult getAuthenticationResult;
+    private final PaymentResource authorise;
+    private final PaymentResource authorise3D;
+    private final PaymentResource authorise3DS2;
+    private final PaymentResource retrieve3DS2Result;
+    private final PaymentResource getAuthenticationResult;
+    private final PaymentResource capture;
+    private final PaymentResource cancel;
+    private final PaymentResource refund;
+    private final PaymentResource cancelOrRefund;
+    private final PaymentResource technicalCancel;
+    private final PaymentResource adjustAuthorisation;
+    private final PaymentResource donate;
+    private final PaymentResource voidPendingRefund;
 
     public Payment(Client client) {
         super(client);
 
-        authorise = new Authorise(this);
-        authorise3D = new Authorise3D(this);
-        authorise3DS2 = new Authorise3DS2(this);
-        retrieve3DS2Result = new Retrieve3DS2Result(this);
-        getAuthenticationResult = new GetAuthenticationResult(this);
+        authorise = new PaymentResource(this, "/authorise");
+        authorise3D = new PaymentResource(this, "/authorise3d");
+        authorise3DS2 = new PaymentResource(this, "/authorise3ds2");
+        retrieve3DS2Result = new PaymentResource(this, "/retrieve3ds2Result");
+        getAuthenticationResult = new PaymentResource(this, "/getAuthenticationResult");
+        capture = new PaymentResource(this, "/capture");
+        cancel  = new PaymentResource(this, "/cancel");
+        refund = new PaymentResource(this, "/refund");
+        cancelOrRefund = new PaymentResource(this, "/cancelOrRefund");
+        technicalCancel = new PaymentResource(this, "/technicalCancel");
+        adjustAuthorisation = new PaymentResource(this, "/adjustAuthorisation");
+        donate = new PaymentResource(this, "/donate");
+        voidPendingRefund = new PaymentResource(this, "/voidPendingRefund");
         new JSON();
     }
 
@@ -157,5 +178,133 @@ public class Payment extends Service {
         return Optional.ofNullable(applicationInfo)
                 .orElse(new ApplicationInfo())
                 .adyenLibrary(new CommonField().name(LIB_NAME).version(LIB_VERSION));
+    }
+
+    /**
+     * POST /capture API call
+     *
+     * @param captureRequest CaptureRequest
+     * @return ModificationResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public ModificationResult capture(CaptureRequest captureRequest) throws IOException, ApiException {
+        String jsonRequest = captureRequest.toJson();
+
+        String jsonResult = capture.request(jsonRequest);
+
+        return ModificationResult.fromJson(jsonResult);
+    }
+
+    /**
+     * POST /cancel API call
+     *
+     * @param cancelRequest CancelRequest
+     * @return ModificationResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public ModificationResult cancel(CancelRequest cancelRequest) throws IOException, ApiException {
+        String jsonRequest = cancelRequest.toJson();
+
+        String jsonResult = cancel.request(jsonRequest);
+
+        return ModificationResult.fromJson(jsonResult);
+    }
+
+    /**
+     * POST /refund API call
+     *
+     * @param refundRequest RefundRequest
+     * @return ModificationResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public ModificationResult refund(RefundRequest refundRequest) throws IOException, ApiException {
+        String jsonRequest = refundRequest.toJson();
+
+        String jsonResult = refund.request(jsonRequest);
+
+        return ModificationResult.fromJson(jsonResult);
+    }
+
+    /**
+     * POST /cancelOrRefund API call
+     *
+     * @param cancelOrRefundRequest CancelOrRefundRequest
+     * @return ModificationResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public ModificationResult cancelOrRefund(CancelOrRefundRequest cancelOrRefundRequest) throws IOException, ApiException {
+        String jsonRequest = cancelOrRefundRequest.toJson();
+
+        String jsonResult = cancelOrRefund.request(jsonRequest);
+
+        return ModificationResult.fromJson(jsonResult);
+    }
+
+    /**
+     * POST /technicalCancel API call
+     *
+     * @param technicalCancelRequest TechnicalCancelRequest
+     * @return ModificationResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public ModificationResult technicalCancel(TechnicalCancelRequest technicalCancelRequest) throws IOException, ApiException {
+        String jsonRequest = technicalCancelRequest.toJson();
+
+        String jsonResult = technicalCancel.request(jsonRequest);
+
+        return ModificationResult.fromJson(jsonResult);
+    }
+
+    /**
+     * POST /adjustAuthorisation API call
+     *
+     * @param adjustAuthorisationRequest AdjustAuthorisationRequest
+     * @return ModificationResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public ModificationResult adjustAuthorisation(AdjustAuthorisationRequest adjustAuthorisationRequest) throws IOException, ApiException {
+        String jsonRequest = adjustAuthorisationRequest.toJson();
+
+        String jsonResult = adjustAuthorisation.request(jsonRequest);
+
+        return ModificationResult.fromJson(jsonResult);
+    }
+
+    /**
+     * POST /donate API call
+     *
+     * @param donationRequest DonationRequest
+     * @return ModificationResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public ModificationResult donate(DonationRequest donationRequest) throws IOException, ApiException {
+        String jsonRequest = donationRequest.toJson();
+
+        String jsonResult = donate.request(jsonRequest);
+
+        return ModificationResult.fromJson(jsonResult);
+    }
+
+    /**
+     * POST /voidPendingRefund API call
+     *
+     * @param voidPendingRefundRequest VoidPendingRefundRequest
+     * @return ModificationResult
+     * @throws ApiException ApiException
+     * @throws IOException  IOException
+     */
+    public ModificationResult voidPendingRefund(VoidPendingRefundRequest voidPendingRefundRequest) throws IOException, ApiException {
+        String jsonRequest = voidPendingRefundRequest.toJson();
+
+        String jsonResult = voidPendingRefund.request(jsonRequest);
+
+        return ModificationResult.fromJson(jsonResult);
     }
 }
