@@ -33,7 +33,7 @@ import java.io.IOException;
 import java.util.*;
 
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
@@ -75,6 +75,35 @@ public class CheckoutTest extends BaseTest {
         assertEquals("993617895204576J", paymentResponse.getPspReference());
         assertEquals(CheckoutRedirectAction.TypeEnum.REDIRECT, paymentResponse.getAction().getCheckoutRedirectAction().getType());
         assertEquals("https://checkoutshopper-test.adyen.com/checkoutshopper/threeDS/redirect?MD=M2R...", paymentResponse.getAction().getCheckoutRedirectAction().getUrl());
+    }
+
+    /**
+     * Should set default applicationInfo
+     */
+    @Test
+    public void TestPaymentDefaultApplicationInfo() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
+        Amount amount = new Amount().currency("EUR").value(1000L);
+        CardDetails cardDetails = new CardDetails();
+        cardDetails.encryptedCardNumber("5136333333333335")
+                .holderName("John Doe")
+                .cvc("737")
+                .encryptedExpiryMonth("08")
+                .encryptedExpiryYear("2018");
+        cardDetails.setType(CardDetails.TypeEnum.SCHEME);
+        PaymentRequest paymentRequest = new PaymentRequest();
+        paymentRequest.setAmount(amount);
+        paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
+
+        assertNull(paymentRequest.getApplicationInfo());
+        assertNull(paymentRequest.getApplicationInfo());
+
+        Checkout checkout = new Checkout(client);
+        checkout.payments(paymentRequest);
+
+        assertNotNull(paymentRequest.getApplicationInfo());
+        assertEquals(Client.LIB_NAME, paymentRequest.getApplicationInfo().getAdyenLibrary().getName());
+        assertEquals(Client.LIB_VERSION, paymentRequest.getApplicationInfo().getAdyenLibrary().getVersion());
     }
 
     /**
