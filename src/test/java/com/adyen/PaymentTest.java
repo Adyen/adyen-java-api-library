@@ -481,4 +481,76 @@ public class PaymentTest extends BaseTest {
         ClientInterface http = client.getHttpClient();
         verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());
     }
+
+    @Test
+    public void testRefund() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        RefundRequest request = new RefundRequest();
+        ModificationResult result = payment.refund(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testCapture() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        CaptureRequest request = new CaptureRequest();
+        ModificationResult result = payment.capture(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testCancel() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        CancelRequest request = new CancelRequest();
+        ModificationResult result = payment.cancel(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testCancelOrRefund() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        CancelOrRefundRequest request = new CancelOrRefundRequest();
+        ModificationResult result = payment.cancelOrRefund(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testTechnicalCancel() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        TechnicalCancelRequest request = new TechnicalCancelRequest();
+        ModificationResult result = payment.technicalCancel(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testAdjustAuthorisation() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        AdjustAuthorisationRequest request = new AdjustAuthorisationRequest();
+        ModificationResult result = payment.adjustAuthorisation(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testDonate() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        DonationRequest request = new DonationRequest();
+        ModificationResult result = payment.donate(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testVoidPendingRefund() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        VoidPendingRefundRequest request = new VoidPendingRefundRequest();
+        ModificationResult result = payment.voidPendingRefund(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
 }
