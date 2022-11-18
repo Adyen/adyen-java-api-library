@@ -44,7 +44,7 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return AndroidAppsResponse
      * @throws ApiException if fails to make API call
      */
-    public AndroidAppsResponse getCompaniesCompanyIdAndroidApps(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public AndroidAppsResponse listAndroidApps(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -68,7 +68,7 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return AndroidCertificatesResponse
      * @throws ApiException if fails to make API call
      */
-    public AndroidCertificatesResponse getCompaniesCompanyIdAndroidCertificates(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public AndroidCertificatesResponse listAndroidCertificates(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -94,7 +94,7 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ListExternalTerminalActionsResponse
      * @throws ApiException if fails to make API call
      */
-    public ListExternalTerminalActionsResponse getCompaniesCompanyIdTerminalActions(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListExternalTerminalActionsResponse listTerminalActions(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -116,7 +116,7 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ExternalTerminalAction
      * @throws ApiException if fails to make API call
      */
-    public ExternalTerminalAction getCompaniesCompanyIdTerminalActionsActionId(String companyId, String actionId) throws ApiException, IOException {
+    public ExternalTerminalAction getTerminalAction(String companyId, String actionId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

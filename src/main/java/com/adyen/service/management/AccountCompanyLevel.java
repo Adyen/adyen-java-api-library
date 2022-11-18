@@ -42,7 +42,7 @@ public class AccountCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ListCompanyResponse
      * @throws ApiException if fails to make API call
      */
-    public ListCompanyResponse getCompanies(Map<String, String> queryParams) throws ApiException, IOException {
+    public ListCompanyResponse listCompanyAccounts(Map<String, String> queryParams) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 
@@ -59,7 +59,7 @@ public class AccountCompanyLevel extends ApiKeyAuthenticatedService {
      * @return Company
      * @throws ApiException if fails to make API call
      */
-    public Company getCompaniesCompanyId(String companyId) throws ApiException, IOException {
+    public Company getCompanyAccount(String companyId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -83,7 +83,7 @@ public class AccountCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ListMerchantResponse
      * @throws ApiException if fails to make API call
      */
-    public ListMerchantResponse getCompaniesCompanyIdMerchants(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListMerchantResponse listMerchantAccounts(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

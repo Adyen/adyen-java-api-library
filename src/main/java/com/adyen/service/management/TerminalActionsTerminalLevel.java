@@ -39,7 +39,7 @@ public class TerminalActionsTerminalLevel extends ApiKeyAuthenticatedService {
      * @return ScheduleTerminalActionsResponse
      * @throws ApiException if fails to make API call
      */
-    public ScheduleTerminalActionsResponse postTerminalsScheduleActions(ScheduleTerminalActionsRequest scheduleTerminalActionsRequest) throws ApiException, IOException {
+    public ScheduleTerminalActionsResponse createTerminalAction(ScheduleTerminalActionsRequest scheduleTerminalActionsRequest) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 

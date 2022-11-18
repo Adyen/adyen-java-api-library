@@ -45,7 +45,7 @@ public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ListCompanyApiCredentialsResponse
      * @throws ApiException if fails to make API call
      */
-    public ListCompanyApiCredentialsResponse getCompaniesCompanyIdApiCredentials(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListCompanyApiCredentialsResponse listApiCredentials(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -67,7 +67,7 @@ public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return CompanyApiCredential
      * @throws ApiException if fails to make API call
      */
-    public CompanyApiCredential getCompaniesCompanyIdApiCredentialsApiCredentialId(String companyId, String apiCredentialId) throws ApiException, IOException {
+    public CompanyApiCredential getApiCredential(String companyId, String apiCredentialId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -94,7 +94,7 @@ public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return CompanyApiCredential
      * @throws ApiException if fails to make API call
      */
-    public CompanyApiCredential patchCompaniesCompanyIdApiCredentialsApiCredentialId(String companyId, String apiCredentialId, UpdateCompanyApiCredentialRequest updateCompanyApiCredentialRequest) throws ApiException, IOException {
+    public CompanyApiCredential updateApiCredential(String companyId, String apiCredentialId, UpdateCompanyApiCredentialRequest updateCompanyApiCredentialRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -120,7 +120,7 @@ public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return CreateCompanyApiCredentialResponse
      * @throws ApiException if fails to make API call
      */
-    public CreateCompanyApiCredentialResponse postCompaniesCompanyIdApiCredentials(String companyId, CreateCompanyApiCredentialRequest createCompanyApiCredentialRequest) throws ApiException, IOException {
+    public CreateCompanyApiCredentialResponse createApiCredential(String companyId, CreateCompanyApiCredentialRequest createCompanyApiCredentialRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

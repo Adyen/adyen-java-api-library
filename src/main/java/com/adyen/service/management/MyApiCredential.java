@@ -40,7 +40,7 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @param originId Unique identifier of the allowed origin. (required)
      * @throws ApiException if fails to make API call
      */
-    public void deleteMeAllowedOriginsOriginId(String originId) throws ApiException, IOException {
+    public void removeAllowedOrigin(String originId) throws ApiException, IOException {
         if (originId == null) {
             throw new ApiException("Missing the required parameter 'originId'", 400);
         }
@@ -59,7 +59,7 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @return MeApiCredential
      * @throws ApiException if fails to make API call
      */
-    public MeApiCredential getMe() throws ApiException, IOException {
+    public MeApiCredential getApiCredentialDetails() throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 
@@ -75,7 +75,7 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @return AllowedOriginsResponse
      * @throws ApiException if fails to make API call
      */
-    public AllowedOriginsResponse getMeAllowedOrigins() throws ApiException, IOException {
+    public AllowedOriginsResponse getAllowedOrigins() throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 
@@ -92,7 +92,7 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @return AllowedOrigin
      * @throws ApiException if fails to make API call
      */
-    public AllowedOrigin getMeAllowedOriginsOriginId(String originId) throws ApiException, IOException {
+    public AllowedOrigin getAllowedOriginDetails(String originId) throws ApiException, IOException {
         if (originId == null) {
             throw new ApiException("Missing the required parameter 'originId'", 400);
         }
@@ -113,7 +113,7 @@ public class MyApiCredential extends ApiKeyAuthenticatedService {
      * @return AllowedOriginsResponse
      * @throws ApiException if fails to make API call
      */
-    public AllowedOriginsResponse postMeAllowedOrigins(CreateAllowedOriginRequest createAllowedOriginRequest) throws ApiException, IOException {
+    public AllowedOriginsResponse addAllowedOrigin(CreateAllowedOriginRequest createAllowedOriginRequest) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 

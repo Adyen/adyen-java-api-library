@@ -45,7 +45,7 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ListMerchantUsersResponse
      * @throws ApiException if fails to make API call
      */
-    public ListMerchantUsersResponse getMerchantsMerchantIdUsers(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListMerchantUsersResponse listUsers(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -67,7 +67,7 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return User
      * @throws ApiException if fails to make API call
      */
-    public User getMerchantsMerchantIdUsersUserId(String merchantId, String userId) throws ApiException, IOException {
+    public User getUserDetails(String merchantId, String userId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -94,7 +94,7 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return User
      * @throws ApiException if fails to make API call
      */
-    public User patchMerchantsMerchantIdUsersUserId(String merchantId, String userId, UpdateMerchantUserRequest updateMerchantUserRequest) throws ApiException, IOException {
+    public User updateUser(String merchantId, String userId, UpdateMerchantUserRequest updateMerchantUserRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -120,7 +120,7 @@ public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
      * @return CreateUserResponse
      * @throws ApiException if fails to make API call
      */
-    public CreateUserResponse postMerchantsMerchantIdUsers(String merchantId, CreateMerchantUserRequest createMerchantUserRequest) throws ApiException, IOException {
+    public CreateUserResponse createNewUser(String merchantId, CreateMerchantUserRequest createMerchantUserRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

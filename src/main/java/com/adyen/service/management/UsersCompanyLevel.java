@@ -45,7 +45,7 @@ public class UsersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ListCompanyUsersResponse
      * @throws ApiException if fails to make API call
      */
-    public ListCompanyUsersResponse getCompaniesCompanyIdUsers(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListCompanyUsersResponse listUsers(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -67,7 +67,7 @@ public class UsersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return CompanyUser
      * @throws ApiException if fails to make API call
      */
-    public CompanyUser getCompaniesCompanyIdUsersUserId(String companyId, String userId) throws ApiException, IOException {
+    public CompanyUser getUserDetails(String companyId, String userId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -94,7 +94,7 @@ public class UsersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return CompanyUser
      * @throws ApiException if fails to make API call
      */
-    public CompanyUser patchCompaniesCompanyIdUsersUserId(String companyId, String userId, UpdateCompanyUserRequest updateCompanyUserRequest) throws ApiException, IOException {
+    public CompanyUser updateUserDetails(String companyId, String userId, UpdateCompanyUserRequest updateCompanyUserRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -120,7 +120,7 @@ public class UsersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return CreateCompanyUserResponse
      * @throws ApiException if fails to make API call
      */
-    public CreateCompanyUserResponse postCompaniesCompanyIdUsers(String companyId, CreateCompanyUserRequest createCompanyUserRequest) throws ApiException, IOException {
+    public CreateCompanyUserResponse createNewUser(String companyId, CreateCompanyUserRequest createCompanyUserRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

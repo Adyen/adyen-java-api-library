@@ -41,7 +41,7 @@ public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return Logo
      * @throws ApiException if fails to make API call
      */
-    public Logo getMerchantsMerchantIdTerminalLogos(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public Logo getTheTerminalLogo(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -62,7 +62,7 @@ public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return TerminalSettings
      * @throws ApiException if fails to make API call
      */
-    public TerminalSettings getMerchantsMerchantIdTerminalSettings(String merchantId) throws ApiException, IOException {
+    public TerminalSettings getTerminalSettings(String merchantId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -86,7 +86,7 @@ public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return Logo
      * @throws ApiException if fails to make API call
      */
-    public Logo patchMerchantsMerchantIdTerminalLogos(String merchantId, Logo logo, Map<String, String> queryParams) throws ApiException, IOException {
+    public Logo updateTheTerminalLogo(String merchantId, Logo logo, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -108,7 +108,7 @@ public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return TerminalSettings
      * @throws ApiException if fails to make API call
      */
-    public TerminalSettings patchMerchantsMerchantIdTerminalSettings(String merchantId, TerminalSettings terminalSettings) throws ApiException, IOException {
+    public TerminalSettings updateTerminalSettings(String merchantId, TerminalSettings terminalSettings) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
