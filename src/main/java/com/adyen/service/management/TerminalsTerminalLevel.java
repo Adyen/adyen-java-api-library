@@ -45,7 +45,7 @@ public class TerminalsTerminalLevel extends ApiKeyAuthenticatedService {
      * @return ListTerminalsResponse
      * @throws ApiException if fails to make API call
      */
-    public ListTerminalsResponse getTerminals(Map<String, String> queryParams) throws ApiException, IOException {
+    public ListTerminalsResponse listTerminals(Map<String, String> queryParams) throws ApiException, IOException {
 
         Map<String, String> pathParams = new HashMap<>();
 

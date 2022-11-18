@@ -39,7 +39,7 @@ public class ApiKeyMerchantLevel extends ApiKeyAuthenticatedService {
      * @return GenerateApiKeyResponse
      * @throws ApiException if fails to make API call
      */
-    public GenerateApiKeyResponse postMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKey(String merchantId, String apiCredentialId) throws ApiException, IOException {
+    public GenerateApiKeyResponse generateNewApiKey(String merchantId, String apiCredentialId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

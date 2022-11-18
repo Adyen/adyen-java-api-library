@@ -47,7 +47,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return BillingEntitiesResponse
      * @throws ApiException if fails to make API call
      */
-    public BillingEntitiesResponse getCompaniesCompanyIdBillingEntities(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public BillingEntitiesResponse listBillingEntities(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -72,7 +72,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ShippingLocationsResponse
      * @throws ApiException if fails to make API call
      */
-    public ShippingLocationsResponse getCompaniesCompanyIdShippingLocations(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ShippingLocationsResponse listShippingLocations(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -93,7 +93,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalModelsResponse
      * @throws ApiException if fails to make API call
      */
-    public TerminalModelsResponse getCompaniesCompanyIdTerminalModels(String companyId) throws ApiException, IOException {
+    public TerminalModelsResponse listTerminalModels(String companyId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -119,7 +119,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalOrdersResponse
      * @throws ApiException if fails to make API call
      */
-    public TerminalOrdersResponse getCompaniesCompanyIdTerminalOrders(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public TerminalOrdersResponse listOrders(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -141,7 +141,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalOrder
      * @throws ApiException if fails to make API call
      */
-    public TerminalOrder getCompaniesCompanyIdTerminalOrdersOrderId(String companyId, String orderId) throws ApiException, IOException {
+    public TerminalOrder getOrder(String companyId, String orderId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -171,7 +171,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalProductsResponse
      * @throws ApiException if fails to make API call
      */
-    public TerminalProductsResponse getCompaniesCompanyIdTerminalProducts(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public TerminalProductsResponse listTerminalProducts(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -194,7 +194,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalOrder
      * @throws ApiException if fails to make API call
      */
-    public TerminalOrder patchCompaniesCompanyIdTerminalOrdersOrderId(String companyId, String orderId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
+    public TerminalOrder updateOrder(String companyId, String orderId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -220,7 +220,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return ShippingLocation
      * @throws ApiException if fails to make API call
      */
-    public ShippingLocation postCompaniesCompanyIdShippingLocations(String companyId, ShippingLocation shippingLocation) throws ApiException, IOException {
+    public ShippingLocation createShippingLocation(String companyId, ShippingLocation shippingLocation) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -242,7 +242,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalOrder
      * @throws ApiException if fails to make API call
      */
-    public TerminalOrder postCompaniesCompanyIdTerminalOrders(String companyId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
+    public TerminalOrder createOrder(String companyId, TerminalOrderRequest terminalOrderRequest) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -264,7 +264,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalOrder
      * @throws ApiException if fails to make API call
      */
-    public TerminalOrder postCompaniesCompanyIdTerminalOrdersOrderIdCancel(String companyId, String orderId) throws ApiException, IOException {
+    public TerminalOrder cancelOrder(String companyId, String orderId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

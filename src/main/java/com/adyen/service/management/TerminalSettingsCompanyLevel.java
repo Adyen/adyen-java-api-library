@@ -41,7 +41,7 @@ public class TerminalSettingsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return Logo
      * @throws ApiException if fails to make API call
      */
-    public Logo getCompaniesCompanyIdTerminalLogos(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
+    public Logo getTheTerminalLogo(String companyId, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -62,7 +62,7 @@ public class TerminalSettingsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalSettings
      * @throws ApiException if fails to make API call
      */
-    public TerminalSettings getCompaniesCompanyIdTerminalSettings(String companyId) throws ApiException, IOException {
+    public TerminalSettings getTerminalSettings(String companyId) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -86,7 +86,7 @@ public class TerminalSettingsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return Logo
      * @throws ApiException if fails to make API call
      */
-    public Logo patchCompaniesCompanyIdTerminalLogos(String companyId, Logo logo, Map<String, String> queryParams) throws ApiException, IOException {
+    public Logo updateTheTerminalLogo(String companyId, Logo logo, Map<String, String> queryParams) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }
@@ -108,7 +108,7 @@ public class TerminalSettingsCompanyLevel extends ApiKeyAuthenticatedService {
      * @return TerminalSettings
      * @throws ApiException if fails to make API call
      */
-    public TerminalSettings patchCompaniesCompanyIdTerminalSettings(String companyId, TerminalSettings terminalSettings) throws ApiException, IOException {
+    public TerminalSettings updateTerminalSettings(String companyId, TerminalSettings terminalSettings) throws ApiException, IOException {
         if (companyId == null) {
             throw new ApiException("Missing the required parameter 'companyId'", 400);
         }

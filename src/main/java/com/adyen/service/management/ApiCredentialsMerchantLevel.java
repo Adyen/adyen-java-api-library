@@ -45,7 +45,7 @@ public class ApiCredentialsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ListMerchantApiCredentialsResponse
      * @throws ApiException if fails to make API call
      */
-    public ListMerchantApiCredentialsResponse getMerchantsMerchantIdApiCredentials(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
+    public ListMerchantApiCredentialsResponse listApiCredentials(String merchantId, Map<String, String> queryParams) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -67,7 +67,7 @@ public class ApiCredentialsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ApiCredential
      * @throws ApiException if fails to make API call
      */
-    public ApiCredential getMerchantsMerchantIdApiCredentialsApiCredentialId(String merchantId, String apiCredentialId) throws ApiException, IOException {
+    public ApiCredential getApiCredential(String merchantId, String apiCredentialId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -94,7 +94,7 @@ public class ApiCredentialsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return ApiCredential
      * @throws ApiException if fails to make API call
      */
-    public ApiCredential patchMerchantsMerchantIdApiCredentialsApiCredentialId(String merchantId, String apiCredentialId, UpdateMerchantApiCredentialRequest updateMerchantApiCredentialRequest) throws ApiException, IOException {
+    public ApiCredential updateApiCredential(String merchantId, String apiCredentialId, UpdateMerchantApiCredentialRequest updateMerchantApiCredentialRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -120,7 +120,7 @@ public class ApiCredentialsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return CreateApiCredentialResponse
      * @throws ApiException if fails to make API call
      */
-    public CreateApiCredentialResponse postMerchantsMerchantIdApiCredentials(String merchantId, CreateMerchantApiCredentialRequest createMerchantApiCredentialRequest) throws ApiException, IOException {
+    public CreateApiCredentialResponse createApiCredential(String merchantId, CreateMerchantApiCredentialRequest createMerchantApiCredentialRequest) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }

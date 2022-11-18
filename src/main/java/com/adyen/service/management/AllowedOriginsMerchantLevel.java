@@ -40,7 +40,7 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @param originId Unique identifier of the allowed origin. (required)
      * @throws ApiException if fails to make API call
      */
-    public void deleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(String merchantId, String apiCredentialId, String originId) throws ApiException, IOException {
+    public void deleteAllowedOrigin(String merchantId, String apiCredentialId, String originId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -69,7 +69,7 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return AllowedOriginsResponse
      * @throws ApiException if fails to make API call
      */
-    public AllowedOriginsResponse getMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(String merchantId, String apiCredentialId) throws ApiException, IOException {
+    public AllowedOriginsResponse listAllowedOrigins(String merchantId, String apiCredentialId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -96,7 +96,7 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return AllowedOrigin
      * @throws ApiException if fails to make API call
      */
-    public AllowedOrigin getMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginId(String merchantId, String apiCredentialId, String originId) throws ApiException, IOException {
+    public AllowedOrigin getAllowedOrigin(String merchantId, String apiCredentialId, String originId) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
@@ -127,7 +127,7 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
      * @return AllowedOriginsResponse
      * @throws ApiException if fails to make API call
      */
-    public AllowedOriginsResponse postMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOrigins(String merchantId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
+    public AllowedOriginsResponse createAllowedOrigin(String merchantId, String apiCredentialId, AllowedOrigin allowedOrigin) throws ApiException, IOException {
         if (merchantId == null) {
             throw new ApiException("Missing the required parameter 'merchantId'", 400);
         }
