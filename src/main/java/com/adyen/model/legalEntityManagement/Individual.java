@@ -272,11 +272,11 @@ public class Individual {
   }
 
    /**
-   * The tax information of the organization.
+   * The tax information of the individual.
    * @return taxInformation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The tax information of the organization.")
+  @ApiModelProperty(value = "The tax information of the individual.")
 
   public List<TaxInformation> getTaxInformation() {
     return taxInformation;

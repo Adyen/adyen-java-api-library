@@ -124,11 +124,11 @@ public class OnboardingThemes {
   }
 
    /**
-   * Get themes
+   * List of onboarding themes.
    * @return themes
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "List of onboarding themes.")
 
   public List<OnboardingTheme> getThemes() {
     return themes;

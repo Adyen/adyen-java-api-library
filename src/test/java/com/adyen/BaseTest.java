@@ -48,6 +48,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 import static com.adyen.Client.LIB_NAME;
@@ -170,14 +171,14 @@ public class BaseTest {
      */
     protected PaymentRequest createOpenInvoicePaymentRequest() {
 
-        Date dateOfBirth = DateUtil.parseYmdDate("1970-07-10");
+        OffsetDateTime date = OffsetDateTime.parse("1970-07-10T12:00:00+01:00");
 
         PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456");
         paymentRequest.amount(new com.adyen.model.payments.Amount().value(200L).currency("EUR"));
 
         // Set Shopper Data
         paymentRequest.setShopperEmail("youremail@email.com");
-        paymentRequest.setDateOfBirth(dateOfBirth);
+        paymentRequest.setDateOfBirth(date);
         paymentRequest.setTelephoneNumber("0612345678");
         paymentRequest.setShopperReference("4");
 

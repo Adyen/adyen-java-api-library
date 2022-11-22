@@ -141,8 +141,8 @@ public class SoleProprietorship {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return countryOfGoverningLaw
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
 
   public String getCountryOfGoverningLaw() {
     return countryOfGoverningLaw;
@@ -385,6 +385,7 @@ public class SoleProprietorship {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("countryOfGoverningLaw");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("registeredAddress");
   }

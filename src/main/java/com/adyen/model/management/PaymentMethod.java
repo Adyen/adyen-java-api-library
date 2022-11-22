@@ -18,6 +18,7 @@ import com.adyen.model.management.ApplePayInfo;
 import com.adyen.model.management.BcmcInfo;
 import com.adyen.model.management.CartesBancairesInfo;
 import com.adyen.model.management.GiroPayInfo;
+import com.adyen.model.management.GooglePayInfo;
 import com.adyen.model.management.KlarnaInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.SofortInfo;
@@ -93,6 +94,10 @@ public class PaymentMethod {
   public static final String SERIALIZED_NAME_GIRO_PAY = "giroPay";
   @SerializedName(SERIALIZED_NAME_GIRO_PAY)
   private GiroPayInfo giroPay;
+
+  public static final String SERIALIZED_NAME_GOOGLE_PAY = "googlePay";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_PAY)
+  private GooglePayInfo googlePay;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -407,6 +412,29 @@ public class PaymentMethod {
   }
 
 
+  public PaymentMethod googlePay(GooglePayInfo googlePay) {
+    
+    this.googlePay = googlePay;
+    return this;
+  }
+
+   /**
+   * Get googlePay
+   * @return googlePay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public GooglePayInfo getGooglePay() {
+    return googlePay;
+  }
+
+
+  public void setGooglePay(GooglePayInfo googlePay) {
+    this.googlePay = googlePay;
+  }
+
+
   public PaymentMethod id(String id) {
     
     this.id = id;
@@ -633,6 +661,7 @@ public class PaymentMethod {
         Objects.equals(this.currencies, paymentMethod.currencies) &&
         Objects.equals(this.enabled, paymentMethod.enabled) &&
         Objects.equals(this.giroPay, paymentMethod.giroPay) &&
+        Objects.equals(this.googlePay, paymentMethod.googlePay) &&
         Objects.equals(this.id, paymentMethod.id) &&
         Objects.equals(this.klarna, paymentMethod.klarna) &&
         Objects.equals(this.paypal, paymentMethod.paypal) &&
@@ -646,7 +675,7 @@ public class PaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, enabled, giroPay, id, klarna, paypal, shopperInteraction, sofort, storeId, swish, type, verificationStatus);
+    return Objects.hash(allowed, applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, enabled, giroPay, googlePay, id, klarna, paypal, shopperInteraction, sofort, storeId, swish, type, verificationStatus);
   }
 
   @Override
@@ -662,6 +691,7 @@ public class PaymentMethod {
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    giroPay: ").append(toIndentedString(giroPay)).append("\n");
+    sb.append("    googlePay: ").append(toIndentedString(googlePay)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    klarna: ").append(toIndentedString(klarna)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
@@ -702,6 +732,7 @@ public class PaymentMethod {
     openapiFields.add("currencies");
     openapiFields.add("enabled");
     openapiFields.add("giroPay");
+    openapiFields.add("googlePay");
     openapiFields.add("id");
     openapiFields.add("klarna");
     openapiFields.add("paypal");
@@ -773,6 +804,10 @@ public class PaymentMethod {
       // validate the optional field `giroPay`
       if (jsonObj.getAsJsonObject("giroPay") != null) {
         GiroPayInfo.validateJsonObject(jsonObj.getAsJsonObject("giroPay"));
+      }
+      // validate the optional field `googlePay`
+      if (jsonObj.getAsJsonObject("googlePay") != null) {
+        GooglePayInfo.validateJsonObject(jsonObj.getAsJsonObject("googlePay"));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {

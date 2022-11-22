@@ -12,9 +12,6 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 import java.time.OffsetDateTime;
 
 import static org.mockito.ArgumentMatchers.*;
@@ -28,15 +25,6 @@ public class DateSerializationTest extends BaseTest {
     (note: dateOfBirth also gets serialized to ISO8601 which is fine one API side)
     */
     private OffsetDateTime date() {
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, 2023);
-        cal.set(Calendar.MONTH, 5);
-        cal.set(Calendar.DAY_OF_MONTH, 2);
-        cal.set(Calendar.HOUR_OF_DAY, 12);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
-        cal.setTimeZone(TimeZone.getTimeZone("UTC"));
         OffsetDateTime date = OffsetDateTime.parse("2023-06-02T12:00:00+01:00");
         return date;
     }

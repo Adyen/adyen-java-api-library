@@ -22,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,42 +44,37 @@ import java.util.Set;
 import com.adyen.model.management.JSON;
 
 /**
- * ApplePayInfo
+ * GooglePayInfo
  */
 
-public class ApplePayInfo {
-  public static final String SERIALIZED_NAME_DOMAINS = "domains";
-  @SerializedName(SERIALIZED_NAME_DOMAINS)
-  private List<String> domains = new ArrayList<>();
+public class GooglePayInfo {
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchantId";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
 
-  public ApplePayInfo() { 
+  public GooglePayInfo() { 
   }
 
-  public ApplePayInfo domains(List<String> domains) {
+  public GooglePayInfo merchantId(String merchantId) {
     
-    this.domains = domains;
-    return this;
-  }
-
-  public ApplePayInfo addDomainsItem(String domainsItem) {
-    this.domains.add(domainsItem);
+    this.merchantId = merchantId;
     return this;
   }
 
    /**
-   * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
-   * @return domains
+   * GooglePay Merchant ID. Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
+   * @return merchantId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live).")
+  @ApiModelProperty(required = true, value = "GooglePay Merchant ID. Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
 
-  public List<String> getDomains() {
-    return domains;
+  public String getMerchantId() {
+    return merchantId;
   }
 
 
-  public void setDomains(List<String> domains) {
-    this.domains = domains;
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
   }
 
 
@@ -94,20 +87,20 @@ public class ApplePayInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplePayInfo applePayInfo = (ApplePayInfo) o;
-    return Objects.equals(this.domains, applePayInfo.domains);
+    GooglePayInfo googlePayInfo = (GooglePayInfo) o;
+    return Objects.equals(this.merchantId, googlePayInfo.merchantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domains);
+    return Objects.hash(merchantId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplePayInfo {\n");
-    sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
+    sb.append("class GooglePayInfo {\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,45 +123,45 @@ public class ApplePayInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("domains");
+    openapiFields.add("merchantId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("domains");
+    openapiRequiredFields.add("merchantId");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ApplePayInfo
+  * @throws IOException if the JSON Object is invalid with respect to GooglePayInfo
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (ApplePayInfo.openapiRequiredFields.isEmpty()) {
+        if (GooglePayInfo.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApplePayInfo is not found in the empty JSON string", ApplePayInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GooglePayInfo is not found in the empty JSON string", GooglePayInfo.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!ApplePayInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApplePayInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!GooglePayInfo.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GooglePayInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApplePayInfo.openapiRequiredFields) {
+      for (String requiredField : GooglePayInfo.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      // ensure the json data is an array
-      if (jsonObj.get("domains") != null && !jsonObj.get("domains").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `domains` to be an array in the JSON string but got `%s`", jsonObj.get("domains").toString()));
+      // validate the optional field merchantId
+      if (jsonObj.get("merchantId") != null && !jsonObj.get("merchantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantId").toString()));
       }
   }
 
@@ -176,22 +169,22 @@ public class ApplePayInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApplePayInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApplePayInfo' and its subtypes
+       if (!GooglePayInfo.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GooglePayInfo' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApplePayInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApplePayInfo.class));
+       final TypeAdapter<GooglePayInfo> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GooglePayInfo.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ApplePayInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<GooglePayInfo>() {
            @Override
-           public void write(JsonWriter out, ApplePayInfo value) throws IOException {
+           public void write(JsonWriter out, GooglePayInfo value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ApplePayInfo read(JsonReader in) throws IOException {
+           public GooglePayInfo read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -202,18 +195,18 @@ public class ApplePayInfo {
   }
 
  /**
-  * Create an instance of ApplePayInfo given an JSON string
+  * Create an instance of GooglePayInfo given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ApplePayInfo
-  * @throws IOException if the JSON string is invalid with respect to ApplePayInfo
+  * @return An instance of GooglePayInfo
+  * @throws IOException if the JSON string is invalid with respect to GooglePayInfo
   */
-  public static ApplePayInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ApplePayInfo.class);
+  public static GooglePayInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GooglePayInfo.class);
   }
 
  /**
-  * Convert an instance of ApplePayInfo to an JSON string
+  * Convert an instance of GooglePayInfo to an JSON string
   *
   * @return JSON string
   */

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -99,11 +99,11 @@ public class Terminal {
 
   public static final String SERIALIZED_NAME_LAST_ACTIVITY_DATE_TIME = "lastActivityDateTime";
   @SerializedName(SERIALIZED_NAME_LAST_ACTIVITY_DATE_TIME)
-  private Date lastActivityDateTime;
+  private OffsetDateTime lastActivityDateTime;
 
   public static final String SERIALIZED_NAME_LAST_TRANSACTION_DATE_TIME = "lastTransactionDateTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSACTION_DATE_TIME)
-  private Date lastTransactionDateTime;
+  private OffsetDateTime lastTransactionDateTime;
 
   public static final String SERIALIZED_NAME_LINK_NEGOTIATION = "linkNegotiation";
   @SerializedName(SERIALIZED_NAME_LINK_NEGOTIATION)
@@ -416,7 +416,7 @@ public class Terminal {
   }
 
 
-  public Terminal lastActivityDateTime(Date lastActivityDateTime) {
+  public Terminal lastActivityDateTime(OffsetDateTime lastActivityDateTime) {
     
     this.lastActivityDateTime = lastActivityDateTime;
     return this;
@@ -429,17 +429,17 @@ public class Terminal {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.")
 
-  public Date getLastActivityDateTime() {
+  public OffsetDateTime getLastActivityDateTime() {
     return lastActivityDateTime;
   }
 
 
-  public void setLastActivityDateTime(Date lastActivityDateTime) {
+  public void setLastActivityDateTime(OffsetDateTime lastActivityDateTime) {
     this.lastActivityDateTime = lastActivityDateTime;
   }
 
 
-  public Terminal lastTransactionDateTime(Date lastTransactionDateTime) {
+  public Terminal lastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
     
     this.lastTransactionDateTime = lastTransactionDateTime;
     return this;
@@ -452,12 +452,12 @@ public class Terminal {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.")
 
-  public Date getLastTransactionDateTime() {
+  public OffsetDateTime getLastTransactionDateTime() {
     return lastTransactionDateTime;
   }
 
 
-  public void setLastTransactionDateTime(Date lastTransactionDateTime) {
+  public void setLastTransactionDateTime(OffsetDateTime lastTransactionDateTime) {
     this.lastTransactionDateTime = lastTransactionDateTime;
   }
 

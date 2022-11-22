@@ -93,11 +93,11 @@ public class TaxInformation {
   }
 
    /**
-   * The organization&#39;s tax ID number (TIN).
+   * The tax ID number (TIN) of the organization or individual.
    * @return number
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organization's tax ID number (TIN).")
+  @ApiModelProperty(value = "The tax ID number (TIN) of the organization or individual.")
 
   public String getNumber() {
     return number;

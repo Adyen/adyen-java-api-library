@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,7 +59,7 @@ public class ExternalTerminalAction {
 
   public static final String SERIALIZED_NAME_CONFIRMED_AT = "confirmedAt";
   @SerializedName(SERIALIZED_NAME_CONFIRMED_AT)
-  private Date confirmedAt;
+  private OffsetDateTime confirmedAt;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -71,7 +71,7 @@ public class ExternalTerminalAction {
 
   public static final String SERIALIZED_NAME_SCHEDULED_AT = "scheduledAt";
   @SerializedName(SERIALIZED_NAME_SCHEDULED_AT)
-  private Date scheduledAt;
+  private OffsetDateTime scheduledAt;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -130,7 +130,7 @@ public class ExternalTerminalAction {
   }
 
 
-  public ExternalTerminalAction confirmedAt(Date confirmedAt) {
+  public ExternalTerminalAction confirmedAt(OffsetDateTime confirmedAt) {
     
     this.confirmedAt = confirmedAt;
     return this;
@@ -143,12 +143,12 @@ public class ExternalTerminalAction {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date and time when the action was carried out.")
 
-  public Date getConfirmedAt() {
+  public OffsetDateTime getConfirmedAt() {
     return confirmedAt;
   }
 
 
-  public void setConfirmedAt(Date confirmedAt) {
+  public void setConfirmedAt(OffsetDateTime confirmedAt) {
     this.confirmedAt = confirmedAt;
   }
 
@@ -199,7 +199,7 @@ public class ExternalTerminalAction {
   }
 
 
-  public ExternalTerminalAction scheduledAt(Date scheduledAt) {
+  public ExternalTerminalAction scheduledAt(OffsetDateTime scheduledAt) {
     
     this.scheduledAt = scheduledAt;
     return this;
@@ -212,12 +212,12 @@ public class ExternalTerminalAction {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date and time when the action was scheduled to happen.")
 
-  public Date getScheduledAt() {
+  public OffsetDateTime getScheduledAt() {
     return scheduledAt;
   }
 
 
-  public void setScheduledAt(Date scheduledAt) {
+  public void setScheduledAt(OffsetDateTime scheduledAt) {
     this.scheduledAt = scheduledAt;
   }
 

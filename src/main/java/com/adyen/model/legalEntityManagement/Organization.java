@@ -492,8 +492,8 @@ public class Organization {
    * Type of organization.   Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    * @return type
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Type of organization.   Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Type of organization.   Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.")
 
   public TypeEnum getType() {
     return type;
@@ -667,7 +667,6 @@ public class Organization {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("legalName");
     openapiRequiredFields.add("registeredAddress");
-    openapiRequiredFields.add("type");
   }
 
  /**
