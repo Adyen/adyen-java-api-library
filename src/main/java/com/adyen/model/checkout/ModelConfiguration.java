@@ -220,11 +220,11 @@ public class ModelConfiguration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModelConfiguration _configuration = (ModelConfiguration) o;
-    return Objects.equals(this.avs, _configuration.avs) &&
-        Objects.equals(this.cardHolderName, _configuration.cardHolderName) &&
-        Objects.equals(this.installments, _configuration.installments) &&
-        Objects.equals(this.shopperInput, _configuration.shopperInput);
+    ModelConfiguration configuration = (ModelConfiguration) o;
+    return Objects.equals(this.avs, configuration.avs) &&
+        Objects.equals(this.cardHolderName, configuration.cardHolderName) &&
+        Objects.equals(this.installments, configuration.installments) &&
+        Objects.equals(this.shopperInput, configuration.shopperInput);
   }
 
   @Override

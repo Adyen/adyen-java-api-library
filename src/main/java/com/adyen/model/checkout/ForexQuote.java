@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -96,7 +96,7 @@ public class ForexQuote {
 
   public static final String SERIALIZED_NAME_VALID_TILL = "validTill";
   @SerializedName(SERIALIZED_NAME_VALID_TILL)
-  private Date validTill;
+  private OffsetDateTime validTill;
 
   public ForexQuote() { 
   }
@@ -354,7 +354,7 @@ public class ForexQuote {
   }
 
 
-  public ForexQuote validTill(Date validTill) {
+  public ForexQuote validTill(OffsetDateTime validTill) {
     
     this.validTill = validTill;
     return this;
@@ -367,12 +367,12 @@ public class ForexQuote {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date until which the forex quote is valid.")
 
-  public Date getValidTill() {
+  public OffsetDateTime getValidTill() {
     return validTill;
   }
 
 
-  public void setValidTill(Date validTill) {
+  public void setValidTill(OffsetDateTime validTill) {
     this.validTill = validTill;
   }
 

@@ -65,7 +65,7 @@ public class PaymentMethod {
 
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private Map<String, String> _configuration = null;
+  private Map<String, String> configuration = null;
 
   /**
    * The funding source of the payment method.
@@ -193,34 +193,34 @@ public class PaymentMethod {
   }
 
 
-  public PaymentMethod _configuration(Map<String, String> _configuration) {
+  public PaymentMethod configuration(Map<String, String> configuration) {
     
-    this._configuration = _configuration;
+    this.configuration = configuration;
     return this;
   }
 
-  public PaymentMethod putConfigurationItem(String key, String _configurationItem) {
-    if (this._configuration == null) {
-      this._configuration = new HashMap<>();
+  public PaymentMethod putConfigurationItem(String key, String configurationItem) {
+    if (this.configuration == null) {
+      this.configuration = new HashMap<>();
     }
-    this._configuration.put(key, _configurationItem);
+    this.configuration.put(key, configurationItem);
     return this;
   }
 
    /**
    * The configuration of the payment method.
-   * @return _configuration
+   * @return configuration
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The configuration of the payment method.")
 
   public Map<String, String> getConfiguration() {
-    return _configuration;
+    return configuration;
   }
 
 
-  public void setConfiguration(Map<String, String> _configuration) {
-    this._configuration = _configuration;
+  public void setConfiguration(Map<String, String> configuration) {
+    this.configuration = configuration;
   }
 
 
@@ -392,7 +392,7 @@ public class PaymentMethod {
     PaymentMethod paymentMethod = (PaymentMethod) o;
     return Objects.equals(this.brand, paymentMethod.brand) &&
         Objects.equals(this.brands, paymentMethod.brands) &&
-        Objects.equals(this._configuration, paymentMethod._configuration) &&
+        Objects.equals(this.configuration, paymentMethod.configuration) &&
         Objects.equals(this.fundingSource, paymentMethod.fundingSource) &&
         Objects.equals(this.group, paymentMethod.group) &&
         Objects.equals(this.inputDetails, paymentMethod.inputDetails) &&
@@ -403,7 +403,7 @@ public class PaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, brands, _configuration, fundingSource, group, inputDetails, issuers, name, type);
+    return Objects.hash(brand, brands, configuration, fundingSource, group, inputDetails, issuers, name, type);
   }
 
   @Override
@@ -412,7 +412,7 @@ public class PaymentMethod {
     sb.append("class PaymentMethod {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");

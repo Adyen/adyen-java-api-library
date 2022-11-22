@@ -34,8 +34,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -156,7 +156,7 @@ public class PaymentSetupRequest {
 
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private ModelConfiguration _configuration;
+  private ModelConfiguration configuration;
 
   public static final String SERIALIZED_NAME_CONVERSION_ID = "conversionId";
   @SerializedName(SERIALIZED_NAME_CONVERSION_ID)
@@ -168,7 +168,7 @@ public class PaymentSetupRequest {
 
   public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
   @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
-  private Date dateOfBirth;
+  private OffsetDateTime dateOfBirth;
 
   public static final String SERIALIZED_NAME_DCC_QUOTE = "dccQuote";
   @SerializedName(SERIALIZED_NAME_DCC_QUOTE)
@@ -180,7 +180,7 @@ public class PaymentSetupRequest {
 
   public static final String SERIALIZED_NAME_DELIVERY_DATE = "deliveryDate";
   @SerializedName(SERIALIZED_NAME_DELIVERY_DATE)
-  private Date deliveryDate;
+  private OffsetDateTime deliveryDate;
 
   public static final String SERIALIZED_NAME_ENABLE_ONE_CLICK = "enableOneClick";
   @SerializedName(SERIALIZED_NAME_ENABLE_ONE_CLICK)
@@ -681,26 +681,26 @@ public class PaymentSetupRequest {
   }
 
 
-  public PaymentSetupRequest _configuration(ModelConfiguration _configuration) {
+  public PaymentSetupRequest configuration(ModelConfiguration configuration) {
     
-    this._configuration = _configuration;
+    this.configuration = configuration;
     return this;
   }
 
    /**
-   * Get _configuration
-   * @return _configuration
+   * Get configuration
+   * @return configuration
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
   public ModelConfiguration getConfiguration() {
-    return _configuration;
+    return configuration;
   }
 
 
-  public void setConfiguration(ModelConfiguration _configuration) {
-    this._configuration = _configuration;
+  public void setConfiguration(ModelConfiguration configuration) {
+    this.configuration = configuration;
   }
 
 
@@ -750,7 +750,7 @@ public class PaymentSetupRequest {
   }
 
 
-  public PaymentSetupRequest dateOfBirth(Date dateOfBirth) {
+  public PaymentSetupRequest dateOfBirth(OffsetDateTime dateOfBirth) {
     
     this.dateOfBirth = dateOfBirth;
     return this;
@@ -763,12 +763,12 @@ public class PaymentSetupRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
-  public Date getDateOfBirth() {
+  public OffsetDateTime getDateOfBirth() {
     return dateOfBirth;
   }
 
 
-  public void setDateOfBirth(Date dateOfBirth) {
+  public void setDateOfBirth(OffsetDateTime dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
@@ -819,7 +819,7 @@ public class PaymentSetupRequest {
   }
 
 
-  public PaymentSetupRequest deliveryDate(Date deliveryDate) {
+  public PaymentSetupRequest deliveryDate(OffsetDateTime deliveryDate) {
     
     this.deliveryDate = deliveryDate;
     return this;
@@ -832,12 +832,12 @@ public class PaymentSetupRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00")
 
-  public Date getDeliveryDate() {
+  public OffsetDateTime getDeliveryDate() {
     return deliveryDate;
   }
 
 
-  public void setDeliveryDate(Date deliveryDate) {
+  public void setDeliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
 
@@ -1716,7 +1716,7 @@ public class PaymentSetupRequest {
         Objects.equals(this.channel, paymentSetupRequest.channel) &&
         Objects.equals(this.checkoutAttemptId, paymentSetupRequest.checkoutAttemptId) &&
         Objects.equals(this.company, paymentSetupRequest.company) &&
-        Objects.equals(this._configuration, paymentSetupRequest._configuration) &&
+        Objects.equals(this.configuration, paymentSetupRequest.configuration) &&
         Objects.equals(this.conversionId, paymentSetupRequest.conversionId) &&
         Objects.equals(this.countryCode, paymentSetupRequest.countryCode) &&
         Objects.equals(this.dateOfBirth, paymentSetupRequest.dateOfBirth) &&
@@ -1763,7 +1763,7 @@ public class PaymentSetupRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, channel, checkoutAttemptId, company, _configuration, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, recurringExpiry, recurringFrequency, reference, returnUrl, riskData, sdkVersion, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, token, trustedShopper);
+    return Objects.hash(additionalData, allowedPaymentMethods, amount, applicationInfo, billingAddress, blockedPaymentMethods, captureDelayHours, channel, checkoutAttemptId, company, configuration, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, metadata, orderReference, origin, recurringExpiry, recurringFrequency, reference, returnUrl, riskData, sdkVersion, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDSAuthenticationOnly, token, trustedShopper);
   }
 
   @Override
@@ -1780,7 +1780,7 @@ public class PaymentSetupRequest {
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
-    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
     sb.append("    conversionId: ").append(toIndentedString(conversionId)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");

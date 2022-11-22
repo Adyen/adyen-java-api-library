@@ -66,7 +66,7 @@ public class RecurringDetail {
 
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private Map<String, String> _configuration = null;
+  private Map<String, String> configuration = null;
 
   /**
    * The funding source of the payment method.
@@ -202,34 +202,34 @@ public class RecurringDetail {
   }
 
 
-  public RecurringDetail _configuration(Map<String, String> _configuration) {
+  public RecurringDetail configuration(Map<String, String> configuration) {
     
-    this._configuration = _configuration;
+    this.configuration = configuration;
     return this;
   }
 
-  public RecurringDetail putConfigurationItem(String key, String _configurationItem) {
-    if (this._configuration == null) {
-      this._configuration = new HashMap<>();
+  public RecurringDetail putConfigurationItem(String key, String configurationItem) {
+    if (this.configuration == null) {
+      this.configuration = new HashMap<>();
     }
-    this._configuration.put(key, _configurationItem);
+    this.configuration.put(key, configurationItem);
     return this;
   }
 
    /**
    * The configuration of the payment method.
-   * @return _configuration
+   * @return configuration
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The configuration of the payment method.")
 
   public Map<String, String> getConfiguration() {
-    return _configuration;
+    return configuration;
   }
 
 
-  public void setConfiguration(Map<String, String> _configuration) {
-    this._configuration = _configuration;
+  public void setConfiguration(Map<String, String> configuration) {
+    this.configuration = configuration;
   }
 
 
@@ -447,7 +447,7 @@ public class RecurringDetail {
     RecurringDetail recurringDetail = (RecurringDetail) o;
     return Objects.equals(this.brand, recurringDetail.brand) &&
         Objects.equals(this.brands, recurringDetail.brands) &&
-        Objects.equals(this._configuration, recurringDetail._configuration) &&
+        Objects.equals(this.configuration, recurringDetail.configuration) &&
         Objects.equals(this.fundingSource, recurringDetail.fundingSource) &&
         Objects.equals(this.group, recurringDetail.group) &&
         Objects.equals(this.inputDetails, recurringDetail.inputDetails) &&
@@ -460,7 +460,7 @@ public class RecurringDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, brands, _configuration, fundingSource, group, inputDetails, issuers, name, recurringDetailReference, storedDetails, type);
+    return Objects.hash(brand, brands, configuration, fundingSource, group, inputDetails, issuers, name, recurringDetailReference, storedDetails, type);
   }
 
   @Override
@@ -469,7 +469,7 @@ public class RecurringDetail {
     sb.append("class RecurringDetail {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");

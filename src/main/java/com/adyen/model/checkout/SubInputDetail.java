@@ -55,7 +55,7 @@ import com.adyen.model.checkout.JSON;
 public class SubInputDetail {
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-  private Map<String, String> _configuration = null;
+  private Map<String, String> configuration = null;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -80,34 +80,34 @@ public class SubInputDetail {
   public SubInputDetail() { 
   }
 
-  public SubInputDetail _configuration(Map<String, String> _configuration) {
+  public SubInputDetail configuration(Map<String, String> configuration) {
     
-    this._configuration = _configuration;
+    this.configuration = configuration;
     return this;
   }
 
-  public SubInputDetail putConfigurationItem(String key, String _configurationItem) {
-    if (this._configuration == null) {
-      this._configuration = new HashMap<>();
+  public SubInputDetail putConfigurationItem(String key, String configurationItem) {
+    if (this.configuration == null) {
+      this.configuration = new HashMap<>();
     }
-    this._configuration.put(key, _configurationItem);
+    this.configuration.put(key, configurationItem);
     return this;
   }
 
    /**
    * Configuration parameters for the required input.
-   * @return _configuration
+   * @return configuration
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Configuration parameters for the required input.")
 
   public Map<String, String> getConfiguration() {
-    return _configuration;
+    return configuration;
   }
 
 
-  public void setConfiguration(Map<String, String> _configuration) {
-    this._configuration = _configuration;
+  public void setConfiguration(Map<String, String> configuration) {
+    this.configuration = configuration;
   }
 
 
@@ -244,7 +244,7 @@ public class SubInputDetail {
       return false;
     }
     SubInputDetail subInputDetail = (SubInputDetail) o;
-    return Objects.equals(this._configuration, subInputDetail._configuration) &&
+    return Objects.equals(this.configuration, subInputDetail.configuration) &&
         Objects.equals(this.items, subInputDetail.items) &&
         Objects.equals(this.key, subInputDetail.key) &&
         Objects.equals(this.optional, subInputDetail.optional) &&
@@ -254,14 +254,14 @@ public class SubInputDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_configuration, items, key, optional, type, value);
+    return Objects.hash(configuration, items, key, optional, type, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubInputDetail {\n");
-    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    optional: ").append(toIndentedString(optional)).append("\n");

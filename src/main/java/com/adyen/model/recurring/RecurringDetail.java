@@ -27,8 +27,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,7 +88,7 @@ public class RecurringDetail {
 
   public static final String SERIALIZED_NAME_CREATION_DATE = "creationDate";
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
-  private Date creationDate;
+  private OffsetDateTime creationDate;
 
   public static final String SERIALIZED_NAME_FIRST_PSP_REFERENCE = "firstPspReference";
   @SerializedName(SERIALIZED_NAME_FIRST_PSP_REFERENCE)
@@ -306,7 +306,7 @@ public class RecurringDetail {
   }
 
 
-  public RecurringDetail creationDate(Date creationDate) {
+  public RecurringDetail creationDate(OffsetDateTime creationDate) {
     
     this.creationDate = creationDate;
     return this;
@@ -319,12 +319,12 @@ public class RecurringDetail {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the recurring details were created.")
 
-  public Date getCreationDate() {
+  public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
 
-  public void setCreationDate(Date creationDate) {
+  public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 
