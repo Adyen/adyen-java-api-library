@@ -23,8 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -54,7 +54,7 @@ import com.adyen.model.recurring.JSON;
 public class RecurringDetailsResult {
   public static final String SERIALIZED_NAME_CREATION_DATE = "creationDate";
   @SerializedName(SERIALIZED_NAME_CREATION_DATE)
-  private Date creationDate;
+  private OffsetDateTime creationDate;
 
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
@@ -71,7 +71,7 @@ public class RecurringDetailsResult {
   public RecurringDetailsResult() { 
   }
 
-  public RecurringDetailsResult creationDate(Date creationDate) {
+  public RecurringDetailsResult creationDate(OffsetDateTime creationDate) {
     
     this.creationDate = creationDate;
     return this;
@@ -84,12 +84,12 @@ public class RecurringDetailsResult {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the recurring details were created.")
 
-  public Date getCreationDate() {
+  public OffsetDateTime getCreationDate() {
     return creationDate;
   }
 
 
-  public void setCreationDate(Date creationDate) {
+  public void setCreationDate(OffsetDateTime creationDate) {
     this.creationDate = creationDate;
   }
 

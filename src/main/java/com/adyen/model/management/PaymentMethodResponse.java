@@ -68,6 +68,121 @@ public class PaymentMethodResponse {
   @SerializedName(SERIALIZED_NAME_PAGES_TOTAL)
   private Integer pagesTotal;
 
+  /**
+   * Gets or Sets typesWithErrors
+   */
+  @JsonAdapter(TypesWithErrorsEnum.Adapter.class)
+  public enum TypesWithErrorsEnum {
+    ALIPAY("alipay"),
+    
+    AMEX("amex"),
+    
+    APPLEPAY("applepay"),
+    
+    BCMC("bcmc"),
+    
+    BLIK("blik"),
+    
+    CARTEBANCAIRE("cartebancaire"),
+    
+    CUP("cup"),
+    
+    DINERS("diners"),
+    
+    DIRECTEBANKING("directEbanking"),
+    
+    DIRECTDEBIT_GB("directdebit_GB"),
+    
+    DISCOVER("discover"),
+    
+    EBANKING_FI("ebanking_FI"),
+    
+    EFTPOS_AUSTRALIA("eftpos_australia"),
+    
+    GIROCARD("girocard"),
+    
+    GIROPAY("giropay"),
+    
+    GOOGLEPAY("googlepay"),
+    
+    IDEAL("ideal"),
+    
+    INTERAC_CARD("interac_card"),
+    
+    JCB("jcb"),
+    
+    KLARNA("klarna"),
+    
+    KLARNA_ACCOUNT("klarna_account"),
+    
+    KLARNA_PAYNOW("klarna_paynow"),
+    
+    MAESTRO("maestro"),
+    
+    MBWAY("mbway"),
+    
+    MC("mc"),
+    
+    MOBILEPAY("mobilepay"),
+    
+    MULTIBANCO("multibanco"),
+    
+    PAYPAL("paypal"),
+    
+    PAYSHOP("payshop"),
+    
+    SWISH("swish"),
+    
+    TRUSTLY("trustly"),
+    
+    VISA("visa"),
+    
+    WECHATPAY("wechatpay"),
+    
+    WECHATPAY_POS("wechatpay_pos");
+
+    private String value;
+
+    TypesWithErrorsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypesWithErrorsEnum fromValue(String value) {
+      for (TypesWithErrorsEnum b : TypesWithErrorsEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypesWithErrorsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypesWithErrorsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypesWithErrorsEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypesWithErrorsEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TYPES_WITH_ERRORS = "typesWithErrors";
+  @SerializedName(SERIALIZED_NAME_TYPES_WITH_ERRORS)
+  private List<TypesWithErrorsEnum> typesWithErrors = null;
+
   public PaymentMethodResponse() { 
   }
 
@@ -171,6 +286,37 @@ public class PaymentMethodResponse {
   }
 
 
+  public PaymentMethodResponse typesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
+    
+    this.typesWithErrors = typesWithErrors;
+    return this;
+  }
+
+  public PaymentMethodResponse addTypesWithErrorsItem(TypesWithErrorsEnum typesWithErrorsItem) {
+    if (this.typesWithErrors == null) {
+      this.typesWithErrors = new ArrayList<>();
+    }
+    this.typesWithErrors.add(typesWithErrorsItem);
+    return this;
+  }
+
+   /**
+   * Payment method types with errors.
+   * @return typesWithErrors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Payment method types with errors.")
+
+  public List<TypesWithErrorsEnum> getTypesWithErrors() {
+    return typesWithErrors;
+  }
+
+
+  public void setTypesWithErrors(List<TypesWithErrorsEnum> typesWithErrors) {
+    this.typesWithErrors = typesWithErrors;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -184,12 +330,13 @@ public class PaymentMethodResponse {
     return Objects.equals(this.links, paymentMethodResponse.links) &&
         Objects.equals(this.data, paymentMethodResponse.data) &&
         Objects.equals(this.itemsTotal, paymentMethodResponse.itemsTotal) &&
-        Objects.equals(this.pagesTotal, paymentMethodResponse.pagesTotal);
+        Objects.equals(this.pagesTotal, paymentMethodResponse.pagesTotal) &&
+        Objects.equals(this.typesWithErrors, paymentMethodResponse.typesWithErrors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, data, itemsTotal, pagesTotal);
+    return Objects.hash(links, data, itemsTotal, pagesTotal, typesWithErrors);
   }
 
   @Override
@@ -200,6 +347,7 @@ public class PaymentMethodResponse {
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    itemsTotal: ").append(toIndentedString(itemsTotal)).append("\n");
     sb.append("    pagesTotal: ").append(toIndentedString(pagesTotal)).append("\n");
+    sb.append("    typesWithErrors: ").append(toIndentedString(typesWithErrors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -226,6 +374,7 @@ public class PaymentMethodResponse {
     openapiFields.add("data");
     openapiFields.add("itemsTotal");
     openapiFields.add("pagesTotal");
+    openapiFields.add("typesWithErrors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -277,6 +426,10 @@ public class PaymentMethodResponse {
         for (int i = 0; i < jsonArraydata.size(); i++) {
           PaymentMethod.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
         };
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("typesWithErrors") != null && !jsonObj.get("typesWithErrors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `typesWithErrors` to be an array in the JSON string but got `%s`", jsonObj.get("typesWithErrors").toString()));
       }
   }
 

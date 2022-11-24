@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=checkout legalEntityManagement payments payout recurring management binlookup
+services:=checkout legalEntityManagement recurring binlookup management payments payout
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -45,7 +45,7 @@ $(services): target/spec $(openapi-generator-jar)
 		--library $(library) \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--additional-properties=dateLibrary=legacy \
+		--additional-properties=dateLibrary=java8 \
 		--additional-properties=serializationLibrary=gson \
 		--additional-properties=openApiNullable=false \
 		--additional-properties=resourceClass=$(resourceClass)Resource

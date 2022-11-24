@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -67,11 +67,11 @@ public class AndroidCertificate {
 
   public static final String SERIALIZED_NAME_NOT_AFTER = "notAfter";
   @SerializedName(SERIALIZED_NAME_NOT_AFTER)
-  private Date notAfter;
+  private OffsetDateTime notAfter;
 
   public static final String SERIALIZED_NAME_NOT_BEFORE = "notBefore";
   @SerializedName(SERIALIZED_NAME_NOT_BEFORE)
-  private Date notBefore;
+  private OffsetDateTime notBefore;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -172,7 +172,7 @@ public class AndroidCertificate {
   }
 
 
-  public AndroidCertificate notAfter(Date notAfter) {
+  public AndroidCertificate notAfter(OffsetDateTime notAfter) {
     
     this.notAfter = notAfter;
     return this;
@@ -185,17 +185,17 @@ public class AndroidCertificate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the certificate stops to be valid.")
 
-  public Date getNotAfter() {
+  public OffsetDateTime getNotAfter() {
     return notAfter;
   }
 
 
-  public void setNotAfter(Date notAfter) {
+  public void setNotAfter(OffsetDateTime notAfter) {
     this.notAfter = notAfter;
   }
 
 
-  public AndroidCertificate notBefore(Date notBefore) {
+  public AndroidCertificate notBefore(OffsetDateTime notBefore) {
     
     this.notBefore = notBefore;
     return this;
@@ -208,12 +208,12 @@ public class AndroidCertificate {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date when the certificate starts to be valid.")
 
-  public Date getNotBefore() {
+  public OffsetDateTime getNotBefore() {
     return notBefore;
   }
 
 
-  public void setNotBefore(Date notBefore) {
+  public void setNotBefore(OffsetDateTime notBefore) {
     this.notBefore = notBefore;
   }
 

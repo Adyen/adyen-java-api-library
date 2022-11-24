@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -192,7 +192,7 @@ public class MerchantRiskIndicator {
 
   public static final String SERIALIZED_NAME_PRE_ORDER_DATE = "preOrderDate";
   @SerializedName(SERIALIZED_NAME_PRE_ORDER_DATE)
-  private Date preOrderDate;
+  private OffsetDateTime preOrderDate;
 
   public static final String SERIALIZED_NAME_PRE_ORDER_PURCHASE = "preOrderPurchase";
   @SerializedName(SERIALIZED_NAME_PRE_ORDER_PURCHASE)
@@ -403,7 +403,7 @@ public class MerchantRiskIndicator {
   }
 
 
-  public MerchantRiskIndicator preOrderDate(Date preOrderDate) {
+  public MerchantRiskIndicator preOrderDate(OffsetDateTime preOrderDate) {
     
     this.preOrderDate = preOrderDate;
     return this;
@@ -416,12 +416,12 @@ public class MerchantRiskIndicator {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "For pre-order purchases, the expected date this product will be available to the shopper.")
 
-  public Date getPreOrderDate() {
+  public OffsetDateTime getPreOrderDate() {
     return preOrderDate;
   }
 
 
-  public void setPreOrderDate(Date preOrderDate) {
+  public void setPreOrderDate(OffsetDateTime preOrderDate) {
     this.preOrderDate = preOrderDate;
   }
 
