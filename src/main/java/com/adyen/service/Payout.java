@@ -80,6 +80,23 @@ public class Payout extends Service {
     }
 
     /**
+     * Issues a storeDetailAndSubmitThirdParty API call
+     *
+     * @param request StoreDetailAndSubmitRequest
+     * @param requestOptions RequestOptions
+     * @return StoreDetailAndSubmitResponse
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
+     */
+    public StoreDetailAndSubmitResponse storeDetailAndSubmitThirdParty(StoreDetailAndSubmitRequest request, RequestOptions requestOptions) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
+
+        String jsonResult = storeDetailAndSubmitThirdParty.request(jsonRequest, requestOptions);
+
+        return StoreDetailAndSubmitResponse.fromJson(jsonResult);
+    }
+
+    /**
      * Issues a ConfirmThirdParty API call
      *
      * @param request ConfirmThirdPartyRequest
