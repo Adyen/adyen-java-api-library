@@ -20,10 +20,6 @@
  */
 package com.adyen.util;
 
-import com.adyen.model.Amount;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -71,37 +67,6 @@ public final class Util {
 
         // return result
         return sb.toString();
-    }
-
-
-    /**
-     * Returns an Amount struct to use on requests
-     *
-     * @param amount Defines the amount
-     * @param currency Defines the amount currency
-     * @return amount
-     */
-    public static Amount createAmount(String amount, String currency) {
-        return createAmount(new BigDecimal(amount), currency);
-    }
-
-    /**
-     * Returns an Amount struct to use on requests
-     *
-     * @param amount Defines the amount
-     * @param currency Defines the amount currency
-     * @return amount
-     */
-    public static Amount createAmount(BigDecimal amount, String currency) {
-        Amount amountData = new Amount();
-        amountData.setCurrency(currency);
-
-        int scale = getDecimalPlaces(currency);
-        Long amountValue = BigDecimal.TEN.pow(scale).multiply(amount.setScale(scale, RoundingMode.HALF_UP)).longValue();
-
-        amountData.setValue(amountValue);
-
-        return amountData;
     }
 
     public static int getDecimalPlaces(String currency) {

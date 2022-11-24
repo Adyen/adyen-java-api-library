@@ -22,7 +22,6 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;

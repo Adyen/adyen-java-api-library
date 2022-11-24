@@ -20,7 +20,7 @@
  */
 package com.adyen;
 
-import com.adyen.model.Amount;
+import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.notification.NotificationRequestItemContainer;

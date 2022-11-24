@@ -23,7 +23,7 @@ package com.adyen.model.marketpay.notification;
 
 import java.util.Date;
 
-import com.adyen.model.Amount;
+import com.adyen.model.marketpay.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import static com.adyen.util.Util.toIndentedString;

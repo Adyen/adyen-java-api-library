@@ -19,7 +19,7 @@
  * See the LICENSE file for more info.
  */
 
-package com.adyen.model;
+package com.adyen.model.dataprotection;
 
 import java.util.Objects;
 

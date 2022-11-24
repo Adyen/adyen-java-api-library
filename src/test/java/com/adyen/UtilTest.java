@@ -1,6 +1,6 @@
 package com.adyen;
 
-import com.adyen.model.Amount;
+import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.util.HMACValidator;
 import com.adyen.util.Util;
@@ -26,26 +26,6 @@ import static org.junit.Assert.assertTrue;
  * Tests for Util class
  */
 public class UtilTest {
-
-    @Test
-    public void testAmountDecimals() {
-        Amount amount = new Amount();
-        amount.setCurrency("EUR");
-        amount.setValue(1001L);
-
-        assertEquals(new BigDecimal("10.01"), amount.getDecimalValue());
-    }
-
-    @Test
-    public void testCreateAmount() {
-        Amount amount = Util.createAmount("12.345234", "EUR");
-        Amount amountJPY = Util.createAmount("1234", "JPY");
-        Amount amountBHD = Util.createAmount("1.2345234", "BHD");
-
-        assertEquals(1235L, amount.getValue().longValue());
-        assertEquals(1234L, amountJPY.getValue().longValue());
-        assertEquals(1235L, amountBHD.getValue().longValue());
-    }
 
     @Test
     public void testGetDataToSign() {
@@ -99,7 +79,7 @@ public class UtilTest {
         notificationRequestItem.setOriginalReference("originalReference");
         notificationRequestItem.setMerchantAccountCode("merchantAccount");
         notificationRequestItem.setMerchantReference("reference");
-        notificationRequestItem.setAmount(Util.createAmount(BigDecimal.TEN, "EUR"));
+        notificationRequestItem.setAmount(new Amount().currency("EUR").value(1000l));
         notificationRequestItem.setEventCode("EVENT");
         notificationRequestItem.setSuccess(true);
 
