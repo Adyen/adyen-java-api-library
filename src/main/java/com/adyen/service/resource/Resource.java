@@ -18,7 +18,7 @@
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.service;
+package com.adyen.service.resource;
 
 import com.adyen.Config;
 import com.adyen.Service;

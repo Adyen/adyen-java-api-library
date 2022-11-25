@@ -1,0 +1,26 @@
+{
+  "hasNext": "true",
+  "hasPrevious": "false",
+  "paymentInstruments": [
+    {
+      "balanceAccountId": "BA32272223222B59CZ3T52DKZ",
+      "issuingCountryCode": "GB",
+      "status": "active",
+      "type": "card",
+      "card": {
+        "brandVariant": "mc",
+        "brand": "mcdebit",
+        "cardholderName": "name",
+        "formFactor": "virtual",
+        "bin": "555544",
+        "expiration": {
+          "month": "12",
+          "year": "2022"
+        },
+        "lastFour": "2357",
+        "number": "************2357"
+      },
+      "id": "PI32272223222B59M5TM658DT"
+    }
+  ]
+}

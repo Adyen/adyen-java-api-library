@@ -2,7 +2,7 @@ package com.adyen.service.resource.transfers;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.Resource;
+import com.adyen.service.resource.Resource;
 
 public class TransfersResource extends Resource {
     public TransfersResource(Service service, String endpoint) {

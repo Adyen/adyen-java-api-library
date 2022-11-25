@@ -1,4 +1,4 @@
-package com.adyen.service.LegalEntityManagement;
+package com.adyen.service.legalentitymanagement;
 
 import com.adyen.Client;
 import com.adyen.Service;

@@ -21,7 +21,7 @@
 package com.adyen.service.resource.terminal.cloud;
 
 import com.adyen.Service;
-import com.adyen.service.Resource;
+import com.adyen.service.resource.Resource;
 
 public class Sync extends Resource {
     public Sync(Service service) {

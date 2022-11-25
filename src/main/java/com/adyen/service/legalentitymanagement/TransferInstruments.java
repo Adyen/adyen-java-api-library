@@ -1,4 +1,4 @@
-package com.adyen.service.LegalEntityManagement;
+package com.adyen.service.legalentitymanagement;
 
 import com.adyen.Client;
 import com.adyen.Service;
@@ -39,5 +39,4 @@ public class TransferInstruments extends Service {
         LegalEntityManagementResource resource = new LegalEntityManagementResource(this, String.format("/transferInstruments/%s", transferInstrumentId));
         resource.request(null, ApiConstants.HttpMethod.DELETE);
     }
-
 }
