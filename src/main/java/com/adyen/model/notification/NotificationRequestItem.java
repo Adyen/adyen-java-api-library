@@ -21,6 +21,7 @@
 package com.adyen.model.notification;
 
 import com.adyen.model.Amount;
+import com.adyen.model.Rreq;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -82,6 +83,9 @@ public class NotificationRequestItem {
     public static final String EVENT_CODE_MANUAL_REVIEW_ACCEPT = "MANUAL_REVIEW_ACCEPT";
     public static final String EVENT_CODE_MANUAL_REVIEW_REJECT = "MANUAL_REVIEW_REJECT";
 
+    // 3DS2 RREQ
+    public static final String EVENT_CODE_THREEDS2_RREQ = "THREEDS2_RREQ";
+
     @SerializedName("amount")
     private Amount amount = null;
 
@@ -117,6 +121,9 @@ public class NotificationRequestItem {
 
     @SerializedName("additionalData")
     private Map<String, String> additionalData = null;
+
+    @SerializedName("rreq")
+    private Rreq rreq;
 
     public Amount getAmount() {
         return amount;
@@ -227,6 +234,15 @@ public class NotificationRequestItem {
         return this;
     }
 
+    public Rreq getRreq() {
+        return rreq;
+    }
+
+    public NotificationRequestItem setRreq(Rreq rreq) {
+        this.rreq = rreq;
+        return this;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -244,6 +260,7 @@ public class NotificationRequestItem {
         sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
         sb.append("    operations: ").append(toIndentedString(operations)).append("\n");
         sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
+        sb.append("    rreq: ").append(toIndentedString(rreq)).append("\n");
         sb.append("}");
         return sb.toString();
     }
