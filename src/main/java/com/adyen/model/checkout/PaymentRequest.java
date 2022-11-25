@@ -41,8 +41,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -175,7 +175,7 @@ public class PaymentRequest {
 
   public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
   @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
-  private Date dateOfBirth;
+  private OffsetDateTime dateOfBirth;
 
   public static final String SERIALIZED_NAME_DCC_QUOTE = "dccQuote";
   @SerializedName(SERIALIZED_NAME_DCC_QUOTE)
@@ -187,7 +187,7 @@ public class PaymentRequest {
 
   public static final String SERIALIZED_NAME_DELIVERY_DATE = "deliveryDate";
   @SerializedName(SERIALIZED_NAME_DELIVERY_DATE)
-  private Date deliveryDate;
+  private OffsetDateTime deliveryDate;
 
   public static final String SERIALIZED_NAME_DEVICE_FINGERPRINT = "deviceFingerprint";
   @SerializedName(SERIALIZED_NAME_DEVICE_FINGERPRINT)
@@ -502,7 +502,7 @@ public class PaymentRequest {
 
   public static final String SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY = "threeDSAuthenticationOnly";
   @SerializedName(SERIALIZED_NAME_THREE_D_S_AUTHENTICATION_ONLY)
-  private Boolean threeDSAuthenticationOnly;
+  private Boolean threeDSAuthenticationOnly = false;
 
   public static final String SERIALIZED_NAME_TRUSTED_SHOPPER = "trustedShopper";
   @SerializedName(SERIALIZED_NAME_TRUSTED_SHOPPER)
@@ -818,7 +818,7 @@ public class PaymentRequest {
   }
 
 
-  public PaymentRequest dateOfBirth(Date dateOfBirth) {
+  public PaymentRequest dateOfBirth(OffsetDateTime dateOfBirth) {
     
     this.dateOfBirth = dateOfBirth;
     return this;
@@ -831,12 +831,12 @@ public class PaymentRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
-  public Date getDateOfBirth() {
+  public OffsetDateTime getDateOfBirth() {
     return dateOfBirth;
   }
 
 
-  public void setDateOfBirth(Date dateOfBirth) {
+  public void setDateOfBirth(OffsetDateTime dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
@@ -887,7 +887,7 @@ public class PaymentRequest {
   }
 
 
-  public PaymentRequest deliveryDate(Date deliveryDate) {
+  public PaymentRequest deliveryDate(OffsetDateTime deliveryDate) {
     
     this.deliveryDate = deliveryDate;
     return this;
@@ -900,12 +900,12 @@ public class PaymentRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00")
 
-  public Date getDeliveryDate() {
+  public OffsetDateTime getDeliveryDate() {
     return deliveryDate;
   }
 
 
-  public void setDeliveryDate(Date deliveryDate) {
+  public void setDeliveryDate(OffsetDateTime deliveryDate) {
     this.deliveryDate = deliveryDate;
   }
 

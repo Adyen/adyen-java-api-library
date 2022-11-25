@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -108,7 +108,7 @@ public class AccountInfo {
 
   public static final String SERIALIZED_NAME_ACCOUNT_CHANGE_DATE = "accountChangeDate";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_CHANGE_DATE)
-  private Date accountChangeDate;
+  private OffsetDateTime accountChangeDate;
 
   /**
    * Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
@@ -167,7 +167,7 @@ public class AccountInfo {
 
   public static final String SERIALIZED_NAME_ACCOUNT_CREATION_DATE = "accountCreationDate";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_CREATION_DATE)
-  private Date accountCreationDate;
+  private OffsetDateTime accountCreationDate;
 
   /**
    * Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
@@ -228,7 +228,7 @@ public class AccountInfo {
 
   public static final String SERIALIZED_NAME_DELIVERY_ADDRESS_USAGE_DATE = "deliveryAddressUsageDate";
   @SerializedName(SERIALIZED_NAME_DELIVERY_ADDRESS_USAGE_DATE)
-  private Date deliveryAddressUsageDate;
+  private OffsetDateTime deliveryAddressUsageDate;
 
   /**
    * Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
@@ -295,7 +295,7 @@ public class AccountInfo {
 
   public static final String SERIALIZED_NAME_PASSWORD_CHANGE_DATE = "passwordChangeDate";
   @SerializedName(SERIALIZED_NAME_PASSWORD_CHANGE_DATE)
-  private Date passwordChangeDate;
+  private OffsetDateTime passwordChangeDate;
 
   /**
    * Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
@@ -364,7 +364,7 @@ public class AccountInfo {
 
   public static final String SERIALIZED_NAME_PAYMENT_ACCOUNT_AGE = "paymentAccountAge";
   @SerializedName(SERIALIZED_NAME_PAYMENT_ACCOUNT_AGE)
-  private Date paymentAccountAge;
+  private OffsetDateTime paymentAccountAge;
 
   /**
    * Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
@@ -461,7 +461,7 @@ public class AccountInfo {
   }
 
 
-  public AccountInfo accountChangeDate(Date accountChangeDate) {
+  public AccountInfo accountChangeDate(OffsetDateTime accountChangeDate) {
     
     this.accountChangeDate = accountChangeDate;
     return this;
@@ -474,12 +474,12 @@ public class AccountInfo {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date when the shopper's account was last changed.")
 
-  public Date getAccountChangeDate() {
+  public OffsetDateTime getAccountChangeDate() {
     return accountChangeDate;
   }
 
 
-  public void setAccountChangeDate(Date accountChangeDate) {
+  public void setAccountChangeDate(OffsetDateTime accountChangeDate) {
     this.accountChangeDate = accountChangeDate;
   }
 
@@ -507,7 +507,7 @@ public class AccountInfo {
   }
 
 
-  public AccountInfo accountCreationDate(Date accountCreationDate) {
+  public AccountInfo accountCreationDate(OffsetDateTime accountCreationDate) {
     
     this.accountCreationDate = accountCreationDate;
     return this;
@@ -520,12 +520,12 @@ public class AccountInfo {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date when the shopper's account was created.")
 
-  public Date getAccountCreationDate() {
+  public OffsetDateTime getAccountCreationDate() {
     return accountCreationDate;
   }
 
 
-  public void setAccountCreationDate(Date accountCreationDate) {
+  public void setAccountCreationDate(OffsetDateTime accountCreationDate) {
     this.accountCreationDate = accountCreationDate;
   }
 
@@ -576,7 +576,7 @@ public class AccountInfo {
   }
 
 
-  public AccountInfo deliveryAddressUsageDate(Date deliveryAddressUsageDate) {
+  public AccountInfo deliveryAddressUsageDate(OffsetDateTime deliveryAddressUsageDate) {
     
     this.deliveryAddressUsageDate = deliveryAddressUsageDate;
     return this;
@@ -589,12 +589,12 @@ public class AccountInfo {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date the selected delivery address was first used.")
 
-  public Date getDeliveryAddressUsageDate() {
+  public OffsetDateTime getDeliveryAddressUsageDate() {
     return deliveryAddressUsageDate;
   }
 
 
-  public void setDeliveryAddressUsageDate(Date deliveryAddressUsageDate) {
+  public void setDeliveryAddressUsageDate(OffsetDateTime deliveryAddressUsageDate) {
     this.deliveryAddressUsageDate = deliveryAddressUsageDate;
   }
 
@@ -672,7 +672,7 @@ public class AccountInfo {
   }
 
 
-  public AccountInfo passwordChangeDate(Date passwordChangeDate) {
+  public AccountInfo passwordChangeDate(OffsetDateTime passwordChangeDate) {
     
     this.passwordChangeDate = passwordChangeDate;
     return this;
@@ -685,12 +685,12 @@ public class AccountInfo {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date when the shopper last changed their password.")
 
-  public Date getPasswordChangeDate() {
+  public OffsetDateTime getPasswordChangeDate() {
     return passwordChangeDate;
   }
 
 
-  public void setPasswordChangeDate(Date passwordChangeDate) {
+  public void setPasswordChangeDate(OffsetDateTime passwordChangeDate) {
     this.passwordChangeDate = passwordChangeDate;
   }
 
@@ -764,7 +764,7 @@ public class AccountInfo {
   }
 
 
-  public AccountInfo paymentAccountAge(Date paymentAccountAge) {
+  public AccountInfo paymentAccountAge(OffsetDateTime paymentAccountAge) {
     
     this.paymentAccountAge = paymentAccountAge;
     return this;
@@ -777,12 +777,12 @@ public class AccountInfo {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date this payment method was added to the shopper's account.")
 
-  public Date getPaymentAccountAge() {
+  public OffsetDateTime getPaymentAccountAge() {
     return paymentAccountAge;
   }
 
 
-  public void setPaymentAccountAge(Date paymentAccountAge) {
+  public void setPaymentAccountAge(OffsetDateTime paymentAccountAge) {
     this.paymentAccountAge = paymentAccountAge;
   }
 

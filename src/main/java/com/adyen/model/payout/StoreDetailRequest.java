@@ -27,7 +27,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,7 +75,7 @@ public class StoreDetailRequest {
 
   public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
   @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
-  private Date dateOfBirth;
+  private OffsetDateTime dateOfBirth;
 
   /**
    * The type of the entity the payout is processed for.
@@ -271,7 +271,7 @@ public class StoreDetailRequest {
   }
 
 
-  public StoreDetailRequest dateOfBirth(Date dateOfBirth) {
+  public StoreDetailRequest dateOfBirth(OffsetDateTime dateOfBirth) {
     
     this.dateOfBirth = dateOfBirth;
     return this;
@@ -284,12 +284,12 @@ public class StoreDetailRequest {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. > This field is mandatory for natural persons.")
 
-  public Date getDateOfBirth() {
+  public OffsetDateTime getDateOfBirth() {
     return dateOfBirth;
   }
 
 
-  public void setDateOfBirth(Date dateOfBirth) {
+  public void setDateOfBirth(OffsetDateTime dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 

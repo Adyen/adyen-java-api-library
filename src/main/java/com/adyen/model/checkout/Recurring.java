@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -108,7 +108,7 @@ public class Recurring {
 
   public static final String SERIALIZED_NAME_RECURRING_EXPIRY = "recurringExpiry";
   @SerializedName(SERIALIZED_NAME_RECURRING_EXPIRY)
-  private Date recurringExpiry;
+  private OffsetDateTime recurringExpiry;
 
   public static final String SERIALIZED_NAME_RECURRING_FREQUENCY = "recurringFrequency";
   @SerializedName(SERIALIZED_NAME_RECURRING_FREQUENCY)
@@ -214,7 +214,7 @@ public class Recurring {
   }
 
 
-  public Recurring recurringExpiry(Date recurringExpiry) {
+  public Recurring recurringExpiry(OffsetDateTime recurringExpiry) {
     
     this.recurringExpiry = recurringExpiry;
     return this;
@@ -227,12 +227,12 @@ public class Recurring {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date after which no further authorisations shall be performed. Only for 3D Secure 2.")
 
-  public Date getRecurringExpiry() {
+  public OffsetDateTime getRecurringExpiry() {
     return recurringExpiry;
   }
 
 
-  public void setRecurringExpiry(Date recurringExpiry) {
+  public void setRecurringExpiry(OffsetDateTime recurringExpiry) {
     this.recurringExpiry = recurringExpiry;
   }
 

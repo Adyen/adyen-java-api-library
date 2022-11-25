@@ -18,6 +18,7 @@ import com.adyen.model.management.ApplePayInfo;
 import com.adyen.model.management.BcmcInfo;
 import com.adyen.model.management.CartesBancairesInfo;
 import com.adyen.model.management.GiroPayInfo;
+import com.adyen.model.management.GooglePayInfo;
 import com.adyen.model.management.KlarnaInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.SofortInfo;
@@ -85,6 +86,10 @@ public class PaymentMethodSetupInfo {
   public static final String SERIALIZED_NAME_GIRO_PAY = "giroPay";
   @SerializedName(SERIALIZED_NAME_GIRO_PAY)
   private GiroPayInfo giroPay;
+
+  public static final String SERIALIZED_NAME_GOOGLE_PAY = "googlePay";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_PAY)
+  private GooglePayInfo googlePay;
 
   public static final String SERIALIZED_NAME_KLARNA = "klarna";
   @SerializedName(SERIALIZED_NAME_KLARNA)
@@ -195,6 +200,8 @@ public class PaymentMethodSetupInfo {
     GIROCARD("girocard"),
     
     GIROPAY("giropay"),
+    
+    GOOGLEPAY("googlepay"),
     
     IDEAL("ideal"),
     
@@ -454,6 +461,29 @@ public class PaymentMethodSetupInfo {
   }
 
 
+  public PaymentMethodSetupInfo googlePay(GooglePayInfo googlePay) {
+    
+    this.googlePay = googlePay;
+    return this;
+  }
+
+   /**
+   * Get googlePay
+   * @return googlePay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public GooglePayInfo getGooglePay() {
+    return googlePay;
+  }
+
+
+  public void setGooglePay(GooglePayInfo googlePay) {
+    this.googlePay = googlePay;
+  }
+
+
   public PaymentMethodSetupInfo klarna(KlarnaInfo klarna) {
     
     this.klarna = klarna;
@@ -632,6 +662,7 @@ public class PaymentMethodSetupInfo {
         Objects.equals(this.countries, paymentMethodSetupInfo.countries) &&
         Objects.equals(this.currencies, paymentMethodSetupInfo.currencies) &&
         Objects.equals(this.giroPay, paymentMethodSetupInfo.giroPay) &&
+        Objects.equals(this.googlePay, paymentMethodSetupInfo.googlePay) &&
         Objects.equals(this.klarna, paymentMethodSetupInfo.klarna) &&
         Objects.equals(this.paypal, paymentMethodSetupInfo.paypal) &&
         Objects.equals(this.shopperInteraction, paymentMethodSetupInfo.shopperInteraction) &&
@@ -643,7 +674,7 @@ public class PaymentMethodSetupInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, giroPay, klarna, paypal, shopperInteraction, sofort, storeId, swish, type);
+    return Objects.hash(applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, giroPay, googlePay, klarna, paypal, shopperInteraction, sofort, storeId, swish, type);
   }
 
   @Override
@@ -657,6 +688,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
     sb.append("    giroPay: ").append(toIndentedString(giroPay)).append("\n");
+    sb.append("    googlePay: ").append(toIndentedString(googlePay)).append("\n");
     sb.append("    klarna: ").append(toIndentedString(klarna)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
@@ -693,6 +725,7 @@ public class PaymentMethodSetupInfo {
     openapiFields.add("countries");
     openapiFields.add("currencies");
     openapiFields.add("giroPay");
+    openapiFields.add("googlePay");
     openapiFields.add("klarna");
     openapiFields.add("paypal");
     openapiFields.add("shopperInteraction");
@@ -762,6 +795,10 @@ public class PaymentMethodSetupInfo {
       // validate the optional field `giroPay`
       if (jsonObj.getAsJsonObject("giroPay") != null) {
         GiroPayInfo.validateJsonObject(jsonObj.getAsJsonObject("giroPay"));
+      }
+      // validate the optional field `googlePay`
+      if (jsonObj.getAsJsonObject("googlePay") != null) {
+        GooglePayInfo.validateJsonObject(jsonObj.getAsJsonObject("googlePay"));
       }
       // validate the optional field `klarna`
       if (jsonObj.getAsJsonObject("klarna") != null) {

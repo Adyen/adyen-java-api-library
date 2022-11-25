@@ -88,8 +88,7 @@ public class RecurringTest extends BaseTest {
         assertEquals("recurringReference", recurringDetail.getRecurringDetailReference());
         assertEquals("cardAlias", recurringDetail.getAlias());
         assertEquals("1111", recurringDetail.getCard().getNumber());
-        OffsetDateTime offsetDateTime = OffsetDateTime.parse("2017-03-01T11:53:11+01:00");
-        Date expectedDate = Date.from(offsetDateTime.toInstant());
+        OffsetDateTime expectedDate = OffsetDateTime.parse("2017-03-01T11:53:11+01:00");
         assertEquals(expectedDate, result.getCreationDate());
     }
 

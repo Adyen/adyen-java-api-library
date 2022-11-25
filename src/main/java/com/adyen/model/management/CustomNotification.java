@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -60,7 +60,7 @@ public class CustomNotification {
 
   public static final String SERIALIZED_NAME_EVENT_DATE = "eventDate";
   @SerializedName(SERIALIZED_NAME_EVENT_DATE)
-  private Date eventDate;
+  private OffsetDateTime eventDate;
 
   public static final String SERIALIZED_NAME_MERCHANT_REFERENCE = "merchantReference";
   @SerializedName(SERIALIZED_NAME_MERCHANT_REFERENCE)
@@ -127,7 +127,7 @@ public class CustomNotification {
   }
 
 
-  public CustomNotification eventDate(Date eventDate) {
+  public CustomNotification eventDate(OffsetDateTime eventDate) {
     
     this.eventDate = eventDate;
     return this;
@@ -140,12 +140,12 @@ public class CustomNotification {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.")
 
-  public Date getEventDate() {
+  public OffsetDateTime getEventDate() {
     return eventDate;
   }
 
 
-  public void setEventDate(Date eventDate) {
+  public void setEventDate(OffsetDateTime eventDate) {
     this.eventDate = eventDate;
   }
 

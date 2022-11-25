@@ -35,8 +35,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -169,11 +169,11 @@ public class CreateCheckoutSessionRequest {
 
   public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
   @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
-  private Date dateOfBirth;
+  private OffsetDateTime dateOfBirth;
 
   public static final String SERIALIZED_NAME_DELIVER_AT = "deliverAt";
   @SerializedName(SERIALIZED_NAME_DELIVER_AT)
-  private Date deliverAt;
+  private OffsetDateTime deliverAt;
 
   public static final String SERIALIZED_NAME_DELIVERY_ADDRESS = "deliveryAddress";
   @SerializedName(SERIALIZED_NAME_DELIVERY_ADDRESS)
@@ -193,7 +193,7 @@ public class CreateCheckoutSessionRequest {
 
   public static final String SERIALIZED_NAME_EXPIRES_AT = "expiresAt";
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-  private Date expiresAt;
+  private OffsetDateTime expiresAt;
 
   public static final String SERIALIZED_NAME_INSTALLMENT_OPTIONS = "installmentOptions";
   @SerializedName(SERIALIZED_NAME_INSTALLMENT_OPTIONS)
@@ -745,7 +745,7 @@ public class CreateCheckoutSessionRequest {
   }
 
 
-  public CreateCheckoutSessionRequest dateOfBirth(Date dateOfBirth) {
+  public CreateCheckoutSessionRequest dateOfBirth(OffsetDateTime dateOfBirth) {
     
     this.dateOfBirth = dateOfBirth;
     return this;
@@ -758,17 +758,17 @@ public class CreateCheckoutSessionRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
-  public Date getDateOfBirth() {
+  public OffsetDateTime getDateOfBirth() {
     return dateOfBirth;
   }
 
 
-  public void setDateOfBirth(Date dateOfBirth) {
+  public void setDateOfBirth(OffsetDateTime dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
 
-  public CreateCheckoutSessionRequest deliverAt(Date deliverAt) {
+  public CreateCheckoutSessionRequest deliverAt(OffsetDateTime deliverAt) {
     
     this.deliverAt = deliverAt;
     return this;
@@ -781,12 +781,12 @@ public class CreateCheckoutSessionRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.")
 
-  public Date getDeliverAt() {
+  public OffsetDateTime getDeliverAt() {
     return deliverAt;
   }
 
 
-  public void setDeliverAt(Date deliverAt) {
+  public void setDeliverAt(OffsetDateTime deliverAt) {
     this.deliverAt = deliverAt;
   }
 
@@ -883,7 +883,7 @@ public class CreateCheckoutSessionRequest {
   }
 
 
-  public CreateCheckoutSessionRequest expiresAt(Date expiresAt) {
+  public CreateCheckoutSessionRequest expiresAt(OffsetDateTime expiresAt) {
     
     this.expiresAt = expiresAt;
     return this;
@@ -896,12 +896,12 @@ public class CreateCheckoutSessionRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.")
 
-  public Date getExpiresAt() {
+  public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
 
 
-  public void setExpiresAt(Date expiresAt) {
+  public void setExpiresAt(OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
   }
 

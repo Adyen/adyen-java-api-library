@@ -59,10 +59,12 @@ import com.adyen.service.Checkout;
 
 import org.junit.Test;
 
+import java.io.Console;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.OffsetDateTime;
+import java.time.chrono.Chronology;
+import java.time.temporal.TemporalField;
+import java.util.*;
 
 
 import static org.junit.Assert.*;
@@ -375,8 +377,7 @@ public class CheckoutTest extends BaseTest {
     public void TestDateSerialization() throws Exception {
         new JSON();
         CheckoutBalanceCheckRequest checkoutBalanceCheckRequest = new CheckoutBalanceCheckRequest();
-        Date date = new Date();
-        date.setTime(1665500907000L); // Tuesday, October 11, 2022 5:08:27 PM GMT+02:00 DST
+        OffsetDateTime date = OffsetDateTime.parse("2022-10-11T15:08:27.000Z"); // Tuesday, October 11, 2022 5:08:27 PM GMT+02:00 DST
         checkoutBalanceCheckRequest.setDateOfBirth(date);
         Amount amount = new Amount().currency("EUR").value(1000L);
         checkoutBalanceCheckRequest.setAmount(amount);
@@ -385,8 +386,8 @@ public class CheckoutTest extends BaseTest {
         Map<String, String> paymentMethod = new HashMap<>();
         checkoutBalanceCheckRequest.setPaymentMethod(paymentMethod);
         String checkoutBalanceRequestJson = checkoutBalanceCheckRequest.toJson();
-        assert(checkoutBalanceRequestJson.contains("\"dateOfBirth\":\"2022-10-11T15:08:27.000Z\""));
-        assertEquals(1665500907000L, CheckoutBalanceCheckRequest.fromJson(checkoutBalanceRequestJson).getDateOfBirth().getTime());
+        assert(checkoutBalanceRequestJson.contains("\"dateOfBirth\":\"2022-10-11T15:08:27Z\""));
+        assertEquals(date,  CheckoutBalanceCheckRequest.fromJson(checkoutBalanceRequestJson).getDateOfBirth());
 
     }
 }
