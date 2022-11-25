@@ -7,6 +7,7 @@ import com.adyen.model.legalEntityManagement.OnboardingLink;
 import com.adyen.model.legalEntityManagement.OnboardingLinkInfo;
 import com.adyen.model.legalEntityManagement.OnboardingTheme;
 import com.adyen.model.legalEntityManagement.OnboardingThemes;
+import com.adyen.model.legalEntityManagement.JSON;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.LegalEntityManagementResource;
 
@@ -15,6 +16,7 @@ import java.io.IOException;
 public class HostedOnboarding extends Service {
     public HostedOnboarding(Client client) {
         super(client);
+        new JSON();
     }
 
     public OnboardingLink create(String legalEntityId, OnboardingLinkInfo request) throws IOException, ApiException {

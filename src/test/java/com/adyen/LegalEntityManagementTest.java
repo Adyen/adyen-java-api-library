@@ -12,7 +12,11 @@ import com.adyen.model.legalEntityManagement.OnboardingTheme;
 import com.adyen.model.legalEntityManagement.OnboardingThemes;
 import com.adyen.model.legalEntityManagement.TransferInstrument;
 import com.adyen.model.legalEntityManagement.TransferInstrumentInfo;
-import com.adyen.service.LegalEntityManagementService;
+import com.adyen.service.LegalEntityManagement.BusinessLineService;
+import com.adyen.service.LegalEntityManagement.Documents;
+import com.adyen.service.LegalEntityManagement.HostedOnboarding;
+import com.adyen.service.LegalEntityManagement.LegalEntities;
+import com.adyen.service.LegalEntityManagement.TransferInstruments;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -22,7 +26,7 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void LegalEntitiesCreateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/LegalEntity.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        LegalEntities service = new LegalEntities(client);
         LegalEntityInfo request = LegalEntityInfo.fromJson("{\n" +
                 "    \"type\": \"individual\",\n" +
                 "    \"individual\": {\n" +
@@ -47,7 +51,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "        \"email\": \"s.hopper@example.com\"\n" +
                 "    }\n" +
                 "}");
-        LegalEntity response = service.legalEntities.create(request);
+        LegalEntity response = service.create(request);
         assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
         assertEquals("LE322JV223222D5GG42KN6869", response.getId());
     }
@@ -55,8 +59,8 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void LegalEntitiesRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/LegalEntity.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        LegalEntity response = service.legalEntities.retrieve("LE322JV223222D5GG42KN6869");
+        LegalEntities service = new LegalEntities(client);
+        LegalEntity response = service.retrieve("LE322JV223222D5GG42KN6869");
         assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
         assertEquals("LE322JV223222D5GG42KN6869", response.getId());
     }
@@ -64,7 +68,7 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void LegalEntitiesUpdateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/LegalEntity.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        LegalEntities service = new LegalEntities(client);
         LegalEntityInfo request = LegalEntityInfo.fromJson("{\n" +
                 "    \"type\": \"individual\",\n" +
                 "    \"individual\": {\n" +
@@ -89,7 +93,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "        \"email\": \"s.hopper@example.com\"\n" +
                 "    }\n" +
                 "}");
-        LegalEntity response = service.legalEntities.update("LE322JV223222D5GG42KN6869", request);
+        LegalEntity response = service.update("LE322JV223222D5GG42KN6869", request);
         assertEquals(LegalEntity.TypeEnum.INDIVIDUAL, response.getType());
         assertEquals("LE322JV223222D5GG42KN6869", response.getId());
     }
@@ -97,8 +101,8 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void LegalEntitiesListBusinessLinesTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/BusinessLines.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        BusinessLines response = service.legalEntities.listBusinessLines("LE322JV223222D5GG42KN6869");
+        LegalEntities service = new LegalEntities(client);
+        BusinessLines response = service.listBusinessLines("LE322JV223222D5GG42KN6869");
         assertEquals("LE322JV223222D5GG42KN6869", response.getBusinessLines().get(0).getId());
         assertEquals("LE664JV223222D5GG42KN6869", response.getBusinessLines().get(0).getLegalEntityId());
     }
@@ -106,7 +110,7 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void TransferInstrumentsCreateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/TransferInstrument.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        TransferInstruments service = new TransferInstruments(client);
         TransferInstrumentInfo request = TransferInstrumentInfo.fromJson("{\n" +
                 "  \"legalEntityId\": \"LE322KH223222D5GG4C9J83RN\",\n" +
                 "  \"type\": \"bankAccount\",\n" +
@@ -116,7 +120,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"iban\": \"NL62ABNA0000000123\"\n" +
                 "  }\n" +
                 "}");
-        TransferInstrument response = service.transferInstruments.create(request);
+        TransferInstrument response = service.create(request);
         assertEquals(TransferInstrument.TypeEnum.BANKACCOUNT, response.getType());
         assertEquals("SE576BH223222F5GJVKHH6BDT", response.getId());
     }
@@ -124,8 +128,8 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void TransferInstrumentsRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/TransferInstrument.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        TransferInstrument response = service.transferInstruments.retrieve("SE576BH223222F5GJVKHH6BDT");
+        TransferInstruments service = new TransferInstruments(client);
+        TransferInstrument response = service.retrieve("SE576BH223222F5GJVKHH6BDT");
         assertEquals(TransferInstrument.TypeEnum.BANKACCOUNT, response.getType());
         assertEquals("SE576BH223222F5GJVKHH6BDT", response.getId());
     }
@@ -133,7 +137,7 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void TransferInstrumentsUpdateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/TransferInstrument.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        TransferInstruments service = new TransferInstruments(client);
         TransferInstrumentInfo request = TransferInstrumentInfo.fromJson("{\n" +
                 "  \"legalEntityId\": \"LE322KH223222D5GG4C9J83RN\",\n" +
                 "  \"type\": \"bankAccount\",\n" +
@@ -143,7 +147,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"iban\": \"NL62ABNA0000000123\"\n" +
                 "  }\n" +
                 "}");
-        TransferInstrument response = service.transferInstruments.update("SE576BH223222F5GJVKHH6BDT", request);
+        TransferInstrument response = service.update("SE576BH223222F5GJVKHH6BDT", request);
         assertEquals(TransferInstrument.TypeEnum.BANKACCOUNT, response.getType());
         assertEquals("SE576BH223222F5GJVKHH6BDT", response.getId());
     }
@@ -151,14 +155,14 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void TransferInstrumentsDeleteTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/TransferInstrument.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        service.transferInstruments.delete("SE576BH223222F5GJVKHH6BDT");
+        TransferInstruments service = new TransferInstruments(client);
+        service.delete("SE576BH223222F5GJVKHH6BDT");
     }
 
     @Test
     public void BusinessLinesCreateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/BusinessLine.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        BusinessLineService service = new BusinessLineService(client);
         BusinessLineInfo request = BusinessLineInfo.fromJson("{\n" +
                 "  \"capability\": \"issueBankAccount\",\n" +
                 "  \"industryCode\": \"55\",\n" +
@@ -174,7 +178,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"description\": \"Funds from my flower shop business\"\n" +
                 "  }\n" +
                 "}");
-        BusinessLine response = service.businessLineService.create(request);
+        BusinessLine response = service.create(request);
         assertEquals("LE322JV223222D5FZ9N74BSGM", response.getLegalEntityId());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -182,8 +186,8 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void BusinessLinesRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/BusinessLine.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        BusinessLine response = service.businessLineService.retrieve("SE322KT223222D5FJ7TJN2986");
+        BusinessLineService service = new BusinessLineService(client);
+        BusinessLine response = service.retrieve("SE322KT223222D5FJ7TJN2986");
         assertEquals("LE322JV223222D5FZ9N74BSGM", response.getLegalEntityId());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -191,7 +195,7 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void BusinessLinesUpdateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/BusinessLine.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        BusinessLineService service = new BusinessLineService(client);
         BusinessLineInfo request = BusinessLineInfo.fromJson("{\n" +
                 "  \"capability\": \"issueBankAccount\",\n" +
                 "  \"industryCode\": \"55\",\n" +
@@ -207,7 +211,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    \"description\": \"Funds from my flower shop business\"\n" +
                 "  }\n" +
                 "}");
-        BusinessLine response = service.businessLineService.update("SE322KT223222D5FJ7TJN2986", request);
+        BusinessLine response = service.update("SE322KT223222D5FJ7TJN2986", request);
         assertEquals("LE322JV223222D5FZ9N74BSGM", response.getLegalEntityId());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -215,7 +219,7 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void DocumentsCreateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        Documents service = new Documents(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
                 "        \"content\": \"string\",\n" +
@@ -244,7 +248,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    },\n" +
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
-        Document response = service.documents.create(request);
+        Document response = service.create(request);
         assertEquals(Document.TypeEnum.DRIVERSLICENSE, response.getType());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -252,8 +256,8 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void DocumentsRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        Document response = service.documents.retrieve("SE322KT223222D5FJ7TJN2986");
+        Documents service = new Documents(client);
+        Document response = service.retrieve("SE322KT223222D5FJ7TJN2986");
         assertEquals(Document.TypeEnum.DRIVERSLICENSE, response.getType());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -261,7 +265,7 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void DocumentsUpdateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        Documents service = new Documents(client);
         Document request = Document.fromJson("{\n" +
                 "    \"attachment\": {\n" +
                 "        \"content\": \"string\",\n" +
@@ -290,7 +294,7 @@ public class LegalEntityManagementTest extends BaseTest {
                 "    },\n" +
                 "    \"type\": \"bankStatement\"\n" +
                 "}");
-        Document response = service.documents.update("SE322KT223222D5FJ7TJN2986", request);
+        Document response = service.update("SE322KT223222D5FJ7TJN2986", request);
         assertEquals(Document.TypeEnum.DRIVERSLICENSE, response.getType());
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
@@ -298,36 +302,36 @@ public class LegalEntityManagementTest extends BaseTest {
     @Test
     public void DocumentsDeleteTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        service.documents.delete("SE322KT223222D5FJ7TJN2986");
+        Documents service = new Documents(client);
+        service.delete("SE322KT223222D5FJ7TJN2986");
     }
 
     @Test
     public void HostedOnboardingPageCreateTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/OnboardingLink.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
+        HostedOnboarding service = new HostedOnboarding(client);
         OnboardingLinkInfo request = OnboardingLinkInfo.fromJson("{\n" +
                 "    \"locale\": \"cs-CZ\",\n" +
                 "    \"redirectUrl\": \"https://your.redirect-url.com\",\n" +
                 "    \"themeId\": \"123456789\"\n" +
                 "}");
-        OnboardingLink response = service.hostedOnboarding.create("",request);
+        OnboardingLink response = service.create("",request);
         assertEquals("https://your.redirect-url.com", response.getUrl());
     }
 
     @Test
     public void HostedOnboardingPageListThemesTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/OnboardingThemes.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        OnboardingThemes response = service.hostedOnboarding.listThemes();
+        HostedOnboarding service = new HostedOnboarding(client);
+        OnboardingThemes response = service.listThemes();
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getThemes().get(0).getId());
     }
 
     @Test
     public void HostedOnboardingPageRetrieveThemesTest() throws Exception {
         Client client = createMockClientFromFile("mocks/legalentitymanagement/OnboardingTheme.json");
-        LegalEntityManagementService service = new LegalEntityManagementService(client);
-        OnboardingTheme response = service.hostedOnboarding.retrieveTheme("SE322KT223222D5FJ7TJN2986");
+        HostedOnboarding service = new HostedOnboarding(client);
+        OnboardingTheme response = service.retrieveTheme("SE322KT223222D5FJ7TJN2986");
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
 }

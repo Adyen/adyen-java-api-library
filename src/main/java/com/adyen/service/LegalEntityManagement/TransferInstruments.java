@@ -5,6 +5,7 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.legalEntityManagement.TransferInstrument;
 import com.adyen.model.legalEntityManagement.TransferInstrumentInfo;
+import com.adyen.model.legalEntityManagement.JSON;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.LegalEntityManagementResource;
 
@@ -13,6 +14,7 @@ import java.io.IOException;
 public class TransferInstruments extends Service {
     public TransferInstruments(Client client) {
         super(client);
+        new JSON();
     }
 
     public TransferInstrument create(TransferInstrumentInfo request) throws IOException, ApiException {
