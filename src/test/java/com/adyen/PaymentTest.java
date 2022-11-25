@@ -25,8 +25,31 @@ import com.adyen.constants.ApiConstants.RefusalReason;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.payments.*;
 import com.adyen.model.RequestOptions;
+import com.adyen.model.payments.Address;
+import com.adyen.model.payments.AdjustAuthorisationRequest;
+import com.adyen.model.payments.Amount;
+import com.adyen.model.payments.ApplicationInfo;
+import com.adyen.model.payments.AuthenticationResultRequest;
+import com.adyen.model.payments.AuthenticationResultResponse;
+import com.adyen.model.payments.CancelOrRefundRequest;
+import com.adyen.model.payments.CancelRequest;
+import com.adyen.model.payments.CaptureRequest;
+import com.adyen.model.payments.DonationRequest;
+import com.adyen.model.payments.FraudCheckResult;
+import com.adyen.model.payments.MerchantDevice;
+import com.adyen.model.payments.ModificationResult;
+import com.adyen.model.payments.Name;
+import com.adyen.model.payments.PaymentRequest;
+import com.adyen.model.payments.PaymentRequest3d;
+import com.adyen.model.payments.PaymentRequest3ds2;
+import com.adyen.model.payments.PaymentResult;
+import com.adyen.model.payments.RefundRequest;
+import com.adyen.model.payments.TechnicalCancelRequest;
+import com.adyen.model.payments.ThreeDS2ResultRequest;
+import com.adyen.model.payments.ThreeDS2ResultResponse;
+import com.adyen.model.payments.ThreeDSecureData;
+import com.adyen.model.payments.VoidPendingRefundRequest;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
@@ -34,7 +57,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -46,9 +68,6 @@ import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
 import static com.adyen.model.payments.PaymentResult.ResultCodeEnum.RECEIVED;
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.contains;
-import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.*;
 
 /**
@@ -404,6 +423,7 @@ public class PaymentTest extends BaseTest {
 
     @Test
     public void TestGetAuthenticationResultErrorNotAllowed() throws IOException {
+
         Client client = createMockClientForErrors(403, "mocks/authentication-result-error-not-allowed.json");
 
         Payment payment = new Payment(client);

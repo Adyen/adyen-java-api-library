@@ -12,11 +12,11 @@ import com.adyen.model.legalEntityManagement.OnboardingTheme;
 import com.adyen.model.legalEntityManagement.OnboardingThemes;
 import com.adyen.model.legalEntityManagement.TransferInstrument;
 import com.adyen.model.legalEntityManagement.TransferInstrumentInfo;
-import com.adyen.service.LegalEntityManagement.BusinessLineService;
-import com.adyen.service.LegalEntityManagement.Documents;
-import com.adyen.service.LegalEntityManagement.HostedOnboarding;
-import com.adyen.service.LegalEntityManagement.LegalEntities;
-import com.adyen.service.LegalEntityManagement.TransferInstruments;
+import com.adyen.service.legalentitymanagement.BusinessLineService;
+import com.adyen.service.legalentitymanagement.Documents;
+import com.adyen.service.legalentitymanagement.HostedOnboarding;
+import com.adyen.service.legalentitymanagement.LegalEntities;
+import com.adyen.service.legalentitymanagement.TransferInstruments;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

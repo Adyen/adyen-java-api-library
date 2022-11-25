@@ -1,0 +1,15 @@
+{
+  "accountHolderId": "AH32272223222B59K6ZKBBFNQ",
+  "defaultCurrencyCode": "EUR",
+  "reference": "S.Hopper - Main balance account",
+  "balances": [
+    {
+      "available": 0,
+      "balance": 0,
+      "currency": "EUR",
+      "reserved": 0
+    }
+  ],
+  "id": "BA32272223222B59CZ3T52DKZ",
+  "status": "active"
+}

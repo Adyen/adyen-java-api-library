@@ -24,7 +24,37 @@ import com.adyen.enums.Environment;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 
-import com.adyen.model.checkout.*;
+import com.adyen.model.checkout.Amount;
+import com.adyen.model.checkout.ApplePaySessionResponse;
+import com.adyen.model.checkout.CardDetails;
+import com.adyen.model.checkout.CardDetailsRequest;
+import com.adyen.model.checkout.CardDetailsResponse;
+import com.adyen.model.checkout.CheckoutBalanceCheckRequest;
+import com.adyen.model.checkout.CheckoutCancelOrderRequest;
+import com.adyen.model.checkout.CheckoutCancelOrderResponse;
+import com.adyen.model.checkout.CheckoutCreateOrderRequest;
+import com.adyen.model.checkout.CheckoutCreateOrderResponse;
+import com.adyen.model.checkout.CheckoutOrder;
+import com.adyen.model.checkout.CheckoutRedirectAction;
+import com.adyen.model.checkout.CreateApplePaySessionRequest;
+import com.adyen.model.checkout.CreateCheckoutSessionRequest;
+import com.adyen.model.checkout.CreateCheckoutSessionResponse;
+import com.adyen.model.checkout.CreatePaymentLinkRequest;
+import com.adyen.model.checkout.DetailsRequest;
+import com.adyen.model.checkout.DonationResponse;
+import com.adyen.model.checkout.IdealDetails;
+import com.adyen.model.checkout.JSON;
+import com.adyen.model.checkout.PaymentDetailsResponse;
+import com.adyen.model.checkout.PaymentDonationRequest;
+import com.adyen.model.checkout.PaymentDonationRequestPaymentMethod;
+import com.adyen.model.checkout.PaymentLinkResponse;
+import com.adyen.model.checkout.PaymentMethodsRequest;
+import com.adyen.model.checkout.PaymentMethodsResponse;
+import com.adyen.model.checkout.PaymentRequest;
+import com.adyen.model.checkout.PaymentResponse;
+import com.adyen.model.checkout.PaymentVerificationRequest;
+import com.adyen.model.checkout.PaymentVerificationResponse;
+import com.adyen.model.checkout.UpdatePaymentLinkRequest;
 import com.adyen.service.Checkout;
 
 import org.junit.Test;
@@ -39,7 +69,6 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

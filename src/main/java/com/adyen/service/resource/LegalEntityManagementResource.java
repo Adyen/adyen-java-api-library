@@ -2,7 +2,6 @@ package com.adyen.service.resource;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.Resource;
 
 public class LegalEntityManagementResource extends Resource {
     public LegalEntityManagementResource(Service service, String endpoint) {

@@ -1,0 +1,26 @@
+{
+  "hasNext": false,
+  "hasPrevious": false,
+  "sweeps": [
+    {
+      "id": "SWPC4227C224555B5FTD2NT2JV4WN5",
+      "schedule": {
+        "type": "daily"
+      },
+      "status": "active",
+      "targetAmount": {
+        "currency": "EUR",
+        "value": 0
+      },
+      "triggerAmount": {
+        "currency": "EUR",
+        "value": 0
+      },
+      "type": "push",
+      "counterparty": {
+        "balanceAccountId": "BA32272223222B5FTD2KR6TJD"
+      },
+      "currency": "EUR"
+    }
+  ]
+}
