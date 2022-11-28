@@ -1,17 +1,17 @@
 package com.adyen;
 
-import com.adyen.model.legalEntityManagement.BusinessLine;
-import com.adyen.model.legalEntityManagement.BusinessLineInfo;
-import com.adyen.model.legalEntityManagement.BusinessLines;
-import com.adyen.model.legalEntityManagement.Document;
-import com.adyen.model.legalEntityManagement.LegalEntity;
-import com.adyen.model.legalEntityManagement.LegalEntityInfo;
-import com.adyen.model.legalEntityManagement.OnboardingLink;
-import com.adyen.model.legalEntityManagement.OnboardingLinkInfo;
-import com.adyen.model.legalEntityManagement.OnboardingTheme;
-import com.adyen.model.legalEntityManagement.OnboardingThemes;
-import com.adyen.model.legalEntityManagement.TransferInstrument;
-import com.adyen.model.legalEntityManagement.TransferInstrumentInfo;
+import com.adyen.model.legalentitymanagement.BusinessLine;
+import com.adyen.model.legalentitymanagement.BusinessLineInfo;
+import com.adyen.model.legalentitymanagement.BusinessLines;
+import com.adyen.model.legalentitymanagement.Document;
+import com.adyen.model.legalentitymanagement.LegalEntity;
+import com.adyen.model.legalentitymanagement.LegalEntityInfo;
+import com.adyen.model.legalentitymanagement.OnboardingLink;
+import com.adyen.model.legalentitymanagement.OnboardingLinkInfo;
+import com.adyen.model.legalentitymanagement.OnboardingTheme;
+import com.adyen.model.legalentitymanagement.OnboardingThemes;
+import com.adyen.model.legalentitymanagement.TransferInstrument;
+import com.adyen.model.legalentitymanagement.TransferInstrumentInfo;
 import com.adyen.service.LegalEntityManagementService;
 import org.junit.Test;
 

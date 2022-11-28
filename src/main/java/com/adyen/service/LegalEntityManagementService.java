@@ -2,7 +2,7 @@ package com.adyen.service;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.model.legalEntityManagement.JSON;
+import com.adyen.model.legalentitymanagement.JSON;
 import com.adyen.service.legalentitymanagement.BusinessLineService;
 import com.adyen.service.legalentitymanagement.Documents;
 import com.adyen.service.legalentitymanagement.HostedOnboarding;

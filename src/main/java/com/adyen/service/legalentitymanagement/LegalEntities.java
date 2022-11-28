@@ -3,9 +3,9 @@ package com.adyen.service.legalentitymanagement;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.legalEntityManagement.BusinessLines;
-import com.adyen.model.legalEntityManagement.LegalEntity;
-import com.adyen.model.legalEntityManagement.LegalEntityInfo;
+import com.adyen.model.legalentitymanagement.BusinessLines;
+import com.adyen.model.legalentitymanagement.LegalEntity;
+import com.adyen.model.legalentitymanagement.LegalEntityInfo;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.LegalEntityManagementResource;
 

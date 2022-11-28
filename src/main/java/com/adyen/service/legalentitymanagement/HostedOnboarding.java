@@ -3,10 +3,10 @@ package com.adyen.service.legalentitymanagement;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.legalEntityManagement.OnboardingLink;
-import com.adyen.model.legalEntityManagement.OnboardingLinkInfo;
-import com.adyen.model.legalEntityManagement.OnboardingTheme;
-import com.adyen.model.legalEntityManagement.OnboardingThemes;
+import com.adyen.model.legalentitymanagement.OnboardingLink;
+import com.adyen.model.legalentitymanagement.OnboardingLinkInfo;
+import com.adyen.model.legalentitymanagement.OnboardingTheme;
+import com.adyen.model.legalentitymanagement.OnboardingThemes;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.LegalEntityManagementResource;
 
