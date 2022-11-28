@@ -4,6 +4,7 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.BalancePlatform;
+import com.adyen.model.balanceplatform.JSON;
 import com.adyen.model.balanceplatform.PaginatedAccountHoldersResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.balanceplatform.BalancePlatformResource;
@@ -15,6 +16,7 @@ public class General extends Service {
 
     public General(Client client) {
         super(client);
+        new JSON();
     }
 
     public BalancePlatform retrieve(String platformId) throws IOException, ApiException {
