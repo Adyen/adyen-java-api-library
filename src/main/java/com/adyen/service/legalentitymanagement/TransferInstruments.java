@@ -3,9 +3,9 @@ package com.adyen.service.legalentitymanagement;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.legalEntityManagement.TransferInstrument;
-import com.adyen.model.legalEntityManagement.TransferInstrumentInfo;
-import com.adyen.model.legalEntityManagement.JSON;
+import com.adyen.model.legalentitymanagement.TransferInstrument;
+import com.adyen.model.legalentitymanagement.TransferInstrumentInfo;
+import com.adyen.model.legalentitymanagement.JSON;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.LegalEntityManagementResource;
 
