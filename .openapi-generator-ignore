@@ -1,4 +1,0 @@
-# These models cannot properly represent additional data, a `Map<String, String>` is used instead
-target/out/src/main/java/com/adyen/model/payments/AdditionalData*
-target/out/src/main/java/com/adyen/model/payments/ResponseAdditionalData*
-target/out/src/main/java/com/adyen/model/payout/ResponseAdditionalData*
