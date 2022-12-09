@@ -66,7 +66,7 @@ public class Split {
   private String reference;
 
   /**
-   * The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**.
+   * The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**, **Surcharge**, **Tip**.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -81,6 +81,10 @@ public class Split {
     PAYMENTFEE("PaymentFee"),
     
     REMAINDER("Remainder"),
+    
+    SURCHARGE("Surcharge"),
+    
+    TIP("Tip"),
     
     VAT("VAT"),
     
@@ -230,11 +234,11 @@ public class Split {
   }
 
    /**
-   * The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**.
+   * The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**, **Surcharge**, **Tip**.
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**.")
+  @ApiModelProperty(required = true, value = "The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**, **Surcharge**, **Tip**.")
 
   public TypeEnum getType() {
     return type;

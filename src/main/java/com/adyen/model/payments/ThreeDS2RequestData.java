@@ -322,7 +322,7 @@ public class ThreeDS2RequestData {
   private ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo;
 
   /**
-   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed)
+   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    */
   @JsonAdapter(ThreeDSRequestorChallengeIndEnum.Adapter.class)
   public enum ThreeDSRequestorChallengeIndEnum {
@@ -334,7 +334,9 @@ public class ThreeDS2RequestData {
     
     _04("04"),
     
-    _05("05");
+    _05("05"),
+    
+    _06("06");
 
     private String value;
 
@@ -1220,11 +1222,11 @@ public class ThreeDS2RequestData {
   }
 
    /**
-   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed)
+   * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only
    * @return threeDSRequestorChallengeInd
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed)")
+  @ApiModelProperty(value = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed) * **06** — Data Only")
 
   public ThreeDSRequestorChallengeIndEnum getThreeDSRequestorChallengeInd() {
     return threeDSRequestorChallengeInd;

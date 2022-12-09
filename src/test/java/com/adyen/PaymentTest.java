@@ -26,37 +26,19 @@ import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.payments.Address;
-import com.adyen.model.payments.AdjustAuthorisationRequest;
-import com.adyen.model.payments.Amount;
-import com.adyen.model.payments.ApplicationInfo;
-import com.adyen.model.payments.AuthenticationResultRequest;
-import com.adyen.model.payments.AuthenticationResultResponse;
-import com.adyen.model.payments.CancelOrRefundRequest;
-import com.adyen.model.payments.CancelRequest;
-import com.adyen.model.payments.CaptureRequest;
-import com.adyen.model.payments.DonationRequest;
-import com.adyen.model.payments.FraudCheckResult;
-import com.adyen.model.payments.MerchantDevice;
-import com.adyen.model.payments.ModificationResult;
-import com.adyen.model.payments.Name;
-import com.adyen.model.payments.PaymentRequest;
-import com.adyen.model.payments.PaymentRequest3d;
-import com.adyen.model.payments.PaymentRequest3ds2;
-import com.adyen.model.payments.PaymentResult;
-import com.adyen.model.payments.RefundRequest;
-import com.adyen.model.payments.TechnicalCancelRequest;
-import com.adyen.model.payments.ThreeDS2ResultRequest;
-import com.adyen.model.payments.ThreeDS2ResultResponse;
-import com.adyen.model.payments.ThreeDSecureData;
-import com.adyen.model.payments.VoidPendingRefundRequest;
+import com.adyen.model.payments.*;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
+
+import com.google.gson.reflect.TypeToken;
 import org.junit.Ignore;
 import org.junit.Test;
+import okio.ByteString;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -477,16 +459,80 @@ public class PaymentTest extends BaseTest {
     }
 
     @Test
-    @Ignore
+    public void TestByteArrayDeserialization() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/authorise-success.json");
+        Payment payment = new Payment(client);
+
+        final String expectedBytesAsString = "Let's pretend this a jpg or something";
+        final byte[] expectedBytes = expectedBytesAsString.getBytes(StandardCharsets.UTF_8);
+        final ByteString expectedByteString = ByteString.of(expectedBytes);
+        final String serializedBytes = expectedByteString.base64();
+        final String serializedBytesWithQuotes = "\"" + serializedBytes + "\"";
+        Type type = new TypeToken<byte[]>() { }.getType();
+
+        // Act
+        byte[] actualDeserializedBytes = JSON.deserialize(serializedBytesWithQuotes, type);
+
+        // Assert
+        assertEquals(expectedBytesAsString, new String(actualDeserializedBytes, StandardCharsets.UTF_8));
+    }
+
+    @Test
+    public void TestByteArraySerialization() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/authorise-success.json");
+        Payment payment = new Payment(client);
+
+        final byte[] bytes =  "Let's pretend this a jpg or something".getBytes(StandardCharsets.UTF_8);
+        String serialized = JSON.serialize(bytes);
+        String serialized1 = serialized.substring(1, serialized.length() - 1);
+        if (JSON.getGson().htmlSafe()) {
+            serialized1 = serialized1.replaceAll("\\\\u003d", "=");
+        }
+
+        String expectedBytesAsString = "Let's pretend this a jpg or something";
+
+        ByteString actualAsByteString = ByteString.decodeBase64(serialized1);
+
+        byte[] actualBytes = actualAsByteString.toByteArray();
+
+        assertEquals(expectedBytesAsString, new String(actualBytes, StandardCharsets.UTF_8));
+    }
+    @Test
     public void TestByteArrayToJSONString() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
         Payment payment = new Payment(client);
         PaymentRequest paymentRequest = new PaymentRequest();
-        paymentRequest.mpiData(new ThreeDSecureData().cavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ=".getBytes()));
+        ThreeDSecureData threeDSecureData = new ThreeDSecureData();
+
+        threeDSecureData.setCavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ".getBytes(StandardCharsets.UTF_8));
+        paymentRequest.mpiData(threeDSecureData);
         
         payment.authorise(paymentRequest);
-        
-        String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\"}";
+
+        // In the json the string is encoded in base64
+        String expected = "\"mpiData\":{\"cavv\":\"QVFJREJBVUdCd2dKQ2dzTURRNFBFQkVTRXhR\"}";
+
+        ClientInterface http = client.getHttpClient();
+        verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());
+    }
+
+    @Test
+    public void TestJSONToByteArrayString() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success.json");
+        Payment payment = new Payment(client);
+        PaymentRequest paymentRequest = new PaymentRequest();
+        ThreeDSecureData threeDSecureData = new ThreeDSecureData();
+
+        threeDSecureData.setCavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ".getBytes(StandardCharsets.UTF_8));
+        paymentRequest.mpiData(threeDSecureData);
+
+        payment.authorise(paymentRequest);
+
+        // In the json the string is encoded in base64
+        String expected = "\"mpiData\":{\"cavv\":\"QVFJREJBVUdCd2dKQ2dzTURRNFBFQkVTRXhR\"}";
+
         ClientInterface http = client.getHttpClient();
         verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());
     }

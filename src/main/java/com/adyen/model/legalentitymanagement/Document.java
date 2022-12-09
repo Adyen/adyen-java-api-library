@@ -13,27 +13,40 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.Attachment;
+import com.adyen.model.legalentitymanagement.OwnerEntity;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Document
@@ -47,6 +60,10 @@ public class Document {
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
   private List<Attachment> attachments = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CREATION_DATE = "creationDate";
+  @SerializedName(SERIALIZED_NAME_CREATION_DATE)
+  private OffsetDateTime creationDate;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -71,6 +88,10 @@ public class Document {
   public static final String SERIALIZED_NAME_ISSUER_STATE = "issuerState";
   @SerializedName(SERIALIZED_NAME_ISSUER_STATE)
   private String issuerState;
+
+  public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modificationDate";
+  @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
+  private OffsetDateTime modificationDate;
 
   public static final String SERIALIZED_NAME_NUMBER = "number";
   @SerializedName(SERIALIZED_NAME_NUMBER)
@@ -215,6 +236,29 @@ public class Document {
   }
 
 
+  public Document creationDate(OffsetDateTime creationDate) {
+    
+    this.creationDate = creationDate;
+    return this;
+  }
+
+   /**
+   * Get creationDate
+   * @return creationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getCreationDate() {
+    return creationDate;
+  }
+
+
+  public void setCreationDate(OffsetDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+
   public Document description(String description) {
     
     this.description = description;
@@ -350,6 +394,29 @@ public class Document {
   }
 
 
+  public Document modificationDate(OffsetDateTime modificationDate) {
+    
+    this.modificationDate = modificationDate;
+    return this;
+  }
+
+   /**
+   * Get modificationDate
+   * @return modificationDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getModificationDate() {
+    return modificationDate;
+  }
+
+
+  public void setModificationDate(OffsetDateTime modificationDate) {
+    this.modificationDate = modificationDate;
+  }
+
+
   public Document number(String number) {
     
     this.number = number;
@@ -431,12 +498,14 @@ public class Document {
     Document document = (Document) o;
     return Objects.equals(this.attachment, document.attachment) &&
         Objects.equals(this.attachments, document.attachments) &&
+        Objects.equals(this.creationDate, document.creationDate) &&
         Objects.equals(this.description, document.description) &&
         Objects.equals(this.expiryDate, document.expiryDate) &&
         Objects.equals(this.fileName, document.fileName) &&
         Objects.equals(this.id, document.id) &&
         Objects.equals(this.issuerCountry, document.issuerCountry) &&
         Objects.equals(this.issuerState, document.issuerState) &&
+        Objects.equals(this.modificationDate, document.modificationDate) &&
         Objects.equals(this.number, document.number) &&
         Objects.equals(this.owner, document.owner) &&
         Objects.equals(this.type, document.type);
@@ -444,7 +513,7 @@ public class Document {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachment, attachments, description, expiryDate, fileName, id, issuerCountry, issuerState, number, owner, type);
+    return Objects.hash(attachment, attachments, creationDate, description, expiryDate, fileName, id, issuerCountry, issuerState, modificationDate, number, owner, type);
   }
 
   @Override
@@ -453,12 +522,14 @@ public class Document {
     sb.append("class Document {\n");
     sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append("\n");
     sb.append("    issuerState: ").append(toIndentedString(issuerState)).append("\n");
+    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -486,12 +557,14 @@ public class Document {
     openapiFields = new HashSet<String>();
     openapiFields.add("attachment");
     openapiFields.add("attachments");
+    openapiFields.add("creationDate");
     openapiFields.add("description");
     openapiFields.add("expiryDate");
     openapiFields.add("fileName");
     openapiFields.add("id");
     openapiFields.add("issuerCountry");
     openapiFields.add("issuerState");
+    openapiFields.add("modificationDate");
     openapiFields.add("number");
     openapiFields.add("owner");
     openapiFields.add("type");
@@ -550,6 +623,10 @@ public class Document {
           Attachment.validateJsonObject(jsonArrayattachments.get(i).getAsJsonObject());
         };
       }
+      // validate the optional field `creationDate`
+      if (jsonObj.getAsJsonObject("creationDate") != null) {
+        OffsetDateTime.validateJsonObject(jsonObj.getAsJsonObject("creationDate"));
+      }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
@@ -573,6 +650,10 @@ public class Document {
       // validate the optional field issuerState
       if (jsonObj.get("issuerState") != null && !jsonObj.get("issuerState").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuerState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerState").toString()));
+      }
+      // validate the optional field `modificationDate`
+      if (jsonObj.getAsJsonObject("modificationDate") != null) {
+        OffsetDateTime.validateJsonObject(jsonObj.getAsJsonObject("modificationDate"));
       }
       // validate the optional field number
       if (jsonObj.get("number") != null && !jsonObj.get("number").isJsonPrimitive()) {

@@ -14,6 +14,7 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.ZoneOffset;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,64 +45,37 @@ import java.util.Set;
 import com.adyen.model.legalentitymanagement.JSON;
 
 /**
- * WebData
+ * OffsetDateTime
  */
 
-public class WebData {
-  public static final String SERIALIZED_NAME_WEB_ADDRESS = "webAddress";
-  @SerializedName(SERIALIZED_NAME_WEB_ADDRESS)
-  private String webAddress;
+public class OffsetDateTime {
+  public static final String SERIALIZED_NAME_OFFSET = "offset";
+  @SerializedName(SERIALIZED_NAME_OFFSET)
+  private ZoneOffset offset;
 
-  public static final String SERIALIZED_NAME_WEB_ADDRESS_ID = "webAddressId";
-  @SerializedName(SERIALIZED_NAME_WEB_ADDRESS_ID)
-  private String webAddressId;
-
-  public WebData() { 
+  public OffsetDateTime() { 
   }
 
-  public WebData webAddress(String webAddress) {
+  public OffsetDateTime offset(ZoneOffset offset) {
     
-    this.webAddress = webAddress;
+    this.offset = offset;
     return this;
   }
 
    /**
-   * The URL of the website.
-   * @return webAddress
+   * Get offset
+   * @return offset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URL of the website.")
+  @ApiModelProperty(value = "")
 
-  public String getWebAddress() {
-    return webAddress;
+  public ZoneOffset getOffset() {
+    return offset;
   }
 
 
-  public void setWebAddress(String webAddress) {
-    this.webAddress = webAddress;
-  }
-
-
-  public WebData webAddressId(String webAddressId) {
-    
-    this.webAddressId = webAddressId;
-    return this;
-  }
-
-   /**
-   * The unique identifier of the web address.
-   * @return webAddressId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The unique identifier of the web address.")
-
-  public String getWebAddressId() {
-    return webAddressId;
-  }
-
-
-  public void setWebAddressId(String webAddressId) {
-    this.webAddressId = webAddressId;
+  public void setOffset(ZoneOffset offset) {
+    this.offset = offset;
   }
 
 
@@ -114,22 +88,20 @@ public class WebData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebData webData = (WebData) o;
-    return Objects.equals(this.webAddress, webData.webAddress) &&
-        Objects.equals(this.webAddressId, webData.webAddressId);
+    OffsetDateTime offsetDateTime = (OffsetDateTime) o;
+    return Objects.equals(this.offset, offsetDateTime.offset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(webAddress, webAddressId);
+    return Objects.hash(offset);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WebData {\n");
-    sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
-    sb.append("    webAddressId: ").append(toIndentedString(webAddressId)).append("\n");
+    sb.append("class OffsetDateTime {\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -152,8 +124,7 @@ public class WebData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("webAddress");
-    openapiFields.add("webAddressId");
+    openapiFields.add("offset");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -163,31 +134,27 @@ public class WebData {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WebData
+  * @throws IOException if the JSON Object is invalid with respect to OffsetDateTime
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (WebData.openapiRequiredFields.isEmpty()) {
+        if (OffsetDateTime.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebData is not found in the empty JSON string", WebData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in OffsetDateTime is not found in the empty JSON string", OffsetDateTime.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!WebData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!OffsetDateTime.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OffsetDateTime` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // validate the optional field webAddress
-      if (jsonObj.get("webAddress") != null && !jsonObj.get("webAddress").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `webAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webAddress").toString()));
-      }
-      // validate the optional field webAddressId
-      if (jsonObj.get("webAddressId") != null && !jsonObj.get("webAddressId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `webAddressId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webAddressId").toString()));
+      // validate the optional field `offset`
+      if (jsonObj.getAsJsonObject("offset") != null) {
+        ZoneOffset.validateJsonObject(jsonObj.getAsJsonObject("offset"));
       }
   }
 
@@ -195,22 +162,22 @@ public class WebData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WebData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WebData' and its subtypes
+       if (!OffsetDateTime.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OffsetDateTime' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WebData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WebData.class));
+       final TypeAdapter<OffsetDateTime> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OffsetDateTime.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WebData>() {
+       return (TypeAdapter<T>) new TypeAdapter<OffsetDateTime>() {
            @Override
-           public void write(JsonWriter out, WebData value) throws IOException {
+           public void write(JsonWriter out, OffsetDateTime value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public WebData read(JsonReader in) throws IOException {
+           public OffsetDateTime read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -221,18 +188,18 @@ public class WebData {
   }
 
  /**
-  * Create an instance of WebData given an JSON string
+  * Create an instance of OffsetDateTime given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WebData
-  * @throws IOException if the JSON string is invalid with respect to WebData
+  * @return An instance of OffsetDateTime
+  * @throws IOException if the JSON string is invalid with respect to OffsetDateTime
   */
-  public static WebData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WebData.class);
+  public static OffsetDateTime fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OffsetDateTime.class);
   }
 
  /**
-  * Convert an instance of WebData to an JSON string
+  * Convert an instance of OffsetDateTime to an JSON string
   *
   * @return JSON string
   */

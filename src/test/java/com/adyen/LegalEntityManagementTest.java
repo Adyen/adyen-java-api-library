@@ -334,4 +334,40 @@ public class LegalEntityManagementTest extends BaseTest {
         OnboardingTheme response = service.retrieveTheme("SE322KT223222D5FJ7TJN2986");
         assertEquals("SE322KT223222D5FJ7TJN2986", response.getId());
     }
+
+    @Test
+    public void TestBase64EncodedResponseToByteArray() throws Exception {
+        Client client = createMockClientFromFile("mocks/legalentitymanagement/Document.json");
+        Documents service = new Documents(client);
+        Document request = Document.fromJson("{\n" +
+                "    \"attachment\": {\n" +
+                "        \"content\": \"string\",\n" +
+                "        \"contentType\": \"string\",\n" +
+                "        \"filename\": \"string\",\n" +
+                "        \"pageName\": \"string\",\n" +
+                "        \"pageType\": \"string\"\n" +
+                "    },\n" +
+                "    \"attachments\": [{\n" +
+                "        \"content\": \"string\",\n" +
+                "        \"contentType\": \"string\",\n" +
+                "        \"filename\": \"string\",\n" +
+                "        \"pageName\": \"string\",\n" +
+                "        \"pageType\": \"string\"\n" +
+                "    }],\n" +
+                "    \"description\": \"string\",\n" +
+                "    \"expiryDate\": \"string\",\n" +
+                "    \"fileName\": \"string\",\n" +
+                "    \"id\": \"SE322KT223222D5FJ7TJN2986\",\n" +
+                "    \"issuerCountry\": \"string\",\n" +
+                "    \"issuerState\": \"string\",\n" +
+                "    \"number\": \"string\",\n" +
+                "    \"owner\": {\n" +
+                "        \"id\": \"string\",\n" +
+                "        \"type\": \"string\"\n" +
+                "    },\n" +
+                "    \"type\": \"bankStatement\"\n" +
+                "}");
+        Document response = service.update("SE322KT223222D5FJ7TJN2986", request);
+        assertEquals("Thisisanbase64encodedstring", new String(response.getAttachments().get(0).getContent()));
+    }
 }

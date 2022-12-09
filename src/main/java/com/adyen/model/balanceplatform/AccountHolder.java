@@ -86,7 +86,7 @@ public class AccountHolder {
   private String reference;
 
   /**
-   * The status of the account holder.  Possible values:    * **Active**: The account holder is active. This is the default status when creating an account holder.    * **Inactive**: The account holder is temporarily inactive. You can set the account back to active or close it permanently.    * **Suspended**: The account holder is permanently suspended by Adyen. This action cannot be undone.   * **Closed**: The account holder is permanently deactivated. This action cannot be undone.
+   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -276,11 +276,11 @@ public class AccountHolder {
   }
 
    /**
-   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.  
+   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    * @return legalEntityId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.  ")
+  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.")
 
   public String getLegalEntityId() {
     return legalEntityId;
@@ -345,11 +345,11 @@ public class AccountHolder {
   }
 
    /**
-   * The status of the account holder.  Possible values:    * **Active**: The account holder is active. This is the default status when creating an account holder.    * **Inactive**: The account holder is temporarily inactive. You can set the account back to active or close it permanently.    * **Suspended**: The account holder is permanently suspended by Adyen. This action cannot be undone.   * **Closed**: The account holder is permanently deactivated. This action cannot be undone.
+   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **Active**: The account holder is active. This is the default status when creating an account holder.    * **Inactive**: The account holder is temporarily inactive. You can set the account back to active or close it permanently.    * **Suspended**: The account holder is permanently suspended by Adyen. This action cannot be undone.   * **Closed**: The account holder is permanently deactivated. This action cannot be undone.")
+  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.")
 
   public StatusEnum getStatus() {
     return status;

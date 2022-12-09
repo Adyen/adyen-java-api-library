@@ -44,72 +44,45 @@ import java.util.Set;
 import com.adyen.model.legalentitymanagement.JSON;
 
 /**
- * DocumentReference
+ * TransferInstrumentReference
  */
 
-public class DocumentReference {
-  public static final String SERIALIZED_NAME_ACTIVE = "active";
-  @SerializedName(SERIALIZED_NAME_ACTIVE)
-  private Boolean active;
-
-  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
-  @SerializedName(SERIALIZED_NAME_FILE_NAME)
-  private String fileName;
+public class TransferInstrumentReference {
+  public static final String SERIALIZED_NAME_ACCOUNT_IDENTIFIER = "accountIdentifier";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_IDENTIFIER)
+  private String accountIdentifier;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  public DocumentReference() { 
+  public TransferInstrumentReference() { 
   }
 
-  public DocumentReference active(Boolean active) {
+  public TransferInstrumentReference accountIdentifier(String accountIdentifier) {
     
-    this.active = active;
+    this.accountIdentifier = accountIdentifier;
     return this;
   }
 
    /**
-   * Identifies whether the document is active and used for checks.
-   * @return active
+   * Account identifier
+   * @return accountIdentifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifies whether the document is active and used for checks.")
+  @ApiModelProperty(value = "Account identifier")
 
-  public Boolean getActive() {
-    return active;
+  public String getAccountIdentifier() {
+    return accountIdentifier;
   }
 
 
-  public void setActive(Boolean active) {
-    this.active = active;
+  public void setAccountIdentifier(String accountIdentifier) {
+    this.accountIdentifier = accountIdentifier;
   }
 
 
-  public DocumentReference fileName(String fileName) {
-    
-    this.fileName = fileName;
-    return this;
-  }
-
-   /**
-   * Document name.
-   * @return fileName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Document name.")
-
-  public String getFileName() {
-    return fileName;
-  }
-
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-
-  public DocumentReference id(String id) {
+  public TransferInstrumentReference id(String id) {
     
     this.id = id;
     return this;
@@ -141,23 +114,21 @@ public class DocumentReference {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentReference documentReference = (DocumentReference) o;
-    return Objects.equals(this.active, documentReference.active) &&
-        Objects.equals(this.fileName, documentReference.fileName) &&
-        Objects.equals(this.id, documentReference.id);
+    TransferInstrumentReference transferInstrumentReference = (TransferInstrumentReference) o;
+    return Objects.equals(this.accountIdentifier, transferInstrumentReference.accountIdentifier) &&
+        Objects.equals(this.id, transferInstrumentReference.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, fileName, id);
+    return Objects.hash(accountIdentifier, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentReference {\n");
-    sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("class TransferInstrumentReference {\n");
+    sb.append("    accountIdentifier: ").append(toIndentedString(accountIdentifier)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -181,8 +152,7 @@ public class DocumentReference {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("active");
-    openapiFields.add("fileName");
+    openapiFields.add("accountIdentifier");
     openapiFields.add("id");
 
     // a set of required properties/fields (JSON key names)
@@ -193,27 +163,27 @@ public class DocumentReference {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to DocumentReference
+  * @throws IOException if the JSON Object is invalid with respect to TransferInstrumentReference
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (DocumentReference.openapiRequiredFields.isEmpty()) {
+        if (TransferInstrumentReference.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DocumentReference is not found in the empty JSON string", DocumentReference.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransferInstrumentReference is not found in the empty JSON string", TransferInstrumentReference.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!DocumentReference.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DocumentReference` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!TransferInstrumentReference.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransferInstrumentReference` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // validate the optional field fileName
-      if (jsonObj.get("fileName") != null && !jsonObj.get("fileName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fileName").toString()));
+      // validate the optional field accountIdentifier
+      if (jsonObj.get("accountIdentifier") != null && !jsonObj.get("accountIdentifier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountIdentifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountIdentifier").toString()));
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
@@ -225,22 +195,22 @@ public class DocumentReference {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DocumentReference.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DocumentReference' and its subtypes
+       if (!TransferInstrumentReference.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransferInstrumentReference' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DocumentReference> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DocumentReference.class));
+       final TypeAdapter<TransferInstrumentReference> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransferInstrumentReference.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DocumentReference>() {
+       return (TypeAdapter<T>) new TypeAdapter<TransferInstrumentReference>() {
            @Override
-           public void write(JsonWriter out, DocumentReference value) throws IOException {
+           public void write(JsonWriter out, TransferInstrumentReference value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public DocumentReference read(JsonReader in) throws IOException {
+           public TransferInstrumentReference read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -251,18 +221,18 @@ public class DocumentReference {
   }
 
  /**
-  * Create an instance of DocumentReference given an JSON string
+  * Create an instance of TransferInstrumentReference given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of DocumentReference
-  * @throws IOException if the JSON string is invalid with respect to DocumentReference
+  * @return An instance of TransferInstrumentReference
+  * @throws IOException if the JSON string is invalid with respect to TransferInstrumentReference
   */
-  public static DocumentReference fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DocumentReference.class);
+  public static TransferInstrumentReference fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransferInstrumentReference.class);
   }
 
  /**
-  * Convert an instance of DocumentReference to an JSON string
+  * Convert an instance of TransferInstrumentReference to an JSON string
   *
   * @return JSON string
   */

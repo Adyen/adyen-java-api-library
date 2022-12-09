@@ -21,8 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
-
-import okio.ByteString;
+import io.gsonfire.TypeSelector;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -34,7 +33,10 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
+import java.util.HashMap;
+import okio.ByteString;
 
 /*
  * A JSON utility class
@@ -53,8 +55,7 @@ public class JSON {
 
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder()
-        ;
+        GsonFireBuilder fireBuilder = new GsonFireBuilder();
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;
     }
@@ -100,13 +101,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.Document.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.DocumentReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.EntityReference.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.GenericEntityInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.IdentificationData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.Individual.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.LegalEntity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.LegalEntityAssociation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.LegalEntityInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.Name.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.OffsetDateTime.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.OnboardingLink.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.OnboardingLinkInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.OnboardingTheme.CustomTypeAdapterFactory());
@@ -123,8 +124,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.TaxReportingClassification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.TransferInstrument.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.TransferInstrumentInfo.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.TransferInstrumentReference.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.WebData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.WebDataExemption.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.legalentitymanagement.ZoneOffset.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 

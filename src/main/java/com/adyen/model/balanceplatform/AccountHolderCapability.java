@@ -14,7 +14,6 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.balanceplatform.CapabilityProblem;
 import com.adyen.model.balanceplatform.JSONObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -121,7 +120,7 @@ public class AccountHolderCapability {
 
   public static final String SERIALIZED_NAME_PROBLEMS = "problems";
   @SerializedName(SERIALIZED_NAME_PROBLEMS)
-  private List<CapabilityProblem> problems = null;
+  private List<Object> problems = null;
 
   public static final String SERIALIZED_NAME_REQUESTED = "requested";
   @SerializedName(SERIALIZED_NAME_REQUESTED)
@@ -248,7 +247,7 @@ public class AccountHolderCapability {
   public AccountHolderCapability(
      Boolean allowed, 
      AllowedLevelEnum allowedLevel, 
-     List<CapabilityProblem> problems, 
+     List<Object> problems, 
      VerificationStatusEnum verificationStatus
   ) {
     this();
@@ -339,7 +338,7 @@ public class AccountHolderCapability {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Contains verification errors and the actions that you can take to resolve them.")
 
-  public List<CapabilityProblem> getProblems() {
+  public List<Object> getProblems() {
     return problems;
   }
 
@@ -537,17 +536,9 @@ public class AccountHolderCapability {
       if (jsonObj.getAsJsonObject("allowedSettings") != null) {
         JSONObject.validateJsonObject(jsonObj.getAsJsonObject("allowedSettings"));
       }
-      JsonArray jsonArrayproblems = jsonObj.getAsJsonArray("problems");
-      if (jsonArrayproblems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("problems").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `problems` to be an array in the JSON string but got `%s`", jsonObj.get("problems").toString()));
-        }
-
-        // validate the optional field `problems` (array)
-        for (int i = 0; i < jsonArrayproblems.size(); i++) {
-          CapabilityProblem.validateJsonObject(jsonArrayproblems.get(i).getAsJsonObject());
-        };
+      // ensure the json data is an array
+      if (jsonObj.get("problems") != null && !jsonObj.get("problems").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `problems` to be an array in the JSON string but got `%s`", jsonObj.get("problems").toString()));
       }
       // ensure the field requestedLevel can be parsed to an enum value
       if (jsonObj.get("requestedLevel") != null) {
