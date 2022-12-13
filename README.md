@@ -1,3 +1,5 @@
+![Java](https://user-images.githubusercontent.com/62436079/207377920-a87d7662-bc6a-496b-8d02-27c0a425e947.png)
+
 [![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=master)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=master)
 
 # Adyen Java API Library
