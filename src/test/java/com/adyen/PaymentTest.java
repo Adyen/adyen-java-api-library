@@ -479,59 +479,19 @@ public class PaymentTest extends BaseTest {
     }
 
     @Test
-    public void TestByteArraySerialization() throws Exception {
-
-        Client client = createMockClientFromFile("mocks/authorise-success.json");
-        Payment payment = new Payment(client);
-
-        final byte[] bytes =  "Let's pretend this a jpg or something".getBytes(StandardCharsets.UTF_8);
-        String serialized = JSON.serialize(bytes);
-        String serialized1 = serialized.substring(1, serialized.length() - 1);
-        if (JSON.getGson().htmlSafe()) {
-            serialized1 = serialized1.replaceAll("\\\\u003d", "=");
-        }
-
-        String expectedBytesAsString = "Let's pretend this a jpg or something";
-
-        ByteString actualAsByteString = ByteString.decodeBase64(serialized1);
-
-        byte[] actualBytes = actualAsByteString.toByteArray();
-
-        assertEquals(expectedBytesAsString, new String(actualBytes, StandardCharsets.UTF_8));
-    }
-    @Test
     public void TestByteArrayToJSONString() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
         Payment payment = new Payment(client);
         PaymentRequest paymentRequest = new PaymentRequest();
         ThreeDSecureData threeDSecureData = new ThreeDSecureData();
 
-        threeDSecureData.setCavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ".getBytes(StandardCharsets.UTF_8));
+        threeDSecureData.setCavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ".getBytes());
         paymentRequest.mpiData(threeDSecureData);
         
         payment.authorise(paymentRequest);
 
         // In the json the string is encoded in base64
-        String expected = "\"mpiData\":{\"cavv\":\"QVFJREJBVUdCd2dKQ2dzTURRNFBFQkVTRXhR\"}";
-
-        ClientInterface http = client.getHttpClient();
-        verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());
-    }
-
-    @Test
-    public void TestJSONToByteArrayString() throws Exception {
-        Client client = createMockClientFromFile("mocks/authorise-success.json");
-        Payment payment = new Payment(client);
-        PaymentRequest paymentRequest = new PaymentRequest();
-        ThreeDSecureData threeDSecureData = new ThreeDSecureData();
-
-        threeDSecureData.setCavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ".getBytes(StandardCharsets.UTF_8));
-        paymentRequest.mpiData(threeDSecureData);
-
-        payment.authorise(paymentRequest);
-
-        // In the json the string is encoded in base64
-        String expected = "\"mpiData\":{\"cavv\":\"QVFJREJBVUdCd2dKQ2dzTURRNFBFQkVTRXhR\"}";
+        String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\"}";
 
         ClientInterface http = client.getHttpClient();
         verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());

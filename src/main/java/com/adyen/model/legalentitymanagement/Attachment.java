@@ -82,10 +82,12 @@ public class Attachment {
    * @return content
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The document in Base64-encoded string format.", dataType = "BYTE")
+  @ApiModelProperty(required = true, value = "The document in Base64-encoded string format.")
+
   public byte[] getContent() {
     return content;
   }
+
 
   public void setContent(byte[] content) {
     this.content = content;
