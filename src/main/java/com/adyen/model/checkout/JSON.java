@@ -336,7 +336,7 @@ public class JSON {
             if (value == null) {
                 out.nullValue();
             } else {
-                out.value(ByteString.of(value).base64());
+                out.value(new String(value));
             }
         }
 

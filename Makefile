@@ -5,7 +5,7 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=balanceplatform checkout legalEntityManagement payments payout recurring management binlookup
+services:=balanceplatform checkout legalentitymanagement payments payout recurring management binlookup
 models:=src/main/java/com/adyen/model
 output:=target/out
 
@@ -23,7 +23,7 @@ management: spec=ManagementService-v1
 management: resourceClass=Management
 balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
-legalEntityManagement: spec=LegalEntityService-v2
+legalentitymanagement: spec=LegalEntityService-v2
 # Classic Platforms
 marketpay/account: spec=AccountService-v6
 marketpay/fund: spec=FundService-v6
