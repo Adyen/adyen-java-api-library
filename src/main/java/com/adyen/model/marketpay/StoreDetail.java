@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.model.Address;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

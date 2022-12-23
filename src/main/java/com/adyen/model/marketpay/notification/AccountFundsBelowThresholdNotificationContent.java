@@ -21,7 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.Amount;
+import com.adyen.model.marketpay.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;

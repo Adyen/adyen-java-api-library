@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.model.Amount;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 

@@ -20,11 +20,8 @@
  */
 package com.adyen;
 
-import com.adyen.model.Address;
-import com.adyen.model.Amount;
 import com.adyen.model.payments.Card;
 import com.adyen.model.payments.FraudCheckResult;
-import com.adyen.model.Name;
 import com.adyen.model.payments.PaymentRequest;
 import com.adyen.model.payments.PaymentResult;
 import com.adyen.model.additionalData.SplitPayment;
@@ -39,13 +36,11 @@ import com.adyen.service.Fund;
 import com.adyen.service.Hop;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
-import com.adyen.service.resource.account.CloseStores;
 import com.adyen.util.DateUtil;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.model.marketpay.AccountEvent.EventEnum.INACTIVATEACCOUNT;

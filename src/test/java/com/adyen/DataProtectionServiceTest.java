@@ -20,8 +20,8 @@
  */
 package com.adyen;
 
-import com.adyen.model.SubjectErasureRequest;
-import com.adyen.model.SubjectErasureResponse;
+import com.adyen.model.dataprotection.SubjectErasureRequest;
+import com.adyen.model.dataprotection.SubjectErasureResponse;
 import com.adyen.service.DataProtection;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;

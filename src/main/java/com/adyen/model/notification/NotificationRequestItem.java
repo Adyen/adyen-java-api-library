@@ -20,7 +20,6 @@
  */
 package com.adyen.model.notification;
 
-import com.adyen.model.Amount;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;

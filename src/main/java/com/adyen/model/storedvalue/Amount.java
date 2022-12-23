@@ -1,4 +1,4 @@
-/*
+/**
  *                       ######
  *                       ######
  * ############    ####( ######  #####. ######  ############   ############
@@ -14,63 +14,70 @@
  *
  * Adyen Java API Library
  *
- * Copyright (c) 2017 Adyen B.V.
+ * Copyright (c) 2020 Adyen B.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
-package com.adyen.model.marketpay;
+package com.adyen.model.storedvalue;
 
+import com.adyen.util.Util;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.SerializedName;
 
+import java.math.BigDecimal;
 import java.util.Objects;
-
 
 import static com.adyen.util.Util.toIndentedString;
 
 /**
- * IndividualDetails
+ * Amount
  */
-public class IndividualDetails {
-    @SerializedName("personalData")
-    private PersonalData personalData = null;
+public class Amount {
+    @SerializedName("value")
+    private Long value = null;
 
-    @SerializedName("name")
-    private Name name = null;
+    @SerializedName("currency")
+    private String currency = null;
 
-    public IndividualDetails personalData(PersonalData personalData) {
-        this.personalData = personalData;
+    @JsonIgnore
+    public BigDecimal getDecimalValue() {
+        return BigDecimal.valueOf(getValue(), Util.getDecimalPlaces(getCurrency()));
+    }
+
+    public Amount value(Long value) {
+        this.value = value;
         return this;
     }
 
     /**
-     * the account holder personal data
+     * the amount's value in minor units
      *
-     * @return personalData
+     * @return value
      **/
-    public PersonalData getPersonalData() {
-        return personalData;
+    public Long getValue() {
+        return value;
     }
 
-    public void setPersonalData(PersonalData personalData) {
-        this.personalData = personalData;
+    public void setValue(Long value) {
+        this.value = value;
     }
 
-    public IndividualDetails name(Name name) {
-        this.name = name;
+    public Amount currency(String currency) {
+        this.currency = currency;
         return this;
     }
 
     /**
-     * thea account holder name
+     * the amount's three letter currency code (ISO 4217)
      *
-     * @return name
+     * @return currency
      **/
-    public Name getName() {
-        return name;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setName(Name name) {
-        this.name = name;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
 
@@ -82,26 +89,29 @@ public class IndividualDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        IndividualDetails individualDetails = (IndividualDetails) o;
-        return Objects.equals(this.personalData, individualDetails.personalData) && Objects.equals(this.name, individualDetails.name);
+        Amount amount = (Amount) o;
+        return Objects.equals(this.value, amount.value) &&
+                Objects.equals(this.currency, amount.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(personalData, name);
+        return Objects.hash(value, currency);
     }
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class IndividualDetails {\n");
+        sb.append("class Amount {\n");
 
-        sb.append("    personalData: ").append(toIndentedString(personalData)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("}");
         return sb.toString();
     }
+
+
 
 }
 

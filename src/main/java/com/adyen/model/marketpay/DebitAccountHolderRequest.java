@@ -5,8 +5,6 @@ import static com.adyen.util.Util.toIndentedString;
 import java.util.List;
 import java.util.Objects;
 
-import com.adyen.model.Amount;
-import com.adyen.model.Split;
 import com.google.gson.annotations.SerializedName;
 
 public class DebitAccountHolderRequest {
