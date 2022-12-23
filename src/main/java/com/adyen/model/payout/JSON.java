@@ -105,6 +105,14 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.PayoutRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.PayoutResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.Recurring.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ResponseAdditionalData3DSecure.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ResponseAdditionalDataBillingAddress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ResponseAdditionalDataCard.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ResponseAdditionalDataCommon.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ResponseAdditionalDataInstallments.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ResponseAdditionalDataNetworkTokens.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ResponseAdditionalDataOpi.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ResponseAdditionalDataSepa.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.ServiceError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.StoreDetailAndSubmitRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payout.StoreDetailAndSubmitResponse.CustomTypeAdapterFactory());
@@ -187,7 +195,7 @@ public class JSON {
             if (value == null) {
                 out.nullValue();
             } else {
-                out.value(ByteString.of(value).base64());
+                out.value(new String(value));
             }
         }
 

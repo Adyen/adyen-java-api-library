@@ -26,37 +26,18 @@ import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.payments.Address;
-import com.adyen.model.payments.AdjustAuthorisationRequest;
-import com.adyen.model.payments.Amount;
-import com.adyen.model.payments.ApplicationInfo;
-import com.adyen.model.payments.AuthenticationResultRequest;
-import com.adyen.model.payments.AuthenticationResultResponse;
-import com.adyen.model.payments.CancelOrRefundRequest;
-import com.adyen.model.payments.CancelRequest;
-import com.adyen.model.payments.CaptureRequest;
-import com.adyen.model.payments.DonationRequest;
-import com.adyen.model.payments.FraudCheckResult;
-import com.adyen.model.payments.MerchantDevice;
-import com.adyen.model.payments.ModificationResult;
-import com.adyen.model.payments.Name;
-import com.adyen.model.payments.PaymentRequest;
-import com.adyen.model.payments.PaymentRequest3d;
-import com.adyen.model.payments.PaymentRequest3ds2;
-import com.adyen.model.payments.PaymentResult;
-import com.adyen.model.payments.RefundRequest;
-import com.adyen.model.payments.TechnicalCancelRequest;
-import com.adyen.model.payments.ThreeDS2ResultRequest;
-import com.adyen.model.payments.ThreeDS2ResultResponse;
-import com.adyen.model.payments.ThreeDSecureData;
-import com.adyen.model.payments.VoidPendingRefundRequest;
+import com.adyen.model.payments.*;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
 import com.adyen.util.DateUtil;
+import com.google.gson.reflect.TypeToken;
+import okio.ByteString;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -475,9 +456,27 @@ public class PaymentTest extends BaseTest {
     protected void assertRefused(PaymentResult paymentResult) {
         assertEquals(PaymentResult.ResultCodeEnum.REFUSED, paymentResult.getResultCode());
     }
+    @Test
+    public void TestByteArrayDeserialization() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/authorise-success.json");
+        Payment payment = new Payment(client);
+
+        final String expectedBytesAsString = "Let's pretend this a jpg or something";
+        final byte[] expectedBytes = expectedBytesAsString.getBytes(StandardCharsets.UTF_8);
+        final ByteString expectedByteString = ByteString.of(expectedBytes);
+        final String serializedBytes = expectedByteString.base64();
+        final String serializedBytesWithQuotes = "\"" + serializedBytes + "\"";
+        Type type = new TypeToken<byte[]>() { }.getType();
+
+        // Act
+        byte[] actualDeserializedBytes = JSON.deserialize(serializedBytesWithQuotes, type);
+
+        // Assert
+        assertEquals(expectedBytesAsString, new String(actualDeserializedBytes, StandardCharsets.UTF_8));
+    }
 
     @Test
-    @Ignore
     public void TestByteArrayToJSONString() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
         Payment payment = new Payment(client);
@@ -485,8 +484,8 @@ public class PaymentTest extends BaseTest {
         paymentRequest.mpiData(new ThreeDSecureData().cavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ=".getBytes()));
         
         payment.authorise(paymentRequest);
-        
-        String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\"}";
+        // Unicode representation of the string
+        String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}";
         ClientInterface http = client.getHttpClient();
         verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());
     }
