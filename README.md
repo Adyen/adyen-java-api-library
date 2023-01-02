@@ -1,7 +1,5 @@
 ![Java](https://user-images.githubusercontent.com/62436079/207377920-a87d7662-bc6a-496b-8d02-27c0a425e947.png)
 
-[![Coverage Status](https://coveralls.io/repos/github/Adyen/adyen-java-api-library/badge.svg?branch=master)](https://coveralls.io/github/Adyen/adyen-java-api-library?branch=master)
-
 # Adyen Java API Library
 
 This is the officially supported Java library for using Adyen's APIs.
@@ -65,6 +63,12 @@ Every API the library supports is represented by a service object. The name of t
 API is listed in the [Supported API versions](#supported-api-versions) section of this document.
 
 ~~~~ java
+// Import the required classes
+import com.adyen.Client;
+import com.adyen.enums.Environment;
+import com.adyen.service.Checkout;
+import com.adyen.model.checkout.*;
+
 // Setup Client and Service
 Client client = new Client("Your X-API-KEY", Environment.TEST);
 Checkout checkout = new Checkout(client);
@@ -91,37 +95,53 @@ PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
 ### General use with API key for live environment
 For requests on live environment, you need to pass the [Live URL Prefix](https://docs.adyen.com/development-resources/live-endpoints#live-url-prefix) to the Client object:
 ~~~~ java
+// Import the required classes
+import com.adyen.Client;
+import com.adyen.enums.Environment;
+
 // Setup Client and Service
 Client client = new Client("Your X-API-KEY", Environment.LIVE, "Your live URL prefix");
 Checkout checkout = new Checkout(client);
 
 ...
 ~~~~
-
- 
 ### General use with basic auth
 ~~~~ java
- // Setup Client and Service
- Client client = new Client("Your username", "Your password", Environment.LIVE, "Your live URL prefix", "Your application name");
- Checkout checkout = new Checkout(client);
+// Import the required classes
+import com.adyen.Client;
+import com.adyen.enums.Environment;
+
+// Setup Client and Service
+Client client = new Client("Your username", "Your password", Environment.LIVE, "Your live URL prefix", "Your application name");
+Checkout checkout = new Checkout(client);
  
- ...
+...
 ~~~~
 ### Using notification webhooks parser
 ~~~~ java
- String json = "The notification message sent to your webhook";
- NotificationHandler notificationHandler = new NotificationHandler();
- GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
- ...
-~~~~
+// Import the required classes
+import com.adyen.notification.NotificationHandler;
+import com.adyen.notification.NotificationHandler;
 
+// Parse incoming notification
+String json = "The notification message sent to your webhook";
+NotificationHandler notificationHandler = new NotificationHandler();
+GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
  
+...
+~~~~
 ### Proxy configuration
 You can configure a proxy connection by injecting your own AdyenHttpClient on your client instance.
 
 Example:
 ~~~~ java
 ...
+// Import the required classes
+import com.adyen.httpclient.AdyenHttpClient;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+
+// Set http proxy
 AdyenHttpClient adyenHttpClientWithProxy = new AdyenHttpClient();
 
 Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("PROXY_HOST", PROXY_PORT));
