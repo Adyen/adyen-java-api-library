@@ -37,11 +37,20 @@ public class AccountHolderVerificationNotificationContent {
     @SerializedName("kycCheckStatusData")
     private KYCCheckStatusData kycCheckStatusData = null;
 
+    @SerializedName("legalArrangementCode")
+    private String legalArrangementCode = null;
+
+    @SerializedName("legalArrangementEntityCode")
+    private String legalArrangementEntityCode = null;
+
     @SerializedName("payoutMethodCode")
     private String payoutMethodCode = null;
 
     @SerializedName("shareholderCode")
     private String shareholderCode = null;
+
+    @SerializedName("signatoryCode")
+    private String signatoryCode = null;
 
     public AccountHolderVerificationNotificationContent accountHolderCode(String accountHolderCode) {
         this.accountHolderCode = accountHolderCode;
@@ -50,7 +59,6 @@ public class AccountHolderVerificationNotificationContent {
 
     /**
      * The code of the account holder.
-     *
      * @return accountHolderCode
      **/
     public String getAccountHolderCode() {
@@ -77,6 +85,40 @@ public class AccountHolderVerificationNotificationContent {
 
     public void setKycCheckStatusData(KYCCheckStatusData kycCheckStatusData) {
         this.kycCheckStatusData = kycCheckStatusData;
+    }
+
+    public AccountHolderVerificationNotificationContent legalArrangementCode(String legalArrangementCode) {
+        this.legalArrangementCode = legalArrangementCode;
+        return this;
+    }
+
+    /**
+     * The unique ID of the legal arrangement that has been verified.
+     * @return legalArrangementCode
+     **/
+    public String getLegalArrangementCode() {
+        return legalArrangementCode;
+    }
+
+    public void setLegalArrangementCode(String legalArrangementCode) {
+        this.legalArrangementCode = legalArrangementCode;
+    }
+
+    public AccountHolderVerificationNotificationContent legalArrangementEntityCode(String legalArrangementEntityCode) {
+        this.legalArrangementEntityCode = legalArrangementEntityCode;
+        return this;
+    }
+
+    /**
+     * The unique ID of the legal arrangement entity that has been verified.
+     * @return legalArrangementEntityCode
+     **/
+    public String getLegalArrangementEntityCode() {
+        return legalArrangementEntityCode;
+    }
+
+    public void setLegalArrangementEntityCode(String legalArrangementEntityCode) {
+        this.legalArrangementEntityCode = legalArrangementEntityCode;
     }
 
     public AccountHolderVerificationNotificationContent payoutMethodCode(String payoutMethodCode) {
@@ -115,6 +157,23 @@ public class AccountHolderVerificationNotificationContent {
         this.shareholderCode = shareholderCode;
     }
 
+    public AccountHolderVerificationNotificationContent signatoryCode(String signatoryCode) {
+        this.signatoryCode = signatoryCode;
+        return this;
+    }
+
+    /**
+     * The code of the signatory that has been verified.
+     * @return signatoryCode
+     **/
+    public String getSignatoryCode() {
+        return signatoryCode;
+    }
+
+    public void setSignatoryCode(String signatoryCode) {
+        this.signatoryCode = signatoryCode;
+    }
+
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -127,13 +186,16 @@ public class AccountHolderVerificationNotificationContent {
         AccountHolderVerificationNotificationContent accountHolderVerificationNotificationContent = (AccountHolderVerificationNotificationContent) o;
         return Objects.equals(this.accountHolderCode, accountHolderVerificationNotificationContent.accountHolderCode) &&
                 Objects.equals(this.kycCheckStatusData, accountHolderVerificationNotificationContent.kycCheckStatusData) &&
+                Objects.equals(this.legalArrangementCode, accountHolderVerificationNotificationContent.legalArrangementCode) &&
+                Objects.equals(this.legalArrangementEntityCode, accountHolderVerificationNotificationContent.legalArrangementEntityCode) &&
                 Objects.equals(this.payoutMethodCode, accountHolderVerificationNotificationContent.payoutMethodCode) &&
-                Objects.equals(this.shareholderCode, accountHolderVerificationNotificationContent.shareholderCode);
+                Objects.equals(this.shareholderCode, accountHolderVerificationNotificationContent.shareholderCode) &&
+                Objects.equals(this.signatoryCode, accountHolderVerificationNotificationContent.signatoryCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountHolderCode, kycCheckStatusData, payoutMethodCode, shareholderCode);
+        return Objects.hash(accountHolderCode, kycCheckStatusData, legalArrangementCode, legalArrangementEntityCode, payoutMethodCode, shareholderCode, signatoryCode);
     }
 
 
@@ -144,8 +206,11 @@ public class AccountHolderVerificationNotificationContent {
 
         sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
         sb.append("    kycCheckStatusData: ").append(toIndentedString(kycCheckStatusData)).append("\n");
+        sb.append("    legalArrangementCode: ").append(toIndentedString(legalArrangementCode)).append("\n");
+        sb.append("    legalArrangementEntityCode: ").append(toIndentedString(legalArrangementEntityCode)).append("\n");
         sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
         sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
+        sb.append("    signatoryCode: ").append(toIndentedString(signatoryCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

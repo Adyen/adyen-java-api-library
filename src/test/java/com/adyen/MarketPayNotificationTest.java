@@ -237,6 +237,7 @@ public class MarketPayNotificationTest extends BaseTest {
         AccountHolderVerificationNotification notification = (AccountHolderVerificationNotification) notificationMessage;
         assertNotNull(notification.getContent());
         assertEquals("AH0000001", notification.getContent().getAccountHolderCode());
+        assertEquals("d0d93667-89ac-45be-9b9c-c6236049995f", notification.getContent().getSignatoryCode());
     }
 
     @Test
