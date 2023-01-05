@@ -120,14 +120,39 @@ Checkout checkout = new Checkout(client);
 ### Using notification webhooks parser
 ~~~~ java
 // Import the required classes
+import java.util.List;
+import com.adyen.util.HMACValidator;
 import com.adyen.notification.NotificationHandler;
-import com.adyen.notification.NotificationHandler;
+import com.adyen.model.notification.NotificationRequest;
+import com.adyen.model.notification.NotificationRequestItem;
 
-// Parse incoming notification
-String json = "The notification message sent to your webhook";
+// YOUR_HMAC_KEY from the Customer Area
+String hmacKey = "YOUR_HMAC_KEY";
+// Notification Request JSON
+String notificationRequestJson = "NOTIFICATION_REQUEST_JSON";
+HMACValidator hmacValidator = new HMACValidator();
 NotificationHandler notificationHandler = new NotificationHandler();
-GenericNotification notificationMessage = notificationHandler.handleMarketpayNotificationJson(json);
- 
+NotificationRequest notificationRequest = notificationHandler.handleNotificationJson(notificationRequestJson);
+// Handle multiple notificationRequests
+List<NotificationRequestItem> notificationRequestItems = notificationRequest.getNotificationItems();
+for ( NotificationRequestItem notificationRequestItem : notificationRequestItems ) {
+    // Handle the notification
+    if ( hmacValidator.validateHMAC(notificationRequestItem, hmacKey) ) {
+        // Process the notification based on the eventCode
+        log.info("Received webhook with event {} : \n" +
+            "Merchant Reference: {}\n" +
+            "Alias : {}\n" +
+            "PSP reference : {}", 
+            notificationRequestItem.getEventCode(), 
+            notificationRequestItem.getMerchantReference(),
+            notificationRequestItem.getAdditionalData().get("alias"),
+            notificationRequestItem.getPspReference());
+    } else {
+        // Non valid NotificationRequest
+        System.out.print("Non valid NotificationRequest");
+    }
+}
+
 ...
 ~~~~
 ### Proxy configuration
@@ -162,7 +187,6 @@ System.setProperty("https.proxyPassword", "ward");
 ### Example integrations
  
 For a closer look at how our Java library works, you can clone one of our example integrations:
-* [Java Spark example integration](https://github.com/adyen-examples/adyen-java-spark-online-payments).
 * [Java Spring Boot example integration](https://github.com/adyen-examples/adyen-java-spring-online-payments).
 * [Kotlin Spring Boot example integration](https://github.com/adyen-examples/adyen-kotlin-spring-online-payments).
 
@@ -191,7 +215,6 @@ This repository is available under the [MIT license](https://github.com/Adyen/ad
  
 ## See also
 * Example integrations:
-    * [Java Spark](https://github.com/adyen-examples/adyen-java-spark-online-payments)
     * [Java Spring Boot](https://github.com/adyen-examples/adyen-java-spring-online-payments)
     * [Kotlin Spring Boot](https://github.com/adyen-examples/adyen-kotlin-spring-online-payments)
 * [Adyen docs](https://docs.adyen.com/)
