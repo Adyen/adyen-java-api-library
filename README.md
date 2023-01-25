@@ -74,21 +74,21 @@ Client client = new Client("Your X-API-KEY", Environment.TEST);
 Checkout checkout = new Checkout(client);
 
 // Create PaymentsRequest 
-PaymentsRequest paymentsRequest = new PaymentsRequest();
-paymentsRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
+PaymentRequest paymentRequest = new PaymentRequest();
+paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
 CardDetails cardDetails = new CardDetails();
     cardDetails.encryptedCardNumber("test_4111111111111111")
-        .cvc("test_737")
+        .encryptedSecurityCode("test_737")
         .encryptedExpiryMonth("test_03")
         .encryptedExpiryYear("test_2030");
 paymentRequest.setPaymentMethod(new PaymentDonationRequestPaymentMethod(cardDetails));
 Amount amount = new Amount().currency("EUR").value(1000L);
-paymentsRequest.setAmount(amount);
-paymentsRequest.setReference("Your order number");
-paymentsRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
+paymentRequest.setAmount(amount);
+paymentRequest.setReference("Your order number");
+paymentRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
 
 // Make a call to the /payments endpoint
-PaymentsResponse paymentsResponse = checkout.payments(paymentsRequest);
+PaymentResponse paymentResponse = checkout.payments(paymentsRequest);
 
 ~~~~
  
