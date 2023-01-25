@@ -6,7 +6,6 @@
  */
 package com.adyen;
 
-import com.adyen.model.nexo.DiagnosisRequest;
 import com.adyen.model.recurring.*;
 import com.adyen.service.Recurring;
 import com.adyen.service.exception.ApiException;
@@ -15,7 +14,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 

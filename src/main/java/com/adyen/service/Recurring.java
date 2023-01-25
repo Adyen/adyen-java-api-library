@@ -51,6 +51,7 @@ public class Recurring extends Service {
     private final NotifyShopper notifyShopper;
     private final CreatePermit createPermit;
     private final DisablePermit disablePermit;
+
     public Recurring(Client client) {
         super(client);
 
