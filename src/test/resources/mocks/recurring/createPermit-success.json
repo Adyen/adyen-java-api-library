@@ -1,0 +1,9 @@
+{
+  "permitResultList": [
+    {
+      "resultKey": "resultKey",
+      "token": "token"
+    }
+  ],
+  "pspReference": "1234qwer"
+}
