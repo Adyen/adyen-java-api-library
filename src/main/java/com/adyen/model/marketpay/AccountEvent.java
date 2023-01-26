@@ -20,7 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -52,7 +52,7 @@ public class AccountEvent {
         @SerializedName("RefundNotPaidOutTransfers")
         REFUNDNOTPAIDOUTTRANSFERS("RefundNotPaidOutTransfers");
 
-        @JsonValue
+
         private final String value;
 
         EventEnum(String value) {

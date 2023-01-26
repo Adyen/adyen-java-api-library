@@ -21,7 +21,7 @@
 
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,7 +54,7 @@ public class StoreDetail {
         ECOMMERCE("Ecommerce"),
         POS("POS");
 
-        @JsonValue
+
         private final String value;
 
         ShopperInteractionEnum(String value) {
@@ -105,7 +105,7 @@ public class StoreDetail {
         INACTIVEWITHMODIFICATIONS("InactiveWithModifications"),
         PENDING("Pending");
 
-        @JsonValue
+
         private final String value;
 
         StatusEnum(String value) {

@@ -21,7 +21,6 @@
 package com.adyen.model.notification;
 
 import com.adyen.util.Util;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.SerializedName;
 
 import java.math.BigDecimal;
@@ -39,7 +38,6 @@ public class Amount {
     @SerializedName("currency")
     private String currency = null;
 
-    @JsonIgnore
     public BigDecimal getDecimalValue() {
         return BigDecimal.valueOf(getValue(), Util.getDecimalPlaces(getCurrency()));
     }

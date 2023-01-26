@@ -21,7 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,7 +57,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         INACTIVEWITHMODIFICATIONS("InactiveWithModifications"),
         PENDING("Pending");
 
-        @JsonValue
+
         private final String value;
 
         NewStatusEnum(String value) {
@@ -110,7 +110,7 @@ public class AccountHolderStoreStatusChangeNotificationContent {
         INACTIVEWITHMODIFICATIONS("InactiveWithModifications"),
         PENDING("Pending");
 
-        @JsonValue
+
         private final String value;
 
         OldStatusEnum(String value) {

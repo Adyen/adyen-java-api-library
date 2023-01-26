@@ -22,8 +22,8 @@
 
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
+
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -68,7 +68,7 @@ public class UpdateAccountHolderResponse {
         NONPROFIT("NonProfit"),
         PUBLICCOMPANY("PublicCompany");
 
-        @JsonValue
+
         private final String value;
 
         LegalEntityEnum(String value) {
@@ -117,7 +117,6 @@ public class UpdateAccountHolderResponse {
     private String resultCode = null;
 
     @SerializedName("verification")
-    @JsonProperty("verification")
     private KYCVerificationResult verificationResult = null;
 
     @SerializedName("verificationProfile")

@@ -23,7 +23,7 @@ package com.adyen.model.posterminalmanagement;
 
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -121,7 +121,7 @@ public class GetTerminalDetailsResponse {
         REASSIGNTOSTOREPENDING("ReAssignToStorePending"),
         SWITCHEDOFF("SwitchedOff");
 
-        @JsonValue
+
         private final String value;
 
         TerminalStatusEnum(String value) {

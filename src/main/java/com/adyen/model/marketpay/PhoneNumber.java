@@ -20,7 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -48,7 +48,7 @@ public class PhoneNumber {
         @SerializedName("SIP")
         SIP("SIP");
 
-        @JsonValue
+
         private final String value;
 
         PhoneTypeEnum(String value) {

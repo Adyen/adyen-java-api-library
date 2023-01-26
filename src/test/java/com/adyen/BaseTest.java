@@ -45,9 +45,6 @@ import com.adyen.model.payments.ThreeDS2RequestData;
 import com.adyen.model.terminal.TerminalAPIRequest;
 import com.adyen.model.additionalData.InvoiceLine;
 import com.adyen.model.payments.PaymentRequest;
-import com.adyen.util.DateUtil;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -75,7 +72,6 @@ public class BaseTest {
             .adyenLibrary(new CommonField().name(LIB_NAME).version(LIB_VERSION));
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
     protected static final Gson GSON = new Gson();
-    protected static final ObjectMapper OBJECT_MAPPER =  new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
     public static final String DUMMY_PROTOCOL_IMAGE_URL = "dummy_protocol/image_url/";
     public static final String DUMMY_PROTOCOL_PRODUCT_URL = "dummy_protocol/product_url/";
     public static final String USER_AGENT = "User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36";

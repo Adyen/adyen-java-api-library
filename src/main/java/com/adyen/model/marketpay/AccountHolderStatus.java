@@ -21,7 +21,7 @@
 
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -60,7 +60,7 @@ public class AccountHolderStatus {
         INACTIVE("Inactive"),
         SUSPENDED("Suspended");
 
-        @JsonValue
+
         private final String value;
 
         StatusEnum(String value) {

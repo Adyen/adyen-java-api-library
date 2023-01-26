@@ -21,7 +21,7 @@
 package com.adyen.model.terminal;
 
 import com.adyen.model.terminal.security.SaleToPOISecuredMessage;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -31,7 +31,6 @@ import java.util.Objects;
  */
 public class TerminalAPISecuredRequest {
     @SerializedName("SaleToPOIRequest")
-    @JsonProperty("SaleToPOIRequest")
     private SaleToPOISecuredMessage saleToPOIRequest;
 
 
