@@ -20,9 +20,7 @@
  */
 package com.adyen.model.notification;
 
-
 import com.google.gson.annotations.SerializedName;
-
 
 import static com.adyen.util.Util.toIndentedString;
 

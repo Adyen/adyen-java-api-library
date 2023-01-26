@@ -20,13 +20,10 @@
  */
 package com.adyen.model.notification;
 
-
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 import static com.adyen.util.Util.toIndentedString;
 

@@ -20,7 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
-;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
