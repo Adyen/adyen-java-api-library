@@ -31,11 +31,17 @@ import com.adyen.model.recurring.RecurringDetailsRequest;
 import com.adyen.model.recurring.RecurringDetailsResult;
 import com.adyen.model.recurring.ScheduleAccountUpdaterRequest;
 import com.adyen.model.recurring.ScheduleAccountUpdaterResult;
+import com.adyen.model.recurring.CreatePermitRequest;
+import com.adyen.model.recurring.CreatePermitResult;
+import com.adyen.model.recurring.DisablePermitRequest;
+import com.adyen.model.recurring.DisablePermitResult;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.recurring.Disable;
 import com.adyen.service.resource.recurring.ListRecurringDetails;
 import com.adyen.service.resource.recurring.NotifyShopper;
 import com.adyen.service.resource.recurring.ScheduleAccountUpdater;
+import com.adyen.service.resource.recurring.CreatePermit;
+import com.adyen.service.resource.recurring.DisablePermit;
 import java.io.IOException;
 
 public class Recurring extends Service {
@@ -43,6 +49,8 @@ public class Recurring extends Service {
     private final Disable disable;
     private final ScheduleAccountUpdater scheduleAccountUpdater;
     private final NotifyShopper notifyShopper;
+    private final CreatePermit createPermit;
+    private final DisablePermit disablePermit;
 
     public Recurring(Client client) {
         super(client);
@@ -51,6 +59,8 @@ public class Recurring extends Service {
         disable = new Disable(this);
         scheduleAccountUpdater = new ScheduleAccountUpdater(this);
         notifyShopper = new NotifyShopper(this);
+        createPermit = new CreatePermit(this);
+        disablePermit = new DisablePermit(this);
         new JSON();
     }
 
@@ -99,8 +109,8 @@ public class Recurring extends Service {
     /**
      * Issues a notifyShopper API call
      *
-     * @param request ScheduleAccountUpdaterRequest
-     * @return ScheduleAccountUpdaterResult
+     * @param request NotifyShopperRequest
+     * @return NotifyShopperResult
      * @throws IOException IOException
      * @throws ApiException ApiException
      */
@@ -110,4 +120,31 @@ public class Recurring extends Service {
         return NotifyShopperResult.fromJson(jsonResult);
     }
 
+    /**
+     * Issues a createPermit API call
+     *
+     * @param request CreatePermitRequest
+     * @return CreatePermitResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public CreatePermitResult createPermit(CreatePermitRequest request) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
+        String jsonResult = createPermit.request(jsonRequest);
+        return CreatePermitResult.fromJson(jsonResult);
+    }
+
+    /**
+     * Issues a disablePermit API call
+     *
+     * @param request DisablePermitRequest
+     * @return DisablePermitResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public DisablePermitResult disablePermit(DisablePermitRequest request) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
+        String jsonResult = disablePermit.request(jsonRequest);
+        return DisablePermitResult.fromJson(jsonResult);
+    }
 }

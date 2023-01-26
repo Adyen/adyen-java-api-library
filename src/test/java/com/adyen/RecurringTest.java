@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -164,5 +164,43 @@ public class RecurringTest extends BaseTest {
         assertEquals("Example reference", result.getReference());
         assertEquals("Success", result.getResultCode());
         assertEquals("IA0F7500002462", result.getShopperNotificationReference());
+    }
+
+    @Test
+    public void testCreatePermit() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/recurring/createPermit-success.json");
+        Recurring recurring = new Recurring(client);
+
+        CreatePermitRequest createPermitRequest = new CreatePermitRequest();
+        createPermitRequest.setMerchantAccount("merchantAccount");
+        Permit permit = new Permit();
+        ArrayList permits = new ArrayList<Permit>();
+        permits.add(permit);
+        createPermitRequest.setPermits(permits);
+        createPermitRequest.setRecurringDetailReference("recurringDetailReference");
+        createPermitRequest.setShopperReference("shopperReference");
+
+        CreatePermitResult result = recurring.createPermit(createPermitRequest);
+        assertNotNull(result);
+        assertEquals("1234qwer", result.getPspReference());
+        assertEquals(1, result.getPermitResultList().size());
+        assertEquals("token", result.getPermitResultList().get(0).getToken());
+        assertEquals("resultKey", result.getPermitResultList().get(0).getResultKey());
+    }
+
+    @Test
+    public void testDisablePermit() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/recurring/disablePermit-success.json");
+        Recurring recurring = new Recurring(client);
+
+        DisablePermitRequest disablePermitRequest = new DisablePermitRequest();
+        disablePermitRequest.setMerchantAccount("merchantAccount");
+        disablePermitRequest.setToken("token");
+
+        DisablePermitResult result = recurring.disablePermit(disablePermitRequest);
+        assertNotNull(result);
+        assertEquals("1234qwer", result.getPspReference());
+        assertEquals("disabled", result.getStatus());
+
     }
 }

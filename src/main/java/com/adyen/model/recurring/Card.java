@@ -116,8 +116,8 @@ public class Card {
    * The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 &#x3D; March * 11 &#x3D; November
    * @return expiryMonth
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 = March * 11 = November")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 = March * 11 = November")
 
   public String getExpiryMonth() {
     return expiryMonth;
@@ -208,8 +208,8 @@ public class Card {
    * The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.
    * @return number
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.")
 
   public String getNumber() {
     return number;
@@ -337,10 +337,8 @@ public class Card {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("expiryMonth");
     openapiRequiredFields.add("expiryYear");
     openapiRequiredFields.add("holderName");
-    openapiRequiredFields.add("number");
   }
 
  /**
