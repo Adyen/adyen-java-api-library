@@ -51,7 +51,6 @@ public class AccountEvent {
         @SerializedName("RefundNotPaidOutTransfers")
         REFUNDNOTPAIDOUTTRANSFERS("RefundNotPaidOutTransfers");
 
-
         private final String value;
 
         EventEnum(String value) {
