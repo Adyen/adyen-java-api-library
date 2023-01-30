@@ -113,7 +113,7 @@ public class PartyIdentification2 {
    * Get address
    * @return address
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Address2 getAddress() {
@@ -136,7 +136,7 @@ public class PartyIdentification2 {
    * First name of the individual. Required when &#x60;type&#x60; is **individual**.
    * @return firstName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "First name of the individual. Required when `type` is **individual**.")
 
   public String getFirstName() {
@@ -159,7 +159,7 @@ public class PartyIdentification2 {
    * The name of the entity.
    * @return fullName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The name of the entity.")
 
   public String getFullName() {
@@ -182,7 +182,7 @@ public class PartyIdentification2 {
    * Last name of the individual. Required when &#x60;type&#x60; is **individual**.
    * @return lastName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Last name of the individual. Required when `type` is **individual**.")
 
   public String getLastName() {
@@ -205,7 +205,7 @@ public class PartyIdentification2 {
    * The type of entity that owns the bank account.   Possible values: **individual**, **organization**, or **unknown**.
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The type of entity that owns the bank account.   Possible values: **individual**, **organization**, or **unknown**.")
 
   public TypeEnum getType() {

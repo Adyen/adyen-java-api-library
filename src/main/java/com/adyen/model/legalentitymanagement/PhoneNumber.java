@@ -57,7 +57,7 @@ public class PhoneNumber {
    * The full phone number, including the country code. For example, **+3112345678**.
    * @return number
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The full phone number, including the country code. For example, **+3112345678**.")
 
   public String getNumber() {
@@ -80,7 +80,7 @@ public class PhoneNumber {
    * The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** 
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of phone number.  Possible values: **mobile**, **landline**, **sip**, **fax.** ")
 
   public String getType() {

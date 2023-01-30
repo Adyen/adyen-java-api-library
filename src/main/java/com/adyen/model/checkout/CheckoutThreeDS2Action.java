@@ -134,7 +134,7 @@ public class CheckoutThreeDS2Action {
    * A token needed to authorise a payment.
    * @return authorisationToken
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A token needed to authorise a payment.")
 
   public String getAuthorisationToken() {
@@ -157,7 +157,7 @@ public class CheckoutThreeDS2Action {
    * A value that must be submitted to the &#x60;/payments/details&#x60; endpoint to verify this payment.
    * @return paymentData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A value that must be submitted to the `/payments/details` endpoint to verify this payment.")
 
   public String getPaymentData() {
@@ -180,7 +180,7 @@ public class CheckoutThreeDS2Action {
    * Specifies the payment method.
    * @return paymentMethodType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the payment method.")
 
   public String getPaymentMethodType() {
@@ -203,7 +203,7 @@ public class CheckoutThreeDS2Action {
    * A subtype of the token.
    * @return subtype
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A subtype of the token.")
 
   public String getSubtype() {
@@ -226,7 +226,7 @@ public class CheckoutThreeDS2Action {
    * A token to pass to the 3DS2 Component to get the fingerprint.
    * @return token
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A token to pass to the 3DS2 Component to get the fingerprint.")
 
   public String getToken() {
@@ -249,7 +249,7 @@ public class CheckoutThreeDS2Action {
    * **threeDS2**
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "**threeDS2**")
 
   public TypeEnum getType() {
@@ -272,7 +272,7 @@ public class CheckoutThreeDS2Action {
    * Specifies the URL to redirect to.
    * @return url
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
 
   public String getUrl() {

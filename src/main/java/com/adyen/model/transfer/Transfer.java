@@ -453,7 +453,7 @@ public class Transfer {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -476,7 +476,7 @@ public class Transfer {
    * Unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
    * @return balanceAccountId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique identifier of the source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).")
 
   public String getBalanceAccountId() {
@@ -499,7 +499,7 @@ public class Transfer {
    * The type of transfer.  Possible values:   - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.
    * @return category
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The type of transfer.  Possible values:   - **bank**: Transfer to a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id) or a bank account.  - **internal**: Transfer to another [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id) within your platform.")
 
   public CategoryEnum getCategory() {
@@ -522,7 +522,7 @@ public class Transfer {
    * Get counterparty
    * @return counterparty
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public CounterpartyV3 getCounterparty() {
@@ -545,7 +545,7 @@ public class Transfer {
    * A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A human-readable description for the transfer. You can use alphanumeric characters and hyphens. We recommend sending a maximum of 140 characters, otherwise the description may be truncated.")
 
   public String getDescription() {
@@ -568,7 +568,7 @@ public class Transfer {
    * The direction of the transfer.  Possible values: **incoming**, **outgoing**.
    * @return direction
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The direction of the transfer.  Possible values: **incoming**, **outgoing**.")
 
   public DirectionEnum getDirection() {
@@ -585,7 +585,7 @@ public class Transfer {
    * The ID of the resource.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The ID of the resource.")
 
   public String getId() {
@@ -605,7 +605,7 @@ public class Transfer {
    * Unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).
    * @return paymentInstrumentId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique identifier of the source [payment instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/paymentInstruments__resParam_id).")
 
   public String getPaymentInstrumentId() {
@@ -628,7 +628,7 @@ public class Transfer {
    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with &#x60;category&#x60; **bank**.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  
    * @return priority
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with `category` **bank**.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  ")
 
   public PriorityEnum getPriority() {
@@ -651,7 +651,7 @@ public class Transfer {
    * Additional information about the status of the transfer.
    * @return reason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Additional information about the status of the transfer.")
 
   public ReasonEnum getReason() {
@@ -674,7 +674,7 @@ public class Transfer {
    * A reference for the transfer, only used internally within your platform. If you don&#39;t provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A reference for the transfer, only used internally within your platform. If you don't provide this in the request, Adyen generates a unique reference. Maximum length: 80 characters.")
 
   public String getReference() {
@@ -697,7 +697,7 @@ public class Transfer {
    *  A reference that is sent to the recipient. This reference is also sent in all notification webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**. The maximum length depends on the &#x60;category&#x60;.  - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.
    * @return referenceForBeneficiary
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = " A reference that is sent to the recipient. This reference is also sent in all notification webhooks related to the transfer, so you can use it to track statuses for both the source and recipient of funds.   Supported characters: **a-z**, **A-Z**, **0-9**. The maximum length depends on the `category`.  - **internal**: 80 characters  - **bank**: 35 characters when transferring to an IBAN, 15 characters for others.")
 
   public String getReferenceForBeneficiary() {
@@ -720,7 +720,7 @@ public class Transfer {
    * The result of the transfer.   Possible values: **authorised**, **refused**, **error**.
    * @return status
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The result of the transfer.   Possible values: **authorised**, **refused**, **error**.")
 
   public StatusEnum getStatus() {

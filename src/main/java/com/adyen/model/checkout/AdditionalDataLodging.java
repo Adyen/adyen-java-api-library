@@ -129,7 +129,7 @@ public class AdditionalDataLodging {
    * The arrival date. * Date format: &#x60;yyyyMMdd&#x60;
    * @return lodgingCheckInDate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The arrival date. * Date format: `yyyyMMdd`")
 
   public String getLodgingCheckInDate() {
@@ -152,7 +152,7 @@ public class AdditionalDataLodging {
    * The departure date. * Date format: &#x60;yyyyMMdd&#x60;
    * @return lodgingCheckOutDate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The departure date. * Date format: `yyyyMMdd`")
 
   public String getLodgingCheckOutDate() {
@@ -175,7 +175,7 @@ public class AdditionalDataLodging {
    * The toll free phone number for the hotel/lodgings. * Format: Alphanumeric * maxLength: 17
    * @return lodgingCustomerServiceTollFreeNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The toll free phone number for the hotel/lodgings. * Format: Alphanumeric * maxLength: 17")
 
   public String getLodgingCustomerServiceTollFreeNumber() {
@@ -198,7 +198,7 @@ public class AdditionalDataLodging {
    * Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: &#39;Y&#39; or &#39;N&#39;. * Format: Alphabetic * maxLength: 1
    * @return lodgingFireSafetyActIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: 'Y' or 'N'. * Format: Alphabetic * maxLength: 1")
 
   public String getLodgingFireSafetyActIndicator() {
@@ -221,7 +221,7 @@ public class AdditionalDataLodging {
    * The folio cash advances. * Format: Numeric * maxLength: 12
    * @return lodgingFolioCashAdvances
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The folio cash advances. * Format: Numeric * maxLength: 12")
 
   public String getLodgingFolioCashAdvances() {
@@ -244,7 +244,7 @@ public class AdditionalDataLodging {
    * Card acceptor’s internal invoice or billing ID reference number. * Format: Alphanumeric * maxLength: 25
    * @return lodgingFolioNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Card acceptor’s internal invoice or billing ID reference number. * Format: Alphanumeric * maxLength: 25")
 
   public String getLodgingFolioNumber() {
@@ -267,7 +267,7 @@ public class AdditionalDataLodging {
    * Any charges for food and beverages associated with the booking. * Format: Numeric * maxLength: 12
    * @return lodgingFoodBeverageCharges
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Any charges for food and beverages associated with the booking. * Format: Numeric * maxLength: 12")
 
   public String getLodgingFoodBeverageCharges() {
@@ -290,7 +290,7 @@ public class AdditionalDataLodging {
    * Indicates if the customer was a \&quot;no-show\&quot; (neither keeps nor cancels their booking).  Value should be Y or N. * Format: Numeric * maxLength: 1
    * @return lodgingNoShowIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if the customer was a \"no-show\" (neither keeps nor cancels their booking).  Value should be Y or N. * Format: Numeric * maxLength: 1")
 
   public String getLodgingNoShowIndicator() {
@@ -313,7 +313,7 @@ public class AdditionalDataLodging {
    * Prepaid expenses for the booking. * Format: Numeric * maxLength: 12
    * @return lodgingPrepaidExpenses
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Prepaid expenses for the booking. * Format: Numeric * maxLength: 12")
 
   public String getLodgingPrepaidExpenses() {
@@ -336,7 +336,7 @@ public class AdditionalDataLodging {
    * Identifies specific lodging property location by its local phone number. * Format: Alphanumeric * maxLength: 17
    * @return lodgingPropertyPhoneNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Identifies specific lodging property location by its local phone number. * Format: Alphanumeric * maxLength: 17")
 
   public String getLodgingPropertyPhoneNumber() {
@@ -359,7 +359,7 @@ public class AdditionalDataLodging {
    * Total number of nights the room will be rented. * Format: Numeric * maxLength: 4
    * @return lodgingRoom1NumberOfNights
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Total number of nights the room will be rented. * Format: Numeric * maxLength: 4")
 
   public String getLodgingRoom1NumberOfNights() {
@@ -382,7 +382,7 @@ public class AdditionalDataLodging {
    * The rate of the room. * Format: Numeric * maxLength: 12
    * @return lodgingRoom1Rate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The rate of the room. * Format: Numeric * maxLength: 12")
 
   public String getLodgingRoom1Rate() {
@@ -405,7 +405,7 @@ public class AdditionalDataLodging {
    * The total amount of tax to be paid. * Format: Numeric * maxLength: 12
    * @return lodgingRoom1Tax
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The total amount of tax to be paid. * Format: Numeric * maxLength: 12")
 
   public String getLodgingRoom1Tax() {
@@ -428,7 +428,7 @@ public class AdditionalDataLodging {
    * Total room tax amount. * Format: Numeric * maxLength: 12
    * @return lodgingTotalRoomTax
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Total room tax amount. * Format: Numeric * maxLength: 12")
 
   public String getLodgingTotalRoomTax() {
@@ -451,7 +451,7 @@ public class AdditionalDataLodging {
    * Total tax amount. * Format: Numeric * maxLength: 12
    * @return lodgingTotalTax
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Total tax amount. * Format: Numeric * maxLength: 12")
 
   public String getLodgingTotalTax() {
@@ -474,7 +474,7 @@ public class AdditionalDataLodging {
    * Number of nights. This should be included in the auth message. * Format: Numeric * maxLength: 2
    * @return travelEntertainmentAuthDataDuration
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Number of nights. This should be included in the auth message. * Format: Numeric * maxLength: 2")
 
   public String getTravelEntertainmentAuthDataDuration() {
@@ -497,7 +497,7 @@ public class AdditionalDataLodging {
    * Indicates what market-specific dataset will be submitted or is being submitted. Value should be \&quot;H\&quot; for Hotel. This should be included in the auth message.  * Format: Alphanumeric * maxLength: 1
    * @return travelEntertainmentAuthDataMarket
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be \"H\" for Hotel. This should be included in the auth message.  * Format: Alphanumeric * maxLength: 1")
 
   public String getTravelEntertainmentAuthDataMarket() {

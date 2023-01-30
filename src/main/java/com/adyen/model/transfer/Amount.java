@@ -51,7 +51,7 @@ public class Amount {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getCurrency() {
@@ -74,7 +74,7 @@ public class Amount {
    * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return value
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public Long getValue() {

@@ -86,7 +86,7 @@ public class CreatePaymentCaptureRequest {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -117,7 +117,7 @@ public class CreatePaymentCaptureRequest {
    * Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). &gt; This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
    * @return lineItems
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). > This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
 
   public List<LineItem> getLineItems() {
@@ -140,7 +140,7 @@ public class CreatePaymentCaptureRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -163,7 +163,7 @@ public class CreatePaymentCaptureRequest {
    * Your reference for the capture request. Maximum length: 80 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference for the capture request. Maximum length: 80 characters.")
 
   public String getReference() {
@@ -194,7 +194,7 @@ public class CreatePaymentCaptureRequest {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
    * @return splits
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
 
   public List<Split> getSplits() {

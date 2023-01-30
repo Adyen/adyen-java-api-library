@@ -69,7 +69,7 @@ public class ScheduleAccountUpdaterResult {
    * Adyen&#39;s 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Adyen's 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.")
 
   public String getPspReference() {
@@ -92,7 +92,7 @@ public class ScheduleAccountUpdaterResult {
    * The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.
    * @return result
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The result of scheduling an Account Updater. If scheduling was successful, this field returns **Success**; otherwise it contains the error message.")
 
   public String getResult() {

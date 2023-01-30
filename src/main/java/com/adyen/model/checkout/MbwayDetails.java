@@ -118,7 +118,7 @@ public class MbwayDetails {
    * 
    * @return shopperEmail
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public String getShopperEmail() {
@@ -141,7 +141,7 @@ public class MbwayDetails {
    * 
    * @return telephoneNumber
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public String getTelephoneNumber() {
@@ -164,7 +164,7 @@ public class MbwayDetails {
    * **mbway**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**mbway**")
 
   public TypeEnum getType() {

@@ -76,7 +76,7 @@ public class CardDetailsResponse {
    * The list of brands identified for the card.
    * @return brands
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The list of brands identified for the card.")
 
   public List<CardBrandDetails> getBrands() {

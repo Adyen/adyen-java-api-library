@@ -183,7 +183,7 @@ public class SubmitRequest {
    * This field contains additional data, which may be required for a particular request.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
 
   public Map<String, String> getAdditionalData() {
@@ -206,7 +206,7 @@ public class SubmitRequest {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -229,7 +229,7 @@ public class SubmitRequest {
    * The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  &gt; This field is mandatory for natural persons.  &gt; This field is required to update the existing &#x60;dateOfBirth&#x60; that is associated with this recurring contract.
    * @return dateOfBirth
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The date of birth. Format: ISO-8601; example: YYYY-MM-DD  For Paysafecard it must be the same as used when registering the Paysafecard account.  > This field is mandatory for natural persons.  > This field is required to update the existing `dateOfBirth` that is associated with this recurring contract.")
 
   public OffsetDateTime getDateOfBirth() {
@@ -252,7 +252,7 @@ public class SubmitRequest {
    * The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company &gt; This field is required to update the existing &#x60;entityType&#x60; that is associated with this recurring contract.
    * @return entityType
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The type of the entity the payout is processed for.  Allowed values: * NaturalPerson * Company > This field is required to update the existing `entityType` that is associated with this recurring contract.")
 
   public EntityTypeEnum getEntityType() {
@@ -275,7 +275,7 @@ public class SubmitRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
 
   public Integer getFraudOffset() {
@@ -298,7 +298,7 @@ public class SubmitRequest {
    * The merchant account identifier you want to process the transaction request with.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The merchant account identifier you want to process the transaction request with.")
 
   public String getMerchantAccount() {
@@ -321,7 +321,7 @@ public class SubmitRequest {
    * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).  &gt; This field is required to update the existing nationality that is associated with this recurring contract.
    * @return nationality
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').  > This field is required to update the existing nationality that is associated with this recurring contract.")
 
   public String getNationality() {
@@ -344,7 +344,7 @@ public class SubmitRequest {
    * Get recurring
    * @return recurring
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "")
 
   public Recurring getRecurring() {
@@ -367,7 +367,7 @@ public class SubmitRequest {
    * The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
    * @return reference
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The merchant reference for this payout. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.")
 
   public String getReference() {
@@ -390,7 +390,7 @@ public class SubmitRequest {
    * This is the &#x60;recurringDetailReference&#x60; you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.
    * @return selectedRecurringDetailReference
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "This is the `recurringDetailReference` you want to use for this payout.  You can use the value LATEST to select the most recently used recurring detail.")
 
   public String getSelectedRecurringDetailReference() {
@@ -413,7 +413,7 @@ public class SubmitRequest {
    * The shopper&#39;s email address.
    * @return shopperEmail
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The shopper's email address.")
 
   public String getShopperEmail() {
@@ -436,7 +436,7 @@ public class SubmitRequest {
    * Get shopperName
    * @return shopperName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -459,7 +459,7 @@ public class SubmitRequest {
    * The shopper&#39;s reference for the payout transaction.
    * @return shopperReference
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The shopper's reference for the payout transaction.")
 
   public String getShopperReference() {
@@ -482,7 +482,7 @@ public class SubmitRequest {
    * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
    * @return shopperStatement
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).")
 
   public String getShopperStatement() {
@@ -505,7 +505,7 @@ public class SubmitRequest {
    * The shopper&#39;s social security number.
    * @return socialSecurityNumber
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The shopper's social security number.")
 
   public String getSocialSecurityNumber() {

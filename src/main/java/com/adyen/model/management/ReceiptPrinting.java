@@ -125,7 +125,7 @@ public class ReceiptPrinting {
    * Print a merchant receipt when the payment is approved.
    * @return merchantApproved
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a merchant receipt when the payment is approved.")
 
   public Boolean getMerchantApproved() {
@@ -148,7 +148,7 @@ public class ReceiptPrinting {
    * Print a merchant receipt when the transaction is cancelled.
    * @return merchantCancelled
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a merchant receipt when the transaction is cancelled.")
 
   public Boolean getMerchantCancelled() {
@@ -171,7 +171,7 @@ public class ReceiptPrinting {
    * Print a merchant receipt when capturing the payment is approved.
    * @return merchantCaptureApproved
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a merchant receipt when capturing the payment is approved.")
 
   public Boolean getMerchantCaptureApproved() {
@@ -194,7 +194,7 @@ public class ReceiptPrinting {
    * Print a merchant receipt when capturing the payment is refused.
    * @return merchantCaptureRefused
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a merchant receipt when capturing the payment is refused.")
 
   public Boolean getMerchantCaptureRefused() {
@@ -217,7 +217,7 @@ public class ReceiptPrinting {
    * Print a merchant receipt when the refund is approved.
    * @return merchantRefundApproved
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a merchant receipt when the refund is approved.")
 
   public Boolean getMerchantRefundApproved() {
@@ -240,7 +240,7 @@ public class ReceiptPrinting {
    * Print a merchant receipt when the refund is refused.
    * @return merchantRefundRefused
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a merchant receipt when the refund is refused.")
 
   public Boolean getMerchantRefundRefused() {
@@ -263,7 +263,7 @@ public class ReceiptPrinting {
    * Print a merchant receipt when the payment is refused.
    * @return merchantRefused
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a merchant receipt when the payment is refused.")
 
   public Boolean getMerchantRefused() {
@@ -286,7 +286,7 @@ public class ReceiptPrinting {
    * Print a merchant receipt when a previous transaction is voided.
    * @return merchantVoid
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a merchant receipt when a previous transaction is voided.")
 
   public Boolean getMerchantVoid() {
@@ -309,7 +309,7 @@ public class ReceiptPrinting {
    * Print a shopper receipt when the payment is approved.
    * @return shopperApproved
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a shopper receipt when the payment is approved.")
 
   public Boolean getShopperApproved() {
@@ -332,7 +332,7 @@ public class ReceiptPrinting {
    * Print a shopper receipt when the transaction is cancelled.
    * @return shopperCancelled
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a shopper receipt when the transaction is cancelled.")
 
   public Boolean getShopperCancelled() {
@@ -355,7 +355,7 @@ public class ReceiptPrinting {
    * Print a shopper receipt when capturing the payment is approved.
    * @return shopperCaptureApproved
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a shopper receipt when capturing the payment is approved.")
 
   public Boolean getShopperCaptureApproved() {
@@ -378,7 +378,7 @@ public class ReceiptPrinting {
    * Print a shopper receipt when capturing the payment is refused.
    * @return shopperCaptureRefused
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a shopper receipt when capturing the payment is refused.")
 
   public Boolean getShopperCaptureRefused() {
@@ -401,7 +401,7 @@ public class ReceiptPrinting {
    * Print a shopper receipt when the refund is approved.
    * @return shopperRefundApproved
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a shopper receipt when the refund is approved.")
 
   public Boolean getShopperRefundApproved() {
@@ -424,7 +424,7 @@ public class ReceiptPrinting {
    * Print a shopper receipt when the refund is refused.
    * @return shopperRefundRefused
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a shopper receipt when the refund is refused.")
 
   public Boolean getShopperRefundRefused() {
@@ -447,7 +447,7 @@ public class ReceiptPrinting {
    * Print a shopper receipt when the payment is refused.
    * @return shopperRefused
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a shopper receipt when the payment is refused.")
 
   public Boolean getShopperRefused() {
@@ -470,7 +470,7 @@ public class ReceiptPrinting {
    * Print a shopper receipt when a previous transaction is voided.
    * @return shopperVoid
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Print a shopper receipt when a previous transaction is voided.")
 
   public Boolean getShopperVoid() {

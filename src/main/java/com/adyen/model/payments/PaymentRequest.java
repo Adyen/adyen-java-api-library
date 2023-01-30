@@ -480,7 +480,7 @@ public class PaymentRequest {
    * Get accountInfo
    * @return accountInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public AccountInfo getAccountInfo() {
@@ -503,7 +503,7 @@ public class PaymentRequest {
    * Get additionalAmount
    * @return additionalAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getAdditionalAmount() {
@@ -534,7 +534,7 @@ public class PaymentRequest {
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payment request.  The `additionalData` object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -557,7 +557,7 @@ public class PaymentRequest {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -580,7 +580,7 @@ public class PaymentRequest {
    * Get applicationInfo
    * @return applicationInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ApplicationInfo getApplicationInfo() {
@@ -603,7 +603,7 @@ public class PaymentRequest {
    * Get bankAccount
    * @return bankAccount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BankAccount getBankAccount() {
@@ -626,7 +626,7 @@ public class PaymentRequest {
    * Get billingAddress
    * @return billingAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -649,7 +649,7 @@ public class PaymentRequest {
    * Get browserInfo
    * @return browserInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BrowserInfo getBrowserInfo() {
@@ -672,7 +672,7 @@ public class PaymentRequest {
    * The delay between the authorisation and scheduled auto-capture, specified in hours.
    * @return captureDelayHours
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The delay between the authorisation and scheduled auto-capture, specified in hours.")
 
   public Integer getCaptureDelayHours() {
@@ -695,7 +695,7 @@ public class PaymentRequest {
    * Get card
    * @return card
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -718,7 +718,7 @@ public class PaymentRequest {
    * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    * @return dateOfBirth
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
   public OffsetDateTime getDateOfBirth() {
@@ -741,7 +741,7 @@ public class PaymentRequest {
    * Get dccQuote
    * @return dccQuote
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ForexQuote getDccQuote() {
@@ -764,7 +764,7 @@ public class PaymentRequest {
    * Get deliveryAddress
    * @return deliveryAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getDeliveryAddress() {
@@ -787,7 +787,7 @@ public class PaymentRequest {
    * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    * @return deliveryDate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00")
 
   public OffsetDateTime getDeliveryDate() {
@@ -810,7 +810,7 @@ public class PaymentRequest {
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    * @return deviceFingerprint
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A string containing the shopper's device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).")
 
   public String getDeviceFingerprint() {
@@ -833,7 +833,7 @@ public class PaymentRequest {
    * The type of the entity the payment is processed for.
    * @return entityType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of the entity the payment is processed for.")
 
   public EntityTypeEnum getEntityType() {
@@ -856,7 +856,7 @@ public class PaymentRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
 
   public Integer getFraudOffset() {
@@ -879,7 +879,7 @@ public class PaymentRequest {
    * Get fundDestination
    * @return fundDestination
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public FundDestination getFundDestination() {
@@ -902,7 +902,7 @@ public class PaymentRequest {
    * Get fundSource
    * @return fundSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public FundSource getFundSource() {
@@ -925,7 +925,7 @@ public class PaymentRequest {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -948,7 +948,7 @@ public class PaymentRequest {
    * Get installments
    * @return installments
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Installments getInstallments() {
@@ -971,7 +971,7 @@ public class PaymentRequest {
    * Get mandate
    * @return mandate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Mandate getMandate() {
@@ -994,7 +994,7 @@ public class PaymentRequest {
    * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    * @return mcc
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.")
 
   public String getMcc() {
@@ -1017,7 +1017,7 @@ public class PaymentRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -1040,7 +1040,7 @@ public class PaymentRequest {
    * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    * @return merchantOrderReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. > We strongly recommend you send the `merchantOrderReference` value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide `retry.orderAttemptNumber`, `retry.chainAttemptNumber`, and `retry.skipRetry` values in `PaymentRequest.additionalData`.")
 
   public String getMerchantOrderReference() {
@@ -1063,7 +1063,7 @@ public class PaymentRequest {
    * Get merchantRiskIndicator
    * @return merchantRiskIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public MerchantRiskIndicator getMerchantRiskIndicator() {
@@ -1094,7 +1094,7 @@ public class PaymentRequest {
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    * @return metadata
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \"177\" error occurs: \"Metadata size exceeds limit\". * Maximum 20 characters per key. * Maximum 80 characters per value. ")
 
   public Map<String, String> getMetadata() {
@@ -1117,7 +1117,7 @@ public class PaymentRequest {
    * Get mpiData
    * @return mpiData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ThreeDSecureData getMpiData() {
@@ -1140,7 +1140,7 @@ public class PaymentRequest {
    * The two-character country code of the shopper&#39;s nationality.
    * @return nationality
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The two-character country code of the shopper's nationality.")
 
   public String getNationality() {
@@ -1163,7 +1163,7 @@ public class PaymentRequest {
    * When you are doing multiple partial (gift card) payments, this is the &#x60;pspReference&#x60; of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the &#x60;merchantOrderReference&#x60;instead.
    * @return orderReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "When you are doing multiple partial (gift card) payments, this is the `pspReference` of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the `merchantOrderReference`instead.")
 
   public String getOrderReference() {
@@ -1186,7 +1186,7 @@ public class PaymentRequest {
    * Get recurring
    * @return recurring
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Recurring getRecurring() {
@@ -1209,7 +1209,7 @@ public class PaymentRequest {
    * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    * @return recurringProcessingModel
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Defines a recurring payment type. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
 
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
@@ -1232,7 +1232,7 @@ public class PaymentRequest {
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return reference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
 
   public String getReference() {
@@ -1255,7 +1255,7 @@ public class PaymentRequest {
    * Some payment methods require defining a value for this field to specify how to process the transaction.  For the Bancontact payment method, it can be set to: * &#x60;maestro&#x60; (default), to be processed like a Maestro card, or * &#x60;bcmc&#x60;, to be processed like a Bancontact card.
    * @return selectedBrand
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Some payment methods require defining a value for this field to specify how to process the transaction.  For the Bancontact payment method, it can be set to: * `maestro` (default), to be processed like a Maestro card, or * `bcmc`, to be processed like a Bancontact card.")
 
   public String getSelectedBrand() {
@@ -1278,7 +1278,7 @@ public class PaymentRequest {
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    * @return selectedRecurringDetailReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
 
   public String getSelectedRecurringDetailReference() {
@@ -1301,7 +1301,7 @@ public class PaymentRequest {
    * A session ID used to identify a payment session.
    * @return sessionId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A session ID used to identify a payment session.")
 
   public String getSessionId() {
@@ -1324,7 +1324,7 @@ public class PaymentRequest {
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    * @return shopperEmail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > For 3D Secure 2 transactions, schemes require `shopperEmail` for all browser-based and mobile implementations.")
 
   public String getShopperEmail() {
@@ -1347,7 +1347,7 @@ public class PaymentRequest {
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return shopperIP
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). > For 3D Secure 2 transactions, schemes require `shopperIP` for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).")
 
   public String getShopperIP() {
@@ -1370,7 +1370,7 @@ public class PaymentRequest {
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return shopperInteraction
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
 
   public ShopperInteractionEnum getShopperInteraction() {
@@ -1393,7 +1393,7 @@ public class PaymentRequest {
    * The combination of a language code and a country code to specify the language to be used in the payment.
    * @return shopperLocale
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The combination of a language code and a country code to specify the language to be used in the payment.")
 
   public String getShopperLocale() {
@@ -1416,7 +1416,7 @@ public class PaymentRequest {
    * Get shopperName
    * @return shopperName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -1439,7 +1439,7 @@ public class PaymentRequest {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
 
   public String getShopperReference() {
@@ -1462,7 +1462,7 @@ public class PaymentRequest {
    * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    * @return shopperStatement
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.")
 
   public String getShopperStatement() {
@@ -1485,7 +1485,7 @@ public class PaymentRequest {
    * The shopper&#39;s social security number.
    * @return socialSecurityNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's social security number.")
 
   public String getSocialSecurityNumber() {
@@ -1516,7 +1516,7 @@ public class PaymentRequest {
    * An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).
    * @return splits
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).")
 
   public List<Split> getSplits() {
@@ -1539,7 +1539,7 @@ public class PaymentRequest {
    * The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.
    * @return store
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.")
 
   public String getStore() {
@@ -1562,7 +1562,7 @@ public class PaymentRequest {
    * The shopper&#39;s telephone number.
    * @return telephoneNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's telephone number.")
 
   public String getTelephoneNumber() {
@@ -1585,7 +1585,7 @@ public class PaymentRequest {
    * Get threeDS2RequestData
    * @return threeDS2RequestData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ThreeDS2RequestData getThreeDS2RequestData() {
@@ -1608,7 +1608,7 @@ public class PaymentRequest {
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    * @return threeDSAuthenticationOnly
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
 
   public Boolean getThreeDSAuthenticationOnly() {
@@ -1631,7 +1631,7 @@ public class PaymentRequest {
    * The reference value to aggregate sales totals in reporting. When not specified, the store field is used (if available).
    * @return totalsGroup
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The reference value to aggregate sales totals in reporting. When not specified, the store field is used (if available).")
 
   public String getTotalsGroup() {
@@ -1654,7 +1654,7 @@ public class PaymentRequest {
    * Set to true if the payment should be routed to a trusted MID.
    * @return trustedShopper
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Set to true if the payment should be routed to a trusted MID.")
 
   public Boolean getTrustedShopper() {

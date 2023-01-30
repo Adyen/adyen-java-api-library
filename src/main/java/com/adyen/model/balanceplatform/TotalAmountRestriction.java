@@ -70,7 +70,7 @@ public class TotalAmountRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -93,7 +93,7 @@ public class TotalAmountRestriction {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getValue() {

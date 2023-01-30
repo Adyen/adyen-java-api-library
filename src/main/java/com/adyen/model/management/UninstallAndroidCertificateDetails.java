@@ -114,7 +114,7 @@ public class UninstallAndroidCertificateDetails {
    * The unique identifier of the certificate to be uninstalled.
    * @return certificateId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The unique identifier of the certificate to be uninstalled.")
 
   public String getCertificateId() {
@@ -137,7 +137,7 @@ public class UninstallAndroidCertificateDetails {
    * Type of terminal action: Uninstall an Android certificate.
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Type of terminal action: Uninstall an Android certificate.")
 
   public TypeEnum getType() {

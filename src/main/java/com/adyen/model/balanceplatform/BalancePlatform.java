@@ -73,7 +73,7 @@ public class BalancePlatform {
    * Your description of the balance platform, maximum 300 characters.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your description of the balance platform, maximum 300 characters.")
 
   public String getDescription() {
@@ -96,7 +96,7 @@ public class BalancePlatform {
    * The unique identifier of the balance platform.
    * @return id
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the balance platform.")
 
   public String getId() {
@@ -119,7 +119,7 @@ public class BalancePlatform {
    * The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.
    * @return status
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The status of the balance platform.  Possible values: **Active**, **Inactive**, **Closed**, **Suspended**.")
 
   public String getStatus() {

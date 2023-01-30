@@ -89,7 +89,7 @@ public class Address {
    * The name of the city.
    * @return city
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the city.")
 
   public String getCity() {
@@ -112,7 +112,7 @@ public class Address {
    * The name of the company.
    * @return companyName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the company.")
 
   public String getCompanyName() {
@@ -135,7 +135,7 @@ public class Address {
    * The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
    * @return country
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.")
 
   public String getCountry() {
@@ -158,7 +158,7 @@ public class Address {
    * The postal code.
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The postal code.")
 
   public String getPostalCode() {
@@ -181,7 +181,7 @@ public class Address {
    * The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.   Applicable for the following countries: - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    * @return stateOrProvince
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.   Applicable for the following countries: - Australia - Brazil - Canada - India - Mexico - New Zealand - United States")
 
   public String getStateOrProvince() {
@@ -204,7 +204,7 @@ public class Address {
    * The name of the street, and the house or building number.
    * @return streetAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the street, and the house or building number.")
 
   public String getStreetAddress() {
@@ -227,7 +227,7 @@ public class Address {
    * Additional address details, if any.
    * @return streetAddress2
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Additional address details, if any.")
 
   public String getStreetAddress2() {

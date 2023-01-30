@@ -112,7 +112,7 @@ public class WeChatPayDetails {
    * **wechatpay**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**wechatpay**")
 
   public TypeEnum getType() {

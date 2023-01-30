@@ -128,7 +128,7 @@ public class SepaDirectDebitDetails {
    * The International Bank Account Number (IBAN).
    * @return iban
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The International Bank Account Number (IBAN).")
 
   public String getIban() {
@@ -151,7 +151,7 @@ public class SepaDirectDebitDetails {
    * The name of the bank account holder.
    * @return ownerName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The name of the bank account holder.")
 
   public String getOwnerName() {
@@ -176,7 +176,7 @@ public class SepaDirectDebitDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -199,7 +199,7 @@ public class SepaDirectDebitDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -222,7 +222,7 @@ public class SepaDirectDebitDetails {
    * **sepadirectdebit**
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "**sepadirectdebit**")
 
   public TypeEnum getType() {

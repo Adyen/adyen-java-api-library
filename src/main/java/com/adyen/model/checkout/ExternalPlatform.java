@@ -73,7 +73,7 @@ public class ExternalPlatform {
    * External platform integrator.
    * @return integrator
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "External platform integrator.")
 
   public String getIntegrator() {
@@ -96,7 +96,7 @@ public class ExternalPlatform {
    * Name of the field. For example, Name of External Platform.
    * @return name
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Name of the field. For example, Name of External Platform.")
 
   public String getName() {
@@ -119,7 +119,7 @@ public class ExternalPlatform {
    * Version of the field. For example, Version of External Platform.
    * @return version
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Version of the field. For example, Version of External Platform.")
 
   public String getVersion() {

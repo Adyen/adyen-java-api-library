@@ -77,7 +77,7 @@ public class RestServiceError {
    * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "A human-readable explanation specific to this occurrence of the problem.")
 
   public String getDetail() {
@@ -100,7 +100,7 @@ public class RestServiceError {
    * A code that identifies the problem type.
    * @return errorCode
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "A code that identifies the problem type.")
 
   public String getErrorCode() {
@@ -123,7 +123,7 @@ public class RestServiceError {
    * A unique URI that identifies the specific occurrence of the problem.
    * @return instance
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A unique URI that identifies the specific occurrence of the problem.")
 
   public String getInstance() {
@@ -154,7 +154,7 @@ public class RestServiceError {
    * Detailed explanation of each validation error, when applicable.
    * @return invalidFields
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Detailed explanation of each validation error, when applicable.")
 
   public List<InvalidField> getInvalidFields() {
@@ -177,7 +177,7 @@ public class RestServiceError {
    * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
    * @return requestId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A unique reference for the request, essentially the same as `pspReference`.")
 
   public String getRequestId() {
@@ -200,7 +200,7 @@ public class RestServiceError {
    * Get response
    * @return response
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public JSONObject getResponse() {
@@ -223,7 +223,7 @@ public class RestServiceError {
    * The HTTP status code.
    * @return status
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The HTTP status code.")
 
   public Integer getStatus() {
@@ -246,7 +246,7 @@ public class RestServiceError {
    * A short, human-readable summary of the problem type.
    * @return title
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "A short, human-readable summary of the problem type.")
 
   public String getTitle() {
@@ -269,7 +269,7 @@ public class RestServiceError {
    * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "A URI that identifies the problem type, pointing to human-readable documentation on this problem type.")
 
   public String getType() {

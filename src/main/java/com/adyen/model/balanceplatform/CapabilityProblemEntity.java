@@ -123,7 +123,7 @@ public class CapabilityProblemEntity {
    * The ID of the entity.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The ID of the entity.")
 
   public String getId() {
@@ -146,7 +146,7 @@ public class CapabilityProblemEntity {
    * Get owner
    * @return owner
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CapabilityProblemEntityRecursive getOwner() {
@@ -169,7 +169,7 @@ public class CapabilityProblemEntity {
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.")
 
   public TypeEnum getType() {

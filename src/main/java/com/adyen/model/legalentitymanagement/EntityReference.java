@@ -53,7 +53,7 @@ public class EntityReference {
    * The unique identifier of the resource.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the resource.")
 
   public String getId() {

@@ -129,7 +129,7 @@ public class SoleProprietorship {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return countryOfGoverningLaw
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
 
   public String getCountryOfGoverningLaw() {
@@ -152,7 +152,7 @@ public class SoleProprietorship {
    * The registered name, if different from the &#x60;name&#x60;.
    * @return doingBusinessAs
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The registered name, if different from the `name`.")
 
   public String getDoingBusinessAs() {
@@ -175,7 +175,7 @@ public class SoleProprietorship {
    * The legal name.
    * @return name
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The legal name.")
 
   public String getName() {
@@ -198,7 +198,7 @@ public class SoleProprietorship {
    * Get principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getPrincipalPlaceOfBusiness() {
@@ -221,7 +221,7 @@ public class SoleProprietorship {
    * Get registeredAddress
    * @return registeredAddress
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Address getRegisteredAddress() {
@@ -244,7 +244,7 @@ public class SoleProprietorship {
    * The registration number.
    * @return registrationNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The registration number.")
 
   public String getRegistrationNumber() {
@@ -267,7 +267,7 @@ public class SoleProprietorship {
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
 
   public VatAbsenceReasonEnum getVatAbsenceReason() {
@@ -290,7 +290,7 @@ public class SoleProprietorship {
    * The VAT number.
    * @return vatNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The VAT number.")
 
   public String getVatNumber() {

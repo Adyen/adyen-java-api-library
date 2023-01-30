@@ -132,7 +132,7 @@ public class TransferInstrument {
    * Get bankAccount
    * @return bankAccount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BankAccountInfo getBankAccount() {
@@ -163,7 +163,7 @@ public class TransferInstrument {
    * List of documents uploaded for the transfer instrument.
    * @return documentDetails
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of documents uploaded for the transfer instrument.")
 
   public List<DocumentReference> getDocumentDetails() {
@@ -180,7 +180,7 @@ public class TransferInstrument {
    * The unique identifier of the transfer instrument.
    * @return id
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the transfer instrument.")
 
   public String getId() {
@@ -200,7 +200,7 @@ public class TransferInstrument {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the transfer instrument.
    * @return legalEntityId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the transfer instrument.")
 
   public String getLegalEntityId() {
@@ -223,7 +223,7 @@ public class TransferInstrument {
    * Get recurringDetail
    * @return recurringDetail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public RecurringDetail getRecurringDetail() {
@@ -246,7 +246,7 @@ public class TransferInstrument {
    * The type of transfer instrument.  Possible values: **bankAccount**, **recurringDetail**.
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The type of transfer instrument.  Possible values: **bankAccount**, **recurringDetail**.")
 
   public TypeEnum getType() {

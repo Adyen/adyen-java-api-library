@@ -136,7 +136,7 @@ public class BalanceAccountUpdateRequest {
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    * @return accountHolderId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.")
 
   public String getAccountHolderId() {
@@ -159,7 +159,7 @@ public class BalanceAccountUpdateRequest {
    * The default currency code of this balance account, in three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) format.  The default value is **EUR**.
    * @return defaultCurrencyCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The default currency code of this balance account, in three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) format.  The default value is **EUR**.")
 
   public String getDefaultCurrencyCode() {
@@ -182,7 +182,7 @@ public class BalanceAccountUpdateRequest {
    * A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.")
 
   public String getDescription() {
@@ -205,7 +205,7 @@ public class BalanceAccountUpdateRequest {
    * Your reference to the balance account, maximum 150 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference to the balance account, maximum 150 characters.")
 
   public String getReference() {
@@ -228,7 +228,7 @@ public class BalanceAccountUpdateRequest {
    * The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **inactive**, **closed**, **suspended**.
    * @return status
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The status of the balance account. Payment instruments linked to the balance account can only be used if the balance account status is **active**.  Possible values: **active**, **inactive**, **closed**, **suspended**.")
 
   public StatusEnum getStatus() {
@@ -251,7 +251,7 @@ public class BalanceAccountUpdateRequest {
    * The [time zone](https://www.iana.org/time-zones) of the balance account. For example, **Europe/Amsterdam**. If not set, the time zone of the account holder will be used. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return timeZone
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [time zone](https://www.iana.org/time-zones) of the balance account. For example, **Europe/Amsterdam**. If not set, the time zone of the account holder will be used. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
 
   public String getTimeZone() {

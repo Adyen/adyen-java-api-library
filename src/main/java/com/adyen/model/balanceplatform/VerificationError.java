@@ -134,7 +134,7 @@ public class VerificationError {
    * The verification error code.
    * @return code
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The verification error code.")
 
   public String getCode() {
@@ -157,7 +157,7 @@ public class VerificationError {
    * A description of the error.
    * @return message
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A description of the error.")
 
   public String getMessage() {
@@ -188,7 +188,7 @@ public class VerificationError {
    * Contains the actions that you can take to resolve the verification error.
    * @return remediatingActions
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Contains the actions that you can take to resolve the verification error.")
 
   public List<RemediatingAction> getRemediatingActions() {
@@ -219,7 +219,7 @@ public class VerificationError {
    * Contains more granular information about the verification error.
    * @return subErrors
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Contains more granular information about the verification error.")
 
   public List<VerificationErrorRecursive> getSubErrors() {
@@ -242,7 +242,7 @@ public class VerificationError {
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of error.   Possible values: **invalidInput**, **dataMissing**.")
 
   public TypeEnum getType() {

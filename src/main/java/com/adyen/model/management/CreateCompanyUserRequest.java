@@ -100,7 +100,7 @@ public class CreateCompanyUserRequest {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
 
   public List<String> getAccountGroups() {
@@ -131,7 +131,7 @@ public class CreateCompanyUserRequest {
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
    * @return associatedMerchantAccounts
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.")
 
   public List<String> getAssociatedMerchantAccounts() {
@@ -154,7 +154,7 @@ public class CreateCompanyUserRequest {
    * The email address of the user.
    * @return email
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The email address of the user.")
 
   public String getEmail() {
@@ -177,7 +177,7 @@ public class CreateCompanyUserRequest {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Name getName() {
@@ -208,7 +208,7 @@ public class CreateCompanyUserRequest {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
 
   public List<String> getRoles() {
@@ -231,7 +231,7 @@ public class CreateCompanyUserRequest {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
 
   public String getTimeZoneCode() {
@@ -254,7 +254,7 @@ public class CreateCompanyUserRequest {
    * The username for this user. Allowed length: 255 alphanumeric characters.
    * @return username
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The username for this user. Allowed length: 255 alphanumeric characters.")
 
   public String getUsername() {

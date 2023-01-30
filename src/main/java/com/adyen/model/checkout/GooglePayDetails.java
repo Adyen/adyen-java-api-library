@@ -171,7 +171,7 @@ public class GooglePayDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -194,7 +194,7 @@ public class GooglePayDetails {
    * The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
    * @return googlePayToken
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The `token` that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) `PaymentData` response.")
 
   public String getGooglePayToken() {
@@ -219,7 +219,7 @@ public class GooglePayDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -242,7 +242,7 @@ public class GooglePayDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -265,7 +265,7 @@ public class GooglePayDetails {
    * **googlepay**, **paywithgoogle**
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "**googlepay**, **paywithgoogle**")
 
   public TypeEnum getType() {

@@ -89,7 +89,7 @@ public class ApplicationInfo {
    * Get adyenLibrary
    * @return adyenLibrary
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CommonField getAdyenLibrary() {
@@ -112,7 +112,7 @@ public class ApplicationInfo {
    * Get adyenPaymentSource
    * @return adyenPaymentSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CommonField getAdyenPaymentSource() {
@@ -135,7 +135,7 @@ public class ApplicationInfo {
    * Get externalPlatform
    * @return externalPlatform
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ExternalPlatform getExternalPlatform() {
@@ -158,7 +158,7 @@ public class ApplicationInfo {
    * Get merchantApplication
    * @return merchantApplication
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CommonField getMerchantApplication() {
@@ -181,7 +181,7 @@ public class ApplicationInfo {
    * Get merchantDevice
    * @return merchantDevice
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public MerchantDevice getMerchantDevice() {
@@ -204,7 +204,7 @@ public class ApplicationInfo {
    * Get shopperInteractionDevice
    * @return shopperInteractionDevice
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ShopperInteractionDevice getShopperInteractionDevice() {

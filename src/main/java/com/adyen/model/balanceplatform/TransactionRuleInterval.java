@@ -200,7 +200,7 @@ public class TransactionRuleInterval {
    * The day of month, used when the &#x60;duration.unit&#x60; is **months**. If not provided, by default, this is set to **1**, the first day of the month.
    * @return dayOfMonth
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The day of month, used when the `duration.unit` is **months**. If not provided, by default, this is set to **1**, the first day of the month.")
 
   public Integer getDayOfMonth() {
@@ -223,7 +223,7 @@ public class TransactionRuleInterval {
    * The day of week, used when the &#x60;duration.unit&#x60; is **weeks**. If not provided, by default, this is set to **monday**.  Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday**, **friday**.
    * @return dayOfWeek
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The day of week, used when the `duration.unit` is **weeks**. If not provided, by default, this is set to **monday**.  Possible values: **sunday**, **monday**, **tuesday**, **wednesday**, **thursday**, **friday**.")
 
   public DayOfWeekEnum getDayOfWeek() {
@@ -246,7 +246,7 @@ public class TransactionRuleInterval {
    * Get duration
    * @return duration
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Duration getDuration() {
@@ -269,7 +269,7 @@ public class TransactionRuleInterval {
    * The time of day, in **hh:mm:ss** format, used when the &#x60;duration.unit&#x60; is **hours**. If not provided, by default, this is set to **00:00:00**.
    * @return timeOfDay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The time of day, in **hh:mm:ss** format, used when the `duration.unit` is **hours**. If not provided, by default, this is set to **00:00:00**.")
 
   public String getTimeOfDay() {
@@ -292,7 +292,7 @@ public class TransactionRuleInterval {
    * The [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example, **Europe/Amsterdam**. By default, this is set to **UTC**.
    * @return timeZone
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For example, **Europe/Amsterdam**. By default, this is set to **UTC**.")
 
   public String getTimeZone() {
@@ -315,7 +315,7 @@ public class TransactionRuleInterval {
    * The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during which the rule conditions and limits apply, and how often counters are reset.  Possible values:   * **perTransaction**: conditions are evaluated and the counters are reset for every transaction.  * **daily**: the counters are reset daily at 00:00:00 UTC.  * **weekly**: the counters are reset every Monday at 00:00:00 UTC.   * **monthly**: the counters reset every first day of the month at 00:00:00 UTC.   * **lifetime**: conditions are applied to the lifetime of the payment instrument.  * **rolling**: conditions are applied and the counters are reset based on a &#x60;duration&#x60;. If the reset date and time are not provided, Adyen applies the default reset time similar to fixed intervals. For example, if the duration is every two weeks, the counter resets every third Monday at 00:00:00 UTC.  * **sliding**: conditions are applied and the counters are reset based on the current time and a &#x60;duration&#x60; that you specify.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The [type of interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) during which the rule conditions and limits apply, and how often counters are reset.  Possible values:   * **perTransaction**: conditions are evaluated and the counters are reset for every transaction.  * **daily**: the counters are reset daily at 00:00:00 UTC.  * **weekly**: the counters are reset every Monday at 00:00:00 UTC.   * **monthly**: the counters reset every first day of the month at 00:00:00 UTC.   * **lifetime**: conditions are applied to the lifetime of the payment instrument.  * **rolling**: conditions are applied and the counters are reset based on a `duration`. If the reset date and time are not provided, Adyen applies the default reset time similar to fixed intervals. For example, if the duration is every two weeks, the counter resets every third Monday at 00:00:00 UTC.  * **sliding**: conditions are applied and the counters are reset based on the current time and a `duration` that you specify.")
 
   public TypeEnum getType() {

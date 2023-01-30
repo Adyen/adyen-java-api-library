@@ -120,7 +120,7 @@ public class BillDeskDetails {
    * The issuer id of the shopper&#39;s selected bank.
    * @return issuer
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The issuer id of the shopper's selected bank.")
 
   public String getIssuer() {
@@ -143,7 +143,7 @@ public class BillDeskDetails {
    * **billdesk**
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "**billdesk**")
 
   public TypeEnum getType() {

@@ -124,7 +124,7 @@ public class ZipDetails {
    * Set this to **true** if the shopper would like to pick up and collect their order, instead of having the goods delivered to them.
    * @return clickAndCollect
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Set this to **true** if the shopper would like to pick up and collect their order, instead of having the goods delivered to them.")
 
   public String getClickAndCollect() {
@@ -149,7 +149,7 @@ public class ZipDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -172,7 +172,7 @@ public class ZipDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -195,7 +195,7 @@ public class ZipDetails {
    * **zip**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**zip**")
 
   public TypeEnum getType() {

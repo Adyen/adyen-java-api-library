@@ -85,7 +85,7 @@ public class ResponseAdditionalDataBillingAddress {
    * The billing address city passed in the payment request.
    * @return billingAddressCity
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The billing address city passed in the payment request.")
 
   public String getBillingAddressCity() {
@@ -108,7 +108,7 @@ public class ResponseAdditionalDataBillingAddress {
    * The billing address country passed in the payment request.  Example: NL
    * @return billingAddressCountry
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The billing address country passed in the payment request.  Example: NL")
 
   public String getBillingAddressCountry() {
@@ -131,7 +131,7 @@ public class ResponseAdditionalDataBillingAddress {
    * The billing address house number or name passed in the payment request.
    * @return billingAddressHouseNumberOrName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The billing address house number or name passed in the payment request.")
 
   public String getBillingAddressHouseNumberOrName() {
@@ -154,7 +154,7 @@ public class ResponseAdditionalDataBillingAddress {
    * The billing address postal code passed in the payment request.  Example: 1011 DJ
    * @return billingAddressPostalCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The billing address postal code passed in the payment request.  Example: 1011 DJ")
 
   public String getBillingAddressPostalCode() {
@@ -177,7 +177,7 @@ public class ResponseAdditionalDataBillingAddress {
    * The billing address state or province passed in the payment request.  Example: NH
    * @return billingAddressStateOrProvince
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The billing address state or province passed in the payment request.  Example: NH")
 
   public String getBillingAddressStateOrProvince() {
@@ -200,7 +200,7 @@ public class ResponseAdditionalDataBillingAddress {
    * The billing address street passed in the payment request.
    * @return billingAddressStreet
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The billing address street passed in the payment request.")
 
   public String getBillingAddressStreet() {

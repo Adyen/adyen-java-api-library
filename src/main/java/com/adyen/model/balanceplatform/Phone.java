@@ -116,7 +116,7 @@ public class Phone {
    * The full phone number provided as a single string.  For example, **\&quot;0031 6 11 22 33 44\&quot;**, **\&quot;+316/1122-3344\&quot;**,    or **\&quot;(0031) 611223344\&quot;**.
    * @return number
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The full phone number provided as a single string.  For example, **\"0031 6 11 22 33 44\"**, **\"+316/1122-3344\"**,    or **\"(0031) 611223344\"**.")
 
   public String getNumber() {
@@ -139,7 +139,7 @@ public class Phone {
    * Type of phone number. Possible values:  **Landline**, **Mobile**. 
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Type of phone number. Possible values:  **Landline**, **Mobile**. ")
 
   public TypeEnum getType() {

@@ -121,7 +121,7 @@ public class Merchant {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public MerchantLinks getLinks() {
@@ -144,7 +144,7 @@ public class Merchant {
    * The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**
    * @return captureDelay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [capture delay](https://docs.adyen.com/online-payments/capture#capture-delay) set for the merchant account.  Possible values: * **Immediate** * **Manual** * Number of days from **1** to **29**")
 
   public String getCaptureDelay() {
@@ -167,7 +167,7 @@ public class Merchant {
    * The unique identifier of the company account this merchant belongs to
    * @return companyId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the company account this merchant belongs to")
 
   public String getCompanyId() {
@@ -198,7 +198,7 @@ public class Merchant {
    * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
    * @return dataCenters
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.")
 
   public List<DataCenter> getDataCenters() {
@@ -221,7 +221,7 @@ public class Merchant {
    * The default [&#x60;shopperInteraction&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.
    * @return defaultShopperInteraction
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The default [`shopperInteraction`](https://docs.adyen.com/api-explorer/#/CheckoutService/v68/post/payments__reqParam_shopperInteraction) value used when processing payments through this merchant account.")
 
   public String getDefaultShopperInteraction() {
@@ -244,7 +244,7 @@ public class Merchant {
    * Your description for the merchant account, maximum 300 characters
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your description for the merchant account, maximum 300 characters")
 
   public String getDescription() {
@@ -267,7 +267,7 @@ public class Merchant {
    * The unique identifier of the merchant account.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the merchant account.")
 
   public String getId() {
@@ -290,7 +290,7 @@ public class Merchant {
    * The city where the legal entity of this merchant account is registered.
    * @return merchantCity
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The city where the legal entity of this merchant account is registered.")
 
   public String getMerchantCity() {
@@ -313,7 +313,7 @@ public class Merchant {
    * The name of the legal entity associated with the merchant account.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the legal entity associated with the merchant account.")
 
   public String getName() {
@@ -336,7 +336,7 @@ public class Merchant {
    * Only applies to merchant accounts managed by Adyen&#39;s partners. The name of the pricing plan assigned to the merchant account.
    * @return pricingPlan
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Only applies to merchant accounts managed by Adyen's partners. The name of the pricing plan assigned to the merchant account.")
 
   public String getPricingPlan() {
@@ -359,7 +359,7 @@ public class Merchant {
    * The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.
    * @return primarySettlementCurrency
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The currency of the country where the legal entity of this merchant account is registered. Format: [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, a legal entity based in the United States has USD as the primary settlement currency.")
 
   public String getPrimarySettlementCurrency() {
@@ -382,7 +382,7 @@ public class Merchant {
    * Reference of the merchant account.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Reference of the merchant account.")
 
   public String getReference() {
@@ -405,7 +405,7 @@ public class Merchant {
    * The URL for the ecommerce website used with this merchant account.
    * @return shopWebAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The URL for the ecommerce website used with this merchant account.")
 
   public String getShopWebAddress() {
@@ -428,7 +428,7 @@ public class Merchant {
    * The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
    * @return status
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The status of the merchant account.  Possible values:  * **PreActive**: The merchant account has been created. Users cannot access the merchant account in the Customer Area. The account cannot process payments. * **Active**: Users can access the merchant account in the Customer Area. If the company account is also **Active**, then payment processing and payouts are enabled. * **InactiveWithModifications**: Users can access the merchant account in the Customer Area. You cannot process new payments but you can still modify payments, for example issue refunds. You can still receive payouts. * **Inactive**: Users can access the merchant account in the Customer Area. Payment processing and payouts are disabled. * **Closed**: The account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.")
 
   public String getStatus() {

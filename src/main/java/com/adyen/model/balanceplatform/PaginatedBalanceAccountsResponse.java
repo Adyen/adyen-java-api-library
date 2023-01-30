@@ -81,7 +81,7 @@ public class PaginatedBalanceAccountsResponse {
    * List of balance accounts.
    * @return balanceAccounts
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "List of balance accounts.")
 
   public List<BalanceAccount> getBalanceAccounts() {
@@ -104,7 +104,7 @@ public class PaginatedBalanceAccountsResponse {
    * Indicates whether there are more items on the next page.
    * @return hasNext
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
 
   public Boolean getHasNext() {
@@ -127,7 +127,7 @@ public class PaginatedBalanceAccountsResponse {
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
 
   public Boolean getHasPrevious() {

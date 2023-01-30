@@ -97,7 +97,7 @@ public class AdditionalDataTemporaryServices {
    * Customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25
    * @return enhancedSchemeDataCustomerReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Customer code, if supplied by a customer. * Encoding: ASCII * maxLength: 25")
 
   public String getEnhancedSchemeDataCustomerReference() {
@@ -120,7 +120,7 @@ public class AdditionalDataTemporaryServices {
    * Name or ID associated with the individual working in a temporary capacity. * maxLength: 40
    * @return enhancedSchemeDataEmployeeName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Name or ID associated with the individual working in a temporary capacity. * maxLength: 40")
 
   public String getEnhancedSchemeDataEmployeeName() {
@@ -143,7 +143,7 @@ public class AdditionalDataTemporaryServices {
    * Description of the job or task of the individual working in a temporary capacity. * maxLength: 40
    * @return enhancedSchemeDataJobDescription
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Description of the job or task of the individual working in a temporary capacity. * maxLength: 40")
 
   public String getEnhancedSchemeDataJobDescription() {
@@ -166,7 +166,7 @@ public class AdditionalDataTemporaryServices {
    * Amount paid per regular hours worked, minor units. * maxLength: 7
    * @return enhancedSchemeDataRegularHoursRate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Amount paid per regular hours worked, minor units. * maxLength: 7")
 
   public String getEnhancedSchemeDataRegularHoursRate() {
@@ -189,7 +189,7 @@ public class AdditionalDataTemporaryServices {
    * Amount of time worked during a normal operation for the task or job. * maxLength: 7
    * @return enhancedSchemeDataRegularHoursWorked
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Amount of time worked during a normal operation for the task or job. * maxLength: 7")
 
   public String getEnhancedSchemeDataRegularHoursWorked() {
@@ -212,7 +212,7 @@ public class AdditionalDataTemporaryServices {
    * Name of the individual requesting temporary services. * maxLength: 40
    * @return enhancedSchemeDataRequestName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Name of the individual requesting temporary services. * maxLength: 40")
 
   public String getEnhancedSchemeDataRequestName() {
@@ -235,7 +235,7 @@ public class AdditionalDataTemporaryServices {
    * Date for the beginning of the pay period. * Format: ddMMyy * maxLength: 6
    * @return enhancedSchemeDataTempStartDate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Date for the beginning of the pay period. * Format: ddMMyy * maxLength: 6")
 
   public String getEnhancedSchemeDataTempStartDate() {
@@ -258,7 +258,7 @@ public class AdditionalDataTemporaryServices {
    * Date of the end of the billing cycle. * Format: ddMMyy * maxLength: 6
    * @return enhancedSchemeDataTempWeekEnding
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Date of the end of the billing cycle. * Format: ddMMyy * maxLength: 6")
 
   public String getEnhancedSchemeDataTempWeekEnding() {
@@ -281,7 +281,7 @@ public class AdditionalDataTemporaryServices {
    * Total tax amount, in minor units. For example, 2000 means USD 20.00 * maxLength: 12
    * @return enhancedSchemeDataTotalTaxAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Total tax amount, in minor units. For example, 2000 means USD 20.00 * maxLength: 12")
 
   public String getEnhancedSchemeDataTotalTaxAmount() {

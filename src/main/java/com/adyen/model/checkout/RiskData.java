@@ -80,7 +80,7 @@ public class RiskData {
    * Contains client-side data, like the device fingerprint, cookies, and specific browser settings.
    * @return clientData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Contains client-side data, like the device fingerprint, cookies, and specific browser settings.")
 
   public String getClientData() {
@@ -111,7 +111,7 @@ public class RiskData {
    * Any custom fields used as part of the input to configured risk rules.
    * @return customFields
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Any custom fields used as part of the input to configured risk rules.")
 
   public Map<String, String> getCustomFields() {
@@ -134,7 +134,7 @@ public class RiskData {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
 
   public Integer getFraudOffset() {
@@ -157,7 +157,7 @@ public class RiskData {
    * The risk profile to assign to this payment. When left empty, the merchant-level account&#39;s default risk profile will be applied.
    * @return profileReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The risk profile to assign to this payment. When left empty, the merchant-level account's default risk profile will be applied.")
 
   public String getProfileReference() {

@@ -73,7 +73,7 @@ public class PaymentMethodGroup {
    * The name of the group.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the group.")
 
   public String getName() {
@@ -96,7 +96,7 @@ public class PaymentMethodGroup {
    * Echo data to be used if the payment method is displayed as part of this group.
    * @return paymentMethodData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Echo data to be used if the payment method is displayed as part of this group.")
 
   public String getPaymentMethodData() {
@@ -119,7 +119,7 @@ public class PaymentMethodGroup {
    * The unique code of the group.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique code of the group.")
 
   public String getType() {

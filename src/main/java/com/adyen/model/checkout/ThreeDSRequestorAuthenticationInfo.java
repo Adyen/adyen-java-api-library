@@ -128,7 +128,7 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.
    * @return threeDSReqAuthData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Data that documents and supports a specific authentication process. Maximum length: 2048 bytes.")
 
   public String getThreeDSReqAuthData() {
@@ -151,7 +151,7 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.
    * @return threeDSReqAuthMethod
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Mechanism used by the Cardholder to authenticate to the 3DS Requestor. Allowed values: * **01** — No 3DS Requestor authentication occurred (for example, cardholder “logged in” as guest). * **02** — Login to the cardholder account at the 3DS Requestor system using 3DS Requestor’s own credentials. * **03** — Login to the cardholder account at the 3DS Requestor system using federated ID. * **04** — Login to the cardholder account at the 3DS Requestor system using issuer credentials. * **05** — Login to the cardholder account at the 3DS Requestor system using third-party authentication. * **06** — Login to the cardholder account at the 3DS Requestor system using FIDO Authenticator.")
 
   public ThreeDSReqAuthMethodEnum getThreeDSReqAuthMethod() {
@@ -174,7 +174,7 @@ public class ThreeDSRequestorAuthenticationInfo {
    * Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM
    * @return threeDSReqAuthTimestamp
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Date and time in UTC of the cardholder authentication. Format: YYYYMMDDHHMM")
 
   public String getThreeDSReqAuthTimestamp() {

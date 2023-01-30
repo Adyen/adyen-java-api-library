@@ -73,7 +73,7 @@ public class CostEstimateAssumptions {
    * If true, the cardholder is expected to successfully authorise via 3D Secure.
    * @return assume3DSecureAuthenticated
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If true, the cardholder is expected to successfully authorise via 3D Secure.")
 
   public Boolean getAssume3DSecureAuthenticated() {
@@ -96,7 +96,7 @@ public class CostEstimateAssumptions {
    * If true, the transaction is expected to have valid Level 3 data.
    * @return assumeLevel3Data
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If true, the transaction is expected to have valid Level 3 data.")
 
   public Boolean getAssumeLevel3Data() {
@@ -119,7 +119,7 @@ public class CostEstimateAssumptions {
    * If not zero, the number of installments.
    * @return installments
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If not zero, the number of installments.")
 
   public Integer getInstallments() {

@@ -89,7 +89,7 @@ public class Address2 {
    * The name of the city.
    * @return city
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The name of the city.")
 
   public String getCity() {
@@ -112,7 +112,7 @@ public class Address2 {
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt;If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
    * @return country
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code. For example, **US**. >If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`.")
 
   public String getCountry() {
@@ -135,7 +135,7 @@ public class Address2 {
    * First line of the address.
    * @return line1
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "First line of the address.")
 
   public String getLine1() {
@@ -158,7 +158,7 @@ public class Address2 {
    * Second line of the address.
    * @return line2
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Second line of the address.")
 
   public String getLine2() {
@@ -181,7 +181,7 @@ public class Address2 {
    * Third line of the address.
    * @return line3
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Third line of the address.")
 
   public String getLine3() {
@@ -204,7 +204,7 @@ public class Address2 {
    * The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The postal code. Maximum length: * 5 digits for an address in the US. * 10 characters for an address in all other countries.")
 
   public String getPostalCode() {
@@ -227,7 +227,7 @@ public class Address2 {
    * The two-letterISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
    * @return stateOrProvince
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The two-letterISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. > Required for the US and Canada.")
 
   public String getStateOrProvince() {

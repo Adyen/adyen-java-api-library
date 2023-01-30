@@ -79,7 +79,7 @@ public class UpdateMerchantApiCredentialRequest {
    * Indicates if the API credential is enabled.
    * @return active
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if the API credential is enabled.")
 
   public Boolean getActive() {
@@ -110,7 +110,7 @@ public class UpdateMerchantApiCredentialRequest {
    * The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
    * @return allowedOrigins
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.")
 
   public List<String> getAllowedOrigins() {
@@ -133,7 +133,7 @@ public class UpdateMerchantApiCredentialRequest {
    * Description of the API credential.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Description of the API credential.")
 
   public String getDescription() {
@@ -164,7 +164,7 @@ public class UpdateMerchantApiCredentialRequest {
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
    * @return roles
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.")
 
   public List<String> getRoles() {

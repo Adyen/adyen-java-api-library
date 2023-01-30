@@ -69,7 +69,7 @@ public class DisablePermitResult {
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
 
   public String getPspReference() {
@@ -92,7 +92,7 @@ public class DisablePermitResult {
    * Status of the disable request.
    * @return status
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Status of the disable request.")
 
   public String getStatus() {

@@ -69,7 +69,7 @@ public class TerminalActionScheduleDetail {
    * The ID of the action on the specified terminal.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The ID of the action on the specified terminal.")
 
   public String getId() {
@@ -92,7 +92,7 @@ public class TerminalActionScheduleDetail {
    * The unique ID of the terminal that the action applies to.
    * @return terminalId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique ID of the terminal that the action applies to.")
 
   public String getTerminalId() {

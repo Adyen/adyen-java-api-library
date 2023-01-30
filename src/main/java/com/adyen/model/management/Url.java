@@ -73,7 +73,7 @@ public class Url {
    * The password for authentication of the event notifications.
    * @return password
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The password for authentication of the event notifications.")
 
   public String getPassword() {
@@ -96,7 +96,7 @@ public class Url {
    * The URL in the format: http(s)://domain.com.
    * @return url
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The URL in the format: http(s)://domain.com.")
 
   public String getUrl() {
@@ -119,7 +119,7 @@ public class Url {
    * The username for authentication of the event notifications.
    * @return username
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The username for authentication of the event notifications.")
 
   public String getUsername() {

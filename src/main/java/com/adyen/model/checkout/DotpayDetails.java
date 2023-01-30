@@ -114,7 +114,7 @@ public class DotpayDetails {
    * The Dotpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dotpay issuer to preselect it.
    * @return issuer
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The Dotpay issuer value of the shopper's selected bank. Set this to an **id** of a Dotpay issuer to preselect it.")
 
   public String getIssuer() {
@@ -137,7 +137,7 @@ public class DotpayDetails {
    * **dotpay**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**dotpay**")
 
   public TypeEnum getType() {

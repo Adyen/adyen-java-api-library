@@ -86,7 +86,7 @@ public class CheckoutOrderResponse {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getAmount() {
@@ -109,7 +109,7 @@ public class CheckoutOrderResponse {
    * The expiry date for the order.
    * @return expiresAt
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The expiry date for the order.")
 
   public String getExpiresAt() {
@@ -132,7 +132,7 @@ public class CheckoutOrderResponse {
    * The encrypted order data.
    * @return orderData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The encrypted order data.")
 
   public String getOrderData() {
@@ -155,7 +155,7 @@ public class CheckoutOrderResponse {
    * The &#x60;pspReference&#x60; that belongs to the order.
    * @return pspReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The `pspReference` that belongs to the order.")
 
   public String getPspReference() {
@@ -178,7 +178,7 @@ public class CheckoutOrderResponse {
    * The merchant reference for the order.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The merchant reference for the order.")
 
   public String getReference() {
@@ -201,7 +201,7 @@ public class CheckoutOrderResponse {
    * Get remainingAmount
    * @return remainingAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getRemainingAmount() {

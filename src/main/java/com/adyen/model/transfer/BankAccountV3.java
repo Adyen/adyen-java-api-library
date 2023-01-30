@@ -51,7 +51,7 @@ public class BankAccountV3 {
    * Get accountHolder
    * @return accountHolder
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public PartyIdentification2 getAccountHolder() {
@@ -74,7 +74,7 @@ public class BankAccountV3 {
    * Get accountIdentification
    * @return accountIdentification
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public BankAccountV3AccountIdentification getAccountIdentification() {

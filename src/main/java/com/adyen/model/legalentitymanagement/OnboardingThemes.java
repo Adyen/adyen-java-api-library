@@ -64,7 +64,7 @@ public class OnboardingThemes {
    * The next page. Only present if there is a next page.
    * @return next
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The next page. Only present if there is a next page.")
 
   public String getNext() {
@@ -87,7 +87,7 @@ public class OnboardingThemes {
    * The previous page. Only present if there is a previous page.
    * @return previous
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The previous page. Only present if there is a previous page.")
 
   public String getPrevious() {
@@ -115,7 +115,7 @@ public class OnboardingThemes {
    * List of onboarding themes.
    * @return themes
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "List of onboarding themes.")
 
   public List<OnboardingTheme> getThemes() {

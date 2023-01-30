@@ -72,7 +72,7 @@ public class MerchantsRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -103,7 +103,7 @@ public class MerchantsRestriction {
    * List of merchant ID and acquirer ID pairs.
    * @return value
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of merchant ID and acquirer ID pairs.")
 
   public List<MerchantAcquirerPair> getValue() {

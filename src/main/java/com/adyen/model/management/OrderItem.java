@@ -73,7 +73,7 @@ public class OrderItem {
    * The unique identifier of the product.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the product.")
 
   public String getId() {
@@ -96,7 +96,7 @@ public class OrderItem {
    * The name of the product.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the product.")
 
   public String getName() {
@@ -119,7 +119,7 @@ public class OrderItem {
    * The number of items with the specified product &#x60;id&#x60; included in the order.
    * @return quantity
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The number of items with the specified product `id` included in the order.")
 
   public Integer getQuantity() {

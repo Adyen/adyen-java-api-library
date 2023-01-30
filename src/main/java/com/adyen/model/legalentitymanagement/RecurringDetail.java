@@ -61,7 +61,7 @@ public class RecurringDetail {
    * The merchant account used when the payment details were stored.
    * @return merchantAccount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The merchant account used when the payment details were stored.")
 
   public String getMerchantAccount() {
@@ -84,7 +84,7 @@ public class RecurringDetail {
    * The &#x60;recurringDetailReference&#x60; returned in the response when the payment details were stored.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `recurringDetailReference` returned in the response when the payment details were stored.")
 
   public String getReference() {
@@ -107,7 +107,7 @@ public class RecurringDetail {
    * The unique identifier used when the payment details were stored.
    * @return shopperReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier used when the payment details were stored.")
 
   public String getShopperReference() {

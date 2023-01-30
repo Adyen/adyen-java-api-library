@@ -80,7 +80,7 @@ public class TokenDetails {
    * Get tokenData
    * @return tokenData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Map<String, String> getTokenData() {
@@ -103,7 +103,7 @@ public class TokenDetails {
    * Get tokenDataType
    * @return tokenDataType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getTokenDataType() {

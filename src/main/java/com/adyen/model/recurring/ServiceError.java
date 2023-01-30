@@ -96,7 +96,7 @@ public class ServiceError {
    * Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first. Go to **Customer Area** > **Developers** > **Additional data**.")
 
   public Map<String, String> getAdditionalData() {
@@ -119,7 +119,7 @@ public class ServiceError {
    * The error code mapped to the error message.
    * @return errorCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The error code mapped to the error message.")
 
   public String getErrorCode() {
@@ -142,7 +142,7 @@ public class ServiceError {
    * The category of the error.
    * @return errorType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The category of the error.")
 
   public String getErrorType() {
@@ -165,7 +165,7 @@ public class ServiceError {
    * A short explanation of the issue.
    * @return message
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A short explanation of the issue.")
 
   public String getMessage() {
@@ -188,7 +188,7 @@ public class ServiceError {
    * The PSP reference of the payment.
    * @return pspReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The PSP reference of the payment.")
 
   public String getPspReference() {
@@ -211,7 +211,7 @@ public class ServiceError {
    * The HTTP response status.
    * @return status
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The HTTP response status.")
 
   public Integer getStatus() {

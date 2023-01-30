@@ -196,7 +196,7 @@ public class PaymentMethodResponse {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public PaginationLinks getLinks() {
@@ -227,7 +227,7 @@ public class PaymentMethodResponse {
    * Payment methods details.
    * @return data
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Payment methods details.")
 
   public List<PaymentMethod> getData() {
@@ -250,7 +250,7 @@ public class PaymentMethodResponse {
    * Total number of items.
    * @return itemsTotal
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Total number of items.")
 
   public Integer getItemsTotal() {
@@ -273,7 +273,7 @@ public class PaymentMethodResponse {
    * Total number of pages.
    * @return pagesTotal
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Total number of pages.")
 
   public Integer getPagesTotal() {
@@ -304,7 +304,7 @@ public class PaymentMethodResponse {
    * Payment method types with errors.
    * @return typesWithErrors
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Payment method types with errors.")
 
   public List<TypesWithErrorsEnum> getTypesWithErrors() {

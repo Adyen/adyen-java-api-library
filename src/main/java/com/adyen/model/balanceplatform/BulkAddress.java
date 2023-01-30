@@ -97,7 +97,7 @@ public class BulkAddress {
    * The name of the city.
    * @return city
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The name of the city.")
 
   public String getCity() {
@@ -120,7 +120,7 @@ public class BulkAddress {
    * The name of the company.
    * @return company
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The name of the company.")
 
   public String getCompany() {
@@ -143,7 +143,7 @@ public class BulkAddress {
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**.
    * @return country
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code. For example, **US**.")
 
   public String getCountry() {
@@ -166,7 +166,7 @@ public class BulkAddress {
    * The email address.
    * @return email
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The email address.")
 
   public String getEmail() {
@@ -189,7 +189,7 @@ public class BulkAddress {
    * The house number or name.
    * @return houseNumberOrName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The house number or name.")
 
   public String getHouseNumberOrName() {
@@ -212,7 +212,7 @@ public class BulkAddress {
    * The full telephone number.
    * @return mobile
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The full telephone number.")
 
   public String getMobile() {
@@ -235,7 +235,7 @@ public class BulkAddress {
    * The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The postal code.  Maximum length:  * 5 digits for addresses in the US.  * 10 characters for all other countries.")
 
   public String getPostalCode() {
@@ -258,7 +258,7 @@ public class BulkAddress {
    * The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.
    * @return stateOrProvince
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The two-letter ISO 3166-2 state or province code.  Maximum length: 2 characters for addresses in the US.")
 
   public String getStateOrProvince() {
@@ -281,7 +281,7 @@ public class BulkAddress {
    * The streetname of the house.
    * @return street
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The streetname of the house.")
 
   public String getStreet() {

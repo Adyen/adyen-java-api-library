@@ -73,7 +73,7 @@ public class ShopperInteractionDevice {
    * Locale on the shopper interaction device.
    * @return locale
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Locale on the shopper interaction device.")
 
   public String getLocale() {
@@ -96,7 +96,7 @@ public class ShopperInteractionDevice {
    * Operating system running on the shopper interaction device.
    * @return os
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Operating system running on the shopper interaction device.")
 
   public String getOs() {
@@ -119,7 +119,7 @@ public class ShopperInteractionDevice {
    * Version of the operating system on the shopper interaction device.
    * @return osVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Version of the operating system on the shopper interaction device.")
 
   public String getOsVersion() {

@@ -73,7 +73,7 @@ public class Signature {
    * If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
    * @return askSignatureOnScreen
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If `skipSignature` is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).")
 
   public Boolean getAskSignatureOnScreen() {
@@ -96,7 +96,7 @@ public class Signature {
    * Name that identifies the terminal.
    * @return deviceName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Name that identifies the terminal.")
 
   public String getDeviceName() {
@@ -119,7 +119,7 @@ public class Signature {
    * Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
    * @return skipSignature
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.")
 
   public Boolean getSkipSignature() {

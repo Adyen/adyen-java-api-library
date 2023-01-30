@@ -116,7 +116,7 @@ public class MolPayDetails {
    * The shopper&#39;s bank. Specify this with the issuer value that corresponds to this bank.
    * @return issuer
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The shopper's bank. Specify this with the issuer value that corresponds to this bank.")
 
   public String getIssuer() {
@@ -139,7 +139,7 @@ public class MolPayDetails {
    * **molpay**
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "**molpay**")
 
   public TypeEnum getType() {

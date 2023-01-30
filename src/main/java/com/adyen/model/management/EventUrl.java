@@ -80,7 +80,7 @@ public class EventUrl {
    * One or more local URLs to send event notifications to when using Terminal API.
    * @return eventLocalUrls
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "One or more local URLs to send event notifications to when using Terminal API.")
 
   public List<Url> getEventLocalUrls() {
@@ -111,7 +111,7 @@ public class EventUrl {
    * One or more public URLs to send event notifications to when using Terminal API.
    * @return eventPublicUrls
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "One or more public URLs to send event notifications to when using Terminal API.")
 
   public List<Url> getEventPublicUrls() {

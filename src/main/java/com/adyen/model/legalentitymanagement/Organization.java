@@ -215,7 +215,7 @@ public class Organization {
    * Your description for the organization.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your description for the organization.")
 
   public String getDescription() {
@@ -238,7 +238,7 @@ public class Organization {
    * The organization&#39;s trading name, if different from the registered legal name.
    * @return doingBusinessAs
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The organization's trading name, if different from the registered legal name.")
 
   public String getDoingBusinessAs() {
@@ -261,7 +261,7 @@ public class Organization {
    * The email address of the legal entity.
    * @return email
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The email address of the legal entity.")
 
   public String getEmail() {
@@ -284,7 +284,7 @@ public class Organization {
    * The organization&#39;s legal name.
    * @return legalName
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The organization's legal name.")
 
   public String getLegalName() {
@@ -307,7 +307,7 @@ public class Organization {
    * Get phone
    * @return phone
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public PhoneNumber getPhone() {
@@ -330,7 +330,7 @@ public class Organization {
    * Get principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getPrincipalPlaceOfBusiness() {
@@ -353,7 +353,7 @@ public class Organization {
    * Get registeredAddress
    * @return registeredAddress
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Address getRegisteredAddress() {
@@ -376,7 +376,7 @@ public class Organization {
    * The organization&#39;s registration number.
    * @return registrationNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The organization's registration number.")
 
   public String getRegistrationNumber() {
@@ -399,7 +399,7 @@ public class Organization {
    * Get stockData
    * @return stockData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public StockData getStockData() {
@@ -430,7 +430,7 @@ public class Organization {
    * The tax information of the organization.
    * @return taxInformation
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The tax information of the organization.")
 
   public List<TaxInformation> getTaxInformation() {
@@ -453,7 +453,7 @@ public class Organization {
    * Get taxReportingClassification
    * @return taxReportingClassification
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public TaxReportingClassification getTaxReportingClassification() {
@@ -476,7 +476,7 @@ public class Organization {
    * Type of organization.   Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Type of organization.   Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.")
 
   public TypeEnum getType() {
@@ -499,7 +499,7 @@ public class Organization {
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
 
   public VatAbsenceReasonEnum getVatAbsenceReason() {
@@ -522,7 +522,7 @@ public class Organization {
    * The organization&#39;s VAT number.
    * @return vatNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The organization's VAT number.")
 
   public String getVatNumber() {
@@ -545,7 +545,7 @@ public class Organization {
    * Get webData
    * @return webData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public WebData getWebData() {

@@ -85,7 +85,7 @@ public class CreateMerchantRequest {
    * The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.
    * @return businessLineId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.")
 
   public String getBusinessLineId() {
@@ -108,7 +108,7 @@ public class CreateMerchantRequest {
    * The unique identifier of the company account.
    * @return companyId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the company account.")
 
   public String getCompanyId() {
@@ -131,7 +131,7 @@ public class CreateMerchantRequest {
    * Your description for the merchant account, maximum 300 characters.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your description for the merchant account, maximum 300 characters.")
 
   public String getDescription() {
@@ -154,7 +154,7 @@ public class CreateMerchantRequest {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.
    * @return legalEntityId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.")
 
   public String getLegalEntityId() {
@@ -177,7 +177,7 @@ public class CreateMerchantRequest {
    * Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.
    * @return pricingPlan
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.")
 
   public String getPricingPlan() {
@@ -200,7 +200,7 @@ public class CreateMerchantRequest {
    * Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the &#x60;reference&#x60; is required and must be unique within the company account.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the `reference` is required and must be unique within the company account.")
 
   public String getReference() {

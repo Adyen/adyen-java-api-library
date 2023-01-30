@@ -72,7 +72,7 @@ public class PaymentSetupResponse {
    * The encoded payment session that you need to pass to the SDK.
    * @return paymentSession
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The encoded payment session that you need to pass to the SDK.")
 
   public String getPaymentSession() {
@@ -105,7 +105,7 @@ public class PaymentSetupResponse {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The detailed list of stored payment details required to generate payment forms. Will be empty if oneClick is set to false in the request.")
 
   public List<RecurringDetail> getRecurringDetails() {

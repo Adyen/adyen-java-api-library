@@ -128,7 +128,7 @@ public class PayUUpiDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -151,7 +151,7 @@ public class PayUUpiDetails {
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    * @return shopperNotificationReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only.")
 
   public String getShopperNotificationReference() {
@@ -174,7 +174,7 @@ public class PayUUpiDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -197,7 +197,7 @@ public class PayUUpiDetails {
    * **payu_IN_upi**
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "**payu_IN_upi**")
 
   public TypeEnum getType() {
@@ -220,7 +220,7 @@ public class PayUUpiDetails {
    * The virtual payment address for UPI.
    * @return virtualPaymentAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The virtual payment address for UPI.")
 
   public String getVirtualPaymentAddress() {

@@ -67,7 +67,7 @@ public class NameLocation {
    * The city where the merchant is located.
    * @return city
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The city where the merchant is located.")
 
   public String getCity() {
@@ -90,7 +90,7 @@ public class NameLocation {
    * The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.
    * @return country
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The country where the merchant is located in [three-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.")
 
   public String getCountry() {
@@ -113,7 +113,7 @@ public class NameLocation {
    * The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.
    * @return countryOfOrigin
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The home country in [three-digit country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric) format, used for government-controlled merchants such as embassies.")
 
   public String getCountryOfOrigin() {
@@ -136,7 +136,7 @@ public class NameLocation {
    * The name of the merchant&#39;s shop or service.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the merchant's shop or service.")
 
   public String getName() {
@@ -159,7 +159,7 @@ public class NameLocation {
    * The raw data.
    * @return rawData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The raw data.")
 
   public String getRawData() {
@@ -182,7 +182,7 @@ public class NameLocation {
    * The state where the merchant is located.
    * @return state
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The state where the merchant is located.")
 
   public String getState() {

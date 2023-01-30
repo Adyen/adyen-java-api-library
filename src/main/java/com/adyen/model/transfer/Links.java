@@ -51,7 +51,7 @@ public class Links {
    * Get next
    * @return next
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Link getNext() {
@@ -74,7 +74,7 @@ public class Links {
    * Get prev
    * @return prev
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Link getPrev() {

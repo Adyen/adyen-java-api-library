@@ -76,7 +76,7 @@ public class TerminalProductsResponse {
    * Terminal products that can be ordered.
    * @return data
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Terminal products that can be ordered.")
 
   public List<TerminalProduct> getData() {

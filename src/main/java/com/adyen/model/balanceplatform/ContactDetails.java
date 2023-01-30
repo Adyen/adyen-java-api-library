@@ -79,7 +79,7 @@ public class ContactDetails {
    * Get address
    * @return address
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "")
 
   public Address getAddress() {
@@ -102,7 +102,7 @@ public class ContactDetails {
    * The email address of the account holder.
    * @return email
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The email address of the account holder.")
 
   public String getEmail() {
@@ -125,7 +125,7 @@ public class ContactDetails {
    * Get phone
    * @return phone
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "")
 
   public Phone getPhone() {
@@ -148,7 +148,7 @@ public class ContactDetails {
    * The URL of the account holder&#39;s website.
    * @return webAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The URL of the account holder's website.")
 
   public String getWebAddress() {

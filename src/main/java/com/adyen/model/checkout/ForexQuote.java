@@ -111,7 +111,7 @@ public class ForexQuote {
    * The account name.
    * @return account
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The account name.")
 
   public String getAccount() {
@@ -134,7 +134,7 @@ public class ForexQuote {
    * The account type.
    * @return accountType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The account type.")
 
   public String getAccountType() {
@@ -157,7 +157,7 @@ public class ForexQuote {
    * Get baseAmount
    * @return baseAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getBaseAmount() {
@@ -180,7 +180,7 @@ public class ForexQuote {
    * The base points.
    * @return basePoints
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The base points.")
 
   public Integer getBasePoints() {
@@ -203,7 +203,7 @@ public class ForexQuote {
    * Get buy
    * @return buy
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getBuy() {
@@ -226,7 +226,7 @@ public class ForexQuote {
    * Get interbank
    * @return interbank
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getInterbank() {
@@ -249,7 +249,7 @@ public class ForexQuote {
    * The reference assigned to the forex quote request.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The reference assigned to the forex quote request.")
 
   public String getReference() {
@@ -272,7 +272,7 @@ public class ForexQuote {
    * Get sell
    * @return sell
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getSell() {
@@ -295,7 +295,7 @@ public class ForexQuote {
    * The signature to validate the integrity.
    * @return signature
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The signature to validate the integrity.")
 
   public String getSignature() {
@@ -318,7 +318,7 @@ public class ForexQuote {
    * The source of the forex quote.
    * @return source
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The source of the forex quote.")
 
   public String getSource() {
@@ -341,7 +341,7 @@ public class ForexQuote {
    * The type of forex.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of forex.")
 
   public String getType() {
@@ -364,7 +364,7 @@ public class ForexQuote {
    * The date until which the forex quote is valid.
    * @return validTill
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The date until which the forex quote is valid.")
 
   public OffsetDateTime getValidTill() {

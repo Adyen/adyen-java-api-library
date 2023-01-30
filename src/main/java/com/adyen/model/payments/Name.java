@@ -69,7 +69,7 @@ public class Name {
    * The first name.
    * @return firstName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The first name.")
 
   public String getFirstName() {
@@ -92,7 +92,7 @@ public class Name {
    * The last name.
    * @return lastName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The last name.")
 
   public String getLastName() {

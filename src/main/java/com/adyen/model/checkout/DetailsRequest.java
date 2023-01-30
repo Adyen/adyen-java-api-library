@@ -74,7 +74,7 @@ public class DetailsRequest {
    * Get details
    * @return details
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public PaymentCompletionDetails getDetails() {
@@ -97,7 +97,7 @@ public class DetailsRequest {
    * The &#x60;paymentData&#x60; value from the &#x60;/payments&#x60; response. Required if the &#x60;/payments&#x60; response returns this value. 
    * @return paymentData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `paymentData` value from the `/payments` response. Required if the `/payments` response returns this value. ")
 
   public String getPaymentData() {
@@ -120,7 +120,7 @@ public class DetailsRequest {
    * Change the &#x60;authenticationOnly&#x60; indicator originally set in the &#x60;/payments&#x60; request. Only needs to be set if you want to modify the value set previously.
    * @return threeDSAuthenticationOnly
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Change the `authenticationOnly` indicator originally set in the `/payments` request. Only needs to be set if you want to modify the value set previously.")
 
   public Boolean getThreeDSAuthenticationOnly() {

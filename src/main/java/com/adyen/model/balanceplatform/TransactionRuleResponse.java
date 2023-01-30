@@ -66,7 +66,7 @@ public class TransactionRuleResponse {
    * Get transactionRule
    * @return transactionRule
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public TransactionRule getTransactionRule() {

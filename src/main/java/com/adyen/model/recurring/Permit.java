@@ -83,7 +83,7 @@ public class Permit {
    * Partner ID (when using the permit-per-partner token sharing model).
    * @return partnerId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Partner ID (when using the permit-per-partner token sharing model).")
 
   public String getPartnerId() {
@@ -106,7 +106,7 @@ public class Permit {
    * The profile to apply to this permit (when using the shared permits model).
    * @return profileReference
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The profile to apply to this permit (when using the shared permits model).")
 
   public String getProfileReference() {
@@ -129,7 +129,7 @@ public class Permit {
    * Get restriction
    * @return restriction
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public PermitRestriction getRestriction() {
@@ -152,7 +152,7 @@ public class Permit {
    * The key to link permit requests to permit results.
    * @return resultKey
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The key to link permit requests to permit results.")
 
   public String getResultKey() {
@@ -175,7 +175,7 @@ public class Permit {
    * The expiry date for this permit.
    * @return validTillDate
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The expiry date for this permit.")
 
   public OffsetDateTime getValidTillDate() {

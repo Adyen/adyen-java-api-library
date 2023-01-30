@@ -47,7 +47,7 @@ public class Link {
    * Get href
    * @return href
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public String getHref() {

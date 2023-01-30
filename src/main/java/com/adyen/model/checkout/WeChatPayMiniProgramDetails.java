@@ -118,7 +118,7 @@ public class WeChatPayMiniProgramDetails {
    * Get appId
    * @return appId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getAppId() {
@@ -141,7 +141,7 @@ public class WeChatPayMiniProgramDetails {
    * Get openid
    * @return openid
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getOpenid() {
@@ -164,7 +164,7 @@ public class WeChatPayMiniProgramDetails {
    * **wechatpayMiniProgram**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**wechatpayMiniProgram**")
 
   public TypeEnum getType() {

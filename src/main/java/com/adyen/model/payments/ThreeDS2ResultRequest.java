@@ -69,7 +69,7 @@ public class ThreeDS2ResultRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -92,7 +92,7 @@ public class ThreeDS2ResultRequest {
    * The pspReference returned in the /authorise call.
    * @return pspReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The pspReference returned in the /authorise call.")
 
   public String getPspReference() {

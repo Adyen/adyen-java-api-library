@@ -80,7 +80,7 @@ public class JSONObject {
    * Get paths
    * @return paths
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public List<JSONPath> getPaths() {
@@ -103,7 +103,7 @@ public class JSONObject {
    * Get rootPath
    * @return rootPath
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public JSONPath getRootPath() {

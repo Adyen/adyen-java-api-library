@@ -105,7 +105,7 @@ public class BRLocalAccountIdentification {
    * The bank account number (without separators or whitespace).
    * @return accountNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The bank account number (without separators or whitespace).")
 
   public String getAccountNumber() {
@@ -128,7 +128,7 @@ public class BRLocalAccountIdentification {
    * The 3-digit Brazilian bank code (with leading zeros).
    * @return bankCode
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The 3-digit Brazilian bank code (with leading zeros).")
 
   public String getBankCode() {
@@ -151,7 +151,7 @@ public class BRLocalAccountIdentification {
    * The bank account branch number (without separators or whitespace).
    * @return branchNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The bank account branch number (without separators or whitespace).")
 
   public String getBranchNumber() {
@@ -174,7 +174,7 @@ public class BRLocalAccountIdentification {
    * **brLocal**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**brLocal**")
 
   public TypeEnum getType() {

@@ -187,7 +187,7 @@ public class CheckoutVoucherAction {
    * The voucher alternative reference code.
    * @return alternativeReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The voucher alternative reference code.")
 
   public String getAlternativeReference() {
@@ -210,7 +210,7 @@ public class CheckoutVoucherAction {
    * A collection institution number (store number) for Econtext Pay-Easy ATM.
    * @return collectionInstitutionNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A collection institution number (store number) for Econtext Pay-Easy ATM.")
 
   public String getCollectionInstitutionNumber() {
@@ -233,7 +233,7 @@ public class CheckoutVoucherAction {
    * The URL to download the voucher.
    * @return downloadUrl
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The URL to download the voucher.")
 
   public String getDownloadUrl() {
@@ -256,7 +256,7 @@ public class CheckoutVoucherAction {
    * An entity number of Multibanco.
    * @return entity
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An entity number of Multibanco.")
 
   public String getEntity() {
@@ -279,7 +279,7 @@ public class CheckoutVoucherAction {
    * The date time of the voucher expiry.
    * @return expiresAt
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The date time of the voucher expiry.")
 
   public String getExpiresAt() {
@@ -302,7 +302,7 @@ public class CheckoutVoucherAction {
    * Get initialAmount
    * @return initialAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getInitialAmount() {
@@ -325,7 +325,7 @@ public class CheckoutVoucherAction {
    * The URL to the detailed instructions to make payment using the voucher.
    * @return instructionsUrl
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The URL to the detailed instructions to make payment using the voucher.")
 
   public String getInstructionsUrl() {
@@ -348,7 +348,7 @@ public class CheckoutVoucherAction {
    * The issuer of the voucher.
    * @return issuer
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The issuer of the voucher.")
 
   public String getIssuer() {
@@ -371,7 +371,7 @@ public class CheckoutVoucherAction {
    * The shopper telephone number (partially masked).
    * @return maskedTelephoneNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper telephone number (partially masked).")
 
   public String getMaskedTelephoneNumber() {
@@ -394,7 +394,7 @@ public class CheckoutVoucherAction {
    * The merchant name.
    * @return merchantName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The merchant name.")
 
   public String getMerchantName() {
@@ -417,7 +417,7 @@ public class CheckoutVoucherAction {
    * The merchant reference.
    * @return merchantReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The merchant reference.")
 
   public String getMerchantReference() {
@@ -440,7 +440,7 @@ public class CheckoutVoucherAction {
    * A value that must be submitted to the &#x60;/payments/details&#x60; endpoint to verify this payment.
    * @return paymentData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A value that must be submitted to the `/payments/details` endpoint to verify this payment.")
 
   public String getPaymentData() {
@@ -463,7 +463,7 @@ public class CheckoutVoucherAction {
    * Specifies the payment method.
    * @return paymentMethodType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the payment method.")
 
   public String getPaymentMethodType() {
@@ -486,7 +486,7 @@ public class CheckoutVoucherAction {
    * The voucher reference code.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The voucher reference code.")
 
   public String getReference() {
@@ -509,7 +509,7 @@ public class CheckoutVoucherAction {
    * The shopper email.
    * @return shopperEmail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper email.")
 
   public String getShopperEmail() {
@@ -532,7 +532,7 @@ public class CheckoutVoucherAction {
    * The shopper name.
    * @return shopperName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper name.")
 
   public String getShopperName() {
@@ -555,7 +555,7 @@ public class CheckoutVoucherAction {
    * Get surcharge
    * @return surcharge
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getSurcharge() {
@@ -578,7 +578,7 @@ public class CheckoutVoucherAction {
    * Get totalAmount
    * @return totalAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getTotalAmount() {
@@ -601,7 +601,7 @@ public class CheckoutVoucherAction {
    * **voucher**
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "**voucher**")
 
   public TypeEnum getType() {
@@ -624,7 +624,7 @@ public class CheckoutVoucherAction {
    * Specifies the URL to redirect to.
    * @return url
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
 
   public String getUrl() {

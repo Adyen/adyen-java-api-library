@@ -85,7 +85,7 @@ public class Address {
    * The name of the city. Maximum length: 3000 characters.
    * @return city
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The name of the city. Maximum length: 3000 characters.")
 
   public String getCity() {
@@ -108,7 +108,7 @@ public class Address {
    * The two-character ISO-3166-1 alpha-2 country code. For example, **US**. &gt; If you don&#39;t know the country or are not collecting the country from the shopper, provide &#x60;country&#x60; as &#x60;ZZ&#x60;.
    * @return country
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code. For example, **US**. > If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`.")
 
   public String getCountry() {
@@ -131,7 +131,7 @@ public class Address {
    * The number or name of the house. Maximum length: 3000 characters.
    * @return houseNumberOrName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The number or name of the house. Maximum length: 3000 characters.")
 
   public String getHouseNumberOrName() {
@@ -154,7 +154,7 @@ public class Address {
    * A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.
    * @return postalCode
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.")
 
   public String getPostalCode() {
@@ -177,7 +177,7 @@ public class Address {
    * The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. &gt; Required for the US and Canada.
    * @return stateOrProvince
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada. > Required for the US and Canada.")
 
   public String getStateOrProvince() {
@@ -200,7 +200,7 @@ public class Address {
    * The name of the street. Maximum length: 3000 characters. &gt; The house number should not be included in this field; it should be separately provided via &#x60;houseNumberOrName&#x60;.
    * @return street
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The name of the street. Maximum length: 3000 characters. > The house number should not be included in this field; it should be separately provided via `houseNumberOrName`.")
 
   public String getStreet() {

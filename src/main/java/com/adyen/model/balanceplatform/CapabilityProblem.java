@@ -73,7 +73,7 @@ public class CapabilityProblem {
    * Get entity
    * @return entity
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CapabilityProblemEntity getEntity() {
@@ -104,7 +104,7 @@ public class CapabilityProblem {
    * Contains information about the verification error.
    * @return verificationErrors
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Contains information about the verification error.")
 
   public List<VerificationError> getVerificationErrors() {

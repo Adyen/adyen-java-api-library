@@ -125,7 +125,7 @@ public class PaymentCompletionDetails {
    * A payment session identifier returned by the card issuer.
    * @return MD
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A payment session identifier returned by the card issuer.")
 
   public String getMD() {
@@ -148,7 +148,7 @@ public class PaymentCompletionDetails {
    * (3D) Payment Authentication Request data for the card issuer.
    * @return paReq
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "(3D) Payment Authentication Request data for the card issuer.")
 
   public String getPaReq() {
@@ -171,7 +171,7 @@ public class PaymentCompletionDetails {
    * (3D) Payment Authentication Response data by the card issuer.
    * @return paRes
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "(3D) Payment Authentication Response data by the card issuer.")
 
   public String getPaRes() {
@@ -194,7 +194,7 @@ public class PaymentCompletionDetails {
    * PayPal-generated token for recurring payments.
    * @return billingToken
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "PayPal-generated token for recurring payments.")
 
   public String getBillingToken() {
@@ -217,7 +217,7 @@ public class PaymentCompletionDetails {
    * The SMS verification code collected from the shopper.
    * @return cupsecureplusSmscode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The SMS verification code collected from the shopper.")
 
   public String getCupsecureplusSmscode() {
@@ -240,7 +240,7 @@ public class PaymentCompletionDetails {
    * PayPal-generated third party access token.
    * @return facilitatorAccessToken
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "PayPal-generated third party access token.")
 
   public String getFacilitatorAccessToken() {
@@ -263,7 +263,7 @@ public class PaymentCompletionDetails {
    * A random number sent to the mobile phone number of the shopper to verify the payment.
    * @return oneTimePasscode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A random number sent to the mobile phone number of the shopper to verify the payment.")
 
   public String getOneTimePasscode() {
@@ -286,7 +286,7 @@ public class PaymentCompletionDetails {
    * PayPal-assigned ID for the order.
    * @return orderID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "PayPal-assigned ID for the order.")
 
   public String getOrderID() {
@@ -309,7 +309,7 @@ public class PaymentCompletionDetails {
    * PayPal-assigned ID for the payer (shopper).
    * @return payerID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "PayPal-assigned ID for the payer (shopper).")
 
   public String getPayerID() {
@@ -332,7 +332,7 @@ public class PaymentCompletionDetails {
    * Payload appended to the &#x60;returnURL&#x60; as a result of the redirect.
    * @return payload
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Payload appended to the `returnURL` as a result of the redirect.")
 
   public String getPayload() {
@@ -355,7 +355,7 @@ public class PaymentCompletionDetails {
    * PayPal-generated ID for the payment.
    * @return paymentID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "PayPal-generated ID for the payment.")
 
   public String getPaymentID() {
@@ -378,7 +378,7 @@ public class PaymentCompletionDetails {
    * Value passed from the WeChat MiniProgram &#x60;wx.requestPayment&#x60; **complete** callback. Possible values: any value starting with &#x60;requestPayment:&#x60;.
    * @return paymentStatus
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Value passed from the WeChat MiniProgram `wx.requestPayment` **complete** callback. Possible values: any value starting with `requestPayment:`.")
 
   public String getPaymentStatus() {
@@ -401,7 +401,7 @@ public class PaymentCompletionDetails {
    * The result of the redirect as appended to the &#x60;returnURL&#x60;.
    * @return redirectResult
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The result of the redirect as appended to the `returnURL`.")
 
   public String getRedirectResult() {
@@ -424,7 +424,7 @@ public class PaymentCompletionDetails {
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: &#x60;transStatus&#x60;, &#x60;authorisationToken&#x60;.
    * @return threeDSResult
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Base64-encoded string returned by the Component after the challenge flow. It contains the following parameters: `transStatus`, `authorisationToken`.")
 
   public String getThreeDSResult() {
@@ -447,7 +447,7 @@ public class PaymentCompletionDetails {
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;transStatus&#x60;.
    * @return threeds2ChallengeResult
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: `transStatus`.")
 
   public String getThreeds2ChallengeResult() {
@@ -470,7 +470,7 @@ public class PaymentCompletionDetails {
    * Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: &#x60;threeDSCompInd&#x60;.
    * @return threeds2Fingerprint
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: `threeDSCompInd`.")
 
   public String getThreeds2Fingerprint() {

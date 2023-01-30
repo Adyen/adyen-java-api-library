@@ -77,7 +77,7 @@ public class DSPublicKeyDetail {
    * Card brand.
    * @return brand
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Card brand.")
 
   public String getBrand() {
@@ -100,7 +100,7 @@ public class DSPublicKeyDetail {
    * Directory Server (DS) identifier.
    * @return directoryServerId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Directory Server (DS) identifier.")
 
   public String getDirectoryServerId() {
@@ -123,7 +123,7 @@ public class DSPublicKeyDetail {
    * The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).
    * @return fromSDKVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The version of the mobile 3D Secure 2 SDK. For the possible values, refer to the versions in [Adyen 3DS2 Android](https://github.com/Adyen/adyen-3ds2-android/releases) and [Adyen 3DS2 iOS](https://github.com/Adyen/adyen-3ds2-ios/releases).")
 
   public String getFromSDKVersion() {
@@ -146,7 +146,7 @@ public class DSPublicKeyDetail {
    * Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.
    * @return publicKey
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Public key. The 3D Secure 2 SDK encrypts the device information by using the DS public key.")
 
   public byte[] getPublicKey() {

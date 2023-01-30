@@ -65,7 +65,7 @@ public class UpdatePayoutSettingsRequest {
    * Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both &#x60;enabled&#x60; and &#x60;allowed&#x60; must be **true**.
    * @return enabled
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Indicates if payouts to this bank account are enabled. Default: **true**.  To receive payouts into this bank account, both `enabled` and `allowed` must be **true**.")
 
   public Boolean getEnabled() {
