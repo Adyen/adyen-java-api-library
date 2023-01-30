@@ -71,7 +71,7 @@ public class AuthenticationResultResponse {
    * Get threeDS1Result
    * @return threeDS1Result
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public ThreeDS1Result getThreeDS1Result() {
@@ -94,7 +94,7 @@ public class AuthenticationResultResponse {
    * Get threeDS2Result
    * @return threeDS2Result
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public ThreeDS2Result getThreeDS2Result() {

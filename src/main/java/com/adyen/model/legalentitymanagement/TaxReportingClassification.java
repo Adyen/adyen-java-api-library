@@ -225,7 +225,7 @@ public class TaxReportingClassification {
    * The organization&#39;s business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.
    * @return businessType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The organization's business type.  Possible values: **other**, **listedPublicCompany**, **subsidiaryOfListedPublicCompany**, **governmentalOrganization**, **internationalOrganization**, **financialInstitution**.")
 
   public BusinessTypeEnum getBusinessType() {
@@ -248,7 +248,7 @@ public class TaxReportingClassification {
    * The Global Intermediary Identification Number (GIIN) required for FATCA.
    * @return financialInstitutionNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Global Intermediary Identification Number (GIIN) required for FATCA.")
 
   public String getFinancialInstitutionNumber() {
@@ -271,7 +271,7 @@ public class TaxReportingClassification {
    * The organization&#39;s main source of income.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.
    * @return mainSourceOfIncome
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The organization's main source of income.  Possible values: **businessOperation**, **realEstateSales**, **investmentInterestOrRoyalty**, **propertyRental**, **other**.")
 
   public MainSourceOfIncomeEnum getMainSourceOfIncome() {
@@ -294,7 +294,7 @@ public class TaxReportingClassification {
    * The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The tax reporting classification type.  Possible values: **nonFinancialNonReportable**, **financialNonReportable**, **nonFinancialActive**, **nonFinancialPassive**.")
 
   public TypeEnum getType() {

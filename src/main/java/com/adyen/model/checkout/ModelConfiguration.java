@@ -129,7 +129,7 @@ public class ModelConfiguration {
    * Get avs
    * @return avs
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Avs getAvs() {
@@ -152,7 +152,7 @@ public class ModelConfiguration {
    * Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED
    * @return cardHolderName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED")
 
   public CardHolderNameEnum getCardHolderName() {
@@ -175,7 +175,7 @@ public class ModelConfiguration {
    * Get installments
    * @return installments
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public InstallmentsNumber getInstallments() {
@@ -198,7 +198,7 @@ public class ModelConfiguration {
    * Get shopperInput
    * @return shopperInput
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ShopperInput getShopperInput() {

@@ -128,7 +128,7 @@ public class TerminalSettings {
    * Get cardholderReceipt
    * @return cardholderReceipt
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public CardholderReceipt getCardholderReceipt() {
@@ -151,7 +151,7 @@ public class TerminalSettings {
    * Get connectivity
    * @return connectivity
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Connectivity getConnectivity() {
@@ -182,7 +182,7 @@ public class TerminalSettings {
    * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
    * @return gratuities
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.")
 
   public List<Gratuity> getGratuities() {
@@ -205,7 +205,7 @@ public class TerminalSettings {
    * Get hardware
    * @return hardware
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Hardware getHardware() {
@@ -228,7 +228,7 @@ public class TerminalSettings {
    * Get nexo
    * @return nexo
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Nexo getNexo() {
@@ -251,7 +251,7 @@ public class TerminalSettings {
    * Get offlineProcessing
    * @return offlineProcessing
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public OfflineProcessing getOfflineProcessing() {
@@ -274,7 +274,7 @@ public class TerminalSettings {
    * Get opi
    * @return opi
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Opi getOpi() {
@@ -297,7 +297,7 @@ public class TerminalSettings {
    * Get receiptOptions
    * @return receiptOptions
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public ReceiptOptions getReceiptOptions() {
@@ -320,7 +320,7 @@ public class TerminalSettings {
    * Get receiptPrinting
    * @return receiptPrinting
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public ReceiptPrinting getReceiptPrinting() {
@@ -343,7 +343,7 @@ public class TerminalSettings {
    * Get signature
    * @return signature
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Signature getSignature() {
@@ -366,7 +366,7 @@ public class TerminalSettings {
    * Get surcharge
    * @return surcharge
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Surcharge getSurcharge() {
@@ -389,7 +389,7 @@ public class TerminalSettings {
    * Get timeouts
    * @return timeouts
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Timeouts getTimeouts() {
@@ -412,7 +412,7 @@ public class TerminalSettings {
    * Get wifiProfiles
    * @return wifiProfiles
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public WifiProfiles getWifiProfiles() {

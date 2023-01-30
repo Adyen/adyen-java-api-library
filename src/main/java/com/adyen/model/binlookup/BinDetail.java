@@ -65,7 +65,7 @@ public class BinDetail {
    * The country where the card was issued.
    * @return issuerCountry
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The country where the card was issued.")
 
   public String getIssuerCountry() {

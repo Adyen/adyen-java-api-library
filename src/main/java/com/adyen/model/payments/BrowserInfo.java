@@ -97,7 +97,7 @@ public class BrowserInfo {
    * The accept header value of the shopper&#39;s browser.
    * @return acceptHeader
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The accept header value of the shopper's browser.")
 
   public String getAcceptHeader() {
@@ -120,7 +120,7 @@ public class BrowserInfo {
    * The color depth of the shopper&#39;s browser in bits per pixel. This should be obtained by using the browser&#39;s &#x60;screen.colorDepth&#x60; property. Accepted values: 1, 4, 8, 15, 16, 24, 30, 32 or 48 bit color depth.
    * @return colorDepth
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The color depth of the shopper's browser in bits per pixel. This should be obtained by using the browser's `screen.colorDepth` property. Accepted values: 1, 4, 8, 15, 16, 24, 30, 32 or 48 bit color depth.")
 
   public Integer getColorDepth() {
@@ -143,7 +143,7 @@ public class BrowserInfo {
    * Boolean value indicating if the shopper&#39;s browser is able to execute Java.
    * @return javaEnabled
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Boolean value indicating if the shopper's browser is able to execute Java.")
 
   public Boolean getJavaEnabled() {
@@ -166,7 +166,7 @@ public class BrowserInfo {
    * Boolean value indicating if the shopper&#39;s browser is able to execute JavaScript. A default &#39;true&#39; value is assumed if the field is not present.
    * @return javaScriptEnabled
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Boolean value indicating if the shopper's browser is able to execute JavaScript. A default 'true' value is assumed if the field is not present.")
 
   public Boolean getJavaScriptEnabled() {
@@ -189,7 +189,7 @@ public class BrowserInfo {
    * The &#x60;navigator.language&#x60; value of the shopper&#39;s browser (as defined in IETF BCP 47).
    * @return language
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The `navigator.language` value of the shopper's browser (as defined in IETF BCP 47).")
 
   public String getLanguage() {
@@ -212,7 +212,7 @@ public class BrowserInfo {
    * The total height of the shopper&#39;s device screen in pixels.
    * @return screenHeight
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The total height of the shopper's device screen in pixels.")
 
   public Integer getScreenHeight() {
@@ -235,7 +235,7 @@ public class BrowserInfo {
    * The total width of the shopper&#39;s device screen in pixels.
    * @return screenWidth
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The total width of the shopper's device screen in pixels.")
 
   public Integer getScreenWidth() {
@@ -258,7 +258,7 @@ public class BrowserInfo {
    * Time difference between UTC time and the shopper&#39;s browser local time, in minutes.
    * @return timeZoneOffset
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Time difference between UTC time and the shopper's browser local time, in minutes.")
 
   public Integer getTimeZoneOffset() {
@@ -281,7 +281,7 @@ public class BrowserInfo {
    * The user agent value of the shopper&#39;s browser.
    * @return userAgent
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The user agent value of the shopper's browser.")
 
   public String getUserAgent() {

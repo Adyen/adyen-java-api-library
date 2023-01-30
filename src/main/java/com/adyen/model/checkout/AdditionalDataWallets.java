@@ -85,7 +85,7 @@ public class AdditionalDataWallets {
    * The Android Pay token retrieved from the SDK.
    * @return androidpayToken
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Android Pay token retrieved from the SDK.")
 
   public String getAndroidpayToken() {
@@ -108,7 +108,7 @@ public class AdditionalDataWallets {
    * The Mastercard Masterpass Transaction ID retrieved from the SDK.
    * @return masterpassTransactionId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Mastercard Masterpass Transaction ID retrieved from the SDK.")
 
   public String getMasterpassTransactionId() {
@@ -131,7 +131,7 @@ public class AdditionalDataWallets {
    * The Apple Pay token retrieved from the SDK.
    * @return paymentToken
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Apple Pay token retrieved from the SDK.")
 
   public String getPaymentToken() {
@@ -154,7 +154,7 @@ public class AdditionalDataWallets {
    * The Google Pay token retrieved from the SDK.
    * @return paywithgoogleToken
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Google Pay token retrieved from the SDK.")
 
   public String getPaywithgoogleToken() {
@@ -177,7 +177,7 @@ public class AdditionalDataWallets {
    * The Samsung Pay token retrieved from the SDK.
    * @return samsungpayToken
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Samsung Pay token retrieved from the SDK.")
 
   public String getSamsungpayToken() {
@@ -200,7 +200,7 @@ public class AdditionalDataWallets {
    * The Visa Checkout Call ID retrieved from the SDK.
    * @return visacheckoutCallId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Visa Checkout Call ID retrieved from the SDK.")
 
   public String getVisacheckoutCallId() {

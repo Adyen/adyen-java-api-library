@@ -65,7 +65,7 @@ public class GenerateHmacKeyResponse {
    * The HMAC key generated for this webhook.
    * @return hmacKey
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The HMAC key generated for this webhook.")
 
   public String getHmacKey() {

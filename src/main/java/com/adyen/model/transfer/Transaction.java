@@ -318,7 +318,7 @@ public class Transaction {
    * Unique identifier of the account holder.
    * @return accountHolderId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Unique identifier of the account holder.")
 
   public String getAccountHolderId() {
@@ -341,7 +341,7 @@ public class Transaction {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -364,7 +364,7 @@ public class Transaction {
    * Unique identifier of the balance account.
    * @return balanceAccountId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Unique identifier of the balance account.")
 
   public String getBalanceAccountId() {
@@ -387,7 +387,7 @@ public class Transaction {
    * Unique identifier of the balance platform.
    * @return balancePlatform
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Unique identifier of the balance platform.")
 
   public String getBalancePlatform() {
@@ -410,7 +410,7 @@ public class Transaction {
    * The date the transaction was booked to the balance account.
    * @return bookingDate
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The date the transaction was booked to the balance account.")
 
   public Date getBookingDate() {
@@ -433,7 +433,7 @@ public class Transaction {
    * The category of the transaction indicating the type of activity.   Possible values:  * **platformPayment**: The transaction is a payment or payment modification made with an Adyen merchant account.  * **internal**: The transaction resulted from an internal adjustment such as a deposit correction or invoice deduction.  * **bank**: The transaction is a bank-related activity, such as sending a payout or receiving funds.  * **issuedCard**: The transaction is a card-related activity, such as using an Adyen-issued card to pay online.  
    * @return category
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The category of the transaction indicating the type of activity.   Possible values:  * **platformPayment**: The transaction is a payment or payment modification made with an Adyen merchant account.  * **internal**: The transaction resulted from an internal adjustment such as a deposit correction or invoice deduction.  * **bank**: The transaction is a bank-related activity, such as sending a payout or receiving funds.  * **issuedCard**: The transaction is a card-related activity, such as using an Adyen-issued card to pay online.  ")
 
   public CategoryEnum getCategory() {
@@ -456,7 +456,7 @@ public class Transaction {
    * Get counterparty
    * @return counterparty
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public CounterpartyV3 getCounterparty() {
@@ -479,7 +479,7 @@ public class Transaction {
    * The date the transaction was created.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The date the transaction was created.")
 
   public Date getCreatedAt() {
@@ -502,7 +502,7 @@ public class Transaction {
    * The &#x60;description&#x60; from the &#x60;/transfers&#x60; request.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `description` from the `/transfers` request.")
 
   public String getDescription() {
@@ -519,7 +519,7 @@ public class Transaction {
    * Unique identifier of the transaction.
    * @return id
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Unique identifier of the transaction.")
 
   public String getId() {
@@ -539,7 +539,7 @@ public class Transaction {
    * Get instructedAmount
    * @return instructedAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getInstructedAmount() {
@@ -562,7 +562,7 @@ public class Transaction {
    * Unique identifier of the payment instrument that was used for the transaction.
    * @return paymentInstrumentId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique identifier of the payment instrument that was used for the transaction.")
 
   public String getPaymentInstrumentId() {
@@ -585,7 +585,7 @@ public class Transaction {
    * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_reference) from the &#x60;/transfers&#x60; request. If you haven&#39;t provided any, Adyen generates a unique reference.
    * @return reference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The [`reference`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_reference) from the `/transfers` request. If you haven't provided any, Adyen generates a unique reference.")
 
   public String getReference() {
@@ -608,7 +608,7 @@ public class Transaction {
    * The reference sent to or received from the counterparty.  * For outgoing funds, this is the [&#x60;referenceForBeneficiary&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [&#x60;/transfers&#x60;](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.
    * @return referenceForBeneficiary
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The reference sent to or received from the counterparty.  * For outgoing funds, this is the [`referenceForBeneficiary`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__resParam_referenceForBeneficiary) from the  [`/transfers`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/transfers__reqParam_referenceForBeneficiary) request.   * For incoming funds, this is the reference from the sender.")
 
   public String getReferenceForBeneficiary() {
@@ -631,7 +631,7 @@ public class Transaction {
    * The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  
    * @return status
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The status of the transaction.   Possible values:  * **pending**: The transaction is still pending.  * **booked**: The transaction has been booked to the balance account.  ")
 
   public StatusEnum getStatus() {
@@ -654,7 +654,7 @@ public class Transaction {
    * Unique identifier of the related transfer.
    * @return transferId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique identifier of the related transfer.")
 
   public String getTransferId() {
@@ -677,7 +677,7 @@ public class Transaction {
    * The type of the transaction.   Possible values: **payment**, **capture**, **captureReversal**, **refund** **refundReversal**, **chargeback**, **chargebackReversal**, **secondChargeback**, **atmWithdrawal**, **atmWithdrawalReversal**, **internalTransfer**, **manualCorrection**, **invoiceDeduction**, **depositCorrection**, **bankTransfer**, **miscCost**, **paymentCost**, **fee**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of the transaction.   Possible values: **payment**, **capture**, **captureReversal**, **refund** **refundReversal**, **chargeback**, **chargebackReversal**, **secondChargeback**, **atmWithdrawal**, **atmWithdrawalReversal**, **internalTransfer**, **manualCorrection**, **invoiceDeduction**, **depositCorrection**, **bankTransfer**, **miscCost**, **paymentCost**, **fee**")
 
   public TypeEnum getType() {
@@ -700,7 +700,7 @@ public class Transaction {
    * The date the transfer amount becomes available in the balance account.
    * @return valueDate
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The date the transfer amount becomes available in the balance account.")
 
   public Date getValueDate() {

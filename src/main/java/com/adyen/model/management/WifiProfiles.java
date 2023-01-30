@@ -81,7 +81,7 @@ public class WifiProfiles {
    * List of remote Wi-Fi profiles
    * @return profiles
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of remote Wi-Fi profiles")
 
   public List<Profile> getProfiles() {
@@ -104,7 +104,7 @@ public class WifiProfiles {
    * Get settings
    * @return settings
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Settings getSettings() {

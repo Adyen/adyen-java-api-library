@@ -65,7 +65,7 @@ public class GenerateApiKeyResponse {
    * The generated API key.
    * @return apiKey
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The generated API key.")
 
   public String getApiKey() {

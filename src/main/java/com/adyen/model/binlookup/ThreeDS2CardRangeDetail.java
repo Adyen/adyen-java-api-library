@@ -95,7 +95,7 @@ public class ThreeDS2CardRangeDetail {
    * Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)
    * @return acsInfoInd
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Provides additional information to the 3DS Server. Possible values: - 01 (Authentication is available at ACS) - 02 (Attempts supported by ACS or DS) - 03 (Decoupled authentication supported) - 04 (Whitelisting supported)")
 
   public List<String> getAcsInfoInd() {
@@ -118,7 +118,7 @@ public class ThreeDS2CardRangeDetail {
    * Card brand.
    * @return brandCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Card brand.")
 
   public String getBrandCode() {
@@ -141,7 +141,7 @@ public class ThreeDS2CardRangeDetail {
    * BIN end range.
    * @return endRange
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "BIN end range.")
 
   public String getEndRange() {
@@ -164,7 +164,7 @@ public class ThreeDS2CardRangeDetail {
    * BIN start range.
    * @return startRange
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "BIN start range.")
 
   public String getStartRange() {
@@ -187,7 +187,7 @@ public class ThreeDS2CardRangeDetail {
    * 3D Secure protocol version.
    * @return threeDS2Version
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "3D Secure protocol version.")
 
   public String getThreeDS2Version() {
@@ -210,7 +210,7 @@ public class ThreeDS2CardRangeDetail {
    * In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.
    * @return threeDSMethodURL
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to.")
 
   public String getThreeDSMethodURL() {

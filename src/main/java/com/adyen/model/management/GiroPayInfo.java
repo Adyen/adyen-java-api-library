@@ -65,7 +65,7 @@ public class GiroPayInfo {
    * The email address of merchant support.
    * @return supportEmail
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The email address of merchant support.")
 
   public String getSupportEmail() {

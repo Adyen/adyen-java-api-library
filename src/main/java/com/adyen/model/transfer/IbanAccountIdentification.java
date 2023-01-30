@@ -97,7 +97,7 @@ public class IbanAccountIdentification {
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    * @return iban
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.")
 
   public String getIban() {
@@ -120,7 +120,7 @@ public class IbanAccountIdentification {
    * **iban**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**iban**")
 
   public TypeEnum getType() {

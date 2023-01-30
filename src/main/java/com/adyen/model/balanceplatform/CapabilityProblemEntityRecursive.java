@@ -118,7 +118,7 @@ public class CapabilityProblemEntityRecursive {
    * The ID of the entity.
    * @return id
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The ID of the entity.")
 
   public String getId() {
@@ -141,7 +141,7 @@ public class CapabilityProblemEntityRecursive {
    * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.")
 
   public TypeEnum getType() {

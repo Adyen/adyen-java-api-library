@@ -77,7 +77,7 @@ public class SDKEphemPubKey {
    * The &#x60;crv&#x60; value as received from the 3D Secure 2 SDK.
    * @return crv
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `crv` value as received from the 3D Secure 2 SDK.")
 
   public String getCrv() {
@@ -100,7 +100,7 @@ public class SDKEphemPubKey {
    * The &#x60;kty&#x60; value as received from the 3D Secure 2 SDK.
    * @return kty
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `kty` value as received from the 3D Secure 2 SDK.")
 
   public String getKty() {
@@ -123,7 +123,7 @@ public class SDKEphemPubKey {
    * The &#x60;x&#x60; value as received from the 3D Secure 2 SDK.
    * @return x
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `x` value as received from the 3D Secure 2 SDK.")
 
   public String getX() {
@@ -146,7 +146,7 @@ public class SDKEphemPubKey {
    * The &#x60;y&#x60; value as received from the 3D Secure 2 SDK.
    * @return y
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `y` value as received from the 3D Secure 2 SDK.")
 
   public String getY() {

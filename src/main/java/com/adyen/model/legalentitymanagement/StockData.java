@@ -61,7 +61,7 @@ public class StockData {
    * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    * @return marketIdentifier
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization's stocks are traded.")
 
   public String getMarketIdentifier() {
@@ -84,7 +84,7 @@ public class StockData {
    * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    * @return stockNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).")
 
   public String getStockNumber() {
@@ -107,7 +107,7 @@ public class StockData {
    * The stock ticker symbol.
    * @return tickerSymbol
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The stock ticker symbol.")
 
   public String getTickerSymbol() {

@@ -81,7 +81,7 @@ public class ListCompanyResponse {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public PaginationLinks getLinks() {
@@ -112,7 +112,7 @@ public class ListCompanyResponse {
    * The list of companies.
    * @return data
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of companies.")
 
   public List<Company> getData() {
@@ -135,7 +135,7 @@ public class ListCompanyResponse {
    * Total number of items.
    * @return itemsTotal
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Total number of items.")
 
   public Integer getItemsTotal() {
@@ -158,7 +158,7 @@ public class ListCompanyResponse {
    * Total number of pages.
    * @return pagesTotal
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Total number of pages.")
 
   public Integer getPagesTotal() {

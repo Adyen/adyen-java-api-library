@@ -97,7 +97,7 @@ public class NOLocalAccountIdentification {
    * The 11-digit bank account number (without separators or whitespace).
    * @return accountNumber
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The 11-digit bank account number (without separators or whitespace).")
 
   public String getAccountNumber() {
@@ -120,7 +120,7 @@ public class NOLocalAccountIdentification {
    * **noLocal**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**noLocal**")
 
   public TypeEnum getType() {

@@ -145,7 +145,7 @@ public class AdditionalDataRisk {
    * The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).
    * @return riskdataCustomFieldName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The data for your custom risk field. For more information, refer to [Create custom risk fields](https://docs.adyen.com/risk-management/configure-custom-risk-rules#step-1-create-custom-risk-fields).")
 
   public String getRiskdataCustomFieldName() {
@@ -168,7 +168,7 @@ public class AdditionalDataRisk {
    * The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return riskdataBasketItemItemNrAmountPerItem
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The price of item in the basket, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getRiskdataBasketItemItemNrAmountPerItem() {
@@ -191,7 +191,7 @@ public class AdditionalDataRisk {
    * Brand of the item.
    * @return riskdataBasketItemItemNrBrand
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Brand of the item.")
 
   public String getRiskdataBasketItemItemNrBrand() {
@@ -214,7 +214,7 @@ public class AdditionalDataRisk {
    * Category of the item.
    * @return riskdataBasketItemItemNrCategory
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Category of the item.")
 
   public String getRiskdataBasketItemItemNrCategory() {
@@ -237,7 +237,7 @@ public class AdditionalDataRisk {
    * Color of the item.
    * @return riskdataBasketItemItemNrColor
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Color of the item.")
 
   public String getRiskdataBasketItemItemNrColor() {
@@ -260,7 +260,7 @@ public class AdditionalDataRisk {
    * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return riskdataBasketItemItemNrCurrency
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getRiskdataBasketItemItemNrCurrency() {
@@ -283,7 +283,7 @@ public class AdditionalDataRisk {
    * ID of the item.
    * @return riskdataBasketItemItemNrItemID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "ID of the item.")
 
   public String getRiskdataBasketItemItemNrItemID() {
@@ -306,7 +306,7 @@ public class AdditionalDataRisk {
    * Manufacturer of the item.
    * @return riskdataBasketItemItemNrManufacturer
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Manufacturer of the item.")
 
   public String getRiskdataBasketItemItemNrManufacturer() {
@@ -329,7 +329,7 @@ public class AdditionalDataRisk {
    * A text description of the product the invoice line refers to.
    * @return riskdataBasketItemItemNrProductTitle
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A text description of the product the invoice line refers to.")
 
   public String getRiskdataBasketItemItemNrProductTitle() {
@@ -352,7 +352,7 @@ public class AdditionalDataRisk {
    * Quantity of the item purchased.
    * @return riskdataBasketItemItemNrQuantity
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Quantity of the item purchased.")
 
   public String getRiskdataBasketItemItemNrQuantity() {
@@ -375,7 +375,7 @@ public class AdditionalDataRisk {
    * Email associated with the given product in the basket (usually in electronic gift cards).
    * @return riskdataBasketItemItemNrReceiverEmail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Email associated with the given product in the basket (usually in electronic gift cards).")
 
   public String getRiskdataBasketItemItemNrReceiverEmail() {
@@ -398,7 +398,7 @@ public class AdditionalDataRisk {
    * Size of the item.
    * @return riskdataBasketItemItemNrSize
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Size of the item.")
 
   public String getRiskdataBasketItemItemNrSize() {
@@ -421,7 +421,7 @@ public class AdditionalDataRisk {
    * [Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).
    * @return riskdataBasketItemItemNrSku
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "[Stock keeping unit](https://en.wikipedia.org/wiki/Stock_keeping_unit).")
 
   public String getRiskdataBasketItemItemNrSku() {
@@ -444,7 +444,7 @@ public class AdditionalDataRisk {
    * [Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).
    * @return riskdataBasketItemItemNrUpc
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "[Universal Product Code](https://en.wikipedia.org/wiki/Universal_Product_Code).")
 
   public String getRiskdataBasketItemItemNrUpc() {
@@ -467,7 +467,7 @@ public class AdditionalDataRisk {
    * Code of the promotion.
    * @return riskdataPromotionsPromotionItemNrPromotionCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Code of the promotion.")
 
   public String getRiskdataPromotionsPromotionItemNrPromotionCode() {
@@ -490,7 +490,7 @@ public class AdditionalDataRisk {
    * The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The discount amount of the promotion, represented in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountAmount() {
@@ -513,7 +513,7 @@ public class AdditionalDataRisk {
    * The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountCurrency
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).")
 
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountCurrency() {
@@ -536,7 +536,7 @@ public class AdditionalDataRisk {
    * Promotion&#39;s percentage discount. It is represented in percentage value and there is no need to include the &#39;%&#39; sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.
    * @return riskdataPromotionsPromotionItemNrPromotionDiscountPercentage
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Promotion's percentage discount. It is represented in percentage value and there is no need to include the '%' sign.  e.g. for a promotion discount of 30%, the value of the field should be 30.")
 
   public String getRiskdataPromotionsPromotionItemNrPromotionDiscountPercentage() {
@@ -559,7 +559,7 @@ public class AdditionalDataRisk {
    * Name of the promotion.
    * @return riskdataPromotionsPromotionItemNrPromotionName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Name of the promotion.")
 
   public String getRiskdataPromotionsPromotionItemNrPromotionName() {
@@ -582,7 +582,7 @@ public class AdditionalDataRisk {
    * Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account&#39;s default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).
    * @return riskdataRiskProfileReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment).")
 
   public String getRiskdataRiskProfileReference() {
@@ -605,7 +605,7 @@ public class AdditionalDataRisk {
    * If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.
    * @return riskdataSkipRisk
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score.")
 
   public String getRiskdataSkipRisk() {

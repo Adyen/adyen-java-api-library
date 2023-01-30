@@ -76,7 +76,7 @@ public class BillingEntitiesResponse {
    * List of legal entities that can be used for the billing of orders.
    * @return data
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of legal entities that can be used for the billing of orders.")
 
   public List<BillingEntity> getData() {

@@ -78,7 +78,7 @@ public class MerchantLinks {
    * Get apiCredentials
    * @return apiCredentials
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public LinksElement getApiCredentials() {
@@ -101,7 +101,7 @@ public class MerchantLinks {
    * Get self
    * @return self
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getSelf() {
@@ -124,7 +124,7 @@ public class MerchantLinks {
    * Get users
    * @return users
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public LinksElement getUsers() {
@@ -147,7 +147,7 @@ public class MerchantLinks {
    * Get webhooks
    * @return webhooks
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public LinksElement getWebhooks() {

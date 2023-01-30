@@ -69,7 +69,7 @@ public class MerchantAcquirerPair {
    * The acquirer ID.
    * @return acquirerId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The acquirer ID.")
 
   public String getAcquirerId() {
@@ -92,7 +92,7 @@ public class MerchantAcquirerPair {
    * The merchant identification number (MID).
    * @return merchantId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The merchant identification number (MID).")
 
   public String getMerchantId() {

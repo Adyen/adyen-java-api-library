@@ -86,7 +86,7 @@ public class ApiCredentialLinks {
    * Get allowedOrigins
    * @return allowedOrigins
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public LinksElement getAllowedOrigins() {
@@ -109,7 +109,7 @@ public class ApiCredentialLinks {
    * Get company
    * @return company
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public LinksElement getCompany() {
@@ -132,7 +132,7 @@ public class ApiCredentialLinks {
    * Get generateApiKey
    * @return generateApiKey
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public LinksElement getGenerateApiKey() {
@@ -155,7 +155,7 @@ public class ApiCredentialLinks {
    * Get generateClientKey
    * @return generateClientKey
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public LinksElement getGenerateClientKey() {
@@ -178,7 +178,7 @@ public class ApiCredentialLinks {
    * Get merchant
    * @return merchant
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public LinksElement getMerchant() {
@@ -201,7 +201,7 @@ public class ApiCredentialLinks {
    * Get self
    * @return self
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getSelf() {

@@ -49,7 +49,7 @@ public class TransactionSearchResponse {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Links getLinks() {
@@ -80,7 +80,7 @@ public class TransactionSearchResponse {
    * Contains the transactions that match the query parameters.
    * @return data
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Contains the transactions that match the query parameters.")
 
   public List<Transaction> getData() {

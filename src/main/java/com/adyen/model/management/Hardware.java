@@ -65,7 +65,7 @@ public class Hardware {
    * The brightness of the display when the terminal is being used, expressed as a percentage.
    * @return displayMaximumBackLight
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The brightness of the display when the terminal is being used, expressed as a percentage.")
 
   public Integer getDisplayMaximumBackLight() {

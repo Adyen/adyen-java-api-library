@@ -529,7 +529,7 @@ public class ThreeDS2RequestData {
    * Get acctInfo
    * @return acctInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public AcctInfo getAcctInfo() {
@@ -552,7 +552,7 @@ public class ThreeDS2RequestData {
    * Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit
    * @return acctType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates the type of account. For example, for a multi-account card product. Length: 2 characters. Allowed values: * **01** — Not applicable * **02** — Credit * **03** — Debit")
 
   public AcctTypeEnum getAcctType() {
@@ -575,7 +575,7 @@ public class ThreeDS2RequestData {
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    * @return acquirerBIN
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The acquiring BIN enrolled for 3D Secure 2. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.")
 
   public String getAcquirerBIN() {
@@ -598,7 +598,7 @@ public class ThreeDS2RequestData {
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant&#39;s acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.
    * @return acquirerMerchantID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchantId that is enrolled for 3D Secure 2 by the merchant's acquirer. This string should match the value that you will use in the authorisation. Use 123456 on the Test platform.")
 
   public String getAcquirerMerchantID() {
@@ -621,7 +621,7 @@ public class ThreeDS2RequestData {
    * Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.
    * @return addrMatch
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. Allowed values: * **Y** — Shipping Address matches Billing Address. * **N** — Shipping Address does not match Billing Address.")
 
   public AddrMatchEnum getAddrMatch() {
@@ -646,7 +646,7 @@ public class ThreeDS2RequestData {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
 
   public Boolean getAuthenticationOnly() {
@@ -671,7 +671,7 @@ public class ThreeDS2RequestData {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Possibility to specify a preference for receiving a challenge from the issuer. Allowed values: * `noPreference` * `requestNoChallenge` * `requestChallenge` * `requestChallengeAsMandate` ")
 
   public ChallengeIndicatorEnum getChallengeIndicator() {
@@ -694,7 +694,7 @@ public class ThreeDS2RequestData {
    * The environment of the shopper. Allowed values: * &#x60;app&#x60; * &#x60;browser&#x60;
    * @return deviceChannel
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The environment of the shopper. Allowed values: * `app` * `browser`")
 
   public String getDeviceChannel() {
@@ -717,7 +717,7 @@ public class ThreeDS2RequestData {
    * Get deviceRenderOptions
    * @return deviceRenderOptions
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public DeviceRenderOptions getDeviceRenderOptions() {
@@ -740,7 +740,7 @@ public class ThreeDS2RequestData {
    * Get homePhone
    * @return homePhone
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Phone getHomePhone() {
@@ -763,7 +763,7 @@ public class ThreeDS2RequestData {
    * Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The &#x60;mcc&#x60; is a four-digit code with which the previously given &#x60;acquirerMerchantID&#x60; is registered at the scheme.
    * @return mcc
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for merchants that have been enrolled for 3D Secure 2 by another party than Adyen, mostly [authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The `mcc` is a four-digit code with which the previously given `acquirerMerchantID` is registered at the scheme.")
 
   public String getMcc() {
@@ -786,7 +786,7 @@ public class ThreeDS2RequestData {
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. &gt; Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.
    * @return merchantName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). The merchant name that the issuer presents to the shopper if they get a challenge. We recommend to use the same value that you will use in the authorization. Maximum length is 40 characters. > Optional for a [full 3D Secure 2 integration](https://docs.adyen.com/online-payments/3d-secure/native-3ds2/api-integration). Use this field if you are enrolled for 3D Secure 2 with us and want to override the merchant name already configured on your account.")
 
   public String getMerchantName() {
@@ -809,7 +809,7 @@ public class ThreeDS2RequestData {
    * The &#x60;messageVersion&#x60; value indicating the 3D Secure 2 protocol version.
    * @return messageVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `messageVersion` value indicating the 3D Secure 2 protocol version.")
 
   public String getMessageVersion() {
@@ -832,7 +832,7 @@ public class ThreeDS2RequestData {
    * Get mobilePhone
    * @return mobilePhone
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Phone getMobilePhone() {
@@ -855,7 +855,7 @@ public class ThreeDS2RequestData {
    * URL to where the issuer should send the &#x60;CRes&#x60;. Required if you are not using components for &#x60;channel&#x60; **Web** or if you are using classic integration &#x60;deviceChannel&#x60; **browser**.
    * @return notificationURL
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "URL to where the issuer should send the `CRes`. Required if you are not using components for `channel` **Web** or if you are using classic integration `deviceChannel` **browser**.")
 
   public String getNotificationURL() {
@@ -878,7 +878,7 @@ public class ThreeDS2RequestData {
    * Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.
    * @return payTokenInd
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Value **true** indicates that the transaction was de-tokenised prior to being received by the ACS.")
 
   public Boolean getPayTokenInd() {
@@ -901,7 +901,7 @@ public class ThreeDS2RequestData {
    * Indicates the type of payment for which an authentication is requested (message extension)
    * @return paymentAuthenticationUseCase
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates the type of payment for which an authentication is requested (message extension)")
 
   public String getPaymentAuthenticationUseCase() {
@@ -924,7 +924,7 @@ public class ThreeDS2RequestData {
    * Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.
    * @return purchaseInstalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates the maximum number of authorisations permitted for instalment payments. Length: 1–3 characters.")
 
   public String getPurchaseInstalData() {
@@ -947,7 +947,7 @@ public class ThreeDS2RequestData {
    * Date after which no further authorisations shall be performed. Format: YYYYMMDD
    * @return recurringExpiry
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Date after which no further authorisations shall be performed. Format: YYYYMMDD")
 
   public String getRecurringExpiry() {
@@ -970,7 +970,7 @@ public class ThreeDS2RequestData {
    * Indicates the minimum number of days between authorisations. Maximum length: 4 characters.
    * @return recurringFrequency
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates the minimum number of days between authorisations. Maximum length: 4 characters.")
 
   public String getRecurringFrequency() {
@@ -993,7 +993,7 @@ public class ThreeDS2RequestData {
    * The &#x60;sdkAppID&#x60; value as received from the 3D Secure 2 SDK. Required for &#x60;deviceChannel&#x60; set to **app**.
    * @return sdkAppID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `sdkAppID` value as received from the 3D Secure 2 SDK. Required for `deviceChannel` set to **app**.")
 
   public String getSdkAppID() {
@@ -1016,7 +1016,7 @@ public class ThreeDS2RequestData {
    * The &#x60;sdkEncData&#x60; value as received from the 3D Secure 2 SDK. Required for &#x60;deviceChannel&#x60; set to **app**.
    * @return sdkEncData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `sdkEncData` value as received from the 3D Secure 2 SDK. Required for `deviceChannel` set to **app**.")
 
   public String getSdkEncData() {
@@ -1039,7 +1039,7 @@ public class ThreeDS2RequestData {
    * Get sdkEphemPubKey
    * @return sdkEphemPubKey
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public SDKEphemPubKey getSdkEphemPubKey() {
@@ -1062,7 +1062,7 @@ public class ThreeDS2RequestData {
    * The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for &#x60;deviceChannel&#x60; set to **app**. Defaults to **60** minutes.
    * @return sdkMaxTimeout
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for `deviceChannel` set to **app**. Defaults to **60** minutes.")
 
   public Integer getSdkMaxTimeout() {
@@ -1085,7 +1085,7 @@ public class ThreeDS2RequestData {
    * The &#x60;sdkReferenceNumber&#x60; value as received from the 3D Secure 2 SDK. Only for &#x60;deviceChannel&#x60; set to **app**.
    * @return sdkReferenceNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `sdkReferenceNumber` value as received from the 3D Secure 2 SDK. Only for `deviceChannel` set to **app**.")
 
   public String getSdkReferenceNumber() {
@@ -1108,7 +1108,7 @@ public class ThreeDS2RequestData {
    * The &#x60;sdkTransID&#x60; value as received from the 3D Secure 2 SDK. Only for &#x60;deviceChannel&#x60; set to **app**.
    * @return sdkTransID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `sdkTransID` value as received from the 3D Secure 2 SDK. Only for `deviceChannel` set to **app**.")
 
   public String getSdkTransID() {
@@ -1131,7 +1131,7 @@ public class ThreeDS2RequestData {
    * Version of the 3D Secure 2 mobile SDK.  Only for &#x60;deviceChannel&#x60; set to **app**.
    * @return sdkVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Version of the 3D Secure 2 mobile SDK.  Only for `deviceChannel` set to **app**.")
 
   public String getSdkVersion() {
@@ -1154,7 +1154,7 @@ public class ThreeDS2RequestData {
    * Completion indicator for the device fingerprinting.
    * @return threeDSCompInd
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Completion indicator for the device fingerprinting.")
 
   public String getThreeDSCompInd() {
@@ -1177,7 +1177,7 @@ public class ThreeDS2RequestData {
    * Indicates the type of Authentication request.
    * @return threeDSRequestorAuthenticationInd
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates the type of Authentication request.")
 
   public String getThreeDSRequestorAuthenticationInd() {
@@ -1200,7 +1200,7 @@ public class ThreeDS2RequestData {
    * Get threeDSRequestorAuthenticationInfo
    * @return threeDSRequestorAuthenticationInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ThreeDSRequestorAuthenticationInfo getThreeDSRequestorAuthenticationInfo() {
@@ -1223,7 +1223,7 @@ public class ThreeDS2RequestData {
    * Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed)
    * @return threeDSRequestorChallengeInd
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether a challenge is requested for this transaction. Possible values: * **01** — No preference * **02** — No challenge requested * **03** — Challenge requested (3DS Requestor preference) * **04** — Challenge requested (Mandate) * **05** — No challenge (transactional risk analysis is already performed)")
 
   public ThreeDSRequestorChallengeIndEnum getThreeDSRequestorChallengeInd() {
@@ -1246,7 +1246,7 @@ public class ThreeDS2RequestData {
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.
    * @return threeDSRequestorID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor identifier assigned by the Directory Server when you enrol for 3D Secure 2.")
 
   public String getThreeDSRequestorID() {
@@ -1269,7 +1269,7 @@ public class ThreeDS2RequestData {
    * Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.
    * @return threeDSRequestorName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for [authentication-only integration](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only) for Visa. Unique 3D Secure requestor name assigned by the Directory Server when you enrol for 3D Secure 2.")
 
   public String getThreeDSRequestorName() {
@@ -1292,7 +1292,7 @@ public class ThreeDS2RequestData {
    * Get threeDSRequestorPriorAuthenticationInfo
    * @return threeDSRequestorPriorAuthenticationInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ThreeDSRequestorPriorAuthenticationInfo getThreeDSRequestorPriorAuthenticationInfo() {
@@ -1315,7 +1315,7 @@ public class ThreeDS2RequestData {
    * URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.
    * @return threeDSRequestorURL
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "URL of the (customer service) website that will be shown to the shopper in case of technical errors during the 3D Secure 2 process.")
 
   public String getThreeDSRequestorURL() {
@@ -1338,7 +1338,7 @@ public class ThreeDS2RequestData {
    * Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load
    * @return transType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Identifies the type of transaction being authenticated. Length: 2 characters. Allowed values: * **01** — Goods/Service Purchase * **03** — Check Acceptance * **10** — Account Funding * **11** — Quasi-Cash Transaction * **28** — Prepaid Activation and Load")
 
   public TransTypeEnum getTransType() {
@@ -1361,7 +1361,7 @@ public class ThreeDS2RequestData {
    * Identify the type of the transaction being authenticated.
    * @return transactionType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Identify the type of the transaction being authenticated.")
 
   public TransactionTypeEnum getTransactionType() {
@@ -1384,7 +1384,7 @@ public class ThreeDS2RequestData {
    * The &#x60;whiteListStatus&#x60; value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.
    * @return whiteListStatus
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `whiteListStatus` value returned from a previous 3D Secure 2 transaction, only applicable for 3D Secure 2 protocol version 2.2.0.")
 
   public String getWhiteListStatus() {
@@ -1407,7 +1407,7 @@ public class ThreeDS2RequestData {
    * Get workPhone
    * @return workPhone
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Phone getWorkPhone() {

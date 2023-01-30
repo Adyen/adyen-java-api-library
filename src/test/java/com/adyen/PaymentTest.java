@@ -462,7 +462,7 @@ public class PaymentTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
         Payment payment = new Payment(client);
 
-        final String expectedBytesAsString = "Let's pretend this a jpg or something";
+        final String expectedBytesAsString = "Let's pretend/ this a jpg or something=";
         final byte[] expectedBytes = expectedBytesAsString.getBytes(StandardCharsets.UTF_8);
         final ByteString expectedByteString = ByteString.of(expectedBytes);
         final String serializedBytes = expectedByteString.base64();

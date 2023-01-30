@@ -61,7 +61,7 @@ public class TaxInformation {
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return country
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.")
 
   public String getCountry() {
@@ -84,7 +84,7 @@ public class TaxInformation {
    * The tax ID number (TIN) of the organization or individual.
    * @return number
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The tax ID number (TIN) of the organization or individual.")
 
   public String getNumber() {
@@ -107,7 +107,7 @@ public class TaxInformation {
    * The TIN type depending on the country where it was issued. Provide only for countries that have multiple tax IDs, such as Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The TIN type depending on the country where it was issued. Provide only for countries that have multiple tax IDs, such as Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.")
 
   public String getType() {

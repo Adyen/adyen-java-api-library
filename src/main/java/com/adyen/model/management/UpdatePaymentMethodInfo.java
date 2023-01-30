@@ -88,7 +88,7 @@ public class UpdatePaymentMethodInfo {
    * The list of countries where a payment method is available. By default, all countries supported by the payment method.
    * @return countries
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of countries where a payment method is available. By default, all countries supported by the payment method.")
 
   public List<String> getCountries() {
@@ -119,7 +119,7 @@ public class UpdatePaymentMethodInfo {
    * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
    * @return currencies
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of currencies that a payment method supports. By default, all currencies supported by the payment method.")
 
   public List<String> getCurrencies() {
@@ -142,7 +142,7 @@ public class UpdatePaymentMethodInfo {
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    * @return enabled
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether the payment method is enabled (**true**) or disabled (**false**).")
 
   public Boolean getEnabled() {
@@ -165,7 +165,7 @@ public class UpdatePaymentMethodInfo {
    * Get shopperStatement
    * @return shopperStatement
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ShopperStatement getShopperStatement() {

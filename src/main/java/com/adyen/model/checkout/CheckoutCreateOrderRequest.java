@@ -78,7 +78,7 @@ public class CheckoutCreateOrderRequest {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -101,7 +101,7 @@ public class CheckoutCreateOrderRequest {
    * The date that order expires; e.g. 2019-03-23T12:25:28Z. If not provided, the default expiry duration is 1 day.
    * @return expiresAt
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The date that order expires; e.g. 2019-03-23T12:25:28Z. If not provided, the default expiry duration is 1 day.")
 
   public String getExpiresAt() {
@@ -124,7 +124,7 @@ public class CheckoutCreateOrderRequest {
    * The merchant account identifier, with which you want to process the order.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the order.")
 
   public String getMerchantAccount() {
@@ -147,7 +147,7 @@ public class CheckoutCreateOrderRequest {
    * A custom reference identifying the order.
    * @return reference
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "A custom reference identifying the order.")
 
   public String getReference() {

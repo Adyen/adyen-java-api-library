@@ -85,7 +85,7 @@ public class ListWebhooksResponse {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public PaginationLinks getLinks() {
@@ -108,7 +108,7 @@ public class ListWebhooksResponse {
    * Reference to the account.
    * @return accountReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Reference to the account.")
 
   public String getAccountReference() {
@@ -139,7 +139,7 @@ public class ListWebhooksResponse {
    * The list of webhooks configured for this account.
    * @return data
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of webhooks configured for this account.")
 
   public List<Webhook> getData() {
@@ -162,7 +162,7 @@ public class ListWebhooksResponse {
    * Total number of items.
    * @return itemsTotal
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Total number of items.")
 
   public Integer getItemsTotal() {
@@ -185,7 +185,7 @@ public class ListWebhooksResponse {
    * Total number of pages.
    * @return pagesTotal
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Total number of pages.")
 
   public Integer getPagesTotal() {

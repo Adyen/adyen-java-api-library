@@ -69,7 +69,7 @@ public class ActiveNetworkTokensRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -92,7 +92,7 @@ public class ActiveNetworkTokensRestriction {
    * The number of tokens.
    * @return value
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The number of tokens.")
 
   public Integer getValue() {

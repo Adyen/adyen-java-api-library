@@ -94,7 +94,7 @@ public class ExternalTerminalAction {
    * The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.
    * @return actionType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of terminal action: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, or **UninstallAndroidCertificate**.")
 
   public String getActionType() {
@@ -117,7 +117,7 @@ public class ExternalTerminalAction {
    * Technical information about the terminal action.
    * @return config
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Technical information about the terminal action.")
 
   public String getConfig() {
@@ -140,7 +140,7 @@ public class ExternalTerminalAction {
    * The date and time when the action was carried out.
    * @return confirmedAt
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The date and time when the action was carried out.")
 
   public OffsetDateTime getConfirmedAt() {
@@ -163,7 +163,7 @@ public class ExternalTerminalAction {
    * The unique ID of the terminal action.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique ID of the terminal action.")
 
   public String getId() {
@@ -186,7 +186,7 @@ public class ExternalTerminalAction {
    * The result message for the action.
    * @return result
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The result message for the action.")
 
   public String getResult() {
@@ -209,7 +209,7 @@ public class ExternalTerminalAction {
    * The date and time when the action was scheduled to happen.
    * @return scheduledAt
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The date and time when the action was scheduled to happen.")
 
   public OffsetDateTime getScheduledAt() {
@@ -232,7 +232,7 @@ public class ExternalTerminalAction {
    * The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.
    * @return status
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**.")
 
   public String getStatus() {
@@ -255,7 +255,7 @@ public class ExternalTerminalAction {
    * The unique ID of the terminal that the action applies to.
    * @return terminalId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique ID of the terminal that the action applies to.")
 
   public String getTerminalId() {

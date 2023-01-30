@@ -97,7 +97,7 @@ public class PLLocalAccountIdentification {
    * The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)) (without separators or whitespace).
    * @return accountNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The 26-digit bank account number ([Numer rachunku](https://pl.wikipedia.org/wiki/Numer_Rachunku_Bankowego)) (without separators or whitespace).")
 
   public String getAccountNumber() {
@@ -120,7 +120,7 @@ public class PLLocalAccountIdentification {
    * **plLocal**
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "**plLocal**")
 
   public TypeEnum getType() {

@@ -173,7 +173,7 @@ public class DeviceRenderOptions {
    * Supported SDK interface types. Allowed values: * native * html * both
    * @return sdkInterface
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Supported SDK interface types. Allowed values: * native * html * both")
 
   public SdkInterfaceEnum getSdkInterface() {
@@ -204,7 +204,7 @@ public class DeviceRenderOptions {
    * UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect
    * @return sdkUiType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "UI types supported for displaying specific challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml * multiSelect")
 
   public List<SdkUiTypeEnum> getSdkUiType() {

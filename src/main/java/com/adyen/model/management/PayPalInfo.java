@@ -73,7 +73,7 @@ public class PayPalInfo {
    * Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.
    * @return directCapture
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if direct (immediate) capture for PayPal is enabled. If set to **true**, this setting overrides the [capture](https://docs.adyen.com/online-payments/capture) settings of your merchant account. Default value: **true**.")
 
   public Boolean getDirectCapture() {
@@ -96,7 +96,7 @@ public class PayPalInfo {
    * PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.
    * @return payerId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "PayPal Merchant ID. Character length and limitations: 13 single-byte alphanumeric characters.")
 
   public String getPayerId() {
@@ -119,7 +119,7 @@ public class PayPalInfo {
    * Your business email address.
    * @return subject
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Your business email address.")
 
   public String getSubject() {

@@ -61,7 +61,7 @@ public class Name {
    * The individual&#39;s first name.
    * @return firstName
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The individual's first name.")
 
   public String getFirstName() {
@@ -84,7 +84,7 @@ public class Name {
    * The infix in the individual&#39;s name, if any.
    * @return infix
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The infix in the individual's name, if any.")
 
   public String getInfix() {
@@ -107,7 +107,7 @@ public class Name {
    * The individual&#39;s last name.
    * @return lastName
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The individual's last name.")
 
   public String getLastName() {

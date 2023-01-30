@@ -171,7 +171,7 @@ public class ApplePayDetails {
    * The stringified and base64 encoded &#x60;paymentData&#x60; you retrieved from the Apple framework.
    * @return applePayToken
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The stringified and base64 encoded `paymentData` you retrieved from the Apple framework.")
 
   public String getApplePayToken() {
@@ -194,7 +194,7 @@ public class ApplePayDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -219,7 +219,7 @@ public class ApplePayDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -242,7 +242,7 @@ public class ApplePayDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -265,7 +265,7 @@ public class ApplePayDetails {
    * **applepay**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**applepay**")
 
   public TypeEnum getType() {

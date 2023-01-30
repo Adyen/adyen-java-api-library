@@ -129,7 +129,7 @@ public class AdditionalDataLevel23 {
    * Customer code, if supplied by a customer.  Encoding: ASCII.  Max length: 25 characters.  &gt; Required for Level 2 and Level 3 data.
    * @return enhancedSchemeDataCustomerReference
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Customer code, if supplied by a customer.  Encoding: ASCII.  Max length: 25 characters.  > Required for Level 2 and Level 3 data.")
 
   public String getEnhancedSchemeDataCustomerReference() {
@@ -152,7 +152,7 @@ public class AdditionalDataLevel23 {
    * Destination country code.  Encoding: ASCII.  Max length: 3 characters.
    * @return enhancedSchemeDataDestinationCountryCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Destination country code.  Encoding: ASCII.  Max length: 3 characters.")
 
   public String getEnhancedSchemeDataDestinationCountryCode() {
@@ -175,7 +175,7 @@ public class AdditionalDataLevel23 {
    * The postal code of a destination address.  Encoding: ASCII.  Max length: 10 characters.  &gt; Required for American Express.
    * @return enhancedSchemeDataDestinationPostalCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The postal code of a destination address.  Encoding: ASCII.  Max length: 10 characters.  > Required for American Express.")
 
   public String getEnhancedSchemeDataDestinationPostalCode() {
@@ -198,7 +198,7 @@ public class AdditionalDataLevel23 {
    * Destination state or province code.  Encoding: ASCII.Max length: 3 characters.
    * @return enhancedSchemeDataDestinationStateProvinceCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Destination state or province code.  Encoding: ASCII.Max length: 3 characters.")
 
   public String getEnhancedSchemeDataDestinationStateProvinceCode() {
@@ -221,7 +221,7 @@ public class AdditionalDataLevel23 {
    * Duty amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.
    * @return enhancedSchemeDataDutyAmount
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Duty amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.")
 
   public String getEnhancedSchemeDataDutyAmount() {
@@ -244,7 +244,7 @@ public class AdditionalDataLevel23 {
    * Shipping amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.
    * @return enhancedSchemeDataFreightAmount
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Shipping amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.")
 
   public String getEnhancedSchemeDataFreightAmount() {
@@ -267,7 +267,7 @@ public class AdditionalDataLevel23 {
    * Item commodity code.  Encoding: ASCII.  Max length: 12 characters.
    * @return enhancedSchemeDataItemDetailLineItemNrCommodityCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Item commodity code.  Encoding: ASCII.  Max length: 12 characters.")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrCommodityCode() {
@@ -290,7 +290,7 @@ public class AdditionalDataLevel23 {
    * Item description.  Encoding: ASCII.  Max length: 26 characters.
    * @return enhancedSchemeDataItemDetailLineItemNrDescription
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Item description.  Encoding: ASCII.  Max length: 26 characters.")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrDescription() {
@@ -313,7 +313,7 @@ public class AdditionalDataLevel23 {
    * Discount amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.
    * @return enhancedSchemeDataItemDetailLineItemNrDiscountAmount
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Discount amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrDiscountAmount() {
@@ -336,7 +336,7 @@ public class AdditionalDataLevel23 {
    * Product code.  Encoding: ASCII.  Max length: 12 characters.
    * @return enhancedSchemeDataItemDetailLineItemNrProductCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Product code.  Encoding: ASCII.  Max length: 12 characters.")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrProductCode() {
@@ -359,7 +359,7 @@ public class AdditionalDataLevel23 {
    * Quantity, specified as an integer value.  Value must be greater than 0.  Max length: 12 characters.
    * @return enhancedSchemeDataItemDetailLineItemNrQuantity
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Quantity, specified as an integer value.  Value must be greater than 0.  Max length: 12 characters.")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrQuantity() {
@@ -382,7 +382,7 @@ public class AdditionalDataLevel23 {
    * Total amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.
    * @return enhancedSchemeDataItemDetailLineItemNrTotalAmount
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Total amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrTotalAmount() {
@@ -405,7 +405,7 @@ public class AdditionalDataLevel23 {
    * Item unit of measurement.  Encoding: ASCII.  Max length: 3 characters.
    * @return enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Item unit of measurement.  Encoding: ASCII.  Max length: 3 characters.")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrUnitOfMeasure() {
@@ -428,7 +428,7 @@ public class AdditionalDataLevel23 {
    * Unit price, specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).  Max length: 12 characters.
    * @return enhancedSchemeDataItemDetailLineItemNrUnitPrice
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Unit price, specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).  Max length: 12 characters.")
 
   public String getEnhancedSchemeDataItemDetailLineItemNrUnitPrice() {
@@ -451,7 +451,7 @@ public class AdditionalDataLevel23 {
    * Order date. * Format: &#x60;ddMMyy&#x60;  Encoding: ASCII.  Max length: 6 characters.
    * @return enhancedSchemeDataOrderDate
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Order date. * Format: `ddMMyy`  Encoding: ASCII.  Max length: 6 characters.")
 
   public String getEnhancedSchemeDataOrderDate() {
@@ -474,7 +474,7 @@ public class AdditionalDataLevel23 {
    * The postal code of a \&quot;ship-from\&quot; address.  Encoding: ASCII.  Max length: 10 characters.
    * @return enhancedSchemeDataShipFromPostalCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The postal code of a \"ship-from\" address.  Encoding: ASCII.  Max length: 10 characters.")
 
   public String getEnhancedSchemeDataShipFromPostalCode() {
@@ -497,7 +497,7 @@ public class AdditionalDataLevel23 {
    * Total tax amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.  &gt; Required for Level 2 and Level 3 data.
    * @return enhancedSchemeDataTotalTaxAmount
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Total tax amount, in minor units.  For example, 2000 means USD 20.00.  Max length: 12 characters.  > Required for Level 2 and Level 3 data.")
 
   public String getEnhancedSchemeDataTotalTaxAmount() {

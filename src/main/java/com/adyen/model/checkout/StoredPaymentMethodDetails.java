@@ -150,7 +150,7 @@ public class StoredPaymentMethodDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -173,7 +173,7 @@ public class StoredPaymentMethodDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -196,7 +196,7 @@ public class StoredPaymentMethodDetails {
    * The payment method type.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The payment method type.")
 
   public TypeEnum getType() {

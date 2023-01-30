@@ -61,7 +61,7 @@ public class BusinessLines {
    * List of business lines.
    * @return businessLines
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "List of business lines.")
 
   public List<BusinessLine> getBusinessLines() {

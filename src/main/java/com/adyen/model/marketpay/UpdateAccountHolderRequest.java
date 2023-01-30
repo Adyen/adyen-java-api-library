@@ -22,7 +22,6 @@
 
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,7 +58,7 @@ public class UpdateAccountHolderRequest {
         NONPROFIT("NonProfit"),
         PUBLICCOMPANY("PublicCompany");
 
-        @JsonValue
+
         private final String value;
 
         LegalEntityEnum(String value) {

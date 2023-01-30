@@ -292,7 +292,7 @@ public class PaymentDetails {
    * The payment method type.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The payment method type.")
 
   public TypeEnum getType() {

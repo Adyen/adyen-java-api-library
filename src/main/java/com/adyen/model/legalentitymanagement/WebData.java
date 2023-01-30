@@ -53,7 +53,7 @@ public class WebData {
    * The URL of the website.
    * @return webAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The URL of the website.")
 
   public String getWebAddress() {

@@ -65,7 +65,7 @@ public class BankAccount {
    * The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
    * @return iban
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).")
 
   public String getIban() {

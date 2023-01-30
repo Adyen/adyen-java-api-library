@@ -101,7 +101,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * Get address
    * @return address
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Address2 getAddress() {
@@ -132,7 +132,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
    * @return businessLineIds
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.")
 
   public List<String> getBusinessLineIds() {
@@ -155,7 +155,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * Your description of the store.
    * @return description
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Your description of the store.")
 
   public String getDescription() {
@@ -178,7 +178,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * When using the Zip payment method: The location ID that Zip has assigned to your store.
    * @return externalReferenceId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "When using the Zip payment method: The location ID that Zip has assigned to your store.")
 
   public String getExternalReferenceId() {
@@ -201,7 +201,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * The unique identifier of the merchant account that the store belongs to.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the merchant account that the store belongs to.")
 
   public String getMerchantId() {
@@ -224,7 +224,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * The phone number of the store, including &#39;+&#39; and country code.
    * @return phoneNumber
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The phone number of the store, including '+' and country code.")
 
   public String getPhoneNumber() {
@@ -247,7 +247,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * Your reference to recognize the store by. Also known as the store code.  Allowed characters: Lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference to recognize the store by. Also known as the store code.  Allowed characters: Lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).")
 
   public String getReference() {
@@ -270,7 +270,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
    * @return shopperStatement
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The store name to be shown on the shopper's bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can't be all numbers.")
 
   public String getShopperStatement() {
@@ -293,7 +293,7 @@ public class StoreCreationWithMerchantCodeRequest {
    * Get splitConfiguration
    * @return splitConfiguration
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public StoreSplitConfiguration getSplitConfiguration() {

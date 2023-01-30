@@ -21,12 +21,11 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.google.gson.annotations.SerializedName;
 
 public class RefundResultContainer {
     @SerializedName("RefundResult")
-    @JsonProperty("RefundResult")
     private RefundResult refundResult;
 
     public RefundResult getRefundResult() {

@@ -137,7 +137,7 @@ public class ThreeDS2ResponseData {
    * Get acsChallengeMandated
    * @return acsChallengeMandated
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getAcsChallengeMandated() {
@@ -160,7 +160,7 @@ public class ThreeDS2ResponseData {
    * Get acsOperatorID
    * @return acsOperatorID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getAcsOperatorID() {
@@ -183,7 +183,7 @@ public class ThreeDS2ResponseData {
    * Get acsReferenceNumber
    * @return acsReferenceNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getAcsReferenceNumber() {
@@ -206,7 +206,7 @@ public class ThreeDS2ResponseData {
    * Get acsSignedContent
    * @return acsSignedContent
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getAcsSignedContent() {
@@ -229,7 +229,7 @@ public class ThreeDS2ResponseData {
    * Get acsTransID
    * @return acsTransID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getAcsTransID() {
@@ -252,7 +252,7 @@ public class ThreeDS2ResponseData {
    * Get acsURL
    * @return acsURL
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getAcsURL() {
@@ -275,7 +275,7 @@ public class ThreeDS2ResponseData {
    * Get authenticationType
    * @return authenticationType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getAuthenticationType() {
@@ -298,7 +298,7 @@ public class ThreeDS2ResponseData {
    * Get cardHolderInfo
    * @return cardHolderInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getCardHolderInfo() {
@@ -321,7 +321,7 @@ public class ThreeDS2ResponseData {
    * Get cavvAlgorithm
    * @return cavvAlgorithm
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getCavvAlgorithm() {
@@ -344,7 +344,7 @@ public class ThreeDS2ResponseData {
    * Get challengeIndicator
    * @return challengeIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getChallengeIndicator() {
@@ -367,7 +367,7 @@ public class ThreeDS2ResponseData {
    * Get dsReferenceNumber
    * @return dsReferenceNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getDsReferenceNumber() {
@@ -390,7 +390,7 @@ public class ThreeDS2ResponseData {
    * Get dsTransID
    * @return dsTransID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getDsTransID() {
@@ -413,7 +413,7 @@ public class ThreeDS2ResponseData {
    * Get exemptionIndicator
    * @return exemptionIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getExemptionIndicator() {
@@ -436,7 +436,7 @@ public class ThreeDS2ResponseData {
    * Get messageVersion
    * @return messageVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getMessageVersion() {
@@ -459,7 +459,7 @@ public class ThreeDS2ResponseData {
    * Get riskScore
    * @return riskScore
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getRiskScore() {
@@ -482,7 +482,7 @@ public class ThreeDS2ResponseData {
    * Get sdkEphemPubKey
    * @return sdkEphemPubKey
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getSdkEphemPubKey() {
@@ -505,7 +505,7 @@ public class ThreeDS2ResponseData {
    * Get threeDSServerTransID
    * @return threeDSServerTransID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getThreeDSServerTransID() {
@@ -528,7 +528,7 @@ public class ThreeDS2ResponseData {
    * Get transStatus
    * @return transStatus
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getTransStatus() {
@@ -551,7 +551,7 @@ public class ThreeDS2ResponseData {
    * Get transStatusReason
    * @return transStatusReason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getTransStatusReason() {

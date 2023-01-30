@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -73,7 +72,7 @@ public class ShareholderContact {
     CONTROLLER("Controller"),
     OWNER("Owner");
 
-    @JsonValue
+
     private final String value;
 
     ShareholderTypeEnum(String value) {

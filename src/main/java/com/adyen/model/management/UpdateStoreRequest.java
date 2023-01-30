@@ -138,7 +138,7 @@ public class UpdateStoreRequest {
    * Get address
    * @return address
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public UpdatableAddress getAddress() {
@@ -169,7 +169,7 @@ public class UpdateStoreRequest {
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id) that the store is associated with.
    * @return businessLineIds
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id) that the store is associated with.")
 
   public List<String> getBusinessLineIds() {
@@ -192,7 +192,7 @@ public class UpdateStoreRequest {
    * The description of the store.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The description of the store.")
 
   public String getDescription() {
@@ -215,7 +215,7 @@ public class UpdateStoreRequest {
    * When using the Zip payment method: The location ID that Zip has assigned to your store.
    * @return externalReferenceId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "When using the Zip payment method: The location ID that Zip has assigned to your store.")
 
   public String getExternalReferenceId() {
@@ -238,7 +238,7 @@ public class UpdateStoreRequest {
    * Get splitConfiguration
    * @return splitConfiguration
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public StoreSplitConfiguration getSplitConfiguration() {
@@ -261,7 +261,7 @@ public class UpdateStoreRequest {
    * The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can&#39;t process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can&#39;t be reopened.
    * @return status
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The status of the store. Possible values are:  - **active**: This value is assigned automatically when a store is created.  - **inactive**: The maximum [transaction limits and number of Store-and-Forward transactions](https://docs.adyen.com/point-of-sale/determine-account-structure/configure-features#payment-features) for the store are set to 0. This blocks new transactions, but captures are still possible. - **closed**: The terminals of the store are reassigned to the merchant inventory, so they can't process payments.  You can change the status from **active** to **inactive**, and from **inactive** to **active** or **closed**.  Once **closed**, a store can't be reopened.")
 
   public StatusEnum getStatus() {

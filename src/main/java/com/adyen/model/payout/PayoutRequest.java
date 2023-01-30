@@ -174,7 +174,7 @@ public class PayoutRequest {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -197,7 +197,7 @@ public class PayoutRequest {
    * Get billingAddress
    * @return billingAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -220,7 +220,7 @@ public class PayoutRequest {
    * Get card
    * @return card
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -243,7 +243,7 @@ public class PayoutRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
 
   public Integer getFraudOffset() {
@@ -266,7 +266,7 @@ public class PayoutRequest {
    * Get fundSource
    * @return fundSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public FundSource getFundSource() {
@@ -289,7 +289,7 @@ public class PayoutRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -312,7 +312,7 @@ public class PayoutRequest {
    * Get recurring
    * @return recurring
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Recurring getRecurring() {
@@ -335,7 +335,7 @@ public class PayoutRequest {
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return reference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
 
   public String getReference() {
@@ -358,7 +358,7 @@ public class PayoutRequest {
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    * @return selectedRecurringDetailReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
 
   public String getSelectedRecurringDetailReference() {
@@ -381,7 +381,7 @@ public class PayoutRequest {
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    * @return shopperEmail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > For 3D Secure 2 transactions, schemes require `shopperEmail` for all browser-based and mobile implementations.")
 
   public String getShopperEmail() {
@@ -404,7 +404,7 @@ public class PayoutRequest {
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return shopperInteraction
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
 
   public ShopperInteractionEnum getShopperInteraction() {
@@ -427,7 +427,7 @@ public class PayoutRequest {
    * Get shopperName
    * @return shopperName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -450,7 +450,7 @@ public class PayoutRequest {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
 
   public String getShopperReference() {
@@ -473,7 +473,7 @@ public class PayoutRequest {
    * The shopper&#39;s telephone number.
    * @return telephoneNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's telephone number.")
 
   public String getTelephoneNumber() {

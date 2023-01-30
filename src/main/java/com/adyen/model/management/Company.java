@@ -93,7 +93,7 @@ public class Company {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CompanyLinks getLinks() {
@@ -124,7 +124,7 @@ public class Company {
    * List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.
    * @return dataCenters
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of available data centers.  Adyen has several data centers around the world.In the URL that you use for making API requests, we recommend you use the live URL prefix from the data center closest to your shoppers.")
 
   public List<DataCenter> getDataCenters() {
@@ -147,7 +147,7 @@ public class Company {
    * Your description for the company account, maximum 300 characters
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your description for the company account, maximum 300 characters")
 
   public String getDescription() {
@@ -170,7 +170,7 @@ public class Company {
    * The unique identifier of the company account.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the company account.")
 
   public String getId() {
@@ -193,7 +193,7 @@ public class Company {
    * The legal or trading name of the company.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The legal or trading name of the company.")
 
   public String getName() {
@@ -216,7 +216,7 @@ public class Company {
    * Your reference to the account
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference to the account")
 
   public String getReference() {
@@ -239,7 +239,7 @@ public class Company {
    * The status of the company account.  Possible values:  * **Active**: Users can log in. Processing and payout capabilities depend on the status of the merchant account. * **Inactive**: Users can log in. Payment processing and payouts are disabled. * **Closed**: The company account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.
    * @return status
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The status of the company account.  Possible values:  * **Active**: Users can log in. Processing and payout capabilities depend on the status of the merchant account. * **Inactive**: Users can log in. Payment processing and payouts are disabled. * **Closed**: The company account is closed and this cannot be reversed. Users cannot log in. Payment processing and payouts are disabled.")
 
   public String getStatus() {

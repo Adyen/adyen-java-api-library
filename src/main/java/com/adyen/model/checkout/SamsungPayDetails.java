@@ -171,7 +171,7 @@ public class SamsungPayDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -196,7 +196,7 @@ public class SamsungPayDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -219,7 +219,7 @@ public class SamsungPayDetails {
    * The payload you received from the Samsung Pay SDK response.
    * @return samsungPayToken
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The payload you received from the Samsung Pay SDK response.")
 
   public String getSamsungPayToken() {
@@ -242,7 +242,7 @@ public class SamsungPayDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -265,7 +265,7 @@ public class SamsungPayDetails {
    * **samsungpay**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**samsungpay**")
 
   public TypeEnum getType() {

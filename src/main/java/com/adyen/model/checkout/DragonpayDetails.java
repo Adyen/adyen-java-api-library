@@ -124,7 +124,7 @@ public class DragonpayDetails {
    * The Dragonpay issuer value of the shopper&#39;s selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.
    * @return issuer
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The Dragonpay issuer value of the shopper's selected bank. Set this to an **id** of a Dragonpay issuer to preselect it.")
 
   public String getIssuer() {
@@ -147,7 +147,7 @@ public class DragonpayDetails {
    * The shopper’s email address.
    * @return shopperEmail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper’s email address.")
 
   public String getShopperEmail() {
@@ -170,7 +170,7 @@ public class DragonpayDetails {
    * **dragonpay**
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "**dragonpay**")
 
   public TypeEnum getType() {

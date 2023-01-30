@@ -448,7 +448,7 @@ public class CreateCheckoutSessionResponse {
    * Get accountInfo
    * @return accountInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public AccountInfo getAccountInfo() {
@@ -471,7 +471,7 @@ public class CreateCheckoutSessionResponse {
    * Get additionalAmount
    * @return additionalAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getAdditionalAmount() {
@@ -502,7 +502,7 @@ public class CreateCheckoutSessionResponse {
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payment request.  The `additionalData` object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -533,7 +533,7 @@ public class CreateCheckoutSessionResponse {
    * List of payment methods to be presented to the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60;from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return allowedPaymentMethods
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of payment methods to be presented to the shopper. To refer to payment methods, use their `paymentMethod.type`from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: `\"allowedPaymentMethods\":[\"ideal\",\"giropay\"]`")
 
   public List<String> getAllowedPaymentMethods() {
@@ -556,7 +556,7 @@ public class CreateCheckoutSessionResponse {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -579,7 +579,7 @@ public class CreateCheckoutSessionResponse {
    * Get applicationInfo
    * @return applicationInfo
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ApplicationInfo getApplicationInfo() {
@@ -602,7 +602,7 @@ public class CreateCheckoutSessionResponse {
    * Get authenticationData
    * @return authenticationData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public AuthenticationData getAuthenticationData() {
@@ -625,7 +625,7 @@ public class CreateCheckoutSessionResponse {
    * Get billingAddress
    * @return billingAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -656,7 +656,7 @@ public class CreateCheckoutSessionResponse {
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60;from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return blockedPaymentMethods
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of payment methods to be hidden from the shopper. To refer to payment methods, use their `paymentMethod.type`from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"giropay\"]`")
 
   public List<String> getBlockedPaymentMethods() {
@@ -679,7 +679,7 @@ public class CreateCheckoutSessionResponse {
    * The delay between the authorisation and scheduled auto-capture, specified in hours.
    * @return captureDelayHours
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The delay between the authorisation and scheduled auto-capture, specified in hours.")
 
   public Integer getCaptureDelayHours() {
@@ -702,7 +702,7 @@ public class CreateCheckoutSessionResponse {
    * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * **iOS** * **Android** * **Web**
    * @return channel
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the `sdkVersion` or `token`.  Possible values: * **iOS** * **Android** * **Web**")
 
   public ChannelEnum getChannel() {
@@ -725,7 +725,7 @@ public class CreateCheckoutSessionResponse {
    * Get company
    * @return company
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Company getCompany() {
@@ -748,7 +748,7 @@ public class CreateCheckoutSessionResponse {
    * The shopper&#39;s two-letter country code.
    * @return countryCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's two-letter country code.")
 
   public String getCountryCode() {
@@ -771,7 +771,7 @@ public class CreateCheckoutSessionResponse {
    * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    * @return dateOfBirth
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
   public OffsetDateTime getDateOfBirth() {
@@ -794,7 +794,7 @@ public class CreateCheckoutSessionResponse {
    * The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
    * @return deliverAt
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The date and time when the purchased goods should be delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format: YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.")
 
   public OffsetDateTime getDeliverAt() {
@@ -817,7 +817,7 @@ public class CreateCheckoutSessionResponse {
    * Get deliveryAddress
    * @return deliveryAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getDeliveryAddress() {
@@ -840,7 +840,7 @@ public class CreateCheckoutSessionResponse {
    * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future one-click payments.
    * @return enableOneClick
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "When true and `shopperReference` is provided, the shopper will be asked if the payment details should be stored for future one-click payments.")
 
   public Boolean getEnableOneClick() {
@@ -863,7 +863,7 @@ public class CreateCheckoutSessionResponse {
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
    * @return enablePayOut
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be tokenized for payouts.")
 
   public Boolean getEnablePayOut() {
@@ -886,7 +886,7 @@ public class CreateCheckoutSessionResponse {
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for recurring payments.
    * @return enableRecurring
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be tokenized for recurring payments.")
 
   public Boolean getEnableRecurring() {
@@ -909,7 +909,7 @@ public class CreateCheckoutSessionResponse {
    * The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
    * @return expiresAt
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.")
 
   public OffsetDateTime getExpiresAt() {
@@ -926,7 +926,7 @@ public class CreateCheckoutSessionResponse {
    * A unique identifier of the session.
    * @return id
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "A unique identifier of the session.")
 
   public String getId() {
@@ -954,7 +954,7 @@ public class CreateCheckoutSessionResponse {
    * A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.
    * @return installmentOptions
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A set of key-value pairs that specifies the installment options available per payment method. The key must be a payment method name in lowercase. For example, **card** to specify installment options for all cards, or **visa** or **mc**. The value must be an object containing the installment options.")
 
   public Map<String, CheckoutSessionInstallmentOption> getInstallmentOptions() {
@@ -985,7 +985,7 @@ public class CreateCheckoutSessionResponse {
    * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, and Zip.
    * @return lineItems
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Price and product information about the purchased items, to be included on the invoice sent to the shopper. > This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, and Zip.")
 
   public List<LineItem> getLineItems() {
@@ -1008,7 +1008,7 @@ public class CreateCheckoutSessionResponse {
    * Get mandate
    * @return mandate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Mandate getMandate() {
@@ -1031,7 +1031,7 @@ public class CreateCheckoutSessionResponse {
    * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    * @return mcc
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.")
 
   public String getMcc() {
@@ -1054,7 +1054,7 @@ public class CreateCheckoutSessionResponse {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -1077,7 +1077,7 @@ public class CreateCheckoutSessionResponse {
    * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    * @return merchantOrderReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. > We strongly recommend you send the `merchantOrderReference` value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide `retry.orderAttemptNumber`, `retry.chainAttemptNumber`, and `retry.skipRetry` values in `PaymentRequest.additionalData`.")
 
   public String getMerchantOrderReference() {
@@ -1108,7 +1108,7 @@ public class CreateCheckoutSessionResponse {
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    * @return metadata
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. ")
 
   public Map<String, String> getMetadata() {
@@ -1131,7 +1131,7 @@ public class CreateCheckoutSessionResponse {
    * Get mpiData
    * @return mpiData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ThreeDSecureData getMpiData() {
@@ -1154,7 +1154,7 @@ public class CreateCheckoutSessionResponse {
    * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
    * @return recurringExpiry
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Date after which no further authorisations shall be performed. Only for 3D Secure 2.")
 
   public String getRecurringExpiry() {
@@ -1177,7 +1177,7 @@ public class CreateCheckoutSessionResponse {
    * Minimum number of days between authorisations. Only for 3D Secure 2.
    * @return recurringFrequency
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Minimum number of days between authorisations. Only for 3D Secure 2.")
 
   public String getRecurringFrequency() {
@@ -1200,7 +1200,7 @@ public class CreateCheckoutSessionResponse {
    * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    * @return recurringProcessingModel
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Defines a recurring payment type. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
 
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
@@ -1223,7 +1223,7 @@ public class CreateCheckoutSessionResponse {
    * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    * @return redirectFromIssuerMethod
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the redirect method (GET or POST) when redirecting back from the issuer.")
 
   public String getRedirectFromIssuerMethod() {
@@ -1246,7 +1246,7 @@ public class CreateCheckoutSessionResponse {
    * Specifies the redirect method (GET or POST) when redirecting to the issuer.
    * @return redirectToIssuerMethod
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the redirect method (GET or POST) when redirecting to the issuer.")
 
   public String getRedirectToIssuerMethod() {
@@ -1269,7 +1269,7 @@ public class CreateCheckoutSessionResponse {
    * The reference to uniquely identify a payment.
    * @return reference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment.")
 
   public String getReference() {
@@ -1292,7 +1292,7 @@ public class CreateCheckoutSessionResponse {
    * The URL to return to when a redirect payment is completed.
    * @return returnUrl
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The URL to return to when a redirect payment is completed.")
 
   public String getReturnUrl() {
@@ -1315,7 +1315,7 @@ public class CreateCheckoutSessionResponse {
    * Get riskData
    * @return riskData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public RiskData getRiskData() {
@@ -1338,7 +1338,7 @@ public class CreateCheckoutSessionResponse {
    * The payment session data you need to pass to your front end.
    * @return sessionData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The payment session data you need to pass to your front end.")
 
   public String getSessionData() {
@@ -1361,7 +1361,7 @@ public class CreateCheckoutSessionResponse {
    * The shopper&#39;s email address.
    * @return shopperEmail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's email address.")
 
   public String getShopperEmail() {
@@ -1384,7 +1384,7 @@ public class CreateCheckoutSessionResponse {
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return shopperIP
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). > For 3D Secure 2 transactions, schemes require `shopperIP` for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).")
 
   public String getShopperIP() {
@@ -1407,7 +1407,7 @@ public class CreateCheckoutSessionResponse {
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return shopperInteraction
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
 
   public ShopperInteractionEnum getShopperInteraction() {
@@ -1430,7 +1430,7 @@ public class CreateCheckoutSessionResponse {
    * The combination of a language code and a country code to specify the language to be used in the payment.
    * @return shopperLocale
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The combination of a language code and a country code to specify the language to be used in the payment.")
 
   public String getShopperLocale() {
@@ -1453,7 +1453,7 @@ public class CreateCheckoutSessionResponse {
    * Get shopperName
    * @return shopperName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -1476,7 +1476,7 @@ public class CreateCheckoutSessionResponse {
    * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
 
   public String getShopperReference() {
@@ -1499,7 +1499,7 @@ public class CreateCheckoutSessionResponse {
    * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    * @return shopperStatement
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.")
 
   public String getShopperStatement() {
@@ -1522,7 +1522,7 @@ public class CreateCheckoutSessionResponse {
    * The shopper&#39;s social security number.
    * @return socialSecurityNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's social security number.")
 
   public String getSocialSecurityNumber() {
@@ -1545,7 +1545,7 @@ public class CreateCheckoutSessionResponse {
    * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    * @return splitCardFundingSources
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Boolean value indicating whether the card payment method should be split into separate debit and credit options.")
 
   public Boolean getSplitCardFundingSources() {
@@ -1576,7 +1576,7 @@ public class CreateCheckoutSessionResponse {
    * An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
    * @return splits
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).")
 
   public List<Split> getSplits() {
@@ -1599,7 +1599,7 @@ public class CreateCheckoutSessionResponse {
    * The ecommerce or point-of-sale store that is processing the payment.
    * @return store
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment.")
 
   public String getStore() {
@@ -1622,7 +1622,7 @@ public class CreateCheckoutSessionResponse {
    * When this is set to **true** and the &#x60;shopperReference&#x60; is provided, the payment details will be stored.
    * @return storePaymentMethod
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "When this is set to **true** and the `shopperReference` is provided, the payment details will be stored.")
 
   public Boolean getStorePaymentMethod() {
@@ -1645,7 +1645,7 @@ public class CreateCheckoutSessionResponse {
    * The shopper&#39;s telephone number.
    * @return telephoneNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's telephone number.")
 
   public String getTelephoneNumber() {
@@ -1668,7 +1668,7 @@ public class CreateCheckoutSessionResponse {
    * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.
    * @return threeDSAuthenticationOnly
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
 
   public Boolean getThreeDSAuthenticationOnly() {
@@ -1691,7 +1691,7 @@ public class CreateCheckoutSessionResponse {
    * Set to true if the payment should be routed to a trusted MID.
    * @return trustedShopper
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Set to true if the payment should be routed to a trusted MID.")
 
   public Boolean getTrustedShopper() {

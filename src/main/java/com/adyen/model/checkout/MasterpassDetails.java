@@ -163,7 +163,7 @@ public class MasterpassDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -186,7 +186,7 @@ public class MasterpassDetails {
    * The Masterpass transaction ID.
    * @return masterpassTransactionId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The Masterpass transaction ID.")
 
   public String getMasterpassTransactionId() {
@@ -209,7 +209,7 @@ public class MasterpassDetails {
    * **masterpass**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**masterpass**")
 
   public TypeEnum getType() {

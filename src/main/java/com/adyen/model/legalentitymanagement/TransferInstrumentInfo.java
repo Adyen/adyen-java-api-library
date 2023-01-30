@@ -113,7 +113,7 @@ public class TransferInstrumentInfo {
    * Get bankAccount
    * @return bankAccount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BankAccountInfo getBankAccount() {
@@ -136,7 +136,7 @@ public class TransferInstrumentInfo {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the transfer instrument.
    * @return legalEntityId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the transfer instrument.")
 
   public String getLegalEntityId() {
@@ -159,7 +159,7 @@ public class TransferInstrumentInfo {
    * Get recurringDetail
    * @return recurringDetail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public RecurringDetail getRecurringDetail() {
@@ -182,7 +182,7 @@ public class TransferInstrumentInfo {
    * The type of transfer instrument.  Possible values: **bankAccount**, **recurringDetail**.
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The type of transfer instrument.  Possible values: **bankAccount**, **recurringDetail**.")
 
   public TypeEnum getType() {

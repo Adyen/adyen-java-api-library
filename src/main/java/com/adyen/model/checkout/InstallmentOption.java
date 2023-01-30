@@ -126,7 +126,7 @@ public class InstallmentOption {
    * The maximum number of installments offered for this payment method.
    * @return maxValue
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The maximum number of installments offered for this payment method.")
 
   public Integer getMaxValue() {
@@ -157,7 +157,7 @@ public class InstallmentOption {
    * Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**
    * @return plans
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving**")
 
   public List<PlansEnum> getPlans() {
@@ -180,7 +180,7 @@ public class InstallmentOption {
    * Preselected number of installments offered for this payment method.
    * @return preselectedValue
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Preselected number of installments offered for this payment method.")
 
   public Integer getPreselectedValue() {
@@ -211,7 +211,7 @@ public class InstallmentOption {
    * An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with &#x60;maxValue&#x60;.
    * @return values
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.")
 
   public List<Integer> getValues() {

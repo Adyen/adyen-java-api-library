@@ -276,7 +276,7 @@ public class ThreeDS2Result {
    * The &#x60;authenticationValue&#x60; value as defined in the 3D Secure 2 specification.
    * @return authenticationValue
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `authenticationValue` value as defined in the 3D Secure 2 specification.")
 
   public String getAuthenticationValue() {
@@ -299,7 +299,7 @@ public class ThreeDS2Result {
    * The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires integrations.
    * @return cavvAlgorithm
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The algorithm used by the ACS to calculate the authentication value, only for Cartes Bancaires integrations.")
 
   public String getCavvAlgorithm() {
@@ -322,7 +322,7 @@ public class ThreeDS2Result {
    * Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).
    * @return challengeCancel
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. For possible values, refer to [3D Secure API reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#mpidata).")
 
   public ChallengeCancelEnum getChallengeCancel() {
@@ -345,7 +345,7 @@ public class ThreeDS2Result {
    * Specifies a preference for receiving a challenge from the issuer. Allowed values: * &#x60;noPreference&#x60; * &#x60;requestNoChallenge&#x60; * &#x60;requestChallenge&#x60; * &#x60;requestChallengeAsMandate&#x60; 
    * @return challengeIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies a preference for receiving a challenge from the issuer. Allowed values: * `noPreference` * `requestNoChallenge` * `requestChallenge` * `requestChallengeAsMandate` ")
 
   public ChallengeIndicatorEnum getChallengeIndicator() {
@@ -368,7 +368,7 @@ public class ThreeDS2Result {
    * The &#x60;dsTransID&#x60; value as defined in the 3D Secure 2 specification.
    * @return dsTransID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `dsTransID` value as defined in the 3D Secure 2 specification.")
 
   public String getDsTransID() {
@@ -391,7 +391,7 @@ public class ThreeDS2Result {
    * The &#x60;eci&#x60; value as defined in the 3D Secure 2 specification.
    * @return eci
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `eci` value as defined in the 3D Secure 2 specification.")
 
   public String getEci() {
@@ -414,7 +414,7 @@ public class ThreeDS2Result {
    * Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * &#x60;lowValue&#x60; * &#x60;secureCorporate&#x60; * &#x60;trustedBeneficiary&#x60; * &#x60;transactionRiskAnalysis&#x60; 
    * @return exemptionIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates the exemption type that was applied by the issuer to the authentication, if exemption applied. Allowed values: * `lowValue` * `secureCorporate` * `trustedBeneficiary` * `transactionRiskAnalysis` ")
 
   public ExemptionIndicatorEnum getExemptionIndicator() {
@@ -437,7 +437,7 @@ public class ThreeDS2Result {
    * The &#x60;messageVersion&#x60; value as defined in the 3D Secure 2 specification.
    * @return messageVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `messageVersion` value as defined in the 3D Secure 2 specification.")
 
   public String getMessageVersion() {
@@ -460,7 +460,7 @@ public class ThreeDS2Result {
    * Risk score calculated by Cartes Bancaires Directory Server (DS).
    * @return riskScore
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Risk score calculated by Cartes Bancaires Directory Server (DS).")
 
   public String getRiskScore() {
@@ -483,7 +483,7 @@ public class ThreeDS2Result {
    * The &#x60;threeDSServerTransID&#x60; value as defined in the 3D Secure 2 specification.
    * @return threeDSServerTransID
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `threeDSServerTransID` value as defined in the 3D Secure 2 specification.")
 
   public String getThreeDSServerTransID() {
@@ -506,7 +506,7 @@ public class ThreeDS2Result {
    * The &#x60;timestamp&#x60; value of the 3D Secure 2 authentication.
    * @return timestamp
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `timestamp` value of the 3D Secure 2 authentication.")
 
   public String getTimestamp() {
@@ -529,7 +529,7 @@ public class ThreeDS2Result {
    * The &#x60;transStatus&#x60; value as defined in the 3D Secure 2 specification.
    * @return transStatus
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `transStatus` value as defined in the 3D Secure 2 specification.")
 
   public String getTransStatus() {
@@ -552,7 +552,7 @@ public class ThreeDS2Result {
    * Provides information on why the &#x60;transStatus&#x60; field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).
    * @return transStatusReason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Provides information on why the `transStatus` field has the specified value. For possible values, refer to [our docs](https://docs.adyen.com/online-payments/3d-secure/api-reference#possible-transstatusreason-values).")
 
   public String getTransStatusReason() {
@@ -575,7 +575,7 @@ public class ThreeDS2Result {
    * The &#x60;whiteListStatus&#x60; value as defined in the 3D Secure 2 specification.
    * @return whiteListStatus
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `whiteListStatus` value as defined in the 3D Secure 2 specification.")
 
   public String getWhiteListStatus() {

@@ -151,7 +151,7 @@ public class CheckoutBalanceCheckResponse {
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.")
 
   public Map<String, String> getAdditionalData() {
@@ -174,7 +174,7 @@ public class CheckoutBalanceCheckResponse {
    * Get balance
    * @return balance
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getBalance() {
@@ -197,7 +197,7 @@ public class CheckoutBalanceCheckResponse {
    * Get fraudResult
    * @return fraudResult
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public FraudResult getFraudResult() {
@@ -220,7 +220,7 @@ public class CheckoutBalanceCheckResponse {
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
 
   public String getPspReference() {
@@ -243,7 +243,7 @@ public class CheckoutBalanceCheckResponse {
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
 
   public String getRefusalReason() {
@@ -266,7 +266,7 @@ public class CheckoutBalanceCheckResponse {
    * The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.
    * @return resultCode
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The result of the cancellation request.  Possible values:  * **Success** – Indicates that the balance check was successful. * **NotEnoughBalance** – Commonly indicates that the card did not have enough balance to pay the amount in the request, or that the currency of the balance on the card did not match the currency of the requested amount. * **Failed** – Indicates that the balance check failed.")
 
   public ResultCodeEnum getResultCode() {
@@ -289,7 +289,7 @@ public class CheckoutBalanceCheckResponse {
    * Get transactionLimit
    * @return transactionLimit
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getTransactionLimit() {

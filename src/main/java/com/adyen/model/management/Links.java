@@ -66,7 +66,7 @@ public class Links {
    * Get self
    * @return self
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getSelf() {

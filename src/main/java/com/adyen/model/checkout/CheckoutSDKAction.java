@@ -131,7 +131,7 @@ public class CheckoutSDKAction {
    * A value that must be submitted to the &#x60;/payments/details&#x60; endpoint to verify this payment.
    * @return paymentData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A value that must be submitted to the `/payments/details` endpoint to verify this payment.")
 
   public String getPaymentData() {
@@ -154,7 +154,7 @@ public class CheckoutSDKAction {
    * Specifies the payment method.
    * @return paymentMethodType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the payment method.")
 
   public String getPaymentMethodType() {
@@ -185,7 +185,7 @@ public class CheckoutSDKAction {
    * The data to pass to the SDK.
    * @return sdkData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The data to pass to the SDK.")
 
   public Map<String, String> getSdkData() {
@@ -208,7 +208,7 @@ public class CheckoutSDKAction {
    * The type of the action.
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The type of the action.")
 
   public TypeEnum getType() {
@@ -231,7 +231,7 @@ public class CheckoutSDKAction {
    * Specifies the URL to redirect to.
    * @return url
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
 
   public String getUrl() {

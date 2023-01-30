@@ -189,7 +189,7 @@ public class StoreDetailRequest {
    * This field contains additional data, which may be required for a particular request.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
 
   public Map<String, String> getAdditionalData() {
@@ -212,7 +212,7 @@ public class StoreDetailRequest {
    * Get bank
    * @return bank
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BankAccount getBank() {
@@ -235,7 +235,7 @@ public class StoreDetailRequest {
    * Get billingAddress
    * @return billingAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -258,7 +258,7 @@ public class StoreDetailRequest {
    * Get card
    * @return card
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -281,7 +281,7 @@ public class StoreDetailRequest {
    * The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
    * @return dateOfBirth
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. > This field is mandatory for natural persons.")
 
   public OffsetDateTime getDateOfBirth() {
@@ -304,7 +304,7 @@ public class StoreDetailRequest {
    * The type of the entity the payout is processed for.
    * @return entityType
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The type of the entity the payout is processed for.")
 
   public EntityTypeEnum getEntityType() {
@@ -327,7 +327,7 @@ public class StoreDetailRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
 
   public Integer getFraudOffset() {
@@ -350,7 +350,7 @@ public class StoreDetailRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -373,7 +373,7 @@ public class StoreDetailRequest {
    * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
    * @return nationality
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').")
 
   public String getNationality() {
@@ -396,7 +396,7 @@ public class StoreDetailRequest {
    * Get recurring
    * @return recurring
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Recurring getRecurring() {
@@ -419,7 +419,7 @@ public class StoreDetailRequest {
    * The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
    * @return selectedBrand
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the brand to make a payout to.  For Paysafecard it must be set to `paysafecard`.")
 
   public String getSelectedBrand() {
@@ -442,7 +442,7 @@ public class StoreDetailRequest {
    * The shopper&#39;s email address.
    * @return shopperEmail
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The shopper's email address.")
 
   public String getShopperEmail() {
@@ -465,7 +465,7 @@ public class StoreDetailRequest {
    * Get shopperName
    * @return shopperName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -488,7 +488,7 @@ public class StoreDetailRequest {
    * The shopper&#39;s reference for the payment transaction.
    * @return shopperReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The shopper's reference for the payment transaction.")
 
   public String getShopperReference() {
@@ -511,7 +511,7 @@ public class StoreDetailRequest {
    * The shopper&#39;s social security number.
    * @return socialSecurityNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's social security number.")
 
   public String getSocialSecurityNumber() {
@@ -534,7 +534,7 @@ public class StoreDetailRequest {
    * The shopper&#39;s phone number.
    * @return telephoneNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The shopper's phone number.")
 
   public String getTelephoneNumber() {

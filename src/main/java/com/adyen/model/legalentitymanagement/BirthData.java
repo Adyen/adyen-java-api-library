@@ -53,7 +53,7 @@ public class BirthData {
    * The individual&#39;s date of birth, in YYYY-MM-DD format.
    * @return dateOfBirth
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The individual's date of birth, in YYYY-MM-DD format.")
 
   public String getDateOfBirth() {

@@ -101,7 +101,7 @@ public class AULocalAccountIdentification {
    * The bank account number (without separators or whitespace).
    * @return accountNumber
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The bank account number (without separators or whitespace).")
 
   public String getAccountNumber() {
@@ -124,7 +124,7 @@ public class AULocalAccountIdentification {
    * The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch) (without separators or whitespace).
    * @return bsbCode
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The 6-digit [Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch) (without separators or whitespace).")
 
   public String getBsbCode() {
@@ -147,7 +147,7 @@ public class AULocalAccountIdentification {
    * **auLocal**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**auLocal**")
 
   public TypeEnum getType() {

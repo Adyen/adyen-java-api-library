@@ -72,7 +72,7 @@ public class Surcharge {
    * Show the surcharge details on the terminal, so the shopper can confirm.
    * @return askConfirmation
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Show the surcharge details on the terminal, so the shopper can confirm.")
 
   public Boolean getAskConfirmation() {
@@ -103,7 +103,7 @@ public class Surcharge {
    * Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.
    * @return configurations
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Surcharge fees or percentages for specific payment methods, funding sources (credit or debit), and currencies.")
 
   public List<ModelConfiguration> getConfigurations() {

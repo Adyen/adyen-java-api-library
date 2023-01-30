@@ -128,7 +128,7 @@ public class KlarnaInfo {
    * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
    * @return autoCapture
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.")
 
   public Boolean getAutoCapture() {
@@ -151,7 +151,7 @@ public class KlarnaInfo {
    * The email address for disputes.
    * @return disputeEmail
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The email address for disputes.")
 
   public String getDisputeEmail() {
@@ -174,7 +174,7 @@ public class KlarnaInfo {
    * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
    * @return region
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The region of operation. For example, **NA**, **EU**, **CH**, **AU**.")
 
   public RegionEnum getRegion() {
@@ -197,7 +197,7 @@ public class KlarnaInfo {
    * The email address of merchant support.
    * @return supportEmail
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The email address of merchant support.")
 
   public String getSupportEmail() {

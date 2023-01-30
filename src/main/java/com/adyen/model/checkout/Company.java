@@ -85,7 +85,7 @@ public class Company {
    * The company website&#39;s home page.
    * @return homepage
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The company website's home page.")
 
   public String getHomepage() {
@@ -108,7 +108,7 @@ public class Company {
    * The company name.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The company name.")
 
   public String getName() {
@@ -131,7 +131,7 @@ public class Company {
    * Registration number of the company.
    * @return registrationNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Registration number of the company.")
 
   public String getRegistrationNumber() {
@@ -154,7 +154,7 @@ public class Company {
    * Registry location of the company.
    * @return registryLocation
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Registry location of the company.")
 
   public String getRegistryLocation() {
@@ -177,7 +177,7 @@ public class Company {
    * Tax ID of the company.
    * @return taxId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Tax ID of the company.")
 
   public String getTaxId() {
@@ -200,7 +200,7 @@ public class Company {
    * The company type.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The company type.")
 
   public String getType() {

@@ -105,7 +105,7 @@ public class NumberAndBicAccountIdentification {
    * The bank account number, without separators or whitespace. The length and format depends on the bank or country.
    * @return accountNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace. The length and format depends on the bank or country.")
 
   public String getAccountNumber() {
@@ -128,7 +128,7 @@ public class NumberAndBicAccountIdentification {
    * Get additionalBankIdentification
    * @return additionalBankIdentification
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public AdditionalBankIdentification getAdditionalBankIdentification() {
@@ -151,7 +151,7 @@ public class NumberAndBicAccountIdentification {
    * The bank&#39;s 8 or 11 character BIC or SWIFT code.
    * @return bic
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The bank's 8 or 11 character BIC or SWIFT code.")
 
   public String getBic() {
@@ -174,7 +174,7 @@ public class NumberAndBicAccountIdentification {
    * **numberAndBic**
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "**numberAndBic**")
 
   public TypeEnum getType() {

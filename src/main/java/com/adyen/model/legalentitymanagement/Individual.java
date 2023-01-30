@@ -88,7 +88,7 @@ public class Individual {
    * Get birthData
    * @return birthData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BirthData getBirthData() {
@@ -111,7 +111,7 @@ public class Individual {
    * The email address of the legal entity.
    * @return email
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The email address of the legal entity.")
 
   public String getEmail() {
@@ -134,7 +134,7 @@ public class Individual {
    * Get identificationData
    * @return identificationData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public IdentificationData getIdentificationData() {
@@ -157,7 +157,7 @@ public class Individual {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Name getName() {
@@ -180,7 +180,7 @@ public class Individual {
    * The individual&#39;s nationality.
    * @return nationality
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The individual's nationality.")
 
   public String getNationality() {
@@ -203,7 +203,7 @@ public class Individual {
    * Get phone
    * @return phone
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public PhoneNumber getPhone() {
@@ -226,7 +226,7 @@ public class Individual {
    * Get residentialAddress
    * @return residentialAddress
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Address getResidentialAddress() {
@@ -257,7 +257,7 @@ public class Individual {
    * The tax information of the individual.
    * @return taxInformation
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The tax information of the individual.")
 
   public List<TaxInformation> getTaxInformation() {
@@ -280,7 +280,7 @@ public class Individual {
    * Get webData
    * @return webData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public WebData getWebData() {

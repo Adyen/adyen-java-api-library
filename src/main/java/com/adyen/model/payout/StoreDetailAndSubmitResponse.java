@@ -88,7 +88,7 @@ public class StoreDetailAndSubmitResponse {
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
 
   public Map<String, String> getAdditionalData() {
@@ -111,7 +111,7 @@ public class StoreDetailAndSubmitResponse {
    * A new reference to uniquely identify this request.
    * @return pspReference
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "A new reference to uniquely identify this request.")
 
   public String getPspReference() {
@@ -134,7 +134,7 @@ public class StoreDetailAndSubmitResponse {
    * In case of refusal, an informational message for the reason.
    * @return refusalReason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "In case of refusal, an informational message for the reason.")
 
   public String getRefusalReason() {
@@ -157,7 +157,7 @@ public class StoreDetailAndSubmitResponse {
    * The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.
    * @return resultCode
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The response:  * In case of success is payout-submit-received. * In case of an error, an informational message is returned.")
 
   public String getResultCode() {

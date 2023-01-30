@@ -112,7 +112,7 @@ public class TechnicalCancelRequest {
    * This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -135,7 +135,7 @@ public class TechnicalCancelRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -158,7 +158,7 @@ public class TechnicalCancelRequest {
    * Get modificationAmount
    * @return modificationAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getModificationAmount() {
@@ -181,7 +181,7 @@ public class TechnicalCancelRequest {
    * Get mpiData
    * @return mpiData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ThreeDSecureData getMpiData() {
@@ -204,7 +204,7 @@ public class TechnicalCancelRequest {
    * The original merchant reference to cancel.
    * @return originalMerchantReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The original merchant reference to cancel.")
 
   public String getOriginalMerchantReference() {
@@ -227,7 +227,7 @@ public class TechnicalCancelRequest {
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.")
 
   public String getReference() {
@@ -258,7 +258,7 @@ public class TechnicalCancelRequest {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
    * @return splits
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
 
   public List<Split> getSplits() {
@@ -281,7 +281,7 @@ public class TechnicalCancelRequest {
    * The transaction reference provided by the PED. For point-of-sale integrations only.
    * @return tenderReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The transaction reference provided by the PED. For point-of-sale integrations only.")
 
   public String getTenderReference() {
@@ -304,7 +304,7 @@ public class TechnicalCancelRequest {
    * Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    * @return uniqueTerminalId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.")
 
   public String getUniqueTerminalId() {

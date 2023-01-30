@@ -114,7 +114,7 @@ public class InstallAndroidCertificateDetails {
    * The unique identifier of the certificate to be installed.
    * @return certificateId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the certificate to be installed.")
 
   public String getCertificateId() {
@@ -137,7 +137,7 @@ public class InstallAndroidCertificateDetails {
    * Type of terminal action: Install an Android certificate.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Type of terminal action: Install an Android certificate.")
 
   public TypeEnum getType() {

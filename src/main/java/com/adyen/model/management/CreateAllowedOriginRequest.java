@@ -74,7 +74,7 @@ public class CreateAllowedOriginRequest {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Links getLinks() {
@@ -97,7 +97,7 @@ public class CreateAllowedOriginRequest {
    * Domain of the allowed origin.
    * @return domain
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(example = "https://adyen.com", required = true, value = "Domain of the allowed origin.")
 
   public String getDomain() {
@@ -120,7 +120,7 @@ public class CreateAllowedOriginRequest {
    * Unique identifier of the allowed origin.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique identifier of the allowed origin.")
 
   public String getId() {

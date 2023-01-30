@@ -65,7 +65,7 @@ public class GooglePayInfo {
    * GooglePay Merchant ID. Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
    * @return merchantId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "GooglePay Merchant ID. Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
 
   public String getMerchantId() {

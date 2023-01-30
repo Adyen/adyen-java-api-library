@@ -77,7 +77,7 @@ public class ServiceError2 {
    * Get errorCode
    * @return errorCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getErrorCode() {
@@ -100,7 +100,7 @@ public class ServiceError2 {
    * Get errorType
    * @return errorType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getErrorType() {
@@ -123,7 +123,7 @@ public class ServiceError2 {
    * Get message
    * @return message
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getMessage() {
@@ -146,7 +146,7 @@ public class ServiceError2 {
    * Get pspReference
    * @return pspReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getPspReference() {

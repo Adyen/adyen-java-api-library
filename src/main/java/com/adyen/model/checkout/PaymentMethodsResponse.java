@@ -81,7 +81,7 @@ public class PaymentMethodsResponse {
    * Detailed list of payment methods required to generate payment forms.
    * @return paymentMethods
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Detailed list of payment methods required to generate payment forms.")
 
   public List<PaymentMethod> getPaymentMethods() {
@@ -112,7 +112,7 @@ public class PaymentMethodsResponse {
    * List of all stored payment methods.
    * @return storedPaymentMethods
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of all stored payment methods.")
 
   public List<StoredPaymentMethod> getStoredPaymentMethods() {

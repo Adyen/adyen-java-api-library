@@ -65,7 +65,7 @@ public class BcmcInfo {
    * Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.
    * @return enableBcmcMobile
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if [Bancontact mobile](https://docs.adyen.com/payment-methods/bancontact/bancontact-mobile) is enabled.")
 
   public Boolean getEnableBcmcMobile() {

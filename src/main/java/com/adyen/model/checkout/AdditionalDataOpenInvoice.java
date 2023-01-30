@@ -133,7 +133,7 @@ public class AdditionalDataOpenInvoice {
    * Holds different merchant data points like product, purchase, customer, and so on. It takes data in a Base64 encoded string.  The &#x60;merchantData&#x60; parameter needs to be added to the &#x60;openinvoicedata&#x60; signature at the end.  Since the field is optional, if it&#39;s not included it does not impact computing the merchant signature.  Applies only to Klarna.  You can contact Klarna for the format and structure of the string.
    * @return openinvoicedataMerchantData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Holds different merchant data points like product, purchase, customer, and so on. It takes data in a Base64 encoded string.  The `merchantData` parameter needs to be added to the `openinvoicedata` signature at the end.  Since the field is optional, if it's not included it does not impact computing the merchant signature.  Applies only to Klarna.  You can contact Klarna for the format and structure of the string.")
 
   public String getOpeninvoicedataMerchantData() {
@@ -156,7 +156,7 @@ public class AdditionalDataOpenInvoice {
    * The number of invoice lines included in &#x60;openinvoicedata&#x60;.  There needs to be at least one line, so &#x60;numberOfLines&#x60; needs to be at least 1.
    * @return openinvoicedataNumberOfLines
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The number of invoice lines included in `openinvoicedata`.  There needs to be at least one line, so `numberOfLines` needs to be at least 1.")
 
   public String getOpeninvoicedataNumberOfLines() {
@@ -179,7 +179,7 @@ public class AdditionalDataOpenInvoice {
    * First name of the recipient. If the delivery address and the billing address are different, specify the &#x60;recipientFirstName&#x60; and &#x60;recipientLastName&#x60; to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.
    * @return openinvoicedataRecipientFirstName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "First name of the recipient. If the delivery address and the billing address are different, specify the `recipientFirstName` and `recipientLastName` to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.")
 
   public String getOpeninvoicedataRecipientFirstName() {
@@ -202,7 +202,7 @@ public class AdditionalDataOpenInvoice {
    * Last name of the recipient. If the delivery address and the billing address are different, specify the &#x60;recipientFirstName&#x60; and &#x60;recipientLastName&#x60; to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.
    * @return openinvoicedataRecipientLastName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Last name of the recipient. If the delivery address and the billing address are different, specify the `recipientFirstName` and `recipientLastName` to share the delivery address with Klarna. Otherwise, only the billing address is shared with Klarna.")
 
   public String getOpeninvoicedataRecipientLastName() {
@@ -225,7 +225,7 @@ public class AdditionalDataOpenInvoice {
    * The three-character ISO currency code.
    * @return openinvoicedataLineItemNrCurrencyCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The three-character ISO currency code.")
 
   public String getOpeninvoicedataLineItemNrCurrencyCode() {
@@ -248,7 +248,7 @@ public class AdditionalDataOpenInvoice {
    * A text description of the product the invoice line refers to.
    * @return openinvoicedataLineItemNrDescription
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A text description of the product the invoice line refers to.")
 
   public String getOpeninvoicedataLineItemNrDescription() {
@@ -271,7 +271,7 @@ public class AdditionalDataOpenInvoice {
    * The price for one item in the invoice line, represented in minor units.  The due amount for the item, VAT excluded.
    * @return openinvoicedataLineItemNrItemAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The price for one item in the invoice line, represented in minor units.  The due amount for the item, VAT excluded.")
 
   public String getOpeninvoicedataLineItemNrItemAmount() {
@@ -294,7 +294,7 @@ public class AdditionalDataOpenInvoice {
    * A unique id for this item. Required for RatePay if the description of each item is not unique.
    * @return openinvoicedataLineItemNrItemId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A unique id for this item. Required for RatePay if the description of each item is not unique.")
 
   public String getOpeninvoicedataLineItemNrItemId() {
@@ -317,7 +317,7 @@ public class AdditionalDataOpenInvoice {
    * The VAT due for one item in the invoice line, represented in minor units.
    * @return openinvoicedataLineItemNrItemVatAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The VAT due for one item in the invoice line, represented in minor units.")
 
   public String getOpeninvoicedataLineItemNrItemVatAmount() {
@@ -340,7 +340,7 @@ public class AdditionalDataOpenInvoice {
    * The VAT percentage for one item in the invoice line, represented in minor units.  For example, 19% VAT is specified as 1900.
    * @return openinvoicedataLineItemNrItemVatPercentage
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The VAT percentage for one item in the invoice line, represented in minor units.  For example, 19% VAT is specified as 1900.")
 
   public String getOpeninvoicedataLineItemNrItemVatPercentage() {
@@ -363,7 +363,7 @@ public class AdditionalDataOpenInvoice {
    * The number of units purchased of a specific product.
    * @return openinvoicedataLineItemNrNumberOfItems
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The number of units purchased of a specific product.")
 
   public String getOpeninvoicedataLineItemNrNumberOfItems() {
@@ -386,7 +386,7 @@ public class AdditionalDataOpenInvoice {
    * Name of the shipping company handling the the return shipment.
    * @return openinvoicedataLineItemNrReturnShippingCompany
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Name of the shipping company handling the the return shipment.")
 
   public String getOpeninvoicedataLineItemNrReturnShippingCompany() {
@@ -409,7 +409,7 @@ public class AdditionalDataOpenInvoice {
    * The tracking number for the return of the shipment.
    * @return openinvoicedataLineItemNrReturnTrackingNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The tracking number for the return of the shipment.")
 
   public String getOpeninvoicedataLineItemNrReturnTrackingNumber() {
@@ -432,7 +432,7 @@ public class AdditionalDataOpenInvoice {
    * URI where the customer can track the return of their shipment.
    * @return openinvoicedataLineItemNrReturnTrackingUri
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "URI where the customer can track the return of their shipment.")
 
   public String getOpeninvoicedataLineItemNrReturnTrackingUri() {
@@ -455,7 +455,7 @@ public class AdditionalDataOpenInvoice {
    * Name of the shipping company handling the delivery.
    * @return openinvoicedataLineItemNrShippingCompany
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Name of the shipping company handling the delivery.")
 
   public String getOpeninvoicedataLineItemNrShippingCompany() {
@@ -478,7 +478,7 @@ public class AdditionalDataOpenInvoice {
    * Shipping method.
    * @return openinvoicedataLineItemNrShippingMethod
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Shipping method.")
 
   public String getOpeninvoicedataLineItemNrShippingMethod() {
@@ -501,7 +501,7 @@ public class AdditionalDataOpenInvoice {
    * The tracking number for the shipment.
    * @return openinvoicedataLineItemNrTrackingNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The tracking number for the shipment.")
 
   public String getOpeninvoicedataLineItemNrTrackingNumber() {
@@ -524,7 +524,7 @@ public class AdditionalDataOpenInvoice {
    * URI where the customer can track their shipment.
    * @return openinvoicedataLineItemNrTrackingUri
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "URI where the customer can track their shipment.")
 
   public String getOpeninvoicedataLineItemNrTrackingUri() {

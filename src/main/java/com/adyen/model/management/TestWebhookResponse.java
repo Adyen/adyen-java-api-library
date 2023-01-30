@@ -76,7 +76,7 @@ public class TestWebhookResponse {
    * List with test results. Each test webhook we send has a list element with the result.
    * @return data
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List with test results. Each test webhook we send has a list element with the result.")
 
   public List<TestOutput> getData() {

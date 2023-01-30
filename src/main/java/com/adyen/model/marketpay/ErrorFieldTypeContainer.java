@@ -20,7 +20,6 @@
  */
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -30,7 +29,6 @@ import static com.adyen.util.Util.toIndentedString;
 
 public class ErrorFieldTypeContainer {
     @SerializedName("ErrorFieldType")
-    @JsonProperty("ErrorFieldType")
     private ErrorFieldType errorFieldType;
 
     public ErrorFieldTypeContainer() {

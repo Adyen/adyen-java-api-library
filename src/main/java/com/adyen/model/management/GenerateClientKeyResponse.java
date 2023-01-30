@@ -65,7 +65,7 @@ public class GenerateClientKeyResponse {
    * Generated client key
    * @return clientKey
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Generated client key")
 
   public String getClientKey() {

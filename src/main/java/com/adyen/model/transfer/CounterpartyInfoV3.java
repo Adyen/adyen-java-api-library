@@ -55,7 +55,7 @@ public class CounterpartyInfoV3 {
    * Unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).
    * @return balanceAccountId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).")
 
   public String getBalanceAccountId() {
@@ -78,7 +78,7 @@ public class CounterpartyInfoV3 {
    * Get bankAccount
    * @return bankAccount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BankAccountV3 getBankAccount() {
@@ -101,7 +101,7 @@ public class CounterpartyInfoV3 {
    * Unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    * @return transferInstrumentId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
 
   public String getTransferInstrumentId() {

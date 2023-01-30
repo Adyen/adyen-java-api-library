@@ -101,7 +101,7 @@ public class CardBin {
    * The first 6 digit of the card number. Enable this field via merchant account settings.
    * @return bin
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The first 6 digit of the card number. Enable this field via merchant account settings.")
 
   public String getBin() {
@@ -124,7 +124,7 @@ public class CardBin {
    * If true, it indicates a commercial card. Enable this field via merchant account settings.
    * @return commercial
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If true, it indicates a commercial card. Enable this field via merchant account settings.")
 
   public Boolean getCommercial() {
@@ -147,7 +147,7 @@ public class CardBin {
    * The card funding source. Valid values are: * CHARGE * CREDIT * DEBIT * DEFERRED_DEBIT * PREPAID * PREPAID_RELOADABLE * PREPAID_NONRELOADABLE &gt; Enable this field via merchant account settings.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The card funding source. Valid values are: * CHARGE * CREDIT * DEBIT * DEFERRED_DEBIT * PREPAID * PREPAID_RELOADABLE * PREPAID_NONRELOADABLE > Enable this field via merchant account settings.")
 
   public String getFundingSource() {
@@ -170,7 +170,7 @@ public class CardBin {
    * Indicates availability of funds.  Visa: * \&quot;I\&quot; (fast funds are supported) * \&quot;N\&quot; (otherwise)  Mastercard: * \&quot;I\&quot; (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \&quot;N\&quot; (otherwise) &gt; Returned when you verify a card BIN or estimate costs, and only if &#x60;payoutEligible&#x60; is different from \&quot;N\&quot; or \&quot;U\&quot;.
    * @return fundsAvailability
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates availability of funds.  Visa: * \"I\" (fast funds are supported) * \"N\" (otherwise)  Mastercard: * \"I\" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \"N\" (otherwise) > Returned when you verify a card BIN or estimate costs, and only if `payoutEligible` is different from \"N\" or \"U\".")
 
   public String getFundsAvailability() {
@@ -193,7 +193,7 @@ public class CardBin {
    * The issuing bank of the card.
    * @return issuingBank
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The issuing bank of the card.")
 
   public String getIssuingBank() {
@@ -216,7 +216,7 @@ public class CardBin {
    * The country where the card was issued from.
    * @return issuingCountry
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The country where the card was issued from.")
 
   public String getIssuingCountry() {
@@ -239,7 +239,7 @@ public class CardBin {
    * The currency of the card.
    * @return issuingCurrency
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The currency of the card.")
 
   public String getIssuingCurrency() {
@@ -262,7 +262,7 @@ public class CardBin {
    * The payment method associated with the card (e.g. visa, mc, or amex).
    * @return paymentMethod
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The payment method associated with the card (e.g. visa, mc, or amex).")
 
   public String getPaymentMethod() {
@@ -285,7 +285,7 @@ public class CardBin {
    * Indicates whether a payout is eligible or not for this card.  Visa: * \&quot;Y\&quot; * \&quot;N\&quot;  Mastercard: * \&quot;Y\&quot; (domestic and cross-border) * \&quot;D\&quot; (only domestic) * \&quot;N\&quot; (no MoneySend) * \&quot;U\&quot; (unknown) &gt; Returned when you verify a card BIN or estimate costs, and only if &#x60;payoutEligible&#x60; is different from \&quot;N\&quot; or \&quot;U\&quot;.
    * @return payoutEligible
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether a payout is eligible or not for this card.  Visa: * \"Y\" * \"N\"  Mastercard: * \"Y\" (domestic and cross-border) * \"D\" (only domestic) * \"N\" (no MoneySend) * \"U\" (unknown) > Returned when you verify a card BIN or estimate costs, and only if `payoutEligible` is different from \"N\" or \"U\".")
 
   public String getPayoutEligible() {
@@ -308,7 +308,7 @@ public class CardBin {
    * The last four digits of the card number.
    * @return summary
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The last four digits of the card number.")
 
   public String getSummary() {

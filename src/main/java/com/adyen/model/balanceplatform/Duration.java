@@ -122,7 +122,7 @@ public class Duration {
    * The unit of time. You can only use **minutes** and **hours** if the &#x60;interval.type&#x60; is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**
    * @return unit
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unit of time. You can only use **minutes** and **hours** if the `interval.type` is **sliding**.  Possible values: **minutes**, **hours**, **days**, **weeks**, or **months**")
 
   public UnitEnum getUnit() {
@@ -145,7 +145,7 @@ public class Duration {
    * The length of time by the unit. For example, 5 days.  The maximum duration is 90 days or an equivalent in other units. For example, 3 months.
    * @return value
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The length of time by the unit. For example, 5 days.  The maximum duration is 90 days or an equivalent in other units. For example, 3 months.")
 
   public Integer getValue() {

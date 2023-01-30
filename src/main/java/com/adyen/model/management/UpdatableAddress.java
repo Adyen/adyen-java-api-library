@@ -85,7 +85,7 @@ public class UpdatableAddress {
    * The name of the city.
    * @return city
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the city.")
 
   public String getCity() {
@@ -108,7 +108,7 @@ public class UpdatableAddress {
    * The street address.
    * @return line1
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The street address.")
 
   public String getLine1() {
@@ -131,7 +131,7 @@ public class UpdatableAddress {
    * Second address line.
    * @return line2
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Second address line.")
 
   public String getLine2() {
@@ -154,7 +154,7 @@ public class UpdatableAddress {
    * Third address line.
    * @return line3
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Third address line.")
 
   public String getLine3() {
@@ -177,7 +177,7 @@ public class UpdatableAddress {
    * The postal code.
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The postal code.")
 
   public String getPostalCode() {
@@ -200,7 +200,7 @@ public class UpdatableAddress {
    * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    * @return stateOrProvince
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States")
 
   public String getStateOrProvince() {

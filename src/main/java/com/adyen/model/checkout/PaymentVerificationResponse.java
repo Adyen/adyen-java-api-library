@@ -182,7 +182,7 @@ public class PaymentVerificationResponse {
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.")
 
   public Map<String, String> getAdditionalData() {
@@ -205,7 +205,7 @@ public class PaymentVerificationResponse {
    * Get fraudResult
    * @return fraudResult
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public FraudResult getFraudResult() {
@@ -228,7 +228,7 @@ public class PaymentVerificationResponse {
    * A unique value that you provided in the initial &#x60;/paymentSession&#x60; request as a &#x60;reference&#x60; field.
    * @return merchantReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "A unique value that you provided in the initial `/paymentSession` request as a `reference` field.")
 
   public String getMerchantReference() {
@@ -251,7 +251,7 @@ public class PaymentVerificationResponse {
    * Get order
    * @return order
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CheckoutOrderResponse getOrder() {
@@ -274,7 +274,7 @@ public class PaymentVerificationResponse {
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
 
   public String getPspReference() {
@@ -297,7 +297,7 @@ public class PaymentVerificationResponse {
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
 
   public String getRefusalReason() {
@@ -320,7 +320,7 @@ public class PaymentVerificationResponse {
    * Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReasonCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
 
   public String getRefusalReasonCode() {
@@ -343,7 +343,7 @@ public class PaymentVerificationResponse {
    * The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper&#39;s device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the &#x60;refusalReason&#x60; field. This is a final state.
    * @return resultCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions. * **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only). * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state. * **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state. * **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions. * **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. * **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment. * **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments. * **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation. * **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state.")
 
   public ResultCodeEnum getResultCode() {
@@ -366,7 +366,7 @@ public class PaymentVerificationResponse {
    * Get serviceError
    * @return serviceError
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ServiceError2 getServiceError() {
@@ -389,7 +389,7 @@ public class PaymentVerificationResponse {
    * The shopperLocale value provided in the payment request.
    * @return shopperLocale
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The shopperLocale value provided in the payment request.")
 
   public String getShopperLocale() {

@@ -101,7 +101,7 @@ public class User {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Links getLinks() {
@@ -132,7 +132,7 @@ public class User {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
 
   public List<String> getAccountGroups() {
@@ -155,7 +155,7 @@ public class User {
    * Indicates whether this user is active.
    * @return active
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether this user is active.")
 
   public Boolean getActive() {
@@ -178,7 +178,7 @@ public class User {
    * The email address of the user.
    * @return email
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The email address of the user.")
 
   public String getEmail() {
@@ -201,7 +201,7 @@ public class User {
    * The unique identifier of the user.
    * @return id
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the user.")
 
   public String getId() {
@@ -224,7 +224,7 @@ public class User {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Name getName() {
@@ -252,7 +252,7 @@ public class User {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
 
   public List<String> getRoles() {
@@ -275,7 +275,7 @@ public class User {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
 
   public String getTimeZoneCode() {
@@ -298,7 +298,7 @@ public class User {
    * The username for this user.
    * @return username
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The username for this user.")
 
   public String getUsername() {

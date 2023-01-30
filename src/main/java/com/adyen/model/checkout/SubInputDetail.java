@@ -98,7 +98,7 @@ public class SubInputDetail {
    * Configuration parameters for the required input.
    * @return configuration
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Configuration parameters for the required input.")
 
   public Map<String, String> getConfiguration() {
@@ -129,7 +129,7 @@ public class SubInputDetail {
    * In case of a select, the items to choose from.
    * @return items
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "In case of a select, the items to choose from.")
 
   public List<Item> getItems() {
@@ -152,7 +152,7 @@ public class SubInputDetail {
    * The value to provide in the result.
    * @return key
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The value to provide in the result.")
 
   public String getKey() {
@@ -175,7 +175,7 @@ public class SubInputDetail {
    * True if this input is optional to provide.
    * @return optional
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "True if this input is optional to provide.")
 
   public Boolean getOptional() {
@@ -198,7 +198,7 @@ public class SubInputDetail {
    * The type of the required input.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of the required input.")
 
   public String getType() {
@@ -221,7 +221,7 @@ public class SubInputDetail {
    * The value can be pre-filled, if available.
    * @return value
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The value can be pre-filled, if available.")
 
   public String getValue() {
