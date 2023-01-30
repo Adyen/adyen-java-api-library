@@ -69,7 +69,7 @@ public class PermitResult {
    * The key to link permit requests to permit results.
    * @return resultKey
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The key to link permit requests to permit results.")
 
   public String getResultKey() {
@@ -92,7 +92,7 @@ public class PermitResult {
    * The permit token which is used to make payments by the partner company.
    * @return token
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The permit token which is used to make payments by the partner company.")
 
   public String getToken() {

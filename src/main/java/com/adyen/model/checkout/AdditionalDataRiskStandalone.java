@@ -121,7 +121,7 @@ public class AdditionalDataRiskStandalone {
    * Shopper&#39;s country of residence in the form of ISO standard 3166 2-character country codes.
    * @return payPalCountryCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Shopper's country of residence in the form of ISO standard 3166 2-character country codes.")
 
   public String getPayPalCountryCode() {
@@ -144,7 +144,7 @@ public class AdditionalDataRiskStandalone {
    * Shopper&#39;s email.
    * @return payPalEmailId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Shopper's email.")
 
   public String getPayPalEmailId() {
@@ -167,7 +167,7 @@ public class AdditionalDataRiskStandalone {
    * Shopper&#39;s first name.
    * @return payPalFirstName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Shopper's first name.")
 
   public String getPayPalFirstName() {
@@ -190,7 +190,7 @@ public class AdditionalDataRiskStandalone {
    * Shopper&#39;s last name.
    * @return payPalLastName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Shopper's last name.")
 
   public String getPayPalLastName() {
@@ -213,7 +213,7 @@ public class AdditionalDataRiskStandalone {
    * Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.
    * @return payPalPayerId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.")
 
   public String getPayPalPayerId() {
@@ -236,7 +236,7 @@ public class AdditionalDataRiskStandalone {
    * Shopper&#39;s phone number.
    * @return payPalPhone
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Shopper's phone number.")
 
   public String getPayPalPhone() {
@@ -259,7 +259,7 @@ public class AdditionalDataRiskStandalone {
    * Allowed values: * **Eligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal&#39;s Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.
    * @return payPalProtectionEligibility
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Allowed values: * **Eligible** — Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payments and Item Not Received.  * **PartiallyEligible** — Merchant is protected by PayPal's Seller Protection Policy for Item Not Received.  * **Ineligible** — Merchant is not protected under the Seller Protection Policy.")
 
   public String getPayPalProtectionEligibility() {
@@ -282,7 +282,7 @@ public class AdditionalDataRiskStandalone {
    * Unique transaction ID of the payment.
    * @return payPalTransactionId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Unique transaction ID of the payment.")
 
   public String getPayPalTransactionId() {
@@ -305,7 +305,7 @@ public class AdditionalDataRiskStandalone {
    * Raw AVS result received from the acquirer, where available. Example: D
    * @return avsResultRaw
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Raw AVS result received from the acquirer, where available. Example: D")
 
   public String getAvsResultRaw() {
@@ -328,7 +328,7 @@ public class AdditionalDataRiskStandalone {
    * The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/risk-management/standalone-risk#tokenised-pan-request).
    * @return bin
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for [tokenized card request](https://docs.adyen.com/risk-management/standalone-risk#tokenised-pan-request).")
 
   public String getBin() {
@@ -351,7 +351,7 @@ public class AdditionalDataRiskStandalone {
    * Raw CVC result received from the acquirer, where available. Example: 1
    * @return cvcResultRaw
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Raw CVC result received from the acquirer, where available. Example: 1")
 
   public String getCvcResultRaw() {
@@ -374,7 +374,7 @@ public class AdditionalDataRiskStandalone {
    * Unique identifier or token for the shopper&#39;s card details.
    * @return riskToken
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Unique identifier or token for the shopper's card details.")
 
   public String getRiskToken() {
@@ -397,7 +397,7 @@ public class AdditionalDataRiskStandalone {
    * A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true
    * @return threeDAuthenticated
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true")
 
   public String getThreeDAuthenticated() {
@@ -420,7 +420,7 @@ public class AdditionalDataRiskStandalone {
    * A Boolean value indicating whether 3DS was offered for this payment. Example: true
    * @return threeDOffered
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "A Boolean value indicating whether 3DS was offered for this payment. Example: true")
 
   public String getThreeDOffered() {
@@ -443,7 +443,7 @@ public class AdditionalDataRiskStandalone {
    * Required for PayPal payments only. The only supported value is: **paypal**.
    * @return tokenDataType
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Required for PayPal payments only. The only supported value is: **paypal**.")
 
   public String getTokenDataType() {

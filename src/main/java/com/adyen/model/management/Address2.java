@@ -89,7 +89,7 @@ public class Address2 {
    * The name of the city.
    * @return city
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the city.")
 
   public String getCity() {
@@ -112,7 +112,7 @@ public class Address2 {
    * The two-letter country code in [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
    * @return country
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The two-letter country code in [ISO_3166-1_alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.")
 
   public String getCountry() {
@@ -135,7 +135,7 @@ public class Address2 {
    * The street address.
    * @return line1
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The street address.")
 
   public String getLine1() {
@@ -158,7 +158,7 @@ public class Address2 {
    * Second address line.
    * @return line2
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Second address line.")
 
   public String getLine2() {
@@ -181,7 +181,7 @@ public class Address2 {
    * Third address line.
    * @return line3
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Third address line.")
 
   public String getLine3() {
@@ -204,7 +204,7 @@ public class Address2 {
    * The postal code.
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The postal code.")
 
   public String getPostalCode() {
@@ -227,7 +227,7 @@ public class Address2 {
    * The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States
    * @return stateOrProvince
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The state or province code as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.  Required for the following countries:  - Australia - Brazil - Canada - India - Mexico - New Zealand - United States")
 
   public String getStateOrProvince() {

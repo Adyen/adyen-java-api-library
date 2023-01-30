@@ -75,7 +75,7 @@ public class JSONPath {
    * Get content
    * @return content
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public List<String> getContent() {

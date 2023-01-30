@@ -227,7 +227,7 @@ public class MerchantRiskIndicator {
    * Whether the chosen delivery address is identical to the billing address.
    * @return addressMatch
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Whether the chosen delivery address is identical to the billing address.")
 
   public Boolean getAddressMatch() {
@@ -250,7 +250,7 @@ public class MerchantRiskIndicator {
    * Indicator regarding the delivery address. Allowed values: * &#x60;shipToBillingAddress&#x60; * &#x60;shipToVerifiedAddress&#x60; * &#x60;shipToNewAddress&#x60; * &#x60;shipToStore&#x60; * &#x60;digitalGoods&#x60; * &#x60;goodsNotShipped&#x60; * &#x60;other&#x60;
    * @return deliveryAddressIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicator regarding the delivery address. Allowed values: * `shipToBillingAddress` * `shipToVerifiedAddress` * `shipToNewAddress` * `shipToStore` * `digitalGoods` * `goodsNotShipped` * `other`")
 
   public DeliveryAddressIndicatorEnum getDeliveryAddressIndicator() {
@@ -275,7 +275,7 @@ public class MerchantRiskIndicator {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The delivery email address (for digital goods).")
 
   public String getDeliveryEmail() {
@@ -298,7 +298,7 @@ public class MerchantRiskIndicator {
    * For Electronic delivery, the email address to which the merchandise was delivered. Maximum length: 254 characters.
    * @return deliveryEmailAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "For Electronic delivery, the email address to which the merchandise was delivered. Maximum length: 254 characters.")
 
   public String getDeliveryEmailAddress() {
@@ -321,7 +321,7 @@ public class MerchantRiskIndicator {
    * The estimated delivery time for the shopper to receive the goods. Allowed values: * &#x60;electronicDelivery&#x60; * &#x60;sameDayShipping&#x60; * &#x60;overnightShipping&#x60; * &#x60;twoOrMoreDaysShipping&#x60;
    * @return deliveryTimeframe
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The estimated delivery time for the shopper to receive the goods. Allowed values: * `electronicDelivery` * `sameDayShipping` * `overnightShipping` * `twoOrMoreDaysShipping`")
 
   public DeliveryTimeframeEnum getDeliveryTimeframe() {
@@ -344,7 +344,7 @@ public class MerchantRiskIndicator {
    * Get giftCardAmount
    * @return giftCardAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getGiftCardAmount() {
@@ -367,7 +367,7 @@ public class MerchantRiskIndicator {
    * For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.
    * @return giftCardCount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.")
 
   public Integer getGiftCardCount() {
@@ -390,7 +390,7 @@ public class MerchantRiskIndicator {
    * For prepaid or gift card purchase, [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-digit currency code of the gift card, other than those listed in Table A.5 of the EMVCo 3D Secure Protocol and Core Functions Specification.
    * @return giftCardCurr
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "For prepaid or gift card purchase, [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) three-digit currency code of the gift card, other than those listed in Table A.5 of the EMVCo 3D Secure Protocol and Core Functions Specification.")
 
   public String getGiftCardCurr() {
@@ -413,7 +413,7 @@ public class MerchantRiskIndicator {
    * For pre-order purchases, the expected date this product will be available to the shopper.
    * @return preOrderDate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "For pre-order purchases, the expected date this product will be available to the shopper.")
 
   public OffsetDateTime getPreOrderDate() {
@@ -436,7 +436,7 @@ public class MerchantRiskIndicator {
    * Indicator for whether this transaction is for pre-ordering a product.
    * @return preOrderPurchase
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicator for whether this transaction is for pre-ordering a product.")
 
   public Boolean getPreOrderPurchase() {
@@ -459,7 +459,7 @@ public class MerchantRiskIndicator {
    * Indicates whether Cardholder is placing an order for merchandise with a future availability or release date.
    * @return preOrderPurchaseInd
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether Cardholder is placing an order for merchandise with a future availability or release date.")
 
   public String getPreOrderPurchaseInd() {
@@ -482,7 +482,7 @@ public class MerchantRiskIndicator {
    * Indicator for whether the shopper has already purchased the same items in the past.
    * @return reorderItems
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicator for whether the shopper has already purchased the same items in the past.")
 
   public Boolean getReorderItems() {
@@ -505,7 +505,7 @@ public class MerchantRiskIndicator {
    * Indicates whether the cardholder is reordering previously purchased merchandise.
    * @return reorderItemsInd
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether the cardholder is reordering previously purchased merchandise.")
 
   public String getReorderItemsInd() {
@@ -528,7 +528,7 @@ public class MerchantRiskIndicator {
    * Indicates shipping method chosen for the transaction.
    * @return shipIndicator
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates shipping method chosen for the transaction.")
 
   public String getShipIndicator() {

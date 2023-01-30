@@ -82,7 +82,7 @@ public class BillingEntity {
    * Get address
    * @return address
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Address getAddress() {
@@ -105,7 +105,7 @@ public class BillingEntity {
    * The email address of the billing entity.
    * @return email
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The email address of the billing entity.")
 
   public String getEmail() {
@@ -128,7 +128,7 @@ public class BillingEntity {
    * The unique identifier of the billing entity, for use as &#x60;billingEntityId&#x60; when creating an order.
    * @return id
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The unique identifier of the billing entity, for use as `billingEntityId` when creating an order.")
 
   public String getId() {
@@ -151,7 +151,7 @@ public class BillingEntity {
    * The unique name of the billing entity.
    * @return name
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The unique name of the billing entity.")
 
   public String getName() {
@@ -174,7 +174,7 @@ public class BillingEntity {
    * The tax number of the billing entity.
    * @return taxId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The tax number of the billing entity.")
 
   public String getTaxId() {

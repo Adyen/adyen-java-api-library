@@ -130,7 +130,7 @@ public class BacsDirectDebitDetails {
    * The bank account number (without separators).
    * @return bankAccountNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The bank account number (without separators).")
 
   public String getBankAccountNumber() {
@@ -153,7 +153,7 @@ public class BacsDirectDebitDetails {
    * The bank routing number of the account.
    * @return bankLocationId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The bank routing number of the account.")
 
   public String getBankLocationId() {
@@ -176,7 +176,7 @@ public class BacsDirectDebitDetails {
    * The name of the bank account holder.
    * @return holderName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the bank account holder.")
 
   public String getHolderName() {
@@ -201,7 +201,7 @@ public class BacsDirectDebitDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -224,7 +224,7 @@ public class BacsDirectDebitDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -247,7 +247,7 @@ public class BacsDirectDebitDetails {
    * **directdebit_GB**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**directdebit_GB**")
 
   public TypeEnum getType() {

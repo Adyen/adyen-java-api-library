@@ -174,7 +174,7 @@ public class Document {
    * Get attachment
    * @return attachment
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Attachment getAttachment() {
@@ -202,7 +202,7 @@ public class Document {
    * Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.
    * @return attachments
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document.")
 
   public List<Attachment> getAttachments() {
@@ -225,7 +225,7 @@ public class Document {
    * Your description for the document.
    * @return description
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Your description for the document.")
 
   public String getDescription() {
@@ -250,7 +250,7 @@ public class Document {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The expiry date of the document, in YYYY-MM-DD format.")
 
   public String getExpiryDate() {
@@ -273,7 +273,7 @@ public class Document {
    * The filename of the document.
    * @return fileName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The filename of the document.")
 
   public String getFileName() {
@@ -290,7 +290,7 @@ public class Document {
    * The unique identifier of the document.
    * @return id
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the document.")
 
   public String getId() {
@@ -312,7 +312,7 @@ public class Document {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.")
 
   public String getIssuerCountry() {
@@ -337,7 +337,7 @@ public class Document {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The state or province where the document was issued (AU only).")
 
   public String getIssuerState() {
@@ -360,7 +360,7 @@ public class Document {
    * The number in the document.
    * @return number
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The number in the document.")
 
   public String getNumber() {
@@ -383,7 +383,7 @@ public class Document {
    * Get owner
    * @return owner
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public OwnerEntity getOwner() {
@@ -406,7 +406,7 @@ public class Document {
    * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the &#x60;type&#x60; values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading documents: * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, or **proofOfIndustry**.   * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, or **proofOfIndividualTaxId**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the `type` values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading documents: * For **organization**, the `type` values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, or **proofOfIndustry**.   * For **individual**, the `type` values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, or **proofOfIndividualTaxId**.  * For **soleProprietorship**, the `type` values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
 
   public TypeEnum getType() {

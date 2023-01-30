@@ -162,7 +162,7 @@ public class LegalEntity {
    * List of documents uploaded for the legal entity.
    * @return documentDetails
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of documents uploaded for the legal entity.")
 
   public List<DocumentReference> getDocumentDetails() {
@@ -195,7 +195,7 @@ public class LegalEntity {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of documents uploaded for the legal entity.")
 
   public List<EntityReference> getDocuments() {
@@ -226,7 +226,7 @@ public class LegalEntity {
    * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    * @return entityAssociations
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.")
 
   public List<LegalEntityAssociation> getEntityAssociations() {
@@ -243,7 +243,7 @@ public class LegalEntity {
    * The unique identifier of the legal entity.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The unique identifier of the legal entity.")
 
   public String getId() {
@@ -263,7 +263,7 @@ public class LegalEntity {
    * Get individual
    * @return individual
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Individual getIndividual() {
@@ -286,7 +286,7 @@ public class LegalEntity {
    * Get organization
    * @return organization
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Organization getOrganization() {
@@ -309,7 +309,7 @@ public class LegalEntity {
    * Your reference for the legal entity, maximum 150 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Your reference for the legal entity, maximum 150 characters.")
 
   public String getReference() {
@@ -332,7 +332,7 @@ public class LegalEntity {
    * Get soleProprietorship
    * @return soleProprietorship
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public SoleProprietorship getSoleProprietorship() {
@@ -363,7 +363,7 @@ public class LegalEntity {
    * List of transfer instruments owned by the legal entity.
    * @return transferInstruments
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of transfer instruments owned by the legal entity.")
 
   public List<EntityReference> getTransferInstruments() {
@@ -386,7 +386,7 @@ public class LegalEntity {
    * The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.")
 
   public TypeEnum getType() {

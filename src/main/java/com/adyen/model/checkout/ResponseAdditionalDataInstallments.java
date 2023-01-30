@@ -109,7 +109,7 @@ public class ResponseAdditionalDataInstallments {
    * Type of installment. The value of &#x60;installmentType&#x60; should be **IssuerFinanced**.
    * @return installmentPaymentDataInstallmentType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Type of installment. The value of `installmentType` should be **IssuerFinanced**.")
 
   public String getInstallmentPaymentDataInstallmentType() {
@@ -132,7 +132,7 @@ public class ResponseAdditionalDataInstallments {
    * Annual interest rate.
    * @return installmentPaymentDataOptionItemNrAnnualPercentageRate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Annual interest rate.")
 
   public String getInstallmentPaymentDataOptionItemNrAnnualPercentageRate() {
@@ -155,7 +155,7 @@ public class ResponseAdditionalDataInstallments {
    * First Installment Amount in minor units.
    * @return installmentPaymentDataOptionItemNrFirstInstallmentAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "First Installment Amount in minor units.")
 
   public String getInstallmentPaymentDataOptionItemNrFirstInstallmentAmount() {
@@ -178,7 +178,7 @@ public class ResponseAdditionalDataInstallments {
    * Installment fee amount in minor units.
    * @return installmentPaymentDataOptionItemNrInstallmentFee
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Installment fee amount in minor units.")
 
   public String getInstallmentPaymentDataOptionItemNrInstallmentFee() {
@@ -201,7 +201,7 @@ public class ResponseAdditionalDataInstallments {
    * Interest rate for the installment period.
    * @return installmentPaymentDataOptionItemNrInterestRate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Interest rate for the installment period.")
 
   public String getInstallmentPaymentDataOptionItemNrInterestRate() {
@@ -224,7 +224,7 @@ public class ResponseAdditionalDataInstallments {
    * Maximum number of installments possible for this payment.
    * @return installmentPaymentDataOptionItemNrMaximumNumberOfInstallments
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Maximum number of installments possible for this payment.")
 
   public String getInstallmentPaymentDataOptionItemNrMaximumNumberOfInstallments() {
@@ -247,7 +247,7 @@ public class ResponseAdditionalDataInstallments {
    * Minimum number of installments possible for this payment.
    * @return installmentPaymentDataOptionItemNrMinimumNumberOfInstallments
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Minimum number of installments possible for this payment.")
 
   public String getInstallmentPaymentDataOptionItemNrMinimumNumberOfInstallments() {
@@ -270,7 +270,7 @@ public class ResponseAdditionalDataInstallments {
    * Total number of installments possible for this payment.
    * @return installmentPaymentDataOptionItemNrNumberOfInstallments
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Total number of installments possible for this payment.")
 
   public String getInstallmentPaymentDataOptionItemNrNumberOfInstallments() {
@@ -293,7 +293,7 @@ public class ResponseAdditionalDataInstallments {
    * Subsequent Installment Amount in minor units.
    * @return installmentPaymentDataOptionItemNrSubsequentInstallmentAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Subsequent Installment Amount in minor units.")
 
   public String getInstallmentPaymentDataOptionItemNrSubsequentInstallmentAmount() {
@@ -316,7 +316,7 @@ public class ResponseAdditionalDataInstallments {
    * Total amount in minor units.
    * @return installmentPaymentDataOptionItemNrTotalAmountDue
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Total amount in minor units.")
 
   public String getInstallmentPaymentDataOptionItemNrTotalAmountDue() {
@@ -339,7 +339,7 @@ public class ResponseAdditionalDataInstallments {
    * Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments
    * @return installmentPaymentDataPaymentOptions
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Possible values: * PayInInstallmentsOnly * PayInFullOnly * PayInFullOrInstallments")
 
   public String getInstallmentPaymentDataPaymentOptions() {
@@ -362,7 +362,7 @@ public class ResponseAdditionalDataInstallments {
    * The number of installments that the payment amount should be charged with.  Example: 5 &gt; Only relevant for card payments in countries that support installments.
    * @return installmentsValue
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The number of installments that the payment amount should be charged with.  Example: 5 > Only relevant for card payments in countries that support installments.")
 
   public String getInstallmentsValue() {

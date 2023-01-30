@@ -97,7 +97,7 @@ public class HULocalAccountIdentification {
    * The 24-digit bank account number (without separators or whitespace).
    * @return accountNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The 24-digit bank account number (without separators or whitespace).")
 
   public String getAccountNumber() {
@@ -120,7 +120,7 @@ public class HULocalAccountIdentification {
    * **huLocal**
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "**huLocal**")
 
   public TypeEnum getType() {

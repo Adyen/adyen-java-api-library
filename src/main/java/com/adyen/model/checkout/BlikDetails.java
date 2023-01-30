@@ -122,7 +122,7 @@ public class BlikDetails {
    * BLIK code consisting of 6 digits.
    * @return blikCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "BLIK code consisting of 6 digits.")
 
   public String getBlikCode() {
@@ -147,7 +147,7 @@ public class BlikDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -170,7 +170,7 @@ public class BlikDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -193,7 +193,7 @@ public class BlikDetails {
    * **blik**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**blik**")
 
   public TypeEnum getType() {

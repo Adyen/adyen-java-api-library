@@ -107,7 +107,7 @@ public class FundDestination {
    * a map of name/value pairs for passing in additional/industry-specific data
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "a map of name/value pairs for passing in additional/industry-specific data")
 
   public Map<String, String> getAdditionalData() {
@@ -130,7 +130,7 @@ public class FundDestination {
    * Get billingAddress
    * @return billingAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -153,7 +153,7 @@ public class FundDestination {
    * Get card
    * @return card
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -176,7 +176,7 @@ public class FundDestination {
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    * @return selectedRecurringDetailReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
 
   public String getSelectedRecurringDetailReference() {
@@ -199,7 +199,7 @@ public class FundDestination {
    * the email address of the person
    * @return shopperEmail
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "the email address of the person")
 
   public String getShopperEmail() {
@@ -222,7 +222,7 @@ public class FundDestination {
    * Get shopperName
    * @return shopperName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -245,7 +245,7 @@ public class FundDestination {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
 
   public String getShopperReference() {
@@ -268,7 +268,7 @@ public class FundDestination {
    * the telephone number of the person
    * @return telephoneNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "the telephone number of the person")
 
   public String getTelephoneNumber() {

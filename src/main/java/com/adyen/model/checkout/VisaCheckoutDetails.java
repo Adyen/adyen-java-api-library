@@ -163,7 +163,7 @@ public class VisaCheckoutDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -186,7 +186,7 @@ public class VisaCheckoutDetails {
    * **visacheckout**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**visacheckout**")
 
   public TypeEnum getType() {
@@ -209,7 +209,7 @@ public class VisaCheckoutDetails {
    * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
    * @return visaCheckoutCallId
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.")
 
   public String getVisaCheckoutCallId() {

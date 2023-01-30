@@ -101,7 +101,7 @@ public class SELocalAccountIdentification {
    * The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)) (without the clearing number, separators, or whitespace).
    * @return accountNumber
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The 7- to 10-digit bank account number ([Bankkontonummer](https://sv.wikipedia.org/wiki/Bankkonto)) (without the clearing number, separators, or whitespace).")
 
   public String getAccountNumber() {
@@ -124,7 +124,7 @@ public class SELocalAccountIdentification {
    * The 4– to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)) (without separators or whitespace).
    * @return clearingNumber
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The 4– to 5-digit clearing number ([Clearingnummer](https://sv.wikipedia.org/wiki/Clearingnummer)) (without separators or whitespace).")
 
   public String getClearingNumber() {
@@ -147,7 +147,7 @@ public class SELocalAccountIdentification {
    * **seLocal**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**seLocal**")
 
   public TypeEnum getType() {

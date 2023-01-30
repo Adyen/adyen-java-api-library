@@ -110,7 +110,7 @@ public class AndroidPayDetails {
    * **androidpay**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**androidpay**")
 
   public TypeEnum getType() {

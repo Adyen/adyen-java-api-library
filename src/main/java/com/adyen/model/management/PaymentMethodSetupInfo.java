@@ -294,7 +294,7 @@ public class PaymentMethodSetupInfo {
    * Get applePay
    * @return applePay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ApplePayInfo getApplePay() {
@@ -317,7 +317,7 @@ public class PaymentMethodSetupInfo {
    * Get bcmc
    * @return bcmc
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BcmcInfo getBcmc() {
@@ -340,7 +340,7 @@ public class PaymentMethodSetupInfo {
    * The unique identifier of the business line.
    * @return businessLineId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the business line.")
 
   public String getBusinessLineId() {
@@ -363,7 +363,7 @@ public class PaymentMethodSetupInfo {
    * Get cartesBancaires
    * @return cartesBancaires
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CartesBancairesInfo getCartesBancaires() {
@@ -394,7 +394,7 @@ public class PaymentMethodSetupInfo {
    * The list of countries where a payment method is available. By default, all countries supported by the payment method.
    * @return countries
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of countries where a payment method is available. By default, all countries supported by the payment method.")
 
   public List<String> getCountries() {
@@ -425,7 +425,7 @@ public class PaymentMethodSetupInfo {
    * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
    * @return currencies
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of currencies that a payment method supports. By default, all currencies supported by the payment method.")
 
   public List<String> getCurrencies() {
@@ -448,7 +448,7 @@ public class PaymentMethodSetupInfo {
    * Get giroPay
    * @return giroPay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public GiroPayInfo getGiroPay() {
@@ -471,7 +471,7 @@ public class PaymentMethodSetupInfo {
    * Get googlePay
    * @return googlePay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public GooglePayInfo getGooglePay() {
@@ -494,7 +494,7 @@ public class PaymentMethodSetupInfo {
    * Get klarna
    * @return klarna
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public KlarnaInfo getKlarna() {
@@ -517,7 +517,7 @@ public class PaymentMethodSetupInfo {
    * Get paypal
    * @return paypal
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public PayPalInfo getPaypal() {
@@ -540,7 +540,7 @@ public class PaymentMethodSetupInfo {
    * The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
    * @return shopperInteraction
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. ")
 
   public ShopperInteractionEnum getShopperInteraction() {
@@ -563,7 +563,7 @@ public class PaymentMethodSetupInfo {
    * Get sofort
    * @return sofort
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public SofortInfo getSofort() {
@@ -586,7 +586,7 @@ public class PaymentMethodSetupInfo {
    * The ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/stores__resParam_id), if any.
    * @return storeId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/stores__resParam_id), if any.")
 
   public String getStoreId() {
@@ -609,7 +609,7 @@ public class PaymentMethodSetupInfo {
    * Get swish
    * @return swish
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public SwishInfo getSwish() {
@@ -632,7 +632,7 @@ public class PaymentMethodSetupInfo {
    * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).")
 
   public TypeEnum getType() {

@@ -149,7 +149,7 @@ public class PaymentMethod {
    * Brand for the selected gift card. For example: plastix, hmclub.
    * @return brand
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Brand for the selected gift card. For example: plastix, hmclub.")
 
   public String getBrand() {
@@ -180,7 +180,7 @@ public class PaymentMethod {
    * List of possible brands. For example: visa, mc.
    * @return brands
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of possible brands. For example: visa, mc.")
 
   public List<String> getBrands() {
@@ -211,7 +211,7 @@ public class PaymentMethod {
    * The configuration of the payment method.
    * @return configuration
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The configuration of the payment method.")
 
   public Map<String, String> getConfiguration() {
@@ -234,7 +234,7 @@ public class PaymentMethod {
    * The funding source of the payment method.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The funding source of the payment method.")
 
   public FundingSourceEnum getFundingSource() {
@@ -257,7 +257,7 @@ public class PaymentMethod {
    * Get group
    * @return group
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public PaymentMethodGroup getGroup() {
@@ -290,7 +290,7 @@ public class PaymentMethod {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "All input details to be provided to complete the payment with this payment method.")
 
   public List<InputDetail> getInputDetails() {
@@ -321,7 +321,7 @@ public class PaymentMethod {
    * A list of issuers for this payment method.
    * @return issuers
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A list of issuers for this payment method.")
 
   public List<PaymentMethodIssuer> getIssuers() {
@@ -344,7 +344,7 @@ public class PaymentMethod {
    * The displayable name of this payment method.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The displayable name of this payment method.")
 
   public String getName() {
@@ -367,7 +367,7 @@ public class PaymentMethod {
    * The unique payment method code.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique payment method code.")
 
   public String getType() {

@@ -130,7 +130,7 @@ public class UpiCollectDetails {
    * The sequence number for the debit. For example, send **2** if this is the second debit for the subscription. The sequence number is included in the notification sent to the shopper.
    * @return billingSequenceNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The sequence number for the debit. For example, send **2** if this is the second debit for the subscription. The sequence number is included in the notification sent to the shopper.")
 
   public String getBillingSequenceNumber() {
@@ -155,7 +155,7 @@ public class UpiCollectDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -178,7 +178,7 @@ public class UpiCollectDetails {
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    * @return shopperNotificationReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only.")
 
   public String getShopperNotificationReference() {
@@ -201,7 +201,7 @@ public class UpiCollectDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -224,7 +224,7 @@ public class UpiCollectDetails {
    * **upi_collect**
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "**upi_collect**")
 
   public TypeEnum getType() {
@@ -247,7 +247,7 @@ public class UpiCollectDetails {
    * The virtual payment address for UPI.
    * @return virtualPaymentAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The virtual payment address for UPI.")
 
   public String getVirtualPaymentAddress() {

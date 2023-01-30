@@ -121,7 +121,7 @@ public class TransactionRuleRestrictions {
    * Get activeNetworkTokens
    * @return activeNetworkTokens
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ActiveNetworkTokensRestriction getActiveNetworkTokens() {
@@ -144,7 +144,7 @@ public class TransactionRuleRestrictions {
    * Get brandVariants
    * @return brandVariants
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BrandVariantsRestriction getBrandVariants() {
@@ -167,7 +167,7 @@ public class TransactionRuleRestrictions {
    * Get countries
    * @return countries
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CountriesRestriction getCountries() {
@@ -190,7 +190,7 @@ public class TransactionRuleRestrictions {
    * Get differentCurrencies
    * @return differentCurrencies
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public DifferentCurrenciesRestriction getDifferentCurrencies() {
@@ -213,7 +213,7 @@ public class TransactionRuleRestrictions {
    * Get entryModes
    * @return entryModes
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public EntryModesRestriction getEntryModes() {
@@ -236,7 +236,7 @@ public class TransactionRuleRestrictions {
    * Get internationalTransaction
    * @return internationalTransaction
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public InternationalTransactionRestriction getInternationalTransaction() {
@@ -259,7 +259,7 @@ public class TransactionRuleRestrictions {
    * Get matchingTransactions
    * @return matchingTransactions
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public MatchingTransactionsRestriction getMatchingTransactions() {
@@ -282,7 +282,7 @@ public class TransactionRuleRestrictions {
    * Get mccs
    * @return mccs
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public MccsRestriction getMccs() {
@@ -305,7 +305,7 @@ public class TransactionRuleRestrictions {
    * Get merchants
    * @return merchants
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public MerchantsRestriction getMerchants() {
@@ -328,7 +328,7 @@ public class TransactionRuleRestrictions {
    * Get processingTypes
    * @return processingTypes
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ProcessingTypesRestriction getProcessingTypes() {
@@ -351,7 +351,7 @@ public class TransactionRuleRestrictions {
    * Get timeOfDay
    * @return timeOfDay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public TimeOfDayRestriction getTimeOfDay() {
@@ -374,7 +374,7 @@ public class TransactionRuleRestrictions {
    * Get totalAmount
    * @return totalAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public TotalAmountRestriction getTotalAmount() {

@@ -130,7 +130,7 @@ public class ProcessingTypesRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -161,7 +161,7 @@ public class ProcessingTypesRestriction {
    * List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  
    * @return value
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of processing types.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**.  ")
 
   public List<ValueEnum> getValue() {

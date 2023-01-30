@@ -84,7 +84,7 @@ public class TerminalProduct {
    * Information about items included and integration options.
    * @return description
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Information about items included and integration options.")
 
   public String getDescription() {
@@ -107,7 +107,7 @@ public class TerminalProduct {
    * The unique identifier of the product.
    * @return id
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The unique identifier of the product.")
 
   public String getId() {
@@ -138,7 +138,7 @@ public class TerminalProduct {
    * A list of parts included in the terminal package.
    * @return itemsIncluded
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "A list of parts included in the terminal package.")
 
   public List<String> getItemsIncluded() {
@@ -161,7 +161,7 @@ public class TerminalProduct {
    * The descriptive name of the product.
    * @return name
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The descriptive name of the product.")
 
   public String getName() {
@@ -184,7 +184,7 @@ public class TerminalProduct {
    * Get price
    * @return price
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Amount getPrice() {

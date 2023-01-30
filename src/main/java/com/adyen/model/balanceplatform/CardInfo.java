@@ -141,7 +141,7 @@ public class CardInfo {
    * Get authentication
    * @return authentication
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Authentication getAuthentication() {
@@ -164,7 +164,7 @@ public class CardInfo {
    * The brand of the payment instrument. Possible values: **visa**, **mc**.
    * @return brand
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The brand of the payment instrument. Possible values: **visa**, **mc**.")
 
   public String getBrand() {
@@ -187,7 +187,7 @@ public class CardInfo {
    * The brand variant of the payment instrument. &gt;Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.
    * @return brandVariant
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The brand variant of the payment instrument. >Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.")
 
   public String getBrandVariant() {
@@ -210,7 +210,7 @@ public class CardInfo {
    * The name of the cardholder.  Maximum length: 26 characters.
    * @return cardholderName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The name of the cardholder.  Maximum length: 26 characters.")
 
   public String getCardholderName() {
@@ -233,7 +233,7 @@ public class CardInfo {
    * Get configuration
    * @return configuration
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CardConfiguration getConfiguration() {
@@ -256,7 +256,7 @@ public class CardInfo {
    * Get deliveryContact
    * @return deliveryContact
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public DeliveryContact getDeliveryContact() {
@@ -279,7 +279,7 @@ public class CardInfo {
    * The form factor of the card. Possible values: **virtual**, **physical**.
    * @return formFactor
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The form factor of the card. Possible values: **virtual**, **physical**.")
 
   public FormFactorEnum getFormFactor() {

@@ -128,7 +128,7 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s first name.
    * @return firstName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The shopper's first name.")
 
   public String getFirstName() {
@@ -151,7 +151,7 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s last name.
    * @return lastName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The shopper's last name.")
 
   public String getLastName() {
@@ -174,7 +174,7 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s email.
    * @return shopperEmail
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The shopper's email.")
 
   public String getShopperEmail() {
@@ -197,7 +197,7 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    * @return telephoneNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The shopper's contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.")
 
   public String getTelephoneNumber() {
@@ -220,7 +220,7 @@ public class EcontextVoucherDetails {
    * **econtextvoucher**
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "**econtextvoucher**")
 
   public TypeEnum getType() {

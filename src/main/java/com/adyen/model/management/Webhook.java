@@ -361,7 +361,7 @@ public class Webhook {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public WebhookLinks getLinks() {
@@ -384,7 +384,7 @@ public class Webhook {
    * Indicates if expired SSL certificates are accepted. Default value: **false**.
    * @return acceptsExpiredCertificate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if expired SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsExpiredCertificate() {
@@ -407,7 +407,7 @@ public class Webhook {
    * Indicates if self-signed SSL certificates are accepted. Default value: **false**.
    * @return acceptsSelfSignedCertificate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if self-signed SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsSelfSignedCertificate() {
@@ -430,7 +430,7 @@ public class Webhook {
    * Indicates if untrusted SSL certificates are accepted. Default value: **false**.
    * @return acceptsUntrustedRootCertificate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if untrusted SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsUntrustedRootCertificate() {
@@ -453,7 +453,7 @@ public class Webhook {
    * Reference to the account the webook is set on.
    * @return accountReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Reference to the account the webook is set on.")
 
   public String getAccountReference() {
@@ -476,7 +476,7 @@ public class Webhook {
    * Indicates if the webhook configuration is active. The field must be **true** for you to receive webhooks about events related an account.
    * @return active
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Indicates if the webhook configuration is active. The field must be **true** for you to receive webhooks about events related an account.")
 
   public Boolean getActive() {
@@ -499,7 +499,7 @@ public class Webhook {
    * Get additionalSettings
    * @return additionalSettings
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public AdditionalSettingsResponse getAdditionalSettings() {
@@ -522,7 +522,7 @@ public class Webhook {
    * The alias of our SSL certificate. When you receive a notification from us, the alias from the HMAC signature will match this alias.
    * @return certificateAlias
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The alias of our SSL certificate. When you receive a notification from us, the alias from the HMAC signature will match this alias.")
 
   public String getCertificateAlias() {
@@ -545,7 +545,7 @@ public class Webhook {
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
    * @return communicationFormat
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(example = "SOAP", required = true, value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
 
   public CommunicationFormatEnum getCommunicationFormat() {
@@ -568,7 +568,7 @@ public class Webhook {
    * Your description for this webhook configuration.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your description for this webhook configuration.")
 
   public String getDescription() {
@@ -591,7 +591,7 @@ public class Webhook {
    * Shows how merchant accounts are included in company-level webhooks. Possible values: * **includeAccounts** * **excludeAccounts** * **allAccounts**: Includes all merchant accounts, and does not require specifying &#x60;filterMerchantAccounts&#x60;.
    * @return filterMerchantAccountType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Shows how merchant accounts are included in company-level webhooks. Possible values: * **includeAccounts** * **excludeAccounts** * **allAccounts**: Includes all merchant accounts, and does not require specifying `filterMerchantAccounts`.")
 
   public FilterMerchantAccountTypeEnum getFilterMerchantAccountType() {
@@ -622,7 +622,7 @@ public class Webhook {
    * A list of merchant account names that are included or excluded from receiving the webhook. Inclusion or exclusion is based on the value defined for &#x60;filterMerchantAccountType&#x60;.  Required if &#x60;filterMerchantAccountType&#x60; is either: * **includeAccounts** * **excludeAccounts**  Not needed for &#x60;filterMerchantAccountType&#x60;: **allAccounts**.
    * @return filterMerchantAccounts
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A list of merchant account names that are included or excluded from receiving the webhook. Inclusion or exclusion is based on the value defined for `filterMerchantAccountType`.  Required if `filterMerchantAccountType` is either: * **includeAccounts** * **excludeAccounts**  Not needed for `filterMerchantAccountType`: **allAccounts**.")
 
   public List<String> getFilterMerchantAccounts() {
@@ -645,7 +645,7 @@ public class Webhook {
    * Indicates if the webhook configuration has errors that need troubleshooting. If the value is **true**, troubleshoot the configuration using the [testing endpoint](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookid}/test).
    * @return hasError
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if the webhook configuration has errors that need troubleshooting. If the value is **true**, troubleshoot the configuration using the [testing endpoint](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/webhooks/{webhookid}/test).")
 
   public Boolean getHasError() {
@@ -668,7 +668,7 @@ public class Webhook {
    * Indicates if the webhook is password protected.
    * @return hasPassword
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if the webhook is password protected.")
 
   public Boolean getHasPassword() {
@@ -691,7 +691,7 @@ public class Webhook {
    * The [checksum](https://en.wikipedia.org/wiki/Key_checksum_value) of the HMAC key generated for this webhook. You can use this value to uniquely identify the HMAC key configured for this webhook.
    * @return hmacKeyCheckValue
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [checksum](https://en.wikipedia.org/wiki/Key_checksum_value) of the HMAC key generated for this webhook. You can use this value to uniquely identify the HMAC key configured for this webhook.")
 
   public String getHmacKeyCheckValue() {
@@ -714,7 +714,7 @@ public class Webhook {
    * Unique identifier for this webhook.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique identifier for this webhook.")
 
   public String getId() {
@@ -737,7 +737,7 @@ public class Webhook {
    * Network type for Terminal API details webhooks.
    * @return networkType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Network type for Terminal API details webhooks.")
 
   public NetworkTypeEnum getNetworkType() {
@@ -760,7 +760,7 @@ public class Webhook {
    * Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if &#x60;communicationFormat&#x60;: **soap**.
    * @return populateSoapActionHeader
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if `communicationFormat`: **soap**.")
 
   public Boolean getPopulateSoapActionHeader() {
@@ -783,7 +783,7 @@ public class Webhook {
    * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
    * @return sslVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(example = "TLSv1.2", value = "SSL version to access the public webhook URL specified in the `url` field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use `sslVersion`: **TLSv1.2**.")
 
   public SslVersionEnum getSslVersion() {
@@ -806,7 +806,7 @@ public class Webhook {
    * The type of webhook. Possible values are:  - **standard** - **account-settings-notification** - **banktransfer-notification** - **boletobancario-notification** - **directdebit-notification** - **pending-notification** - **ideal-notification** - **ideal-pending-notification** - **report-notification** - **terminal-api-notification**  Find out more about [standard notification webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes) and [other types of notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The type of webhook. Possible values are:  - **standard** - **account-settings-notification** - **banktransfer-notification** - **boletobancario-notification** - **directdebit-notification** - **pending-notification** - **ideal-notification** - **ideal-pending-notification** - **report-notification** - **terminal-api-notification**  Find out more about [standard notification webhooks](https://docs.adyen.com/development-resources/webhooks/understand-notifications#event-codes) and [other types of notifications](https://docs.adyen.com/development-resources/webhooks/understand-notifications#other-notifications).")
 
   public String getType() {
@@ -829,7 +829,7 @@ public class Webhook {
    * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
    * @return url
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(example = "http://www.adyen.com", required = true, value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
 
   public String getUrl() {
@@ -852,7 +852,7 @@ public class Webhook {
    * Username to access the webhook URL.
    * @return username
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Username to access the webhook URL.")
 
   public String getUsername() {

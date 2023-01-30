@@ -69,7 +69,7 @@ public class ModelFile {
    * The certificate content converted to a Base64-encoded string.
    * @return data
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The certificate content converted to a Base64-encoded string.")
 
   public String getData() {
@@ -92,7 +92,7 @@ public class ModelFile {
    * The name of the certificate. Must be unique across Wi-Fi profiles.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The name of the certificate. Must be unique across Wi-Fi profiles.")
 
   public String getName() {

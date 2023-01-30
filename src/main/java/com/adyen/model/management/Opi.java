@@ -73,7 +73,7 @@ public class Opi {
    * Indicates if Pay at Table is enabled.
    * @return enablePayAtTable
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if Pay at Table is enabled.")
 
   public Boolean getEnablePayAtTable() {
@@ -96,7 +96,7 @@ public class Opi {
    * The store number to use for Pay at Table.
    * @return payAtTableStoreNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The store number to use for Pay at Table.")
 
   public String getPayAtTableStoreNumber() {
@@ -119,7 +119,7 @@ public class Opi {
    * The URL and port number used for Pay at Table communication.
    * @return payAtTableURL
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The URL and port number used for Pay at Table communication.")
 
   public String getPayAtTableURL() {

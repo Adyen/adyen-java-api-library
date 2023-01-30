@@ -69,7 +69,7 @@ public class Amount {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getCurrency() {
@@ -92,7 +92,7 @@ public class Amount {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Object getValue() {

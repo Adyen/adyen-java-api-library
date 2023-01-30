@@ -81,7 +81,7 @@ public class Contact {
    * The individual&#39;s email address.
    * @return email
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The individual's email address.")
 
   public String getEmail() {
@@ -104,7 +104,7 @@ public class Contact {
    * The individual&#39;s first name.
    * @return firstName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The individual's first name.")
 
   public String getFirstName() {
@@ -127,7 +127,7 @@ public class Contact {
    * The infix in the individual&#39;s name, if any.
    * @return infix
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The infix in the individual's name, if any.")
 
   public String getInfix() {
@@ -150,7 +150,7 @@ public class Contact {
    * The individual&#39;s last name.
    * @return lastName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The individual's last name.")
 
   public String getLastName() {
@@ -173,7 +173,7 @@ public class Contact {
    * The individual&#39;s phone number, specified as 10-14 digits with an optional &#x60;+&#x60; prefix.
    * @return phoneNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The individual's phone number, specified as 10-14 digits with an optional `+` prefix.")
 
   public String getPhoneNumber() {

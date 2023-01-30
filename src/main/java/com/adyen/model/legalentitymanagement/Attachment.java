@@ -69,7 +69,7 @@ public class Attachment {
    * The document in Base64-encoded string format.
    * @return content
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The document in Base64-encoded string format.")
 
   public byte[] getContent() {
@@ -94,7 +94,7 @@ public class Attachment {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. ")
 
   public String getContentType() {
@@ -119,7 +119,7 @@ public class Attachment {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The name of the file including the file extension.")
 
   public String getFilename() {
@@ -142,7 +142,7 @@ public class Attachment {
    * The name of the file including the file extension.
    * @return pageName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The name of the file including the file extension.")
 
   public String getPageName() {
@@ -165,7 +165,7 @@ public class Attachment {
    * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    * @return pageType
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Specifies which side of the ID card is uploaded.  * When `type` is **driversLicense**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.")
 
   public String getPageType() {

@@ -118,7 +118,7 @@ public class ShopperStatement {
    * The name you want to be shown on the shopper&#39;s bank or credit card statement. Maximum length: 22 characters; can&#39;t be all numbers.
    * @return doingBusinessAsName
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The name you want to be shown on the shopper's bank or credit card statement. Maximum length: 22 characters; can't be all numbers.")
 
   public String getDoingBusinessAsName() {
@@ -141,7 +141,7 @@ public class ShopperStatement {
    * The type of shopperstatement you want to use: fixed, append or dynamic
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The type of shopperstatement you want to use: fixed, append or dynamic")
 
   public TypeEnum getType() {

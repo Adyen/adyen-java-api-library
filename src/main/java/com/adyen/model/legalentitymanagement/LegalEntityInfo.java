@@ -138,7 +138,7 @@ public class LegalEntityInfo {
    * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    * @return entityAssociations
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.")
 
   public List<LegalEntityAssociation> getEntityAssociations() {
@@ -161,7 +161,7 @@ public class LegalEntityInfo {
    * Get individual
    * @return individual
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Individual getIndividual() {
@@ -184,7 +184,7 @@ public class LegalEntityInfo {
    * Get organization
    * @return organization
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Organization getOrganization() {
@@ -207,7 +207,7 @@ public class LegalEntityInfo {
    * Your reference for the legal entity, maximum 150 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Your reference for the legal entity, maximum 150 characters.")
 
   public String getReference() {
@@ -230,7 +230,7 @@ public class LegalEntityInfo {
    * Get soleProprietorship
    * @return soleProprietorship
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public SoleProprietorship getSoleProprietorship() {
@@ -253,7 +253,7 @@ public class LegalEntityInfo {
    * The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.")
 
   public TypeEnum getType() {

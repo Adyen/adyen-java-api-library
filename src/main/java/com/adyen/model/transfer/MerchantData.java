@@ -59,7 +59,7 @@ public class MerchantData {
    * The merchant category code.
    * @return mcc
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The merchant category code.")
 
   public String getMcc() {
@@ -82,7 +82,7 @@ public class MerchantData {
    * The merchant identifier.
    * @return merchantId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The merchant identifier.")
 
   public String getMerchantId() {
@@ -105,7 +105,7 @@ public class MerchantData {
    * Get nameLocation
    * @return nameLocation
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public NameLocation getNameLocation() {
@@ -128,7 +128,7 @@ public class MerchantData {
    * The merchant postal code.
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The merchant postal code.")
 
   public String getPostalCode() {

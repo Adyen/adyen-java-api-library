@@ -73,7 +73,7 @@ public class MerchantDevice {
    * Operating system running on the merchant device.
    * @return os
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Operating system running on the merchant device.")
 
   public String getOs() {
@@ -96,7 +96,7 @@ public class MerchantDevice {
    * Version of the operating system on the merchant device.
    * @return osVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Version of the operating system on the merchant device.")
 
   public String getOsVersion() {
@@ -119,7 +119,7 @@ public class MerchantDevice {
    * Merchant device reference.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Merchant device reference.")
 
   public String getReference() {

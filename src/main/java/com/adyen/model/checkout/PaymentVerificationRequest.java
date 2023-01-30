@@ -65,7 +65,7 @@ public class PaymentVerificationRequest {
    * Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.
    * @return payload
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.")
 
   public String getPayload() {

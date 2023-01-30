@@ -126,7 +126,7 @@ public class StandalonePaymentCancelResource {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -149,7 +149,7 @@ public class StandalonePaymentCancelResource {
    * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.
    * @return paymentReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment to cancel.")
 
   public String getPaymentReference() {
@@ -172,7 +172,7 @@ public class StandalonePaymentCancelResource {
    * Adyen&#39;s 16-character reference associated with the cancel request.
    * @return pspReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the cancel request.")
 
   public String getPspReference() {
@@ -195,7 +195,7 @@ public class StandalonePaymentCancelResource {
    * Your reference for the cancel request.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference for the cancel request.")
 
   public String getReference() {
@@ -218,7 +218,7 @@ public class StandalonePaymentCancelResource {
    * The status of your request. This will always have the value **received**.
    * @return status
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
 
   public StatusEnum getStatus() {

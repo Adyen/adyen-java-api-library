@@ -105,7 +105,7 @@ public class CancelOrRefundRequest {
    * This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -128,7 +128,7 @@ public class CancelOrRefundRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -151,7 +151,7 @@ public class CancelOrRefundRequest {
    * Get mpiData
    * @return mpiData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ThreeDSecureData getMpiData() {
@@ -174,7 +174,7 @@ public class CancelOrRefundRequest {
    * The original merchant reference to cancel.
    * @return originalMerchantReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The original merchant reference to cancel.")
 
   public String getOriginalMerchantReference() {
@@ -197,7 +197,7 @@ public class CancelOrRefundRequest {
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    * @return originalReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  ")
 
   public String getOriginalReference() {
@@ -220,7 +220,7 @@ public class CancelOrRefundRequest {
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.")
 
   public String getReference() {
@@ -243,7 +243,7 @@ public class CancelOrRefundRequest {
    * The transaction reference provided by the PED. For point-of-sale integrations only.
    * @return tenderReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The transaction reference provided by the PED. For point-of-sale integrations only.")
 
   public String getTenderReference() {
@@ -266,7 +266,7 @@ public class CancelOrRefundRequest {
    * Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.
    * @return uniqueTerminalId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.")
 
   public String getUniqueTerminalId() {

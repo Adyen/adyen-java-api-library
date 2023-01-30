@@ -111,7 +111,7 @@ public class InputDetail {
    * Configuration parameters for the required input.
    * @return configuration
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Configuration parameters for the required input.")
 
   public Map<String, String> getConfiguration() {
@@ -142,7 +142,7 @@ public class InputDetail {
    * Input details can also be provided recursively.
    * @return details
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Input details can also be provided recursively.")
 
   public List<SubInputDetail> getDetails() {
@@ -175,7 +175,7 @@ public class InputDetail {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Input details can also be provided recursively (deprecated).")
 
   public List<SubInputDetail> getInputDetails() {
@@ -198,7 +198,7 @@ public class InputDetail {
    * In case of a select, the URL from which to query the items.
    * @return itemSearchUrl
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "In case of a select, the URL from which to query the items.")
 
   public String getItemSearchUrl() {
@@ -229,7 +229,7 @@ public class InputDetail {
    * In case of a select, the items to choose from.
    * @return items
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "In case of a select, the items to choose from.")
 
   public List<Item> getItems() {
@@ -252,7 +252,7 @@ public class InputDetail {
    * The value to provide in the result.
    * @return key
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The value to provide in the result.")
 
   public String getKey() {
@@ -275,7 +275,7 @@ public class InputDetail {
    * True if this input value is optional.
    * @return optional
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "True if this input value is optional.")
 
   public Boolean getOptional() {
@@ -298,7 +298,7 @@ public class InputDetail {
    * The type of the required input.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of the required input.")
 
   public String getType() {
@@ -321,7 +321,7 @@ public class InputDetail {
    * The value can be pre-filled, if available.
    * @return value
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The value can be pre-filled, if available.")
 
   public String getValue() {

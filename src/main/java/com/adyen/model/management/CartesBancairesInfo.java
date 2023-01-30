@@ -65,7 +65,7 @@ public class CartesBancairesInfo {
    * Cartes Bancaires SIRET. Format: 14 digits.
    * @return siret
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Cartes Bancaires SIRET. Format: 14 digits.")
 
   public String getSiret() {

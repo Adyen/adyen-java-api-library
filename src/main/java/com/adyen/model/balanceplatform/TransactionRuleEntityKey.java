@@ -69,7 +69,7 @@ public class TransactionRuleEntityKey {
    * The unique identifier of the resource.
    * @return entityReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the resource.")
 
   public String getEntityReference() {
@@ -92,7 +92,7 @@ public class TransactionRuleEntityKey {
    * The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.
    * @return entityType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of resource.  Possible values: **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**, **balanceAccount**, or **paymentInstrument**.")
 
   public String getEntityType() {

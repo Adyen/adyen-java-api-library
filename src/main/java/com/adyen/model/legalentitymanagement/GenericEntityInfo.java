@@ -76,7 +76,7 @@ public class GenericEntityInfo {
    * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    * @return entityAssociations
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.")
 
   public List<LegalEntityAssociation> getEntityAssociations() {
@@ -99,7 +99,7 @@ public class GenericEntityInfo {
    * Get individual
    * @return individual
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Individual getIndividual() {
@@ -122,7 +122,7 @@ public class GenericEntityInfo {
    * Get organization
    * @return organization
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Organization getOrganization() {
@@ -145,7 +145,7 @@ public class GenericEntityInfo {
    * Get soleProprietorship
    * @return soleProprietorship
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public SoleProprietorship getSoleProprietorship() {

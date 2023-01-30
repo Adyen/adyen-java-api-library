@@ -132,7 +132,7 @@ public class EntryModesRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -163,7 +163,7 @@ public class EntryModesRestriction {
    * List of point-of-sale entry modes.  Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**.  
    * @return value
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of point-of-sale entry modes.  Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**.  ")
 
   public List<ValueEnum> getValue() {

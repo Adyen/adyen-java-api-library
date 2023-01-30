@@ -199,7 +199,7 @@ public class PaymentMethod {
    * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
    * @return allowed
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.")
 
   public Boolean getAllowed() {
@@ -222,7 +222,7 @@ public class PaymentMethod {
    * Get applePay
    * @return applePay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public ApplePayInfo getApplePay() {
@@ -245,7 +245,7 @@ public class PaymentMethod {
    * Get bcmc
    * @return bcmc
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public BcmcInfo getBcmc() {
@@ -268,7 +268,7 @@ public class PaymentMethod {
    * The unique identifier of the business line.
    * @return businessLineId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the business line.")
 
   public String getBusinessLineId() {
@@ -291,7 +291,7 @@ public class PaymentMethod {
    * Get cartesBancaires
    * @return cartesBancaires
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CartesBancairesInfo getCartesBancaires() {
@@ -322,7 +322,7 @@ public class PaymentMethod {
    * The list of countries where a payment method is available. By default, all countries supported by the payment method.
    * @return countries
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of countries where a payment method is available. By default, all countries supported by the payment method.")
 
   public List<String> getCountries() {
@@ -353,7 +353,7 @@ public class PaymentMethod {
    * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
    * @return currencies
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of currencies that a payment method supports. By default, all currencies supported by the payment method.")
 
   public List<String> getCurrencies() {
@@ -376,7 +376,7 @@ public class PaymentMethod {
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    * @return enabled
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether the payment method is enabled (**true**) or disabled (**false**).")
 
   public Boolean getEnabled() {
@@ -399,7 +399,7 @@ public class PaymentMethod {
    * Get giroPay
    * @return giroPay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public GiroPayInfo getGiroPay() {
@@ -422,7 +422,7 @@ public class PaymentMethod {
    * Get googlePay
    * @return googlePay
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public GooglePayInfo getGooglePay() {
@@ -445,7 +445,7 @@ public class PaymentMethod {
    * The identifier of the resource.
    * @return id
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The identifier of the resource.")
 
   public String getId() {
@@ -468,7 +468,7 @@ public class PaymentMethod {
    * Get klarna
    * @return klarna
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public KlarnaInfo getKlarna() {
@@ -491,7 +491,7 @@ public class PaymentMethod {
    * Get paypal
    * @return paypal
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public PayPalInfo getPaypal() {
@@ -514,7 +514,7 @@ public class PaymentMethod {
    * The sales channel.
    * @return shopperInteraction
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The sales channel.")
 
   public String getShopperInteraction() {
@@ -537,7 +537,7 @@ public class PaymentMethod {
    * Get sofort
    * @return sofort
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public SofortInfo getSofort() {
@@ -560,7 +560,7 @@ public class PaymentMethod {
    * The ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/stores__resParam_id), if any.
    * @return storeId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/stores__resParam_id), if any.")
 
   public String getStoreId() {
@@ -583,7 +583,7 @@ public class PaymentMethod {
    * Get swish
    * @return swish
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public SwishInfo getSwish() {
@@ -606,7 +606,7 @@ public class PaymentMethod {
    * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).")
 
   public String getType() {
@@ -629,7 +629,7 @@ public class PaymentMethod {
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    * @return verificationStatus
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**")
 
   public VerificationStatusEnum getVerificationStatus() {

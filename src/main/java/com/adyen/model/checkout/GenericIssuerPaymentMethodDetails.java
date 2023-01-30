@@ -126,7 +126,7 @@ public class GenericIssuerPaymentMethodDetails {
    * The issuer id of the shopper&#39;s selected bank.
    * @return issuer
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The issuer id of the shopper's selected bank.")
 
   public String getIssuer() {
@@ -151,7 +151,7 @@ public class GenericIssuerPaymentMethodDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -174,7 +174,7 @@ public class GenericIssuerPaymentMethodDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -197,7 +197,7 @@ public class GenericIssuerPaymentMethodDetails {
    * **genericissuer**
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "**genericissuer**")
 
   public TypeEnum getType() {

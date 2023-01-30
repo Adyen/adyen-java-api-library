@@ -69,7 +69,7 @@ public class Expiry {
    * The month in which the card will expire.
    * @return month
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The month in which the card will expire.")
 
   public String getMonth() {
@@ -92,7 +92,7 @@ public class Expiry {
    * The year in which the card will expire.
    * @return year
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The year in which the card will expire.")
 
   public String getYear() {

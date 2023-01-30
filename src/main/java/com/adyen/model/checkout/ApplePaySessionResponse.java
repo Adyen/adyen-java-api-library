@@ -65,7 +65,7 @@ public class ApplePaySessionResponse {
    * Base64 encoded data you need to [complete the Apple Pay merchant validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab&#x3D;adyen-certificate-validation_1#complete-apple-pay-session-validation).
    * @return data
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Base64 encoded data you need to [complete the Apple Pay merchant validation](https://docs.adyen.com/payment-methods/apple-pay/api-only?tab=adyen-certificate-validation_1#complete-apple-pay-session-validation).")
 
   public String getData() {

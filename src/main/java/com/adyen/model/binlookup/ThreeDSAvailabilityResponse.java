@@ -86,7 +86,7 @@ public class ThreeDSAvailabilityResponse {
    * Get binDetails
    * @return binDetails
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public BinDetail getBinDetails() {
@@ -117,7 +117,7 @@ public class ThreeDSAvailabilityResponse {
    * List of Directory Server (DS) public keys.
    * @return dsPublicKeys
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of Directory Server (DS) public keys.")
 
   public List<DSPublicKeyDetail> getDsPublicKeys() {
@@ -140,7 +140,7 @@ public class ThreeDSAvailabilityResponse {
    * Indicator if 3D Secure 1 is supported.
    * @return threeDS1Supported
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Indicator if 3D Secure 1 is supported.")
 
   public Boolean getThreeDS1Supported() {
@@ -171,7 +171,7 @@ public class ThreeDSAvailabilityResponse {
    * List of brand and card range pairs.
    * @return threeDS2CardRangeDetails
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of brand and card range pairs.")
 
   public List<ThreeDS2CardRangeDetail> getThreeDS2CardRangeDetails() {
@@ -194,7 +194,7 @@ public class ThreeDSAvailabilityResponse {
    * Indicator if 3D Secure 2 is supported.
    * @return threeDS2supported
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Indicator if 3D Secure 2 is supported.")
 
   public Boolean getThreeDS2supported() {

@@ -83,7 +83,7 @@ public class CostEstimateResponse {
    * Get cardBin
    * @return cardBin
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public CardBin getCardBin() {
@@ -106,7 +106,7 @@ public class CostEstimateResponse {
    * Get costEstimateAmount
    * @return costEstimateAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getCostEstimateAmount() {
@@ -129,7 +129,7 @@ public class CostEstimateResponse {
    * Adyen&#39;s 16-character reference associated with the request.
    * @return costEstimateReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the request.")
 
   public String getCostEstimateReference() {
@@ -152,7 +152,7 @@ public class CostEstimateResponse {
    * The result of the cost estimation.
    * @return resultCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The result of the cost estimation.")
 
   public String getResultCode() {
@@ -175,7 +175,7 @@ public class CostEstimateResponse {
    * Indicates the way the charges can be passed on to the cardholder. The following values are possible: * &#x60;ZERO&#x60; - the charges are not allowed to pass on * &#x60;PASSTHROUGH&#x60; - the charges can be passed on * &#x60;UNLIMITED&#x60; - there is no limit on how much surcharge is passed on
    * @return surchargeType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates the way the charges can be passed on to the cardholder. The following values are possible: * `ZERO` - the charges are not allowed to pass on * `PASSTHROUGH` - the charges can be passed on * `UNLIMITED` - there is no limit on how much surcharge is passed on")
 
   public String getSurchargeType() {

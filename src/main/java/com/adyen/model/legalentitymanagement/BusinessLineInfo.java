@@ -80,7 +80,7 @@ public class BusinessLineInfo {
    * The capability for which you are creating the business line. For example, **receivePayments**.
    * @return capability
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The capability for which you are creating the business line. For example, **receivePayments**.")
 
   public String getCapability() {
@@ -103,7 +103,7 @@ public class BusinessLineInfo {
    * A code that represents the industry of the legal entity. For example, **4431A** for computer software stores.
    * @return industryCode
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "A code that represents the industry of the legal entity. For example, **4431A** for computer software stores.")
 
   public String getIndustryCode() {
@@ -126,7 +126,7 @@ public class BusinessLineInfo {
    * Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
    * @return legalEntityId
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.")
 
   public String getLegalEntityId() {
@@ -157,7 +157,7 @@ public class BusinessLineInfo {
    * A list of channels where goods or services are sold. You cannot combine point of sale and ecommerce in one business line.  Possible values and combinations:  - For point of sale: **pos** and **posMoto**  - For ecommerce: **eCommerce** and **ecomMoto**  - For Pay by Link: **payByLink**  Required only in combination with the &#x60;capability&#x60; to **receivePayments** or **receiveFromPlatformPayments**.
    * @return salesChannels
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "A list of channels where goods or services are sold. You cannot combine point of sale and ecommerce in one business line.  Possible values and combinations:  - For point of sale: **pos** and **posMoto**  - For ecommerce: **eCommerce** and **ecomMoto**  - For Pay by Link: **payByLink**  Required only in combination with the `capability` to **receivePayments** or **receiveFromPlatformPayments**.")
 
   public List<String> getSalesChannels() {
@@ -180,7 +180,7 @@ public class BusinessLineInfo {
    * Get sourceOfFunds
    * @return sourceOfFunds
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public SourceOfFunds getSourceOfFunds() {
@@ -211,7 +211,7 @@ public class BusinessLineInfo {
    * List of website URLs where your user&#39;s goods or services are sold. When this is required for a capability but your user does not have an online presence, provide the reason in the &#x60;webDataExemption&#x60; object.
    * @return webData
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "List of website URLs where your user's goods or services are sold. When this is required for a capability but your user does not have an online presence, provide the reason in the `webDataExemption` object.")
 
   public List<WebData> getWebData() {
@@ -234,7 +234,7 @@ public class BusinessLineInfo {
    * Get webDataExemption
    * @return webDataExemption
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public WebDataExemption getWebDataExemption() {

@@ -122,7 +122,7 @@ public class IdealDetails {
    * The iDEAL issuer value of the shopper&#39;s selected bank. Set this to an **id** of an iDEAL issuer to preselect it.
    * @return issuer
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The iDEAL issuer value of the shopper's selected bank. Set this to an **id** of an iDEAL issuer to preselect it.")
 
   public String getIssuer() {
@@ -147,7 +147,7 @@ public class IdealDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -170,7 +170,7 @@ public class IdealDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -193,7 +193,7 @@ public class IdealDetails {
    * **ideal**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**ideal**")
 
   public TypeEnum getType() {

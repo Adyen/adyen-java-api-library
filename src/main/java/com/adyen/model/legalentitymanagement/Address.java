@@ -73,7 +73,7 @@ public class Address {
    * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
    * @return city
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the city. Required if `stateOrProvince` is provided.  If you specify the city, you must also send `postalCode` and `street`.")
 
   public String getCity() {
@@ -96,7 +96,7 @@ public class Address {
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return country
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.")
 
   public String getCountry() {
@@ -119,7 +119,7 @@ public class Address {
    * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    * @return postalCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Postal code. Required if `stateOrProvince` and/or `city` is provided.")
 
   public String getPostalCode() {
@@ -142,7 +142,7 @@ public class Address {
    * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.   If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    * @return stateOrProvince
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.   If you specify the state or province, you must also send `city`, `postalCode`, and `street`.")
 
   public String getStateOrProvince() {
@@ -165,7 +165,7 @@ public class Address {
    * The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    * @return street
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the street, and the house or building number. Required if `stateOrProvince` and/or `city` is provided.")
 
   public String getStreet() {
@@ -188,7 +188,7 @@ public class Address {
    * The apartment, unit, or suite number.
    * @return street2
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The apartment, unit, or suite number.")
 
   public String getStreet2() {

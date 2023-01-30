@@ -114,7 +114,7 @@ public class AmazonPayDetails {
    * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response.
    * @return amazonPayToken
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `amazonPayToken` that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response.")
 
   public String getAmazonPayToken() {
@@ -137,7 +137,7 @@ public class AmazonPayDetails {
    * **amazonpay**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**amazonpay**")
 
   public TypeEnum getType() {

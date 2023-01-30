@@ -105,7 +105,7 @@ public class CreateCompanyUserResponse {
    * Get links
    * @return links
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Links getLinks() {
@@ -136,7 +136,7 @@ public class CreateCompanyUserResponse {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
 
   public List<String> getAccountGroups() {
@@ -159,7 +159,7 @@ public class CreateCompanyUserResponse {
    * Indicates whether this user is active.
    * @return active
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Indicates whether this user is active.")
 
   public Boolean getActive() {
@@ -190,7 +190,7 @@ public class CreateCompanyUserResponse {
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.
    * @return associatedMerchantAccounts
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) associated with this user.")
 
   public List<String> getAssociatedMerchantAccounts() {
@@ -213,7 +213,7 @@ public class CreateCompanyUserResponse {
    * The email address of the user.
    * @return email
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The email address of the user.")
 
   public String getEmail() {
@@ -236,7 +236,7 @@ public class CreateCompanyUserResponse {
    * The unique identifier of the user.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The unique identifier of the user.")
 
   public String getId() {
@@ -259,7 +259,7 @@ public class CreateCompanyUserResponse {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Name getName() {
@@ -287,7 +287,7 @@ public class CreateCompanyUserResponse {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
 
   public List<String> getRoles() {
@@ -310,7 +310,7 @@ public class CreateCompanyUserResponse {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
 
   public String getTimeZoneCode() {
@@ -333,7 +333,7 @@ public class CreateCompanyUserResponse {
    * The username for this user.
    * @return username
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The username for this user.")
 
   public String getUsername() {

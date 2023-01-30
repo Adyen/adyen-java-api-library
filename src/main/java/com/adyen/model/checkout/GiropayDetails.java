@@ -120,7 +120,7 @@ public class GiropayDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -143,7 +143,7 @@ public class GiropayDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -166,7 +166,7 @@ public class GiropayDetails {
    * **giropay**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**giropay**")
 
   public TypeEnum getType() {

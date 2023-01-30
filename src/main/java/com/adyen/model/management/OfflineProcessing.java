@@ -72,7 +72,7 @@ public class OfflineProcessing {
    * The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return chipFloorLimit
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public Integer getChipFloorLimit() {
@@ -103,7 +103,7 @@ public class OfflineProcessing {
    * The maximum offline transaction amount for swiped cards, in the specified currency.
    * @return offlineSwipeLimits
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The maximum offline transaction amount for swiped cards, in the specified currency.")
 
   public List<MinorUnitsMonetaryValue> getOfflineSwipeLimits() {

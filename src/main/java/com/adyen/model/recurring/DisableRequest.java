@@ -77,7 +77,7 @@ public class DisableRequest {
    * Specify the contract if you only want to disable a specific use.  This field can be set to one of the following values, or to their combination (comma-separated): * ONECLICK * RECURRING * PAYOUT
    * @return contract
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specify the contract if you only want to disable a specific use.  This field can be set to one of the following values, or to their combination (comma-separated): * ONECLICK * RECURRING * PAYOUT")
 
   public String getContract() {
@@ -100,7 +100,7 @@ public class DisableRequest {
    * The merchant account identifier with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The merchant account identifier with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -123,7 +123,7 @@ public class DisableRequest {
    * The ID that uniquely identifies the recurring detail reference.  If it is not provided, the whole recurring contract of the &#x60;shopperReference&#x60; will be disabled, which includes all recurring details.
    * @return recurringDetailReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The ID that uniquely identifies the recurring detail reference.  If it is not provided, the whole recurring contract of the `shopperReference` will be disabled, which includes all recurring details.")
 
   public String getRecurringDetailReference() {
@@ -146,7 +146,7 @@ public class DisableRequest {
    * The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
    * @return shopperReference
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The ID that uniquely identifies the shopper.  This `shopperReference` must be the same as the `shopperReference` used in the initial payment.")
 
   public String getShopperReference() {

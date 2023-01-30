@@ -177,7 +177,7 @@ public class PayPalDetails {
    * The unique ID associated with the order.
    * @return orderID
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The unique ID associated with the order.")
 
   public String getOrderID() {
@@ -200,7 +200,7 @@ public class PayPalDetails {
    * The unique ID associated with the payer.
    * @return payerID
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The unique ID associated with the payer.")
 
   public String getPayerID() {
@@ -225,7 +225,7 @@ public class PayPalDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -248,7 +248,7 @@ public class PayPalDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -271,7 +271,7 @@ public class PayPalDetails {
    * The type of flow to initiate.
    * @return subtype
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The type of flow to initiate.")
 
   public SubtypeEnum getSubtype() {
@@ -294,7 +294,7 @@ public class PayPalDetails {
    * **paypal**
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "**paypal**")
 
   public TypeEnum getType() {

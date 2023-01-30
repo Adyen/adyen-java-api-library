@@ -99,7 +99,7 @@ public class WebDataExemption {
    * The reason why the web data was not provided. Possible value: **noOnlinePresence**.
    * @return reason
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The reason why the web data was not provided. Possible value: **noOnlinePresence**.")
 
   public ReasonEnum getReason() {

@@ -74,7 +74,7 @@ public class PermitRestriction {
    * Get maxAmount
    * @return maxAmount
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getMaxAmount() {
@@ -97,7 +97,7 @@ public class PermitRestriction {
    * Get singleTransactionLimit
    * @return singleTransactionLimit
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Amount getSingleTransactionLimit() {
@@ -120,7 +120,7 @@ public class PermitRestriction {
    * Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.
    * @return singleUse
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Only a single payment can be made using this permit if set to true, otherwise multiple payments are allowed.")
 
   public Boolean getSingleUse() {

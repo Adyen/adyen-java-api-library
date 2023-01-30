@@ -69,7 +69,7 @@ public class CardBrandDetails {
    * Indicates if you support the card brand.
    * @return supported
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates if you support the card brand.")
 
   public Boolean getSupported() {
@@ -92,7 +92,7 @@ public class CardBrandDetails {
    * The name of the card brand.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the card brand.")
 
   public String getType() {

@@ -72,7 +72,7 @@ public class Nexo {
    * Get eventUrls
    * @return eventUrls
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public EventUrl getEventUrls() {
@@ -105,7 +105,7 @@ public class Nexo {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "@deprecated One or more URLs to send event messages to when using Terminal API.")
 
   public List<String> getNexoEventUrls() {

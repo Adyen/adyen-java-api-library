@@ -76,7 +76,7 @@ public class ListTerminalsResponse {
    * The list of terminals.
    * @return data
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of terminals.")
 
   public List<Terminal> getData() {

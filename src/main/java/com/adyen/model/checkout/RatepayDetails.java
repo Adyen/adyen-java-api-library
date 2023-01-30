@@ -132,7 +132,7 @@ public class RatepayDetails {
    * The address where to send the invoice.
    * @return billingAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The address where to send the invoice.")
 
   public String getBillingAddress() {
@@ -155,7 +155,7 @@ public class RatepayDetails {
    * The address where the goods should be delivered.
    * @return deliveryAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The address where the goods should be delivered.")
 
   public String getDeliveryAddress() {
@@ -178,7 +178,7 @@ public class RatepayDetails {
    * Shopper name, date of birth, phone number, and email address.
    * @return personalDetails
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Shopper name, date of birth, phone number, and email address.")
 
   public String getPersonalDetails() {
@@ -203,7 +203,7 @@ public class RatepayDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -226,7 +226,7 @@ public class RatepayDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -249,7 +249,7 @@ public class RatepayDetails {
    * **ratepay**
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "**ratepay**")
 
   public TypeEnum getType() {

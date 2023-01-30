@@ -72,7 +72,7 @@ public class OnboardingTheme {
    * The creation date of the theme.
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The creation date of the theme.")
 
   public OffsetDateTime getCreatedAt() {
@@ -95,7 +95,7 @@ public class OnboardingTheme {
    * The description of the theme.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The description of the theme.")
 
   public String getDescription() {
@@ -118,7 +118,7 @@ public class OnboardingTheme {
    * The unique identifier of the theme.
    * @return id
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The unique identifier of the theme.")
 
   public String getId() {
@@ -146,7 +146,7 @@ public class OnboardingTheme {
    * The properties of the theme.
    * @return properties
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The properties of the theme.")
 
   public Map<String, String> getProperties() {
@@ -169,7 +169,7 @@ public class OnboardingTheme {
    * The date when the theme was last updated.
    * @return updatedAt
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The date when the theme was last updated.")
 
   public OffsetDateTime getUpdatedAt() {

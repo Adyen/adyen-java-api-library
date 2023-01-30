@@ -241,7 +241,7 @@ public class CardDetails {
    * Secondary brand of the card. For example: **plastix**, **hmclub**.
    * @return brand
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Secondary brand of the card. For example: **plastix**, **hmclub**.")
 
   public String getBrand() {
@@ -266,7 +266,7 @@ public class CardDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getCupsecureplusSmscode() {
@@ -289,7 +289,7 @@ public class CardDetails {
    * The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return cvc
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The card verification code. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
 
   public String getCvc() {
@@ -312,7 +312,7 @@ public class CardDetails {
    * The encrypted card number.
    * @return encryptedCardNumber
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The encrypted card number.")
 
   public String getEncryptedCardNumber() {
@@ -335,7 +335,7 @@ public class CardDetails {
    * The encrypted card expiry month.
    * @return encryptedExpiryMonth
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The encrypted card expiry month.")
 
   public String getEncryptedExpiryMonth() {
@@ -358,7 +358,7 @@ public class CardDetails {
    * The encrypted card expiry year.
    * @return encryptedExpiryYear
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The encrypted card expiry year.")
 
   public String getEncryptedExpiryYear() {
@@ -381,7 +381,7 @@ public class CardDetails {
    * The encrypted card verification code.
    * @return encryptedSecurityCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The encrypted card verification code.")
 
   public String getEncryptedSecurityCode() {
@@ -404,7 +404,7 @@ public class CardDetails {
    * The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return expiryMonth
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
 
   public String getExpiryMonth() {
@@ -427,7 +427,7 @@ public class CardDetails {
    * The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return expiryYear
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
 
   public String getExpiryYear() {
@@ -450,7 +450,7 @@ public class CardDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -473,7 +473,7 @@ public class CardDetails {
    * The name of the card holder.
    * @return holderName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The name of the card holder.")
 
   public String getHolderName() {
@@ -496,7 +496,7 @@ public class CardDetails {
    * The network token reference. This is the [&#x60;networkTxReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment.
    * @return networkPaymentReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The network token reference. This is the [`networkTxReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment.")
 
   public String getNetworkPaymentReference() {
@@ -519,7 +519,7 @@ public class CardDetails {
    * The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).
    * @return number
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).")
 
   public String getNumber() {
@@ -544,7 +544,7 @@ public class CardDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -567,7 +567,7 @@ public class CardDetails {
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used only for recurring payments in India.
    * @return shopperNotificationReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used only for recurring payments in India.")
 
   public String getShopperNotificationReference() {
@@ -590,7 +590,7 @@ public class CardDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -613,7 +613,7 @@ public class CardDetails {
    * Version of the 3D Secure 2 mobile SDK.
    * @return threeDS2SdkVersion
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Version of the 3D Secure 2 mobile SDK.")
 
   public String getThreeDS2SdkVersion() {
@@ -636,7 +636,7 @@ public class CardDetails {
    * Default payment method details. Common for scheme payment methods, and for simple payment method details.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Default payment method details. Common for scheme payment methods, and for simple payment method details.")
 
   public TypeEnum getType() {

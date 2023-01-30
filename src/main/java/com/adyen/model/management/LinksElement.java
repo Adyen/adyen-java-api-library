@@ -65,7 +65,7 @@ public class LinksElement {
    * Get href
    * @return href
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public String getHref() {

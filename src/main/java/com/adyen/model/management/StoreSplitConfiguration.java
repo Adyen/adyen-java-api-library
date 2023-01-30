@@ -69,7 +69,7 @@ public class StoreSplitConfiguration {
    * The [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) linked to the account holder.
    * @return balanceAccountId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id) linked to the account holder.")
 
   public String getBalanceAccountId() {
@@ -92,7 +92,7 @@ public class StoreSplitConfiguration {
    * The UUID of the [split configuration](https://docs.adyen.com/marketplaces-and-platforms/classic/split-configuration-for-stores) from the Customer Area.
    * @return splitConfigurationId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The UUID of the [split configuration](https://docs.adyen.com/marketplaces-and-platforms/classic/split-configuration-for-stores) from the Customer Area.")
 
   public String getSplitConfigurationId() {

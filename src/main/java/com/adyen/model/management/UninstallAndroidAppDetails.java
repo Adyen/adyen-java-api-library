@@ -114,7 +114,7 @@ public class UninstallAndroidAppDetails {
    * The unique identifier of the app to be uninstalled.
    * @return appId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the app to be uninstalled.")
 
   public String getAppId() {
@@ -137,7 +137,7 @@ public class UninstallAndroidAppDetails {
    * Type of terminal action: Uninstall an Android app.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Type of terminal action: Uninstall an Android app.")
 
   public TypeEnum getType() {

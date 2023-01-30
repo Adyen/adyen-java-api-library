@@ -130,7 +130,7 @@ public class CheckoutQrCodeAction {
    * Expiry time of the QR code.
    * @return expiresAt
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Expiry time of the QR code.")
 
   public String getExpiresAt() {
@@ -153,7 +153,7 @@ public class CheckoutQrCodeAction {
    * A value that must be submitted to the &#x60;/payments/details&#x60; endpoint to verify this payment.
    * @return paymentData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A value that must be submitted to the `/payments/details` endpoint to verify this payment.")
 
   public String getPaymentData() {
@@ -176,7 +176,7 @@ public class CheckoutQrCodeAction {
    * Specifies the payment method.
    * @return paymentMethodType
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the payment method.")
 
   public String getPaymentMethodType() {
@@ -199,7 +199,7 @@ public class CheckoutQrCodeAction {
    * The contents of the QR code as a UTF8 string.
    * @return qrCodeData
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The contents of the QR code as a UTF8 string.")
 
   public String getQrCodeData() {
@@ -222,7 +222,7 @@ public class CheckoutQrCodeAction {
    * **qrCode**
    * @return type
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "**qrCode**")
 
   public TypeEnum getType() {
@@ -245,7 +245,7 @@ public class CheckoutQrCodeAction {
    * Specifies the URL to redirect to.
    * @return url
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
 
   public String getUrl() {

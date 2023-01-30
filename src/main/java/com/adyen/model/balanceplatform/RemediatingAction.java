@@ -69,7 +69,7 @@ public class RemediatingAction {
    * The remediating action code.
    * @return code
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The remediating action code.")
 
   public String getCode() {
@@ -92,7 +92,7 @@ public class RemediatingAction {
    * A description of how you can resolve the verification error.
    * @return message
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A description of how you can resolve the verification error.")
 
   public String getMessage() {

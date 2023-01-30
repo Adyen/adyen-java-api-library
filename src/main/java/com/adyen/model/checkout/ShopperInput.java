@@ -220,7 +220,7 @@ public class ShopperInput {
    * Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly
    * @return billingAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies visibility of billing address fields.  Permitted values: * editable * hidden * readOnly")
 
   public BillingAddressEnum getBillingAddress() {
@@ -243,7 +243,7 @@ public class ShopperInput {
    * Specifies visibility of delivery address fields.  Permitted values: * editable * hidden * readOnly
    * @return deliveryAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies visibility of delivery address fields.  Permitted values: * editable * hidden * readOnly")
 
   public DeliveryAddressEnum getDeliveryAddress() {
@@ -266,7 +266,7 @@ public class ShopperInput {
    * Specifies visibility of personal details.  Permitted values: * editable * hidden * readOnly
    * @return personalDetails
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Specifies visibility of personal details.  Permitted values: * editable * hidden * readOnly")
 
   public PersonalDetailsEnum getPersonalDetails() {

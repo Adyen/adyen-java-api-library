@@ -76,7 +76,7 @@ public class BalanceSweepConfigurationsResponse {
    * Indicates whether there are more items on the next page.
    * @return hasNext
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
 
   public Boolean getHasNext() {
@@ -99,7 +99,7 @@ public class BalanceSweepConfigurationsResponse {
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
 
   public Boolean getHasPrevious() {
@@ -127,7 +127,7 @@ public class BalanceSweepConfigurationsResponse {
    * List of sweeps associated with the balance account.
    * @return sweeps
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "List of sweeps associated with the balance account.")
 
   public List<SweepConfigurationV2> getSweeps() {

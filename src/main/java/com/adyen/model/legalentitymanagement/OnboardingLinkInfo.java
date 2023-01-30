@@ -61,7 +61,7 @@ public class OnboardingLinkInfo {
    * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. Possible values: **cs-CZ**, **de-DE**, **en-US**, **es-ES**, **it-IT**, **nl-NL**, **no-NO**, **pl-PL**, **pt-PT**, **sv-SE**.   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
    * @return locale
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. Possible values: **cs-CZ**, **de-DE**, **en-US**, **es-ES**, **it-IT**, **nl-NL**, **no-NO**, **pl-PL**, **pt-PT**, **sv-SE**.   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.")
 
   public String getLocale() {
@@ -84,7 +84,7 @@ public class OnboardingLinkInfo {
    * The URL where the user is redirected after they complete hosted onboarding.
    * @return redirectUrl
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The URL where the user is redirected after they complete hosted onboarding.")
 
   public String getRedirectUrl() {
@@ -107,7 +107,7 @@ public class OnboardingLinkInfo {
    * The unique identifier of the hosted onboarding theme.
    * @return themeId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the hosted onboarding theme.")
 
   public String getThemeId() {

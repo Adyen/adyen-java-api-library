@@ -74,7 +74,7 @@ public class RecurringDetailsRequest {
    * The merchant account identifier you want to process the (transaction) request with.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account identifier you want to process the (transaction) request with.")
 
   public String getMerchantAccount() {
@@ -97,7 +97,7 @@ public class RecurringDetailsRequest {
    * Get recurring
    * @return recurring
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Recurring getRecurring() {
@@ -120,7 +120,7 @@ public class RecurringDetailsRequest {
    * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
    * @return shopperReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The reference you use to uniquely identify the shopper (e.g. user ID or account ID).")
 
   public String getShopperReference() {

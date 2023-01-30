@@ -89,7 +89,7 @@ public class AndroidApp {
    * The description that was provided when uploading the app. The description is not shown on the terminal.
    * @return description
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The description that was provided when uploading the app. The description is not shown on the terminal.")
 
   public String getDescription() {
@@ -112,7 +112,7 @@ public class AndroidApp {
    * The unique identifier of the app.
    * @return id
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The unique identifier of the app.")
 
   public String getId() {
@@ -135,7 +135,7 @@ public class AndroidApp {
    * The app name that is shown on the terminal.
    * @return label
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The app name that is shown on the terminal.")
 
   public String getLabel() {
@@ -158,7 +158,7 @@ public class AndroidApp {
    * The package name of the app.
    * @return packageName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The package name of the app.")
 
   public String getPackageName() {
@@ -181,7 +181,7 @@ public class AndroidApp {
    * The status of the app. Possible values:  * &#x60;processing&#x60;: The app is being signed and converted to a format that the terminal can handle. * &#x60;error&#x60;: Something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * &#x60;invalid&#x60;: There is something wrong with the APK file of the app. * &#x60;ready&#x60;: The app has been signed and converted. * &#x60;archived&#x60;: The app is no longer available.
    * @return status
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The status of the app. Possible values:  * `processing`: The app is being signed and converted to a format that the terminal can handle. * `error`: Something went wrong. Check that the app matches the [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-requirements). * `invalid`: There is something wrong with the APK file of the app. * `ready`: The app has been signed and converted. * `archived`: The app is no longer available.")
 
   public String getStatus() {
@@ -204,7 +204,7 @@ public class AndroidApp {
    * The internal version number of the app.
    * @return versionCode
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The internal version number of the app.")
 
   public Integer getVersionCode() {
@@ -227,7 +227,7 @@ public class AndroidApp {
    * The app version number that is shown on the terminal.
    * @return versionName
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The app version number that is shown on the terminal.")
 
   public String getVersionName() {

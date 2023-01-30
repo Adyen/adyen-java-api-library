@@ -80,7 +80,7 @@ public class CreatePermitResult {
    * List of new permits.
    * @return permitResultList
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "List of new permits.")
 
   public List<PermitResult> getPermitResultList() {
@@ -103,7 +103,7 @@ public class CreatePermitResult {
    * A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "A unique reference associated with the request. This value is globally unique; quote it when communicating with us about this request.")
 
   public String getPspReference() {

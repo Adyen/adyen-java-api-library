@@ -76,7 +76,7 @@ public class AndroidCertificatesResponse {
    * Uploaded Android certificates for Android payment terminals.
    * @return data
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Uploaded Android certificates for Android payment terminals.")
 
   public List<AndroidCertificate> getData() {

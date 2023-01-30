@@ -76,7 +76,7 @@ public class ListExternalTerminalActionsResponse {
    * The list of terminal actions.
    * @return data
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The list of terminal actions.")
 
   public List<ExternalTerminalAction> getData() {

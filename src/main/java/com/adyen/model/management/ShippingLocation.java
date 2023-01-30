@@ -79,7 +79,7 @@ public class ShippingLocation {
    * Get address
    * @return address
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Address getAddress() {
@@ -102,7 +102,7 @@ public class ShippingLocation {
    * Get contact
    * @return contact
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Contact getContact() {
@@ -125,7 +125,7 @@ public class ShippingLocation {
    * The unique identifier of the shipping location, for use as &#x60;shippingLocationId&#x60; when creating an order.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the shipping location, for use as `shippingLocationId` when creating an order.")
 
   public String getId() {
@@ -148,7 +148,7 @@ public class ShippingLocation {
    * The unique name of the shipping location.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique name of the shipping location.")
 
   public String getName() {

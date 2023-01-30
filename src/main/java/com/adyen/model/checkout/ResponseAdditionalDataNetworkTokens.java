@@ -73,7 +73,7 @@ public class ResponseAdditionalDataNetworkTokens {
    * Indicates whether a network token is available for the specified card.
    * @return networkTokenAvailable
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether a network token is available for the specified card.")
 
   public String getNetworkTokenAvailable() {
@@ -96,7 +96,7 @@ public class ResponseAdditionalDataNetworkTokens {
    * The Bank Identification Number of a tokenized card, which is the first six digits of a card number.
    * @return networkTokenBin
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Bank Identification Number of a tokenized card, which is the first six digits of a card number.")
 
   public String getNetworkTokenBin() {
@@ -119,7 +119,7 @@ public class ResponseAdditionalDataNetworkTokens {
    * The last four digits of a network token.
    * @return networkTokenTokenSummary
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The last four digits of a network token.")
 
   public String getNetworkTokenTokenSummary() {

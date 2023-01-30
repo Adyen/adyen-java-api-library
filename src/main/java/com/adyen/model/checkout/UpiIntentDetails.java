@@ -110,7 +110,7 @@ public class UpiIntentDetails {
    * **upi_intent**
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "**upi_intent**")
 
   public TypeEnum getType() {

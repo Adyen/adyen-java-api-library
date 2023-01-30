@@ -142,7 +142,7 @@ public class KlarnaDetails {
    * The address where to send the invoice.
    * @return billingAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The address where to send the invoice.")
 
   public String getBillingAddress() {
@@ -165,7 +165,7 @@ public class KlarnaDetails {
    * The address where the goods should be delivered.
    * @return deliveryAddress
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The address where the goods should be delivered.")
 
   public String getDeliveryAddress() {
@@ -188,7 +188,7 @@ public class KlarnaDetails {
    * Shopper name, date of birth, phone number, and email address.
    * @return personalDetails
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Shopper name, date of birth, phone number, and email address.")
 
   public String getPersonalDetails() {
@@ -213,7 +213,7 @@ public class KlarnaDetails {
    * @deprecated
   **/
   @Deprecated
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -236,7 +236,7 @@ public class KlarnaDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -259,7 +259,7 @@ public class KlarnaDetails {
    * **klarna**
    * @return type
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "**klarna**")
 
   public TypeEnum getType() {

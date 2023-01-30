@@ -114,7 +114,7 @@ public class CellulantDetails {
    * The Cellulant issuer.
    * @return issuer
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The Cellulant issuer.")
 
   public String getIssuer() {
@@ -137,7 +137,7 @@ public class CellulantDetails {
    * **Cellulant**
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "**Cellulant**")
 
   public TypeEnum getType() {

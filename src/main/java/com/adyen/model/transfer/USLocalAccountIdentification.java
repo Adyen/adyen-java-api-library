@@ -152,7 +152,7 @@ public class USLocalAccountIdentification {
    * The bank account number (without separators or whitespace).
    * @return accountNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The bank account number (without separators or whitespace).")
 
   public String getAccountNumber() {
@@ -175,7 +175,7 @@ public class USLocalAccountIdentification {
    * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return accountType
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.")
 
   public AccountTypeEnum getAccountType() {
@@ -198,7 +198,7 @@ public class USLocalAccountIdentification {
    * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number) (without separators or whitespace).
    * @return routingNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number) (without separators or whitespace).")
 
   public String getRoutingNumber() {
@@ -221,7 +221,7 @@ public class USLocalAccountIdentification {
    * **usLocal**
    * @return type
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "**usLocal**")
 
   public TypeEnum getType() {

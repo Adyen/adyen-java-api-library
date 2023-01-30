@@ -111,7 +111,7 @@ public class SourceOfFunds {
    * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability. Required when &#x60;adyenProcessedFunds&#x60; is **true**.
    * @return acquiringBusinessLineId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability. Required when `adyenProcessedFunds` is **true**.")
 
   public String getAcquiringBusinessLineId() {
@@ -134,7 +134,7 @@ public class SourceOfFunds {
    * Indicates whether the funds are coming from transactions processed by Adyen.   - If **true**, the &#x60;acquiringBusinessLineId&#x60; is required.   - If **false**, a &#x60;description&#x60; is required.
    * @return adyenProcessedFunds
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether the funds are coming from transactions processed by Adyen.   - If **true**, the `acquiringBusinessLineId` is required.   - If **false**, a `description` is required.")
 
   public Boolean getAdyenProcessedFunds() {
@@ -157,7 +157,7 @@ public class SourceOfFunds {
    * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of the business. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    * @return description
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Text describing the source of funds. For example, for `type` **business**, provide a description of the business. Required when `adyenProcessedFunds` is **false**.")
 
   public String getDescription() {
@@ -180,7 +180,7 @@ public class SourceOfFunds {
    * The type of the source of funds. Possible value: **business**.
    * @return type
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The type of the source of funds. Possible value: **business**.")
 
   public TypeEnum getType() {

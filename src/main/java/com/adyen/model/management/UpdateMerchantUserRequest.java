@@ -96,7 +96,7 @@ public class UpdateMerchantUserRequest {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
 
   public List<String> getAccountGroups() {
@@ -119,7 +119,7 @@ public class UpdateMerchantUserRequest {
    * Sets the status of the user to active (**true**) or inactive (**false**).
    * @return active
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Sets the status of the user to active (**true**) or inactive (**false**).")
 
   public Boolean getActive() {
@@ -142,7 +142,7 @@ public class UpdateMerchantUserRequest {
    * The email address of the user.
    * @return email
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The email address of the user.")
 
   public String getEmail() {
@@ -165,7 +165,7 @@ public class UpdateMerchantUserRequest {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Name2 getName() {
@@ -196,7 +196,7 @@ public class UpdateMerchantUserRequest {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
 
   public List<String> getRoles() {
@@ -219,7 +219,7 @@ public class UpdateMerchantUserRequest {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
 
   public String getTimeZoneCode() {

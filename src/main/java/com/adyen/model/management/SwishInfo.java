@@ -65,7 +65,7 @@ public class SwishInfo {
    * Swish number. Format: 10 digits without spaces. For example, **1231111111**.
    * @return swishNumber
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "Swish number. Format: 10 digits without spaces. For example, **1231111111**.")
 
   public String getSwishNumber() {

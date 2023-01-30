@@ -98,7 +98,7 @@ public class NotifyShopperRequest {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -121,7 +121,7 @@ public class NotifyShopperRequest {
    * Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format
    * @return billingDate
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Date on which the subscription amount will be debited from the shopper. In YYYY-MM-DD format")
 
   public String getBillingDate() {
@@ -144,7 +144,7 @@ public class NotifyShopperRequest {
    * Sequence of the debit. Depends on Frequency and Billing Attempts Rule.
    * @return billingSequenceNumber
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Sequence of the debit. Depends on Frequency and Billing Attempts Rule.")
 
   public String getBillingSequenceNumber() {
@@ -167,7 +167,7 @@ public class NotifyShopperRequest {
    * Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing
    * @return displayedReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Reference of Pre-debit notification that is displayed to the shopper. Optional field. Maps to reference if missing")
 
   public String getDisplayedReference() {
@@ -190,7 +190,7 @@ public class NotifyShopperRequest {
    * The merchant account identifier with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account identifier with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -213,7 +213,7 @@ public class NotifyShopperRequest {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return recurringDetailReference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -236,7 +236,7 @@ public class NotifyShopperRequest {
    * Pre-debit notification reference sent by the merchant. This is a mandatory field
    * @return reference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Pre-debit notification reference sent by the merchant. This is a mandatory field")
 
   public String getReference() {
@@ -259,7 +259,7 @@ public class NotifyShopperRequest {
    * The ID that uniquely identifies the shopper.  This &#x60;shopperReference&#x60; must be the same as the &#x60;shopperReference&#x60; used in the initial payment.
    * @return shopperReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The ID that uniquely identifies the shopper.  This `shopperReference` must be the same as the `shopperReference` used in the initial payment.")
 
   public String getShopperReference() {
@@ -282,7 +282,7 @@ public class NotifyShopperRequest {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {

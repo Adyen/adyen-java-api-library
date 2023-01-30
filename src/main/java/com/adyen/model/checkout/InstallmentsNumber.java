@@ -65,7 +65,7 @@ public class InstallmentsNumber {
    * Maximum number of installments
    * @return maxNumberOfInstallments
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Maximum number of installments")
 
   public Integer getMaxNumberOfInstallments() {

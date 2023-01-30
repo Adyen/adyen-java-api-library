@@ -143,7 +143,7 @@ public class PaymentCaptureResource {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -174,7 +174,7 @@ public class PaymentCaptureResource {
    * Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). &gt; This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
    * @return lineItems
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Price and product information of the captured items, required for [partial captures](https://docs.adyen.com/online-payments/capture#partial-capture). > This field is required for partial captures with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
 
   public List<LineItem> getLineItems() {
@@ -197,7 +197,7 @@ public class PaymentCaptureResource {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -220,7 +220,7 @@ public class PaymentCaptureResource {
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. 
    * @return paymentPspReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to capture. ")
 
   public String getPaymentPspReference() {
@@ -243,7 +243,7 @@ public class PaymentCaptureResource {
    * Adyen&#39;s 16-character reference associated with the capture request.
    * @return pspReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the capture request.")
 
   public String getPspReference() {
@@ -266,7 +266,7 @@ public class PaymentCaptureResource {
    * Your reference for the capture request.
    * @return reference
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Your reference for the capture request.")
 
   public String getReference() {
@@ -297,7 +297,7 @@ public class PaymentCaptureResource {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
    * @return splits
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
 
   public List<Split> getSplits() {
@@ -320,7 +320,7 @@ public class PaymentCaptureResource {
    * The status of your request. This will always have the value **received**.
    * @return status
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
 
   public StatusEnum getStatus() {

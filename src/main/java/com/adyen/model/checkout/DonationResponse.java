@@ -140,7 +140,7 @@ public class DonationResponse {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public Amount getAmount() {
@@ -163,7 +163,7 @@ public class DonationResponse {
    * The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).
    * @return donationAccount
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The Adyen account name of your charity. We will provide you with this account name once your chosen charity has been [onboarded](https://docs.adyen.com/online-payments/donations#onboarding).")
 
   public String getDonationAccount() {
@@ -186,7 +186,7 @@ public class DonationResponse {
    * Your unique resource identifier.
    * @return id
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Your unique resource identifier.")
 
   public String getId() {
@@ -209,7 +209,7 @@ public class DonationResponse {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -232,7 +232,7 @@ public class DonationResponse {
    * Get payment
    * @return payment
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "")
 
   public PaymentResponse getPayment() {
@@ -255,7 +255,7 @@ public class DonationResponse {
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
 
   public String getReference() {
@@ -278,7 +278,7 @@ public class DonationResponse {
    * The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**
    * @return status
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "The status of the donation transaction.  Possible values: * **completed** * **pending** * **refused**")
 
   public StatusEnum getStatus() {

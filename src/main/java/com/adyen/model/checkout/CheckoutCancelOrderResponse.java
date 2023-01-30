@@ -114,7 +114,7 @@ public class CheckoutCancelOrderResponse {
    * A unique reference of the cancellation request.
    * @return pspReference
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "A unique reference of the cancellation request.")
 
   public String getPspReference() {
@@ -137,7 +137,7 @@ public class CheckoutCancelOrderResponse {
    * The result of the cancellation request.  Possible values:  * **Received** – Indicates the cancellation has successfully been received by Adyen, and will be processed.
    * @return resultCode
   **/
-  @javax.annotation.Nonnull
+
   @ApiModelProperty(required = true, value = "The result of the cancellation request.  Possible values:  * **Received** – Indicates the cancellation has successfully been received by Adyen, and will be processed.")
 
   public ResultCodeEnum getResultCode() {

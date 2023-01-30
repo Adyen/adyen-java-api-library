@@ -69,7 +69,7 @@ public class Item {
    * The value to provide in the result.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The value to provide in the result.")
 
   public String getId() {
@@ -92,7 +92,7 @@ public class Item {
    * The display name.
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The display name.")
 
   public String getName() {

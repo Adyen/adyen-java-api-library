@@ -86,7 +86,7 @@ public class CreatePaymentRefundRequest {
    * Get amount
    * @return amount
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -117,7 +117,7 @@ public class CreatePaymentRefundRequest {
    * Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). &gt; This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
    * @return lineItems
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
 
   public List<LineItem> getLineItems() {
@@ -140,7 +140,7 @@ public class CreatePaymentRefundRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  @javax.annotation.Nonnull
+  
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -163,7 +163,7 @@ public class CreatePaymentRefundRequest {
    * Your reference for the refund request. Maximum length: 80 characters.
    * @return reference
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "Your reference for the refund request. Maximum length: 80 characters.")
 
   public String getReference() {
@@ -194,7 +194,7 @@ public class CreatePaymentRefundRequest {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
    * @return splits
   **/
-  @javax.annotation.Nullable
+  
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
 
   public List<Split> getSplits() {

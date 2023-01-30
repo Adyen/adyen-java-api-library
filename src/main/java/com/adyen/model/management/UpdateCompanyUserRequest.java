@@ -100,7 +100,7 @@ public class UpdateCompanyUserRequest {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
 
   public List<String> getAccountGroups() {
@@ -123,7 +123,7 @@ public class UpdateCompanyUserRequest {
    * Indicates whether this user is active.
    * @return active
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Indicates whether this user is active.")
 
   public Boolean getActive() {
@@ -154,7 +154,7 @@ public class UpdateCompanyUserRequest {
    * The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) to associate the user with.
    * @return associatedMerchantAccounts
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) to associate the user with.")
 
   public List<String> getAssociatedMerchantAccounts() {
@@ -177,7 +177,7 @@ public class UpdateCompanyUserRequest {
    * The email address of the user.
    * @return email
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The email address of the user.")
 
   public String getEmail() {
@@ -200,7 +200,7 @@ public class UpdateCompanyUserRequest {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "")
 
   public Name2 getName() {
@@ -231,7 +231,7 @@ public class UpdateCompanyUserRequest {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
 
   public List<String> getRoles() {
@@ -254,7 +254,7 @@ public class UpdateCompanyUserRequest {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
 
   public String getTimeZoneCode() {

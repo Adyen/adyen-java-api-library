@@ -61,7 +61,7 @@ public class DocumentReference {
    * Identifies whether the document is active and used for checks.
    * @return active
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Identifies whether the document is active and used for checks.")
 
   public Boolean getActive() {
@@ -84,7 +84,7 @@ public class DocumentReference {
    * Document name.
    * @return fileName
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "Document name.")
 
   public String getFileName() {
@@ -107,7 +107,7 @@ public class DocumentReference {
    * The unique identifier of the resource.
    * @return id
   **/
-  @javax.annotation.Nullable
+
   @ApiModelProperty(value = "The unique identifier of the resource.")
 
   public String getId() {
