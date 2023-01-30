@@ -23,7 +23,7 @@ import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
 
-import okio.ByteString;
+import org.apache.commons.codec.binary.Base64;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -94,6 +94,22 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AccountInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AcctInfo.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalData3DSecure.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataAirline.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataCarRental.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataCommon.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataLevel23.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataLodging.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataModifications.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataOpenInvoice.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataOpi.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataRatepay.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataRetry.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataRisk.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataRiskStandalone.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataSubMerchant.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataTemporaryServices.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdditionalDataWallets.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.Address.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.AdjustAuthorisationRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.Amount.CustomTypeAdapterFactory());
@@ -128,11 +144,20 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.Phone.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.Recurring.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.RefundRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ResponseAdditionalData3DSecure.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ResponseAdditionalDataBillingAddress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ResponseAdditionalDataCard.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ResponseAdditionalDataCommon.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ResponseAdditionalDataInstallments.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ResponseAdditionalDataNetworkTokens.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ResponseAdditionalDataOpi.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ResponseAdditionalDataSepa.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.SDKEphemPubKey.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ServiceError.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ShopperInteractionDevice.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.Split.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.SplitAmount.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.SubMerchant.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.TechnicalCancelRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ThreeDS1Result.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.payments.ThreeDS2RequestData.CustomTypeAdapterFactory());
@@ -230,8 +255,7 @@ public class JSON {
                     return null;
                 default:
                     String bytesAsBase64 = in.nextString();
-                    ByteString byteString = ByteString.decodeBase64(bytesAsBase64);
-                    return byteString.toByteArray();
+                    return Base64.decodeBase64(bytesAsBase64);
             }
         }
     }

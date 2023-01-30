@@ -23,7 +23,7 @@ import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
 
-import okio.ByteString;
+import org.apache.commons.codec.binary.Base64;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -203,8 +203,7 @@ public class JSON {
                     return null;
                 default:
                     String bytesAsBase64 = in.nextString();
-                    ByteString byteString = ByteString.decodeBase64(bytesAsBase64);
-                    return byteString.toByteArray();
+                    return Base64.decodeBase64(bytesAsBase64);
             }
         }
     }
