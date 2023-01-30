@@ -17,7 +17,7 @@ import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gsonfire.GsonFireBuilder;
-import okio.ByteString;
+import org.apache.commons.codec.binary.Base64;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -183,7 +183,7 @@ public class JSON {
             if (value == null) {
                 out.nullValue();
             } else {
-                out.value(ByteString.of(value).base64());
+                out.value(new String(value));
             }
         }
 
@@ -195,8 +195,7 @@ public class JSON {
                     return null;
                 default:
                     String bytesAsBase64 = in.nextString();
-                    ByteString byteString = ByteString.decodeBase64(bytesAsBase64);
-                    return byteString.toByteArray();
+                    return Base64.decodeBase64(bytesAsBase64);
             }
         }
     }
