@@ -77,10 +77,10 @@ import java.util.Map;
 
         public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{#allParams}}{{#required}}{{{dataType}}}{{^-first}}, {{/-first}} {{paramName}}{{/required}}{{/allParams}}) throws ApiException, IOException {
         {{#returnType}}
-            return {{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{#allParams}}{{^isQueryParam}}{{^-first}}, {{/-first}}{{#required}}{{paramName}}{{/required}}{{^required}}null{{#-last}}{{/-last}}{{/required}}{{/isQueryParam}}{{/allParams}}{{#queryParams}}{{#-first}}, null{{/-first}}{{/queryParams}})
+            return {{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{#allParams}}{{^isQueryParam}}{{#required}}{{paramName}}{{^-last}}, {{/-last}}{{/required}}{{^required}}null{{^-last}}, {{/-last}}{{/required}}{{/isQueryParam}}{{/allParams}}{{#queryParams}}{{#-first}}null{{/-first}}{{/queryParams}})
         {{/returnType}}
         {{^returnType}}
-            {{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}
+            {{#vendorExtensions.x-methodName}}{{.}}{{/vendorExtensions.x-methodName}}{{^vendorExtensions.x-methodName}}{{operationId}}{{/vendorExtensions.x-methodName}}({{#allParams}}{{^isQueryParam}}{{#required}}{{paramName}}{{^-last}}, {{/-last}}{{/required}}{{^required}}null{{^-last}}, {{/-last}}{{/required}}{{/isQueryParam}}{{/allParams}}{{#queryParams}}{{#-first}}null{{/-first}}{{/queryParams}})
         {{/returnType}}
         }
         }
