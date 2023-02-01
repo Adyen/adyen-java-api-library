@@ -24,41 +24,12 @@ import com.adyen.enums.Environment;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.HTTPClientException;
 
-import com.adyen.model.checkout.Amount;
-import com.adyen.model.checkout.ApplePaySessionResponse;
-import com.adyen.model.checkout.CardDetails;
-import com.adyen.model.checkout.CardDetailsRequest;
-import com.adyen.model.checkout.CardDetailsResponse;
-import com.adyen.model.checkout.CheckoutBalanceCheckRequest;
-import com.adyen.model.checkout.CheckoutCancelOrderRequest;
-import com.adyen.model.checkout.CheckoutCancelOrderResponse;
-import com.adyen.model.checkout.CheckoutCreateOrderRequest;
-import com.adyen.model.checkout.CheckoutCreateOrderResponse;
-import com.adyen.model.checkout.CheckoutOrder;
-import com.adyen.model.checkout.CheckoutRedirectAction;
-import com.adyen.model.checkout.CreateApplePaySessionRequest;
-import com.adyen.model.checkout.CreateCheckoutSessionRequest;
-import com.adyen.model.checkout.CreateCheckoutSessionResponse;
-import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.DetailsRequest;
-import com.adyen.model.checkout.DonationResponse;
-import com.adyen.model.checkout.IdealDetails;
-import com.adyen.model.checkout.JSON;
-import com.adyen.model.checkout.PaymentDetailsResponse;
-import com.adyen.model.checkout.PaymentDonationRequest;
-import com.adyen.model.checkout.PaymentDonationRequestPaymentMethod;
-import com.adyen.model.checkout.PaymentLinkResponse;
-import com.adyen.model.checkout.PaymentMethodsRequest;
-import com.adyen.model.checkout.PaymentMethodsResponse;
-import com.adyen.model.checkout.PaymentRequest;
-import com.adyen.model.checkout.PaymentResponse;
-import com.adyen.model.checkout.PaymentVerificationRequest;
-import com.adyen.model.checkout.PaymentVerificationResponse;
-import com.adyen.model.checkout.UpdatePaymentLinkRequest;
+import com.adyen.model.checkout.*;
 import com.adyen.service.Checkout;
 
 import org.junit.Test;
 
+import javax.sound.sampled.Line;
 import java.io.Console;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -186,6 +157,12 @@ public class CheckoutTest extends BaseTest {
         createPaymentLinkRequest.setAmount(amount);
         createPaymentLinkRequest.setMerchantAccount("myMerchantAccount");
         createPaymentLinkRequest.setReference("merchantReference");
+        LineItem lineItem = new LineItem();
+        lineItem.setBrand("brand");
+        lineItem.setColor("color");
+        List<LineItem> lineItemList = new ArrayList<LineItem>();
+        lineItemList.add(lineItem);
+        createPaymentLinkRequest.setLineItems(lineItemList);
         Checkout checkout = new Checkout(client);
         PaymentLinkResponse paymentLinkResponse = checkout.paymentLinks(createPaymentLinkRequest);
         assertEquals("https://test.adyen.link/PL6DB3157D27FFBBCF", paymentLinkResponse.getUrl());
@@ -251,6 +228,8 @@ public class CheckoutTest extends BaseTest {
         CreateCheckoutSessionResponse createCheckoutSessionResponse = checkout.sessions(sessionRequest);
         assertEquals("Ab02b4c0!BFHSPFBQTEwM0NBNTM3RfCf5", createCheckoutSessionResponse.getSessionData());
         assertEquals("CS1453E3730C313478", createCheckoutSessionResponse.getId());
+        assertEquals(CreateCheckoutSessionResponse.ModeEnum.EMBEDDED, createCheckoutSessionResponse.getMode());
+        assertEquals(CreateCheckoutSessionResponse.StorePaymentMethodModeEnum.ASKFORCONSENT, createCheckoutSessionResponse.getStorePaymentMethodMode());
     }
 
     /**
@@ -352,6 +331,21 @@ public class CheckoutTest extends BaseTest {
         assertEquals(PaymentResponse.ResultCodeEnum.AUTHORISED ,donationResponse.getPayment().getResultCode());
         assertEquals("UNIQUE_RESOURCE_ID", donationResponse.getId());
         assertEquals(DonationResponse.StatusEnum.COMPLETED, donationResponse.getStatus());
+    }
+
+    /**
+     * Should make paymentUpdateAmount call
+     */
+    @Test
+    public void TestPaymenUpdateAmountSuccessCall() throws Exception {
+        Client client =  createMockClientFromFile("mocks/checkout/paymentUpdateAmountResponse.json");
+        Checkout checkout = new Checkout(client);
+        CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest = new CreatePaymentAmountUpdateRequest();
+        createPaymentAmountUpdateRequest.setIndustryUsage(CreatePaymentAmountUpdateRequest.IndustryUsageEnum.DELAYEDCHARGE);
+        PaymentAmountUpdateResource paymentAmountUpdateResource = checkout.paymentsAmountUpdates("pspRef", createPaymentAmountUpdateRequest);
+        assertEquals(PaymentAmountUpdateResource.IndustryUsageEnum.DELAYEDCHARGE ,paymentAmountUpdateResource.getIndustryUsage());
+        assertEquals("1234567890", paymentAmountUpdateResource.getPaymentPspReference());
+        assertEquals(PaymentAmountUpdateResource.StatusEnum.RECEIVED, paymentAmountUpdateResource.getStatus());
     }
 
     /**
