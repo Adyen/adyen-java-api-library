@@ -14,7 +14,6 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.checkout.CardBrandDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,44 +44,36 @@ import java.util.Set;
 import com.adyen.model.checkout.JSON;
 
 /**
- * CardDetailsResponse
+ * DetailsRequestAuthenticationData
  */
 
-public class CardDetailsResponse {
-  public static final String SERIALIZED_NAME_BRANDS = "brands";
-  @SerializedName(SERIALIZED_NAME_BRANDS)
-  private List<CardBrandDetails> brands = null;
+public class DetailsRequestAuthenticationData {
+  public static final String SERIALIZED_NAME_AUTHENTICATION_ONLY = "authenticationOnly";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_ONLY)
+  private Boolean authenticationOnly = false;
 
-  public CardDetailsResponse() { 
+  public DetailsRequestAuthenticationData() { 
   }
 
-  public CardDetailsResponse brands(List<CardBrandDetails> brands) {
+  public DetailsRequestAuthenticationData authenticationOnly(Boolean authenticationOnly) {
     
-    this.brands = brands;
-    return this;
-  }
-
-  public CardDetailsResponse addBrandsItem(CardBrandDetails brandsItem) {
-    if (this.brands == null) {
-      this.brands = new ArrayList<>();
-    }
-    this.brands.add(brandsItem);
+    this.authenticationOnly = authenticationOnly;
     return this;
   }
 
    /**
-   * The list of brands identified for the card.
-   * @return brands
+   * If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: *false**.
+   * @return authenticationOnly
   **/
-  @ApiModelProperty(value = "The list of brands identified for the card.")
+  @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation. Default: *false**.")
 
-  public List<CardBrandDetails> getBrands() {
-    return brands;
+  public Boolean getAuthenticationOnly() {
+    return authenticationOnly;
   }
 
 
-  public void setBrands(List<CardBrandDetails> brands) {
-    this.brands = brands;
+  public void setAuthenticationOnly(Boolean authenticationOnly) {
+    this.authenticationOnly = authenticationOnly;
   }
 
 
@@ -97,20 +86,20 @@ public class CardDetailsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CardDetailsResponse cardDetailsResponse = (CardDetailsResponse) o;
-    return Objects.equals(this.brands, cardDetailsResponse.brands);
+    DetailsRequestAuthenticationData detailsRequestAuthenticationData = (DetailsRequestAuthenticationData) o;
+    return Objects.equals(this.authenticationOnly, detailsRequestAuthenticationData.authenticationOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brands);
+    return Objects.hash(authenticationOnly);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CardDetailsResponse {\n");
-    sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
+    sb.append("class DetailsRequestAuthenticationData {\n");
+    sb.append("    authenticationOnly: ").append(toIndentedString(authenticationOnly)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -133,7 +122,7 @@ public class CardDetailsResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("brands");
+    openapiFields.add("authenticationOnly");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -143,35 +132,23 @@ public class CardDetailsResponse {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CardDetailsResponse
+  * @throws IOException if the JSON Object is invalid with respect to DetailsRequestAuthenticationData
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (CardDetailsResponse.openapiRequiredFields.isEmpty()) {
+        if (DetailsRequestAuthenticationData.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CardDetailsResponse is not found in the empty JSON string", CardDetailsResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DetailsRequestAuthenticationData is not found in the empty JSON string", DetailsRequestAuthenticationData.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!CardDetailsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CardDetailsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!DetailsRequestAuthenticationData.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DetailsRequestAuthenticationData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
-      }
-      JsonArray jsonArraybrands = jsonObj.getAsJsonArray("brands");
-      if (jsonArraybrands != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("brands").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `brands` to be an array in the JSON string but got `%s`", jsonObj.get("brands").toString()));
-        }
-
-        // validate the optional field `brands` (array)
-        for (int i = 0; i < jsonArraybrands.size(); i++) {
-          CardBrandDetails.validateJsonObject(jsonArraybrands.get(i).getAsJsonObject());
-        };
       }
   }
 
@@ -179,22 +156,22 @@ public class CardDetailsResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CardDetailsResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CardDetailsResponse' and its subtypes
+       if (!DetailsRequestAuthenticationData.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DetailsRequestAuthenticationData' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CardDetailsResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CardDetailsResponse.class));
+       final TypeAdapter<DetailsRequestAuthenticationData> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DetailsRequestAuthenticationData.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CardDetailsResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<DetailsRequestAuthenticationData>() {
            @Override
-           public void write(JsonWriter out, CardDetailsResponse value) throws IOException {
+           public void write(JsonWriter out, DetailsRequestAuthenticationData value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CardDetailsResponse read(JsonReader in) throws IOException {
+           public DetailsRequestAuthenticationData read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -205,18 +182,18 @@ public class CardDetailsResponse {
   }
 
  /**
-  * Create an instance of CardDetailsResponse given an JSON string
+  * Create an instance of DetailsRequestAuthenticationData given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CardDetailsResponse
-  * @throws IOException if the JSON string is invalid with respect to CardDetailsResponse
+  * @return An instance of DetailsRequestAuthenticationData
+  * @throws IOException if the JSON string is invalid with respect to DetailsRequestAuthenticationData
   */
-  public static CardDetailsResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CardDetailsResponse.class);
+  public static DetailsRequestAuthenticationData fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DetailsRequestAuthenticationData.class);
   }
 
  /**
-  * Convert an instance of CardDetailsResponse to an JSON string
+  * Convert an instance of DetailsRequestAuthenticationData to an JSON string
   *
   * @return JSON string
   */

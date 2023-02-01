@@ -14,6 +14,8 @@ package com.adyen.model.checkout;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adyen.model.checkout.Address;
+import com.adyen.model.checkout.Name;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,36 +46,62 @@ import java.util.Set;
 import com.adyen.model.checkout.JSON;
 
 /**
- * PaymentVerificationRequest
+ * FundOrigin
  */
 
-public class PaymentVerificationRequest {
-  public static final String SERIALIZED_NAME_PAYLOAD = "payload";
-  @SerializedName(SERIALIZED_NAME_PAYLOAD)
-  private String payload;
+public class FundOrigin {
+  public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
+  @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
+  private Address billingAddress;
 
-  public PaymentVerificationRequest() { 
+  public static final String SERIALIZED_NAME_SHOPPER_NAME = "shopperName";
+  @SerializedName(SERIALIZED_NAME_SHOPPER_NAME)
+  private Name shopperName;
+
+  public FundOrigin() { 
   }
 
-  public PaymentVerificationRequest payload(String payload) {
+  public FundOrigin billingAddress(Address billingAddress) {
     
-    this.payload = payload;
+    this.billingAddress = billingAddress;
     return this;
   }
 
    /**
-   * Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.
-   * @return payload
+   * Get billingAddress
+   * @return billingAddress
   **/
-  @ApiModelProperty(required = true, value = "Encrypted and signed payment result data. You should receive this value from the Checkout SDK after the shopper completes the payment.")
+  @ApiModelProperty(value = "")
 
-  public String getPayload() {
-    return payload;
+  public Address getBillingAddress() {
+    return billingAddress;
   }
 
 
-  public void setPayload(String payload) {
-    this.payload = payload;
+  public void setBillingAddress(Address billingAddress) {
+    this.billingAddress = billingAddress;
+  }
+
+
+  public FundOrigin shopperName(Name shopperName) {
+    
+    this.shopperName = shopperName;
+    return this;
+  }
+
+   /**
+   * Get shopperName
+   * @return shopperName
+  **/
+  @ApiModelProperty(value = "")
+
+  public Name getShopperName() {
+    return shopperName;
+  }
+
+
+  public void setShopperName(Name shopperName) {
+    this.shopperName = shopperName;
   }
 
 
@@ -86,20 +114,22 @@ public class PaymentVerificationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentVerificationRequest paymentVerificationRequest = (PaymentVerificationRequest) o;
-    return Objects.equals(this.payload, paymentVerificationRequest.payload);
+    FundOrigin fundOrigin = (FundOrigin) o;
+    return Objects.equals(this.billingAddress, fundOrigin.billingAddress) &&
+        Objects.equals(this.shopperName, fundOrigin.shopperName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(payload);
+    return Objects.hash(billingAddress, shopperName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentVerificationRequest {\n");
-    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
+    sb.append("class FundOrigin {\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -122,45 +152,42 @@ public class PaymentVerificationRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("payload");
+    openapiFields.add("billingAddress");
+    openapiFields.add("shopperName");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("payload");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PaymentVerificationRequest
+  * @throws IOException if the JSON Object is invalid with respect to FundOrigin
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (PaymentVerificationRequest.openapiRequiredFields.isEmpty()) {
+        if (FundOrigin.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentVerificationRequest is not found in the empty JSON string", PaymentVerificationRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in FundOrigin is not found in the empty JSON string", FundOrigin.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!PaymentVerificationRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentVerificationRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!FundOrigin.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FundOrigin` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PaymentVerificationRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
+      // validate the optional field `billingAddress`
+      if (jsonObj.getAsJsonObject("billingAddress") != null) {
+        Address.validateJsonObject(jsonObj.getAsJsonObject("billingAddress"));
       }
-      // validate the optional field payload
-      if (jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));
+      // validate the optional field `shopperName`
+      if (jsonObj.getAsJsonObject("shopperName") != null) {
+        Name.validateJsonObject(jsonObj.getAsJsonObject("shopperName"));
       }
   }
 
@@ -168,22 +195,22 @@ public class PaymentVerificationRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PaymentVerificationRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PaymentVerificationRequest' and its subtypes
+       if (!FundOrigin.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FundOrigin' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PaymentVerificationRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PaymentVerificationRequest.class));
+       final TypeAdapter<FundOrigin> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FundOrigin.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PaymentVerificationRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<FundOrigin>() {
            @Override
-           public void write(JsonWriter out, PaymentVerificationRequest value) throws IOException {
+           public void write(JsonWriter out, FundOrigin value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public PaymentVerificationRequest read(JsonReader in) throws IOException {
+           public FundOrigin read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -194,18 +221,18 @@ public class PaymentVerificationRequest {
   }
 
  /**
-  * Create an instance of PaymentVerificationRequest given an JSON string
+  * Create an instance of FundOrigin given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PaymentVerificationRequest
-  * @throws IOException if the JSON string is invalid with respect to PaymentVerificationRequest
+  * @return An instance of FundOrigin
+  * @throws IOException if the JSON string is invalid with respect to FundOrigin
   */
-  public static PaymentVerificationRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PaymentVerificationRequest.class);
+  public static FundOrigin fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FundOrigin.class);
   }
 
  /**
-  * Convert an instance of PaymentVerificationRequest to an JSON string
+  * Convert an instance of FundOrigin to an JSON string
   *
   * @return JSON string
   */

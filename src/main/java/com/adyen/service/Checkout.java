@@ -112,14 +112,19 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentRequest PaymentRequest
      * @return PaymentResponse
-     * @throws IOException  IOException
-     * @throws ApiException ApiException
+     * @throws ApiException if it fails to make API call ApiException
      */
     public PaymentResponse payments(PaymentRequest paymentRequest) throws ApiException, IOException {
         return payments(paymentRequest, null);
     }
 
-
+    /**
+     * POST /payments API call
+     *
+     * @param paymentRequest PaymentRequest
+     * @return PaymentResponse
+     * @throws ApiException if it fails to make API call ApiException
+     */
     public PaymentResponse payments(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
         paymentRequest.setApplicationInfo(setApplicationInfo(paymentRequest.getApplicationInfo()));
         String jsonRequest = paymentRequest.toJson();
@@ -131,11 +136,9 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /paymentMethods API call
      *
      * @param paymentMethodsRequest PaymentMethodsRequest
-     * @return paymentMethodsResponse PaymentMethodsResponse
-     * @throws IOException  IOException
-     * @throws ApiException ApiException
+     * @return paymentMethodsResponse
+     * @throws ApiException if it fails to make API call ApiException
      */
-
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest) throws ApiException, IOException {
         String jsonRequest = paymentMethodsRequest.toJson();
         String jsonResult = paymentMethods.request(jsonRequest);
@@ -146,14 +149,20 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST payments/details API call
      *
      * @param paymentsDetailsRequest paymentsDetailsRequest
-     * @return PaymentResponse PaymentResponse
-     * @throws IOException  IOException
-     * @throws ApiException ApiException
+     * @return PaymentDetailsResponse
+     * @throws ApiException if it fails to make API call ApiException
      */
     public PaymentDetailsResponse paymentsDetails(DetailsRequest paymentsDetailsRequest) throws ApiException, IOException {
         return paymentsDetails(paymentsDetailsRequest, null);
     }
 
+    /**
+     * POST payments/details API call
+     *
+     * @param paymentsDetailsRequest paymentsDetailsRequest
+     * @return PaymentDetailsResponse
+     * @throws ApiException if it fails to make API call ApiException
+     */
     public PaymentDetailsResponse paymentsDetails(DetailsRequest paymentsDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = paymentsDetailsRequest.toJson();
         String jsonResult = paymentsDetails.request(jsonRequest, requestOptions);
@@ -165,14 +174,19 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentSessionRequest paymentSessionRequest
      * @return paymentSessionResponse
-     * @throws IOException  IOException
-     * @throws ApiException ApiException
+     * @throws ApiException if it fails to make API call ApiException
      */
-
     public PaymentSetupResponse paymentSession(PaymentSetupRequest paymentSessionRequest) throws ApiException, IOException {
         return paymentSession(paymentSessionRequest, null);
     }
 
+    /**
+     * POST /paymentSession API call
+     *
+     * @param paymentSessionRequest paymentSessionRequest
+     * @return paymentSessionResponse
+     * @throws ApiException if it fails to make API call ApiException
+     */
     public PaymentSetupResponse paymentSession(PaymentSetupRequest paymentSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
         paymentSessionRequest.setApplicationInfo(setApplicationInfo(paymentSessionRequest.getApplicationInfo()));
         String jsonRequest = paymentSessionRequest.toJson();
@@ -185,8 +199,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentResultRequest paymentResultRequest
      * @return PaymentVerificationResponse
-     * @throws IOException  IOException
-     * @throws ApiException ApiException
+     * @throws ApiException if it fails to make API call ApiException
      */
     public PaymentVerificationResponse paymentResult(PaymentVerificationRequest paymentResultRequest) throws ApiException, IOException {
         String jsonRequest = paymentResultRequest.toJson();
@@ -198,9 +211,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /orders API call
      *
      * @param checkoutCreateOrderRequest CheckoutCreateOrderRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return CheckoutCreateOrderResponse
+     * @throws ApiException if it fails to make API call
      */
     public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest) throws ApiException, IOException {
         String jsonRequest = checkoutCreateOrderRequest.toJson();
@@ -212,9 +224,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /orders/cancel API call
      *
      * @param checkoutCancelOrderRequest CheckoutCancelOrderRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return CheckoutCancelOrderResponse
+     * @throws ApiException if it fails to make API call
      */
     public CheckoutCancelOrderResponse ordersCancel(CheckoutCancelOrderRequest checkoutCancelOrderRequest) throws ApiException, IOException {
         String jsonRequest = checkoutCancelOrderRequest.toJson();
@@ -226,9 +237,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /sessions API call
      *
      * @param createCheckoutSessionRequest CreateCheckoutSessionRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return CreateCheckoutSessionResponse
+     * @throws ApiException if it fails to make API call
      */
     public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest) throws ApiException, IOException {
         createCheckoutSessionRequest.setApplicationInfo(setApplicationInfo(createCheckoutSessionRequest.getApplicationInfo()));
@@ -242,11 +252,21 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentPspReference         String
      * @param createPaymentCaptureRequest CreatePaymentCaptureRequest
+     * @return PaymentCaptureResource
+     * @throws ApiException if it fails to make API call
      */
     public PaymentCaptureResource paymentsCaptures(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
         return paymentsCaptures(paymentPspReference, createPaymentCaptureRequest, null);
     }
 
+    /**
+     * POST /payments/{paymentPspReference}/captures
+     *
+     * @param paymentPspReference         String
+     * @param createPaymentCaptureRequest CreatePaymentCaptureRequest
+     * @return PaymentCaptureResource
+     * @throws ApiException if it fails to make API call
+     */
     public PaymentCaptureResource paymentsCaptures(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest, RequestOptions requestOptions) throws ApiException, IOException {
         CheckoutResource paymentsCaptures = new CheckoutResource(this, "/payments/" + paymentPspReference + "/captures");
         String jsonRequest = createPaymentCaptureRequest.toJson();
@@ -259,14 +279,21 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentPspReference        String
      * @param createPaymentCancelRequest CreatePaymentCancelRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return PaymentCancelResource
+     * @throws ApiException if it fails to make API call
      */
     public PaymentCancelResource paymentsCancels(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
         return paymentsCancels(paymentPspReference, createPaymentCancelRequest, null);
     }
 
+    /**
+     * POST /payments/{paymentPspReference}/cancels
+     *
+     * @param paymentPspReference        String
+     * @param createPaymentCancelRequest CreatePaymentCancelRequest
+     * @return PaymentCancelResource
+     * @throws ApiException if it fails to make API call
+     */
     public PaymentCancelResource paymentsCancels(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
         CheckoutResource paymentsCancels = new CheckoutResource(this, "/payments/" + paymentPspReference + "/cancels");
         String jsonRequest = createPaymentCancelRequest.toJson();
@@ -278,14 +305,20 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /cancels
      *
      * @param createStandalonePaymentCancelRequest CreateStandalonePaymentCancelRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return StandalonePaymentCancelResource
+     * @throws ApiException if it fails to make API call
      */
     public StandalonePaymentCancelResource cancels(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest) throws ApiException, IOException {
         return cancels(createStandalonePaymentCancelRequest, null);
     }
 
+    /**
+     * POST /cancels
+     *
+     * @param createStandalonePaymentCancelRequest CreateStandalonePaymentCancelRequest
+     * @return StandalonePaymentCancelResource
+     * @throws ApiException if it fails to make API call
+     */
     public StandalonePaymentCancelResource cancels(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = createStandalonePaymentCancelRequest.toJson();
         String jsonResult = cancels.request(jsonRequest, requestOptions);
@@ -297,9 +330,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentPspReference          String
      * @param createPaymentReversalRequest CreatePaymentReversalRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return PaymentReversalResource
+     * @throws ApiException if it fails to make API call
      */
     public PaymentReversalResource paymentsReversals(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
         return paymentsReversals(paymentPspReference, createPaymentReversalRequest, null);
@@ -317,9 +349,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentPspReference        String
      * @param createPaymentRefundRequest CreatePaymentRefundRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return PaymentRefundResource
+     * @throws ApiException if it fails to make API call
      */
     public PaymentRefundResource paymentsRefunds(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
         return paymentsRefunds(paymentPspReference, createPaymentRefundRequest, null);
@@ -337,14 +368,21 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param paymentPspReference              String
      * @param createPaymentAmountUpdateRequest CreatePaymentAmountUpdateRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return PaymentAmountUpdateResource
+     * @throws ApiException if it fails to make API call
      */
     public PaymentAmountUpdateResource paymentsAmountUpdates(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
         return paymentsAmountUpdates(paymentPspReference, createPaymentAmountUpdateRequest, null);
     }
 
+    /**
+     * POST /payments/{paymentPspReference}/amountUpdates
+     *
+     * @param paymentPspReference              String
+     * @param createPaymentAmountUpdateRequest CreatePaymentAmountUpdateRequest
+     * @return PaymentAmountUpdateResource
+     * @throws ApiException if it fails to make API call
+     */
     public PaymentAmountUpdateResource paymentsAmountUpdates(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
         CheckoutResource paymentsAmountUpdates = new CheckoutResource(this, "/payments/" + paymentPspReference + "/amountUpdates");
         String jsonRequest = createPaymentAmountUpdateRequest.toJson();
@@ -356,9 +394,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /paymentMethods/balance
      *
      * @param checkoutBalanceCheckRequest CheckoutBalanceCheckRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return CheckoutBalanceCheckResponse
+     * @throws ApiException if it fails to make API call
      */
     public CheckoutBalanceCheckResponse paymentsMethodsBalance(CheckoutBalanceCheckRequest checkoutBalanceCheckRequest) throws ApiException, IOException {
         String jsonRequest = checkoutBalanceCheckRequest.toJson();
@@ -370,12 +407,10 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /paymentLinks
      *
      * @param createPaymentLinkRequest CreatePaymentLinkRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return PaymentLinkResponse
+     * @throws ApiException if it fails to make API call
      */
     public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
-        createPaymentLinkRequest.setApplicationInfo(setApplicationInfo(createPaymentLinkRequest.getApplicationInfo()));
         String jsonRequest = createPaymentLinkRequest.toJson();
         String jsonResult = paymentLinks.request(jsonRequest);
         return PaymentLinkResponse.fromJson(jsonResult);
@@ -385,9 +420,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * GET /paymentLinks/{linkId}
      *
      * @param linkId String
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return PaymentLinkResponse
+     * @throws ApiException if it fails to make API call
      */
     public PaymentLinkResponse getPaymentLinks(String linkId) throws ApiException, IOException {
         CheckoutResource paymentLinks = new CheckoutResource(this, "/paymentLinks/" + linkId);
@@ -400,9 +434,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param updatePaymentLinkRequest UpdatePaymentLinkRequest
      * @param linkId String
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return PaymentLinkResponse
+     * @throws ApiException if it fails to make API call
      */
     public PaymentLinkResponse patchPaymentLinks(String linkId, UpdatePaymentLinkRequest updatePaymentLinkRequest) throws ApiException, IOException {
         CheckoutResource paymentLinks = new CheckoutResource(this, "/paymentLinks/" + linkId);
@@ -415,9 +448,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /applePay/sessions
      *
      * @param createApplePaySessionRequest CreateApplePaySessionRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return ApplePaySessionResponse
+     * @throws ApiException if it fails to make API call
      */
     public ApplePaySessionResponse applePaySessions(CreateApplePaySessionRequest createApplePaySessionRequest) throws ApiException, IOException {
         String jsonRequest = createApplePaySessionRequest.toJson();
@@ -429,9 +461,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /donations
      *
      * @param paymentDonationRequest PaymentDonationRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return DonationResponse
+     * @throws ApiException if it fails to make API call
      */
     public DonationResponse donations(PaymentDonationRequest paymentDonationRequest) throws ApiException, IOException {
         paymentDonationRequest.setApplicationInfo(setApplicationInfo(paymentDonationRequest.getApplicationInfo()));
@@ -444,9 +475,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * POST /cardDetails
      *
      * @param cardDetailsRequest CardDetailsRequest
-     * @return
-     * @throws ApiException
-     * @throws IOException
+     * @return CardDetailsResponse
+     * @throws ApiException if it fails to make API call
      */
     public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest) throws ApiException, IOException {
         String jsonRequest = cardDetailsRequest.toJson();

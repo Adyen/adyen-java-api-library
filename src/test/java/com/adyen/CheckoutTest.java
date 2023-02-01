@@ -378,7 +378,7 @@ public class CheckoutTest extends BaseTest {
         new JSON();
         CheckoutBalanceCheckRequest checkoutBalanceCheckRequest = new CheckoutBalanceCheckRequest();
         OffsetDateTime date = OffsetDateTime.parse("2022-10-11T15:08:27.000Z"); // Tuesday, October 11, 2022 5:08:27 PM GMT+02:00 DST
-        checkoutBalanceCheckRequest.setDateOfBirth(date);
+        checkoutBalanceCheckRequest.setDateOfBirth(date.toLocalDate());
         Amount amount = new Amount().currency("EUR").value(1000L);
         checkoutBalanceCheckRequest.setAmount(amount);
         checkoutBalanceCheckRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
@@ -386,8 +386,7 @@ public class CheckoutTest extends BaseTest {
         Map<String, String> paymentMethod = new HashMap<>();
         checkoutBalanceCheckRequest.setPaymentMethod(paymentMethod);
         String checkoutBalanceRequestJson = checkoutBalanceCheckRequest.toJson();
-        assert(checkoutBalanceRequestJson.contains("\"dateOfBirth\":\"2022-10-11T15:08:27Z\""));
-        assertEquals(date,  CheckoutBalanceCheckRequest.fromJson(checkoutBalanceRequestJson).getDateOfBirth());
-
+        assert(checkoutBalanceRequestJson.contains("\"dateOfBirth\":\"2022-10-11\""));
+        assertEquals(date.toLocalDate(),  CheckoutBalanceCheckRequest.fromJson(checkoutBalanceRequestJson).getDateOfBirth());
     }
 }
