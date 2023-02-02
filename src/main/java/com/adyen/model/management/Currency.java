@@ -73,7 +73,6 @@ public class Currency {
    * Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return amount
   **/
-  
   @ApiModelProperty(value = "Surcharge amount per transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public Integer getAmount() {
@@ -96,7 +95,6 @@ public class Currency {
    * Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.
    * @return currencyCode
   **/
-  
   @ApiModelProperty(required = true, value = "Three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **AUD**.")
 
   public String getCurrencyCode() {
@@ -119,7 +117,6 @@ public class Currency {
    * Get percentage
    * @return percentage
   **/
-  
   @ApiModelProperty(value = "")
 
   public Object getPercentage() {

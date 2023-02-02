@@ -153,7 +153,6 @@ public class AdditionalDataCarRental {
    * Pick-up date. * Date format: &#x60;yyyyMMdd&#x60;
    * @return carRentalCheckOutDate
   **/
-
   @ApiModelProperty(value = "Pick-up date. * Date format: `yyyyMMdd`")
 
   public String getCarRentalCheckOutDate() {
@@ -176,7 +175,6 @@ public class AdditionalDataCarRental {
    * The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17
    * @return carRentalCustomerServiceTollFreeNumber
   **/
-
   @ApiModelProperty(value = "The customer service phone number of the car rental company. * Format: Alphanumeric * maxLength: 17")
 
   public String getCarRentalCustomerServiceTollFreeNumber() {
@@ -199,7 +197,6 @@ public class AdditionalDataCarRental {
    * Number of days for which the car is being rented. * Format: Numeric * maxLength: 19
    * @return carRentalDaysRented
   **/
-
   @ApiModelProperty(value = "Number of days for which the car is being rented. * Format: Numeric * maxLength: 19")
 
   public String getCarRentalDaysRented() {
@@ -222,7 +219,6 @@ public class AdditionalDataCarRental {
    * Any fuel charges associated with the rental. * Format: Numeric * maxLength: 12
    * @return carRentalFuelCharges
   **/
-
   @ApiModelProperty(value = "Any fuel charges associated with the rental. * Format: Numeric * maxLength: 12")
 
   public String getCarRentalFuelCharges() {
@@ -245,7 +241,6 @@ public class AdditionalDataCarRental {
    * Any insurance charges associated with the rental. * Format: Numeric * maxLength: 12
    * @return carRentalInsuranceCharges
   **/
-
   @ApiModelProperty(value = "Any insurance charges associated with the rental. * Format: Numeric * maxLength: 12")
 
   public String getCarRentalInsuranceCharges() {
@@ -268,7 +263,6 @@ public class AdditionalDataCarRental {
    * The city from which the car is rented. * Format: Alphanumeric * maxLength: 18
    * @return carRentalLocationCity
   **/
-
   @ApiModelProperty(value = "The city from which the car is rented. * Format: Alphanumeric * maxLength: 18")
 
   public String getCarRentalLocationCity() {
@@ -291,7 +285,6 @@ public class AdditionalDataCarRental {
    * The country from which the car is rented. * Format: Alphanumeric * maxLength: 2
    * @return carRentalLocationCountry
   **/
-
   @ApiModelProperty(value = "The country from which the car is rented. * Format: Alphanumeric * maxLength: 2")
 
   public String getCarRentalLocationCountry() {
@@ -314,7 +307,6 @@ public class AdditionalDataCarRental {
    * The state or province from where the car is rented. * Format: Alphanumeric * maxLength: 3
    * @return carRentalLocationStateProvince
   **/
-
   @ApiModelProperty(value = "The state or province from where the car is rented. * Format: Alphanumeric * maxLength: 3")
 
   public String getCarRentalLocationStateProvince() {
@@ -337,7 +329,6 @@ public class AdditionalDataCarRental {
    * Indicates if the customer was a \&quot;no-show\&quot; (neither keeps nor cancels their booking). * Y - Customer was a no show. * N - Not applicable.
    * @return carRentalNoShowIndicator
   **/
-
   @ApiModelProperty(value = "Indicates if the customer was a \"no-show\" (neither keeps nor cancels their booking). * Y - Customer was a no show. * N - Not applicable.")
 
   public String getCarRentalNoShowIndicator() {
@@ -360,7 +351,6 @@ public class AdditionalDataCarRental {
    * Charge associated with not returning a vehicle to the original rental location.
    * @return carRentalOneWayDropOffCharges
   **/
-
   @ApiModelProperty(value = "Charge associated with not returning a vehicle to the original rental location.")
 
   public String getCarRentalOneWayDropOffCharges() {
@@ -383,7 +373,6 @@ public class AdditionalDataCarRental {
    * Daily rental rate. * Format: Alphanumeric * maxLength: 12
    * @return carRentalRate
   **/
-
   @ApiModelProperty(value = "Daily rental rate. * Format: Alphanumeric * maxLength: 12")
 
   public String getCarRentalRate() {
@@ -406,7 +395,6 @@ public class AdditionalDataCarRental {
    * Specifies whether the given rate is applied daily or weekly. * D - Daily rate. * W - Weekly rate.
    * @return carRentalRateIndicator
   **/
-
   @ApiModelProperty(value = "Specifies whether the given rate is applied daily or weekly. * D - Daily rate. * W - Weekly rate.")
 
   public String getCarRentalRateIndicator() {
@@ -429,7 +417,6 @@ public class AdditionalDataCarRental {
    * The rental agreement number associated with this car rental. * Format: Alphanumeric * maxLength: 9
    * @return carRentalRentalAgreementNumber
   **/
-
   @ApiModelProperty(value = "The rental agreement number associated with this car rental. * Format: Alphanumeric * maxLength: 9")
 
   public String getCarRentalRentalAgreementNumber() {
@@ -452,7 +439,6 @@ public class AdditionalDataCarRental {
    * Daily rental rate. * Format: Alphanumeric * maxLength: 12
    * @return carRentalRentalClassId
   **/
-
   @ApiModelProperty(value = "Daily rental rate. * Format: Alphanumeric * maxLength: 12")
 
   public String getCarRentalRentalClassId() {
@@ -475,7 +461,6 @@ public class AdditionalDataCarRental {
    * The name of the person renting the car. * Format: Alphanumeric * maxLength: 26
    * @return carRentalRenterName
   **/
-
   @ApiModelProperty(value = "The name of the person renting the car. * Format: Alphanumeric * maxLength: 26")
 
   public String getCarRentalRenterName() {
@@ -498,7 +483,6 @@ public class AdditionalDataCarRental {
    * The city where the car must be returned. * Format: Alphanumeric * maxLength: 18
    * @return carRentalReturnCity
   **/
-
   @ApiModelProperty(value = "The city where the car must be returned. * Format: Alphanumeric * maxLength: 18")
 
   public String getCarRentalReturnCity() {
@@ -521,7 +505,6 @@ public class AdditionalDataCarRental {
    * The country where the car must be returned. * Format: Alphanumeric * maxLength: 2
    * @return carRentalReturnCountry
   **/
-
   @ApiModelProperty(value = "The country where the car must be returned. * Format: Alphanumeric * maxLength: 2")
 
   public String getCarRentalReturnCountry() {
@@ -544,7 +527,6 @@ public class AdditionalDataCarRental {
    * The last date to return the car by. * Date format: &#x60;yyyyMMdd&#x60;
    * @return carRentalReturnDate
   **/
-
   @ApiModelProperty(value = "The last date to return the car by. * Date format: `yyyyMMdd`")
 
   public String getCarRentalReturnDate() {
@@ -567,7 +549,6 @@ public class AdditionalDataCarRental {
    * Agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10
    * @return carRentalReturnLocationId
   **/
-
   @ApiModelProperty(value = "Agency code, phone number, or address abbreviation * Format: Alphanumeric * maxLength: 10")
 
   public String getCarRentalReturnLocationId() {
@@ -590,7 +571,6 @@ public class AdditionalDataCarRental {
    * The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3
    * @return carRentalReturnStateProvince
   **/
-
   @ApiModelProperty(value = "The state or province where the car must be returned. * Format: Alphanumeric * maxLength: 3")
 
   public String getCarRentalReturnStateProvince() {
@@ -613,7 +593,6 @@ public class AdditionalDataCarRental {
    * Indicates whether the goods or services were tax-exempt, or tax was not collected.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected
    * @return carRentalTaxExemptIndicator
   **/
-
   @ApiModelProperty(value = "Indicates whether the goods or services were tax-exempt, or tax was not collected.  Values: * Y - Goods or services were tax exempt * N - Tax was not collected")
 
   public String getCarRentalTaxExemptIndicator() {
@@ -636,7 +615,6 @@ public class AdditionalDataCarRental {
    * Number of nights.  This should be included in the auth message. * Format: Numeric * maxLength: 2
    * @return travelEntertainmentAuthDataDuration
   **/
-
   @ApiModelProperty(value = "Number of nights.  This should be included in the auth message. * Format: Numeric * maxLength: 2")
 
   public String getTravelEntertainmentAuthDataDuration() {
@@ -659,7 +637,6 @@ public class AdditionalDataCarRental {
    * Indicates what market-specific dataset will be submitted or is being submitted. Value should be \&quot;A\&quot; for Car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1
    * @return travelEntertainmentAuthDataMarket
   **/
-
   @ApiModelProperty(value = "Indicates what market-specific dataset will be submitted or is being submitted. Value should be \"A\" for Car rental. This should be included in the auth message. * Format: Alphanumeric * maxLength: 1")
 
   public String getTravelEntertainmentAuthDataMarket() {

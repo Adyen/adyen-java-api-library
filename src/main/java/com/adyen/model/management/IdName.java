@@ -69,7 +69,6 @@ public class IdName {
    * The identifier of the terminal model.
    * @return id
   **/
-  
   @ApiModelProperty(value = "The identifier of the terminal model.")
 
   public String getId() {
@@ -92,7 +91,6 @@ public class IdName {
    * The name of the terminal model.
    * @return name
   **/
-  
   @ApiModelProperty(value = "The name of the terminal model.")
 
   public String getName() {

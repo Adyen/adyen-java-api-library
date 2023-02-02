@@ -172,7 +172,6 @@ public class PaymentMethodsRequest {
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payment request.  The `additionalData` object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -203,7 +202,6 @@ public class PaymentMethodsRequest {
    * List of payment methods to be presented to the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;allowedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return allowedPaymentMethods
   **/
-
   @ApiModelProperty(value = "List of payment methods to be presented to the shopper. To refer to payment methods, use their `paymentMethod.type` from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: `\"allowedPaymentMethods\":[\"ideal\",\"giropay\"]`")
 
   public List<String> getAllowedPaymentMethods() {
@@ -226,7 +224,6 @@ public class PaymentMethodsRequest {
    * Get amount
    * @return amount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getAmount() {
@@ -257,7 +254,6 @@ public class PaymentMethodsRequest {
    * List of payment methods to be hidden from the shopper. To refer to payment methods, use their &#x60;paymentMethod.type&#x60; from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: &#x60;\&quot;blockedPaymentMethods\&quot;:[\&quot;ideal\&quot;,\&quot;giropay\&quot;]&#x60;
    * @return blockedPaymentMethods
   **/
-
   @ApiModelProperty(value = "List of payment methods to be hidden from the shopper. To refer to payment methods, use their `paymentMethod.type` from [Payment methods overview](https://docs.adyen.com/payment-methods).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"giropay\"]`")
 
   public List<String> getBlockedPaymentMethods() {
@@ -280,7 +276,6 @@ public class PaymentMethodsRequest {
    * The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
    * @return channel
   **/
-
   @ApiModelProperty(value = "The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web")
 
   public ChannelEnum getChannel() {
@@ -303,7 +298,6 @@ public class PaymentMethodsRequest {
    * The shopper&#39;s country code.
    * @return countryCode
   **/
-
   @ApiModelProperty(value = "The shopper's country code.")
 
   public String getCountryCode() {
@@ -326,7 +320,6 @@ public class PaymentMethodsRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -349,7 +342,6 @@ public class PaymentMethodsRequest {
    * Get order
    * @return order
   **/
-
   @ApiModelProperty(value = "")
 
   public CheckoutOrder getOrder() {
@@ -372,7 +364,6 @@ public class PaymentMethodsRequest {
    * The combination of a language code and a country code to specify the language to be used in the payment.
    * @return shopperLocale
   **/
-
   @ApiModelProperty(value = "The combination of a language code and a country code to specify the language to be used in the payment.")
 
   public String getShopperLocale() {
@@ -395,7 +386,6 @@ public class PaymentMethodsRequest {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
   **/
-
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
 
   public String getShopperReference() {
@@ -418,7 +408,6 @@ public class PaymentMethodsRequest {
    * Boolean value indicating whether the card payment method should be split into separate debit and credit options.
    * @return splitCardFundingSources
   **/
-
   @ApiModelProperty(value = "Boolean value indicating whether the card payment method should be split into separate debit and credit options.")
 
   public Boolean getSplitCardFundingSources() {
@@ -441,7 +430,6 @@ public class PaymentMethodsRequest {
    * The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.
    * @return store
   **/
-
   @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.")
 
   public String getStore() {

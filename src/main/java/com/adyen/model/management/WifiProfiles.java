@@ -78,11 +78,10 @@ public class WifiProfiles {
   }
 
    /**
-   * List of remote Wi-Fi profiles
+   * List of remote Wi-Fi profiles.
    * @return profiles
   **/
-
-  @ApiModelProperty(value = "List of remote Wi-Fi profiles")
+  @ApiModelProperty(value = "List of remote Wi-Fi profiles.")
 
   public List<Profile> getProfiles() {
     return profiles;
@@ -104,7 +103,6 @@ public class WifiProfiles {
    * Get settings
    * @return settings
   **/
-
   @ApiModelProperty(value = "")
 
   public Settings getSettings() {

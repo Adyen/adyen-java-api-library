@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class MobilePayDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   /**
    * **mobilepay**
    */
@@ -100,6 +104,28 @@ public class MobilePayDetails {
   public MobilePayDetails() { 
   }
 
+  public MobilePayDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public MobilePayDetails type(TypeEnum type) {
     
     this.type = type;
@@ -110,7 +136,6 @@ public class MobilePayDetails {
    * **mobilepay**
    * @return type
   **/
-  
   @ApiModelProperty(value = "**mobilepay**")
 
   public TypeEnum getType() {
@@ -133,18 +158,20 @@ public class MobilePayDetails {
       return false;
     }
     MobilePayDetails mobilePayDetails = (MobilePayDetails) o;
-    return Objects.equals(this.type, mobilePayDetails.type);
+    return Objects.equals(this.checkoutAttemptId, mobilePayDetails.checkoutAttemptId) &&
+        Objects.equals(this.type, mobilePayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type);
+    return Objects.hash(checkoutAttemptId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MobilePayDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -168,6 +195,7 @@ public class MobilePayDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
@@ -195,6 +223,10 @@ public class MobilePayDetails {
         if (!MobilePayDetails.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MobilePayDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

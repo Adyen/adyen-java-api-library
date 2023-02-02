@@ -143,7 +143,6 @@ public class ModificationResult {
    * This field contains additional data, which may be returned in a particular modification response.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular modification response.")
 
   public Map<String, String> getAdditionalData() {
@@ -166,7 +165,6 @@ public class ModificationResult {
    * Adyen&#39;s 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
   **/
-
   @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
 
   public String getPspReference() {
@@ -189,7 +187,6 @@ public class ModificationResult {
    * Indicates if the modification request has been received for processing.
    * @return response
   **/
-
   @ApiModelProperty(required = true, value = "Indicates if the modification request has been received for processing.")
 
   public ResponseEnum getResponse() {

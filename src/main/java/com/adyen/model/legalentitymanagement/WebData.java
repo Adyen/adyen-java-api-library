@@ -13,23 +13,35 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * WebData
@@ -40,7 +52,19 @@ public class WebData {
   @SerializedName(SERIALIZED_NAME_WEB_ADDRESS)
   private String webAddress;
 
+  public static final String SERIALIZED_NAME_WEB_ADDRESS_ID = "webAddressId";
+  @SerializedName(SERIALIZED_NAME_WEB_ADDRESS_ID)
+  private String webAddressId;
+
   public WebData() { 
+  }
+
+  
+  public WebData(
+     String webAddressId
+  ) {
+    this();
+    this.webAddressId = webAddressId;
   }
 
   public WebData webAddress(String webAddress) {
@@ -50,11 +74,10 @@ public class WebData {
   }
 
    /**
-   * The URL of the website.
+   * The URL of the website or the app store URL.
    * @return webAddress
   **/
-
-  @ApiModelProperty(value = "The URL of the website.")
+  @ApiModelProperty(value = "The URL of the website or the app store URL.")
 
   public String getWebAddress() {
     return webAddress;
@@ -64,6 +87,19 @@ public class WebData {
   public void setWebAddress(String webAddress) {
     this.webAddress = webAddress;
   }
+
+
+   /**
+   * The unique identifier of the web address.
+   * @return webAddressId
+  **/
+  @ApiModelProperty(value = "The unique identifier of the web address.")
+
+  public String getWebAddressId() {
+    return webAddressId;
+  }
+
+
 
 
 
@@ -76,12 +112,13 @@ public class WebData {
       return false;
     }
     WebData webData = (WebData) o;
-    return Objects.equals(this.webAddress, webData.webAddress);
+    return Objects.equals(this.webAddress, webData.webAddress) &&
+        Objects.equals(this.webAddressId, webData.webAddressId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(webAddress);
+    return Objects.hash(webAddress, webAddressId);
   }
 
   @Override
@@ -89,6 +126,7 @@ public class WebData {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebData {\n");
     sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
+    sb.append("    webAddressId: ").append(toIndentedString(webAddressId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -112,6 +150,7 @@ public class WebData {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("webAddress");
+    openapiFields.add("webAddressId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -142,6 +181,10 @@ public class WebData {
       // validate the optional field webAddress
       if (jsonObj.get("webAddress") != null && !jsonObj.get("webAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `webAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webAddress").toString()));
+      }
+      // validate the optional field webAddressId
+      if (jsonObj.get("webAddressId") != null && !jsonObj.get("webAddressId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `webAddressId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webAddressId").toString()));
       }
   }
 

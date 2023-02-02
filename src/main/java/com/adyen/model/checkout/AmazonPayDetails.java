@@ -52,6 +52,10 @@ public class AmazonPayDetails {
   @SerializedName(SERIALIZED_NAME_AMAZON_PAY_TOKEN)
   private String amazonPayToken;
 
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   /**
    * **amazonpay**
    */
@@ -114,7 +118,6 @@ public class AmazonPayDetails {
    * This is the &#x60;amazonPayToken&#x60; that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response.
    * @return amazonPayToken
   **/
-
   @ApiModelProperty(value = "This is the `amazonPayToken` that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response.")
 
   public String getAmazonPayToken() {
@@ -124,6 +127,28 @@ public class AmazonPayDetails {
 
   public void setAmazonPayToken(String amazonPayToken) {
     this.amazonPayToken = amazonPayToken;
+  }
+
+
+  public AmazonPayDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
   }
 
 
@@ -137,7 +162,6 @@ public class AmazonPayDetails {
    * **amazonpay**
    * @return type
   **/
-
   @ApiModelProperty(value = "**amazonpay**")
 
   public TypeEnum getType() {
@@ -161,12 +185,13 @@ public class AmazonPayDetails {
     }
     AmazonPayDetails amazonPayDetails = (AmazonPayDetails) o;
     return Objects.equals(this.amazonPayToken, amazonPayDetails.amazonPayToken) &&
+        Objects.equals(this.checkoutAttemptId, amazonPayDetails.checkoutAttemptId) &&
         Objects.equals(this.type, amazonPayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amazonPayToken, type);
+    return Objects.hash(amazonPayToken, checkoutAttemptId, type);
   }
 
   @Override
@@ -174,6 +199,7 @@ public class AmazonPayDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class AmazonPayDetails {\n");
     sb.append("    amazonPayToken: ").append(toIndentedString(amazonPayToken)).append("\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -198,6 +224,7 @@ public class AmazonPayDetails {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("amazonPayToken");
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
@@ -229,6 +256,10 @@ public class AmazonPayDetails {
       // validate the optional field amazonPayToken
       if (jsonObj.get("amazonPayToken") != null && !jsonObj.get("amazonPayToken").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amazonPayToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amazonPayToken").toString()));
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

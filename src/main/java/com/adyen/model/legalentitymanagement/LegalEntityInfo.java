@@ -13,33 +13,54 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.Individual;
+import com.adyen.model.legalentitymanagement.LegalEntityAssociation;
+import com.adyen.model.legalentitymanagement.LegalEntityCapability;
+import com.adyen.model.legalentitymanagement.Organization;
+import com.adyen.model.legalentitymanagement.SoleProprietorship;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * LegalEntityInfo
  */
 
 public class LegalEntityInfo {
+  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
+  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
+  private Map<String, LegalEntityCapability> capabilities = null;
+
   public static final String SERIALIZED_NAME_ENTITY_ASSOCIATIONS = "entityAssociations";
   @SerializedName(SERIALIZED_NAME_ENTITY_ASSOCIATIONS)
   private List<LegalEntityAssociation> entityAssociations = null;
@@ -120,6 +141,27 @@ public class LegalEntityInfo {
   public LegalEntityInfo() { 
   }
 
+  
+  public LegalEntityInfo(
+     Map<String, LegalEntityCapability> capabilities
+  ) {
+    this();
+    this.capabilities = capabilities;
+  }
+
+   /**
+   * Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
+   * @return capabilities
+  **/
+  @ApiModelProperty(value = "Contains key-value pairs that specify the actions that the legal entity can do in your platform.The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.")
+
+  public Map<String, LegalEntityCapability> getCapabilities() {
+    return capabilities;
+  }
+
+
+
+
   public LegalEntityInfo entityAssociations(List<LegalEntityAssociation> entityAssociations) {
     
     this.entityAssociations = entityAssociations;
@@ -138,7 +180,6 @@ public class LegalEntityInfo {
    * List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.
    * @return entityAssociations
   **/
-  
   @ApiModelProperty(value = "List of legal entities associated with the current legal entity. For example, ultimate beneficial owners associated with an organization through ownership or control, or as signatories.")
 
   public List<LegalEntityAssociation> getEntityAssociations() {
@@ -161,7 +202,6 @@ public class LegalEntityInfo {
    * Get individual
    * @return individual
   **/
-  
   @ApiModelProperty(value = "")
 
   public Individual getIndividual() {
@@ -184,7 +224,6 @@ public class LegalEntityInfo {
    * Get organization
    * @return organization
   **/
-  
   @ApiModelProperty(value = "")
 
   public Organization getOrganization() {
@@ -207,7 +246,6 @@ public class LegalEntityInfo {
    * Your reference for the legal entity, maximum 150 characters.
    * @return reference
   **/
-  
   @ApiModelProperty(value = "Your reference for the legal entity, maximum 150 characters.")
 
   public String getReference() {
@@ -230,7 +268,6 @@ public class LegalEntityInfo {
    * Get soleProprietorship
    * @return soleProprietorship
   **/
-  
   @ApiModelProperty(value = "")
 
   public SoleProprietorship getSoleProprietorship() {
@@ -253,8 +290,7 @@ public class LegalEntityInfo {
    * The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.
    * @return type
   **/
-  
-  @ApiModelProperty(required = true, value = "The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.")
+  @ApiModelProperty(value = "The type of legal entity.   Possible values: **individual**, **organization**, or **soleProprietorship**.")
 
   public TypeEnum getType() {
     return type;
@@ -276,7 +312,8 @@ public class LegalEntityInfo {
       return false;
     }
     LegalEntityInfo legalEntityInfo = (LegalEntityInfo) o;
-    return Objects.equals(this.entityAssociations, legalEntityInfo.entityAssociations) &&
+    return Objects.equals(this.capabilities, legalEntityInfo.capabilities) &&
+        Objects.equals(this.entityAssociations, legalEntityInfo.entityAssociations) &&
         Objects.equals(this.individual, legalEntityInfo.individual) &&
         Objects.equals(this.organization, legalEntityInfo.organization) &&
         Objects.equals(this.reference, legalEntityInfo.reference) &&
@@ -286,13 +323,14 @@ public class LegalEntityInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(entityAssociations, individual, organization, reference, soleProprietorship, type);
+    return Objects.hash(capabilities, entityAssociations, individual, organization, reference, soleProprietorship, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LegalEntityInfo {\n");
+    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    entityAssociations: ").append(toIndentedString(entityAssociations)).append("\n");
     sb.append("    individual: ").append(toIndentedString(individual)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
@@ -321,6 +359,7 @@ public class LegalEntityInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("capabilities");
     openapiFields.add("entityAssociations");
     openapiFields.add("individual");
     openapiFields.add("organization");
@@ -330,7 +369,6 @@ public class LegalEntityInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
   }
 
  /**
@@ -353,13 +391,6 @@ public class LegalEntityInfo {
       for (Entry<String, JsonElement> entry : entries) {
         if (!LegalEntityInfo.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LegalEntityInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : LegalEntityInfo.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       JsonArray jsonArrayentityAssociations = jsonObj.getAsJsonArray("entityAssociations");

@@ -20,6 +20,7 @@ import com.adyen.model.management.CartesBancairesInfo;
 import com.adyen.model.management.GiroPayInfo;
 import com.adyen.model.management.GooglePayInfo;
 import com.adyen.model.management.KlarnaInfo;
+import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.SofortInfo;
 import com.adyen.model.management.SwishInfo;
@@ -87,6 +88,10 @@ public class PaymentMethod {
   @SerializedName(SERIALIZED_NAME_CURRENCIES)
   private List<String> currencies = null;
 
+  public static final String SERIALIZED_NAME_CUSTOM_ROUTING_FLAGS = "customRoutingFlags";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_ROUTING_FLAGS)
+  private List<String> customRoutingFlags = null;
+
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
@@ -107,9 +112,17 @@ public class PaymentMethod {
   @SerializedName(SERIALIZED_NAME_KLARNA)
   private KlarnaInfo klarna;
 
+  public static final String SERIALIZED_NAME_MEAL_VOUCHER_F_R = "mealVoucher_FR";
+  @SerializedName(SERIALIZED_NAME_MEAL_VOUCHER_F_R)
+  private MealVoucherFRInfo mealVoucherFR;
+
   public static final String SERIALIZED_NAME_PAYPAL = "paypal";
   @SerializedName(SERIALIZED_NAME_PAYPAL)
   private PayPalInfo paypal;
+
+  public static final String SERIALIZED_NAME_REFERENCE = "reference";
+  @SerializedName(SERIALIZED_NAME_REFERENCE)
+  private String reference;
 
   public static final String SERIALIZED_NAME_SHOPPER_INTERACTION = "shopperInteraction";
   @SerializedName(SERIALIZED_NAME_SHOPPER_INTERACTION)
@@ -199,7 +212,6 @@ public class PaymentMethod {
    * Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
    * @return allowed
   **/
-
   @ApiModelProperty(value = "Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.")
 
   public Boolean getAllowed() {
@@ -222,7 +234,6 @@ public class PaymentMethod {
    * Get applePay
    * @return applePay
   **/
-
   @ApiModelProperty(value = "")
 
   public ApplePayInfo getApplePay() {
@@ -245,7 +256,6 @@ public class PaymentMethod {
    * Get bcmc
    * @return bcmc
   **/
-
   @ApiModelProperty(value = "")
 
   public BcmcInfo getBcmc() {
@@ -268,7 +278,6 @@ public class PaymentMethod {
    * The unique identifier of the business line.
    * @return businessLineId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the business line.")
 
   public String getBusinessLineId() {
@@ -291,7 +300,6 @@ public class PaymentMethod {
    * Get cartesBancaires
    * @return cartesBancaires
   **/
-
   @ApiModelProperty(value = "")
 
   public CartesBancairesInfo getCartesBancaires() {
@@ -322,7 +330,6 @@ public class PaymentMethod {
    * The list of countries where a payment method is available. By default, all countries supported by the payment method.
    * @return countries
   **/
-
   @ApiModelProperty(value = "The list of countries where a payment method is available. By default, all countries supported by the payment method.")
 
   public List<String> getCountries() {
@@ -353,7 +360,6 @@ public class PaymentMethod {
    * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
    * @return currencies
   **/
-
   @ApiModelProperty(value = "The list of currencies that a payment method supports. By default, all currencies supported by the payment method.")
 
   public List<String> getCurrencies() {
@@ -363,6 +369,36 @@ public class PaymentMethod {
 
   public void setCurrencies(List<String> currencies) {
     this.currencies = currencies;
+  }
+
+
+  public PaymentMethod customRoutingFlags(List<String> customRoutingFlags) {
+    
+    this.customRoutingFlags = customRoutingFlags;
+    return this;
+  }
+
+  public PaymentMethod addCustomRoutingFlagsItem(String customRoutingFlagsItem) {
+    if (this.customRoutingFlags == null) {
+      this.customRoutingFlags = new ArrayList<>();
+    }
+    this.customRoutingFlags.add(customRoutingFlagsItem);
+    return this;
+  }
+
+   /**
+   * The list of custom routing flags to route payment to the intended acquirer.
+   * @return customRoutingFlags
+  **/
+  @ApiModelProperty(value = "The list of custom routing flags to route payment to the intended acquirer.")
+
+  public List<String> getCustomRoutingFlags() {
+    return customRoutingFlags;
+  }
+
+
+  public void setCustomRoutingFlags(List<String> customRoutingFlags) {
+    this.customRoutingFlags = customRoutingFlags;
   }
 
 
@@ -376,7 +412,6 @@ public class PaymentMethod {
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    * @return enabled
   **/
-
   @ApiModelProperty(value = "Indicates whether the payment method is enabled (**true**) or disabled (**false**).")
 
   public Boolean getEnabled() {
@@ -399,7 +434,6 @@ public class PaymentMethod {
    * Get giroPay
    * @return giroPay
   **/
-
   @ApiModelProperty(value = "")
 
   public GiroPayInfo getGiroPay() {
@@ -422,7 +456,6 @@ public class PaymentMethod {
    * Get googlePay
    * @return googlePay
   **/
-
   @ApiModelProperty(value = "")
 
   public GooglePayInfo getGooglePay() {
@@ -445,7 +478,6 @@ public class PaymentMethod {
    * The identifier of the resource.
    * @return id
   **/
-
   @ApiModelProperty(required = true, value = "The identifier of the resource.")
 
   public String getId() {
@@ -468,7 +500,6 @@ public class PaymentMethod {
    * Get klarna
    * @return klarna
   **/
-
   @ApiModelProperty(value = "")
 
   public KlarnaInfo getKlarna() {
@@ -478,6 +509,28 @@ public class PaymentMethod {
 
   public void setKlarna(KlarnaInfo klarna) {
     this.klarna = klarna;
+  }
+
+
+  public PaymentMethod mealVoucherFR(MealVoucherFRInfo mealVoucherFR) {
+    
+    this.mealVoucherFR = mealVoucherFR;
+    return this;
+  }
+
+   /**
+   * Get mealVoucherFR
+   * @return mealVoucherFR
+  **/
+  @ApiModelProperty(value = "")
+
+  public MealVoucherFRInfo getMealVoucherFR() {
+    return mealVoucherFR;
+  }
+
+
+  public void setMealVoucherFR(MealVoucherFRInfo mealVoucherFR) {
+    this.mealVoucherFR = mealVoucherFR;
   }
 
 
@@ -491,7 +544,6 @@ public class PaymentMethod {
    * Get paypal
    * @return paypal
   **/
-
   @ApiModelProperty(value = "")
 
   public PayPalInfo getPaypal() {
@@ -501,6 +553,28 @@ public class PaymentMethod {
 
   public void setPaypal(PayPalInfo paypal) {
     this.paypal = paypal;
+  }
+
+
+  public PaymentMethod reference(String reference) {
+    
+    this.reference = reference;
+    return this;
+  }
+
+   /**
+   * Your reference for the payment method. Supported characters a-z, A-Z, 0-9.
+   * @return reference
+  **/
+  @ApiModelProperty(value = "Your reference for the payment method. Supported characters a-z, A-Z, 0-9.")
+
+  public String getReference() {
+    return reference;
+  }
+
+
+  public void setReference(String reference) {
+    this.reference = reference;
   }
 
 
@@ -514,7 +588,6 @@ public class PaymentMethod {
    * The sales channel.
    * @return shopperInteraction
   **/
-
   @ApiModelProperty(value = "The sales channel.")
 
   public String getShopperInteraction() {
@@ -537,7 +610,6 @@ public class PaymentMethod {
    * Get sofort
    * @return sofort
   **/
-
   @ApiModelProperty(value = "")
 
   public SofortInfo getSofort() {
@@ -560,7 +632,6 @@ public class PaymentMethod {
    * The ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/stores__resParam_id), if any.
    * @return storeId
   **/
-
   @ApiModelProperty(value = "The ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/stores__resParam_id), if any.")
 
   public String getStoreId() {
@@ -583,7 +654,6 @@ public class PaymentMethod {
    * Get swish
    * @return swish
   **/
-
   @ApiModelProperty(value = "")
 
   public SwishInfo getSwish() {
@@ -606,7 +676,6 @@ public class PaymentMethod {
    * Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
    * @return type
   **/
-
   @ApiModelProperty(value = "Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).")
 
   public String getType() {
@@ -629,7 +698,6 @@ public class PaymentMethod {
    * Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
    * @return verificationStatus
   **/
-
   @ApiModelProperty(value = "Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**")
 
   public VerificationStatusEnum getVerificationStatus() {
@@ -659,12 +727,15 @@ public class PaymentMethod {
         Objects.equals(this.cartesBancaires, paymentMethod.cartesBancaires) &&
         Objects.equals(this.countries, paymentMethod.countries) &&
         Objects.equals(this.currencies, paymentMethod.currencies) &&
+        Objects.equals(this.customRoutingFlags, paymentMethod.customRoutingFlags) &&
         Objects.equals(this.enabled, paymentMethod.enabled) &&
         Objects.equals(this.giroPay, paymentMethod.giroPay) &&
         Objects.equals(this.googlePay, paymentMethod.googlePay) &&
         Objects.equals(this.id, paymentMethod.id) &&
         Objects.equals(this.klarna, paymentMethod.klarna) &&
+        Objects.equals(this.mealVoucherFR, paymentMethod.mealVoucherFR) &&
         Objects.equals(this.paypal, paymentMethod.paypal) &&
+        Objects.equals(this.reference, paymentMethod.reference) &&
         Objects.equals(this.shopperInteraction, paymentMethod.shopperInteraction) &&
         Objects.equals(this.sofort, paymentMethod.sofort) &&
         Objects.equals(this.storeId, paymentMethod.storeId) &&
@@ -675,7 +746,7 @@ public class PaymentMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, enabled, giroPay, googlePay, id, klarna, paypal, shopperInteraction, sofort, storeId, swish, type, verificationStatus);
+    return Objects.hash(allowed, applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, customRoutingFlags, enabled, giroPay, googlePay, id, klarna, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeId, swish, type, verificationStatus);
   }
 
   @Override
@@ -689,12 +760,15 @@ public class PaymentMethod {
     sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
+    sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    giroPay: ").append(toIndentedString(giroPay)).append("\n");
     sb.append("    googlePay: ").append(toIndentedString(googlePay)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    klarna: ").append(toIndentedString(klarna)).append("\n");
+    sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
     sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
     sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
     sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");
@@ -730,12 +804,15 @@ public class PaymentMethod {
     openapiFields.add("cartesBancaires");
     openapiFields.add("countries");
     openapiFields.add("currencies");
+    openapiFields.add("customRoutingFlags");
     openapiFields.add("enabled");
     openapiFields.add("giroPay");
     openapiFields.add("googlePay");
     openapiFields.add("id");
     openapiFields.add("klarna");
+    openapiFields.add("mealVoucher_FR");
     openapiFields.add("paypal");
+    openapiFields.add("reference");
     openapiFields.add("shopperInteraction");
     openapiFields.add("sofort");
     openapiFields.add("storeId");
@@ -801,6 +878,10 @@ public class PaymentMethod {
       if (jsonObj.get("currencies") != null && !jsonObj.get("currencies").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencies` to be an array in the JSON string but got `%s`", jsonObj.get("currencies").toString()));
       }
+      // ensure the json data is an array
+      if (jsonObj.get("customRoutingFlags") != null && !jsonObj.get("customRoutingFlags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customRoutingFlags` to be an array in the JSON string but got `%s`", jsonObj.get("customRoutingFlags").toString()));
+      }
       // validate the optional field `giroPay`
       if (jsonObj.getAsJsonObject("giroPay") != null) {
         GiroPayInfo.validateJsonObject(jsonObj.getAsJsonObject("giroPay"));
@@ -817,9 +898,17 @@ public class PaymentMethod {
       if (jsonObj.getAsJsonObject("klarna") != null) {
         KlarnaInfo.validateJsonObject(jsonObj.getAsJsonObject("klarna"));
       }
+      // validate the optional field `mealVoucher_FR`
+      if (jsonObj.getAsJsonObject("mealVoucher_FR") != null) {
+        MealVoucherFRInfo.validateJsonObject(jsonObj.getAsJsonObject("mealVoucher_FR"));
+      }
       // validate the optional field `paypal`
       if (jsonObj.getAsJsonObject("paypal") != null) {
         PayPalInfo.validateJsonObject(jsonObj.getAsJsonObject("paypal"));
+      }
+      // validate the optional field reference
+      if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
       // validate the optional field shopperInteraction
       if (jsonObj.get("shopperInteraction") != null && !jsonObj.get("shopperInteraction").isJsonPrimitive()) {

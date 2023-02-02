@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -72,6 +74,10 @@ public class CreateMerchantRequest {
   @SerializedName(SERIALIZED_NAME_REFERENCE)
   private String reference;
 
+  public static final String SERIALIZED_NAME_SALES_CHANNELS = "salesChannels";
+  @SerializedName(SERIALIZED_NAME_SALES_CHANNELS)
+  private List<String> salesChannels = null;
+
   public CreateMerchantRequest() { 
   }
 
@@ -85,7 +91,6 @@ public class CreateMerchantRequest {
    * The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.
    * @return businessLineId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the [business line](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businessLines). Required for an Adyen for Platforms Manage integration.")
 
   public String getBusinessLineId() {
@@ -108,7 +113,6 @@ public class CreateMerchantRequest {
    * The unique identifier of the company account.
    * @return companyId
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of the company account.")
 
   public String getCompanyId() {
@@ -131,7 +135,6 @@ public class CreateMerchantRequest {
    * Your description for the merchant account, maximum 300 characters.
    * @return description
   **/
-
   @ApiModelProperty(value = "Your description for the merchant account, maximum 300 characters.")
 
   public String getDescription() {
@@ -154,7 +157,6 @@ public class CreateMerchantRequest {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.
    * @return legalEntityId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). Required for an Adyen for Platforms Manage integration.")
 
   public String getLegalEntityId() {
@@ -177,7 +179,6 @@ public class CreateMerchantRequest {
    * Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.
    * @return pricingPlan
   **/
-
   @ApiModelProperty(value = "Sets the pricing plan for the merchant account. Required for an Adyen for Platforms Manage integration. Your Adyen contact will provide the values that you can use.")
 
   public String getPricingPlan() {
@@ -200,7 +201,6 @@ public class CreateMerchantRequest {
    * Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the &#x60;reference&#x60; is required and must be unique within the company account.
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference for the merchant account. To make this reference the unique identifier of the merchant account, your Adyen contact can set up a template on your company account. The template can have 6 to 255 characters with upper- and lower-case letters, underscores, and numbers. When your company account has a template, then the `reference` is required and must be unique within the company account.")
 
   public String getReference() {
@@ -210,6 +210,36 @@ public class CreateMerchantRequest {
 
   public void setReference(String reference) {
     this.reference = reference;
+  }
+
+
+  public CreateMerchantRequest salesChannels(List<String> salesChannels) {
+    
+    this.salesChannels = salesChannels;
+    return this;
+  }
+
+  public CreateMerchantRequest addSalesChannelsItem(String salesChannelsItem) {
+    if (this.salesChannels == null) {
+      this.salesChannels = new ArrayList<>();
+    }
+    this.salesChannels.add(salesChannelsItem);
+    return this;
+  }
+
+   /**
+   * List of sales channels that the merchant will process payments with
+   * @return salesChannels
+  **/
+  @ApiModelProperty(value = "List of sales channels that the merchant will process payments with")
+
+  public List<String> getSalesChannels() {
+    return salesChannels;
+  }
+
+
+  public void setSalesChannels(List<String> salesChannels) {
+    this.salesChannels = salesChannels;
   }
 
 
@@ -228,12 +258,13 @@ public class CreateMerchantRequest {
         Objects.equals(this.description, createMerchantRequest.description) &&
         Objects.equals(this.legalEntityId, createMerchantRequest.legalEntityId) &&
         Objects.equals(this.pricingPlan, createMerchantRequest.pricingPlan) &&
-        Objects.equals(this.reference, createMerchantRequest.reference);
+        Objects.equals(this.reference, createMerchantRequest.reference) &&
+        Objects.equals(this.salesChannels, createMerchantRequest.salesChannels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessLineId, companyId, description, legalEntityId, pricingPlan, reference);
+    return Objects.hash(businessLineId, companyId, description, legalEntityId, pricingPlan, reference, salesChannels);
   }
 
   @Override
@@ -246,6 +277,7 @@ public class CreateMerchantRequest {
     sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
     sb.append("    pricingPlan: ").append(toIndentedString(pricingPlan)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    salesChannels: ").append(toIndentedString(salesChannels)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -274,6 +306,7 @@ public class CreateMerchantRequest {
     openapiFields.add("legalEntityId");
     openapiFields.add("pricingPlan");
     openapiFields.add("reference");
+    openapiFields.add("salesChannels");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -332,6 +365,10 @@ public class CreateMerchantRequest {
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("salesChannels") != null && !jsonObj.get("salesChannels").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `salesChannels` to be an array in the JSON string but got `%s`", jsonObj.get("salesChannels").toString()));
       }
   }
 

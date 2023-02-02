@@ -52,7 +52,7 @@ import com.adyen.model.management.JSON;
 public class ApplePayInfo {
   public static final String SERIALIZED_NAME_DOMAINS = "domains";
   @SerializedName(SERIALIZED_NAME_DOMAINS)
-  private List<String> domains = new ArrayList<>();
+  private List<String> domains = null;
 
   public ApplePayInfo() { 
   }
@@ -64,6 +64,9 @@ public class ApplePayInfo {
   }
 
   public ApplePayInfo addDomainsItem(String domainsItem) {
+    if (this.domains == null) {
+      this.domains = new ArrayList<>();
+    }
     this.domains.add(domainsItem);
     return this;
   }
@@ -72,8 +75,7 @@ public class ApplePayInfo {
    * The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab&#x3D;adyen-certificate-live_1#going-live).
    * @return domains
   **/
-
-  @ApiModelProperty(required = true, value = "The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live).")
+  @ApiModelProperty(value = "The list of merchant domains. Maximum: 99 domains per request.  For more information, see [Apple Pay documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-in?tab=adyen-certificate-live_1#going-live).")
 
   public List<String> getDomains() {
     return domains;
@@ -134,7 +136,6 @@ public class ApplePayInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("domains");
   }
 
  /**
@@ -157,13 +158,6 @@ public class ApplePayInfo {
       for (Entry<String, JsonElement> entry : entries) {
         if (!ApplePayInfo.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApplePayInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApplePayInfo.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // ensure the json data is an array

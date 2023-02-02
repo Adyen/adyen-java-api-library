@@ -52,6 +52,10 @@ public class ApplePayDetails {
   @SerializedName(SERIALIZED_NAME_APPLE_PAY_TOKEN)
   private String applePayToken;
 
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
@@ -171,7 +175,6 @@ public class ApplePayDetails {
    * The stringified and base64 encoded &#x60;paymentData&#x60; you retrieved from the Apple framework.
    * @return applePayToken
   **/
-
   @ApiModelProperty(required = true, value = "The stringified and base64 encoded `paymentData` you retrieved from the Apple framework.")
 
   public String getApplePayToken() {
@@ -181,6 +184,28 @@ public class ApplePayDetails {
 
   public void setApplePayToken(String applePayToken) {
     this.applePayToken = applePayToken;
+  }
+
+
+  public ApplePayDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
   }
 
 
@@ -194,7 +219,6 @@ public class ApplePayDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -219,7 +243,6 @@ public class ApplePayDetails {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -242,7 +265,6 @@ public class ApplePayDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -265,7 +287,6 @@ public class ApplePayDetails {
    * **applepay**
    * @return type
   **/
-
   @ApiModelProperty(value = "**applepay**")
 
   public TypeEnum getType() {
@@ -289,6 +310,7 @@ public class ApplePayDetails {
     }
     ApplePayDetails applePayDetails = (ApplePayDetails) o;
     return Objects.equals(this.applePayToken, applePayDetails.applePayToken) &&
+        Objects.equals(this.checkoutAttemptId, applePayDetails.checkoutAttemptId) &&
         Objects.equals(this.fundingSource, applePayDetails.fundingSource) &&
         Objects.equals(this.recurringDetailReference, applePayDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, applePayDetails.storedPaymentMethodId) &&
@@ -297,7 +319,7 @@ public class ApplePayDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applePayToken, fundingSource, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(applePayToken, checkoutAttemptId, fundingSource, recurringDetailReference, storedPaymentMethodId, type);
   }
 
   @Override
@@ -305,6 +327,7 @@ public class ApplePayDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplePayDetails {\n");
     sb.append("    applePayToken: ").append(toIndentedString(applePayToken)).append("\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
@@ -332,6 +355,7 @@ public class ApplePayDetails {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("applePayToken");
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("fundingSource");
     openapiFields.add("recurringDetailReference");
     openapiFields.add("storedPaymentMethodId");
@@ -374,6 +398,10 @@ public class ApplePayDetails {
       // validate the optional field applePayToken
       if (jsonObj.get("applePayToken") != null && !jsonObj.get("applePayToken").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `applePayToken` to be a primitive type in the JSON string but got `%s`", jsonObj.get("applePayToken").toString()));
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field fundingSource can be parsed to an enum value
       if (jsonObj.get("fundingSource") != null) {

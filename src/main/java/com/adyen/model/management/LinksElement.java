@@ -65,7 +65,6 @@ public class LinksElement {
    * Get href
    * @return href
   **/
-
   @ApiModelProperty(value = "")
 
   public String getHref() {

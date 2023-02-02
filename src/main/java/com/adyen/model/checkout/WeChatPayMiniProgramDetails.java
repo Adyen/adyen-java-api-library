@@ -52,6 +52,10 @@ public class WeChatPayMiniProgramDetails {
   @SerializedName(SERIALIZED_NAME_APP_ID)
   private String appId;
 
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   public static final String SERIALIZED_NAME_OPENID = "openid";
   @SerializedName(SERIALIZED_NAME_OPENID)
   private String openid;
@@ -118,7 +122,6 @@ public class WeChatPayMiniProgramDetails {
    * Get appId
    * @return appId
   **/
-
   @ApiModelProperty(value = "")
 
   public String getAppId() {
@@ -128,6 +131,28 @@ public class WeChatPayMiniProgramDetails {
 
   public void setAppId(String appId) {
     this.appId = appId;
+  }
+
+
+  public WeChatPayMiniProgramDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
   }
 
 
@@ -141,7 +166,6 @@ public class WeChatPayMiniProgramDetails {
    * Get openid
    * @return openid
   **/
-
   @ApiModelProperty(value = "")
 
   public String getOpenid() {
@@ -164,7 +188,6 @@ public class WeChatPayMiniProgramDetails {
    * **wechatpayMiniProgram**
    * @return type
   **/
-
   @ApiModelProperty(value = "**wechatpayMiniProgram**")
 
   public TypeEnum getType() {
@@ -188,13 +211,14 @@ public class WeChatPayMiniProgramDetails {
     }
     WeChatPayMiniProgramDetails weChatPayMiniProgramDetails = (WeChatPayMiniProgramDetails) o;
     return Objects.equals(this.appId, weChatPayMiniProgramDetails.appId) &&
+        Objects.equals(this.checkoutAttemptId, weChatPayMiniProgramDetails.checkoutAttemptId) &&
         Objects.equals(this.openid, weChatPayMiniProgramDetails.openid) &&
         Objects.equals(this.type, weChatPayMiniProgramDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appId, openid, type);
+    return Objects.hash(appId, checkoutAttemptId, openid, type);
   }
 
   @Override
@@ -202,6 +226,7 @@ public class WeChatPayMiniProgramDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class WeChatPayMiniProgramDetails {\n");
     sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    openid: ").append(toIndentedString(openid)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -227,6 +252,7 @@ public class WeChatPayMiniProgramDetails {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("appId");
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("openid");
     openapiFields.add("type");
 
@@ -259,6 +285,10 @@ public class WeChatPayMiniProgramDetails {
       // validate the optional field appId
       if (jsonObj.get("appId") != null && !jsonObj.get("appId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `appId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("appId").toString()));
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // validate the optional field openid
       if (jsonObj.get("openid") != null && !jsonObj.get("openid").isJsonPrimitive()) {

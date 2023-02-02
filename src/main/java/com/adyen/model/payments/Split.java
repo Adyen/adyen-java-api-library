@@ -66,7 +66,7 @@ public class Split {
   private String reference;
 
   /**
-   * The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**.
+   * The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**, **Surcharge**, **Tip**.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -81,6 +81,10 @@ public class Split {
     PAYMENTFEE("PaymentFee"),
     
     REMAINDER("Remainder"),
+    
+    SURCHARGE("Surcharge"),
+    
+    TIP("Tip"),
     
     VAT("VAT"),
     
@@ -141,7 +145,6 @@ public class Split {
    * Unique identifier of the account where the split amount should be sent. This is required if &#x60;type&#x60; is **MarketPlace** or **BalanceAccount**.  
    * @return account
   **/
-
   @ApiModelProperty(value = "Unique identifier of the account where the split amount should be sent. This is required if `type` is **MarketPlace** or **BalanceAccount**.  ")
 
   public String getAccount() {
@@ -164,7 +167,6 @@ public class Split {
    * Get amount
    * @return amount
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public SplitAmount getAmount() {
@@ -187,7 +189,6 @@ public class Split {
    * A description of this split.
    * @return description
   **/
-
   @ApiModelProperty(value = "A description of this split.")
 
   public String getDescription() {
@@ -210,7 +211,6 @@ public class Split {
    * Your reference for the split, which you can use to link the split to other operations such as captures and refunds.  This is required if &#x60;type&#x60; is **MarketPlace** or **BalanceAccount**. For the other types, we also recommend sending a reference so you can reconcile the split and the associated payment in the transaction overview and in the reports. If the reference is not provided, the split is reported as part of the aggregated [TransferBalance record type](https://docs.adyen.com/reporting/marketpay-payments-accounting-report) in Adyen for Platforms.
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference for the split, which you can use to link the split to other operations such as captures and refunds.  This is required if `type` is **MarketPlace** or **BalanceAccount**. For the other types, we also recommend sending a reference so you can reconcile the split and the associated payment in the transaction overview and in the reports. If the reference is not provided, the split is reported as part of the aggregated [TransferBalance record type](https://docs.adyen.com/reporting/marketpay-payments-accounting-report) in Adyen for Platforms.")
 
   public String getReference() {
@@ -230,11 +230,10 @@ public class Split {
   }
 
    /**
-   * The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**.
+   * The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**, **Surcharge**, **Tip**.
    * @return type
   **/
-
-  @ApiModelProperty(required = true, value = "The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**.")
+  @ApiModelProperty(required = true, value = "The type of split. Possible values: **Default**, **PaymentFee**, **VAT**, **Commission**, **MarketPlace**, **BalanceAccount**, **Remainder**, **Surcharge**, **Tip**.")
 
   public TypeEnum getType() {
     return type;

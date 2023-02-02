@@ -170,7 +170,6 @@ public class Card {
    * Get authentication
    * @return authentication
   **/
-
   @ApiModelProperty(value = "")
 
   public Authentication getAuthentication() {
@@ -193,7 +192,6 @@ public class Card {
    * The bank identification number (BIN) of the card number.
    * @return bin
   **/
-
   @ApiModelProperty(value = "The bank identification number (BIN) of the card number.")
 
   public String getBin() {
@@ -216,7 +214,6 @@ public class Card {
    * The brand of the payment instrument. Possible values: **visa**, **mc**.
    * @return brand
   **/
-
   @ApiModelProperty(required = true, value = "The brand of the payment instrument. Possible values: **visa**, **mc**.")
 
   public String getBrand() {
@@ -239,7 +236,6 @@ public class Card {
    * The brand variant of the payment instrument. &gt;Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.
    * @return brandVariant
   **/
-
   @ApiModelProperty(required = true, value = "The brand variant of the payment instrument. >Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.")
 
   public String getBrandVariant() {
@@ -262,7 +258,6 @@ public class Card {
    * The name of the cardholder.  Maximum length: 26 characters.
    * @return cardholderName
   **/
-
   @ApiModelProperty(required = true, value = "The name of the cardholder.  Maximum length: 26 characters.")
 
   public String getCardholderName() {
@@ -285,7 +280,6 @@ public class Card {
    * Get configuration
    * @return configuration
   **/
-
   @ApiModelProperty(value = "")
 
   public CardConfiguration getConfiguration() {
@@ -308,7 +302,6 @@ public class Card {
    * The CVC2 value of the card. &gt; The CVC2 is not sent by default. This is only returned in the &#x60;POST&#x60; response for single-use virtual cards.
    * @return cvc
   **/
-
   @ApiModelProperty(value = "The CVC2 value of the card. > The CVC2 is not sent by default. This is only returned in the `POST` response for single-use virtual cards.")
 
   public String getCvc() {
@@ -331,7 +324,6 @@ public class Card {
    * Get deliveryContact
    * @return deliveryContact
   **/
-
   @ApiModelProperty(value = "")
 
   public DeliveryContact getDeliveryContact() {
@@ -354,7 +346,6 @@ public class Card {
    * Get expiration
    * @return expiration
   **/
-
   @ApiModelProperty(value = "")
 
   public Expiry getExpiration() {
@@ -377,7 +368,6 @@ public class Card {
    * The form factor of the card. Possible values: **virtual**, **physical**.
    * @return formFactor
   **/
-
   @ApiModelProperty(required = true, value = "The form factor of the card. Possible values: **virtual**, **physical**.")
 
   public FormFactorEnum getFormFactor() {
@@ -400,7 +390,6 @@ public class Card {
    * Last last four digits of the card number.
    * @return lastFour
   **/
-
   @ApiModelProperty(value = "Last last four digits of the card number.")
 
   public String getLastFour() {
@@ -417,7 +406,6 @@ public class Card {
    * The primary account number (PAN) of the card. &gt; The PAN is masked by default and returned only for single-use virtual cards.
    * @return number
   **/
-
   @ApiModelProperty(required = true, value = "The primary account number (PAN) of the card. > The PAN is masked by default and returned only for single-use virtual cards.")
 
   public String getNumber() {

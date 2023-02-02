@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PaymentDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   /**
    * The payment method type.
    */
@@ -66,6 +70,8 @@ public class PaymentDetails {
     AFFIRM("affirm"),
     
     AFFIRM_POS("affirm_pos"),
+    
+    TRUSTLY("trustly"),
     
     TRUSTLYVECTOR("trustlyvector"),
     
@@ -111,8 +117,6 @@ public class PaymentDetails {
     
     MOLPAY_EBANKING_VN("molpay_ebanking_VN"),
     
-    ONLINEBANKING_PL("onlineBanking_PL"),
-    
     OPENBANKING_UK("openbanking_UK"),
     
     PAYBYBANK("paybybank"),
@@ -127,11 +131,13 @@ public class PaymentDetails {
     
     TWINT("twint"),
     
-    PIX("pix"),
-    
     WALLEY("walley"),
     
     WALLEY_B2B("walley_b2b"),
+    
+    PIX("pix"),
+    
+    BIZUM("bizum"),
     
     ALMA("alma"),
     
@@ -282,6 +288,28 @@ public class PaymentDetails {
   public PaymentDetails() { 
   }
 
+  public PaymentDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public PaymentDetails type(TypeEnum type) {
     
     this.type = type;
@@ -292,7 +320,6 @@ public class PaymentDetails {
    * The payment method type.
    * @return type
   **/
-
   @ApiModelProperty(value = "The payment method type.")
 
   public TypeEnum getType() {
@@ -315,18 +342,20 @@ public class PaymentDetails {
       return false;
     }
     PaymentDetails paymentDetails = (PaymentDetails) o;
-    return Objects.equals(this.type, paymentDetails.type);
+    return Objects.equals(this.checkoutAttemptId, paymentDetails.checkoutAttemptId) &&
+        Objects.equals(this.type, paymentDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type);
+    return Objects.hash(checkoutAttemptId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -350,6 +379,7 @@ public class PaymentDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
@@ -377,6 +407,10 @@ public class PaymentDetails {
         if (!PaymentDetails.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

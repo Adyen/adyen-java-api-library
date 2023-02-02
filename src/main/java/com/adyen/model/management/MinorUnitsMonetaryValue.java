@@ -69,7 +69,6 @@ public class MinorUnitsMonetaryValue {
    * The transaction amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return amount
   **/
-  
   @ApiModelProperty(value = "The transaction amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public Integer getAmount() {
@@ -92,7 +91,6 @@ public class MinorUnitsMonetaryValue {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currencyCode
   **/
-  
   @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getCurrencyCode() {

@@ -75,7 +75,6 @@ public class StoredDetails {
    * Get bank
    * @return bank
   **/
-
   @ApiModelProperty(value = "")
 
   public BankAccount getBank() {
@@ -98,7 +97,6 @@ public class StoredDetails {
    * Get card
    * @return card
   **/
-
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -121,7 +119,6 @@ public class StoredDetails {
    * The email associated with stored payment details.
    * @return emailAddress
   **/
-
   @ApiModelProperty(value = "The email associated with stored payment details.")
 
   public String getEmailAddress() {

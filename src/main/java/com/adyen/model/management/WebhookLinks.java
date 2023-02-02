@@ -82,7 +82,6 @@ public class WebhookLinks {
    * Get company
    * @return company
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getCompany() {
@@ -105,7 +104,6 @@ public class WebhookLinks {
    * Get generateHmac
    * @return generateHmac
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getGenerateHmac() {
@@ -128,7 +126,6 @@ public class WebhookLinks {
    * Get merchant
    * @return merchant
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getMerchant() {
@@ -151,7 +148,6 @@ public class WebhookLinks {
    * Get self
    * @return self
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getSelf() {
@@ -174,7 +170,6 @@ public class WebhookLinks {
    * Get testWebhook
    * @return testWebhook
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getTestWebhook() {

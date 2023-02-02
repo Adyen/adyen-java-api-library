@@ -13,24 +13,35 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * SourceOfFunds
@@ -108,11 +119,10 @@ public class SourceOfFunds {
   }
 
    /**
-   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability. Required when &#x60;adyenProcessedFunds&#x60; is **true**.
+   * The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.
    * @return acquiringBusinessLineId
   **/
-
-  @ApiModelProperty(value = "The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability. Required when `adyenProcessedFunds` is **true**.")
+  @ApiModelProperty(value = "The unique identifier of the business line that will be the source of funds.This must be a business line for a **receivePayments** or **receiveFromPlatformPayments** capability.")
 
   public String getAcquiringBusinessLineId() {
     return acquiringBusinessLineId;
@@ -131,11 +141,10 @@ public class SourceOfFunds {
   }
 
    /**
-   * Indicates whether the funds are coming from transactions processed by Adyen.   - If **true**, the &#x60;acquiringBusinessLineId&#x60; is required.   - If **false**, a &#x60;description&#x60; is required.
+   * Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a &#x60;description&#x60; is required.
    * @return adyenProcessedFunds
   **/
-
-  @ApiModelProperty(value = "Indicates whether the funds are coming from transactions processed by Adyen.   - If **true**, the `acquiringBusinessLineId` is required.   - If **false**, a `description` is required.")
+  @ApiModelProperty(value = "Indicates whether the funds are coming from transactions processed by Adyen. If **false**, a `description` is required.")
 
   public Boolean getAdyenProcessedFunds() {
     return adyenProcessedFunds;
@@ -157,7 +166,6 @@ public class SourceOfFunds {
    * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of the business. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    * @return description
   **/
-
   @ApiModelProperty(value = "Text describing the source of funds. For example, for `type` **business**, provide a description of the business. Required when `adyenProcessedFunds` is **false**.")
 
   public String getDescription() {
@@ -180,7 +188,6 @@ public class SourceOfFunds {
    * The type of the source of funds. Possible value: **business**.
    * @return type
   **/
-
   @ApiModelProperty(value = "The type of the source of funds. Possible value: **business**.")
 
   public TypeEnum getType() {

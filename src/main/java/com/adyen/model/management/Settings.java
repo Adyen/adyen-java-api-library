@@ -70,11 +70,10 @@ public class Settings {
   }
 
    /**
-   * The preferred Wi-Fi Band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
+   * The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.
    * @return band
   **/
-  
-  @ApiModelProperty(value = "The preferred Wi-Fi Band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.")
+  @ApiModelProperty(value = "The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz.")
 
   public String getBand() {
     return band;
@@ -96,7 +95,6 @@ public class Settings {
    * Indicates whether roaming is enabled on the terminals.
    * @return roaming
   **/
-  
   @ApiModelProperty(value = "Indicates whether roaming is enabled on the terminals.")
 
   public Boolean getRoaming() {
@@ -116,11 +114,10 @@ public class Settings {
   }
 
    /**
-   * The connection time-out in seconds. Minimum value: 0
+   * The connection time-out in seconds. Minimum value: 0.
    * @return timeout
   **/
-  
-  @ApiModelProperty(value = "The connection time-out in seconds. Minimum value: 0")
+  @ApiModelProperty(value = "The connection time-out in seconds. Minimum value: 0.")
 
   public Integer getTimeout() {
     return timeout;

@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class EcontextVoucherDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -118,6 +122,28 @@ public class EcontextVoucherDetails {
   public EcontextVoucherDetails() { 
   }
 
+  public EcontextVoucherDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public EcontextVoucherDetails firstName(String firstName) {
     
     this.firstName = firstName;
@@ -128,7 +154,6 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s first name.
    * @return firstName
   **/
-  
   @ApiModelProperty(required = true, value = "The shopper's first name.")
 
   public String getFirstName() {
@@ -151,7 +176,6 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s last name.
    * @return lastName
   **/
-  
   @ApiModelProperty(required = true, value = "The shopper's last name.")
 
   public String getLastName() {
@@ -174,7 +198,6 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s email.
    * @return shopperEmail
   **/
-  
   @ApiModelProperty(required = true, value = "The shopper's email.")
 
   public String getShopperEmail() {
@@ -197,7 +220,6 @@ public class EcontextVoucherDetails {
    * The shopper&#39;s contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.
    * @return telephoneNumber
   **/
-  
   @ApiModelProperty(required = true, value = "The shopper's contact number. It must have an international number format, for example **+31 20 779 1846**. Formats like **+31 (0)20 779 1846** or **0031 20 779 1846** are not accepted.")
 
   public String getTelephoneNumber() {
@@ -220,7 +242,6 @@ public class EcontextVoucherDetails {
    * **econtextvoucher**
    * @return type
   **/
-  
   @ApiModelProperty(required = true, value = "**econtextvoucher**")
 
   public TypeEnum getType() {
@@ -243,7 +264,8 @@ public class EcontextVoucherDetails {
       return false;
     }
     EcontextVoucherDetails econtextVoucherDetails = (EcontextVoucherDetails) o;
-    return Objects.equals(this.firstName, econtextVoucherDetails.firstName) &&
+    return Objects.equals(this.checkoutAttemptId, econtextVoucherDetails.checkoutAttemptId) &&
+        Objects.equals(this.firstName, econtextVoucherDetails.firstName) &&
         Objects.equals(this.lastName, econtextVoucherDetails.lastName) &&
         Objects.equals(this.shopperEmail, econtextVoucherDetails.shopperEmail) &&
         Objects.equals(this.telephoneNumber, econtextVoucherDetails.telephoneNumber) &&
@@ -252,13 +274,14 @@ public class EcontextVoucherDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, shopperEmail, telephoneNumber, type);
+    return Objects.hash(checkoutAttemptId, firstName, lastName, shopperEmail, telephoneNumber, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EcontextVoucherDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
@@ -286,6 +309,7 @@ public class EcontextVoucherDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("firstName");
     openapiFields.add("lastName");
     openapiFields.add("shopperEmail");
@@ -329,6 +353,10 @@ public class EcontextVoucherDetails {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // validate the optional field firstName
       if (jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonPrimitive()) {

@@ -73,7 +73,6 @@ public class ExternalPlatform {
    * External platform integrator.
    * @return integrator
   **/
-
   @ApiModelProperty(value = "External platform integrator.")
 
   public String getIntegrator() {
@@ -96,7 +95,6 @@ public class ExternalPlatform {
    * Name of the field. For example, Name of External Platform.
    * @return name
   **/
-
   @ApiModelProperty(value = "Name of the field. For example, Name of External Platform.")
 
   public String getName() {
@@ -119,7 +117,6 @@ public class ExternalPlatform {
    * Version of the field. For example, Version of External Platform.
    * @return version
   **/
-
   @ApiModelProperty(value = "Version of the field. For example, Version of External Platform.")
 
   public String getVersion() {

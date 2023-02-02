@@ -115,7 +115,6 @@ public class StoredPaymentMethod {
    * The brand of the card.
    * @return brand
   **/
-
   @ApiModelProperty(value = "The brand of the card.")
 
   public String getBrand() {
@@ -138,7 +137,6 @@ public class StoredPaymentMethod {
    * The month the card expires.
    * @return expiryMonth
   **/
-
   @ApiModelProperty(value = "The month the card expires.")
 
   public String getExpiryMonth() {
@@ -161,7 +159,6 @@ public class StoredPaymentMethod {
    * The last two digits of the year the card expires. For example, **22** for the year 2022.
    * @return expiryYear
   **/
-
   @ApiModelProperty(value = "The last two digits of the year the card expires. For example, **22** for the year 2022.")
 
   public String getExpiryYear() {
@@ -184,7 +181,6 @@ public class StoredPaymentMethod {
    * The unique payment method code.
    * @return holderName
   **/
-
   @ApiModelProperty(value = "The unique payment method code.")
 
   public String getHolderName() {
@@ -207,7 +203,6 @@ public class StoredPaymentMethod {
    * The IBAN of the bank account.
    * @return iban
   **/
-
   @ApiModelProperty(value = "The IBAN of the bank account.")
 
   public String getIban() {
@@ -230,7 +225,6 @@ public class StoredPaymentMethod {
    * A unique identifier of this stored payment method.
    * @return id
   **/
-
   @ApiModelProperty(value = "A unique identifier of this stored payment method.")
 
   public String getId() {
@@ -253,7 +247,6 @@ public class StoredPaymentMethod {
    * The last four digits of the PAN.
    * @return lastFour
   **/
-
   @ApiModelProperty(value = "The last four digits of the PAN.")
 
   public String getLastFour() {
@@ -276,7 +269,6 @@ public class StoredPaymentMethod {
    * The display name of the stored payment method.
    * @return name
   **/
-
   @ApiModelProperty(value = "The display name of the stored payment method.")
 
   public String getName() {
@@ -299,7 +291,6 @@ public class StoredPaymentMethod {
    * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    * @return networkTxReference
   **/
-
   @ApiModelProperty(value = "Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.")
 
   public String getNetworkTxReference() {
@@ -322,7 +313,6 @@ public class StoredPaymentMethod {
    * The name of the bank account holder.
    * @return ownerName
   **/
-
   @ApiModelProperty(value = "The name of the bank account holder.")
 
   public String getOwnerName() {
@@ -345,7 +335,6 @@ public class StoredPaymentMethod {
    * The shopper’s email address.
    * @return shopperEmail
   **/
-
   @ApiModelProperty(value = "The shopper’s email address.")
 
   public String getShopperEmail() {
@@ -376,7 +365,6 @@ public class StoredPaymentMethod {
    * The supported shopper interactions for this stored payment method.
    * @return supportedShopperInteractions
   **/
-
   @ApiModelProperty(value = "The supported shopper interactions for this stored payment method.")
 
   public List<String> getSupportedShopperInteractions() {
@@ -399,7 +387,6 @@ public class StoredPaymentMethod {
    * The type of payment method.
    * @return type
   **/
-
   @ApiModelProperty(value = "The type of payment method.")
 
   public String getType() {

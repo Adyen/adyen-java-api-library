@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class SamsungPayDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
@@ -161,6 +165,28 @@ public class SamsungPayDetails {
   public SamsungPayDetails() { 
   }
 
+  public SamsungPayDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public SamsungPayDetails fundingSource(FundingSourceEnum fundingSource) {
     
     this.fundingSource = fundingSource;
@@ -171,7 +197,6 @@ public class SamsungPayDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -196,7 +221,6 @@ public class SamsungPayDetails {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -219,7 +243,6 @@ public class SamsungPayDetails {
    * The payload you received from the Samsung Pay SDK response.
    * @return samsungPayToken
   **/
-
   @ApiModelProperty(required = true, value = "The payload you received from the Samsung Pay SDK response.")
 
   public String getSamsungPayToken() {
@@ -242,7 +265,6 @@ public class SamsungPayDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -265,7 +287,6 @@ public class SamsungPayDetails {
    * **samsungpay**
    * @return type
   **/
-
   @ApiModelProperty(value = "**samsungpay**")
 
   public TypeEnum getType() {
@@ -288,7 +309,8 @@ public class SamsungPayDetails {
       return false;
     }
     SamsungPayDetails samsungPayDetails = (SamsungPayDetails) o;
-    return Objects.equals(this.fundingSource, samsungPayDetails.fundingSource) &&
+    return Objects.equals(this.checkoutAttemptId, samsungPayDetails.checkoutAttemptId) &&
+        Objects.equals(this.fundingSource, samsungPayDetails.fundingSource) &&
         Objects.equals(this.recurringDetailReference, samsungPayDetails.recurringDetailReference) &&
         Objects.equals(this.samsungPayToken, samsungPayDetails.samsungPayToken) &&
         Objects.equals(this.storedPaymentMethodId, samsungPayDetails.storedPaymentMethodId) &&
@@ -297,13 +319,14 @@ public class SamsungPayDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fundingSource, recurringDetailReference, samsungPayToken, storedPaymentMethodId, type);
+    return Objects.hash(checkoutAttemptId, fundingSource, recurringDetailReference, samsungPayToken, storedPaymentMethodId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SamsungPayDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    samsungPayToken: ").append(toIndentedString(samsungPayToken)).append("\n");
@@ -331,6 +354,7 @@ public class SamsungPayDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("fundingSource");
     openapiFields.add("recurringDetailReference");
     openapiFields.add("samsungPayToken");
@@ -370,6 +394,10 @@ public class SamsungPayDetails {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field fundingSource can be parsed to an enum value
       if (jsonObj.get("fundingSource") != null) {

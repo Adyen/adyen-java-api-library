@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class VisaCheckoutDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
@@ -153,6 +157,28 @@ public class VisaCheckoutDetails {
   public VisaCheckoutDetails() { 
   }
 
+  public VisaCheckoutDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public VisaCheckoutDetails fundingSource(FundingSourceEnum fundingSource) {
     
     this.fundingSource = fundingSource;
@@ -163,7 +189,6 @@ public class VisaCheckoutDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -186,7 +211,6 @@ public class VisaCheckoutDetails {
    * **visacheckout**
    * @return type
   **/
-
   @ApiModelProperty(value = "**visacheckout**")
 
   public TypeEnum getType() {
@@ -209,7 +233,6 @@ public class VisaCheckoutDetails {
    * The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.
    * @return visaCheckoutCallId
   **/
-
   @ApiModelProperty(required = true, value = "The Visa Click to Pay Call ID value. When your shopper selects a payment and/or a shipping address from Visa Click to Pay, you will receive a Visa Click to Pay Call ID.")
 
   public String getVisaCheckoutCallId() {
@@ -232,20 +255,22 @@ public class VisaCheckoutDetails {
       return false;
     }
     VisaCheckoutDetails visaCheckoutDetails = (VisaCheckoutDetails) o;
-    return Objects.equals(this.fundingSource, visaCheckoutDetails.fundingSource) &&
+    return Objects.equals(this.checkoutAttemptId, visaCheckoutDetails.checkoutAttemptId) &&
+        Objects.equals(this.fundingSource, visaCheckoutDetails.fundingSource) &&
         Objects.equals(this.type, visaCheckoutDetails.type) &&
         Objects.equals(this.visaCheckoutCallId, visaCheckoutDetails.visaCheckoutCallId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fundingSource, type, visaCheckoutCallId);
+    return Objects.hash(checkoutAttemptId, fundingSource, type, visaCheckoutCallId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VisaCheckoutDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    visaCheckoutCallId: ").append(toIndentedString(visaCheckoutCallId)).append("\n");
@@ -271,6 +296,7 @@ public class VisaCheckoutDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("fundingSource");
     openapiFields.add("type");
     openapiFields.add("visaCheckoutCallId");
@@ -308,6 +334,10 @@ public class VisaCheckoutDetails {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field fundingSource can be parsed to an enum value
       if (jsonObj.get("fundingSource") != null) {

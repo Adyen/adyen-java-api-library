@@ -81,7 +81,6 @@ public class RecurringDetailsResult {
    * The date when the recurring details were created.
    * @return creationDate
   **/
-
   @ApiModelProperty(value = "The date when the recurring details were created.")
 
   public OffsetDateTime getCreationDate() {
@@ -112,7 +111,6 @@ public class RecurringDetailsResult {
    * Payment details stored for recurring payments.
    * @return details
   **/
-
   @ApiModelProperty(value = "Payment details stored for recurring payments.")
 
   public List<RecurringDetail> getDetails() {
@@ -135,7 +133,6 @@ public class RecurringDetailsResult {
    * The most recent email for this shopper (if available).
    * @return lastKnownShopperEmail
   **/
-
   @ApiModelProperty(value = "The most recent email for this shopper (if available).")
 
   public String getLastKnownShopperEmail() {
@@ -158,7 +155,6 @@ public class RecurringDetailsResult {
    * The reference you use to uniquely identify the shopper (e.g. user ID or account ID).
    * @return shopperReference
   **/
-
   @ApiModelProperty(value = "The reference you use to uniquely identify the shopper (e.g. user ID or account ID).")
 
   public String getShopperReference() {

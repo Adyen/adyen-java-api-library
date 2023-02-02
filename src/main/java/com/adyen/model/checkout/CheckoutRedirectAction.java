@@ -137,7 +137,6 @@ public class CheckoutRedirectAction {
    * When the redirect URL must be accessed via POST, use this data to post to the redirect URL.
    * @return data
   **/
-
   @ApiModelProperty(value = "When the redirect URL must be accessed via POST, use this data to post to the redirect URL.")
 
   public Map<String, String> getData() {
@@ -160,7 +159,6 @@ public class CheckoutRedirectAction {
    * Specifies the HTTP method, for example GET or POST.
    * @return method
   **/
-
   @ApiModelProperty(value = "Specifies the HTTP method, for example GET or POST.")
 
   public String getMethod() {
@@ -183,7 +181,6 @@ public class CheckoutRedirectAction {
    * Specifies the payment method.
    * @return paymentMethodType
   **/
-
   @ApiModelProperty(value = "Specifies the payment method.")
 
   public String getPaymentMethodType() {
@@ -206,7 +203,6 @@ public class CheckoutRedirectAction {
    * **redirect**
    * @return type
   **/
-
   @ApiModelProperty(required = true, value = "**redirect**")
 
   public TypeEnum getType() {
@@ -229,7 +225,6 @@ public class CheckoutRedirectAction {
    * Specifies the URL to redirect to.
    * @return url
   **/
-
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
 
   public String getUrl() {

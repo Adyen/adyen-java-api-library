@@ -85,7 +85,6 @@ public class AdditionalSettingsResponse {
    * Object containing list of event codes for which the notifcation will not be sent. 
    * @return excludeEventCodes
   **/
-
   @ApiModelProperty(value = "Object containing list of event codes for which the notifcation will not be sent. ")
 
   public List<String> getExcludeEventCodes() {
@@ -116,7 +115,6 @@ public class AdditionalSettingsResponse {
    * Object containing list of event codes for which the notifcation will be sent. 
    * @return includeEventCodes
   **/
-
   @ApiModelProperty(value = "Object containing list of event codes for which the notifcation will be sent. ")
 
   public List<String> getIncludeEventCodes() {
@@ -147,7 +145,6 @@ public class AdditionalSettingsResponse {
    * Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, &#x60;captureDelayHours&#x60;: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.
    * @return properties
   **/
-
   @ApiModelProperty(value = "Object containing boolean key-value pairs. The key can be any [standard webhook additional setting](https://docs.adyen.com/development-resources/webhooks/additional-settings), and the value indicates if the setting is enabled. For example, `captureDelayHours`: **true** means the standard notifications you get will contain the number of hours remaining until the payment will be captured.")
 
   public Map<String, Boolean> getProperties() {

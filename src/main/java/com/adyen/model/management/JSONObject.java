@@ -80,7 +80,6 @@ public class JSONObject {
    * Get paths
    * @return paths
   **/
-
   @ApiModelProperty(value = "")
 
   public List<JSONPath> getPaths() {
@@ -103,7 +102,6 @@ public class JSONObject {
    * Get rootPath
    * @return rootPath
   **/
-
   @ApiModelProperty(value = "")
 
   public JSONPath getRootPath() {

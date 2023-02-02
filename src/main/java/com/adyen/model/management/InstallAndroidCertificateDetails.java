@@ -114,7 +114,6 @@ public class InstallAndroidCertificateDetails {
    * The unique identifier of the certificate to be installed.
    * @return certificateId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the certificate to be installed.")
 
   public String getCertificateId() {
@@ -137,7 +136,6 @@ public class InstallAndroidCertificateDetails {
    * Type of terminal action: Install an Android certificate.
    * @return type
   **/
-
   @ApiModelProperty(value = "Type of terminal action: Install an Android certificate.")
 
   public TypeEnum getType() {

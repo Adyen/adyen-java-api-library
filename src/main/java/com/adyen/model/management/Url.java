@@ -70,11 +70,10 @@ public class Url {
   }
 
    /**
-   * The password for authentication of the event notifications.
+   * The password for authentication of the notifications.
    * @return password
   **/
-  
-  @ApiModelProperty(value = "The password for authentication of the event notifications.")
+  @ApiModelProperty(value = "The password for authentication of the notifications.")
 
   public String getPassword() {
     return password;
@@ -96,7 +95,6 @@ public class Url {
    * The URL in the format: http(s)://domain.com.
    * @return url
   **/
-  
   @ApiModelProperty(value = "The URL in the format: http(s)://domain.com.")
 
   public String getUrl() {
@@ -116,11 +114,10 @@ public class Url {
   }
 
    /**
-   * The username for authentication of the event notifications.
+   * The username for authentication of the notifications.
    * @return username
   **/
-  
-  @ApiModelProperty(value = "The username for authentication of the event notifications.")
+  @ApiModelProperty(value = "The username for authentication of the notifications.")
 
   public String getUsername() {
     return username;

@@ -88,7 +88,6 @@ public class StoreDetailResponse {
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
 
   public Map<String, String> getAdditionalData() {
@@ -111,7 +110,6 @@ public class StoreDetailResponse {
    * A new reference to uniquely identify this request.
    * @return pspReference
   **/
-
   @ApiModelProperty(required = true, value = "A new reference to uniquely identify this request.")
 
   public String getPspReference() {
@@ -134,7 +132,6 @@ public class StoreDetailResponse {
    * The token which you can use later on for submitting the payout.
    * @return recurringDetailReference
   **/
-
   @ApiModelProperty(required = true, value = "The token which you can use later on for submitting the payout.")
 
   public String getRecurringDetailReference() {
@@ -157,7 +154,6 @@ public class StoreDetailResponse {
    * The result code of the transaction. &#x60;Success&#x60; indicates that the details were stored successfully.
    * @return resultCode
   **/
-
   @ApiModelProperty(required = true, value = "The result code of the transaction. `Success` indicates that the details were stored successfully.")
 
   public String getResultCode() {

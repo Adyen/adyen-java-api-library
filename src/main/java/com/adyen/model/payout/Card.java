@@ -93,7 +93,6 @@ public class Card {
    * The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as: * CVV2/CVC2 – length: 3 digits * CID – length: 4 digits &gt; If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server. &gt; This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments). &gt; When this value is returned in a response, it is always empty because it is not stored.
    * @return cvc
   **/
-
   @ApiModelProperty(value = "The [card verification code](https://docs.adyen.com/payments-fundamentals/payment-glossary#card-security-code-cvc-cvv-cid) (1-20 characters). Depending on the card brand, it is known also as: * CVV2/CVC2 – length: 3 digits * CID – length: 4 digits > If you are using [Client-Side Encryption](https://docs.adyen.com/classic-integration/cse-integration-ecommerce), the CVC code is present in the encrypted data. You must never post the card details to the server. > This field must be always present in a [one-click payment request](https://docs.adyen.com/classic-integration/recurring-payments). > When this value is returned in a response, it is always empty because it is not stored.")
 
   public String getCvc() {
@@ -116,7 +115,6 @@ public class Card {
    * The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 &#x3D; March * 11 &#x3D; November
    * @return expiryMonth
   **/
-
   @ApiModelProperty(required = true, value = "The card expiry month. Format: 2 digits, zero-padded for single digits. For example: * 03 = March * 11 = November")
 
   public String getExpiryMonth() {
@@ -139,7 +137,6 @@ public class Card {
    * The card expiry year. Format: 4 digits. For example: 2020
    * @return expiryYear
   **/
-
   @ApiModelProperty(required = true, value = "The card expiry year. Format: 4 digits. For example: 2020")
 
   public String getExpiryYear() {
@@ -162,7 +159,6 @@ public class Card {
    * The name of the cardholder, as printed on the card.
    * @return holderName
   **/
-
   @ApiModelProperty(required = true, value = "The name of the cardholder, as printed on the card.")
 
   public String getHolderName() {
@@ -185,7 +181,6 @@ public class Card {
    * The issue number of the card (for some UK debit cards only).
    * @return issueNumber
   **/
-
   @ApiModelProperty(value = "The issue number of the card (for some UK debit cards only).")
 
   public String getIssueNumber() {
@@ -208,7 +203,6 @@ public class Card {
    * The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.
    * @return number
   **/
-
   @ApiModelProperty(required = true, value = "The card number (4-19 characters). Do not use any separators. When this value is returned in a response, only the last 4 digits of the card number are returned.")
 
   public String getNumber() {
@@ -231,7 +225,6 @@ public class Card {
    * The month component of the start date (for some UK debit cards only).
    * @return startMonth
   **/
-
   @ApiModelProperty(value = "The month component of the start date (for some UK debit cards only).")
 
   public String getStartMonth() {
@@ -254,7 +247,6 @@ public class Card {
    * The year component of the start date (for some UK debit cards only).
    * @return startYear
   **/
-
   @ApiModelProperty(value = "The year component of the start date (for some UK debit cards only).")
 
   public String getStartYear() {

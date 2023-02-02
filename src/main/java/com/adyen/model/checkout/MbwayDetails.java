@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class MbwayDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   public static final String SERIALIZED_NAME_SHOPPER_EMAIL = "shopperEmail";
   @SerializedName(SERIALIZED_NAME_SHOPPER_EMAIL)
   private String shopperEmail;
@@ -108,6 +112,28 @@ public class MbwayDetails {
   public MbwayDetails() { 
   }
 
+  public MbwayDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public MbwayDetails shopperEmail(String shopperEmail) {
     
     this.shopperEmail = shopperEmail;
@@ -118,7 +144,6 @@ public class MbwayDetails {
    * 
    * @return shopperEmail
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public String getShopperEmail() {
@@ -141,7 +166,6 @@ public class MbwayDetails {
    * 
    * @return telephoneNumber
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public String getTelephoneNumber() {
@@ -164,7 +188,6 @@ public class MbwayDetails {
    * **mbway**
    * @return type
   **/
-
   @ApiModelProperty(value = "**mbway**")
 
   public TypeEnum getType() {
@@ -187,20 +210,22 @@ public class MbwayDetails {
       return false;
     }
     MbwayDetails mbwayDetails = (MbwayDetails) o;
-    return Objects.equals(this.shopperEmail, mbwayDetails.shopperEmail) &&
+    return Objects.equals(this.checkoutAttemptId, mbwayDetails.checkoutAttemptId) &&
+        Objects.equals(this.shopperEmail, mbwayDetails.shopperEmail) &&
         Objects.equals(this.telephoneNumber, mbwayDetails.telephoneNumber) &&
         Objects.equals(this.type, mbwayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shopperEmail, telephoneNumber, type);
+    return Objects.hash(checkoutAttemptId, shopperEmail, telephoneNumber, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MbwayDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -226,6 +251,7 @@ public class MbwayDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("shopperEmail");
     openapiFields.add("telephoneNumber");
     openapiFields.add("type");
@@ -264,6 +290,10 @@ public class MbwayDetails {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // validate the optional field shopperEmail
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {

@@ -74,7 +74,6 @@ public class AllowedOrigin {
    * Get links
    * @return links
   **/
-
   @ApiModelProperty(value = "")
 
   public Links getLinks() {
@@ -97,7 +96,6 @@ public class AllowedOrigin {
    * Domain of the allowed origin.
    * @return domain
   **/
-
   @ApiModelProperty(example = "https://adyen.com", required = true, value = "Domain of the allowed origin.")
 
   public String getDomain() {
@@ -120,7 +118,6 @@ public class AllowedOrigin {
    * Unique identifier of the allowed origin.
    * @return id
   **/
-
   @ApiModelProperty(value = "Unique identifier of the allowed origin.")
 
   public String getId() {

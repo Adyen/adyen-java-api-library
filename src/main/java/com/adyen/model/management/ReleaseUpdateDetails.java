@@ -114,7 +114,6 @@ public class ReleaseUpdateDetails {
    * Type of terminal action: Update Release.
    * @return type
   **/
-
   @ApiModelProperty(value = "Type of terminal action: Update Release.")
 
   public TypeEnum getType() {
@@ -137,7 +136,6 @@ public class ReleaseUpdateDetails {
    * Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
    * @return updateAtFirstMaintenanceCall
   **/
-
   @ApiModelProperty(value = "Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.")
 
   public Boolean getUpdateAtFirstMaintenanceCall() {

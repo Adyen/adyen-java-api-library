@@ -99,11 +99,21 @@ public class PaymentMethodResponse {
     
     EFTPOS_AUSTRALIA("eftpos_australia"),
     
+    ELO("elo"),
+    
+    ELOCREDIT("elocredit"),
+    
+    ELODEBIT("elodebit"),
+    
     GIROCARD("girocard"),
     
     GIROPAY("giropay"),
     
     GOOGLEPAY("googlepay"),
+    
+    HIPER("hiper"),
+    
+    HIPERCARD("hipercard"),
     
     IDEAL("ideal"),
     
@@ -123,6 +133,10 @@ public class PaymentMethodResponse {
     
     MC("mc"),
     
+    MCDEBIT("mcdebit"),
+    
+    MEALVOUCHER_FR("mealVoucher_FR"),
+    
     MOBILEPAY("mobilepay"),
     
     MULTIBANCO("multibanco"),
@@ -136,6 +150,10 @@ public class PaymentMethodResponse {
     TRUSTLY("trustly"),
     
     VISA("visa"),
+    
+    VISADEBIT("visadebit"),
+    
+    VPAY("vpay"),
     
     WECHATPAY("wechatpay"),
     
@@ -196,7 +214,6 @@ public class PaymentMethodResponse {
    * Get links
    * @return links
   **/
-
   @ApiModelProperty(value = "")
 
   public PaginationLinks getLinks() {
@@ -227,7 +244,6 @@ public class PaymentMethodResponse {
    * Payment methods details.
    * @return data
   **/
-
   @ApiModelProperty(value = "Payment methods details.")
 
   public List<PaymentMethod> getData() {
@@ -250,7 +266,6 @@ public class PaymentMethodResponse {
    * Total number of items.
    * @return itemsTotal
   **/
-
   @ApiModelProperty(required = true, value = "Total number of items.")
 
   public Integer getItemsTotal() {
@@ -273,7 +288,6 @@ public class PaymentMethodResponse {
    * Total number of pages.
    * @return pagesTotal
   **/
-
   @ApiModelProperty(required = true, value = "Total number of pages.")
 
   public Integer getPagesTotal() {
@@ -304,7 +318,6 @@ public class PaymentMethodResponse {
    * Payment method types with errors.
    * @return typesWithErrors
   **/
-
   @ApiModelProperty(value = "Payment method types with errors.")
 
   public List<TypesWithErrorsEnum> getTypesWithErrors() {

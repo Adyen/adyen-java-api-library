@@ -159,7 +159,6 @@ public class CheckoutCreateOrderResponse {
    * Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** &gt; **Developers** &gt; **Additional data**.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**.")
 
   public Map<String, String> getAdditionalData() {
@@ -182,7 +181,6 @@ public class CheckoutCreateOrderResponse {
    * Get amount
    * @return amount
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -205,7 +203,6 @@ public class CheckoutCreateOrderResponse {
    * The date that the order will expire.
    * @return expiresAt
   **/
-  
   @ApiModelProperty(required = true, value = "The date that the order will expire.")
 
   public String getExpiresAt() {
@@ -228,7 +225,6 @@ public class CheckoutCreateOrderResponse {
    * Get fraudResult
    * @return fraudResult
   **/
-
   @ApiModelProperty(value = "")
 
   public FraudResult getFraudResult() {
@@ -251,7 +247,6 @@ public class CheckoutCreateOrderResponse {
    * The encrypted data that will be used by merchant for adding payments to the order.
    * @return orderData
   **/
-  
   @ApiModelProperty(required = true, value = "The encrypted data that will be used by merchant for adding payments to the order.")
 
   public String getOrderData() {
@@ -274,7 +269,6 @@ public class CheckoutCreateOrderResponse {
    * Adyen&#39;s 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.
    * @return pspReference
   **/
-
   @ApiModelProperty(value = "Adyen's 16-character reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.")
 
   public String getPspReference() {
@@ -297,7 +291,6 @@ public class CheckoutCreateOrderResponse {
    * The reference provided by merchant for creating the order.
    * @return reference
   **/
-
   @ApiModelProperty(value = "The reference provided by merchant for creating the order.")
 
   public String getReference() {
@@ -320,7 +313,6 @@ public class CheckoutCreateOrderResponse {
    * If the payment&#39;s authorisation is refused or an error occurs during authorisation, this field holds Adyen&#39;s mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes &#x60;resultCode&#x60; and &#x60;refusalReason&#x60; values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).
    * @return refusalReason
   **/
-
   @ApiModelProperty(value = "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.  For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons).")
 
   public String getRefusalReason() {
@@ -343,7 +335,6 @@ public class CheckoutCreateOrderResponse {
    * Get remainingAmount
    * @return remainingAmount
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public Amount getRemainingAmount() {
@@ -366,7 +357,6 @@ public class CheckoutCreateOrderResponse {
    * The result of the order creation request.  The value is always **Success**.
    * @return resultCode
   **/
-  
   @ApiModelProperty(required = true, value = "The result of the order creation request.  The value is always **Success**.")
 
   public ResultCodeEnum getResultCode() {

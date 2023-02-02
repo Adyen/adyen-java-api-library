@@ -73,7 +73,6 @@ public class PaymentMethodIssuer {
    * A boolean value indicating whether this issuer is unavailable. Can be &#x60;true&#x60; whenever the issuer is offline.
    * @return disabled
   **/
-
   @ApiModelProperty(value = "A boolean value indicating whether this issuer is unavailable. Can be `true` whenever the issuer is offline.")
 
   public Boolean getDisabled() {
@@ -96,7 +95,6 @@ public class PaymentMethodIssuer {
    * The unique identifier of this issuer, to submit in requests to /payments.
    * @return id
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of this issuer, to submit in requests to /payments.")
 
   public String getId() {
@@ -119,7 +117,6 @@ public class PaymentMethodIssuer {
    * A localized name of the issuer.
    * @return name
   **/
-
   @ApiModelProperty(required = true, value = "A localized name of the issuer.")
 
   public String getName() {

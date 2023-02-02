@@ -81,7 +81,6 @@ public class ListMerchantUsersResponse {
    * Get links
    * @return links
   **/
-
   @ApiModelProperty(value = "")
 
   public PaginationLinks getLinks() {
@@ -112,7 +111,6 @@ public class ListMerchantUsersResponse {
    * The list of users.
    * @return data
   **/
-
   @ApiModelProperty(value = "The list of users.")
 
   public List<User> getData() {
@@ -135,7 +133,6 @@ public class ListMerchantUsersResponse {
    * Total number of items.
    * @return itemsTotal
   **/
-
   @ApiModelProperty(required = true, value = "Total number of items.")
 
   public Integer getItemsTotal() {
@@ -158,7 +155,6 @@ public class ListMerchantUsersResponse {
    * Total number of pages.
    * @return pagesTotal
   **/
-
   @ApiModelProperty(required = true, value = "Total number of pages.")
 
   public Integer getPagesTotal() {

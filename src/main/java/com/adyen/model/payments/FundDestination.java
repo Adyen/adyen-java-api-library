@@ -17,6 +17,7 @@ import java.util.Arrays;
 import com.adyen.model.payments.Address;
 import com.adyen.model.payments.Card;
 import com.adyen.model.payments.Name;
+import com.adyen.model.payments.SubMerchant;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -82,6 +83,10 @@ public class FundDestination {
   @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
   private String shopperReference;
 
+  public static final String SERIALIZED_NAME_SUB_MERCHANT = "subMerchant";
+  @SerializedName(SERIALIZED_NAME_SUB_MERCHANT)
+  private SubMerchant subMerchant;
+
   public static final String SERIALIZED_NAME_TELEPHONE_NUMBER = "telephoneNumber";
   @SerializedName(SERIALIZED_NAME_TELEPHONE_NUMBER)
   private String telephoneNumber;
@@ -107,7 +112,6 @@ public class FundDestination {
    * a map of name/value pairs for passing in additional/industry-specific data
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "a map of name/value pairs for passing in additional/industry-specific data")
 
   public Map<String, String> getAdditionalData() {
@@ -130,7 +134,6 @@ public class FundDestination {
    * Get billingAddress
    * @return billingAddress
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -153,7 +156,6 @@ public class FundDestination {
    * Get card
    * @return card
   **/
-
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -176,7 +178,6 @@ public class FundDestination {
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    * @return selectedRecurringDetailReference
   **/
-
   @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
 
   public String getSelectedRecurringDetailReference() {
@@ -199,7 +200,6 @@ public class FundDestination {
    * the email address of the person
    * @return shopperEmail
   **/
-
   @ApiModelProperty(value = "the email address of the person")
 
   public String getShopperEmail() {
@@ -222,7 +222,6 @@ public class FundDestination {
    * Get shopperName
    * @return shopperName
   **/
-
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -245,7 +244,6 @@ public class FundDestination {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
   **/
-
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
 
   public String getShopperReference() {
@@ -255,6 +253,28 @@ public class FundDestination {
 
   public void setShopperReference(String shopperReference) {
     this.shopperReference = shopperReference;
+  }
+
+
+  public FundDestination subMerchant(SubMerchant subMerchant) {
+    
+    this.subMerchant = subMerchant;
+    return this;
+  }
+
+   /**
+   * Get subMerchant
+   * @return subMerchant
+  **/
+  @ApiModelProperty(value = "")
+
+  public SubMerchant getSubMerchant() {
+    return subMerchant;
+  }
+
+
+  public void setSubMerchant(SubMerchant subMerchant) {
+    this.subMerchant = subMerchant;
   }
 
 
@@ -268,7 +288,6 @@ public class FundDestination {
    * the telephone number of the person
    * @return telephoneNumber
   **/
-
   @ApiModelProperty(value = "the telephone number of the person")
 
   public String getTelephoneNumber() {
@@ -298,12 +317,13 @@ public class FundDestination {
         Objects.equals(this.shopperEmail, fundDestination.shopperEmail) &&
         Objects.equals(this.shopperName, fundDestination.shopperName) &&
         Objects.equals(this.shopperReference, fundDestination.shopperReference) &&
+        Objects.equals(this.subMerchant, fundDestination.subMerchant) &&
         Objects.equals(this.telephoneNumber, fundDestination.telephoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, billingAddress, card, selectedRecurringDetailReference, shopperEmail, shopperName, shopperReference, telephoneNumber);
+    return Objects.hash(additionalData, billingAddress, card, selectedRecurringDetailReference, shopperEmail, shopperName, shopperReference, subMerchant, telephoneNumber);
   }
 
   @Override
@@ -317,6 +337,7 @@ public class FundDestination {
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
     sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
     sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
+    sb.append("    subMerchant: ").append(toIndentedString(subMerchant)).append("\n");
     sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -347,6 +368,7 @@ public class FundDestination {
     openapiFields.add("shopperEmail");
     openapiFields.add("shopperName");
     openapiFields.add("shopperReference");
+    openapiFields.add("subMerchant");
     openapiFields.add("telephoneNumber");
 
     // a set of required properties/fields (JSON key names)
@@ -398,6 +420,10 @@ public class FundDestination {
       // validate the optional field shopperReference
       if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
+      }
+      // validate the optional field `subMerchant`
+      if (jsonObj.getAsJsonObject("subMerchant") != null) {
+        SubMerchant.validateJsonObject(jsonObj.getAsJsonObject("subMerchant"));
       }
       // validate the optional field telephoneNumber
       if (jsonObj.get("telephoneNumber") != null && !jsonObj.get("telephoneNumber").isJsonPrimitive()) {

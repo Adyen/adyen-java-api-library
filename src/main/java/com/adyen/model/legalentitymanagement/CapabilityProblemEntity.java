@@ -1,5 +1,5 @@
 /*
- * Configuration API
+ * Legal Entity Management API
  *
  * The version of the OpenAPI document: 2
  * Contact: developer-experience@adyen.com
@@ -10,11 +10,11 @@
  */
 
 
-package com.adyen.model.balanceplatform;
+package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.balanceplatform.CapabilityProblemEntityRecursive;
+import com.adyen.model.legalentitymanagement.CapabilityProblemEntityRecursive;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,7 +42,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.adyen.model.balanceplatform.JSON;
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * CapabilityProblemEntity
@@ -58,7 +58,7 @@ public class CapabilityProblemEntity {
   private CapabilityProblemEntityRecursive owner;
 
   /**
-   * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
+   * Gets or Sets type
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -120,11 +120,10 @@ public class CapabilityProblemEntity {
   }
 
    /**
-   * The ID of the entity.
+   * Get id
    * @return id
   **/
-
-  @ApiModelProperty(value = "The ID of the entity.")
+  @ApiModelProperty(value = "")
 
   public String getId() {
     return id;
@@ -146,7 +145,6 @@ public class CapabilityProblemEntity {
    * Get owner
    * @return owner
   **/
-
   @ApiModelProperty(value = "")
 
   public CapabilityProblemEntityRecursive getOwner() {
@@ -166,11 +164,10 @@ public class CapabilityProblemEntity {
   }
 
    /**
-   * Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.
+   * Get type
    * @return type
   **/
-
-  @ApiModelProperty(value = "Type of entity.   Possible values: **LegalEntity**, **BankAccount**, **Document**.")
+  @ApiModelProperty(value = "")
 
   public TypeEnum getType() {
     return type;

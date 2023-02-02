@@ -70,7 +70,6 @@ public class CheckoutCancelOrderRequest {
    * The merchant account identifier that orderData belongs to.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account identifier that orderData belongs to.")
 
   public String getMerchantAccount() {
@@ -93,7 +92,6 @@ public class CheckoutCancelOrderRequest {
    * Get order
    * @return order
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public CheckoutOrder getOrder() {

@@ -76,7 +76,6 @@ public class CheckoutUtilityResponse {
    * The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.
    * @return originKeys
   **/
-
   @ApiModelProperty(value = "The list of origin keys for all requested domains. For each list item, the key is the domain and the value is the origin key.")
 
   public Map<String, String> getOriginKeys() {

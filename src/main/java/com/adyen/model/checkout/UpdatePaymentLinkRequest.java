@@ -110,7 +110,6 @@ public class UpdatePaymentLinkRequest {
    * Status of the payment link. Possible values: * **expired**
    * @return status
   **/
-
   @ApiModelProperty(required = true, value = "Status of the payment link. Possible values: * **expired**")
 
   public StatusEnum getStatus() {

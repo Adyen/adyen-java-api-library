@@ -122,7 +122,6 @@ public class CheckoutAwaitAction {
    * A value that must be submitted to the &#x60;/payments/details&#x60; endpoint to verify this payment.
    * @return paymentData
   **/
-
   @ApiModelProperty(value = "A value that must be submitted to the `/payments/details` endpoint to verify this payment.")
 
   public String getPaymentData() {
@@ -145,7 +144,6 @@ public class CheckoutAwaitAction {
    * Specifies the payment method.
    * @return paymentMethodType
   **/
-
   @ApiModelProperty(value = "Specifies the payment method.")
 
   public String getPaymentMethodType() {
@@ -168,7 +166,6 @@ public class CheckoutAwaitAction {
    * **await**
    * @return type
   **/
-
   @ApiModelProperty(required = true, value = "**await**")
 
   public TypeEnum getType() {
@@ -191,7 +188,6 @@ public class CheckoutAwaitAction {
    * Specifies the URL to redirect to.
    * @return url
   **/
-
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
 
   public String getUrl() {

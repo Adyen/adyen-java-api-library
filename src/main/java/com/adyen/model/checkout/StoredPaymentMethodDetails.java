@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class StoredPaymentMethodDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
@@ -138,6 +142,28 @@ public class StoredPaymentMethodDetails {
   public StoredPaymentMethodDetails() { 
   }
 
+  public StoredPaymentMethodDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public StoredPaymentMethodDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -150,7 +176,6 @@ public class StoredPaymentMethodDetails {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -173,7 +198,6 @@ public class StoredPaymentMethodDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -196,7 +220,6 @@ public class StoredPaymentMethodDetails {
    * The payment method type.
    * @return type
   **/
-
   @ApiModelProperty(value = "The payment method type.")
 
   public TypeEnum getType() {
@@ -219,20 +242,22 @@ public class StoredPaymentMethodDetails {
       return false;
     }
     StoredPaymentMethodDetails storedPaymentMethodDetails = (StoredPaymentMethodDetails) o;
-    return Objects.equals(this.recurringDetailReference, storedPaymentMethodDetails.recurringDetailReference) &&
+    return Objects.equals(this.checkoutAttemptId, storedPaymentMethodDetails.checkoutAttemptId) &&
+        Objects.equals(this.recurringDetailReference, storedPaymentMethodDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, storedPaymentMethodDetails.storedPaymentMethodId) &&
         Objects.equals(this.type, storedPaymentMethodDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(checkoutAttemptId, recurringDetailReference, storedPaymentMethodId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StoredPaymentMethodDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -258,6 +283,7 @@ public class StoredPaymentMethodDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("recurringDetailReference");
     openapiFields.add("storedPaymentMethodId");
     openapiFields.add("type");
@@ -287,6 +313,10 @@ public class StoredPaymentMethodDetails {
         if (!StoredPaymentMethodDetails.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoredPaymentMethodDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {

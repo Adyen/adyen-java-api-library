@@ -101,7 +101,6 @@ public class LineItem {
    * Item amount excluding the tax, in minor units.
    * @return amountExcludingTax
   **/
-  
   @ApiModelProperty(value = "Item amount excluding the tax, in minor units.")
 
   public Long getAmountExcludingTax() {
@@ -124,7 +123,6 @@ public class LineItem {
    * Item amount including the tax, in minor units.
    * @return amountIncludingTax
   **/
-  
   @ApiModelProperty(value = "Item amount including the tax, in minor units.")
 
   public Long getAmountIncludingTax() {
@@ -147,7 +145,6 @@ public class LineItem {
    * Description of the line item.
    * @return description
   **/
-  
   @ApiModelProperty(value = "Description of the line item.")
 
   public String getDescription() {
@@ -170,7 +167,6 @@ public class LineItem {
    * ID of the line item.
    * @return id
   **/
-  
   @ApiModelProperty(value = "ID of the line item.")
 
   public String getId() {
@@ -193,7 +189,6 @@ public class LineItem {
    * Link to the picture of the purchased item.
    * @return imageUrl
   **/
-  
   @ApiModelProperty(value = "Link to the picture of the purchased item.")
 
   public String getImageUrl() {
@@ -216,7 +211,6 @@ public class LineItem {
    * Item category, used by the RatePay payment method.
    * @return itemCategory
   **/
-  
   @ApiModelProperty(value = "Item category, used by the RatePay payment method.")
 
   public String getItemCategory() {
@@ -239,7 +233,6 @@ public class LineItem {
    * Link to the purchased item.
    * @return productUrl
   **/
-  
   @ApiModelProperty(value = "Link to the purchased item.")
 
   public String getProductUrl() {
@@ -262,7 +255,6 @@ public class LineItem {
    * Number of items.
    * @return quantity
   **/
-  
   @ApiModelProperty(value = "Number of items.")
 
   public Long getQuantity() {
@@ -285,7 +277,6 @@ public class LineItem {
    * Tax amount, in minor units.
    * @return taxAmount
   **/
-  
   @ApiModelProperty(value = "Tax amount, in minor units.")
 
   public Long getTaxAmount() {
@@ -308,7 +299,6 @@ public class LineItem {
    * Tax percentage, in minor units.
    * @return taxPercentage
   **/
-  
   @ApiModelProperty(value = "Tax percentage, in minor units.")
 
   public Long getTaxPercentage() {

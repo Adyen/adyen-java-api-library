@@ -69,7 +69,6 @@ public class ResponsePaymentMethod {
    * The card brand that the shopper used to pay. Only returned if &#x60;paymentMethod.type&#x60; is **scheme**.
    * @return brand
   **/
-
   @ApiModelProperty(value = "The card brand that the shopper used to pay. Only returned if `paymentMethod.type` is **scheme**.")
 
   public String getBrand() {
@@ -92,7 +91,6 @@ public class ResponsePaymentMethod {
    * The &#x60;paymentMethod.type&#x60; value used in the request.
    * @return type
   **/
-
   @ApiModelProperty(value = "The `paymentMethod.type` value used in the request.")
 
   public String getType() {

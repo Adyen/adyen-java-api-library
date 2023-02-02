@@ -21,9 +21,11 @@ import com.adyen.model.management.Hardware;
 import com.adyen.model.management.Nexo;
 import com.adyen.model.management.OfflineProcessing;
 import com.adyen.model.management.Opi;
+import com.adyen.model.management.Passcodes;
 import com.adyen.model.management.ReceiptOptions;
 import com.adyen.model.management.ReceiptPrinting;
 import com.adyen.model.management.Signature;
+import com.adyen.model.management.Standalone;
 import com.adyen.model.management.Surcharge;
 import com.adyen.model.management.Timeouts;
 import com.adyen.model.management.WifiProfiles;
@@ -91,6 +93,10 @@ public class TerminalSettings {
   @SerializedName(SERIALIZED_NAME_OPI)
   private Opi opi;
 
+  public static final String SERIALIZED_NAME_PASSCODES = "passcodes";
+  @SerializedName(SERIALIZED_NAME_PASSCODES)
+  private Passcodes passcodes;
+
   public static final String SERIALIZED_NAME_RECEIPT_OPTIONS = "receiptOptions";
   @SerializedName(SERIALIZED_NAME_RECEIPT_OPTIONS)
   private ReceiptOptions receiptOptions;
@@ -102,6 +108,10 @@ public class TerminalSettings {
   public static final String SERIALIZED_NAME_SIGNATURE = "signature";
   @SerializedName(SERIALIZED_NAME_SIGNATURE)
   private Signature signature;
+
+  public static final String SERIALIZED_NAME_STANDALONE = "standalone";
+  @SerializedName(SERIALIZED_NAME_STANDALONE)
+  private Standalone standalone;
 
   public static final String SERIALIZED_NAME_SURCHARGE = "surcharge";
   @SerializedName(SERIALIZED_NAME_SURCHARGE)
@@ -128,7 +138,6 @@ public class TerminalSettings {
    * Get cardholderReceipt
    * @return cardholderReceipt
   **/
-  
   @ApiModelProperty(value = "")
 
   public CardholderReceipt getCardholderReceipt() {
@@ -151,7 +160,6 @@ public class TerminalSettings {
    * Get connectivity
    * @return connectivity
   **/
-  
   @ApiModelProperty(value = "")
 
   public Connectivity getConnectivity() {
@@ -182,7 +190,6 @@ public class TerminalSettings {
    * Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
    * @return gratuities
   **/
-  
   @ApiModelProperty(value = "Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.")
 
   public List<Gratuity> getGratuities() {
@@ -205,7 +212,6 @@ public class TerminalSettings {
    * Get hardware
    * @return hardware
   **/
-  
   @ApiModelProperty(value = "")
 
   public Hardware getHardware() {
@@ -228,7 +234,6 @@ public class TerminalSettings {
    * Get nexo
    * @return nexo
   **/
-  
   @ApiModelProperty(value = "")
 
   public Nexo getNexo() {
@@ -251,7 +256,6 @@ public class TerminalSettings {
    * Get offlineProcessing
    * @return offlineProcessing
   **/
-  
   @ApiModelProperty(value = "")
 
   public OfflineProcessing getOfflineProcessing() {
@@ -274,7 +278,6 @@ public class TerminalSettings {
    * Get opi
    * @return opi
   **/
-  
   @ApiModelProperty(value = "")
 
   public Opi getOpi() {
@@ -284,6 +287,28 @@ public class TerminalSettings {
 
   public void setOpi(Opi opi) {
     this.opi = opi;
+  }
+
+
+  public TerminalSettings passcodes(Passcodes passcodes) {
+    
+    this.passcodes = passcodes;
+    return this;
+  }
+
+   /**
+   * Get passcodes
+   * @return passcodes
+  **/
+  @ApiModelProperty(value = "")
+
+  public Passcodes getPasscodes() {
+    return passcodes;
+  }
+
+
+  public void setPasscodes(Passcodes passcodes) {
+    this.passcodes = passcodes;
   }
 
 
@@ -297,7 +322,6 @@ public class TerminalSettings {
    * Get receiptOptions
    * @return receiptOptions
   **/
-  
   @ApiModelProperty(value = "")
 
   public ReceiptOptions getReceiptOptions() {
@@ -320,7 +344,6 @@ public class TerminalSettings {
    * Get receiptPrinting
    * @return receiptPrinting
   **/
-  
   @ApiModelProperty(value = "")
 
   public ReceiptPrinting getReceiptPrinting() {
@@ -343,7 +366,6 @@ public class TerminalSettings {
    * Get signature
    * @return signature
   **/
-  
   @ApiModelProperty(value = "")
 
   public Signature getSignature() {
@@ -353,6 +375,28 @@ public class TerminalSettings {
 
   public void setSignature(Signature signature) {
     this.signature = signature;
+  }
+
+
+  public TerminalSettings standalone(Standalone standalone) {
+    
+    this.standalone = standalone;
+    return this;
+  }
+
+   /**
+   * Get standalone
+   * @return standalone
+  **/
+  @ApiModelProperty(value = "")
+
+  public Standalone getStandalone() {
+    return standalone;
+  }
+
+
+  public void setStandalone(Standalone standalone) {
+    this.standalone = standalone;
   }
 
 
@@ -366,7 +410,6 @@ public class TerminalSettings {
    * Get surcharge
    * @return surcharge
   **/
-  
   @ApiModelProperty(value = "")
 
   public Surcharge getSurcharge() {
@@ -389,7 +432,6 @@ public class TerminalSettings {
    * Get timeouts
    * @return timeouts
   **/
-  
   @ApiModelProperty(value = "")
 
   public Timeouts getTimeouts() {
@@ -412,7 +454,6 @@ public class TerminalSettings {
    * Get wifiProfiles
    * @return wifiProfiles
   **/
-  
   @ApiModelProperty(value = "")
 
   public WifiProfiles getWifiProfiles() {
@@ -442,9 +483,11 @@ public class TerminalSettings {
         Objects.equals(this.nexo, terminalSettings.nexo) &&
         Objects.equals(this.offlineProcessing, terminalSettings.offlineProcessing) &&
         Objects.equals(this.opi, terminalSettings.opi) &&
+        Objects.equals(this.passcodes, terminalSettings.passcodes) &&
         Objects.equals(this.receiptOptions, terminalSettings.receiptOptions) &&
         Objects.equals(this.receiptPrinting, terminalSettings.receiptPrinting) &&
         Objects.equals(this.signature, terminalSettings.signature) &&
+        Objects.equals(this.standalone, terminalSettings.standalone) &&
         Objects.equals(this.surcharge, terminalSettings.surcharge) &&
         Objects.equals(this.timeouts, terminalSettings.timeouts) &&
         Objects.equals(this.wifiProfiles, terminalSettings.wifiProfiles);
@@ -452,7 +495,7 @@ public class TerminalSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardholderReceipt, connectivity, gratuities, hardware, nexo, offlineProcessing, opi, receiptOptions, receiptPrinting, signature, surcharge, timeouts, wifiProfiles);
+    return Objects.hash(cardholderReceipt, connectivity, gratuities, hardware, nexo, offlineProcessing, opi, passcodes, receiptOptions, receiptPrinting, signature, standalone, surcharge, timeouts, wifiProfiles);
   }
 
   @Override
@@ -466,9 +509,11 @@ public class TerminalSettings {
     sb.append("    nexo: ").append(toIndentedString(nexo)).append("\n");
     sb.append("    offlineProcessing: ").append(toIndentedString(offlineProcessing)).append("\n");
     sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
+    sb.append("    passcodes: ").append(toIndentedString(passcodes)).append("\n");
     sb.append("    receiptOptions: ").append(toIndentedString(receiptOptions)).append("\n");
     sb.append("    receiptPrinting: ").append(toIndentedString(receiptPrinting)).append("\n");
     sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    standalone: ").append(toIndentedString(standalone)).append("\n");
     sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
     sb.append("    timeouts: ").append(toIndentedString(timeouts)).append("\n");
     sb.append("    wifiProfiles: ").append(toIndentedString(wifiProfiles)).append("\n");
@@ -501,9 +546,11 @@ public class TerminalSettings {
     openapiFields.add("nexo");
     openapiFields.add("offlineProcessing");
     openapiFields.add("opi");
+    openapiFields.add("passcodes");
     openapiFields.add("receiptOptions");
     openapiFields.add("receiptPrinting");
     openapiFields.add("signature");
+    openapiFields.add("standalone");
     openapiFields.add("surcharge");
     openapiFields.add("timeouts");
     openapiFields.add("wifiProfiles");
@@ -570,6 +617,10 @@ public class TerminalSettings {
       if (jsonObj.getAsJsonObject("opi") != null) {
         Opi.validateJsonObject(jsonObj.getAsJsonObject("opi"));
       }
+      // validate the optional field `passcodes`
+      if (jsonObj.getAsJsonObject("passcodes") != null) {
+        Passcodes.validateJsonObject(jsonObj.getAsJsonObject("passcodes"));
+      }
       // validate the optional field `receiptOptions`
       if (jsonObj.getAsJsonObject("receiptOptions") != null) {
         ReceiptOptions.validateJsonObject(jsonObj.getAsJsonObject("receiptOptions"));
@@ -581,6 +632,10 @@ public class TerminalSettings {
       // validate the optional field `signature`
       if (jsonObj.getAsJsonObject("signature") != null) {
         Signature.validateJsonObject(jsonObj.getAsJsonObject("signature"));
+      }
+      // validate the optional field `standalone`
+      if (jsonObj.getAsJsonObject("standalone") != null) {
+        Standalone.validateJsonObject(jsonObj.getAsJsonObject("standalone"));
       }
       // validate the optional field `surcharge`
       if (jsonObj.getAsJsonObject("surcharge") != null) {

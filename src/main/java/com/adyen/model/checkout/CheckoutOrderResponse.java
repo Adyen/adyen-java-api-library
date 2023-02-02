@@ -86,7 +86,6 @@ public class CheckoutOrderResponse {
    * Get amount
    * @return amount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getAmount() {
@@ -109,7 +108,6 @@ public class CheckoutOrderResponse {
    * The expiry date for the order.
    * @return expiresAt
   **/
-
   @ApiModelProperty(value = "The expiry date for the order.")
 
   public String getExpiresAt() {
@@ -132,7 +130,6 @@ public class CheckoutOrderResponse {
    * The encrypted order data.
    * @return orderData
   **/
-
   @ApiModelProperty(value = "The encrypted order data.")
 
   public String getOrderData() {
@@ -155,7 +152,6 @@ public class CheckoutOrderResponse {
    * The &#x60;pspReference&#x60; that belongs to the order.
    * @return pspReference
   **/
-
   @ApiModelProperty(required = true, value = "The `pspReference` that belongs to the order.")
 
   public String getPspReference() {
@@ -178,7 +174,6 @@ public class CheckoutOrderResponse {
    * The merchant reference for the order.
    * @return reference
   **/
-
   @ApiModelProperty(value = "The merchant reference for the order.")
 
   public String getReference() {
@@ -201,7 +196,6 @@ public class CheckoutOrderResponse {
    * Get remainingAmount
    * @return remainingAmount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getRemainingAmount() {

@@ -97,7 +97,6 @@ public class ScheduleAccountUpdaterRequest {
    * This field contains additional data, which may be required for a particular request.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
 
   public Map<String, String> getAdditionalData() {
@@ -120,7 +119,6 @@ public class ScheduleAccountUpdaterRequest {
    * Get card
    * @return card
   **/
-
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -143,7 +141,6 @@ public class ScheduleAccountUpdaterRequest {
    * Account of the merchant.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "Account of the merchant.")
 
   public String getMerchantAccount() {
@@ -166,7 +163,6 @@ public class ScheduleAccountUpdaterRequest {
    * A reference that merchants can apply for the call.
    * @return reference
   **/
-
   @ApiModelProperty(required = true, value = "A reference that merchants can apply for the call.")
 
   public String getReference() {
@@ -189,7 +185,6 @@ public class ScheduleAccountUpdaterRequest {
    * The selected detail recurring reference.  Optional if &#x60;card&#x60; is provided.
    * @return selectedRecurringDetailReference
   **/
-
   @ApiModelProperty(value = "The selected detail recurring reference.  Optional if `card` is provided.")
 
   public String getSelectedRecurringDetailReference() {
@@ -212,7 +207,6 @@ public class ScheduleAccountUpdaterRequest {
    * The reference of the shopper that owns the recurring contract.  Optional if &#x60;card&#x60; is provided.
    * @return shopperReference
   **/
-
   @ApiModelProperty(value = "The reference of the shopper that owns the recurring contract.  Optional if `card` is provided.")
 
   public String getShopperReference() {

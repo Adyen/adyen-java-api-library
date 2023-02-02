@@ -84,7 +84,6 @@ public class ModifyResponse {
    * This field contains additional data, which may be returned in a particular response.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.")
 
   public Map<String, String> getAdditionalData() {
@@ -107,7 +106,6 @@ public class ModifyResponse {
    * Adyen&#39;s 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.
    * @return pspReference
   **/
-
   @ApiModelProperty(required = true, value = "Adyen's 16-character string reference associated with the transaction. This value is globally unique; quote it when communicating with us about this response.")
 
   public String getPspReference() {
@@ -130,7 +128,6 @@ public class ModifyResponse {
    * The response: * In case of success, it is either &#x60;payout-confirm-received&#x60; or &#x60;payout-decline-received&#x60;. * In case of an error, an informational message is returned.
    * @return response
   **/
-
   @ApiModelProperty(required = true, value = "The response: * In case of success, it is either `payout-confirm-received` or `payout-decline-received`. * In case of an error, an informational message is returned.")
 
   public String getResponse() {

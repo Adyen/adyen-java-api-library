@@ -81,7 +81,6 @@ public class PaginatedBalanceAccountsResponse {
    * List of balance accounts.
    * @return balanceAccounts
   **/
-
   @ApiModelProperty(required = true, value = "List of balance accounts.")
 
   public List<BalanceAccount> getBalanceAccounts() {
@@ -104,7 +103,6 @@ public class PaginatedBalanceAccountsResponse {
    * Indicates whether there are more items on the next page.
    * @return hasNext
   **/
-
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the next page.")
 
   public Boolean getHasNext() {
@@ -127,7 +125,6 @@ public class PaginatedBalanceAccountsResponse {
    * Indicates whether there are more items on the previous page.
    * @return hasPrevious
   **/
-
   @ApiModelProperty(required = true, value = "Indicates whether there are more items on the previous page.")
 
   public Boolean getHasPrevious() {

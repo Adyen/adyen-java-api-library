@@ -76,7 +76,6 @@ public class TransactionRulesResponse {
    * List of transaction rules.
    * @return transactionRules
   **/
-
   @ApiModelProperty(value = "List of transaction rules.")
 
   public List<TransactionRule> getTransactionRules() {

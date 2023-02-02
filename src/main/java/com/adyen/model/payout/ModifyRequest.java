@@ -84,7 +84,6 @@ public class ModifyRequest {
    * This field contains additional data, which may be required for a particular payout request.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payout request.")
 
   public Map<String, String> getAdditionalData() {
@@ -107,7 +106,6 @@ public class ModifyRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -130,7 +128,6 @@ public class ModifyRequest {
    * The PSP reference received in the &#x60;/submitThirdParty&#x60; response.
    * @return originalReference
   **/
-
   @ApiModelProperty(required = true, value = "The PSP reference received in the `/submitThirdParty` response.")
 
   public String getOriginalReference() {

@@ -84,7 +84,6 @@ public class TerminalOrderRequest {
    * The identification of the billing entity to use for the order.
    * @return billingEntityId
   **/
-  
   @ApiModelProperty(value = "The identification of the billing entity to use for the order.")
 
   public String getBillingEntityId() {
@@ -107,7 +106,6 @@ public class TerminalOrderRequest {
    * The merchant-defined purchase order reference.
    * @return customerOrderReference
   **/
-  
   @ApiModelProperty(value = "The merchant-defined purchase order reference.")
 
   public String getCustomerOrderReference() {
@@ -138,7 +136,6 @@ public class TerminalOrderRequest {
    * The products included in the order.
    * @return items
   **/
-  
   @ApiModelProperty(value = "The products included in the order.")
 
   public List<OrderItem> getItems() {
@@ -161,7 +158,6 @@ public class TerminalOrderRequest {
    * The identification of the shipping location to use for the order.
    * @return shippingLocationId
   **/
-  
   @ApiModelProperty(value = "The identification of the shipping location to use for the order.")
 
   public String getShippingLocationId() {
@@ -184,7 +180,6 @@ public class TerminalOrderRequest {
    * The tax number of the billing entity.
    * @return taxId
   **/
-  
   @ApiModelProperty(value = "The tax number of the billing entity.")
 
   public String getTaxId() {

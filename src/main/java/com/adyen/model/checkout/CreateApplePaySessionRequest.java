@@ -73,7 +73,6 @@ public class CreateApplePaySessionRequest {
    * This is the name that your shoppers will see in the Apple Pay interface.  The value returned as &#x60;configuration.merchantName&#x60; field from the [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
    * @return displayName
   **/
-  
   @ApiModelProperty(required = true, value = "This is the name that your shoppers will see in the Apple Pay interface.  The value returned as `configuration.merchantName` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.")
 
   public String getDisplayName() {
@@ -96,7 +95,6 @@ public class CreateApplePaySessionRequest {
    * The domain name you provided when you added Apple Pay in your Customer Area.  This must match the &#x60;window.location.hostname&#x60; of the web shop.
    * @return domainName
   **/
-  
   @ApiModelProperty(required = true, value = "The domain name you provided when you added Apple Pay in your Customer Area.  This must match the `window.location.hostname` of the web shop.")
 
   public String getDomainName() {
@@ -119,7 +117,6 @@ public class CreateApplePaySessionRequest {
    * Your merchant identifier registered with Apple Pay.  Use the value of the &#x60;configuration.merchantId&#x60; field from the [&#x60;/paymentMethods&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.
    * @return merchantIdentifier
   **/
-  
   @ApiModelProperty(required = true, value = "Your merchant identifier registered with Apple Pay.  Use the value of the `configuration.merchantId` field from the [`/paymentMethods`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/paymentMethods) response.")
 
   public String getMerchantIdentifier() {

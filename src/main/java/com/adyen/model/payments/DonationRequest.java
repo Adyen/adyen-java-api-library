@@ -82,7 +82,6 @@ public class DonationRequest {
    * The Adyen account name of the charity.
    * @return donationAccount
   **/
-  
   @ApiModelProperty(required = true, value = "The Adyen account name of the charity.")
 
   public String getDonationAccount() {
@@ -105,7 +104,6 @@ public class DonationRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -128,7 +126,6 @@ public class DonationRequest {
    * Get modificationAmount
    * @return modificationAmount
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public Amount getModificationAmount() {
@@ -151,7 +148,6 @@ public class DonationRequest {
    * The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
    * @return originalReference
   **/
-  
   @ApiModelProperty(value = "The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  ")
 
   public String getOriginalReference() {
@@ -174,7 +170,6 @@ public class DonationRequest {
    * Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.
    * @return reference
   **/
-  
   @ApiModelProperty(value = "Your reference for the payment modification. This reference is visible in Customer Area and in reports. Maximum length: 80 characters.")
 
   public String getReference() {

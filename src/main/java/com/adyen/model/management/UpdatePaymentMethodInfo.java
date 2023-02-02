@@ -59,6 +59,10 @@ public class UpdatePaymentMethodInfo {
   @SerializedName(SERIALIZED_NAME_CURRENCIES)
   private List<String> currencies = null;
 
+  public static final String SERIALIZED_NAME_CUSTOM_ROUTING_FLAGS = "customRoutingFlags";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_ROUTING_FLAGS)
+  private List<String> customRoutingFlags = null;
+
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
@@ -88,7 +92,6 @@ public class UpdatePaymentMethodInfo {
    * The list of countries where a payment method is available. By default, all countries supported by the payment method.
    * @return countries
   **/
-
   @ApiModelProperty(value = "The list of countries where a payment method is available. By default, all countries supported by the payment method.")
 
   public List<String> getCountries() {
@@ -119,7 +122,6 @@ public class UpdatePaymentMethodInfo {
    * The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
    * @return currencies
   **/
-
   @ApiModelProperty(value = "The list of currencies that a payment method supports. By default, all currencies supported by the payment method.")
 
   public List<String> getCurrencies() {
@@ -129,6 +131,36 @@ public class UpdatePaymentMethodInfo {
 
   public void setCurrencies(List<String> currencies) {
     this.currencies = currencies;
+  }
+
+
+  public UpdatePaymentMethodInfo customRoutingFlags(List<String> customRoutingFlags) {
+    
+    this.customRoutingFlags = customRoutingFlags;
+    return this;
+  }
+
+  public UpdatePaymentMethodInfo addCustomRoutingFlagsItem(String customRoutingFlagsItem) {
+    if (this.customRoutingFlags == null) {
+      this.customRoutingFlags = new ArrayList<>();
+    }
+    this.customRoutingFlags.add(customRoutingFlagsItem);
+    return this;
+  }
+
+   /**
+   * Custom routing flags for acquirer routing.
+   * @return customRoutingFlags
+  **/
+  @ApiModelProperty(value = "Custom routing flags for acquirer routing.")
+
+  public List<String> getCustomRoutingFlags() {
+    return customRoutingFlags;
+  }
+
+
+  public void setCustomRoutingFlags(List<String> customRoutingFlags) {
+    this.customRoutingFlags = customRoutingFlags;
   }
 
 
@@ -142,7 +174,6 @@ public class UpdatePaymentMethodInfo {
    * Indicates whether the payment method is enabled (**true**) or disabled (**false**).
    * @return enabled
   **/
-
   @ApiModelProperty(value = "Indicates whether the payment method is enabled (**true**) or disabled (**false**).")
 
   public Boolean getEnabled() {
@@ -165,7 +196,6 @@ public class UpdatePaymentMethodInfo {
    * Get shopperStatement
    * @return shopperStatement
   **/
-
   @ApiModelProperty(value = "")
 
   public ShopperStatement getShopperStatement() {
@@ -190,13 +220,14 @@ public class UpdatePaymentMethodInfo {
     UpdatePaymentMethodInfo updatePaymentMethodInfo = (UpdatePaymentMethodInfo) o;
     return Objects.equals(this.countries, updatePaymentMethodInfo.countries) &&
         Objects.equals(this.currencies, updatePaymentMethodInfo.currencies) &&
+        Objects.equals(this.customRoutingFlags, updatePaymentMethodInfo.customRoutingFlags) &&
         Objects.equals(this.enabled, updatePaymentMethodInfo.enabled) &&
         Objects.equals(this.shopperStatement, updatePaymentMethodInfo.shopperStatement);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countries, currencies, enabled, shopperStatement);
+    return Objects.hash(countries, currencies, customRoutingFlags, enabled, shopperStatement);
   }
 
   @Override
@@ -205,6 +236,7 @@ public class UpdatePaymentMethodInfo {
     sb.append("class UpdatePaymentMethodInfo {\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
     sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
+    sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
     sb.append("}");
@@ -231,6 +263,7 @@ public class UpdatePaymentMethodInfo {
     openapiFields = new HashSet<String>();
     openapiFields.add("countries");
     openapiFields.add("currencies");
+    openapiFields.add("customRoutingFlags");
     openapiFields.add("enabled");
     openapiFields.add("shopperStatement");
 
@@ -267,6 +300,10 @@ public class UpdatePaymentMethodInfo {
       // ensure the json data is an array
       if (jsonObj.get("currencies") != null && !jsonObj.get("currencies").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencies` to be an array in the JSON string but got `%s`", jsonObj.get("currencies").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("customRoutingFlags") != null && !jsonObj.get("customRoutingFlags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customRoutingFlags` to be an array in the JSON string but got `%s`", jsonObj.get("customRoutingFlags").toString()));
       }
       // validate the optional field `shopperStatement`
       if (jsonObj.getAsJsonObject("shopperStatement") != null) {
