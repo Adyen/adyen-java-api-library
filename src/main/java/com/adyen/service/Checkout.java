@@ -137,8 +137,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
      */
 
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest) throws ApiException, IOException {
+        return paymentMethods(paymentMethodsRequest, null);
+    }
+
+    public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = paymentMethodsRequest.toJson();
-        String jsonResult = paymentMethods.request(jsonRequest);
+        String jsonResult = paymentMethods.request(jsonRequest, requestOptions);
         return PaymentMethodsResponse.fromJson(jsonResult);
     }
 
@@ -189,8 +193,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public PaymentVerificationResponse paymentResult(PaymentVerificationRequest paymentResultRequest) throws ApiException, IOException {
+        return paymentResult(paymentResultRequest, null);
+    }
+
+    public PaymentVerificationResponse paymentResult(PaymentVerificationRequest paymentResultRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = paymentResultRequest.toJson();
-        String jsonResult = paymentsResult.request(jsonRequest);
+        String jsonResult = paymentsResult.request(jsonRequest, requestOptions);
         return PaymentVerificationResponse.fromJson(jsonResult);
     }
 
@@ -203,8 +211,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest) throws ApiException, IOException {
+        return orders(checkoutCreateOrderRequest, null);
+    }
+
+    public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = checkoutCreateOrderRequest.toJson();
-        String jsonResult = orders.request(jsonRequest);
+        String jsonResult = orders.request(jsonRequest, requestOptions);
         return CheckoutCreateOrderResponse.fromJson(jsonResult);
     }
 
@@ -217,8 +229,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CheckoutCancelOrderResponse ordersCancel(CheckoutCancelOrderRequest checkoutCancelOrderRequest) throws ApiException, IOException {
+        return ordersCancel(checkoutCancelOrderRequest, null);
+    }
+
+    public CheckoutCancelOrderResponse ordersCancel(CheckoutCancelOrderRequest checkoutCancelOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = checkoutCancelOrderRequest.toJson();
-        String jsonResult = ordersCancel.request(jsonRequest);
+        String jsonResult = ordersCancel.request(jsonRequest, requestOptions);
         return CheckoutCancelOrderResponse.fromJson(jsonResult);
     }
 
@@ -231,9 +247,13 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest) throws ApiException, IOException {
+        return sessions(createCheckoutSessionRequest, null);
+    }
+
+    public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
         createCheckoutSessionRequest.setApplicationInfo(setApplicationInfo(createCheckoutSessionRequest.getApplicationInfo()));
         String jsonRequest = createCheckoutSessionRequest.toJson();
-        String jsonResult = sessions.request(jsonRequest);
+        String jsonResult = sessions.request(jsonRequest, requestOptions);
         return CreateCheckoutSessionResponse.fromJson(jsonResult);
     }
 
@@ -375,9 +395,13 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
+        return paymentLinks(createPaymentLinkRequest, null);
+    }
+
+    public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {
         createPaymentLinkRequest.setApplicationInfo(setApplicationInfo(createPaymentLinkRequest.getApplicationInfo()));
         String jsonRequest = createPaymentLinkRequest.toJson();
-        String jsonResult = paymentLinks.request(jsonRequest);
+        String jsonResult = paymentLinks.request(jsonRequest, requestOptions);
         return PaymentLinkResponse.fromJson(jsonResult);
     }
 
@@ -420,8 +444,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public ApplePaySessionResponse applePaySessions(CreateApplePaySessionRequest createApplePaySessionRequest) throws ApiException, IOException {
+        return applePaySessions(createApplePaySessionRequest, null);
+    }
+
+    public ApplePaySessionResponse applePaySessions(CreateApplePaySessionRequest createApplePaySessionRequest,  RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = createApplePaySessionRequest.toJson();
-        String jsonResult = applePaySessions.request(jsonRequest);
+        String jsonResult = applePaySessions.request(jsonRequest, requestOptions);
         return ApplePaySessionResponse.fromJson(jsonResult);
     }
 
@@ -434,9 +462,13 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public DonationResponse donations(PaymentDonationRequest paymentDonationRequest) throws ApiException, IOException {
+        return donations(paymentDonationRequest, null);
+    }
+
+    public DonationResponse donations(PaymentDonationRequest paymentDonationRequest, RequestOptions requestOptions) throws ApiException, IOException {
         paymentDonationRequest.setApplicationInfo(setApplicationInfo(paymentDonationRequest.getApplicationInfo()));
         String jsonRequest = paymentDonationRequest.toJson();
-        String jsonResult = donations.request(jsonRequest);
+        String jsonResult = donations.request(jsonRequest, requestOptions);
         return DonationResponse.fromJson(jsonResult);
     }
 
@@ -449,8 +481,12 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @throws IOException
      */
     public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest) throws ApiException, IOException {
+        return cardDetails(cardDetailsRequest, null);
+    }
+
+    public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = cardDetailsRequest.toJson();
-        String jsonResult = cardDetails.request(jsonRequest);
+        String jsonResult = cardDetails.request(jsonRequest, requestOptions);
         return CardDetailsResponse.fromJson(jsonResult);
     }
 }

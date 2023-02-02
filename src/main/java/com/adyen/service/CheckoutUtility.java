@@ -22,6 +22,7 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.checkoututility.OriginKeysRequest;
 import com.adyen.model.checkoututility.OriginKeysResponse;
 import com.adyen.service.exception.ApiException;
@@ -48,8 +49,12 @@ public class CheckoutUtility extends ApiKeyAuthenticatedService {
      * @throws ApiException ApiException
      */
     public OriginKeysResponse originKeys(OriginKeysRequest originKeysRequest) throws ApiException, IOException {
+        return originKeys(originKeysRequest, null);
+    }
+
+    public OriginKeysResponse originKeys(OriginKeysRequest originKeysRequest, RequestOptions requestOptions) throws ApiException, IOException {
         String jsonRequest = GSON.toJson(originKeysRequest);
-        String jsonResult = originKeys.request(jsonRequest);
+        String jsonResult = originKeys.request(jsonRequest, requestOptions);
         return GSON.fromJson(jsonResult, new TypeToken<OriginKeysResponse>() {
         }.getType());
     }
