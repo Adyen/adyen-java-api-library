@@ -62,11 +62,10 @@ public class GooglePayInfo {
   }
 
    /**
-   * GooglePay Merchant ID. Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
+   * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
    * @return merchantId
   **/
-
-  @ApiModelProperty(required = true, value = "GooglePay Merchant ID. Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
+  @ApiModelProperty(value = "Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
 
   public String getMerchantId() {
     return merchantId;
@@ -127,7 +126,6 @@ public class GooglePayInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("merchantId");
   }
 
  /**
@@ -150,13 +148,6 @@ public class GooglePayInfo {
       for (Entry<String, JsonElement> entry : entries) {
         if (!GooglePayInfo.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GooglePayInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GooglePayInfo.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field merchantId

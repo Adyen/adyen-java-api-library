@@ -13,24 +13,36 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.Address;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * SoleProprietorship
@@ -129,7 +141,6 @@ public class SoleProprietorship {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
    * @return countryOfGoverningLaw
   **/
-
   @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.")
 
   public String getCountryOfGoverningLaw() {
@@ -152,7 +163,6 @@ public class SoleProprietorship {
    * The registered name, if different from the &#x60;name&#x60;.
    * @return doingBusinessAs
   **/
-
   @ApiModelProperty(value = "The registered name, if different from the `name`.")
 
   public String getDoingBusinessAs() {
@@ -175,7 +185,6 @@ public class SoleProprietorship {
    * The legal name.
    * @return name
   **/
-
   @ApiModelProperty(required = true, value = "The legal name.")
 
   public String getName() {
@@ -198,7 +207,6 @@ public class SoleProprietorship {
    * Get principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getPrincipalPlaceOfBusiness() {
@@ -221,7 +229,6 @@ public class SoleProprietorship {
    * Get registeredAddress
    * @return registeredAddress
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public Address getRegisteredAddress() {
@@ -244,7 +251,6 @@ public class SoleProprietorship {
    * The registration number.
    * @return registrationNumber
   **/
-
   @ApiModelProperty(value = "The registration number.")
 
   public String getRegistrationNumber() {
@@ -267,7 +273,6 @@ public class SoleProprietorship {
    * The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
   **/
-
   @ApiModelProperty(value = "The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
 
   public VatAbsenceReasonEnum getVatAbsenceReason() {
@@ -290,7 +295,6 @@ public class SoleProprietorship {
    * The VAT number.
    * @return vatNumber
   **/
-
   @ApiModelProperty(value = "The VAT number.")
 
   public String getVatNumber() {

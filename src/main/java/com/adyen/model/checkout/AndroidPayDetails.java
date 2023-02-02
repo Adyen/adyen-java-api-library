@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class AndroidPayDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   /**
    * **androidpay**
    */
@@ -100,6 +104,28 @@ public class AndroidPayDetails {
   public AndroidPayDetails() { 
   }
 
+  public AndroidPayDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public AndroidPayDetails type(TypeEnum type) {
     
     this.type = type;
@@ -110,7 +136,6 @@ public class AndroidPayDetails {
    * **androidpay**
    * @return type
   **/
-
   @ApiModelProperty(value = "**androidpay**")
 
   public TypeEnum getType() {
@@ -133,18 +158,20 @@ public class AndroidPayDetails {
       return false;
     }
     AndroidPayDetails androidPayDetails = (AndroidPayDetails) o;
-    return Objects.equals(this.type, androidPayDetails.type);
+    return Objects.equals(this.checkoutAttemptId, androidPayDetails.checkoutAttemptId) &&
+        Objects.equals(this.type, androidPayDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type);
+    return Objects.hash(checkoutAttemptId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AndroidPayDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -168,6 +195,7 @@ public class AndroidPayDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
@@ -195,6 +223,10 @@ public class AndroidPayDetails {
         if (!AndroidPayDetails.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AndroidPayDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

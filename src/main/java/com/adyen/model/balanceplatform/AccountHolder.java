@@ -86,7 +86,7 @@ public class AccountHolder {
   private String reference;
 
   /**
-   * The status of the account holder.  Possible values:    * **Active**: The account holder is active. This is the default status when creating an account holder.    * **Inactive**: The account holder is temporarily inactive. You can set the account back to active or close it permanently.    * **Suspended**: The account holder is permanently suspended by Adyen. This action cannot be undone.   * **Closed**: The account holder is permanently deactivated. This action cannot be undone.
+   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -165,7 +165,6 @@ public class AccountHolder {
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.
    * @return balancePlatform
   **/
-
   @ApiModelProperty(value = "The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the account holder belongs. Required in the request if your API credentials can be used for multiple balance platforms.")
 
   public String getBalancePlatform() {
@@ -196,7 +195,6 @@ public class AccountHolder {
    * Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.
    * @return capabilities
   **/
-
   @ApiModelProperty(value = "Contains key-value pairs that specify the actions that an account holder can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing. The value is an object containing the settings for the capability.")
 
   public Map<String, AccountHolderCapability> getCapabilities() {
@@ -219,7 +217,6 @@ public class AccountHolder {
    * Get contactDetails
    * @return contactDetails
   **/
-
   @ApiModelProperty(value = "")
 
   public ContactDetails getContactDetails() {
@@ -242,7 +239,6 @@ public class AccountHolder {
    * Your description for the account holder, maximum 300 characters.
    * @return description
   **/
-
   @ApiModelProperty(value = "Your description for the account holder, maximum 300 characters.")
 
   public String getDescription() {
@@ -259,7 +255,6 @@ public class AccountHolder {
    * The unique identifier of the account holder.
    * @return id
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of the account holder.")
 
   public String getId() {
@@ -276,11 +271,10 @@ public class AccountHolder {
   }
 
    /**
-   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.  
+   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    * @return legalEntityId
   **/
-
-  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.  ")
+  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.")
 
   public String getLegalEntityId() {
     return legalEntityId;
@@ -302,7 +296,6 @@ public class AccountHolder {
    * The ID of the account holder&#39;s primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.
    * @return primaryBalanceAccount
   **/
-
   @ApiModelProperty(value = "The ID of the account holder's primary balance account. By default, this is set to the first balance account that you create for the account holder. To assign a different balance account, send a PATCH request.")
 
   public String getPrimaryBalanceAccount() {
@@ -325,7 +318,6 @@ public class AccountHolder {
    * Your reference for the account holder, maximum 150 characters.
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference for the account holder, maximum 150 characters.")
 
   public String getReference() {
@@ -345,11 +337,10 @@ public class AccountHolder {
   }
 
    /**
-   * The status of the account holder.  Possible values:    * **Active**: The account holder is active. This is the default status when creating an account holder.    * **Inactive**: The account holder is temporarily inactive. You can set the account back to active or close it permanently.    * **Suspended**: The account holder is permanently suspended by Adyen. This action cannot be undone.   * **Closed**: The account holder is permanently deactivated. This action cannot be undone.
+   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    * @return status
   **/
-
-  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **Active**: The account holder is active. This is the default status when creating an account holder.    * **Inactive**: The account holder is temporarily inactive. You can set the account back to active or close it permanently.    * **Suspended**: The account holder is permanently suspended by Adyen. This action cannot be undone.   * **Closed**: The account holder is permanently deactivated. This action cannot be undone.")
+  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.")
 
   public StatusEnum getStatus() {
     return status;
@@ -371,7 +362,6 @@ public class AccountHolder {
    * The [time zone](https://www.iana.org/time-zones) of the account holder. For example, **Europe/Amsterdam**. If not set, the time zone of the balance account will be used. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return timeZone
   **/
-
   @ApiModelProperty(value = "The [time zone](https://www.iana.org/time-zones) of the account holder. For example, **Europe/Amsterdam**. If not set, the time zone of the balance account will be used. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
 
   public String getTimeZone() {

@@ -66,7 +66,6 @@ public class Links {
    * Get self
    * @return self
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getSelf() {

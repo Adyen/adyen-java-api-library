@@ -82,7 +82,6 @@ public class PaginationLinks {
    * Get first
    * @return first
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getFirst() {
@@ -105,7 +104,6 @@ public class PaginationLinks {
    * Get last
    * @return last
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getLast() {
@@ -128,7 +126,6 @@ public class PaginationLinks {
    * Get next
    * @return next
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getNext() {
@@ -151,7 +148,6 @@ public class PaginationLinks {
    * Get prev
    * @return prev
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getPrev() {
@@ -174,7 +170,6 @@ public class PaginationLinks {
    * Get self
    * @return self
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getSelf() {

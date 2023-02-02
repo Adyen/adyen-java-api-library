@@ -77,7 +77,6 @@ public class ServiceError2 {
    * Get errorCode
    * @return errorCode
   **/
-
   @ApiModelProperty(value = "")
 
   public String getErrorCode() {
@@ -100,7 +99,6 @@ public class ServiceError2 {
    * Get errorType
    * @return errorType
   **/
-
   @ApiModelProperty(value = "")
 
   public String getErrorType() {
@@ -123,7 +121,6 @@ public class ServiceError2 {
    * Get message
    * @return message
   **/
-
   @ApiModelProperty(value = "")
 
   public String getMessage() {
@@ -146,7 +143,6 @@ public class ServiceError2 {
    * Get pspReference
    * @return pspReference
   **/
-
   @ApiModelProperty(value = "")
 
   public String getPspReference() {

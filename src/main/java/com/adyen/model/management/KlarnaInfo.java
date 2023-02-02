@@ -128,7 +128,6 @@ public class KlarnaInfo {
    * Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.
    * @return autoCapture
   **/
-  
   @ApiModelProperty(value = "Indicates the status of [Automatic capture](https://docs.adyen.com/online-payments/capture#automatic-capture). Default value: **false**.")
 
   public Boolean getAutoCapture() {
@@ -151,7 +150,6 @@ public class KlarnaInfo {
    * The email address for disputes.
    * @return disputeEmail
   **/
-  
   @ApiModelProperty(required = true, value = "The email address for disputes.")
 
   public String getDisputeEmail() {
@@ -174,8 +172,7 @@ public class KlarnaInfo {
    * The region of operation. For example, **NA**, **EU**, **CH**, **AU**.
    * @return region
   **/
-  
-  @ApiModelProperty(required = true, value = "The region of operation. For example, **NA**, **EU**, **CH**, **AU**.")
+  @ApiModelProperty(value = "The region of operation. For example, **NA**, **EU**, **CH**, **AU**.")
 
   public RegionEnum getRegion() {
     return region;
@@ -197,7 +194,6 @@ public class KlarnaInfo {
    * The email address of merchant support.
    * @return supportEmail
   **/
-  
   @ApiModelProperty(required = true, value = "The email address of merchant support.")
 
   public String getSupportEmail() {
@@ -269,7 +265,6 @@ public class KlarnaInfo {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("disputeEmail");
-    openapiRequiredFields.add("region");
     openapiRequiredFields.add("supportEmail");
   }
 

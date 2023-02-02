@@ -69,7 +69,6 @@ public class CreatePaymentReversalRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -92,7 +91,6 @@ public class CreatePaymentReversalRequest {
    * Your reference for the reversal request. Maximum length: 80 characters.
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference for the reversal request. Maximum length: 80 characters.")
 
   public String getReference() {

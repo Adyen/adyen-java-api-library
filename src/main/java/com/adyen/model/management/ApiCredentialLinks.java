@@ -86,7 +86,6 @@ public class ApiCredentialLinks {
    * Get allowedOrigins
    * @return allowedOrigins
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getAllowedOrigins() {
@@ -109,7 +108,6 @@ public class ApiCredentialLinks {
    * Get company
    * @return company
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getCompany() {
@@ -132,7 +130,6 @@ public class ApiCredentialLinks {
    * Get generateApiKey
    * @return generateApiKey
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getGenerateApiKey() {
@@ -155,7 +152,6 @@ public class ApiCredentialLinks {
    * Get generateClientKey
    * @return generateClientKey
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getGenerateClientKey() {
@@ -178,7 +174,6 @@ public class ApiCredentialLinks {
    * Get merchant
    * @return merchant
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getMerchant() {
@@ -201,7 +196,6 @@ public class ApiCredentialLinks {
    * Get self
    * @return self
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getSelf() {

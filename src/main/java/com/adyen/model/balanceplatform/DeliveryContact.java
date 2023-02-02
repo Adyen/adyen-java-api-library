@@ -88,7 +88,6 @@ public class DeliveryContact {
    * Get address
    * @return address
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public Address2 getAddress() {
@@ -111,7 +110,6 @@ public class DeliveryContact {
    * The email address of the contact.
    * @return email
   **/
-
   @ApiModelProperty(value = "The email address of the contact.")
 
   public String getEmail() {
@@ -134,7 +132,6 @@ public class DeliveryContact {
    * The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \&quot;0031 6 11 22 33 44\&quot;, \&quot;+316/1122-3344\&quot;, \&quot;(0031) 611223344\&quot;
    * @return fullPhoneNumber
   **/
-
   @ApiModelProperty(value = "The full phone number of the contact provided as a single string. It will be handled as a landline phone. **Examples:** \"0031 6 11 22 33 44\", \"+316/1122-3344\", \"(0031) 611223344\"")
 
   public String getFullPhoneNumber() {
@@ -157,7 +154,6 @@ public class DeliveryContact {
    * Get name
    * @return name
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public Name getName() {
@@ -180,7 +176,6 @@ public class DeliveryContact {
    * Get phoneNumber
    * @return phoneNumber
   **/
-
   @ApiModelProperty(value = "")
 
   public PhoneNumber getPhoneNumber() {
@@ -203,7 +198,6 @@ public class DeliveryContact {
    * The URL of the contact&#39;s website.
    * @return webAddress
   **/
-
   @ApiModelProperty(value = "The URL of the contact's website.")
 
   public String getWebAddress() {

@@ -101,7 +101,6 @@ public class RestServiceError {
    * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
   **/
-
   @ApiModelProperty(required = true, value = "A human-readable explanation specific to this occurrence of the problem.")
 
   public String getDetail() {
@@ -124,7 +123,6 @@ public class RestServiceError {
    * A code that identifies the problem type.
    * @return errorCode
   **/
-
   @ApiModelProperty(required = true, value = "A code that identifies the problem type.")
 
   public String getErrorCode() {
@@ -147,7 +145,6 @@ public class RestServiceError {
    * A unique URI that identifies the specific occurrence of the problem.
    * @return instance
   **/
-
   @ApiModelProperty(value = "A unique URI that identifies the specific occurrence of the problem.")
 
   public String getInstance() {
@@ -178,7 +175,6 @@ public class RestServiceError {
    * Detailed explanation of each validation error, when applicable.
    * @return invalidFields
   **/
-
   @ApiModelProperty(value = "Detailed explanation of each validation error, when applicable.")
 
   public List<InvalidField> getInvalidFields() {
@@ -201,7 +197,6 @@ public class RestServiceError {
    * A unique reference for the request, essentially the same as &#x60;pspReference&#x60;.
    * @return requestId
   **/
-
   @ApiModelProperty(value = "A unique reference for the request, essentially the same as `pspReference`.")
 
   public String getRequestId() {
@@ -224,7 +219,6 @@ public class RestServiceError {
    * Get response
    * @return response
   **/
-
   @ApiModelProperty(value = "")
 
   public JSONObject getResponse() {
@@ -247,7 +241,6 @@ public class RestServiceError {
    * The HTTP status code.
    * @return status
   **/
-
   @ApiModelProperty(required = true, value = "The HTTP status code.")
 
   public Integer getStatus() {
@@ -270,7 +263,6 @@ public class RestServiceError {
    * A short, human-readable summary of the problem type.
    * @return title
   **/
-
   @ApiModelProperty(required = true, value = "A short, human-readable summary of the problem type.")
 
   public String getTitle() {
@@ -293,7 +285,6 @@ public class RestServiceError {
    * A URI that identifies the problem type, pointing to human-readable documentation on this problem type.
    * @return type
   **/
-
   @ApiModelProperty(required = true, value = "A URI that identifies the problem type, pointing to human-readable documentation on this problem type.")
 
   public String getType() {

@@ -13,24 +13,35 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * LegalEntityAssociation
@@ -58,11 +69,15 @@ public class LegalEntityAssociation {
   private String name;
 
   /**
-   * Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, or **signatory**. 
+   * Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **soleProprietorship**. 
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    PCISIGNATORY("pciSignatory"),
+    
     SIGNATORY("signatory"),
+    
+    SOLEPROPRIETORSHIP("soleProprietorship"),
     
     UBOTHROUGHCONTROL("uboThroughControl"),
     
@@ -129,7 +144,6 @@ public class LegalEntityAssociation {
    * The unique identifier of another legal entity with which the &#x60;legalEntityId&#x60; is associated. When the &#x60;legalEntityId&#x60; is associated to legal entities other than the current one, the response returns all the associations.
    * @return associatorId
   **/
-
   @ApiModelProperty(value = "The unique identifier of another legal entity with which the `legalEntityId` is associated. When the `legalEntityId` is associated to legal entities other than the current one, the response returns all the associations.")
 
   public String getAssociatorId() {
@@ -143,7 +157,6 @@ public class LegalEntityAssociation {
    * The legal entity type of associated legal entity.   For example, **organization**, **soleProprietorship** or **individual**. 
    * @return entityType
   **/
-
   @ApiModelProperty(value = "The legal entity type of associated legal entity.   For example, **organization**, **soleProprietorship** or **individual**. ")
 
   public String getEntityType() {
@@ -163,7 +176,6 @@ public class LegalEntityAssociation {
    * The individual&#39;s job title if the &#x60;type&#x60; is **uboThroughControl** or **signatory**.
    * @return jobTitle
   **/
-
   @ApiModelProperty(value = "The individual's job title if the `type` is **uboThroughControl** or **signatory**.")
 
   public String getJobTitle() {
@@ -186,7 +198,6 @@ public class LegalEntityAssociation {
    * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id).
    * @return legalEntityId
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id).")
 
   public String getLegalEntityId() {
@@ -203,7 +214,6 @@ public class LegalEntityAssociation {
    * The name of the associated [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
    * @return name
   **/
-
   @ApiModelProperty(value = "The name of the associated [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id).  - For **individual**, `name.firstName` and `name.lastName`. - For **organization**, `legalName`. - For **soleProprietorship**, `name`.")
 
   public String getName() {
@@ -220,11 +230,10 @@ public class LegalEntityAssociation {
   }
 
    /**
-   * Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, or **signatory**. 
+   * Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **soleProprietorship**. 
    * @return type
   **/
-
-  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, or **signatory**. ")
+  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **soleProprietorship**. ")
 
   public TypeEnum getType() {
     return type;

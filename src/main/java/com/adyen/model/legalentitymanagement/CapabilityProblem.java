@@ -1,5 +1,5 @@
 /*
- * Configuration API
+ * Legal Entity Management API
  *
  * The version of the OpenAPI document: 2
  * Contact: developer-experience@adyen.com
@@ -10,12 +10,12 @@
  */
 
 
-package com.adyen.model.balanceplatform;
+package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.balanceplatform.CapabilityProblemEntity;
-import com.adyen.model.balanceplatform.VerificationError;
+import com.adyen.model.legalentitymanagement.CapabilityProblemEntity;
+import com.adyen.model.legalentitymanagement.VerificationError;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,7 +45,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.adyen.model.balanceplatform.JSON;
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * CapabilityProblem
@@ -73,7 +73,6 @@ public class CapabilityProblem {
    * Get entity
    * @return entity
   **/
-
   @ApiModelProperty(value = "")
 
   public CapabilityProblemEntity getEntity() {
@@ -101,11 +100,10 @@ public class CapabilityProblem {
   }
 
    /**
-   * Contains information about the verification error.
+   * Get verificationErrors
    * @return verificationErrors
   **/
-
-  @ApiModelProperty(value = "Contains information about the verification error.")
+  @ApiModelProperty(value = "")
 
   public List<VerificationError> getVerificationErrors() {
     return verificationErrors;

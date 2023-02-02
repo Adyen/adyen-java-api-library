@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class DokuDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -128,6 +132,28 @@ public class DokuDetails {
   public DokuDetails() { 
   }
 
+  public DokuDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public DokuDetails firstName(String firstName) {
     
     this.firstName = firstName;
@@ -138,7 +164,6 @@ public class DokuDetails {
    * The shopper&#39;s first name.
    * @return firstName
   **/
-
   @ApiModelProperty(required = true, value = "The shopper's first name.")
 
   public String getFirstName() {
@@ -161,7 +186,6 @@ public class DokuDetails {
    * The shopper&#39;s last name.
    * @return lastName
   **/
-
   @ApiModelProperty(required = true, value = "The shopper's last name.")
 
   public String getLastName() {
@@ -184,7 +208,6 @@ public class DokuDetails {
    * The shopper&#39;s email.
    * @return shopperEmail
   **/
-
   @ApiModelProperty(required = true, value = "The shopper's email.")
 
   public String getShopperEmail() {
@@ -207,7 +230,6 @@ public class DokuDetails {
    * **doku**
    * @return type
   **/
-
   @ApiModelProperty(required = true, value = "**doku**")
 
   public TypeEnum getType() {
@@ -230,7 +252,8 @@ public class DokuDetails {
       return false;
     }
     DokuDetails dokuDetails = (DokuDetails) o;
-    return Objects.equals(this.firstName, dokuDetails.firstName) &&
+    return Objects.equals(this.checkoutAttemptId, dokuDetails.checkoutAttemptId) &&
+        Objects.equals(this.firstName, dokuDetails.firstName) &&
         Objects.equals(this.lastName, dokuDetails.lastName) &&
         Objects.equals(this.shopperEmail, dokuDetails.shopperEmail) &&
         Objects.equals(this.type, dokuDetails.type);
@@ -238,13 +261,14 @@ public class DokuDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, shopperEmail, type);
+    return Objects.hash(checkoutAttemptId, firstName, lastName, shopperEmail, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DokuDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
@@ -271,6 +295,7 @@ public class DokuDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("firstName");
     openapiFields.add("lastName");
     openapiFields.add("shopperEmail");
@@ -312,6 +337,10 @@ public class DokuDetails {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // validate the optional field firstName
       if (jsonObj.get("firstName") != null && !jsonObj.get("firstName").isJsonPrimitive()) {

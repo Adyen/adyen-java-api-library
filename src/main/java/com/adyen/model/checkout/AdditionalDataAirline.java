@@ -173,7 +173,6 @@ public class AdditionalDataAirline {
    * Reference number for the invoice, issued by the agency. * minLength: 1 * maxLength: 6
    * @return airlineAgencyInvoiceNumber
   **/
-
   @ApiModelProperty(value = "Reference number for the invoice, issued by the agency. * minLength: 1 * maxLength: 6")
 
   public String getAirlineAgencyInvoiceNumber() {
@@ -196,7 +195,6 @@ public class AdditionalDataAirline {
    * 2-letter agency plan identifier; alphabetical. * minLength: 2 * maxLength: 2
    * @return airlineAgencyPlanName
   **/
-
   @ApiModelProperty(value = "2-letter agency plan identifier; alphabetical. * minLength: 2 * maxLength: 2")
 
   public String getAirlineAgencyPlanName() {
@@ -219,7 +217,6 @@ public class AdditionalDataAirline {
    * [IATA](https://www.iata.org/services/pages/codes.aspx) 3-digit accounting code (PAX); numeric. It identifies the carrier. * Format: IATA 3-digit accounting code (PAX) * Example: KLM &#x3D; 074 * minLength: 3 * maxLength: 3
    * @return airlineAirlineCode
   **/
-
   @ApiModelProperty(value = "[IATA](https://www.iata.org/services/pages/codes.aspx) 3-digit accounting code (PAX); numeric. It identifies the carrier. * Format: IATA 3-digit accounting code (PAX) * Example: KLM = 074 * minLength: 3 * maxLength: 3")
 
   public String getAirlineAirlineCode() {
@@ -242,7 +239,6 @@ public class AdditionalDataAirline {
    * [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX); alphabetical. It identifies the carrier. * Format: [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter airline code * Example: KLM &#x3D; KL * minLength: 2 * maxLength: 2
    * @return airlineAirlineDesignatorCode
   **/
-
   @ApiModelProperty(value = "[IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX); alphabetical. It identifies the carrier. * Format: [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter airline code * Example: KLM = KL * minLength: 2 * maxLength: 2")
 
   public String getAirlineAirlineDesignatorCode() {
@@ -265,7 +261,6 @@ public class AdditionalDataAirline {
    * Chargeable amount for boarding the plane. The transaction amount needs to be represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes). * minLength: 1 * maxLength: 18
    * @return airlineBoardingFee
   **/
-
   @ApiModelProperty(value = "Chargeable amount for boarding the plane. The transaction amount needs to be represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes). * minLength: 1 * maxLength: 18")
 
   public String getAirlineBoardingFee() {
@@ -288,7 +283,6 @@ public class AdditionalDataAirline {
    * The [CRS](https://en.wikipedia.org/wiki/Computer_reservation_system) used to make the reservation and purchase the ticket. * Format: alphanumeric. * minLength: 4 * maxLength: 4
    * @return airlineComputerizedReservationSystem
   **/
-
   @ApiModelProperty(value = "The [CRS](https://en.wikipedia.org/wiki/Computer_reservation_system) used to make the reservation and purchase the ticket. * Format: alphanumeric. * minLength: 4 * maxLength: 4")
 
   public String getAirlineComputerizedReservationSystem() {
@@ -311,7 +305,6 @@ public class AdditionalDataAirline {
    * Reference number; alphanumeric. * minLength: 0 * maxLength: 20
    * @return airlineCustomerReferenceNumber
   **/
-
   @ApiModelProperty(value = "Reference number; alphanumeric. * minLength: 0 * maxLength: 20")
 
   public String getAirlineCustomerReferenceNumber() {
@@ -334,7 +327,6 @@ public class AdditionalDataAirline {
    * Optional 2-digit code; alphanumeric. It identifies the type of product of the transaction. The description of the code may appear on credit card statements. * Format: 2-digit code * Example: Passenger ticket &#x3D; 01 * minLength: 2 * maxLength: 2
    * @return airlineDocumentType
   **/
-
   @ApiModelProperty(value = "Optional 2-digit code; alphanumeric. It identifies the type of product of the transaction. The description of the code may appear on credit card statements. * Format: 2-digit code * Example: Passenger ticket = 01 * minLength: 2 * maxLength: 2")
 
   public String getAirlineDocumentType() {
@@ -357,7 +349,6 @@ public class AdditionalDataAirline {
    * Flight departure date. Local time &#x60;(HH:mm)&#x60; is optional. * Date format: &#x60;yyyy-MM-dd&#x60; * Date and time format: &#x60;yyyy-MM-dd HH:mm&#x60; * minLength: 10 * maxLength: 16
    * @return airlineFlightDate
   **/
-
   @ApiModelProperty(value = "Flight departure date. Local time `(HH:mm)` is optional. * Date format: `yyyy-MM-dd` * Date and time format: `yyyy-MM-dd HH:mm` * minLength: 10 * maxLength: 16")
 
   public String getAirlineFlightDate() {
@@ -380,7 +371,6 @@ public class AdditionalDataAirline {
    * [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX); alphabetical. It identifies the carrier. This field is required/mandatory if the airline data includes leg details. * Format: IATA 2-letter airline code * Example: KLM &#x3D; KL * minLength: 2 * maxLength: 2
    * @return airlineLegCarrierCode
   **/
-
   @ApiModelProperty(value = "[IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX); alphabetical. It identifies the carrier. This field is required/mandatory if the airline data includes leg details. * Format: IATA 2-letter airline code * Example: KLM = KL * minLength: 2 * maxLength: 2")
 
   public String getAirlineLegCarrierCode() {
@@ -403,7 +393,6 @@ public class AdditionalDataAirline {
    * 1-letter travel class identifier; alphabetical. There is no standard; however, the following codes are used rather consistently: * F: first class * J: business class * Y: economy class * W: premium economy  Limitations: * minLength: 1 * maxLength: 1
    * @return airlineLegClassOfTravel
   **/
-
   @ApiModelProperty(value = "1-letter travel class identifier; alphabetical. There is no standard; however, the following codes are used rather consistently: * F: first class * J: business class * Y: economy class * W: premium economy  Limitations: * minLength: 1 * maxLength: 1")
 
   public String getAirlineLegClassOfTravel() {
@@ -426,7 +415,6 @@ public class AdditionalDataAirline {
    *   Date and time of travel. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-compliant. * Format: &#x60;yyyy-MM-dd HH:mm&#x60; * minLength: 16 * maxLength: 16
    * @return airlineLegDateOfTravel
   **/
-
   @ApiModelProperty(value = "  Date and time of travel. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-compliant. * Format: `yyyy-MM-dd HH:mm` * minLength: 16 * maxLength: 16")
 
   public String getAirlineLegDateOfTravel() {
@@ -449,7 +437,6 @@ public class AdditionalDataAirline {
    * Alphabetical identifier of the departure airport. This field is required if the airline data includes leg details. * Format: [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code. * Example: Amsterdam &#x3D; AMS * minLength: 3 * maxLength: 3
    * @return airlineLegDepartAirport
   **/
-
   @ApiModelProperty(value = "Alphabetical identifier of the departure airport. This field is required if the airline data includes leg details. * Format: [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code. * Example: Amsterdam = AMS * minLength: 3 * maxLength: 3")
 
   public String getAirlineLegDepartAirport() {
@@ -472,7 +459,6 @@ public class AdditionalDataAirline {
    * [Departure tax](https://en.wikipedia.org/wiki/Departure_tax). Amount charged by a country to an individual upon their leaving. The transaction amount needs to be represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes). * minLength: 1 * maxLength: 12
    * @return airlineLegDepartTax
   **/
-
   @ApiModelProperty(value = "[Departure tax](https://en.wikipedia.org/wiki/Departure_tax). Amount charged by a country to an individual upon their leaving. The transaction amount needs to be represented in minor units according to the [following table](https://docs.adyen.com/development-resources/currency-codes). * minLength: 1 * maxLength: 12")
 
   public String getAirlineLegDepartTax() {
@@ -495,7 +481,6 @@ public class AdditionalDataAirline {
    * Alphabetical identifier of the destination/arrival airport. This field is required/mandatory if the airline data includes leg details. * Format: [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code. * Example: Amsterdam &#x3D; AMS * minLength: 3 * maxLength: 3
    * @return airlineLegDestinationCode
   **/
-
   @ApiModelProperty(value = "Alphabetical identifier of the destination/arrival airport. This field is required/mandatory if the airline data includes leg details. * Format: [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code. * Example: Amsterdam = AMS * minLength: 3 * maxLength: 3")
 
   public String getAirlineLegDestinationCode() {
@@ -518,7 +503,6 @@ public class AdditionalDataAirline {
    * [Fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code); alphanumeric. * minLength: 1 * maxLength: 7
    * @return airlineLegFareBaseCode
   **/
-
   @ApiModelProperty(value = "[Fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code); alphanumeric. * minLength: 1 * maxLength: 7")
 
   public String getAirlineLegFareBaseCode() {
@@ -541,7 +525,6 @@ public class AdditionalDataAirline {
    * The flight identifier. * minLength: 1 * maxLength: 5
    * @return airlineLegFlightNumber
   **/
-
   @ApiModelProperty(value = "The flight identifier. * minLength: 1 * maxLength: 5")
 
   public String getAirlineLegFlightNumber() {
@@ -564,7 +547,6 @@ public class AdditionalDataAirline {
    * 1-letter code that indicates whether the passenger is entitled to make a stopover. Only two types of characters are allowed: * O: Stopover allowed * X: Stopover not allowed  Limitations: * minLength: 1 * maxLength: 1
    * @return airlineLegStopOverCode
   **/
-
   @ApiModelProperty(value = "1-letter code that indicates whether the passenger is entitled to make a stopover. Only two types of characters are allowed: * O: Stopover allowed * X: Stopover not allowed  Limitations: * minLength: 1 * maxLength: 1")
 
   public String getAirlineLegStopOverCode() {
@@ -587,7 +569,6 @@ public class AdditionalDataAirline {
    * Date of birth of the passenger.  Date format: &#x60;yyyy-MM-dd&#x60; * minLength: 10 * maxLength: 10
    * @return airlinePassengerDateOfBirth
   **/
-
   @ApiModelProperty(value = "Date of birth of the passenger.  Date format: `yyyy-MM-dd` * minLength: 10 * maxLength: 10")
 
   public String getAirlinePassengerDateOfBirth() {
@@ -610,7 +591,6 @@ public class AdditionalDataAirline {
    * Passenger first name/given name. &gt; This field is required/mandatory if the airline data includes passenger details or leg details.
    * @return airlinePassengerFirstName
   **/
-
   @ApiModelProperty(value = "Passenger first name/given name. > This field is required/mandatory if the airline data includes passenger details or leg details.")
 
   public String getAirlinePassengerFirstName() {
@@ -633,7 +613,6 @@ public class AdditionalDataAirline {
    * Passenger last name/family name. &gt; This field is required/mandatory if the airline data includes passenger details or leg details.
    * @return airlinePassengerLastName
   **/
-
   @ApiModelProperty(value = "Passenger last name/family name. > This field is required/mandatory if the airline data includes passenger details or leg details.")
 
   public String getAirlinePassengerLastName() {
@@ -656,7 +635,6 @@ public class AdditionalDataAirline {
    * Telephone number of the passenger, including country code. This is an alphanumeric field that can include the &#39;+&#39; and &#39;-&#39; signs. * minLength: 3 * maxLength: 30
    * @return airlinePassengerTelephoneNumber
   **/
-
   @ApiModelProperty(value = "Telephone number of the passenger, including country code. This is an alphanumeric field that can include the '+' and '-' signs. * minLength: 3 * maxLength: 30")
 
   public String getAirlinePassengerTelephoneNumber() {
@@ -679,7 +657,6 @@ public class AdditionalDataAirline {
    * Passenger type code (PTC). IATA PTC values are 3-letter alphabetical. Example: ADT, SRC, CNN, INS.  However, several carriers use non-standard codes that can be up to 5 alphanumeric characters. * minLength: 3 * maxLength: 6
    * @return airlinePassengerTravellerType
   **/
-
   @ApiModelProperty(value = "Passenger type code (PTC). IATA PTC values are 3-letter alphabetical. Example: ADT, SRC, CNN, INS.  However, several carriers use non-standard codes that can be up to 5 alphanumeric characters. * minLength: 3 * maxLength: 6")
 
   public String getAirlinePassengerTravellerType() {
@@ -702,7 +679,6 @@ public class AdditionalDataAirline {
    * Passenger name, initials, and a title. * Format: last name + first name or initials + title. * Example: *FLYER / MARY MS*. * minLength: 1 * maxLength: 49
    * @return airlinePassengerName
   **/
-
   @ApiModelProperty(required = true, value = "Passenger name, initials, and a title. * Format: last name + first name or initials + title. * Example: *FLYER / MARY MS*. * minLength: 1 * maxLength: 49")
 
   public String getAirlinePassengerName() {
@@ -725,7 +701,6 @@ public class AdditionalDataAirline {
    * Address of the place/agency that issued the ticket. * minLength: 0 * maxLength: 16
    * @return airlineTicketIssueAddress
   **/
-
   @ApiModelProperty(value = "Address of the place/agency that issued the ticket. * minLength: 0 * maxLength: 16")
 
   public String getAirlineTicketIssueAddress() {
@@ -748,7 +723,6 @@ public class AdditionalDataAirline {
    * The ticket&#39;s unique identifier. * minLength: 1 * maxLength: 150
    * @return airlineTicketNumber
   **/
-
   @ApiModelProperty(value = "The ticket's unique identifier. * minLength: 1 * maxLength: 150")
 
   public String getAirlineTicketNumber() {
@@ -771,7 +745,6 @@ public class AdditionalDataAirline {
    * IATA number, also ARC number or ARC/IATA number. Unique identifier number for travel agencies. * minLength: 1 * maxLength: 8
    * @return airlineTravelAgencyCode
   **/
-
   @ApiModelProperty(value = "IATA number, also ARC number or ARC/IATA number. Unique identifier number for travel agencies. * minLength: 1 * maxLength: 8")
 
   public String getAirlineTravelAgencyCode() {
@@ -794,7 +767,6 @@ public class AdditionalDataAirline {
    * The name of the travel agency. * minLength: 1 * maxLength: 25
    * @return airlineTravelAgencyName
   **/
-
   @ApiModelProperty(value = "The name of the travel agency. * minLength: 1 * maxLength: 25")
 
   public String getAirlineTravelAgencyName() {

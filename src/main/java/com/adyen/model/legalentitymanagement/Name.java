@@ -13,23 +13,35 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Name
@@ -61,7 +73,6 @@ public class Name {
    * The individual&#39;s first name.
    * @return firstName
   **/
-
   @ApiModelProperty(required = true, value = "The individual's first name.")
 
   public String getFirstName() {
@@ -84,7 +95,6 @@ public class Name {
    * The infix in the individual&#39;s name, if any.
    * @return infix
   **/
-
   @ApiModelProperty(value = "The infix in the individual's name, if any.")
 
   public String getInfix() {
@@ -107,7 +117,6 @@ public class Name {
    * The individual&#39;s last name.
    * @return lastName
   **/
-
   @ApiModelProperty(required = true, value = "The individual's last name.")
 
   public String getLastName() {

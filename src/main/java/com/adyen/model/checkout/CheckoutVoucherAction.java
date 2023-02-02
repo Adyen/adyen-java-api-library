@@ -187,7 +187,6 @@ public class CheckoutVoucherAction {
    * The voucher alternative reference code.
    * @return alternativeReference
   **/
-
   @ApiModelProperty(value = "The voucher alternative reference code.")
 
   public String getAlternativeReference() {
@@ -210,7 +209,6 @@ public class CheckoutVoucherAction {
    * A collection institution number (store number) for Econtext Pay-Easy ATM.
    * @return collectionInstitutionNumber
   **/
-
   @ApiModelProperty(value = "A collection institution number (store number) for Econtext Pay-Easy ATM.")
 
   public String getCollectionInstitutionNumber() {
@@ -233,7 +231,6 @@ public class CheckoutVoucherAction {
    * The URL to download the voucher.
    * @return downloadUrl
   **/
-
   @ApiModelProperty(value = "The URL to download the voucher.")
 
   public String getDownloadUrl() {
@@ -256,7 +253,6 @@ public class CheckoutVoucherAction {
    * An entity number of Multibanco.
    * @return entity
   **/
-
   @ApiModelProperty(value = "An entity number of Multibanco.")
 
   public String getEntity() {
@@ -279,7 +275,6 @@ public class CheckoutVoucherAction {
    * The date time of the voucher expiry.
    * @return expiresAt
   **/
-
   @ApiModelProperty(value = "The date time of the voucher expiry.")
 
   public String getExpiresAt() {
@@ -302,7 +297,6 @@ public class CheckoutVoucherAction {
    * Get initialAmount
    * @return initialAmount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getInitialAmount() {
@@ -325,7 +319,6 @@ public class CheckoutVoucherAction {
    * The URL to the detailed instructions to make payment using the voucher.
    * @return instructionsUrl
   **/
-
   @ApiModelProperty(value = "The URL to the detailed instructions to make payment using the voucher.")
 
   public String getInstructionsUrl() {
@@ -348,7 +341,6 @@ public class CheckoutVoucherAction {
    * The issuer of the voucher.
    * @return issuer
   **/
-
   @ApiModelProperty(value = "The issuer of the voucher.")
 
   public String getIssuer() {
@@ -371,7 +363,6 @@ public class CheckoutVoucherAction {
    * The shopper telephone number (partially masked).
    * @return maskedTelephoneNumber
   **/
-
   @ApiModelProperty(value = "The shopper telephone number (partially masked).")
 
   public String getMaskedTelephoneNumber() {
@@ -394,7 +385,6 @@ public class CheckoutVoucherAction {
    * The merchant name.
    * @return merchantName
   **/
-
   @ApiModelProperty(value = "The merchant name.")
 
   public String getMerchantName() {
@@ -417,7 +407,6 @@ public class CheckoutVoucherAction {
    * The merchant reference.
    * @return merchantReference
   **/
-
   @ApiModelProperty(value = "The merchant reference.")
 
   public String getMerchantReference() {
@@ -440,7 +429,6 @@ public class CheckoutVoucherAction {
    * A value that must be submitted to the &#x60;/payments/details&#x60; endpoint to verify this payment.
    * @return paymentData
   **/
-
   @ApiModelProperty(value = "A value that must be submitted to the `/payments/details` endpoint to verify this payment.")
 
   public String getPaymentData() {
@@ -463,7 +451,6 @@ public class CheckoutVoucherAction {
    * Specifies the payment method.
    * @return paymentMethodType
   **/
-
   @ApiModelProperty(value = "Specifies the payment method.")
 
   public String getPaymentMethodType() {
@@ -486,7 +473,6 @@ public class CheckoutVoucherAction {
    * The voucher reference code.
    * @return reference
   **/
-
   @ApiModelProperty(value = "The voucher reference code.")
 
   public String getReference() {
@@ -509,7 +495,6 @@ public class CheckoutVoucherAction {
    * The shopper email.
    * @return shopperEmail
   **/
-
   @ApiModelProperty(value = "The shopper email.")
 
   public String getShopperEmail() {
@@ -532,7 +517,6 @@ public class CheckoutVoucherAction {
    * The shopper name.
    * @return shopperName
   **/
-
   @ApiModelProperty(value = "The shopper name.")
 
   public String getShopperName() {
@@ -555,7 +539,6 @@ public class CheckoutVoucherAction {
    * Get surcharge
    * @return surcharge
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getSurcharge() {
@@ -578,7 +561,6 @@ public class CheckoutVoucherAction {
    * Get totalAmount
    * @return totalAmount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getTotalAmount() {
@@ -601,7 +583,6 @@ public class CheckoutVoucherAction {
    * **voucher**
    * @return type
   **/
-
   @ApiModelProperty(required = true, value = "**voucher**")
 
   public TypeEnum getType() {
@@ -624,7 +605,6 @@ public class CheckoutVoucherAction {
    * Specifies the URL to redirect to.
    * @return url
   **/
-
   @ApiModelProperty(value = "Specifies the URL to redirect to.")
 
   public String getUrl() {

@@ -126,7 +126,6 @@ public class PaymentReversalResource {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -149,7 +148,6 @@ public class PaymentReversalResource {
    * The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. 
    * @return paymentPspReference
   **/
-  
   @ApiModelProperty(required = true, value = "The [`pspReference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment to reverse. ")
 
   public String getPaymentPspReference() {
@@ -172,7 +170,6 @@ public class PaymentReversalResource {
    * Adyen&#39;s 16-character reference associated with the reversal request.
    * @return pspReference
   **/
-  
   @ApiModelProperty(required = true, value = "Adyen's 16-character reference associated with the reversal request.")
 
   public String getPspReference() {
@@ -195,7 +192,6 @@ public class PaymentReversalResource {
    * Your reference for the reversal request.
    * @return reference
   **/
-  
   @ApiModelProperty(value = "Your reference for the reversal request.")
 
   public String getReference() {
@@ -218,7 +214,6 @@ public class PaymentReversalResource {
    * The status of your request. This will always have the value **received**.
    * @return status
   **/
-  
   @ApiModelProperty(required = true, value = "The status of your request. This will always have the value **received**.")
 
   public StatusEnum getStatus() {

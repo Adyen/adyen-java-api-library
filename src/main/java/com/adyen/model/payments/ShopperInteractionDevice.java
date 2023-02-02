@@ -73,7 +73,6 @@ public class ShopperInteractionDevice {
    * Locale on the shopper interaction device.
    * @return locale
   **/
-
   @ApiModelProperty(value = "Locale on the shopper interaction device.")
 
   public String getLocale() {
@@ -96,7 +95,6 @@ public class ShopperInteractionDevice {
    * Operating system running on the shopper interaction device.
    * @return os
   **/
-
   @ApiModelProperty(value = "Operating system running on the shopper interaction device.")
 
   public String getOs() {
@@ -119,7 +117,6 @@ public class ShopperInteractionDevice {
    * Version of the operating system on the shopper interaction device.
    * @return osVersion
   **/
-
   @ApiModelProperty(value = "Version of the operating system on the shopper interaction device.")
 
   public String getOsVersion() {

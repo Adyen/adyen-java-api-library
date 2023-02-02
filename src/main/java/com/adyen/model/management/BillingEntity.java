@@ -82,7 +82,6 @@ public class BillingEntity {
    * Get address
    * @return address
   **/
-  
   @ApiModelProperty(value = "")
 
   public Address getAddress() {
@@ -105,7 +104,6 @@ public class BillingEntity {
    * The email address of the billing entity.
    * @return email
   **/
-  
   @ApiModelProperty(value = "The email address of the billing entity.")
 
   public String getEmail() {
@@ -128,7 +126,6 @@ public class BillingEntity {
    * The unique identifier of the billing entity, for use as &#x60;billingEntityId&#x60; when creating an order.
    * @return id
   **/
-  
   @ApiModelProperty(value = "The unique identifier of the billing entity, for use as `billingEntityId` when creating an order.")
 
   public String getId() {
@@ -151,7 +148,6 @@ public class BillingEntity {
    * The unique name of the billing entity.
    * @return name
   **/
-  
   @ApiModelProperty(value = "The unique name of the billing entity.")
 
   public String getName() {
@@ -174,7 +170,6 @@ public class BillingEntity {
    * The tax number of the billing entity.
    * @return taxId
   **/
-  
   @ApiModelProperty(value = "The tax number of the billing entity.")
 
   public String getTaxId() {

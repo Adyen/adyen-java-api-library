@@ -248,7 +248,6 @@ public class Mandate {
    * The billing amount (in minor units) of the recurring transactions.
    * @return amount
   **/
-  
   @ApiModelProperty(required = true, value = "The billing amount (in minor units) of the recurring transactions.")
 
   public String getAmount() {
@@ -271,7 +270,6 @@ public class Mandate {
    * The limitation rule of the billing amount.  Possible values:  * **max**: The transaction amount can not exceed the &#x60;amount&#x60;.   * **exact**: The transaction amount should be the same as the &#x60;amount&#x60;.  
    * @return amountRule
   **/
-  
   @ApiModelProperty(value = "The limitation rule of the billing amount.  Possible values:  * **max**: The transaction amount can not exceed the `amount`.   * **exact**: The transaction amount should be the same as the `amount`.  ")
 
   public AmountRuleEnum getAmountRule() {
@@ -294,7 +292,6 @@ public class Mandate {
    * The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.  Possible values:   * **on**: On a specific date.   * **before**:  Before and on a specific date.   * **after**: On and after a specific date.  
    * @return billingAttemptsRule
   **/
-  
   @ApiModelProperty(value = "The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.  Possible values:   * **on**: On a specific date.   * **before**:  Before and on a specific date.   * **after**: On and after a specific date.  ")
 
   public BillingAttemptsRuleEnum getBillingAttemptsRule() {
@@ -317,7 +314,6 @@ public class Mandate {
    * The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.  Possible values: 1-31 based on the &#x60;frequency&#x60;.
    * @return billingDay
   **/
-  
   @ApiModelProperty(value = "The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.  Possible values: 1-31 based on the `frequency`.")
 
   public String getBillingDay() {
@@ -340,7 +336,6 @@ public class Mandate {
    * End date of the billing plan, in YYYY-MM-DD format.
    * @return endsAt
   **/
-  
   @ApiModelProperty(required = true, value = "End date of the billing plan, in YYYY-MM-DD format.")
 
   public String getEndsAt() {
@@ -363,7 +358,6 @@ public class Mandate {
    * The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.
    * @return frequency
   **/
-  
   @ApiModelProperty(required = true, value = "The frequency with which a shopper should be charged.  Possible values: **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.")
 
   public FrequencyEnum getFrequency() {
@@ -386,7 +380,6 @@ public class Mandate {
    * The message shown by UPI to the shopper on the approval screen.
    * @return remarks
   **/
-  
   @ApiModelProperty(value = "The message shown by UPI to the shopper on the approval screen.")
 
   public String getRemarks() {
@@ -409,7 +402,6 @@ public class Mandate {
    * Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.
    * @return startsAt
   **/
-  
   @ApiModelProperty(value = "Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.")
 
   public String getStartsAt() {

@@ -69,7 +69,6 @@ public class Name2 {
    * The first name.
    * @return firstName
   **/
-
   @ApiModelProperty(value = "The first name.")
 
   public String getFirstName() {
@@ -92,7 +91,6 @@ public class Name2 {
    * The last name.
    * @return lastName
   **/
-
   @ApiModelProperty(value = "The last name.")
 
   public String getLastName() {

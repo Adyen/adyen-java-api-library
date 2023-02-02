@@ -73,7 +73,6 @@ public class CreateStandalonePaymentCancelRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -96,7 +95,6 @@ public class CreateStandalonePaymentCancelRequest {
    * The [&#x60;reference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.
    * @return paymentReference
   **/
-  
   @ApiModelProperty(required = true, value = "The [`reference`](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__reqParam_reference) of the payment that you want to cancel.")
 
   public String getPaymentReference() {
@@ -119,7 +117,6 @@ public class CreateStandalonePaymentCancelRequest {
    * Your reference for the cancel request. Maximum length: 80 characters.
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference for the cancel request. Maximum length: 80 characters.")
 
   public String getReference() {

@@ -129,7 +129,6 @@ public class ModelConfiguration {
    * Get avs
    * @return avs
   **/
-
   @ApiModelProperty(value = "")
 
   public Avs getAvs() {
@@ -152,7 +151,6 @@ public class ModelConfiguration {
    * Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED
    * @return cardHolderName
   **/
-
   @ApiModelProperty(value = "Determines whether the cardholder name should be provided or not.  Permitted values: * NONE * OPTIONAL * REQUIRED")
 
   public CardHolderNameEnum getCardHolderName() {
@@ -175,7 +173,6 @@ public class ModelConfiguration {
    * Get installments
    * @return installments
   **/
-
   @ApiModelProperty(value = "")
 
   public InstallmentsNumber getInstallments() {
@@ -198,7 +195,6 @@ public class ModelConfiguration {
    * Get shopperInput
    * @return shopperInput
   **/
-
   @ApiModelProperty(value = "")
 
   public ShopperInput getShopperInput() {

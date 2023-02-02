@@ -75,7 +75,6 @@ public class JSONPath {
    * Get content
    * @return content
   **/
-  
   @ApiModelProperty(value = "")
 
   public List<String> getContent() {

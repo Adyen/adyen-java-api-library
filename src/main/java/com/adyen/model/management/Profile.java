@@ -134,7 +134,6 @@ public class Profile {
    * The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.
    * @return authType
   **/
-
   @ApiModelProperty(required = true, value = "The type of Wi-Fi network. Possible values: **wpa-psk**, **wpa2-psk**, **wpa-eap**, **wpa2-eap**.")
 
   public String getAuthType() {
@@ -157,7 +156,6 @@ public class Profile {
    * Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.
    * @return autoWifi
   **/
-
   @ApiModelProperty(value = "Indicates whether to automatically select the best authentication method available. Does not work on older terminal models.")
 
   public Boolean getAutoWifi() {
@@ -180,7 +178,6 @@ public class Profile {
    * Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.
    * @return bssType
   **/
-
   @ApiModelProperty(required = true, value = "Use **infra** for infrastructure-based networks. This applies to most networks. Use **adhoc** only if the communication is p2p-based between base stations.")
 
   public String getBssType() {
@@ -203,7 +200,6 @@ public class Profile {
    * The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.
    * @return channel
   **/
-
   @ApiModelProperty(value = "The channel number of the Wi-Fi network. The recommended setting is **0** for automatic channel selection.")
 
   public Integer getChannel() {
@@ -226,7 +222,6 @@ public class Profile {
    * Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.
    * @return defaultProfile
   **/
-
   @ApiModelProperty(value = "Indicates whether this is your preferred wireless network. If **true**, the terminal will try connecting to this network first.")
 
   public Boolean getDefaultProfile() {
@@ -249,7 +244,6 @@ public class Profile {
    * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**
    * @return eap
   **/
-
   @ApiModelProperty(value = "For `authType` **wpa-eap** or **wpa2-eap**. Possible values: **tls**, **peap**, **leap**, **fast**")
 
   public String getEap() {
@@ -272,7 +266,6 @@ public class Profile {
    * Get eapCaCert
    * @return eapCaCert
   **/
-
   @ApiModelProperty(value = "")
 
   public ModelFile getEapCaCert() {
@@ -295,7 +288,6 @@ public class Profile {
    * Get eapClientCert
    * @return eapClientCert
   **/
-
   @ApiModelProperty(value = "")
 
   public ModelFile getEapClientCert() {
@@ -318,7 +310,6 @@ public class Profile {
    * Get eapClientKey
    * @return eapClientKey
   **/
-
   @ApiModelProperty(value = "")
 
   public ModelFile getEapClientKey() {
@@ -341,7 +332,6 @@ public class Profile {
    * For &#x60;eap&#x60; **tls**. The password of the RSA key file, if that file is password-protected.
    * @return eapClientPwd
   **/
-
   @ApiModelProperty(value = "For `eap` **tls**. The password of the RSA key file, if that file is password-protected.")
 
   public String getEapClientPwd() {
@@ -364,7 +354,6 @@ public class Profile {
    * For &#x60;authType&#x60; **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.
    * @return eapIdentity
   **/
-
   @ApiModelProperty(value = "For `authType` **wpa-eap** or **wpa2-eap**. The EAP-PEAP username from your MS-CHAP account. Must match the configuration of your RADIUS server.")
 
   public String getEapIdentity() {
@@ -387,7 +376,6 @@ public class Profile {
    * Get eapIntermediateCert
    * @return eapIntermediateCert
   **/
-
   @ApiModelProperty(value = "")
 
   public ModelFile getEapIntermediateCert() {
@@ -410,7 +398,6 @@ public class Profile {
    * For &#x60;eap&#x60; **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.
    * @return eapPwd
   **/
-
   @ApiModelProperty(value = "For `eap` **peap**. The EAP-PEAP password from your MS-CHAP account. Must match the configuration of your RADIUS server.")
 
   public String getEapPwd() {
@@ -433,7 +420,6 @@ public class Profile {
    * Indicates if the network doesn&#39;t broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.
    * @return hiddenSsid
   **/
-
   @ApiModelProperty(value = "Indicates if the network doesn't broadcast its SSID. Mandatory for Android terminals, because these terminals rely on this setting to be able to connect to any network.")
 
   public Boolean getHiddenSsid() {
@@ -456,7 +442,6 @@ public class Profile {
    * Your name for the Wi-Fi profile.
    * @return name
   **/
-
   @ApiModelProperty(value = "Your name for the Wi-Fi profile.")
 
   public String getName() {
@@ -479,7 +464,6 @@ public class Profile {
    * For &#x60;authType&#x60; **wpa-psk or **wpa2-psk**. The password to the wireless network.
    * @return psk
   **/
-
   @ApiModelProperty(value = "For `authType` **wpa-psk or **wpa2-psk**. The password to the wireless network.")
 
   public String getPsk() {
@@ -502,7 +486,6 @@ public class Profile {
    * The name of the wireless network.
    * @return ssid
   **/
-
   @ApiModelProperty(required = true, value = "The name of the wireless network.")
 
   public String getSsid() {
@@ -525,7 +508,6 @@ public class Profile {
    * The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**
    * @return wsec
   **/
-
   @ApiModelProperty(required = true, value = "The type of encryption. Possible values: **auto**, **ccmp** (recommended), **tkip**")
 
   public String getWsec() {

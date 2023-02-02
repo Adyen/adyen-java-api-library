@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PayUUpiDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   public static final String SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE = "recurringDetailReference";
   @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL_REFERENCE)
   private String recurringDetailReference;
@@ -116,6 +120,28 @@ public class PayUUpiDetails {
   public PayUUpiDetails() { 
   }
 
+  public PayUUpiDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public PayUUpiDetails recurringDetailReference(String recurringDetailReference) {
     
     this.recurringDetailReference = recurringDetailReference;
@@ -128,7 +154,6 @@ public class PayUUpiDetails {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -151,7 +176,6 @@ public class PayUUpiDetails {
    * The &#x60;shopperNotificationReference&#x60; returned in the response when you requested to notify the shopper. Used for recurring payment only.
    * @return shopperNotificationReference
   **/
-
   @ApiModelProperty(value = "The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only.")
 
   public String getShopperNotificationReference() {
@@ -174,7 +198,6 @@ public class PayUUpiDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -197,7 +220,6 @@ public class PayUUpiDetails {
    * **payu_IN_upi**
    * @return type
   **/
-
   @ApiModelProperty(required = true, value = "**payu_IN_upi**")
 
   public TypeEnum getType() {
@@ -220,7 +242,6 @@ public class PayUUpiDetails {
    * The virtual payment address for UPI.
    * @return virtualPaymentAddress
   **/
-
   @ApiModelProperty(value = "The virtual payment address for UPI.")
 
   public String getVirtualPaymentAddress() {
@@ -243,7 +264,8 @@ public class PayUUpiDetails {
       return false;
     }
     PayUUpiDetails payUUpiDetails = (PayUUpiDetails) o;
-    return Objects.equals(this.recurringDetailReference, payUUpiDetails.recurringDetailReference) &&
+    return Objects.equals(this.checkoutAttemptId, payUUpiDetails.checkoutAttemptId) &&
+        Objects.equals(this.recurringDetailReference, payUUpiDetails.recurringDetailReference) &&
         Objects.equals(this.shopperNotificationReference, payUUpiDetails.shopperNotificationReference) &&
         Objects.equals(this.storedPaymentMethodId, payUUpiDetails.storedPaymentMethodId) &&
         Objects.equals(this.type, payUUpiDetails.type) &&
@@ -252,13 +274,14 @@ public class PayUUpiDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(recurringDetailReference, shopperNotificationReference, storedPaymentMethodId, type, virtualPaymentAddress);
+    return Objects.hash(checkoutAttemptId, recurringDetailReference, shopperNotificationReference, storedPaymentMethodId, type, virtualPaymentAddress);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayUUpiDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
     sb.append("    shopperNotificationReference: ").append(toIndentedString(shopperNotificationReference)).append("\n");
     sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
@@ -286,6 +309,7 @@ public class PayUUpiDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("recurringDetailReference");
     openapiFields.add("shopperNotificationReference");
     openapiFields.add("storedPaymentMethodId");
@@ -325,6 +349,10 @@ public class PayUUpiDetails {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // validate the optional field recurringDetailReference
       if (jsonObj.get("recurringDetailReference") != null && !jsonObj.get("recurringDetailReference").isJsonPrimitive()) {

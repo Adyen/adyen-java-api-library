@@ -66,7 +66,6 @@ public class ThreeDS2ResultResponse {
    * Get threeDS2Result
    * @return threeDS2Result
   **/
-
   @ApiModelProperty(value = "")
 
   public ThreeDS2Result getThreeDS2Result() {

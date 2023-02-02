@@ -69,7 +69,6 @@ public class MatchingTransactionsRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -92,7 +91,6 @@ public class MatchingTransactionsRestriction {
    * The number of transactions.
    * @return value
   **/
-
   @ApiModelProperty(value = "The number of transactions.")
 
   public Integer getValue() {

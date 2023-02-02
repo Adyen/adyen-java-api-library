@@ -13,23 +13,35 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * BankAccountInfo
@@ -93,7 +105,6 @@ public class BankAccountInfo {
    * The bank account number (without separators).   When this is provided, the &#x60;branchCode&#x60; is also required.
    * @return accountNumber
   **/
-
   @ApiModelProperty(value = "The bank account number (without separators).   When this is provided, the `branchCode` is also required.")
 
   public String getAccountNumber() {
@@ -118,7 +129,6 @@ public class BankAccountInfo {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "The type of bank account.")
 
   public String getAccountType() {
@@ -141,7 +151,6 @@ public class BankAccountInfo {
    * The bank&#39;s BIC or SWIFT code.
    * @return bankBicSwift
   **/
-
   @ApiModelProperty(value = "The bank's BIC or SWIFT code.")
 
   public String getBankBicSwift() {
@@ -164,7 +173,6 @@ public class BankAccountInfo {
    * The city where the bank is located.
    * @return bankCity
   **/
-
   @ApiModelProperty(value = "The city where the bank is located.")
 
   public String getBankCity() {
@@ -187,7 +195,6 @@ public class BankAccountInfo {
    * The bank code of the banking institution with which the bank account is registered.
    * @return bankCode
   **/
-
   @ApiModelProperty(value = "The bank code of the banking institution with which the bank account is registered.")
 
   public String getBankCode() {
@@ -210,7 +217,6 @@ public class BankAccountInfo {
    * The name of the banking institution where the bank account is held.
    * @return bankName
   **/
-
   @ApiModelProperty(value = "The name of the banking institution where the bank account is held.")
 
   public String getBankName() {
@@ -233,7 +239,6 @@ public class BankAccountInfo {
    * The branch code of the branch under which the bank account is registered.  Required when you provide an &#x60;accountNumber&#x60;.   In the following countries, this value corresponds to:   * United States: routing number * United Kingdom: sort code * Germany: Bankleitzahl
    * @return branchCode
   **/
-
   @ApiModelProperty(value = "The branch code of the branch under which the bank account is registered.  Required when you provide an `accountNumber`.   In the following countries, this value corresponds to:   * United States: routing number * United Kingdom: sort code * Germany: Bankleitzahl")
 
   public String getBranchCode() {
@@ -256,7 +261,6 @@ public class BankAccountInfo {
    * The check code of the bank account.
    * @return checkCode
   **/
-
   @ApiModelProperty(value = "The check code of the bank account.")
 
   public String getCheckCode() {
@@ -279,7 +283,6 @@ public class BankAccountInfo {
    * The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.
    * @return countryCode
   **/
-
   @ApiModelProperty(required = true, value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the bank account is registered. For example, **NL**.")
 
   public String getCountryCode() {
@@ -302,7 +305,6 @@ public class BankAccountInfo {
    * The account&#39;s three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **EUR**.
    * @return currencyCode
   **/
-
   @ApiModelProperty(required = true, value = "The account's three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). For example, **EUR**.")
 
   public String getCurrencyCode() {
@@ -325,7 +327,6 @@ public class BankAccountInfo {
    * The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
    * @return iban
   **/
-
   @ApiModelProperty(value = "The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.")
 
   public String getIban() {

@@ -13,26 +13,44 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.Address;
+import com.adyen.model.legalentitymanagement.BirthData;
+import com.adyen.model.legalentitymanagement.IdentificationData;
+import com.adyen.model.legalentitymanagement.Name;
+import com.adyen.model.legalentitymanagement.PhoneNumber;
+import com.adyen.model.legalentitymanagement.TaxInformation;
+import com.adyen.model.legalentitymanagement.WebData;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Individual
@@ -88,7 +106,6 @@ public class Individual {
    * Get birthData
    * @return birthData
   **/
-
   @ApiModelProperty(value = "")
 
   public BirthData getBirthData() {
@@ -111,7 +128,6 @@ public class Individual {
    * The email address of the legal entity.
    * @return email
   **/
-
   @ApiModelProperty(value = "The email address of the legal entity.")
 
   public String getEmail() {
@@ -134,7 +150,6 @@ public class Individual {
    * Get identificationData
    * @return identificationData
   **/
-
   @ApiModelProperty(value = "")
 
   public IdentificationData getIdentificationData() {
@@ -157,7 +172,6 @@ public class Individual {
    * Get name
    * @return name
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public Name getName() {
@@ -180,7 +194,6 @@ public class Individual {
    * The individual&#39;s nationality.
    * @return nationality
   **/
-
   @ApiModelProperty(value = "The individual's nationality.")
 
   public String getNationality() {
@@ -203,7 +216,6 @@ public class Individual {
    * Get phone
    * @return phone
   **/
-
   @ApiModelProperty(value = "")
 
   public PhoneNumber getPhone() {
@@ -226,7 +238,6 @@ public class Individual {
    * Get residentialAddress
    * @return residentialAddress
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public Address getResidentialAddress() {
@@ -257,7 +268,6 @@ public class Individual {
    * The tax information of the individual.
    * @return taxInformation
   **/
-
   @ApiModelProperty(value = "The tax information of the individual.")
 
   public List<TaxInformation> getTaxInformation() {
@@ -280,7 +290,6 @@ public class Individual {
    * Get webData
    * @return webData
   **/
-
   @ApiModelProperty(value = "")
 
   public WebData getWebData() {

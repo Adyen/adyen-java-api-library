@@ -93,7 +93,6 @@ public class AdditionalDataRatepay {
    * Amount the customer has to pay each month.
    * @return ratepayInstallmentAmount
   **/
-  
   @ApiModelProperty(value = "Amount the customer has to pay each month.")
 
   public String getRatepayInstallmentAmount() {
@@ -116,7 +115,6 @@ public class AdditionalDataRatepay {
    * Interest rate of this installment.
    * @return ratepayInterestRate
   **/
-  
   @ApiModelProperty(value = "Interest rate of this installment.")
 
   public String getRatepayInterestRate() {
@@ -139,7 +137,6 @@ public class AdditionalDataRatepay {
    * Amount of the last installment.
    * @return ratepayLastInstallmentAmount
   **/
-  
   @ApiModelProperty(value = "Amount of the last installment.")
 
   public String getRatepayLastInstallmentAmount() {
@@ -162,7 +159,6 @@ public class AdditionalDataRatepay {
    * Calendar day of the first payment.
    * @return ratepayPaymentFirstday
   **/
-  
   @ApiModelProperty(value = "Calendar day of the first payment.")
 
   public String getRatepayPaymentFirstday() {
@@ -185,7 +181,6 @@ public class AdditionalDataRatepay {
    * Date the merchant delivered the goods to the customer.
    * @return ratepaydataDeliveryDate
   **/
-  
   @ApiModelProperty(value = "Date the merchant delivered the goods to the customer.")
 
   public String getRatepaydataDeliveryDate() {
@@ -208,7 +203,6 @@ public class AdditionalDataRatepay {
    * Date by which the customer must settle the payment.
    * @return ratepaydataDueDate
   **/
-  
   @ApiModelProperty(value = "Date by which the customer must settle the payment.")
 
   public String getRatepaydataDueDate() {
@@ -231,7 +225,6 @@ public class AdditionalDataRatepay {
    * Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.
    * @return ratepaydataInvoiceDate
   **/
-  
   @ApiModelProperty(value = "Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.")
 
   public String getRatepaydataInvoiceDate() {
@@ -254,7 +247,6 @@ public class AdditionalDataRatepay {
    * Identification name or number for the invoice, defined by the merchant.
    * @return ratepaydataInvoiceId
   **/
-  
   @ApiModelProperty(value = "Identification name or number for the invoice, defined by the merchant.")
 
   public String getRatepaydataInvoiceId() {

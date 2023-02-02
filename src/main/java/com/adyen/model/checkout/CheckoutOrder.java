@@ -69,7 +69,6 @@ public class CheckoutOrder {
    * The encrypted order data.
    * @return orderData
   **/
-
   @ApiModelProperty(required = true, value = "The encrypted order data.")
 
   public String getOrderData() {
@@ -92,7 +91,6 @@ public class CheckoutOrder {
    * The &#x60;pspReference&#x60; that belongs to the order.
    * @return pspReference
   **/
-
   @ApiModelProperty(required = true, value = "The `pspReference` that belongs to the order.")
 
   public String getPspReference() {

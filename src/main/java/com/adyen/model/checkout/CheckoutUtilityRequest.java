@@ -72,7 +72,6 @@ public class CheckoutUtilityRequest {
    * The list of origin domains, for which origin keys are requested.
    * @return originDomains
   **/
-
   @ApiModelProperty(required = true, value = "The list of origin domains, for which origin keys are requested.")
 
   public List<String> getOriginDomains() {

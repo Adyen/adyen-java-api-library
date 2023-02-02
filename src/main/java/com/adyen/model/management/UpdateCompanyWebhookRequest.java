@@ -332,7 +332,6 @@ public class UpdateCompanyWebhookRequest {
    * Indicates if expired SSL certificates are accepted. Default value: **false**.
    * @return acceptsExpiredCertificate
   **/
-
   @ApiModelProperty(value = "Indicates if expired SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsExpiredCertificate() {
@@ -355,7 +354,6 @@ public class UpdateCompanyWebhookRequest {
    * Indicates if self-signed SSL certificates are accepted. Default value: **false**.
    * @return acceptsSelfSignedCertificate
   **/
-
   @ApiModelProperty(value = "Indicates if self-signed SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsSelfSignedCertificate() {
@@ -378,7 +376,6 @@ public class UpdateCompanyWebhookRequest {
    * Indicates if untrusted SSL certificates are accepted. Default value: **false**.
    * @return acceptsUntrustedRootCertificate
   **/
-
   @ApiModelProperty(value = "Indicates if untrusted SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsUntrustedRootCertificate() {
@@ -401,7 +398,6 @@ public class UpdateCompanyWebhookRequest {
    * Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.
    * @return active
   **/
-
   @ApiModelProperty(value = "Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.")
 
   public Boolean getActive() {
@@ -424,7 +420,6 @@ public class UpdateCompanyWebhookRequest {
    * Get additionalSettings
    * @return additionalSettings
   **/
-
   @ApiModelProperty(value = "")
 
   public AdditionalSettings getAdditionalSettings() {
@@ -447,7 +442,6 @@ public class UpdateCompanyWebhookRequest {
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
    * @return communicationFormat
   **/
-
   @ApiModelProperty(example = "SOAP", value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
 
   public CommunicationFormatEnum getCommunicationFormat() {
@@ -470,7 +464,6 @@ public class UpdateCompanyWebhookRequest {
    * Your description for this webhook configuration.
    * @return description
   **/
-
   @ApiModelProperty(value = "Your description for this webhook configuration.")
 
   public String getDescription() {
@@ -493,7 +486,6 @@ public class UpdateCompanyWebhookRequest {
    * Shows how merchant accounts are filtered when configuring the webhook. Possible values: * **includeAccounts**: The webhook is configured for the merchant accounts listed in &#x60;filterMerchantAccounts&#x60;. * **excludeAccounts**: The webhook is not configured for the merchant accounts listed in &#x60;filterMerchantAccounts&#x60;. * **allAccounts**: Includes all merchant accounts, and does not require specifying &#x60;filterMerchantAccounts&#x60;.
    * @return filterMerchantAccountType
   **/
-
   @ApiModelProperty(value = "Shows how merchant accounts are filtered when configuring the webhook. Possible values: * **includeAccounts**: The webhook is configured for the merchant accounts listed in `filterMerchantAccounts`. * **excludeAccounts**: The webhook is not configured for the merchant accounts listed in `filterMerchantAccounts`. * **allAccounts**: Includes all merchant accounts, and does not require specifying `filterMerchantAccounts`.")
 
   public FilterMerchantAccountTypeEnum getFilterMerchantAccountType() {
@@ -524,7 +516,6 @@ public class UpdateCompanyWebhookRequest {
    * A list of merchant account names that are included or excluded from receiving the webhook. Inclusion or exclusion is based on the value defined for &#x60;filterMerchantAccountType&#x60;.  Required if &#x60;filterMerchantAccountType&#x60; is either: * **includeAccounts** * **excludeAccounts**  Not needed for &#x60;filterMerchantAccountType&#x60;: **allAccounts**.
    * @return filterMerchantAccounts
   **/
-
   @ApiModelProperty(value = "A list of merchant account names that are included or excluded from receiving the webhook. Inclusion or exclusion is based on the value defined for `filterMerchantAccountType`.  Required if `filterMerchantAccountType` is either: * **includeAccounts** * **excludeAccounts**  Not needed for `filterMerchantAccountType`: **allAccounts**.")
 
   public List<String> getFilterMerchantAccounts() {
@@ -547,7 +538,6 @@ public class UpdateCompanyWebhookRequest {
    * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.
    * @return networkType
   **/
-
   @ApiModelProperty(value = "Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.")
 
   public NetworkTypeEnum getNetworkType() {
@@ -570,7 +560,6 @@ public class UpdateCompanyWebhookRequest {
    * Password to access the webhook URL.
    * @return password
   **/
-
   @ApiModelProperty(value = "Password to access the webhook URL.")
 
   public String getPassword() {
@@ -593,7 +582,6 @@ public class UpdateCompanyWebhookRequest {
    * Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if &#x60;communicationFormat&#x60;: **soap**.
    * @return populateSoapActionHeader
   **/
-
   @ApiModelProperty(value = "Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if `communicationFormat`: **soap**.")
 
   public Boolean getPopulateSoapActionHeader() {
@@ -616,7 +604,6 @@ public class UpdateCompanyWebhookRequest {
    * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
    * @return sslVersion
   **/
-
   @ApiModelProperty(example = "TLSv1.2", value = "SSL version to access the public webhook URL specified in the `url` field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use `sslVersion`: **TLSv1.2**.")
 
   public SslVersionEnum getSslVersion() {
@@ -639,7 +626,6 @@ public class UpdateCompanyWebhookRequest {
    * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
    * @return url
   **/
-
   @ApiModelProperty(example = "http://www.adyen.com", required = true, value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
 
   public String getUrl() {
@@ -662,7 +648,6 @@ public class UpdateCompanyWebhookRequest {
    * Username to access the webhook URL.
    * @return username
   **/
-
   @ApiModelProperty(value = "Username to access the webhook URL.")
 
   public String getUsername() {

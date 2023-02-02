@@ -73,7 +73,6 @@ public class SweepCounterparty {
    * The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   You can only use this for periodic sweep schedules such as &#x60;schedule.type&#x60; **daily** or **monthly**.
    * @return balanceAccountId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the destination or source [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts__resParam_id).   You can only use this for periodic sweep schedules such as `schedule.type` **daily** or **monthly**.")
 
   public String getBalanceAccountId() {
@@ -96,7 +95,6 @@ public class SweepCounterparty {
    * The merchant account that will be the source of funds, if you are processing payments with Adyen. You can only use this with sweeps of &#x60;type&#x60; **pull** and &#x60;schedule.type&#x60; **balance**.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(value = "The merchant account that will be the source of funds, if you are processing payments with Adyen. You can only use this with sweeps of `type` **pull** and `schedule.type` **balance**.")
 
   public String getMerchantAccount() {
@@ -119,7 +117,6 @@ public class SweepCounterparty {
    * The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/transferInstruments__resParam_id).  You can also use this in combination with a &#x60;merchantAccount&#x60; and a &#x60;type&#x60; **pull** to start a direct debit request from the source transfer instrument. To use this feature, reach out to your Adyen contact.
    * @return transferInstrumentId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the destination or source [transfer instrument](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/transferInstruments__resParam_id).  You can also use this in combination with a `merchantAccount` and a `type` **pull** to start a direct debit request from the source transfer instrument. To use this feature, reach out to your Adyen contact.")
 
   public String getTransferInstrumentId() {

@@ -111,7 +111,6 @@ public class InputDetail {
    * Configuration parameters for the required input.
    * @return configuration
   **/
-
   @ApiModelProperty(value = "Configuration parameters for the required input.")
 
   public Map<String, String> getConfiguration() {
@@ -142,7 +141,6 @@ public class InputDetail {
    * Input details can also be provided recursively.
    * @return details
   **/
-
   @ApiModelProperty(value = "Input details can also be provided recursively.")
 
   public List<SubInputDetail> getDetails() {
@@ -175,7 +173,6 @@ public class InputDetail {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "Input details can also be provided recursively (deprecated).")
 
   public List<SubInputDetail> getInputDetails() {
@@ -198,7 +195,6 @@ public class InputDetail {
    * In case of a select, the URL from which to query the items.
    * @return itemSearchUrl
   **/
-
   @ApiModelProperty(value = "In case of a select, the URL from which to query the items.")
 
   public String getItemSearchUrl() {
@@ -229,7 +225,6 @@ public class InputDetail {
    * In case of a select, the items to choose from.
    * @return items
   **/
-
   @ApiModelProperty(value = "In case of a select, the items to choose from.")
 
   public List<Item> getItems() {
@@ -252,7 +247,6 @@ public class InputDetail {
    * The value to provide in the result.
    * @return key
   **/
-
   @ApiModelProperty(value = "The value to provide in the result.")
 
   public String getKey() {
@@ -275,7 +269,6 @@ public class InputDetail {
    * True if this input value is optional.
    * @return optional
   **/
-
   @ApiModelProperty(value = "True if this input value is optional.")
 
   public Boolean getOptional() {
@@ -298,7 +291,6 @@ public class InputDetail {
    * The type of the required input.
    * @return type
   **/
-
   @ApiModelProperty(value = "The type of the required input.")
 
   public String getType() {
@@ -321,7 +313,6 @@ public class InputDetail {
    * The value can be pre-filled, if available.
    * @return value
   **/
-
   @ApiModelProperty(value = "The value can be pre-filled, if available.")
 
   public String getValue() {

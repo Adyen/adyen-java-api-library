@@ -13,27 +13,39 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.BankAccountInfo;
+import com.adyen.model.legalentitymanagement.DocumentReference;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * TransferInstrument
@@ -56,12 +68,8 @@ public class TransferInstrument {
   @SerializedName(SERIALIZED_NAME_LEGAL_ENTITY_ID)
   private String legalEntityId;
 
-  public static final String SERIALIZED_NAME_RECURRING_DETAIL = "recurringDetail";
-  @SerializedName(SERIALIZED_NAME_RECURRING_DETAIL)
-  private RecurringDetail recurringDetail;
-
   /**
-   * The type of transfer instrument.  Possible values: **bankAccount**, **recurringDetail**.
+   * The type of transfer instrument.  Possible value: **bankAccount**.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -132,8 +140,7 @@ public class TransferInstrument {
    * Get bankAccount
    * @return bankAccount
   **/
-
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public BankAccountInfo getBankAccount() {
     return bankAccount;
@@ -163,7 +170,6 @@ public class TransferInstrument {
    * List of documents uploaded for the transfer instrument.
    * @return documentDetails
   **/
-
   @ApiModelProperty(value = "List of documents uploaded for the transfer instrument.")
 
   public List<DocumentReference> getDocumentDetails() {
@@ -180,7 +186,6 @@ public class TransferInstrument {
    * The unique identifier of the transfer instrument.
    * @return id
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of the transfer instrument.")
 
   public String getId() {
@@ -200,7 +205,6 @@ public class TransferInstrument {
    * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the transfer instrument.
    * @return legalEntityId
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the transfer instrument.")
 
   public String getLegalEntityId() {
@@ -213,29 +217,6 @@ public class TransferInstrument {
   }
 
 
-  public TransferInstrument recurringDetail(RecurringDetail recurringDetail) {
-    
-    this.recurringDetail = recurringDetail;
-    return this;
-  }
-
-   /**
-   * Get recurringDetail
-   * @return recurringDetail
-  **/
-
-  @ApiModelProperty(value = "")
-
-  public RecurringDetail getRecurringDetail() {
-    return recurringDetail;
-  }
-
-
-  public void setRecurringDetail(RecurringDetail recurringDetail) {
-    this.recurringDetail = recurringDetail;
-  }
-
-
   public TransferInstrument type(TypeEnum type) {
     
     this.type = type;
@@ -243,11 +224,10 @@ public class TransferInstrument {
   }
 
    /**
-   * The type of transfer instrument.  Possible values: **bankAccount**, **recurringDetail**.
+   * The type of transfer instrument.  Possible value: **bankAccount**.
    * @return type
   **/
-
-  @ApiModelProperty(required = true, value = "The type of transfer instrument.  Possible values: **bankAccount**, **recurringDetail**.")
+  @ApiModelProperty(required = true, value = "The type of transfer instrument.  Possible value: **bankAccount**.")
 
   public TypeEnum getType() {
     return type;
@@ -273,13 +253,12 @@ public class TransferInstrument {
         Objects.equals(this.documentDetails, transferInstrument.documentDetails) &&
         Objects.equals(this.id, transferInstrument.id) &&
         Objects.equals(this.legalEntityId, transferInstrument.legalEntityId) &&
-        Objects.equals(this.recurringDetail, transferInstrument.recurringDetail) &&
         Objects.equals(this.type, transferInstrument.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bankAccount, documentDetails, id, legalEntityId, recurringDetail, type);
+    return Objects.hash(bankAccount, documentDetails, id, legalEntityId, type);
   }
 
   @Override
@@ -290,7 +269,6 @@ public class TransferInstrument {
     sb.append("    documentDetails: ").append(toIndentedString(documentDetails)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    legalEntityId: ").append(toIndentedString(legalEntityId)).append("\n");
-    sb.append("    recurringDetail: ").append(toIndentedString(recurringDetail)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -318,11 +296,11 @@ public class TransferInstrument {
     openapiFields.add("documentDetails");
     openapiFields.add("id");
     openapiFields.add("legalEntityId");
-    openapiFields.add("recurringDetail");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("bankAccount");
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("legalEntityId");
     openapiRequiredFields.add("type");
@@ -380,10 +358,6 @@ public class TransferInstrument {
       // validate the optional field legalEntityId
       if (jsonObj.get("legalEntityId") != null && !jsonObj.get("legalEntityId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `legalEntityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("legalEntityId").toString()));
-      }
-      // validate the optional field `recurringDetail`
-      if (jsonObj.getAsJsonObject("recurringDetail") != null) {
-        RecurringDetail.validateJsonObject(jsonObj.getAsJsonObject("recurringDetail"));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

@@ -13,30 +13,45 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * IdentificationData
  */
 
 public class IdentificationData {
+  public static final String SERIALIZED_NAME_CARD_NUMBER = "cardNumber";
+  @SerializedName(SERIALIZED_NAME_CARD_NUMBER)
+  private String cardNumber;
+
   public static final String SERIALIZED_NAME_EXPIRY_DATE = "expiryDate";
   @SerializedName(SERIALIZED_NAME_EXPIRY_DATE)
   private String expiryDate;
@@ -133,6 +148,28 @@ public class IdentificationData {
   public IdentificationData() { 
   }
 
+  public IdentificationData cardNumber(String cardNumber) {
+    
+    this.cardNumber = cardNumber;
+    return this;
+  }
+
+   /**
+   * The card number of the document that was issued (AU only).
+   * @return cardNumber
+  **/
+  @ApiModelProperty(value = "The card number of the document that was issued (AU only).")
+
+  public String getCardNumber() {
+    return cardNumber;
+  }
+
+
+  public void setCardNumber(String cardNumber) {
+    this.cardNumber = cardNumber;
+  }
+
+
   public IdentificationData expiryDate(String expiryDate) {
     
     this.expiryDate = expiryDate;
@@ -145,7 +182,6 @@ public class IdentificationData {
    * @deprecated
   **/
   @Deprecated
-  
   @ApiModelProperty(value = "The expiry date of the document, in YYYY-MM-DD format.")
 
   public String getExpiryDate() {
@@ -170,7 +206,6 @@ public class IdentificationData {
    * @deprecated
   **/
   @Deprecated
-  
   @ApiModelProperty(value = "The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code where the document was issued. For example, **US**.")
 
   public String getIssuerCountry() {
@@ -193,7 +228,6 @@ public class IdentificationData {
    * The state or province where the document was issued (AU only).
    * @return issuerState
   **/
-  
   @ApiModelProperty(value = "The state or province where the document was issued (AU only).")
 
   public String getIssuerState() {
@@ -216,7 +250,6 @@ public class IdentificationData {
    * Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.
    * @return nationalIdExempt
   **/
-  
   @ApiModelProperty(value = "Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document.")
 
   public Boolean getNationalIdExempt() {
@@ -239,7 +272,6 @@ public class IdentificationData {
    * The number in the document.
    * @return number
   **/
-  
   @ApiModelProperty(value = "The number in the document.")
 
   public String getNumber() {
@@ -262,7 +294,6 @@ public class IdentificationData {
    * Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the &#x60;type&#x60; values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading documents: * For **organization**, the &#x60;type&#x60; values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, or **proofOfIndustry**.   * For **individual**, the &#x60;type&#x60; values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, or **proofOfIndividualTaxId**.  * For **soleProprietorship**, the &#x60;type&#x60; values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).
    * @return type
   **/
-  
   @ApiModelProperty(required = true, value = "Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.  When providing ID numbers: * For **individual**, the `type` values can be **driversLicense**, **identityCard**, **nationalIdNumber**, or **passport**.  When uploading documents: * For **organization**, the `type` values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, or **proofOfIndustry**.   * For **individual**, the `type` values can be **identityCard**, **driversLicense**, **passport**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, or **proofOfIndividualTaxId**.  * For **soleProprietorship**, the `type` values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.  * Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id).")
 
   public TypeEnum getType() {
@@ -285,7 +316,8 @@ public class IdentificationData {
       return false;
     }
     IdentificationData identificationData = (IdentificationData) o;
-    return Objects.equals(this.expiryDate, identificationData.expiryDate) &&
+    return Objects.equals(this.cardNumber, identificationData.cardNumber) &&
+        Objects.equals(this.expiryDate, identificationData.expiryDate) &&
         Objects.equals(this.issuerCountry, identificationData.issuerCountry) &&
         Objects.equals(this.issuerState, identificationData.issuerState) &&
         Objects.equals(this.nationalIdExempt, identificationData.nationalIdExempt) &&
@@ -295,13 +327,14 @@ public class IdentificationData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expiryDate, issuerCountry, issuerState, nationalIdExempt, number, type);
+    return Objects.hash(cardNumber, expiryDate, issuerCountry, issuerState, nationalIdExempt, number, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IdentificationData {\n");
+    sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append("\n");
     sb.append("    issuerState: ").append(toIndentedString(issuerState)).append("\n");
@@ -330,6 +363,7 @@ public class IdentificationData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("cardNumber");
     openapiFields.add("expiryDate");
     openapiFields.add("issuerCountry");
     openapiFields.add("issuerState");
@@ -370,6 +404,10 @@ public class IdentificationData {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field cardNumber
+      if (jsonObj.get("cardNumber") != null && !jsonObj.get("cardNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardNumber").toString()));
       }
       // validate the optional field expiryDate
       if (jsonObj.get("expiryDate") != null && !jsonObj.get("expiryDate").isJsonPrimitive()) {

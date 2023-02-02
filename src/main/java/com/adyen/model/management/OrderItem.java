@@ -73,7 +73,6 @@ public class OrderItem {
    * The unique identifier of the product.
    * @return id
   **/
-
   @ApiModelProperty(value = "The unique identifier of the product.")
 
   public String getId() {
@@ -96,7 +95,6 @@ public class OrderItem {
    * The name of the product.
    * @return name
   **/
-
   @ApiModelProperty(value = "The name of the product.")
 
   public String getName() {
@@ -119,7 +117,6 @@ public class OrderItem {
    * The number of items with the specified product &#x60;id&#x60; included in the order.
    * @return quantity
   **/
-
   @ApiModelProperty(value = "The number of items with the specified product `id` included in the order.")
 
   public Integer getQuantity() {

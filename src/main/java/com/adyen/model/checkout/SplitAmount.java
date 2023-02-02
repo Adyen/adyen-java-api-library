@@ -69,7 +69,6 @@ public class SplitAmount {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).  If this value is not provided, the currency in which the payment is made will be used.
    * @return currency
   **/
-
   @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).  If this value is not provided, the currency in which the payment is made will be used.")
 
   public String getCurrency() {
@@ -92,7 +91,6 @@ public class SplitAmount {
    * The amount in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return value
   **/
-
   @ApiModelProperty(required = true, value = "The amount in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
   public Long getValue() {

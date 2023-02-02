@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class CellulantDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   public static final String SERIALIZED_NAME_ISSUER = "issuer";
   @SerializedName(SERIALIZED_NAME_ISSUER)
   private String issuer;
@@ -104,6 +108,28 @@ public class CellulantDetails {
   public CellulantDetails() { 
   }
 
+  public CellulantDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public CellulantDetails issuer(String issuer) {
     
     this.issuer = issuer;
@@ -114,7 +140,6 @@ public class CellulantDetails {
    * The Cellulant issuer.
    * @return issuer
   **/
-
   @ApiModelProperty(value = "The Cellulant issuer.")
 
   public String getIssuer() {
@@ -137,7 +162,6 @@ public class CellulantDetails {
    * **Cellulant**
    * @return type
   **/
-
   @ApiModelProperty(value = "**Cellulant**")
 
   public TypeEnum getType() {
@@ -160,19 +184,21 @@ public class CellulantDetails {
       return false;
     }
     CellulantDetails cellulantDetails = (CellulantDetails) o;
-    return Objects.equals(this.issuer, cellulantDetails.issuer) &&
+    return Objects.equals(this.checkoutAttemptId, cellulantDetails.checkoutAttemptId) &&
+        Objects.equals(this.issuer, cellulantDetails.issuer) &&
         Objects.equals(this.type, cellulantDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(issuer, type);
+    return Objects.hash(checkoutAttemptId, issuer, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CellulantDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -197,6 +223,7 @@ public class CellulantDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("issuer");
     openapiFields.add("type");
 
@@ -225,6 +252,10 @@ public class CellulantDetails {
         if (!CellulantDetails.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CellulantDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // validate the optional field issuer
       if (jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonPrimitive()) {

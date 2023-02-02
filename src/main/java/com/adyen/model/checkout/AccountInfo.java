@@ -448,7 +448,6 @@ public class AccountInfo {
    * Indicator for the length of time since this shopper account was created in the merchant&#39;s environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return accountAgeIndicator
   **/
-
   @ApiModelProperty(value = "Indicator for the length of time since this shopper account was created in the merchant's environment. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days")
 
   public AccountAgeIndicatorEnum getAccountAgeIndicator() {
@@ -471,7 +470,6 @@ public class AccountInfo {
    * Date when the shopper&#39;s account was last changed.
    * @return accountChangeDate
   **/
-
   @ApiModelProperty(value = "Date when the shopper's account was last changed.")
 
   public OffsetDateTime getAccountChangeDate() {
@@ -494,7 +492,6 @@ public class AccountInfo {
    * Indicator for the length of time since the shopper&#39;s account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return accountChangeIndicator
   **/
-
   @ApiModelProperty(value = "Indicator for the length of time since the shopper's account was last updated. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days")
 
   public AccountChangeIndicatorEnum getAccountChangeIndicator() {
@@ -517,7 +514,6 @@ public class AccountInfo {
    * Date when the shopper&#39;s account was created.
    * @return accountCreationDate
   **/
-
   @ApiModelProperty(value = "Date when the shopper's account was created.")
 
   public OffsetDateTime getAccountCreationDate() {
@@ -540,7 +536,6 @@ public class AccountInfo {
    * Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit
    * @return accountType
   **/
-
   @ApiModelProperty(value = "Indicates the type of account. For example, for a multi-account card product. Allowed values: * notApplicable * credit * debit")
 
   public AccountTypeEnum getAccountType() {
@@ -563,7 +558,6 @@ public class AccountInfo {
    * Number of attempts the shopper tried to add a card to their account in the last day.
    * @return addCardAttemptsDay
   **/
-
   @ApiModelProperty(value = "Number of attempts the shopper tried to add a card to their account in the last day.")
 
   public Integer getAddCardAttemptsDay() {
@@ -586,7 +580,6 @@ public class AccountInfo {
    * Date the selected delivery address was first used.
    * @return deliveryAddressUsageDate
   **/
-
   @ApiModelProperty(value = "Date the selected delivery address was first used.")
 
   public OffsetDateTime getDeliveryAddressUsageDate() {
@@ -609,7 +602,6 @@ public class AccountInfo {
    * Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return deliveryAddressUsageIndicator
   **/
-
   @ApiModelProperty(value = "Indicator for the length of time since this delivery address was first used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days")
 
   public DeliveryAddressUsageIndicatorEnum getDeliveryAddressUsageIndicator() {
@@ -634,7 +626,6 @@ public class AccountInfo {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "Shopper's home phone number (including the country code).")
 
   public String getHomePhone() {
@@ -659,7 +650,6 @@ public class AccountInfo {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "Shopper's mobile phone number (including the country code).")
 
   public String getMobilePhone() {
@@ -682,7 +672,6 @@ public class AccountInfo {
    * Date when the shopper last changed their password.
    * @return passwordChangeDate
   **/
-
   @ApiModelProperty(value = "Date when the shopper last changed their password.")
 
   public OffsetDateTime getPasswordChangeDate() {
@@ -705,7 +694,6 @@ public class AccountInfo {
    * Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return passwordChangeIndicator
   **/
-
   @ApiModelProperty(value = "Indicator when the shopper has changed their password. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days")
 
   public PasswordChangeIndicatorEnum getPasswordChangeIndicator() {
@@ -728,7 +716,6 @@ public class AccountInfo {
    * Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.
    * @return pastTransactionsDay
   **/
-
   @ApiModelProperty(value = "Number of all transactions (successful and abandoned) from this shopper in the past 24 hours.")
 
   public Integer getPastTransactionsDay() {
@@ -751,7 +738,6 @@ public class AccountInfo {
    * Number of all transactions (successful and abandoned) from this shopper in the past year.
    * @return pastTransactionsYear
   **/
-
   @ApiModelProperty(value = "Number of all transactions (successful and abandoned) from this shopper in the past year.")
 
   public Integer getPastTransactionsYear() {
@@ -774,7 +760,6 @@ public class AccountInfo {
    * Date this payment method was added to the shopper&#39;s account.
    * @return paymentAccountAge
   **/
-
   @ApiModelProperty(value = "Date this payment method was added to the shopper's account.")
 
   public OffsetDateTime getPaymentAccountAge() {
@@ -797,7 +782,6 @@ public class AccountInfo {
    * Indicator for the length of time since this payment method was added to this shopper&#39;s account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
    * @return paymentAccountIndicator
   **/
-
   @ApiModelProperty(value = "Indicator for the length of time since this payment method was added to this shopper's account. Allowed values: * notApplicable * thisTransaction * lessThan30Days * from30To60Days * moreThan60Days")
 
   public PaymentAccountIndicatorEnum getPaymentAccountIndicator() {
@@ -820,7 +804,6 @@ public class AccountInfo {
    * Number of successful purchases in the last six months.
    * @return purchasesLast6Months
   **/
-
   @ApiModelProperty(value = "Number of successful purchases in the last six months.")
 
   public Integer getPurchasesLast6Months() {
@@ -843,7 +826,6 @@ public class AccountInfo {
    * Whether suspicious activity was recorded on this account.
    * @return suspiciousActivity
   **/
-
   @ApiModelProperty(value = "Whether suspicious activity was recorded on this account.")
 
   public Boolean getSuspiciousActivity() {
@@ -868,7 +850,6 @@ public class AccountInfo {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "Shopper's work phone number (including the country code).")
 
   public String getWorkPhone() {

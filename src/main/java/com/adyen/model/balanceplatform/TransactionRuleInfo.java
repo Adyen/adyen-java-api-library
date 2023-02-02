@@ -190,7 +190,7 @@ public class TransactionRuleInfo {
   private StatusEnum status;
 
   /**
-   * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which definesif a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:   * **blockList**: decline a transaction when the conditions are met.   * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.   * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. 
+   * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines if a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:  * **blockList**: decline a transaction when the conditions are met.  * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.  * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. 
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -257,7 +257,6 @@ public class TransactionRuleInfo {
    * The level at which data must be accumulated, used in rules with &#x60;type&#x60; **velocity** or **maxUsage**. The level must be the [same or lower in hierarchy](https://docs.adyen.com/issuing/transaction-rules#accumulate-data) than the &#x60;entityKey&#x60;.  If not provided, by default, the rule will accumulate data at the **paymentInstrument** level.  Possible values: **paymentInstrument**, **paymentInstrumentGroup**, **balanceAccount**, **accountHolder**, **balancePlatform**.
    * @return aggregationLevel
   **/
-
   @ApiModelProperty(value = "The level at which data must be accumulated, used in rules with `type` **velocity** or **maxUsage**. The level must be the [same or lower in hierarchy](https://docs.adyen.com/issuing/transaction-rules#accumulate-data) than the `entityKey`.  If not provided, by default, the rule will accumulate data at the **paymentInstrument** level.  Possible values: **paymentInstrument**, **paymentInstrumentGroup**, **balanceAccount**, **accountHolder**, **balancePlatform**.")
 
   public String getAggregationLevel() {
@@ -280,7 +279,6 @@ public class TransactionRuleInfo {
    * Your description for the transaction rule, maximum 300 characters.
    * @return description
   **/
-
   @ApiModelProperty(required = true, value = "Your description for the transaction rule, maximum 300 characters.")
 
   public String getDescription() {
@@ -303,7 +301,6 @@ public class TransactionRuleInfo {
    * The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided, the rule will be evaluated until the rule status is set to **inactive**.
    * @return endDate
   **/
-
   @ApiModelProperty(value = "The date when the rule will stop being evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided, the rule will be evaluated until the rule status is set to **inactive**.")
 
   public String getEndDate() {
@@ -326,7 +323,6 @@ public class TransactionRuleInfo {
    * Get entityKey
    * @return entityKey
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public TransactionRuleEntityKey getEntityKey() {
@@ -349,7 +345,6 @@ public class TransactionRuleInfo {
    * Get interval
    * @return interval
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public TransactionRuleInterval getInterval() {
@@ -372,7 +367,6 @@ public class TransactionRuleInfo {
    * The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule. If not provided, by default, this is set to **hardBlock**.  Possible values:   * **hardBlock**: the transaction is declined.  * **scoreBased**: the transaction is assigned the &#x60;score&#x60; you specified. Adyen calculates the total score and if it exceeds 100, the transaction is declined.
    * @return outcomeType
   **/
-
   @ApiModelProperty(value = "The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule. If not provided, by default, this is set to **hardBlock**.  Possible values:   * **hardBlock**: the transaction is declined.  * **scoreBased**: the transaction is assigned the `score` you specified. Adyen calculates the total score and if it exceeds 100, the transaction is declined.")
 
   public OutcomeTypeEnum getOutcomeType() {
@@ -395,7 +389,6 @@ public class TransactionRuleInfo {
    * Your reference for the transaction rule, maximum 150 characters.
    * @return reference
   **/
-
   @ApiModelProperty(required = true, value = "Your reference for the transaction rule, maximum 150 characters.")
 
   public String getReference() {
@@ -418,7 +411,6 @@ public class TransactionRuleInfo {
    * Get ruleRestrictions
    * @return ruleRestrictions
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public TransactionRuleRestrictions getRuleRestrictions() {
@@ -441,7 +433,6 @@ public class TransactionRuleInfo {
    * A positive or negative score applied to the transaction if it meets the conditions of the rule. Required when &#x60;outcomeType&#x60; is **scoreBased**.  The value must be between **-100** and **100**.
    * @return score
   **/
-
   @ApiModelProperty(value = "A positive or negative score applied to the transaction if it meets the conditions of the rule. Required when `outcomeType` is **scoreBased**.  The value must be between **-100** and **100**.")
 
   public Integer getScore() {
@@ -464,7 +455,6 @@ public class TransactionRuleInfo {
    * The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided when creating a transaction rule, the &#x60;startDate&#x60; is set to the date when the rule status is set to **active**.   
    * @return startDate
   **/
-
   @ApiModelProperty(value = "The date when the rule will start to be evaluated, in ISO 8601 extended offset date-time format. For example, **2020-12-18T10:15:30+01:00**.  If not provided when creating a transaction rule, the `startDate` is set to the date when the rule status is set to **active**.   ")
 
   public String getStartDate() {
@@ -487,7 +477,6 @@ public class TransactionRuleInfo {
    * The status of the transaction rule. If you provide a &#x60;startDate&#x60; in the request, the rule is automatically created  with an **active** status.   Possible values: **active**, **inactive**.
    * @return status
   **/
-
   @ApiModelProperty(value = "The status of the transaction rule. If you provide a `startDate` in the request, the rule is automatically created  with an **active** status.   Possible values: **active**, **inactive**.")
 
   public StatusEnum getStatus() {
@@ -507,11 +496,10 @@ public class TransactionRuleInfo {
   }
 
    /**
-   * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which definesif a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:   * **blockList**: decline a transaction when the conditions are met.   * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.   * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. 
+   * The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines if a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:  * **blockList**: decline a transaction when the conditions are met.  * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.  * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. 
    * @return type
   **/
-
-  @ApiModelProperty(required = true, value = "The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which definesif a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:   * **blockList**: decline a transaction when the conditions are met.   * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.   * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. ")
+  @ApiModelProperty(required = true, value = "The [type of rule](https://docs.adyen.com/issuing/transaction-rules#rule-types), which defines if a rule blocks transactions based on individual characteristics or accumulates data.  Possible values:  * **blockList**: decline a transaction when the conditions are met.  * **maxUsage**: add the amount or number of transactions for the lifetime of a payment instrument, and then decline a transaction when the specified limits are met.  * **velocity**: add the amount or number of transactions based on a specified time interval, and then decline a transaction when the specified limits are met. ")
 
   public TypeEnum getType() {
     return type;

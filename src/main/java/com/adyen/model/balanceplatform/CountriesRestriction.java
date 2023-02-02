@@ -71,7 +71,6 @@ public class CountriesRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -102,7 +101,6 @@ public class CountriesRestriction {
    * List of two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
    * @return value
   **/
-
   @ApiModelProperty(value = "List of two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.")
 
   public List<String> getValue() {

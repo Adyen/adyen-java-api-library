@@ -69,7 +69,6 @@ public class PermitResult {
    * The key to link permit requests to permit results.
    * @return resultKey
   **/
-
   @ApiModelProperty(value = "The key to link permit requests to permit results.")
 
   public String getResultKey() {
@@ -92,7 +91,6 @@ public class PermitResult {
    * The permit token which is used to make payments by the partner company.
    * @return token
   **/
-
   @ApiModelProperty(value = "The permit token which is used to make payments by the partner company.")
 
   public String getToken() {

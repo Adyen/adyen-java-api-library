@@ -132,7 +132,6 @@ public class CreatePaymentAmountUpdateRequest {
    * Get amount
    * @return amount
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -155,7 +154,6 @@ public class CreatePaymentAmountUpdateRequest {
    * The merchant account that is used to process the payment.
    * @return merchantAccount
   **/
-  
   @ApiModelProperty(required = true, value = "The merchant account that is used to process the payment.")
 
   public String getMerchantAccount() {
@@ -178,7 +176,6 @@ public class CreatePaymentAmountUpdateRequest {
    * The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**
    * @return reason
   **/
-
   @ApiModelProperty(value = "The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**")
 
   public ReasonEnum getReason() {
@@ -201,7 +198,6 @@ public class CreatePaymentAmountUpdateRequest {
    * Your reference for the amount update request. Maximum length: 80 characters.
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference for the amount update request. Maximum length: 80 characters.")
 
   public String getReference() {
@@ -232,7 +228,6 @@ public class CreatePaymentAmountUpdateRequest {
    * An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).
    * @return splits
   **/
-
   @ApiModelProperty(value = "An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For details, refer to [Providing split information](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information).")
 
   public List<Split> getSplits() {

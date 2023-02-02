@@ -93,7 +93,6 @@ public class ResponseAdditionalDataCard {
    * The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
    * @return cardBin
   **/
-
   @ApiModelProperty(value = "The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234")
 
   public String getCardBin() {
@@ -116,7 +115,6 @@ public class ResponseAdditionalDataCard {
    * The cardholder name passed in the payment request.
    * @return cardHolderName
   **/
-
   @ApiModelProperty(value = "The cardholder name passed in the payment request.")
 
   public String getCardHolderName() {
@@ -139,7 +137,6 @@ public class ResponseAdditionalDataCard {
    * The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.
    * @return cardIssuingBank
   **/
-
   @ApiModelProperty(value = "The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.")
 
   public String getCardIssuingBank() {
@@ -162,7 +159,6 @@ public class ResponseAdditionalDataCard {
    * The country where the card was issued.  Example: US
    * @return cardIssuingCountry
   **/
-
   @ApiModelProperty(value = "The country where the card was issued.  Example: US")
 
   public String getCardIssuingCountry() {
@@ -185,7 +181,6 @@ public class ResponseAdditionalDataCard {
    * The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD
    * @return cardIssuingCurrency
   **/
-
   @ApiModelProperty(value = "The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD")
 
   public String getCardIssuingCurrency() {
@@ -208,7 +203,6 @@ public class ResponseAdditionalDataCard {
    * The card payment method used for the transaction.  Example: amex
    * @return cardPaymentMethod
   **/
-
   @ApiModelProperty(value = "The card payment method used for the transaction.  Example: amex")
 
   public String getCardPaymentMethod() {
@@ -231,7 +225,6 @@ public class ResponseAdditionalDataCard {
    * The last four digits of a card number.  &gt; Returned only in case of a card payment.
    * @return cardSummary
   **/
-
   @ApiModelProperty(value = "The last four digits of a card number.  > Returned only in case of a card payment.")
 
   public String getCardSummary() {
@@ -254,7 +247,6 @@ public class ResponseAdditionalDataCard {
    * The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423
    * @return issuerBin
   **/
-
   @ApiModelProperty(value = "The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423")
 
   public String getIssuerBin() {

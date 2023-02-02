@@ -81,7 +81,6 @@ public class ResponseAdditionalData3DSecure {
    * Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. 
    * @return cardHolderInfo
   **/
-
   @ApiModelProperty(value = "Information provided by the issuer to the cardholder. If this field is present, you need to display this information to the cardholder. ")
 
   public String getCardHolderInfo() {
@@ -104,7 +103,6 @@ public class ResponseAdditionalData3DSecure {
    * The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.
    * @return cavv
   **/
-
   @ApiModelProperty(value = "The Cardholder Authentication Verification Value (CAVV) for the 3D Secure authentication session, as a Base64-encoded 20-byte array.")
 
   public String getCavv() {
@@ -127,7 +125,6 @@ public class ResponseAdditionalData3DSecure {
    * The CAVV algorithm used.
    * @return cavvAlgorithm
   **/
-
   @ApiModelProperty(value = "The CAVV algorithm used.")
 
   public String getCavvAlgorithm() {
@@ -150,7 +147,6 @@ public class ResponseAdditionalData3DSecure {
    * Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** 
    * @return scaExemptionRequested
   **/
-
   @ApiModelProperty(value = "Shows the [exemption type](https://docs.adyen.com/payments-fundamentals/psd2-sca-compliance-and-implementation-guide#specifypreferenceinyourapirequest) that Adyen requested for the payment.   Possible values: * **lowValue**  * **secureCorporate**  * **trustedBeneficiary**  * **transactionRiskAnalysis** ")
 
   public String getScaExemptionRequested() {
@@ -173,7 +169,6 @@ public class ResponseAdditionalData3DSecure {
    * Indicates whether a card is enrolled for 3D Secure 2.
    * @return threeds2CardEnrolled
   **/
-
   @ApiModelProperty(value = "Indicates whether a card is enrolled for 3D Secure 2.")
 
   public Boolean getThreeds2CardEnrolled() {

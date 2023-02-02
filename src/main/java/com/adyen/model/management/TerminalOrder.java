@@ -98,7 +98,6 @@ public class TerminalOrder {
    * Get billingEntity
    * @return billingEntity
   **/
-
   @ApiModelProperty(value = "")
 
   public BillingEntity getBillingEntity() {
@@ -121,7 +120,6 @@ public class TerminalOrder {
    * The merchant-defined purchase order number. This will be printed on the packing list.
    * @return customerOrderReference
   **/
-
   @ApiModelProperty(value = "The merchant-defined purchase order number. This will be printed on the packing list.")
 
   public String getCustomerOrderReference() {
@@ -144,7 +142,6 @@ public class TerminalOrder {
    * The unique identifier of the order.
    * @return id
   **/
-
   @ApiModelProperty(value = "The unique identifier of the order.")
 
   public String getId() {
@@ -175,7 +172,6 @@ public class TerminalOrder {
    * The products included in the order.
    * @return items
   **/
-
   @ApiModelProperty(value = "The products included in the order.")
 
   public List<OrderItem> getItems() {
@@ -198,7 +194,6 @@ public class TerminalOrder {
    * The date and time that the order was placed, in UTC ISO 8601 format. For example, \&quot;2011-12-03T10:15:30Z\&quot;.
    * @return orderDate
   **/
-
   @ApiModelProperty(value = "The date and time that the order was placed, in UTC ISO 8601 format. For example, \"2011-12-03T10:15:30Z\".")
 
   public String getOrderDate() {
@@ -221,7 +216,6 @@ public class TerminalOrder {
    * Get shippingLocation
    * @return shippingLocation
   **/
-
   @ApiModelProperty(value = "")
 
   public ShippingLocation getShippingLocation() {
@@ -244,7 +238,6 @@ public class TerminalOrder {
    * The processing status of the order.
    * @return status
   **/
-
   @ApiModelProperty(value = "The processing status of the order.")
 
   public String getStatus() {
@@ -267,7 +260,6 @@ public class TerminalOrder {
    * The URL, provided by the carrier company, where the shipment can be tracked.
    * @return trackingUrl
   **/
-
   @ApiModelProperty(value = "The URL, provided by the carrier company, where the shipment can be tracked.")
 
   public String getTrackingUrl() {

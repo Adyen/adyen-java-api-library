@@ -129,7 +129,6 @@ public class VerificationErrorRecursive {
    * The verification error code.
    * @return code
   **/
-
   @ApiModelProperty(value = "The verification error code.")
 
   public String getCode() {
@@ -152,7 +151,6 @@ public class VerificationErrorRecursive {
    * A description of the error.
    * @return message
   **/
-
   @ApiModelProperty(value = "A description of the error.")
 
   public String getMessage() {
@@ -175,7 +173,6 @@ public class VerificationErrorRecursive {
    * The type of error.   Possible values: **invalidInput**, **dataMissing**.
    * @return type
   **/
-
   @ApiModelProperty(value = "The type of error.   Possible values: **invalidInput**, **dataMissing**.")
 
   public TypeEnum getType() {
@@ -206,7 +203,6 @@ public class VerificationErrorRecursive {
    * Contains the actions that you can take to resolve the verification error.
    * @return remediatingActions
   **/
-
   @ApiModelProperty(value = "Contains the actions that you can take to resolve the verification error.")
 
   public List<RemediatingAction> getRemediatingActions() {

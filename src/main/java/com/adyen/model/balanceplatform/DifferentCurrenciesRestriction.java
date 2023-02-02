@@ -69,7 +69,6 @@ public class DifferentCurrenciesRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -92,7 +91,6 @@ public class DifferentCurrenciesRestriction {
    * Checks the currency of the payment against the currency of the payment instrument.  Possible values:  - **true**: The currency of the payment is different from the currency of the payment instrument.  - **false**: The currencies are the same.  
    * @return value
   **/
-
   @ApiModelProperty(value = "Checks the currency of the payment against the currency of the payment instrument.  Possible values:  - **true**: The currency of the payment is different from the currency of the payment instrument.  - **false**: The currencies are the same.  ")
 
   public Boolean getValue() {

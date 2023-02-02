@@ -147,7 +147,6 @@ public class RecurringDetail {
    * This field contains additional data, which may be returned in a particular response.  The additionalData object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-  
   @ApiModelProperty(value = "This field contains additional data, which may be returned in a particular response.  The additionalData object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -170,7 +169,6 @@ public class RecurringDetail {
    * The alias of the credit card number.  Applies only to recurring contracts storing credit card details
    * @return alias
   **/
-  
   @ApiModelProperty(value = "The alias of the credit card number.  Applies only to recurring contracts storing credit card details")
 
   public String getAlias() {
@@ -193,7 +191,6 @@ public class RecurringDetail {
    * The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.
    * @return aliasType
   **/
-  
   @ApiModelProperty(value = "The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.")
 
   public String getAliasType() {
@@ -216,7 +213,6 @@ public class RecurringDetail {
    * Get bank
    * @return bank
   **/
-  
   @ApiModelProperty(value = "")
 
   public BankAccount getBank() {
@@ -239,7 +235,6 @@ public class RecurringDetail {
    * Get billingAddress
    * @return billingAddress
   **/
-  
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -262,7 +257,6 @@ public class RecurringDetail {
    * Get card
    * @return card
   **/
-  
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -293,7 +287,6 @@ public class RecurringDetail {
    * Types of recurring contracts.
    * @return contractTypes
   **/
-  
   @ApiModelProperty(value = "Types of recurring contracts.")
 
   public List<String> getContractTypes() {
@@ -316,7 +309,6 @@ public class RecurringDetail {
    * The date when the recurring details were created.
    * @return creationDate
   **/
-  
   @ApiModelProperty(value = "The date when the recurring details were created.")
 
   public OffsetDateTime getCreationDate() {
@@ -339,7 +331,6 @@ public class RecurringDetail {
    * The &#x60;pspReference&#x60; of the first recurring payment that created the recurring detail.
    * @return firstPspReference
   **/
-  
   @ApiModelProperty(value = "The `pspReference` of the first recurring payment that created the recurring detail.")
 
   public String getFirstPspReference() {
@@ -362,7 +353,6 @@ public class RecurringDetail {
    * An optional descriptive name for this recurring detail.
    * @return name
   **/
-  
   @ApiModelProperty(value = "An optional descriptive name for this recurring detail.")
 
   public String getName() {
@@ -385,7 +375,6 @@ public class RecurringDetail {
    * Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
    * @return networkTxReference
   **/
-  
   @ApiModelProperty(value = "Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.")
 
   public String getNetworkTxReference() {
@@ -408,7 +397,6 @@ public class RecurringDetail {
    * The  type or sub-brand of a payment method used, e.g. Visa Debit, Visa Corporate, etc. For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).
    * @return paymentMethodVariant
   **/
-  
   @ApiModelProperty(value = "The  type or sub-brand of a payment method used, e.g. Visa Debit, Visa Corporate, etc. For more information, refer to [PaymentMethodVariant](https://docs.adyen.com/development-resources/paymentmethodvariant).")
 
   public String getPaymentMethodVariant() {
@@ -431,7 +419,6 @@ public class RecurringDetail {
    * The reference that uniquely identifies the recurring detail.
    * @return recurringDetailReference
   **/
-  
   @ApiModelProperty(required = true, value = "The reference that uniquely identifies the recurring detail.")
 
   public String getRecurringDetailReference() {
@@ -454,7 +441,6 @@ public class RecurringDetail {
    * Get shopperName
    * @return shopperName
   **/
-  
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -477,7 +463,6 @@ public class RecurringDetail {
    * A shopper&#39;s social security number (only in countries where it is legal to collect).
    * @return socialSecurityNumber
   **/
-  
   @ApiModelProperty(value = "A shopper's social security number (only in countries where it is legal to collect).")
 
   public String getSocialSecurityNumber() {
@@ -500,7 +485,6 @@ public class RecurringDetail {
    * Get tokenDetails
    * @return tokenDetails
   **/
-  
   @ApiModelProperty(value = "")
 
   public TokenDetails getTokenDetails() {
@@ -523,7 +507,6 @@ public class RecurringDetail {
    * The payment method, such as “mc\&quot;, \&quot;visa\&quot;, \&quot;ideal\&quot;, \&quot;paypal\&quot;.
    * @return variant
   **/
-  
   @ApiModelProperty(required = true, value = "The payment method, such as “mc\", \"visa\", \"ideal\", \"paypal\".")
 
   public String getVariant() {

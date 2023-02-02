@@ -14,7 +14,7 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.management.Amount;
+import com.adyen.model.management.TerminalProductPrice;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -69,7 +69,7 @@ public class TerminalProduct {
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
-  private Amount price;
+  private TerminalProductPrice price;
 
   public TerminalProduct() { 
   }
@@ -84,7 +84,6 @@ public class TerminalProduct {
    * Information about items included and integration options.
    * @return description
   **/
-  
   @ApiModelProperty(value = "Information about items included and integration options.")
 
   public String getDescription() {
@@ -107,7 +106,6 @@ public class TerminalProduct {
    * The unique identifier of the product.
    * @return id
   **/
-  
   @ApiModelProperty(value = "The unique identifier of the product.")
 
   public String getId() {
@@ -138,7 +136,6 @@ public class TerminalProduct {
    * A list of parts included in the terminal package.
    * @return itemsIncluded
   **/
-  
   @ApiModelProperty(value = "A list of parts included in the terminal package.")
 
   public List<String> getItemsIncluded() {
@@ -161,7 +158,6 @@ public class TerminalProduct {
    * The descriptive name of the product.
    * @return name
   **/
-  
   @ApiModelProperty(value = "The descriptive name of the product.")
 
   public String getName() {
@@ -174,7 +170,7 @@ public class TerminalProduct {
   }
 
 
-  public TerminalProduct price(Amount price) {
+  public TerminalProduct price(TerminalProductPrice price) {
     
     this.price = price;
     return this;
@@ -184,15 +180,14 @@ public class TerminalProduct {
    * Get price
    * @return price
   **/
-  
   @ApiModelProperty(value = "")
 
-  public Amount getPrice() {
+  public TerminalProductPrice getPrice() {
     return price;
   }
 
 
-  public void setPrice(Amount price) {
+  public void setPrice(TerminalProductPrice price) {
     this.price = price;
   }
 
@@ -300,7 +295,7 @@ public class TerminalProduct {
       }
       // validate the optional field `price`
       if (jsonObj.getAsJsonObject("price") != null) {
-        Amount.validateJsonObject(jsonObj.getAsJsonObject("price"));
+        TerminalProductPrice.validateJsonObject(jsonObj.getAsJsonObject("price"));
       }
   }
 

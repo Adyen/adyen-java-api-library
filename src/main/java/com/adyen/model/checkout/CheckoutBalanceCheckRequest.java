@@ -350,7 +350,6 @@ public class CheckoutBalanceCheckRequest {
    * Get accountInfo
    * @return accountInfo
   **/
-
   @ApiModelProperty(value = "")
 
   public AccountInfo getAccountInfo() {
@@ -373,7 +372,6 @@ public class CheckoutBalanceCheckRequest {
    * Get additionalAmount
    * @return additionalAmount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getAdditionalAmount() {
@@ -404,7 +402,6 @@ public class CheckoutBalanceCheckRequest {
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payment request.  The `additionalData` object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -427,7 +424,6 @@ public class CheckoutBalanceCheckRequest {
    * Get amount
    * @return amount
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -450,7 +446,6 @@ public class CheckoutBalanceCheckRequest {
    * Get applicationInfo
    * @return applicationInfo
   **/
-
   @ApiModelProperty(value = "")
 
   public ApplicationInfo getApplicationInfo() {
@@ -473,7 +468,6 @@ public class CheckoutBalanceCheckRequest {
    * Get billingAddress
    * @return billingAddress
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -496,7 +490,6 @@ public class CheckoutBalanceCheckRequest {
    * Get browserInfo
    * @return browserInfo
   **/
-
   @ApiModelProperty(value = "")
 
   public BrowserInfo getBrowserInfo() {
@@ -519,7 +512,6 @@ public class CheckoutBalanceCheckRequest {
    * The delay between the authorisation and scheduled auto-capture, specified in hours.
    * @return captureDelayHours
   **/
-
   @ApiModelProperty(value = "The delay between the authorisation and scheduled auto-capture, specified in hours.")
 
   public Integer getCaptureDelayHours() {
@@ -542,7 +534,6 @@ public class CheckoutBalanceCheckRequest {
    * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    * @return dateOfBirth
   **/
-
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
   public OffsetDateTime getDateOfBirth() {
@@ -565,7 +556,6 @@ public class CheckoutBalanceCheckRequest {
    * Get dccQuote
    * @return dccQuote
   **/
-
   @ApiModelProperty(value = "")
 
   public ForexQuote getDccQuote() {
@@ -588,7 +578,6 @@ public class CheckoutBalanceCheckRequest {
    * Get deliveryAddress
    * @return deliveryAddress
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getDeliveryAddress() {
@@ -611,7 +600,6 @@ public class CheckoutBalanceCheckRequest {
    * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    * @return deliveryDate
   **/
-
   @ApiModelProperty(value = "The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00")
 
   public OffsetDateTime getDeliveryDate() {
@@ -634,7 +622,6 @@ public class CheckoutBalanceCheckRequest {
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    * @return deviceFingerprint
   **/
-
   @ApiModelProperty(value = "A string containing the shopper's device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).")
 
   public String getDeviceFingerprint() {
@@ -657,7 +644,6 @@ public class CheckoutBalanceCheckRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
   **/
-
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
 
   public Integer getFraudOffset() {
@@ -680,7 +666,6 @@ public class CheckoutBalanceCheckRequest {
    * Get installments
    * @return installments
   **/
-
   @ApiModelProperty(value = "")
 
   public Installments getInstallments() {
@@ -703,7 +688,6 @@ public class CheckoutBalanceCheckRequest {
    * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    * @return mcc
   **/
-
   @ApiModelProperty(value = "The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.")
 
   public String getMcc() {
@@ -726,7 +710,6 @@ public class CheckoutBalanceCheckRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-  
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -749,7 +732,6 @@ public class CheckoutBalanceCheckRequest {
    * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    * @return merchantOrderReference
   **/
-
   @ApiModelProperty(value = "This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. > We strongly recommend you send the `merchantOrderReference` value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide `retry.orderAttemptNumber`, `retry.chainAttemptNumber`, and `retry.skipRetry` values in `PaymentRequest.additionalData`.")
 
   public String getMerchantOrderReference() {
@@ -772,7 +754,6 @@ public class CheckoutBalanceCheckRequest {
    * Get merchantRiskIndicator
    * @return merchantRiskIndicator
   **/
-
   @ApiModelProperty(value = "")
 
   public MerchantRiskIndicator getMerchantRiskIndicator() {
@@ -803,7 +784,6 @@ public class CheckoutBalanceCheckRequest {
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    * @return metadata
   **/
-
   @ApiModelProperty(value = "Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \"177\" error occurs: \"Metadata size exceeds limit\". * Maximum 20 characters per key. * Maximum 80 characters per value. ")
 
   public Map<String, String> getMetadata() {
@@ -826,7 +806,6 @@ public class CheckoutBalanceCheckRequest {
    * When you are doing multiple partial (gift card) payments, this is the &#x60;pspReference&#x60; of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the &#x60;merchantOrderReference&#x60;instead.
    * @return orderReference
   **/
-
   @ApiModelProperty(value = "When you are doing multiple partial (gift card) payments, this is the `pspReference` of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the `merchantOrderReference`instead.")
 
   public String getOrderReference() {
@@ -854,7 +833,6 @@ public class CheckoutBalanceCheckRequest {
    * The collection that contains the type of the payment method and its specific information.
    * @return paymentMethod
   **/
-  
   @ApiModelProperty(required = true, value = "The collection that contains the type of the payment method and its specific information.")
 
   public Map<String, String> getPaymentMethod() {
@@ -877,7 +855,6 @@ public class CheckoutBalanceCheckRequest {
    * Get recurring
    * @return recurring
   **/
-
   @ApiModelProperty(value = "")
 
   public Recurring getRecurring() {
@@ -900,7 +877,6 @@ public class CheckoutBalanceCheckRequest {
    * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    * @return recurringProcessingModel
   **/
-
   @ApiModelProperty(value = "Defines a recurring payment type. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
 
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
@@ -923,7 +899,6 @@ public class CheckoutBalanceCheckRequest {
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return reference
   **/
-  
   @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
 
   public String getReference() {
@@ -946,7 +921,6 @@ public class CheckoutBalanceCheckRequest {
    * Some payment methods require defining a value for this field to specify how to process the transaction.  For the Bancontact payment method, it can be set to: * &#x60;maestro&#x60; (default), to be processed like a Maestro card, or * &#x60;bcmc&#x60;, to be processed like a Bancontact card.
    * @return selectedBrand
   **/
-
   @ApiModelProperty(value = "Some payment methods require defining a value for this field to specify how to process the transaction.  For the Bancontact payment method, it can be set to: * `maestro` (default), to be processed like a Maestro card, or * `bcmc`, to be processed like a Bancontact card.")
 
   public String getSelectedBrand() {
@@ -969,7 +943,6 @@ public class CheckoutBalanceCheckRequest {
    * The &#x60;recurringDetailReference&#x60; you want to use for this payment. The value &#x60;LATEST&#x60; can be used to select the most recently stored recurring detail.
    * @return selectedRecurringDetailReference
   **/
-
   @ApiModelProperty(value = "The `recurringDetailReference` you want to use for this payment. The value `LATEST` can be used to select the most recently stored recurring detail.")
 
   public String getSelectedRecurringDetailReference() {
@@ -992,7 +965,6 @@ public class CheckoutBalanceCheckRequest {
    * A session ID used to identify a payment session.
    * @return sessionId
   **/
-
   @ApiModelProperty(value = "A session ID used to identify a payment session.")
 
   public String getSessionId() {
@@ -1015,7 +987,6 @@ public class CheckoutBalanceCheckRequest {
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    * @return shopperEmail
   **/
-
   @ApiModelProperty(value = "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > For 3D Secure 2 transactions, schemes require `shopperEmail` for all browser-based and mobile implementations.")
 
   public String getShopperEmail() {
@@ -1038,7 +1009,6 @@ public class CheckoutBalanceCheckRequest {
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return shopperIP
   **/
-
   @ApiModelProperty(value = "The shopper's IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). > For 3D Secure 2 transactions, schemes require `shopperIP` for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).")
 
   public String getShopperIP() {
@@ -1061,7 +1031,6 @@ public class CheckoutBalanceCheckRequest {
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return shopperInteraction
   **/
-
   @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
 
   public ShopperInteractionEnum getShopperInteraction() {
@@ -1084,7 +1053,6 @@ public class CheckoutBalanceCheckRequest {
    * The combination of a language code and a country code to specify the language to be used in the payment.
    * @return shopperLocale
   **/
-
   @ApiModelProperty(value = "The combination of a language code and a country code to specify the language to be used in the payment.")
 
   public String getShopperLocale() {
@@ -1107,7 +1075,6 @@ public class CheckoutBalanceCheckRequest {
    * Get shopperName
    * @return shopperName
   **/
-
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -1130,7 +1097,6 @@ public class CheckoutBalanceCheckRequest {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
   **/
-
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
 
   public String getShopperReference() {
@@ -1153,7 +1119,6 @@ public class CheckoutBalanceCheckRequest {
    * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    * @return shopperStatement
   **/
-
   @ApiModelProperty(value = "The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.")
 
   public String getShopperStatement() {
@@ -1176,7 +1141,6 @@ public class CheckoutBalanceCheckRequest {
    * The shopper&#39;s social security number.
    * @return socialSecurityNumber
   **/
-
   @ApiModelProperty(value = "The shopper's social security number.")
 
   public String getSocialSecurityNumber() {
@@ -1207,7 +1171,6 @@ public class CheckoutBalanceCheckRequest {
    * An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).
    * @return splits
   **/
-
   @ApiModelProperty(value = "An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).")
 
   public List<Split> getSplits() {
@@ -1230,7 +1193,6 @@ public class CheckoutBalanceCheckRequest {
    * The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.
    * @return store
   **/
-
   @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.")
 
   public String getStore() {
@@ -1253,7 +1215,6 @@ public class CheckoutBalanceCheckRequest {
    * The shopper&#39;s telephone number.
    * @return telephoneNumber
   **/
-
   @ApiModelProperty(value = "The shopper's telephone number.")
 
   public String getTelephoneNumber() {
@@ -1276,7 +1237,6 @@ public class CheckoutBalanceCheckRequest {
    * Get threeDS2RequestData
    * @return threeDS2RequestData
   **/
-
   @ApiModelProperty(value = "")
 
   public ThreeDS2RequestData getThreeDS2RequestData() {
@@ -1301,7 +1261,6 @@ public class CheckoutBalanceCheckRequest {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
 
   public Boolean getThreeDSAuthenticationOnly() {
@@ -1324,7 +1283,6 @@ public class CheckoutBalanceCheckRequest {
    * The reference value to aggregate sales totals in reporting. When not specified, the store field is used (if available).
    * @return totalsGroup
   **/
-
   @ApiModelProperty(value = "The reference value to aggregate sales totals in reporting. When not specified, the store field is used (if available).")
 
   public String getTotalsGroup() {
@@ -1347,7 +1305,6 @@ public class CheckoutBalanceCheckRequest {
    * Set to true if the payment should be routed to a trusted MID.
    * @return trustedShopper
   **/
-
   @ApiModelProperty(value = "Set to true if the payment should be routed to a trusted MID.")
 
   public Boolean getTrustedShopper() {

@@ -84,7 +84,6 @@ public class PaymentInstrumentGroupInfo {
    * The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.
    * @return balancePlatform
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of the [balance platform](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balancePlatforms/{id}__queryParam_id) to which the payment instrument group belongs.")
 
   public String getBalancePlatform() {
@@ -107,7 +106,6 @@ public class PaymentInstrumentGroupInfo {
    * Your description for the payment instrument group, maximum 300 characters.
    * @return description
   **/
-
   @ApiModelProperty(value = "Your description for the payment instrument group, maximum 300 characters.")
 
   public String getDescription() {
@@ -138,7 +136,6 @@ public class PaymentInstrumentGroupInfo {
    * Properties of the payment instrument group.
    * @return properties
   **/
-
   @ApiModelProperty(value = "Properties of the payment instrument group.")
 
   public Map<String, String> getProperties() {
@@ -161,7 +158,6 @@ public class PaymentInstrumentGroupInfo {
    * Your reference for the payment instrument group, maximum 150 characters.
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference for the payment instrument group, maximum 150 characters.")
 
   public String getReference() {
@@ -184,7 +180,6 @@ public class PaymentInstrumentGroupInfo {
    * The tx variant of the payment instrument group.
    * @return txVariant
   **/
-
   @ApiModelProperty(required = true, value = "The tx variant of the payment instrument group.")
 
   public String getTxVariant() {

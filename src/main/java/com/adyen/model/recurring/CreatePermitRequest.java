@@ -80,7 +80,6 @@ public class CreatePermitRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -108,7 +107,6 @@ public class CreatePermitRequest {
    * The permits to create for this recurring contract.
    * @return permits
   **/
-
   @ApiModelProperty(required = true, value = "The permits to create for this recurring contract.")
 
   public List<Permit> getPermits() {
@@ -131,7 +129,6 @@ public class CreatePermitRequest {
    * The recurring contract the new permits will use.
    * @return recurringDetailReference
   **/
-
   @ApiModelProperty(required = true, value = "The recurring contract the new permits will use.")
 
   public String getRecurringDetailReference() {
@@ -154,7 +151,6 @@ public class CreatePermitRequest {
    * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
    * @return shopperReference
   **/
-
   @ApiModelProperty(required = true, value = "The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID).")
 
   public String getShopperReference() {

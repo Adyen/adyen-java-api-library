@@ -76,7 +76,6 @@ public class ShippingLocationsResponse {
    * Physical locations where orders can be shipped to.
    * @return data
   **/
-
   @ApiModelProperty(value = "Physical locations where orders can be shipped to.")
 
   public List<ShippingLocation> getData() {

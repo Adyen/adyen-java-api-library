@@ -80,7 +80,6 @@ public class TokenDetails {
    * Get tokenData
    * @return tokenData
   **/
-
   @ApiModelProperty(value = "")
 
   public Map<String, String> getTokenData() {
@@ -103,7 +102,6 @@ public class TokenDetails {
    * Get tokenDataType
    * @return tokenDataType
   **/
-
   @ApiModelProperty(value = "")
 
   public String getTokenDataType() {

@@ -90,7 +90,6 @@ public class AndroidCertificate {
    * The description that was provided when uploading the certificate.
    * @return description
   **/
-  
   @ApiModelProperty(value = "The description that was provided when uploading the certificate.")
 
   public String getDescription() {
@@ -113,7 +112,6 @@ public class AndroidCertificate {
    * The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.
    * @return extension
   **/
-  
   @ApiModelProperty(value = "The file format of the certificate, as indicated by the file extension. For example, **.cert** or **.pem**.")
 
   public String getExtension() {
@@ -136,7 +134,6 @@ public class AndroidCertificate {
    * The unique identifier of the certificate.
    * @return id
   **/
-  
   @ApiModelProperty(required = true, value = "The unique identifier of the certificate.")
 
   public String getId() {
@@ -159,7 +156,6 @@ public class AndroidCertificate {
    * The file name of the certificate. For example, **mycert**.
    * @return name
   **/
-  
   @ApiModelProperty(value = "The file name of the certificate. For example, **mycert**.")
 
   public String getName() {
@@ -182,7 +178,6 @@ public class AndroidCertificate {
    * The date when the certificate stops to be valid.
    * @return notAfter
   **/
-  
   @ApiModelProperty(value = "The date when the certificate stops to be valid.")
 
   public OffsetDateTime getNotAfter() {
@@ -205,7 +200,6 @@ public class AndroidCertificate {
    * The date when the certificate starts to be valid.
    * @return notBefore
   **/
-  
   @ApiModelProperty(value = "The date when the certificate starts to be valid.")
 
   public OffsetDateTime getNotBefore() {
@@ -228,7 +222,6 @@ public class AndroidCertificate {
    * The status of the certificate.
    * @return status
   **/
-  
   @ApiModelProperty(value = "The status of the certificate.")
 
   public String getStatus() {

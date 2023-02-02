@@ -124,7 +124,6 @@ public class PhoneNumber {
    * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    * @return phoneCountryCode
   **/
-  
   @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.")
 
   public String getPhoneCountryCode() {
@@ -147,7 +146,6 @@ public class PhoneNumber {
    * The phone number. The inclusion of the phone number country code is not necessary.
    * @return phoneNumber
   **/
-  
   @ApiModelProperty(required = true, value = "The phone number. The inclusion of the phone number country code is not necessary.")
 
   public String getPhoneNumber() {
@@ -170,7 +168,6 @@ public class PhoneNumber {
    * The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.
    * @return phoneType
   **/
-  
   @ApiModelProperty(value = "The type of the phone number. Possible values: **Landline**, **Mobile**, **SIP**, **Fax**.")
 
   public PhoneTypeEnum getPhoneType() {

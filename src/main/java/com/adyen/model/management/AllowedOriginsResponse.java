@@ -76,7 +76,6 @@ public class AllowedOriginsResponse {
    * List of allowed origins.
    * @return data
   **/
-  
   @ApiModelProperty(value = "List of allowed origins.")
 
   public List<AllowedOrigin> getData() {

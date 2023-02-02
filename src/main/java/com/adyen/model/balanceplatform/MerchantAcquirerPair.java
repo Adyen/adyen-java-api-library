@@ -69,7 +69,6 @@ public class MerchantAcquirerPair {
    * The acquirer ID.
    * @return acquirerId
   **/
-  
   @ApiModelProperty(value = "The acquirer ID.")
 
   public String getAcquirerId() {
@@ -92,7 +91,6 @@ public class MerchantAcquirerPair {
    * The merchant identification number (MID).
    * @return merchantId
   **/
-  
   @ApiModelProperty(value = "The merchant identification number (MID).")
 
   public String getMerchantId() {

@@ -18,7 +18,7 @@ import com.adyen.model.checkout.AccountInfo;
 import com.adyen.model.checkout.Address;
 import com.adyen.model.checkout.Amount;
 import com.adyen.model.checkout.ApplicationInfo;
-import com.adyen.model.checkout.AuthenticationData;
+import com.adyen.model.checkout.AuthenticationData2;
 import com.adyen.model.checkout.BrowserInfo;
 import com.adyen.model.checkout.CheckoutOrder;
 import com.adyen.model.checkout.Company;
@@ -29,6 +29,7 @@ import com.adyen.model.checkout.Mandate;
 import com.adyen.model.checkout.MerchantRiskIndicator;
 import com.adyen.model.checkout.Name;
 import com.adyen.model.checkout.PaymentDonationRequestPaymentMethod;
+import com.adyen.model.checkout.PlatformChargebackLogic;
 import com.adyen.model.checkout.RiskData;
 import com.adyen.model.checkout.Split;
 import com.adyen.model.checkout.ThreeDS2RequestData;
@@ -90,7 +91,7 @@ public class PaymentDonationRequest {
 
   public static final String SERIALIZED_NAME_AUTHENTICATION_DATA = "authenticationData";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_DATA)
-  private AuthenticationData authenticationData;
+  private AuthenticationData2 authenticationData;
 
   public static final String SERIALIZED_NAME_BILLING_ADDRESS = "billingAddress";
   @SerializedName(SERIALIZED_NAME_BILLING_ADDRESS)
@@ -324,6 +325,10 @@ public class PaymentDonationRequest {
   @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
   private PaymentDonationRequestPaymentMethod paymentMethod;
 
+  public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
+  private PlatformChargebackLogic platformChargebackLogic;
+
   public static final String SERIALIZED_NAME_RECURRING_EXPIRY = "recurringExpiry";
   @SerializedName(SERIALIZED_NAME_RECURRING_EXPIRY)
   private String recurringExpiry;
@@ -533,7 +538,6 @@ public class PaymentDonationRequest {
    * Get accountInfo
    * @return accountInfo
   **/
-
   @ApiModelProperty(value = "")
 
   public AccountInfo getAccountInfo() {
@@ -564,7 +568,6 @@ public class PaymentDonationRequest {
    * This field contains additional data, which may be required for a particular payment request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular payment request.  The `additionalData` object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -587,7 +590,6 @@ public class PaymentDonationRequest {
    * Get amount
    * @return amount
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -610,7 +612,6 @@ public class PaymentDonationRequest {
    * Get applicationInfo
    * @return applicationInfo
   **/
-
   @ApiModelProperty(value = "")
 
   public ApplicationInfo getApplicationInfo() {
@@ -623,7 +624,7 @@ public class PaymentDonationRequest {
   }
 
 
-  public PaymentDonationRequest authenticationData(AuthenticationData authenticationData) {
+  public PaymentDonationRequest authenticationData(AuthenticationData2 authenticationData) {
     
     this.authenticationData = authenticationData;
     return this;
@@ -633,15 +634,14 @@ public class PaymentDonationRequest {
    * Get authenticationData
    * @return authenticationData
   **/
-
   @ApiModelProperty(value = "")
 
-  public AuthenticationData getAuthenticationData() {
+  public AuthenticationData2 getAuthenticationData() {
     return authenticationData;
   }
 
 
-  public void setAuthenticationData(AuthenticationData authenticationData) {
+  public void setAuthenticationData(AuthenticationData2 authenticationData) {
     this.authenticationData = authenticationData;
   }
 
@@ -656,7 +656,6 @@ public class PaymentDonationRequest {
    * Get billingAddress
    * @return billingAddress
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -679,7 +678,6 @@ public class PaymentDonationRequest {
    * Get browserInfo
    * @return browserInfo
   **/
-
   @ApiModelProperty(value = "")
 
   public BrowserInfo getBrowserInfo() {
@@ -702,7 +700,6 @@ public class PaymentDonationRequest {
    * The delay between the authorisation and scheduled auto-capture, specified in hours.
    * @return captureDelayHours
   **/
-
   @ApiModelProperty(value = "The delay between the authorisation and scheduled auto-capture, specified in hours.")
 
   public Integer getCaptureDelayHours() {
@@ -725,7 +722,6 @@ public class PaymentDonationRequest {
    * The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the &#x60;sdkVersion&#x60; or &#x60;token&#x60;.  Possible values: * iOS * Android * Web
    * @return channel
   **/
-
   @ApiModelProperty(value = "The platform where a payment transaction takes place. This field is optional for filtering out payment methods that are only available on specific platforms. If this value is not set, then we will try to infer it from the `sdkVersion` or `token`.  Possible values: * iOS * Android * Web")
 
   public ChannelEnum getChannel() {
@@ -748,7 +744,6 @@ public class PaymentDonationRequest {
    * Checkout attempt ID that corresponds to the Id generated for tracking user payment journey.
    * @return checkoutAttemptId
   **/
-
   @ApiModelProperty(value = "Checkout attempt ID that corresponds to the Id generated for tracking user payment journey.")
 
   public String getCheckoutAttemptId() {
@@ -771,7 +766,6 @@ public class PaymentDonationRequest {
    * Get company
    * @return company
   **/
-
   @ApiModelProperty(value = "")
 
   public Company getCompany() {
@@ -794,7 +788,6 @@ public class PaymentDonationRequest {
    * Conversion ID that corresponds to the Id generated for tracking user payment journey.
    * @return conversionId
   **/
-
   @ApiModelProperty(value = "Conversion ID that corresponds to the Id generated for tracking user payment journey.")
 
   public String getConversionId() {
@@ -817,7 +810,6 @@ public class PaymentDonationRequest {
    * The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
    * @return countryCode
   **/
-
   @ApiModelProperty(value = "The shopper country.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE")
 
   public String getCountryCode() {
@@ -840,7 +832,6 @@ public class PaymentDonationRequest {
    * The shopper&#39;s date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
    * @return dateOfBirth
   **/
-
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
   public OffsetDateTime getDateOfBirth() {
@@ -863,7 +854,6 @@ public class PaymentDonationRequest {
    * Get dccQuote
    * @return dccQuote
   **/
-
   @ApiModelProperty(value = "")
 
   public ForexQuote getDccQuote() {
@@ -886,7 +876,6 @@ public class PaymentDonationRequest {
    * Get deliveryAddress
    * @return deliveryAddress
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getDeliveryAddress() {
@@ -909,7 +898,6 @@ public class PaymentDonationRequest {
    * The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
    * @return deliveryDate
   **/
-
   @ApiModelProperty(value = "The date and time the purchased goods should be delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00")
 
   public OffsetDateTime getDeliveryDate() {
@@ -932,7 +920,6 @@ public class PaymentDonationRequest {
    * A string containing the shopper&#39;s device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
    * @return deviceFingerprint
   **/
-
   @ApiModelProperty(value = "A string containing the shopper's device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).")
 
   public String getDeviceFingerprint() {
@@ -955,7 +942,6 @@ public class PaymentDonationRequest {
    * Donation account to which the transaction is credited.
    * @return donationAccount
   **/
-
   @ApiModelProperty(required = true, value = "Donation account to which the transaction is credited.")
 
   public String getDonationAccount() {
@@ -978,7 +964,6 @@ public class PaymentDonationRequest {
    * PSP reference of the transaction from which the donation token is generated. Required when &#x60;donationToken&#x60; is provided.
    * @return donationOriginalPspReference
   **/
-
   @ApiModelProperty(value = "PSP reference of the transaction from which the donation token is generated. Required when `donationToken` is provided.")
 
   public String getDonationOriginalPspReference() {
@@ -1001,7 +986,6 @@ public class PaymentDonationRequest {
    * Donation token received in the &#x60;/payments&#x60; call.
    * @return donationToken
   **/
-
   @ApiModelProperty(value = "Donation token received in the `/payments` call.")
 
   public String getDonationToken() {
@@ -1024,7 +1008,6 @@ public class PaymentDonationRequest {
    * When true and &#x60;shopperReference&#x60; is provided, the shopper will be asked if the payment details should be stored for future one-click payments.
    * @return enableOneClick
   **/
-
   @ApiModelProperty(value = "When true and `shopperReference` is provided, the shopper will be asked if the payment details should be stored for future one-click payments.")
 
   public Boolean getEnableOneClick() {
@@ -1047,7 +1030,6 @@ public class PaymentDonationRequest {
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for payouts.
    * @return enablePayOut
   **/
-
   @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be tokenized for payouts.")
 
   public Boolean getEnablePayOut() {
@@ -1070,7 +1052,6 @@ public class PaymentDonationRequest {
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be tokenized for recurring payments.
    * @return enableRecurring
   **/
-
   @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be tokenized for recurring payments.")
 
   public Boolean getEnableRecurring() {
@@ -1093,7 +1074,6 @@ public class PaymentDonationRequest {
    * The type of the entity the payment is processed for.
    * @return entityType
   **/
-
   @ApiModelProperty(value = "The type of the entity the payment is processed for.")
 
   public EntityTypeEnum getEntityType() {
@@ -1116,7 +1096,6 @@ public class PaymentDonationRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
   **/
-
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
 
   public Integer getFraudOffset() {
@@ -1139,7 +1118,6 @@ public class PaymentDonationRequest {
    * Get installments
    * @return installments
   **/
-
   @ApiModelProperty(value = "")
 
   public Installments getInstallments() {
@@ -1170,7 +1148,6 @@ public class PaymentDonationRequest {
    * Price and product information about the purchased items, to be included on the invoice sent to the shopper. &gt; This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.
    * @return lineItems
   **/
-
   @ApiModelProperty(value = "Price and product information about the purchased items, to be included on the invoice sent to the shopper. > This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay, Klarna, Ratepay, Zip and Atome.")
 
   public List<LineItem> getLineItems() {
@@ -1193,7 +1170,6 @@ public class PaymentDonationRequest {
    * Get mandate
    * @return mandate
   **/
-
   @ApiModelProperty(value = "")
 
   public Mandate getMandate() {
@@ -1216,7 +1192,6 @@ public class PaymentDonationRequest {
    * The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.
    * @return mcc
   **/
-
   @ApiModelProperty(value = "The [merchant category code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a four-digit number, which relates to a particular market segment. This code reflects the predominant activity that is conducted by the merchant.")
 
   public String getMcc() {
@@ -1239,7 +1214,6 @@ public class PaymentDonationRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -1262,7 +1236,6 @@ public class PaymentDonationRequest {
    * This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. &gt; We strongly recommend you send the &#x60;merchantOrderReference&#x60; value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide &#x60;retry.orderAttemptNumber&#x60;, &#x60;retry.chainAttemptNumber&#x60;, and &#x60;retry.skipRetry&#x60; values in &#x60;PaymentRequest.additionalData&#x60;.
    * @return merchantOrderReference
   **/
-
   @ApiModelProperty(value = "This reference allows linking multiple transactions to each other for reporting purposes (i.e. order auth-rate). The reference should be unique per billing cycle. The same merchant order reference should never be reused after the first authorised attempt. If used, this field should be supplied for all incoming authorisations. > We strongly recommend you send the `merchantOrderReference` value to benefit from linking payment requests when authorisation retries take place. In addition, we recommend you provide `retry.orderAttemptNumber`, `retry.chainAttemptNumber`, and `retry.skipRetry` values in `PaymentRequest.additionalData`.")
 
   public String getMerchantOrderReference() {
@@ -1285,7 +1258,6 @@ public class PaymentDonationRequest {
    * Get merchantRiskIndicator
    * @return merchantRiskIndicator
   **/
-
   @ApiModelProperty(value = "")
 
   public MerchantRiskIndicator getMerchantRiskIndicator() {
@@ -1316,7 +1288,6 @@ public class PaymentDonationRequest {
    * Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \&quot;177\&quot; error occurs: \&quot;Metadata size exceeds limit\&quot;. * Maximum 20 characters per key. * Maximum 80 characters per value. 
    * @return metadata
   **/
-
   @ApiModelProperty(value = "Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. When exceeding, the \"177\" error occurs: \"Metadata size exceeds limit\". * Maximum 20 characters per key. * Maximum 80 characters per value. ")
 
   public Map<String, String> getMetadata() {
@@ -1339,7 +1310,6 @@ public class PaymentDonationRequest {
    * Get mpiData
    * @return mpiData
   **/
-
   @ApiModelProperty(value = "")
 
   public ThreeDSecureData getMpiData() {
@@ -1362,7 +1332,6 @@ public class PaymentDonationRequest {
    * Get order
    * @return order
   **/
-
   @ApiModelProperty(value = "")
 
   public CheckoutOrder getOrder() {
@@ -1385,7 +1354,6 @@ public class PaymentDonationRequest {
    * When you are doing multiple partial (gift card) payments, this is the &#x60;pspReference&#x60; of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the &#x60;merchantOrderReference&#x60;instead.
    * @return orderReference
   **/
-
   @ApiModelProperty(value = "When you are doing multiple partial (gift card) payments, this is the `pspReference` of the first payment. We use this to link the multiple payments to each other. As your own reference for linking multiple payments, use the `merchantOrderReference`instead.")
 
   public String getOrderReference() {
@@ -1408,7 +1376,6 @@ public class PaymentDonationRequest {
    * Required for the 3D Secure 2 &#x60;channel&#x60; **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.
    * @return origin
   **/
-
   @ApiModelProperty(value = "Required for the 3D Secure 2 `channel` **Web** integration.  Set this parameter to the origin URL of the page that you are loading the 3D Secure Component from.")
 
   public String getOrigin() {
@@ -1431,7 +1398,6 @@ public class PaymentDonationRequest {
    * Get paymentMethod
    * @return paymentMethod
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public PaymentDonationRequestPaymentMethod getPaymentMethod() {
@@ -1441,6 +1407,28 @@ public class PaymentDonationRequest {
 
   public void setPaymentMethod(PaymentDonationRequestPaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
+  }
+
+
+  public PaymentDonationRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    
+    this.platformChargebackLogic = platformChargebackLogic;
+    return this;
+  }
+
+   /**
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
+  **/
+  @ApiModelProperty(value = "")
+
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
+  }
+
+
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
   }
 
 
@@ -1454,7 +1442,6 @@ public class PaymentDonationRequest {
    * Date after which no further authorisations shall be performed. Only for 3D Secure 2.
    * @return recurringExpiry
   **/
-
   @ApiModelProperty(value = "Date after which no further authorisations shall be performed. Only for 3D Secure 2.")
 
   public String getRecurringExpiry() {
@@ -1477,7 +1464,6 @@ public class PaymentDonationRequest {
    * Minimum number of days between authorisations. Only for 3D Secure 2.
    * @return recurringFrequency
   **/
-
   @ApiModelProperty(value = "Minimum number of days between authorisations. Only for 3D Secure 2.")
 
   public String getRecurringFrequency() {
@@ -1500,7 +1486,6 @@ public class PaymentDonationRequest {
    * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount. 
    * @return recurringProcessingModel
   **/
-
   @ApiModelProperty(value = "Defines a recurring payment type. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. ")
 
   public RecurringProcessingModelEnum getRecurringProcessingModel() {
@@ -1523,7 +1508,6 @@ public class PaymentDonationRequest {
    * Specifies the redirect method (GET or POST) when redirecting back from the issuer.
    * @return redirectFromIssuerMethod
   **/
-
   @ApiModelProperty(value = "Specifies the redirect method (GET or POST) when redirecting back from the issuer.")
 
   public String getRedirectFromIssuerMethod() {
@@ -1546,7 +1530,6 @@ public class PaymentDonationRequest {
    * Specifies the redirect method (GET or POST) when redirecting to the issuer.
    * @return redirectToIssuerMethod
   **/
-
   @ApiModelProperty(value = "Specifies the redirect method (GET or POST) when redirecting to the issuer.")
 
   public String getRedirectToIssuerMethod() {
@@ -1569,7 +1552,6 @@ public class PaymentDonationRequest {
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return reference
   **/
-
   @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
 
   public String getReference() {
@@ -1592,7 +1574,6 @@ public class PaymentDonationRequest {
    * The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol &#x60;http://&#x60; or &#x60;https://&#x60;. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: &#x60;https://your-company.com/checkout?shopperOrder&#x3D;12xy&#x60; * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: &#x60;my-app://&#x60; * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: &#x60;my-app://your.package.name&#x60;
    * @return returnUrl
   **/
-
   @ApiModelProperty(required = true, value = "The URL to return to in case of a redirection. The format depends on the channel. This URL can have a maximum of 1024 characters. * For web, include the protocol `http://` or `https://`. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: `https://your-company.com/checkout?shopperOrder=12xy` * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: `my-app://` * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: `my-app://your.package.name`")
 
   public String getReturnUrl() {
@@ -1615,7 +1596,6 @@ public class PaymentDonationRequest {
    * Get riskData
    * @return riskData
   **/
-
   @ApiModelProperty(value = "")
 
   public RiskData getRiskData() {
@@ -1638,7 +1618,6 @@ public class PaymentDonationRequest {
    * The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00
    * @return sessionValidity
   **/
-
   @ApiModelProperty(value = "The date and time until when the session remains valid, in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format.  For example: 2020-07-18T15:42:40.428+01:00")
 
   public String getSessionValidity() {
@@ -1661,7 +1640,6 @@ public class PaymentDonationRequest {
    * The shopper&#39;s email address. We recommend that you provide this data, as it is used in velocity fraud checks. &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperEmail&#x60; for all browser-based and mobile implementations.
    * @return shopperEmail
   **/
-
   @ApiModelProperty(value = "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > For 3D Secure 2 transactions, schemes require `shopperEmail` for all browser-based and mobile implementations.")
 
   public String getShopperEmail() {
@@ -1684,7 +1662,6 @@ public class PaymentDonationRequest {
    * The shopper&#39;s IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). &gt; For 3D Secure 2 transactions, schemes require &#x60;shopperIP&#x60; for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
    * @return shopperIP
   **/
-
   @ApiModelProperty(value = "The shopper's IP address. In general, we recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). > For 3D Secure 2 transactions, schemes require `shopperIP` for all browser-based implementations. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).")
 
   public String getShopperIP() {
@@ -1707,7 +1684,6 @@ public class PaymentDonationRequest {
    * Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * &#x60;Ecommerce&#x60; - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * &#x60;ContAuth&#x60; - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * &#x60;Moto&#x60; - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * &#x60;POS&#x60; - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
    * @return shopperInteraction
   **/
-
   @ApiModelProperty(value = "Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.")
 
   public ShopperInteractionEnum getShopperInteraction() {
@@ -1730,7 +1706,6 @@ public class PaymentDonationRequest {
    * The combination of a language code and a country code to specify the language to be used in the payment.
    * @return shopperLocale
   **/
-
   @ApiModelProperty(value = "The combination of a language code and a country code to specify the language to be used in the payment.")
 
   public String getShopperLocale() {
@@ -1753,7 +1728,6 @@ public class PaymentDonationRequest {
    * Get shopperName
    * @return shopperName
   **/
-
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -1776,7 +1750,6 @@ public class PaymentDonationRequest {
    * Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
    * @return shopperReference
   **/
-
   @ApiModelProperty(value = "Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
 
   public String getShopperReference() {
@@ -1799,7 +1772,6 @@ public class PaymentDonationRequest {
    * The text to be shown on the shopper&#39;s bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , &#39; _ - ? + * /_**.
    * @return shopperStatement
   **/
-
   @ApiModelProperty(value = "The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.")
 
   public String getShopperStatement() {
@@ -1822,7 +1794,6 @@ public class PaymentDonationRequest {
    * The shopper&#39;s social security number.
    * @return socialSecurityNumber
   **/
-
   @ApiModelProperty(value = "The shopper's social security number.")
 
   public String getSocialSecurityNumber() {
@@ -1853,7 +1824,6 @@ public class PaymentDonationRequest {
    * An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).
    * @return splits
   **/
-
   @ApiModelProperty(value = "An array of objects specifying how the payment should be split when using [Adyen for Platforms](https://docs.adyen.com/marketplaces-and-platforms/processing-payments#providing-split-information) or [Issuing](https://docs.adyen.com/issuing/add-manage-funds#split).")
 
   public List<Split> getSplits() {
@@ -1876,7 +1846,6 @@ public class PaymentDonationRequest {
    * The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.
    * @return store
   **/
-
   @ApiModelProperty(value = "The ecommerce or point-of-sale store that is processing the payment. Used in [partner model integrations](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners#route-payments) for Adyen for Platforms.")
 
   public String getStore() {
@@ -1899,7 +1868,6 @@ public class PaymentDonationRequest {
    * When true and &#x60;shopperReference&#x60; is provided, the payment details will be stored.
    * @return storePaymentMethod
   **/
-
   @ApiModelProperty(value = "When true and `shopperReference` is provided, the payment details will be stored.")
 
   public Boolean getStorePaymentMethod() {
@@ -1922,7 +1890,6 @@ public class PaymentDonationRequest {
    * The shopper&#39;s telephone number.
    * @return telephoneNumber
   **/
-
   @ApiModelProperty(value = "The shopper's telephone number.")
 
   public String getTelephoneNumber() {
@@ -1945,7 +1912,6 @@ public class PaymentDonationRequest {
    * Get threeDS2RequestData
    * @return threeDS2RequestData
   **/
-
   @ApiModelProperty(value = "")
 
   public ThreeDS2RequestData getThreeDS2RequestData() {
@@ -1970,7 +1936,6 @@ public class PaymentDonationRequest {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "If set to true, you will only perform the [3D Secure 2 authentication](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only), and not the payment authorisation.")
 
   public Boolean getThreeDSAuthenticationOnly() {
@@ -1993,7 +1958,6 @@ public class PaymentDonationRequest {
    * Set to true if the payment should be routed to a trusted MID.
    * @return trustedShopper
   **/
-
   @ApiModelProperty(value = "Set to true if the payment should be routed to a trusted MID.")
 
   public Boolean getTrustedShopper() {
@@ -2055,6 +2019,7 @@ public class PaymentDonationRequest {
         Objects.equals(this.orderReference, paymentDonationRequest.orderReference) &&
         Objects.equals(this.origin, paymentDonationRequest.origin) &&
         Objects.equals(this.paymentMethod, paymentDonationRequest.paymentMethod) &&
+        Objects.equals(this.platformChargebackLogic, paymentDonationRequest.platformChargebackLogic) &&
         Objects.equals(this.recurringExpiry, paymentDonationRequest.recurringExpiry) &&
         Objects.equals(this.recurringFrequency, paymentDonationRequest.recurringFrequency) &&
         Objects.equals(this.recurringProcessingModel, paymentDonationRequest.recurringProcessingModel) &&
@@ -2083,7 +2048,7 @@ public class PaymentDonationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
+    return Objects.hash(accountInfo, additionalData, amount, applicationInfo, authenticationData, billingAddress, browserInfo, captureDelayHours, channel, checkoutAttemptId, company, conversionId, countryCode, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, donationAccount, donationOriginalPspReference, donationToken, enableOneClick, enablePayOut, enableRecurring, entityType, fraudOffset, installments, lineItems, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, order, orderReference, origin, paymentMethod, platformChargebackLogic, recurringExpiry, recurringFrequency, recurringProcessingModel, redirectFromIssuerMethod, redirectToIssuerMethod, reference, returnUrl, riskData, sessionValidity, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, storePaymentMethod, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, trustedShopper);
   }
 
   @Override
@@ -2129,6 +2094,7 @@ public class PaymentDonationRequest {
     sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
     sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
     sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
@@ -2214,6 +2180,7 @@ public class PaymentDonationRequest {
     openapiFields.add("orderReference");
     openapiFields.add("origin");
     openapiFields.add("paymentMethod");
+    openapiFields.add("platformChargebackLogic");
     openapiFields.add("recurringExpiry");
     openapiFields.add("recurringFrequency");
     openapiFields.add("recurringProcessingModel");
@@ -2292,7 +2259,7 @@ public class PaymentDonationRequest {
       }
       // validate the optional field `authenticationData`
       if (jsonObj.getAsJsonObject("authenticationData") != null) {
-        AuthenticationData.validateJsonObject(jsonObj.getAsJsonObject("authenticationData"));
+        AuthenticationData2.validateJsonObject(jsonObj.getAsJsonObject("authenticationData"));
       }
       // validate the optional field `billingAddress`
       if (jsonObj.getAsJsonObject("billingAddress") != null) {
@@ -2411,6 +2378,10 @@ public class PaymentDonationRequest {
       // validate the optional field `paymentMethod`
       if (jsonObj.getAsJsonObject("paymentMethod") != null) {
         PaymentDonationRequestPaymentMethod.validateJsonObject(jsonObj.getAsJsonObject("paymentMethod"));
+      }
+      // validate the optional field `platformChargebackLogic`
+      if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {
+        PlatformChargebackLogic.validateJsonObject(jsonObj.getAsJsonObject("platformChargebackLogic"));
       }
       // validate the optional field recurringExpiry
       if (jsonObj.get("recurringExpiry") != null && !jsonObj.get("recurringExpiry").isJsonPrimitive()) {

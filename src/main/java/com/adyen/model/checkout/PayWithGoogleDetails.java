@@ -48,6 +48,10 @@ import com.adyen.model.checkout.JSON;
  */
 
 public class PayWithGoogleDetails {
+  public static final String SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID = "checkoutAttemptId";
+  @SerializedName(SERIALIZED_NAME_CHECKOUT_ATTEMPT_ID)
+  private String checkoutAttemptId;
+
   /**
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    */
@@ -161,6 +165,28 @@ public class PayWithGoogleDetails {
   public PayWithGoogleDetails() { 
   }
 
+  public PayWithGoogleDetails checkoutAttemptId(String checkoutAttemptId) {
+    
+    this.checkoutAttemptId = checkoutAttemptId;
+    return this;
+  }
+
+   /**
+   * The checkout attempt identifier.
+   * @return checkoutAttemptId
+  **/
+  @ApiModelProperty(value = "The checkout attempt identifier.")
+
+  public String getCheckoutAttemptId() {
+    return checkoutAttemptId;
+  }
+
+
+  public void setCheckoutAttemptId(String checkoutAttemptId) {
+    this.checkoutAttemptId = checkoutAttemptId;
+  }
+
+
   public PayWithGoogleDetails fundingSource(FundingSourceEnum fundingSource) {
     
     this.fundingSource = fundingSource;
@@ -171,7 +197,6 @@ public class PayWithGoogleDetails {
    * The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
    * @return fundingSource
   **/
-
   @ApiModelProperty(value = "The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.")
 
   public FundingSourceEnum getFundingSource() {
@@ -194,7 +219,6 @@ public class PayWithGoogleDetails {
    * The &#x60;token&#x60; that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) &#x60;PaymentData&#x60; response.
    * @return googlePayToken
   **/
-  
   @ApiModelProperty(required = true, value = "The `token` that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) `PaymentData` response.")
 
   public String getGooglePayToken() {
@@ -219,7 +243,6 @@ public class PayWithGoogleDetails {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getRecurringDetailReference() {
@@ -242,7 +265,6 @@ public class PayWithGoogleDetails {
    * This is the &#x60;recurringDetailReference&#x60; returned in the response when you created the token.
    * @return storedPaymentMethodId
   **/
-
   @ApiModelProperty(value = "This is the `recurringDetailReference` returned in the response when you created the token.")
 
   public String getStoredPaymentMethodId() {
@@ -265,7 +287,6 @@ public class PayWithGoogleDetails {
    * **paywithgoogle**
    * @return type
   **/
-
   @ApiModelProperty(value = "**paywithgoogle**")
 
   public TypeEnum getType() {
@@ -288,7 +309,8 @@ public class PayWithGoogleDetails {
       return false;
     }
     PayWithGoogleDetails payWithGoogleDetails = (PayWithGoogleDetails) o;
-    return Objects.equals(this.fundingSource, payWithGoogleDetails.fundingSource) &&
+    return Objects.equals(this.checkoutAttemptId, payWithGoogleDetails.checkoutAttemptId) &&
+        Objects.equals(this.fundingSource, payWithGoogleDetails.fundingSource) &&
         Objects.equals(this.googlePayToken, payWithGoogleDetails.googlePayToken) &&
         Objects.equals(this.recurringDetailReference, payWithGoogleDetails.recurringDetailReference) &&
         Objects.equals(this.storedPaymentMethodId, payWithGoogleDetails.storedPaymentMethodId) &&
@@ -297,13 +319,14 @@ public class PayWithGoogleDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fundingSource, googlePayToken, recurringDetailReference, storedPaymentMethodId, type);
+    return Objects.hash(checkoutAttemptId, fundingSource, googlePayToken, recurringDetailReference, storedPaymentMethodId, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PayWithGoogleDetails {\n");
+    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    googlePayToken: ").append(toIndentedString(googlePayToken)).append("\n");
     sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
@@ -331,6 +354,7 @@ public class PayWithGoogleDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("checkoutAttemptId");
     openapiFields.add("fundingSource");
     openapiFields.add("googlePayToken");
     openapiFields.add("recurringDetailReference");
@@ -370,6 +394,10 @@ public class PayWithGoogleDetails {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field checkoutAttemptId
+      if (jsonObj.get("checkoutAttemptId") != null && !jsonObj.get("checkoutAttemptId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkoutAttemptId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkoutAttemptId").toString()));
       }
       // ensure the field fundingSource can be parsed to an enum value
       if (jsonObj.get("fundingSource") != null) {

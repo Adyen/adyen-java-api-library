@@ -69,7 +69,6 @@ public class InternationalTransactionRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -92,7 +91,6 @@ public class InternationalTransactionRestriction {
    * Boolean indicating whether transaction is an international transaction.  Possible values:  - **true**: The transaction is an international transaction.  - **false**: The transaction is a domestic transaction.  
    * @return value
   **/
-
   @ApiModelProperty(value = "Boolean indicating whether transaction is an international transaction.  Possible values:  - **true**: The transaction is an international transaction.  - **false**: The transaction is a domestic transaction.  ")
 
   public Boolean getValue() {

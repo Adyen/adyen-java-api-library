@@ -89,7 +89,6 @@ public class NotifyShopperResult {
    * Reference of Pre-debit notification that is displayed to the shopper
    * @return displayedReference
   **/
-
   @ApiModelProperty(value = "Reference of Pre-debit notification that is displayed to the shopper")
 
   public String getDisplayedReference() {
@@ -112,7 +111,6 @@ public class NotifyShopperResult {
    * A simple description of the &#x60;resultCode&#x60;.
    * @return message
   **/
-
   @ApiModelProperty(value = "A simple description of the `resultCode`.")
 
   public String getMessage() {
@@ -135,7 +133,6 @@ public class NotifyShopperResult {
    * The unique reference that is associated with the request.
    * @return pspReference
   **/
-
   @ApiModelProperty(value = "The unique reference that is associated with the request.")
 
   public String getPspReference() {
@@ -158,7 +155,6 @@ public class NotifyShopperResult {
    * Reference of Pre-debit notification sent in my the merchant
    * @return reference
   **/
-
   @ApiModelProperty(value = "Reference of Pre-debit notification sent in my the merchant")
 
   public String getReference() {
@@ -181,7 +177,6 @@ public class NotifyShopperResult {
    * The code indicating the status of notification.
    * @return resultCode
   **/
-
   @ApiModelProperty(value = "The code indicating the status of notification.")
 
   public String getResultCode() {
@@ -204,7 +199,6 @@ public class NotifyShopperResult {
    * The unique reference for the request sent downstream.
    * @return shopperNotificationReference
   **/
-
   @ApiModelProperty(value = "The unique reference for the request sent downstream.")
 
   public String getShopperNotificationReference() {
@@ -227,7 +221,6 @@ public class NotifyShopperResult {
    * This is the recurringDetailReference returned in the response when token was created
    * @return storedPaymentMethodId
   **/
-
   @ApiModelProperty(value = "This is the recurringDetailReference returned in the response when token was created")
 
   public String getStoredPaymentMethodId() {
