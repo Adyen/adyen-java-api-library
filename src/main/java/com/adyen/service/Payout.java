@@ -23,10 +23,9 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.payout.ConfirmThirdPartyRequest;
-import com.adyen.model.payout.ConfirmThirdPartyResponse;
-import com.adyen.model.payout.DeclineThirdPartyRequest;
-import com.adyen.model.payout.DeclineThirdPartyResponse;
+import com.adyen.model.payout.JSON;
+import com.adyen.model.payout.ModifyRequest;
+import com.adyen.model.payout.ModifyResponse;
 import com.adyen.model.payout.PayoutRequest;
 import com.adyen.model.payout.PayoutResponse;
 import com.adyen.model.payout.StoreDetailAndSubmitRequest;
@@ -41,7 +40,6 @@ import com.adyen.service.resource.payout.DeclineThirdParty;
 import com.adyen.service.resource.payout.StoreDetail;
 import com.adyen.service.resource.payout.StoreDetailAndSubmitThirdParty;
 import com.adyen.service.resource.payout.SubmitThirdParty;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
@@ -62,6 +60,7 @@ public class Payout extends Service {
         storeDetail = new StoreDetail(this);
         submitThirdparty = new SubmitThirdParty(this);
         payout = new com.adyen.service.resource.payout.Payout(this);
+        new JSON();
     }
 
     /**
@@ -73,46 +72,53 @@ public class Payout extends Service {
      * @throws ApiException ApiException
      */
     public StoreDetailAndSubmitResponse storeDetailAndSubmitThirdParty(StoreDetailAndSubmitRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        return storeDetailAndSubmitThirdParty(request, null);
+    }
 
-        String jsonResult = storeDetailAndSubmitThirdParty.request(jsonRequest);
+    /**
+     * Issues a storeDetailAndSubmitThirdParty API call
+     *
+     * @param request StoreDetailAndSubmitRequest
+     * @param requestOptions RequestOptions
+     * @return StoreDetailAndSubmitResponse
+     * @throws IOException  IOException
+     * @throws ApiException ApiException
+     */
+    public StoreDetailAndSubmitResponse storeDetailAndSubmitThirdParty(StoreDetailAndSubmitRequest request, RequestOptions requestOptions) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
 
-        return GSON.fromJson(jsonResult, new TypeToken<StoreDetailAndSubmitResponse>() {
-        }.getType());
+        String jsonResult = storeDetailAndSubmitThirdParty.request(jsonRequest, requestOptions);
+
+        return StoreDetailAndSubmitResponse.fromJson(jsonResult);
     }
 
     /**
      * Issues a ConfirmThirdParty API call
      *
      * @param request ConfirmThirdPartyRequest
-     * @return ConfirmThirdPartyResponse
      * @throws IOException  IOException
      * @throws ApiException ApiException
      */
-    public ConfirmThirdPartyResponse confirmThirdParty(ConfirmThirdPartyRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+    public ModifyResponse confirmThirdParty(ModifyRequest request) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
 
         String jsonResult = confirmThirdParty.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<ConfirmThirdPartyResponse>() {
-        }.getType());
+        return ModifyResponse.fromJson(jsonResult);
     }
 
     /**
      * Issues a DeclineThirdParty API call
      *
-     * @param request DeclineThirdPartyRequest
-     * @return DeclineThirdPartyResponse
      * @throws IOException  IOException
      * @throws ApiException ApiException
      */
-    public DeclineThirdPartyResponse declineThirdParty(DeclineThirdPartyRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+    public ModifyResponse declineThirdParty(ModifyRequest request) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
 
         String jsonResult = declineThirdParty.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<DeclineThirdPartyResponse>() {
-        }.getType());
+        return ModifyResponse.fromJson(jsonResult);
     }
 
     /**
@@ -124,12 +130,11 @@ public class Payout extends Service {
      * @throws ApiException ApiException
      */
     public StoreDetailResponse storeDetail(StoreDetailRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
 
         String jsonResult = storeDetail.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<StoreDetailResponse>() {
-        }.getType());
+        return StoreDetailResponse.fromJson(jsonResult);
     }
 
     /**
@@ -141,12 +146,11 @@ public class Payout extends Service {
      * @throws ApiException ApiException
      */
     public SubmitResponse submitThirdparty(SubmitRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
 
         String jsonResult = submitThirdparty.request(jsonRequest);
 
-        return GSON.fromJson(jsonResult, new TypeToken<SubmitResponse>() {
-        }.getType());
+        return SubmitResponse.fromJson(jsonResult);
     }
 
     /**
@@ -171,11 +175,10 @@ public class Payout extends Service {
      * @throws ApiException
      */
     public PayoutResponse payout(PayoutRequest request, RequestOptions requestOptions) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
 
         String jsonResult = payout.request(jsonRequest, requestOptions);
 
-        return GSON.fromJson(jsonResult, new TypeToken<PayoutResponse>() {
-        }.getType());
+        return PayoutResponse.fromJson(jsonResult);
     }
 }

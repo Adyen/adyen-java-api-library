@@ -22,8 +22,8 @@ package com.adyen.model.storedvalue;
 
 import java.util.Objects;
 
-import com.adyen.model.checkout.PaymentMethodDetails;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.adyen.model.checkout.PaymentMethod;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,8 +31,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-
-import com.adyen.model.Amount;
 
 /**
  * StoredValueStatusChangeRequest
@@ -46,7 +44,7 @@ public class StoredValueStatusChangeRequest {
     private String merchantAccount = null;
 
     @SerializedName("paymentMethod")
-    private PaymentMethodDetails paymentMethod = null;
+    private PaymentMethod paymentMethod = null;
 
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
@@ -64,7 +62,7 @@ public class StoredValueStatusChangeRequest {
         MOTO("Moto"),
         POS("POS");
 
-        @JsonValue
+
         private final String value;
 
         ShopperInteractionEnum(String value) {
@@ -117,7 +115,7 @@ public class StoredValueStatusChangeRequest {
         ACTIVE("active"),
         INACTIVE("inactive");
 
-        @JsonValue
+
         private final String value;
 
         StatusEnum(String value) {
@@ -198,7 +196,7 @@ public class StoredValueStatusChangeRequest {
         this.merchantAccount = merchantAccount;
     }
 
-    public StoredValueStatusChangeRequest paymentMethod(PaymentMethodDetails paymentMethod) {
+    public StoredValueStatusChangeRequest paymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
         return this;
     }
@@ -208,11 +206,11 @@ public class StoredValueStatusChangeRequest {
      *
      * @return paymentMethod
      **/
-    public PaymentMethodDetails getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 

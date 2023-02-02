@@ -1,0 +1,24 @@
+{
+  "balanceAccounts": [
+    {
+      "accountHolderId": "AH32272223222B59K6ZKBBFNQ",
+      "defaultCurrencyCode": "EUR",
+      "id": "BA32272223222B59K6ZXHBFN6",
+      "status": "active"
+    },
+    {
+      "accountHolderId": "AH32272223222B59K6ZKBBFNQ",
+      "defaultCurrencyCode": "EUR",
+      "id": "BA32272223222B59K72CKBFNJ",
+      "status": "active"
+    },
+    {
+      "accountHolderId": "AH32272223222B59K6ZKBBFNQ",
+      "defaultCurrencyCode": "EUR",
+      "id": "BA32272223222B5BRR27B2M7G",
+      "status": "active"
+    }
+  ],
+  "hasNext": true,
+  "hasPrevious": false
+}

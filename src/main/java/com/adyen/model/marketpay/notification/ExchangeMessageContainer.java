@@ -20,7 +20,7 @@
  */
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -31,7 +31,6 @@ import static com.adyen.util.Util.toIndentedString;
 public class ExchangeMessageContainer {
 
     @SerializedName("ExchangeMessage")
-    @JsonProperty("ExchangeMessage")
     private ExchangeMessage exchangeMessage = null;
 
     public ExchangeMessage getExchangeMessage() {

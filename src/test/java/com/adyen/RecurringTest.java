@@ -1,49 +1,23 @@
 /**
- *                       ######
- *                       ######
- * ############    ####( ######  #####. ######  ############   ############
- * #############  #####( ######  #####. ######  #############  #############
- *        ######  #####( ######  #####. ######  #####  ######  #####  ######
- * ###### ######  #####( ######  #####. ######  #####  #####   #####  ######
- * ###### ######  #####( ######  #####. ######  #####          #####  ######
- * #############  #############  #############  #############  #####  ######
- *  ############   ############  #############   ############  #####  ######
- *                                      ######
- *                               #############
- *                               ############
- *
  * Adyen Java API Library
- *
- * Copyright (c) 2020 Adyen B.V.
+ * Copyright (c) 2022 Adyen N.V.
  * This file is open source and available under the MIT license.
  * See the LICENSE file for more info.
  */
 package com.adyen;
 
-import com.adyen.model.Card;
-import com.adyen.model.recurring.DisableRequest;
-import com.adyen.model.recurring.DisableResult;
-import com.adyen.model.recurring.NotifyShopperRequest;
-import com.adyen.model.recurring.NotifyShopperResult;
-import com.adyen.model.recurring.RecurringDetail;
-import com.adyen.model.recurring.RecurringDetailsRequest;
-import com.adyen.model.recurring.RecurringDetailsResult;
-import com.adyen.model.recurring.ScheduleAccountUpdaterRequest;
-import com.adyen.model.recurring.ScheduleAccountUpdaterResult;
-import com.adyen.model.recurring.StoreTokenRequest;
-import com.adyen.model.recurring.StoreTokenResult;
+import com.adyen.model.recurring.*;
 import com.adyen.service.Recurring;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
@@ -53,7 +27,8 @@ public class RecurringTest extends BaseTest {
         RecurringDetailsRequest request = new RecurringDetailsRequest()
                 .shopperReference("test-123")
                 .merchantAccount("MerchantAccount")
-                .selectOneClickContract();
+                .recurring(new com.adyen.model.recurring.Recurring()
+                        .contract(com.adyen.model.recurring.Recurring.ContractEnum.ONECLICK));
 
         return request;
     }
@@ -67,31 +42,23 @@ public class RecurringTest extends BaseTest {
         return request;
     }
 
-    private StoreTokenRequest createStoreTokenRequest() {
-        StoreTokenRequest request = new StoreTokenRequest()
-                .shopperReference("test-123")
-                .merchantAccount("MerchantAccount")
-                .shopperEmail("johndoe@merchant.com")
-                .shopperStatement("this is your statement")
-                .shopperIP("192.168.1.1")
-                .setContractToOneClick()
-                .setCardData("5136333333333335", "John Doe", "08", "2018", "737");
-
-        return request;
-    }
-
     private ScheduleAccountUpdaterRequest createScheduleAccountUpdaterRequest() {
         Map<String, String> additionalData = new HashMap<>();
         additionalData.put("key", "value");
+        Card card = new Card()
+                .cvc("123")
+                .expiryMonth("09")
+                .expiryYear("2020")
+                .holderName("johndoe")
+                .number("123");
 
         ScheduleAccountUpdaterRequest request = new ScheduleAccountUpdaterRequest()
                 .additionalData(additionalData)
-                .card(new Card().cvc("123").expiryMonth("09").expiryYear("2020").holderName("johndoe").number("123"))
+                .card(card)
                 .merchantAccount("MerchantAccount")
                 .reference("reference")
                 .shopperReference("shopperReference")
                 .selectedRecurringDetailReference("selectedRecurringDetailReference");
-
 
         return request;
     }
@@ -116,14 +83,13 @@ public class RecurringTest extends BaseTest {
 
         RecurringDetailsResult result = recurring.listRecurringDetails(request);
         assertEquals(2, result.getDetails().size());
-        assertEquals(2, result.getRecurringDetails().size());
 
-        RecurringDetail recurringDetail = result.getRecurringDetails().get(0);
+        RecurringDetail recurringDetail = result.getDetails().get(0);
         assertEquals("recurringReference", recurringDetail.getRecurringDetailReference());
         assertEquals("cardAlias", recurringDetail.getAlias());
         assertEquals("1111", recurringDetail.getCard().getNumber());
-        assertEquals("false", result.getInvalidOneClickContracts());
-
+        OffsetDateTime expectedDate = OffsetDateTime.parse("2017-03-01T11:53:11+01:00");
+        assertEquals(expectedDate, result.getCreationDate());
     }
 
     @Test
@@ -134,7 +100,6 @@ public class RecurringTest extends BaseTest {
         DisableRequest request = createDisableRequest();
 
         DisableResult result = recurring.disable(request);
-        assertEquals(1, result.getDetails().size());
         assertEquals("[detail-successfully-disabled]", result.getResponse());
     }
 
@@ -155,37 +120,6 @@ public class RecurringTest extends BaseTest {
     }
 
     @Test
-    public void testStoreToken() throws Exception {
-        Client client = createMockClientFromFile("mocks/recurring/storeToken-success.json");
-        Recurring recurring = new Recurring(client);
-
-        StoreTokenRequest request = createStoreTokenRequest();
-
-        StoreTokenResult result = recurring.storeToken(request);
-        assertNotNull(result);
-        assertEquals("Success", result.getResult());
-        assertEquals("Default", result.getAliasType());
-        assertEquals("8815398995557524", result.getPspReference());
-        assertEquals("8315398995429067", result.getRecurringDetailReference());
-    }
-
-    @Test
-    public void testStoreToken101() throws IOException {
-        Client client = createMockClientForErrors(422, "mocks/recurring/storeToken-error-101.json");
-        Recurring recurring = new Recurring(client);
-
-        StoreTokenRequest request = createStoreTokenRequest();
-
-        try {
-            recurring.storeToken(request);
-            fail("Exception expected!");
-        } catch (ApiException e) {
-            assertNotEquals(200, e.getStatusCode());
-            assertEquals("101", e.getError().getErrorCode());
-        }
-    }
-
-    @Test
     public void testScheduleAccountUpdater() throws Exception {
         Client client = createMockClientFromFile("mocks/recurring/scheduleAccountUpdater-success.json");
         Recurring recurring = new Recurring(client);
@@ -197,15 +131,6 @@ public class RecurringTest extends BaseTest {
         assertNotNull(result);
         assertEquals("Success", result.getResult());
         assertEquals("8815398995557524", result.getPspReference());
-        assertFalse(result.isError());
-        assertEquals("newAlias", result.getNewAlias());
-        assertEquals("09", result.getNewExpiryMonth());
-        assertEquals("2020", result.getNewExpiryYear());
-        assertEquals("accountUpdaterAction", result.getAccountUpdaterAction());
-
-        OffsetDateTime offsetDateTime = OffsetDateTime.parse("2020-09-15T13:43:35+02:00");
-        Date expectedDate = Date.from(offsetDateTime.toInstant());
-        assertEquals(expectedDate, result.getProcessedDate());
     }
 
     @Test
@@ -239,5 +164,43 @@ public class RecurringTest extends BaseTest {
         assertEquals("Example reference", result.getReference());
         assertEquals("Success", result.getResultCode());
         assertEquals("IA0F7500002462", result.getShopperNotificationReference());
+    }
+
+    @Test
+    public void testCreatePermit() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/recurring/createPermit-success.json");
+        Recurring recurring = new Recurring(client);
+
+        CreatePermitRequest createPermitRequest = new CreatePermitRequest();
+        createPermitRequest.setMerchantAccount("merchantAccount");
+        Permit permit = new Permit();
+        ArrayList permits = new ArrayList<Permit>();
+        permits.add(permit);
+        createPermitRequest.setPermits(permits);
+        createPermitRequest.setRecurringDetailReference("recurringDetailReference");
+        createPermitRequest.setShopperReference("shopperReference");
+
+        CreatePermitResult result = recurring.createPermit(createPermitRequest);
+        assertNotNull(result);
+        assertEquals("1234qwer", result.getPspReference());
+        assertEquals(1, result.getPermitResultList().size());
+        assertEquals("token", result.getPermitResultList().get(0).getToken());
+        assertEquals("resultKey", result.getPermitResultList().get(0).getResultKey());
+    }
+
+    @Test
+    public void testDisablePermit() throws IOException, ApiException {
+        Client client = createMockClientFromFile("mocks/recurring/disablePermit-success.json");
+        Recurring recurring = new Recurring(client);
+
+        DisablePermitRequest disablePermitRequest = new DisablePermitRequest();
+        disablePermitRequest.setMerchantAccount("merchantAccount");
+        disablePermitRequest.setToken("token");
+
+        DisablePermitResult result = recurring.disablePermit(disablePermitRequest);
+        assertNotNull(result);
+        assertEquals("1234qwer", result.getPspReference());
+        assertEquals("disabled", result.getStatus());
+
     }
 }

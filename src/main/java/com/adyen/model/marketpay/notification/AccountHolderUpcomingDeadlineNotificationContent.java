@@ -21,7 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -67,7 +67,7 @@ public class AccountHolderUpcomingDeadlineNotificationContent {
         UPDATEACCOUNTHOLDERSTATE("UpdateAccountHolderState"),
         VERIFICATION("Verification");
 
-        @JsonValue
+
         private final String value;
 
         EventEnum(String value) {

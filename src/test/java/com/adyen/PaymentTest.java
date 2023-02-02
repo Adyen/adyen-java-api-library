@@ -20,34 +20,35 @@
  */
 package com.adyen;
 
-import com.adyen.constants.ApiConstants;
 import com.adyen.constants.ApiConstants.AdditionalData;
 import com.adyen.constants.ApiConstants.RefusalReason;
 import com.adyen.httpclient.AdyenHttpClient;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.*;
-import com.adyen.model.applicationinfo.ApplicationInfo;
-import com.adyen.model.applicationinfo.MerchantDevice;
+import com.adyen.model.RequestOptions;
+import com.adyen.model.payments.*;
 import com.adyen.service.Payment;
 import com.adyen.service.exception.ApiException;
+import com.adyen.util.DateUtil;
+import com.google.gson.reflect.TypeToken;
+import okio.ByteString;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
+import static com.adyen.constants.ApiConstants.AdditionalData.*;
 import static com.adyen.constants.ApiConstants.SelectedBrand.BOLETO_SANTANDER;
-import static com.adyen.model.PaymentResult.ResultCodeEnum.RECEIVED;
+import static com.adyen.model.payments.PaymentResult.ResultCodeEnum.RECEIVED;
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.*;
 
 /**
@@ -73,23 +74,26 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
 
         SimpleDateFormat format = new SimpleDateFormat("M/yyyy", Locale.ENGLISH);
         format.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-        assertEquals("8/2018", format.format(paymentResult.getExpiryDate()));
+        Map<String, String> additionalData =  paymentResult.getAdditionalData();
+        assertNotNull(additionalData);
+        String expiryDate = additionalData.get(EXPIRY_DATE);
+        assertEquals("8/2018", format.format(DateUtil.parseMYDate(expiryDate)));
 
-        assertEquals("411111", paymentResult.getCardBin());
-        assertEquals("1111", paymentResult.getCardSummary());
-        assertEquals("Holder", paymentResult.getCardHolderName());
-        assertTrue(paymentResult.get3DOffered());
-        assertFalse(paymentResult.get3DAuthenticated());
+        assertEquals("411111", additionalData.get(CARD_BIN));
+        assertEquals("1111", additionalData.get(CARD_SUMMARY));
+        assertEquals("Holder", additionalData.get(CARD_HOLDER_NAME));
+        assertEquals("true", additionalData.get(THREE_D_OFFERERED));
+        assertEquals("false", additionalData.get(THREE_D_AUTHENTICATED));
         assertEquals("69746", paymentResult.getAuthCode());
 
-        assertEquals(11, paymentResult.getFraudResult().getFraudCheckResults().size());
+        assertEquals(11, paymentResult.getFraudResult().getResults().size());
 
-        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getFraudCheckResults().get(0);
+        FraudCheckResult fraudCheckResult = paymentResult.getFraudResult().getResults().get(0);
         assertEquals("CardChunkUsage", fraudCheckResult.getName());
         assertEquals(8, fraudCheckResult.getAccountScore().intValue());
         assertEquals(2, fraudCheckResult.getCheckId().intValue());
@@ -129,7 +133,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isRefused());
+        assertRefused(paymentResult);
     }
 
     /**
@@ -144,7 +148,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isRedirectShopper());
+        assertEquals(PaymentResult.ResultCodeEnum.REDIRECTSHOPPER, paymentResult.getResultCode());
         assertNotNull(paymentResult.getMd());
         assertNotNull(paymentResult.getIssuerUrl());
         assertNotNull(paymentResult.getPaRequest());
@@ -162,7 +166,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise3D(paymentRequest3d);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
         assertNotNull(paymentResult.getPspReference());
     }
 
@@ -178,7 +182,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise3DS2(paymentRequest3ds2);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
         assertNotNull(paymentResult.getAdditionalData());
         assertEquals(paymentResult.getPspReference(), "9935272408535455");
         assertEquals(paymentResult.getAuthCode(), "46125");
@@ -215,7 +219,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
     }
 
     /**
@@ -230,7 +234,7 @@ public class PaymentTest extends BaseTest {
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
 
-        assertTrue(paymentResult.isRefused());
+        assertRefused(paymentResult);
         assertEquals(RefusalReason.REFUSED, paymentResult.getRefusalReason());
         assertEquals("DECLINED Expiry Incorrect", paymentResult.getAdditionalData().get(AdditionalData.REFUSAL_REASON_RAW));
     }
@@ -243,8 +247,8 @@ public class PaymentTest extends BaseTest {
         AdyenHttpClient adyenHttpClient = mock(AdyenHttpClient.class);
         HTTPClientException httpClientException = new HTTPClientException(401, "An error occured", new HashMap<>(), null);
 
-        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class))).thenThrow(httpClientException);
-        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any())).thenThrow(httpClientException);
+        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), any(RequestOptions.class), isNull())).thenThrow(httpClientException);
+        when(adyenHttpClient.request(anyString(), anyString(), any(Config.class), anyBoolean(), isNull(), any(), isNull())).thenThrow(httpClientException);
 
         Client client = new Client();
         client.setHttpClient(adyenHttpClient);
@@ -276,7 +280,7 @@ public class PaymentTest extends BaseTest {
         PaymentResult paymentResult = payment.authorise(paymentRequest);
         assertEquals("2374421290", paymentResult.getAdditionalData().get("additionalData.acquirerReference"));
         assertEquals("klarna", paymentResult.getAdditionalData().get("paymentMethodVariant"));
-        assertTrue(paymentResult.isAuthorised());
+        assertAuthorised(paymentResult);
     }
 
     @Test
@@ -298,26 +302,29 @@ public class PaymentTest extends BaseTest {
         shopperName.setLastName("Silva");
 
         PaymentRequest paymentRequest = createBasePaymentRequest(new PaymentRequest()).reference("123456")
-                                                                                      .setAmountData("200", "BRL")
+                                                                                      .amount(new Amount().value(200L).currency( "BRL"))
                                                                                       .billingAddress(billingAddress)
                                                                                       .selectedBrand(BOLETO_SANTANDER)
                                                                                       .shopperName(shopperName);
 
         PaymentResult paymentResult = payment.authorise(paymentRequest);
-        assertEquals(BOLETO_SANTANDER, paymentResult.getPaymentMethod());
-        assertEquals("34191.75801 12021.372227 21111.100000 8 71670000001000", paymentResult.getBoletoBarCodeReference());
+
+        Map<String, String> additionalData =  paymentResult.getAdditionalData();
+        assertNotNull(additionalData);
+        assertEquals(BOLETO_SANTANDER, additionalData.get(PAYMENT_METHOD));
+        assertEquals("34191.75801 12021.372227 21111.100000 8 71670000001000", additionalData.get(BOLETO_BARCODE_REFERENCE));
         assertEquals(
                 "BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z/z9EdC5yFH3+1o/DQH3v3dtTxqXD2DrEdVH0Ro3r/+G9bdUzrCUjfMFh7YB32VL2oPqye9Ly/MWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR/CBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3+qihZa7vvzV/XylTXdgirxboVKpk07Wfvpad8Owg/K/ofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ+9vZs+aor/E//s+EjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1/AvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL+DKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT/eVf+wncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs=",
-                paymentResult.getBoletoData());
+                additionalData.get(BOLETO_DATA));
 
         DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-        assertEquals("2017-05-22", fmt.format(paymentResult.getBoletoDueDate()));
+        assertEquals("2017-05-22", fmt.format(DateUtil.parseYmdDate(additionalData.get(BOLETO_DUE_DATE))));
         assertEquals(
                 "https://test.adyen.com/hpp/generationBoleto.shtml?data=BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z%2Fz9EdC5yFH3%2B1o%2FDQH3v3dtTxqXD2DrEdVH0Ro3r%2F%2BG9bdUzrCUjfMFh7YB32VL2oPqye9Ly%2FMWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR%2FCBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3%2BqihZa7vvzV%2FXylTXdgirxboVKpk07Wfvpad8Owg%2FK%2FofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ%2B9vZs%2Baor%2FE%2F%2Fs%2BEjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1%2FAvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL%2BDKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT%2FeVf%2BwncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs%3D",
-                paymentResult.getBoletoUrl());
-        assertEquals("2017-06-06", fmt.format(paymentResult.getBoletoExpirationDate()));
+                additionalData.get(BOLETO_URL));
+        assertEquals("2017-06-06", fmt.format(DateUtil.parseYmdDate(additionalData.get(BOLETO_EXPIRATION_DATE))));
         assertEquals(RECEIVED, paymentResult.getResultCode());
         assertEquals("8814950120218231", paymentResult.getPspReference());
     }
@@ -397,6 +404,7 @@ public class PaymentTest extends BaseTest {
 
     @Test
     public void TestGetAuthenticationResultErrorNotAllowed() throws IOException {
+
         Client client = createMockClientForErrors(403, "mocks/authentication-result-error-not-allowed.json");
 
         Payment payment = new Payment(client);
@@ -412,6 +420,63 @@ public class PaymentTest extends BaseTest {
     }
 
     @Test
+    public void TestAuthoriseDefaultApplicationInfo() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createCSEPaymentRequest();
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+
+        assertAuthorised(paymentResult);
+        assertEquals(applicationInfo, paymentRequest.getApplicationInfo());
+    }
+
+    @Test
+    public void TestAuthoriseCustomApplicationInfo() throws Exception {
+        Client client = createMockClientFromFile("mocks/authorise-success-cse.json");
+        Payment payment = new Payment(client);
+
+        PaymentRequest paymentRequest = createCSEPaymentRequest();
+        ApplicationInfo applicationInfo = new ApplicationInfo();
+        applicationInfo.setMerchantDevice(new MerchantDevice().os("Android"));
+        paymentRequest.setApplicationInfo(applicationInfo);
+
+        PaymentResult paymentResult = payment.authorise(paymentRequest);
+
+        assertAuthorised(paymentResult);
+        assertEquals(applicationInfo, paymentRequest.getApplicationInfo());
+        assertEquals("Android", paymentRequest.getApplicationInfo().getMerchantDevice().getOs());
+    }
+
+    protected void assertAuthorised(PaymentResult paymentResult) {
+        assertEquals(PaymentResult.ResultCodeEnum.AUTHORISED, paymentResult.getResultCode());
+    }
+    
+    protected void assertRefused(PaymentResult paymentResult) {
+        assertEquals(PaymentResult.ResultCodeEnum.REFUSED, paymentResult.getResultCode());
+    }
+    @Test
+    public void TestByteArrayDeserialization() throws Exception {
+
+        Client client = createMockClientFromFile("mocks/authorise-success.json");
+        Payment payment = new Payment(client);
+
+        final String expectedBytesAsString = "Let's pretend/ this a jpg or something=";
+        final byte[] expectedBytes = expectedBytesAsString.getBytes(StandardCharsets.UTF_8);
+        final ByteString expectedByteString = ByteString.of(expectedBytes);
+        final String serializedBytes = expectedByteString.base64();
+        final String serializedBytesWithQuotes = "\"" + serializedBytes + "\"";
+        Type type = new TypeToken<byte[]>() { }.getType();
+
+        // Act
+        byte[] actualDeserializedBytes = JSON.deserialize(serializedBytesWithQuotes, type);
+
+        // Assert
+        assertEquals(expectedBytesAsString, new String(actualDeserializedBytes, StandardCharsets.UTF_8));
+    }
+
+    @Test
     public void TestByteArrayToJSONString() throws Exception {
         Client client = createMockClientFromFile("mocks/authorise-success.json");
         Payment payment = new Payment(client);
@@ -419,9 +484,81 @@ public class PaymentTest extends BaseTest {
         paymentRequest.mpiData(new ThreeDSecureData().cavv("AQIDBAUGBwgJCgsMDQ4PEBESExQ=".getBytes()));
         
         payment.authorise(paymentRequest);
-        
-        String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ=\"}";
+        // Unicode representation of the string
+        String expected = "\"mpiData\":{\"cavv\":\"AQIDBAUGBwgJCgsMDQ4PEBESExQ\\u003d\"}";
         ClientInterface http = client.getHttpClient();
-        verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any());
+        verify(http).request(anyString(), contains(expected), any(), eq(false), isNull(), any(), isNull());
+    }
+
+    @Test
+    public void testRefund() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        RefundRequest request = new RefundRequest();
+        ModificationResult result = payment.refund(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testCapture() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        CaptureRequest request = new CaptureRequest();
+        ModificationResult result = payment.capture(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testCancel() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        CancelRequest request = new CancelRequest();
+        ModificationResult result = payment.cancel(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testCancelOrRefund() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        CancelOrRefundRequest request = new CancelOrRefundRequest();
+        ModificationResult result = payment.cancelOrRefund(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testTechnicalCancel() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        TechnicalCancelRequest request = new TechnicalCancelRequest();
+        ModificationResult result = payment.technicalCancel(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testAdjustAuthorisation() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        AdjustAuthorisationRequest request = new AdjustAuthorisationRequest();
+        ModificationResult result = payment.adjustAuthorisation(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testDonate() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        DonationRequest request = new DonationRequest();
+        ModificationResult result = payment.donate(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
+    }
+
+    @Test
+    public void testVoidPendingRefund() throws Exception {
+        Client client = createMockClientFromFile("mocks/modification-success.json");
+        Payment payment = new Payment(client);
+        VoidPendingRefundRequest request = new VoidPendingRefundRequest();
+        ModificationResult result = payment.voidPendingRefund(request);
+        assertEquals(result.getResponse(), ModificationResult.ResponseEnum.REFUND_RECEIVED_);
     }
 }

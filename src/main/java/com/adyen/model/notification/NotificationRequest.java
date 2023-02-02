@@ -20,13 +20,10 @@
  */
 package com.adyen.model.notification;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -38,7 +35,6 @@ public class NotificationRequest {
     private String live = null;
 
     @SerializedName("notificationItems")
-    @JsonProperty("notificationItems")
     private List<NotificationRequestItemContainer> notificationItemContainers = null;
 
     public String getLive() {
@@ -58,7 +54,7 @@ public class NotificationRequest {
         this.notificationItemContainers = notificationItemContainers;
     }
 
-    @JsonIgnore
+    
     public List<NotificationRequestItem> getNotificationItems() {
         if (this.notificationItemContainers == null) {
             return null;

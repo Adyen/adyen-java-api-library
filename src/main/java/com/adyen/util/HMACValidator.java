@@ -20,7 +20,7 @@
  */
 package com.adyen.util;
 
-import com.adyen.model.Amount;
+import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequestItem;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;

@@ -20,7 +20,7 @@
  */
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -104,7 +104,7 @@ public class AccountHolderTransactionListRequest {
         @SerializedName("ManualCorrected")
         MANUALCORRECTED("ManualCorrected");
 
-        @JsonValue
+
         private final String value;
 
         TransactionStatusesEnum(String value) {

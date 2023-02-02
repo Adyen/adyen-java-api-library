@@ -21,8 +21,7 @@
 
 package com.adyen.model.marketpay;
 
-import com.adyen.model.Amount;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -35,7 +34,6 @@ import static com.adyen.util.Util.toIndentedString;
  */
 public class AmountContainer {
     @SerializedName("Amount")
-    @JsonProperty("Amount")
     private Amount amount = null;
 
     /**

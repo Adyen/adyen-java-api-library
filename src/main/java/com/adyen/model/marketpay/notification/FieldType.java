@@ -21,7 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -178,7 +178,7 @@ public class FieldType {
         WEBADDRESS("webAddress"),
         YEAR("year");
 
-        @JsonValue
+
         private final String value;
 
         FieldNameEnum(String value) {

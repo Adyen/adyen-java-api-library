@@ -1,0 +1,13 @@
+{
+  "amount":{
+    "currency":"EUR",
+    "value":1000
+  },
+  "merchantAccount":"myMerchantAccount",
+  "paymentMethod":{
+    "issuer":"issuerName",
+    "type":"ideal"
+  },
+  "reference":"merchantReference",
+  "returnUrl":"http://return.com"
+}

@@ -1,0 +1,28 @@
+{
+  "attachment": {
+    "content": "string",
+    "contentType": "string",
+    "filename": "string",
+    "pageName": "string",
+    "pageType": "string"
+  },
+  "attachments": [{
+    "content": "VGhpc2lzYW5iYXNlNjRlbmNvZGVkc3RyaW5n",
+    "contentType": "string",
+    "filename": "string",
+    "pageName": "string",
+    "pageType": "string"
+  }],
+  "description": "string",
+  "expiryDate": "string",
+  "fileName": "string",
+  "id": "SE322KT223222D5FJ7TJN2986",
+  "issuerCountry": "string",
+  "issuerState": "string",
+  "number": "string",
+  "owner": {
+    "id": "123456789",
+    "type": "passport"
+  },
+  "type": "driversLicense"
+}

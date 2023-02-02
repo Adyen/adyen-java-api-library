@@ -4,17 +4,15 @@ import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
 import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.PaymentSessionRequest;
-import com.adyen.model.checkout.PaymentsRequest;
+import com.adyen.model.checkout.PaymentSetupRequest;
+import com.adyen.model.checkout.PaymentRequest;
 import com.adyen.service.Checkout;
-import com.adyen.service.PaymentLinks;
 import com.adyen.service.exception.ApiException;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
@@ -26,20 +24,13 @@ public class DateSerializationTest extends BaseTest {
 
     (note: dateOfBirth also gets serialized to ISO8601 which is fine one API side)
     */
-    private Date date() {
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, 2023);
-        cal.set(Calendar.MONTH, 5);
-        cal.set(Calendar.DAY_OF_MONTH, 2);
-        cal.set(Calendar.HOUR_OF_DAY, 12);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
-        return cal.getTime();
+    private OffsetDateTime date() {
+        OffsetDateTime date = OffsetDateTime.parse("2023-06-02T12:00:00+01:00");
+        return date;
     }
     @Test
     public void TestCheckoutSessionDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
+        Client client = createMockClientFromFile("mocks/checkout/createSessionsResponse.json");
         Checkout checkout = new Checkout(client);
 
         CreateCheckoutSessionRequest sessionsRequest = new CreateCheckoutSessionRequest();
@@ -50,34 +41,34 @@ public class DateSerializationTest extends BaseTest {
         ClientInterface http = client.getHttpClient();
 
         String expected = "\"deliverAt\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected), any(), eq(true), isNull(), any());
+        verify(http).request(anyString(), Mockito.contains(expected), any(), eq(true), isNull(), any(), isNull());
     }
 
     @Test
     public void TestCreatePaymentLinkDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
-        PaymentLinks payment = new PaymentLinks(client);
+        Client client = createMockClientFromFile("mocks/checkout/paymentLinkResponse.json");
+        Checkout checkout = new Checkout(client);
 
         CreatePaymentLinkRequest paymentLinkRequest = new CreatePaymentLinkRequest();
 
         paymentLinkRequest.setDeliverAt(date());
         paymentLinkRequest.setDateOfBirth(date());
 
-        payment.create(paymentLinkRequest);
+        checkout.paymentLinks(paymentLinkRequest);
         ClientInterface http = client.getHttpClient();
 
         String expected1 = "\"deliverAt\":\"2023-06-02T12:00:00";
         String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
+        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
+        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }
 
     @Test
     public void TestPaymentSessionDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
+        Client client = createMockClientFromFile("mocks/checkout/paymentSessionResponse.json");
         Checkout checkout = new Checkout(client);
 
-        PaymentSessionRequest request = new PaymentSessionRequest();
+        PaymentSetupRequest request = new PaymentSetupRequest();
 
         request.setDateOfBirth(date());
         request.setDeliveryDate(date());
@@ -87,16 +78,16 @@ public class DateSerializationTest extends BaseTest {
 
         String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
         String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
+        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
+        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }
 
     @Test
     public void TestCheckoutPaymentsDate() throws IOException, ApiException, HTTPClientException {
-        Client client = createMockClientFromFile("mocks/checkout/sessions-success.json");
+        Client client = createMockClientFromFile("mocks/checkout/paymentResponse.json");
         Checkout checkout = new Checkout(client);
 
-        PaymentsRequest request = new PaymentsRequest();
+        PaymentRequest request = new PaymentRequest();
 
         request.setDateOfBirth(date());
         request.setDeliveryDate(date());
@@ -106,7 +97,7 @@ public class DateSerializationTest extends BaseTest {
 
         String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
         String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
-        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any());
-        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any());
+        verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
+        verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }
 }

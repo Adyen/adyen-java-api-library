@@ -22,8 +22,8 @@ package com.adyen.model.storedvalue;
 
 import java.util.Objects;
 
-import com.adyen.model.checkout.PaymentMethodDetails;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.adyen.model.checkout.PaymentMethod;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,8 +31,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
-
-import com.adyen.model.Amount;
 
 /**
  * StoredValueBalanceCheckRequest
@@ -46,7 +44,7 @@ public class StoredValueBalanceCheckRequest {
     private String merchantAccount = null;
 
     @SerializedName("paymentMethod")
-    private PaymentMethodDetails paymentMethod = null;
+    private PaymentMethod paymentMethod = null;
 
     @SerializedName("recurringDetailReference")
     private String recurringDetailReference = null;
@@ -65,7 +63,7 @@ public class StoredValueBalanceCheckRequest {
         MOTO("Moto"),
         POS("POS");
 
-        @JsonValue
+
         private final String value;
 
         ShopperInteractionEnum(String value) {
@@ -149,7 +147,7 @@ public class StoredValueBalanceCheckRequest {
         this.merchantAccount = merchantAccount;
     }
 
-    public StoredValueBalanceCheckRequest paymentMethod(PaymentMethodDetails paymentMethod) {
+    public StoredValueBalanceCheckRequest paymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
         return this;
     }
@@ -159,11 +157,11 @@ public class StoredValueBalanceCheckRequest {
      *
      * @return paymentMethod
      **/
-    public PaymentMethodDetails getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(PaymentMethodDetails paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 

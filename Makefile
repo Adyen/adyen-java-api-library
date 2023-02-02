@@ -5,10 +5,9 @@ openapi-generator-cli:=java -jar $(openapi-generator-jar)
 
 generator:=java
 library:=okhttp-gson
-services:=payments checkout
+services:=balanceplatform binlookup checkout legalentitymanagement management payments payout recurring transfers
 models:=src/main/java/com/adyen/model
 output:=target/out
-
 
 # Generate models (for each service)
 models: $(services)
@@ -21,8 +20,10 @@ payments: spec=PaymentService-v68
 recurring: spec=RecurringService-v68
 payout: spec=PayoutService-v68
 management: spec=ManagementService-v1
+management: resourceClass=Management
 balanceplatform: spec=BalancePlatformService-v2
 transfers: spec=TransferService-v3
+legalentitymanagement: spec=LegalEntityService-v2
 # Classic Platforms
 marketpay/account: spec=AccountService-v6
 marketpay/fund: spec=FundService-v6
@@ -37,13 +38,17 @@ $(services): target/spec $(openapi-generator-jar)
 		-g $(generator) \
 		-t templates \
 		-o $(output) \
+		--reserved-words-mappings configuration=configuration \
 		--ignore-file-override ./.openapi-generator-ignore \
 		--skip-validate-spec \
 		--model-package $(subst /,.,com.adyen.model.$@) \
 		--library $(library) \
 		--global-property modelDocs=false \
 		--global-property modelTests=false \
-		--additional-properties=dateLibrary=legacy
+		--additional-properties=dateLibrary=java8 \
+		--additional-properties=serializationLibrary=gson \
+		--additional-properties=openApiNullable=false \
+		--additional-properties=resourceClass=$(resourceClass)Resource
 	mv $(output)/$(models)/$@ $(models)/$@
 	mv $(output)/$(models)/JSON.java $(models)/$@
 

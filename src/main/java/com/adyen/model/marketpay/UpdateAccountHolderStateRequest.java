@@ -20,7 +20,6 @@
  */
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -63,7 +62,7 @@ public class UpdateAccountHolderStateRequest {
         @SerializedName("Processing")
         PROCESSING("Processing");
 
-        @JsonValue
+
         private final String value;
 
         StateTypeEnum(String value) {

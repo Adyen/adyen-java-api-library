@@ -23,7 +23,7 @@ package com.adyen.service.resource.fund;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.Resource;
+import com.adyen.service.resource.Resource;
 
 public class RefundNotPaidOutTransfers extends Resource {
 

@@ -23,7 +23,7 @@ package com.adyen.service.resource.recurring;
 import java.util.Arrays;
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.Resource;
+import com.adyen.service.resource.Resource;
 
 public class ListRecurringDetails extends Resource {
     public ListRecurringDetails(Service service) {

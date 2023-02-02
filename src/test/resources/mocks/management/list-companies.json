@@ -1,0 +1,42 @@
+{
+  "_links": {
+    "first": {
+      "href": "https://management-test.adyen.com/v1/companies?pageNumber=1&pageSize=10"
+    },
+    "last": {
+      "href": "https://management-test.adyen.com/v1/companies?pageNumber=1&pageSize=10"
+    },
+    "self": {
+      "href": "https://management-test.adyen.com/v1/companies?pageNumber=1&pageSize=10"
+    }
+  },
+  "itemsTotal": 1,
+  "pagesTotal": 1,
+  "data": [
+    {
+      "id": "YOUR_COMPANY_ACCOUNT",
+      "name": "YOUR_COMPANY_NAME",
+      "status": "Active",
+      "dataCenters": [
+        {
+          "name": "default",
+          "livePrefix": ""
+        }
+      ],
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "apiCredentials": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials"
+        },
+        "users": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/users"
+        },
+        "webhooks": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/webhooks"
+        }
+      }
+    }
+  ]
+}

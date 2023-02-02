@@ -1,0 +1,14 @@
+{
+"amount": {
+  "currency": "EUR",
+  "value": 100
+  },
+"countryCode": "NL",
+"expiresAt": "2022-10-11T16:54:37+02:00",
+"id": "CS1453E3730C313478",
+"merchantAccount": "YOUR_MERCHANT_ACCOUNT",
+"recurringProcessingModel": "CardOnFile",
+"reference": "YOUR_PAYMENT_REFERENCE",
+"returnUrl": "https://your-company.com/checkout?shopperOrder=12xy..",
+"sessionData": "Ab02b4c0!BFHSPFBQTEwM0NBNTM3RfCf5"
+}

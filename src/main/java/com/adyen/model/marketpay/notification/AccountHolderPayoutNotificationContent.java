@@ -21,8 +21,8 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.Amount;
 import com.adyen.model.marketpay.BankAccountDetail;
+import com.adyen.model.marketpay.Amount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

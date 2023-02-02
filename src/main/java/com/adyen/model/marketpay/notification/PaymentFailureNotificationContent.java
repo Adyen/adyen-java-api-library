@@ -24,7 +24,7 @@ package com.adyen.model.marketpay.notification;
 import com.adyen.model.marketpay.ErrorFieldType;
 import com.adyen.model.marketpay.ErrorFieldTypeContainer;
 import com.adyen.model.marketpay.Message;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -33,7 +33,6 @@ import java.util.Objects;
 
 public class PaymentFailureNotificationContent {
     @SerializedName("errorFields")
-    @JsonProperty("errorFields")
     public List<ErrorFieldTypeContainer> errorFieldTypeContainers;
 
     @SerializedName("errorMessage")

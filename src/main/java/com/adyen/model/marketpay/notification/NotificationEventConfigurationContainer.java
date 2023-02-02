@@ -21,7 +21,7 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
@@ -34,7 +34,6 @@ import static com.adyen.util.Util.toIndentedString;
  */
 public class NotificationEventConfigurationContainer {
     @SerializedName("NotificationEventConfiguration")
-    @JsonProperty("NotificationEventConfiguration")
     NotificationEventConfiguration notificationEventConfiguration = new NotificationEventConfiguration();
 
     public NotificationEventConfiguration getNotificationEventConfiguration() {

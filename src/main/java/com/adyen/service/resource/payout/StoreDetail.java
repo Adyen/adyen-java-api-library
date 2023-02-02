@@ -22,7 +22,7 @@ package com.adyen.service.resource.payout;
 
 import com.adyen.Client;
 import com.adyen.Service;
-import com.adyen.service.Resource;
+import com.adyen.service.resource.Resource;
 
 public class StoreDetail extends Resource {
     public StoreDetail(Service service) {

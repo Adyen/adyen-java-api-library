@@ -21,7 +21,6 @@
  */
 package com.adyen.model.marketpay;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,7 +51,7 @@ public class PayoutMethod {
     public enum PayoutMethodTypeEnum {
         CARDTOKEN("CardToken");
 
-        @JsonValue
+
         private final String value;
 
         PayoutMethodTypeEnum(String value) {

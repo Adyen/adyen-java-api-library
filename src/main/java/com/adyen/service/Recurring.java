@@ -24,39 +24,44 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.recurring.DisableRequest;
 import com.adyen.model.recurring.DisableResult;
+import com.adyen.model.recurring.JSON;
 import com.adyen.model.recurring.NotifyShopperRequest;
 import com.adyen.model.recurring.NotifyShopperResult;
 import com.adyen.model.recurring.RecurringDetailsRequest;
 import com.adyen.model.recurring.RecurringDetailsResult;
-import com.adyen.model.recurring.StoreTokenRequest;
-import com.adyen.model.recurring.StoreTokenResult;
 import com.adyen.model.recurring.ScheduleAccountUpdaterRequest;
 import com.adyen.model.recurring.ScheduleAccountUpdaterResult;
+import com.adyen.model.recurring.CreatePermitRequest;
+import com.adyen.model.recurring.CreatePermitResult;
+import com.adyen.model.recurring.DisablePermitRequest;
+import com.adyen.model.recurring.DisablePermitResult;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.recurring.Disable;
 import com.adyen.service.resource.recurring.ListRecurringDetails;
 import com.adyen.service.resource.recurring.NotifyShopper;
 import com.adyen.service.resource.recurring.ScheduleAccountUpdater;
-import com.adyen.service.resource.recurring.StoreToken;
-import com.google.gson.reflect.TypeToken;
-
+import com.adyen.service.resource.recurring.CreatePermit;
+import com.adyen.service.resource.recurring.DisablePermit;
 import java.io.IOException;
 
 public class Recurring extends Service {
     private final ListRecurringDetails listRecurringDetails;
     private final Disable disable;
-    private final StoreToken storeToken;
     private final ScheduleAccountUpdater scheduleAccountUpdater;
     private final NotifyShopper notifyShopper;
+    private final CreatePermit createPermit;
+    private final DisablePermit disablePermit;
 
     public Recurring(Client client) {
         super(client);
 
         listRecurringDetails = new ListRecurringDetails(this);
         disable = new Disable(this);
-        storeToken = new StoreToken(this);
         scheduleAccountUpdater = new ScheduleAccountUpdater(this);
         notifyShopper = new NotifyShopper(this);
+        createPermit = new CreatePermit(this);
+        disablePermit = new DisablePermit(this);
+        new JSON();
     }
 
     /**
@@ -68,10 +73,9 @@ public class Recurring extends Service {
      * @throws ApiException ApiException
      */
     public RecurringDetailsResult listRecurringDetails(RecurringDetailsRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
         String jsonResult = listRecurringDetails.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<RecurringDetailsResult>() {
-        }.getType());
+        return RecurringDetailsResult.fromJson(jsonResult);
     }
 
     /**
@@ -83,25 +87,9 @@ public class Recurring extends Service {
      * @throws ApiException ApiException
      */
     public DisableResult disable(DisableRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
         String jsonResult = disable.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<DisableResult>() {
-        }.getType());
-    }
-
-    /**
-     * Issues a storeToken API call
-     *
-     * @param request StoreTokenRequest
-     * @return StoreTokenResult
-     * @throws IOException IOException
-     * @throws ApiException ApiException
-     */
-    public StoreTokenResult storeToken(StoreTokenRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
-        String jsonResult = storeToken.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<StoreTokenResult>() {
-        }.getType());
+        return DisableResult.fromJson(jsonResult);
     }
 
     /**
@@ -113,25 +101,50 @@ public class Recurring extends Service {
      * @throws ApiException ApiException
      */
     public ScheduleAccountUpdaterResult scheduleAccountUpdater(ScheduleAccountUpdaterRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
         String jsonResult = scheduleAccountUpdater.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<ScheduleAccountUpdaterResult>() {
-        }.getType());
+        return ScheduleAccountUpdaterResult.fromJson(jsonResult);
     }
 
     /**
      * Issues a notifyShopper API call
      *
-     * @param request ScheduleAccountUpdaterRequest
-     * @return ScheduleAccountUpdaterResult
+     * @param request NotifyShopperRequest
+     * @return NotifyShopperResult
      * @throws IOException IOException
      * @throws ApiException ApiException
      */
     public NotifyShopperResult notifyShopper(NotifyShopperRequest request) throws IOException, ApiException {
-        String jsonRequest = GSON.toJson(request);
+        String jsonRequest = request.toJson();
         String jsonResult = notifyShopper.request(jsonRequest);
-        return GSON.fromJson(jsonResult, new TypeToken<NotifyShopperResult>() {
-        }.getType());
+        return NotifyShopperResult.fromJson(jsonResult);
     }
 
+    /**
+     * Issues a createPermit API call
+     *
+     * @param request CreatePermitRequest
+     * @return CreatePermitResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public CreatePermitResult createPermit(CreatePermitRequest request) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
+        String jsonResult = createPermit.request(jsonRequest);
+        return CreatePermitResult.fromJson(jsonResult);
+    }
+
+    /**
+     * Issues a disablePermit API call
+     *
+     * @param request DisablePermitRequest
+     * @return DisablePermitResult
+     * @throws IOException IOException
+     * @throws ApiException ApiException
+     */
+    public DisablePermitResult disablePermit(DisablePermitRequest request) throws IOException, ApiException {
+        String jsonRequest = request.toJson();
+        String jsonResult = disablePermit.request(jsonRequest);
+        return DisablePermitResult.fromJson(jsonResult);
+    }
 }

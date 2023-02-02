@@ -1,0 +1,21 @@
+{
+  "balancePlatform": "YOUR_BALANCE_PLATFORM",
+  "contactDetails": {
+    "email": "s.hopper@example.com",
+    "phone": {
+      "number": "+315551231234",
+      "type": "mobile"
+    },
+    "address": {
+      "city": "Amsterdam",
+      "country": "NL",
+      "street": "Brannan Street",
+      "houseNumberOrName": "274",
+      "postalCode": "1020CD"
+    }
+  },
+  "description": "S.Hopper - Staff 123",
+  "legalEntityId": "LE322KT223222D5FJ7THR293F",
+  "id": "AH3227C223222B5CMD2SXFKGT",
+  "status": "active"
+}
