@@ -35,13 +35,13 @@ public class TerminalsTerminalLevel extends ApiKeyAuthenticatedService {
      * Get a list of terminals
      *
      * @param queryParams  (optional)
-     *    searchQuery: Returns terminals with an ID that contains the specified string. If present, other query parameters are ignored. (optional)<br />
-     *    countries: Returns terminals located in the countries specified by their [two-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). (optional)<br />
-     *    merchantIds: Returns terminals that belong to the merchant accounts specified by their unique merchant account ID. (optional)<br />
-     *    storeIds: Returns terminals that are assigned to the [stores](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores) specified by their unique store ID. (optional)<br />
-     *    brandModels: Returns terminals of the [models](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/companies/{companyId}/terminalModels) specified in the format *brand.model*. (optional)<br />
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)<br />
+     *    searchQuery: Returns terminals with an ID that contains the specified string. If present, other query parameters are ignored. (optional)
+     *    countries: Returns terminals located in the countries specified by their [two-letter country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). (optional)
+     *    merchantIds: Returns terminals that belong to the merchant accounts specified by their unique merchant account ID. (optional)
+     *    storeIds: Returns terminals that are assigned to the [stores](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores) specified by their unique store ID. (optional)
+     *    brandModels: Returns terminals of the [models](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/companies/{companyId}/terminalModels) specified in the format *brand.model*. (optional)
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)
      * @return ListTerminalsResponse
      * @throws ApiException if fails to make API call
      */

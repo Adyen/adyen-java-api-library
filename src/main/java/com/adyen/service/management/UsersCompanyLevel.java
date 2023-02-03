@@ -40,8 +40,8 @@ public class UsersCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to return. (optional)<br />
-     *    pageSize: The number of items to have on a page. Maximum value is **100**. The default is **10** items on a page. (optional)<br />
+     *    pageNumber: The number of the page to return. (optional)
+     *    pageSize: The number of items to have on a page. Maximum value is **100**. The default is **10** items on a page. (optional)
      * @return ListCompanyUsersResponse
      * @throws ApiException if fails to make API call
      */
