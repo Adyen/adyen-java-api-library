@@ -73,7 +73,7 @@ import com.adyen.model.checkout.*;
 Client client = new Client("Your X-API-KEY", Environment.TEST);
 Checkout checkout = new Checkout(client);
 
-// Create PaymentsRequest 
+// Create PaymentRequest 
 PaymentRequest paymentRequest = new PaymentRequest();
 paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
 CardDetails cardDetails = new CardDetails();
@@ -88,7 +88,7 @@ paymentRequest.setReference("Your order number");
 paymentRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
 
 // Make a call to the /payments endpoint
-PaymentResponse paymentResponse = checkout.payments(paymentsRequest);
+PaymentResponse paymentResponse = checkout.payments(paymentRequest);
 
 ~~~~
  
