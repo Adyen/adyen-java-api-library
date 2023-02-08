@@ -23,6 +23,37 @@ public class ClientTest {
     private String apiKey;
 
     @Test
+    public void testConfigTestClient() {
+        Config config = new Config();
+        config.setEnvironment(Environment.TEST);
+        config.setApiKey(apiKey);
+        Client client = new Client(config);
+
+        Assert.assertEquals(Environment.TEST, client.getConfig().getEnvironment());
+        Assert.assertEquals("https://checkout-test.adyen.com/checkout", client.getConfig().getCheckoutEndpoint());
+    }
+
+    @Test
+    public void testConfigLiveClient() {
+        Config config = new Config();
+        config.setEnvironment(Environment.LIVE);
+        config.setLiveEndpointUrlPrefix("prefix");
+        config.setApiKey(apiKey);
+        Client client = new Client(config);
+        Assert.assertEquals(Environment.LIVE, client.getConfig().getEnvironment());
+        Assert.assertEquals("https://prefix-checkout-live.adyenpayments.com/checkout", client.getConfig().getCheckoutEndpoint());
+    }
+
+    @Test
+    public void testConfigLiveNoPrefixCheckoutClient() {
+        Config config = new Config();
+        config.setEnvironment(Environment.LIVE);
+        config.setApiKey(apiKey);
+        IllegalArgumentException ex = Assert.assertThrows(IllegalArgumentException.class, () -> {new Client(config).getConfig().getCheckoutEndpoint();});
+        Assert.assertEquals(ex.getMessage(), "Please provide your unique live url prefix on the setEnvironment() call on the Client or provide checkoutEndpoint in your config object.");
+    }
+
+    @Test
     public void testClientCertificateAuth() {
         Client client = new Client(trustStore, clientKeyStore, clientKeyStorePassword, apiKey, null);
 
