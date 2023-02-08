@@ -299,10 +299,10 @@ public class Config {
         this.managementEndpoint = managementEndpoint;
     }
 
-    public String getLiveEndpointUrlPrefix(){
+    public String getLiveEndpointUrlPrefix() {
         return this.liveEndpointUrlPrefix;
     }
-    public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix){
+    public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
         this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
     }
 }
