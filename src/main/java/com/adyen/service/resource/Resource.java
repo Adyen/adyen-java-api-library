@@ -25,12 +25,9 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.ApiError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.util.List;
