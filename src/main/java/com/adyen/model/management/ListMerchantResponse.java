@@ -81,7 +81,6 @@ public class ListMerchantResponse {
    * Get links
    * @return links
   **/
-
   @ApiModelProperty(value = "")
 
   public PaginationLinks getLinks() {
@@ -112,7 +111,6 @@ public class ListMerchantResponse {
    * The list of merchant accounts.
    * @return data
   **/
-
   @ApiModelProperty(value = "The list of merchant accounts.")
 
   public List<Merchant> getData() {
@@ -135,7 +133,6 @@ public class ListMerchantResponse {
    * Total number of items.
    * @return itemsTotal
   **/
-
   @ApiModelProperty(required = true, value = "Total number of items.")
 
   public Integer getItemsTotal() {
@@ -158,7 +155,6 @@ public class ListMerchantResponse {
    * Total number of pages.
    * @return pagesTotal
   **/
-
   @ApiModelProperty(required = true, value = "Total number of pages.")
 
   public Integer getPagesTotal() {

@@ -150,7 +150,6 @@ public class Terminal {
    * The [assignment status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api) of the terminal. If true, the terminal is assigned. If false, the terminal is in inventory and can&#39;t be boarded.
    * @return assigned
   **/
-
   @ApiModelProperty(value = "The [assignment status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api) of the terminal. If true, the terminal is assigned. If false, the terminal is in inventory and can't be boarded.")
 
   public Boolean getAssigned() {
@@ -173,7 +172,6 @@ public class Terminal {
    * The Bluetooth IP address of the terminal.
    * @return bluetoothIp
   **/
-
   @ApiModelProperty(value = "The Bluetooth IP address of the terminal.")
 
   public String getBluetoothIp() {
@@ -196,7 +194,6 @@ public class Terminal {
    * The Bluetooth MAC address of the terminal.
    * @return bluetoothMac
   **/
-
   @ApiModelProperty(value = "The Bluetooth MAC address of the terminal.")
 
   public String getBluetoothMac() {
@@ -219,7 +216,6 @@ public class Terminal {
    * The city where the terminal is located.
    * @return city
   **/
-
   @ApiModelProperty(value = "The city where the terminal is located.")
 
   public String getCity() {
@@ -242,7 +238,6 @@ public class Terminal {
    * The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.
    * @return companyAccount
   **/
-
   @ApiModelProperty(value = "The company account that the terminal is associated with. If this is the only account level shown in the response, the terminal is assigned to the inventory of the company account.")
 
   public String getCompanyAccount() {
@@ -265,7 +260,6 @@ public class Terminal {
    * The country code of the country where the terminal is located.
    * @return countryCode
   **/
-
   @ApiModelProperty(value = "The country code of the country where the terminal is located.")
 
   public String getCountryCode() {
@@ -288,7 +282,6 @@ public class Terminal {
    * The model name of the terminal.
    * @return deviceModel
   **/
-
   @ApiModelProperty(value = "The model name of the terminal.")
 
   public String getDeviceModel() {
@@ -311,7 +304,6 @@ public class Terminal {
    * The ethernet IP address of the terminal.
    * @return ethernetIp
   **/
-
   @ApiModelProperty(value = "The ethernet IP address of the terminal.")
 
   public String getEthernetIp() {
@@ -334,7 +326,6 @@ public class Terminal {
    * The ethernet MAC address of the terminal.
    * @return ethernetMac
   **/
-
   @ApiModelProperty(value = "The ethernet MAC address of the terminal.")
 
   public String getEthernetMac() {
@@ -357,7 +348,6 @@ public class Terminal {
    * The software release currently in use on the terminal.
    * @return firmwareVersion
   **/
-
   @ApiModelProperty(value = "The software release currently in use on the terminal.")
 
   public String getFirmwareVersion() {
@@ -380,7 +370,6 @@ public class Terminal {
    * The integrated circuit card identifier (ICCID) of the SIM card in the terminal.
    * @return iccid
   **/
-
   @ApiModelProperty(value = "The integrated circuit card identifier (ICCID) of the SIM card in the terminal.")
 
   public String getIccid() {
@@ -403,7 +392,6 @@ public class Terminal {
    * The unique identifier of the terminal.
    * @return id
   **/
-
   @ApiModelProperty(value = "The unique identifier of the terminal.")
 
   public String getId() {
@@ -426,7 +414,6 @@ public class Terminal {
    * Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
    * @return lastActivityDateTime
   **/
-
   @ApiModelProperty(value = "Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.")
 
   public OffsetDateTime getLastActivityDateTime() {
@@ -449,7 +436,6 @@ public class Terminal {
    * Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
    * @return lastTransactionDateTime
   **/
-
   @ApiModelProperty(value = "Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.")
 
   public OffsetDateTime getLastTransactionDateTime() {
@@ -472,7 +458,6 @@ public class Terminal {
    * The Ethernet link negotiation that the terminal uses:  - &#x60;auto&#x60;: Auto-negotiation  - &#x60;100full&#x60;: 100 Mbps full duplex
    * @return linkNegotiation
   **/
-
   @ApiModelProperty(value = "The Ethernet link negotiation that the terminal uses:  - `auto`: Auto-negotiation  - `100full`: 100 Mbps full duplex")
 
   public String getLinkNegotiation() {
@@ -495,7 +480,6 @@ public class Terminal {
    * The serial number of the terminal.
    * @return serialNumber
   **/
-
   @ApiModelProperty(value = "The serial number of the terminal.")
 
   public String getSerialNumber() {
@@ -518,7 +502,6 @@ public class Terminal {
    * On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.
    * @return simStatus
   **/
-
   @ApiModelProperty(value = "On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY.")
 
   public String getSimStatus() {
@@ -541,7 +524,6 @@ public class Terminal {
    * Indicates when the terminal was last online, whether the terminal is being reassigned, or whether the terminal is turned off. If the terminal was last online more that a week ago, it is also shown as turned off.
    * @return status
   **/
-
   @ApiModelProperty(value = "Indicates when the terminal was last online, whether the terminal is being reassigned, or whether the terminal is turned off. If the terminal was last online more that a week ago, it is also shown as turned off.")
 
   public String getStatus() {
@@ -564,7 +546,6 @@ public class Terminal {
    * The status of the store that the terminal is assigned to.
    * @return storeStatus
   **/
-
   @ApiModelProperty(value = "The status of the store that the terminal is assigned to.")
 
   public String getStoreStatus() {
@@ -587,7 +568,6 @@ public class Terminal {
    * The terminal&#39;s IP address in your Wi-Fi network.
    * @return wifiIp
   **/
-
   @ApiModelProperty(value = "The terminal's IP address in your Wi-Fi network.")
 
   public String getWifiIp() {
@@ -610,7 +590,6 @@ public class Terminal {
    * The terminal&#39;s MAC address in your Wi-Fi network.
    * @return wifiMac
   **/
-
   @ApiModelProperty(value = "The terminal's MAC address in your Wi-Fi network.")
 
   public String getWifiMac() {
@@ -633,7 +612,6 @@ public class Terminal {
    * The SSID of the Wi-Fi network that your terminal is connected to.
    * @return wifiSsid
   **/
-
   @ApiModelProperty(value = "The SSID of the Wi-Fi network that your terminal is connected to.")
 
   public String getWifiSsid() {

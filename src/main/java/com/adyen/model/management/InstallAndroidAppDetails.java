@@ -114,7 +114,6 @@ public class InstallAndroidAppDetails {
    * The unique identifier of the app to be installed.
    * @return appId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the app to be installed.")
 
   public String getAppId() {
@@ -137,7 +136,6 @@ public class InstallAndroidAppDetails {
    * Type of terminal action: Install an Android app.
    * @return type
   **/
-
   @ApiModelProperty(value = "Type of terminal action: Install an Android app.")
 
   public TypeEnum getType() {

@@ -273,7 +273,6 @@ public class UpdateMerchantWebhookRequest {
    * Indicates if expired SSL certificates are accepted. Default value: **false**.
    * @return acceptsExpiredCertificate
   **/
-
   @ApiModelProperty(value = "Indicates if expired SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsExpiredCertificate() {
@@ -296,7 +295,6 @@ public class UpdateMerchantWebhookRequest {
    * Indicates if self-signed SSL certificates are accepted. Default value: **false**.
    * @return acceptsSelfSignedCertificate
   **/
-
   @ApiModelProperty(value = "Indicates if self-signed SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsSelfSignedCertificate() {
@@ -319,7 +317,6 @@ public class UpdateMerchantWebhookRequest {
    * Indicates if untrusted SSL certificates are accepted. Default value: **false**.
    * @return acceptsUntrustedRootCertificate
   **/
-
   @ApiModelProperty(value = "Indicates if untrusted SSL certificates are accepted. Default value: **false**.")
 
   public Boolean getAcceptsUntrustedRootCertificate() {
@@ -342,7 +339,6 @@ public class UpdateMerchantWebhookRequest {
    * Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.
    * @return active
   **/
-
   @ApiModelProperty(required = true, value = "Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.")
 
   public Boolean getActive() {
@@ -365,7 +361,6 @@ public class UpdateMerchantWebhookRequest {
    * Get additionalSettings
    * @return additionalSettings
   **/
-
   @ApiModelProperty(value = "")
 
   public AdditionalSettings getAdditionalSettings() {
@@ -388,7 +383,6 @@ public class UpdateMerchantWebhookRequest {
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
    * @return communicationFormat
   **/
-
   @ApiModelProperty(example = "SOAP", required = true, value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
 
   public CommunicationFormatEnum getCommunicationFormat() {
@@ -411,7 +405,6 @@ public class UpdateMerchantWebhookRequest {
    * Your description for this webhook configuration.
    * @return description
   **/
-
   @ApiModelProperty(value = "Your description for this webhook configuration.")
 
   public String getDescription() {
@@ -434,7 +427,6 @@ public class UpdateMerchantWebhookRequest {
    * Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.
    * @return networkType
   **/
-
   @ApiModelProperty(value = "Network type for Terminal API notification webhooks. Possible values: * **public** * **local**  Default Value: **public**.")
 
   public NetworkTypeEnum getNetworkType() {
@@ -457,7 +449,6 @@ public class UpdateMerchantWebhookRequest {
    * Password to access the webhook URL.
    * @return password
   **/
-
   @ApiModelProperty(value = "Password to access the webhook URL.")
 
   public String getPassword() {
@@ -480,7 +471,6 @@ public class UpdateMerchantWebhookRequest {
    * Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if &#x60;communicationFormat&#x60;: **soap**.
    * @return populateSoapActionHeader
   **/
-
   @ApiModelProperty(value = "Indicates if the SOAP action header needs to be populated. Default value: **false**.  Only applies if `communicationFormat`: **soap**.")
 
   public Boolean getPopulateSoapActionHeader() {
@@ -503,7 +493,6 @@ public class UpdateMerchantWebhookRequest {
    * SSL version to access the public webhook URL specified in the &#x60;url&#x60; field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use &#x60;sslVersion&#x60;: **TLSv1.2**.
    * @return sslVersion
   **/
-
   @ApiModelProperty(example = "TLSv1.2", value = "SSL version to access the public webhook URL specified in the `url` field. Possible values: * **TLSv1.3** * **TLSv1.2** * **HTTP** - Only allowed on Test environment.  If not specified, the webhook will use `sslVersion`: **TLSv1.2**.")
 
   public SslVersionEnum getSslVersion() {
@@ -526,7 +515,6 @@ public class UpdateMerchantWebhookRequest {
    * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
    * @return url
   **/
-
   @ApiModelProperty(example = "http://www.adyen.com", required = true, value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
 
   public String getUrl() {
@@ -549,7 +537,6 @@ public class UpdateMerchantWebhookRequest {
    * Username to access the webhook URL.
    * @return username
   **/
-
   @ApiModelProperty(value = "Username to access the webhook URL.")
 
   public String getUsername() {

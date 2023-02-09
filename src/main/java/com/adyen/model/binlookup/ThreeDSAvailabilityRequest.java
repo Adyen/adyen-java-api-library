@@ -97,7 +97,6 @@ public class ThreeDSAvailabilityRequest {
    * This field contains additional data, which may be required for a particular request.  The &#x60;additionalData&#x60; object consists of entries, each of which includes the key and value.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.  The `additionalData` object consists of entries, each of which includes the key and value.")
 
   public Map<String, String> getAdditionalData() {
@@ -128,7 +127,6 @@ public class ThreeDSAvailabilityRequest {
    * List of brands.
    * @return brands
   **/
-
   @ApiModelProperty(value = "List of brands.")
 
   public List<String> getBrands() {
@@ -151,7 +149,6 @@ public class ThreeDSAvailabilityRequest {
    * Card number or BIN.
    * @return cardNumber
   **/
-
   @ApiModelProperty(value = "Card number or BIN.")
 
   public String getCardNumber() {
@@ -174,7 +171,6 @@ public class ThreeDSAvailabilityRequest {
    * The merchant account identifier.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account identifier.")
 
   public String getMerchantAccount() {
@@ -197,7 +193,6 @@ public class ThreeDSAvailabilityRequest {
    * A recurring detail reference corresponding to a card.
    * @return recurringDetailReference
   **/
-
   @ApiModelProperty(value = "A recurring detail reference corresponding to a card.")
 
   public String getRecurringDetailReference() {
@@ -220,7 +215,6 @@ public class ThreeDSAvailabilityRequest {
    * The shopper&#39;s reference to uniquely identify this shopper (e.g. user ID or account ID).
    * @return shopperReference
   **/
-
   @ApiModelProperty(value = "The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID).")
 
   public String getShopperReference() {

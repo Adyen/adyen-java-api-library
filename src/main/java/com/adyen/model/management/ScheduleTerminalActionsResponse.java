@@ -99,7 +99,6 @@ public class ScheduleTerminalActionsResponse {
    * Get actionDetails
    * @return actionDetails
   **/
-
   @ApiModelProperty(value = "")
 
   public ScheduleTerminalActionsRequestActionDetails getActionDetails() {
@@ -130,7 +129,6 @@ public class ScheduleTerminalActionsResponse {
    * A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.
    * @return items
   **/
-
   @ApiModelProperty(value = "A list containing a terminal ID and an action ID for each terminal that the action was scheduled for.")
 
   public List<TerminalActionScheduleDetail> getItems() {
@@ -153,7 +151,6 @@ public class ScheduleTerminalActionsResponse {
    * The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+01:00**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.
    * @return scheduledAt
   **/
-
   @ApiModelProperty(value = "The date and time when the action should happen.  Format: [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339), but without the **Z** before the time offset. For example, **2021-11-15T12:16:21+01:00**  The action is sent with the first [maintenance call](https://docs.adyen.com/point-of-sale/automating-terminal-management/terminal-actions-api#when-actions-take-effect) after the specified date and time in the time zone of the terminal.  An empty value causes the action to be sent as soon as possible: at the next maintenance call.")
 
   public String getScheduledAt() {
@@ -176,7 +173,6 @@ public class ScheduleTerminalActionsResponse {
    * The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the &#x60;terminalIds&#x60; list must be assigned to this store.
    * @return storeId
   **/
-
   @ApiModelProperty(value = "The unique ID of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/stores). If present, all terminals in the `terminalIds` list must be assigned to this store.")
 
   public String getStoreId() {
@@ -209,7 +205,6 @@ public class ScheduleTerminalActionsResponse {
    * @deprecated
   **/
   @Deprecated
-
   @ApiModelProperty(value = "A list of unique IDs of the terminals that the action applies to.")
 
   public List<String> getTerminalIds() {
@@ -240,7 +235,6 @@ public class ScheduleTerminalActionsResponse {
    * The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.
    * @return terminalsWithErrors
   **/
-
   @ApiModelProperty(value = "The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to.")
 
   public Map<String, List<String>> getTerminalsWithErrors() {
@@ -263,7 +257,6 @@ public class ScheduleTerminalActionsResponse {
    * The number of terminals for which scheduling the action failed.
    * @return totalErrors
   **/
-
   @ApiModelProperty(value = "The number of terminals for which scheduling the action failed.")
 
   public Integer getTotalErrors() {
@@ -286,7 +279,6 @@ public class ScheduleTerminalActionsResponse {
    * The number of terminals for which the action was successfully scheduled. This doesn&#39;t mean the action has happened yet.
    * @return totalScheduled
   **/
-
   @ApiModelProperty(value = "The number of terminals for which the action was successfully scheduled. This doesn't mean the action has happened yet.")
 
   public Integer getTotalScheduled() {

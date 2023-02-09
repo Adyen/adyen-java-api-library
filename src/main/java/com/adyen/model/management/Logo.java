@@ -65,7 +65,6 @@ public class Logo {
    * The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.
    * @return data
   **/
-
   @ApiModelProperty(value = "The image file, converted to a Base64-encoded string, of the logo to be shown on the terminal.")
 
   public String getData() {

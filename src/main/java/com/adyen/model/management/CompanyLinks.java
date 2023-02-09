@@ -78,7 +78,6 @@ public class CompanyLinks {
    * Get apiCredentials
    * @return apiCredentials
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getApiCredentials() {
@@ -101,7 +100,6 @@ public class CompanyLinks {
    * Get self
    * @return self
   **/
-  
   @ApiModelProperty(required = true, value = "")
 
   public LinksElement getSelf() {
@@ -124,7 +122,6 @@ public class CompanyLinks {
    * Get users
    * @return users
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getUsers() {
@@ -147,7 +144,6 @@ public class CompanyLinks {
    * Get webhooks
    * @return webhooks
   **/
-
   @ApiModelProperty(value = "")
 
   public LinksElement getWebhooks() {

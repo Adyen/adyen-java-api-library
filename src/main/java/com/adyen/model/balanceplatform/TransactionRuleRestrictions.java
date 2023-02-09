@@ -121,7 +121,6 @@ public class TransactionRuleRestrictions {
    * Get activeNetworkTokens
    * @return activeNetworkTokens
   **/
-
   @ApiModelProperty(value = "")
 
   public ActiveNetworkTokensRestriction getActiveNetworkTokens() {
@@ -144,7 +143,6 @@ public class TransactionRuleRestrictions {
    * Get brandVariants
    * @return brandVariants
   **/
-
   @ApiModelProperty(value = "")
 
   public BrandVariantsRestriction getBrandVariants() {
@@ -167,7 +165,6 @@ public class TransactionRuleRestrictions {
    * Get countries
    * @return countries
   **/
-
   @ApiModelProperty(value = "")
 
   public CountriesRestriction getCountries() {
@@ -190,7 +187,6 @@ public class TransactionRuleRestrictions {
    * Get differentCurrencies
    * @return differentCurrencies
   **/
-
   @ApiModelProperty(value = "")
 
   public DifferentCurrenciesRestriction getDifferentCurrencies() {
@@ -213,7 +209,6 @@ public class TransactionRuleRestrictions {
    * Get entryModes
    * @return entryModes
   **/
-
   @ApiModelProperty(value = "")
 
   public EntryModesRestriction getEntryModes() {
@@ -236,7 +231,6 @@ public class TransactionRuleRestrictions {
    * Get internationalTransaction
    * @return internationalTransaction
   **/
-
   @ApiModelProperty(value = "")
 
   public InternationalTransactionRestriction getInternationalTransaction() {
@@ -259,7 +253,6 @@ public class TransactionRuleRestrictions {
    * Get matchingTransactions
    * @return matchingTransactions
   **/
-
   @ApiModelProperty(value = "")
 
   public MatchingTransactionsRestriction getMatchingTransactions() {
@@ -282,7 +275,6 @@ public class TransactionRuleRestrictions {
    * Get mccs
    * @return mccs
   **/
-
   @ApiModelProperty(value = "")
 
   public MccsRestriction getMccs() {
@@ -305,7 +297,6 @@ public class TransactionRuleRestrictions {
    * Get merchants
    * @return merchants
   **/
-
   @ApiModelProperty(value = "")
 
   public MerchantsRestriction getMerchants() {
@@ -328,7 +319,6 @@ public class TransactionRuleRestrictions {
    * Get processingTypes
    * @return processingTypes
   **/
-
   @ApiModelProperty(value = "")
 
   public ProcessingTypesRestriction getProcessingTypes() {
@@ -351,7 +341,6 @@ public class TransactionRuleRestrictions {
    * Get timeOfDay
    * @return timeOfDay
   **/
-
   @ApiModelProperty(value = "")
 
   public TimeOfDayRestriction getTimeOfDay() {
@@ -374,7 +363,6 @@ public class TransactionRuleRestrictions {
    * Get totalAmount
    * @return totalAmount
   **/
-
   @ApiModelProperty(value = "")
 
   public TotalAmountRestriction getTotalAmount() {

@@ -13,26 +13,39 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * OnboardingTheme
@@ -72,7 +85,6 @@ public class OnboardingTheme {
    * The creation date of the theme.
    * @return createdAt
   **/
-
   @ApiModelProperty(required = true, value = "The creation date of the theme.")
 
   public OffsetDateTime getCreatedAt() {
@@ -95,7 +107,6 @@ public class OnboardingTheme {
    * The description of the theme.
    * @return description
   **/
-
   @ApiModelProperty(value = "The description of the theme.")
 
   public String getDescription() {
@@ -118,7 +129,6 @@ public class OnboardingTheme {
    * The unique identifier of the theme.
    * @return id
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of the theme.")
 
   public String getId() {
@@ -146,7 +156,6 @@ public class OnboardingTheme {
    * The properties of the theme.
    * @return properties
   **/
-
   @ApiModelProperty(required = true, value = "The properties of the theme.")
 
   public Map<String, String> getProperties() {
@@ -169,7 +178,6 @@ public class OnboardingTheme {
    * The date when the theme was last updated.
    * @return updatedAt
   **/
-
   @ApiModelProperty(value = "The date when the theme was last updated.")
 
   public OffsetDateTime getUpdatedAt() {

@@ -69,7 +69,6 @@ public class RequestActivationResponse {
    * The unique identifier of the company account.
    * @return companyId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the company account.")
 
   public String getCompanyId() {
@@ -92,7 +91,6 @@ public class RequestActivationResponse {
    * The unique identifier of the merchant account you requested to activate.
    * @return merchantId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the merchant account you requested to activate.")
 
   public String getMerchantId() {

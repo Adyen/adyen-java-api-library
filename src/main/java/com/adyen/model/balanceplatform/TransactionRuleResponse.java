@@ -66,7 +66,6 @@ public class TransactionRuleResponse {
    * Get transactionRule
    * @return transactionRule
   **/
-
   @ApiModelProperty(value = "")
 
   public TransactionRule getTransactionRule() {

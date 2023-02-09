@@ -13,23 +13,35 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * EntityReference
@@ -53,7 +65,6 @@ public class EntityReference {
    * The unique identifier of the resource.
    * @return id
   **/
-
   @ApiModelProperty(value = "The unique identifier of the resource.")
 
   public String getId() {

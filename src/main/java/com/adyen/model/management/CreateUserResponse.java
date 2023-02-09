@@ -101,7 +101,6 @@ public class CreateUserResponse {
    * Get links
    * @return links
   **/
-  
   @ApiModelProperty(value = "")
 
   public Links getLinks() {
@@ -132,7 +131,6 @@ public class CreateUserResponse {
    * The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
    * @return accountGroups
   **/
-  
   @ApiModelProperty(value = "The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.")
 
   public List<String> getAccountGroups() {
@@ -155,7 +153,6 @@ public class CreateUserResponse {
    * Indicates whether this user is active.
    * @return active
   **/
-  
   @ApiModelProperty(value = "Indicates whether this user is active.")
 
   public Boolean getActive() {
@@ -178,7 +175,6 @@ public class CreateUserResponse {
    * The email address of the user.
    * @return email
   **/
-  
   @ApiModelProperty(required = true, value = "The email address of the user.")
 
   public String getEmail() {
@@ -201,7 +197,6 @@ public class CreateUserResponse {
    * The unique identifier of the user.
    * @return id
   **/
-  
   @ApiModelProperty(required = true, value = "The unique identifier of the user.")
 
   public String getId() {
@@ -224,7 +219,6 @@ public class CreateUserResponse {
    * Get name
    * @return name
   **/
-  
   @ApiModelProperty(value = "")
 
   public Name getName() {
@@ -252,7 +246,6 @@ public class CreateUserResponse {
    * The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
    * @return roles
   **/
-  
   @ApiModelProperty(required = true, value = "The list of [roles](https://docs.adyen.com/account/user-roles) for this user.")
 
   public List<String> getRoles() {
@@ -275,7 +268,6 @@ public class CreateUserResponse {
    * The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
    * @return timeZoneCode
   **/
-  
   @ApiModelProperty(required = true, value = "The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.")
 
   public String getTimeZoneCode() {
@@ -298,8 +290,7 @@ public class CreateUserResponse {
    * The username for this user.
    * @return username
   **/
-  
-  @ApiModelProperty(required = true, value = "The username for this user.")
+  @ApiModelProperty(value = "The username for this user.")
 
   public String getUsername() {
     return username;
@@ -388,7 +379,6 @@ public class CreateUserResponse {
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("roles");
     openapiRequiredFields.add("timeZoneCode");
-    openapiRequiredFields.add("username");
   }
 
  /**

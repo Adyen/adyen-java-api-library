@@ -14,7 +14,7 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.management.Amount2;
+import com.adyen.model.management.Amount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,7 +52,7 @@ import com.adyen.model.management.JSON;
 public class CustomNotification {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private Amount2 amount;
+  private Amount amount;
 
   public static final String SERIALIZED_NAME_EVENT_CODE = "eventCode";
   @SerializedName(SERIALIZED_NAME_EVENT_CODE)
@@ -81,7 +81,7 @@ public class CustomNotification {
   public CustomNotification() { 
   }
 
-  public CustomNotification amount(Amount2 amount) {
+  public CustomNotification amount(Amount amount) {
     
     this.amount = amount;
     return this;
@@ -91,15 +91,14 @@ public class CustomNotification {
    * Get amount
    * @return amount
   **/
-
   @ApiModelProperty(value = "")
 
-  public Amount2 getAmount() {
+  public Amount getAmount() {
     return amount;
   }
 
 
-  public void setAmount(Amount2 amount) {
+  public void setAmount(Amount amount) {
     this.amount = amount;
   }
 
@@ -114,7 +113,6 @@ public class CustomNotification {
    * The event that caused the notification to be sent.Currently supported values: * **AUTHORISATION** * **CANCELLATION** * **REFUND** * **CAPTURE** * **DEACTIVATE_RECURRING** * **REPORT_AVAILABLE** * **CHARGEBACK** * **REQUEST_FOR_INFORMATION** * **NOTIFICATION_OF_CHARGEBACK** * **NOTIFICATIONTEST** * **ORDER_OPENED** * **ORDER_CLOSED** * **CHARGEBACK_REVERSED** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA**
    * @return eventCode
   **/
-
   @ApiModelProperty(value = "The event that caused the notification to be sent.Currently supported values: * **AUTHORISATION** * **CANCELLATION** * **REFUND** * **CAPTURE** * **DEACTIVATE_RECURRING** * **REPORT_AVAILABLE** * **CHARGEBACK** * **REQUEST_FOR_INFORMATION** * **NOTIFICATION_OF_CHARGEBACK** * **NOTIFICATIONTEST** * **ORDER_OPENED** * **ORDER_CLOSED** * **CHARGEBACK_REVERSED** * **REFUNDED_REVERSED** * **REFUND_WITH_DATA**")
 
   public String getEventCode() {
@@ -137,7 +135,6 @@ public class CustomNotification {
    * The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.
    * @return eventDate
   **/
-
   @ApiModelProperty(value = "The time of the event. Format: [ISO 8601](http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDThh:mm:ssTZD.")
 
   public OffsetDateTime getEventDate() {
@@ -160,7 +157,6 @@ public class CustomNotification {
    * Your reference for the custom test notification.
    * @return merchantReference
   **/
-
   @ApiModelProperty(value = "Your reference for the custom test notification.")
 
   public String getMerchantReference() {
@@ -183,7 +179,6 @@ public class CustomNotification {
    * The payment method for the payment that the notification is about. Possible values: * **amex** * **visa** * **mc** * **maestro** * **bcmc** * **paypal**  * **sms**  * **bankTransfer_NL** * **bankTransfer_DE** * **bankTransfer_BE** * **ideal** * **elv** * **sepadirectdebit** 
    * @return paymentMethod
   **/
-
   @ApiModelProperty(value = "The payment method for the payment that the notification is about. Possible values: * **amex** * **visa** * **mc** * **maestro** * **bcmc** * **paypal**  * **sms**  * **bankTransfer_NL** * **bankTransfer_DE** * **bankTransfer_BE** * **ideal** * **elv** * **sepadirectdebit** ")
 
   public String getPaymentMethod() {
@@ -206,7 +201,6 @@ public class CustomNotification {
    * A descripton of what caused the notification.
    * @return reason
   **/
-
   @ApiModelProperty(value = "A descripton of what caused the notification.")
 
   public String getReason() {
@@ -229,7 +223,6 @@ public class CustomNotification {
    * The outcome of the event which the notification is about. Set to either **true** or **false**. 
    * @return success
   **/
-
   @ApiModelProperty(value = "The outcome of the event which the notification is about. Set to either **true** or **false**. ")
 
   public Boolean getSuccess() {
@@ -335,7 +328,7 @@ public class CustomNotification {
       }
       // validate the optional field `amount`
       if (jsonObj.getAsJsonObject("amount") != null) {
-        Amount2.validateJsonObject(jsonObj.getAsJsonObject("amount"));
+        Amount.validateJsonObject(jsonObj.getAsJsonObject("amount"));
       }
       // validate the optional field eventCode
       if (jsonObj.get("eventCode") != null && !jsonObj.get("eventCode").isJsonPrimitive()) {

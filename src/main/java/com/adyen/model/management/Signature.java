@@ -56,6 +56,10 @@ public class Signature {
   @SerializedName(SERIALIZED_NAME_DEVICE_NAME)
   private String deviceName;
 
+  public static final String SERIALIZED_NAME_DEVICE_SLOGAN = "deviceSlogan";
+  @SerializedName(SERIALIZED_NAME_DEVICE_SLOGAN)
+  private String deviceSlogan;
+
   public static final String SERIALIZED_NAME_SKIP_SIGNATURE = "skipSignature";
   @SerializedName(SERIALIZED_NAME_SKIP_SIGNATURE)
   private Boolean skipSignature;
@@ -73,7 +77,6 @@ public class Signature {
    * If &#x60;skipSignature&#x60; is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).
    * @return askSignatureOnScreen
   **/
-
   @ApiModelProperty(value = "If `skipSignature` is false, indicates whether the shopper should provide a signature on the display (**true**) or on the merchant receipt (**false**).")
 
   public Boolean getAskSignatureOnScreen() {
@@ -96,7 +99,6 @@ public class Signature {
    * Name that identifies the terminal.
    * @return deviceName
   **/
-
   @ApiModelProperty(value = "Name that identifies the terminal.")
 
   public String getDeviceName() {
@@ -106,6 +108,28 @@ public class Signature {
 
   public void setDeviceName(String deviceName) {
     this.deviceName = deviceName;
+  }
+
+
+  public Signature deviceSlogan(String deviceSlogan) {
+    
+    this.deviceSlogan = deviceSlogan;
+    return this;
+  }
+
+   /**
+   * Slogan shown on the start screen of the device.
+   * @return deviceSlogan
+  **/
+  @ApiModelProperty(value = "Slogan shown on the start screen of the device.")
+
+  public String getDeviceSlogan() {
+    return deviceSlogan;
+  }
+
+
+  public void setDeviceSlogan(String deviceSlogan) {
+    this.deviceSlogan = deviceSlogan;
   }
 
 
@@ -119,7 +143,6 @@ public class Signature {
    * Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.
    * @return skipSignature
   **/
-
   @ApiModelProperty(value = "Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional.")
 
   public Boolean getSkipSignature() {
@@ -144,12 +167,13 @@ public class Signature {
     Signature signature = (Signature) o;
     return Objects.equals(this.askSignatureOnScreen, signature.askSignatureOnScreen) &&
         Objects.equals(this.deviceName, signature.deviceName) &&
+        Objects.equals(this.deviceSlogan, signature.deviceSlogan) &&
         Objects.equals(this.skipSignature, signature.skipSignature);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(askSignatureOnScreen, deviceName, skipSignature);
+    return Objects.hash(askSignatureOnScreen, deviceName, deviceSlogan, skipSignature);
   }
 
   @Override
@@ -158,6 +182,7 @@ public class Signature {
     sb.append("class Signature {\n");
     sb.append("    askSignatureOnScreen: ").append(toIndentedString(askSignatureOnScreen)).append("\n");
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
+    sb.append("    deviceSlogan: ").append(toIndentedString(deviceSlogan)).append("\n");
     sb.append("    skipSignature: ").append(toIndentedString(skipSignature)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -183,6 +208,7 @@ public class Signature {
     openapiFields = new HashSet<String>();
     openapiFields.add("askSignatureOnScreen");
     openapiFields.add("deviceName");
+    openapiFields.add("deviceSlogan");
     openapiFields.add("skipSignature");
 
     // a set of required properties/fields (JSON key names)
@@ -214,6 +240,10 @@ public class Signature {
       // validate the optional field deviceName
       if (jsonObj.get("deviceName") != null && !jsonObj.get("deviceName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `deviceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceName").toString()));
+      }
+      // validate the optional field deviceSlogan
+      if (jsonObj.get("deviceSlogan") != null && !jsonObj.get("deviceSlogan").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `deviceSlogan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceSlogan").toString()));
       }
   }
 

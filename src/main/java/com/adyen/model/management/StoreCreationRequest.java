@@ -14,7 +14,7 @@ package com.adyen.model.management;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.management.Address2;
+import com.adyen.model.management.StoreLocation;
 import com.adyen.model.management.StoreSplitConfiguration;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -54,7 +54,7 @@ import com.adyen.model.management.JSON;
 public class StoreCreationRequest {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private Address2 address;
+  private StoreLocation address;
 
   public static final String SERIALIZED_NAME_BUSINESS_LINE_IDS = "businessLineIds";
   @SerializedName(SERIALIZED_NAME_BUSINESS_LINE_IDS)
@@ -87,7 +87,7 @@ public class StoreCreationRequest {
   public StoreCreationRequest() { 
   }
 
-  public StoreCreationRequest address(Address2 address) {
+  public StoreCreationRequest address(StoreLocation address) {
     
     this.address = address;
     return this;
@@ -97,15 +97,14 @@ public class StoreCreationRequest {
    * Get address
    * @return address
   **/
-
   @ApiModelProperty(required = true, value = "")
 
-  public Address2 getAddress() {
+  public StoreLocation getAddress() {
     return address;
   }
 
 
-  public void setAddress(Address2 address) {
+  public void setAddress(StoreLocation address) {
     this.address = address;
   }
 
@@ -128,7 +127,6 @@ public class StoreCreationRequest {
    * The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.
    * @return businessLineIds
   **/
-
   @ApiModelProperty(value = "The unique identifiers of the [business lines](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/businesslines__resParam_id) that the store is associated with. If not specified, the business line of the merchant account is used. Required when there are multiple business lines under the merchant account.")
 
   public List<String> getBusinessLineIds() {
@@ -151,7 +149,6 @@ public class StoreCreationRequest {
    * Your description of the store.
    * @return description
   **/
-
   @ApiModelProperty(required = true, value = "Your description of the store.")
 
   public String getDescription() {
@@ -174,7 +171,6 @@ public class StoreCreationRequest {
    * When using the Zip payment method: The location ID that Zip has assigned to your store.
    * @return externalReferenceId
   **/
-
   @ApiModelProperty(value = "When using the Zip payment method: The location ID that Zip has assigned to your store.")
 
   public String getExternalReferenceId() {
@@ -197,7 +193,6 @@ public class StoreCreationRequest {
    * The phone number of the store, including &#39;+&#39; and country code.
    * @return phoneNumber
   **/
-
   @ApiModelProperty(required = true, value = "The phone number of the store, including '+' and country code.")
 
   public String getPhoneNumber() {
@@ -220,7 +215,6 @@ public class StoreCreationRequest {
    * Your reference to recognize the store by. Also known as the store code.  Allowed characters: Lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference to recognize the store by. Also known as the store code.  Allowed characters: Lowercase and uppercase letters without diacritics, numbers 0 through 9, hyphen (-), and underscore (_).")
 
   public String getReference() {
@@ -243,7 +237,6 @@ public class StoreCreationRequest {
    * The store name to be shown on the shopper&#39;s bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can&#39;t be all numbers.
    * @return shopperStatement
   **/
-
   @ApiModelProperty(required = true, value = "The store name to be shown on the shopper's bank or credit card statement and on the shopper receipt. Maximum length: 22 characters; can't be all numbers.")
 
   public String getShopperStatement() {
@@ -266,7 +259,6 @@ public class StoreCreationRequest {
    * Get splitConfiguration
    * @return splitConfiguration
   **/
-
   @ApiModelProperty(value = "")
 
   public StoreSplitConfiguration getSplitConfiguration() {
@@ -386,7 +378,7 @@ public class StoreCreationRequest {
       }
       // validate the optional field `address`
       if (jsonObj.getAsJsonObject("address") != null) {
-        Address2.validateJsonObject(jsonObj.getAsJsonObject("address"));
+        StoreLocation.validateJsonObject(jsonObj.getAsJsonObject("address"));
       }
       // ensure the json data is an array
       if (jsonObj.get("businessLineIds") != null && !jsonObj.get("businessLineIds").isJsonArray()) {

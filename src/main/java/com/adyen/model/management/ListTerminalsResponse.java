@@ -76,7 +76,6 @@ public class ListTerminalsResponse {
    * The list of terminals.
    * @return data
   **/
-
   @ApiModelProperty(value = "The list of terminals.")
 
   public List<Terminal> getData() {

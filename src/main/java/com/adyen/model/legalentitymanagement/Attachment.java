@@ -15,21 +15,33 @@ package com.adyen.model.legalentitymanagement;
 import java.util.Objects;
 import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Attachment
@@ -69,7 +81,6 @@ public class Attachment {
    * The document in Base64-encoded string format.
    * @return content
   **/
-  
   @ApiModelProperty(required = true, value = "The document in Base64-encoded string format.")
 
   public byte[] getContent() {
@@ -94,7 +105,6 @@ public class Attachment {
    * @deprecated
   **/
   @Deprecated
-  
   @ApiModelProperty(value = "The file format.   Possible values: **application/pdf**, **image/jpg**, **image/jpeg**, **image/png**. ")
 
   public String getContentType() {
@@ -119,7 +129,6 @@ public class Attachment {
    * @deprecated
   **/
   @Deprecated
-  
   @ApiModelProperty(value = "The name of the file including the file extension.")
 
   public String getFilename() {
@@ -142,7 +151,6 @@ public class Attachment {
    * The name of the file including the file extension.
    * @return pageName
   **/
-  
   @ApiModelProperty(value = "The name of the file including the file extension.")
 
   public String getPageName() {
@@ -162,11 +170,10 @@ public class Attachment {
   }
 
    /**
-   * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
+   * Specifies which side of the ID card is uploaded.  * When &#x60;type&#x60; is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.
    * @return pageType
   **/
-  
-  @ApiModelProperty(value = "Specifies which side of the ID card is uploaded.  * When `type` is **driversLicense**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.")
+  @ApiModelProperty(value = "Specifies which side of the ID card is uploaded.  * When `type` is **driversLicense** or **identityCard**, set this to **front** or **back**.  * When omitted, we infer the page number based on the order of attachments.")
 
   public String getPageType() {
     return pageType;

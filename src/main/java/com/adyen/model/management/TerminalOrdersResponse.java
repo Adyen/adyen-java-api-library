@@ -76,7 +76,6 @@ public class TerminalOrdersResponse {
    * List of orders for payment terminal packages and parts.
    * @return data
   **/
-
   @ApiModelProperty(value = "List of orders for payment terminal packages and parts.")
 
   public List<TerminalOrder> getData() {

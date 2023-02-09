@@ -65,7 +65,6 @@ public class Timeouts {
    * Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.
    * @return fromActiveToSleep
   **/
-
   @ApiModelProperty(value = "Indicates the number of seconds of inactivity after which the terminal display goes into sleep mode.")
 
   public Integer getFromActiveToSleep() {

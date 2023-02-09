@@ -73,7 +73,6 @@ public class InvalidField {
    * Description of the validation error.
    * @return message
   **/
-
   @ApiModelProperty(required = true, value = "Description of the validation error.")
 
   public String getMessage() {
@@ -96,7 +95,6 @@ public class InvalidField {
    * The field that has an invalid value.
    * @return name
   **/
-
   @ApiModelProperty(required = true, value = "The field that has an invalid value.")
 
   public String getName() {
@@ -119,7 +117,6 @@ public class InvalidField {
    * The invalid value.
    * @return value
   **/
-
   @ApiModelProperty(required = true, value = "The invalid value.")
 
   public String getValue() {

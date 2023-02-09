@@ -13,23 +13,38 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * OnboardingLinkInfo
@@ -43,6 +58,10 @@ public class OnboardingLinkInfo {
   public static final String SERIALIZED_NAME_REDIRECT_URL = "redirectUrl";
   @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
   private String redirectUrl;
+
+  public static final String SERIALIZED_NAME_SETTINGS = "settings";
+  @SerializedName(SERIALIZED_NAME_SETTINGS)
+  private Map<String, Boolean> settings = null;
 
   public static final String SERIALIZED_NAME_THEME_ID = "themeId";
   @SerializedName(SERIALIZED_NAME_THEME_ID)
@@ -58,11 +77,10 @@ public class OnboardingLinkInfo {
   }
 
    /**
-   * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. Possible values: **cs-CZ**, **de-DE**, **en-US**, **es-ES**, **it-IT**, **nl-NL**, **no-NO**, **pl-PL**, **pt-PT**, **sv-SE**.   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
+   * The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See [possible values](https://docs.adyen.com/marketplaces-and-platforms/onboarding/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.
    * @return locale
   **/
-
-  @ApiModelProperty(value = "The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. Possible values: **cs-CZ**, **de-DE**, **en-US**, **es-ES**, **it-IT**, **nl-NL**, **no-NO**, **pl-PL**, **pt-PT**, **sv-SE**.   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.")
+  @ApiModelProperty(value = "The language that will be used for the page, specified by a combination of two letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language and [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. See [possible values](https://docs.adyen.com/marketplaces-and-platforms/onboarding/hosted#supported-languages).   If not specified in the request or if the language is not supported, the page uses the browser language. If the browser language is not supported, the page uses **en-US** by default.")
 
   public String getLocale() {
     return locale;
@@ -84,7 +102,6 @@ public class OnboardingLinkInfo {
    * The URL where the user is redirected after they complete hosted onboarding.
    * @return redirectUrl
   **/
-
   @ApiModelProperty(value = "The URL where the user is redirected after they complete hosted onboarding.")
 
   public String getRedirectUrl() {
@@ -94,6 +111,36 @@ public class OnboardingLinkInfo {
 
   public void setRedirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
+  }
+
+
+  public OnboardingLinkInfo settings(Map<String, Boolean> settings) {
+    
+    this.settings = settings;
+    return this;
+  }
+
+  public OnboardingLinkInfo putSettingsItem(String key, Boolean settingsItem) {
+    if (this.settings == null) {
+      this.settings = new HashMap<>();
+    }
+    this.settings.put(key, settingsItem);
+    return this;
+  }
+
+   /**
+   * The enabled/disabled settings in the hosted onboarding webpage.
+   * @return settings
+  **/
+  @ApiModelProperty(value = "The enabled/disabled settings in the hosted onboarding webpage.")
+
+  public Map<String, Boolean> getSettings() {
+    return settings;
+  }
+
+
+  public void setSettings(Map<String, Boolean> settings) {
+    this.settings = settings;
   }
 
 
@@ -107,7 +154,6 @@ public class OnboardingLinkInfo {
    * The unique identifier of the hosted onboarding theme.
    * @return themeId
   **/
-
   @ApiModelProperty(value = "The unique identifier of the hosted onboarding theme.")
 
   public String getThemeId() {
@@ -132,12 +178,13 @@ public class OnboardingLinkInfo {
     OnboardingLinkInfo onboardingLinkInfo = (OnboardingLinkInfo) o;
     return Objects.equals(this.locale, onboardingLinkInfo.locale) &&
         Objects.equals(this.redirectUrl, onboardingLinkInfo.redirectUrl) &&
+        Objects.equals(this.settings, onboardingLinkInfo.settings) &&
         Objects.equals(this.themeId, onboardingLinkInfo.themeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locale, redirectUrl, themeId);
+    return Objects.hash(locale, redirectUrl, settings, themeId);
   }
 
   @Override
@@ -146,6 +193,7 @@ public class OnboardingLinkInfo {
     sb.append("class OnboardingLinkInfo {\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
+    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -171,6 +219,7 @@ public class OnboardingLinkInfo {
     openapiFields = new HashSet<String>();
     openapiFields.add("locale");
     openapiFields.add("redirectUrl");
+    openapiFields.add("settings");
     openapiFields.add("themeId");
 
     // a set of required properties/fields (JSON key names)

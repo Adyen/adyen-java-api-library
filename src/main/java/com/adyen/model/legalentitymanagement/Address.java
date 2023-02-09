@@ -13,23 +13,35 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Address
@@ -73,7 +85,6 @@ public class Address {
    * The name of the city. Required if &#x60;stateOrProvince&#x60; is provided.  If you specify the city, you must also send &#x60;postalCode&#x60; and &#x60;street&#x60;.
    * @return city
   **/
-
   @ApiModelProperty(value = "The name of the city. Required if `stateOrProvince` is provided.  If you specify the city, you must also send `postalCode` and `street`.")
 
   public String getCity() {
@@ -96,7 +107,6 @@ public class Address {
    * The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
    * @return country
   **/
-
   @ApiModelProperty(required = true, value = "The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.")
 
   public String getCountry() {
@@ -119,7 +129,6 @@ public class Address {
    * Postal code. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    * @return postalCode
   **/
-
   @ApiModelProperty(value = "Postal code. Required if `stateOrProvince` and/or `city` is provided.")
 
   public String getPostalCode() {
@@ -142,7 +151,6 @@ public class Address {
    * The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.   If you specify the state or province, you must also send &#x60;city&#x60;, &#x60;postalCode&#x60;, and &#x60;street&#x60;.
    * @return stateOrProvince
   **/
-
   @ApiModelProperty(value = "The two-letter ISO 3166-2 state or province code. For example, **CA** in the US.   If you specify the state or province, you must also send `city`, `postalCode`, and `street`.")
 
   public String getStateOrProvince() {
@@ -165,7 +173,6 @@ public class Address {
    * The name of the street, and the house or building number. Required if &#x60;stateOrProvince&#x60; and/or &#x60;city&#x60; is provided.
    * @return street
   **/
-
   @ApiModelProperty(value = "The name of the street, and the house or building number. Required if `stateOrProvince` and/or `city` is provided.")
 
   public String getStreet() {
@@ -188,7 +195,6 @@ public class Address {
    * The apartment, unit, or suite number.
    * @return street2
   **/
-
   @ApiModelProperty(value = "The apartment, unit, or suite number.")
 
   public String getStreet2() {

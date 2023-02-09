@@ -77,7 +77,6 @@ public class Balance {
    * The remaining amount available for spending.
    * @return available
   **/
-
   @ApiModelProperty(required = true, value = "The remaining amount available for spending.")
 
   public Long getAvailable() {
@@ -100,7 +99,6 @@ public class Balance {
    * The total amount in the balance.
    * @return balance
   **/
-
   @ApiModelProperty(required = true, value = "The total amount in the balance.")
 
   public Long getBalance() {
@@ -123,7 +121,6 @@ public class Balance {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
    * @return currency
   **/
-
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.")
 
   public String getCurrency() {
@@ -146,7 +143,6 @@ public class Balance {
    * The amount reserved for payments that have been authorised, but have not been captured yet.
    * @return reserved
   **/
-
   @ApiModelProperty(required = true, value = "The amount reserved for payments that have been authorised, but have not been captured yet.")
 
   public Long getReserved() {

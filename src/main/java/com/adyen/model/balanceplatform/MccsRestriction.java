@@ -71,7 +71,6 @@ public class MccsRestriction {
    * Defines how the condition must be evaluated.
    * @return operation
   **/
-  
   @ApiModelProperty(required = true, value = "Defines how the condition must be evaluated.")
 
   public String getOperation() {
@@ -102,7 +101,6 @@ public class MccsRestriction {
    * List of merchant category codes (MCCs).
    * @return value
   **/
-
   @ApiModelProperty(value = "List of merchant category codes (MCCs).")
 
   public List<String> getValue() {

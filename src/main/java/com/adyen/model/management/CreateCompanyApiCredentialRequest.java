@@ -87,7 +87,6 @@ public class CreateCompanyApiCredentialRequest {
    * List of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the new API credential.
    * @return allowedOrigins
   **/
-
   @ApiModelProperty(value = "List of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the new API credential.")
 
   public List<String> getAllowedOrigins() {
@@ -118,7 +117,6 @@ public class CreateCompanyApiCredentialRequest {
    * List of merchant accounts that the API credential has access to.
    * @return associatedMerchantAccounts
   **/
-
   @ApiModelProperty(value = "List of merchant accounts that the API credential has access to.")
 
   public List<String> getAssociatedMerchantAccounts() {
@@ -141,7 +139,6 @@ public class CreateCompanyApiCredentialRequest {
    * Description of the API credential.
    * @return description
   **/
-
   @ApiModelProperty(value = "Description of the API credential.")
 
   public String getDescription() {
@@ -172,7 +169,6 @@ public class CreateCompanyApiCredentialRequest {
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) of the API credential.
    * @return roles
   **/
-
   @ApiModelProperty(value = "List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) of the API credential.")
 
   public List<String> getRoles() {

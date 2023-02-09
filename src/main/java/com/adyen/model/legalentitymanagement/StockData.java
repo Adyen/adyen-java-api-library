@@ -13,23 +13,35 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * StockData
@@ -61,7 +73,6 @@ public class StockData {
    * The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization&#39;s stocks are traded.
    * @return marketIdentifier
   **/
-
   @ApiModelProperty(value = "The four-digit [Market Identifier Code](https://en.wikipedia.org/wiki/Market_Identifier_Code) of the stock market where the organization's stocks are traded.")
 
   public String getMarketIdentifier() {
@@ -84,7 +95,6 @@ public class StockData {
    * The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).
    * @return stockNumber
   **/
-
   @ApiModelProperty(value = "The 12-digit International Securities Identification Number (ISIN) of the company, without dashes (-).")
 
   public String getStockNumber() {
@@ -107,7 +117,6 @@ public class StockData {
    * The stock ticker symbol.
    * @return tickerSymbol
   **/
-
   @ApiModelProperty(value = "The stock ticker symbol.")
 
   public String getTickerSymbol() {

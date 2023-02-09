@@ -1,6 +1,6 @@
 package com.adyen;
 
-import com.adyen.model.transfer.*;
+import com.adyen.model.transfers.*;
 import com.adyen.service.Transfers;
 import org.junit.Test;
 

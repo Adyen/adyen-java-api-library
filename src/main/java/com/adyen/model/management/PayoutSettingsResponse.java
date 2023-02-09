@@ -76,7 +76,6 @@ public class PayoutSettingsResponse {
    * The list of payout accounts.
    * @return data
   **/
-  
   @ApiModelProperty(value = "The list of payout accounts.")
 
   public List<PayoutSettings> getData() {

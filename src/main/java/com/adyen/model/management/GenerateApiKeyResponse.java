@@ -65,7 +65,6 @@ public class GenerateApiKeyResponse {
    * The generated API key.
    * @return apiKey
   **/
-  
   @ApiModelProperty(required = true, value = "The generated API key.")
 
   public String getApiKey() {

@@ -109,7 +109,6 @@ public class MeApiCredential {
    * Get links
    * @return links
   **/
-
   @ApiModelProperty(value = "")
 
   public ApiCredentialLinks getLinks() {
@@ -132,7 +131,6 @@ public class MeApiCredential {
    * Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.
    * @return active
   **/
-
   @ApiModelProperty(required = true, value = "Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration.")
 
   public Boolean getActive() {
@@ -160,7 +158,6 @@ public class MeApiCredential {
    * List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.
    * @return allowedIpAddresses
   **/
-
   @ApiModelProperty(required = true, value = "List of IP addresses from which your client can make requests.  If the list is empty, we allow requests from any IP. If the list is not empty and we get a request from an IP which is not on the list, you get a security error.")
 
   public List<String> getAllowedIpAddresses() {
@@ -191,7 +188,6 @@ public class MeApiCredential {
    * List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.
    * @return allowedOrigins
   **/
-
   @ApiModelProperty(value = "List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential.")
 
   public List<AllowedOrigin> getAllowedOrigins() {
@@ -222,7 +218,6 @@ public class MeApiCredential {
    * List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.
    * @return associatedMerchantAccounts
   **/
-
   @ApiModelProperty(value = "List of merchant accounts that the API credential has explicit access to.   If the credential has access to a company, this implies access to all merchant accounts and no merchants for that company will be included.")
 
   public List<String> getAssociatedMerchantAccounts() {
@@ -245,7 +240,6 @@ public class MeApiCredential {
    * Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.
    * @return clientKey
   **/
-
   @ApiModelProperty(required = true, value = "Public key used for [client-side authentication](https://docs.adyen.com/development-resources/client-side-authentication). The client key is required for Drop-in and Components integrations.")
 
   public String getClientKey() {
@@ -268,7 +262,6 @@ public class MeApiCredential {
    * Name of the company linked to the API credential.
    * @return companyName
   **/
-
   @ApiModelProperty(value = "Name of the company linked to the API credential.")
 
   public String getCompanyName() {
@@ -291,7 +284,6 @@ public class MeApiCredential {
    * Description of the API credential.
    * @return description
   **/
-
   @ApiModelProperty(value = "Description of the API credential.")
 
   public String getDescription() {
@@ -314,7 +306,6 @@ public class MeApiCredential {
    * Unique identifier of the API credential.
    * @return id
   **/
-
   @ApiModelProperty(required = true, value = "Unique identifier of the API credential.")
 
   public String getId() {
@@ -342,7 +333,6 @@ public class MeApiCredential {
    * List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
    * @return roles
   **/
-
   @ApiModelProperty(required = true, value = "List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.")
 
   public List<String> getRoles() {
@@ -365,7 +355,6 @@ public class MeApiCredential {
    * The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.
    * @return username
   **/
-
   @ApiModelProperty(required = true, value = "The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.")
 
   public String getUsername() {

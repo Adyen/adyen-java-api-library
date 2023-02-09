@@ -69,7 +69,6 @@ public class AuthenticationResultRequest {
    * The merchant account identifier, with which the authentication was processed.
    * @return merchantAccount
   **/
-  
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which the authentication was processed.")
 
   public String getMerchantAccount() {
@@ -92,7 +91,6 @@ public class AuthenticationResultRequest {
    * The pspReference identifier for the transaction.
    * @return pspReference
   **/
-  
   @ApiModelProperty(required = true, value = "The pspReference identifier for the transaction.")
 
   public String getPspReference() {

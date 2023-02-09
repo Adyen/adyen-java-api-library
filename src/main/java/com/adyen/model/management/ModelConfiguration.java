@@ -76,7 +76,6 @@ public class ModelConfiguration {
    * Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). 
    * @return brand
   **/
-
   @ApiModelProperty(required = true, value = "Payment method, like **eftpos_australia** or **mc**. See the [possible values](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api). ")
 
   public String getBrand() {
@@ -104,7 +103,6 @@ public class ModelConfiguration {
    * Currency, and surcharge percentage or amount.
    * @return currencies
   **/
-
   @ApiModelProperty(required = true, value = "Currency, and surcharge percentage or amount.")
 
   public List<Currency> getCurrencies() {
@@ -135,7 +133,6 @@ public class ModelConfiguration {
    * Funding source. Possible values: * **Credit** * **Debit**
    * @return sources
   **/
-
   @ApiModelProperty(value = "Funding source. Possible values: * **Credit** * **Debit**")
 
   public List<String> getSources() {

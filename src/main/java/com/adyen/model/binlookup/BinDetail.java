@@ -65,7 +65,6 @@ public class BinDetail {
    * The country where the card was issued.
    * @return issuerCountry
   **/
-  
   @ApiModelProperty(value = "The country where the card was issued.")
 
   public String getIssuerCountry() {

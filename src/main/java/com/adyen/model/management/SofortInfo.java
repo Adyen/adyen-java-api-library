@@ -69,7 +69,6 @@ public class SofortInfo {
    * Sofort currency code. For example, **EUR**.
    * @return currencyCode
   **/
-
   @ApiModelProperty(required = true, value = "Sofort currency code. For example, **EUR**.")
 
   public String getCurrencyCode() {
@@ -92,7 +91,6 @@ public class SofortInfo {
    * Sofort logo. Format: Base64-encoded string.
    * @return logo
   **/
-
   @ApiModelProperty(required = true, value = "Sofort logo. Format: Base64-encoded string.")
 
   public String getLogo() {

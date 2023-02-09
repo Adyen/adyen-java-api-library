@@ -99,7 +99,6 @@ public class FundSource {
    * A map of name-value pairs for passing additional or industry-specific data.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "A map of name-value pairs for passing additional or industry-specific data.")
 
   public Map<String, String> getAdditionalData() {
@@ -122,7 +121,6 @@ public class FundSource {
    * Get billingAddress
    * @return billingAddress
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -145,7 +143,6 @@ public class FundSource {
    * Get card
    * @return card
   **/
-
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -168,7 +165,6 @@ public class FundSource {
    * Email address of the person.
    * @return shopperEmail
   **/
-
   @ApiModelProperty(value = "Email address of the person.")
 
   public String getShopperEmail() {
@@ -191,7 +187,6 @@ public class FundSource {
    * Get shopperName
    * @return shopperName
   **/
-
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -214,7 +209,6 @@ public class FundSource {
    * Phone number of the person
    * @return telephoneNumber
   **/
-
   @ApiModelProperty(value = "Phone number of the person")
 
   public String getTelephoneNumber() {

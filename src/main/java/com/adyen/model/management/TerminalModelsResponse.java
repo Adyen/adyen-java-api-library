@@ -76,7 +76,6 @@ public class TerminalModelsResponse {
    * The terminal models that the API credential has access to.
    * @return data
   **/
-  
   @ApiModelProperty(value = "The terminal models that the API credential has access to.")
 
   public List<IdName> getData() {

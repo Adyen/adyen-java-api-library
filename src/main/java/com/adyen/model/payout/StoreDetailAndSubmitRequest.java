@@ -202,7 +202,6 @@ public class StoreDetailAndSubmitRequest {
    * This field contains additional data, which may be required for a particular request.
    * @return additionalData
   **/
-
   @ApiModelProperty(value = "This field contains additional data, which may be required for a particular request.")
 
   public Map<String, String> getAdditionalData() {
@@ -225,7 +224,6 @@ public class StoreDetailAndSubmitRequest {
    * Get amount
    * @return amount
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public Amount getAmount() {
@@ -248,7 +246,6 @@ public class StoreDetailAndSubmitRequest {
    * Get bank
    * @return bank
   **/
-
   @ApiModelProperty(value = "")
 
   public BankAccount getBank() {
@@ -271,7 +268,6 @@ public class StoreDetailAndSubmitRequest {
    * Get billingAddress
    * @return billingAddress
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getBillingAddress() {
@@ -294,7 +290,6 @@ public class StoreDetailAndSubmitRequest {
    * Get card
    * @return card
   **/
-
   @ApiModelProperty(value = "")
 
   public Card getCard() {
@@ -317,7 +312,6 @@ public class StoreDetailAndSubmitRequest {
    * The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. &gt; This field is mandatory for natural persons.
    * @return dateOfBirth
   **/
-
   @ApiModelProperty(required = true, value = "The date of birth. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD For Paysafecard it must be the same as used when registering the Paysafecard account. > This field is mandatory for natural persons.")
 
   public OffsetDateTime getDateOfBirth() {
@@ -340,7 +334,6 @@ public class StoreDetailAndSubmitRequest {
    * The type of the entity the payout is processed for.
    * @return entityType
   **/
-
   @ApiModelProperty(required = true, value = "The type of the entity the payout is processed for.")
 
   public EntityTypeEnum getEntityType() {
@@ -363,7 +356,6 @@ public class StoreDetailAndSubmitRequest {
    * An integer value that is added to the normal fraud score. The value can be either positive or negative.
    * @return fraudOffset
   **/
-
   @ApiModelProperty(value = "An integer value that is added to the normal fraud score. The value can be either positive or negative.")
 
   public Integer getFraudOffset() {
@@ -386,7 +378,6 @@ public class StoreDetailAndSubmitRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -409,7 +400,6 @@ public class StoreDetailAndSubmitRequest {
    * The shopper&#39;s nationality.  A valid value is an ISO 2-character country code (e.g. &#39;NL&#39;).
    * @return nationality
   **/
-
   @ApiModelProperty(required = true, value = "The shopper's nationality.  A valid value is an ISO 2-character country code (e.g. 'NL').")
 
   public String getNationality() {
@@ -432,7 +422,6 @@ public class StoreDetailAndSubmitRequest {
    * Get recurring
    * @return recurring
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public Recurring getRecurring() {
@@ -455,7 +444,6 @@ public class StoreDetailAndSubmitRequest {
    * The merchant reference for this payment. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.
    * @return reference
   **/
-
   @ApiModelProperty(required = true, value = "The merchant reference for this payment. This reference will be used in all communication to the merchant about the status of the payout. Although it is a good idea to make sure it is unique, this is not a requirement.")
 
   public String getReference() {
@@ -478,7 +466,6 @@ public class StoreDetailAndSubmitRequest {
    * The name of the brand to make a payout to.  For Paysafecard it must be set to &#x60;paysafecard&#x60;.
    * @return selectedBrand
   **/
-
   @ApiModelProperty(value = "The name of the brand to make a payout to.  For Paysafecard it must be set to `paysafecard`.")
 
   public String getSelectedBrand() {
@@ -501,7 +488,6 @@ public class StoreDetailAndSubmitRequest {
    * The shopper&#39;s email address.
    * @return shopperEmail
   **/
-
   @ApiModelProperty(required = true, value = "The shopper's email address.")
 
   public String getShopperEmail() {
@@ -524,7 +510,6 @@ public class StoreDetailAndSubmitRequest {
    * Get shopperName
    * @return shopperName
   **/
-
   @ApiModelProperty(value = "")
 
   public Name getShopperName() {
@@ -547,7 +532,6 @@ public class StoreDetailAndSubmitRequest {
    * The shopper&#39;s reference for the payment transaction.
    * @return shopperReference
   **/
-
   @ApiModelProperty(required = true, value = "The shopper's reference for the payment transaction.")
 
   public String getShopperReference() {
@@ -570,7 +554,6 @@ public class StoreDetailAndSubmitRequest {
    * The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).
    * @return shopperStatement
   **/
-
   @ApiModelProperty(value = "The description of this payout. This description is shown on the bank statement of the shopper (if this is supported by the chosen payment method).")
 
   public String getShopperStatement() {
@@ -593,7 +576,6 @@ public class StoreDetailAndSubmitRequest {
    * The shopper&#39;s social security number.
    * @return socialSecurityNumber
   **/
-
   @ApiModelProperty(value = "The shopper's social security number.")
 
   public String getSocialSecurityNumber() {
@@ -616,7 +598,6 @@ public class StoreDetailAndSubmitRequest {
    * The shopper&#39;s phone number.
    * @return telephoneNumber
   **/
-
   @ApiModelProperty(value = "The shopper's phone number.")
 
   public String getTelephoneNumber() {

@@ -206,7 +206,6 @@ public class SweepConfigurationV2 {
    * Get counterparty
    * @return counterparty
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public SweepCounterparty getCounterparty() {
@@ -229,7 +228,6 @@ public class SweepConfigurationV2 {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**.  The sweep currency must match any of the [balances currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).
    * @return currency
   **/
-
   @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) in uppercase. For example, **EUR**.  The sweep currency must match any of the [balances currencies](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__resParam_balances).")
 
   public String getCurrency() {
@@ -252,7 +250,6 @@ public class SweepConfigurationV2 {
    * The message that will be used in the sweep transfer&#39;s description body with a maximum length of 140 characters.  If the message is longer after replacing placeholders, the message will be cut off at 140 characters.
    * @return description
   **/
-
   @ApiModelProperty(value = "The message that will be used in the sweep transfer's description body with a maximum length of 140 characters.  If the message is longer after replacing placeholders, the message will be cut off at 140 characters.")
 
   public String getDescription() {
@@ -269,7 +266,6 @@ public class SweepConfigurationV2 {
    * The unique identifier of the sweep.
    * @return id
   **/
-
   @ApiModelProperty(required = true, value = "The unique identifier of the sweep.")
 
   public String getId() {
@@ -289,7 +285,6 @@ public class SweepConfigurationV2 {
    * Get schedule
    * @return schedule
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public SweepConfigurationV2Schedule getSchedule() {
@@ -312,7 +307,6 @@ public class SweepConfigurationV2 {
    * The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   
    * @return status
   **/
-
   @ApiModelProperty(value = "The status of the sweep. If not provided, by default, this is set to **active**.  Possible values:    * **active**:  the sweep is enabled and funds will be pulled in or pushed out based on the defined configuration.    * **inactive**: the sweep is disabled and cannot be triggered.   ")
 
   public StatusEnum getStatus() {
@@ -335,7 +329,6 @@ public class SweepConfigurationV2 {
    * Get sweepAmount
    * @return sweepAmount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getSweepAmount() {
@@ -358,7 +351,6 @@ public class SweepConfigurationV2 {
    * Get targetAmount
    * @return targetAmount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getTargetAmount() {
@@ -381,7 +373,6 @@ public class SweepConfigurationV2 {
    * Get triggerAmount
    * @return triggerAmount
   **/
-
   @ApiModelProperty(value = "")
 
   public Amount getTriggerAmount() {
@@ -404,7 +395,6 @@ public class SweepConfigurationV2 {
    * The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.
    * @return type
   **/
-
   @ApiModelProperty(value = "The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by default, this is set to **push**.  Possible values:   * **push**: _push out funds_ to a destination balance account or transfer instrument.   * **pull**: _pull in funds_ from a source merchant account, transfer instrument, or balance account.")
 
   public TypeEnum getType() {

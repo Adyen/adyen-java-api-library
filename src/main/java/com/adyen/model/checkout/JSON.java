@@ -119,6 +119,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.ApplePaySessionResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.ApplicationInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.AuthenticationData.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.AuthenticationData2.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.Avs.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.BacsDirectDebitDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.BankAccount.CustomTypeAdapterFactory());

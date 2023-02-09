@@ -69,7 +69,6 @@ public class DisablePermitRequest {
    * The merchant account identifier, with which you want to process the transaction.
    * @return merchantAccount
   **/
-
   @ApiModelProperty(required = true, value = "The merchant account identifier, with which you want to process the transaction.")
 
   public String getMerchantAccount() {
@@ -92,7 +91,6 @@ public class DisablePermitRequest {
    * The permit token to disable.
    * @return token
   **/
-
   @ApiModelProperty(required = true, value = "The permit token to disable.")
 
   public String getToken() {

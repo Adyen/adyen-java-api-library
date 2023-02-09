@@ -74,7 +74,6 @@ public class Authentication {
    * The email address where the one-time password (OTP) is sent.
    * @return email
   **/
-
   @ApiModelProperty(value = "The email address where the one-time password (OTP) is sent.")
 
   public String getEmail() {
@@ -97,7 +96,6 @@ public class Authentication {
    * The password used for 3D Secure password-based authentication. The value must be between 1 to 30 characters and must only contain the following supported characters.  * Characters between **a-z**, **A-Z**, and **0-9**  * Special characters: **äöüßÄÖÜ+-*_/ç%()&#x3D;?!~#&#39;\&quot;,;:$&amp;àùòâôûáúó**
    * @return password
   **/
-
   @ApiModelProperty(value = "The password used for 3D Secure password-based authentication. The value must be between 1 to 30 characters and must only contain the following supported characters.  * Characters between **a-z**, **A-Z**, and **0-9**  * Special characters: **äöüßÄÖÜ+-*_/ç%()=?!~#'\",;:$&àùòâôûáúó**")
 
   public String getPassword() {
@@ -120,7 +118,6 @@ public class Authentication {
    * Get phone
    * @return phone
   **/
-
   @ApiModelProperty(value = "")
 
   public Phone getPhone() {

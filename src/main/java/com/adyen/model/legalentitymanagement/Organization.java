@@ -13,27 +13,43 @@
 package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.adyen.model.legalentitymanagement.Address;
+import com.adyen.model.legalentitymanagement.PhoneNumber;
+import com.adyen.model.legalentitymanagement.StockData;
+import com.adyen.model.legalentitymanagement.TaxInformation;
+import com.adyen.model.legalentitymanagement.TaxReportingClassification;
+import com.adyen.model.legalentitymanagement.WebData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Organization
@@ -215,7 +231,6 @@ public class Organization {
    * Your description for the organization.
    * @return description
   **/
-
   @ApiModelProperty(value = "Your description for the organization.")
 
   public String getDescription() {
@@ -238,7 +253,6 @@ public class Organization {
    * The organization&#39;s trading name, if different from the registered legal name.
    * @return doingBusinessAs
   **/
-
   @ApiModelProperty(value = "The organization's trading name, if different from the registered legal name.")
 
   public String getDoingBusinessAs() {
@@ -261,7 +275,6 @@ public class Organization {
    * The email address of the legal entity.
    * @return email
   **/
-
   @ApiModelProperty(value = "The email address of the legal entity.")
 
   public String getEmail() {
@@ -284,7 +297,6 @@ public class Organization {
    * The organization&#39;s legal name.
    * @return legalName
   **/
-
   @ApiModelProperty(required = true, value = "The organization's legal name.")
 
   public String getLegalName() {
@@ -307,7 +319,6 @@ public class Organization {
    * Get phone
    * @return phone
   **/
-
   @ApiModelProperty(value = "")
 
   public PhoneNumber getPhone() {
@@ -330,7 +341,6 @@ public class Organization {
    * Get principalPlaceOfBusiness
    * @return principalPlaceOfBusiness
   **/
-
   @ApiModelProperty(value = "")
 
   public Address getPrincipalPlaceOfBusiness() {
@@ -353,7 +363,6 @@ public class Organization {
    * Get registeredAddress
    * @return registeredAddress
   **/
-
   @ApiModelProperty(required = true, value = "")
 
   public Address getRegisteredAddress() {
@@ -376,7 +385,6 @@ public class Organization {
    * The organization&#39;s registration number.
    * @return registrationNumber
   **/
-
   @ApiModelProperty(value = "The organization's registration number.")
 
   public String getRegistrationNumber() {
@@ -399,7 +407,6 @@ public class Organization {
    * Get stockData
    * @return stockData
   **/
-
   @ApiModelProperty(value = "")
 
   public StockData getStockData() {
@@ -430,7 +437,6 @@ public class Organization {
    * The tax information of the organization.
    * @return taxInformation
   **/
-
   @ApiModelProperty(value = "The tax information of the organization.")
 
   public List<TaxInformation> getTaxInformation() {
@@ -453,7 +459,6 @@ public class Organization {
    * Get taxReportingClassification
    * @return taxReportingClassification
   **/
-
   @ApiModelProperty(value = "")
 
   public TaxReportingClassification getTaxReportingClassification() {
@@ -476,7 +481,6 @@ public class Organization {
    * Type of organization.   Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
    * @return type
   **/
-
   @ApiModelProperty(value = "Type of organization.   Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.")
 
   public TypeEnum getType() {
@@ -499,7 +503,6 @@ public class Organization {
    * The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
    * @return vatAbsenceReason
   **/
-
   @ApiModelProperty(value = "The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.")
 
   public VatAbsenceReasonEnum getVatAbsenceReason() {
@@ -522,7 +525,6 @@ public class Organization {
    * The organization&#39;s VAT number.
    * @return vatNumber
   **/
-
   @ApiModelProperty(value = "The organization's VAT number.")
 
   public String getVatNumber() {
@@ -545,7 +547,6 @@ public class Organization {
    * Get webData
    * @return webData
   **/
-
   @ApiModelProperty(value = "")
 
   public WebData getWebData() {

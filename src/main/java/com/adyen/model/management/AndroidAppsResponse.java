@@ -76,7 +76,6 @@ public class AndroidAppsResponse {
    * Apps uploaded for Android payment terminals.
    * @return data
   **/
-  
   @ApiModelProperty(value = "Apps uploaded for Android payment terminals.")
 
   public List<AndroidApp> getData() {

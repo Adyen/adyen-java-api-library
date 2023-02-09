@@ -147,7 +147,6 @@ public class BalanceAccount {
    * The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.
    * @return accountHolderId
   **/
-  
   @ApiModelProperty(required = true, value = "The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/accountHolders__resParam_id) associated with the balance account.")
 
   public String getAccountHolderId() {
@@ -178,7 +177,6 @@ public class BalanceAccount {
    * List of balances with the amount and currency.
    * @return balances
   **/
-
   @ApiModelProperty(value = "List of balances with the amount and currency.")
 
   public List<Balance> getBalances() {
@@ -201,7 +199,6 @@ public class BalanceAccount {
    * The default three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance account. The default value is **EUR**.
    * @return defaultCurrencyCode
   **/
-
   @ApiModelProperty(value = "The default three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance account. The default value is **EUR**.")
 
   public String getDefaultCurrencyCode() {
@@ -224,7 +221,6 @@ public class BalanceAccount {
    * A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.
    * @return description
   **/
-
   @ApiModelProperty(value = "A human-readable description of the balance account, maximum 300 characters. You can use this parameter to distinguish between multiple balance accounts under an account holder.")
 
   public String getDescription() {
@@ -247,7 +243,6 @@ public class BalanceAccount {
    * The unique identifier of the balance account.
    * @return id
   **/
-  
   @ApiModelProperty(required = true, value = "The unique identifier of the balance account.")
 
   public String getId() {
@@ -270,7 +265,6 @@ public class BalanceAccount {
    * Your reference for the balance account, maximum 150 characters.
    * @return reference
   **/
-
   @ApiModelProperty(value = "Your reference for the balance account, maximum 150 characters.")
 
   public String getReference() {
@@ -293,7 +287,6 @@ public class BalanceAccount {
    * The status of the balance account, set to **active** by default.  
    * @return status
   **/
-
   @ApiModelProperty(value = "The status of the balance account, set to **active** by default.  ")
 
   public StatusEnum getStatus() {
@@ -316,7 +309,6 @@ public class BalanceAccount {
    * The [time zone](https://www.iana.org/time-zones) of the balance account. For example, **Europe/Amsterdam**. If not set, the time zone of the account holder will be used. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return timeZone
   **/
-
   @ApiModelProperty(value = "The [time zone](https://www.iana.org/time-zones) of the balance account. For example, **Europe/Amsterdam**. If not set, the time zone of the account holder will be used. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
 
   public String getTimeZone() {

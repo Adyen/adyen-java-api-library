@@ -69,7 +69,6 @@ public class Phone {
    * Country code. Length: 1–3 characters.
    * @return cc
   **/
-
   @ApiModelProperty(value = "Country code. Length: 1–3 characters.")
 
   public String getCc() {
@@ -92,7 +91,6 @@ public class Phone {
    * Subscriber number. Maximum length: 15 characters.
    * @return subscriber
   **/
-
   @ApiModelProperty(value = "Subscriber number. Maximum length: 15 characters.")
 
   public String getSubscriber() {

@@ -54,7 +54,7 @@ public class Amount {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private Object value = null;
+  private Long value;
 
   public Amount() { 
   }
@@ -69,8 +69,7 @@ public class Amount {
    * The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).
    * @return currency
   **/
-  
-  @ApiModelProperty(value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
+  @ApiModelProperty(required = true, value = "The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).")
 
   public String getCurrency() {
     return currency;
@@ -82,25 +81,24 @@ public class Amount {
   }
 
 
-  public Amount value(Object value) {
+  public Amount value(Long value) {
     
     this.value = value;
     return this;
   }
 
    /**
-   * Get value
+   * The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
    * @return value
   **/
-  
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes).")
 
-  public Object getValue() {
+  public Long getValue() {
     return value;
   }
 
 
-  public void setValue(Object value) {
+  public void setValue(Long value) {
     this.value = value;
   }
 
@@ -157,6 +155,8 @@ public class Amount {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("currency");
+    openapiRequiredFields.add("value");
   }
 
  /**
@@ -179,6 +179,13 @@ public class Amount {
       for (Entry<String, JsonElement> entry : entries) {
         if (!Amount.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Amount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : Amount.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field currency

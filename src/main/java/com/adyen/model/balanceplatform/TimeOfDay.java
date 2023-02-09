@@ -69,7 +69,6 @@ public class TimeOfDay {
    * The end time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
    * @return endTime
   **/
-
   @ApiModelProperty(value = "The end time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  ")
 
   public String getEndTime() {
@@ -92,7 +91,6 @@ public class TimeOfDay {
    * The start time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  
    * @return startTime
   **/
-
   @ApiModelProperty(value = "The start time in a time-only ISO-8601 extended offset format. For example: **08:00:00+02:00**, **22:30:00-03:00**.  ")
 
   public String getStartTime() {

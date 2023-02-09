@@ -15,6 +15,8 @@ package com.adyen.model.management;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.management.EventUrl;
+import com.adyen.model.management.Key;
+import com.adyen.model.management.NotificationUrl;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,6 +53,14 @@ import com.adyen.model.management.JSON;
  */
 
 public class Nexo {
+  public static final String SERIALIZED_NAME_DISPLAY_URLS = "displayUrls";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_URLS)
+  private NotificationUrl displayUrls;
+
+  public static final String SERIALIZED_NAME_ENCRYPTION_KEY = "encryptionKey";
+  @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY)
+  private Key encryptionKey;
+
   public static final String SERIALIZED_NAME_EVENT_URLS = "eventUrls";
   @SerializedName(SERIALIZED_NAME_EVENT_URLS)
   private EventUrl eventUrls;
@@ -62,6 +72,50 @@ public class Nexo {
   public Nexo() { 
   }
 
+  public Nexo displayUrls(NotificationUrl displayUrls) {
+    
+    this.displayUrls = displayUrls;
+    return this;
+  }
+
+   /**
+   * Get displayUrls
+   * @return displayUrls
+  **/
+  @ApiModelProperty(value = "")
+
+  public NotificationUrl getDisplayUrls() {
+    return displayUrls;
+  }
+
+
+  public void setDisplayUrls(NotificationUrl displayUrls) {
+    this.displayUrls = displayUrls;
+  }
+
+
+  public Nexo encryptionKey(Key encryptionKey) {
+    
+    this.encryptionKey = encryptionKey;
+    return this;
+  }
+
+   /**
+   * Get encryptionKey
+   * @return encryptionKey
+  **/
+  @ApiModelProperty(value = "")
+
+  public Key getEncryptionKey() {
+    return encryptionKey;
+  }
+
+
+  public void setEncryptionKey(Key encryptionKey) {
+    this.encryptionKey = encryptionKey;
+  }
+
+
   public Nexo eventUrls(EventUrl eventUrls) {
     
     this.eventUrls = eventUrls;
@@ -72,7 +126,6 @@ public class Nexo {
    * Get eventUrls
    * @return eventUrls
   **/
-
   @ApiModelProperty(value = "")
 
   public EventUrl getEventUrls() {
@@ -100,13 +153,12 @@ public class Nexo {
   }
 
    /**
-   * @deprecated One or more URLs to send event messages to when using Terminal API.
+   * One or more URLs to send event messages to when using Terminal API.
    * @return nexoEventUrls
    * @deprecated
   **/
   @Deprecated
-
-  @ApiModelProperty(value = "@deprecated One or more URLs to send event messages to when using Terminal API.")
+  @ApiModelProperty(value = "One or more URLs to send event messages to when using Terminal API.")
 
   public List<String> getNexoEventUrls() {
     return nexoEventUrls;
@@ -128,19 +180,23 @@ public class Nexo {
       return false;
     }
     Nexo nexo = (Nexo) o;
-    return Objects.equals(this.eventUrls, nexo.eventUrls) &&
+    return Objects.equals(this.displayUrls, nexo.displayUrls) &&
+        Objects.equals(this.encryptionKey, nexo.encryptionKey) &&
+        Objects.equals(this.eventUrls, nexo.eventUrls) &&
         Objects.equals(this.nexoEventUrls, nexo.nexoEventUrls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventUrls, nexoEventUrls);
+    return Objects.hash(displayUrls, encryptionKey, eventUrls, nexoEventUrls);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Nexo {\n");
+    sb.append("    displayUrls: ").append(toIndentedString(displayUrls)).append("\n");
+    sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
     sb.append("    eventUrls: ").append(toIndentedString(eventUrls)).append("\n");
     sb.append("    nexoEventUrls: ").append(toIndentedString(nexoEventUrls)).append("\n");
     sb.append("}");
@@ -165,6 +221,8 @@ public class Nexo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("displayUrls");
+    openapiFields.add("encryptionKey");
     openapiFields.add("eventUrls");
     openapiFields.add("nexoEventUrls");
 
@@ -193,6 +251,14 @@ public class Nexo {
         if (!Nexo.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Nexo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field `displayUrls`
+      if (jsonObj.getAsJsonObject("displayUrls") != null) {
+        NotificationUrl.validateJsonObject(jsonObj.getAsJsonObject("displayUrls"));
+      }
+      // validate the optional field `encryptionKey`
+      if (jsonObj.getAsJsonObject("encryptionKey") != null) {
+        Key.validateJsonObject(jsonObj.getAsJsonObject("encryptionKey"));
       }
       // validate the optional field `eventUrls`
       if (jsonObj.getAsJsonObject("eventUrls") != null) {
