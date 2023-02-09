@@ -113,11 +113,8 @@ public class PaymentTest extends BaseTest {
             payment.authorise(paymentRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            String errorCode = e.getError().getErrorCode();
-            assertEquals("010", errorCode);
-
-            int status = e.getError().getStatus();
-            assertEquals(403, status);
+            assertTrue(e.getMessage().contains("010"));
+            assertEquals(403, e.getStatusCode());
         }
     }
 
@@ -363,9 +360,9 @@ public class PaymentTest extends BaseTest {
             payment.getAuthenticationResult(authenticationResultRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("15_024", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
+            assertNotNull(e.getMessage());
+            assertTrue(e.getMessage().contains("15_024"));
+            assertEquals(422, e.getStatusCode());
         }
     }
 
@@ -379,9 +376,9 @@ public class PaymentTest extends BaseTest {
             payment.getAuthenticationResult(authenticationResultRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("15_012", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
+            assertNotNull(e.getMessage());
+            assertTrue(e.getMessage().contains("15_012"));
+            assertEquals(422, e.getStatusCode());
         }
     }
 
@@ -396,9 +393,9 @@ public class PaymentTest extends BaseTest {
             payment.getAuthenticationResult(authenticationResultRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("15_011", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
+            assertNotNull(e.getMessage());
+            assertTrue(e.getMessage().contains("15_011"));
+            assertEquals(422, e.getStatusCode());
         }
     }
 
@@ -413,9 +410,9 @@ public class PaymentTest extends BaseTest {
             payment.getAuthenticationResult(authenticationResultRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("010", e.getError().getErrorCode());
-            assertEquals(403, e.getError().getStatus());
+            assertNotNull(e.getMessage());
+            assertTrue(e.getMessage().contains("010"));
+            assertEquals(403, e.getStatusCode());
         }
     }
 

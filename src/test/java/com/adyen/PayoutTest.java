@@ -29,6 +29,7 @@ import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_MANUAL_REVIE
 import static com.adyen.constants.ApiConstants.AdditionalData.FRAUD_RESULT_TYPE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class PayoutTest extends BaseTest {
@@ -122,9 +123,9 @@ public class PayoutTest extends BaseTest {
             payout.payout(request);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("901", e.getError().getErrorCode());
-            assertEquals(403, e.getError().getStatus());
+            assertNotNull(e.getMessage());
+            assertTrue(e.getMessage().contains("901"));
+            assertEquals(403, e.getStatusCode());
         }
     }
 
@@ -139,9 +140,9 @@ public class PayoutTest extends BaseTest {
             payout.payout(request);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("130", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
+            assertNotNull(e.getMessage());
+            assertTrue(e.getMessage().contains("130"));
+            assertEquals(422, e.getStatusCode());
         }
     }
 }

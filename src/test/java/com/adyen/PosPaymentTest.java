@@ -28,6 +28,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class PosPaymentTest extends BaseTest {
@@ -54,9 +55,9 @@ public class PosPaymentTest extends BaseTest {
             posPayment.connectedTerminals(request);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("901", e.getError().getErrorCode());
-            assertEquals(403, e.getError().getStatus());
+            assertNotNull(e.getMessage());
+            assertTrue(e.getMessage().contains("901"));
+            assertEquals(403, e.getStatusCode());
         }
     }
 
@@ -71,9 +72,9 @@ public class PosPaymentTest extends BaseTest {
             posPayment.connectedTerminals(request);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("702", e.getError().getErrorCode());
-            assertEquals(500, e.getError().getStatus());
+            assertNotNull(e.getMessage());
+            assertTrue(e.getMessage().contains("702"));
+            assertEquals(500, e.getStatusCode());
         }
     }
 }
