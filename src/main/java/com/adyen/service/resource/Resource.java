@@ -110,25 +110,12 @@ public class Resource {
     public String request(String json, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> pathParams, Map<String, String> queryString) throws ApiException, IOException {
         ClientInterface clientInterface = service.getClient().getHttpClient();
         Config config = service.getClient().getConfig();
-        String responseBody;
         ApiException apiException;
-
         try {
             return clientInterface.request(resolve(pathParams), json, config, service.isApiKeyRequired(), requestOptions, httpMethod, queryString);
         } catch (HTTPClientException e) {
-            responseBody = e.getResponseBody();
-            apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
+            apiException = new ApiException(e.getMessage() + e.getResponseBody(), e.getCode(), e.getResponseHeaders());
         }
-
-        // Enhance ApiException with more info from JSON payload
-        try {
-            ApiError apiError = GSON.fromJson(responseBody, new TypeToken<ApiError>() {
-            }.getType());
-            apiException.setError(apiError);
-        } catch (JsonSyntaxException ignored) {
-            throw new ApiException("Invalid response or an invalid X-API-Key key was used", apiException.getStatusCode());
-        }
-
         throw apiException;
     }
 
