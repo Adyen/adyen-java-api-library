@@ -498,8 +498,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * @return ListStoredPaymentMethodsResponse
      * @throws ApiException if it fails to make API call
      */
-    public ListStoredPaymentMethodsResponse getStoredPaymentDetails( Map<String, String> queryParams) throws ApiException, IOException {
-        String jsonResult = storedPaymentMethods.request("{}", null, GET,null, queryParams);
+    public ListStoredPaymentMethodsResponse getStoredPaymentDetails(Map<String, String> queryParams) throws ApiException, IOException {
+        String jsonResult = storedPaymentMethods.request("{}", null, GET, null, queryParams);
         return ListStoredPaymentMethodsResponse.fromJson(jsonResult);
     }
 
