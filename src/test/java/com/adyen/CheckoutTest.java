@@ -27,6 +27,7 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.*;
 import com.adyen.service.Checkout;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import javax.sound.sampled.Line;
@@ -382,5 +383,33 @@ public class CheckoutTest extends BaseTest {
         String checkoutBalanceRequestJson = checkoutBalanceCheckRequest.toJson();
         assert(checkoutBalanceRequestJson.contains("\"dateOfBirth\":\"2022-10-11\""));
         assertEquals(date.toLocalDate(),  CheckoutBalanceCheckRequest.fromJson(checkoutBalanceRequestJson).getDateOfBirth());
+    }
+
+    /**
+     * Should get StoredPaymentMethods
+     */
+    @Test
+    public void TestGetStoredPaymentMethods() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/getStoredPaymentMethodResponse.json");
+        Checkout checkout = new Checkout(client);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("merchantAccount", "TestMerchantAccount");
+        map.put("shopperReference", "test-1234");
+        ListStoredPaymentMethodsResponse response = checkout.getStoredPaymentDetails(map);
+        Assert.assertEquals(response.getMerchantAccount(), "merchantAccount");
+        Assert.assertEquals(response.getStoredPaymentMethods().get(0).getBrand(), "string");
+    }
+
+    /**
+     * Should delete StoredPaymentMethods
+     */
+    @Test
+    public void TestDeleteStoredPaymentMethods() throws Exception {
+        Client client = createMockClientFromFile("mocks/checkout/getStoredPaymentMethodResponse.json");
+        Checkout checkout = new Checkout(client);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("merchantAccount", "TestMerchantAccount");
+        map.put("shopperReference", "test-1234");
+        checkout.deleteStoredPaymentDetails("recurringId", map);
     }
 }

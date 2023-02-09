@@ -185,6 +185,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.Item.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.KlarnaDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.LineItem.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.ListStoredPaymentMethodsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.Mandate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.MasterpassDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.MbwayDetails.CustomTypeAdapterFactory());
@@ -249,6 +250,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.StoredDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.StoredPaymentMethod.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.StoredPaymentMethodDetails.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.StoredPaymentMethodResource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.SubInputDetail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.SubMerchant.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.checkout.ThreeDS2RequestData.CustomTypeAdapterFactory());

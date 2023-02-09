@@ -3,59 +3,18 @@ package com.adyen.service;
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.checkout.ApplePaySessionResponse;
-import com.adyen.model.checkout.ApplicationInfo;
-import com.adyen.model.checkout.CardDetailsRequest;
-import com.adyen.model.checkout.CardDetailsResponse;
-import com.adyen.model.checkout.CheckoutBalanceCheckRequest;
-import com.adyen.model.checkout.CheckoutBalanceCheckResponse;
-import com.adyen.model.checkout.CheckoutCancelOrderRequest;
-import com.adyen.model.checkout.CheckoutCancelOrderResponse;
-import com.adyen.model.checkout.CheckoutCreateOrderRequest;
-import com.adyen.model.checkout.CheckoutCreateOrderResponse;
-import com.adyen.model.checkout.CommonField;
-import com.adyen.model.checkout.CreateApplePaySessionRequest;
-import com.adyen.model.checkout.CreateCheckoutSessionRequest;
-import com.adyen.model.checkout.CreateCheckoutSessionResponse;
-import com.adyen.model.checkout.CreatePaymentAmountUpdateRequest;
-import com.adyen.model.checkout.CreatePaymentCancelRequest;
-import com.adyen.model.checkout.CreatePaymentCaptureRequest;
-import com.adyen.model.checkout.CreatePaymentLinkRequest;
-import com.adyen.model.checkout.CreatePaymentRefundRequest;
-import com.adyen.model.checkout.CreatePaymentReversalRequest;
-import com.adyen.model.checkout.CreateStandalonePaymentCancelRequest;
-import com.adyen.model.checkout.DetailsRequest;
-import com.adyen.model.checkout.DonationResponse;
-import com.adyen.model.checkout.JSON;
-import com.adyen.model.checkout.PaymentAmountUpdateResource;
-import com.adyen.model.checkout.PaymentCancelResource;
-import com.adyen.model.checkout.PaymentCaptureResource;
-import com.adyen.model.checkout.PaymentDetailsResponse;
-import com.adyen.model.checkout.PaymentDonationRequest;
-import com.adyen.model.checkout.PaymentLinkResponse;
-import com.adyen.model.checkout.PaymentMethodsRequest;
-import com.adyen.model.checkout.PaymentMethodsResponse;
-import com.adyen.model.checkout.PaymentRefundResource;
-import com.adyen.model.checkout.PaymentRequest;
-import com.adyen.model.checkout.PaymentResponse;
-import com.adyen.model.checkout.PaymentReversalResource;
-import com.adyen.model.checkout.PaymentSetupRequest;
-import com.adyen.model.checkout.PaymentSetupResponse;
-import com.adyen.model.checkout.PaymentVerificationRequest;
-import com.adyen.model.checkout.PaymentVerificationResponse;
-import com.adyen.model.checkout.StandalonePaymentCancelResource;
-import com.adyen.model.checkout.UpdatePaymentLinkRequest;
+import com.adyen.model.checkout.*;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.CheckoutResource;
 
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Optional;
 
 import static com.adyen.Client.LIB_NAME;
 import static com.adyen.Client.LIB_VERSION;
-import static com.adyen.constants.ApiConstants.HttpMethod.GET;
-import static com.adyen.constants.ApiConstants.HttpMethod.PATCH;
+import static com.adyen.constants.ApiConstants.HttpMethod.*;
 
 public class Checkout extends ApiKeyAuthenticatedService {
 
@@ -73,6 +32,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
     private final CheckoutResource donations;
     private final CheckoutResource cardDetails;
     private final CheckoutResource paymentLinks;
+    private final CheckoutResource storedPaymentMethods;
 
     public Checkout(Client client) {
 
@@ -91,6 +51,7 @@ public class Checkout extends ApiKeyAuthenticatedService {
         donations = new CheckoutResource(this, "/donations");
         cardDetails = new CheckoutResource(this, "/cardDetails");
         paymentLinks = new CheckoutResource(this, "/paymentLinks");
+        storedPaymentMethods = new CheckoutResource(this, "/storedPaymentMethods");
         new JSON();
 
     }
@@ -482,5 +443,53 @@ public class Checkout extends ApiKeyAuthenticatedService {
         String jsonRequest = cardDetailsRequest.toJson();
         String jsonResult = cardDetails.request(jsonRequest);
         return CardDetailsResponse.fromJson(jsonResult);
+    }
+
+    /**
+     * GET /storedPaymentMethods
+     *
+     * @param queryParams  (optional)
+     *    merchantAccount: Your merchant account. (optional)<br />
+     *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. (optional)<br />
+     * @return ListStoredPaymentMethodsResponse
+     * @throws ApiException if it fails to make API call
+     */
+    public ListStoredPaymentMethodsResponse getStoredPaymentDetails( Map<String, String> queryParams) throws ApiException, IOException {
+        String jsonResult = storedPaymentMethods.request("{}", null, GET,null, queryParams);
+        return ListStoredPaymentMethodsResponse.fromJson(jsonResult);
+    }
+
+    /**
+     * GET /storedPaymentMethods
+     *
+     * @return ListStoredPaymentMethodsResponse
+     * @throws ApiException if it fails to make API call
+     */
+    public ListStoredPaymentMethodsResponse getStoredPaymentDetails() throws ApiException, IOException {
+        return getStoredPaymentDetails(null);
+    }
+
+    /**
+     * DELETE /storedPaymentMethods/{recurringId}
+     *
+     * @param recurringId String
+     * @param queryParams  (optional)
+     *    merchantAccount: Your merchant account. (optional)<br />
+     *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. (optional)<br />
+     * @throws ApiException if it fails to make API call
+     */
+    public void deleteStoredPaymentDetails(String recurringId, Map<String, String> queryParams) throws ApiException, IOException {
+        CheckoutResource checkoutResource = new CheckoutResource(this, "/storedPaymentMethods/" + recurringId);
+        checkoutResource.request("{}", null, DELETE, null, queryParams);
+    }
+
+    /**
+     * DELETE /storedPaymentMethods/{recurringId}
+     *
+     * @param recurringId String
+     * @throws ApiException if it fails to make API call
+     */
+    public void deleteStoredPaymentDetails(String recurringId) throws ApiException, IOException {
+        deleteStoredPaymentDetails(recurringId, null);
     }
 }
