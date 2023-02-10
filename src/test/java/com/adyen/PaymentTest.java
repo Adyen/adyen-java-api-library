@@ -113,7 +113,7 @@ public class PaymentTest extends BaseTest {
             payment.authorise(paymentRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertTrue(e.getMessage().contains("010"));
+            assertTrue(e.getResponseBody().contains("010"));
             assertEquals(403, e.getStatusCode());
         }
     }
@@ -360,8 +360,8 @@ public class PaymentTest extends BaseTest {
             payment.getAuthenticationResult(authenticationResultRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getMessage());
-            assertTrue(e.getMessage().contains("15_024"));
+            assertNotNull(e.getResponseBody());
+            assertTrue(e.getResponseBody().contains("15_024"));
             assertEquals(422, e.getStatusCode());
         }
     }
@@ -376,8 +376,8 @@ public class PaymentTest extends BaseTest {
             payment.getAuthenticationResult(authenticationResultRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getMessage());
-            assertTrue(e.getMessage().contains("15_012"));
+            assertNotNull(e.getResponseBody());
+            assertTrue(e.getResponseBody().contains("15_012"));
             assertEquals(422, e.getStatusCode());
         }
     }
@@ -393,8 +393,8 @@ public class PaymentTest extends BaseTest {
             payment.getAuthenticationResult(authenticationResultRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getMessage());
-            assertTrue(e.getMessage().contains("15_011"));
+            assertNotNull(e.getResponseBody());
+            assertTrue(e.getResponseBody().contains("15_011"));
             assertEquals(422, e.getStatusCode());
         }
     }
@@ -410,8 +410,8 @@ public class PaymentTest extends BaseTest {
             payment.getAuthenticationResult(authenticationResultRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getMessage());
-            assertTrue(e.getMessage().contains("010"));
+            assertNotNull(e.getResponseBody());
+            assertTrue(e.getResponseBody().contains("010"));
             assertEquals(403, e.getStatusCode());
         }
     }

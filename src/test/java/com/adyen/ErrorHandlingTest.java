@@ -2,8 +2,11 @@ package com.adyen;
 
 import com.adyen.enums.Environment;
 import com.adyen.model.checkout.PaymentLinkResponse;
+import com.adyen.model.checkout.ServiceError;
 import com.adyen.model.management.AllowedOriginsResponse;
 import com.adyen.model.management.CreateAllowedOriginRequest;
+import com.adyen.model.management.JSON;
+import com.adyen.model.management.RestServiceError;
 import com.adyen.service.Checkout;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.management.MyApiCredential;
@@ -24,9 +27,9 @@ public class ErrorHandlingTest extends BaseTest{
         createAllowedOriginRequest.setDomain("https://google.com");
         try
         {
-            AllowedOriginsResponse response = service.addAllowedOrigin(createAllowedOriginRequest);
+            service.addAllowedOrigin(createAllowedOriginRequest);
         } catch(ApiException e) {
-            Assert.assertTrue(e.getMessage().contains("Invalid allowed origin information provided."));
+            Assert.assertTrue(e.getResponseBody().contains("Invalid allowed origin information provided."));
         }
     }
 
@@ -37,9 +40,9 @@ public class ErrorHandlingTest extends BaseTest{
         Checkout service = new Checkout(client);
         try
         {
-            PaymentLinkResponse response = service.getPaymentLinks("1234");
+            service.getPaymentLinks("1234");
         } catch(ApiException e) {
-            Assert.assertTrue(e.getMessage().contains("Invalid payment link ID"));
+            Assert.assertTrue(e.getResponseBody().contains("Invalid payment link ID"));
         }
     }
 }

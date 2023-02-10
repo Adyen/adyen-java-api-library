@@ -55,8 +55,8 @@ public class PosPaymentTest extends BaseTest {
             posPayment.connectedTerminals(request);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getMessage());
-            assertTrue(e.getMessage().contains("901"));
+            assertNotNull(e.getResponseBody());
+            assertTrue(e.getResponseBody().contains("901"));
             assertEquals(403, e.getStatusCode());
         }
     }
@@ -72,8 +72,8 @@ public class PosPaymentTest extends BaseTest {
             posPayment.connectedTerminals(request);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getMessage());
-            assertTrue(e.getMessage().contains("702"));
+            assertNotNull(e.getResponseBody());
+            assertTrue(e.getResponseBody().contains("702"));
             assertEquals(500, e.getStatusCode());
         }
     }

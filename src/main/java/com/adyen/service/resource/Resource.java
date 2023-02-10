@@ -111,7 +111,8 @@ public class Resource {
         try {
             return clientInterface.request(resolve(pathParams), json, config, service.isApiKeyRequired(), requestOptions, httpMethod, queryString);
         } catch (HTTPClientException e) {
-            apiException = new ApiException(e.getMessage() + e.getResponseBody(), e.getCode(), e.getResponseHeaders());
+            apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
+            apiException.setResponseBody(e.getResponseBody());
         }
         throw apiException;
     }

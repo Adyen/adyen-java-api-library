@@ -116,7 +116,7 @@ public class RecurringTest extends BaseTest {
             fail("Exception expected!");
         } catch (ApiException e) {
             assertNotEquals(200, e.getStatusCode());
-            assertTrue(e.getMessage().contains("803"));
+            assertTrue(e.getResponseBody().contains("803"));
         }
     }
 
@@ -146,7 +146,7 @@ public class RecurringTest extends BaseTest {
             fail("Exception expected!");
         } catch (ApiException e) {
             assertNotEquals(200, e.getStatusCode());
-            assertTrue(e.getMessage().contains("130"));
+            assertTrue(e.getResponseBody().contains("130"));
         }
     }
 

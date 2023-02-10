@@ -123,8 +123,8 @@ public class PayoutTest extends BaseTest {
             payout.payout(request);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getMessage());
-            assertTrue(e.getMessage().contains("901"));
+            assertNotNull(e.getResponseBody());
+            assertTrue(e.getResponseBody().contains("901"));
             assertEquals(403, e.getStatusCode());
         }
     }
@@ -140,8 +140,8 @@ public class PayoutTest extends BaseTest {
             payout.payout(request);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getMessage());
-            assertTrue(e.getMessage().contains("130"));
+            assertNotNull(e.getResponseBody());
+            assertTrue(e.getResponseBody().contains("130"));
             assertEquals(422, e.getStatusCode());
         }
     }
