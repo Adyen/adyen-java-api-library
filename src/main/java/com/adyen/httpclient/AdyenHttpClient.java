@@ -62,6 +62,8 @@ import java.util.concurrent.TimeUnit;
 
 import static com.adyen.constants.ApiConstants.HttpMethod.POST;
 import static com.adyen.constants.ApiConstants.RequestProperty.ACCEPT_CHARSET;
+import static com.adyen.constants.ApiConstants.RequestProperty.ADYEN_LIBRARY_NAME;
+import static com.adyen.constants.ApiConstants.RequestProperty.ADYEN_LIBRARY_VERSION;
 import static com.adyen.constants.ApiConstants.RequestProperty.API_KEY;
 import static com.adyen.constants.ApiConstants.RequestProperty.APPLICATION_JSON_TYPE;
 import static com.adyen.constants.ApiConstants.RequestProperty.CONTENT_TYPE;
@@ -146,6 +148,8 @@ public class AdyenHttpClient implements ClientInterface {
         setContentType(httpUriRequest, APPLICATION_JSON_TYPE);
         httpUriRequest.addHeader(ACCEPT_CHARSET, CHARSET);
         httpUriRequest.addHeader(USER_AGENT, String.format("%s %s/%s", config.getApplicationName(), Client.LIB_NAME, Client.LIB_VERSION));
+        httpUriRequest.addHeader(ADYEN_LIBRARY_NAME, Client.LIB_NAME);
+        httpUriRequest.addHeader(ADYEN_LIBRARY_VERSION, Client.LIB_VERSION);
 
         if (requestOptions != null && requestOptions.getIdempotencyKey() != null) {
             httpUriRequest.addHeader(IDEMPOTENCY_KEY, requestOptions.getIdempotencyKey());
