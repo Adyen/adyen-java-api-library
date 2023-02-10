@@ -40,9 +40,9 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      *
      * @param merchantId The unique identifier of the merchant account. (required)
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)<br />
-     *    reference: The reference of the store. (optional)<br />
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
+     *    reference: The reference of the store. (optional)
      * @return ListStoresResponse
      * @throws ApiException if fails to make API call
      */
@@ -90,10 +90,10 @@ public class AccountStoreLevel extends ApiKeyAuthenticatedService {
      * Get a list of stores
      *
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)<br />
-     *    reference: The reference of the store. (optional)<br />
-     *    merchantId: The unique identifier of the merchant account. (optional)<br />
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
+     *    reference: The reference of the store. (optional)
+     *    merchantId: The unique identifier of the merchant account. (optional)
      * @return ListStoresResponse
      * @throws ApiException if fails to make API call
      */

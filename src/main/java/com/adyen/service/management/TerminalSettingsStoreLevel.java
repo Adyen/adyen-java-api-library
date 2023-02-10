@@ -38,7 +38,7 @@ public class TerminalSettingsStoreLevel extends ApiKeyAuthenticatedService {
      * @param merchantId The unique identifier of the merchant account. (required)
      * @param reference The reference that identifies the store. (required)
      * @param queryParams  (optional)
-     *    model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (optional)<br />
+     *    model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (optional)
      * @return Logo
      * @throws ApiException if fails to make API call
      */
@@ -91,7 +91,7 @@ public class TerminalSettingsStoreLevel extends ApiKeyAuthenticatedService {
      *
      * @param storeId The unique identifier of the store. (required)
      * @param queryParams  (optional)
-     *    model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (optional)<br />
+     *    model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (optional)
      * @return Logo
      * @throws ApiException if fails to make API call
      */
@@ -137,7 +137,7 @@ public class TerminalSettingsStoreLevel extends ApiKeyAuthenticatedService {
      * @param reference The reference that identifies the store. (required)
      * @param logo  (optional)
      * @param queryParams  (optional)
-     *    model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T (optional)<br />
+     *    model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T (optional)
      * @return Logo
      * @throws ApiException if fails to make API call
      */
@@ -192,7 +192,7 @@ public class TerminalSettingsStoreLevel extends ApiKeyAuthenticatedService {
      * @param storeId The unique identifier of the store. (required)
      * @param logo  (optional)
      * @param queryParams  (optional)
-     *    model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (optional)<br />
+     *    model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. (optional)
      * @return Logo
      * @throws ApiException if fails to make API call
      */

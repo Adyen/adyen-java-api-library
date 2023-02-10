@@ -37,8 +37,8 @@ public class AccountCompanyLevel extends ApiKeyAuthenticatedService {
      * Get a list of company accounts
      *
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)<br />
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
      * @return ListCompanyResponse
      * @throws ApiException if fails to make API call
      */
@@ -78,8 +78,8 @@ public class AccountCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)<br />
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
      * @return ListMerchantResponse
      * @throws ApiException if fails to make API call
      */

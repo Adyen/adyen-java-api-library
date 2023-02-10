@@ -39,8 +39,8 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)<br />
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)
      * @return AndroidAppsResponse
      * @throws ApiException if fails to make API call
      */
@@ -63,8 +63,8 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)<br />
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)
      * @return AndroidCertificatesResponse
      * @throws ApiException if fails to make API call
      */
@@ -87,10 +87,10 @@ public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)<br />
-     *    status: Returns terminal actions with the specified status.  Allowed values: **pending**, **successful**, **failed**, **cancelled**, **tryLater**. (optional)<br />
-     *    type: Returns terminal actions of the specified type.  Allowed values: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**. (optional)<br />
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 20 items on a page. (optional)
+     *    status: Returns terminal actions with the specified status.  Allowed values: **pending**, **successful**, **failed**, **cancelled**, **tryLater**. (optional)
+     *    type: Returns terminal actions of the specified type.  Allowed values: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**. (optional)
      * @return ListExternalTerminalActionsResponse
      * @throws ApiException if fails to make API call
      */
