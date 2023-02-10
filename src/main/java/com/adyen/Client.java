@@ -84,6 +84,7 @@ public class Client {
 
     public Client(Config config) {
         this.config = config;
+        this.setEnvironment(config.environment, config.liveEndpointUrlPrefix);
     }
 
     public Client(String username, String password, Environment environment, String applicationName) {

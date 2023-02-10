@@ -72,6 +72,7 @@ public class Config {
     protected String clientKeyStorePassword;
     protected String legalEntityManagementEndpoint;
     protected String managementEndpoint;
+    protected String liveEndpointUrlPrefix;
 
     public Config() {
         // do nothing
@@ -296,5 +297,12 @@ public class Config {
 
     public void setManagementEndpoint(String managementEndpoint) {
         this.managementEndpoint = managementEndpoint;
+    }
+
+    public String getLiveEndpointUrlPrefix() {
+        return this.liveEndpointUrlPrefix;
+    }
+    public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
+        this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
     }
 }
