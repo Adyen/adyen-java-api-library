@@ -52,13 +52,13 @@ public class DateSerializationTest extends BaseTest {
         CreatePaymentLinkRequest paymentLinkRequest = new CreatePaymentLinkRequest();
 
         paymentLinkRequest.setDeliverAt(date());
-        paymentLinkRequest.setDateOfBirth(date());
+        paymentLinkRequest.setDateOfBirth(date().toLocalDate());
 
         checkout.paymentLinks(paymentLinkRequest);
         ClientInterface http = client.getHttpClient();
 
         String expected1 = "\"deliverAt\":\"2023-06-02T12:00:00";
-        String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
+        String expected2 = "\"dateOfBirth\":\"2023-06-02";
         verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
         verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }
@@ -70,14 +70,14 @@ public class DateSerializationTest extends BaseTest {
 
         PaymentSetupRequest request = new PaymentSetupRequest();
 
-        request.setDateOfBirth(date());
+        request.setDateOfBirth(date().toLocalDate());
         request.setDeliveryDate(date());
 
         checkout.paymentSession(request);
         ClientInterface http = client.getHttpClient();
 
         String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
-        String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
+        String expected2 = "\"dateOfBirth\":\"2023-06-02";
         verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
         verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }
@@ -89,14 +89,14 @@ public class DateSerializationTest extends BaseTest {
 
         PaymentRequest request = new PaymentRequest();
 
-        request.setDateOfBirth(date());
+        request.setDateOfBirth(date().toLocalDate());
         request.setDeliveryDate(date());
 
         checkout.payments(request);
         ClientInterface http = client.getHttpClient();
 
         String expected1 = "\"deliveryDate\":\"2023-06-02T12:00:00";
-        String expected2 = "\"dateOfBirth\":\"2023-06-02T12:00:00";
+        String expected2 = "\"dateOfBirth\":\"2023-06-02";
         verify(http).request(anyString(), Mockito.contains(expected1), any(), eq(true), isNull(), any(), isNull());
         verify(http).request(anyString(), Mockito.contains(expected2), any(), eq(true), isNull(), any(), isNull());
     }

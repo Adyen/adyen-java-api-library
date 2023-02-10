@@ -13,7 +13,7 @@ output:=target/out
 models: $(services)
 
 binlookup: spec=BinLookupService-v52
-checkout: spec=CheckoutService-v69
+checkout: spec=CheckoutService-v70
 storedValue: spec=StoredValueService-v46
 posterminalmanagement: spec=TfmAPIService-v1
 payments: spec=PaymentService-v68

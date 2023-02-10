@@ -46,10 +46,10 @@ import java.util.Set;
 import com.adyen.model.checkout.JSON;
 
 /**
- * StoredPaymentMethod
+ * StoredPaymentMethodResource
  */
 
-public class StoredPaymentMethod {
+public class StoredPaymentMethodResource {
   public static final String SERIALIZED_NAME_BRAND = "brand";
   @SerializedName(SERIALIZED_NAME_BRAND)
   private String brand;
@@ -62,6 +62,14 @@ public class StoredPaymentMethod {
   @SerializedName(SERIALIZED_NAME_EXPIRY_YEAR)
   private String expiryYear;
 
+  public static final String SERIALIZED_NAME_EXTERNAL_RESPONSE_CODE = "externalResponseCode";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_RESPONSE_CODE)
+  private String externalResponseCode;
+
+  public static final String SERIALIZED_NAME_EXTERNAL_TOKEN_REFERENCE = "externalTokenReference";
+  @SerializedName(SERIALIZED_NAME_EXTERNAL_TOKEN_REFERENCE)
+  private String externalTokenReference;
+
   public static final String SERIALIZED_NAME_HOLDER_NAME = "holderName";
   @SerializedName(SERIALIZED_NAME_HOLDER_NAME)
   private String holderName;
@@ -73,6 +81,10 @@ public class StoredPaymentMethod {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_ISSUER_NAME = "issuerName";
+  @SerializedName(SERIALIZED_NAME_ISSUER_NAME)
+  private String issuerName;
 
   public static final String SERIALIZED_NAME_LAST_FOUR = "lastFour";
   @SerializedName(SERIALIZED_NAME_LAST_FOUR)
@@ -94,22 +106,22 @@ public class StoredPaymentMethod {
   @SerializedName(SERIALIZED_NAME_SHOPPER_EMAIL)
   private String shopperEmail;
 
+  public static final String SERIALIZED_NAME_SHOPPER_REFERENCE = "shopperReference";
+  @SerializedName(SERIALIZED_NAME_SHOPPER_REFERENCE)
+  private String shopperReference;
+
   public static final String SERIALIZED_NAME_SUPPORTED_RECURRING_PROCESSING_MODELS = "supportedRecurringProcessingModels";
   @SerializedName(SERIALIZED_NAME_SUPPORTED_RECURRING_PROCESSING_MODELS)
   private List<String> supportedRecurringProcessingModels = null;
-
-  public static final String SERIALIZED_NAME_SUPPORTED_SHOPPER_INTERACTIONS = "supportedShopperInteractions";
-  @SerializedName(SERIALIZED_NAME_SUPPORTED_SHOPPER_INTERACTIONS)
-  private List<String> supportedShopperInteractions = null;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public StoredPaymentMethod() { 
+  public StoredPaymentMethodResource() { 
   }
 
-  public StoredPaymentMethod brand(String brand) {
+  public StoredPaymentMethodResource brand(String brand) {
     
     this.brand = brand;
     return this;
@@ -131,7 +143,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod expiryMonth(String expiryMonth) {
+  public StoredPaymentMethodResource expiryMonth(String expiryMonth) {
     
     this.expiryMonth = expiryMonth;
     return this;
@@ -153,7 +165,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod expiryYear(String expiryYear) {
+  public StoredPaymentMethodResource expiryYear(String expiryYear) {
     
     this.expiryYear = expiryYear;
     return this;
@@ -175,7 +187,51 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod holderName(String holderName) {
+  public StoredPaymentMethodResource externalResponseCode(String externalResponseCode) {
+    
+    this.externalResponseCode = externalResponseCode;
+    return this;
+  }
+
+   /**
+   * The response code returned by an external system (for example after a provisioning operation).
+   * @return externalResponseCode
+  **/
+  @ApiModelProperty(value = "The response code returned by an external system (for example after a provisioning operation).")
+
+  public String getExternalResponseCode() {
+    return externalResponseCode;
+  }
+
+
+  public void setExternalResponseCode(String externalResponseCode) {
+    this.externalResponseCode = externalResponseCode;
+  }
+
+
+  public StoredPaymentMethodResource externalTokenReference(String externalTokenReference) {
+    
+    this.externalTokenReference = externalTokenReference;
+    return this;
+  }
+
+   /**
+   * The token reference of a linked token in an external system (for example a network token reference).
+   * @return externalTokenReference
+  **/
+  @ApiModelProperty(value = "The token reference of a linked token in an external system (for example a network token reference).")
+
+  public String getExternalTokenReference() {
+    return externalTokenReference;
+  }
+
+
+  public void setExternalTokenReference(String externalTokenReference) {
+    this.externalTokenReference = externalTokenReference;
+  }
+
+
+  public StoredPaymentMethodResource holderName(String holderName) {
     
     this.holderName = holderName;
     return this;
@@ -197,7 +253,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod iban(String iban) {
+  public StoredPaymentMethodResource iban(String iban) {
     
     this.iban = iban;
     return this;
@@ -219,7 +275,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod id(String id) {
+  public StoredPaymentMethodResource id(String id) {
     
     this.id = id;
     return this;
@@ -241,7 +297,29 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod lastFour(String lastFour) {
+  public StoredPaymentMethodResource issuerName(String issuerName) {
+    
+    this.issuerName = issuerName;
+    return this;
+  }
+
+   /**
+   * The name of the issuer of token or card.
+   * @return issuerName
+  **/
+  @ApiModelProperty(value = "The name of the issuer of token or card.")
+
+  public String getIssuerName() {
+    return issuerName;
+  }
+
+
+  public void setIssuerName(String issuerName) {
+    this.issuerName = issuerName;
+  }
+
+
+  public StoredPaymentMethodResource lastFour(String lastFour) {
     
     this.lastFour = lastFour;
     return this;
@@ -263,7 +341,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod name(String name) {
+  public StoredPaymentMethodResource name(String name) {
     
     this.name = name;
     return this;
@@ -285,7 +363,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod networkTxReference(String networkTxReference) {
+  public StoredPaymentMethodResource networkTxReference(String networkTxReference) {
     
     this.networkTxReference = networkTxReference;
     return this;
@@ -307,7 +385,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod ownerName(String ownerName) {
+  public StoredPaymentMethodResource ownerName(String ownerName) {
     
     this.ownerName = ownerName;
     return this;
@@ -329,7 +407,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod shopperEmail(String shopperEmail) {
+  public StoredPaymentMethodResource shopperEmail(String shopperEmail) {
     
     this.shopperEmail = shopperEmail;
     return this;
@@ -351,13 +429,35 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod supportedRecurringProcessingModels(List<String> supportedRecurringProcessingModels) {
+  public StoredPaymentMethodResource shopperReference(String shopperReference) {
+    
+    this.shopperReference = shopperReference;
+    return this;
+  }
+
+   /**
+   * Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address.
+   * @return shopperReference
+  **/
+  @ApiModelProperty(value = "Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.")
+
+  public String getShopperReference() {
+    return shopperReference;
+  }
+
+
+  public void setShopperReference(String shopperReference) {
+    this.shopperReference = shopperReference;
+  }
+
+
+  public StoredPaymentMethodResource supportedRecurringProcessingModels(List<String> supportedRecurringProcessingModels) {
     
     this.supportedRecurringProcessingModels = supportedRecurringProcessingModels;
     return this;
   }
 
-  public StoredPaymentMethod addSupportedRecurringProcessingModelsItem(String supportedRecurringProcessingModelsItem) {
+  public StoredPaymentMethodResource addSupportedRecurringProcessingModelsItem(String supportedRecurringProcessingModelsItem) {
     if (this.supportedRecurringProcessingModels == null) {
       this.supportedRecurringProcessingModels = new ArrayList<>();
     }
@@ -366,10 +466,10 @@ public class StoredPaymentMethod {
   }
 
    /**
-   * The supported recurring processing models for this stored payment method.
+   * Defines a recurring payment type. Allowed values: * &#x60;Subscription&#x60; – A transaction for a fixed or variable amount, which follows a fixed schedule. * &#x60;CardOnFile&#x60; – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * &#x60;UnscheduledCardOnFile&#x60; – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder&#39;s balance drops below a certain amount.
    * @return supportedRecurringProcessingModels
   **/
-  @ApiModelProperty(value = "The supported recurring processing models for this stored payment method.")
+  @ApiModelProperty(value = "Defines a recurring payment type. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount.")
 
   public List<String> getSupportedRecurringProcessingModels() {
     return supportedRecurringProcessingModels;
@@ -381,37 +481,7 @@ public class StoredPaymentMethod {
   }
 
 
-  public StoredPaymentMethod supportedShopperInteractions(List<String> supportedShopperInteractions) {
-    
-    this.supportedShopperInteractions = supportedShopperInteractions;
-    return this;
-  }
-
-  public StoredPaymentMethod addSupportedShopperInteractionsItem(String supportedShopperInteractionsItem) {
-    if (this.supportedShopperInteractions == null) {
-      this.supportedShopperInteractions = new ArrayList<>();
-    }
-    this.supportedShopperInteractions.add(supportedShopperInteractionsItem);
-    return this;
-  }
-
-   /**
-   * The supported shopper interactions for this stored payment method.
-   * @return supportedShopperInteractions
-  **/
-  @ApiModelProperty(value = "The supported shopper interactions for this stored payment method.")
-
-  public List<String> getSupportedShopperInteractions() {
-    return supportedShopperInteractions;
-  }
-
-
-  public void setSupportedShopperInteractions(List<String> supportedShopperInteractions) {
-    this.supportedShopperInteractions = supportedShopperInteractions;
-  }
-
-
-  public StoredPaymentMethod type(String type) {
+  public StoredPaymentMethodResource type(String type) {
     
     this.type = type;
     return this;
@@ -442,45 +512,51 @@ public class StoredPaymentMethod {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StoredPaymentMethod storedPaymentMethod = (StoredPaymentMethod) o;
-    return Objects.equals(this.brand, storedPaymentMethod.brand) &&
-        Objects.equals(this.expiryMonth, storedPaymentMethod.expiryMonth) &&
-        Objects.equals(this.expiryYear, storedPaymentMethod.expiryYear) &&
-        Objects.equals(this.holderName, storedPaymentMethod.holderName) &&
-        Objects.equals(this.iban, storedPaymentMethod.iban) &&
-        Objects.equals(this.id, storedPaymentMethod.id) &&
-        Objects.equals(this.lastFour, storedPaymentMethod.lastFour) &&
-        Objects.equals(this.name, storedPaymentMethod.name) &&
-        Objects.equals(this.networkTxReference, storedPaymentMethod.networkTxReference) &&
-        Objects.equals(this.ownerName, storedPaymentMethod.ownerName) &&
-        Objects.equals(this.shopperEmail, storedPaymentMethod.shopperEmail) &&
-        Objects.equals(this.supportedRecurringProcessingModels, storedPaymentMethod.supportedRecurringProcessingModels) &&
-        Objects.equals(this.supportedShopperInteractions, storedPaymentMethod.supportedShopperInteractions) &&
-        Objects.equals(this.type, storedPaymentMethod.type);
+    StoredPaymentMethodResource storedPaymentMethodResource = (StoredPaymentMethodResource) o;
+    return Objects.equals(this.brand, storedPaymentMethodResource.brand) &&
+        Objects.equals(this.expiryMonth, storedPaymentMethodResource.expiryMonth) &&
+        Objects.equals(this.expiryYear, storedPaymentMethodResource.expiryYear) &&
+        Objects.equals(this.externalResponseCode, storedPaymentMethodResource.externalResponseCode) &&
+        Objects.equals(this.externalTokenReference, storedPaymentMethodResource.externalTokenReference) &&
+        Objects.equals(this.holderName, storedPaymentMethodResource.holderName) &&
+        Objects.equals(this.iban, storedPaymentMethodResource.iban) &&
+        Objects.equals(this.id, storedPaymentMethodResource.id) &&
+        Objects.equals(this.issuerName, storedPaymentMethodResource.issuerName) &&
+        Objects.equals(this.lastFour, storedPaymentMethodResource.lastFour) &&
+        Objects.equals(this.name, storedPaymentMethodResource.name) &&
+        Objects.equals(this.networkTxReference, storedPaymentMethodResource.networkTxReference) &&
+        Objects.equals(this.ownerName, storedPaymentMethodResource.ownerName) &&
+        Objects.equals(this.shopperEmail, storedPaymentMethodResource.shopperEmail) &&
+        Objects.equals(this.shopperReference, storedPaymentMethodResource.shopperReference) &&
+        Objects.equals(this.supportedRecurringProcessingModels, storedPaymentMethodResource.supportedRecurringProcessingModels) &&
+        Objects.equals(this.type, storedPaymentMethodResource.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brand, expiryMonth, expiryYear, holderName, iban, id, lastFour, name, networkTxReference, ownerName, shopperEmail, supportedRecurringProcessingModels, supportedShopperInteractions, type);
+    return Objects.hash(brand, expiryMonth, expiryYear, externalResponseCode, externalTokenReference, holderName, iban, id, issuerName, lastFour, name, networkTxReference, ownerName, shopperEmail, shopperReference, supportedRecurringProcessingModels, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StoredPaymentMethod {\n");
+    sb.append("class StoredPaymentMethodResource {\n");
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    expiryMonth: ").append(toIndentedString(expiryMonth)).append("\n");
     sb.append("    expiryYear: ").append(toIndentedString(expiryYear)).append("\n");
+    sb.append("    externalResponseCode: ").append(toIndentedString(externalResponseCode)).append("\n");
+    sb.append("    externalTokenReference: ").append(toIndentedString(externalTokenReference)).append("\n");
     sb.append("    holderName: ").append(toIndentedString(holderName)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    issuerName: ").append(toIndentedString(issuerName)).append("\n");
     sb.append("    lastFour: ").append(toIndentedString(lastFour)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
+    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
     sb.append("    supportedRecurringProcessingModels: ").append(toIndentedString(supportedRecurringProcessingModels)).append("\n");
-    sb.append("    supportedShopperInteractions: ").append(toIndentedString(supportedShopperInteractions)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -507,16 +583,19 @@ public class StoredPaymentMethod {
     openapiFields.add("brand");
     openapiFields.add("expiryMonth");
     openapiFields.add("expiryYear");
+    openapiFields.add("externalResponseCode");
+    openapiFields.add("externalTokenReference");
     openapiFields.add("holderName");
     openapiFields.add("iban");
     openapiFields.add("id");
+    openapiFields.add("issuerName");
     openapiFields.add("lastFour");
     openapiFields.add("name");
     openapiFields.add("networkTxReference");
     openapiFields.add("ownerName");
     openapiFields.add("shopperEmail");
+    openapiFields.add("shopperReference");
     openapiFields.add("supportedRecurringProcessingModels");
-    openapiFields.add("supportedShopperInteractions");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
@@ -527,22 +606,22 @@ public class StoredPaymentMethod {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to StoredPaymentMethod
+  * @throws IOException if the JSON Object is invalid with respect to StoredPaymentMethodResource
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (StoredPaymentMethod.openapiRequiredFields.isEmpty()) {
+        if (StoredPaymentMethodResource.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StoredPaymentMethod is not found in the empty JSON string", StoredPaymentMethod.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StoredPaymentMethodResource is not found in the empty JSON string", StoredPaymentMethodResource.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!StoredPaymentMethod.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoredPaymentMethod` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!StoredPaymentMethodResource.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoredPaymentMethodResource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field brand
@@ -557,6 +636,14 @@ public class StoredPaymentMethod {
       if (jsonObj.get("expiryYear") != null && !jsonObj.get("expiryYear").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expiryYear` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiryYear").toString()));
       }
+      // validate the optional field externalResponseCode
+      if (jsonObj.get("externalResponseCode") != null && !jsonObj.get("externalResponseCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `externalResponseCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalResponseCode").toString()));
+      }
+      // validate the optional field externalTokenReference
+      if (jsonObj.get("externalTokenReference") != null && !jsonObj.get("externalTokenReference").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `externalTokenReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalTokenReference").toString()));
+      }
       // validate the optional field holderName
       if (jsonObj.get("holderName") != null && !jsonObj.get("holderName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `holderName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holderName").toString()));
@@ -568,6 +655,10 @@ public class StoredPaymentMethod {
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      // validate the optional field issuerName
+      if (jsonObj.get("issuerName") != null && !jsonObj.get("issuerName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `issuerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuerName").toString()));
       }
       // validate the optional field lastFour
       if (jsonObj.get("lastFour") != null && !jsonObj.get("lastFour").isJsonPrimitive()) {
@@ -589,13 +680,13 @@ public class StoredPaymentMethod {
       if (jsonObj.get("shopperEmail") != null && !jsonObj.get("shopperEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shopperEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperEmail").toString()));
       }
+      // validate the optional field shopperReference
+      if (jsonObj.get("shopperReference") != null && !jsonObj.get("shopperReference").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `shopperReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopperReference").toString()));
+      }
       // ensure the json data is an array
       if (jsonObj.get("supportedRecurringProcessingModels") != null && !jsonObj.get("supportedRecurringProcessingModels").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `supportedRecurringProcessingModels` to be an array in the JSON string but got `%s`", jsonObj.get("supportedRecurringProcessingModels").toString()));
-      }
-      // ensure the json data is an array
-      if (jsonObj.get("supportedShopperInteractions") != null && !jsonObj.get("supportedShopperInteractions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `supportedShopperInteractions` to be an array in the JSON string but got `%s`", jsonObj.get("supportedShopperInteractions").toString()));
       }
       // validate the optional field type
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
@@ -607,22 +698,22 @@ public class StoredPaymentMethod {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StoredPaymentMethod.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StoredPaymentMethod' and its subtypes
+       if (!StoredPaymentMethodResource.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StoredPaymentMethodResource' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StoredPaymentMethod> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StoredPaymentMethod.class));
+       final TypeAdapter<StoredPaymentMethodResource> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StoredPaymentMethodResource.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<StoredPaymentMethod>() {
+       return (TypeAdapter<T>) new TypeAdapter<StoredPaymentMethodResource>() {
            @Override
-           public void write(JsonWriter out, StoredPaymentMethod value) throws IOException {
+           public void write(JsonWriter out, StoredPaymentMethodResource value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public StoredPaymentMethod read(JsonReader in) throws IOException {
+           public StoredPaymentMethodResource read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -633,18 +724,18 @@ public class StoredPaymentMethod {
   }
 
  /**
-  * Create an instance of StoredPaymentMethod given an JSON string
+  * Create an instance of StoredPaymentMethodResource given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of StoredPaymentMethod
-  * @throws IOException if the JSON string is invalid with respect to StoredPaymentMethod
+  * @return An instance of StoredPaymentMethodResource
+  * @throws IOException if the JSON string is invalid with respect to StoredPaymentMethodResource
   */
-  public static StoredPaymentMethod fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StoredPaymentMethod.class);
+  public static StoredPaymentMethodResource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StoredPaymentMethodResource.class);
   }
 
  /**
-  * Convert an instance of StoredPaymentMethod to an JSON string
+  * Convert an instance of StoredPaymentMethodResource to an JSON string
   *
   * @return JSON string
   */
