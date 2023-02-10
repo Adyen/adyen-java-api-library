@@ -25,12 +25,9 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
-import com.adyen.model.ApiError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.util.List;
@@ -110,25 +107,13 @@ public class Resource {
     public String request(String json, RequestOptions requestOptions, ApiConstants.HttpMethod httpMethod, Map<String, String> pathParams, Map<String, String> queryString) throws ApiException, IOException {
         ClientInterface clientInterface = service.getClient().getHttpClient();
         Config config = service.getClient().getConfig();
-        String responseBody;
         ApiException apiException;
-
         try {
             return clientInterface.request(resolve(pathParams), json, config, service.isApiKeyRequired(), requestOptions, httpMethod, queryString);
         } catch (HTTPClientException e) {
-            responseBody = e.getResponseBody();
             apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
+            apiException.setResponseBody(e.getResponseBody());
         }
-
-        // Enhance ApiException with more info from JSON payload
-        try {
-            ApiError apiError = GSON.fromJson(responseBody, new TypeToken<ApiError>() {
-            }.getType());
-            apiException.setError(apiError);
-        } catch (JsonSyntaxException ignored) {
-            throw new ApiException("Invalid response or an invalid X-API-Key key was used", apiException.getStatusCode());
-        }
-
         throw apiException;
     }
 

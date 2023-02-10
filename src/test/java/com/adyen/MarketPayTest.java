@@ -982,11 +982,7 @@ public class MarketPayTest extends BaseTest {
             fund.transferFunds(transferFundsRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertEquals("8515898092864171", e.getError().getPspReference());
-            List<ErrorFieldType> invalidFieldsList = e.getError().getInvalidFields();
-            assertEquals(2, invalidFieldsList.size());
-            assertEquals(new Integer(29), invalidFieldsList.get(0).getErrorCode());
-            assertEquals("Account code does not exist or invalid", invalidFieldsList.get(0).getErrorDescription());
+            assertTrue(e.getResponseBody().contains("Account code does not exist or invalid"));
         }
 
     }

@@ -35,6 +35,7 @@ public class ApiException extends Exception {
     private int statusCode;
 
     private Map<String, List<String>> responseHeaders;
+    private String responseBody;
 
     public ApiException(String message, int statusCode) {
         super(message);
@@ -65,8 +66,19 @@ public class ApiException extends Exception {
     public Map<String, List<String>> getResponseHeaders() {
         return responseHeaders;
     }
+
+    public String getResponseBody() {
+        return responseBody;
+    }
+    public void setResponseBody(String responseBody) {
+        this.responseBody = responseBody;
+    }
     @Override
     public String toString() {
-        return "ApiException{" + "error=" + error + ", statusCode=" + statusCode + ", message=" + getMessage() + ", responseHeaders=" + getResponseHeaders() + "}";
+        return "ApiException{" + "error=" + error +
+                ", statusCode=" + statusCode +
+                ", message=" + getMessage() +
+                ", responseHeaders=" + getResponseHeaders() +
+                ", responseBody=" + getResponseBody() + "}";
     }
 }

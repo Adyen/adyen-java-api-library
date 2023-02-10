@@ -67,9 +67,8 @@ public class BinLookupTest extends BaseTest {
             binLookup.get3dsAvailability(threeDSAvailabilityRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("901", e.getError().getErrorCode());
-            assertEquals(403, e.getError().getStatus());
+            assertNotNull(e.getResponseBody());
+            assertEquals(403, e.getStatusCode());
         }
     }
 
@@ -136,9 +135,8 @@ public class BinLookupTest extends BaseTest {
             binLookup.getCostEstimate(costEstimateRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("901", e.getError().getErrorCode());
-            assertEquals(500, e.getError().getStatus());
+            assertNotNull(e.getResponseBody());
+            assertEquals(500, e.getStatusCode());
         }
     }
 
@@ -171,9 +169,8 @@ public class BinLookupTest extends BaseTest {
             binLookup.getCostEstimate(costEstimateRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("000", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
+            assertNotNull(e.getResponseBody());
+            assertEquals(422, e.getStatusCode());
         }
     }
 
@@ -203,9 +200,8 @@ public class BinLookupTest extends BaseTest {
             binLookup.getCostEstimate(costEstimateRequest);
             fail("Exception expected");
         } catch (ApiException e) {
-            assertNotNull(e.getError());
-            assertEquals("100", e.getError().getErrorCode());
-            assertEquals(422, e.getError().getStatus());
+            assertNotNull(e.getResponseBody());
+            assertEquals(422, e.getStatusCode());
         }
     }
 

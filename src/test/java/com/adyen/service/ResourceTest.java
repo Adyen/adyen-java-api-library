@@ -110,7 +110,7 @@ public class ResourceTest extends BaseTest {
             fail("Expected exception");
         } catch (ApiException e) {
             assertEquals(403, e.getStatusCode());
-            assertEquals("010", e.getError().getErrorCode());
+            assertTrue(e.getResponseBody().contains("010"));
         }
     }
 }
