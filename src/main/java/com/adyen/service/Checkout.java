@@ -602,8 +602,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      * GET /storedPaymentMethods
      *
      * @param queryParams  (optional)
-     *    merchantAccount: Your merchant account. (optional)<br />
-     *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. (optional)<br />
+     *    merchantAccount: Your merchant account. (optional)
+     *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. (optional)
      * @return ListStoredPaymentMethodsResponse
      * @throws ApiException if it fails to make API call
      */
@@ -627,8 +627,8 @@ public class Checkout extends ApiKeyAuthenticatedService {
      *
      * @param recurringId String
      * @param queryParams  (optional)
-     *    merchantAccount: Your merchant account. (optional)<br />
-     *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. (optional)<br />
+     *    merchantAccount: Your merchant account. (optional)
+     *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. (optional)
      * @throws ApiException if it fails to make API call
      */
     public void deleteStoredPaymentDetails(String recurringId, Map<String, String> queryParams) throws ApiException, IOException {
