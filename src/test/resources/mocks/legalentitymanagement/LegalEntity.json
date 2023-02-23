@@ -122,6 +122,6 @@
     "vatAbsenceReason": "industryExemption",
     "vatNumber": "string"
   },
-  "transferInstruments": [{ "id": "string" }],
+  "transferInstruments": [{ "id": "string", "accountIdentifier": "string" }],
   "type": "individual"
 }
