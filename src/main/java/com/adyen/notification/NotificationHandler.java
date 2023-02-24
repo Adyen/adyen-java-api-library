@@ -54,7 +54,7 @@ public class NotificationHandler {
     }
 
     // Note that terminal notifications are structured as TerminalAPIRequest objects
-    public TerminalAPIRequest handleTerminalNotificationJson(String json){
+    public TerminalAPIRequest handleTerminalNotificationJson(String json) {
         return terminalGson.fromJson(json, new TypeToken<TerminalAPIRequest>() {
         }.getType());
     }
