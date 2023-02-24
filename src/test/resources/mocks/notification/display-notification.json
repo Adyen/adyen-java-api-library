@@ -1,0 +1,29 @@
+{
+  "SaleToPOIRequest":{
+    "DisplayRequest":{
+      "DisplayOutput":[
+        {
+          "Device": "CashierDisplay",
+          "InfoQualify": "Status",
+          "OutputContent": {
+            "OutputFormat": "MessageRef",
+            "PredefinedContent": {
+              "ReferenceID": "TransactionID=oLkO001517998574000&TimeStamp=2018-02-07T10%3a16%3a14.000Z&event=TENDER_CREATED"
+            }
+          },
+          "ResponseRequiredFlag": false
+        }
+      ]
+    },
+    "MessageHeader":{
+      "SaleID":"POSSystemID12345",
+      "ProtocolVersion":"3.0",
+      "MessageType":"Request",
+      "POIID":"V400m-324688179",
+      "ServiceID":"0207111617",
+      "MessageClass":"Device",
+      "MessageCategory":"Display",
+      "DeviceID":"1517998562"
+    }
+  }
+}
