@@ -71,9 +71,6 @@ public class BaseTest {
     protected final ApplicationInfo applicationInfo = new ApplicationInfo()
             .adyenLibrary(new CommonField().name(LIB_NAME).version(LIB_VERSION));
     protected static final Gson PRETTY_PRINT_GSON = new GsonBuilder().setPrettyPrinting().create();
-    protected static final Gson GSON = new Gson();
-    public static final String DUMMY_PROTOCOL_IMAGE_URL = "dummy_protocol/image_url/";
-    public static final String DUMMY_PROTOCOL_PRODUCT_URL = "dummy_protocol/product_url/";
     public static final String USER_AGENT = "User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36";
 
     /**
@@ -93,7 +90,6 @@ public class BaseTest {
         client.setHttpClient(adyenHttpClient);
 
         Config config = new Config();
-        config.setHmacKey("DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00");
         config.setCheckoutEndpoint(Client.CHECKOUT_ENDPOINT_TEST);
         client.setConfig(config);
 
