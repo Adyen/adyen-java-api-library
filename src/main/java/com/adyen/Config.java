@@ -48,11 +48,6 @@ public class Config {
     protected int connectionTimeoutMillis;
     protected int readTimeoutMillis;
 
-    //HPP specific
-    protected String hppEndpoint;
-    protected String skinCode;
-    protected String hmacKey;
-
     //Checkout Specific
     protected String checkoutEndpoint;
 
@@ -140,30 +135,6 @@ public class Config {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
-    }
-
-    public String getHppEndpoint() {
-        return hppEndpoint;
-    }
-
-    public void setHppEndpoint(String hppEndpoint) {
-        this.hppEndpoint = hppEndpoint;
-    }
-
-    public String getSkinCode() {
-        return skinCode;
-    }
-
-    public void setSkinCode(String skinCode) {
-        this.skinCode = skinCode;
-    }
-
-    public String getHmacKey() {
-        return hmacKey;
-    }
-
-    public void setHmacKey(String hmacKey) {
-        this.hmacKey = hmacKey;
     }
 
     public String getCheckoutEndpoint() {

@@ -125,20 +125,4 @@ public class HMACValidator {
 
         return Util.implode(DATA_SEPARATOR, signedDataList);
     }
-
-    public String getDataToSign(SortedMap<String, String> postParameters) {
-        List<String> parts = new ArrayList<>();
-
-        postParameters.keySet().stream().forEach(s -> parts.add(escapeVal(s)));
-        postParameters.values().stream().forEach(s -> parts.add(escapeVal(s)));
-
-        return Util.implode(DATA_SEPARATOR, parts);
-    }
-
-    private String escapeVal(String val) {
-        if (val == null) {
-            return "";
-        }
-        return val.replace("\\", "\\\\").replace(":", "\\:");
-    }
 }

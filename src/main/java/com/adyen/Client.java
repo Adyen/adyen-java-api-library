@@ -30,13 +30,10 @@ import java.security.KeyStore;
 public class Client {
     private ClientInterface httpClient;
     private Config config;
-
     public static final String ENDPOINT_TEST = "https://pal-test.adyen.com";
     public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
     public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
     public static final String ENDPOINT_LIVE_SUFFIX = "-pal-live.adyenpayments.com";
-    public static final String HPP_TEST = "https://test.adyen.com/hpp";
-    public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
     public static final String API_VERSION = "v68";
@@ -208,7 +205,6 @@ public class Client {
             this.config.setEnvironment(environment);
             this.config.setEndpoint(ENDPOINT_TEST);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
-            this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
@@ -219,7 +215,6 @@ public class Client {
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
-            this.config.setHppEndpoint(HPP_LIVE);
             if (liveEndpointUrlPrefix != null && !liveEndpointUrlPrefix.isEmpty()) {
                 this.config.setEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + ENDPOINT_LIVE_SUFFIX);
                 this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);
