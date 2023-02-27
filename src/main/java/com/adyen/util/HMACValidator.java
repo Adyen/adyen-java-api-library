@@ -32,7 +32,6 @@ import java.security.MessageDigest;
 import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
