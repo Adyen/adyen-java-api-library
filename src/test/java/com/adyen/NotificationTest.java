@@ -20,16 +20,30 @@
  */
 package com.adyen;
 
+import com.adyen.model.nexo.DeviceType;
+import com.adyen.model.nexo.DisplayOutput;
+import com.adyen.model.nexo.DisplayRequest;
+import com.adyen.model.nexo.DisplayResponse;
+import com.adyen.model.nexo.EventNotification;
+import com.adyen.model.nexo.EventToNotifyType;
+import com.adyen.model.nexo.InfoQualifyType;
 import com.adyen.model.notification.Amount;
 import com.adyen.model.notification.NotificationRequest;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.adyen.model.notification.NotificationRequestItemContainer;
+import com.adyen.model.terminal.TerminalAPIRequest;
+import com.adyen.model.terminal.TerminalAPIResponse;
 import com.adyen.notification.NotificationHandler;
+import com.adyen.service.TerminalCloudAPI;
+import com.adyen.terminal.serialization.TerminalAPIGsonBuilder;
+import com.google.gson.Gson;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Collections;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -185,6 +199,29 @@ public class NotificationTest extends BaseTest {
 
         assertNotNull(notificationRequestItem.getEventDate());
     }
+
+    @Test
+    public void testTerminalDisplayNotification() throws Exception {
+        String json = getFileContents("mocks/notification/display-notification.json");
+        TerminalAPIRequest notification = notificationHandler.handleTerminalNotificationJson(json);
+        DisplayOutput displayOutput = notification.getSaleToPOIRequest().getDisplayRequest().getDisplayOutput().get(0);
+
+        assertEquals(InfoQualifyType.STATUS, displayOutput.getInfoQualify());
+        assertEquals(DeviceType.CASHIER_DISPLAY, displayOutput.getDevice());
+        assertEquals(false, displayOutput.isResponseRequiredFlag());
+    }
+
+    @Test
+    public void testTerminalEventNotification() throws Exception {
+        String json = getFileContents("mocks/notification/event-notification.json");
+        TerminalAPIRequest notification = notificationHandler.handleTerminalNotificationJson(json);
+        EventNotification eventNotification = notification.getSaleToPOIRequest().getEventNotification();
+
+        assertEquals("newstate=IDLE&oldstate=START", eventNotification.getEventDetails());
+        assertEquals(EventToNotifyType.SHUTDOWN, eventNotification.getEventToNotify());
+    }
+
+
 
     private void assertJsonStringEquals(String firstInput, String secondInput) {
         JsonParser parser = new JsonParser();
