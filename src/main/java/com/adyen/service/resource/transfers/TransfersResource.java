@@ -7,7 +7,7 @@ import com.adyen.service.resource.Resource;
 public class TransfersResource extends Resource {
     public TransfersResource(Service service, String endpoint) {
         super(service,
-                service.getClient().getConfig().getEndpoint() + "/btl/" + Client.TRANSFER_VERSION
+                service.getClient().getConfig().getBalancePlatformEndpoint() + "/btl/" + Client.TRANSFER_VERSION
                         + endpoint,
                 null);
     }
