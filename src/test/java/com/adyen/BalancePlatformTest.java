@@ -6,7 +6,6 @@ import com.adyen.model.balanceplatform.AccountHolderInfo;
 import com.adyen.model.balanceplatform.BalanceAccount;
 import com.adyen.model.balanceplatform.BalanceAccountInfo;
 import com.adyen.model.balanceplatform.BalanceAccountUpdateRequest;
-import com.adyen.model.balanceplatform.BalancePlatform;
 import com.adyen.model.balanceplatform.BalanceSweepConfigurationsResponse;
 import com.adyen.model.balanceplatform.PaginatedAccountHoldersResponse;
 import com.adyen.model.balanceplatform.PaginatedBalanceAccountsResponse;
