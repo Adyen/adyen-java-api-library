@@ -3,6 +3,7 @@ package com.adyen.service.balanceplatform;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.balanceplatform.BalanceAccount;
 import com.adyen.model.balanceplatform.BalancePlatform;
 import com.adyen.model.balanceplatform.JSON;
 import com.adyen.model.balanceplatform.PaginatedAccountHoldersResponse;
@@ -19,10 +20,10 @@ public class General extends Service {
         new JSON();
     }
 
-    public BalancePlatform retrieve(String platformId) throws IOException, ApiException {
+    public BalanceAccount retrieve(String platformId) throws IOException, ApiException {
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balancePlatforms/%s", platformId));
         String jsonResult = resource.request(null, null, ApiConstants.HttpMethod.GET, null);
-        return BalancePlatform.fromJson(jsonResult);
+        return BalanceAccount.fromJson(jsonResult);
     }
 
     public PaginatedAccountHoldersResponse listAccountHolders(String platformId, Map<String, String> queryString) throws IOException, ApiException {

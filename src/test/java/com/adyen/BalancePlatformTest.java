@@ -36,9 +36,12 @@ public class BalancePlatformTest extends BaseTest {
     public void GeneralRetrieveTest() throws Exception {
         Client client = createMockClientFromFile("mocks/balancePlatform/BalancePlatformResponse.json");
         General service = new General(client);
-        BalancePlatform response = service.retrieve("123456789");
-        assertEquals("123456789" ,response.getId());
-        assertEquals("active" ,response.getStatus());
+        BalanceAccount response = service.retrieve("123456789");
+        assertEquals("BA3227C223222B5BLP6JQC3FD" ,response.getId());
+        assertEquals(BalanceAccount.StatusEnum.ACTIVE ,response.getStatus());
+        assertEquals("EUR" ,response.getDefaultCurrencyCode());
+        assertEquals(1 ,response.getBalances().size());
+        assertEquals(Long.valueOf(0) ,response.getBalances().get(0).getAvailable());
     }
 
     @Test
