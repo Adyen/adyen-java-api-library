@@ -16,8 +16,6 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
-import static com.adyen.constants.HPPConstants.Fields.CURRENCY_CODE;
-import static com.adyen.constants.HPPConstants.Fields.MERCHANT_ACCOUNT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -26,28 +24,6 @@ import static org.junit.Assert.assertTrue;
  * Tests for Util class
  */
 public class UtilTest {
-
-    @Test
-    public void testGetDataToSign() {
-        SortedMap<String, String> postParameters;
-
-        postParameters = new TreeMap<>();
-        postParameters.put(MERCHANT_ACCOUNT, "ACC");
-        postParameters.put(CURRENCY_CODE, "EUR");
-
-        HMACValidator hmacValidator = new HMACValidator();
-        String dataToSign = hmacValidator.getDataToSign(postParameters);
-        assertEquals("currencyCode:merchantAccount:EUR:ACC", dataToSign);
-
-        //Test escaping and sorting
-        postParameters = new TreeMap<>();
-        postParameters.put(CURRENCY_CODE, "EUR");
-        postParameters.put(MERCHANT_ACCOUNT, "ACC:\\'");
-
-        dataToSign = hmacValidator.getDataToSign(postParameters);
-        assertEquals("currencyCode:merchantAccount:EUR:ACC\\:\\\\'", dataToSign);
-    }
-
     @Test
     public void testImplode() {
         List<String> data = new ArrayList<>();

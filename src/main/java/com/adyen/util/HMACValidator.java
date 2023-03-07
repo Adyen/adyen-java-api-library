@@ -32,7 +32,6 @@ import java.security.MessageDigest;
 import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
 
 import static com.adyen.constants.ApiConstants.AdditionalData.HMAC_SIGNATURE;
 
@@ -124,21 +123,5 @@ public class HMACValidator {
         signedDataList.add(String.valueOf(notificationRequestItem.isSuccess()));
 
         return Util.implode(DATA_SEPARATOR, signedDataList);
-    }
-
-    public String getDataToSign(SortedMap<String, String> postParameters) {
-        List<String> parts = new ArrayList<>();
-
-        postParameters.keySet().stream().forEach(s -> parts.add(escapeVal(s)));
-        postParameters.values().stream().forEach(s -> parts.add(escapeVal(s)));
-
-        return Util.implode(DATA_SEPARATOR, parts);
-    }
-
-    private String escapeVal(String val) {
-        if (val == null) {
-            return "";
-        }
-        return val.replace("\\", "\\\\").replace(":", "\\:");
     }
 }

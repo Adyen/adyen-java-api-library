@@ -83,7 +83,6 @@ public class ClientTest {
     private void assertCommonEndpoints(Config config) {
         Assert.assertEquals(Client.ENDPOINT_CERT_LIVE, config.getEndpoint());
         Assert.assertEquals(Client.MARKETPAY_ENDPOINT_LIVE, config.getMarketPayEndpoint());
-        Assert.assertEquals(Client.HPP_LIVE, config.getHppEndpoint());
         Assert.assertEquals(Client.TERMINAL_API_ENDPOINT_LIVE, config.getTerminalApiCloudEndpoint());
         Assert.assertEquals(Client.POS_TERMINAL_MANAGEMENT_ENDPOINT_LIVE, config.getPosTerminalManagementApiEndpoint());
         Assert.assertEquals(Client.DATA_PROTECTION_ENDPOINT_LIVE, config.getDataProtectionEndpoint());
