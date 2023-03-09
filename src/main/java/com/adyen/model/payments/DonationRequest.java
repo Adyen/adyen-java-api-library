@@ -15,6 +15,7 @@ package com.adyen.model.payments;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.payments.Amount;
+import com.adyen.model.payments.PlatformChargebackLogic;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -64,6 +65,10 @@ public class DonationRequest {
   public static final String SERIALIZED_NAME_ORIGINAL_REFERENCE = "originalReference";
   @SerializedName(SERIALIZED_NAME_ORIGINAL_REFERENCE)
   private String originalReference;
+
+  public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
+  private PlatformChargebackLogic platformChargebackLogic;
 
   public static final String SERIALIZED_NAME_REFERENCE = "reference";
   @SerializedName(SERIALIZED_NAME_REFERENCE)
@@ -160,6 +165,28 @@ public class DonationRequest {
   }
 
 
+  public DonationRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    
+    this.platformChargebackLogic = platformChargebackLogic;
+    return this;
+  }
+
+   /**
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
+  **/
+  @ApiModelProperty(value = "")
+
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
+  }
+
+
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+  }
+
+
   public DonationRequest reference(String reference) {
     
     this.reference = reference;
@@ -196,12 +223,13 @@ public class DonationRequest {
         Objects.equals(this.merchantAccount, donationRequest.merchantAccount) &&
         Objects.equals(this.modificationAmount, donationRequest.modificationAmount) &&
         Objects.equals(this.originalReference, donationRequest.originalReference) &&
+        Objects.equals(this.platformChargebackLogic, donationRequest.platformChargebackLogic) &&
         Objects.equals(this.reference, donationRequest.reference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(donationAccount, merchantAccount, modificationAmount, originalReference, reference);
+    return Objects.hash(donationAccount, merchantAccount, modificationAmount, originalReference, platformChargebackLogic, reference);
   }
 
   @Override
@@ -212,6 +240,7 @@ public class DonationRequest {
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
     sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
     sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -239,6 +268,7 @@ public class DonationRequest {
     openapiFields.add("merchantAccount");
     openapiFields.add("modificationAmount");
     openapiFields.add("originalReference");
+    openapiFields.add("platformChargebackLogic");
     openapiFields.add("reference");
 
     // a set of required properties/fields (JSON key names)
@@ -292,6 +322,10 @@ public class DonationRequest {
       // validate the optional field originalReference
       if (jsonObj.get("originalReference") != null && !jsonObj.get("originalReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalReference").toString()));
+      }
+      // validate the optional field `platformChargebackLogic`
+      if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {
+        PlatformChargebackLogic.validateJsonObject(jsonObj.getAsJsonObject("platformChargebackLogic"));
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {

@@ -157,8 +157,6 @@ public class PaymentDetails {
     
     CASHTICKET("cashticket"),
     
-    ISRACARD("isracard"),
-    
     IKANO("ikano"),
     
     KARENMILLEN("karenmillen"),

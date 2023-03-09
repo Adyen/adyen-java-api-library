@@ -325,7 +325,7 @@ public class CardDetails {
    * The encrypted card number.
    * @return encryptedCardNumber
   **/
-  @ApiModelProperty(required = true, value = "The encrypted card number.")
+  @ApiModelProperty(value = "The encrypted card number.")
 
   public String getEncryptedCardNumber() {
     return encryptedCardNumber;
@@ -347,7 +347,7 @@ public class CardDetails {
    * The encrypted card expiry month.
    * @return encryptedExpiryMonth
   **/
-  @ApiModelProperty(required = true, value = "The encrypted card expiry month.")
+  @ApiModelProperty(value = "The encrypted card expiry month.")
 
   public String getEncryptedExpiryMonth() {
     return encryptedExpiryMonth;
@@ -369,7 +369,7 @@ public class CardDetails {
    * The encrypted card expiry year.
    * @return encryptedExpiryYear
   **/
-  @ApiModelProperty(required = true, value = "The encrypted card expiry year.")
+  @ApiModelProperty(value = "The encrypted card expiry year.")
 
   public String getEncryptedExpiryYear() {
     return encryptedExpiryYear;
@@ -750,9 +750,6 @@ public class CardDetails {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("encryptedCardNumber");
-    openapiRequiredFields.add("encryptedExpiryMonth");
-    openapiRequiredFields.add("encryptedExpiryYear");
   }
 
  /**
@@ -775,13 +772,6 @@ public class CardDetails {
       for (Entry<String, JsonElement> entry : entries) {
         if (!CardDetails.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CardDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CardDetails.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field brand

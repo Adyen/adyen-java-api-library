@@ -115,7 +115,7 @@ public class CapabilitySettings {
   private List<FundingSourceEnum> fundingSource = null;
 
   /**
-   * Gets or Sets interval
+   * The period when the rule conditions apply.
    */
   @JsonAdapter(IntervalEnum.Adapter.class)
   public enum IntervalEnum {
@@ -189,10 +189,10 @@ public class CapabilitySettings {
   }
 
    /**
-   * Get amountPerIndustry
+   * The maximum amount a card holder can spend per industry.
    * @return amountPerIndustry
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The maximum amount a card holder can spend per industry.")
 
   public Map<String, Amount> getAmountPerIndustry() {
     return amountPerIndustry;
@@ -211,10 +211,10 @@ public class CapabilitySettings {
   }
 
    /**
-   * Get authorizedCardUsers
+   * The number of card holders who can use the card.
    * @return authorizedCardUsers
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of card holders who can use the card.")
 
   public Boolean getAuthorizedCardUsers() {
     return authorizedCardUsers;
@@ -241,10 +241,10 @@ public class CapabilitySettings {
   }
 
    /**
-   * Get fundingSource
+   * The funding source of the card, for example **debit**.
    * @return fundingSource
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The funding source of the card, for example **debit**.")
 
   public List<FundingSourceEnum> getFundingSource() {
     return fundingSource;
@@ -263,10 +263,10 @@ public class CapabilitySettings {
   }
 
    /**
-   * Get interval
+   * The period when the rule conditions apply.
    * @return interval
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The period when the rule conditions apply.")
 
   public IntervalEnum getInterval() {
     return interval;

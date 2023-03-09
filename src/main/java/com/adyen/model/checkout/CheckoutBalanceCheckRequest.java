@@ -429,7 +429,7 @@ public class CheckoutBalanceCheckRequest {
    * Get amount
    * @return amount
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public Amount getAmount() {
     return amount;
@@ -934,7 +934,7 @@ public class CheckoutBalanceCheckRequest {
    * The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\&quot;-\&quot;). Maximum length: 80 characters.
    * @return reference
   **/
-  @ApiModelProperty(required = true, value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
+  @ApiModelProperty(value = "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement. If you need to provide multiple references for a transaction, separate them with hyphens (\"-\"). Maximum length: 80 characters.")
 
   public String getReference() {
     return reference;
@@ -1530,10 +1530,8 @@ public class CheckoutBalanceCheckRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("amount");
     openapiRequiredFields.add("merchantAccount");
     openapiRequiredFields.add("paymentMethod");
-    openapiRequiredFields.add("reference");
   }
 
  /**

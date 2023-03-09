@@ -14,7 +14,6 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.legalentitymanagement.CapabilityProblemEntity;
 import com.adyen.model.legalentitymanagement.RemediatingAction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -208,7 +207,7 @@ public class VerificationErrorRecursive {
   private String message;
 
   /**
-   * Gets or Sets type
+   * The type of error.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -260,10 +259,6 @@ public class VerificationErrorRecursive {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_ENTITY = "entity";
-  @SerializedName(SERIALIZED_NAME_ENTITY)
-  private CapabilityProblemEntity entity;
-
   public static final String SERIALIZED_NAME_REMEDIATING_ACTIONS = "remediatingActions";
   @SerializedName(SERIALIZED_NAME_REMEDIATING_ACTIONS)
   private List<RemediatingAction> remediatingActions = null;
@@ -286,10 +281,10 @@ public class VerificationErrorRecursive {
   }
 
    /**
-   * Get capabilities
+   * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    * @return capabilities
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.")
 
   public List<CapabilitiesEnum> getCapabilities() {
     return capabilities;
@@ -308,10 +303,10 @@ public class VerificationErrorRecursive {
   }
 
    /**
-   * Get code
+   * The general error code.
    * @return code
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The general error code.")
 
   public String getCode() {
     return code;
@@ -330,10 +325,10 @@ public class VerificationErrorRecursive {
   }
 
    /**
-   * Get message
+   * The general error message.
    * @return message
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The general error message.")
 
   public String getMessage() {
     return message;
@@ -352,10 +347,10 @@ public class VerificationErrorRecursive {
   }
 
    /**
-   * Get type
+   * The type of error.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of error.")
 
   public TypeEnum getType() {
     return type;
@@ -364,28 +359,6 @@ public class VerificationErrorRecursive {
 
   public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-
-  public VerificationErrorRecursive entity(CapabilityProblemEntity entity) {
-    
-    this.entity = entity;
-    return this;
-  }
-
-   /**
-   * Get entity
-   * @return entity
-  **/
-  @ApiModelProperty(value = "")
-
-  public CapabilityProblemEntity getEntity() {
-    return entity;
-  }
-
-
-  public void setEntity(CapabilityProblemEntity entity) {
-    this.entity = entity;
   }
 
 
@@ -404,10 +377,10 @@ public class VerificationErrorRecursive {
   }
 
    /**
-   * Get remediatingActions
+   * An object containing possible solutions to fix a verification error.
    * @return remediatingActions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An object containing possible solutions to fix a verification error.")
 
   public List<RemediatingAction> getRemediatingActions() {
     return remediatingActions;
@@ -433,13 +406,12 @@ public class VerificationErrorRecursive {
         Objects.equals(this.code, verificationErrorRecursive.code) &&
         Objects.equals(this.message, verificationErrorRecursive.message) &&
         Objects.equals(this.type, verificationErrorRecursive.type) &&
-        Objects.equals(this.entity, verificationErrorRecursive.entity) &&
         Objects.equals(this.remediatingActions, verificationErrorRecursive.remediatingActions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, code, message, type, entity, remediatingActions);
+    return Objects.hash(capabilities, code, message, type, remediatingActions);
   }
 
   @Override
@@ -450,7 +422,6 @@ public class VerificationErrorRecursive {
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    remediatingActions: ").append(toIndentedString(remediatingActions)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -478,7 +449,6 @@ public class VerificationErrorRecursive {
     openapiFields.add("code");
     openapiFields.add("message");
     openapiFields.add("type");
-    openapiFields.add("entity");
     openapiFields.add("remediatingActions");
 
     // a set of required properties/fields (JSON key names)
@@ -525,10 +495,6 @@ public class VerificationErrorRecursive {
           throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
         }
         TypeEnum.fromValue(jsonObj.get("type").getAsString());
-      }
-      // validate the optional field `entity`
-      if (jsonObj.getAsJsonObject("entity") != null) {
-        CapabilityProblemEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
       }
       JsonArray jsonArrayremediatingActions = jsonObj.getAsJsonArray("remediatingActions");
       if (jsonArrayremediatingActions != null) {

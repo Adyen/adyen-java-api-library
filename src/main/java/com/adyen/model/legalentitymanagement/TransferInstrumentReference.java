@@ -66,10 +66,10 @@ public class TransferInstrumentReference {
   }
 
    /**
-   * Account identifier
+   * The masked IBAN or bank account number.
    * @return accountIdentifier
   **/
-  @ApiModelProperty(value = "Account identifier")
+  @ApiModelProperty(required = true, value = "The masked IBAN or bank account number.")
 
   public String getAccountIdentifier() {
     return accountIdentifier;
@@ -91,7 +91,7 @@ public class TransferInstrumentReference {
    * The unique identifier of the resource.
    * @return id
   **/
-  @ApiModelProperty(value = "The unique identifier of the resource.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the resource.")
 
   public String getId() {
     return id;
@@ -155,6 +155,8 @@ public class TransferInstrumentReference {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("accountIdentifier");
+    openapiRequiredFields.add("id");
   }
 
  /**
@@ -177,6 +179,13 @@ public class TransferInstrumentReference {
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransferInstrumentReference.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransferInstrumentReference` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TransferInstrumentReference.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field accountIdentifier
