@@ -10,6 +10,7 @@
   },
   "outcomeType": "hardBlock",
   "reference": "YOUR_REFERENCE_4F7346",
+  "requestType": "authorization",
   "ruleRestrictions": {
     "processingTypes": {
       "operation": "noneMatch",
