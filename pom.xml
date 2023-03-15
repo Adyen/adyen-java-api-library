@@ -32,13 +32,6 @@
         <developerConnection>scm:git:git@github.com:Adyen/adyen-java-api-library.git</developerConnection>
         <url>git@github.com:Adyen/adyen-java-api-library.git</url>
     </scm>
-    <distributionManagement>
-        <repository>
-            <id>ossrh</id>
-            <name>Central Repository OSSRH</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
     <build>
         <plugins>
             <plugin>
