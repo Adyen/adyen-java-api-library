@@ -182,7 +182,7 @@ public class BaseTest {
 
         // Set Shopper Data
         paymentRequest.setShopperEmail("youremail@email.com");
-        paymentRequest.setDateOfBirth(date);
+        paymentRequest.setDateOfBirth(date.toLocalDate());
         paymentRequest.setTelephoneNumber("0612345678");
         paymentRequest.setShopperReference("4");
 

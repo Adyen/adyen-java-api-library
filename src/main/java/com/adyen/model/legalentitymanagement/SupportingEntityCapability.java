@@ -14,7 +14,6 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.legalentitymanagement.CapabilityProblem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,10 +56,6 @@ public class SupportingEntityCapability {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
-  public static final String SERIALIZED_NAME_PROBLEMS = "problems";
-  @SerializedName(SERIALIZED_NAME_PROBLEMS)
-  private List<CapabilityProblem> problems = null;
-
   public static final String SERIALIZED_NAME_REQUESTED = "requested";
   @SerializedName(SERIALIZED_NAME_REQUESTED)
   private Boolean requested;
@@ -78,14 +71,12 @@ public class SupportingEntityCapability {
   public SupportingEntityCapability(
      Boolean allowed, 
      String id, 
-     List<CapabilityProblem> problems, 
      Boolean requested, 
      String verificationStatus
   ) {
     this();
     this.allowed = allowed;
     this.id = id;
-    this.problems = problems;
     this.requested = requested;
     this.verificationStatus = verificationStatus;
   }
@@ -111,19 +102,6 @@ public class SupportingEntityCapability {
 
   public String getId() {
     return id;
-  }
-
-
-
-
-   /**
-   * Contains verification errors and the actions that you can take to resolve them.
-   * @return problems
-  **/
-  @ApiModelProperty(value = "Contains verification errors and the actions that you can take to resolve them.")
-
-  public List<CapabilityProblem> getProblems() {
-    return problems;
   }
 
 
@@ -167,14 +145,13 @@ public class SupportingEntityCapability {
     SupportingEntityCapability supportingEntityCapability = (SupportingEntityCapability) o;
     return Objects.equals(this.allowed, supportingEntityCapability.allowed) &&
         Objects.equals(this.id, supportingEntityCapability.id) &&
-        Objects.equals(this.problems, supportingEntityCapability.problems) &&
         Objects.equals(this.requested, supportingEntityCapability.requested) &&
         Objects.equals(this.verificationStatus, supportingEntityCapability.verificationStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, id, problems, requested, verificationStatus);
+    return Objects.hash(allowed, id, requested, verificationStatus);
   }
 
   @Override
@@ -183,7 +160,6 @@ public class SupportingEntityCapability {
     sb.append("class SupportingEntityCapability {\n");
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    problems: ").append(toIndentedString(problems)).append("\n");
     sb.append("    requested: ").append(toIndentedString(requested)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("}");
@@ -210,7 +186,6 @@ public class SupportingEntityCapability {
     openapiFields = new HashSet<String>();
     openapiFields.add("allowed");
     openapiFields.add("id");
-    openapiFields.add("problems");
     openapiFields.add("requested");
     openapiFields.add("verificationStatus");
 
@@ -243,18 +218,6 @@ public class SupportingEntityCapability {
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      JsonArray jsonArrayproblems = jsonObj.getAsJsonArray("problems");
-      if (jsonArrayproblems != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("problems").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `problems` to be an array in the JSON string but got `%s`", jsonObj.get("problems").toString()));
-        }
-
-        // validate the optional field `problems` (array)
-        for (int i = 0; i < jsonArrayproblems.size(); i++) {
-          CapabilityProblem.validateJsonObject(jsonArrayproblems.get(i).getAsJsonObject());
-        };
       }
       // validate the optional field verificationStatus
       if (jsonObj.get("verificationStatus") != null && !jsonObj.get("verificationStatus").isJsonPrimitive()) {

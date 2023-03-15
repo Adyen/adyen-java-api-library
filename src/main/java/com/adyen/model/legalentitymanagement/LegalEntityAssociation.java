@@ -69,7 +69,7 @@ public class LegalEntityAssociation {
   private String name;
 
   /**
-   * Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **soleProprietorship**. 
+   * Defines the relationship of the legal entity to the current legal entity.   Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.   Possible values for sole proprietorships: **soleProprietorship**. 
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -81,7 +81,9 @@ public class LegalEntityAssociation {
     
     UBOTHROUGHCONTROL("uboThroughControl"),
     
-    UBOTHROUGHOWNERSHIP("uboThroughOwnership");
+    UBOTHROUGHOWNERSHIP("uboThroughOwnership"),
+    
+    ULTIMATEPARENTCOMPANY("ultimateParentCompany");
 
     private String value;
 
@@ -195,10 +197,10 @@ public class LegalEntityAssociation {
   }
 
    /**
-   * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id).
+   * The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).
    * @return legalEntityId
   **/
-  @ApiModelProperty(required = true, value = "The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id).")
+  @ApiModelProperty(required = true, value = "The unique identifier of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).")
 
   public String getLegalEntityId() {
     return legalEntityId;
@@ -211,10 +213,10 @@ public class LegalEntityAssociation {
 
 
    /**
-   * The name of the associated [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
+   * The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, &#x60;name.firstName&#x60; and &#x60;name.lastName&#x60;. - For **organization**, &#x60;legalName&#x60;. - For **soleProprietorship**, &#x60;name&#x60;.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the associated [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id).  - For **individual**, `name.firstName` and `name.lastName`. - For **organization**, `legalName`. - For **soleProprietorship**, `name`.")
+  @ApiModelProperty(value = "The name of the associated [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id).  - For **individual**, `name.firstName` and `name.lastName`. - For **organization**, `legalName`. - For **soleProprietorship**, `name`.")
 
   public String getName() {
     return name;
@@ -230,10 +232,10 @@ public class LegalEntityAssociation {
   }
 
    /**
-   * Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **soleProprietorship**. 
+   * Defines the relationship of the legal entity to the current legal entity.   Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.   Possible values for sole proprietorships: **soleProprietorship**. 
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.   For example, **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **soleProprietorship**. ")
+  @ApiModelProperty(required = true, value = "Defines the relationship of the legal entity to the current legal entity.   Possible values for organizations: **uboThroughOwnership**, **uboThroughControl**, **signatory**, or **ultimateParentCompany**.   Possible values for sole proprietorships: **soleProprietorship**. ")
 
   public TypeEnum getType() {
     return type;

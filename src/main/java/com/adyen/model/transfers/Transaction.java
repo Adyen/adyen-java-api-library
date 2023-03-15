@@ -244,6 +244,10 @@ public class Transaction {
     
     GRANT("grant"),
     
+    INSTALLMENT("installment"),
+    
+    INSTALLMENTREVERSAL("installmentReversal"),
+    
     INTERNALTRANSFER("internalTransfer"),
     
     INVOICEDEDUCTION("invoiceDeduction"),

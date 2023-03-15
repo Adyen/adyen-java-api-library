@@ -58,7 +58,7 @@ public class Currency {
 
   public static final String SERIALIZED_NAME_PERCENTAGE = "percentage";
   @SerializedName(SERIALIZED_NAME_PERCENTAGE)
-  private Object percentage = null;
+  private Object percentage;
 
   public Currency() { 
   }

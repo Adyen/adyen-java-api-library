@@ -14,7 +14,6 @@ package com.adyen.model.legalentitymanagement;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.legalentitymanagement.CapabilityProblemEntity;
 import com.adyen.model.legalentitymanagement.RemediatingAction;
 import com.adyen.model.legalentitymanagement.VerificationErrorRecursive;
 import com.google.gson.TypeAdapter;
@@ -204,10 +203,6 @@ public class VerificationError {
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
-  public static final String SERIALIZED_NAME_ENTITY = "entity";
-  @SerializedName(SERIALIZED_NAME_ENTITY)
-  private CapabilityProblemEntity entity;
-
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
@@ -221,7 +216,7 @@ public class VerificationError {
   private List<VerificationErrorRecursive> subErrors = null;
 
   /**
-   * Gets or Sets type
+   * The type of error.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -291,10 +286,10 @@ public class VerificationError {
   }
 
    /**
-   * Get capabilities
+   * Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.
    * @return capabilities
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Contains key-value pairs that specify the actions that the legal entity can do in your platform. The key is a capability required for your integration. For example, **issueCard** for Issuing.The value is an object containing the settings for the capability.")
 
   public List<CapabilitiesEnum> getCapabilities() {
     return capabilities;
@@ -313,10 +308,10 @@ public class VerificationError {
   }
 
    /**
-   * Get code
+   * The general error code.
    * @return code
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The general error code.")
 
   public String getCode() {
     return code;
@@ -328,28 +323,6 @@ public class VerificationError {
   }
 
 
-  public VerificationError entity(CapabilityProblemEntity entity) {
-    
-    this.entity = entity;
-    return this;
-  }
-
-   /**
-   * Get entity
-   * @return entity
-  **/
-  @ApiModelProperty(value = "")
-
-  public CapabilityProblemEntity getEntity() {
-    return entity;
-  }
-
-
-  public void setEntity(CapabilityProblemEntity entity) {
-    this.entity = entity;
-  }
-
-
   public VerificationError message(String message) {
     
     this.message = message;
@@ -357,10 +330,10 @@ public class VerificationError {
   }
 
    /**
-   * Get message
+   * The general error message.
    * @return message
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The general error message.")
 
   public String getMessage() {
     return message;
@@ -387,10 +360,10 @@ public class VerificationError {
   }
 
    /**
-   * Get remediatingActions
+   * An object containing possible solutions to fix a verification error.
    * @return remediatingActions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An object containing possible solutions to fix a verification error.")
 
   public List<RemediatingAction> getRemediatingActions() {
     return remediatingActions;
@@ -417,10 +390,10 @@ public class VerificationError {
   }
 
    /**
-   * Get subErrors
+   * An array containing more granular information about the cause of the verification error.
    * @return subErrors
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An array containing more granular information about the cause of the verification error.")
 
   public List<VerificationErrorRecursive> getSubErrors() {
     return subErrors;
@@ -439,10 +412,10 @@ public class VerificationError {
   }
 
    /**
-   * Get type
+   * The type of error.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of error.")
 
   public TypeEnum getType() {
     return type;
@@ -466,7 +439,6 @@ public class VerificationError {
     VerificationError verificationError = (VerificationError) o;
     return Objects.equals(this.capabilities, verificationError.capabilities) &&
         Objects.equals(this.code, verificationError.code) &&
-        Objects.equals(this.entity, verificationError.entity) &&
         Objects.equals(this.message, verificationError.message) &&
         Objects.equals(this.remediatingActions, verificationError.remediatingActions) &&
         Objects.equals(this.subErrors, verificationError.subErrors) &&
@@ -475,7 +447,7 @@ public class VerificationError {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, code, entity, message, remediatingActions, subErrors, type);
+    return Objects.hash(capabilities, code, message, remediatingActions, subErrors, type);
   }
 
   @Override
@@ -484,7 +456,6 @@ public class VerificationError {
     sb.append("class VerificationError {\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    remediatingActions: ").append(toIndentedString(remediatingActions)).append("\n");
     sb.append("    subErrors: ").append(toIndentedString(subErrors)).append("\n");
@@ -513,7 +484,6 @@ public class VerificationError {
     openapiFields = new HashSet<String>();
     openapiFields.add("capabilities");
     openapiFields.add("code");
-    openapiFields.add("entity");
     openapiFields.add("message");
     openapiFields.add("remediatingActions");
     openapiFields.add("subErrors");
@@ -552,10 +522,6 @@ public class VerificationError {
       // validate the optional field code
       if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
-      }
-      // validate the optional field `entity`
-      if (jsonObj.getAsJsonObject("entity") != null) {
-        CapabilityProblemEntity.validateJsonObject(jsonObj.getAsJsonObject("entity"));
       }
       // validate the optional field message
       if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {

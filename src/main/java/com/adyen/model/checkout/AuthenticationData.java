@@ -56,9 +56,7 @@ public class AuthenticationData {
   public enum AttemptAuthenticationEnum {
     ALWAYS("always"),
     
-    NEVER("never"),
-    
-    PREFERNO("preferNo");
+    NEVER("never");
 
     private String value;
 

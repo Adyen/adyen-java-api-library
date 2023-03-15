@@ -163,11 +163,13 @@ public class LegalEntity {
   
   public LegalEntity(
      Map<String, LegalEntityCapability> capabilities, 
-     String id
+     String id, 
+     List<TransferInstrumentReference> transferInstruments
   ) {
     this();
     this.capabilities = capabilities;
     this.id = id;
+    this.transferInstruments = transferInstruments;
   }
 
    /**
@@ -376,34 +378,17 @@ public class LegalEntity {
   }
 
 
-  public LegalEntity transferInstruments(List<TransferInstrumentReference> transferInstruments) {
-    
-    this.transferInstruments = transferInstruments;
-    return this;
-  }
-
-  public LegalEntity addTransferInstrumentsItem(TransferInstrumentReference transferInstrumentsItem) {
-    if (this.transferInstruments == null) {
-      this.transferInstruments = new ArrayList<>();
-    }
-    this.transferInstruments.add(transferInstrumentsItem);
-    return this;
-  }
-
    /**
-   * List of transfer instruments owned by the legal entity.
+   * List of transfer instruments that the legal entity owns.
    * @return transferInstruments
   **/
-  @ApiModelProperty(value = "List of transfer instruments owned by the legal entity.")
+  @ApiModelProperty(value = "List of transfer instruments that the legal entity owns.")
 
   public List<TransferInstrumentReference> getTransferInstruments() {
     return transferInstruments;
   }
 
 
-  public void setTransferInstruments(List<TransferInstrumentReference> transferInstruments) {
-    this.transferInstruments = transferInstruments;
-  }
 
 
   public LegalEntity type(TypeEnum type) {

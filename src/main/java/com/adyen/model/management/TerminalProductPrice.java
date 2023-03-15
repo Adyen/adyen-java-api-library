@@ -54,7 +54,7 @@ public class TerminalProductPrice {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  private Object value = null;
+  private Object value;
 
   public TerminalProductPrice() { 
   }
