@@ -34,6 +34,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -99,7 +100,7 @@ public class PaymentRequest3d {
 
   public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
   @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
-  private OffsetDateTime dateOfBirth;
+  private LocalDate dateOfBirth;
 
   public static final String SERIALIZED_NAME_DCC_QUOTE = "dccQuote";
   @SerializedName(SERIALIZED_NAME_DCC_QUOTE)
@@ -124,6 +125,10 @@ public class PaymentRequest3d {
   public static final String SERIALIZED_NAME_INSTALLMENTS = "installments";
   @SerializedName(SERIALIZED_NAME_INSTALLMENTS)
   private Installments installments;
+
+  public static final String SERIALIZED_NAME_LOCALIZED_SHOPPER_STATEMENT = "localizedShopperStatement";
+  @SerializedName(SERIALIZED_NAME_LOCALIZED_SHOPPER_STATEMENT)
+  private Map<String, String> localizedShopperStatement = null;
 
   public static final String SERIALIZED_NAME_MCC = "mcc";
   @SerializedName(SERIALIZED_NAME_MCC)
@@ -528,7 +533,7 @@ public class PaymentRequest3d {
   }
 
 
-  public PaymentRequest3d dateOfBirth(OffsetDateTime dateOfBirth) {
+  public PaymentRequest3d dateOfBirth(LocalDate dateOfBirth) {
     
     this.dateOfBirth = dateOfBirth;
     return this;
@@ -540,12 +545,12 @@ public class PaymentRequest3d {
   **/
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
-  public OffsetDateTime getDateOfBirth() {
+  public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
 
-  public void setDateOfBirth(OffsetDateTime dateOfBirth) {
+  public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
@@ -679,6 +684,36 @@ public class PaymentRequest3d {
 
   public void setInstallments(Installments installments) {
     this.installments = installments;
+  }
+
+
+  public PaymentRequest3d localizedShopperStatement(Map<String, String> localizedShopperStatement) {
+    
+    this.localizedShopperStatement = localizedShopperStatement;
+    return this;
+  }
+
+  public PaymentRequest3d putLocalizedShopperStatementItem(String key, String localizedShopperStatementItem) {
+    if (this.localizedShopperStatement == null) {
+      this.localizedShopperStatement = new HashMap<>();
+    }
+    this.localizedShopperStatement.put(key, localizedShopperStatementItem);
+    return this;
+  }
+
+   /**
+   * This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants should send the Katakana shopperStatement in full-width characters.  An example request would be: &gt; {   \&quot;shopperStatement\&quot; : \&quot;ADYEN - SELLER-A\&quot;,   \&quot;localizedShopperStatement\&quot; : {     \&quot;ja-Kana\&quot; : \&quot;ADYEN - セラーA\&quot;   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field &#x60;shopperStatement&#x60; is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned.
+   * @return localizedShopperStatement
+  **/
+  @ApiModelProperty(value = "This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants should send the Katakana shopperStatement in full-width characters.  An example request would be: > {   \"shopperStatement\" : \"ADYEN - SELLER-A\",   \"localizedShopperStatement\" : {     \"ja-Kana\" : \"ADYEN - セラーA\"   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field `shopperStatement` is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned.")
+
+  public Map<String, String> getLocalizedShopperStatement() {
+    return localizedShopperStatement;
+  }
+
+
+  public void setLocalizedShopperStatement(Map<String, String> localizedShopperStatement) {
+    this.localizedShopperStatement = localizedShopperStatement;
   }
 
 
@@ -1361,6 +1396,7 @@ public class PaymentRequest3d {
         Objects.equals(this.deviceFingerprint, paymentRequest3d.deviceFingerprint) &&
         Objects.equals(this.fraudOffset, paymentRequest3d.fraudOffset) &&
         Objects.equals(this.installments, paymentRequest3d.installments) &&
+        Objects.equals(this.localizedShopperStatement, paymentRequest3d.localizedShopperStatement) &&
         Objects.equals(this.mcc, paymentRequest3d.mcc) &&
         Objects.equals(this.md, paymentRequest3d.md) &&
         Objects.equals(this.merchantAccount, paymentRequest3d.merchantAccount) &&
@@ -1394,7 +1430,7 @@ public class PaymentRequest3d {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, billingAddress, browserInfo, captureDelayHours, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, fraudOffset, installments, mcc, md, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, orderReference, paResponse, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, billingAddress, browserInfo, captureDelayHours, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, fraudOffset, installments, localizedShopperStatement, mcc, md, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, orderReference, paResponse, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
   }
 
   @Override
@@ -1416,6 +1452,7 @@ public class PaymentRequest3d {
     sb.append("    deviceFingerprint: ").append(toIndentedString(deviceFingerprint)).append("\n");
     sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
     sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
+    sb.append("    localizedShopperStatement: ").append(toIndentedString(localizedShopperStatement)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
     sb.append("    md: ").append(toIndentedString(md)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
@@ -1482,6 +1519,7 @@ public class PaymentRequest3d {
     openapiFields.add("deviceFingerprint");
     openapiFields.add("fraudOffset");
     openapiFields.add("installments");
+    openapiFields.add("localizedShopperStatement");
     openapiFields.add("mcc");
     openapiFields.add("md");
     openapiFields.add("merchantAccount");

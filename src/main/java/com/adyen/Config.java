@@ -48,11 +48,6 @@ public class Config {
     protected int connectionTimeoutMillis;
     protected int readTimeoutMillis;
 
-    //HPP specific
-    protected String hppEndpoint;
-    protected String skinCode;
-    protected String hmacKey;
-
     //Checkout Specific
     protected String checkoutEndpoint;
 
@@ -72,6 +67,7 @@ public class Config {
     protected String clientKeyStorePassword;
     protected String legalEntityManagementEndpoint;
     protected String managementEndpoint;
+    protected String liveEndpointUrlPrefix;
 
     public Config() {
         // do nothing
@@ -139,30 +135,6 @@ public class Config {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
-    }
-
-    public String getHppEndpoint() {
-        return hppEndpoint;
-    }
-
-    public void setHppEndpoint(String hppEndpoint) {
-        this.hppEndpoint = hppEndpoint;
-    }
-
-    public String getSkinCode() {
-        return skinCode;
-    }
-
-    public void setSkinCode(String skinCode) {
-        this.skinCode = skinCode;
-    }
-
-    public String getHmacKey() {
-        return hmacKey;
-    }
-
-    public void setHmacKey(String hmacKey) {
-        this.hmacKey = hmacKey;
     }
 
     public String getCheckoutEndpoint() {
@@ -296,5 +268,12 @@ public class Config {
 
     public void setManagementEndpoint(String managementEndpoint) {
         this.managementEndpoint = managementEndpoint;
+    }
+
+    public String getLiveEndpointUrlPrefix() {
+        return this.liveEndpointUrlPrefix;
+    }
+    public void setLiveEndpointUrlPrefix(String liveEndpointUrlPrefix) {
+        this.liveEndpointUrlPrefix = liveEndpointUrlPrefix;
     }
 }

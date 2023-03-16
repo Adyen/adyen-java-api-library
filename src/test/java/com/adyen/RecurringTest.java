@@ -20,6 +20,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class RecurringTest extends BaseTest {
@@ -115,7 +116,7 @@ public class RecurringTest extends BaseTest {
             fail("Exception expected!");
         } catch (ApiException e) {
             assertNotEquals(200, e.getStatusCode());
-            assertEquals("803", e.getError().getErrorCode());
+            assertTrue(e.getResponseBody().contains("803"));
         }
     }
 
@@ -145,7 +146,7 @@ public class RecurringTest extends BaseTest {
             fail("Exception expected!");
         } catch (ApiException e) {
             assertNotEquals(200, e.getStatusCode());
-            assertEquals("130", e.getError().getErrorCode());
+            assertTrue(e.getResponseBody().contains("130"));
         }
     }
 

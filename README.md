@@ -49,7 +49,7 @@ You can use Maven and add this dependency to your project's POM:
 <dependency>
   <groupId>com.adyen</groupId>
   <artifactId>adyen-java-api-library</artifactId>
-  <version>19.0.0-beta</version>
+  <version>19.0.0</version>
 </dependency>
 ```
 
@@ -73,7 +73,7 @@ import com.adyen.model.checkout.*;
 Client client = new Client("Your X-API-KEY", Environment.TEST);
 Checkout checkout = new Checkout(client);
 
-// Create PaymentsRequest 
+// Create PaymentRequest 
 PaymentRequest paymentRequest = new PaymentRequest();
 paymentRequest.setMerchantAccount("YOUR_MERCHANT_ACCOUNT");
 CardDetails cardDetails = new CardDetails();
@@ -88,7 +88,7 @@ paymentRequest.setReference("Your order number");
 paymentRequest.setReturnUrl("https://your-company.com/checkout?shopperOrder=12xy..");
 
 // Make a call to the /payments endpoint
-PaymentResponse paymentResponse = checkout.payments(paymentsRequest);
+PaymentResponse paymentResponse = checkout.payments(paymentRequest);
 
 ~~~~
  
@@ -128,32 +128,31 @@ import com.adyen.model.notification.NotificationRequestItem;
 
 // YOUR_HMAC_KEY from the Customer Area
 String hmacKey = "YOUR_HMAC_KEY";
-// Notification Request JSON
 String notificationRequestJson = "NOTIFICATION_REQUEST_JSON";
 HMACValidator hmacValidator = new HMACValidator();
+
 NotificationHandler notificationHandler = new NotificationHandler();
 NotificationRequest notificationRequest = notificationHandler.handleNotificationJson(notificationRequestJson);
-// Handle multiple notificationRequests
-List<NotificationRequestItem> notificationRequestItems = notificationRequest.getNotificationItems();
-for ( NotificationRequestItem notificationRequestItem : notificationRequestItems ) {
-    // Handle the notification
+
+// fetch first (and only) NotificationRequestItem
+var notificationRequestItem = notificationRequest.getNotificationItems().stream().findFirst();
+
+if (notificationRequestItem.isPresent()) {
     if ( hmacValidator.validateHMAC(notificationRequestItem, hmacKey) ) {
-        // Process the notification based on the eventCode
-        log.info("Received webhook with event {} : \n" +
-            "Merchant Reference: {}\n" +
-            "Alias : {}\n" +
-            "PSP reference : {}", 
-            notificationRequestItem.getEventCode(), 
-            notificationRequestItem.getMerchantReference(),
-            notificationRequestItem.getAdditionalData().get("alias"),
-            notificationRequestItem.getPspReference());
+      // Process the notification based on the eventCode
+      log.info("Received webhook with event {} : \n" +
+        "Merchant Reference: {}\n" +
+        "Alias : {}\n" +
+        "PSP reference : {}", 
+        notificationRequestItem.getEventCode(), 
+        notificationRequestItem.getMerchantReference(),
+        notificationRequestItem.getAdditionalData().get("alias"),
+        notificationRequestItem.getPspReference());
     } else {
-        // Non valid NotificationRequest
-        System.out.print("Non valid NotificationRequest");
+      // Non valid NotificationRequest
+	  throw new RuntimeException("Invalid HMAC signature");
     }
 }
-
-...
 ~~~~
 ### Proxy configuration
 You can configure a proxy connection by injecting your own AdyenHttpClient on your client instance.

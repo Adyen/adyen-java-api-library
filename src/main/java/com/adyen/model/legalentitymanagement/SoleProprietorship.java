@@ -53,6 +53,10 @@ public class SoleProprietorship {
   @SerializedName(SERIALIZED_NAME_COUNTRY_OF_GOVERNING_LAW)
   private String countryOfGoverningLaw;
 
+  public static final String SERIALIZED_NAME_DATE_OF_INCORPORATION = "dateOfIncorporation";
+  @SerializedName(SERIALIZED_NAME_DATE_OF_INCORPORATION)
+  private String dateOfIncorporation;
+
   public static final String SERIALIZED_NAME_DOING_BUSINESS_AS = "doingBusinessAs";
   @SerializedName(SERIALIZED_NAME_DOING_BUSINESS_AS)
   private String doingBusinessAs;
@@ -150,6 +154,28 @@ public class SoleProprietorship {
 
   public void setCountryOfGoverningLaw(String countryOfGoverningLaw) {
     this.countryOfGoverningLaw = countryOfGoverningLaw;
+  }
+
+
+  public SoleProprietorship dateOfIncorporation(String dateOfIncorporation) {
+    
+    this.dateOfIncorporation = dateOfIncorporation;
+    return this;
+  }
+
+   /**
+   * The date when the legal arrangement was incorporated in YYYY-MM-DD format.
+   * @return dateOfIncorporation
+  **/
+  @ApiModelProperty(value = "The date when the legal arrangement was incorporated in YYYY-MM-DD format.")
+
+  public String getDateOfIncorporation() {
+    return dateOfIncorporation;
+  }
+
+
+  public void setDateOfIncorporation(String dateOfIncorporation) {
+    this.dateOfIncorporation = dateOfIncorporation;
   }
 
 
@@ -318,6 +344,7 @@ public class SoleProprietorship {
     }
     SoleProprietorship soleProprietorship = (SoleProprietorship) o;
     return Objects.equals(this.countryOfGoverningLaw, soleProprietorship.countryOfGoverningLaw) &&
+        Objects.equals(this.dateOfIncorporation, soleProprietorship.dateOfIncorporation) &&
         Objects.equals(this.doingBusinessAs, soleProprietorship.doingBusinessAs) &&
         Objects.equals(this.name, soleProprietorship.name) &&
         Objects.equals(this.principalPlaceOfBusiness, soleProprietorship.principalPlaceOfBusiness) &&
@@ -329,7 +356,7 @@ public class SoleProprietorship {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryOfGoverningLaw, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, vatAbsenceReason, vatNumber);
+    return Objects.hash(countryOfGoverningLaw, dateOfIncorporation, doingBusinessAs, name, principalPlaceOfBusiness, registeredAddress, registrationNumber, vatAbsenceReason, vatNumber);
   }
 
   @Override
@@ -337,6 +364,7 @@ public class SoleProprietorship {
     StringBuilder sb = new StringBuilder();
     sb.append("class SoleProprietorship {\n");
     sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
+    sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");
@@ -367,6 +395,7 @@ public class SoleProprietorship {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("countryOfGoverningLaw");
+    openapiFields.add("dateOfIncorporation");
     openapiFields.add("doingBusinessAs");
     openapiFields.add("name");
     openapiFields.add("principalPlaceOfBusiness");
@@ -414,6 +443,10 @@ public class SoleProprietorship {
       // validate the optional field countryOfGoverningLaw
       if (jsonObj.get("countryOfGoverningLaw") != null && !jsonObj.get("countryOfGoverningLaw").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `countryOfGoverningLaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("countryOfGoverningLaw").toString()));
+      }
+      // validate the optional field dateOfIncorporation
+      if (jsonObj.get("dateOfIncorporation") != null && !jsonObj.get("dateOfIncorporation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dateOfIncorporation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dateOfIncorporation").toString()));
       }
       // validate the optional field doingBusinessAs
       if (jsonObj.get("doingBusinessAs") != null && !jsonObj.get("doingBusinessAs").isJsonPrimitive()) {

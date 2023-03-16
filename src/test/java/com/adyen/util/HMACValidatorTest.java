@@ -22,6 +22,8 @@
 package com.adyen.util;
 
 import java.security.SignatureException;
+
+import com.adyen.BaseTest;
 import org.junit.Test;
 import com.adyen.model.notification.NotificationRequestItem;
 import com.google.gson.Gson;
@@ -29,7 +31,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-public class HMACValidatorTest {
+public class HMACValidatorTest extends BaseTest {
 
     public static final String HMAC_KEY = "9064450A8892A093D9E97EFCC9639DE31B74F3A7803135555A3C96F5A57915D6";
 
@@ -54,6 +56,15 @@ public class HMACValidatorTest {
 
         NotificationRequestItem notificationRequest = new Gson().fromJson(notificationJson, NotificationRequestItem.class);
         boolean result = new HMACValidator().validateHMAC(notificationRequest, HMAC_KEY);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testValidateHMACWithoutEscaping() throws SignatureException {
+        String notificationJson = this.getFileContents("mocks/hmac-validation-webhook.json");
+
+        NotificationRequestItem notificationRequest = new Gson().fromJson(notificationJson, NotificationRequestItem.class);
+        boolean result = new HMACValidator().validateHMAC(notificationRequest, "74F490DD33F7327BAECC88B2947C011FC02D014A473AAA33A8EC93E4DC069174");
         assertTrue(result);
     }
 

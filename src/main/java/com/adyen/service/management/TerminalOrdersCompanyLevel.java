@@ -43,7 +43,7 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    name: The name of the billing entity. (optional)<br />
+     *    name: The name of the billing entity. (optional)
      * @return BillingEntitiesResponse
      * @throws ApiException if fails to make API call
      */
@@ -66,9 +66,9 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    name: The name of the shipping location. (optional)<br />
-     *    offset: The number of locations to skip. (optional)<br />
-     *    limit: The number of locations to return. (optional)<br />
+     *    name: The name of the shipping location. (optional)
+     *    offset: The number of locations to skip. (optional)
+     *    limit: The number of locations to return. (optional)
      * @return ShippingLocationsResponse
      * @throws ApiException if fails to make API call
      */
@@ -112,10 +112,10 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    customerOrderReference: Your purchase order number. (optional)<br />
-     *    status: The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered. (optional)<br />
-     *    offset: The number of orders to skip. (optional)<br />
-     *    limit: The number of orders to return. (optional)<br />
+     *    customerOrderReference: Your purchase order number. (optional)
+     *    status: The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered. (optional)
+     *    offset: The number of orders to skip. (optional)
+     *    limit: The number of orders to return. (optional)
      * @return TerminalOrdersResponse
      * @throws ApiException if fails to make API call
      */
@@ -164,10 +164,10 @@ public class TerminalOrdersCompanyLevel extends ApiKeyAuthenticatedService {
      *
      * @param companyId The unique identifier of the company account. (required)
      * @param queryParams  (optional)
-     *    country: The country to return products for, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. For example, **US** (optional)<br />
-     *    terminalModelId: The terminal model to return products for. Use the ID returned in the [GET &#x60;/terminalModels&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/terminalModels) response. For example, **Verifone.M400** (optional)<br />
-     *    offset: The number of products to skip. (optional)<br />
-     *    limit: The number of products to return. (optional)<br />
+     *    country: The country to return products for, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. For example, **US** (optional)
+     *    terminalModelId: The terminal model to return products for. Use the ID returned in the [GET &#x60;/terminalModels&#x60;](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/terminalModels) response. For example, **Verifone.M400** (optional)
+     *    offset: The number of products to skip. (optional)
+     *    limit: The number of products to return. (optional)
      * @return TerminalProductsResponse
      * @throws ApiException if fails to make API call
      */

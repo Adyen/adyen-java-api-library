@@ -52,6 +52,10 @@ public class AdditionalDataCommon {
   @SerializedName(SERIALIZED_NAME_REQUESTED_TEST_ERROR_RESPONSE_CODE)
   private String requestedTestErrorResponseCode;
 
+  public static final String SERIALIZED_NAME_ALLOW_PARTIAL_AUTH = "allowPartialAuth";
+  @SerializedName(SERIALIZED_NAME_ALLOW_PARTIAL_AUTH)
+  private String allowPartialAuth;
+
   public static final String SERIALIZED_NAME_AUTHORISATION_TYPE = "authorisationType";
   @SerializedName(SERIALIZED_NAME_AUTHORISATION_TYPE)
   private String authorisationType;
@@ -110,6 +114,10 @@ public class AdditionalDataCommon {
   public static final String SERIALIZED_NAME_INDUSTRY_USAGE = "industryUsage";
   @SerializedName(SERIALIZED_NAME_INDUSTRY_USAGE)
   private IndustryUsageEnum industryUsage;
+
+  public static final String SERIALIZED_NAME_MANUAL_CAPTURE = "manualCapture";
+  @SerializedName(SERIALIZED_NAME_MANUAL_CAPTURE)
+  private String manualCapture;
 
   public static final String SERIALIZED_NAME_NETWORK_TX_REFERENCE = "networkTxReference";
   @SerializedName(SERIALIZED_NAME_NETWORK_TX_REFERENCE)
@@ -176,6 +184,28 @@ public class AdditionalDataCommon {
   }
 
 
+  public AdditionalDataCommon allowPartialAuth(String allowPartialAuth) {
+    
+    this.allowPartialAuth = allowPartialAuth;
+    return this;
+  }
+
+   /**
+   * Set to true to authorise a part of the requested amount in case the cardholder does not have enough funds on their account.  If a payment was partially authorised, the response includes resultCode: PartiallyAuthorised and the authorised amount in additionalData.authorisedAmountValue. To enable this functionality, contact our Support Team.
+   * @return allowPartialAuth
+  **/
+  @ApiModelProperty(value = "Set to true to authorise a part of the requested amount in case the cardholder does not have enough funds on their account.  If a payment was partially authorised, the response includes resultCode: PartiallyAuthorised and the authorised amount in additionalData.authorisedAmountValue. To enable this functionality, contact our Support Team.")
+
+  public String getAllowPartialAuth() {
+    return allowPartialAuth;
+  }
+
+
+  public void setAllowPartialAuth(String allowPartialAuth) {
+    this.allowPartialAuth = allowPartialAuth;
+  }
+
+
   public AdditionalDataCommon authorisationType(String authorisationType) {
     
     this.authorisationType = authorisationType;
@@ -239,6 +269,28 @@ public class AdditionalDataCommon {
 
   public void setIndustryUsage(IndustryUsageEnum industryUsage) {
     this.industryUsage = industryUsage;
+  }
+
+
+  public AdditionalDataCommon manualCapture(String manualCapture) {
+    
+    this.manualCapture = manualCapture;
+    return this;
+  }
+
+   /**
+   * Set to **true** to require [manual capture](https://docs.adyen.com/online-payments/capture) for the transaction.
+   * @return manualCapture
+  **/
+  @ApiModelProperty(value = "Set to **true** to require [manual capture](https://docs.adyen.com/online-payments/capture) for the transaction.")
+
+  public String getManualCapture() {
+    return manualCapture;
+  }
+
+
+  public void setManualCapture(String manualCapture) {
+    this.manualCapture = manualCapture;
   }
 
 
@@ -473,9 +525,11 @@ public class AdditionalDataCommon {
     }
     AdditionalDataCommon additionalDataCommon = (AdditionalDataCommon) o;
     return Objects.equals(this.requestedTestErrorResponseCode, additionalDataCommon.requestedTestErrorResponseCode) &&
+        Objects.equals(this.allowPartialAuth, additionalDataCommon.allowPartialAuth) &&
         Objects.equals(this.authorisationType, additionalDataCommon.authorisationType) &&
         Objects.equals(this.customRoutingFlag, additionalDataCommon.customRoutingFlag) &&
         Objects.equals(this.industryUsage, additionalDataCommon.industryUsage) &&
+        Objects.equals(this.manualCapture, additionalDataCommon.manualCapture) &&
         Objects.equals(this.networkTxReference, additionalDataCommon.networkTxReference) &&
         Objects.equals(this.overwriteBrand, additionalDataCommon.overwriteBrand) &&
         Objects.equals(this.subMerchantCity, additionalDataCommon.subMerchantCity) &&
@@ -490,7 +544,7 @@ public class AdditionalDataCommon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedTestErrorResponseCode, authorisationType, customRoutingFlag, industryUsage, networkTxReference, overwriteBrand, subMerchantCity, subMerchantCountry, subMerchantID, subMerchantName, subMerchantPostalCode, subMerchantState, subMerchantStreet, subMerchantTaxId);
+    return Objects.hash(requestedTestErrorResponseCode, allowPartialAuth, authorisationType, customRoutingFlag, industryUsage, manualCapture, networkTxReference, overwriteBrand, subMerchantCity, subMerchantCountry, subMerchantID, subMerchantName, subMerchantPostalCode, subMerchantState, subMerchantStreet, subMerchantTaxId);
   }
 
   @Override
@@ -498,9 +552,11 @@ public class AdditionalDataCommon {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdditionalDataCommon {\n");
     sb.append("    requestedTestErrorResponseCode: ").append(toIndentedString(requestedTestErrorResponseCode)).append("\n");
+    sb.append("    allowPartialAuth: ").append(toIndentedString(allowPartialAuth)).append("\n");
     sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
     sb.append("    customRoutingFlag: ").append(toIndentedString(customRoutingFlag)).append("\n");
     sb.append("    industryUsage: ").append(toIndentedString(industryUsage)).append("\n");
+    sb.append("    manualCapture: ").append(toIndentedString(manualCapture)).append("\n");
     sb.append("    networkTxReference: ").append(toIndentedString(networkTxReference)).append("\n");
     sb.append("    overwriteBrand: ").append(toIndentedString(overwriteBrand)).append("\n");
     sb.append("    subMerchantCity: ").append(toIndentedString(subMerchantCity)).append("\n");
@@ -534,9 +590,11 @@ public class AdditionalDataCommon {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("RequestedTestErrorResponseCode");
+    openapiFields.add("allowPartialAuth");
     openapiFields.add("authorisationType");
     openapiFields.add("customRoutingFlag");
     openapiFields.add("industryUsage");
+    openapiFields.add("manualCapture");
     openapiFields.add("networkTxReference");
     openapiFields.add("overwriteBrand");
     openapiFields.add("subMerchantCity");
@@ -578,6 +636,10 @@ public class AdditionalDataCommon {
       if (jsonObj.get("RequestedTestErrorResponseCode") != null && !jsonObj.get("RequestedTestErrorResponseCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `RequestedTestErrorResponseCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("RequestedTestErrorResponseCode").toString()));
       }
+      // validate the optional field allowPartialAuth
+      if (jsonObj.get("allowPartialAuth") != null && !jsonObj.get("allowPartialAuth").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowPartialAuth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowPartialAuth").toString()));
+      }
       // validate the optional field authorisationType
       if (jsonObj.get("authorisationType") != null && !jsonObj.get("authorisationType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authorisationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorisationType").toString()));
@@ -592,6 +654,10 @@ public class AdditionalDataCommon {
           throw new IllegalArgumentException(String.format("Expected the field `industryUsage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("industryUsage").toString()));
         }
         IndustryUsageEnum.fromValue(jsonObj.get("industryUsage").getAsString());
+      }
+      // validate the optional field manualCapture
+      if (jsonObj.get("manualCapture") != null && !jsonObj.get("manualCapture").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `manualCapture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("manualCapture").toString()));
       }
       // validate the optional field networkTxReference
       if (jsonObj.get("networkTxReference") != null && !jsonObj.get("networkTxReference").isJsonPrimitive()) {

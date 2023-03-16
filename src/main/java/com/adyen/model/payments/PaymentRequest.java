@@ -28,6 +28,7 @@ import com.adyen.model.payments.Installments;
 import com.adyen.model.payments.Mandate;
 import com.adyen.model.payments.MerchantRiskIndicator;
 import com.adyen.model.payments.Name;
+import com.adyen.model.payments.PlatformChargebackLogic;
 import com.adyen.model.payments.Recurring;
 import com.adyen.model.payments.Split;
 import com.adyen.model.payments.ThreeDS2RequestData;
@@ -40,6 +41,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -113,7 +115,7 @@ public class PaymentRequest {
 
   public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
   @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
-  private OffsetDateTime dateOfBirth;
+  private LocalDate dateOfBirth;
 
   public static final String SERIALIZED_NAME_DCC_QUOTE = "dccQuote";
   @SerializedName(SERIALIZED_NAME_DCC_QUOTE)
@@ -247,6 +249,10 @@ public class PaymentRequest {
   @SerializedName(SERIALIZED_NAME_INSTALLMENTS)
   private Installments installments;
 
+  public static final String SERIALIZED_NAME_LOCALIZED_SHOPPER_STATEMENT = "localizedShopperStatement";
+  @SerializedName(SERIALIZED_NAME_LOCALIZED_SHOPPER_STATEMENT)
+  private Map<String, String> localizedShopperStatement = null;
+
   public static final String SERIALIZED_NAME_MANDATE = "mandate";
   @SerializedName(SERIALIZED_NAME_MANDATE)
   private Mandate mandate;
@@ -282,6 +288,10 @@ public class PaymentRequest {
   public static final String SERIALIZED_NAME_ORDER_REFERENCE = "orderReference";
   @SerializedName(SERIALIZED_NAME_ORDER_REFERENCE)
   private String orderReference;
+
+  public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
+  private PlatformChargebackLogic platformChargebackLogic;
 
   public static final String SERIALIZED_NAME_RECURRING = "recurring";
   @SerializedName(SERIALIZED_NAME_RECURRING)
@@ -698,7 +708,7 @@ public class PaymentRequest {
   }
 
 
-  public PaymentRequest dateOfBirth(OffsetDateTime dateOfBirth) {
+  public PaymentRequest dateOfBirth(LocalDate dateOfBirth) {
     
     this.dateOfBirth = dateOfBirth;
     return this;
@@ -710,12 +720,12 @@ public class PaymentRequest {
   **/
   @ApiModelProperty(value = "The shopper's date of birth.  Format [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD")
 
-  public OffsetDateTime getDateOfBirth() {
+  public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
 
-  public void setDateOfBirth(OffsetDateTime dateOfBirth) {
+  public void setDateOfBirth(LocalDate dateOfBirth) {
     this.dateOfBirth = dateOfBirth;
   }
 
@@ -940,6 +950,36 @@ public class PaymentRequest {
   }
 
 
+  public PaymentRequest localizedShopperStatement(Map<String, String> localizedShopperStatement) {
+    
+    this.localizedShopperStatement = localizedShopperStatement;
+    return this;
+  }
+
+  public PaymentRequest putLocalizedShopperStatementItem(String key, String localizedShopperStatementItem) {
+    if (this.localizedShopperStatement == null) {
+      this.localizedShopperStatement = new HashMap<>();
+    }
+    this.localizedShopperStatement.put(key, localizedShopperStatementItem);
+    return this;
+  }
+
+   /**
+   * This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants should send the Katakana shopperStatement in full-width characters.  An example request would be: &gt; {   \&quot;shopperStatement\&quot; : \&quot;ADYEN - SELLER-A\&quot;,   \&quot;localizedShopperStatement\&quot; : {     \&quot;ja-Kana\&quot; : \&quot;ADYEN - セラーA\&quot;   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field &#x60;shopperStatement&#x60; is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned.
+   * @return localizedShopperStatement
+  **/
+  @ApiModelProperty(value = "This field allows merchants to use dynamic shopper statement in local character sets. The local shopper statement field can be supplied in markets where localized merchant descriptors are used. Currently, Adyen only supports this in the Japanese market .The available character sets at the moment are: * Processing in Japan: **ja-Kana** The character set **ja-Kana** supports UTF-8 based Katakana and alphanumeric and special characters. Merchants should send the Katakana shopperStatement in full-width characters.  An example request would be: > {   \"shopperStatement\" : \"ADYEN - SELLER-A\",   \"localizedShopperStatement\" : {     \"ja-Kana\" : \"ADYEN - セラーA\"   } } We recommend merchants to always supply the field localizedShopperStatement in addition to the field shopperStatement.It is issuer dependent whether the localized shopper statement field is supported. In the case of non-domestic transactions (e.g. US-issued cards processed in JP) the field `shopperStatement` is used to modify the statement of the shopper. Adyen handles the complexity of ensuring the correct descriptors are assigned.")
+
+  public Map<String, String> getLocalizedShopperStatement() {
+    return localizedShopperStatement;
+  }
+
+
+  public void setLocalizedShopperStatement(Map<String, String> localizedShopperStatement) {
+    this.localizedShopperStatement = localizedShopperStatement;
+  }
+
+
   public PaymentRequest mandate(Mandate mandate) {
     
     this.mandate = mandate;
@@ -1143,6 +1183,28 @@ public class PaymentRequest {
 
   public void setOrderReference(String orderReference) {
     this.orderReference = orderReference;
+  }
+
+
+  public PaymentRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    
+    this.platformChargebackLogic = platformChargebackLogic;
+    return this;
+  }
+
+   /**
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
+  **/
+  @ApiModelProperty(value = "")
+
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
+  }
+
+
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
   }
 
 
@@ -1647,6 +1709,7 @@ public class PaymentRequest {
         Objects.equals(this.fundSource, paymentRequest.fundSource) &&
         Objects.equals(this.fundingSource, paymentRequest.fundingSource) &&
         Objects.equals(this.installments, paymentRequest.installments) &&
+        Objects.equals(this.localizedShopperStatement, paymentRequest.localizedShopperStatement) &&
         Objects.equals(this.mandate, paymentRequest.mandate) &&
         Objects.equals(this.mcc, paymentRequest.mcc) &&
         Objects.equals(this.merchantAccount, paymentRequest.merchantAccount) &&
@@ -1656,6 +1719,7 @@ public class PaymentRequest {
         Objects.equals(this.mpiData, paymentRequest.mpiData) &&
         Objects.equals(this.nationality, paymentRequest.nationality) &&
         Objects.equals(this.orderReference, paymentRequest.orderReference) &&
+        Objects.equals(this.platformChargebackLogic, paymentRequest.platformChargebackLogic) &&
         Objects.equals(this.recurring, paymentRequest.recurring) &&
         Objects.equals(this.recurringProcessingModel, paymentRequest.recurringProcessingModel) &&
         Objects.equals(this.reference, paymentRequest.reference) &&
@@ -1681,7 +1745,7 @@ public class PaymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, bankAccount, billingAddress, browserInfo, captureDelayHours, card, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, entityType, fraudOffset, fundDestination, fundSource, fundingSource, installments, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, nationality, orderReference, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
+    return Objects.hash(accountInfo, additionalAmount, additionalData, amount, applicationInfo, bankAccount, billingAddress, browserInfo, captureDelayHours, card, dateOfBirth, dccQuote, deliveryAddress, deliveryDate, deviceFingerprint, entityType, fraudOffset, fundDestination, fundSource, fundingSource, installments, localizedShopperStatement, mandate, mcc, merchantAccount, merchantOrderReference, merchantRiskIndicator, metadata, mpiData, nationality, orderReference, platformChargebackLogic, recurring, recurringProcessingModel, reference, selectedBrand, selectedRecurringDetailReference, sessionId, shopperEmail, shopperIP, shopperInteraction, shopperLocale, shopperName, shopperReference, shopperStatement, socialSecurityNumber, splits, store, telephoneNumber, threeDS2RequestData, threeDSAuthenticationOnly, totalsGroup, trustedShopper);
   }
 
   @Override
@@ -1709,6 +1773,7 @@ public class PaymentRequest {
     sb.append("    fundSource: ").append(toIndentedString(fundSource)).append("\n");
     sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
     sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
+    sb.append("    localizedShopperStatement: ").append(toIndentedString(localizedShopperStatement)).append("\n");
     sb.append("    mandate: ").append(toIndentedString(mandate)).append("\n");
     sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
@@ -1718,6 +1783,7 @@ public class PaymentRequest {
     sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
     sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
     sb.append("    orderReference: ").append(toIndentedString(orderReference)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
     sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
@@ -1782,6 +1848,7 @@ public class PaymentRequest {
     openapiFields.add("fundSource");
     openapiFields.add("fundingSource");
     openapiFields.add("installments");
+    openapiFields.add("localizedShopperStatement");
     openapiFields.add("mandate");
     openapiFields.add("mcc");
     openapiFields.add("merchantAccount");
@@ -1791,6 +1858,7 @@ public class PaymentRequest {
     openapiFields.add("mpiData");
     openapiFields.add("nationality");
     openapiFields.add("orderReference");
+    openapiFields.add("platformChargebackLogic");
     openapiFields.add("recurring");
     openapiFields.add("recurringProcessingModel");
     openapiFields.add("reference");
@@ -1950,6 +2018,10 @@ public class PaymentRequest {
       // validate the optional field orderReference
       if (jsonObj.get("orderReference") != null && !jsonObj.get("orderReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `orderReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderReference").toString()));
+      }
+      // validate the optional field `platformChargebackLogic`
+      if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {
+        PlatformChargebackLogic.validateJsonObject(jsonObj.getAsJsonObject("platformChargebackLogic"));
       }
       // validate the optional field `recurring`
       if (jsonObj.getAsJsonObject("recurring") != null) {

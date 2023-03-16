@@ -30,13 +30,10 @@ import java.security.KeyStore;
 public class Client {
     private ClientInterface httpClient;
     private Config config;
-
     public static final String ENDPOINT_TEST = "https://pal-test.adyen.com";
     public static final String ENDPOINT_LIVE = "https://pal-live.adyen.com";
     public static final String ENDPOINT_CERT_LIVE = "https://palcert-live.adyen.com";
     public static final String ENDPOINT_LIVE_SUFFIX = "-pal-live.adyenpayments.com";
-    public static final String HPP_TEST = "https://test.adyen.com/hpp";
-    public static final String HPP_LIVE = "https://live.adyen.com/hpp";
     public static final String MARKETPAY_ENDPOINT_TEST = "https://cal-test.adyen.com/cal/services";
     public static final String MARKETPAY_ENDPOINT_LIVE = "https://cal-live.adyen.com/cal/services";
     public static final String API_VERSION = "v68";
@@ -47,11 +44,11 @@ public class Client {
     public static final String MARKETPAY_NOTIFICATION_API_VERSION = "v6";
     public static final String MARKETPAY_HOP_API_VERSION = "v6";
     public static final String LIB_NAME = "adyen-java-api-library";
-    public static final String LIB_VERSION = "19.0.0-beta";
+    public static final String LIB_VERSION = "19.0.0";
     public static final String CHECKOUT_ENDPOINT_TEST = "https://checkout-test.adyen.com/checkout";
     public static final String CHECKOUT_ENDPOINT_LIVE_SUFFIX = "-checkout-live.adyenpayments.com/checkout";
     public static final String CHECKOUT_ENDPOINT_CERT_LIVE = "https://checkoutcert-live-%s.adyen.com/checkout";
-    public static final String CHECKOUT_API_VERSION = "v69";
+    public static final String CHECKOUT_API_VERSION = "v70";
     public static final String CHECKOUT_STORED_PAYMENT_METHODS_VERSION = "v65";
     public static final String BIN_LOOKUP_PAL_SUFFIX = "/pal/servlet/BinLookup/";
     public static final String BIN_LOOKUP_API_VERSION = "v52";
@@ -84,6 +81,7 @@ public class Client {
 
     public Client(Config config) {
         this.config = config;
+        this.setEnvironment(config.environment, config.liveEndpointUrlPrefix);
     }
 
     public Client(String username, String password, Environment environment, String applicationName) {
@@ -207,7 +205,6 @@ public class Client {
             this.config.setEnvironment(environment);
             this.config.setEndpoint(ENDPOINT_TEST);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_TEST);
-            this.config.setHppEndpoint(HPP_TEST);
             this.config.setCheckoutEndpoint(CHECKOUT_ENDPOINT_TEST);
             this.config.setTerminalApiCloudEndpoint(TERMINAL_API_ENDPOINT_TEST);
             this.config.setPosTerminalManagementApiEndpoint(POS_TERMINAL_MANAGEMENT_ENDPOINT_TEST);
@@ -218,7 +215,6 @@ public class Client {
         } else if (Environment.LIVE.equals(environment)) {
             this.config.setEnvironment(environment);
             this.config.setMarketPayEndpoint(MARKETPAY_ENDPOINT_LIVE);
-            this.config.setHppEndpoint(HPP_LIVE);
             if (liveEndpointUrlPrefix != null && !liveEndpointUrlPrefix.isEmpty()) {
                 this.config.setEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + ENDPOINT_LIVE_SUFFIX);
                 this.config.setCheckoutEndpoint(ENDPOINT_PROTOCOL + liveEndpointUrlPrefix + CHECKOUT_ENDPOINT_LIVE_SUFFIX);

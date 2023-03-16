@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,6 +53,10 @@ public class DocumentReference {
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
   @SerializedName(SERIALIZED_NAME_FILE_NAME)
   private String fileName;
@@ -59,6 +64,14 @@ public class DocumentReference {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modificationDate";
+  @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
+  private OffsetDateTime modificationDate;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
 
   public DocumentReference() { 
   }
@@ -82,6 +95,28 @@ public class DocumentReference {
 
   public void setActive(Boolean active) {
     this.active = active;
+  }
+
+
+  public DocumentReference description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Your description for the document.
+   * @return description
+  **/
+  @ApiModelProperty(value = "Your description for the document.")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -129,6 +164,50 @@ public class DocumentReference {
   }
 
 
+  public DocumentReference modificationDate(OffsetDateTime modificationDate) {
+    
+    this.modificationDate = modificationDate;
+    return this;
+  }
+
+   /**
+   * The modification date of the document.
+   * @return modificationDate
+  **/
+  @ApiModelProperty(value = "The modification date of the document.")
+
+  public OffsetDateTime getModificationDate() {
+    return modificationDate;
+  }
+
+
+  public void setModificationDate(OffsetDateTime modificationDate) {
+    this.modificationDate = modificationDate;
+  }
+
+
+  public DocumentReference type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Type of document, used when providing an ID number or uploading a document.
+   * @return type
+  **/
+  @ApiModelProperty(value = "Type of document, used when providing an ID number or uploading a document.")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -140,13 +219,16 @@ public class DocumentReference {
     }
     DocumentReference documentReference = (DocumentReference) o;
     return Objects.equals(this.active, documentReference.active) &&
+        Objects.equals(this.description, documentReference.description) &&
         Objects.equals(this.fileName, documentReference.fileName) &&
-        Objects.equals(this.id, documentReference.id);
+        Objects.equals(this.id, documentReference.id) &&
+        Objects.equals(this.modificationDate, documentReference.modificationDate) &&
+        Objects.equals(this.type, documentReference.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, fileName, id);
+    return Objects.hash(active, description, fileName, id, modificationDate, type);
   }
 
   @Override
@@ -154,8 +236,11 @@ public class DocumentReference {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentReference {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -179,8 +264,11 @@ public class DocumentReference {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("active");
+    openapiFields.add("description");
     openapiFields.add("fileName");
     openapiFields.add("id");
+    openapiFields.add("modificationDate");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -208,6 +296,10 @@ public class DocumentReference {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DocumentReference` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // validate the optional field description
+      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
       // validate the optional field fileName
       if (jsonObj.get("fileName") != null && !jsonObj.get("fileName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fileName").toString()));
@@ -215,6 +307,10 @@ public class DocumentReference {
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      // validate the optional field type
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

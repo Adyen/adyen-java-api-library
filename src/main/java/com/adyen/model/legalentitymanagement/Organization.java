@@ -56,6 +56,10 @@ import com.adyen.model.legalentitymanagement.JSON;
  */
 
 public class Organization {
+  public static final String SERIALIZED_NAME_DATE_OF_INCORPORATION = "dateOfIncorporation";
+  @SerializedName(SERIALIZED_NAME_DATE_OF_INCORPORATION)
+  private String dateOfIncorporation;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -220,6 +224,28 @@ public class Organization {
 
   public Organization() { 
   }
+
+  public Organization dateOfIncorporation(String dateOfIncorporation) {
+    
+    this.dateOfIncorporation = dateOfIncorporation;
+    return this;
+  }
+
+   /**
+   * The date when the organization was incorporated in YYYY-MM-DD format.
+   * @return dateOfIncorporation
+  **/
+  @ApiModelProperty(value = "The date when the organization was incorporated in YYYY-MM-DD format.")
+
+  public String getDateOfIncorporation() {
+    return dateOfIncorporation;
+  }
+
+
+  public void setDateOfIncorporation(String dateOfIncorporation) {
+    this.dateOfIncorporation = dateOfIncorporation;
+  }
+
 
   public Organization description(String description) {
     
@@ -569,7 +595,8 @@ public class Organization {
       return false;
     }
     Organization organization = (Organization) o;
-    return Objects.equals(this.description, organization.description) &&
+    return Objects.equals(this.dateOfIncorporation, organization.dateOfIncorporation) &&
+        Objects.equals(this.description, organization.description) &&
         Objects.equals(this.doingBusinessAs, organization.doingBusinessAs) &&
         Objects.equals(this.email, organization.email) &&
         Objects.equals(this.legalName, organization.legalName) &&
@@ -588,13 +615,14 @@ public class Organization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, doingBusinessAs, email, legalName, phone, principalPlaceOfBusiness, registeredAddress, registrationNumber, stockData, taxInformation, taxReportingClassification, type, vatAbsenceReason, vatNumber, webData);
+    return Objects.hash(dateOfIncorporation, description, doingBusinessAs, email, legalName, phone, principalPlaceOfBusiness, registeredAddress, registrationNumber, stockData, taxInformation, taxReportingClassification, type, vatAbsenceReason, vatNumber, webData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Organization {\n");
+    sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -632,6 +660,7 @@ public class Organization {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("dateOfIncorporation");
     openapiFields.add("description");
     openapiFields.add("doingBusinessAs");
     openapiFields.add("email");
@@ -682,6 +711,10 @@ public class Organization {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
+      }
+      // validate the optional field dateOfIncorporation
+      if (jsonObj.get("dateOfIncorporation") != null && !jsonObj.get("dateOfIncorporation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dateOfIncorporation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dateOfIncorporation").toString()));
       }
       // validate the optional field description
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {

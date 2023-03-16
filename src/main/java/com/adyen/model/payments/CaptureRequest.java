@@ -15,6 +15,7 @@ package com.adyen.model.payments;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.payments.Amount;
+import com.adyen.model.payments.PlatformChargebackLogic;
 import com.adyen.model.payments.Split;
 import com.adyen.model.payments.ThreeDSecureData;
 import com.google.gson.TypeAdapter;
@@ -78,6 +79,10 @@ public class CaptureRequest {
   public static final String SERIALIZED_NAME_ORIGINAL_REFERENCE = "originalReference";
   @SerializedName(SERIALIZED_NAME_ORIGINAL_REFERENCE)
   private String originalReference;
+
+  public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
+  private PlatformChargebackLogic platformChargebackLogic;
 
   public static final String SERIALIZED_NAME_REFERENCE = "reference";
   @SerializedName(SERIALIZED_NAME_REFERENCE)
@@ -238,6 +243,28 @@ public class CaptureRequest {
   }
 
 
+  public CaptureRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    
+    this.platformChargebackLogic = platformChargebackLogic;
+    return this;
+  }
+
+   /**
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
+  **/
+  @ApiModelProperty(value = "")
+
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
+  }
+
+
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+  }
+
+
   public CaptureRequest reference(String reference) {
     
     this.reference = reference;
@@ -350,6 +377,7 @@ public class CaptureRequest {
         Objects.equals(this.mpiData, captureRequest.mpiData) &&
         Objects.equals(this.originalMerchantReference, captureRequest.originalMerchantReference) &&
         Objects.equals(this.originalReference, captureRequest.originalReference) &&
+        Objects.equals(this.platformChargebackLogic, captureRequest.platformChargebackLogic) &&
         Objects.equals(this.reference, captureRequest.reference) &&
         Objects.equals(this.splits, captureRequest.splits) &&
         Objects.equals(this.tenderReference, captureRequest.tenderReference) &&
@@ -358,7 +386,7 @@ public class CaptureRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, merchantAccount, modificationAmount, mpiData, originalMerchantReference, originalReference, reference, splits, tenderReference, uniqueTerminalId);
+    return Objects.hash(additionalData, merchantAccount, modificationAmount, mpiData, originalMerchantReference, originalReference, platformChargebackLogic, reference, splits, tenderReference, uniqueTerminalId);
   }
 
   @Override
@@ -371,6 +399,7 @@ public class CaptureRequest {
     sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
     sb.append("    originalMerchantReference: ").append(toIndentedString(originalMerchantReference)).append("\n");
     sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
     sb.append("    tenderReference: ").append(toIndentedString(tenderReference)).append("\n");
@@ -403,6 +432,7 @@ public class CaptureRequest {
     openapiFields.add("mpiData");
     openapiFields.add("originalMerchantReference");
     openapiFields.add("originalReference");
+    openapiFields.add("platformChargebackLogic");
     openapiFields.add("reference");
     openapiFields.add("splits");
     openapiFields.add("tenderReference");
@@ -463,6 +493,10 @@ public class CaptureRequest {
       // validate the optional field originalReference
       if (jsonObj.get("originalReference") != null && !jsonObj.get("originalReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalReference").toString()));
+      }
+      // validate the optional field `platformChargebackLogic`
+      if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {
+        PlatformChargebackLogic.validateJsonObject(jsonObj.getAsJsonObject("platformChargebackLogic"));
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {

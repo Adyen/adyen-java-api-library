@@ -66,8 +66,8 @@ public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
      *
      * @param merchantId The unique identifier of the merchant account. (required)
      * @param queryParams  (optional)
-     *    pageNumber: The number of the page to fetch. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)<br />
+     *    pageNumber: The number of the page to fetch. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
      * @return ListWebhooksResponse
      * @throws ApiException if fails to make API call
      */

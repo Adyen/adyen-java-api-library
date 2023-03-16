@@ -104,6 +104,8 @@ public interface ApiConstants {
         String IDEMPOTENCY_KEY = "Idempotency-Key";
         String ACCEPT_CHARSET = "Accept-Charset";
         String USER_AGENT = "User-Agent";
+        String ADYEN_LIBRARY_NAME = "adyen-library-name";
+        String ADYEN_LIBRARY_VERSION = "adyen-library-version";
         String METHOD_POST = "POST";
         String CONTENT_TYPE = "Content-Type";
         String API_KEY = "x-api-key";

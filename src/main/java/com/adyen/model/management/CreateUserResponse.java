@@ -290,7 +290,7 @@ public class CreateUserResponse {
    * The username for this user.
    * @return username
   **/
-  @ApiModelProperty(value = "The username for this user.")
+  @ApiModelProperty(required = true, value = "The username for this user.")
 
   public String getUsername() {
     return username;
@@ -379,6 +379,7 @@ public class CreateUserResponse {
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("roles");
     openapiRequiredFields.add("timeZoneCode");
+    openapiRequiredFields.add("username");
   }
 
  /**

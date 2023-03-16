@@ -15,6 +15,7 @@ package com.adyen.model.payments;
 import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.payments.Amount;
+import com.adyen.model.payments.PlatformChargebackLogic;
 import com.adyen.model.payments.Split;
 import com.adyen.model.payments.ThreeDSecureData;
 import com.google.gson.TypeAdapter;
@@ -74,6 +75,10 @@ public class TechnicalCancelRequest {
   public static final String SERIALIZED_NAME_ORIGINAL_MERCHANT_REFERENCE = "originalMerchantReference";
   @SerializedName(SERIALIZED_NAME_ORIGINAL_MERCHANT_REFERENCE)
   private String originalMerchantReference;
+
+  public static final String SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC = "platformChargebackLogic";
+  @SerializedName(SERIALIZED_NAME_PLATFORM_CHARGEBACK_LOGIC)
+  private PlatformChargebackLogic platformChargebackLogic;
 
   public static final String SERIALIZED_NAME_REFERENCE = "reference";
   @SerializedName(SERIALIZED_NAME_REFERENCE)
@@ -212,6 +217,28 @@ public class TechnicalCancelRequest {
   }
 
 
+  public TechnicalCancelRequest platformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    
+    this.platformChargebackLogic = platformChargebackLogic;
+    return this;
+  }
+
+   /**
+   * Get platformChargebackLogic
+   * @return platformChargebackLogic
+  **/
+  @ApiModelProperty(value = "")
+
+  public PlatformChargebackLogic getPlatformChargebackLogic() {
+    return platformChargebackLogic;
+  }
+
+
+  public void setPlatformChargebackLogic(PlatformChargebackLogic platformChargebackLogic) {
+    this.platformChargebackLogic = platformChargebackLogic;
+  }
+
+
   public TechnicalCancelRequest reference(String reference) {
     
     this.reference = reference;
@@ -323,6 +350,7 @@ public class TechnicalCancelRequest {
         Objects.equals(this.modificationAmount, technicalCancelRequest.modificationAmount) &&
         Objects.equals(this.mpiData, technicalCancelRequest.mpiData) &&
         Objects.equals(this.originalMerchantReference, technicalCancelRequest.originalMerchantReference) &&
+        Objects.equals(this.platformChargebackLogic, technicalCancelRequest.platformChargebackLogic) &&
         Objects.equals(this.reference, technicalCancelRequest.reference) &&
         Objects.equals(this.splits, technicalCancelRequest.splits) &&
         Objects.equals(this.tenderReference, technicalCancelRequest.tenderReference) &&
@@ -331,7 +359,7 @@ public class TechnicalCancelRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalData, merchantAccount, modificationAmount, mpiData, originalMerchantReference, reference, splits, tenderReference, uniqueTerminalId);
+    return Objects.hash(additionalData, merchantAccount, modificationAmount, mpiData, originalMerchantReference, platformChargebackLogic, reference, splits, tenderReference, uniqueTerminalId);
   }
 
   @Override
@@ -343,6 +371,7 @@ public class TechnicalCancelRequest {
     sb.append("    modificationAmount: ").append(toIndentedString(modificationAmount)).append("\n");
     sb.append("    mpiData: ").append(toIndentedString(mpiData)).append("\n");
     sb.append("    originalMerchantReference: ").append(toIndentedString(originalMerchantReference)).append("\n");
+    sb.append("    platformChargebackLogic: ").append(toIndentedString(platformChargebackLogic)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
     sb.append("    tenderReference: ").append(toIndentedString(tenderReference)).append("\n");
@@ -374,6 +403,7 @@ public class TechnicalCancelRequest {
     openapiFields.add("modificationAmount");
     openapiFields.add("mpiData");
     openapiFields.add("originalMerchantReference");
+    openapiFields.add("platformChargebackLogic");
     openapiFields.add("reference");
     openapiFields.add("splits");
     openapiFields.add("tenderReference");
@@ -429,6 +459,10 @@ public class TechnicalCancelRequest {
       // validate the optional field originalMerchantReference
       if (jsonObj.get("originalMerchantReference") != null && !jsonObj.get("originalMerchantReference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `originalMerchantReference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("originalMerchantReference").toString()));
+      }
+      // validate the optional field `platformChargebackLogic`
+      if (jsonObj.getAsJsonObject("platformChargebackLogic") != null) {
+        PlatformChargebackLogic.validateJsonObject(jsonObj.getAsJsonObject("platformChargebackLogic"));
       }
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {

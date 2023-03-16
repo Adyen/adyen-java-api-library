@@ -40,10 +40,10 @@ public class PaymentMethodsMerchantLevel extends ApiKeyAuthenticatedService {
      *
      * @param merchantId The unique identifier of the merchant account. (required)
      * @param queryParams  (optional)
-     *    storeId: The unique identifier of the store for which to return the payment methods. (optional)<br />
-     *    businessLineId: The unique identifier of the Business Line for which to return the payment methods. (optional)<br />
-     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)<br />
-     *    pageNumber: The number of the page to fetch. (optional)<br />
+     *    storeId: The unique identifier of the store for which to return the payment methods. (optional)
+     *    businessLineId: The unique identifier of the Business Line for which to return the payment methods. (optional)
+     *    pageSize: The number of items to have on a page, maximum 100. The default is 10 items on a page. (optional)
+     *    pageNumber: The number of the page to fetch. (optional)
      * @return PaymentMethodResponse
      * @throws ApiException if fails to make API call
      */
