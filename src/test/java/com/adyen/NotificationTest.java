@@ -227,12 +227,13 @@ public class NotificationTest extends BaseTest {
         NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/authorisation-true.json");
         assertEquals("123456789", notificationRequest.getNotificationItems().get(0).getPspReference());
         NotificationRequestItem requestItem = new NotificationRequestItem();
+        requestItem.setPspReference("987654321");
         ArrayList<NotificationRequestItem> notificationRequestItems = new ArrayList<NotificationRequestItem>();
         notificationRequestItems.add(requestItem);
         notificationRequest.setNotificationItems(notificationRequestItems);
 
         assertEquals(1, notificationRequest.getNotificationItems().size());
-        assertEquals(null, notificationRequest.getNotificationItems().get(0).getPspReference());
+        assertEquals("987654321", notificationRequest.getNotificationItems().get(0).getPspReference());
     }
 
     private void assertJsonStringEquals(String firstInput, String secondInput) {
