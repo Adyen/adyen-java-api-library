@@ -29,6 +29,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+
 /**
  * Notification converter
  */
@@ -44,9 +46,8 @@ public class NotificationHandler {
         terminalGson = TerminalAPIGsonBuilder.create();
     }
 
-    public NotificationRequest handleNotificationJson(String json) {
-        return GSON.fromJson(json, new TypeToken<NotificationRequest>() {
-        }.getType());
+    public NotificationRequest handleNotificationJson(String json) throws IOException {
+        return NotificationRequest.fromJson(json);
     }
 
     public GenericNotification handleMarketpayNotificationJson(String json) {

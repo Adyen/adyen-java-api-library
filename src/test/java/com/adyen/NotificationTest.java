@@ -42,6 +42,7 @@ import com.google.gson.reflect.TypeToken;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -241,7 +242,7 @@ public class NotificationTest extends BaseTest {
         assertEquals(parser.parse(firstInput), parser.parse(secondInput));
     }
 
-    private NotificationRequest readNotificationRequestFromFile(String resourcePath) {
+    private NotificationRequest readNotificationRequestFromFile(String resourcePath) throws IOException {
         String json = getFileContents(resourcePath);
         return notificationHandler.handleNotificationJson(json);
     }
