@@ -42,6 +42,8 @@ import com.google.gson.reflect.TypeToken;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
@@ -221,14 +223,26 @@ public class NotificationTest extends BaseTest {
         assertEquals(EventToNotifyType.SHUTDOWN, eventNotification.getEventToNotify());
     }
 
+    @Test
+    public void testSetNotificationItem() throws Exception {
+        NotificationRequest notificationRequest = readNotificationRequestFromFile("mocks/notification/authorisation-true.json");
+        assertEquals("123456789", notificationRequest.getNotificationItems().get(0).getPspReference());
+        NotificationRequestItem requestItem = new NotificationRequestItem();
+        requestItem.setPspReference("987654321");
+        ArrayList<NotificationRequestItem> notificationRequestItems = new ArrayList<NotificationRequestItem>();
+        notificationRequestItems.add(requestItem);
+        notificationRequest.setNotificationItems(notificationRequestItems);
 
+        assertEquals(1, notificationRequest.getNotificationItems().size());
+        assertEquals("987654321", notificationRequest.getNotificationItems().get(0).getPspReference());
+    }
 
     private void assertJsonStringEquals(String firstInput, String secondInput) {
         JsonParser parser = new JsonParser();
         assertEquals(parser.parse(firstInput), parser.parse(secondInput));
     }
 
-    private NotificationRequest readNotificationRequestFromFile(String resourcePath) {
+    private NotificationRequest readNotificationRequestFromFile(String resourcePath) throws IOException {
         String json = getFileContents(resourcePath);
         return notificationHandler.handleNotificationJson(json);
     }
