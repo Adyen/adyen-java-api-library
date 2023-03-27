@@ -44,20 +44,22 @@ import java.util.Set;
 import com.adyen.model.balanceplatform.JSON;
 
 /**
- * BankAccount
+ * USLocalAccountIdentification
  */
 
-public class BankAccount {
+public class USLocalAccountIdentification {
   public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
   private String accountNumber;
 
   /**
-   * The bank account type.  Possible values: **checking** only.
+   * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    */
   @JsonAdapter(AccountTypeEnum.Adapter.class)
   public enum AccountTypeEnum {
-    CHECKING("checking");
+    CHECKING("checking"),
+    
+    SAVINGS("savings");
 
     private String value;
 
@@ -99,20 +101,65 @@ public class BankAccount {
 
   public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "accountType";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
-  private AccountTypeEnum accountType;
-
-  public static final String SERIALIZED_NAME_IBAN = "iban";
-  @SerializedName(SERIALIZED_NAME_IBAN)
-  private String iban;
+  private AccountTypeEnum accountType = AccountTypeEnum.CHECKING;
 
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routingNumber";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
   private String routingNumber;
 
-  public BankAccount() { 
+  /**
+   * **usLocal**
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    USLOCAL("usLocal");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
   }
 
-  public BankAccount accountNumber(String accountNumber) {
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeEnum type = TypeEnum.USLOCAL;
+
+  public USLocalAccountIdentification() { 
+  }
+
+  public USLocalAccountIdentification accountNumber(String accountNumber) {
     
     this.accountNumber = accountNumber;
     return this;
@@ -122,7 +169,7 @@ public class BankAccount {
    * The bank account number, without separators or whitespace.
    * @return accountNumber
   **/
-  @ApiModelProperty(value = "The bank account number, without separators or whitespace.")
+  @ApiModelProperty(required = true, value = "The bank account number, without separators or whitespace.")
 
   public String getAccountNumber() {
     return accountNumber;
@@ -134,17 +181,17 @@ public class BankAccount {
   }
 
 
-  public BankAccount accountType(AccountTypeEnum accountType) {
+  public USLocalAccountIdentification accountType(AccountTypeEnum accountType) {
     
     this.accountType = accountType;
     return this;
   }
 
    /**
-   * The bank account type.  Possible values: **checking** only.
+   * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
    * @return accountType
   **/
-  @ApiModelProperty(value = "The bank account type.  Possible values: **checking** only.")
+  @ApiModelProperty(value = "The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.")
 
   public AccountTypeEnum getAccountType() {
     return accountType;
@@ -156,29 +203,7 @@ public class BankAccount {
   }
 
 
-  public BankAccount iban(String iban) {
-    
-    this.iban = iban;
-    return this;
-  }
-
-   /**
-   * The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).
-   * @return iban
-  **/
-  @ApiModelProperty(required = true, value = "The [International Bank Account Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number) (IBAN).")
-
-  public String getIban() {
-    return iban;
-  }
-
-
-  public void setIban(String iban) {
-    this.iban = iban;
-  }
-
-
-  public BankAccount routingNumber(String routingNumber) {
+  public USLocalAccountIdentification routingNumber(String routingNumber) {
     
     this.routingNumber = routingNumber;
     return this;
@@ -188,7 +213,7 @@ public class BankAccount {
    * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
    * @return routingNumber
   **/
-  @ApiModelProperty(value = "The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.")
+  @ApiModelProperty(required = true, value = "The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.")
 
   public String getRoutingNumber() {
     return routingNumber;
@@ -197,6 +222,28 @@ public class BankAccount {
 
   public void setRoutingNumber(String routingNumber) {
     this.routingNumber = routingNumber;
+  }
+
+
+  public USLocalAccountIdentification type(TypeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * **usLocal**
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "**usLocal**")
+
+  public TypeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -209,26 +256,26 @@ public class BankAccount {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BankAccount bankAccount = (BankAccount) o;
-    return Objects.equals(this.accountNumber, bankAccount.accountNumber) &&
-        Objects.equals(this.accountType, bankAccount.accountType) &&
-        Objects.equals(this.iban, bankAccount.iban) &&
-        Objects.equals(this.routingNumber, bankAccount.routingNumber);
+    USLocalAccountIdentification usLocalAccountIdentification = (USLocalAccountIdentification) o;
+    return Objects.equals(this.accountNumber, usLocalAccountIdentification.accountNumber) &&
+        Objects.equals(this.accountType, usLocalAccountIdentification.accountType) &&
+        Objects.equals(this.routingNumber, usLocalAccountIdentification.routingNumber) &&
+        Objects.equals(this.type, usLocalAccountIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountType, iban, routingNumber);
+    return Objects.hash(accountNumber, accountType, routingNumber, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BankAccount {\n");
+    sb.append("class USLocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -253,39 +300,41 @@ public class BankAccount {
     openapiFields = new HashSet<String>();
     openapiFields.add("accountNumber");
     openapiFields.add("accountType");
-    openapiFields.add("iban");
     openapiFields.add("routingNumber");
+    openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("iban");
+    openapiRequiredFields.add("accountNumber");
+    openapiRequiredFields.add("routingNumber");
+    openapiRequiredFields.add("type");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to BankAccount
+  * @throws IOException if the JSON Object is invalid with respect to USLocalAccountIdentification
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (BankAccount.openapiRequiredFields.isEmpty()) {
+        if (USLocalAccountIdentification.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BankAccount is not found in the empty JSON string", BankAccount.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in USLocalAccountIdentification is not found in the empty JSON string", USLocalAccountIdentification.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!BankAccount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BankAccount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!USLocalAccountIdentification.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `USLocalAccountIdentification` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BankAccount.openapiRequiredFields) {
+      for (String requiredField : USLocalAccountIdentification.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
@@ -301,13 +350,16 @@ public class BankAccount {
         }
         AccountTypeEnum.fromValue(jsonObj.get("accountType").getAsString());
       }
-      // validate the optional field iban
-      if (jsonObj.get("iban") != null && !jsonObj.get("iban").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `iban` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iban").toString()));
-      }
       // validate the optional field routingNumber
       if (jsonObj.get("routingNumber") != null && !jsonObj.get("routingNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `routingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routingNumber").toString()));
+      }
+      // ensure the field type can be parsed to an enum value
+      if (jsonObj.get("type") != null) {
+        if(!jsonObj.get("type").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        }
+        TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
   }
 
@@ -315,22 +367,22 @@ public class BankAccount {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BankAccount.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BankAccount' and its subtypes
+       if (!USLocalAccountIdentification.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'USLocalAccountIdentification' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BankAccount> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BankAccount.class));
+       final TypeAdapter<USLocalAccountIdentification> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(USLocalAccountIdentification.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BankAccount>() {
+       return (TypeAdapter<T>) new TypeAdapter<USLocalAccountIdentification>() {
            @Override
-           public void write(JsonWriter out, BankAccount value) throws IOException {
+           public void write(JsonWriter out, USLocalAccountIdentification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public BankAccount read(JsonReader in) throws IOException {
+           public USLocalAccountIdentification read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -341,18 +393,18 @@ public class BankAccount {
   }
 
  /**
-  * Create an instance of BankAccount given an JSON string
+  * Create an instance of USLocalAccountIdentification given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of BankAccount
-  * @throws IOException if the JSON string is invalid with respect to BankAccount
+  * @return An instance of USLocalAccountIdentification
+  * @throws IOException if the JSON string is invalid with respect to USLocalAccountIdentification
   */
-  public static BankAccount fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BankAccount.class);
+  public static USLocalAccountIdentification fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, USLocalAccountIdentification.class);
   }
 
  /**
-  * Convert an instance of BankAccount to an JSON string
+  * Convert an instance of USLocalAccountIdentification to an JSON string
   *
   * @return JSON string
   */
