@@ -32,7 +32,6 @@ import com.adyen.model.payments.CancelRequest;
 import com.adyen.model.payments.CaptureRequest;
 import com.adyen.model.payments.CommonField;
 import com.adyen.model.payments.DonationRequest;
-import com.adyen.model.payments.JSON;
 import com.adyen.model.payments.ModificationResult;
 import com.adyen.model.payments.PaymentRequest;
 import com.adyen.model.payments.PaymentRequest3d;

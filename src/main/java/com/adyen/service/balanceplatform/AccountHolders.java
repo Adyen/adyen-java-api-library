@@ -5,7 +5,6 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.AccountHolder;
 import com.adyen.model.balanceplatform.AccountHolderInfo;
-import com.adyen.model.balanceplatform.JSON;
 import com.adyen.model.balanceplatform.PaginatedBalanceAccountsResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.balanceplatform.BalancePlatformResource;

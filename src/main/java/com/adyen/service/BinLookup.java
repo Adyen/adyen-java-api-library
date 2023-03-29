@@ -2,7 +2,6 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.model.binlookup.JSON;
 import com.adyen.model.binlookup.ThreeDSAvailabilityResponse;
 import com.adyen.model.binlookup.CostEstimateResponse;
 import com.adyen.model.binlookup.CostEstimateRequest;

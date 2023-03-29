@@ -3,7 +3,6 @@ package com.adyen.service.balanceplatform;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.balanceplatform.JSON;
 import com.adyen.model.balanceplatform.PaymentInstrumentGroup;
 import com.adyen.model.balanceplatform.PaymentInstrumentGroupInfo;
 import com.adyen.model.balanceplatform.TransactionRulesResponse;
