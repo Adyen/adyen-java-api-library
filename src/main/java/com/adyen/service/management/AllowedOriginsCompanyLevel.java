@@ -29,7 +29,6 @@ import java.util.Map;
 public class AllowedOriginsCompanyLevel extends ApiKeyAuthenticatedService {
     public AllowedOriginsCompanyLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

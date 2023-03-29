@@ -20,7 +20,6 @@ public class BinLookup extends ApiKeyAuthenticatedService {
         super(client);
         get3dsAvailability = new Get3dsAvailability(this);
         getCostEstimate = new GetCostEstimate(this);
-        new JSON();
     }
 
 

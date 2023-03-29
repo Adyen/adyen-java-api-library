@@ -16,7 +16,6 @@ import java.io.IOException;
 public class HostedOnboarding extends Service {
     public HostedOnboarding(Client client) {
         super(client);
-        new JSON();
     }
 
     public OnboardingLink create(String legalEntityId, OnboardingLinkInfo request) throws IOException, ApiException {

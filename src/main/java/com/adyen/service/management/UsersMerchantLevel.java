@@ -32,7 +32,6 @@ import java.util.Map;
 public class UsersMerchantLevel extends ApiKeyAuthenticatedService {
     public UsersMerchantLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

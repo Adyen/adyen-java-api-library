@@ -14,7 +14,6 @@ import java.io.IOException;
 public class TransferInstruments extends Service {
     public TransferInstruments(Client client) {
         super(client);
-        new JSON();
     }
 
     public TransferInstrument create(TransferInstrumentInfo request) throws IOException, ApiException {

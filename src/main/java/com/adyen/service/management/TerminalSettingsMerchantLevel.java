@@ -29,7 +29,6 @@ import java.util.Map;
 public class TerminalSettingsMerchantLevel extends ApiKeyAuthenticatedService {
     public TerminalSettingsMerchantLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

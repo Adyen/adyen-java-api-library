@@ -14,7 +14,6 @@ import java.io.IOException;
 public class BusinessLineService extends Service {
     public BusinessLineService(Client client) {
         super(client);
-        new JSON();
     }
 
     public BusinessLine create(BusinessLineInfo request) throws IOException, ApiException {

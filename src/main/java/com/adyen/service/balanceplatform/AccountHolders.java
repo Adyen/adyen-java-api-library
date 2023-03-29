@@ -18,7 +18,6 @@ public class AccountHolders extends Service {
 
     public AccountHolders(Client client) {
         super(client);
-        new JSON();
     }
 
     public AccountHolder create(AccountHolderInfo request) throws IOException, ApiException {

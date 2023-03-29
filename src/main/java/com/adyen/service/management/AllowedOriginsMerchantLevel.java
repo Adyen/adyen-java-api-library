@@ -29,7 +29,6 @@ import java.util.Map;
 public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
     public AllowedOriginsMerchantLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

@@ -31,7 +31,6 @@ import java.util.Map;
 public class TerminalActionsCompanyLevel extends ApiKeyAuthenticatedService {
     public TerminalActionsCompanyLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

@@ -84,7 +84,6 @@ public class Payment extends Service {
         adjustAuthorisation = new PaymentResource(this, "/adjustAuthorisation");
         donate = new PaymentResource(this, "/donate");
         voidPendingRefund = new PaymentResource(this, "/voidPendingRefund");
-        new JSON();
     }
 
     /**

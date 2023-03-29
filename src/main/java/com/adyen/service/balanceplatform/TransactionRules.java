@@ -16,7 +16,6 @@ public class TransactionRules extends Service {
 
     public TransactionRules(Client client) {
         super(client);
-        new JSON();
     }
 
     public TransactionRule create(TransactionRuleInfo request) throws IOException, ApiException {

@@ -32,7 +32,6 @@ import java.util.Map;
 public class ApiCredentialsCompanyLevel extends ApiKeyAuthenticatedService {
     public ApiCredentialsCompanyLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

@@ -13,7 +13,6 @@ import java.io.IOException;
 public class Documents extends Service {
     public Documents(Client client) {
         super(client);
-        new JSON();
     }
 
     public Document create(Document request) throws IOException, ApiException {

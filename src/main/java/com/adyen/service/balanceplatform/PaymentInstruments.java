@@ -16,7 +16,6 @@ import java.io.IOException;
 public class PaymentInstruments extends Service {
     public PaymentInstruments(Client client) {
         super(client);
-        new JSON();
     }
 
     public PaymentInstrument create(PaymentInstrumentInfo request) throws IOException, ApiException {

@@ -22,7 +22,6 @@ public class Transfers extends Service {
 
     public Transfers(Client client) {
         super(client);
-        new JSON();
     }
 
     public Transfer transfers(TransferInfo transferInfo) throws IOException, ApiException {

@@ -60,7 +60,6 @@ public class Payout extends Service {
         storeDetail = new StoreDetail(this);
         submitThirdparty = new SubmitThirdParty(this);
         payout = new com.adyen.service.resource.payout.Payout(this);
-        new JSON();
     }
 
     /**

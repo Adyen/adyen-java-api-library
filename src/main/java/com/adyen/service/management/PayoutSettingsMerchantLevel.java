@@ -31,7 +31,6 @@ import java.util.Map;
 public class PayoutSettingsMerchantLevel extends ApiKeyAuthenticatedService {
     public PayoutSettingsMerchantLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

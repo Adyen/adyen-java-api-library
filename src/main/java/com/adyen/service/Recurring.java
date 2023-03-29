@@ -61,7 +61,6 @@ public class Recurring extends Service {
         notifyShopper = new NotifyShopper(this);
         createPermit = new CreatePermit(this);
         disablePermit = new DisablePermit(this);
-        new JSON();
     }
 
     /**

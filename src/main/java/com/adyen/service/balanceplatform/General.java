@@ -16,7 +16,6 @@ public class General extends Service {
 
     public General(Client client) {
         super(client);
-        new JSON();
     }
 
     public BalancePlatform retrieve(String platformId) throws IOException, ApiException {

@@ -20,7 +20,6 @@ public class BalanceAccounts extends Service {
 
     public BalanceAccounts(Client client) {
         super(client);
-        new JSON();
     }
 
     public BalanceAccount create(BalanceAccountInfo request) throws IOException, ApiException {
