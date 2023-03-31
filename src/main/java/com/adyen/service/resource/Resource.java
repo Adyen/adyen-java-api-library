@@ -25,6 +25,7 @@ import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
+import com.adyen.model.ApiError;
 import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.google.gson.Gson;
@@ -113,6 +114,7 @@ public class Resource {
         } catch (HTTPClientException e) {
             apiException = new ApiException(e.getMessage(), e.getCode(), e.getResponseHeaders());
             apiException.setResponseBody(e.getResponseBody());
+            apiException.setError(ApiError.fromJson(e.getResponseBody()));
         }
         throw apiException;
     }
