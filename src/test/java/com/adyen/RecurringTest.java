@@ -180,13 +180,6 @@ public class RecurringTest extends BaseTest {
         createPermitRequest.setPermits(permits);
         createPermitRequest.setRecurringDetailReference("recurringDetailReference");
         createPermitRequest.setShopperReference("shopperReference");
-
-//        CreatePermitResult result = recurring.createPermit(createPermitRequest);
-//        assertNotNull(result);
-//        assertEquals("1234qwer", result.getPspReference());
-//        assertEquals(1, result.getPermitResultList().size());
-//        assertEquals("token", result.getPermitResultList().get(0).getToken());
-//        assertEquals("resultKey", result.getPermitResultList().get(0).getResultKey());
     }
 
     @Test

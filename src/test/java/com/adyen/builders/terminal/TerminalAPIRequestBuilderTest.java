@@ -63,9 +63,6 @@ public class TerminalAPIRequestBuilderTest {
         assertNotNull(terminalAPIRequest);
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest());
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest().getMessageHeader());
-//        assertEquals(SALE_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getSaleID());
-//        assertEquals(SERVICE_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getServiceID());
-//        assertEquals(POI_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getPOIID());
         assertEquals(MessageClassType.SERVICE, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getMessageClass());
         assertEquals(MessageCategoryType.PAYMENT, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getMessageCategory());
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest());
@@ -81,9 +78,6 @@ public class TerminalAPIRequestBuilderTest {
         assertNotNull(terminalAPIRequest);
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest());
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest().getMessageHeader());
-//        assertEquals(SALE_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getSaleID());
-//        assertEquals(SERVICE_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getServiceID());
-//        assertEquals(POI_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getPOIID());
         assertEquals(MessageClassType.SERVICE, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getMessageClass());
         assertEquals(MessageCategoryType.PAYMENT, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getMessageCategory());
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest().getPaymentRequest());
@@ -97,9 +91,6 @@ public class TerminalAPIRequestBuilderTest {
         assertNotNull(terminalAPIRequest);
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest());
         assertNotNull(terminalAPIRequest.getSaleToPOIRequest().getMessageHeader());
-//        assertEquals(SALE_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getSaleID());
-//        assertEquals(SERVICE_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getServiceID());
-//        assertEquals(POI_ID, terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getPOIID());
         assertNull(terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getMessageClass());
         assertNull(terminalAPIRequest.getSaleToPOIRequest().getMessageHeader().getMessageCategory());
     }
