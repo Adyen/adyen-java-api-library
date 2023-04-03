@@ -47,7 +47,7 @@ import com.adyen.model.legalentitymanagement.JSON;
  * Attachment
  */
 
-public class Attachment {
+public class  Attachment {
   public static final String SERIALIZED_NAME_CONTENT = "content";
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private byte[] content;

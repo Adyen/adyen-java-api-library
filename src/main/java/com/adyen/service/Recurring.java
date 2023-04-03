@@ -49,8 +49,6 @@ public class Recurring extends Service {
     private final Disable disable;
     private final ScheduleAccountUpdater scheduleAccountUpdater;
     private final NotifyShopper notifyShopper;
-    private final CreatePermit createPermit;
-    private final DisablePermit disablePermit;
 
     public Recurring(Client client) {
         super(client);
@@ -59,8 +57,6 @@ public class Recurring extends Service {
         disable = new Disable(this);
         scheduleAccountUpdater = new ScheduleAccountUpdater(this);
         notifyShopper = new NotifyShopper(this);
-        createPermit = new CreatePermit(this);
-        disablePermit = new DisablePermit(this);
         new JSON();
     }
 
@@ -118,33 +114,5 @@ public class Recurring extends Service {
         String jsonRequest = request.toJson();
         String jsonResult = notifyShopper.request(jsonRequest);
         return NotifyShopperResult.fromJson(jsonResult);
-    }
-
-    /**
-     * Issues a createPermit API call
-     *
-     * @param request CreatePermitRequest
-     * @return CreatePermitResult
-     * @throws IOException IOException
-     * @throws ApiException ApiException
-     */
-    public CreatePermitResult createPermit(CreatePermitRequest request) throws IOException, ApiException {
-        String jsonRequest = request.toJson();
-        String jsonResult = createPermit.request(jsonRequest);
-        return CreatePermitResult.fromJson(jsonResult);
-    }
-
-    /**
-     * Issues a disablePermit API call
-     *
-     * @param request DisablePermitRequest
-     * @return DisablePermitResult
-     * @throws IOException IOException
-     * @throws ApiException ApiException
-     */
-    public DisablePermitResult disablePermit(DisablePermitRequest request) throws IOException, ApiException {
-        String jsonRequest = request.toJson();
-        String jsonResult = disablePermit.request(jsonRequest);
-        return DisablePermitResult.fromJson(jsonResult);
     }
 }

@@ -35,7 +35,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MessageHeader")
 public class MessageHeader {
-
     /**
      * The Protocol version.
      */
@@ -229,4 +228,11 @@ public class MessageHeader {
         this.poiid = value;
     }
 
+    public void setHeaderFields(String saleId, String serviceId, String poiId) {
+        this.protocolVersion = getProtocolVersion();
+        this.setMessageType(MessageType.REQUEST);
+        this.setSaleID(saleId);
+        this.setServiceID(serviceId);
+        this.setPOIID(poiId);
+    }
 }

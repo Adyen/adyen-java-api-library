@@ -308,7 +308,7 @@ public class PaymentTest extends BaseTest {
 
         Map<String, String> additionalData =  paymentResult.getAdditionalData();
         assertNotNull(additionalData);
-        assertEquals(BOLETO_SANTANDER, additionalData.get(PAYMENT_METHOD));
+        assertEquals(BOLETO_SANTANDER, additionalData.get(PAYMENT_METHOD_INFO));
         assertEquals("34191.75801 12021.372227 21111.100000 8 71670000001000", additionalData.get(BOLETO_BARCODE_REFERENCE));
         assertEquals(
                 "BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z/z9EdC5yFH3+1o/DQH3v3dtTxqXD2DrEdVH0Ro3r/+G9bdUzrCUjfMFh7YB32VL2oPqye9Ly/MWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR/CBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3+qihZa7vvzV/XylTXdgirxboVKpk07Wfvpad8Owg/K/ofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ+9vZs+aor/E//s+EjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1/AvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL+DKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT/eVf+wncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs=",
@@ -317,11 +317,11 @@ public class PaymentTest extends BaseTest {
         DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-        assertEquals("2017-05-22", fmt.format(DateUtil.parseYmdDate(additionalData.get(BOLETO_DUE_DATE))));
+        assertEquals("2017-05-22", fmt.format(DateUtil.parseDateStringWithYMDFormat(additionalData.get(BOLETO_DUE_DATE))));
         assertEquals(
                 "https://test.adyen.com/hpp/generationBoleto.shtml?data=BQABAQB8k7t5uD2wSpo185nNeQ9CU50Zf6z%2Fz9EdC5yFH3%2B1o%2FDQH3v3dtTxqXD2DrEdVH0Ro3r%2F%2BG9bdUzrCUjfMFh7YB32VL2oPqye9Ly%2FMWzj7bOaRrpGH5PaB8gE9LkIgo8WKqHix1cwsFm3aHiLBECjItOpUR%2FCBuiJBGPvseN7yrSdG5vQAUM9AQixpPkyCNokbnDZoa1y3%2BqihZa7vvzV%2FXylTXdgirxboVKpk07Wfvpad8Owg%2FK%2FofDqUfrZ3SUovkJzpZ5wP2NtOz84zBV8dJ%2B9vZs%2Baor%2FE%2F%2Fs%2BEjKgNJt2s2uX0OfdE3h1n41RW2MlfQBtXLbgbxKVVSH5qfPELsZhr10A9y9VpCd9DOP6lEAAFchf10tGLvIKj2j4ktIErp0uLCbLqa1%2FAvmfQ9a6e0TClmsbtwKoZ9LvAPpzHqRcmidgyUM1Igk5YsHBD7L8pzoJS5hL%2BDKXMeUav6oP20v9huLS3Ps6EiK4fyg5kgptZPhSQ5UN3GrGSoefja1Ylw32EBovEiaK9rdKkT%2FeVf%2BwncwLTLUiMD26R7qRxbvwAg4G8VIv6dxvOsKf2RutfOoCBNH6VhgwXfIoe0bHqmpx4dGwrjkVThspdsZYhHFrZK58grIb4OyKORibOYxvsmYmRdWMDX9Y1X8uva8OYs%3D",
                 additionalData.get(BOLETO_URL));
-        assertEquals("2017-06-06", fmt.format(DateUtil.parseYmdDate(additionalData.get(BOLETO_EXPIRATION_DATE))));
+        assertEquals("2017-06-06", fmt.format(DateUtil.parseDateStringWithYMDFormat(additionalData.get(BOLETO_EXPIRATION_DATE))));
         assertEquals(RECEIVED, paymentResult.getResultCode());
         assertEquals("8814950120218231", paymentResult.getPspReference());
     }

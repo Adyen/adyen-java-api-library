@@ -34,7 +34,7 @@ public interface ApiConstants {
 
     interface AdditionalData {
         String REFUSAL_REASON_RAW = "refusalReasonRaw";
-        String PAYMENT_METHOD = "paymentMethod";
+        String PAYMENT_METHOD_INFO = "paymentMethod";
         String EXPIRY_DATE = "expiryDate";
         String CARD_BIN = "cardBin";
         String CARD_HOLDER_NAME = "cardHolderName";
@@ -88,7 +88,7 @@ public interface ApiConstants {
         String STORE_DETAILS = "storeDetails";
     }
 
-    interface Redirect {
+    interface PaymentRedirect {
         interface Data {
             String MD = "MD";
             String PAREQ = "PaReq";

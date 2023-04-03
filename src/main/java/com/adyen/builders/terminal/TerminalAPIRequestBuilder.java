@@ -56,12 +56,11 @@ import com.adyen.model.nexo.TransactionStatusRequest;
 import com.adyen.model.nexo.TransmitRequest;
 import com.adyen.model.terminal.TerminalAPIRequest;
 
-import static com.adyen.constants.ApiConstants.TerminalAPI.PROTOCOL_VERSION;
 
 public final class TerminalAPIRequestBuilder {
 
     // MessageHeader
-    private final MessageHeader messageHeader;
+    private MessageHeader messageHeader;
     private MessageClassType messageClass;
     private MessageCategoryType messageCategory;
 
@@ -95,13 +94,8 @@ public final class TerminalAPIRequestBuilder {
     private TransmitRequest transmitRequest;
     private ContentInformation securityTrailer;
 
-    public TerminalAPIRequestBuilder(String saleId, String serviceId, String poiId) {
-        messageHeader = new MessageHeader();
-        messageHeader.setProtocolVersion(PROTOCOL_VERSION);
-        messageHeader.setMessageType(MessageType.REQUEST);
-        messageHeader.setSaleID(saleId);
-        messageHeader.setServiceID(serviceId);
-        messageHeader.setPOIID(poiId);
+    public TerminalAPIRequestBuilder() {
+
     }
 
     public TerminalAPIRequestBuilder withAbortRequest(AbortRequest abortRequest) {
@@ -299,6 +293,7 @@ public final class TerminalAPIRequestBuilder {
     }
 
     public TerminalAPIRequest build() {
+        messageHeader = new MessageHeader();
         messageHeader.setMessageClass(messageClass);
         messageHeader.setMessageCategory(messageCategory);
 

@@ -46,7 +46,7 @@ public final class DateUtil {
         return null;
     }
 
-    public static Date parseYmdDate(String dateString) {
+    public static Date parseDateStringWithYMDFormat(String dateString) {
         return parseDateToFormat(dateString, "yyyy-MM-dd");
     }
 

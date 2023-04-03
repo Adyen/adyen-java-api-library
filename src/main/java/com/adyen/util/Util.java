@@ -69,36 +69,82 @@ public final class Util {
         return sb.toString();
     }
 
-    public static int getDecimalPlaces(String currency) {
-        switch (currency) {
-            case "CVE":
-            case "DJF":
-            case "GNF":
-            case "IDR":
-            case "JPY":
-            case "KMF":
-            case "KRW":
-            case "PYG":
-            case "RWF":
-            case "UGX":
-            case "VND":
-            case "VUV":
-            case "XAF":
-            case "XOF":
-            case "XPF":
-                return 0;
-            case "BHD":
-            case "IQD":
-            case "JOD":
-            case "KWD":
-            case "LYD":
-            case "OMR":
-            case "TND":
-                return 3;
-            default:
-                return 2;
+    public static int getDecimalPlaces(String currencyCode) {
+            Currency currency;
+            switch (currencyCode) {
+                case "CVE":
+                    currency = new CveCurrency();
+                    break;
+                case "DJF":
+                    currency = new DjfCurrency();
+                    break;
+                case "GNF":
+                    currency = new GnfCurrency();
+                    break;
+                case "IDR":
+                    currency = new IdrCurrency();
+                    break;
+                case "JPY":
+                    currency = new JpyCurrency();
+                    break;
+                case "KMF":
+                    currency = new KmfCurrency();
+                    break;
+                case "KRW":
+                    currency = new KrwCurrency();
+                    break;
+                case "PYG":
+                    currency = new PygCurrency();
+                    break;
+                case "RWF":
+                    currency = new RwfCurrency();
+                    break;
+                case "UGX":
+                    currency = new UgxCurrency();
+                    break;
+                case "VND":
+                    currency = new VndCurrency();
+                    break;
+                case "VUV":
+                    currency = new VuvCurrency();
+                    break;
+                case "XAF":
+                    currency = new XafCurrency();
+                    break;
+                case "XOF":
+                    currency = new XofCurrency();
+                    break;
+                case "XPF":
+                    currency = new XpfCurrency();
+                    break;
+                case "BHD":
+                    currency = new BhdCurrency();
+                    break;
+                case "IQD":
+                    currency = new IqdCurrency();
+                    break;
+                case "JOD":
+                    currency = new JodCurrency();
+                    break;
+                case "KWD":
+                    currency = new KwdCurrency();
+                    break;
+                case "LYD":
+                    currency = new LydCurrency();
+                    break;
+                case "OMR":
+                    currency = new OmrCurrency();
+                    break;
+                case "TND":
+                    currency = new TndCurrency();
+                    break;
+
+                default:
+                    currency = new TwoDecimalCurrency();
+                    break;
+            }
+            return currency.getDecimalPlaces();
         }
-    }
 
     /**
      * Convert the given object to string with each line indented by 4 spaces
@@ -125,3 +171,4 @@ public final class Util {
         return fmt.format(sessionDate);
     }
 }
+
