@@ -246,7 +246,7 @@ public class Transfer {
    */
   @JsonAdapter(ReasonEnum.Adapter.class)
   public enum ReasonEnum {
-    AMOUNTLIMITEXCEDED("amountLimitExceded"),
+    AMOUNTLIMITEXCEEDED("amountLimitExceeded"),
     
     APPROVED("approved"),
     
@@ -327,6 +327,8 @@ public class Transfer {
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    APPROVALPENDING("approvalPending"),
+    
     ATMWITHDRAWAL("atmWithdrawal"),
     
     ATMWITHDRAWALREVERSALPENDING("atmWithdrawalReversalPending"),

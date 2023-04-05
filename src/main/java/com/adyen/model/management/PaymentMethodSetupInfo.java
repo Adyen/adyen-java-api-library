@@ -24,6 +24,7 @@ import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.SofortInfo;
 import com.adyen.model.management.SwishInfo;
+import com.adyen.model.management.VippsInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -184,7 +185,11 @@ public class PaymentMethodSetupInfo {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    AFTERPAYTOUCH("afterpaytouch"),
+    
     ALIPAY("alipay"),
+    
+    ALIPAY_HK("alipay_hk"),
     
     AMEX("amex"),
     
@@ -195,6 +200,8 @@ public class PaymentMethodSetupInfo {
     BLIK("blik"),
     
     CARTEBANCAIRE("cartebancaire"),
+    
+    CLEARPAY("clearpay"),
     
     CUP("cup"),
     
@@ -252,6 +259,8 @@ public class PaymentMethodSetupInfo {
     
     MULTIBANCO("multibanco"),
     
+    ONLINEBANKING_PL("onlineBanking_PL"),
+    
     PAYPAL("paypal"),
     
     PAYSHOP("payshop"),
@@ -259,6 +268,8 @@ public class PaymentMethodSetupInfo {
     SWISH("swish"),
     
     TRUSTLY("trustly"),
+    
+    VIPPS("vipps"),
     
     VISA("visa"),
     
@@ -311,6 +322,10 @@ public class PaymentMethodSetupInfo {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
+
+  public static final String SERIALIZED_NAME_VIPPS = "vipps";
+  @SerializedName(SERIALIZED_NAME_VIPPS)
+  private VippsInfo vipps;
 
   public PaymentMethodSetupInfo() { 
   }
@@ -735,6 +750,28 @@ public class PaymentMethodSetupInfo {
   }
 
 
+  public PaymentMethodSetupInfo vipps(VippsInfo vipps) {
+    
+    this.vipps = vipps;
+    return this;
+  }
+
+   /**
+   * Get vipps
+   * @return vipps
+  **/
+  @ApiModelProperty(value = "")
+
+  public VippsInfo getVipps() {
+    return vipps;
+  }
+
+
+  public void setVipps(VippsInfo vipps) {
+    this.vipps = vipps;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -762,12 +799,13 @@ public class PaymentMethodSetupInfo {
         Objects.equals(this.sofort, paymentMethodSetupInfo.sofort) &&
         Objects.equals(this.storeId, paymentMethodSetupInfo.storeId) &&
         Objects.equals(this.swish, paymentMethodSetupInfo.swish) &&
-        Objects.equals(this.type, paymentMethodSetupInfo.type);
+        Objects.equals(this.type, paymentMethodSetupInfo.type) &&
+        Objects.equals(this.vipps, paymentMethodSetupInfo.vipps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, customRoutingFlags, giroPay, googlePay, klarna, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeId, swish, type);
+    return Objects.hash(applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, customRoutingFlags, giroPay, googlePay, klarna, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeId, swish, type, vipps);
   }
 
   @Override
@@ -792,6 +830,7 @@ public class PaymentMethodSetupInfo {
     sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -832,6 +871,7 @@ public class PaymentMethodSetupInfo {
     openapiFields.add("storeId");
     openapiFields.add("swish");
     openapiFields.add("type");
+    openapiFields.add("vipps");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -936,6 +976,10 @@ public class PaymentMethodSetupInfo {
           throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
         }
         TypeEnum.fromValue(jsonObj.get("type").getAsString());
+      }
+      // validate the optional field `vipps`
+      if (jsonObj.getAsJsonObject("vipps") != null) {
+        VippsInfo.validateJsonObject(jsonObj.getAsJsonObject("vipps"));
       }
   }
 

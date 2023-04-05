@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.adyen.model.balanceplatform.AccountHolderCapability;
 import com.adyen.model.balanceplatform.ContactDetails;
+import com.adyen.model.balanceplatform.VerificationDeadline;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,7 +88,7 @@ public class AccountHolder {
   private String reference;
 
   /**
-   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
+   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -144,15 +146,21 @@ public class AccountHolder {
   @SerializedName(SERIALIZED_NAME_TIME_ZONE)
   private String timeZone;
 
+  public static final String SERIALIZED_NAME_VERIFICATION_DEADLINES = "verificationDeadlines";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION_DEADLINES)
+  private List<VerificationDeadline> verificationDeadlines = null;
+
   public AccountHolder() { 
   }
 
   
   public AccountHolder(
-     String id
+     String id, 
+     List<VerificationDeadline> verificationDeadlines
   ) {
     this();
     this.id = id;
+    this.verificationDeadlines = verificationDeadlines;
   }
 
   public AccountHolder balancePlatform(String balancePlatform) {
@@ -271,10 +279,10 @@ public class AccountHolder {
   }
 
    /**
-   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
+   * The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.
    * @return legalEntityId
   **/
-  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalEntities#responses-200-id) associated with the account holder. Adyen performs a verification process against the legal entity of the account holder.")
 
   public String getLegalEntityId() {
     return legalEntityId;
@@ -337,10 +345,10 @@ public class AccountHolder {
   }
 
    /**
-   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
+   * The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.
    * @return status
   **/
-  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.")
+  @ApiModelProperty(value = "The status of the account holder.  Possible values:    * **active**: The account holder is active. This is the default status when creating an account holder.    * **inactive (Deprecated)**: The account holder is temporarily inactive due to missing KYC details. You can set the account back to active by providing the missing KYC details.    * **suspended**: The account holder is permanently deactivated by Adyen. This action cannot be undone.   * **closed**: The account holder is permanently deactivated by you. This action cannot be undone.")
 
   public StatusEnum getStatus() {
     return status;
@@ -359,10 +367,10 @@ public class AccountHolder {
   }
 
    /**
-   * The [time zone](https://www.iana.org/time-zones) of the account holder. For example, **Europe/Amsterdam**. If not set, the time zone of the balance account will be used. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+   * The [time zone](https://www.iana.org/time-zones) of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    * @return timeZone
   **/
-  @ApiModelProperty(value = "The [time zone](https://www.iana.org/time-zones) of the account holder. For example, **Europe/Amsterdam**. If not set, the time zone of the balance account will be used. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
+  @ApiModelProperty(value = "The [time zone](https://www.iana.org/time-zones) of the account holder. For example, **Europe/Amsterdam**. Defaults to the time zone of the balance platform if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).")
 
   public String getTimeZone() {
     return timeZone;
@@ -372,6 +380,19 @@ public class AccountHolder {
   public void setTimeZone(String timeZone) {
     this.timeZone = timeZone;
   }
+
+
+   /**
+   * List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.
+   * @return verificationDeadlines
+  **/
+  @ApiModelProperty(value = "List of verification deadlines and the capabilities that will be disallowed if verification errors are not resolved.")
+
+  public List<VerificationDeadline> getVerificationDeadlines() {
+    return verificationDeadlines;
+  }
+
+
 
 
 
@@ -393,12 +414,13 @@ public class AccountHolder {
         Objects.equals(this.primaryBalanceAccount, accountHolder.primaryBalanceAccount) &&
         Objects.equals(this.reference, accountHolder.reference) &&
         Objects.equals(this.status, accountHolder.status) &&
-        Objects.equals(this.timeZone, accountHolder.timeZone);
+        Objects.equals(this.timeZone, accountHolder.timeZone) &&
+        Objects.equals(this.verificationDeadlines, accountHolder.verificationDeadlines);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(balancePlatform, capabilities, contactDetails, description, id, legalEntityId, primaryBalanceAccount, reference, status, timeZone);
+    return Objects.hash(balancePlatform, capabilities, contactDetails, description, id, legalEntityId, primaryBalanceAccount, reference, status, timeZone, verificationDeadlines);
   }
 
   @Override
@@ -415,6 +437,7 @@ public class AccountHolder {
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+    sb.append("    verificationDeadlines: ").append(toIndentedString(verificationDeadlines)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -447,6 +470,7 @@ public class AccountHolder {
     openapiFields.add("reference");
     openapiFields.add("status");
     openapiFields.add("timeZone");
+    openapiFields.add("verificationDeadlines");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -521,6 +545,18 @@ public class AccountHolder {
       // validate the optional field timeZone
       if (jsonObj.get("timeZone") != null && !jsonObj.get("timeZone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `timeZone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeZone").toString()));
+      }
+      JsonArray jsonArrayverificationDeadlines = jsonObj.getAsJsonArray("verificationDeadlines");
+      if (jsonArrayverificationDeadlines != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("verificationDeadlines").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `verificationDeadlines` to be an array in the JSON string but got `%s`", jsonObj.get("verificationDeadlines").toString()));
+        }
+
+        // validate the optional field `verificationDeadlines` (array)
+        for (int i = 0; i < jsonArrayverificationDeadlines.size(); i++) {
+          VerificationDeadline.validateJsonObject(jsonArrayverificationDeadlines.get(i).getAsJsonObject());
+        };
       }
   }
 

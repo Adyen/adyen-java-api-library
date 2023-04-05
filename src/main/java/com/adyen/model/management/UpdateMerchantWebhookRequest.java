@@ -74,11 +74,11 @@ public class UpdateMerchantWebhookRequest {
    */
   @JsonAdapter(CommunicationFormatEnum.Adapter.class)
   public enum CommunicationFormatEnum {
-    HTTP("HTTP"),
+    HTTP("http"),
     
-    JSON("JSON"),
+    JSON("json"),
     
-    SOAP("SOAP");
+    SOAP("soap");
 
     private String value;
 
@@ -194,21 +194,17 @@ public class UpdateMerchantWebhookRequest {
     
     SSL("SSL"),
     
-    SSLV3("SSLV3"),
-    
-    SSL_INSECURE_CIPHERS("SSL_INSECURE_CIPHERS"),
+    SSLV3("SSLv3"),
     
     TLS("TLS"),
     
-    TLSV1("TLSV1"),
+    TLSV1("TLSv1"),
     
-    TLSV1_1("TLSV1_1"),
+    TLSV1_1("TLSv1.1"),
     
-    TLSV1_2("TLSV1_2"),
+    TLSV1_2("TLSv1.2"),
     
-    TLSV1_3("TLSV1_3"),
-    
-    TLSV1_INSECURE_CIPHERS("TLSV1_INSECURE_CIPHERS");
+    TLSV1_3("TLSv1.3");
 
     private String value;
 
@@ -339,7 +335,7 @@ public class UpdateMerchantWebhookRequest {
    * Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.
    * @return active
   **/
-  @ApiModelProperty(required = true, value = "Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.")
+  @ApiModelProperty(value = "Indicates if the webhook configuration is active. The field must be **true** for us to send webhooks about events related an account.")
 
   public Boolean getActive() {
     return active;
@@ -383,7 +379,7 @@ public class UpdateMerchantWebhookRequest {
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
    * @return communicationFormat
   **/
-  @ApiModelProperty(example = "SOAP", required = true, value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
+  @ApiModelProperty(example = "soap", value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
 
   public CommunicationFormatEnum getCommunicationFormat() {
     return communicationFormat;
@@ -515,7 +511,7 @@ public class UpdateMerchantWebhookRequest {
    * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
    * @return url
   **/
-  @ApiModelProperty(example = "http://www.adyen.com", required = true, value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
+  @ApiModelProperty(example = "http://www.adyen.com", value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
 
   public String getUrl() {
     return url;
@@ -634,9 +630,6 @@ public class UpdateMerchantWebhookRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("active");
-    openapiRequiredFields.add("communicationFormat");
-    openapiRequiredFields.add("url");
   }
 
  /**
@@ -659,13 +652,6 @@ public class UpdateMerchantWebhookRequest {
       for (Entry<String, JsonElement> entry : entries) {
         if (!UpdateMerchantWebhookRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateMerchantWebhookRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateMerchantWebhookRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field `additionalSettings`

@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,6 +53,10 @@ public class PartyIdentification2 {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private Address2 address;
+
+  public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "dateOfBirth";
+  @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
+  private LocalDate dateOfBirth;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -143,6 +148,28 @@ public class PartyIdentification2 {
   }
 
 
+  public PartyIdentification2 dateOfBirth(LocalDate dateOfBirth) {
+    
+    this.dateOfBirth = dateOfBirth;
+    return this;
+  }
+
+   /**
+   * The date of birth of the individual. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD Allowed only when &#x60;type&#x60; is **individual**.
+   * @return dateOfBirth
+  **/
+  @ApiModelProperty(value = "The date of birth of the individual. Format: [ISO-8601](https://www.w3.org/TR/NOTE-datetime); example: YYYY-MM-DD Allowed only when `type` is **individual**.")
+
+  public LocalDate getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+
+  public void setDateOfBirth(LocalDate dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+
   public PartyIdentification2 firstName(String firstName) {
     
     this.firstName = firstName;
@@ -150,10 +177,10 @@ public class PartyIdentification2 {
   }
 
    /**
-   * First name of the individual. Required when &#x60;type&#x60; is **individual**.
+   * First name of the individual. Allowed only when &#x60;type&#x60; is **individual**.
    * @return firstName
   **/
-  @ApiModelProperty(value = "First name of the individual. Required when `type` is **individual**.")
+  @ApiModelProperty(value = "First name of the individual. Allowed only when `type` is **individual**.")
 
   public String getFirstName() {
     return firstName;
@@ -194,10 +221,10 @@ public class PartyIdentification2 {
   }
 
    /**
-   * Last name of the individual. Required when &#x60;type&#x60; is **individual**.
+   * Last name of the individual. Allowed only when &#x60;type&#x60; is **individual**.
    * @return lastName
   **/
-  @ApiModelProperty(value = "Last name of the individual. Required when `type` is **individual**.")
+  @ApiModelProperty(value = "Last name of the individual. Allowed only when `type` is **individual**.")
 
   public String getLastName() {
     return lastName;
@@ -242,6 +269,7 @@ public class PartyIdentification2 {
     }
     PartyIdentification2 partyIdentification2 = (PartyIdentification2) o;
     return Objects.equals(this.address, partyIdentification2.address) &&
+        Objects.equals(this.dateOfBirth, partyIdentification2.dateOfBirth) &&
         Objects.equals(this.firstName, partyIdentification2.firstName) &&
         Objects.equals(this.fullName, partyIdentification2.fullName) &&
         Objects.equals(this.lastName, partyIdentification2.lastName) &&
@@ -250,7 +278,7 @@ public class PartyIdentification2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, firstName, fullName, lastName, type);
+    return Objects.hash(address, dateOfBirth, firstName, fullName, lastName, type);
   }
 
   @Override
@@ -258,6 +286,7 @@ public class PartyIdentification2 {
     StringBuilder sb = new StringBuilder();
     sb.append("class PartyIdentification2 {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
@@ -285,6 +314,7 @@ public class PartyIdentification2 {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("address");
+    openapiFields.add("dateOfBirth");
     openapiFields.add("firstName");
     openapiFields.add("fullName");
     openapiFields.add("lastName");

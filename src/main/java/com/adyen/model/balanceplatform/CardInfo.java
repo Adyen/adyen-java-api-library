@@ -160,10 +160,10 @@ public class CardInfo {
   }
 
    /**
-   * The brand of the payment instrument. Possible values: **visa**, **mc**.
+   * The brand of the physical or the virtual card. Possible values: **visa**, **mc**.
    * @return brand
   **/
-  @ApiModelProperty(required = true, value = "The brand of the payment instrument. Possible values: **visa**, **mc**.")
+  @ApiModelProperty(required = true, value = "The brand of the physical or the virtual card. Possible values: **visa**, **mc**.")
 
   public String getBrand() {
     return brand;
@@ -182,10 +182,10 @@ public class CardInfo {
   }
 
    /**
-   * The brand variant of the payment instrument. &gt;Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.
+   * The brand variant of the physical or the virtual card. &gt;Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.
    * @return brandVariant
   **/
-  @ApiModelProperty(required = true, value = "The brand variant of the payment instrument. >Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.")
+  @ApiModelProperty(required = true, value = "The brand variant of the physical or the virtual card. >Contact your Adyen Implementation Manager to get the values that are relevant to your integration. Examples: **visadebit**, **mcprepaid**.")
 
   public String getBrandVariant() {
     return brandVariant;

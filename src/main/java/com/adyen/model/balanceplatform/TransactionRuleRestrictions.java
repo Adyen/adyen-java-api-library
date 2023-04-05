@@ -17,11 +17,13 @@ import java.util.Arrays;
 import com.adyen.model.balanceplatform.ActiveNetworkTokensRestriction;
 import com.adyen.model.balanceplatform.BrandVariantsRestriction;
 import com.adyen.model.balanceplatform.CountriesRestriction;
+import com.adyen.model.balanceplatform.DayOfWeekRestriction;
 import com.adyen.model.balanceplatform.DifferentCurrenciesRestriction;
 import com.adyen.model.balanceplatform.EntryModesRestriction;
 import com.adyen.model.balanceplatform.InternationalTransactionRestriction;
 import com.adyen.model.balanceplatform.MatchingTransactionsRestriction;
 import com.adyen.model.balanceplatform.MccsRestriction;
+import com.adyen.model.balanceplatform.MerchantNamesRestriction;
 import com.adyen.model.balanceplatform.MerchantsRestriction;
 import com.adyen.model.balanceplatform.ProcessingTypesRestriction;
 import com.adyen.model.balanceplatform.TimeOfDayRestriction;
@@ -72,6 +74,10 @@ public class TransactionRuleRestrictions {
   @SerializedName(SERIALIZED_NAME_COUNTRIES)
   private CountriesRestriction countries;
 
+  public static final String SERIALIZED_NAME_DAY_OF_WEEK = "dayOfWeek";
+  @SerializedName(SERIALIZED_NAME_DAY_OF_WEEK)
+  private DayOfWeekRestriction dayOfWeek;
+
   public static final String SERIALIZED_NAME_DIFFERENT_CURRENCIES = "differentCurrencies";
   @SerializedName(SERIALIZED_NAME_DIFFERENT_CURRENCIES)
   private DifferentCurrenciesRestriction differentCurrencies;
@@ -91,6 +97,10 @@ public class TransactionRuleRestrictions {
   public static final String SERIALIZED_NAME_MCCS = "mccs";
   @SerializedName(SERIALIZED_NAME_MCCS)
   private MccsRestriction mccs;
+
+  public static final String SERIALIZED_NAME_MERCHANT_NAMES = "merchantNames";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_NAMES)
+  private MerchantNamesRestriction merchantNames;
 
   public static final String SERIALIZED_NAME_MERCHANTS = "merchants";
   @SerializedName(SERIALIZED_NAME_MERCHANTS)
@@ -174,6 +184,28 @@ public class TransactionRuleRestrictions {
 
   public void setCountries(CountriesRestriction countries) {
     this.countries = countries;
+  }
+
+
+  public TransactionRuleRestrictions dayOfWeek(DayOfWeekRestriction dayOfWeek) {
+    
+    this.dayOfWeek = dayOfWeek;
+    return this;
+  }
+
+   /**
+   * Get dayOfWeek
+   * @return dayOfWeek
+  **/
+  @ApiModelProperty(value = "")
+
+  public DayOfWeekRestriction getDayOfWeek() {
+    return dayOfWeek;
+  }
+
+
+  public void setDayOfWeek(DayOfWeekRestriction dayOfWeek) {
+    this.dayOfWeek = dayOfWeek;
   }
 
 
@@ -287,6 +319,28 @@ public class TransactionRuleRestrictions {
   }
 
 
+  public TransactionRuleRestrictions merchantNames(MerchantNamesRestriction merchantNames) {
+    
+    this.merchantNames = merchantNames;
+    return this;
+  }
+
+   /**
+   * Get merchantNames
+   * @return merchantNames
+  **/
+  @ApiModelProperty(value = "")
+
+  public MerchantNamesRestriction getMerchantNames() {
+    return merchantNames;
+  }
+
+
+  public void setMerchantNames(MerchantNamesRestriction merchantNames) {
+    this.merchantNames = merchantNames;
+  }
+
+
   public TransactionRuleRestrictions merchants(MerchantsRestriction merchants) {
     
     this.merchants = merchants;
@@ -388,11 +442,13 @@ public class TransactionRuleRestrictions {
     return Objects.equals(this.activeNetworkTokens, transactionRuleRestrictions.activeNetworkTokens) &&
         Objects.equals(this.brandVariants, transactionRuleRestrictions.brandVariants) &&
         Objects.equals(this.countries, transactionRuleRestrictions.countries) &&
+        Objects.equals(this.dayOfWeek, transactionRuleRestrictions.dayOfWeek) &&
         Objects.equals(this.differentCurrencies, transactionRuleRestrictions.differentCurrencies) &&
         Objects.equals(this.entryModes, transactionRuleRestrictions.entryModes) &&
         Objects.equals(this.internationalTransaction, transactionRuleRestrictions.internationalTransaction) &&
         Objects.equals(this.matchingTransactions, transactionRuleRestrictions.matchingTransactions) &&
         Objects.equals(this.mccs, transactionRuleRestrictions.mccs) &&
+        Objects.equals(this.merchantNames, transactionRuleRestrictions.merchantNames) &&
         Objects.equals(this.merchants, transactionRuleRestrictions.merchants) &&
         Objects.equals(this.processingTypes, transactionRuleRestrictions.processingTypes) &&
         Objects.equals(this.timeOfDay, transactionRuleRestrictions.timeOfDay) &&
@@ -401,7 +457,7 @@ public class TransactionRuleRestrictions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeNetworkTokens, brandVariants, countries, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchants, processingTypes, timeOfDay, totalAmount);
+    return Objects.hash(activeNetworkTokens, brandVariants, countries, dayOfWeek, differentCurrencies, entryModes, internationalTransaction, matchingTransactions, mccs, merchantNames, merchants, processingTypes, timeOfDay, totalAmount);
   }
 
   @Override
@@ -411,11 +467,13 @@ public class TransactionRuleRestrictions {
     sb.append("    activeNetworkTokens: ").append(toIndentedString(activeNetworkTokens)).append("\n");
     sb.append("    brandVariants: ").append(toIndentedString(brandVariants)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
+    sb.append("    dayOfWeek: ").append(toIndentedString(dayOfWeek)).append("\n");
     sb.append("    differentCurrencies: ").append(toIndentedString(differentCurrencies)).append("\n");
     sb.append("    entryModes: ").append(toIndentedString(entryModes)).append("\n");
     sb.append("    internationalTransaction: ").append(toIndentedString(internationalTransaction)).append("\n");
     sb.append("    matchingTransactions: ").append(toIndentedString(matchingTransactions)).append("\n");
     sb.append("    mccs: ").append(toIndentedString(mccs)).append("\n");
+    sb.append("    merchantNames: ").append(toIndentedString(merchantNames)).append("\n");
     sb.append("    merchants: ").append(toIndentedString(merchants)).append("\n");
     sb.append("    processingTypes: ").append(toIndentedString(processingTypes)).append("\n");
     sb.append("    timeOfDay: ").append(toIndentedString(timeOfDay)).append("\n");
@@ -445,11 +503,13 @@ public class TransactionRuleRestrictions {
     openapiFields.add("activeNetworkTokens");
     openapiFields.add("brandVariants");
     openapiFields.add("countries");
+    openapiFields.add("dayOfWeek");
     openapiFields.add("differentCurrencies");
     openapiFields.add("entryModes");
     openapiFields.add("internationalTransaction");
     openapiFields.add("matchingTransactions");
     openapiFields.add("mccs");
+    openapiFields.add("merchantNames");
     openapiFields.add("merchants");
     openapiFields.add("processingTypes");
     openapiFields.add("timeOfDay");
@@ -493,6 +553,10 @@ public class TransactionRuleRestrictions {
       if (jsonObj.getAsJsonObject("countries") != null) {
         CountriesRestriction.validateJsonObject(jsonObj.getAsJsonObject("countries"));
       }
+      // validate the optional field `dayOfWeek`
+      if (jsonObj.getAsJsonObject("dayOfWeek") != null) {
+        DayOfWeekRestriction.validateJsonObject(jsonObj.getAsJsonObject("dayOfWeek"));
+      }
       // validate the optional field `differentCurrencies`
       if (jsonObj.getAsJsonObject("differentCurrencies") != null) {
         DifferentCurrenciesRestriction.validateJsonObject(jsonObj.getAsJsonObject("differentCurrencies"));
@@ -512,6 +576,10 @@ public class TransactionRuleRestrictions {
       // validate the optional field `mccs`
       if (jsonObj.getAsJsonObject("mccs") != null) {
         MccsRestriction.validateJsonObject(jsonObj.getAsJsonObject("mccs"));
+      }
+      // validate the optional field `merchantNames`
+      if (jsonObj.getAsJsonObject("merchantNames") != null) {
+        MerchantNamesRestriction.validateJsonObject(jsonObj.getAsJsonObject("merchantNames"));
       }
       // validate the optional field `merchants`
       if (jsonObj.getAsJsonObject("merchants") != null) {
