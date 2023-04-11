@@ -52,6 +52,57 @@ public class CALocalAccountIdentification {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
   private String accountNumber;
 
+  /**
+   * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
+   */
+  @JsonAdapter(AccountTypeEnum.Adapter.class)
+  public enum AccountTypeEnum {
+    CHECKING("checking"),
+    
+    SAVINGS("savings");
+
+    private String value;
+
+    AccountTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AccountTypeEnum fromValue(String value) {
+      for (AccountTypeEnum b : AccountTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AccountTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AccountTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AccountTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AccountTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "accountType";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
+  private AccountTypeEnum accountType = AccountTypeEnum.CHECKING;
+
   public static final String SERIALIZED_NAME_INSTITUTION_NUMBER = "institutionNumber";
   @SerializedName(SERIALIZED_NAME_INSTITUTION_NUMBER)
   private String institutionNumber;
@@ -134,6 +185,28 @@ public class CALocalAccountIdentification {
   }
 
 
+  public CALocalAccountIdentification accountType(AccountTypeEnum accountType) {
+    
+    this.accountType = accountType;
+    return this;
+  }
+
+   /**
+   * The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.
+   * @return accountType
+  **/
+  @ApiModelProperty(value = "The bank account type.  Possible values: **checking** or **savings**. Defaults to **checking**.")
+
+  public AccountTypeEnum getAccountType() {
+    return accountType;
+  }
+
+
+  public void setAccountType(AccountTypeEnum accountType) {
+    this.accountType = accountType;
+  }
+
+
   public CALocalAccountIdentification institutionNumber(String institutionNumber) {
     
     this.institutionNumber = institutionNumber;
@@ -211,6 +284,7 @@ public class CALocalAccountIdentification {
     }
     CALocalAccountIdentification caLocalAccountIdentification = (CALocalAccountIdentification) o;
     return Objects.equals(this.accountNumber, caLocalAccountIdentification.accountNumber) &&
+        Objects.equals(this.accountType, caLocalAccountIdentification.accountType) &&
         Objects.equals(this.institutionNumber, caLocalAccountIdentification.institutionNumber) &&
         Objects.equals(this.transitNumber, caLocalAccountIdentification.transitNumber) &&
         Objects.equals(this.type, caLocalAccountIdentification.type);
@@ -218,7 +292,7 @@ public class CALocalAccountIdentification {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, institutionNumber, transitNumber, type);
+    return Objects.hash(accountNumber, accountType, institutionNumber, transitNumber, type);
   }
 
   @Override
@@ -226,6 +300,7 @@ public class CALocalAccountIdentification {
     StringBuilder sb = new StringBuilder();
     sb.append("class CALocalAccountIdentification {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    institutionNumber: ").append(toIndentedString(institutionNumber)).append("\n");
     sb.append("    transitNumber: ").append(toIndentedString(transitNumber)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -252,6 +327,7 @@ public class CALocalAccountIdentification {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("accountNumber");
+    openapiFields.add("accountType");
     openapiFields.add("institutionNumber");
     openapiFields.add("transitNumber");
     openapiFields.add("type");
@@ -296,6 +372,13 @@ public class CALocalAccountIdentification {
       // validate the optional field accountNumber
       if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+      }
+      // ensure the field accountType can be parsed to an enum value
+      if (jsonObj.get("accountType") != null) {
+        if(!jsonObj.get("accountType").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `accountType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountType").toString()));
+        }
+        AccountTypeEnum.fromValue(jsonObj.get("accountType").getAsString());
       }
       // validate the optional field institutionNumber
       if (jsonObj.get("institutionNumber") != null && !jsonObj.get("institutionNumber").isJsonPrimitive()) {

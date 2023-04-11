@@ -52,6 +52,10 @@ public class GooglePayInfo {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
+  public static final String SERIALIZED_NAME_REUSE_MERCHANT_ID = "reuseMerchantId";
+  @SerializedName(SERIALIZED_NAME_REUSE_MERCHANT_ID)
+  private Boolean reuseMerchantId;
+
   public GooglePayInfo() { 
   }
 
@@ -65,7 +69,7 @@ public class GooglePayInfo {
    * Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl&#x3D;en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.
    * @return merchantId
   **/
-  @ApiModelProperty(value = "Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
+  @ApiModelProperty(required = true, value = "Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.")
 
   public String getMerchantId() {
     return merchantId;
@@ -74,6 +78,28 @@ public class GooglePayInfo {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+  }
+
+
+  public GooglePayInfo reuseMerchantId(Boolean reuseMerchantId) {
+    
+    this.reuseMerchantId = reuseMerchantId;
+    return this;
+  }
+
+   /**
+   * Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.
+   * @return reuseMerchantId
+  **/
+  @ApiModelProperty(value = "Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**.")
+
+  public Boolean getReuseMerchantId() {
+    return reuseMerchantId;
+  }
+
+
+  public void setReuseMerchantId(Boolean reuseMerchantId) {
+    this.reuseMerchantId = reuseMerchantId;
   }
 
 
@@ -87,12 +113,13 @@ public class GooglePayInfo {
       return false;
     }
     GooglePayInfo googlePayInfo = (GooglePayInfo) o;
-    return Objects.equals(this.merchantId, googlePayInfo.merchantId);
+    return Objects.equals(this.merchantId, googlePayInfo.merchantId) &&
+        Objects.equals(this.reuseMerchantId, googlePayInfo.reuseMerchantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantId);
+    return Objects.hash(merchantId, reuseMerchantId);
   }
 
   @Override
@@ -100,6 +127,7 @@ public class GooglePayInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class GooglePayInfo {\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    reuseMerchantId: ").append(toIndentedString(reuseMerchantId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -123,9 +151,11 @@ public class GooglePayInfo {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("merchantId");
+    openapiFields.add("reuseMerchantId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("merchantId");
   }
 
  /**
@@ -148,6 +178,13 @@ public class GooglePayInfo {
       for (Entry<String, JsonElement> entry : entries) {
         if (!GooglePayInfo.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GooglePayInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : GooglePayInfo.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field merchantId

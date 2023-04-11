@@ -14,7 +14,7 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.balanceplatform.BalanceAccount;
+import com.adyen.model.balanceplatform.BalanceAccountBase;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -53,7 +53,7 @@ import com.adyen.model.balanceplatform.JSON;
 public class PaginatedBalanceAccountsResponse {
   public static final String SERIALIZED_NAME_BALANCE_ACCOUNTS = "balanceAccounts";
   @SerializedName(SERIALIZED_NAME_BALANCE_ACCOUNTS)
-  private List<BalanceAccount> balanceAccounts = new ArrayList<>();
+  private List<BalanceAccountBase> balanceAccounts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HAS_NEXT = "hasNext";
   @SerializedName(SERIALIZED_NAME_HAS_NEXT)
@@ -66,13 +66,13 @@ public class PaginatedBalanceAccountsResponse {
   public PaginatedBalanceAccountsResponse() { 
   }
 
-  public PaginatedBalanceAccountsResponse balanceAccounts(List<BalanceAccount> balanceAccounts) {
+  public PaginatedBalanceAccountsResponse balanceAccounts(List<BalanceAccountBase> balanceAccounts) {
     
     this.balanceAccounts = balanceAccounts;
     return this;
   }
 
-  public PaginatedBalanceAccountsResponse addBalanceAccountsItem(BalanceAccount balanceAccountsItem) {
+  public PaginatedBalanceAccountsResponse addBalanceAccountsItem(BalanceAccountBase balanceAccountsItem) {
     this.balanceAccounts.add(balanceAccountsItem);
     return this;
   }
@@ -83,12 +83,12 @@ public class PaginatedBalanceAccountsResponse {
   **/
   @ApiModelProperty(required = true, value = "List of balance accounts.")
 
-  public List<BalanceAccount> getBalanceAccounts() {
+  public List<BalanceAccountBase> getBalanceAccounts() {
     return balanceAccounts;
   }
 
 
-  public void setBalanceAccounts(List<BalanceAccount> balanceAccounts) {
+  public void setBalanceAccounts(List<BalanceAccountBase> balanceAccounts) {
     this.balanceAccounts = balanceAccounts;
   }
 
@@ -235,7 +235,7 @@ public class PaginatedBalanceAccountsResponse {
 
         // validate the optional field `balanceAccounts` (array)
         for (int i = 0; i < jsonArraybalanceAccounts.size(); i++) {
-          BalanceAccount.validateJsonObject(jsonArraybalanceAccounts.get(i).getAsJsonObject());
+          BalanceAccountBase.validateJsonObject(jsonArraybalanceAccounts.get(i).getAsJsonObject());
         };
       }
   }
