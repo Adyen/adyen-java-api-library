@@ -76,11 +76,11 @@ public class UpdateCompanyWebhookRequest {
    */
   @JsonAdapter(CommunicationFormatEnum.Adapter.class)
   public enum CommunicationFormatEnum {
-    HTTP("HTTP"),
+    HTTP("http"),
     
-    JSON("JSON"),
+    JSON("json"),
     
-    SOAP("SOAP");
+    SOAP("soap");
 
     private String value;
 
@@ -133,11 +133,11 @@ public class UpdateCompanyWebhookRequest {
    */
   @JsonAdapter(FilterMerchantAccountTypeEnum.Adapter.class)
   public enum FilterMerchantAccountTypeEnum {
-    EXCLUDE_LIST("EXCLUDE_LIST"),
+    ALLACCOUNTS("allAccounts"),
     
-    INCLUDE_ALL("INCLUDE_ALL"),
+    EXCLUDEACCOUNTS("excludeAccounts"),
     
-    INCLUDE_LIST("INCLUDE_LIST");
+    INCLUDEACCOUNTS("includeAccounts");
 
     private String value;
 
@@ -253,21 +253,17 @@ public class UpdateCompanyWebhookRequest {
     
     SSL("SSL"),
     
-    SSLV3("SSLV3"),
-    
-    SSL_INSECURE_CIPHERS("SSL_INSECURE_CIPHERS"),
+    SSLV3("SSLv3"),
     
     TLS("TLS"),
     
-    TLSV1("TLSV1"),
+    TLSV1("TLSv1"),
     
-    TLSV1_1("TLSV1_1"),
+    TLSV1_1("TLSv1.1"),
     
-    TLSV1_2("TLSV1_2"),
+    TLSV1_2("TLSv1.2"),
     
-    TLSV1_3("TLSV1_3"),
-    
-    TLSV1_INSECURE_CIPHERS("TLSV1_INSECURE_CIPHERS");
+    TLSV1_3("TLSv1.3");
 
     private String value;
 
@@ -442,7 +438,7 @@ public class UpdateCompanyWebhookRequest {
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
    * @return communicationFormat
   **/
-  @ApiModelProperty(example = "SOAP", value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
+  @ApiModelProperty(example = "soap", value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
 
   public CommunicationFormatEnum getCommunicationFormat() {
     return communicationFormat;
@@ -626,7 +622,7 @@ public class UpdateCompanyWebhookRequest {
    * Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.
    * @return url
   **/
-  @ApiModelProperty(example = "http://www.adyen.com", required = true, value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
+  @ApiModelProperty(example = "http://www.adyen.com", value = "Public URL where webhooks will be sent, for example **https://www.domain.com/webhook-endpoint**.")
 
   public String getUrl() {
     return url;
@@ -751,7 +747,6 @@ public class UpdateCompanyWebhookRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("url");
   }
 
  /**
@@ -774,13 +769,6 @@ public class UpdateCompanyWebhookRequest {
       for (Entry<String, JsonElement> entry : entries) {
         if (!UpdateCompanyWebhookRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateCompanyWebhookRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateCompanyWebhookRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field `additionalSettings`

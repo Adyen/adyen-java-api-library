@@ -124,7 +124,7 @@ public class PhoneNumber {
    * The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.
    * @return phoneCountryCode
   **/
-  @ApiModelProperty(required = true, value = "The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.")
+  @ApiModelProperty(value = "The two-character ISO-3166-1 alpha-2 country code of the phone number. For example, **US** or **NL**.")
 
   public String getPhoneCountryCode() {
     return phoneCountryCode;
@@ -146,7 +146,7 @@ public class PhoneNumber {
    * The phone number. The inclusion of the phone number country code is not necessary.
    * @return phoneNumber
   **/
-  @ApiModelProperty(required = true, value = "The phone number. The inclusion of the phone number country code is not necessary.")
+  @ApiModelProperty(value = "The phone number. The inclusion of the phone number country code is not necessary.")
 
   public String getPhoneNumber() {
     return phoneNumber;
@@ -235,8 +235,6 @@ public class PhoneNumber {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("phoneCountryCode");
-    openapiRequiredFields.add("phoneNumber");
   }
 
  /**
@@ -259,13 +257,6 @@ public class PhoneNumber {
       for (Entry<String, JsonElement> entry : entries) {
         if (!PhoneNumber.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PhoneNumber` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PhoneNumber.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field phoneCountryCode

@@ -61,9 +61,13 @@ public class GetTermsOfServiceDocumentRequest {
     
     ADYENCAPITAL("adyenCapital"),
     
+    ADYENCARD("adyenCard"),
+    
     ADYENFORPLATFORMSADVANCED("adyenForPlatformsAdvanced"),
     
     ADYENFORPLATFORMSMANAGE("adyenForPlatformsManage"),
+    
+    ADYENFRANCHISEE("adyenFranchisee"),
     
     ADYENISSUING("adyenIssuing");
 

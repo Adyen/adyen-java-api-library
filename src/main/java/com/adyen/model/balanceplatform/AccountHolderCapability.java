@@ -14,6 +14,7 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.adyen.model.balanceplatform.AccountSupportingEntityCapability;
 import com.adyen.model.balanceplatform.JSONObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -184,6 +185,10 @@ public class AccountHolderCapability {
   public static final String SERIALIZED_NAME_REQUESTED_SETTINGS = "requestedSettings";
   @SerializedName(SERIALIZED_NAME_REQUESTED_SETTINGS)
   private JSONObject requestedSettings;
+
+  public static final String SERIALIZED_NAME_TRANSFER_INSTRUMENTS = "transferInstruments";
+  @SerializedName(SERIALIZED_NAME_TRANSFER_INSTRUMENTS)
+  private List<AccountSupportingEntityCapability> transferInstruments = null;
 
   /**
    * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
@@ -406,6 +411,36 @@ public class AccountHolderCapability {
   }
 
 
+  public AccountHolderCapability transferInstruments(List<AccountSupportingEntityCapability> transferInstruments) {
+    
+    this.transferInstruments = transferInstruments;
+    return this;
+  }
+
+  public AccountHolderCapability addTransferInstrumentsItem(AccountSupportingEntityCapability transferInstrumentsItem) {
+    if (this.transferInstruments == null) {
+      this.transferInstruments = new ArrayList<>();
+    }
+    this.transferInstruments.add(transferInstrumentsItem);
+    return this;
+  }
+
+   /**
+   * Contains the status of the transfer instruments associated with this capability. 
+   * @return transferInstruments
+  **/
+  @ApiModelProperty(value = "Contains the status of the transfer instruments associated with this capability. ")
+
+  public List<AccountSupportingEntityCapability> getTransferInstruments() {
+    return transferInstruments;
+  }
+
+
+  public void setTransferInstruments(List<AccountSupportingEntityCapability> transferInstruments) {
+    this.transferInstruments = transferInstruments;
+  }
+
+
    /**
    * The status of the verification checks for the capability.  Possible values:  * **pending**: Adyen is running the verification.  * **invalid**: The verification failed. Check if the &#x60;errors&#x60; array contains more information.  * **valid**: The verification has been successfully completed.  * **rejected**: Adyen has verified the information, but found reasons to not allow the capability. 
    * @return verificationStatus
@@ -437,12 +472,13 @@ public class AccountHolderCapability {
         Objects.equals(this.requested, accountHolderCapability.requested) &&
         Objects.equals(this.requestedLevel, accountHolderCapability.requestedLevel) &&
         Objects.equals(this.requestedSettings, accountHolderCapability.requestedSettings) &&
+        Objects.equals(this.transferInstruments, accountHolderCapability.transferInstruments) &&
         Objects.equals(this.verificationStatus, accountHolderCapability.verificationStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, allowedLevel, allowedSettings, enabled, problems, requested, requestedLevel, requestedSettings, verificationStatus);
+    return Objects.hash(allowed, allowedLevel, allowedSettings, enabled, problems, requested, requestedLevel, requestedSettings, transferInstruments, verificationStatus);
   }
 
   @Override
@@ -457,6 +493,7 @@ public class AccountHolderCapability {
     sb.append("    requested: ").append(toIndentedString(requested)).append("\n");
     sb.append("    requestedLevel: ").append(toIndentedString(requestedLevel)).append("\n");
     sb.append("    requestedSettings: ").append(toIndentedString(requestedSettings)).append("\n");
+    sb.append("    transferInstruments: ").append(toIndentedString(transferInstruments)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -488,6 +525,7 @@ public class AccountHolderCapability {
     openapiFields.add("requested");
     openapiFields.add("requestedLevel");
     openapiFields.add("requestedSettings");
+    openapiFields.add("transferInstruments");
     openapiFields.add("verificationStatus");
 
     // a set of required properties/fields (JSON key names)
@@ -541,6 +579,18 @@ public class AccountHolderCapability {
       // validate the optional field `requestedSettings`
       if (jsonObj.getAsJsonObject("requestedSettings") != null) {
         JSONObject.validateJsonObject(jsonObj.getAsJsonObject("requestedSettings"));
+      }
+      JsonArray jsonArraytransferInstruments = jsonObj.getAsJsonArray("transferInstruments");
+      if (jsonArraytransferInstruments != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("transferInstruments").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `transferInstruments` to be an array in the JSON string but got `%s`", jsonObj.get("transferInstruments").toString()));
+        }
+
+        // validate the optional field `transferInstruments` (array)
+        for (int i = 0; i < jsonArraytransferInstruments.size(); i++) {
+          AccountSupportingEntityCapability.validateJsonObject(jsonArraytransferInstruments.get(i).getAsJsonObject());
+        };
       }
       // ensure the field verificationStatus can be parsed to an enum value
       if (jsonObj.get("verificationStatus") != null) {

@@ -89,11 +89,11 @@ public class Webhook {
    */
   @JsonAdapter(CommunicationFormatEnum.Adapter.class)
   public enum CommunicationFormatEnum {
-    HTTP("HTTP"),
+    HTTP("http"),
     
-    JSON("JSON"),
+    JSON("json"),
     
-    SOAP("SOAP");
+    SOAP("soap");
 
     private String value;
 
@@ -146,11 +146,11 @@ public class Webhook {
    */
   @JsonAdapter(FilterMerchantAccountTypeEnum.Adapter.class)
   public enum FilterMerchantAccountTypeEnum {
-    EXCLUDE_LIST("EXCLUDE_LIST"),
+    ALLACCOUNTS("allAccounts"),
     
-    INCLUDE_ALL("INCLUDE_ALL"),
+    EXCLUDEACCOUNTS("excludeAccounts"),
     
-    INCLUDE_LIST("INCLUDE_LIST");
+    INCLUDEACCOUNTS("includeAccounts");
 
     private String value;
 
@@ -278,21 +278,17 @@ public class Webhook {
     
     SSL("SSL"),
     
-    SSLV3("SSLV3"),
-    
-    SSL_INSECURE_CIPHERS("SSL_INSECURE_CIPHERS"),
+    SSLV3("SSLv3"),
     
     TLS("TLS"),
     
-    TLSV1("TLSV1"),
+    TLSV1("TLSv1"),
     
-    TLSV1_1("TLSV1_1"),
+    TLSV1_1("TLSv1.1"),
     
-    TLSV1_2("TLSV1_2"),
+    TLSV1_2("TLSv1.2"),
     
-    TLSV1_3("TLSV1_3"),
-    
-    TLSV1_INSECURE_CIPHERS("TLSV1_INSECURE_CIPHERS");
+    TLSV1_3("TLSv1.3");
 
     private String value;
 
@@ -537,7 +533,7 @@ public class Webhook {
    * Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** 
    * @return communicationFormat
   **/
-  @ApiModelProperty(example = "SOAP", required = true, value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
+  @ApiModelProperty(example = "soap", required = true, value = "Format or protocol for receiving webhooks. Possible values: * **soap** * **http** * **json** ")
 
   public CommunicationFormatEnum getCommunicationFormat() {
     return communicationFormat;

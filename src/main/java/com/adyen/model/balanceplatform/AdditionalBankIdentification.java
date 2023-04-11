@@ -14,7 +14,6 @@ package com.adyen.model.balanceplatform;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.balanceplatform.RemediatingAction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,8 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,28 +44,22 @@ import java.util.Set;
 import com.adyen.model.balanceplatform.JSON;
 
 /**
- * VerificationErrorRecursive
+ * AdditionalBankIdentification
  */
 
-public class VerificationErrorRecursive {
+public class AdditionalBankIdentification {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
-
   /**
-   * The type of error.   Possible values: **invalidInput**, **dataMissing**.
+   * The type of additional bank identification, depending on the country.  Possible values:   * **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces  * **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
-    DATAMISSING("dataMissing"),
+    GBSORTCODE("gbSortCode"),
     
-    INVALIDINPUT("invalidInput"),
-    
-    PENDINGSTATUS("pendingStatus");
+    USROUTINGNUMBER("usRoutingNumber");
 
     private String value;
 
@@ -112,24 +103,20 @@ public class VerificationErrorRecursive {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_REMEDIATING_ACTIONS = "remediatingActions";
-  @SerializedName(SERIALIZED_NAME_REMEDIATING_ACTIONS)
-  private List<RemediatingAction> remediatingActions = null;
-
-  public VerificationErrorRecursive() { 
+  public AdditionalBankIdentification() { 
   }
 
-  public VerificationErrorRecursive code(String code) {
+  public AdditionalBankIdentification code(String code) {
     
     this.code = code;
     return this;
   }
 
    /**
-   * The verification error code.
+   * The value of the additional bank identification.
    * @return code
   **/
-  @ApiModelProperty(value = "The verification error code.")
+  @ApiModelProperty(value = "The value of the additional bank identification.")
 
   public String getCode() {
     return code;
@@ -141,39 +128,17 @@ public class VerificationErrorRecursive {
   }
 
 
-  public VerificationErrorRecursive message(String message) {
-    
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * A description of the error.
-   * @return message
-  **/
-  @ApiModelProperty(value = "A description of the error.")
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public VerificationErrorRecursive type(TypeEnum type) {
+  public AdditionalBankIdentification type(TypeEnum type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * The type of error.   Possible values: **invalidInput**, **dataMissing**.
+   * The type of additional bank identification, depending on the country.  Possible values:   * **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces  * **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces.
    * @return type
   **/
-  @ApiModelProperty(value = "The type of error.   Possible values: **invalidInput**, **dataMissing**.")
+  @ApiModelProperty(value = "The type of additional bank identification, depending on the country.  Possible values:   * **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces  * **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces.")
 
   public TypeEnum getType() {
     return type;
@@ -182,36 +147,6 @@ public class VerificationErrorRecursive {
 
   public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-
-  public VerificationErrorRecursive remediatingActions(List<RemediatingAction> remediatingActions) {
-    
-    this.remediatingActions = remediatingActions;
-    return this;
-  }
-
-  public VerificationErrorRecursive addRemediatingActionsItem(RemediatingAction remediatingActionsItem) {
-    if (this.remediatingActions == null) {
-      this.remediatingActions = new ArrayList<>();
-    }
-    this.remediatingActions.add(remediatingActionsItem);
-    return this;
-  }
-
-   /**
-   * Contains the actions that you can take to resolve the verification error.
-   * @return remediatingActions
-  **/
-  @ApiModelProperty(value = "Contains the actions that you can take to resolve the verification error.")
-
-  public List<RemediatingAction> getRemediatingActions() {
-    return remediatingActions;
-  }
-
-
-  public void setRemediatingActions(List<RemediatingAction> remediatingActions) {
-    this.remediatingActions = remediatingActions;
   }
 
 
@@ -224,26 +159,22 @@ public class VerificationErrorRecursive {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VerificationErrorRecursive verificationErrorRecursive = (VerificationErrorRecursive) o;
-    return Objects.equals(this.code, verificationErrorRecursive.code) &&
-        Objects.equals(this.message, verificationErrorRecursive.message) &&
-        Objects.equals(this.type, verificationErrorRecursive.type) &&
-        Objects.equals(this.remediatingActions, verificationErrorRecursive.remediatingActions);
+    AdditionalBankIdentification additionalBankIdentification = (AdditionalBankIdentification) o;
+    return Objects.equals(this.code, additionalBankIdentification.code) &&
+        Objects.equals(this.type, additionalBankIdentification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message, type, remediatingActions);
+    return Objects.hash(code, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VerificationErrorRecursive {\n");
+    sb.append("class AdditionalBankIdentification {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    remediatingActions: ").append(toIndentedString(remediatingActions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -267,9 +198,7 @@ public class VerificationErrorRecursive {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("code");
-    openapiFields.add("message");
     openapiFields.add("type");
-    openapiFields.add("remediatingActions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -279,31 +208,27 @@ public class VerificationErrorRecursive {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to VerificationErrorRecursive
+  * @throws IOException if the JSON Object is invalid with respect to AdditionalBankIdentification
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (VerificationErrorRecursive.openapiRequiredFields.isEmpty()) {
+        if (AdditionalBankIdentification.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VerificationErrorRecursive is not found in the empty JSON string", VerificationErrorRecursive.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalBankIdentification is not found in the empty JSON string", AdditionalBankIdentification.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!VerificationErrorRecursive.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerificationErrorRecursive` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!AdditionalBankIdentification.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalBankIdentification` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field code
       if (jsonObj.get("code") != null && !jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
-      }
-      // validate the optional field message
-      if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {
@@ -312,40 +237,28 @@ public class VerificationErrorRecursive {
         }
         TypeEnum.fromValue(jsonObj.get("type").getAsString());
       }
-      JsonArray jsonArrayremediatingActions = jsonObj.getAsJsonArray("remediatingActions");
-      if (jsonArrayremediatingActions != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("remediatingActions").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `remediatingActions` to be an array in the JSON string but got `%s`", jsonObj.get("remediatingActions").toString()));
-        }
-
-        // validate the optional field `remediatingActions` (array)
-        for (int i = 0; i < jsonArrayremediatingActions.size(); i++) {
-          RemediatingAction.validateJsonObject(jsonArrayremediatingActions.get(i).getAsJsonObject());
-        };
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VerificationErrorRecursive.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VerificationErrorRecursive' and its subtypes
+       if (!AdditionalBankIdentification.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AdditionalBankIdentification' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VerificationErrorRecursive> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VerificationErrorRecursive.class));
+       final TypeAdapter<AdditionalBankIdentification> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AdditionalBankIdentification.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VerificationErrorRecursive>() {
+       return (TypeAdapter<T>) new TypeAdapter<AdditionalBankIdentification>() {
            @Override
-           public void write(JsonWriter out, VerificationErrorRecursive value) throws IOException {
+           public void write(JsonWriter out, AdditionalBankIdentification value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public VerificationErrorRecursive read(JsonReader in) throws IOException {
+           public AdditionalBankIdentification read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -356,18 +269,18 @@ public class VerificationErrorRecursive {
   }
 
  /**
-  * Create an instance of VerificationErrorRecursive given an JSON string
+  * Create an instance of AdditionalBankIdentification given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of VerificationErrorRecursive
-  * @throws IOException if the JSON string is invalid with respect to VerificationErrorRecursive
+  * @return An instance of AdditionalBankIdentification
+  * @throws IOException if the JSON string is invalid with respect to AdditionalBankIdentification
   */
-  public static VerificationErrorRecursive fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VerificationErrorRecursive.class);
+  public static AdditionalBankIdentification fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AdditionalBankIdentification.class);
   }
 
  /**
-  * Convert an instance of VerificationErrorRecursive to an JSON string
+  * Convert an instance of AdditionalBankIdentification to an JSON string
   *
   * @return JSON string
   */

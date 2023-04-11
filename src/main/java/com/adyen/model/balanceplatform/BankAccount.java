@@ -48,12 +48,113 @@ import com.adyen.model.balanceplatform.JSON;
  */
 
 public class BankAccount {
+  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "accountNumber";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
+  private String accountNumber;
+
+  /**
+   * The bank account type.  Possible values: **checking** only.
+   */
+  @JsonAdapter(AccountTypeEnum.Adapter.class)
+  public enum AccountTypeEnum {
+    CHECKING("checking");
+
+    private String value;
+
+    AccountTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AccountTypeEnum fromValue(String value) {
+      for (AccountTypeEnum b : AccountTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AccountTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AccountTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AccountTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AccountTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "accountType";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
+  private AccountTypeEnum accountType;
+
   public static final String SERIALIZED_NAME_IBAN = "iban";
   @SerializedName(SERIALIZED_NAME_IBAN)
   private String iban;
 
+  public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routingNumber";
+  @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
+  private String routingNumber;
+
   public BankAccount() { 
   }
+
+  public BankAccount accountNumber(String accountNumber) {
+    
+    this.accountNumber = accountNumber;
+    return this;
+  }
+
+   /**
+   * The bank account number, without separators or whitespace.
+   * @return accountNumber
+  **/
+  @ApiModelProperty(value = "The bank account number, without separators or whitespace.")
+
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+
+  public BankAccount accountType(AccountTypeEnum accountType) {
+    
+    this.accountType = accountType;
+    return this;
+  }
+
+   /**
+   * The bank account type.  Possible values: **checking** only.
+   * @return accountType
+  **/
+  @ApiModelProperty(value = "The bank account type.  Possible values: **checking** only.")
+
+  public AccountTypeEnum getAccountType() {
+    return accountType;
+  }
+
+
+  public void setAccountType(AccountTypeEnum accountType) {
+    this.accountType = accountType;
+  }
+
 
   public BankAccount iban(String iban) {
     
@@ -77,6 +178,28 @@ public class BankAccount {
   }
 
 
+  public BankAccount routingNumber(String routingNumber) {
+    
+    this.routingNumber = routingNumber;
+    return this;
+  }
+
+   /**
+   * The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.
+   * @return routingNumber
+  **/
+  @ApiModelProperty(value = "The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace.")
+
+  public String getRoutingNumber() {
+    return routingNumber;
+  }
+
+
+  public void setRoutingNumber(String routingNumber) {
+    this.routingNumber = routingNumber;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -87,19 +210,25 @@ public class BankAccount {
       return false;
     }
     BankAccount bankAccount = (BankAccount) o;
-    return Objects.equals(this.iban, bankAccount.iban);
+    return Objects.equals(this.accountNumber, bankAccount.accountNumber) &&
+        Objects.equals(this.accountType, bankAccount.accountType) &&
+        Objects.equals(this.iban, bankAccount.iban) &&
+        Objects.equals(this.routingNumber, bankAccount.routingNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iban);
+    return Objects.hash(accountNumber, accountType, iban, routingNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BankAccount {\n");
+    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+    sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -122,7 +251,10 @@ public class BankAccount {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("accountNumber");
+    openapiFields.add("accountType");
     openapiFields.add("iban");
+    openapiFields.add("routingNumber");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -158,9 +290,24 @@ public class BankAccount {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      // validate the optional field accountNumber
+      if (jsonObj.get("accountNumber") != null && !jsonObj.get("accountNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountNumber").toString()));
+      }
+      // ensure the field accountType can be parsed to an enum value
+      if (jsonObj.get("accountType") != null) {
+        if(!jsonObj.get("accountType").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `accountType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountType").toString()));
+        }
+        AccountTypeEnum.fromValue(jsonObj.get("accountType").getAsString());
+      }
       // validate the optional field iban
       if (jsonObj.get("iban") != null && !jsonObj.get("iban").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `iban` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iban").toString()));
+      }
+      // validate the optional field routingNumber
+      if (jsonObj.get("routingNumber") != null && !jsonObj.get("routingNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `routingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routingNumber").toString()));
       }
   }
 
