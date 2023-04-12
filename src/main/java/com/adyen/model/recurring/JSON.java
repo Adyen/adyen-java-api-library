@@ -110,6 +110,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.recurring.PermitResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.recurring.Recurring.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.recurring.RecurringDetail.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.recurring.RecurringDetailWrapper.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.recurring.RecurringDetailsRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.recurring.RecurringDetailsResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.adyen.model.recurring.ScheduleAccountUpdaterRequest.CustomTypeAdapterFactory());

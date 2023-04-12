@@ -14,7 +14,7 @@ package com.adyen.model.recurring;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.adyen.model.recurring.RecurringDetail;
+import com.adyen.model.recurring.RecurringDetailWrapper;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -58,7 +58,7 @@ public class RecurringDetailsResult {
 
   public static final String SERIALIZED_NAME_DETAILS = "details";
   @SerializedName(SERIALIZED_NAME_DETAILS)
-  private List<RecurringDetail> details = null;
+  private List<RecurringDetailWrapper> details = null;
 
   public static final String SERIALIZED_NAME_LAST_KNOWN_SHOPPER_EMAIL = "lastKnownShopperEmail";
   @SerializedName(SERIALIZED_NAME_LAST_KNOWN_SHOPPER_EMAIL)
@@ -93,13 +93,13 @@ public class RecurringDetailsResult {
   }
 
 
-  public RecurringDetailsResult details(List<RecurringDetail> details) {
+  public RecurringDetailsResult details(List<RecurringDetailWrapper> details) {
     
     this.details = details;
     return this;
   }
 
-  public RecurringDetailsResult addDetailsItem(RecurringDetail detailsItem) {
+  public RecurringDetailsResult addDetailsItem(RecurringDetailWrapper detailsItem) {
     if (this.details == null) {
       this.details = new ArrayList<>();
     }
@@ -113,12 +113,12 @@ public class RecurringDetailsResult {
   **/
   @ApiModelProperty(value = "Payment details stored for recurring payments.")
 
-  public List<RecurringDetail> getDetails() {
+  public List<RecurringDetailWrapper> getDetails() {
     return details;
   }
 
 
-  public void setDetails(List<RecurringDetail> details) {
+  public void setDetails(List<RecurringDetailWrapper> details) {
     this.details = details;
   }
 
@@ -258,7 +258,7 @@ public class RecurringDetailsResult {
 
         // validate the optional field `details` (array)
         for (int i = 0; i < jsonArraydetails.size(); i++) {
-          RecurringDetail.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
+          RecurringDetailWrapper.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
         };
       }
       // validate the optional field lastKnownShopperEmail

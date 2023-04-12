@@ -137,7 +137,7 @@ public class Card {
    * The card expiry year. Format: 4 digits. For example: 2020
    * @return expiryYear
   **/
-  @ApiModelProperty(required = true, value = "The card expiry year. Format: 4 digits. For example: 2020")
+  @ApiModelProperty(value = "The card expiry year. Format: 4 digits. For example: 2020")
 
   public String getExpiryYear() {
     return expiryYear;
@@ -159,7 +159,7 @@ public class Card {
    * The name of the cardholder, as printed on the card.
    * @return holderName
   **/
-  @ApiModelProperty(required = true, value = "The name of the cardholder, as printed on the card.")
+  @ApiModelProperty(value = "The name of the cardholder, as printed on the card.")
 
   public String getHolderName() {
     return holderName;
@@ -329,8 +329,6 @@ public class Card {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("expiryYear");
-    openapiRequiredFields.add("holderName");
   }
 
  /**
@@ -353,13 +351,6 @@ public class Card {
       for (Entry<String, JsonElement> entry : entries) {
         if (!Card.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Card` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Card.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       // validate the optional field cvc
