@@ -56,6 +56,10 @@ public class TransferInstrumentReference {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_REAL_LAST_FOUR = "realLastFour";
+  @SerializedName(SERIALIZED_NAME_REAL_LAST_FOUR)
+  private String realLastFour;
+
   public TransferInstrumentReference() { 
   }
 
@@ -103,6 +107,28 @@ public class TransferInstrumentReference {
   }
 
 
+  public TransferInstrumentReference realLastFour(String realLastFour) {
+    
+    this.realLastFour = realLastFour;
+    return this;
+  }
+
+   /**
+   * Four last digits of the bank account number.
+   * @return realLastFour
+  **/
+  @ApiModelProperty(value = "Four last digits of the bank account number.")
+
+  public String getRealLastFour() {
+    return realLastFour;
+  }
+
+
+  public void setRealLastFour(String realLastFour) {
+    this.realLastFour = realLastFour;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -114,12 +140,13 @@ public class TransferInstrumentReference {
     }
     TransferInstrumentReference transferInstrumentReference = (TransferInstrumentReference) o;
     return Objects.equals(this.accountIdentifier, transferInstrumentReference.accountIdentifier) &&
-        Objects.equals(this.id, transferInstrumentReference.id);
+        Objects.equals(this.id, transferInstrumentReference.id) &&
+        Objects.equals(this.realLastFour, transferInstrumentReference.realLastFour);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountIdentifier, id);
+    return Objects.hash(accountIdentifier, id, realLastFour);
   }
 
   @Override
@@ -128,6 +155,7 @@ public class TransferInstrumentReference {
     sb.append("class TransferInstrumentReference {\n");
     sb.append("    accountIdentifier: ").append(toIndentedString(accountIdentifier)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    realLastFour: ").append(toIndentedString(realLastFour)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -152,6 +180,7 @@ public class TransferInstrumentReference {
     openapiFields = new HashSet<String>();
     openapiFields.add("accountIdentifier");
     openapiFields.add("id");
+    openapiFields.add("realLastFour");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -195,6 +224,10 @@ public class TransferInstrumentReference {
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      // validate the optional field realLastFour
+      if (jsonObj.get("realLastFour") != null && !jsonObj.get("realLastFour").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `realLastFour` to be a primitive type in the JSON string but got `%s`", jsonObj.get("realLastFour").toString()));
       }
   }
 

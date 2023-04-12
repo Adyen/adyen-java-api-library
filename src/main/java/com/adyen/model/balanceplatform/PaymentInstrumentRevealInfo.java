@@ -71,10 +71,10 @@ public class PaymentInstrumentRevealInfo {
   }
 
    /**
-   * The cvc of the card.
+   * The CVC2 value of the card.
    * @return cvc
   **/
-  @ApiModelProperty(required = true, value = "The cvc of the card.")
+  @ApiModelProperty(required = true, value = "The CVC2 value of the card.")
 
   public String getCvc() {
     return cvc;
@@ -115,10 +115,10 @@ public class PaymentInstrumentRevealInfo {
   }
 
    /**
-   * The pan number of the card.
+   * The primary account number (PAN) of the card.
    * @return pan
   **/
-  @ApiModelProperty(required = true, value = "The pan number of the card.")
+  @ApiModelProperty(required = true, value = "The primary account number (PAN) of the card.")
 
   public String getPan() {
     return pan;

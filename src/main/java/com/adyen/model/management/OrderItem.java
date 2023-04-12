@@ -52,6 +52,10 @@ public class OrderItem {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_INSTALLMENTS = "installments";
+  @SerializedName(SERIALIZED_NAME_INSTALLMENTS)
+  private Long installments;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -82,6 +86,28 @@ public class OrderItem {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public OrderItem installments(Long installments) {
+    
+    this.installments = installments;
+    return this;
+  }
+
+   /**
+   * The number of installments for the specified product &#x60;id&#x60;.
+   * @return installments
+  **/
+  @ApiModelProperty(value = "The number of installments for the specified product `id`.")
+
+  public Long getInstallments() {
+    return installments;
+  }
+
+
+  public void setInstallments(Long installments) {
+    this.installments = installments;
   }
 
 
@@ -140,13 +166,14 @@ public class OrderItem {
     }
     OrderItem orderItem = (OrderItem) o;
     return Objects.equals(this.id, orderItem.id) &&
+        Objects.equals(this.installments, orderItem.installments) &&
         Objects.equals(this.name, orderItem.name) &&
         Objects.equals(this.quantity, orderItem.quantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, quantity);
+    return Objects.hash(id, installments, name, quantity);
   }
 
   @Override
@@ -154,6 +181,7 @@ public class OrderItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderItem {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("}");
@@ -179,6 +207,7 @@ public class OrderItem {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("installments");
     openapiFields.add("name");
     openapiFields.add("quantity");
 

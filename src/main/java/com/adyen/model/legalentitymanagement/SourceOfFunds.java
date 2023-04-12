@@ -163,10 +163,10 @@ public class SourceOfFunds {
   }
 
    /**
-   * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of the business. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
+   * Text describing the source of funds. For example, for &#x60;type&#x60; **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when &#x60;adyenProcessedFunds&#x60; is **false**.
    * @return description
   **/
-  @ApiModelProperty(value = "Text describing the source of funds. For example, for `type` **business**, provide a description of the business. Required when `adyenProcessedFunds` is **false**.")
+  @ApiModelProperty(value = "Text describing the source of funds. For example, for `type` **business**, provide a description of where the business transactions come from, such as payments through bank transfer. Required when `adyenProcessedFunds` is **false**.")
 
   public String getDescription() {
     return description;

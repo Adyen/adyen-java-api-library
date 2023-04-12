@@ -130,6 +130,59 @@ public class TransactionRule {
   @SerializedName(SERIALIZED_NAME_REFERENCE)
   private String reference;
 
+  /**
+   * Indicates the type of request to which the rule applies.  Possible values: **authorization**, **authentication**, **tokenization**.
+   */
+  @JsonAdapter(RequestTypeEnum.Adapter.class)
+  public enum RequestTypeEnum {
+    AUTHENTICATION("authentication"),
+    
+    AUTHORIZATION("authorization"),
+    
+    TOKENIZATION("tokenization");
+
+    private String value;
+
+    RequestTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RequestTypeEnum fromValue(String value) {
+      for (RequestTypeEnum b : RequestTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<RequestTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RequestTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RequestTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RequestTypeEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
+  @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
+  private RequestTypeEnum requestType;
+
   public static final String SERIALIZED_NAME_RULE_RESTRICTIONS = "ruleRestrictions";
   @SerializedName(SERIALIZED_NAME_RULE_RESTRICTIONS)
   private TransactionRuleRestrictions ruleRestrictions;
@@ -427,6 +480,28 @@ public class TransactionRule {
   }
 
 
+  public TransactionRule requestType(RequestTypeEnum requestType) {
+    
+    this.requestType = requestType;
+    return this;
+  }
+
+   /**
+   * Indicates the type of request to which the rule applies.  Possible values: **authorization**, **authentication**, **tokenization**.
+   * @return requestType
+  **/
+  @ApiModelProperty(value = "Indicates the type of request to which the rule applies.  Possible values: **authorization**, **authentication**, **tokenization**.")
+
+  public RequestTypeEnum getRequestType() {
+    return requestType;
+  }
+
+
+  public void setRequestType(RequestTypeEnum requestType) {
+    this.requestType = requestType;
+  }
+
+
   public TransactionRule ruleRestrictions(TransactionRuleRestrictions ruleRestrictions) {
     
     this.ruleRestrictions = ruleRestrictions;
@@ -555,6 +630,7 @@ public class TransactionRule {
         Objects.equals(this.interval, transactionRule.interval) &&
         Objects.equals(this.outcomeType, transactionRule.outcomeType) &&
         Objects.equals(this.reference, transactionRule.reference) &&
+        Objects.equals(this.requestType, transactionRule.requestType) &&
         Objects.equals(this.ruleRestrictions, transactionRule.ruleRestrictions) &&
         Objects.equals(this.score, transactionRule.score) &&
         Objects.equals(this.startDate, transactionRule.startDate) &&
@@ -564,7 +640,7 @@ public class TransactionRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregationLevel, description, endDate, entityKey, id, interval, outcomeType, reference, ruleRestrictions, score, startDate, status, type);
+    return Objects.hash(aggregationLevel, description, endDate, entityKey, id, interval, outcomeType, reference, requestType, ruleRestrictions, score, startDate, status, type);
   }
 
   @Override
@@ -579,6 +655,7 @@ public class TransactionRule {
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    outcomeType: ").append(toIndentedString(outcomeType)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    ruleRestrictions: ").append(toIndentedString(ruleRestrictions)).append("\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
@@ -614,6 +691,7 @@ public class TransactionRule {
     openapiFields.add("interval");
     openapiFields.add("outcomeType");
     openapiFields.add("reference");
+    openapiFields.add("requestType");
     openapiFields.add("ruleRestrictions");
     openapiFields.add("score");
     openapiFields.add("startDate");
@@ -693,6 +771,13 @@ public class TransactionRule {
       // validate the optional field reference
       if (jsonObj.get("reference") != null && !jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
+      }
+      // ensure the field requestType can be parsed to an enum value
+      if (jsonObj.get("requestType") != null) {
+        if(!jsonObj.get("requestType").isJsonPrimitive()) {
+          throw new IllegalArgumentException(String.format("Expected the field `requestType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestType").toString()));
+        }
+        RequestTypeEnum.fromValue(jsonObj.get("requestType").getAsString());
       }
       // validate the optional field `ruleRestrictions`
       if (jsonObj.getAsJsonObject("ruleRestrictions") != null) {

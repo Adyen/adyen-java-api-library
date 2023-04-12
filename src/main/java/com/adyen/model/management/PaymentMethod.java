@@ -24,6 +24,7 @@ import com.adyen.model.management.MealVoucherFRInfo;
 import com.adyen.model.management.PayPalInfo;
 import com.adyen.model.management.SofortInfo;
 import com.adyen.model.management.SwishInfo;
+import com.adyen.model.management.VippsInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -198,6 +199,10 @@ public class PaymentMethod {
   public static final String SERIALIZED_NAME_VERIFICATION_STATUS = "verificationStatus";
   @SerializedName(SERIALIZED_NAME_VERIFICATION_STATUS)
   private VerificationStatusEnum verificationStatus;
+
+  public static final String SERIALIZED_NAME_VIPPS = "vipps";
+  @SerializedName(SERIALIZED_NAME_VIPPS)
+  private VippsInfo vipps;
 
   public PaymentMethod() { 
   }
@@ -710,6 +715,28 @@ public class PaymentMethod {
   }
 
 
+  public PaymentMethod vipps(VippsInfo vipps) {
+    
+    this.vipps = vipps;
+    return this;
+  }
+
+   /**
+   * Get vipps
+   * @return vipps
+  **/
+  @ApiModelProperty(value = "")
+
+  public VippsInfo getVipps() {
+    return vipps;
+  }
+
+
+  public void setVipps(VippsInfo vipps) {
+    this.vipps = vipps;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -741,12 +768,13 @@ public class PaymentMethod {
         Objects.equals(this.storeId, paymentMethod.storeId) &&
         Objects.equals(this.swish, paymentMethod.swish) &&
         Objects.equals(this.type, paymentMethod.type) &&
-        Objects.equals(this.verificationStatus, paymentMethod.verificationStatus);
+        Objects.equals(this.verificationStatus, paymentMethod.verificationStatus) &&
+        Objects.equals(this.vipps, paymentMethod.vipps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, customRoutingFlags, enabled, giroPay, googlePay, id, klarna, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeId, swish, type, verificationStatus);
+    return Objects.hash(allowed, applePay, bcmc, businessLineId, cartesBancaires, countries, currencies, customRoutingFlags, enabled, giroPay, googlePay, id, klarna, mealVoucherFR, paypal, reference, shopperInteraction, sofort, storeId, swish, type, verificationStatus, vipps);
   }
 
   @Override
@@ -775,6 +803,7 @@ public class PaymentMethod {
     sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
+    sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -819,6 +848,7 @@ public class PaymentMethod {
     openapiFields.add("swish");
     openapiFields.add("type");
     openapiFields.add("verificationStatus");
+    openapiFields.add("vipps");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -936,6 +966,10 @@ public class PaymentMethod {
           throw new IllegalArgumentException(String.format("Expected the field `verificationStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationStatus").toString()));
         }
         VerificationStatusEnum.fromValue(jsonObj.get("verificationStatus").getAsString());
+      }
+      // validate the optional field `vipps`
+      if (jsonObj.getAsJsonObject("vipps") != null) {
+        VippsInfo.validateJsonObject(jsonObj.getAsJsonObject("vipps"));
       }
   }
 

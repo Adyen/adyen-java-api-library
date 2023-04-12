@@ -256,8 +256,8 @@ public class BalancePlatformTest extends BaseTest {
                 "  \"issuingCountryCode\": \"NL\"\n" +
                 "}");
         PaymentInstrument response = service.create(request);
-        assertEquals("PI322LJ223222B5DJS7CD9LWL", response.getId());
-        assertEquals("BA3227C223222B5CTBLR8BWJB", response.getBalanceAccountId());
+        assertEquals("PI32272223222C5GXTDWH3TTN", response.getId());
+        assertEquals("BA3227C223222B5FG88S28BGN", response.getBalanceAccountId());
     }
 
     @Test
@@ -265,8 +265,8 @@ public class BalancePlatformTest extends BaseTest {
         Client client = createMockClientFromFile("mocks/balancePlatform/PaymentInstrument.json");
         PaymentInstruments service = new PaymentInstruments(client);
         PaymentInstrument response = service.retrieve("PI322LJ223222B5DJS7CD9LWL");
-        assertEquals("PI322LJ223222B5DJS7CD9LWL", response.getId());
-        assertEquals("BA3227C223222B5CTBLR8BWJB", response.getBalanceAccountId());
+        assertEquals("PI32272223222C5GXTDWH3TTN", response.getId());
+        assertEquals("BA3227C223222B5FG88S28BGN", response.getBalanceAccountId());
     }
 
     @Test
@@ -277,8 +277,8 @@ public class BalancePlatformTest extends BaseTest {
                 "  \"balanceAccountId\": \"BA32272223222B5CM82WL892M\"\n" +
                 "}");
         PaymentInstrument response = service.update("PI322LJ223222B5DJS7CD9LWL", request);
-        assertEquals("PI322LJ223222B5DJS7CD9LWL", response.getId());
-        assertEquals("BA3227C223222B5CTBLR8BWJB", response.getBalanceAccountId());
+        assertEquals("PI32272223222C5GXTDWH3TTN", response.getId());
+        assertEquals("BA3227C223222B5FG88S28BGN", response.getBalanceAccountId());
     }
 
     @Test
