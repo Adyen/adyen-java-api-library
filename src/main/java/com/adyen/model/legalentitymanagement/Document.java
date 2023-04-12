@@ -323,7 +323,7 @@ public class Document {
    * The unique identifier of the document.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "The unique identifier of the document.")
+  @ApiModelProperty(value = "The unique identifier of the document.")
 
   public String getId() {
     return id;
@@ -546,7 +546,6 @@ public class Document {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("attachments");
     openapiRequiredFields.add("description");
-    openapiRequiredFields.add("id");
     openapiRequiredFields.add("owner");
     openapiRequiredFields.add("type");
   }

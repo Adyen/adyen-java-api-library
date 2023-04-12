@@ -70,10 +70,10 @@ public class Opi {
   }
 
    /**
-   * Indicates if Pay at Table is enabled.
+   * Indicates if Pay at table is enabled.
    * @return enablePayAtTable
   **/
-  @ApiModelProperty(value = "Indicates if Pay at Table is enabled.")
+  @ApiModelProperty(value = "Indicates if Pay at table is enabled.")
 
   public Boolean getEnablePayAtTable() {
     return enablePayAtTable;

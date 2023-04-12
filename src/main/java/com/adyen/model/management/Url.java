@@ -48,6 +48,10 @@ import com.adyen.model.management.JSON;
  */
 
 public class Url {
+  public static final String SERIALIZED_NAME_ENCRYPTED = "encrypted";
+  @SerializedName(SERIALIZED_NAME_ENCRYPTED)
+  private Boolean encrypted;
+
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
@@ -62,6 +66,28 @@ public class Url {
 
   public Url() { 
   }
+
+  public Url encrypted(Boolean encrypted) {
+    
+    this.encrypted = encrypted;
+    return this;
+  }
+
+   /**
+   * Indicates if the message sent to this URL should be encrypted.
+   * @return encrypted
+  **/
+  @ApiModelProperty(value = "Indicates if the message sent to this URL should be encrypted.")
+
+  public Boolean getEncrypted() {
+    return encrypted;
+  }
+
+
+  public void setEncrypted(Boolean encrypted) {
+    this.encrypted = encrypted;
+  }
+
 
   public Url password(String password) {
     
@@ -139,20 +165,22 @@ public class Url {
       return false;
     }
     Url url = (Url) o;
-    return Objects.equals(this.password, url.password) &&
+    return Objects.equals(this.encrypted, url.encrypted) &&
+        Objects.equals(this.password, url.password) &&
         Objects.equals(this.url, url.url) &&
         Objects.equals(this.username, url.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, url, username);
+    return Objects.hash(encrypted, password, url, username);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Url {\n");
+    sb.append("    encrypted: ").append(toIndentedString(encrypted)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
@@ -178,6 +206,7 @@ public class Url {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("encrypted");
     openapiFields.add("password");
     openapiFields.add("url");
     openapiFields.add("username");
