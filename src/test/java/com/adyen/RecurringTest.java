@@ -85,7 +85,7 @@ public class RecurringTest extends BaseTest {
         RecurringDetailsResult result = recurring.listRecurringDetails(request);
         assertEquals(2, result.getDetails().size());
 
-        RecurringDetail recurringDetail = result.getDetails().get(0);
+        RecurringDetail recurringDetail = result.getDetails().get(0).getRecurringDetail();
         assertEquals("recurringReference", recurringDetail.getRecurringDetailReference());
         assertEquals("cardAlias", recurringDetail.getAlias());
         assertEquals("1111", recurringDetail.getCard().getNumber());
