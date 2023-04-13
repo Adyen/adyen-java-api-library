@@ -17,7 +17,7 @@ jobs:
           echo ::set-output name=pr_body::"OpenAPI spec or templates produced new models on $(date +%d-%m-%Y) \
             by [commit](https://github.com/Adyen/adyen-openapi/commit/$(git rev-parse HEAD))."
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.ADYEN_AUTOMATION_BOT_ACCESS_TOKEN }}
           committer: ${{ secrets.ADYEN_AUTOMATION_BOT_EMAIL }}
