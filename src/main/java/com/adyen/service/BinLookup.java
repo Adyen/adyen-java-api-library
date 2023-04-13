@@ -2,7 +2,6 @@ package com.adyen.service;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
-import com.adyen.model.binlookup.JSON;
 import com.adyen.model.binlookup.ThreeDSAvailabilityResponse;
 import com.adyen.model.binlookup.CostEstimateResponse;
 import com.adyen.model.binlookup.CostEstimateRequest;
@@ -20,7 +19,6 @@ public class BinLookup extends ApiKeyAuthenticatedService {
         super(client);
         get3dsAvailability = new Get3dsAvailability(this);
         getCostEstimate = new GetCostEstimate(this);
-        new JSON();
     }
 
 

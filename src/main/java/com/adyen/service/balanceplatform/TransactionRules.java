@@ -3,7 +3,6 @@ package com.adyen.service.balanceplatform;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.balanceplatform.JSON;
 import com.adyen.model.balanceplatform.TransactionRule;
 import com.adyen.model.balanceplatform.TransactionRuleInfo;
 import com.adyen.model.balanceplatform.TransactionRuleResponse;
@@ -16,7 +15,6 @@ public class TransactionRules extends Service {
 
     public TransactionRules(Client client) {
         super(client);
-        new JSON();
     }
 
     public TransactionRule create(TransactionRuleInfo request) throws IOException, ApiException {

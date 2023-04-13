@@ -29,7 +29,6 @@ import java.util.Map;
 public class TerminalSettingsTerminalLevel extends ApiKeyAuthenticatedService {
     public TerminalSettingsTerminalLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

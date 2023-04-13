@@ -31,7 +31,6 @@ import java.util.Map;
 public class MyApiCredential extends ApiKeyAuthenticatedService {
     public MyApiCredential(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

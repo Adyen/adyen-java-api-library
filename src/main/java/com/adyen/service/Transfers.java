@@ -3,7 +3,6 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.model.transfers.JSON;
 
 import com.adyen.model.transfers.TransactionSearchResponse;
 import com.adyen.model.transfers.Transfer;
@@ -22,7 +21,6 @@ public class Transfers extends Service {
 
     public Transfers(Client client) {
         super(client);
-        new JSON();
     }
 
     public Transfer transfers(TransferInfo transferInfo) throws IOException, ApiException {

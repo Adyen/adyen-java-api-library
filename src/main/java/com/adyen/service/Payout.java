@@ -23,7 +23,6 @@ package com.adyen.service;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.RequestOptions;
-import com.adyen.model.payout.JSON;
 import com.adyen.model.payout.ModifyRequest;
 import com.adyen.model.payout.ModifyResponse;
 import com.adyen.model.payout.PayoutRequest;
@@ -60,7 +59,6 @@ public class Payout extends Service {
         storeDetail = new StoreDetail(this);
         submitThirdparty = new SubmitThirdParty(this);
         payout = new com.adyen.service.resource.payout.Payout(this);
-        new JSON();
     }
 
     /**

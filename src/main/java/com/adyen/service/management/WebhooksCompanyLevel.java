@@ -34,7 +34,6 @@ import java.util.Map;
 public class WebhooksCompanyLevel extends ApiKeyAuthenticatedService {
     public WebhooksCompanyLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

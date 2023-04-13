@@ -6,7 +6,6 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.balanceplatform.PaymentInstrument;
 import com.adyen.model.balanceplatform.PaymentInstrumentInfo;
 import com.adyen.model.balanceplatform.PaymentInstrumentUpdateRequest;
-import com.adyen.model.balanceplatform.JSON;
 import com.adyen.model.balanceplatform.TransactionRulesResponse;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.balanceplatform.BalancePlatformResource;
@@ -16,7 +15,6 @@ import java.io.IOException;
 public class PaymentInstruments extends Service {
     public PaymentInstruments(Client client) {
         super(client);
-        new JSON();
     }
 
     public PaymentInstrument create(PaymentInstrumentInfo request) throws IOException, ApiException {

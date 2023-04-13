@@ -116,7 +116,6 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestPaymentRequestSerialization() throws Exception {
-        new JSON();
         String paymentRequestJson = getFileContents("mocks/checkout/paymentRequest.json");
         IdealDetails idealDetails = new IdealDetails();
         idealDetails.setIssuer("issuerName");
@@ -370,7 +369,6 @@ public class CheckoutTest extends BaseTest {
      */
     @Test
     public void TestDateSerialization() throws Exception {
-        new JSON();
         CheckoutBalanceCheckRequest checkoutBalanceCheckRequest = new CheckoutBalanceCheckRequest();
         OffsetDateTime date = OffsetDateTime.parse("2022-10-11T15:08:27.000Z"); // Tuesday, October 11, 2022 5:08:27 PM GMT+02:00 DST
         checkoutBalanceCheckRequest.setDateOfBirth(date.toLocalDate());

@@ -24,7 +24,6 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.model.recurring.DisableRequest;
 import com.adyen.model.recurring.DisableResult;
-import com.adyen.model.recurring.JSON;
 import com.adyen.model.recurring.NotifyShopperRequest;
 import com.adyen.model.recurring.NotifyShopperResult;
 import com.adyen.model.recurring.RecurringDetailsRequest;
@@ -61,7 +60,6 @@ public class Recurring extends Service {
         notifyShopper = new NotifyShopper(this);
         createPermit = new CreatePermit(this);
         disablePermit = new DisablePermit(this);
-        new JSON();
     }
 
     /**

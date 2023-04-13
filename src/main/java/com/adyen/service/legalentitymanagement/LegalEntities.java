@@ -6,7 +6,6 @@ import com.adyen.constants.ApiConstants;
 import com.adyen.model.legalentitymanagement.BusinessLines;
 import com.adyen.model.legalentitymanagement.LegalEntity;
 import com.adyen.model.legalentitymanagement.LegalEntityInfo;
-import com.adyen.model.legalentitymanagement.JSON;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.LegalEntityManagementResource;
 
@@ -15,7 +14,6 @@ import java.io.IOException;
 public class LegalEntities extends Service {
     public LegalEntities(Client client) {
         super(client);
-        new JSON();
     }
 
     public LegalEntity create(LegalEntityInfo request) throws IOException, ApiException {

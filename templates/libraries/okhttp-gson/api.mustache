@@ -5,7 +5,6 @@ package {{package}};
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.constants.ApiConstants;
-import {{modelPackage}}.JSON;
 {{#imports}}import {{import}};
 {{/imports}}
 import com.adyen.service.exception.ApiException;
@@ -19,7 +18,6 @@ import java.util.Map;
 public class {{classname}} extends ApiKeyAuthenticatedService {
     public {{classname}}(Client client) {
         super(client);
-        new JSON();
     }
 
 {{#operation}}

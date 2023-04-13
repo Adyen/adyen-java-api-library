@@ -34,7 +34,6 @@ import java.util.Map;
 public class WebhooksMerchantLevel extends ApiKeyAuthenticatedService {
     public WebhooksMerchantLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

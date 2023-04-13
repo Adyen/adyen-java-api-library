@@ -32,7 +32,6 @@ import java.util.Map;
 public class AccountStoreLevel extends ApiKeyAuthenticatedService {
     public AccountStoreLevel(Client client) {
         super(client);
-        new JSON();
     }
 
     /**

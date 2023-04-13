@@ -9,7 +9,6 @@ import com.adyen.model.balanceplatform.BalanceAccountUpdateRequest;
 import com.adyen.model.balanceplatform.BalanceSweepConfigurationsResponse;
 import com.adyen.model.balanceplatform.SweepConfigurationV2;
 import com.adyen.model.balanceplatform.PaginatedPaymentInstrumentsResponse;
-import com.adyen.model.balanceplatform.JSON;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.balanceplatform.BalancePlatformResource;
 
@@ -20,7 +19,6 @@ public class BalanceAccounts extends Service {
 
     public BalanceAccounts(Client client) {
         super(client);
-        new JSON();
     }
 
     public BalanceAccount create(BalanceAccountInfo request) throws IOException, ApiException {

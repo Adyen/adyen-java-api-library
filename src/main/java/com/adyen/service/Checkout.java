@@ -26,7 +26,6 @@ import com.adyen.model.checkout.CreatePaymentReversalRequest;
 import com.adyen.model.checkout.CreateStandalonePaymentCancelRequest;
 import com.adyen.model.checkout.DetailsRequest;
 import com.adyen.model.checkout.DonationResponse;
-import com.adyen.model.checkout.JSON;
 import com.adyen.model.checkout.ListStoredPaymentMethodsResponse;
 import com.adyen.model.checkout.PaymentAmountUpdateResource;
 import com.adyen.model.checkout.PaymentCancelResource;
@@ -96,7 +95,6 @@ public class Checkout extends ApiKeyAuthenticatedService {
         cardDetails = new CheckoutResource(this, "/cardDetails");
         paymentLinks = new CheckoutResource(this, "/paymentLinks");
         storedPaymentMethods = new CheckoutResource(this, "/storedPaymentMethods");
-        new JSON();
 
     }
 
