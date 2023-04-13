@@ -1,0 +1,7 @@
+{
+  "status" : 422,
+  "errorCode" : "130",
+  "message" : "Required field 'reference' is not provided.",
+  "errorType" : "validation",
+  "pspReference" : "ABCDEFGHIJKLMNO"
+}

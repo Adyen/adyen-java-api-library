@@ -113,4 +113,41 @@ public class ResourceTest extends BaseTest {
             assertTrue(e.getResponseBody().contains("010"));
         }
     }
+
+    @Test
+    public void testValidationException() throws IOException {
+        Client client = createMockClientForErrors(422, "mocks/response-validation-error.json");
+
+        when(serviceMock.getClient()).thenReturn(client);
+        try {
+            Resource resource = new Resource(serviceMock, "", null);
+            String response = resource.request("request");
+
+            fail("Expected exception");
+        } catch (ApiException e) {
+            assertEquals(422, e.getStatusCode());
+            assertNotNull(e.getError());
+            assertEquals("validation", e.getError().getErrorType());
+            assertEquals("Required field 'reference' is not provided.", e.getError().getMessage());
+        }
+    }
+
+    @Test
+    public void testErrorRfc7807ValidationException() throws IOException {
+        Client client = createMockClientForErrors(422, "mocks/response-validation-error-rfc7807.json");
+
+        when(serviceMock.getClient()).thenReturn(client);
+        try {
+            Resource resource = new Resource(serviceMock, "", null);
+            String response = resource.request("request");
+
+            fail("Expected exception");
+        } catch (ApiException e) {
+            assertEquals(422, e.getStatusCode());
+            assertNotNull(e.getError());
+            assertEquals("https://docs.adyen.com/errors/validation", e.getError().getErrorType());
+            assertEquals("Invalid legal entity information provided", e.getError().getMessage());
+            assertEquals(1, e.getError().getInvalidFields().size());
+        }
+    }
 }
