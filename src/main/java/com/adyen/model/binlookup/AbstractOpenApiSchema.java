@@ -15,7 +15,7 @@ package com.adyen.model.binlookup;
 import java.util.Objects;
 import java.lang.reflect.Type;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
