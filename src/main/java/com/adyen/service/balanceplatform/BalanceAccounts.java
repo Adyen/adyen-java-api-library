@@ -34,11 +34,11 @@ public class BalanceAccounts extends Service {
         return BalanceSweepConfigurationsResponse.fromJson(jsonResult);
     }
 
-    public BalanceSweepConfigurationsResponse createSweep(String balanceAccountId, SweepConfigurationV2 request) throws IOException, ApiException {
+    public SweepConfigurationV2 createSweep(String balanceAccountId, SweepConfigurationV2 request) throws IOException, ApiException {
         String jsonRequest = request.toJson();
         BalancePlatformResource resource = new BalancePlatformResource(this, String.format("/balanceAccounts/%s/sweeps", balanceAccountId));
         String jsonResult = resource.request(jsonRequest, ApiConstants.HttpMethod.POST);
-        return BalanceSweepConfigurationsResponse.fromJson(jsonResult);
+        return SweepConfigurationV2.fromJson(jsonResult);
     }
 
     public void deleteSweep(String balanceAccountId, String sweepId) throws IOException, ApiException {

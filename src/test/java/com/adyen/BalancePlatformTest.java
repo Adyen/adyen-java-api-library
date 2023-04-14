@@ -8,6 +8,7 @@ import com.adyen.model.balanceplatform.BalanceAccountInfo;
 import com.adyen.model.balanceplatform.BalanceAccountUpdateRequest;
 import com.adyen.model.balanceplatform.BalancePlatform;
 import com.adyen.model.balanceplatform.BalanceSweepConfigurationsResponse;
+import com.adyen.model.balanceplatform.BankAccountIdentificationValidationRequest;
 import com.adyen.model.balanceplatform.PaginatedAccountHoldersResponse;
 import com.adyen.model.balanceplatform.PaginatedBalanceAccountsResponse;
 import com.adyen.model.balanceplatform.PaginatedPaymentInstrumentsResponse;
@@ -23,6 +24,7 @@ import com.adyen.model.balanceplatform.TransactionRuleResponse;
 import com.adyen.model.balanceplatform.TransactionRulesResponse;
 import com.adyen.service.balanceplatform.AccountHolders;
 import com.adyen.service.balanceplatform.BalanceAccounts;
+import com.adyen.service.balanceplatform.BankAccountValidation;
 import com.adyen.service.balanceplatform.General;
 import com.adyen.service.balanceplatform.PaymentInstrumentGroups;
 import com.adyen.service.balanceplatform.PaymentInstruments;
@@ -170,7 +172,7 @@ public class BalancePlatformTest extends BaseTest {
 
     @Test
     public void BalanceAccountsCreateSweepTest() throws Exception {
-        Client client = createMockClientFromFile("mocks/balancePlatform/BalanceSweepConfigurationsResponse.json");
+        Client client = createMockClientFromFile("mocks/balancePlatform/SweepConfigurationV2.json");
         BalanceAccounts service = new BalanceAccounts(client);
         SweepConfigurationV2 request = SweepConfigurationV2.fromJson("{\n" +
                 "  \"counterparty\": {\n" +
@@ -188,9 +190,9 @@ public class BalancePlatformTest extends BaseTest {
                 "  \"id\": \"SWPC4227C224555B5FTD2NT2JV4WN5\",\n" +
                 "  \"status\": \"active\"\n" +
                 "}");
-        BalanceSweepConfigurationsResponse response = service.createSweep("AH32272223222B59K6ZKBBFNQ", request);
-        assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getSweeps().get(0).getId());
-        assertEquals("BA32272223222B5FTD2KR6TJD", response.getSweeps().get(0).getCounterparty().getBalanceAccountId());
+        SweepConfigurationV2 response = service.createSweep("AH32272223222B59K6ZKBBFNQ", request);
+        assertEquals("SWPC4227C224555B5FTD2NT2JV4WN5", response.getId());
+        assertEquals(SweepConfigurationV2.StatusEnum.ACTIVE, response.getStatus());
     }
 
     @Test
@@ -391,4 +393,13 @@ public class BalancePlatformTest extends BaseTest {
         TransactionRules service = new TransactionRules(client);
         service.delete("TR3227C223222B5FCB756DV9H");
     }
+
+    @Test
+    public void ValidateBankAccountIdentificationTest() throws Exception {
+        Client client = createMockClientFromFile("mocks/balancePlatform/TransactionRule.json");
+        BankAccountValidation service = new BankAccountValidation(client);
+        service.validateBankAccountIdentification(new BankAccountIdentificationValidationRequest());
+    }
+
+
 }
