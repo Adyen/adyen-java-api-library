@@ -43,7 +43,7 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-
+    
     /**
     * Cancel an authorised payment
     *
@@ -163,5 +163,4 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return PaymentReversalResource.fromJson(jsonResult);
     }
-    
 }

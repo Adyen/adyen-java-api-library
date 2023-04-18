@@ -32,7 +32,7 @@ public class RecurringService extends ApiKeyAuthenticatedService {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-
+    
     /**
     * Delete a token for stored payment details
     *
@@ -86,5 +86,4 @@ public class RecurringService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, null, queryParams);
         return ListStoredPaymentMethodsResponse.fromJson(jsonResult);
     }
-    
 }

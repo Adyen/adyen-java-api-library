@@ -43,7 +43,7 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-
+    
     /**
     * Get the list of brands on the card
     *
@@ -133,5 +133,4 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return CreateCheckoutSessionResponse.fromJson(jsonResult);
     }
-    
 }

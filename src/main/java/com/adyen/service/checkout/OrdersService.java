@@ -37,7 +37,7 @@ public class OrdersService extends ApiKeyAuthenticatedService {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-
+    
     /**
     * Create an order
     *
@@ -82,5 +82,4 @@ public class OrdersService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return CheckoutBalanceCheckResponse.fromJson(jsonResult);
     }
-    
 }

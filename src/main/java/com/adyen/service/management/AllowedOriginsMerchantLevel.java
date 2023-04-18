@@ -57,8 +57,8 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
         pathParams.put("originId", originId);
 
         String requestBody = null;
-        Resource resource = new Resource(this, "asdf" + "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}", null);
-        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams, null);
+        ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}");
+        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams);
     }
     
     /**

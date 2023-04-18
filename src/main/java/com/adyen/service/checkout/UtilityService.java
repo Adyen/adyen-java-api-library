@@ -35,7 +35,7 @@ public class UtilityService extends ApiKeyAuthenticatedService {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-
+    
     /**
     * Get an Apple Pay session
     *
@@ -67,5 +67,4 @@ public class UtilityService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return CheckoutUtilityResponse.fromJson(jsonResult);
     }
-    
 }

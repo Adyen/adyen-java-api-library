@@ -34,7 +34,7 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-
+    
     /**
     * Get a payment link
     *
@@ -90,5 +90,4 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentLinkResponse.fromJson(jsonResult);
     }
-    
 }

@@ -35,7 +35,7 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-
+    
     /**
     * Create a payment session
     *
@@ -69,5 +69,4 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentVerificationResponse.fromJson(jsonResult);
     }
-    
 }

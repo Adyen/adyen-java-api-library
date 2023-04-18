@@ -23,8 +23,8 @@ public class {{classname}} extends ApiKeyAuthenticatedService {
         super(client);
         this.baseURL = "{{{basePath}}}";
     }
-
 {{#operation}}
+
 {{>api_summary}}
    {{#isDeprecated}}
    @Deprecated
@@ -60,7 +60,6 @@ public class {{classname}} extends ApiKeyAuthenticatedService {
         resource.request(requestBody, null, ApiConstants.HttpMethod.{{httpMethod}}, {{#hasPathParams}}pathParams{{/hasPathParams}}{{^hasPathParams}}null{{/hasPathParams}}{{#hasQueryParams}}, queryParams{{/hasQueryParams}});
         {{/returnType}}
     }
-    
 {{/operation}}
 }
 {{/operations}}
