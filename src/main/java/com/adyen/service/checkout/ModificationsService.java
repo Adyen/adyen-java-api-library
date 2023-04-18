@@ -9,7 +9,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.adyen.service.checkout;
 
 import com.adyen.ApiKeyAuthenticatedService;
@@ -37,13 +36,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModificationsService extends ApiKeyAuthenticatedService {
-    private String baseURL;
+    private final String baseURL;
 
     public ModificationsService(Client client) {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-    
+
+    /**
+    * Cancel an authorised payment
+    *
+    * @param createStandalonePaymentCancelRequest  (optional)
+    * @return StandalonePaymentCancelResource
+    * @throws ApiException if fails to make API call
+    */
+    public StandalonePaymentCancelResource cancelAuthorisedPayment(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest) throws ApiException, IOException {
+        return cancelAuthorisedPayment(createStandalonePaymentCancelRequest, null);
+    }
     /**
     * Cancel an authorised payment
     *
@@ -58,7 +67,18 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return StandalonePaymentCancelResource.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Update an authorised amount
+    *
+    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
+    * @param createPaymentAmountUpdateRequest  (optional)
+    * @return PaymentAmountUpdateResource
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentAmountUpdateResource updateAuthorisedAmount(String paymentPspReferenceCreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
+        return updateAuthorisedAmount(paymentPspReference, createPaymentAmountUpdateRequest, null);
+    }
     /**
     * Update an authorised amount
     *
@@ -79,7 +99,18 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return PaymentAmountUpdateResource.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Cancel an authorised payment
+    *
+    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to cancel.  (required)
+    * @param createPaymentCancelRequest  (optional)
+    * @return PaymentCancelResource
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentCancelResource cancelAuthorisedPaymentByPspReference(String paymentPspReferenceCreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
+        return cancelAuthorisedPaymentByPspReference(paymentPspReference, createPaymentCancelRequest, null);
+    }
     /**
     * Cancel an authorised payment
     *
@@ -100,7 +131,18 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return PaymentCancelResource.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Capture an authorised payment
+    *
+    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to capture. (required)
+    * @param createPaymentCaptureRequest  (optional)
+    * @return PaymentCaptureResource
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentCaptureResource captureAuthorisedPayment(String paymentPspReferenceCreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
+        return captureAuthorisedPayment(paymentPspReference, createPaymentCaptureRequest, null);
+    }
     /**
     * Capture an authorised payment
     *
@@ -121,7 +163,18 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return PaymentCaptureResource.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Refund a captured payment
+    *
+    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to refund. (required)
+    * @param createPaymentRefundRequest  (optional)
+    * @return PaymentRefundResource
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentRefundResource refundCapturedPayment(String paymentPspReferenceCreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
+        return refundCapturedPayment(paymentPspReference, createPaymentRefundRequest, null);
+    }
     /**
     * Refund a captured payment
     *
@@ -142,7 +195,18 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, pathParams);
         return PaymentRefundResource.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Refund or cancel a payment
+    *
+    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to reverse.  (required)
+    * @param createPaymentReversalRequest  (optional)
+    * @return PaymentReversalResource
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentReversalResource refundOrCancelPayment(String paymentPspReferenceCreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
+        return refundOrCancelPayment(paymentPspReference, createPaymentReversalRequest, null);
+    }
     /**
     * Refund or cancel a payment
     *

@@ -9,7 +9,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.adyen.service.checkout;
 
 import com.adyen.ApiKeyAuthenticatedService;
@@ -29,13 +28,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
-    private String baseURL;
+    private final String baseURL;
 
     public ClassicCheckoutSdkService(Client client) {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-    
+
+    /**
+    * Create a payment session
+    *
+    * @param paymentSetupRequest  (optional)
+    * @return PaymentSetupResponse
+    * @throws ApiException if fails to make API call
+    * @deprecated
+    */
+    @Deprecated
+    public PaymentSetupResponse paymentSession(PaymentSetupRequest paymentSetupRequest) throws ApiException, IOException {
+        return paymentSession(paymentSetupRequest, null);
+    }
     /**
     * Create a payment session
     *
@@ -52,7 +63,19 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentSetupResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Verify a payment result
+    *
+    * @param paymentVerificationRequest  (optional)
+    * @return PaymentVerificationResponse
+    * @throws ApiException if fails to make API call
+    * @deprecated
+    */
+    @Deprecated
+    public PaymentVerificationResponse verifyPaymentResult(PaymentVerificationRequest paymentVerificationRequest) throws ApiException, IOException {
+        return verifyPaymentResult(paymentVerificationRequest, null);
+    }
     /**
     * Verify a payment result
     *

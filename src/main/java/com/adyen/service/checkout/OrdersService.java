@@ -9,7 +9,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.adyen.service.checkout;
 
 import com.adyen.ApiKeyAuthenticatedService;
@@ -31,13 +30,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OrdersService extends ApiKeyAuthenticatedService {
-    private String baseURL;
+    private final String baseURL;
 
     public OrdersService(Client client) {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-    
+
+    /**
+    * Create an order
+    *
+    * @param checkoutCreateOrderRequest  (optional)
+    * @return CheckoutCreateOrderResponse
+    * @throws ApiException if fails to make API call
+    */
+    public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest) throws ApiException, IOException {
+        return orders(checkoutCreateOrderRequest, null);
+    }
     /**
     * Create an order
     *
@@ -52,7 +61,17 @@ public class OrdersService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return CheckoutCreateOrderResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Cancel an order
+    *
+    * @param checkoutCancelOrderRequest  (optional)
+    * @return CheckoutCancelOrderResponse
+    * @throws ApiException if fails to make API call
+    */
+    public CheckoutCancelOrderResponse cancelOrder(CheckoutCancelOrderRequest checkoutCancelOrderRequest) throws ApiException, IOException {
+        return cancelOrder(checkoutCancelOrderRequest, null);
+    }
     /**
     * Cancel an order
     *
@@ -67,7 +86,17 @@ public class OrdersService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return CheckoutCancelOrderResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Get the balance of a gift card
+    *
+    * @param checkoutBalanceCheckRequest  (optional)
+    * @return CheckoutBalanceCheckResponse
+    * @throws ApiException if fails to make API call
+    */
+    public CheckoutBalanceCheckResponse getBalanceOfGiftCard(CheckoutBalanceCheckRequest checkoutBalanceCheckRequest) throws ApiException, IOException {
+        return getBalanceOfGiftCard(checkoutBalanceCheckRequest, null);
+    }
     /**
     * Get the balance of a gift card
     *

@@ -9,7 +9,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.adyen.service.checkout;
 
 import com.adyen.ApiKeyAuthenticatedService;
@@ -37,13 +36,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentsService extends ApiKeyAuthenticatedService {
-    private String baseURL;
+    private final String baseURL;
 
     public PaymentsService(Client client) {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-    
+
+    /**
+    * Get the list of brands on the card
+    *
+    * @param cardDetailsRequest  (optional)
+    * @return CardDetailsResponse
+    * @throws ApiException if fails to make API call
+    */
+    public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest) throws ApiException, IOException {
+        return cardDetails(cardDetailsRequest, null);
+    }
     /**
     * Get the list of brands on the card
     *
@@ -58,7 +67,17 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return CardDetailsResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Start a transaction for donations
+    *
+    * @param paymentDonationRequest  (optional)
+    * @return DonationResponse
+    * @throws ApiException if fails to make API call
+    */
+    public DonationResponse donations(PaymentDonationRequest paymentDonationRequest) throws ApiException, IOException {
+        return donations(paymentDonationRequest, null);
+    }
     /**
     * Start a transaction for donations
     *
@@ -73,7 +92,17 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return DonationResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Get a list of available payment methods
+    *
+    * @param paymentMethodsRequest  (optional)
+    * @return PaymentMethodsResponse
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest) throws ApiException, IOException {
+        return paymentMethods(paymentMethodsRequest, null);
+    }
     /**
     * Get a list of available payment methods
     *
@@ -88,7 +117,17 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentMethodsResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Start a transaction
+    *
+    * @param paymentRequest  (optional)
+    * @return PaymentResponse
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentResponse payments(PaymentRequest paymentRequest) throws ApiException, IOException {
+        return payments(paymentRequest, null);
+    }
     /**
     * Start a transaction
     *
@@ -103,7 +142,17 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Submit details for a payment
+    *
+    * @param detailsRequest  (optional)
+    * @return PaymentDetailsResponse
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentDetailsResponse paymentsDetails(DetailsRequest detailsRequest) throws ApiException, IOException {
+        return paymentsDetails(detailsRequest, null);
+    }
     /**
     * Submit details for a payment
     *
@@ -118,7 +167,17 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return PaymentDetailsResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Create a payment session
+    *
+    * @param createCheckoutSessionRequest  (optional)
+    * @return CreateCheckoutSessionResponse
+    * @throws ApiException if fails to make API call
+    */
+    public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest) throws ApiException, IOException {
+        return sessions(createCheckoutSessionRequest, null);
+    }
     /**
     * Create a payment session
     *

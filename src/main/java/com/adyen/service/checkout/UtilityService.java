@@ -9,7 +9,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.adyen.service.checkout;
 
 import com.adyen.ApiKeyAuthenticatedService;
@@ -29,13 +28,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UtilityService extends ApiKeyAuthenticatedService {
-    private String baseURL;
+    private final String baseURL;
 
     public UtilityService(Client client) {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-    
+
+    /**
+    * Get an Apple Pay session
+    *
+    * @param createApplePaySessionRequest  (optional)
+    * @return ApplePaySessionResponse
+    * @throws ApiException if fails to make API call
+    */
+    public ApplePaySessionResponse getApplePaySession(CreateApplePaySessionRequest createApplePaySessionRequest) throws ApiException, IOException {
+        return getApplePaySession(createApplePaySessionRequest, null);
+    }
     /**
     * Get an Apple Pay session
     *
@@ -50,7 +59,19 @@ public class UtilityService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.POST, null);
         return ApplePaySessionResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Create originKey values for domains
+    *
+    * @param checkoutUtilityRequest  (optional)
+    * @return CheckoutUtilityResponse
+    * @throws ApiException if fails to make API call
+    * @deprecated
+    */
+    @Deprecated
+    public CheckoutUtilityResponse originKeys(CheckoutUtilityRequest checkoutUtilityRequest) throws ApiException, IOException {
+        return originKeys(checkoutUtilityRequest, null);
+    }
     /**
     * Create originKey values for domains
     *

@@ -9,7 +9,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.adyen.service.checkout;
 
 import com.adyen.ApiKeyAuthenticatedService;
@@ -28,13 +27,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentLinksService extends ApiKeyAuthenticatedService {
-    private String baseURL;
+    private final String baseURL;
 
     public PaymentLinksService(Client client) {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-    
+
+    /**
+    * Get a payment link
+    *
+    * @param linkId Unique identifier of the payment link. (required)
+    * @return PaymentLinkResponse
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentLinkResponse getPaymentLink(String linkId) throws ApiException, IOException {
+        return getPaymentLink(linkId, null);
+    }
     /**
     * Get a payment link
     *
@@ -54,7 +63,18 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.GET, pathParams);
         return PaymentLinkResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Update the status of a payment link
+    *
+    * @param linkId Unique identifier of the payment link. (required)
+    * @param updatePaymentLinkRequest  (optional)
+    * @return PaymentLinkResponse
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentLinkResponse updatePaymentLink(String linkIdUpdatePaymentLinkRequest updatePaymentLinkRequest) throws ApiException, IOException {
+        return updatePaymentLink(linkId, updatePaymentLinkRequest, null);
+    }
     /**
     * Update the status of a payment link
     *
@@ -75,7 +95,17 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.PATCH, pathParams);
         return PaymentLinkResponse.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Create a payment link
+    *
+    * @param createPaymentLinkRequest  (optional)
+    * @return PaymentLinkResponse
+    * @throws ApiException if fails to make API call
+    */
+    public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
+        return paymentLinks(createPaymentLinkRequest, null);
+    }
     /**
     * Create a payment link
     *

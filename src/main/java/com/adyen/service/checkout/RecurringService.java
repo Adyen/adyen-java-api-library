@@ -9,7 +9,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.adyen.service.checkout;
 
 import com.adyen.ApiKeyAuthenticatedService;
@@ -26,13 +25,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RecurringService extends ApiKeyAuthenticatedService {
-    private String baseURL;
+    private final String baseURL;
 
     public RecurringService(Client client) {
         super(client);
         this.baseURL = "https://checkout-test.adyen.com/v70";
     }
-    
+
+    /**
+    * Delete a token for stored payment details
+    *
+    * @param recurringId The unique identifier of the token. (required)
+    *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
+    *    merchantAccount: Your merchant account. (optional)
+    * @return StoredPaymentMethodResource
+    * @throws ApiException if fails to make API call
+    */
+    public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId) throws ApiException, IOException {
+        return deleteTokenForStoredPaymentDetails(recurringId, null, null, null);
+    }
     /**
     * Delete a token for stored payment details
     *
@@ -62,7 +73,18 @@ public class RecurringService extends ApiKeyAuthenticatedService {
         String jsonResult = resource.request(requestBody, requestOptions, ApiConstants.HttpMethod.DELETE, pathParams, queryParams);
         return StoredPaymentMethodResource.fromJson(jsonResult);
     }
-    
+
+    /**
+    * Get tokens for stored payment details
+    *
+    *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
+    *    merchantAccount: Your merchant account. (optional)
+    * @return ListStoredPaymentMethodsResponse
+    * @throws ApiException if fails to make API call
+    */
+    public ListStoredPaymentMethodsResponse getTokensForStoredPaymentDetails() throws ApiException, IOException {
+        return getTokensForStoredPaymentDetails(null, null, null);
+    }
     /**
     * Get tokens for stored payment details
     *
