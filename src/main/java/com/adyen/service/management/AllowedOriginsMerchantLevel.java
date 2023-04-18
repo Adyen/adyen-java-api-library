@@ -21,7 +21,6 @@ import com.adyen.model.management.AllowedOriginsResponse;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.ManagementResource;
-import com.adyen.service.resource.Resource;
 
 import java.io.IOException;
 import java.util.HashMap;
