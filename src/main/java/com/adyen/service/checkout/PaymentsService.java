@@ -53,6 +53,7 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest) throws ApiException, IOException {
         return cardDetails(cardDetailsRequest, null);
     }
+
     /**
     * Get the list of brands on the card
     *
@@ -78,6 +79,7 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     public DonationResponse donations(PaymentDonationRequest paymentDonationRequest) throws ApiException, IOException {
         return donations(paymentDonationRequest, null);
     }
+
     /**
     * Start a transaction for donations
     *
@@ -103,6 +105,7 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest) throws ApiException, IOException {
         return paymentMethods(paymentMethodsRequest, null);
     }
+
     /**
     * Get a list of available payment methods
     *
@@ -128,6 +131,7 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     public PaymentResponse payments(PaymentRequest paymentRequest) throws ApiException, IOException {
         return payments(paymentRequest, null);
     }
+
     /**
     * Start a transaction
     *
@@ -153,6 +157,7 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     public PaymentDetailsResponse paymentsDetails(DetailsRequest detailsRequest) throws ApiException, IOException {
         return paymentsDetails(detailsRequest, null);
     }
+
     /**
     * Submit details for a payment
     *
@@ -178,6 +183,7 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest) throws ApiException, IOException {
         return sessions(createCheckoutSessionRequest, null);
     }
+
     /**
     * Create a payment session
     *

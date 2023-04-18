@@ -53,6 +53,7 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     public StandalonePaymentCancelResource cancelAuthorisedPayment(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest) throws ApiException, IOException {
         return cancelAuthorisedPayment(createStandalonePaymentCancelRequest, null);
     }
+
     /**
     * Cancel an authorised payment
     *
@@ -76,9 +77,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     * @return PaymentAmountUpdateResource
     * @throws ApiException if fails to make API call
     */
-    public PaymentAmountUpdateResource updateAuthorisedAmount(String paymentPspReferenceCreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
+    public PaymentAmountUpdateResource updateAuthorisedAmount(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
         return updateAuthorisedAmount(paymentPspReference, createPaymentAmountUpdateRequest, null);
     }
+
     /**
     * Update an authorised amount
     *
@@ -108,9 +110,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     * @return PaymentCancelResource
     * @throws ApiException if fails to make API call
     */
-    public PaymentCancelResource cancelAuthorisedPaymentByPspReference(String paymentPspReferenceCreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
+    public PaymentCancelResource cancelAuthorisedPaymentByPspReference(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
         return cancelAuthorisedPaymentByPspReference(paymentPspReference, createPaymentCancelRequest, null);
     }
+
     /**
     * Cancel an authorised payment
     *
@@ -140,9 +143,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     * @return PaymentCaptureResource
     * @throws ApiException if fails to make API call
     */
-    public PaymentCaptureResource captureAuthorisedPayment(String paymentPspReferenceCreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
+    public PaymentCaptureResource captureAuthorisedPayment(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
         return captureAuthorisedPayment(paymentPspReference, createPaymentCaptureRequest, null);
     }
+
     /**
     * Capture an authorised payment
     *
@@ -172,9 +176,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     * @return PaymentRefundResource
     * @throws ApiException if fails to make API call
     */
-    public PaymentRefundResource refundCapturedPayment(String paymentPspReferenceCreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
+    public PaymentRefundResource refundCapturedPayment(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
         return refundCapturedPayment(paymentPspReference, createPaymentRefundRequest, null);
     }
+
     /**
     * Refund a captured payment
     *
@@ -204,9 +209,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     * @return PaymentReversalResource
     * @throws ApiException if fails to make API call
     */
-    public PaymentReversalResource refundOrCancelPayment(String paymentPspReferenceCreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
+    public PaymentReversalResource refundOrCancelPayment(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
         return refundOrCancelPayment(paymentPspReference, createPaymentReversalRequest, null);
     }
+
     /**
     * Refund or cancel a payment
     *

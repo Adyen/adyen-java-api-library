@@ -45,6 +45,7 @@ public class UtilityService extends ApiKeyAuthenticatedService {
     public ApplePaySessionResponse getApplePaySession(CreateApplePaySessionRequest createApplePaySessionRequest) throws ApiException, IOException {
         return getApplePaySession(createApplePaySessionRequest, null);
     }
+
     /**
     * Get an Apple Pay session
     *
@@ -72,6 +73,7 @@ public class UtilityService extends ApiKeyAuthenticatedService {
     public CheckoutUtilityResponse originKeys(CheckoutUtilityRequest checkoutUtilityRequest) throws ApiException, IOException {
         return originKeys(checkoutUtilityRequest, null);
     }
+
     /**
     * Create originKey values for domains
     *

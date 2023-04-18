@@ -47,6 +47,7 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
     public PaymentSetupResponse paymentSession(PaymentSetupRequest paymentSetupRequest) throws ApiException, IOException {
         return paymentSession(paymentSetupRequest, null);
     }
+
     /**
     * Create a payment session
     *
@@ -76,6 +77,7 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
     public PaymentVerificationResponse verifyPaymentResult(PaymentVerificationRequest paymentVerificationRequest) throws ApiException, IOException {
         return verifyPaymentResult(paymentVerificationRequest, null);
     }
+
     /**
     * Verify a payment result
     *

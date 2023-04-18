@@ -44,6 +44,7 @@ public class RecurringService extends ApiKeyAuthenticatedService {
     public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId) throws ApiException, IOException {
         return deleteTokenForStoredPaymentDetails(recurringId, null, null, null);
     }
+
     /**
     * Delete a token for stored payment details
     *
@@ -85,6 +86,7 @@ public class RecurringService extends ApiKeyAuthenticatedService {
     public ListStoredPaymentMethodsResponse getTokensForStoredPaymentDetails() throws ApiException, IOException {
         return getTokensForStoredPaymentDetails(null, null, null);
     }
+
     /**
     * Get tokens for stored payment details
     *

@@ -47,6 +47,7 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest) throws ApiException, IOException {
         return orders(checkoutCreateOrderRequest, null);
     }
+
     /**
     * Create an order
     *
@@ -72,6 +73,7 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     public CheckoutCancelOrderResponse cancelOrder(CheckoutCancelOrderRequest checkoutCancelOrderRequest) throws ApiException, IOException {
         return cancelOrder(checkoutCancelOrderRequest, null);
     }
+
     /**
     * Cancel an order
     *
@@ -97,6 +99,7 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     public CheckoutBalanceCheckResponse getBalanceOfGiftCard(CheckoutBalanceCheckRequest checkoutBalanceCheckRequest) throws ApiException, IOException {
         return getBalanceOfGiftCard(checkoutBalanceCheckRequest, null);
     }
+
     /**
     * Get the balance of a gift card
     *

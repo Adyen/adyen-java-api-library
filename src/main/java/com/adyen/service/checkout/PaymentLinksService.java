@@ -44,6 +44,7 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     public PaymentLinkResponse getPaymentLink(String linkId) throws ApiException, IOException {
         return getPaymentLink(linkId, null);
     }
+
     /**
     * Get a payment link
     *
@@ -72,9 +73,10 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     * @return PaymentLinkResponse
     * @throws ApiException if fails to make API call
     */
-    public PaymentLinkResponse updatePaymentLink(String linkIdUpdatePaymentLinkRequest updatePaymentLinkRequest) throws ApiException, IOException {
+    public PaymentLinkResponse updatePaymentLink(String linkId, UpdatePaymentLinkRequest updatePaymentLinkRequest) throws ApiException, IOException {
         return updatePaymentLink(linkId, updatePaymentLinkRequest, null);
     }
+
     /**
     * Update the status of a payment link
     *
@@ -106,6 +108,7 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
         return paymentLinks(createPaymentLinkRequest, null);
     }
+
     /**
     * Create a payment link
     *
