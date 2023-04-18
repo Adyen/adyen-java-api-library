@@ -1,0 +1,24 @@
+    /**
+    * {{summary}}
+    *
+{{#pathParams}}
+    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
+{{/pathParams}}
+{{#bodyParams}}
+    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
+{{/bodyParams}}
+{{#queryParams}}
+    *    {{paramName}}: {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{^isContainer}}{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/isContainer}}{{/required}}
+{{/queryParams}}
+{{#returnType}}
+    * @return {{.}}
+{{/returnType}}
+    * @throws ApiException if fails to make API call
+{{#isDeprecated}}
+    * @deprecated
+{{/isDeprecated}}
+{{#externalDocs}}
+    * {{description}}
+    * @see <a href="{{url}}">{{summary}} Documentation</a>
+{{/externalDocs}}
+    */

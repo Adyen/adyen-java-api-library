@@ -21,6 +21,7 @@ import com.adyen.model.management.AllowedOriginsResponse;
 import com.adyen.model.management.RestServiceError;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.ManagementResource;
+import com.adyen.service.resource.Resource;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -56,8 +57,8 @@ public class AllowedOriginsMerchantLevel extends ApiKeyAuthenticatedService {
         pathParams.put("originId", originId);
 
         String requestBody = null;
-        ManagementResource resource = new ManagementResource(this, "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}");
-        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams);
+        Resource resource = new Resource(this, "asdf" + "/merchants/{merchantId}/apiCredentials/{apiCredentialId}/allowedOrigins/{originId}", null);
+        resource.request(requestBody, null, ApiConstants.HttpMethod.DELETE, pathParams, null);
     }
     
     /**

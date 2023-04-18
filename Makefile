@@ -53,6 +53,32 @@ $(services): target/spec $(openapi-generator-jar)
 	mv $(output)/$(models)/JSON.java $(models)/$@
 
 
+checkout: target/spec $(openapi-generator-jar)
+	rm -rf $(models)/$@ $(output)
+	rm -rf src/main/java/com/adyen/service/$@ $(output)
+	$(openapi-generator-cli) generate \
+		-i target/spec/json/$(spec).json \
+		-g $(generator) \
+		-t templates \
+		-o $(output) \
+		--reserved-words-mappings configuration=configuration \
+		--ignore-file-override ./.openapi-generator-ignore \
+		--skip-validate-spec \
+		--model-package $(subst /,.,com.adyen.model.$@) \
+		--library $(library) \
+		--api-package com.adyen.service.$@ \
+        --api-name-suffix Service \
+		--global-property modelDocs=false \
+		--global-property modelTests=false \
+		--additional-properties=dateLibrary=java8 \
+		--additional-properties=serializationLibrary=gson \
+		--additional-properties=openApiNullable=false \
+		--additional-properties=resourceClass=$(resourceClass)Resource
+	mv $(output)/$(models)/$@ $(models)/$@
+	mv $(output)/src/main/java/com/adyen/service/JSON.java $(models)/$@
+	mv $(output)/src/main/java/com/adyen/service/$@ src/main/java/com/adyen/service/$@
+
+
 # Checkout spec (and patch version)
 target/spec:
 	git clone https://github.com/Adyen/adyen-openapi.git target/spec
