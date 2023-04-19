@@ -37,8 +37,8 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     /**
     * Get a payment link
     *
-    * @param linkId Unique identifier of the payment link. (required)
-    * @return PaymentLinkResponse
+    * @param linkId {@link String } Unique identifier of the payment link. (required)
+    * @return {@link PaymentLinkResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentLinkResponse getPaymentLink(String linkId) throws ApiException, IOException {
@@ -48,8 +48,9 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     /**
     * Get a payment link
     *
-    * @param linkId Unique identifier of the payment link. (required)
-    * @return PaymentLinkResponse
+    * @param linkId {@link String } Unique identifier of the payment link. (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentLinkResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentLinkResponse getPaymentLink(String linkId, RequestOptions requestOptions) throws ApiException, IOException {
@@ -68,9 +69,9 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     /**
     * Update the status of a payment link
     *
-    * @param linkId Unique identifier of the payment link. (required)
-    * @param updatePaymentLinkRequest  (optional)
-    * @return PaymentLinkResponse
+    * @param linkId {@link String } Unique identifier of the payment link. (required)
+    * @param updatePaymentLinkRequest {@link UpdatePaymentLinkRequest }  (required)
+    * @return {@link PaymentLinkResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentLinkResponse updatePaymentLink(String linkId, UpdatePaymentLinkRequest updatePaymentLinkRequest) throws ApiException, IOException {
@@ -80,9 +81,10 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     /**
     * Update the status of a payment link
     *
-    * @param linkId Unique identifier of the payment link. (required)
-    * @param updatePaymentLinkRequest  (optional)
-    * @return PaymentLinkResponse
+    * @param linkId {@link String } Unique identifier of the payment link. (required)
+    * @param updatePaymentLinkRequest {@link UpdatePaymentLinkRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentLinkResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentLinkResponse updatePaymentLink(String linkId, UpdatePaymentLinkRequest updatePaymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -101,8 +103,8 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     /**
     * Create a payment link
     *
-    * @param createPaymentLinkRequest  (optional)
-    * @return PaymentLinkResponse
+    * @param createPaymentLinkRequest {@link CreatePaymentLinkRequest }  (required)
+    * @return {@link PaymentLinkResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest) throws ApiException, IOException {
@@ -112,8 +114,9 @@ public class PaymentLinksService extends ApiKeyAuthenticatedService {
     /**
     * Create a payment link
     *
-    * @param createPaymentLinkRequest  (optional)
-    * @return PaymentLinkResponse
+    * @param createPaymentLinkRequest {@link CreatePaymentLinkRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentLinkResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentLinkResponse paymentLinks(CreatePaymentLinkRequest createPaymentLinkRequest, RequestOptions requestOptions) throws ApiException, IOException {

@@ -40,8 +40,8 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     /**
     * Create an order
     *
-    * @param checkoutCreateOrderRequest  (optional)
-    * @return CheckoutCreateOrderResponse
+    * @param checkoutCreateOrderRequest {@link CheckoutCreateOrderRequest }  (required)
+    * @return {@link CheckoutCreateOrderResponse }
     * @throws ApiException if fails to make API call
     */
     public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest) throws ApiException, IOException {
@@ -51,8 +51,9 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     /**
     * Create an order
     *
-    * @param checkoutCreateOrderRequest  (optional)
-    * @return CheckoutCreateOrderResponse
+    * @param checkoutCreateOrderRequest {@link CheckoutCreateOrderRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CheckoutCreateOrderResponse }
     * @throws ApiException if fails to make API call
     */
     public CheckoutCreateOrderResponse orders(CheckoutCreateOrderRequest checkoutCreateOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -66,8 +67,8 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     /**
     * Cancel an order
     *
-    * @param checkoutCancelOrderRequest  (optional)
-    * @return CheckoutCancelOrderResponse
+    * @param checkoutCancelOrderRequest {@link CheckoutCancelOrderRequest }  (required)
+    * @return {@link CheckoutCancelOrderResponse }
     * @throws ApiException if fails to make API call
     */
     public CheckoutCancelOrderResponse cancelOrder(CheckoutCancelOrderRequest checkoutCancelOrderRequest) throws ApiException, IOException {
@@ -77,8 +78,9 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     /**
     * Cancel an order
     *
-    * @param checkoutCancelOrderRequest  (optional)
-    * @return CheckoutCancelOrderResponse
+    * @param checkoutCancelOrderRequest {@link CheckoutCancelOrderRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CheckoutCancelOrderResponse }
     * @throws ApiException if fails to make API call
     */
     public CheckoutCancelOrderResponse cancelOrder(CheckoutCancelOrderRequest checkoutCancelOrderRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -92,8 +94,8 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     /**
     * Get the balance of a gift card
     *
-    * @param checkoutBalanceCheckRequest  (optional)
-    * @return CheckoutBalanceCheckResponse
+    * @param checkoutBalanceCheckRequest {@link CheckoutBalanceCheckRequest }  (required)
+    * @return {@link CheckoutBalanceCheckResponse }
     * @throws ApiException if fails to make API call
     */
     public CheckoutBalanceCheckResponse getBalanceOfGiftCard(CheckoutBalanceCheckRequest checkoutBalanceCheckRequest) throws ApiException, IOException {
@@ -103,8 +105,9 @@ public class OrdersService extends ApiKeyAuthenticatedService {
     /**
     * Get the balance of a gift card
     *
-    * @param checkoutBalanceCheckRequest  (optional)
-    * @return CheckoutBalanceCheckResponse
+    * @param checkoutBalanceCheckRequest {@link CheckoutBalanceCheckRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CheckoutBalanceCheckResponse }
     * @throws ApiException if fails to make API call
     */
     public CheckoutBalanceCheckResponse getBalanceOfGiftCard(CheckoutBalanceCheckRequest checkoutBalanceCheckRequest, RequestOptions requestOptions) throws ApiException, IOException {

@@ -46,8 +46,8 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Get the list of brands on the card
     *
-    * @param cardDetailsRequest  (optional)
-    * @return CardDetailsResponse
+    * @param cardDetailsRequest {@link CardDetailsRequest }  (required)
+    * @return {@link CardDetailsResponse }
     * @throws ApiException if fails to make API call
     */
     public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest) throws ApiException, IOException {
@@ -57,8 +57,9 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Get the list of brands on the card
     *
-    * @param cardDetailsRequest  (optional)
-    * @return CardDetailsResponse
+    * @param cardDetailsRequest {@link CardDetailsRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CardDetailsResponse }
     * @throws ApiException if fails to make API call
     */
     public CardDetailsResponse cardDetails(CardDetailsRequest cardDetailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -72,8 +73,8 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Start a transaction for donations
     *
-    * @param paymentDonationRequest  (optional)
-    * @return DonationResponse
+    * @param paymentDonationRequest {@link PaymentDonationRequest }  (required)
+    * @return {@link DonationResponse }
     * @throws ApiException if fails to make API call
     */
     public DonationResponse donations(PaymentDonationRequest paymentDonationRequest) throws ApiException, IOException {
@@ -83,8 +84,9 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Start a transaction for donations
     *
-    * @param paymentDonationRequest  (optional)
-    * @return DonationResponse
+    * @param paymentDonationRequest {@link PaymentDonationRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link DonationResponse }
     * @throws ApiException if fails to make API call
     */
     public DonationResponse donations(PaymentDonationRequest paymentDonationRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -98,8 +100,8 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Get a list of available payment methods
     *
-    * @param paymentMethodsRequest  (optional)
-    * @return PaymentMethodsResponse
+    * @param paymentMethodsRequest {@link PaymentMethodsRequest }  (required)
+    * @return {@link PaymentMethodsResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest) throws ApiException, IOException {
@@ -109,8 +111,9 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Get a list of available payment methods
     *
-    * @param paymentMethodsRequest  (optional)
-    * @return PaymentMethodsResponse
+    * @param paymentMethodsRequest {@link PaymentMethodsRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentMethodsResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentMethodsResponse paymentMethods(PaymentMethodsRequest paymentMethodsRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -124,8 +127,8 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Start a transaction
     *
-    * @param paymentRequest  (optional)
-    * @return PaymentResponse
+    * @param paymentRequest {@link PaymentRequest }  (required)
+    * @return {@link PaymentResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentResponse payments(PaymentRequest paymentRequest) throws ApiException, IOException {
@@ -135,8 +138,9 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Start a transaction
     *
-    * @param paymentRequest  (optional)
-    * @return PaymentResponse
+    * @param paymentRequest {@link PaymentRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentResponse payments(PaymentRequest paymentRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -150,8 +154,8 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Submit details for a payment
     *
-    * @param detailsRequest  (optional)
-    * @return PaymentDetailsResponse
+    * @param detailsRequest {@link DetailsRequest }  (required)
+    * @return {@link PaymentDetailsResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentDetailsResponse paymentsDetails(DetailsRequest detailsRequest) throws ApiException, IOException {
@@ -161,8 +165,9 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Submit details for a payment
     *
-    * @param detailsRequest  (optional)
-    * @return PaymentDetailsResponse
+    * @param detailsRequest {@link DetailsRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentDetailsResponse }
     * @throws ApiException if fails to make API call
     */
     public PaymentDetailsResponse paymentsDetails(DetailsRequest detailsRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -176,8 +181,8 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Create a payment session
     *
-    * @param createCheckoutSessionRequest  (optional)
-    * @return CreateCheckoutSessionResponse
+    * @param createCheckoutSessionRequest {@link CreateCheckoutSessionRequest }  (required)
+    * @return {@link CreateCheckoutSessionResponse }
     * @throws ApiException if fails to make API call
     */
     public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest) throws ApiException, IOException {
@@ -187,8 +192,9 @@ public class PaymentsService extends ApiKeyAuthenticatedService {
     /**
     * Create a payment session
     *
-    * @param createCheckoutSessionRequest  (optional)
-    * @return CreateCheckoutSessionResponse
+    * @param createCheckoutSessionRequest {@link CreateCheckoutSessionRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CreateCheckoutSessionResponse }
     * @throws ApiException if fails to make API call
     */
     public CreateCheckoutSessionResponse sessions(CreateCheckoutSessionRequest createCheckoutSessionRequest, RequestOptions requestOptions) throws ApiException, IOException {

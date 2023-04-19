@@ -46,8 +46,8 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Cancel an authorised payment
     *
-    * @param createStandalonePaymentCancelRequest  (optional)
-    * @return StandalonePaymentCancelResource
+    * @param createStandalonePaymentCancelRequest {@link CreateStandalonePaymentCancelRequest }  (required)
+    * @return {@link StandalonePaymentCancelResource }
     * @throws ApiException if fails to make API call
     */
     public StandalonePaymentCancelResource cancelAuthorisedPayment(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest) throws ApiException, IOException {
@@ -57,8 +57,9 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Cancel an authorised payment
     *
-    * @param createStandalonePaymentCancelRequest  (optional)
-    * @return StandalonePaymentCancelResource
+    * @param createStandalonePaymentCancelRequest {@link CreateStandalonePaymentCancelRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link StandalonePaymentCancelResource }
     * @throws ApiException if fails to make API call
     */
     public StandalonePaymentCancelResource cancelAuthorisedPayment(CreateStandalonePaymentCancelRequest createStandalonePaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -72,9 +73,9 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Update an authorised amount
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
-    * @param createPaymentAmountUpdateRequest  (optional)
-    * @return PaymentAmountUpdateResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
+    * @param createPaymentAmountUpdateRequest {@link CreatePaymentAmountUpdateRequest }  (required)
+    * @return {@link PaymentAmountUpdateResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentAmountUpdateResource updateAuthorisedAmount(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest) throws ApiException, IOException {
@@ -84,9 +85,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Update an authorised amount
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
-    * @param createPaymentAmountUpdateRequest  (optional)
-    * @return PaymentAmountUpdateResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment. (required)
+    * @param createPaymentAmountUpdateRequest {@link CreatePaymentAmountUpdateRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentAmountUpdateResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentAmountUpdateResource updateAuthorisedAmount(String paymentPspReference, CreatePaymentAmountUpdateRequest createPaymentAmountUpdateRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -105,9 +107,9 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Cancel an authorised payment
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to cancel.  (required)
-    * @param createPaymentCancelRequest  (optional)
-    * @return PaymentCancelResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to cancel.  (required)
+    * @param createPaymentCancelRequest {@link CreatePaymentCancelRequest }  (required)
+    * @return {@link PaymentCancelResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentCancelResource cancelAuthorisedPaymentByPspReference(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest) throws ApiException, IOException {
@@ -117,9 +119,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Cancel an authorised payment
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to cancel.  (required)
-    * @param createPaymentCancelRequest  (optional)
-    * @return PaymentCancelResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to cancel.  (required)
+    * @param createPaymentCancelRequest {@link CreatePaymentCancelRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentCancelResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentCancelResource cancelAuthorisedPaymentByPspReference(String paymentPspReference, CreatePaymentCancelRequest createPaymentCancelRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -138,9 +141,9 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Capture an authorised payment
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to capture. (required)
-    * @param createPaymentCaptureRequest  (optional)
-    * @return PaymentCaptureResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to capture. (required)
+    * @param createPaymentCaptureRequest {@link CreatePaymentCaptureRequest }  (required)
+    * @return {@link PaymentCaptureResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentCaptureResource captureAuthorisedPayment(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest) throws ApiException, IOException {
@@ -150,9 +153,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Capture an authorised payment
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to capture. (required)
-    * @param createPaymentCaptureRequest  (optional)
-    * @return PaymentCaptureResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to capture. (required)
+    * @param createPaymentCaptureRequest {@link CreatePaymentCaptureRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentCaptureResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentCaptureResource captureAuthorisedPayment(String paymentPspReference, CreatePaymentCaptureRequest createPaymentCaptureRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -171,9 +175,9 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Refund a captured payment
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to refund. (required)
-    * @param createPaymentRefundRequest  (optional)
-    * @return PaymentRefundResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to refund. (required)
+    * @param createPaymentRefundRequest {@link CreatePaymentRefundRequest }  (required)
+    * @return {@link PaymentRefundResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentRefundResource refundCapturedPayment(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest) throws ApiException, IOException {
@@ -183,9 +187,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Refund a captured payment
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to refund. (required)
-    * @param createPaymentRefundRequest  (optional)
-    * @return PaymentRefundResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to refund. (required)
+    * @param createPaymentRefundRequest {@link CreatePaymentRefundRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentRefundResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentRefundResource refundCapturedPayment(String paymentPspReference, CreatePaymentRefundRequest createPaymentRefundRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -204,9 +209,9 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Refund or cancel a payment
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to reverse.  (required)
-    * @param createPaymentReversalRequest  (optional)
-    * @return PaymentReversalResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to reverse.  (required)
+    * @param createPaymentReversalRequest {@link CreatePaymentReversalRequest }  (required)
+    * @return {@link PaymentReversalResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentReversalResource refundOrCancelPayment(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest) throws ApiException, IOException {
@@ -216,9 +221,10 @@ public class ModificationsService extends ApiKeyAuthenticatedService {
     /**
     * Refund or cancel a payment
     *
-    * @param paymentPspReference The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to reverse.  (required)
-    * @param createPaymentReversalRequest  (optional)
-    * @return PaymentReversalResource
+    * @param paymentPspReference {@link String } The [&#x60;pspReference&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/latest/post/payments__resParam_pspReference) of the payment that you want to reverse.  (required)
+    * @param createPaymentReversalRequest {@link CreatePaymentReversalRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentReversalResource }
     * @throws ApiException if fails to make API call
     */
     public PaymentReversalResource refundOrCancelPayment(String paymentPspReference, CreatePaymentReversalRequest createPaymentReversalRequest, RequestOptions requestOptions) throws ApiException, IOException {

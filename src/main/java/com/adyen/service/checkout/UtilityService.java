@@ -38,8 +38,8 @@ public class UtilityService extends ApiKeyAuthenticatedService {
     /**
     * Get an Apple Pay session
     *
-    * @param createApplePaySessionRequest  (optional)
-    * @return ApplePaySessionResponse
+    * @param createApplePaySessionRequest {@link CreateApplePaySessionRequest }  (required)
+    * @return {@link ApplePaySessionResponse }
     * @throws ApiException if fails to make API call
     */
     public ApplePaySessionResponse getApplePaySession(CreateApplePaySessionRequest createApplePaySessionRequest) throws ApiException, IOException {
@@ -49,8 +49,9 @@ public class UtilityService extends ApiKeyAuthenticatedService {
     /**
     * Get an Apple Pay session
     *
-    * @param createApplePaySessionRequest  (optional)
-    * @return ApplePaySessionResponse
+    * @param createApplePaySessionRequest {@link CreateApplePaySessionRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ApplePaySessionResponse }
     * @throws ApiException if fails to make API call
     */
     public ApplePaySessionResponse getApplePaySession(CreateApplePaySessionRequest createApplePaySessionRequest, RequestOptions requestOptions) throws ApiException, IOException {
@@ -64,8 +65,8 @@ public class UtilityService extends ApiKeyAuthenticatedService {
     /**
     * Create originKey values for domains
     *
-    * @param checkoutUtilityRequest  (optional)
-    * @return CheckoutUtilityResponse
+    * @param checkoutUtilityRequest {@link CheckoutUtilityRequest }  (required)
+    * @return {@link CheckoutUtilityResponse }
     * @throws ApiException if fails to make API call
     * @deprecated
     */
@@ -77,8 +78,9 @@ public class UtilityService extends ApiKeyAuthenticatedService {
     /**
     * Create originKey values for domains
     *
-    * @param checkoutUtilityRequest  (optional)
-    * @return CheckoutUtilityResponse
+    * @param checkoutUtilityRequest {@link CheckoutUtilityRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link CheckoutUtilityResponse }
     * @throws ApiException if fails to make API call
     * @deprecated
     */

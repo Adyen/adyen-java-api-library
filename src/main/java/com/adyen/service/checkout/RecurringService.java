@@ -35,10 +35,8 @@ public class RecurringService extends ApiKeyAuthenticatedService {
     /**
     * Delete a token for stored payment details
     *
-    * @param recurringId The unique identifier of the token. (required)
-    *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
-    *    merchantAccount: Your merchant account. (optional)
-    * @return StoredPaymentMethodResource
+    * @param recurringId {@link String } The unique identifier of the token. (required)
+    * @return {@link StoredPaymentMethodResource }
     * @throws ApiException if fails to make API call
     */
     public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId) throws ApiException, IOException {
@@ -48,10 +46,11 @@ public class RecurringService extends ApiKeyAuthenticatedService {
     /**
     * Delete a token for stored payment details
     *
-    * @param recurringId The unique identifier of the token. (required)
-    *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
-    *    merchantAccount: Your merchant account. (optional)
-    * @return StoredPaymentMethodResource
+    * @param recurringId {@link String } The unique identifier of the token. (required)
+    * @param shopperReference {@link String } Query: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
+    * @param merchantAccount {@link String } Query: Your merchant account. (optional)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link StoredPaymentMethodResource }
     * @throws ApiException if fails to make API call
     */
     public StoredPaymentMethodResource deleteTokenForStoredPaymentDetails(String recurringId, String shopperReference, String merchantAccount, RequestOptions requestOptions) throws ApiException, IOException {
@@ -78,9 +77,7 @@ public class RecurringService extends ApiKeyAuthenticatedService {
     /**
     * Get tokens for stored payment details
     *
-    *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
-    *    merchantAccount: Your merchant account. (optional)
-    * @return ListStoredPaymentMethodsResponse
+    * @return {@link ListStoredPaymentMethodsResponse }
     * @throws ApiException if fails to make API call
     */
     public ListStoredPaymentMethodsResponse getTokensForStoredPaymentDetails() throws ApiException, IOException {
@@ -90,9 +87,10 @@ public class RecurringService extends ApiKeyAuthenticatedService {
     /**
     * Get tokens for stored payment details
     *
-    *    shopperReference: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
-    *    merchantAccount: Your merchant account. (optional)
-    * @return ListStoredPaymentMethodsResponse
+    * @param shopperReference {@link String } Query: Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. &gt; Your reference must not include personally identifiable information (PII), for example name or email address. (optional)
+    * @param merchantAccount {@link String } Query: Your merchant account. (optional)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link ListStoredPaymentMethodsResponse }
     * @throws ApiException if fails to make API call
     */
     public ListStoredPaymentMethodsResponse getTokensForStoredPaymentDetails(String shopperReference, String merchantAccount, RequestOptions requestOptions) throws ApiException, IOException {

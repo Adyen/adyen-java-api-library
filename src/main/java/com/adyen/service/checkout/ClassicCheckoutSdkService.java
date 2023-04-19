@@ -38,8 +38,8 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
     /**
     * Create a payment session
     *
-    * @param paymentSetupRequest  (optional)
-    * @return PaymentSetupResponse
+    * @param paymentSetupRequest {@link PaymentSetupRequest }  (required)
+    * @return {@link PaymentSetupResponse }
     * @throws ApiException if fails to make API call
     * @deprecated
     */
@@ -51,8 +51,9 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
     /**
     * Create a payment session
     *
-    * @param paymentSetupRequest  (optional)
-    * @return PaymentSetupResponse
+    * @param paymentSetupRequest {@link PaymentSetupRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentSetupResponse }
     * @throws ApiException if fails to make API call
     * @deprecated
     */
@@ -68,8 +69,8 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
     /**
     * Verify a payment result
     *
-    * @param paymentVerificationRequest  (optional)
-    * @return PaymentVerificationResponse
+    * @param paymentVerificationRequest {@link PaymentVerificationRequest }  (required)
+    * @return {@link PaymentVerificationResponse }
     * @throws ApiException if fails to make API call
     * @deprecated
     */
@@ -81,8 +82,9 @@ public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
     /**
     * Verify a payment result
     *
-    * @param paymentVerificationRequest  (optional)
-    * @return PaymentVerificationResponse
+    * @param paymentVerificationRequest {@link PaymentVerificationRequest }  (required)
+    * @param requestOptions {@link RequestOptions } Object to store additional data such as idempotency-keys (optional)
+    * @return {@link PaymentVerificationResponse }
     * @throws ApiException if fails to make API call
     * @deprecated
     */
