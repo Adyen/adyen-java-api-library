@@ -12,42 +12,27 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.Item;
-import com.adyen.model.checkout.SubInputDetail;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * InputDetail
@@ -353,19 +338,18 @@ public class InputDetail {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class InputDetail {\n");
-    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
-    sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");
-    sb.append("    itemSearchUrl: ").append(toIndentedString(itemSearchUrl)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class InputDetail {\n" +
+            "    configuration: " + toIndentedString(configuration) + "\n" +
+            "    details: " + toIndentedString(details) + "\n" +
+            "    inputDetails: " + toIndentedString(inputDetails) + "\n" +
+            "    itemSearchUrl: " + toIndentedString(itemSearchUrl) + "\n" +
+            "    items: " + toIndentedString(items) + "\n" +
+            "    key: " + toIndentedString(key) + "\n" +
+            "    optional: " + toIndentedString(optional) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    value: " + toIndentedString(value) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -411,7 +395,7 @@ public class InputDetail {
         if (InputDetail.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in InputDetail is not found in the empty JSON string", InputDetail.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in InputDetail is not found in the empty JSON string", InputDetail.openapiRequiredFields));
         }
       }
 
@@ -419,7 +403,7 @@ public class InputDetail {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!InputDetail.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InputDetail` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InputDetail` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       JsonArray jsonArraydetails = jsonObj.getAsJsonArray("details");
@@ -432,7 +416,7 @@ public class InputDetail {
         // validate the optional field `details` (array)
         for (int i = 0; i < jsonArraydetails.size(); i++) {
           SubInputDetail.validateJsonObject(jsonArraydetails.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayinputDetails = jsonObj.getAsJsonArray("inputDetails");
       if (jsonArrayinputDetails != null) {
@@ -444,7 +428,7 @@ public class InputDetail {
         // validate the optional field `inputDetails` (array)
         for (int i = 0; i < jsonArrayinputDetails.size(); i++) {
           SubInputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field itemSearchUrl
       if (jsonObj.get("itemSearchUrl") != null && !jsonObj.get("itemSearchUrl").isJsonPrimitive()) {
@@ -460,7 +444,7 @@ public class InputDetail {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           Item.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field key
       if (jsonObj.get("key") != null && !jsonObj.get("key").isJsonPrimitive()) {

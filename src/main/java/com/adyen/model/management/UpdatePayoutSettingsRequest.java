@@ -12,36 +12,22 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * UpdatePayoutSettingsRequest
@@ -97,11 +83,10 @@ public class UpdatePayoutSettingsRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UpdatePayoutSettingsRequest {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class UpdatePayoutSettingsRequest {\n" +
+              "    enabled: " + toIndentedString(enabled) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -139,7 +124,7 @@ public class UpdatePayoutSettingsRequest {
         if (UpdatePayoutSettingsRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdatePayoutSettingsRequest is not found in the empty JSON string", UpdatePayoutSettingsRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdatePayoutSettingsRequest is not found in the empty JSON string", UpdatePayoutSettingsRequest.openapiRequiredFields));
         }
       }
 
@@ -147,7 +132,7 @@ public class UpdatePayoutSettingsRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!UpdatePayoutSettingsRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdatePayoutSettingsRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdatePayoutSettingsRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
   }

@@ -26,7 +26,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -265,19 +264,18 @@ public class AccountState {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountState {\n");
 
-        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
-        sb.append("    allowProcessing: ").append(toIndentedString(allowProcessing)).append("\n");
-        sb.append("    stateDeadline: ").append(toIndentedString(stateDeadline)).append("\n");
-        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append("\n");
-        sb.append("    stateLimit: ").append(toIndentedString(stateLimit)).append("\n");
-        sb.append("    stateType: ").append(toIndentedString(stateType)).append("\n");
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
-        sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountState {\n" +
+                "    disableReason: " + toIndentedString(disableReason) + "\n" +
+                "    allowProcessing: " + toIndentedString(allowProcessing) + "\n" +
+                "    stateDeadline: " + toIndentedString(stateDeadline) + "\n" +
+                "    allowPayout: " + toIndentedString(allowPayout) + "\n" +
+                "    stateLimit: " + toIndentedString(stateLimit) + "\n" +
+                "    stateType: " + toIndentedString(stateType) + "\n" +
+                "    tierNumber: " + toIndentedString(tierNumber) + "\n" +
+                "    disabled: " + toIndentedString(disabled) + "\n" +
+                "}";
+        return sb;
     }
 
 }

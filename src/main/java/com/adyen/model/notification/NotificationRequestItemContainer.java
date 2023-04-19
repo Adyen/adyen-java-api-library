@@ -41,12 +41,11 @@ public class NotificationRequestItemContainer {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationRequestItemContainer {\n");
 
-        sb.append("    notificationItem: ").append(toIndentedString(notificationItem)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class NotificationRequestItemContainer {\n" +
+                "    notificationItem: " + toIndentedString(notificationItem) + "\n" +
+                "}";
+        return sb;
     }
 
 

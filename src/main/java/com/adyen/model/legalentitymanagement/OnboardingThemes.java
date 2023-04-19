@@ -12,39 +12,25 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.legalentitymanagement.OnboardingTheme;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * OnboardingThemes
@@ -159,13 +145,12 @@ public class OnboardingThemes {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OnboardingThemes {\n");
-    sb.append("    next: ").append(toIndentedString(next)).append("\n");
-    sb.append("    previous: ").append(toIndentedString(previous)).append("\n");
-    sb.append("    themes: ").append(toIndentedString(themes)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class OnboardingThemes {\n" +
+              "    next: " + toIndentedString(next) + "\n" +
+              "    previous: " + toIndentedString(previous) + "\n" +
+              "    themes: " + toIndentedString(themes) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -206,7 +191,7 @@ public class OnboardingThemes {
         if (OnboardingThemes.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in OnboardingThemes is not found in the empty JSON string", OnboardingThemes.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in OnboardingThemes is not found in the empty JSON string", OnboardingThemes.openapiRequiredFields));
         }
       }
 
@@ -214,14 +199,14 @@ public class OnboardingThemes {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!OnboardingThemes.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OnboardingThemes` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OnboardingThemes` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : OnboardingThemes.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field next
@@ -242,7 +227,7 @@ public class OnboardingThemes {
         // validate the optional field `themes` (array)
         for (int i = 0; i < jsonArraythemes.size(); i++) {
           OnboardingTheme.validateJsonObject(jsonArraythemes.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

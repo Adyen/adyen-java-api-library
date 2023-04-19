@@ -12,38 +12,23 @@
 
 package com.adyen.model.transfers;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.transfers.Amount;
-import com.adyen.model.transfers.CounterpartyV3;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * Transfer
@@ -71,7 +56,7 @@ public class Transfer {
     
     PLATFORMPAYMENT("platformPayment");
 
-    private String value;
+    private final String value;
 
     CategoryEnum(String value) {
       this.value = value;
@@ -130,7 +115,7 @@ public class Transfer {
     
     OUTGOING("outgoing");
 
-    private String value;
+    private final String value;
 
     DirectionEnum(String value) {
       this.value = value;
@@ -199,7 +184,7 @@ public class Transfer {
     
     WIRE("wire");
 
-    private String value;
+    private final String value;
 
     PriorityEnum(String value) {
       this.value = value;
@@ -272,7 +257,7 @@ public class Transfer {
     
     UNKNOWN("unknown");
 
-    private String value;
+    private final String value;
 
     ReasonEnum(String value) {
       this.value = value;
@@ -449,7 +434,7 @@ public class Transfer {
     
     UNDEFINED("undefined");
 
-    private String value;
+    private final String value;
 
     StatusEnum(String value) {
       this.value = value;
@@ -812,23 +797,22 @@ public class Transfer {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Transfer {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
-    sb.append("    category: ").append(toIndentedString(category)).append("\n");
-    sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    paymentInstrumentId: ").append(toIndentedString(paymentInstrumentId)).append("\n");
-    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    referenceForBeneficiary: ").append(toIndentedString(referenceForBeneficiary)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class Transfer {\n" +
+            "    amount: " + toIndentedString(amount) + "\n" +
+            "    balanceAccountId: " + toIndentedString(balanceAccountId) + "\n" +
+            "    category: " + toIndentedString(category) + "\n" +
+            "    counterparty: " + toIndentedString(counterparty) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    direction: " + toIndentedString(direction) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    paymentInstrumentId: " + toIndentedString(paymentInstrumentId) + "\n" +
+            "    priority: " + toIndentedString(priority) + "\n" +
+            "    reason: " + toIndentedString(reason) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    referenceForBeneficiary: " + toIndentedString(referenceForBeneficiary) + "\n" +
+            "    status: " + toIndentedString(status) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -882,7 +866,7 @@ public class Transfer {
         if (Transfer.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Transfer is not found in the empty JSON string", Transfer.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Transfer is not found in the empty JSON string", Transfer.openapiRequiredFields));
         }
       }
 
@@ -890,14 +874,14 @@ public class Transfer {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Transfer.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Transfer` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Transfer` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Transfer.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `amount`

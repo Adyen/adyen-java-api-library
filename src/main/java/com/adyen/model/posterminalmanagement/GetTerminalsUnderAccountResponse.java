@@ -21,12 +21,11 @@
 
 package com.adyen.model.posterminalmanagement;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * GetTerminalsUnderAccountResponse
@@ -135,14 +134,13 @@ public class GetTerminalsUnderAccountResponse {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class GetTerminalsUnderAccountResponse {\n");
 
-        sb.append("    companyAccount: ").append(toIndentedString(companyAccount)).append("\n");
-        sb.append("    inventoryTerminals: ").append(toIndentedString(inventoryTerminals)).append("\n");
-        sb.append("    merchantAccounts: ").append(toIndentedString(merchantAccounts)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class GetTerminalsUnderAccountResponse {\n" +
+                "    companyAccount: " + toIndentedString(companyAccount) + "\n" +
+                "    inventoryTerminals: " + toIndentedString(inventoryTerminals) + "\n" +
+                "    merchantAccounts: " + toIndentedString(merchantAccounts) + "\n" +
+                "}";
+        return sb;
     }
 
     /**

@@ -12,37 +12,23 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.legalentitymanagement.Address;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * SoleProprietorship
@@ -86,7 +72,7 @@ public class SoleProprietorship {
     
     BELOWTAXTHRESHOLD("belowTaxThreshold");
 
-    private String value;
+    private final String value;
 
     VatAbsenceReasonEnum(String value) {
       this.value = value;
@@ -361,19 +347,18 @@ public class SoleProprietorship {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SoleProprietorship {\n");
-    sb.append("    countryOfGoverningLaw: ").append(toIndentedString(countryOfGoverningLaw)).append("\n");
-    sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
-    sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");
-    sb.append("    registeredAddress: ").append(toIndentedString(registeredAddress)).append("\n");
-    sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
-    sb.append("    vatAbsenceReason: ").append(toIndentedString(vatAbsenceReason)).append("\n");
-    sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class SoleProprietorship {\n" +
+            "    countryOfGoverningLaw: " + toIndentedString(countryOfGoverningLaw) + "\n" +
+            "    dateOfIncorporation: " + toIndentedString(dateOfIncorporation) + "\n" +
+            "    doingBusinessAs: " + toIndentedString(doingBusinessAs) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    principalPlaceOfBusiness: " + toIndentedString(principalPlaceOfBusiness) + "\n" +
+            "    registeredAddress: " + toIndentedString(registeredAddress) + "\n" +
+            "    registrationNumber: " + toIndentedString(registrationNumber) + "\n" +
+            "    vatAbsenceReason: " + toIndentedString(vatAbsenceReason) + "\n" +
+            "    vatNumber: " + toIndentedString(vatNumber) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -422,7 +407,7 @@ public class SoleProprietorship {
         if (SoleProprietorship.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SoleProprietorship is not found in the empty JSON string", SoleProprietorship.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SoleProprietorship is not found in the empty JSON string", SoleProprietorship.openapiRequiredFields));
         }
       }
 
@@ -430,14 +415,14 @@ public class SoleProprietorship {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!SoleProprietorship.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SoleProprietorship` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SoleProprietorship` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SoleProprietorship.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field countryOfGoverningLaw

@@ -12,41 +12,26 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.Amount;
-import com.adyen.model.checkout.LineItem;
-import com.adyen.model.checkout.Split;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * CreatePaymentRefundRequest
@@ -80,7 +65,7 @@ public class CreatePaymentRefundRequest {
     
     OTHER("OTHER");
 
-    private String value;
+    private final String value;
 
     MerchantRefundReasonEnum(String value) {
       this.value = value;
@@ -306,16 +291,15 @@ public class CreatePaymentRefundRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePaymentRefundRequest {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    merchantRefundReason: ").append(toIndentedString(merchantRefundReason)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class CreatePaymentRefundRequest {\n" +
+            "    amount: " + toIndentedString(amount) + "\n" +
+            "    lineItems: " + toIndentedString(lineItems) + "\n" +
+            "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+            "    merchantRefundReason: " + toIndentedString(merchantRefundReason) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    splits: " + toIndentedString(splits) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -360,7 +344,7 @@ public class CreatePaymentRefundRequest {
         if (CreatePaymentRefundRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePaymentRefundRequest is not found in the empty JSON string", CreatePaymentRefundRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePaymentRefundRequest is not found in the empty JSON string", CreatePaymentRefundRequest.openapiRequiredFields));
         }
       }
 
@@ -368,14 +352,14 @@ public class CreatePaymentRefundRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreatePaymentRefundRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePaymentRefundRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePaymentRefundRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreatePaymentRefundRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `amount`
@@ -392,7 +376,7 @@ public class CreatePaymentRefundRequest {
         // validate the optional field `lineItems` (array)
         for (int i = 0; i < jsonArraylineItems.size(); i++) {
           LineItem.validateJsonObject(jsonArraylineItems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field merchantAccount
       if (jsonObj.get("merchantAccount") != null && !jsonObj.get("merchantAccount").isJsonPrimitive()) {
@@ -419,7 +403,7 @@ public class CreatePaymentRefundRequest {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

@@ -12,44 +12,28 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.InputDetail;
-import com.adyen.model.checkout.PaymentMethodGroup;
-import com.adyen.model.checkout.PaymentMethodIssuer;
-import com.adyen.model.checkout.StoredDetails;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * RecurringDetail
@@ -75,7 +59,7 @@ public class RecurringDetail {
   public enum FundingSourceEnum {
     DEBIT("debit");
 
-    private String value;
+    private final String value;
 
     FundingSourceEnum(String value) {
       this.value = value;
@@ -454,21 +438,20 @@ public class RecurringDetail {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RecurringDetail {\n");
-    sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
-    sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-    sb.append("    fundingSource: ").append(toIndentedString(fundingSource)).append("\n");
-    sb.append("    group: ").append(toIndentedString(group)).append("\n");
-    sb.append("    inputDetails: ").append(toIndentedString(inputDetails)).append("\n");
-    sb.append("    issuers: ").append(toIndentedString(issuers)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-    sb.append("    storedDetails: ").append(toIndentedString(storedDetails)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class RecurringDetail {\n" +
+            "    brand: " + toIndentedString(brand) + "\n" +
+            "    brands: " + toIndentedString(brands) + "\n" +
+            "    configuration: " + toIndentedString(configuration) + "\n" +
+            "    fundingSource: " + toIndentedString(fundingSource) + "\n" +
+            "    group: " + toIndentedString(group) + "\n" +
+            "    inputDetails: " + toIndentedString(inputDetails) + "\n" +
+            "    issuers: " + toIndentedString(issuers) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    recurringDetailReference: " + toIndentedString(recurringDetailReference) + "\n" +
+            "    storedDetails: " + toIndentedString(storedDetails) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -516,7 +499,7 @@ public class RecurringDetail {
         if (RecurringDetail.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetail is not found in the empty JSON string", RecurringDetail.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RecurringDetail is not found in the empty JSON string", RecurringDetail.openapiRequiredFields));
         }
       }
 
@@ -524,7 +507,7 @@ public class RecurringDetail {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!RecurringDetail.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetail` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecurringDetail` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field brand
@@ -556,7 +539,7 @@ public class RecurringDetail {
         // validate the optional field `inputDetails` (array)
         for (int i = 0; i < jsonArrayinputDetails.size(); i++) {
           InputDetail.validateJsonObject(jsonArrayinputDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayissuers = jsonObj.getAsJsonArray("issuers");
       if (jsonArrayissuers != null) {
@@ -568,7 +551,7 @@ public class RecurringDetail {
         // validate the optional field `issuers` (array)
         for (int i = 0; i < jsonArrayissuers.size(); i++) {
           PaymentMethodIssuer.validateJsonObject(jsonArrayissuers.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field name
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {

@@ -100,13 +100,12 @@ public class KYCUltimateParentCompanyCheckResult {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class KYCUltimateParentCompanyCheckResult {\n");
 
-        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
-        sb.append("    ultimateParentCompanyCode: ").append(toIndentedString(ultimateParentCompanyCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class KYCUltimateParentCompanyCheckResult {\n" +
+                "    checks: " + toIndentedString(checks) + "\n" +
+                "    ultimateParentCompanyCode: " + toIndentedString(ultimateParentCompanyCode) + "\n" +
+                "}";
+        return sb;
     }
 
 

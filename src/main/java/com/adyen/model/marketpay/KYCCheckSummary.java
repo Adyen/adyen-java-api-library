@@ -25,7 +25,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -96,13 +95,12 @@ public class KYCCheckSummary {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class KYCCheckSummary {\n");
 
-        sb.append("    kycCheckCode: ").append(toIndentedString(kycCheckCode)).append("\n");
-        sb.append("    kycCheckDescription: ").append(toIndentedString(kycCheckDescription)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class KYCCheckSummary {\n" +
+                "    kycCheckCode: " + toIndentedString(kycCheckCode) + "\n" +
+                "    kycCheckDescription: " + toIndentedString(kycCheckDescription) + "\n" +
+                "}";
+        return sb;
     }
 
 }

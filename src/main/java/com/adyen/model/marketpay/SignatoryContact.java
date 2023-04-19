@@ -262,20 +262,19 @@ public class SignatoryContact {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SignatoryContact {\n");
 
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    email: ").append(toIndentedString(email)).append("\n");
-        sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    personalData: ").append(toIndentedString(personalData)).append("\n");
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    signatoryCode: ").append(toIndentedString(signatoryCode)).append("\n");
-        sb.append("    signatoryReference: ").append(toIndentedString(signatoryReference)).append("\n");
-        sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
-        sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class SignatoryContact {\n" +
+                "    address: " + toIndentedString(address) + "\n" +
+                "    email: " + toIndentedString(email) + "\n" +
+                "    fullPhoneNumber: " + toIndentedString(fullPhoneNumber) + "\n" +
+                "    name: " + toIndentedString(name) + "\n" +
+                "    personalData: " + toIndentedString(personalData) + "\n" +
+                "    phoneNumber: " + toIndentedString(phoneNumber) + "\n" +
+                "    signatoryCode: " + toIndentedString(signatoryCode) + "\n" +
+                "    signatoryReference: " + toIndentedString(signatoryReference) + "\n" +
+                "    webAddress: " + toIndentedString(webAddress) + "\n" +
+                "    jobTitle: " + toIndentedString(jobTitle) + "\n" +
+                "}";
+        return sb;
     }
 }

@@ -12,41 +12,27 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.Item;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * SubInputDetail
@@ -253,16 +239,15 @@ public class SubInputDetail {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SubInputDetail {\n");
-    sb.append("    configuration: ").append(toIndentedString(configuration)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class SubInputDetail {\n" +
+            "    configuration: " + toIndentedString(configuration) + "\n" +
+            "    items: " + toIndentedString(items) + "\n" +
+            "    key: " + toIndentedString(key) + "\n" +
+            "    optional: " + toIndentedString(optional) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    value: " + toIndentedString(value) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -305,7 +290,7 @@ public class SubInputDetail {
         if (SubInputDetail.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SubInputDetail is not found in the empty JSON string", SubInputDetail.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SubInputDetail is not found in the empty JSON string", SubInputDetail.openapiRequiredFields));
         }
       }
 
@@ -313,7 +298,7 @@ public class SubInputDetail {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!SubInputDetail.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SubInputDetail` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SubInputDetail` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
@@ -326,7 +311,7 @@ public class SubInputDetail {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           Item.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field key
       if (jsonObj.get("key") != null && !jsonObj.get("key").isJsonPrimitive()) {

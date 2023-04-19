@@ -12,40 +12,25 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.DataCenter;
-import com.adyen.model.management.MerchantLinks;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Merchant
@@ -460,24 +445,23 @@ public class Merchant {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Merchant {\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    captureDelay: ").append(toIndentedString(captureDelay)).append("\n");
-    sb.append("    companyId: ").append(toIndentedString(companyId)).append("\n");
-    sb.append("    dataCenters: ").append(toIndentedString(dataCenters)).append("\n");
-    sb.append("    defaultShopperInteraction: ").append(toIndentedString(defaultShopperInteraction)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    merchantCity: ").append(toIndentedString(merchantCity)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    pricingPlan: ").append(toIndentedString(pricingPlan)).append("\n");
-    sb.append("    primarySettlementCurrency: ").append(toIndentedString(primarySettlementCurrency)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    shopWebAddress: ").append(toIndentedString(shopWebAddress)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class Merchant {\n" +
+            "    links: " + toIndentedString(links) + "\n" +
+            "    captureDelay: " + toIndentedString(captureDelay) + "\n" +
+            "    companyId: " + toIndentedString(companyId) + "\n" +
+            "    dataCenters: " + toIndentedString(dataCenters) + "\n" +
+            "    defaultShopperInteraction: " + toIndentedString(defaultShopperInteraction) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    merchantCity: " + toIndentedString(merchantCity) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    pricingPlan: " + toIndentedString(pricingPlan) + "\n" +
+            "    primarySettlementCurrency: " + toIndentedString(primarySettlementCurrency) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    shopWebAddress: " + toIndentedString(shopWebAddress) + "\n" +
+            "    status: " + toIndentedString(status) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -528,7 +512,7 @@ public class Merchant {
         if (Merchant.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Merchant is not found in the empty JSON string", Merchant.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Merchant is not found in the empty JSON string", Merchant.openapiRequiredFields));
         }
       }
 
@@ -536,7 +520,7 @@ public class Merchant {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Merchant.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Merchant` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Merchant` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `_links`
@@ -561,7 +545,7 @@ public class Merchant {
         // validate the optional field `dataCenters` (array)
         for (int i = 0; i < jsonArraydataCenters.size(); i++) {
           DataCenter.validateJsonObject(jsonArraydataCenters.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field defaultShopperInteraction
       if (jsonObj.get("defaultShopperInteraction") != null && !jsonObj.get("defaultShopperInteraction").isJsonPrimitive()) {

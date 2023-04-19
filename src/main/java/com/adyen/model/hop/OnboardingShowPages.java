@@ -21,9 +21,9 @@
 
 package com.adyen.model.hop;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -180,17 +180,16 @@ public class OnboardingShowPages {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("class OnboardingShowPages {\n");
 
-        sb.append("    welcomePage: ").append(toIndentedString(welcomePage)).append("\n");
-        sb.append("    individualDetailsSummaryPage: ").append(toIndentedString(individualDetailsSummaryPage)).append("\n");
-        sb.append("    businessDetailsSummaryPage: ").append(toIndentedString(businessDetailsSummaryPage)).append("\n");
-        sb.append("    bankDetailsSummaryPage: ").append(toIndentedString(bankDetailsSummaryPage)).append("\n");
-        sb.append("    shareholderDetailsSummaryPage: ").append(toIndentedString(shareholderDetailsSummaryPage)).append("\n");
-        sb.append("    legalArrangementsDetailsSummaryPage: ").append(toIndentedString(legalArrangementsDetailsSummaryPage)).append("\n");
-        sb.append('}');
-        return sb.toString();
+        String sb = "class OnboardingShowPages {\n" +
+                "    welcomePage: " + toIndentedString(welcomePage) + "\n" +
+                "    individualDetailsSummaryPage: " + toIndentedString(individualDetailsSummaryPage) + "\n" +
+                "    businessDetailsSummaryPage: " + toIndentedString(businessDetailsSummaryPage) + "\n" +
+                "    bankDetailsSummaryPage: " + toIndentedString(bankDetailsSummaryPage) + "\n" +
+                "    shareholderDetailsSummaryPage: " + toIndentedString(shareholderDetailsSummaryPage) + "\n" +
+                "    legalArrangementsDetailsSummaryPage: " + toIndentedString(legalArrangementsDetailsSummaryPage) + "\n" +
+                '}';
+        return sb;
     }
 
 }

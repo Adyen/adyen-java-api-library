@@ -185,17 +185,16 @@ public class DirectDebitInitiatedNotification extends GenericNotification {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DirectDebitInitiatedNotification {\n");
 
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    error: ").append(toIndentedString(error)).append("\n");
-        sb.append("    eventDate: ").append(toIndentedString(eventDate)).append("\n");
-        sb.append("    executingUserKey: ").append(toIndentedString(executingUserKey)).append("\n");
-        sb.append("    live: ").append(toIndentedString(live)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class DirectDebitInitiatedNotification {\n" +
+                "    content: " + toIndentedString(content) + "\n" +
+                "    error: " + toIndentedString(error) + "\n" +
+                "    eventDate: " + toIndentedString(eventDate) + "\n" +
+                "    executingUserKey: " + toIndentedString(executingUserKey) + "\n" +
+                "    live: " + toIndentedString(live) + "\n" +
+                "    pspReference: " + toIndentedString(pspReference) + "\n" +
+                "}";
+        return sb;
     }
 
 }

@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -101,13 +100,12 @@ public class AccountStateRequirement {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountStateRequirement {\n");
 
-        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountStateRequirement {\n" +
+                "    requiredFields: " + toIndentedString(requiredFields) + "\n" +
+                "    state: " + toIndentedString(state) + "\n" +
+                "}";
+        return sb;
     }
 
 

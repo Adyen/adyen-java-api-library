@@ -12,36 +12,22 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataLevel23
@@ -529,27 +515,26 @@ public class AdditionalDataLevel23 {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AdditionalDataLevel23 {\n");
-    sb.append("    enhancedSchemeDataCustomerReference: ").append(toIndentedString(enhancedSchemeDataCustomerReference)).append("\n");
-    sb.append("    enhancedSchemeDataDestinationCountryCode: ").append(toIndentedString(enhancedSchemeDataDestinationCountryCode)).append("\n");
-    sb.append("    enhancedSchemeDataDestinationPostalCode: ").append(toIndentedString(enhancedSchemeDataDestinationPostalCode)).append("\n");
-    sb.append("    enhancedSchemeDataDestinationStateProvinceCode: ").append(toIndentedString(enhancedSchemeDataDestinationStateProvinceCode)).append("\n");
-    sb.append("    enhancedSchemeDataDutyAmount: ").append(toIndentedString(enhancedSchemeDataDutyAmount)).append("\n");
-    sb.append("    enhancedSchemeDataFreightAmount: ").append(toIndentedString(enhancedSchemeDataFreightAmount)).append("\n");
-    sb.append("    enhancedSchemeDataItemDetailLineItemNrCommodityCode: ").append(toIndentedString(enhancedSchemeDataItemDetailLineItemNrCommodityCode)).append("\n");
-    sb.append("    enhancedSchemeDataItemDetailLineItemNrDescription: ").append(toIndentedString(enhancedSchemeDataItemDetailLineItemNrDescription)).append("\n");
-    sb.append("    enhancedSchemeDataItemDetailLineItemNrDiscountAmount: ").append(toIndentedString(enhancedSchemeDataItemDetailLineItemNrDiscountAmount)).append("\n");
-    sb.append("    enhancedSchemeDataItemDetailLineItemNrProductCode: ").append(toIndentedString(enhancedSchemeDataItemDetailLineItemNrProductCode)).append("\n");
-    sb.append("    enhancedSchemeDataItemDetailLineItemNrQuantity: ").append(toIndentedString(enhancedSchemeDataItemDetailLineItemNrQuantity)).append("\n");
-    sb.append("    enhancedSchemeDataItemDetailLineItemNrTotalAmount: ").append(toIndentedString(enhancedSchemeDataItemDetailLineItemNrTotalAmount)).append("\n");
-    sb.append("    enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure: ").append(toIndentedString(enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure)).append("\n");
-    sb.append("    enhancedSchemeDataItemDetailLineItemNrUnitPrice: ").append(toIndentedString(enhancedSchemeDataItemDetailLineItemNrUnitPrice)).append("\n");
-    sb.append("    enhancedSchemeDataOrderDate: ").append(toIndentedString(enhancedSchemeDataOrderDate)).append("\n");
-    sb.append("    enhancedSchemeDataShipFromPostalCode: ").append(toIndentedString(enhancedSchemeDataShipFromPostalCode)).append("\n");
-    sb.append("    enhancedSchemeDataTotalTaxAmount: ").append(toIndentedString(enhancedSchemeDataTotalTaxAmount)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class AdditionalDataLevel23 {\n" +
+            "    enhancedSchemeDataCustomerReference: " + toIndentedString(enhancedSchemeDataCustomerReference) + "\n" +
+            "    enhancedSchemeDataDestinationCountryCode: " + toIndentedString(enhancedSchemeDataDestinationCountryCode) + "\n" +
+            "    enhancedSchemeDataDestinationPostalCode: " + toIndentedString(enhancedSchemeDataDestinationPostalCode) + "\n" +
+            "    enhancedSchemeDataDestinationStateProvinceCode: " + toIndentedString(enhancedSchemeDataDestinationStateProvinceCode) + "\n" +
+            "    enhancedSchemeDataDutyAmount: " + toIndentedString(enhancedSchemeDataDutyAmount) + "\n" +
+            "    enhancedSchemeDataFreightAmount: " + toIndentedString(enhancedSchemeDataFreightAmount) + "\n" +
+            "    enhancedSchemeDataItemDetailLineItemNrCommodityCode: " + toIndentedString(enhancedSchemeDataItemDetailLineItemNrCommodityCode) + "\n" +
+            "    enhancedSchemeDataItemDetailLineItemNrDescription: " + toIndentedString(enhancedSchemeDataItemDetailLineItemNrDescription) + "\n" +
+            "    enhancedSchemeDataItemDetailLineItemNrDiscountAmount: " + toIndentedString(enhancedSchemeDataItemDetailLineItemNrDiscountAmount) + "\n" +
+            "    enhancedSchemeDataItemDetailLineItemNrProductCode: " + toIndentedString(enhancedSchemeDataItemDetailLineItemNrProductCode) + "\n" +
+            "    enhancedSchemeDataItemDetailLineItemNrQuantity: " + toIndentedString(enhancedSchemeDataItemDetailLineItemNrQuantity) + "\n" +
+            "    enhancedSchemeDataItemDetailLineItemNrTotalAmount: " + toIndentedString(enhancedSchemeDataItemDetailLineItemNrTotalAmount) + "\n" +
+            "    enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure: " + toIndentedString(enhancedSchemeDataItemDetailLineItemNrUnitOfMeasure) + "\n" +
+            "    enhancedSchemeDataItemDetailLineItemNrUnitPrice: " + toIndentedString(enhancedSchemeDataItemDetailLineItemNrUnitPrice) + "\n" +
+            "    enhancedSchemeDataOrderDate: " + toIndentedString(enhancedSchemeDataOrderDate) + "\n" +
+            "    enhancedSchemeDataShipFromPostalCode: " + toIndentedString(enhancedSchemeDataShipFromPostalCode) + "\n" +
+            "    enhancedSchemeDataTotalTaxAmount: " + toIndentedString(enhancedSchemeDataTotalTaxAmount) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -603,7 +588,7 @@ public class AdditionalDataLevel23 {
         if (AdditionalDataLevel23.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataLevel23 is not found in the empty JSON string", AdditionalDataLevel23.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataLevel23 is not found in the empty JSON string", AdditionalDataLevel23.openapiRequiredFields));
         }
       }
 
@@ -611,7 +596,7 @@ public class AdditionalDataLevel23 {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataLevel23.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLevel23` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLevel23` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field enhancedSchemeData.customerReference

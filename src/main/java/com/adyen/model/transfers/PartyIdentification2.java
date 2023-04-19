@@ -12,38 +12,24 @@
 
 package com.adyen.model.transfers;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.transfers.Address2;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.time.LocalDate;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.transfers.JSON;
 
 /**
  * PartyIdentification2
@@ -81,7 +67,7 @@ public class PartyIdentification2 {
     
     UNKNOWN("unknown");
 
-    private String value;
+    private final String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -283,16 +269,15 @@ public class PartyIdentification2 {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PartyIdentification2 {\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class PartyIdentification2 {\n" +
+            "    address: " + toIndentedString(address) + "\n" +
+            "    dateOfBirth: " + toIndentedString(dateOfBirth) + "\n" +
+            "    firstName: " + toIndentedString(firstName) + "\n" +
+            "    fullName: " + toIndentedString(fullName) + "\n" +
+            "    lastName: " + toIndentedString(lastName) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -336,7 +321,7 @@ public class PartyIdentification2 {
         if (PartyIdentification2.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PartyIdentification2 is not found in the empty JSON string", PartyIdentification2.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PartyIdentification2 is not found in the empty JSON string", PartyIdentification2.openapiRequiredFields));
         }
       }
 
@@ -344,14 +329,14 @@ public class PartyIdentification2 {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PartyIdentification2.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PartyIdentification2` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PartyIdentification2` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PartyIdentification2.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `address`

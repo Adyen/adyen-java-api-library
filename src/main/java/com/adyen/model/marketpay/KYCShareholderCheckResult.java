@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -101,13 +100,12 @@ public class KYCShareholderCheckResult {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class KYCShareholderCheckResult {\n");
 
-        sb.append("    checks: ").append(toIndentedString(checks)).append("\n");
-        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class KYCShareholderCheckResult {\n" +
+                "    checks: " + toIndentedString(checks) + "\n" +
+                "    shareholderCode: " + toIndentedString(shareholderCode) + "\n" +
+                "}";
+        return sb;
     }
 
 

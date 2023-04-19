@@ -24,7 +24,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -145,14 +144,13 @@ public class PhoneNumber {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PhoneNumber {\n");
 
-        sb.append("    phoneType: ").append(toIndentedString(phoneType)).append("\n");
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    phoneCountryCode: ").append(toIndentedString(phoneCountryCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class PhoneNumber {\n" +
+                "    phoneType: " + toIndentedString(phoneType) + "\n" +
+                "    phoneNumber: " + toIndentedString(phoneNumber) + "\n" +
+                "    phoneCountryCode: " + toIndentedString(phoneCountryCode) + "\n" +
+                "}";
+        return sb;
     }
 
 

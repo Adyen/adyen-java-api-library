@@ -12,37 +12,23 @@
 
 package com.adyen.model.balanceplatform;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.balanceplatform.Duration;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * TransactionRuleInterval
@@ -72,7 +58,7 @@ public class TransactionRuleInterval {
     
     WEDNESDAY("wednesday");
 
-    private String value;
+    private final String value;
 
     DayOfWeekEnum(String value) {
       this.value = value;
@@ -145,7 +131,7 @@ public class TransactionRuleInterval {
     
     WEEKLY("weekly");
 
-    private String value;
+    private final String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -347,16 +333,15 @@ public class TransactionRuleInterval {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TransactionRuleInterval {\n");
-    sb.append("    dayOfMonth: ").append(toIndentedString(dayOfMonth)).append("\n");
-    sb.append("    dayOfWeek: ").append(toIndentedString(dayOfWeek)).append("\n");
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    timeOfDay: ").append(toIndentedString(timeOfDay)).append("\n");
-    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class TransactionRuleInterval {\n" +
+            "    dayOfMonth: " + toIndentedString(dayOfMonth) + "\n" +
+            "    dayOfWeek: " + toIndentedString(dayOfWeek) + "\n" +
+            "    duration: " + toIndentedString(duration) + "\n" +
+            "    timeOfDay: " + toIndentedString(timeOfDay) + "\n" +
+            "    timeZone: " + toIndentedString(timeZone) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -400,7 +385,7 @@ public class TransactionRuleInterval {
         if (TransactionRuleInterval.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRuleInterval is not found in the empty JSON string", TransactionRuleInterval.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRuleInterval is not found in the empty JSON string", TransactionRuleInterval.openapiRequiredFields));
         }
       }
 
@@ -408,14 +393,14 @@ public class TransactionRuleInterval {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TransactionRuleInterval.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleInterval` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleInterval` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TransactionRuleInterval.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // ensure the field dayOfWeek can be parsed to an enum value

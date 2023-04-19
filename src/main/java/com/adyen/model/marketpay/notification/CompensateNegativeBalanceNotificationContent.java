@@ -21,11 +21,11 @@
 
 package com.adyen.model.marketpay.notification;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import com.google.gson.annotations.SerializedName;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -77,12 +77,11 @@ public class CompensateNegativeBalanceNotificationContent {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CompensateNegativeBalanceNotificationContent {\n");
 
-        sb.append("    records: ").append(toIndentedString(records)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class CompensateNegativeBalanceNotificationContent {\n" +
+                "    records: " + toIndentedString(records) + "\n" +
+                "}";
+        return sb;
     }
 
 }

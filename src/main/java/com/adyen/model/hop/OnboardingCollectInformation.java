@@ -21,9 +21,9 @@
 
 package com.adyen.model.hop;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -179,17 +179,16 @@ public class OnboardingCollectInformation {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("class OnboardingCollectInformation {\n");
 
-        sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
-        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append("\n");
-        sb.append("    bankDetails: ").append(toIndentedString(bankDetails)).append("\n");
-        sb.append("    legalArrangementDetails: ").append(toIndentedString(legalArrangementDetails)).append("\n");
-        sb.append("    pciQuestionnaire: ").append(toIndentedString(pciQuestionnaire)).append("\n");
-        sb.append("    shareholderDetails: ").append(toIndentedString(shareholderDetails)).append("\n");
-        sb.append('}');
-        return sb.toString();
+        String sb = "class OnboardingCollectInformation {\n" +
+                "    individualDetails: " + toIndentedString(individualDetails) + "\n" +
+                "    businessDetails: " + toIndentedString(businessDetails) + "\n" +
+                "    bankDetails: " + toIndentedString(bankDetails) + "\n" +
+                "    legalArrangementDetails: " + toIndentedString(legalArrangementDetails) + "\n" +
+                "    pciQuestionnaire: " + toIndentedString(pciQuestionnaire) + "\n" +
+                "    shareholderDetails: " + toIndentedString(shareholderDetails) + "\n" +
+                '}';
+        return sb;
     }
 
 }

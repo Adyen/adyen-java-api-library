@@ -31,7 +31,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -211,16 +210,15 @@ public class PayoutMethod {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PayoutMethod {\n");
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    payoutMethodCode: ").append(toIndentedString(payoutMethodCode)).append("\n");
-        sb.append("    payoutMethodType: ").append(toIndentedString(payoutMethodType)).append("\n");
-        sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-        sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class PayoutMethod {\n" +
+                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+                "    payoutMethodCode: " + toIndentedString(payoutMethodCode) + "\n" +
+                "    payoutMethodType: " + toIndentedString(payoutMethodType) + "\n" +
+                "    recurringDetailReference: " + toIndentedString(recurringDetailReference) + "\n" +
+                "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
+                "}";
+        return sb;
     }
 
 

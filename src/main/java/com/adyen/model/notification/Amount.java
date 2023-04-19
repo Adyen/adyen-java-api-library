@@ -100,13 +100,12 @@ public class Amount {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Amount {\n");
 
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class Amount {\n" +
+                "    value: " + toIndentedString(value) + "\n" +
+                "    currency: " + toIndentedString(currency) + "\n" +
+                "}";
+        return sb;
     }
 
 

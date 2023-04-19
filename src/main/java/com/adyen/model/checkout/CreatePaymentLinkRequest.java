@@ -12,49 +12,30 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.Address;
-import com.adyen.model.checkout.Amount;
-import com.adyen.model.checkout.InstallmentOption;
-import com.adyen.model.checkout.LineItem;
-import com.adyen.model.checkout.Name;
-import com.adyen.model.checkout.RiskData;
-import com.adyen.model.checkout.Split;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * CreatePaymentLinkRequest
@@ -144,7 +125,7 @@ public class CreatePaymentLinkRequest {
     
     UNSCHEDULEDCARDONFILE("UnscheduledCardOnFile");
 
-    private String value;
+    private final String value;
 
     RecurringProcessingModelEnum(String value) {
       this.value = value;
@@ -205,7 +186,7 @@ public class CreatePaymentLinkRequest {
     
     TELEPHONENUMBER("telephoneNumber");
 
-    private String value;
+    private final String value;
 
     RequiredShopperFieldsEnum(String value) {
       this.value = value;
@@ -310,7 +291,7 @@ public class CreatePaymentLinkRequest {
     
     ENABLED("enabled");
 
-    private String value;
+    private final String value;
 
     StorePaymentMethodModeEnum(String value) {
       this.value = value;
@@ -1289,47 +1270,46 @@ public class CreatePaymentLinkRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePaymentLinkRequest {\n");
-    sb.append("    allowedPaymentMethods: ").append(toIndentedString(allowedPaymentMethods)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    blockedPaymentMethods: ").append(toIndentedString(blockedPaymentMethods)).append("\n");
-    sb.append("    captureDelayHours: ").append(toIndentedString(captureDelayHours)).append("\n");
-    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-    sb.append("    deliverAt: ").append(toIndentedString(deliverAt)).append("\n");
-    sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    installmentOptions: ").append(toIndentedString(installmentOptions)).append("\n");
-    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    manualCapture: ").append(toIndentedString(manualCapture)).append("\n");
-    sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    merchantOrderReference: ").append(toIndentedString(merchantOrderReference)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    recurringProcessingModel: ").append(toIndentedString(recurringProcessingModel)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    requiredShopperFields: ").append(toIndentedString(requiredShopperFields)).append("\n");
-    sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
-    sb.append("    reusable: ").append(toIndentedString(reusable)).append("\n");
-    sb.append("    riskData: ").append(toIndentedString(riskData)).append("\n");
-    sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-    sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
-    sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-    sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
-    sb.append("    showRemovePaymentMethodButton: ").append(toIndentedString(showRemovePaymentMethodButton)).append("\n");
-    sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
-    sb.append("    splitCardFundingSources: ").append(toIndentedString(splitCardFundingSources)).append("\n");
-    sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-    sb.append("    store: ").append(toIndentedString(store)).append("\n");
-    sb.append("    storePaymentMethodMode: ").append(toIndentedString(storePaymentMethodMode)).append("\n");
-    sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-    sb.append("    themeId: ").append(toIndentedString(themeId)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class CreatePaymentLinkRequest {\n" +
+            "    allowedPaymentMethods: " + toIndentedString(allowedPaymentMethods) + "\n" +
+            "    amount: " + toIndentedString(amount) + "\n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+            "    blockedPaymentMethods: " + toIndentedString(blockedPaymentMethods) + "\n" +
+            "    captureDelayHours: " + toIndentedString(captureDelayHours) + "\n" +
+            "    countryCode: " + toIndentedString(countryCode) + "\n" +
+            "    dateOfBirth: " + toIndentedString(dateOfBirth) + "\n" +
+            "    deliverAt: " + toIndentedString(deliverAt) + "\n" +
+            "    deliveryAddress: " + toIndentedString(deliveryAddress) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    expiresAt: " + toIndentedString(expiresAt) + "\n" +
+            "    installmentOptions: " + toIndentedString(installmentOptions) + "\n" +
+            "    lineItems: " + toIndentedString(lineItems) + "\n" +
+            "    manualCapture: " + toIndentedString(manualCapture) + "\n" +
+            "    mcc: " + toIndentedString(mcc) + "\n" +
+            "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+            "    merchantOrderReference: " + toIndentedString(merchantOrderReference) + "\n" +
+            "    metadata: " + toIndentedString(metadata) + "\n" +
+            "    recurringProcessingModel: " + toIndentedString(recurringProcessingModel) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    requiredShopperFields: " + toIndentedString(requiredShopperFields) + "\n" +
+            "    returnUrl: " + toIndentedString(returnUrl) + "\n" +
+            "    reusable: " + toIndentedString(reusable) + "\n" +
+            "    riskData: " + toIndentedString(riskData) + "\n" +
+            "    shopperEmail: " + toIndentedString(shopperEmail) + "\n" +
+            "    shopperLocale: " + toIndentedString(shopperLocale) + "\n" +
+            "    shopperName: " + toIndentedString(shopperName) + "\n" +
+            "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
+            "    shopperStatement: " + toIndentedString(shopperStatement) + "\n" +
+            "    showRemovePaymentMethodButton: " + toIndentedString(showRemovePaymentMethodButton) + "\n" +
+            "    socialSecurityNumber: " + toIndentedString(socialSecurityNumber) + "\n" +
+            "    splitCardFundingSources: " + toIndentedString(splitCardFundingSources) + "\n" +
+            "    splits: " + toIndentedString(splits) + "\n" +
+            "    store: " + toIndentedString(store) + "\n" +
+            "    storePaymentMethodMode: " + toIndentedString(storePaymentMethodMode) + "\n" +
+            "    telephoneNumber: " + toIndentedString(telephoneNumber) + "\n" +
+            "    themeId: " + toIndentedString(themeId) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -1406,7 +1386,7 @@ public class CreatePaymentLinkRequest {
         if (CreatePaymentLinkRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePaymentLinkRequest is not found in the empty JSON string", CreatePaymentLinkRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePaymentLinkRequest is not found in the empty JSON string", CreatePaymentLinkRequest.openapiRequiredFields));
         }
       }
 
@@ -1414,14 +1394,14 @@ public class CreatePaymentLinkRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreatePaymentLinkRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePaymentLinkRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePaymentLinkRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreatePaymentLinkRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // ensure the json data is an array
@@ -1466,7 +1446,7 @@ public class CreatePaymentLinkRequest {
         // validate the optional field `lineItems` (array)
         for (int i = 0; i < jsonArraylineItems.size(); i++) {
           LineItem.validateJsonObject(jsonArraylineItems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field mcc
       if (jsonObj.get("mcc") != null && !jsonObj.get("mcc").isJsonPrimitive()) {
@@ -1537,7 +1517,7 @@ public class CreatePaymentLinkRequest {
         // validate the optional field `splits` (array)
         for (int i = 0; i < jsonArraysplits.size(); i++) {
           Split.validateJsonObject(jsonArraysplits.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field store
       if (jsonObj.get("store") != null && !jsonObj.get("store").isJsonPrimitive()) {

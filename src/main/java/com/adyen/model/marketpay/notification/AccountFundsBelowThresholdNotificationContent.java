@@ -162,15 +162,14 @@ public class AccountFundsBelowThresholdNotificationContent {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountFundsBelowThresholdNotificationContent {\n");
 
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
-        sb.append("    balanceDate: ").append(toIndentedString(balanceDate)).append("\n");
-        sb.append("    currentFunds: ").append(toIndentedString(currentFunds)).append("\n");
-        sb.append("    fundThreshold: ").append(toIndentedString(fundThreshold)).append("\n");
-        sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountFundsBelowThresholdNotificationContent {\n" +
+                "    accountCode: " + toIndentedString(accountCode) + "\n" +
+                "    balanceDate: " + toIndentedString(balanceDate) + "\n" +
+                "    currentFunds: " + toIndentedString(currentFunds) + "\n" +
+                "    fundThreshold: " + toIndentedString(fundThreshold) + "\n" +
+                "    merchantAccountCode: " + toIndentedString(merchantAccountCode) + "\n" +
+                "}";
+        return sb;
     }
 }

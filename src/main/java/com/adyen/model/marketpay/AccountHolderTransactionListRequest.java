@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -208,14 +207,13 @@ public class AccountHolderTransactionListRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderTransactionListRequest {\n");
 
-        sb.append("    transactionListsPerAccount: ").append(toIndentedString(transactionListsPerAccount)).append("\n");
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    transactionStatuses: ").append(toIndentedString(transactionStatuses)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountHolderTransactionListRequest {\n" +
+                "    transactionListsPerAccount: " + toIndentedString(transactionListsPerAccount) + "\n" +
+                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
+                "    transactionStatuses: " + toIndentedString(transactionStatuses) + "\n" +
+                "}";
+        return sb;
     }
 
 }

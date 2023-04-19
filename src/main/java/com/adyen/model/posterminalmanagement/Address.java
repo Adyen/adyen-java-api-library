@@ -22,9 +22,9 @@
 
 package com.adyen.model.posterminalmanagement;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * Address
@@ -183,17 +183,16 @@ public class Address {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Address {\n");
 
-        sb.append("    city: ").append(toIndentedString(city)).append("\n");
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
-        sb.append("    stateOrProvince: ").append(toIndentedString(stateOrProvince)).append("\n");
-        sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
-        sb.append("    streetAddress2: ").append(toIndentedString(streetAddress2)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class Address {\n" +
+                "    city: " + toIndentedString(city) + "\n" +
+                "    countryCode: " + toIndentedString(countryCode) + "\n" +
+                "    postalCode: " + toIndentedString(postalCode) + "\n" +
+                "    stateOrProvince: " + toIndentedString(stateOrProvince) + "\n" +
+                "    streetAddress: " + toIndentedString(streetAddress) + "\n" +
+                "    streetAddress2: " + toIndentedString(streetAddress2) + "\n" +
+                "}";
+        return sb;
     }
 
     /**

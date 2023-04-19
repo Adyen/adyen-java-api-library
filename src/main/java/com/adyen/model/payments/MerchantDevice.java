@@ -12,36 +12,22 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * MerchantDevice
@@ -151,13 +137,12 @@ public class MerchantDevice {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MerchantDevice {\n");
-    sb.append("    os: ").append(toIndentedString(os)).append("\n");
-    sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class MerchantDevice {\n" +
+              "    os: " + toIndentedString(os) + "\n" +
+              "    osVersion: " + toIndentedString(osVersion) + "\n" +
+              "    reference: " + toIndentedString(reference) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -197,7 +182,7 @@ public class MerchantDevice {
         if (MerchantDevice.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantDevice is not found in the empty JSON string", MerchantDevice.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantDevice is not found in the empty JSON string", MerchantDevice.openapiRequiredFields));
         }
       }
 
@@ -205,7 +190,7 @@ public class MerchantDevice {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!MerchantDevice.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantDevice` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantDevice` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field os

@@ -12,36 +12,22 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ServiceError2
@@ -178,14 +164,13 @@ public class ServiceError2 {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceError2 {\n");
-    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
-    sb.append("    errorType: ").append(toIndentedString(errorType)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class ServiceError2 {\n" +
+              "    errorCode: " + toIndentedString(errorCode) + "\n" +
+              "    errorType: " + toIndentedString(errorType) + "\n" +
+              "    message: " + toIndentedString(message) + "\n" +
+              "    pspReference: " + toIndentedString(pspReference) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -226,7 +211,7 @@ public class ServiceError2 {
         if (ServiceError2.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ServiceError2 is not found in the empty JSON string", ServiceError2.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ServiceError2 is not found in the empty JSON string", ServiceError2.openapiRequiredFields));
         }
       }
 
@@ -234,7 +219,7 @@ public class ServiceError2 {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ServiceError2.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ServiceError2` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ServiceError2` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field errorCode

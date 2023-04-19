@@ -23,7 +23,6 @@ package com.adyen.service.resource;
 import com.adyen.Config;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
-import com.adyen.enums.Environment;
 import com.adyen.httpclient.ClientInterface;
 import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.ApiError;

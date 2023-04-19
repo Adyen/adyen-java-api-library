@@ -12,39 +12,25 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.ModelConfiguration;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Surcharge
@@ -135,12 +121,11 @@ public class Surcharge {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Surcharge {\n");
-    sb.append("    askConfirmation: ").append(toIndentedString(askConfirmation)).append("\n");
-    sb.append("    configurations: ").append(toIndentedString(configurations)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class Surcharge {\n" +
+              "    askConfirmation: " + toIndentedString(askConfirmation) + "\n" +
+              "    configurations: " + toIndentedString(configurations) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -179,7 +164,7 @@ public class Surcharge {
         if (Surcharge.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Surcharge is not found in the empty JSON string", Surcharge.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Surcharge is not found in the empty JSON string", Surcharge.openapiRequiredFields));
         }
       }
 
@@ -187,7 +172,7 @@ public class Surcharge {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Surcharge.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Surcharge` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Surcharge` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       JsonArray jsonArrayconfigurations = jsonObj.getAsJsonArray("configurations");
@@ -200,7 +185,7 @@ public class Surcharge {
         // validate the optional field `configurations` (array)
         for (int i = 0; i < jsonArrayconfigurations.size(); i++) {
           ModelConfiguration.validateJsonObject(jsonArrayconfigurations.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

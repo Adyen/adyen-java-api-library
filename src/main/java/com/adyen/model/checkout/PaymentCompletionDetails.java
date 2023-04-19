@@ -12,36 +12,22 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * PaymentCompletionDetails
@@ -529,27 +515,26 @@ public class PaymentCompletionDetails {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentCompletionDetails {\n");
-    sb.append("    MD: ").append(toIndentedString(MD)).append("\n");
-    sb.append("    paReq: ").append(toIndentedString(paReq)).append("\n");
-    sb.append("    paRes: ").append(toIndentedString(paRes)).append("\n");
-    sb.append("    billingToken: ").append(toIndentedString(billingToken)).append("\n");
-    sb.append("    cupsecureplusSmscode: ").append(toIndentedString(cupsecureplusSmscode)).append("\n");
-    sb.append("    facilitatorAccessToken: ").append(toIndentedString(facilitatorAccessToken)).append("\n");
-    sb.append("    oneTimePasscode: ").append(toIndentedString(oneTimePasscode)).append("\n");
-    sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
-    sb.append("    payerID: ").append(toIndentedString(payerID)).append("\n");
-    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
-    sb.append("    paymentID: ").append(toIndentedString(paymentID)).append("\n");
-    sb.append("    paymentStatus: ").append(toIndentedString(paymentStatus)).append("\n");
-    sb.append("    redirectResult: ").append(toIndentedString(redirectResult)).append("\n");
-    sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-    sb.append("    threeDSResult: ").append(toIndentedString(threeDSResult)).append("\n");
-    sb.append("    threeds2ChallengeResult: ").append(toIndentedString(threeds2ChallengeResult)).append("\n");
-    sb.append("    threeds2Fingerprint: ").append(toIndentedString(threeds2Fingerprint)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class PaymentCompletionDetails {\n" +
+            "    MD: " + toIndentedString(MD) + "\n" +
+            "    paReq: " + toIndentedString(paReq) + "\n" +
+            "    paRes: " + toIndentedString(paRes) + "\n" +
+            "    billingToken: " + toIndentedString(billingToken) + "\n" +
+            "    cupsecureplusSmscode: " + toIndentedString(cupsecureplusSmscode) + "\n" +
+            "    facilitatorAccessToken: " + toIndentedString(facilitatorAccessToken) + "\n" +
+            "    oneTimePasscode: " + toIndentedString(oneTimePasscode) + "\n" +
+            "    orderID: " + toIndentedString(orderID) + "\n" +
+            "    payerID: " + toIndentedString(payerID) + "\n" +
+            "    payload: " + toIndentedString(payload) + "\n" +
+            "    paymentID: " + toIndentedString(paymentID) + "\n" +
+            "    paymentStatus: " + toIndentedString(paymentStatus) + "\n" +
+            "    redirectResult: " + toIndentedString(redirectResult) + "\n" +
+            "    resultCode: " + toIndentedString(resultCode) + "\n" +
+            "    threeDSResult: " + toIndentedString(threeDSResult) + "\n" +
+            "    threeds2ChallengeResult: " + toIndentedString(threeds2ChallengeResult) + "\n" +
+            "    threeds2Fingerprint: " + toIndentedString(threeds2Fingerprint) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -603,7 +588,7 @@ public class PaymentCompletionDetails {
         if (PaymentCompletionDetails.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentCompletionDetails is not found in the empty JSON string", PaymentCompletionDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentCompletionDetails is not found in the empty JSON string", PaymentCompletionDetails.openapiRequiredFields));
         }
       }
 
@@ -611,7 +596,7 @@ public class PaymentCompletionDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentCompletionDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentCompletionDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentCompletionDetails` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field MD

@@ -12,42 +12,25 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.CheckoutOrderResponse;
-import com.adyen.model.checkout.FraudResult;
-import com.adyen.model.checkout.ServiceError2;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * PaymentVerificationResponse
@@ -113,7 +96,7 @@ public class PaymentVerificationResponse {
     
     SUCCESS("Success");
 
-    private String value;
+    private final String value;
 
     ResultCodeEnum(String value) {
       this.value = value;
@@ -423,20 +406,19 @@ public class PaymentVerificationResponse {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentVerificationResponse {\n");
-    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-    sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-    sb.append("    order: ").append(toIndentedString(order)).append("\n");
-    sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-    sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
-    sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
-    sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-    sb.append("    serviceError: ").append(toIndentedString(serviceError)).append("\n");
-    sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class PaymentVerificationResponse {\n" +
+            "    additionalData: " + toIndentedString(additionalData) + "\n" +
+            "    fraudResult: " + toIndentedString(fraudResult) + "\n" +
+            "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
+            "    order: " + toIndentedString(order) + "\n" +
+            "    pspReference: " + toIndentedString(pspReference) + "\n" +
+            "    refusalReason: " + toIndentedString(refusalReason) + "\n" +
+            "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + "\n" +
+            "    resultCode: " + toIndentedString(resultCode) + "\n" +
+            "    serviceError: " + toIndentedString(serviceError) + "\n" +
+            "    shopperLocale: " + toIndentedString(shopperLocale) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -485,7 +467,7 @@ public class PaymentVerificationResponse {
         if (PaymentVerificationResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentVerificationResponse is not found in the empty JSON string", PaymentVerificationResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentVerificationResponse is not found in the empty JSON string", PaymentVerificationResponse.openapiRequiredFields));
         }
       }
 
@@ -493,14 +475,14 @@ public class PaymentVerificationResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentVerificationResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentVerificationResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentVerificationResponse` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PaymentVerificationResponse.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `fraudResult`

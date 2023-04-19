@@ -172,15 +172,14 @@ public class GetTaxFormResponse {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class GetTaxFormResponse {\n");
 
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class GetTaxFormResponse {\n" +
+                "    content: " + toIndentedString(content) + "\n" +
+                "    contentType: " + toIndentedString(contentType) + "\n" +
+                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
+                "    pspReference: " + toIndentedString(pspReference) + "\n" +
+                "    resultCode: " + toIndentedString(resultCode) + "\n" +
+                "}";
+        return sb;
     }
 }

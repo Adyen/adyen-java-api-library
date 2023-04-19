@@ -21,8 +21,8 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.marketpay.Split;
 import com.adyen.model.marketpay.Amount;
+import com.adyen.model.marketpay.Split;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -227,18 +227,17 @@ public class DirectDebitInitiatedNotificationContent {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DirectDebitInitiatedNotificationContent {\n");
 
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    debitInitiationDate: ").append(toIndentedString(debitInitiationDate)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    merchantAccountCode: ").append(toIndentedString(merchantAccountCode)).append("\n");
-        sb.append("    splits: ").append(toIndentedString(splits)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class DirectDebitInitiatedNotificationContent {\n" +
+                "    accountCode: " + toIndentedString(accountCode) + "\n" +
+                "    amount: " + toIndentedString(amount) + "\n" +
+                "    debitInitiationDate: " + toIndentedString(debitInitiationDate) + "\n" +
+                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
+                "    merchantAccountCode: " + toIndentedString(merchantAccountCode) + "\n" +
+                "    splits: " + toIndentedString(splits) + "\n" +
+                "    status: " + toIndentedString(status) + "\n" +
+                "}";
+        return sb;
     }
 
 }

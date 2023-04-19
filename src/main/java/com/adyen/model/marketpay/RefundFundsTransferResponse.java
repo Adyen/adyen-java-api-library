@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -195,17 +194,16 @@ public class RefundFundsTransferResponse {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RefundFundsTransferResponse {\n");
 
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class RefundFundsTransferResponse {\n" +
+                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
+                "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
+                "    message: " + toIndentedString(message) + "\n" +
+                "    originalReference: " + toIndentedString(originalReference) + "\n" +
+                "    pspReference: " + toIndentedString(pspReference) + "\n" +
+                "    resultCode: " + toIndentedString(resultCode) + "\n" +
+                "}";
+        return sb;
     }
 
 }

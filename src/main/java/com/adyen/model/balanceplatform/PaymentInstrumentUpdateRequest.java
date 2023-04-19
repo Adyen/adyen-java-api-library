@@ -12,37 +12,23 @@
 
 package com.adyen.model.balanceplatform;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.balanceplatform.CardInfo;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * PaymentInstrumentUpdateRequest
@@ -70,7 +56,7 @@ public class PaymentInstrumentUpdateRequest {
     
     SUSPENDED("suspended");
 
-    private String value;
+    private final String value;
 
     StatusEnum(String value) {
       this.value = value;
@@ -137,7 +123,7 @@ public class PaymentInstrumentUpdateRequest {
     
     SUSPECTEDFRAUD("suspectedFraud");
 
-    private String value;
+    private final String value;
 
     StatusReasonEnum(String value) {
       this.value = value;
@@ -316,15 +302,14 @@ public class PaymentInstrumentUpdateRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentInstrumentUpdateRequest {\n");
-    sb.append("    balanceAccountId: ").append(toIndentedString(balanceAccountId)).append("\n");
-    sb.append("    card: ").append(toIndentedString(card)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    statusComment: ").append(toIndentedString(statusComment)).append("\n");
-    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class PaymentInstrumentUpdateRequest {\n" +
+            "    balanceAccountId: " + toIndentedString(balanceAccountId) + "\n" +
+            "    card: " + toIndentedString(card) + "\n" +
+            "    status: " + toIndentedString(status) + "\n" +
+            "    statusComment: " + toIndentedString(statusComment) + "\n" +
+            "    statusReason: " + toIndentedString(statusReason) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -366,7 +351,7 @@ public class PaymentInstrumentUpdateRequest {
         if (PaymentInstrumentUpdateRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentInstrumentUpdateRequest is not found in the empty JSON string", PaymentInstrumentUpdateRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentInstrumentUpdateRequest is not found in the empty JSON string", PaymentInstrumentUpdateRequest.openapiRequiredFields));
         }
       }
 
@@ -374,7 +359,7 @@ public class PaymentInstrumentUpdateRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentInstrumentUpdateRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentUpdateRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentInstrumentUpdateRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field balanceAccountId

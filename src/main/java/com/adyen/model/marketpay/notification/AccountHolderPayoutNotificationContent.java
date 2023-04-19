@@ -21,8 +21,8 @@
 
 package com.adyen.model.marketpay.notification;
 
-import com.adyen.model.marketpay.BankAccountDetail;
 import com.adyen.model.marketpay.Amount;
+import com.adyen.model.marketpay.BankAccountDetail;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -477,27 +477,26 @@ public class AccountHolderPayoutNotificationContent {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderPayoutNotificationContent {\n");
 
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    amounts: ").append(toIndentedString(amounts)).append("\n");
-        sb.append("    bankAccountDetail: ").append(toIndentedString(bankAccountDetail)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    estimatedArrivalDate: ").append(toIndentedString(estimatedArrivalDate)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    originalPspReference: ").append(toIndentedString(originalPspReference)).append("\n");
-        sb.append("    payoutAccountCountry: ").append(toIndentedString(payoutAccountCountry)).append("\n");
-        sb.append("    payoutAccountNumber: ").append(toIndentedString(payoutAccountNumber)).append("\n");
-        sb.append("    payoutBankName: ").append(toIndentedString(payoutBankName)).append("\n");
-        sb.append("    payoutBranchCode: ").append(toIndentedString(payoutBranchCode)).append("\n");
-        sb.append("    payoutReference: ").append(toIndentedString(payoutReference)).append("\n");
-        sb.append("    payoutSpeed: ").append(toIndentedString(payoutSpeed)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountHolderPayoutNotificationContent {\n" +
+                "    accountCode: " + toIndentedString(accountCode) + "\n" +
+                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
+                "    amounts: " + toIndentedString(amounts) + "\n" +
+                "    bankAccountDetail: " + toIndentedString(bankAccountDetail) + "\n" +
+                "    description: " + toIndentedString(description) + "\n" +
+                "    estimatedArrivalDate: " + toIndentedString(estimatedArrivalDate) + "\n" +
+                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
+                "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
+                "    originalPspReference: " + toIndentedString(originalPspReference) + "\n" +
+                "    payoutAccountCountry: " + toIndentedString(payoutAccountCountry) + "\n" +
+                "    payoutAccountNumber: " + toIndentedString(payoutAccountNumber) + "\n" +
+                "    payoutBankName: " + toIndentedString(payoutBankName) + "\n" +
+                "    payoutBranchCode: " + toIndentedString(payoutBranchCode) + "\n" +
+                "    payoutReference: " + toIndentedString(payoutReference) + "\n" +
+                "    payoutSpeed: " + toIndentedString(payoutSpeed) + "\n" +
+                "    status: " + toIndentedString(status) + "\n" +
+                "}";
+        return sb;
     }
 
 }

@@ -12,36 +12,23 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * Mandate
@@ -61,7 +48,7 @@ public class Mandate {
     
     EXACT("exact");
 
-    private String value;
+    private final String value;
 
     AmountRuleEnum(String value) {
       this.value = value;
@@ -114,7 +101,7 @@ public class Mandate {
     
     AFTER("after");
 
-    private String value;
+    private final String value;
 
     BillingAttemptsRuleEnum(String value) {
       this.value = value;
@@ -185,7 +172,7 @@ public class Mandate {
     
     YEARLY("yearly");
 
-    private String value;
+    private final String value;
 
     FrequencyEnum(String value) {
       this.value = value;
@@ -441,18 +428,17 @@ public class Mandate {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Mandate {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    amountRule: ").append(toIndentedString(amountRule)).append("\n");
-    sb.append("    billingAttemptsRule: ").append(toIndentedString(billingAttemptsRule)).append("\n");
-    sb.append("    billingDay: ").append(toIndentedString(billingDay)).append("\n");
-    sb.append("    endsAt: ").append(toIndentedString(endsAt)).append("\n");
-    sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
-    sb.append("    remarks: ").append(toIndentedString(remarks)).append("\n");
-    sb.append("    startsAt: ").append(toIndentedString(startsAt)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class Mandate {\n" +
+            "    amount: " + toIndentedString(amount) + "\n" +
+            "    amountRule: " + toIndentedString(amountRule) + "\n" +
+            "    billingAttemptsRule: " + toIndentedString(billingAttemptsRule) + "\n" +
+            "    billingDay: " + toIndentedString(billingDay) + "\n" +
+            "    endsAt: " + toIndentedString(endsAt) + "\n" +
+            "    frequency: " + toIndentedString(frequency) + "\n" +
+            "    remarks: " + toIndentedString(remarks) + "\n" +
+            "    startsAt: " + toIndentedString(startsAt) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -500,7 +486,7 @@ public class Mandate {
         if (Mandate.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Mandate is not found in the empty JSON string", Mandate.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Mandate is not found in the empty JSON string", Mandate.openapiRequiredFields));
         }
       }
 
@@ -508,14 +494,14 @@ public class Mandate {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Mandate.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Mandate` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Mandate` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Mandate.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field amount

@@ -21,9 +21,9 @@
 
 package com.adyen.model.posterminalmanagement;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * GetTerminalDetailsRequest
@@ -72,12 +72,11 @@ public class GetTerminalDetailsRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class GetTerminalDetailsRequest {\n");
 
-        sb.append("    terminal: ").append(toIndentedString(terminal)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class GetTerminalDetailsRequest {\n" +
+                "    terminal: " + toIndentedString(terminal) + "\n" +
+                "}";
+        return sb;
     }
 
     /**

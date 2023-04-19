@@ -12,36 +12,22 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * AdditionalDataCarRental
@@ -691,33 +677,32 @@ public class AdditionalDataCarRental {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AdditionalDataCarRental {\n");
-    sb.append("    carRentalCheckOutDate: ").append(toIndentedString(carRentalCheckOutDate)).append("\n");
-    sb.append("    carRentalCustomerServiceTollFreeNumber: ").append(toIndentedString(carRentalCustomerServiceTollFreeNumber)).append("\n");
-    sb.append("    carRentalDaysRented: ").append(toIndentedString(carRentalDaysRented)).append("\n");
-    sb.append("    carRentalFuelCharges: ").append(toIndentedString(carRentalFuelCharges)).append("\n");
-    sb.append("    carRentalInsuranceCharges: ").append(toIndentedString(carRentalInsuranceCharges)).append("\n");
-    sb.append("    carRentalLocationCity: ").append(toIndentedString(carRentalLocationCity)).append("\n");
-    sb.append("    carRentalLocationCountry: ").append(toIndentedString(carRentalLocationCountry)).append("\n");
-    sb.append("    carRentalLocationStateProvince: ").append(toIndentedString(carRentalLocationStateProvince)).append("\n");
-    sb.append("    carRentalNoShowIndicator: ").append(toIndentedString(carRentalNoShowIndicator)).append("\n");
-    sb.append("    carRentalOneWayDropOffCharges: ").append(toIndentedString(carRentalOneWayDropOffCharges)).append("\n");
-    sb.append("    carRentalRate: ").append(toIndentedString(carRentalRate)).append("\n");
-    sb.append("    carRentalRateIndicator: ").append(toIndentedString(carRentalRateIndicator)).append("\n");
-    sb.append("    carRentalRentalAgreementNumber: ").append(toIndentedString(carRentalRentalAgreementNumber)).append("\n");
-    sb.append("    carRentalRentalClassId: ").append(toIndentedString(carRentalRentalClassId)).append("\n");
-    sb.append("    carRentalRenterName: ").append(toIndentedString(carRentalRenterName)).append("\n");
-    sb.append("    carRentalReturnCity: ").append(toIndentedString(carRentalReturnCity)).append("\n");
-    sb.append("    carRentalReturnCountry: ").append(toIndentedString(carRentalReturnCountry)).append("\n");
-    sb.append("    carRentalReturnDate: ").append(toIndentedString(carRentalReturnDate)).append("\n");
-    sb.append("    carRentalReturnLocationId: ").append(toIndentedString(carRentalReturnLocationId)).append("\n");
-    sb.append("    carRentalReturnStateProvince: ").append(toIndentedString(carRentalReturnStateProvince)).append("\n");
-    sb.append("    carRentalTaxExemptIndicator: ").append(toIndentedString(carRentalTaxExemptIndicator)).append("\n");
-    sb.append("    travelEntertainmentAuthDataDuration: ").append(toIndentedString(travelEntertainmentAuthDataDuration)).append("\n");
-    sb.append("    travelEntertainmentAuthDataMarket: ").append(toIndentedString(travelEntertainmentAuthDataMarket)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class AdditionalDataCarRental {\n" +
+            "    carRentalCheckOutDate: " + toIndentedString(carRentalCheckOutDate) + "\n" +
+            "    carRentalCustomerServiceTollFreeNumber: " + toIndentedString(carRentalCustomerServiceTollFreeNumber) + "\n" +
+            "    carRentalDaysRented: " + toIndentedString(carRentalDaysRented) + "\n" +
+            "    carRentalFuelCharges: " + toIndentedString(carRentalFuelCharges) + "\n" +
+            "    carRentalInsuranceCharges: " + toIndentedString(carRentalInsuranceCharges) + "\n" +
+            "    carRentalLocationCity: " + toIndentedString(carRentalLocationCity) + "\n" +
+            "    carRentalLocationCountry: " + toIndentedString(carRentalLocationCountry) + "\n" +
+            "    carRentalLocationStateProvince: " + toIndentedString(carRentalLocationStateProvince) + "\n" +
+            "    carRentalNoShowIndicator: " + toIndentedString(carRentalNoShowIndicator) + "\n" +
+            "    carRentalOneWayDropOffCharges: " + toIndentedString(carRentalOneWayDropOffCharges) + "\n" +
+            "    carRentalRate: " + toIndentedString(carRentalRate) + "\n" +
+            "    carRentalRateIndicator: " + toIndentedString(carRentalRateIndicator) + "\n" +
+            "    carRentalRentalAgreementNumber: " + toIndentedString(carRentalRentalAgreementNumber) + "\n" +
+            "    carRentalRentalClassId: " + toIndentedString(carRentalRentalClassId) + "\n" +
+            "    carRentalRenterName: " + toIndentedString(carRentalRenterName) + "\n" +
+            "    carRentalReturnCity: " + toIndentedString(carRentalReturnCity) + "\n" +
+            "    carRentalReturnCountry: " + toIndentedString(carRentalReturnCountry) + "\n" +
+            "    carRentalReturnDate: " + toIndentedString(carRentalReturnDate) + "\n" +
+            "    carRentalReturnLocationId: " + toIndentedString(carRentalReturnLocationId) + "\n" +
+            "    carRentalReturnStateProvince: " + toIndentedString(carRentalReturnStateProvince) + "\n" +
+            "    carRentalTaxExemptIndicator: " + toIndentedString(carRentalTaxExemptIndicator) + "\n" +
+            "    travelEntertainmentAuthDataDuration: " + toIndentedString(travelEntertainmentAuthDataDuration) + "\n" +
+            "    travelEntertainmentAuthDataMarket: " + toIndentedString(travelEntertainmentAuthDataMarket) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -777,7 +762,7 @@ public class AdditionalDataCarRental {
         if (AdditionalDataCarRental.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataCarRental is not found in the empty JSON string", AdditionalDataCarRental.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataCarRental is not found in the empty JSON string", AdditionalDataCarRental.openapiRequiredFields));
         }
       }
 
@@ -785,7 +770,7 @@ public class AdditionalDataCarRental {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataCarRental.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataCarRental` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataCarRental` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field carRental.checkOutDate

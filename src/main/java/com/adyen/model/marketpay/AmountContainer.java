@@ -26,7 +26,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -69,11 +68,10 @@ public class AmountContainer {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AmountContainer {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AmountContainer {\n" +
+                "    amount: " + toIndentedString(amount) + "\n" +
+                "}";
+        return sb;
     }
 }

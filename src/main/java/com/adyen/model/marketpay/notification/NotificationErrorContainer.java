@@ -94,12 +94,11 @@ public class NotificationErrorContainer {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationErrorContainer {\n");
 
-        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class NotificationErrorContainer {\n" +
+                "    errorCode: " + toIndentedString(errorCode) + "\n" +
+                "    message: " + toIndentedString(message) + "\n" +
+                "}";
+        return sb;
     }
 }

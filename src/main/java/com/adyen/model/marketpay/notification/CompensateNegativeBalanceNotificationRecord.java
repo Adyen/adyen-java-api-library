@@ -21,10 +21,10 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.Date;
-
 import com.adyen.model.marketpay.Amount;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Date;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -64,11 +64,10 @@ public class CompensateNegativeBalanceNotificationRecord {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("CompensateNegativeBalanceNotificationRecord{");
-        sb.append("accountCode='").append(toIndentedString(accountCode)).append('\'');
-        sb.append(", transferDate=").append(toIndentedString(transferDate));
-        sb.append(", amount=").append(toIndentedString(amount));
-        sb.append('}');
-        return sb.toString();
+        String sb = "CompensateNegativeBalanceNotificationRecord{" + "accountCode='" + toIndentedString(accountCode) + '\'' +
+                ", transferDate=" + toIndentedString(transferDate) +
+                ", amount=" + toIndentedString(amount) +
+                '}';
+        return sb;
     }
 }

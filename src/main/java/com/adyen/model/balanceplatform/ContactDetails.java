@@ -12,38 +12,22 @@
 
 package com.adyen.model.balanceplatform;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.balanceplatform.Address;
-import com.adyen.model.balanceplatform.Phone;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * ContactDetails
@@ -180,14 +164,13 @@ public class ContactDetails {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ContactDetails {\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-    sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class ContactDetails {\n" +
+              "    address: " + toIndentedString(address) + "\n" +
+              "    email: " + toIndentedString(email) + "\n" +
+              "    phone: " + toIndentedString(phone) + "\n" +
+              "    webAddress: " + toIndentedString(webAddress) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -231,7 +214,7 @@ public class ContactDetails {
         if (ContactDetails.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ContactDetails is not found in the empty JSON string", ContactDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ContactDetails is not found in the empty JSON string", ContactDetails.openapiRequiredFields));
         }
       }
 
@@ -239,14 +222,14 @@ public class ContactDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ContactDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContactDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContactDetails` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ContactDetails.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `address`

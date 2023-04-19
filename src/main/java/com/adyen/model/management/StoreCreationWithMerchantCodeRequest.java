@@ -12,40 +12,24 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.StoreLocation;
-import com.adyen.model.management.StoreSplitConfiguration;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * StoreCreationWithMerchantCodeRequest
@@ -325,19 +309,18 @@ public class StoreCreationWithMerchantCodeRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class StoreCreationWithMerchantCodeRequest {\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    businessLineIds: ").append(toIndentedString(businessLineIds)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    externalReferenceId: ").append(toIndentedString(externalReferenceId)).append("\n");
-    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
-    sb.append("    splitConfiguration: ").append(toIndentedString(splitConfiguration)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class StoreCreationWithMerchantCodeRequest {\n" +
+              "    address: " + toIndentedString(address) + "\n" +
+              "    businessLineIds: " + toIndentedString(businessLineIds) + "\n" +
+              "    description: " + toIndentedString(description) + "\n" +
+              "    externalReferenceId: " + toIndentedString(externalReferenceId) + "\n" +
+              "    merchantId: " + toIndentedString(merchantId) + "\n" +
+              "    phoneNumber: " + toIndentedString(phoneNumber) + "\n" +
+              "    reference: " + toIndentedString(reference) + "\n" +
+              "    shopperStatement: " + toIndentedString(shopperStatement) + "\n" +
+              "    splitConfiguration: " + toIndentedString(splitConfiguration) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -388,7 +371,7 @@ public class StoreCreationWithMerchantCodeRequest {
         if (StoreCreationWithMerchantCodeRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StoreCreationWithMerchantCodeRequest is not found in the empty JSON string", StoreCreationWithMerchantCodeRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StoreCreationWithMerchantCodeRequest is not found in the empty JSON string", StoreCreationWithMerchantCodeRequest.openapiRequiredFields));
         }
       }
 
@@ -396,14 +379,14 @@ public class StoreCreationWithMerchantCodeRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!StoreCreationWithMerchantCodeRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoreCreationWithMerchantCodeRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoreCreationWithMerchantCodeRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StoreCreationWithMerchantCodeRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `address`

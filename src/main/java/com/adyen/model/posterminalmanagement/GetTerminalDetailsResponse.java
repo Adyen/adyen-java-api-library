@@ -21,8 +21,6 @@
 
 package com.adyen.model.posterminalmanagement;
 
-import java.util.Objects;
-
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,6 +28,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * GetTerminalDetailsResponse
@@ -663,36 +662,35 @@ public class GetTerminalDetailsResponse {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class GetTerminalDetailsResponse {\n");
 
-        sb.append("    bluetoothIp: ").append(toIndentedString(bluetoothIp)).append("\n");
-        sb.append("    bluetoothMac: ").append(toIndentedString(bluetoothMac)).append("\n");
-        sb.append("    companyAccount: ").append(toIndentedString(companyAccount)).append("\n");
-        sb.append("    country: ").append(toIndentedString(country)).append("\n");
-        sb.append("    deviceModel: ").append(toIndentedString(deviceModel)).append("\n");
-        sb.append("    dhcpEnabled: ").append(toIndentedString(dhcpEnabled)).append("\n");
-        sb.append("    displayLabel: ").append(toIndentedString(displayLabel)).append("\n");
-        sb.append("    ethernetIp: ").append(toIndentedString(ethernetIp)).append("\n");
-        sb.append("    ethernetMac: ").append(toIndentedString(ethernetMac)).append("\n");
-        sb.append("    firmwareVersion: ").append(toIndentedString(firmwareVersion)).append("\n");
-        sb.append("    iccid: ").append(toIndentedString(iccid)).append("\n");
-        sb.append("    lastActivityDateTime: ").append(toIndentedString(lastActivityDateTime)).append("\n");
-        sb.append("    lastTransactionDateTime: ").append(toIndentedString(lastTransactionDateTime)).append("\n");
-        sb.append("    linkNegotiation: ").append(toIndentedString(linkNegotiation)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    merchantInventory: ").append(toIndentedString(merchantInventory)).append("\n");
-        sb.append("    permanentTerminalId: ").append(toIndentedString(permanentTerminalId)).append("\n");
-        sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
-        sb.append("    simStatus: ").append(toIndentedString(simStatus)).append("\n");
-        sb.append("    store: ").append(toIndentedString(store)).append("\n");
-        sb.append("    storeDetails: ").append(toIndentedString(storeDetails)).append("\n");
-        sb.append("    terminal: ").append(toIndentedString(terminal)).append("\n");
-        sb.append("    terminalStatus: ").append(toIndentedString(terminalStatus)).append("\n");
-        sb.append("    wifiIp: ").append(toIndentedString(wifiIp)).append("\n");
-        sb.append("    wifiMac: ").append(toIndentedString(wifiMac)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class GetTerminalDetailsResponse {\n" +
+                "    bluetoothIp: " + toIndentedString(bluetoothIp) + "\n" +
+                "    bluetoothMac: " + toIndentedString(bluetoothMac) + "\n" +
+                "    companyAccount: " + toIndentedString(companyAccount) + "\n" +
+                "    country: " + toIndentedString(country) + "\n" +
+                "    deviceModel: " + toIndentedString(deviceModel) + "\n" +
+                "    dhcpEnabled: " + toIndentedString(dhcpEnabled) + "\n" +
+                "    displayLabel: " + toIndentedString(displayLabel) + "\n" +
+                "    ethernetIp: " + toIndentedString(ethernetIp) + "\n" +
+                "    ethernetMac: " + toIndentedString(ethernetMac) + "\n" +
+                "    firmwareVersion: " + toIndentedString(firmwareVersion) + "\n" +
+                "    iccid: " + toIndentedString(iccid) + "\n" +
+                "    lastActivityDateTime: " + toIndentedString(lastActivityDateTime) + "\n" +
+                "    lastTransactionDateTime: " + toIndentedString(lastTransactionDateTime) + "\n" +
+                "    linkNegotiation: " + toIndentedString(linkNegotiation) + "\n" +
+                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+                "    merchantInventory: " + toIndentedString(merchantInventory) + "\n" +
+                "    permanentTerminalId: " + toIndentedString(permanentTerminalId) + "\n" +
+                "    serialNumber: " + toIndentedString(serialNumber) + "\n" +
+                "    simStatus: " + toIndentedString(simStatus) + "\n" +
+                "    store: " + toIndentedString(store) + "\n" +
+                "    storeDetails: " + toIndentedString(storeDetails) + "\n" +
+                "    terminal: " + toIndentedString(terminal) + "\n" +
+                "    terminalStatus: " + toIndentedString(terminalStatus) + "\n" +
+                "    wifiIp: " + toIndentedString(wifiIp) + "\n" +
+                "    wifiMac: " + toIndentedString(wifiMac) + "\n" +
+                "}";
+        return sb;
     }
 
     /**

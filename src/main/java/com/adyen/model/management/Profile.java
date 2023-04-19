@@ -12,37 +12,22 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.ModelFile;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Profile
@@ -557,28 +542,27 @@ public class Profile {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Profile {\n");
-    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
-    sb.append("    autoWifi: ").append(toIndentedString(autoWifi)).append("\n");
-    sb.append("    bssType: ").append(toIndentedString(bssType)).append("\n");
-    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-    sb.append("    defaultProfile: ").append(toIndentedString(defaultProfile)).append("\n");
-    sb.append("    eap: ").append(toIndentedString(eap)).append("\n");
-    sb.append("    eapCaCert: ").append(toIndentedString(eapCaCert)).append("\n");
-    sb.append("    eapClientCert: ").append(toIndentedString(eapClientCert)).append("\n");
-    sb.append("    eapClientKey: ").append(toIndentedString(eapClientKey)).append("\n");
-    sb.append("    eapClientPwd: ").append(toIndentedString(eapClientPwd)).append("\n");
-    sb.append("    eapIdentity: ").append(toIndentedString(eapIdentity)).append("\n");
-    sb.append("    eapIntermediateCert: ").append(toIndentedString(eapIntermediateCert)).append("\n");
-    sb.append("    eapPwd: ").append(toIndentedString(eapPwd)).append("\n");
-    sb.append("    hiddenSsid: ").append(toIndentedString(hiddenSsid)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    psk: ").append(toIndentedString(psk)).append("\n");
-    sb.append("    ssid: ").append(toIndentedString(ssid)).append("\n");
-    sb.append("    wsec: ").append(toIndentedString(wsec)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class Profile {\n" +
+            "    authType: " + toIndentedString(authType) + "\n" +
+            "    autoWifi: " + toIndentedString(autoWifi) + "\n" +
+            "    bssType: " + toIndentedString(bssType) + "\n" +
+            "    channel: " + toIndentedString(channel) + "\n" +
+            "    defaultProfile: " + toIndentedString(defaultProfile) + "\n" +
+            "    eap: " + toIndentedString(eap) + "\n" +
+            "    eapCaCert: " + toIndentedString(eapCaCert) + "\n" +
+            "    eapClientCert: " + toIndentedString(eapClientCert) + "\n" +
+            "    eapClientKey: " + toIndentedString(eapClientKey) + "\n" +
+            "    eapClientPwd: " + toIndentedString(eapClientPwd) + "\n" +
+            "    eapIdentity: " + toIndentedString(eapIdentity) + "\n" +
+            "    eapIntermediateCert: " + toIndentedString(eapIntermediateCert) + "\n" +
+            "    eapPwd: " + toIndentedString(eapPwd) + "\n" +
+            "    hiddenSsid: " + toIndentedString(hiddenSsid) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    psk: " + toIndentedString(psk) + "\n" +
+            "    ssid: " + toIndentedString(ssid) + "\n" +
+            "    wsec: " + toIndentedString(wsec) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -637,7 +621,7 @@ public class Profile {
         if (Profile.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Profile is not found in the empty JSON string", Profile.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Profile is not found in the empty JSON string", Profile.openapiRequiredFields));
         }
       }
 
@@ -645,14 +629,14 @@ public class Profile {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Profile.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Profile` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Profile` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Profile.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field authType

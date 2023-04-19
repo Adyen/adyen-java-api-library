@@ -12,37 +12,23 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.time.OffsetDateTime;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Terminal
@@ -665,32 +651,31 @@ public class Terminal {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Terminal {\n");
-    sb.append("    assigned: ").append(toIndentedString(assigned)).append("\n");
-    sb.append("    bluetoothIp: ").append(toIndentedString(bluetoothIp)).append("\n");
-    sb.append("    bluetoothMac: ").append(toIndentedString(bluetoothMac)).append("\n");
-    sb.append("    city: ").append(toIndentedString(city)).append("\n");
-    sb.append("    companyAccount: ").append(toIndentedString(companyAccount)).append("\n");
-    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-    sb.append("    deviceModel: ").append(toIndentedString(deviceModel)).append("\n");
-    sb.append("    ethernetIp: ").append(toIndentedString(ethernetIp)).append("\n");
-    sb.append("    ethernetMac: ").append(toIndentedString(ethernetMac)).append("\n");
-    sb.append("    firmwareVersion: ").append(toIndentedString(firmwareVersion)).append("\n");
-    sb.append("    iccid: ").append(toIndentedString(iccid)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    lastActivityDateTime: ").append(toIndentedString(lastActivityDateTime)).append("\n");
-    sb.append("    lastTransactionDateTime: ").append(toIndentedString(lastTransactionDateTime)).append("\n");
-    sb.append("    linkNegotiation: ").append(toIndentedString(linkNegotiation)).append("\n");
-    sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
-    sb.append("    simStatus: ").append(toIndentedString(simStatus)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    storeStatus: ").append(toIndentedString(storeStatus)).append("\n");
-    sb.append("    wifiIp: ").append(toIndentedString(wifiIp)).append("\n");
-    sb.append("    wifiMac: ").append(toIndentedString(wifiMac)).append("\n");
-    sb.append("    wifiSsid: ").append(toIndentedString(wifiSsid)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class Terminal {\n" +
+            "    assigned: " + toIndentedString(assigned) + "\n" +
+            "    bluetoothIp: " + toIndentedString(bluetoothIp) + "\n" +
+            "    bluetoothMac: " + toIndentedString(bluetoothMac) + "\n" +
+            "    city: " + toIndentedString(city) + "\n" +
+            "    companyAccount: " + toIndentedString(companyAccount) + "\n" +
+            "    countryCode: " + toIndentedString(countryCode) + "\n" +
+            "    deviceModel: " + toIndentedString(deviceModel) + "\n" +
+            "    ethernetIp: " + toIndentedString(ethernetIp) + "\n" +
+            "    ethernetMac: " + toIndentedString(ethernetMac) + "\n" +
+            "    firmwareVersion: " + toIndentedString(firmwareVersion) + "\n" +
+            "    iccid: " + toIndentedString(iccid) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    lastActivityDateTime: " + toIndentedString(lastActivityDateTime) + "\n" +
+            "    lastTransactionDateTime: " + toIndentedString(lastTransactionDateTime) + "\n" +
+            "    linkNegotiation: " + toIndentedString(linkNegotiation) + "\n" +
+            "    serialNumber: " + toIndentedString(serialNumber) + "\n" +
+            "    simStatus: " + toIndentedString(simStatus) + "\n" +
+            "    status: " + toIndentedString(status) + "\n" +
+            "    storeStatus: " + toIndentedString(storeStatus) + "\n" +
+            "    wifiIp: " + toIndentedString(wifiIp) + "\n" +
+            "    wifiMac: " + toIndentedString(wifiMac) + "\n" +
+            "    wifiSsid: " + toIndentedString(wifiSsid) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -749,7 +734,7 @@ public class Terminal {
         if (Terminal.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Terminal is not found in the empty JSON string", Terminal.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Terminal is not found in the empty JSON string", Terminal.openapiRequiredFields));
         }
       }
 
@@ -757,7 +742,7 @@ public class Terminal {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Terminal.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Terminal` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Terminal` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field bluetoothIp

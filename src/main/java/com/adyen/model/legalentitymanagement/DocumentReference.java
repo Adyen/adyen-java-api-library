@@ -12,37 +12,23 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.time.OffsetDateTime;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * DocumentReference
@@ -233,16 +219,15 @@ public class DocumentReference {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentReference {\n");
-    sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class DocumentReference {\n" +
+              "    active: " + toIndentedString(active) + "\n" +
+              "    description: " + toIndentedString(description) + "\n" +
+              "    fileName: " + toIndentedString(fileName) + "\n" +
+              "    id: " + toIndentedString(id) + "\n" +
+              "    modificationDate: " + toIndentedString(modificationDate) + "\n" +
+              "    type: " + toIndentedString(type) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -285,7 +270,7 @@ public class DocumentReference {
         if (DocumentReference.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DocumentReference is not found in the empty JSON string", DocumentReference.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DocumentReference is not found in the empty JSON string", DocumentReference.openapiRequiredFields));
         }
       }
 
@@ -293,7 +278,7 @@ public class DocumentReference {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!DocumentReference.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DocumentReference` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DocumentReference` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field description

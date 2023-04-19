@@ -12,36 +12,22 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * AdditionalDataAirline
@@ -826,38 +812,37 @@ public class AdditionalDataAirline {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AdditionalDataAirline {\n");
-    sb.append("    airlineAgencyInvoiceNumber: ").append(toIndentedString(airlineAgencyInvoiceNumber)).append("\n");
-    sb.append("    airlineAgencyPlanName: ").append(toIndentedString(airlineAgencyPlanName)).append("\n");
-    sb.append("    airlineAirlineCode: ").append(toIndentedString(airlineAirlineCode)).append("\n");
-    sb.append("    airlineAirlineDesignatorCode: ").append(toIndentedString(airlineAirlineDesignatorCode)).append("\n");
-    sb.append("    airlineBoardingFee: ").append(toIndentedString(airlineBoardingFee)).append("\n");
-    sb.append("    airlineComputerizedReservationSystem: ").append(toIndentedString(airlineComputerizedReservationSystem)).append("\n");
-    sb.append("    airlineCustomerReferenceNumber: ").append(toIndentedString(airlineCustomerReferenceNumber)).append("\n");
-    sb.append("    airlineDocumentType: ").append(toIndentedString(airlineDocumentType)).append("\n");
-    sb.append("    airlineFlightDate: ").append(toIndentedString(airlineFlightDate)).append("\n");
-    sb.append("    airlineLegCarrierCode: ").append(toIndentedString(airlineLegCarrierCode)).append("\n");
-    sb.append("    airlineLegClassOfTravel: ").append(toIndentedString(airlineLegClassOfTravel)).append("\n");
-    sb.append("    airlineLegDateOfTravel: ").append(toIndentedString(airlineLegDateOfTravel)).append("\n");
-    sb.append("    airlineLegDepartAirport: ").append(toIndentedString(airlineLegDepartAirport)).append("\n");
-    sb.append("    airlineLegDepartTax: ").append(toIndentedString(airlineLegDepartTax)).append("\n");
-    sb.append("    airlineLegDestinationCode: ").append(toIndentedString(airlineLegDestinationCode)).append("\n");
-    sb.append("    airlineLegFareBaseCode: ").append(toIndentedString(airlineLegFareBaseCode)).append("\n");
-    sb.append("    airlineLegFlightNumber: ").append(toIndentedString(airlineLegFlightNumber)).append("\n");
-    sb.append("    airlineLegStopOverCode: ").append(toIndentedString(airlineLegStopOverCode)).append("\n");
-    sb.append("    airlinePassengerDateOfBirth: ").append(toIndentedString(airlinePassengerDateOfBirth)).append("\n");
-    sb.append("    airlinePassengerFirstName: ").append(toIndentedString(airlinePassengerFirstName)).append("\n");
-    sb.append("    airlinePassengerLastName: ").append(toIndentedString(airlinePassengerLastName)).append("\n");
-    sb.append("    airlinePassengerTelephoneNumber: ").append(toIndentedString(airlinePassengerTelephoneNumber)).append("\n");
-    sb.append("    airlinePassengerTravellerType: ").append(toIndentedString(airlinePassengerTravellerType)).append("\n");
-    sb.append("    airlinePassengerName: ").append(toIndentedString(airlinePassengerName)).append("\n");
-    sb.append("    airlineTicketIssueAddress: ").append(toIndentedString(airlineTicketIssueAddress)).append("\n");
-    sb.append("    airlineTicketNumber: ").append(toIndentedString(airlineTicketNumber)).append("\n");
-    sb.append("    airlineTravelAgencyCode: ").append(toIndentedString(airlineTravelAgencyCode)).append("\n");
-    sb.append("    airlineTravelAgencyName: ").append(toIndentedString(airlineTravelAgencyName)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class AdditionalDataAirline {\n" +
+            "    airlineAgencyInvoiceNumber: " + toIndentedString(airlineAgencyInvoiceNumber) + "\n" +
+            "    airlineAgencyPlanName: " + toIndentedString(airlineAgencyPlanName) + "\n" +
+            "    airlineAirlineCode: " + toIndentedString(airlineAirlineCode) + "\n" +
+            "    airlineAirlineDesignatorCode: " + toIndentedString(airlineAirlineDesignatorCode) + "\n" +
+            "    airlineBoardingFee: " + toIndentedString(airlineBoardingFee) + "\n" +
+            "    airlineComputerizedReservationSystem: " + toIndentedString(airlineComputerizedReservationSystem) + "\n" +
+            "    airlineCustomerReferenceNumber: " + toIndentedString(airlineCustomerReferenceNumber) + "\n" +
+            "    airlineDocumentType: " + toIndentedString(airlineDocumentType) + "\n" +
+            "    airlineFlightDate: " + toIndentedString(airlineFlightDate) + "\n" +
+            "    airlineLegCarrierCode: " + toIndentedString(airlineLegCarrierCode) + "\n" +
+            "    airlineLegClassOfTravel: " + toIndentedString(airlineLegClassOfTravel) + "\n" +
+            "    airlineLegDateOfTravel: " + toIndentedString(airlineLegDateOfTravel) + "\n" +
+            "    airlineLegDepartAirport: " + toIndentedString(airlineLegDepartAirport) + "\n" +
+            "    airlineLegDepartTax: " + toIndentedString(airlineLegDepartTax) + "\n" +
+            "    airlineLegDestinationCode: " + toIndentedString(airlineLegDestinationCode) + "\n" +
+            "    airlineLegFareBaseCode: " + toIndentedString(airlineLegFareBaseCode) + "\n" +
+            "    airlineLegFlightNumber: " + toIndentedString(airlineLegFlightNumber) + "\n" +
+            "    airlineLegStopOverCode: " + toIndentedString(airlineLegStopOverCode) + "\n" +
+            "    airlinePassengerDateOfBirth: " + toIndentedString(airlinePassengerDateOfBirth) + "\n" +
+            "    airlinePassengerFirstName: " + toIndentedString(airlinePassengerFirstName) + "\n" +
+            "    airlinePassengerLastName: " + toIndentedString(airlinePassengerLastName) + "\n" +
+            "    airlinePassengerTelephoneNumber: " + toIndentedString(airlinePassengerTelephoneNumber) + "\n" +
+            "    airlinePassengerTravellerType: " + toIndentedString(airlinePassengerTravellerType) + "\n" +
+            "    airlinePassengerName: " + toIndentedString(airlinePassengerName) + "\n" +
+            "    airlineTicketIssueAddress: " + toIndentedString(airlineTicketIssueAddress) + "\n" +
+            "    airlineTicketNumber: " + toIndentedString(airlineTicketNumber) + "\n" +
+            "    airlineTravelAgencyCode: " + toIndentedString(airlineTravelAgencyCode) + "\n" +
+            "    airlineTravelAgencyName: " + toIndentedString(airlineTravelAgencyName) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -923,7 +908,7 @@ public class AdditionalDataAirline {
         if (AdditionalDataAirline.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataAirline is not found in the empty JSON string", AdditionalDataAirline.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataAirline is not found in the empty JSON string", AdditionalDataAirline.openapiRequiredFields));
         }
       }
 
@@ -931,14 +916,14 @@ public class AdditionalDataAirline {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataAirline.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataAirline` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataAirline` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AdditionalDataAirline.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field airline.agency_invoice_number

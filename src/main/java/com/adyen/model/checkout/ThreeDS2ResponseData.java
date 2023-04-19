@@ -12,36 +12,22 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ThreeDS2ResponseData
@@ -583,29 +569,28 @@ public class ThreeDS2ResponseData {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ThreeDS2ResponseData {\n");
-    sb.append("    acsChallengeMandated: ").append(toIndentedString(acsChallengeMandated)).append("\n");
-    sb.append("    acsOperatorID: ").append(toIndentedString(acsOperatorID)).append("\n");
-    sb.append("    acsReferenceNumber: ").append(toIndentedString(acsReferenceNumber)).append("\n");
-    sb.append("    acsSignedContent: ").append(toIndentedString(acsSignedContent)).append("\n");
-    sb.append("    acsTransID: ").append(toIndentedString(acsTransID)).append("\n");
-    sb.append("    acsURL: ").append(toIndentedString(acsURL)).append("\n");
-    sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
-    sb.append("    cardHolderInfo: ").append(toIndentedString(cardHolderInfo)).append("\n");
-    sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append("\n");
-    sb.append("    challengeIndicator: ").append(toIndentedString(challengeIndicator)).append("\n");
-    sb.append("    dsReferenceNumber: ").append(toIndentedString(dsReferenceNumber)).append("\n");
-    sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
-    sb.append("    exemptionIndicator: ").append(toIndentedString(exemptionIndicator)).append("\n");
-    sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
-    sb.append("    riskScore: ").append(toIndentedString(riskScore)).append("\n");
-    sb.append("    sdkEphemPubKey: ").append(toIndentedString(sdkEphemPubKey)).append("\n");
-    sb.append("    threeDSServerTransID: ").append(toIndentedString(threeDSServerTransID)).append("\n");
-    sb.append("    transStatus: ").append(toIndentedString(transStatus)).append("\n");
-    sb.append("    transStatusReason: ").append(toIndentedString(transStatusReason)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class ThreeDS2ResponseData {\n" +
+            "    acsChallengeMandated: " + toIndentedString(acsChallengeMandated) + "\n" +
+            "    acsOperatorID: " + toIndentedString(acsOperatorID) + "\n" +
+            "    acsReferenceNumber: " + toIndentedString(acsReferenceNumber) + "\n" +
+            "    acsSignedContent: " + toIndentedString(acsSignedContent) + "\n" +
+            "    acsTransID: " + toIndentedString(acsTransID) + "\n" +
+            "    acsURL: " + toIndentedString(acsURL) + "\n" +
+            "    authenticationType: " + toIndentedString(authenticationType) + "\n" +
+            "    cardHolderInfo: " + toIndentedString(cardHolderInfo) + "\n" +
+            "    cavvAlgorithm: " + toIndentedString(cavvAlgorithm) + "\n" +
+            "    challengeIndicator: " + toIndentedString(challengeIndicator) + "\n" +
+            "    dsReferenceNumber: " + toIndentedString(dsReferenceNumber) + "\n" +
+            "    dsTransID: " + toIndentedString(dsTransID) + "\n" +
+            "    exemptionIndicator: " + toIndentedString(exemptionIndicator) + "\n" +
+            "    messageVersion: " + toIndentedString(messageVersion) + "\n" +
+            "    riskScore: " + toIndentedString(riskScore) + "\n" +
+            "    sdkEphemPubKey: " + toIndentedString(sdkEphemPubKey) + "\n" +
+            "    threeDSServerTransID: " + toIndentedString(threeDSServerTransID) + "\n" +
+            "    transStatus: " + toIndentedString(transStatus) + "\n" +
+            "    transStatusReason: " + toIndentedString(transStatusReason) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -661,7 +646,7 @@ public class ThreeDS2ResponseData {
         if (ThreeDS2ResponseData.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2ResponseData is not found in the empty JSON string", ThreeDS2ResponseData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2ResponseData is not found in the empty JSON string", ThreeDS2ResponseData.openapiRequiredFields));
         }
       }
 
@@ -669,7 +654,7 @@ public class ThreeDS2ResponseData {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDS2ResponseData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2ResponseData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2ResponseData` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field acsChallengeMandated

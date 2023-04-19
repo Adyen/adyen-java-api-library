@@ -12,36 +12,23 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * KlarnaDetails
@@ -91,7 +78,7 @@ public class KlarnaDetails {
     
     KLARNA_B2B("klarna_b2b");
 
-    private String value;
+    private final String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -318,17 +305,16 @@ public class KlarnaDetails {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class KlarnaDetails {\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    checkoutAttemptId: ").append(toIndentedString(checkoutAttemptId)).append("\n");
-    sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
-    sb.append("    personalDetails: ").append(toIndentedString(personalDetails)).append("\n");
-    sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-    sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class KlarnaDetails {\n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+            "    checkoutAttemptId: " + toIndentedString(checkoutAttemptId) + "\n" +
+            "    deliveryAddress: " + toIndentedString(deliveryAddress) + "\n" +
+            "    personalDetails: " + toIndentedString(personalDetails) + "\n" +
+            "    recurringDetailReference: " + toIndentedString(recurringDetailReference) + "\n" +
+            "    storedPaymentMethodId: " + toIndentedString(storedPaymentMethodId) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -373,7 +359,7 @@ public class KlarnaDetails {
         if (KlarnaDetails.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KlarnaDetails is not found in the empty JSON string", KlarnaDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in KlarnaDetails is not found in the empty JSON string", KlarnaDetails.openapiRequiredFields));
         }
       }
 
@@ -381,14 +367,14 @@ public class KlarnaDetails {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!KlarnaDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KlarnaDetails` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KlarnaDetails` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : KlarnaDetails.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field billingAddress

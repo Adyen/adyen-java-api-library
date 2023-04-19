@@ -21,9 +21,9 @@
 
 package com.adyen.model.posterminalmanagement;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * FindTerminalResponse
@@ -160,16 +160,15 @@ public class FindTerminalResponse {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class FindTerminalResponse {\n");
 
-        sb.append("    companyAccount: ").append(toIndentedString(companyAccount)).append("\n");
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    merchantInventory: ").append(toIndentedString(merchantInventory)).append("\n");
-        sb.append("    store: ").append(toIndentedString(store)).append("\n");
-        sb.append("    terminal: ").append(toIndentedString(terminal)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class FindTerminalResponse {\n" +
+                "    companyAccount: " + toIndentedString(companyAccount) + "\n" +
+                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+                "    merchantInventory: " + toIndentedString(merchantInventory) + "\n" +
+                "    store: " + toIndentedString(store) + "\n" +
+                "    terminal: " + toIndentedString(terminal) + "\n" +
+                "}";
+        return sb;
     }
 
     /**

@@ -12,41 +12,24 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.EventUrl;
-import com.adyen.model.management.Key;
-import com.adyen.model.management.NotificationUrl;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Nexo
@@ -193,14 +176,13 @@ public class Nexo {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Nexo {\n");
-    sb.append("    displayUrls: ").append(toIndentedString(displayUrls)).append("\n");
-    sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
-    sb.append("    eventUrls: ").append(toIndentedString(eventUrls)).append("\n");
-    sb.append("    nexoEventUrls: ").append(toIndentedString(nexoEventUrls)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class Nexo {\n" +
+              "    displayUrls: " + toIndentedString(displayUrls) + "\n" +
+              "    encryptionKey: " + toIndentedString(encryptionKey) + "\n" +
+              "    eventUrls: " + toIndentedString(eventUrls) + "\n" +
+              "    nexoEventUrls: " + toIndentedString(nexoEventUrls) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -241,7 +223,7 @@ public class Nexo {
         if (Nexo.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Nexo is not found in the empty JSON string", Nexo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Nexo is not found in the empty JSON string", Nexo.openapiRequiredFields));
         }
       }
 
@@ -249,7 +231,7 @@ public class Nexo {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Nexo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Nexo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Nexo` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `displayUrls`

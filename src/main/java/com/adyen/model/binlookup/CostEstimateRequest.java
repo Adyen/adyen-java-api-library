@@ -12,40 +12,23 @@
 
 package com.adyen.model.binlookup;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.binlookup.Amount;
-import com.adyen.model.binlookup.CostEstimateAssumptions;
-import com.adyen.model.binlookup.MerchantDetails;
-import com.adyen.model.binlookup.Recurring;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * CostEstimateRequest
@@ -97,7 +80,7 @@ public class CostEstimateRequest {
     
     POS("POS");
 
-    private String value;
+    private final String value;
 
     ShopperInteractionEnum(String value) {
       this.value = value;
@@ -395,20 +378,19 @@ public class CostEstimateRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CostEstimateRequest {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    assumptions: ").append(toIndentedString(assumptions)).append("\n");
-    sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
-    sb.append("    encryptedCardNumber: ").append(toIndentedString(encryptedCardNumber)).append("\n");
-    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    merchantDetails: ").append(toIndentedString(merchantDetails)).append("\n");
-    sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
-    sb.append("    selectedRecurringDetailReference: ").append(toIndentedString(selectedRecurringDetailReference)).append("\n");
-    sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
-    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class CostEstimateRequest {\n" +
+            "    amount: " + toIndentedString(amount) + "\n" +
+            "    assumptions: " + toIndentedString(assumptions) + "\n" +
+            "    cardNumber: " + toIndentedString(cardNumber) + "\n" +
+            "    encryptedCardNumber: " + toIndentedString(encryptedCardNumber) + "\n" +
+            "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+            "    merchantDetails: " + toIndentedString(merchantDetails) + "\n" +
+            "    recurring: " + toIndentedString(recurring) + "\n" +
+            "    selectedRecurringDetailReference: " + toIndentedString(selectedRecurringDetailReference) + "\n" +
+            "    shopperInteraction: " + toIndentedString(shopperInteraction) + "\n" +
+            "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -457,7 +439,7 @@ public class CostEstimateRequest {
         if (CostEstimateRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CostEstimateRequest is not found in the empty JSON string", CostEstimateRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CostEstimateRequest is not found in the empty JSON string", CostEstimateRequest.openapiRequiredFields));
         }
       }
 
@@ -465,14 +447,14 @@ public class CostEstimateRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CostEstimateRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CostEstimateRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CostEstimateRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CostEstimateRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `amount`

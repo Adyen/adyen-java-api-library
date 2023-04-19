@@ -24,7 +24,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -137,15 +136,14 @@ public class Tier {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Tier {\n");
 
-        sb.append("    deadlineConfiguration: ").append(toIndentedString(deadlineConfiguration)).append("\n");
-        sb.append("    fromAmount: ").append(toIndentedString(fromAmount)).append("\n");
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
-        sb.append("    toAmount: ").append(toIndentedString(toAmount)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class Tier {\n" +
+                "    deadlineConfiguration: " + toIndentedString(deadlineConfiguration) + "\n" +
+                "    fromAmount: " + toIndentedString(fromAmount) + "\n" +
+                "    tierNumber: " + toIndentedString(tierNumber) + "\n" +
+                "    toAmount: " + toIndentedString(toAmount) + "\n" +
+                "}";
+        return sb;
     }
 
 }

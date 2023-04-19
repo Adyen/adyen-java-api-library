@@ -32,7 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -227,16 +226,15 @@ public class AccountHolderStatus {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderStatus {\n");
 
-        sb.append("    events: ").append(toIndentedString(events)).append("\n");
-        sb.append("    payoutState: ").append(toIndentedString(payoutState)).append("\n");
-        sb.append("    processingState: ").append(toIndentedString(processingState)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountHolderStatus {\n" +
+                "    events: " + toIndentedString(events) + "\n" +
+                "    payoutState: " + toIndentedString(payoutState) + "\n" +
+                "    processingState: " + toIndentedString(processingState) + "\n" +
+                "    status: " + toIndentedString(status) + "\n" +
+                "    statusReason: " + toIndentedString(statusReason) + "\n" +
+                "}";
+        return sb;
     }
 
 

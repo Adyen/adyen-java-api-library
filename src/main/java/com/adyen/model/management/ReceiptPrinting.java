@@ -12,36 +12,22 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * ReceiptPrinting
@@ -502,26 +488,25 @@ public class ReceiptPrinting {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ReceiptPrinting {\n");
-    sb.append("    merchantApproved: ").append(toIndentedString(merchantApproved)).append("\n");
-    sb.append("    merchantCancelled: ").append(toIndentedString(merchantCancelled)).append("\n");
-    sb.append("    merchantCaptureApproved: ").append(toIndentedString(merchantCaptureApproved)).append("\n");
-    sb.append("    merchantCaptureRefused: ").append(toIndentedString(merchantCaptureRefused)).append("\n");
-    sb.append("    merchantRefundApproved: ").append(toIndentedString(merchantRefundApproved)).append("\n");
-    sb.append("    merchantRefundRefused: ").append(toIndentedString(merchantRefundRefused)).append("\n");
-    sb.append("    merchantRefused: ").append(toIndentedString(merchantRefused)).append("\n");
-    sb.append("    merchantVoid: ").append(toIndentedString(merchantVoid)).append("\n");
-    sb.append("    shopperApproved: ").append(toIndentedString(shopperApproved)).append("\n");
-    sb.append("    shopperCancelled: ").append(toIndentedString(shopperCancelled)).append("\n");
-    sb.append("    shopperCaptureApproved: ").append(toIndentedString(shopperCaptureApproved)).append("\n");
-    sb.append("    shopperCaptureRefused: ").append(toIndentedString(shopperCaptureRefused)).append("\n");
-    sb.append("    shopperRefundApproved: ").append(toIndentedString(shopperRefundApproved)).append("\n");
-    sb.append("    shopperRefundRefused: ").append(toIndentedString(shopperRefundRefused)).append("\n");
-    sb.append("    shopperRefused: ").append(toIndentedString(shopperRefused)).append("\n");
-    sb.append("    shopperVoid: ").append(toIndentedString(shopperVoid)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class ReceiptPrinting {\n" +
+            "    merchantApproved: " + toIndentedString(merchantApproved) + "\n" +
+            "    merchantCancelled: " + toIndentedString(merchantCancelled) + "\n" +
+            "    merchantCaptureApproved: " + toIndentedString(merchantCaptureApproved) + "\n" +
+            "    merchantCaptureRefused: " + toIndentedString(merchantCaptureRefused) + "\n" +
+            "    merchantRefundApproved: " + toIndentedString(merchantRefundApproved) + "\n" +
+            "    merchantRefundRefused: " + toIndentedString(merchantRefundRefused) + "\n" +
+            "    merchantRefused: " + toIndentedString(merchantRefused) + "\n" +
+            "    merchantVoid: " + toIndentedString(merchantVoid) + "\n" +
+            "    shopperApproved: " + toIndentedString(shopperApproved) + "\n" +
+            "    shopperCancelled: " + toIndentedString(shopperCancelled) + "\n" +
+            "    shopperCaptureApproved: " + toIndentedString(shopperCaptureApproved) + "\n" +
+            "    shopperCaptureRefused: " + toIndentedString(shopperCaptureRefused) + "\n" +
+            "    shopperRefundApproved: " + toIndentedString(shopperRefundApproved) + "\n" +
+            "    shopperRefundRefused: " + toIndentedString(shopperRefundRefused) + "\n" +
+            "    shopperRefused: " + toIndentedString(shopperRefused) + "\n" +
+            "    shopperVoid: " + toIndentedString(shopperVoid) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -574,7 +559,7 @@ public class ReceiptPrinting {
         if (ReceiptPrinting.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReceiptPrinting is not found in the empty JSON string", ReceiptPrinting.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ReceiptPrinting is not found in the empty JSON string", ReceiptPrinting.openapiRequiredFields));
         }
       }
 
@@ -582,7 +567,7 @@ public class ReceiptPrinting {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ReceiptPrinting.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReceiptPrinting` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReceiptPrinting` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
   }

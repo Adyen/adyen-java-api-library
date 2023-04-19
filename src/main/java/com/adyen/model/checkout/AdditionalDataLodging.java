@@ -12,36 +12,22 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * AdditionalDataLodging
@@ -529,27 +515,26 @@ public class AdditionalDataLodging {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AdditionalDataLodging {\n");
-    sb.append("    lodgingCheckInDate: ").append(toIndentedString(lodgingCheckInDate)).append("\n");
-    sb.append("    lodgingCheckOutDate: ").append(toIndentedString(lodgingCheckOutDate)).append("\n");
-    sb.append("    lodgingCustomerServiceTollFreeNumber: ").append(toIndentedString(lodgingCustomerServiceTollFreeNumber)).append("\n");
-    sb.append("    lodgingFireSafetyActIndicator: ").append(toIndentedString(lodgingFireSafetyActIndicator)).append("\n");
-    sb.append("    lodgingFolioCashAdvances: ").append(toIndentedString(lodgingFolioCashAdvances)).append("\n");
-    sb.append("    lodgingFolioNumber: ").append(toIndentedString(lodgingFolioNumber)).append("\n");
-    sb.append("    lodgingFoodBeverageCharges: ").append(toIndentedString(lodgingFoodBeverageCharges)).append("\n");
-    sb.append("    lodgingNoShowIndicator: ").append(toIndentedString(lodgingNoShowIndicator)).append("\n");
-    sb.append("    lodgingPrepaidExpenses: ").append(toIndentedString(lodgingPrepaidExpenses)).append("\n");
-    sb.append("    lodgingPropertyPhoneNumber: ").append(toIndentedString(lodgingPropertyPhoneNumber)).append("\n");
-    sb.append("    lodgingRoom1NumberOfNights: ").append(toIndentedString(lodgingRoom1NumberOfNights)).append("\n");
-    sb.append("    lodgingRoom1Rate: ").append(toIndentedString(lodgingRoom1Rate)).append("\n");
-    sb.append("    lodgingRoom1Tax: ").append(toIndentedString(lodgingRoom1Tax)).append("\n");
-    sb.append("    lodgingTotalRoomTax: ").append(toIndentedString(lodgingTotalRoomTax)).append("\n");
-    sb.append("    lodgingTotalTax: ").append(toIndentedString(lodgingTotalTax)).append("\n");
-    sb.append("    travelEntertainmentAuthDataDuration: ").append(toIndentedString(travelEntertainmentAuthDataDuration)).append("\n");
-    sb.append("    travelEntertainmentAuthDataMarket: ").append(toIndentedString(travelEntertainmentAuthDataMarket)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class AdditionalDataLodging {\n" +
+            "    lodgingCheckInDate: " + toIndentedString(lodgingCheckInDate) + "\n" +
+            "    lodgingCheckOutDate: " + toIndentedString(lodgingCheckOutDate) + "\n" +
+            "    lodgingCustomerServiceTollFreeNumber: " + toIndentedString(lodgingCustomerServiceTollFreeNumber) + "\n" +
+            "    lodgingFireSafetyActIndicator: " + toIndentedString(lodgingFireSafetyActIndicator) + "\n" +
+            "    lodgingFolioCashAdvances: " + toIndentedString(lodgingFolioCashAdvances) + "\n" +
+            "    lodgingFolioNumber: " + toIndentedString(lodgingFolioNumber) + "\n" +
+            "    lodgingFoodBeverageCharges: " + toIndentedString(lodgingFoodBeverageCharges) + "\n" +
+            "    lodgingNoShowIndicator: " + toIndentedString(lodgingNoShowIndicator) + "\n" +
+            "    lodgingPrepaidExpenses: " + toIndentedString(lodgingPrepaidExpenses) + "\n" +
+            "    lodgingPropertyPhoneNumber: " + toIndentedString(lodgingPropertyPhoneNumber) + "\n" +
+            "    lodgingRoom1NumberOfNights: " + toIndentedString(lodgingRoom1NumberOfNights) + "\n" +
+            "    lodgingRoom1Rate: " + toIndentedString(lodgingRoom1Rate) + "\n" +
+            "    lodgingRoom1Tax: " + toIndentedString(lodgingRoom1Tax) + "\n" +
+            "    lodgingTotalRoomTax: " + toIndentedString(lodgingTotalRoomTax) + "\n" +
+            "    lodgingTotalTax: " + toIndentedString(lodgingTotalTax) + "\n" +
+            "    travelEntertainmentAuthDataDuration: " + toIndentedString(travelEntertainmentAuthDataDuration) + "\n" +
+            "    travelEntertainmentAuthDataMarket: " + toIndentedString(travelEntertainmentAuthDataMarket) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -603,7 +588,7 @@ public class AdditionalDataLodging {
         if (AdditionalDataLodging.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataLodging is not found in the empty JSON string", AdditionalDataLodging.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataLodging is not found in the empty JSON string", AdditionalDataLodging.openapiRequiredFields));
         }
       }
 
@@ -611,7 +596,7 @@ public class AdditionalDataLodging {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataLodging.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLodging` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataLodging` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field lodging.checkInDate

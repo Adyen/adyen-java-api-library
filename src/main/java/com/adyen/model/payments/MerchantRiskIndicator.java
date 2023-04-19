@@ -12,38 +12,24 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.payments.Amount;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.time.OffsetDateTime;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * MerchantRiskIndicator
@@ -73,7 +59,7 @@ public class MerchantRiskIndicator {
     
     OTHER("other");
 
-    private String value;
+    private final String value;
 
     DeliveryAddressIndicatorEnum(String value) {
       this.value = value;
@@ -136,7 +122,7 @@ public class MerchantRiskIndicator {
     
     TWOORMOREDAYSSHIPPING("twoOrMoreDaysShipping");
 
-    private String value;
+    private final String value;
 
     DeliveryTimeframeEnum(String value) {
       this.value = value;
@@ -560,24 +546,23 @@ public class MerchantRiskIndicator {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MerchantRiskIndicator {\n");
-    sb.append("    addressMatch: ").append(toIndentedString(addressMatch)).append("\n");
-    sb.append("    deliveryAddressIndicator: ").append(toIndentedString(deliveryAddressIndicator)).append("\n");
-    sb.append("    deliveryEmail: ").append(toIndentedString(deliveryEmail)).append("\n");
-    sb.append("    deliveryEmailAddress: ").append(toIndentedString(deliveryEmailAddress)).append("\n");
-    sb.append("    deliveryTimeframe: ").append(toIndentedString(deliveryTimeframe)).append("\n");
-    sb.append("    giftCardAmount: ").append(toIndentedString(giftCardAmount)).append("\n");
-    sb.append("    giftCardCount: ").append(toIndentedString(giftCardCount)).append("\n");
-    sb.append("    giftCardCurr: ").append(toIndentedString(giftCardCurr)).append("\n");
-    sb.append("    preOrderDate: ").append(toIndentedString(preOrderDate)).append("\n");
-    sb.append("    preOrderPurchase: ").append(toIndentedString(preOrderPurchase)).append("\n");
-    sb.append("    preOrderPurchaseInd: ").append(toIndentedString(preOrderPurchaseInd)).append("\n");
-    sb.append("    reorderItems: ").append(toIndentedString(reorderItems)).append("\n");
-    sb.append("    reorderItemsInd: ").append(toIndentedString(reorderItemsInd)).append("\n");
-    sb.append("    shipIndicator: ").append(toIndentedString(shipIndicator)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class MerchantRiskIndicator {\n" +
+            "    addressMatch: " + toIndentedString(addressMatch) + "\n" +
+            "    deliveryAddressIndicator: " + toIndentedString(deliveryAddressIndicator) + "\n" +
+            "    deliveryEmail: " + toIndentedString(deliveryEmail) + "\n" +
+            "    deliveryEmailAddress: " + toIndentedString(deliveryEmailAddress) + "\n" +
+            "    deliveryTimeframe: " + toIndentedString(deliveryTimeframe) + "\n" +
+            "    giftCardAmount: " + toIndentedString(giftCardAmount) + "\n" +
+            "    giftCardCount: " + toIndentedString(giftCardCount) + "\n" +
+            "    giftCardCurr: " + toIndentedString(giftCardCurr) + "\n" +
+            "    preOrderDate: " + toIndentedString(preOrderDate) + "\n" +
+            "    preOrderPurchase: " + toIndentedString(preOrderPurchase) + "\n" +
+            "    preOrderPurchaseInd: " + toIndentedString(preOrderPurchaseInd) + "\n" +
+            "    reorderItems: " + toIndentedString(reorderItems) + "\n" +
+            "    reorderItemsInd: " + toIndentedString(reorderItemsInd) + "\n" +
+            "    shipIndicator: " + toIndentedString(shipIndicator) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -628,7 +613,7 @@ public class MerchantRiskIndicator {
         if (MerchantRiskIndicator.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantRiskIndicator is not found in the empty JSON string", MerchantRiskIndicator.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantRiskIndicator is not found in the empty JSON string", MerchantRiskIndicator.openapiRequiredFields));
         }
       }
 
@@ -636,7 +621,7 @@ public class MerchantRiskIndicator {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!MerchantRiskIndicator.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantRiskIndicator` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantRiskIndicator` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // ensure the field deliveryAddressIndicator can be parsed to an enum value

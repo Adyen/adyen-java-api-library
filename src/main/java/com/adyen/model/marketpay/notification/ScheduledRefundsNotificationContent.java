@@ -21,10 +21,10 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.List;
-
 import com.adyen.model.marketpay.Transaction;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class ScheduledRefundsNotificationContent {
     @SerializedName("accountHolderCode")
@@ -84,13 +84,12 @@ public class ScheduledRefundsNotificationContent {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ScheduledRefundsContent{");
-        sb.append("accountHolderCode='").append(accountHolderCode).append('\'');
-        sb.append(", accountCode='").append(accountCode).append('\'');
-        sb.append(", refundResults=").append(refundResults);
-        sb.append(", lastPayout=").append(lastPayout);
-        sb.append(", invalidFields=").append(invalidFields);
-        sb.append('}');
-        return sb.toString();
+        String sb = "ScheduledRefundsContent{" + "accountHolderCode='" + accountHolderCode + '\'' +
+                ", accountCode='" + accountCode + '\'' +
+                ", refundResults=" + refundResults +
+                ", lastPayout=" + lastPayout +
+                ", invalidFields=" + invalidFields +
+                '}';
+        return sb;
     }
 }

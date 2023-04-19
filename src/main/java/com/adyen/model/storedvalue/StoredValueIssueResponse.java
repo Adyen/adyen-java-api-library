@@ -20,8 +20,6 @@
  */
 package com.adyen.model.storedvalue;
 
-import java.util.Objects;
-
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,6 +29,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * StoredValueIssueResponse
@@ -268,18 +267,17 @@ public class StoredValueIssueResponse {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class StoredValueIssueResponse {\n");
 
-        sb.append("    authCode: ").append(toIndentedString(authCode)).append("\n");
-        sb.append("    currentBalance: ").append(toIndentedString(currentBalance)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-        sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-        sb.append("    thirdPartyRefusalReason: ").append(toIndentedString(thirdPartyRefusalReason)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class StoredValueIssueResponse {\n" +
+                "    authCode: " + toIndentedString(authCode) + "\n" +
+                "    currentBalance: " + toIndentedString(currentBalance) + "\n" +
+                "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
+                "    pspReference: " + toIndentedString(pspReference) + "\n" +
+                "    refusalReason: " + toIndentedString(refusalReason) + "\n" +
+                "    resultCode: " + toIndentedString(resultCode) + "\n" +
+                "    thirdPartyRefusalReason: " + toIndentedString(thirdPartyRefusalReason) + "\n" +
+                "}";
+        return sb;
     }
 
     /**

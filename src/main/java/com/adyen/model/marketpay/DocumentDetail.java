@@ -24,7 +24,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -265,18 +264,17 @@ public class DocumentDetail {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DocumentDetail {\n");
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    bankAccountUUID: ").append(toIndentedString(bankAccountUUID)).append("\n");
-        sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
-        sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
-        sb.append("    signatoryCode: ").append(toIndentedString(signatoryCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class DocumentDetail {\n" +
+                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
+                "    bankAccountUUID: " + toIndentedString(bankAccountUUID) + "\n" +
+                "    filename: " + toIndentedString(filename) + "\n" +
+                "    documentType: " + toIndentedString(documentType) + "\n" +
+                "    description: " + toIndentedString(description) + "\n" +
+                "    shareholderCode: " + toIndentedString(shareholderCode) + "\n" +
+                "    signatoryCode: " + toIndentedString(signatoryCode) + "\n" +
+                "}";
+        return sb;
     }
 
 

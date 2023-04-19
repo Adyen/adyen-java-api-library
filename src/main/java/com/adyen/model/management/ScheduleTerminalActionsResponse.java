@@ -12,42 +12,27 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.ScheduleTerminalActionsRequestActionDetails;
-import com.adyen.model.management.TerminalActionScheduleDetail;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * ScheduleTerminalActionsResponse
@@ -318,18 +303,17 @@ public class ScheduleTerminalActionsResponse {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleTerminalActionsResponse {\n");
-    sb.append("    actionDetails: ").append(toIndentedString(actionDetails)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    scheduledAt: ").append(toIndentedString(scheduledAt)).append("\n");
-    sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");
-    sb.append("    terminalIds: ").append(toIndentedString(terminalIds)).append("\n");
-    sb.append("    terminalsWithErrors: ").append(toIndentedString(terminalsWithErrors)).append("\n");
-    sb.append("    totalErrors: ").append(toIndentedString(totalErrors)).append("\n");
-    sb.append("    totalScheduled: ").append(toIndentedString(totalScheduled)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class ScheduleTerminalActionsResponse {\n" +
+            "    actionDetails: " + toIndentedString(actionDetails) + "\n" +
+            "    items: " + toIndentedString(items) + "\n" +
+            "    scheduledAt: " + toIndentedString(scheduledAt) + "\n" +
+            "    storeId: " + toIndentedString(storeId) + "\n" +
+            "    terminalIds: " + toIndentedString(terminalIds) + "\n" +
+            "    terminalsWithErrors: " + toIndentedString(terminalsWithErrors) + "\n" +
+            "    totalErrors: " + toIndentedString(totalErrors) + "\n" +
+            "    totalScheduled: " + toIndentedString(totalScheduled) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -374,7 +358,7 @@ public class ScheduleTerminalActionsResponse {
         if (ScheduleTerminalActionsResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ScheduleTerminalActionsResponse is not found in the empty JSON string", ScheduleTerminalActionsResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ScheduleTerminalActionsResponse is not found in the empty JSON string", ScheduleTerminalActionsResponse.openapiRequiredFields));
         }
       }
 
@@ -382,7 +366,7 @@ public class ScheduleTerminalActionsResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ScheduleTerminalActionsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ScheduleTerminalActionsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ScheduleTerminalActionsResponse` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `actionDetails`
@@ -399,7 +383,7 @@ public class ScheduleTerminalActionsResponse {
         // validate the optional field `items` (array)
         for (int i = 0; i < jsonArrayitems.size(); i++) {
           TerminalActionScheduleDetail.validateJsonObject(jsonArrayitems.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field scheduledAt
       if (jsonObj.get("scheduledAt") != null && !jsonObj.get("scheduledAt").isJsonPrimitive()) {

@@ -12,36 +12,22 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * AdditionalDataModifications
@@ -97,11 +83,10 @@ public class AdditionalDataModifications {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AdditionalDataModifications {\n");
-    sb.append("    installmentPaymentDataSelectedInstallmentOption: ").append(toIndentedString(installmentPaymentDataSelectedInstallmentOption)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class AdditionalDataModifications {\n" +
+              "    installmentPaymentDataSelectedInstallmentOption: " + toIndentedString(installmentPaymentDataSelectedInstallmentOption) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -139,7 +124,7 @@ public class AdditionalDataModifications {
         if (AdditionalDataModifications.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataModifications is not found in the empty JSON string", AdditionalDataModifications.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalDataModifications is not found in the empty JSON string", AdditionalDataModifications.openapiRequiredFields));
         }
       }
 
@@ -147,7 +132,7 @@ public class AdditionalDataModifications {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalDataModifications.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataModifications` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalDataModifications` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field installmentPaymentData.selectedInstallmentOption

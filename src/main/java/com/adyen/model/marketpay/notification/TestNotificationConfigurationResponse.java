@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -271,20 +270,18 @@ public class TestNotificationConfigurationResponse extends GenericResponse {
     @Override
     public String toString() {
         // Populate the exchangeMessages list to provide back in the toString() method
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TestNotificationConfigurationResponse {\n");
 
-        sb.append("    errorMessages: ").append(toIndentedString(errorMessages)).append("\n");
-        sb.append("    eventTypes: ").append(toIndentedString(eventTypes)).append("\n");
-        sb.append("    exchangeMessages: ").append(toIndentedString(exchangeMessages)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(getInvalidFields())).append("\n");
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
-        sb.append("    okMessages: ").append(toIndentedString(okMessages)).append("\n");
-        sb.append("    pspReference: ").append(toIndentedString(getPspReference())).append("\n");
-        sb.append("    resultCode: ").append(toIndentedString(getResultCode())).append("\n");
-
-        sb.append("}");
-        return sb.toString();
+        String sb = "class TestNotificationConfigurationResponse {\n" +
+                "    errorMessages: " + toIndentedString(errorMessages) + "\n" +
+                "    eventTypes: " + toIndentedString(eventTypes) + "\n" +
+                "    exchangeMessages: " + toIndentedString(exchangeMessages) + "\n" +
+                "    invalidFields: " + toIndentedString(getInvalidFields()) + "\n" +
+                "    notificationId: " + toIndentedString(notificationId) + "\n" +
+                "    okMessages: " + toIndentedString(okMessages) + "\n" +
+                "    pspReference: " + toIndentedString(getPspReference()) + "\n" +
+                "    resultCode: " + toIndentedString(getResultCode()) + "\n" +
+                "}";
+        return sb;
     }
 
 }

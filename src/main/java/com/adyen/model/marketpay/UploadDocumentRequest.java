@@ -26,7 +26,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -97,13 +96,12 @@ public class UploadDocumentRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UploadDocumentRequest {\n");
 
-        sb.append("    documentContent: ").append(toIndentedString(documentContent)).append("\n");
-        sb.append("    documentDetail: ").append(toIndentedString(documentDetail)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class UploadDocumentRequest {\n" +
+                "    documentContent: " + toIndentedString(documentContent) + "\n" +
+                "    documentDetail: " + toIndentedString(documentDetail) + "\n" +
+                "}";
+        return sb;
     }
 
 

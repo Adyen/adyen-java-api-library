@@ -12,39 +12,25 @@
 
 package com.adyen.model.balanceplatform;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.balanceplatform.JSONPath;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * JSONObject
@@ -135,12 +121,11 @@ public class JSONObject {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class JSONObject {\n");
-    sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
-    sb.append("    rootPath: ").append(toIndentedString(rootPath)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class JSONObject {\n" +
+              "    paths: " + toIndentedString(paths) + "\n" +
+              "    rootPath: " + toIndentedString(rootPath) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -179,7 +164,7 @@ public class JSONObject {
         if (JSONObject.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in JSONObject is not found in the empty JSON string", JSONObject.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in JSONObject is not found in the empty JSON string", JSONObject.openapiRequiredFields));
         }
       }
 
@@ -187,7 +172,7 @@ public class JSONObject {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!JSONObject.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JSONObject` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `JSONObject` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       JsonArray jsonArraypaths = jsonObj.getAsJsonArray("paths");
@@ -200,7 +185,7 @@ public class JSONObject {
         // validate the optional field `paths` (array)
         for (int i = 0; i < jsonArraypaths.size(); i++) {
           JSONPath.validateJsonObject(jsonArraypaths.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `rootPath`
       if (jsonObj.getAsJsonObject("rootPath") != null) {

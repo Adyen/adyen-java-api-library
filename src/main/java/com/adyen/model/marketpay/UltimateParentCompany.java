@@ -116,13 +116,12 @@ public class UltimateParentCompany {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UltimateParentCompany {\n");
 
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append("\n");
-        sb.append("    ultimateParentCompanyCode: ").append(toIndentedString(ultimateParentCompanyCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class UltimateParentCompany {\n" +
+                "    address: " + toIndentedString(address) + "\n" +
+                "    businessDetails: " + toIndentedString(businessDetails) + "\n" +
+                "    ultimateParentCompanyCode: " + toIndentedString(ultimateParentCompanyCode) + "\n" +
+                "}";
+        return sb;
     }
 }

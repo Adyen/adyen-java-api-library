@@ -12,36 +12,24 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ThreeDSecureData
@@ -61,7 +49,7 @@ public class ThreeDSecureData {
     
     A("A");
 
-    private String value;
+    private final String value;
 
     AuthenticationResponseEnum(String value) {
       this.value = value;
@@ -130,7 +118,7 @@ public class ThreeDSecureData {
     
     _07("07");
 
-    private String value;
+    private final String value;
 
     ChallengeCancelEnum(String value) {
       this.value = value;
@@ -193,7 +181,7 @@ public class ThreeDSecureData {
     
     Y("Y");
 
-    private String value;
+    private final String value;
 
     DirectoryResponseEnum(String value) {
       this.value = value;
@@ -561,22 +549,21 @@ public class ThreeDSecureData {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ThreeDSecureData {\n");
-    sb.append("    authenticationResponse: ").append(toIndentedString(authenticationResponse)).append("\n");
-    sb.append("    cavv: ").append(toIndentedString(cavv)).append("\n");
-    sb.append("    cavvAlgorithm: ").append(toIndentedString(cavvAlgorithm)).append("\n");
-    sb.append("    challengeCancel: ").append(toIndentedString(challengeCancel)).append("\n");
-    sb.append("    directoryResponse: ").append(toIndentedString(directoryResponse)).append("\n");
-    sb.append("    dsTransID: ").append(toIndentedString(dsTransID)).append("\n");
-    sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
-    sb.append("    riskScore: ").append(toIndentedString(riskScore)).append("\n");
-    sb.append("    threeDSVersion: ").append(toIndentedString(threeDSVersion)).append("\n");
-    sb.append("    tokenAuthenticationVerificationValue: ").append(toIndentedString(tokenAuthenticationVerificationValue)).append("\n");
-    sb.append("    transStatusReason: ").append(toIndentedString(transStatusReason)).append("\n");
-    sb.append("    xid: ").append(toIndentedString(xid)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class ThreeDSecureData {\n" +
+            "    authenticationResponse: " + toIndentedString(authenticationResponse) + "\n" +
+            "    cavv: " + toIndentedString(cavv) + "\n" +
+            "    cavvAlgorithm: " + toIndentedString(cavvAlgorithm) + "\n" +
+            "    challengeCancel: " + toIndentedString(challengeCancel) + "\n" +
+            "    directoryResponse: " + toIndentedString(directoryResponse) + "\n" +
+            "    dsTransID: " + toIndentedString(dsTransID) + "\n" +
+            "    eci: " + toIndentedString(eci) + "\n" +
+            "    riskScore: " + toIndentedString(riskScore) + "\n" +
+            "    threeDSVersion: " + toIndentedString(threeDSVersion) + "\n" +
+            "    tokenAuthenticationVerificationValue: " + toIndentedString(tokenAuthenticationVerificationValue) + "\n" +
+            "    transStatusReason: " + toIndentedString(transStatusReason) + "\n" +
+            "    xid: " + toIndentedString(xid) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -625,7 +612,7 @@ public class ThreeDSecureData {
         if (ThreeDSecureData.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSecureData is not found in the empty JSON string", ThreeDSecureData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSecureData is not found in the empty JSON string", ThreeDSecureData.openapiRequiredFields));
         }
       }
 
@@ -633,7 +620,7 @@ public class ThreeDSecureData {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDSecureData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSecureData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSecureData` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // ensure the field authenticationResponse can be parsed to an enum value

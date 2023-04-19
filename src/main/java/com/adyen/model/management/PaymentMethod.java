@@ -12,49 +12,25 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.ApplePayInfo;
-import com.adyen.model.management.BcmcInfo;
-import com.adyen.model.management.CartesBancairesInfo;
-import com.adyen.model.management.GiroPayInfo;
-import com.adyen.model.management.GooglePayInfo;
-import com.adyen.model.management.KlarnaInfo;
-import com.adyen.model.management.MealVoucherFRInfo;
-import com.adyen.model.management.PayPalInfo;
-import com.adyen.model.management.SofortInfo;
-import com.adyen.model.management.SwishInfo;
-import com.adyen.model.management.VippsInfo;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * PaymentMethod
@@ -158,7 +134,7 @@ public class PaymentMethod {
     
     REJECTED("rejected");
 
-    private String value;
+    private final String value;
 
     VerificationStatusEnum(String value) {
       this.value = value;
@@ -779,33 +755,32 @@ public class PaymentMethod {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentMethod {\n");
-    sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
-    sb.append("    applePay: ").append(toIndentedString(applePay)).append("\n");
-    sb.append("    bcmc: ").append(toIndentedString(bcmc)).append("\n");
-    sb.append("    businessLineId: ").append(toIndentedString(businessLineId)).append("\n");
-    sb.append("    cartesBancaires: ").append(toIndentedString(cartesBancaires)).append("\n");
-    sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
-    sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
-    sb.append("    customRoutingFlags: ").append(toIndentedString(customRoutingFlags)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    giroPay: ").append(toIndentedString(giroPay)).append("\n");
-    sb.append("    googlePay: ").append(toIndentedString(googlePay)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    klarna: ").append(toIndentedString(klarna)).append("\n");
-    sb.append("    mealVoucherFR: ").append(toIndentedString(mealVoucherFR)).append("\n");
-    sb.append("    paypal: ").append(toIndentedString(paypal)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    shopperInteraction: ").append(toIndentedString(shopperInteraction)).append("\n");
-    sb.append("    sofort: ").append(toIndentedString(sofort)).append("\n");
-    sb.append("    storeId: ").append(toIndentedString(storeId)).append("\n");
-    sb.append("    swish: ").append(toIndentedString(swish)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
-    sb.append("    vipps: ").append(toIndentedString(vipps)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class PaymentMethod {\n" +
+            "    allowed: " + toIndentedString(allowed) + "\n" +
+            "    applePay: " + toIndentedString(applePay) + "\n" +
+            "    bcmc: " + toIndentedString(bcmc) + "\n" +
+            "    businessLineId: " + toIndentedString(businessLineId) + "\n" +
+            "    cartesBancaires: " + toIndentedString(cartesBancaires) + "\n" +
+            "    countries: " + toIndentedString(countries) + "\n" +
+            "    currencies: " + toIndentedString(currencies) + "\n" +
+            "    customRoutingFlags: " + toIndentedString(customRoutingFlags) + "\n" +
+            "    enabled: " + toIndentedString(enabled) + "\n" +
+            "    giroPay: " + toIndentedString(giroPay) + "\n" +
+            "    googlePay: " + toIndentedString(googlePay) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    klarna: " + toIndentedString(klarna) + "\n" +
+            "    mealVoucherFR: " + toIndentedString(mealVoucherFR) + "\n" +
+            "    paypal: " + toIndentedString(paypal) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    shopperInteraction: " + toIndentedString(shopperInteraction) + "\n" +
+            "    sofort: " + toIndentedString(sofort) + "\n" +
+            "    storeId: " + toIndentedString(storeId) + "\n" +
+            "    swish: " + toIndentedString(swish) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    verificationStatus: " + toIndentedString(verificationStatus) + "\n" +
+            "    vipps: " + toIndentedString(vipps) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -866,7 +841,7 @@ public class PaymentMethod {
         if (PaymentMethod.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentMethod is not found in the empty JSON string", PaymentMethod.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentMethod is not found in the empty JSON string", PaymentMethod.openapiRequiredFields));
         }
       }
 
@@ -874,14 +849,14 @@ public class PaymentMethod {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentMethod.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentMethod` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentMethod` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PaymentMethod.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `applePay`

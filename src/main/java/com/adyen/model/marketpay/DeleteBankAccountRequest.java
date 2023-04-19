@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -101,13 +100,12 @@ public class DeleteBankAccountRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteBankAccountRequest {\n");
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    bankAccountUUIDs: ").append(toIndentedString(bankAccountUUIDs)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class DeleteBankAccountRequest {\n" +
+                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
+                "    bankAccountUUIDs: " + toIndentedString(bankAccountUUIDs) + "\n" +
+                "}";
+        return sb;
     }
 
 

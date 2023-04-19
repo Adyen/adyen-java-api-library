@@ -12,40 +12,25 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.AdditionalSettingsResponse;
-import com.adyen.model.management.WebhookLinks;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Webhook
@@ -95,7 +80,7 @@ public class Webhook {
     
     SOAP("soap");
 
-    private String value;
+    private final String value;
 
     CommunicationFormatEnum(String value) {
       this.value = value;
@@ -152,7 +137,7 @@ public class Webhook {
     
     INCLUDEACCOUNTS("includeAccounts");
 
-    private String value;
+    private final String value;
 
     FilterMerchantAccountTypeEnum(String value) {
       this.value = value;
@@ -223,7 +208,7 @@ public class Webhook {
     
     PUBLIC("PUBLIC");
 
-    private String value;
+    private final String value;
 
     NetworkTypeEnum(String value) {
       this.value = value;
@@ -290,7 +275,7 @@ public class Webhook {
     
     TLSV1_3("TLSv1.3");
 
-    private String value;
+    private final String value;
 
     SslVersionEnum(String value) {
       this.value = value;
@@ -880,32 +865,31 @@ public class Webhook {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Webhook {\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    acceptsExpiredCertificate: ").append(toIndentedString(acceptsExpiredCertificate)).append("\n");
-    sb.append("    acceptsSelfSignedCertificate: ").append(toIndentedString(acceptsSelfSignedCertificate)).append("\n");
-    sb.append("    acceptsUntrustedRootCertificate: ").append(toIndentedString(acceptsUntrustedRootCertificate)).append("\n");
-    sb.append("    accountReference: ").append(toIndentedString(accountReference)).append("\n");
-    sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    additionalSettings: ").append(toIndentedString(additionalSettings)).append("\n");
-    sb.append("    certificateAlias: ").append(toIndentedString(certificateAlias)).append("\n");
-    sb.append("    communicationFormat: ").append(toIndentedString(communicationFormat)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    filterMerchantAccountType: ").append(toIndentedString(filterMerchantAccountType)).append("\n");
-    sb.append("    filterMerchantAccounts: ").append(toIndentedString(filterMerchantAccounts)).append("\n");
-    sb.append("    hasError: ").append(toIndentedString(hasError)).append("\n");
-    sb.append("    hasPassword: ").append(toIndentedString(hasPassword)).append("\n");
-    sb.append("    hmacKeyCheckValue: ").append(toIndentedString(hmacKeyCheckValue)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
-    sb.append("    populateSoapActionHeader: ").append(toIndentedString(populateSoapActionHeader)).append("\n");
-    sb.append("    sslVersion: ").append(toIndentedString(sslVersion)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class Webhook {\n" +
+            "    links: " + toIndentedString(links) + "\n" +
+            "    acceptsExpiredCertificate: " + toIndentedString(acceptsExpiredCertificate) + "\n" +
+            "    acceptsSelfSignedCertificate: " + toIndentedString(acceptsSelfSignedCertificate) + "\n" +
+            "    acceptsUntrustedRootCertificate: " + toIndentedString(acceptsUntrustedRootCertificate) + "\n" +
+            "    accountReference: " + toIndentedString(accountReference) + "\n" +
+            "    active: " + toIndentedString(active) + "\n" +
+            "    additionalSettings: " + toIndentedString(additionalSettings) + "\n" +
+            "    certificateAlias: " + toIndentedString(certificateAlias) + "\n" +
+            "    communicationFormat: " + toIndentedString(communicationFormat) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    filterMerchantAccountType: " + toIndentedString(filterMerchantAccountType) + "\n" +
+            "    filterMerchantAccounts: " + toIndentedString(filterMerchantAccounts) + "\n" +
+            "    hasError: " + toIndentedString(hasError) + "\n" +
+            "    hasPassword: " + toIndentedString(hasPassword) + "\n" +
+            "    hmacKeyCheckValue: " + toIndentedString(hmacKeyCheckValue) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    networkType: " + toIndentedString(networkType) + "\n" +
+            "    populateSoapActionHeader: " + toIndentedString(populateSoapActionHeader) + "\n" +
+            "    sslVersion: " + toIndentedString(sslVersion) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    url: " + toIndentedString(url) + "\n" +
+            "    username: " + toIndentedString(username) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -968,7 +952,7 @@ public class Webhook {
         if (Webhook.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Webhook is not found in the empty JSON string", Webhook.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Webhook is not found in the empty JSON string", Webhook.openapiRequiredFields));
         }
       }
 
@@ -976,14 +960,14 @@ public class Webhook {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Webhook.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Webhook` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Webhook` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Webhook.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `_links`

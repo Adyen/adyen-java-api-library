@@ -32,7 +32,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -215,16 +214,15 @@ public class PersonalDocumentData {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PersonalDocumentData {\n");
 
-        sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
-        sb.append("    issuerCountry: ").append(toIndentedString(issuerCountry)).append("\n");
-        sb.append("    issuerState: ").append(toIndentedString(issuerState)).append("\n");
-        sb.append("    number: ").append(toIndentedString(number)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class PersonalDocumentData {\n" +
+                "    expirationDate: " + toIndentedString(expirationDate) + "\n" +
+                "    issuerCountry: " + toIndentedString(issuerCountry) + "\n" +
+                "    issuerState: " + toIndentedString(issuerState) + "\n" +
+                "    number: " + toIndentedString(number) + "\n" +
+                "    type: " + toIndentedString(type) + "\n" +
+                "}";
+        return sb;
     }
 
 

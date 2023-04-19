@@ -107,15 +107,14 @@ public class TransferFundsNotificationContent {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("TransferFundsNotificationContent{");
-        sb.append("sourceAccountCode='").append(sourceAccountCode).append('\'');
-        sb.append(", destinationAccountCode='").append(destinationAccountCode).append('\'');
-        sb.append(", amount=").append(amount);
-        sb.append(", transferCode='").append(transferCode).append('\'');
-        sb.append(", status=").append(status);
-        sb.append(", merchantReference='").append(merchantReference).append('\'');
-        sb.append(", invalidFields=").append(invalidFields);
-        sb.append('}');
-        return sb.toString();
+        String sb = "TransferFundsNotificationContent{" + "sourceAccountCode='" + sourceAccountCode + '\'' +
+                ", destinationAccountCode='" + destinationAccountCode + '\'' +
+                ", amount=" + amount +
+                ", transferCode='" + transferCode + '\'' +
+                ", status=" + status +
+                ", merchantReference='" + merchantReference + '\'' +
+                ", invalidFields=" + invalidFields +
+                '}';
+        return sb;
     }
 }

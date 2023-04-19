@@ -12,40 +12,22 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.Address;
-import com.adyen.model.checkout.CardDetails;
-import com.adyen.model.checkout.Name;
-import com.adyen.model.checkout.SubMerchant;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * FundRecipient
@@ -344,20 +326,19 @@ public class FundRecipient {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FundRecipient {\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-    sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-    sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-    sb.append("    storedPaymentMethodId: ").append(toIndentedString(storedPaymentMethodId)).append("\n");
-    sb.append("    subMerchant: ").append(toIndentedString(subMerchant)).append("\n");
-    sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-    sb.append("    walletIdentifier: ").append(toIndentedString(walletIdentifier)).append("\n");
-    sb.append("    walletOwnerTaxId: ").append(toIndentedString(walletOwnerTaxId)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class FundRecipient {\n" +
+              "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+              "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
+              "    shopperEmail: " + toIndentedString(shopperEmail) + "\n" +
+              "    shopperName: " + toIndentedString(shopperName) + "\n" +
+              "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
+              "    storedPaymentMethodId: " + toIndentedString(storedPaymentMethodId) + "\n" +
+              "    subMerchant: " + toIndentedString(subMerchant) + "\n" +
+              "    telephoneNumber: " + toIndentedString(telephoneNumber) + "\n" +
+              "    walletIdentifier: " + toIndentedString(walletIdentifier) + "\n" +
+              "    walletOwnerTaxId: " + toIndentedString(walletOwnerTaxId) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -404,7 +385,7 @@ public class FundRecipient {
         if (FundRecipient.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FundRecipient is not found in the empty JSON string", FundRecipient.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in FundRecipient is not found in the empty JSON string", FundRecipient.openapiRequiredFields));
         }
       }
 
@@ -412,7 +393,7 @@ public class FundRecipient {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!FundRecipient.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FundRecipient` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FundRecipient` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `billingAddress`

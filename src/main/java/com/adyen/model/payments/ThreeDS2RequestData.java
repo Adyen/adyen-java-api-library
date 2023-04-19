@@ -12,42 +12,23 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.payments.AcctInfo;
-import com.adyen.model.payments.DeviceRenderOptions;
-import com.adyen.model.payments.Phone;
-import com.adyen.model.payments.SDKEphemPubKey;
-import com.adyen.model.payments.ThreeDSRequestorAuthenticationInfo;
-import com.adyen.model.payments.ThreeDSRequestorPriorAuthenticationInfo;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * ThreeDS2RequestData
@@ -69,7 +50,7 @@ public class ThreeDS2RequestData {
     
     _03("03");
 
-    private String value;
+    private final String value;
 
     AcctTypeEnum(String value) {
       this.value = value;
@@ -128,7 +109,7 @@ public class ThreeDS2RequestData {
     
     N("N");
 
-    private String value;
+    private final String value;
 
     AddrMatchEnum(String value) {
       this.value = value;
@@ -187,7 +168,7 @@ public class ThreeDS2RequestData {
     
     REQUESTCHALLENGEASMANDATE("requestChallengeAsMandate");
 
-    private String value;
+    private final String value;
 
     ChallengeIndicatorEnum(String value) {
       this.value = value;
@@ -338,7 +319,7 @@ public class ThreeDS2RequestData {
     
     _06("06");
 
-    private String value;
+    private final String value;
 
     ThreeDSRequestorChallengeIndEnum(String value) {
       this.value = value;
@@ -411,7 +392,7 @@ public class ThreeDS2RequestData {
     
     _28("28");
 
-    private String value;
+    private final String value;
 
     TransTypeEnum(String value) {
       this.value = value;
@@ -468,7 +449,7 @@ public class ThreeDS2RequestData {
     
     PREPAIDACTIVATIONANDLOAD("prepaidActivationAndLoad");
 
-    private String value;
+    private final String value;
 
     TransactionTypeEnum(String value) {
       this.value = value;
@@ -1441,49 +1422,48 @@ public class ThreeDS2RequestData {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ThreeDS2RequestData {\n");
-    sb.append("    acctInfo: ").append(toIndentedString(acctInfo)).append("\n");
-    sb.append("    acctType: ").append(toIndentedString(acctType)).append("\n");
-    sb.append("    acquirerBIN: ").append(toIndentedString(acquirerBIN)).append("\n");
-    sb.append("    acquirerMerchantID: ").append(toIndentedString(acquirerMerchantID)).append("\n");
-    sb.append("    addrMatch: ").append(toIndentedString(addrMatch)).append("\n");
-    sb.append("    authenticationOnly: ").append(toIndentedString(authenticationOnly)).append("\n");
-    sb.append("    challengeIndicator: ").append(toIndentedString(challengeIndicator)).append("\n");
-    sb.append("    deviceChannel: ").append(toIndentedString(deviceChannel)).append("\n");
-    sb.append("    deviceRenderOptions: ").append(toIndentedString(deviceRenderOptions)).append("\n");
-    sb.append("    homePhone: ").append(toIndentedString(homePhone)).append("\n");
-    sb.append("    mcc: ").append(toIndentedString(mcc)).append("\n");
-    sb.append("    merchantName: ").append(toIndentedString(merchantName)).append("\n");
-    sb.append("    messageVersion: ").append(toIndentedString(messageVersion)).append("\n");
-    sb.append("    mobilePhone: ").append(toIndentedString(mobilePhone)).append("\n");
-    sb.append("    notificationURL: ").append(toIndentedString(notificationURL)).append("\n");
-    sb.append("    payTokenInd: ").append(toIndentedString(payTokenInd)).append("\n");
-    sb.append("    paymentAuthenticationUseCase: ").append(toIndentedString(paymentAuthenticationUseCase)).append("\n");
-    sb.append("    purchaseInstalData: ").append(toIndentedString(purchaseInstalData)).append("\n");
-    sb.append("    recurringExpiry: ").append(toIndentedString(recurringExpiry)).append("\n");
-    sb.append("    recurringFrequency: ").append(toIndentedString(recurringFrequency)).append("\n");
-    sb.append("    sdkAppID: ").append(toIndentedString(sdkAppID)).append("\n");
-    sb.append("    sdkEncData: ").append(toIndentedString(sdkEncData)).append("\n");
-    sb.append("    sdkEphemPubKey: ").append(toIndentedString(sdkEphemPubKey)).append("\n");
-    sb.append("    sdkMaxTimeout: ").append(toIndentedString(sdkMaxTimeout)).append("\n");
-    sb.append("    sdkReferenceNumber: ").append(toIndentedString(sdkReferenceNumber)).append("\n");
-    sb.append("    sdkTransID: ").append(toIndentedString(sdkTransID)).append("\n");
-    sb.append("    sdkVersion: ").append(toIndentedString(sdkVersion)).append("\n");
-    sb.append("    threeDSCompInd: ").append(toIndentedString(threeDSCompInd)).append("\n");
-    sb.append("    threeDSRequestorAuthenticationInd: ").append(toIndentedString(threeDSRequestorAuthenticationInd)).append("\n");
-    sb.append("    threeDSRequestorAuthenticationInfo: ").append(toIndentedString(threeDSRequestorAuthenticationInfo)).append("\n");
-    sb.append("    threeDSRequestorChallengeInd: ").append(toIndentedString(threeDSRequestorChallengeInd)).append("\n");
-    sb.append("    threeDSRequestorID: ").append(toIndentedString(threeDSRequestorID)).append("\n");
-    sb.append("    threeDSRequestorName: ").append(toIndentedString(threeDSRequestorName)).append("\n");
-    sb.append("    threeDSRequestorPriorAuthenticationInfo: ").append(toIndentedString(threeDSRequestorPriorAuthenticationInfo)).append("\n");
-    sb.append("    threeDSRequestorURL: ").append(toIndentedString(threeDSRequestorURL)).append("\n");
-    sb.append("    transType: ").append(toIndentedString(transType)).append("\n");
-    sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
-    sb.append("    whiteListStatus: ").append(toIndentedString(whiteListStatus)).append("\n");
-    sb.append("    workPhone: ").append(toIndentedString(workPhone)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class ThreeDS2RequestData {\n" +
+            "    acctInfo: " + toIndentedString(acctInfo) + "\n" +
+            "    acctType: " + toIndentedString(acctType) + "\n" +
+            "    acquirerBIN: " + toIndentedString(acquirerBIN) + "\n" +
+            "    acquirerMerchantID: " + toIndentedString(acquirerMerchantID) + "\n" +
+            "    addrMatch: " + toIndentedString(addrMatch) + "\n" +
+            "    authenticationOnly: " + toIndentedString(authenticationOnly) + "\n" +
+            "    challengeIndicator: " + toIndentedString(challengeIndicator) + "\n" +
+            "    deviceChannel: " + toIndentedString(deviceChannel) + "\n" +
+            "    deviceRenderOptions: " + toIndentedString(deviceRenderOptions) + "\n" +
+            "    homePhone: " + toIndentedString(homePhone) + "\n" +
+            "    mcc: " + toIndentedString(mcc) + "\n" +
+            "    merchantName: " + toIndentedString(merchantName) + "\n" +
+            "    messageVersion: " + toIndentedString(messageVersion) + "\n" +
+            "    mobilePhone: " + toIndentedString(mobilePhone) + "\n" +
+            "    notificationURL: " + toIndentedString(notificationURL) + "\n" +
+            "    payTokenInd: " + toIndentedString(payTokenInd) + "\n" +
+            "    paymentAuthenticationUseCase: " + toIndentedString(paymentAuthenticationUseCase) + "\n" +
+            "    purchaseInstalData: " + toIndentedString(purchaseInstalData) + "\n" +
+            "    recurringExpiry: " + toIndentedString(recurringExpiry) + "\n" +
+            "    recurringFrequency: " + toIndentedString(recurringFrequency) + "\n" +
+            "    sdkAppID: " + toIndentedString(sdkAppID) + "\n" +
+            "    sdkEncData: " + toIndentedString(sdkEncData) + "\n" +
+            "    sdkEphemPubKey: " + toIndentedString(sdkEphemPubKey) + "\n" +
+            "    sdkMaxTimeout: " + toIndentedString(sdkMaxTimeout) + "\n" +
+            "    sdkReferenceNumber: " + toIndentedString(sdkReferenceNumber) + "\n" +
+            "    sdkTransID: " + toIndentedString(sdkTransID) + "\n" +
+            "    sdkVersion: " + toIndentedString(sdkVersion) + "\n" +
+            "    threeDSCompInd: " + toIndentedString(threeDSCompInd) + "\n" +
+            "    threeDSRequestorAuthenticationInd: " + toIndentedString(threeDSRequestorAuthenticationInd) + "\n" +
+            "    threeDSRequestorAuthenticationInfo: " + toIndentedString(threeDSRequestorAuthenticationInfo) + "\n" +
+            "    threeDSRequestorChallengeInd: " + toIndentedString(threeDSRequestorChallengeInd) + "\n" +
+            "    threeDSRequestorID: " + toIndentedString(threeDSRequestorID) + "\n" +
+            "    threeDSRequestorName: " + toIndentedString(threeDSRequestorName) + "\n" +
+            "    threeDSRequestorPriorAuthenticationInfo: " + toIndentedString(threeDSRequestorPriorAuthenticationInfo) + "\n" +
+            "    threeDSRequestorURL: " + toIndentedString(threeDSRequestorURL) + "\n" +
+            "    transType: " + toIndentedString(transType) + "\n" +
+            "    transactionType: " + toIndentedString(transactionType) + "\n" +
+            "    whiteListStatus: " + toIndentedString(whiteListStatus) + "\n" +
+            "    workPhone: " + toIndentedString(workPhone) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -1560,7 +1540,7 @@ public class ThreeDS2RequestData {
         if (ThreeDS2RequestData.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2RequestData is not found in the empty JSON string", ThreeDS2RequestData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDS2RequestData is not found in the empty JSON string", ThreeDS2RequestData.openapiRequiredFields));
         }
       }
 
@@ -1568,14 +1548,14 @@ public class ThreeDS2RequestData {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDS2RequestData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2RequestData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDS2RequestData` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ThreeDS2RequestData.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `acctInfo`

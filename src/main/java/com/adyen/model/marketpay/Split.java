@@ -216,15 +216,14 @@ public class Split {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Split {\n");
 
-        sb.append("    account: ").append(toIndentedString(account)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class Split {\n" +
+                "    account: " + toIndentedString(account) + "\n" +
+                "    amount: " + toIndentedString(amount) + "\n" +
+                "    description: " + toIndentedString(description) + "\n" +
+                "    reference: " + toIndentedString(reference) + "\n" +
+                "    type: " + toIndentedString(type) + "\n" +
+                "}";
+        return sb;
     }
 }

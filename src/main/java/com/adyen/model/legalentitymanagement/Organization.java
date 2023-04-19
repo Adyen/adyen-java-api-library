@@ -12,44 +12,26 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.legalentitymanagement.Address;
-import com.adyen.model.legalentitymanagement.PhoneNumber;
-import com.adyen.model.legalentitymanagement.StockData;
-import com.adyen.model.legalentitymanagement.TaxInformation;
-import com.adyen.model.legalentitymanagement.TaxReportingClassification;
-import com.adyen.model.legalentitymanagement.WebData;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * Organization
@@ -121,7 +103,7 @@ public class Organization {
     
     PRIVATECOMPANY("privateCompany");
 
-    private String value;
+    private final String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -172,7 +154,7 @@ public class Organization {
     
     BELOWTAXTHRESHOLD("belowTaxThreshold");
 
-    private String value;
+    private final String value;
 
     VatAbsenceReasonEnum(String value) {
       this.value = value;
@@ -620,26 +602,25 @@ public class Organization {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Organization {\n");
-    sb.append("    dateOfIncorporation: ").append(toIndentedString(dateOfIncorporation)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    doingBusinessAs: ").append(toIndentedString(doingBusinessAs)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    legalName: ").append(toIndentedString(legalName)).append("\n");
-    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
-    sb.append("    principalPlaceOfBusiness: ").append(toIndentedString(principalPlaceOfBusiness)).append("\n");
-    sb.append("    registeredAddress: ").append(toIndentedString(registeredAddress)).append("\n");
-    sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
-    sb.append("    stockData: ").append(toIndentedString(stockData)).append("\n");
-    sb.append("    taxInformation: ").append(toIndentedString(taxInformation)).append("\n");
-    sb.append("    taxReportingClassification: ").append(toIndentedString(taxReportingClassification)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    vatAbsenceReason: ").append(toIndentedString(vatAbsenceReason)).append("\n");
-    sb.append("    vatNumber: ").append(toIndentedString(vatNumber)).append("\n");
-    sb.append("    webData: ").append(toIndentedString(webData)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class Organization {\n" +
+            "    dateOfIncorporation: " + toIndentedString(dateOfIncorporation) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    doingBusinessAs: " + toIndentedString(doingBusinessAs) + "\n" +
+            "    email: " + toIndentedString(email) + "\n" +
+            "    legalName: " + toIndentedString(legalName) + "\n" +
+            "    phone: " + toIndentedString(phone) + "\n" +
+            "    principalPlaceOfBusiness: " + toIndentedString(principalPlaceOfBusiness) + "\n" +
+            "    registeredAddress: " + toIndentedString(registeredAddress) + "\n" +
+            "    registrationNumber: " + toIndentedString(registrationNumber) + "\n" +
+            "    stockData: " + toIndentedString(stockData) + "\n" +
+            "    taxInformation: " + toIndentedString(taxInformation) + "\n" +
+            "    taxReportingClassification: " + toIndentedString(taxReportingClassification) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    vatAbsenceReason: " + toIndentedString(vatAbsenceReason) + "\n" +
+            "    vatNumber: " + toIndentedString(vatNumber) + "\n" +
+            "    webData: " + toIndentedString(webData) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -694,7 +675,7 @@ public class Organization {
         if (Organization.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Organization is not found in the empty JSON string", Organization.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Organization is not found in the empty JSON string", Organization.openapiRequiredFields));
         }
       }
 
@@ -702,14 +683,14 @@ public class Organization {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Organization.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Organization` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Organization` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Organization.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field dateOfIncorporation
@@ -762,7 +743,7 @@ public class Organization {
         // validate the optional field `taxInformation` (array)
         for (int i = 0; i < jsonArraytaxInformation.size(); i++) {
           TaxInformation.validateJsonObject(jsonArraytaxInformation.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `taxReportingClassification`
       if (jsonObj.getAsJsonObject("taxReportingClassification") != null) {

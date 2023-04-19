@@ -26,7 +26,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 public class NotificationConfigurationDetailsContainer {
@@ -64,11 +63,10 @@ public class NotificationConfigurationDetailsContainer {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationConfigurationDetailsContainer {\n");
 
-        sb.append("    notificationConfigurationDetails: ").append(toIndentedString(notificationConfigurationDetails)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class NotificationConfigurationDetailsContainer {\n" +
+                "    notificationConfigurationDetails: " + toIndentedString(notificationConfigurationDetails) + "\n" +
+                "}";
+        return sb;
     }
 }

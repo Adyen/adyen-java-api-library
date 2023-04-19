@@ -21,13 +21,12 @@
 
 package com.adyen.model.marketpay.notification;
 
-import java.util.Objects;
-
 import com.adyen.model.marketpay.AccountHolderStatus;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -174,16 +173,15 @@ public class AccountHolderStatusChangeNotificationContent {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderStatusChangeNotificationContent {\n");
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    newStatus: ").append(toIndentedString(newStatus)).append("\n");
-        sb.append("    oldStatus: ").append(toIndentedString(oldStatus)).append("\n");
-        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountHolderStatusChangeNotificationContent {\n" +
+                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
+                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
+                "    newStatus: " + toIndentedString(newStatus) + "\n" +
+                "    oldStatus: " + toIndentedString(oldStatus) + "\n" +
+                "    reason: " + toIndentedString(reason) + "\n" +
+                "}";
+        return sb;
     }
 
 }

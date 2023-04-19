@@ -12,46 +12,25 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.Amount;
-import com.adyen.model.checkout.CheckoutOrderResponse;
-import com.adyen.model.checkout.FraudResult;
-import com.adyen.model.checkout.PaymentResponseAction;
-import com.adyen.model.checkout.ResponsePaymentMethod;
-import com.adyen.model.checkout.ThreeDS2ResponseData;
-import com.adyen.model.checkout.ThreeDS2Result;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * PaymentResponse
@@ -133,7 +112,7 @@ public class PaymentResponse {
     
     SUCCESS("Success");
 
-    private String value;
+    private final String value;
 
     ResultCodeEnum(String value) {
       this.value = value;
@@ -562,25 +541,24 @@ public class PaymentResponse {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentResponse {\n");
-    sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    donationToken: ").append(toIndentedString(donationToken)).append("\n");
-    sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-    sb.append("    order: ").append(toIndentedString(order)).append("\n");
-    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-    sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-    sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
-    sb.append("    refusalReasonCode: ").append(toIndentedString(refusalReasonCode)).append("\n");
-    sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-    sb.append("    threeDS2ResponseData: ").append(toIndentedString(threeDS2ResponseData)).append("\n");
-    sb.append("    threeDS2Result: ").append(toIndentedString(threeDS2Result)).append("\n");
-    sb.append("    threeDSPaymentData: ").append(toIndentedString(threeDSPaymentData)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class PaymentResponse {\n" +
+            "    action: " + toIndentedString(action) + "\n" +
+            "    additionalData: " + toIndentedString(additionalData) + "\n" +
+            "    amount: " + toIndentedString(amount) + "\n" +
+            "    donationToken: " + toIndentedString(donationToken) + "\n" +
+            "    fraudResult: " + toIndentedString(fraudResult) + "\n" +
+            "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
+            "    order: " + toIndentedString(order) + "\n" +
+            "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
+            "    pspReference: " + toIndentedString(pspReference) + "\n" +
+            "    refusalReason: " + toIndentedString(refusalReason) + "\n" +
+            "    refusalReasonCode: " + toIndentedString(refusalReasonCode) + "\n" +
+            "    resultCode: " + toIndentedString(resultCode) + "\n" +
+            "    threeDS2ResponseData: " + toIndentedString(threeDS2ResponseData) + "\n" +
+            "    threeDS2Result: " + toIndentedString(threeDS2Result) + "\n" +
+            "    threeDSPaymentData: " + toIndentedString(threeDSPaymentData) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -632,7 +610,7 @@ public class PaymentResponse {
         if (PaymentResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentResponse is not found in the empty JSON string", PaymentResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentResponse is not found in the empty JSON string", PaymentResponse.openapiRequiredFields));
         }
       }
 
@@ -640,7 +618,7 @@ public class PaymentResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentResponse` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `action`

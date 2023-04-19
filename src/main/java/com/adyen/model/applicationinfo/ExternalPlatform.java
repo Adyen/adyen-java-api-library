@@ -24,7 +24,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 public class ExternalPlatform extends CommonField {
@@ -59,12 +58,11 @@ public class ExternalPlatform extends CommonField {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ExternalPlatform {\n");
 
-        sb.append("    integrator: ").append(toIndentedString(integrator)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class ExternalPlatform {\n" +
+                "    integrator: " + toIndentedString(integrator) + "\n" +
+                "}";
+        return sb;
     }
 
 

@@ -12,41 +12,25 @@
 
 package com.adyen.model.binlookup;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.binlookup.BinDetail;
-import com.adyen.model.binlookup.DSPublicKeyDetail;
-import com.adyen.model.binlookup.ThreeDS2CardRangeDetail;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * ThreeDSAvailabilityResponse
@@ -226,15 +210,14 @@ public class ThreeDSAvailabilityResponse {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ThreeDSAvailabilityResponse {\n");
-    sb.append("    binDetails: ").append(toIndentedString(binDetails)).append("\n");
-    sb.append("    dsPublicKeys: ").append(toIndentedString(dsPublicKeys)).append("\n");
-    sb.append("    threeDS1Supported: ").append(toIndentedString(threeDS1Supported)).append("\n");
-    sb.append("    threeDS2CardRangeDetails: ").append(toIndentedString(threeDS2CardRangeDetails)).append("\n");
-    sb.append("    threeDS2supported: ").append(toIndentedString(threeDS2supported)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class ThreeDSAvailabilityResponse {\n" +
+              "    binDetails: " + toIndentedString(binDetails) + "\n" +
+              "    dsPublicKeys: " + toIndentedString(dsPublicKeys) + "\n" +
+              "    threeDS1Supported: " + toIndentedString(threeDS1Supported) + "\n" +
+              "    threeDS2CardRangeDetails: " + toIndentedString(threeDS2CardRangeDetails) + "\n" +
+              "    threeDS2supported: " + toIndentedString(threeDS2supported) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -276,7 +259,7 @@ public class ThreeDSAvailabilityResponse {
         if (ThreeDSAvailabilityResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSAvailabilityResponse is not found in the empty JSON string", ThreeDSAvailabilityResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSAvailabilityResponse is not found in the empty JSON string", ThreeDSAvailabilityResponse.openapiRequiredFields));
         }
       }
 
@@ -284,7 +267,7 @@ public class ThreeDSAvailabilityResponse {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDSAvailabilityResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSAvailabilityResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSAvailabilityResponse` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `binDetails`
@@ -301,7 +284,7 @@ public class ThreeDSAvailabilityResponse {
         // validate the optional field `dsPublicKeys` (array)
         for (int i = 0; i < jsonArraydsPublicKeys.size(); i++) {
           DSPublicKeyDetail.validateJsonObject(jsonArraydsPublicKeys.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArraythreeDS2CardRangeDetails = jsonObj.getAsJsonArray("threeDS2CardRangeDetails");
       if (jsonArraythreeDS2CardRangeDetails != null) {
@@ -313,7 +296,7 @@ public class ThreeDSAvailabilityResponse {
         // validate the optional field `threeDS2CardRangeDetails` (array)
         for (int i = 0; i < jsonArraythreeDS2CardRangeDetails.size(); i++) {
           ThreeDS2CardRangeDetail.validateJsonObject(jsonArraythreeDS2CardRangeDetails.get(i).getAsJsonObject());
-        };
+        }
       }
   }
 

@@ -12,39 +12,25 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.AdditionalSettings;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * CreateCompanyWebhookRequest
@@ -82,7 +68,7 @@ public class CreateCompanyWebhookRequest {
     
     SOAP("soap");
 
-    private String value;
+    private final String value;
 
     CommunicationFormatEnum(String value) {
       this.value = value;
@@ -139,7 +125,7 @@ public class CreateCompanyWebhookRequest {
     
     INCLUDEACCOUNTS("includeAccounts");
 
-    private String value;
+    private final String value;
 
     FilterMerchantAccountTypeEnum(String value) {
       this.value = value;
@@ -194,7 +180,7 @@ public class CreateCompanyWebhookRequest {
     
     PUBLIC("PUBLIC");
 
-    private String value;
+    private final String value;
 
     NetworkTypeEnum(String value) {
       this.value = value;
@@ -265,7 +251,7 @@ public class CreateCompanyWebhookRequest {
     
     TLSV1_3("TLSv1.3");
 
-    private String value;
+    private final String value;
 
     SslVersionEnum(String value) {
       this.value = value;
@@ -714,26 +700,25 @@ public class CreateCompanyWebhookRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CreateCompanyWebhookRequest {\n");
-    sb.append("    acceptsExpiredCertificate: ").append(toIndentedString(acceptsExpiredCertificate)).append("\n");
-    sb.append("    acceptsSelfSignedCertificate: ").append(toIndentedString(acceptsSelfSignedCertificate)).append("\n");
-    sb.append("    acceptsUntrustedRootCertificate: ").append(toIndentedString(acceptsUntrustedRootCertificate)).append("\n");
-    sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    additionalSettings: ").append(toIndentedString(additionalSettings)).append("\n");
-    sb.append("    communicationFormat: ").append(toIndentedString(communicationFormat)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    filterMerchantAccountType: ").append(toIndentedString(filterMerchantAccountType)).append("\n");
-    sb.append("    filterMerchantAccounts: ").append(toIndentedString(filterMerchantAccounts)).append("\n");
-    sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    populateSoapActionHeader: ").append(toIndentedString(populateSoapActionHeader)).append("\n");
-    sb.append("    sslVersion: ").append(toIndentedString(sslVersion)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class CreateCompanyWebhookRequest {\n" +
+            "    acceptsExpiredCertificate: " + toIndentedString(acceptsExpiredCertificate) + "\n" +
+            "    acceptsSelfSignedCertificate: " + toIndentedString(acceptsSelfSignedCertificate) + "\n" +
+            "    acceptsUntrustedRootCertificate: " + toIndentedString(acceptsUntrustedRootCertificate) + "\n" +
+            "    active: " + toIndentedString(active) + "\n" +
+            "    additionalSettings: " + toIndentedString(additionalSettings) + "\n" +
+            "    communicationFormat: " + toIndentedString(communicationFormat) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    filterMerchantAccountType: " + toIndentedString(filterMerchantAccountType) + "\n" +
+            "    filterMerchantAccounts: " + toIndentedString(filterMerchantAccounts) + "\n" +
+            "    networkType: " + toIndentedString(networkType) + "\n" +
+            "    password: " + toIndentedString(password) + "\n" +
+            "    populateSoapActionHeader: " + toIndentedString(populateSoapActionHeader) + "\n" +
+            "    sslVersion: " + toIndentedString(sslVersion) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    url: " + toIndentedString(url) + "\n" +
+            "    username: " + toIndentedString(username) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -792,7 +777,7 @@ public class CreateCompanyWebhookRequest {
         if (CreateCompanyWebhookRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateCompanyWebhookRequest is not found in the empty JSON string", CreateCompanyWebhookRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateCompanyWebhookRequest is not found in the empty JSON string", CreateCompanyWebhookRequest.openapiRequiredFields));
         }
       }
 
@@ -800,14 +785,14 @@ public class CreateCompanyWebhookRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!CreateCompanyWebhookRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateCompanyWebhookRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateCompanyWebhookRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreateCompanyWebhookRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `additionalSettings`

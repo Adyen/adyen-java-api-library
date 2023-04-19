@@ -12,42 +12,24 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.payments.Address;
-import com.adyen.model.payments.Card;
-import com.adyen.model.payments.Name;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * FundSource
@@ -246,16 +228,15 @@ public class FundSource {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FundSource {\n");
-    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    card: ").append(toIndentedString(card)).append("\n");
-    sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-    sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-    sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class FundSource {\n" +
+              "    additionalData: " + toIndentedString(additionalData) + "\n" +
+              "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+              "    card: " + toIndentedString(card) + "\n" +
+              "    shopperEmail: " + toIndentedString(shopperEmail) + "\n" +
+              "    shopperName: " + toIndentedString(shopperName) + "\n" +
+              "    telephoneNumber: " + toIndentedString(telephoneNumber) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -298,7 +279,7 @@ public class FundSource {
         if (FundSource.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FundSource is not found in the empty JSON string", FundSource.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in FundSource is not found in the empty JSON string", FundSource.openapiRequiredFields));
         }
       }
 
@@ -306,7 +287,7 @@ public class FundSource {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!FundSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FundSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FundSource` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `billingAddress`

@@ -12,36 +12,23 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * AdditionalData3DSecure
@@ -67,7 +54,7 @@ public class AdditionalData3DSecure {
     
     _05("05");
 
-    private String value;
+    private final String value;
 
     ChallengeWindowSizeEnum(String value) {
       this.value = value;
@@ -285,16 +272,15 @@ public class AdditionalData3DSecure {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AdditionalData3DSecure {\n");
-    sb.append("    allow3DS2: ").append(toIndentedString(allow3DS2)).append("\n");
-    sb.append("    challengeWindowSize: ").append(toIndentedString(challengeWindowSize)).append("\n");
-    sb.append("    executeThreeD: ").append(toIndentedString(executeThreeD)).append("\n");
-    sb.append("    mpiImplementationType: ").append(toIndentedString(mpiImplementationType)).append("\n");
-    sb.append("    scaExemption: ").append(toIndentedString(scaExemption)).append("\n");
-    sb.append("    threeDSVersion: ").append(toIndentedString(threeDSVersion)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class AdditionalData3DSecure {\n" +
+            "    allow3DS2: " + toIndentedString(allow3DS2) + "\n" +
+            "    challengeWindowSize: " + toIndentedString(challengeWindowSize) + "\n" +
+            "    executeThreeD: " + toIndentedString(executeThreeD) + "\n" +
+            "    mpiImplementationType: " + toIndentedString(mpiImplementationType) + "\n" +
+            "    scaExemption: " + toIndentedString(scaExemption) + "\n" +
+            "    threeDSVersion: " + toIndentedString(threeDSVersion) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -337,7 +323,7 @@ public class AdditionalData3DSecure {
         if (AdditionalData3DSecure.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalData3DSecure is not found in the empty JSON string", AdditionalData3DSecure.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AdditionalData3DSecure is not found in the empty JSON string", AdditionalData3DSecure.openapiRequiredFields));
         }
       }
 
@@ -345,7 +331,7 @@ public class AdditionalData3DSecure {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AdditionalData3DSecure.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalData3DSecure` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdditionalData3DSecure` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field allow3DS2

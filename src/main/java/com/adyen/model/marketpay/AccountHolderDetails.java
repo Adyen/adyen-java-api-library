@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -348,25 +347,24 @@ public class AccountHolderDetails {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountHolderDetails {\n");
 
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    bankAccountDetails: ").append(toIndentedString(bankAccountDetails)).append("\n");
-        sb.append("    businessDetails: ").append(toIndentedString(businessDetails)).append("\n");
-        sb.append("    email: ").append(toIndentedString(email)).append("\n");
-        sb.append("    fullPhoneNumber: ").append(toIndentedString(fullPhoneNumber)).append("\n");
-        sb.append("    individualDetails: ").append(toIndentedString(individualDetails)).append("\n");
-        sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    payoutMethods: ").append(toIndentedString(payoutMethods)).append("\n");
-        sb.append("    webAddress: ").append(toIndentedString(webAddress)).append("\n");
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    principalBusinessAddress").append(toIndentedString(principalBusinessAddress)).append("\n");
-        sb.append("    bankAggregatorDataReference: ").append(toIndentedString(bankAggregatorDataReference)).append("\n");
-        sb.append("    storeDetails: ").append(toIndentedString(storeDetails)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountHolderDetails {\n" +
+                "    address: " + toIndentedString(address) + "\n" +
+                "    bankAccountDetails: " + toIndentedString(bankAccountDetails) + "\n" +
+                "    businessDetails: " + toIndentedString(businessDetails) + "\n" +
+                "    email: " + toIndentedString(email) + "\n" +
+                "    fullPhoneNumber: " + toIndentedString(fullPhoneNumber) + "\n" +
+                "    individualDetails: " + toIndentedString(individualDetails) + "\n" +
+                "    merchantCategoryCode: " + toIndentedString(merchantCategoryCode) + "\n" +
+                "    metadata: " + toIndentedString(metadata) + "\n" +
+                "    payoutMethods: " + toIndentedString(payoutMethods) + "\n" +
+                "    webAddress: " + toIndentedString(webAddress) + "\n" +
+                "    phoneNumber: " + toIndentedString(phoneNumber) + "\n" +
+                "    principalBusinessAddress" + toIndentedString(principalBusinessAddress) + "\n" +
+                "    bankAggregatorDataReference: " + toIndentedString(bankAggregatorDataReference) + "\n" +
+                "    storeDetails: " + toIndentedString(storeDetails) + "\n" +
+                "}";
+        return sb;
     }
 
 }

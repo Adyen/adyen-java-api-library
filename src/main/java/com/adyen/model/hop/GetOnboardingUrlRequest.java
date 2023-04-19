@@ -21,9 +21,9 @@
 
 package com.adyen.model.hop;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * GetOnboardingUrlRequest
@@ -203,18 +203,17 @@ public class GetOnboardingUrlRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class GetOnboardingUrlRequest {\n");
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    editMode: ").append(toIndentedString(editMode)).append("\n");
-        sb.append("    platformName: ").append(toIndentedString(platformName)).append("\n");
-        sb.append("    returnUrl: ").append(toIndentedString(returnUrl)).append("\n");
-        sb.append("    shopperLocale: ").append(toIndentedString(shopperLocale)).append("\n");
-        sb.append("    showPages: ").append(toIndentedString(showPages)).append("\n");
-        sb.append("    collectInformation: ").append(toIndentedString(collectInformation)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class GetOnboardingUrlRequest {\n" +
+                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
+                "    editMode: " + toIndentedString(editMode) + "\n" +
+                "    platformName: " + toIndentedString(platformName) + "\n" +
+                "    returnUrl: " + toIndentedString(returnUrl) + "\n" +
+                "    shopperLocale: " + toIndentedString(shopperLocale) + "\n" +
+                "    showPages: " + toIndentedString(showPages) + "\n" +
+                "    collectInformation: " + toIndentedString(collectInformation) + "\n" +
+                "}";
+        return sb;
     }
 
     /**

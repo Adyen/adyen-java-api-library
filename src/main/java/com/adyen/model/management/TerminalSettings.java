@@ -12,55 +12,25 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.CardholderReceipt;
-import com.adyen.model.management.Connectivity;
-import com.adyen.model.management.Gratuity;
-import com.adyen.model.management.Hardware;
-import com.adyen.model.management.Nexo;
-import com.adyen.model.management.OfflineProcessing;
-import com.adyen.model.management.Opi;
-import com.adyen.model.management.Passcodes;
-import com.adyen.model.management.PayAtTable;
-import com.adyen.model.management.Payment;
-import com.adyen.model.management.ReceiptOptions;
-import com.adyen.model.management.ReceiptPrinting;
-import com.adyen.model.management.Signature;
-import com.adyen.model.management.Standalone;
-import com.adyen.model.management.Surcharge;
-import com.adyen.model.management.Timeouts;
-import com.adyen.model.management.WifiProfiles;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * TerminalSettings
@@ -556,27 +526,26 @@ public class TerminalSettings {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TerminalSettings {\n");
-    sb.append("    cardholderReceipt: ").append(toIndentedString(cardholderReceipt)).append("\n");
-    sb.append("    connectivity: ").append(toIndentedString(connectivity)).append("\n");
-    sb.append("    gratuities: ").append(toIndentedString(gratuities)).append("\n");
-    sb.append("    hardware: ").append(toIndentedString(hardware)).append("\n");
-    sb.append("    nexo: ").append(toIndentedString(nexo)).append("\n");
-    sb.append("    offlineProcessing: ").append(toIndentedString(offlineProcessing)).append("\n");
-    sb.append("    opi: ").append(toIndentedString(opi)).append("\n");
-    sb.append("    passcodes: ").append(toIndentedString(passcodes)).append("\n");
-    sb.append("    payAtTable: ").append(toIndentedString(payAtTable)).append("\n");
-    sb.append("    payment: ").append(toIndentedString(payment)).append("\n");
-    sb.append("    receiptOptions: ").append(toIndentedString(receiptOptions)).append("\n");
-    sb.append("    receiptPrinting: ").append(toIndentedString(receiptPrinting)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
-    sb.append("    standalone: ").append(toIndentedString(standalone)).append("\n");
-    sb.append("    surcharge: ").append(toIndentedString(surcharge)).append("\n");
-    sb.append("    timeouts: ").append(toIndentedString(timeouts)).append("\n");
-    sb.append("    wifiProfiles: ").append(toIndentedString(wifiProfiles)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class TerminalSettings {\n" +
+            "    cardholderReceipt: " + toIndentedString(cardholderReceipt) + "\n" +
+            "    connectivity: " + toIndentedString(connectivity) + "\n" +
+            "    gratuities: " + toIndentedString(gratuities) + "\n" +
+            "    hardware: " + toIndentedString(hardware) + "\n" +
+            "    nexo: " + toIndentedString(nexo) + "\n" +
+            "    offlineProcessing: " + toIndentedString(offlineProcessing) + "\n" +
+            "    opi: " + toIndentedString(opi) + "\n" +
+            "    passcodes: " + toIndentedString(passcodes) + "\n" +
+            "    payAtTable: " + toIndentedString(payAtTable) + "\n" +
+            "    payment: " + toIndentedString(payment) + "\n" +
+            "    receiptOptions: " + toIndentedString(receiptOptions) + "\n" +
+            "    receiptPrinting: " + toIndentedString(receiptPrinting) + "\n" +
+            "    signature: " + toIndentedString(signature) + "\n" +
+            "    standalone: " + toIndentedString(standalone) + "\n" +
+            "    surcharge: " + toIndentedString(surcharge) + "\n" +
+            "    timeouts: " + toIndentedString(timeouts) + "\n" +
+            "    wifiProfiles: " + toIndentedString(wifiProfiles) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -630,7 +599,7 @@ public class TerminalSettings {
         if (TerminalSettings.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TerminalSettings is not found in the empty JSON string", TerminalSettings.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TerminalSettings is not found in the empty JSON string", TerminalSettings.openapiRequiredFields));
         }
       }
 
@@ -638,7 +607,7 @@ public class TerminalSettings {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!TerminalSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminalSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminalSettings` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `cardholderReceipt`
@@ -659,7 +628,7 @@ public class TerminalSettings {
         // validate the optional field `gratuities` (array)
         for (int i = 0; i < jsonArraygratuities.size(); i++) {
           Gratuity.validateJsonObject(jsonArraygratuities.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field `hardware`
       if (jsonObj.getAsJsonObject("hardware") != null) {

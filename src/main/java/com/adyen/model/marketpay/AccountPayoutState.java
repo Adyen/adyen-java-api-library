@@ -25,7 +25,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -184,17 +183,16 @@ public class AccountPayoutState {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountPayoutState {\n");
 
-        sb.append("    allowPayout: ").append(toIndentedString(allowPayout)).append("\n");
-        sb.append("    disableReason: ").append(toIndentedString(disableReason)).append("\n");
-        sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-        sb.append("    notAllowedReason: ").append(toIndentedString(notAllowedReason)).append("\n");
-        sb.append("    payoutLimit: ").append(toIndentedString(payoutLimit)).append("\n");
-        sb.append("    tierNumber: ").append(toIndentedString(tierNumber)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountPayoutState {\n" +
+                "    allowPayout: " + toIndentedString(allowPayout) + "\n" +
+                "    disableReason: " + toIndentedString(disableReason) + "\n" +
+                "    disabled: " + toIndentedString(disabled) + "\n" +
+                "    notAllowedReason: " + toIndentedString(notAllowedReason) + "\n" +
+                "    payoutLimit: " + toIndentedString(payoutLimit) + "\n" +
+                "    tierNumber: " + toIndentedString(tierNumber) + "\n" +
+                "}";
+        return sb;
     }
 
 }

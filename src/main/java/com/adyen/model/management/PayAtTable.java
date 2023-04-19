@@ -12,36 +12,23 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * PayAtTable
@@ -57,7 +44,7 @@ public class PayAtTable {
     
     MKE("MKE");
 
-    private String value;
+    private final String value;
 
     AuthenticationMethodEnum(String value) {
       this.value = value;
@@ -171,12 +158,11 @@ public class PayAtTable {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PayAtTable {\n");
-    sb.append("    authenticationMethod: ").append(toIndentedString(authenticationMethod)).append("\n");
-    sb.append("    enablePayAtTable: ").append(toIndentedString(enablePayAtTable)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class PayAtTable {\n" +
+            "    authenticationMethod: " + toIndentedString(authenticationMethod) + "\n" +
+            "    enablePayAtTable: " + toIndentedString(enablePayAtTable) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -215,7 +201,7 @@ public class PayAtTable {
         if (PayAtTable.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PayAtTable is not found in the empty JSON string", PayAtTable.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PayAtTable is not found in the empty JSON string", PayAtTable.openapiRequiredFields));
         }
       }
 
@@ -223,7 +209,7 @@ public class PayAtTable {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PayAtTable.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PayAtTable` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PayAtTable` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // ensure the field authenticationMethod can be parsed to an enum value

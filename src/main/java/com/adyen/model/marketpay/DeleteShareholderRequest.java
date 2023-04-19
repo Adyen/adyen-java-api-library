@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -101,13 +100,12 @@ public class DeleteShareholderRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteShareholderRequest {\n");
 
-        sb.append("    accountHolderCode: ").append(toIndentedString(accountHolderCode)).append("\n");
-        sb.append("    shareholderCodes: ").append(toIndentedString(shareholderCodes)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class DeleteShareholderRequest {\n" +
+                "    accountHolderCode: " + toIndentedString(accountHolderCode) + "\n" +
+                "    shareholderCodes: " + toIndentedString(shareholderCodes) + "\n" +
+                "}";
+        return sb;
     }
 
 

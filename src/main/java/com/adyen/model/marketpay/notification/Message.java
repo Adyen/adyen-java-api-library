@@ -94,12 +94,11 @@ public class Message {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Message {\n");
 
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    text: ").append(toIndentedString(text)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class Message {\n" +
+                "    code: " + toIndentedString(code) + "\n" +
+                "    text: " + toIndentedString(text) + "\n" +
+                "}";
+        return sb;
     }
 }

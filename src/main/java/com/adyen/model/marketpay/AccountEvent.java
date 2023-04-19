@@ -25,7 +25,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -163,15 +162,14 @@ public class AccountEvent {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountEvent {\n");
 
-        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-        sb.append("    resolvedByStateType: ").append(toIndentedString(resolvedByStateType)).append("\n");
-        sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
-        sb.append("    event: ").append(toIndentedString(event)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class AccountEvent {\n" +
+                "    reason: " + toIndentedString(reason) + "\n" +
+                "    resolvedByStateType: " + toIndentedString(resolvedByStateType) + "\n" +
+                "    executionDate: " + toIndentedString(executionDate) + "\n" +
+                "    event: " + toIndentedString(event) + "\n" +
+                "}";
+        return sb;
     }
 
 

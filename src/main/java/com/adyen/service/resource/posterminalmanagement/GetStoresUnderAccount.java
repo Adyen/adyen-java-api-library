@@ -25,11 +25,11 @@ import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.service.resource.Resource;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 public class GetStoresUnderAccount extends Resource {
 
     public GetStoresUnderAccount(Service service) {
-        super(service, service.getClient().getConfig().getPosTerminalManagementApiEndpoint() + "/" + Client.POS_TERMINAL_MANAGEMENT_VERSION + "/getStoresUnderAccount", Arrays.asList("companyAccount"));
+        super(service, service.getClient().getConfig().getPosTerminalManagementApiEndpoint() + "/" + Client.POS_TERMINAL_MANAGEMENT_VERSION + "/getStoresUnderAccount", Collections.singletonList("companyAccount"));
     }
 }

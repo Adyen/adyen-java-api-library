@@ -20,9 +20,9 @@
  */
 package com.adyen.model.storedvalue;
 
-import java.util.Objects;
-
 import com.google.gson.annotations.SerializedName;
+
+import java.util.Objects;
 
 /**
  * StoredValueVoidRequest
@@ -181,17 +181,16 @@ public class StoredValueVoidRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class StoredValueVoidRequest {\n");
 
-        sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    store: ").append(toIndentedString(store)).append("\n");
-        sb.append("    tenderReference: ").append(toIndentedString(tenderReference)).append("\n");
-        sb.append("    uniqueTerminalId: ").append(toIndentedString(uniqueTerminalId)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class StoredValueVoidRequest {\n" +
+                "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+                "    originalReference: " + toIndentedString(originalReference) + "\n" +
+                "    reference: " + toIndentedString(reference) + "\n" +
+                "    store: " + toIndentedString(store) + "\n" +
+                "    tenderReference: " + toIndentedString(tenderReference) + "\n" +
+                "    uniqueTerminalId: " + toIndentedString(uniqueTerminalId) + "\n" +
+                "}";
+        return sb;
     }
 
     /**

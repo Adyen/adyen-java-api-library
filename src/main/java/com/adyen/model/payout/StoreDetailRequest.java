@@ -12,45 +12,26 @@
 
 package com.adyen.model.payout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.payout.Address;
-import com.adyen.model.payout.BankAccount;
-import com.adyen.model.payout.Card;
-import com.adyen.model.payout.Name;
-import com.adyen.model.payout.Recurring;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payout.JSON;
 
 /**
  * StoreDetailRequest
@@ -86,7 +67,7 @@ public class StoreDetailRequest {
     
     COMPANY("Company");
 
-    private String value;
+    private final String value;
 
     EntityTypeEnum(String value) {
       this.value = value;
@@ -566,26 +547,25 @@ public class StoreDetailRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class StoreDetailRequest {\n");
-    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-    sb.append("    bank: ").append(toIndentedString(bank)).append("\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    card: ").append(toIndentedString(card)).append("\n");
-    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-    sb.append("    entityType: ").append(toIndentedString(entityType)).append("\n");
-    sb.append("    fraudOffset: ").append(toIndentedString(fraudOffset)).append("\n");
-    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    nationality: ").append(toIndentedString(nationality)).append("\n");
-    sb.append("    recurring: ").append(toIndentedString(recurring)).append("\n");
-    sb.append("    selectedBrand: ").append(toIndentedString(selectedBrand)).append("\n");
-    sb.append("    shopperEmail: ").append(toIndentedString(shopperEmail)).append("\n");
-    sb.append("    shopperName: ").append(toIndentedString(shopperName)).append("\n");
-    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-    sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
-    sb.append("    telephoneNumber: ").append(toIndentedString(telephoneNumber)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class StoreDetailRequest {\n" +
+            "    additionalData: " + toIndentedString(additionalData) + "\n" +
+            "    bank: " + toIndentedString(bank) + "\n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+            "    card: " + toIndentedString(card) + "\n" +
+            "    dateOfBirth: " + toIndentedString(dateOfBirth) + "\n" +
+            "    entityType: " + toIndentedString(entityType) + "\n" +
+            "    fraudOffset: " + toIndentedString(fraudOffset) + "\n" +
+            "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+            "    nationality: " + toIndentedString(nationality) + "\n" +
+            "    recurring: " + toIndentedString(recurring) + "\n" +
+            "    selectedBrand: " + toIndentedString(selectedBrand) + "\n" +
+            "    shopperEmail: " + toIndentedString(shopperEmail) + "\n" +
+            "    shopperName: " + toIndentedString(shopperName) + "\n" +
+            "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
+            "    socialSecurityNumber: " + toIndentedString(socialSecurityNumber) + "\n" +
+            "    telephoneNumber: " + toIndentedString(telephoneNumber) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -645,7 +625,7 @@ public class StoreDetailRequest {
         if (StoreDetailRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StoreDetailRequest is not found in the empty JSON string", StoreDetailRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StoreDetailRequest is not found in the empty JSON string", StoreDetailRequest.openapiRequiredFields));
         }
       }
 
@@ -653,14 +633,14 @@ public class StoreDetailRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!StoreDetailRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoreDetailRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StoreDetailRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StoreDetailRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // validate the optional field `bank`

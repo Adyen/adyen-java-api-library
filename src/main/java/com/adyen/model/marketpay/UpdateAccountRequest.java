@@ -26,7 +26,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Map;
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -192,18 +191,17 @@ public class UpdateAccountRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateAccountRequest {\n");
 
-        sb.append("    accountCode: ").append(toIndentedString(accountCode)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    payoutSchedule: ").append(toIndentedString(payoutSchedule)).append("\n");
-        sb.append("    bankAccountUUID").append(toIndentedString(bankAccountUUID)).append("\n");
-        sb.append("    payoutMethodCode").append(toIndentedString(payoutMethodCode)).append("\n");
-        sb.append("    payoutSpeed").append(toIndentedString(payoutSpeed)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class UpdateAccountRequest {\n" +
+                "    accountCode: " + toIndentedString(accountCode) + "\n" +
+                "    description: " + toIndentedString(description) + "\n" +
+                "    metadata: " + toIndentedString(metadata) + "\n" +
+                "    payoutSchedule: " + toIndentedString(payoutSchedule) + "\n" +
+                "    bankAccountUUID" + toIndentedString(bankAccountUUID) + "\n" +
+                "    payoutMethodCode" + toIndentedString(payoutMethodCode) + "\n" +
+                "    payoutSpeed" + toIndentedString(payoutSpeed) + "\n" +
+                "}";
+        return sb;
     }
 
 }

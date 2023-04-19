@@ -21,7 +21,6 @@
 
 package com.adyen.model.marketpay.notification;
 
-;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -29,7 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-
 
 import static com.adyen.util.Util.toIndentedString;
 
@@ -350,23 +348,21 @@ public class NotificationConfigurationDetails {
     public String toString() {
         // Populate the eventConfigs list to provide back in the toString() method
         this.getEventConfigs();
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NotificationConfigurationDetails {\n");
 
-        sb.append("    active: ").append(toIndentedString(active)).append("\n");
-        sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    eventConfigs: ").append(toIndentedString(eventConfigs)).append("\n");
-        sb.append("    hmacSignatureKey: ").append(toIndentedString(hmacSignatureKey)).append("\n");
-        sb.append("    notificationId: ").append(toIndentedString(notificationId)).append("\n");
-        sb.append("    notifyPassword: ").append(toIndentedString(notifyPassword)).append("\n");
-        sb.append("    notifyURL: ").append(toIndentedString(notifyURL)).append("\n");
-        sb.append("    notifyUsername: ").append(toIndentedString(notifyUsername)).append("\n");
-        sb.append("    sslProtocol: ").append(toIndentedString(sslProtocol)).append("\n");
-
-        sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class NotificationConfigurationDetails {\n" +
+                "    active: " + toIndentedString(active) + "\n" +
+                "    apiVersion: " + toIndentedString(apiVersion) + "\n" +
+                "    description: " + toIndentedString(description) + "\n" +
+                "    eventConfigs: " + toIndentedString(eventConfigs) + "\n" +
+                "    hmacSignatureKey: " + toIndentedString(hmacSignatureKey) + "\n" +
+                "    notificationId: " + toIndentedString(notificationId) + "\n" +
+                "    notifyPassword: " + toIndentedString(notifyPassword) + "\n" +
+                "    notifyURL: " + toIndentedString(notifyURL) + "\n" +
+                "    notifyUsername: " + toIndentedString(notifyUsername) + "\n" +
+                "    sslProtocol: " + toIndentedString(sslProtocol) + "\n" +
+                "    settings: " + toIndentedString(settings) + "\n" +
+                "}";
+        return sb;
     }
 
 }

@@ -12,40 +12,26 @@
 
 package com.adyen.model.binlookup;
 
-import java.util.Objects;
-import java.util.Arrays;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.binlookup.JSON;
 
 /**
  * ThreeDSAvailabilityRequest
@@ -252,16 +238,15 @@ public class ThreeDSAvailabilityRequest {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ThreeDSAvailabilityRequest {\n");
-    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-    sb.append("    brands: ").append(toIndentedString(brands)).append("\n");
-    sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
-    sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
-    sb.append("    recurringDetailReference: ").append(toIndentedString(recurringDetailReference)).append("\n");
-    sb.append("    shopperReference: ").append(toIndentedString(shopperReference)).append("\n");
-    sb.append("}");
-    return sb.toString();
+      String sb = "class ThreeDSAvailabilityRequest {\n" +
+              "    additionalData: " + toIndentedString(additionalData) + "\n" +
+              "    brands: " + toIndentedString(brands) + "\n" +
+              "    cardNumber: " + toIndentedString(cardNumber) + "\n" +
+              "    merchantAccount: " + toIndentedString(merchantAccount) + "\n" +
+              "    recurringDetailReference: " + toIndentedString(recurringDetailReference) + "\n" +
+              "    shopperReference: " + toIndentedString(shopperReference) + "\n" +
+              "}";
+    return sb;
   }
 
   /**
@@ -305,7 +290,7 @@ public class ThreeDSAvailabilityRequest {
         if (ThreeDSAvailabilityRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSAvailabilityRequest is not found in the empty JSON string", ThreeDSAvailabilityRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSAvailabilityRequest is not found in the empty JSON string", ThreeDSAvailabilityRequest.openapiRequiredFields));
         }
       }
 
@@ -313,14 +298,14 @@ public class ThreeDSAvailabilityRequest {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ThreeDSAvailabilityRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSAvailabilityRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ThreeDSAvailabilityRequest` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ThreeDSAvailabilityRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       // ensure the json data is an array

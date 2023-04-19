@@ -12,48 +12,27 @@
 
 package com.adyen.model.legalentitymanagement;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.legalentitymanagement.DocumentReference;
-import com.adyen.model.legalentitymanagement.EntityReference;
-import com.adyen.model.legalentitymanagement.Individual;
-import com.adyen.model.legalentitymanagement.LegalEntityAssociation;
-import com.adyen.model.legalentitymanagement.LegalEntityCapability;
-import com.adyen.model.legalentitymanagement.Organization;
-import com.adyen.model.legalentitymanagement.SoleProprietorship;
-import com.adyen.model.legalentitymanagement.TransferInstrumentReference;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.legalentitymanagement.JSON;
 
 /**
  * LegalEntity
@@ -115,7 +94,7 @@ public class LegalEntity {
     
     UNINCORPORATEDPARTNERSHIP("unincorporatedPartnership");
 
-    private String value;
+    private final String value;
 
     TypeEnum(String value) {
       this.value = value;
@@ -443,21 +422,20 @@ public class LegalEntity {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LegalEntity {\n");
-    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
-    sb.append("    documentDetails: ").append(toIndentedString(documentDetails)).append("\n");
-    sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
-    sb.append("    entityAssociations: ").append(toIndentedString(entityAssociations)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    individual: ").append(toIndentedString(individual)).append("\n");
-    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    soleProprietorship: ").append(toIndentedString(soleProprietorship)).append("\n");
-    sb.append("    transferInstruments: ").append(toIndentedString(transferInstruments)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class LegalEntity {\n" +
+            "    capabilities: " + toIndentedString(capabilities) + "\n" +
+            "    documentDetails: " + toIndentedString(documentDetails) + "\n" +
+            "    documents: " + toIndentedString(documents) + "\n" +
+            "    entityAssociations: " + toIndentedString(entityAssociations) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    individual: " + toIndentedString(individual) + "\n" +
+            "    organization: " + toIndentedString(organization) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    soleProprietorship: " + toIndentedString(soleProprietorship) + "\n" +
+            "    transferInstruments: " + toIndentedString(transferInstruments) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -506,7 +484,7 @@ public class LegalEntity {
         if (LegalEntity.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LegalEntity is not found in the empty JSON string", LegalEntity.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in LegalEntity is not found in the empty JSON string", LegalEntity.openapiRequiredFields));
         }
       }
 
@@ -514,14 +492,14 @@ public class LegalEntity {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!LegalEntity.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LegalEntity` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LegalEntity` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LegalEntity.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj));
         }
       }
       JsonArray jsonArraydocumentDetails = jsonObj.getAsJsonArray("documentDetails");
@@ -534,7 +512,7 @@ public class LegalEntity {
         // validate the optional field `documentDetails` (array)
         for (int i = 0; i < jsonArraydocumentDetails.size(); i++) {
           DocumentReference.validateJsonObject(jsonArraydocumentDetails.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArraydocuments = jsonObj.getAsJsonArray("documents");
       if (jsonArraydocuments != null) {
@@ -546,7 +524,7 @@ public class LegalEntity {
         // validate the optional field `documents` (array)
         for (int i = 0; i < jsonArraydocuments.size(); i++) {
           EntityReference.validateJsonObject(jsonArraydocuments.get(i).getAsJsonObject());
-        };
+        }
       }
       JsonArray jsonArrayentityAssociations = jsonObj.getAsJsonArray("entityAssociations");
       if (jsonArrayentityAssociations != null) {
@@ -558,7 +536,7 @@ public class LegalEntity {
         // validate the optional field `entityAssociations` (array)
         for (int i = 0; i < jsonArrayentityAssociations.size(); i++) {
           LegalEntityAssociation.validateJsonObject(jsonArrayentityAssociations.get(i).getAsJsonObject());
-        };
+        }
       }
       // validate the optional field id
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
@@ -590,7 +568,7 @@ public class LegalEntity {
         // validate the optional field `transferInstruments` (array)
         for (int i = 0; i < jsonArraytransferInstruments.size(); i++) {
           TransferInstrumentReference.validateJsonObject(jsonArraytransferInstruments.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the field type can be parsed to an enum value
       if (jsonObj.get("type") != null) {

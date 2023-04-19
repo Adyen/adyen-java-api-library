@@ -12,41 +12,25 @@
 
 package com.adyen.model.management;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.management.Links;
-import com.adyen.model.management.StoreLocation;
-import com.adyen.model.management.StoreSplitConfiguration;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.management.JSON;
 
 /**
  * Store
@@ -108,7 +92,7 @@ public class Store {
     
     INACTIVE("inactive");
 
-    private String value;
+    private final String value;
 
     StatusEnum(String value) {
       this.value = value;
@@ -456,22 +440,21 @@ public class Store {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Store {\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    businessLineIds: ").append(toIndentedString(businessLineIds)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    externalReferenceId: ").append(toIndentedString(externalReferenceId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
-    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    shopperStatement: ").append(toIndentedString(shopperStatement)).append("\n");
-    sb.append("    splitConfiguration: ").append(toIndentedString(splitConfiguration)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class Store {\n" +
+            "    links: " + toIndentedString(links) + "\n" +
+            "    address: " + toIndentedString(address) + "\n" +
+            "    businessLineIds: " + toIndentedString(businessLineIds) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    externalReferenceId: " + toIndentedString(externalReferenceId) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    merchantId: " + toIndentedString(merchantId) + "\n" +
+            "    phoneNumber: " + toIndentedString(phoneNumber) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    shopperStatement: " + toIndentedString(shopperStatement) + "\n" +
+            "    splitConfiguration: " + toIndentedString(splitConfiguration) + "\n" +
+            "    status: " + toIndentedString(status) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -520,7 +503,7 @@ public class Store {
         if (Store.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Store is not found in the empty JSON string", Store.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Store is not found in the empty JSON string", Store.openapiRequiredFields));
         }
       }
 
@@ -528,7 +511,7 @@ public class Store {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!Store.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Store` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Store` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `_links`

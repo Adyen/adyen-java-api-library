@@ -12,39 +12,23 @@
 
 package com.adyen.model.checkout;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.checkout.Avs;
-import com.adyen.model.checkout.InstallmentsNumber;
-import com.adyen.model.checkout.ShopperInput;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.checkout.JSON;
 
 /**
  * ModelConfiguration
@@ -66,7 +50,7 @@ public class ModelConfiguration {
     
     REQUIRED("REQUIRED");
 
-    private String value;
+    private final String value;
 
     CardHolderNameEnum(String value) {
       this.value = value;
@@ -230,14 +214,13 @@ public class ModelConfiguration {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ModelConfiguration {\n");
-    sb.append("    avs: ").append(toIndentedString(avs)).append("\n");
-    sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append("\n");
-    sb.append("    installments: ").append(toIndentedString(installments)).append("\n");
-    sb.append("    shopperInput: ").append(toIndentedString(shopperInput)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class ModelConfiguration {\n" +
+            "    avs: " + toIndentedString(avs) + "\n" +
+            "    cardHolderName: " + toIndentedString(cardHolderName) + "\n" +
+            "    installments: " + toIndentedString(installments) + "\n" +
+            "    shopperInput: " + toIndentedString(shopperInput) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -278,7 +261,7 @@ public class ModelConfiguration {
         if (ModelConfiguration.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ModelConfiguration is not found in the empty JSON string", ModelConfiguration.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ModelConfiguration is not found in the empty JSON string", ModelConfiguration.openapiRequiredFields));
         }
       }
 
@@ -286,7 +269,7 @@ public class ModelConfiguration {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!ModelConfiguration.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ModelConfiguration` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ModelConfiguration` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field `avs`

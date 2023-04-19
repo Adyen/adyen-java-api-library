@@ -25,7 +25,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -119,14 +118,13 @@ public class RefundFundsTransferRequest {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RefundFundsTransferRequest {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class RefundFundsTransferRequest {\n" +
+                "    amount: " + toIndentedString(amount) + "\n" +
+                "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
+                "    originalReference: " + toIndentedString(originalReference) + "\n" +
+                "}";
+        return sb;
     }
 
 }

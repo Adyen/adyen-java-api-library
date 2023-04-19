@@ -171,15 +171,14 @@ public class RefundFundsTransferNotificationContent {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RefundFundsTransferNotificationContent {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    invalidFields: ").append(toIndentedString(invalidFields)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    originalReference: ").append(toIndentedString(originalReference)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class RefundFundsTransferNotificationContent {\n" +
+                "    amount: " + toIndentedString(amount) + "\n" +
+                "    invalidFields: " + toIndentedString(invalidFields) + "\n" +
+                "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
+                "    originalReference: " + toIndentedString(originalReference) + "\n" +
+                "    status: " + toIndentedString(status) + "\n" +
+                "}";
+        return sb;
     }
 }

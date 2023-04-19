@@ -12,40 +12,26 @@
 
 package com.adyen.model.balanceplatform;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.balanceplatform.AccountSupportingEntityCapability;
-import com.adyen.model.balanceplatform.JSONObject;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.balanceplatform.JSON;
 
 /**
  * AccountHolderCapability
@@ -69,7 +55,7 @@ public class AccountHolderCapability {
     
     NOTAPPLICABLE("notApplicable");
 
-    private String value;
+    private final String value;
 
     AllowedLevelEnum(String value) {
       this.value = value;
@@ -140,7 +126,7 @@ public class AccountHolderCapability {
     
     NOTAPPLICABLE("notApplicable");
 
-    private String value;
+    private final String value;
 
     RequestedLevelEnum(String value) {
       this.value = value;
@@ -203,7 +189,7 @@ public class AccountHolderCapability {
     
     VALID("valid");
 
-    private String value;
+    private final String value;
 
     VerificationStatusEnum(String value) {
       this.value = value;
@@ -483,20 +469,19 @@ public class AccountHolderCapability {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AccountHolderCapability {\n");
-    sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
-    sb.append("    allowedLevel: ").append(toIndentedString(allowedLevel)).append("\n");
-    sb.append("    allowedSettings: ").append(toIndentedString(allowedSettings)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    problems: ").append(toIndentedString(problems)).append("\n");
-    sb.append("    requested: ").append(toIndentedString(requested)).append("\n");
-    sb.append("    requestedLevel: ").append(toIndentedString(requestedLevel)).append("\n");
-    sb.append("    requestedSettings: ").append(toIndentedString(requestedSettings)).append("\n");
-    sb.append("    transferInstruments: ").append(toIndentedString(transferInstruments)).append("\n");
-    sb.append("    verificationStatus: ").append(toIndentedString(verificationStatus)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class AccountHolderCapability {\n" +
+            "    allowed: " + toIndentedString(allowed) + "\n" +
+            "    allowedLevel: " + toIndentedString(allowedLevel) + "\n" +
+            "    allowedSettings: " + toIndentedString(allowedSettings) + "\n" +
+            "    enabled: " + toIndentedString(enabled) + "\n" +
+            "    problems: " + toIndentedString(problems) + "\n" +
+            "    requested: " + toIndentedString(requested) + "\n" +
+            "    requestedLevel: " + toIndentedString(requestedLevel) + "\n" +
+            "    requestedSettings: " + toIndentedString(requestedSettings) + "\n" +
+            "    transferInstruments: " + toIndentedString(transferInstruments) + "\n" +
+            "    verificationStatus: " + toIndentedString(verificationStatus) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -543,7 +528,7 @@ public class AccountHolderCapability {
         if (AccountHolderCapability.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountHolderCapability is not found in the empty JSON string", AccountHolderCapability.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountHolderCapability is not found in the empty JSON string", AccountHolderCapability.openapiRequiredFields));
         }
       }
 
@@ -551,7 +536,7 @@ public class AccountHolderCapability {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!AccountHolderCapability.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountHolderCapability` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountHolderCapability` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // ensure the field allowedLevel can be parsed to an enum value
@@ -590,7 +575,7 @@ public class AccountHolderCapability {
         // validate the optional field `transferInstruments` (array)
         for (int i = 0; i < jsonArraytransferInstruments.size(); i++) {
           AccountSupportingEntityCapability.validateJsonObject(jsonArraytransferInstruments.get(i).getAsJsonObject());
-        };
+        }
       }
       // ensure the field verificationStatus can be parsed to an enum value
       if (jsonObj.get("verificationStatus") != null) {

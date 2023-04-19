@@ -11,10 +11,10 @@
 
 package com.adyen.service.checkout;
 
-import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
 import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
+import com.adyen.model.RequestOptions;
 import com.adyen.model.checkout.CardDetailsRequest;
 import com.adyen.model.checkout.CardDetailsResponse;
 import com.adyen.model.checkout.CreateCheckoutSessionRequest;
@@ -27,14 +27,10 @@ import com.adyen.model.checkout.PaymentMethodsRequest;
 import com.adyen.model.checkout.PaymentMethodsResponse;
 import com.adyen.model.checkout.PaymentRequest;
 import com.adyen.model.checkout.PaymentResponse;
-import com.adyen.model.checkout.ServiceError;
-import com.adyen.model.RequestOptions;
 import com.adyen.service.exception.ApiException;
 import com.adyen.service.resource.Resource;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PaymentsService extends Service {
     private final String baseURL;

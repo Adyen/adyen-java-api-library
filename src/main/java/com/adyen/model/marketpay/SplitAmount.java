@@ -24,7 +24,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 import static com.adyen.util.Util.toIndentedString;
 
 /**
@@ -83,13 +82,12 @@ public class SplitAmount {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SplitAmount {\n");
 
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class SplitAmount {\n" +
+                "    currency: " + toIndentedString(currency) + "\n" +
+                "    value: " + toIndentedString(value) + "\n" +
+                "}";
+        return sb;
     }
 
 

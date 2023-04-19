@@ -335,14 +335,13 @@ public class FieldType {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class FieldType {\n");
 
-        sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
-        sb.append("    field: ").append(toIndentedString(field)).append("\n");
-        sb.append("    shareholderCode: ").append(toIndentedString(shareholderCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        String sb = "class FieldType {\n" +
+                "    fieldName: " + toIndentedString(fieldName) + "\n" +
+                "    field: " + toIndentedString(field) + "\n" +
+                "    shareholderCode: " + toIndentedString(shareholderCode) + "\n" +
+                "}";
+        return sb;
     }
 
 }

@@ -12,41 +12,25 @@
 
 package com.adyen.model.payments;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.adyen.model.payments.Amount;
-import com.adyen.model.payments.FraudResult;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.lang.reflect.Type;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-
-import com.adyen.model.payments.JSON;
 
 /**
  * PaymentResult
@@ -124,7 +108,7 @@ public class PaymentResult {
     
     SUCCESS("Success");
 
-    private String value;
+    private final String value;
 
     ResultCodeEnum(String value) {
       this.value = value;
@@ -449,21 +433,20 @@ public class PaymentResult {
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentResult {\n");
-    sb.append("    additionalData: ").append(toIndentedString(additionalData)).append("\n");
-    sb.append("    authCode: ").append(toIndentedString(authCode)).append("\n");
-    sb.append("    dccAmount: ").append(toIndentedString(dccAmount)).append("\n");
-    sb.append("    dccSignature: ").append(toIndentedString(dccSignature)).append("\n");
-    sb.append("    fraudResult: ").append(toIndentedString(fraudResult)).append("\n");
-    sb.append("    issuerUrl: ").append(toIndentedString(issuerUrl)).append("\n");
-    sb.append("    md: ").append(toIndentedString(md)).append("\n");
-    sb.append("    paRequest: ").append(toIndentedString(paRequest)).append("\n");
-    sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
-    sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
-    sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    String sb = "class PaymentResult {\n" +
+            "    additionalData: " + toIndentedString(additionalData) + "\n" +
+            "    authCode: " + toIndentedString(authCode) + "\n" +
+            "    dccAmount: " + toIndentedString(dccAmount) + "\n" +
+            "    dccSignature: " + toIndentedString(dccSignature) + "\n" +
+            "    fraudResult: " + toIndentedString(fraudResult) + "\n" +
+            "    issuerUrl: " + toIndentedString(issuerUrl) + "\n" +
+            "    md: " + toIndentedString(md) + "\n" +
+            "    paRequest: " + toIndentedString(paRequest) + "\n" +
+            "    pspReference: " + toIndentedString(pspReference) + "\n" +
+            "    refusalReason: " + toIndentedString(refusalReason) + "\n" +
+            "    resultCode: " + toIndentedString(resultCode) + "\n" +
+            "}";
+    return sb;
   }
 
   /**
@@ -511,7 +494,7 @@ public class PaymentResult {
         if (PaymentResult.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentResult is not found in the empty JSON string", PaymentResult.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PaymentResult is not found in the empty JSON string", PaymentResult.openapiRequiredFields));
         }
       }
 
@@ -519,7 +502,7 @@ public class PaymentResult {
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
         if (!PaymentResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentResult` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PaymentResult` properties. JSON: %s", entry.getKey(), jsonObj));
         }
       }
       // validate the optional field authCode
