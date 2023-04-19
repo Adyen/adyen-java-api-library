@@ -3,6 +3,7 @@ package {{package}};
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 {{#imports}}import {{import}};
 {{/imports}}
@@ -15,12 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 {{#operations}}
-public class {{classname}} extends ApiKeyAuthenticatedService {
+public class {{classname}} extends Service {
     private final String baseURL;
 
     public {{classname}}(Client client) {
         super(client);
-        this.baseURL = "{{{basePath}}}";
+        this.baseURL = createBaseURL("{{{basePath}}}");
     }
 {{#operation}}
 

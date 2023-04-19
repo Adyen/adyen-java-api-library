@@ -13,6 +13,7 @@ package com.adyen.service.checkout;
 
 import com.adyen.ApiKeyAuthenticatedService;
 import com.adyen.Client;
+import com.adyen.Service;
 import com.adyen.constants.ApiConstants;
 import com.adyen.model.checkout.PaymentSetupRequest;
 import com.adyen.model.checkout.PaymentSetupResponse;
@@ -27,12 +28,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClassicCheckoutSdkService extends ApiKeyAuthenticatedService {
+public class ClassicCheckoutSdkService extends Service {
     private final String baseURL;
 
     public ClassicCheckoutSdkService(Client client) {
         super(client);
-        this.baseURL = "https://checkout-test.adyen.com/v70";
+        this.baseURL = createBaseURL("https://checkout-test.adyen.com/v70");
     }
 
     /**

@@ -27,6 +27,7 @@ import com.adyen.httpclient.HTTPClientException;
 import com.adyen.model.checkout.*;
 import com.adyen.service.Checkout;
 
+import com.adyen.service.checkout.PaymentsService;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -409,5 +410,15 @@ public class CheckoutTest extends BaseTest {
         map.put("merchantAccount", "TestMerchantAccount");
         map.put("shopperReference", "test-1234");
         checkout.deleteStoredPaymentDetails("recurringId", map);
+    }
+
+    /**
+     * Should delete StoredPaymentMethods
+     */
+    @Test
+    public void Test3207510345() throws Exception {
+        Client client = new Client("apikey", Environment.LIVE, "prefix");
+        PaymentsService service = new PaymentsService(client);
+        service.donations(new PaymentDonationRequest());
     }
 }
