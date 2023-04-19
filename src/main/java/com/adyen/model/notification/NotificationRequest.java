@@ -35,6 +35,7 @@ public class NotificationRequest {
     private String live = null;
 
     @SerializedName("notificationItems")
+    @JsonProperty("notificationItems")
     private List<NotificationRequestItemContainer> notificationItemContainers = null;
 
     public String getLive() {
